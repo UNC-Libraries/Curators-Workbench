@@ -1,0 +1,58 @@
+Persistence in Workspace/Staging Area:
+
+project_name.producer_mets.xml
+ - file section for each data set with identifier
+  - relative paths..
+  - access configuration somewhere outside METS
+ - original structMap for each data set
+  - selection (yes/no)
+  - status (unstaged/staged/original missing)
+ - digProvMDSec for each div that is altered by curator
+  - record processing events as they happen to each div
+
+project_name.submission_mets.xml
+ - final form METS goes here
+
+Workbench
+ * commands:
+     * Open Project, Save Project, Close Project, Exit
+ * views:
+     * navigator
+     * file summary, file preview
+
+Navigator Resources:
+
+File Sets
+ * maps to a single fileSec in a working METS file
+ * has associated structMap for original structure
+ * fileSec contains a fileGrp with USE of SOURCE_PATHS
+  * contains relative path for each file in source
+ * fileSec contains a fileGrp with USE of STAGED_PATHS
+  * as files are staged file elements are added
+  * checksums are filled in
+  * source and staged file share a GROUPID
+ * FileSet API:
+     * setLabel(String), getLabel()
+     * setSource(FileSource), getSource()
+     * TreeFileSource testRoot(), crawl()
+     * getSourceStructure()
+     * setStage(FileStage), getStage()
+     * FileStage openOutputStreamToStage(filepath), checksum(filepath), getURL(filepath), exists(filepath)
+ * commands:
+     * test connection, (re)crawl source
+     * (re)stage, unstage, pause (when staging), resume (when partially staged)
+ * views:
+     * properties and status
+     * file selection
+
+Extracted Metadata
+ * harvesters produce XML or tabular metadata on a per file basis (all rows mapped)
+ * may come bundled with preconfigured mappings to MODS, etc..
+ 
+Supplied Metadata
+ * map of row to div
+ * each metadata set is a source to be mapped to divs
+ 
+Submission Structure
+ * METS structMap tree w/annotations
+ * open editor view or use navigator?

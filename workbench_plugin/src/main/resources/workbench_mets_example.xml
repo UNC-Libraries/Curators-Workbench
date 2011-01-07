@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mets xmlns="http://www.loc.gov/METS/"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.loc.gov/METS/ file:/home/count0/workspace/cdr-mgmt-1.0/src/main/resources/schemas/mets.xsd">
+
+    <!-- gather this in wizard -->
+    <metsHdr 
+        CREATEDATE="2010-01-08T12:00:00-05:00"
+        LASTMODDATE="2010-04-15T12:00:00-05:00"
+        RECORDSTATUS="workbench">
+        <agent ROLE="CREATOR">
+            <name>Greg Jansen</name>
+            <note>Created with the CDR Producer Workbench v1.0-SNAPSHOT</note>
+        </agent>
+        <!-- altRecordID can be optional -->
+        <altRecordID TYPE=""></altRecordID>
+    </metsHdr>
+    
+    <amdSec ID="de39098-amd">
+        <digiprovMD ID="goaljkaf">
+            <mdWrap MDTYPE="PREMIS">
+                <xmlData>
+                    <par></par>
+                    <!-- PREMIS events go here, identifier not needed. -->
+                </xmlData>
+            </mdWrap>
+        </digiprovMD>
+    </amdSec>
+    
+    <fileSec ID="file.set.1">
+        <!-- each group corresponds to 1 source file -->
+        <fileGrp
+            ID="de39098-grp"
+            ADMID="asdf"
+            USE="WORKBENCH">
+            <file USE="SOURCE_DATA" ID="adfkjh" CREATED="2010-04-15T12:00:00-05:00" SEQ="1" SIZE="64" OWNERID="count0">
+                <FLocat LOCTYPE="URL" xmlns:ns2="http://www.w3.org/1999/xlink" ns2:href="sanderson/01.jpg"/>
+            </file>
+            <file USE="STAGED_DATA" ID="sdlfkj" CREATED="2010-04-15T12:00:00-05:00" GROUPID="CDR_STAGING" SEQ="2" SIZE="128" OWNERID="count0">
+                <FLocat LOCTYPE="URL" xmlns:ns2="http://www.w3.org/1999/xlink" ns2:href="sanderson/01.jpg"/>
+            </file>
+            <file USE="EXTRACTED_METADATA" ID="ssdfdlfkj" CREATED="2010-04-15T12:00:00-05:00" GROUPID="DROID" SEQ="2" SIZE="128" OWNERID="count0">
+                <FLocat LOCTYPE="URL" xmlns:ns2="http://www.w3.org/1999/xlink" ns2:href="sanderson/01.xml"/>
+            </file>
+        </fileGrp>
+        <fileGrp ID="asdf"
+            USE="STAGED_FILES">
+        </fileGrp>
+    </fileSec>
+
+    <structMap ID="file.struct.1" TYPE="BASIC">
+        <div TYPE="PLACEHOLDER">
+            <!-- empty until sources are migrated -->
+        </div>       
+    </structMap>
+
+    <structMap ID="SUBMISSION" TYPE="BASIC">
+        <div TYPE="PLACEHOLDER">
+            <!-- empty until sources are migrated -->
+        </div>       
+    </structMap>
+</mets>

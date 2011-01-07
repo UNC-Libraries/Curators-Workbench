@@ -1,0 +1,35 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: iRODS Plugin for Eclipse File System
+Bundle-SymbolicName: irods-efs.plugin; singleton:=true
+Bundle-Version: 0.0.1.qualifier
+Bundle-Activator: irods.efs.plugin.Activator
+Bundle-Vendor: UNC Chapel Hill Libraries
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.core.resources,
+ org.eclipse.core.filesystem
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
+Bundle-ClassPath: .,
+ lib/jargon-core-0.0.2.jar
+Import-Package: org.eclipse.core.filesystem
+Export-Package: edu.sdsc.grid.io,
+ edu.sdsc.grid.io.irods,
+ edu.sdsc.grid.io.local,
+ irods.efs.plugin,
+ irods.efs.plugin.properties,
+ org.irods.jargon.core.connection,
+ org.irods.jargon.core.exception,
+ org.irods.jargon.core.packinstr,
+ org.irods.jargon.core.protovalues,
+ org.irods.jargon.core.pub,
+ org.irods.jargon.core.pub.aohelper,
+ org.irods.jargon.core.pub.domain,
+ org.irods.jargon.core.pub.io,
+ org.irods.jargon.core.query,
+ org.irods.jargon.core.remoteexecute,
+ org.irods.jargon.core.rule,
+ org.irods.jargon.core.security,
+ org.irods.jargon.core.transfer,
+ org.irods.jargon.core.utils

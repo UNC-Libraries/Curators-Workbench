@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/crosswalk-gmf/src"
+    modelPluginID="crosswalk-gmf" modelName="Crosswalk" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="6.0" copyrightFields="false" usedGenPackages="../../mods.model/model/mods.genmodel#//mods ../../xlink.model/model/xlink.genmodel#//xlink platform:/plugin/org.eclipse.emf.ecore/model/XMLNamespace.genmodel#//namespace">
+  <foreignModel>crosswalk.ecore</foreignModel>
+  <genPackages prefix="Crosswalk" disposableProviderFactory="true" ecorePackage="crosswalk.ecore#/">
+    <genDataTypes ecoreDataType="crosswalk.ecore#//DataException"/>
+    <genDataTypes ecoreDataType="crosswalk.ecore#//IProject"/>
+    <genDataTypes ecoreDataType="crosswalk.ecore#//IFile"/>
+    <genDataTypes ecoreDataType="crosswalk.ecore#//RecordMatches"/>
+    <genDataTypes ecoreDataType="crosswalk.ecore#//IFolder"/>
+    <genDataTypes ecoreDataType="crosswalk.ecore#//RecordOutOfRangeException"/>
+    <genClasses provider="Stateful" image="false" ecoreClass="crosswalk.ecore#//TabbedDataField">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//TabbedDataField/ColumnNumber"/>
+    </genClasses>
+    <genClasses provider="Stateful" ecoreClass="crosswalk.ecore#//TrimWhitespace"/>
+    <genClasses provider="Stateful" ecoreClass="crosswalk.ecore#//TitleInfo"/>
+    <genClasses ecoreClass="crosswalk.ecore#//CrossWalk">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference crosswalk.ecore#//CrossWalk/DataSource"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference crosswalk.ecore#//CrossWalk/Widgets"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference crosswalk.ecore#//CrossWalk/Elements"/>
+      <genOperations ecoreOperation="crosswalk.ecore#//CrossWalk/getProject"/>
+    </genClasses>
+    <genClasses provider="Stateful" image="false" ecoreClass="crosswalk.ecore#//OutputElement">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference crosswalk.ecore#//OutputElement/Walk"/>
+      <genOperations ecoreOperation="crosswalk.ecore#//OutputElement/updateRecord">
+        <genParameters ecoreParameter="crosswalk.ecore#//OutputElement/updateRecord/record"/>
+      </genOperations>
+    </genClasses>
+    <genClasses provider="Stateful" image="false" ecoreClass="crosswalk.ecore#//WalkWidget">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference crosswalk.ecore#//WalkWidget/Walk"/>
+    </genClasses>
+    <genClasses ecoreClass="crosswalk.ecore#//TabSeparatedFile">
+      <genFeatures createChild="false" propertyCategory="" propertyDescription="Tabbed Data Source File"
+          ecoreFeature="ecore:EAttribute crosswalk.ecore#//TabSeparatedFile/SourceFile"/>
+      <genFeatures createChild="false" propertyDescription="First Row of Data (0-?)"
+          ecoreFeature="ecore:EAttribute crosswalk.ecore#//TabSeparatedFile/DataStartingRow"/>
+      <genFeatures createChild="false" propertyDescription="Headings Row" ecoreFeature="ecore:EAttribute crosswalk.ecore#//TabSeparatedFile/HeadingRow"/>
+      <genOperations ecoreOperation="crosswalk.ecore#//TabSeparatedFile/GoToRecord">
+        <genParameters ecoreParameter="crosswalk.ecore#//TabSeparatedFile/GoToRecord/RowNumber"/>
+      </genOperations>
+    </genClasses>
+    <genClasses provider="Stateful" image="false" ecoreClass="crosswalk.ecore#//DataSource">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference crosswalk.ecore#//DataSource/Walk"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference crosswalk.ecore#//DataSource/fields"/>
+      <genOperations ecoreOperation="crosswalk.ecore#//DataSource/GoToExample"/>
+      <genOperations ecoreOperation="crosswalk.ecore#//DataSource/NextRecord"/>
+      <genOperations ecoreOperation="crosswalk.ecore#//DataSource/Reset"/>
+      <genOperations ecoreOperation="crosswalk.ecore#//DataSource/getRecordID"/>
+      <genOperations ecoreOperation="crosswalk.ecore#//DataSource/getName"/>
+    </genClasses>
+    <genClasses ecoreClass="crosswalk.ecore#//DataField">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference crosswalk.ecore#//DataField/source"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//DataField/label"/>
+    </genClasses>
+    <genClasses provider="Stateful" ecoreClass="crosswalk.ecore#//StringInput">
+      <genFeatures createChild="false" propertyCategory="" propertyDescription=""
+          propertySortChoices="true" ecoreFeature="ecore:EReference crosswalk.ecore#//StringInput/Input"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="crosswalk.ecore#//StringGenerator">
+      <genOperations ecoreOperation="crosswalk.ecore#//StringGenerator/getResultString"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="crosswalk.ecore#//InputConsumer">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference crosswalk.ecore#//InputConsumer/Inputs"/>
+      <genOperations ecoreOperation="crosswalk.ecore#//InputConsumer/initInputs"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="crosswalk.ecore#//Input">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//Input/Name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference crosswalk.ecore#//Input/Consumer"/>
+    </genClasses>
+    <genClasses ecoreClass="crosswalk.ecore#//Abstract"/>
+    <genClasses ecoreClass="crosswalk.ecore#//Genre"/>
+    <genClasses ecoreClass="crosswalk.ecore#//Identifier"/>
+    <genClasses ecoreClass="crosswalk.ecore#//Language"/>
+    <genClasses ecoreClass="crosswalk.ecore#//Name">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//Name/type"/>
+    </genClasses>
+    <genClasses ecoreClass="crosswalk.ecore#//Subject"/>
+    <genClasses ecoreClass="crosswalk.ecore#//TypeOfResource"/>
+    <genClasses image="false" ecoreClass="crosswalk.ecore#//RecordMatcherStrategy">
+      <genOperations ecoreOperation="crosswalk.ecore#//RecordMatcherStrategy/getMatches"/>
+      <genOperations ecoreOperation="crosswalk.ecore#//RecordMatcherStrategy/run"/>
+    </genClasses>
+    <genClasses ecoreClass="crosswalk.ecore#//OriginalNameRecordMatcher">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//OriginalNameRecordMatcher/caseSensitive"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//OriginalNameRecordMatcher/includeFileExtension"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//OriginalNameRecordMatcher/baseFolder"/>
+      <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference crosswalk.ecore#//OriginalNameRecordMatcher/input"/>
+    </genClasses>
+    <genClasses ecoreClass="crosswalk.ecore#//DateCreated"/>
+    <genClasses ecoreClass="crosswalk.ecore#//DateInput">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference crosswalk.ecore#//DateInput/Input"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="crosswalk.ecore#//DateGenerator">
+      <genOperations ecoreOperation="crosswalk.ecore#//DateGenerator/getResultString"/>
+    </genClasses>
+    <genClasses ecoreClass="crosswalk.ecore#//DateRecognizer">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//DateRecognizer/Format"/>
+    </genClasses>
+    <genClasses ecoreClass="crosswalk.ecore#//Text">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//Text/Value"/>
+    </genClasses>
+    <genClasses ecoreClass="crosswalk.ecore#//AccessCondition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//AccessCondition/type"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

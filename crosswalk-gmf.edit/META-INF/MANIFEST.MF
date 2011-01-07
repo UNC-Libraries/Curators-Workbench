@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: crosswalk-gmf.edit;singleton:=true
+Bundle-Version: 0.0.1.qualifier
+Bundle-ClassPath: .
+Bundle-Activator: crosswalk.provider.CrosswalkEditPlugin$Implementation
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: crosswalk.provider
+Require-Bundle: org.eclipse.core.runtime,
+ crosswalk-gmf;visibility:=reexport,
+ org.eclipse.emf.edit;visibility:=reexport,
+ org.eclipse.core.resources,
+ mods.model.edit;bundle-version="0.0.1"
+Bundle-ActivationPolicy: lazy

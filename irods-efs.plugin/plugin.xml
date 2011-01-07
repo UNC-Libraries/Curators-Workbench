@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.propertyPages">
+      <page
+            name="iRODS"
+            nameFilter="*.*"
+            class="irods.efs.plugin.properties.IrodsPropertyPage"
+            id="irods.efs.plugin.properties.samplePropertyPage">
+         <enabledWhen>
+            <instanceof
+                  value="org.eclipse.core.resources.IFile">
+            </instanceof>
+         </enabledWhen>
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.core.filesystem.filesystems">
+      <filesystem
+            scheme="irods">
+         <run
+               class="irods.efs.plugin.IrodsEFSFileSystem">
+         </run>
+      </filesystem>
+   </extension>
+
+</plugin>

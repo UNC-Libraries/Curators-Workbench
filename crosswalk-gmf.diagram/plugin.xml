@@ -1,0 +1,807 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<!--
+copyright 2010 University of North Carolina at Chapel Hill
+-->
+<plugin>
+
+   <extension point="org.eclipse.team.core.fileTypes" id="repo-ftype">
+      <?gmfgen generated="true"?>
+      <fileTypes type="text" extension="crosswalk"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser" id="resource-factory">
+      <?gmfgen generated="true"?>
+      <parser
+         type="crosswalk"
+         class="org.eclipse.gmf.runtime.emf.core.resources.GMFResourceFactory">
+      </parser>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors" id="gmf-editor">
+      <?gmfgen generated="true"?>
+      <editor
+         id="crosswalk.diagram.part.CrosswalkDiagramEditorID"
+         name="%editorName"
+         icon="icons/obj16/CrosswalkDiagramFile.gif"
+         extensions="crosswalk"
+         default="true"
+         class="crosswalk.diagram.part.CrosswalkDiagramEditor"
+         matchingStrategy="crosswalk.diagram.part.CrosswalkMatchingStrategy"
+         contributorClass="crosswalk.diagram.part.CrosswalkDiagramActionBarContributor">
+      </editor>
+   </extension>
+   
+   <extension point="org.eclipse.ui.contexts" id="ui-context">
+      <?gmfgen generated="true"?>
+      <context
+         description="%context.description"
+         id="crosswalk.diagram.ui.diagramContext"
+         name="%context.name"
+         parentId="org.eclipse.gmf.runtime.diagram.ui.diagramContext">
+      </context>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards" id="creation-wizard">
+      <?gmfgen generated="true"?>
+  	  <wizard
+  	     name="%newWizardName"
+  	     icon="icons/obj16/CrosswalkDiagramFile.gif"
+  	     category="org.eclipse.ui.Examples"
+  	     class="crosswalk.diagram.part.CrosswalkCreationWizard"
+  	     id="crosswalk.diagram.part.CrosswalkCreationWizardID">
+  	  	 <description>%newWizardDesc</description>  
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.popupMenus" id="init-diagram-action">
+      <?gmfgen generated="true"?>
+      <objectContribution
+            id="crosswalk-gmf.diagram.InitDiagram"
+            nameFilter="*.crosswalk"
+            objectClass="org.eclipse.core.resources.IFile">
+         <action
+               label="%initDiagramActionLabel"
+               class="crosswalk.diagram.part.CrosswalkInitDiagramFileAction"
+               menubarPath="additions"
+               enablesFor="1"
+               id="crosswalk-gmf.diagram.InitDiagramAction">
+         </action>
+      </objectContribution>
+   </extension>
+	
+   <extension point="org.eclipse.gmf.runtime.common.ui.services.action.globalActionHandlerProviders" id="global-actions">
+      <?gmfgen generated="true"?>
+      <GlobalActionHandlerProvider
+         class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramGlobalActionHandlerProvider"
+         id="CrosswalkPresentation">
+         <Priority name="Lowest"/>
+         <ViewId id="crosswalk.diagram.part.CrosswalkDiagramEditorID">
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="delete"/>
+            </ElementType>
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart">
+               <GlobalActionId actionId="save"/>
+            </ElementType>
+         </ViewId>
+      </GlobalActionHandlerProvider>
+      <GlobalActionHandlerProvider
+         class="org.eclipse.gmf.runtime.diagram.ui.providers.ide.providers.DiagramIDEGlobalActionHandlerProvider"
+         id="CrosswalkPresentationIDE">
+         <Priority name="Lowest"/>
+         <ViewId id="crosswalk.diagram.part.CrosswalkDiagramEditorID">
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="bookmark"/>
+            </ElementType>
+         </ViewId>
+      </GlobalActionHandlerProvider>
+      <GlobalActionHandlerProvider
+            class="org.eclipse.gmf.runtime.diagram.ui.render.providers.DiagramUIRenderGlobalActionHandlerProvider"
+            id="CrosswalkRender">
+         <Priority name="Lowest"/>
+         <ViewId id="crosswalk.diagram.part.CrosswalkDiagramEditorID">
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="cut"/>
+               <GlobalActionId actionId="copy"/>
+               <GlobalActionId actionId="paste"/>
+            </ElementType>
+         </ViewId>
+      </GlobalActionHandlerProvider>
+   </extension>
+
+
+   <extension point="org.eclipse.core.runtime.preferences" id="prefs">
+      <?gmfgen generated="true"?>
+      <initializer class="crosswalk.diagram.preferences.DiagramPreferenceInitializer"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.preferencePages" id="prefpages">
+      <?gmfgen generated="true"?>
+      <page
+            id="crosswalk-gmf.diagram.general"
+            name="%prefpage.crosswalk-gmf.diagram.general"
+            class="crosswalk.diagram.preferences.DiagramGeneralPreferencePage">
+      </page>
+      <page
+            id="crosswalk-gmf.diagram.appearance"
+            name="%prefpage.crosswalk-gmf.diagram.appearance"
+            category="crosswalk-gmf.diagram.general"
+            class="crosswalk.diagram.preferences.DiagramAppearancePreferencePage">
+      </page>
+      <page
+            id="crosswalk-gmf.diagram.connections"
+            name="%prefpage.crosswalk-gmf.diagram.connections"
+            category="crosswalk-gmf.diagram.general"
+            class="crosswalk.diagram.preferences.DiagramConnectionsPreferencePage">
+      </page>
+      <page
+            id="crosswalk-gmf.diagram.printing"
+            name="%prefpage.crosswalk-gmf.diagram.printing"
+            category="crosswalk-gmf.diagram.general"
+            class="crosswalk.diagram.preferences.DiagramPrintingPreferencePage">
+      </page>
+      <page
+            id="crosswalk-gmf.diagram.rulersAndGrid"
+            name="%prefpage.crosswalk-gmf.diagram.rulersAndGrid"
+            category="crosswalk-gmf.diagram.general"
+            class="crosswalk.diagram.preferences.DiagramRulersAndGridPreferencePage">
+      </page>
+   </extension>
+
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertyContributor" id="prop-contrib">
+      <?gmfgen generated="true"?>
+      <propertyContributor
+            contributorId="crosswalk-gmf.diagram"
+            labelProvider="crosswalk.diagram.sheet.CrosswalkSheetLabelProvider">
+         <propertyCategory category="domain"/>
+         <propertyCategory category="visual"/>
+         <propertyCategory category="extra"/>
+      </propertyContributor>
+   </extension>
+
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertyTabs" id="proptabs">
+      <?gmfgen generated="true"?>   
+      <propertyTabs contributorId="crosswalk-gmf.diagram">
+         <propertyTab
+             category="visual"
+             id="property.tab.AppearancePropertySection"
+             label="%tab.appearance"/>
+          <propertyTab
+             category="visual"
+             id="property.tab.DiagramPropertySection"
+             label="%tab.diagram"/>
+          <propertyTab
+             category="domain"
+             id="property.tab.domain"
+             label="%tab.domain"/>
+      </propertyTabs>
+   </extension>
+
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertySections" id="propsections">
+      <?gmfgen generated="true"?>   
+      <propertySections contributorId="crosswalk-gmf.diagram">
+         <propertySection id="property.section.ConnectorAppearancePropertySection" 
+            filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.ConnectionEditPartPropertySectionFilter" 
+            class="org.eclipse.gmf.runtime.diagram.ui.properties.sections.appearance.ConnectionAppearancePropertySection" 
+            tab="property.tab.AppearancePropertySection">
+         </propertySection>
+         <propertySection id="property.section.ShapeColorAndFontPropertySection" 
+            filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.ShapeEditPartPropertySectionFilter" 
+            class="org.eclipse.gmf.runtime.diagram.ui.properties.sections.appearance.ShapeColorsAndFontsPropertySection" 
+            tab="property.tab.AppearancePropertySection">
+         </propertySection> 
+         <propertySection id="property.section.DiagramColorsAndFontsPropertySection" 
+            filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.DiagramEditPartPropertySectionFilter" 
+            class="org.eclipse.gmf.runtime.diagram.ui.properties.sections.appearance.DiagramColorsAndFontsPropertySection" 
+            tab="property.tab.AppearancePropertySection">
+         </propertySection>     
+         <propertySection id="property.section.RulerGridPropertySection" 
+            filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.DiagramEditPartPropertySectionFilter" 
+            class="org.eclipse.gmf.runtime.diagram.ui.properties.sections.grid.RulerGridPropertySection" 
+            tab="property.tab.DiagramPropertySection">
+         </propertySection>     
+         <propertySection
+            id="property.section.domain" 
+            tab="property.tab.domain"
+            class="crosswalk.diagram.sheet.CrosswalkPropertySection">
+            <input type="org.eclipse.gmf.runtime.notation.View"/>
+            <input type="org.eclipse.gef.EditPart"/>
+            <input type="crosswalk.diagram.navigator.CrosswalkAbstractNavigatorItem"/>
+         </propertySection>
+      </propertySections>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.diagram.core.viewProviders" id="view-provider">
+      <?gmfgen generated="true"?>
+      <viewProvider class="crosswalk.diagram.providers.CrosswalkViewProvider">
+         <Priority name="Lowest"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Crosswalk"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2001,2005,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,3017,3008,3010,3011,3012,3013,3014,3015,3016,3018,3019,3020,3021,3022"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="4009,4010"/>
+      </viewProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.diagram.ui.editpartProviders" id="ep-provider">
+      <?gmfgen generated="true"?>
+      <editpartProvider class="crosswalk.diagram.providers.CrosswalkEditPartProvider">
+         <Priority name="Lowest"/>
+         <object class="org.eclipse.gmf.runtime.notation.Diagram" id="generated-diagram">
+            <method name="getType()" value="Crosswalk"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-nodes">
+            <method name="getType()" value="2001,2005,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,3017,3008,3010,3011,3012,3013,3014,3015,3016,3018,3019,3020,3021,3022"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
+            <method name="getType()" value="4009,4010"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
+            <method name="getType()" value="5001,5018,5019,5020,5021,5022,5023,5024,5025,5028,5030,5032,5034,5035,5037,5026,5038,5009,5011,5012,5013,5014,5015,5016,5017,5027,5029,5031,5033,5036"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-compartments">
+            <method name="getType()" value="7009,7001,7002,7003,7004,7005,7006,7007,7008,7010,7011,7012,7013,7014"/>
+         </object>
+         <context views="generated-diagram,generated-nodes,generated-links,generated-labels,generated-compartments"/>
+      </editpartProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.emf.ui.modelingAssistantProviders" id="modelassist-provider">
+      <?gmfgen generated="true"?>
+      <modelingAssistantProvider class="crosswalk.diagram.providers.CrosswalkModelingAssistantProvider">
+         <Priority name="Lowest"/>
+         <object class="crosswalk.diagram.edit.parts.CrossWalkEditPart" id="CrossWalk_1000"/>
+         <object class="crosswalk.diagram.edit.parts.TabSeparatedFileEditPart" id="TabSeparatedFile_2001"/>
+         <object class="crosswalk.diagram.edit.parts.TitleInfoEditPart" id="TitleInfo_2005"/>
+         <object class="crosswalk.diagram.edit.parts.AbstractEditPart" id="Abstract_2007"/>
+         <object class="crosswalk.diagram.edit.parts.GenreEditPart" id="Genre_2008"/>
+         <object class="crosswalk.diagram.edit.parts.IdentifierEditPart" id="Identifier_2009"/>
+         <object class="crosswalk.diagram.edit.parts.LanguageEditPart" id="Language_2010"/>
+         <object class="crosswalk.diagram.edit.parts.NameEditPart" id="Name_2011"/>
+         <object class="crosswalk.diagram.edit.parts.SubjectEditPart" id="Subject_2012"/>
+         <object class="crosswalk.diagram.edit.parts.TypeOfResourceEditPart" id="TypeOfResource_2013"/>
+         <object class="crosswalk.diagram.edit.parts.OriginalNameRecordMatcherEditPart" id="OriginalNameRecordMatcher_2014"/>
+         <object class="crosswalk.diagram.edit.parts.DateCreatedEditPart" id="DateCreated_2015"/>
+         <object class="crosswalk.diagram.edit.parts.AccessConditionEditPart" id="AccessCondition_2016"/>
+         <object class="crosswalk.diagram.edit.parts.DateRecognizerEditPart" id="DateRecognizer_2017"/>
+         <object class="crosswalk.diagram.edit.parts.TextEditPart" id="Text_2018"/>
+         <object class="crosswalk.diagram.edit.parts.TrimWhitespaceEditPart" id="TrimWhitespace_2019"/>
+         <context elements="CrossWalk_1000,TabSeparatedFile_2001,TitleInfo_2005,Abstract_2007,Genre_2008,Identifier_2009,Language_2010,Name_2011,Subject_2012,TypeOfResource_2013,OriginalNameRecordMatcher_2014,DateCreated_2015,AccessCondition_2016,DateRecognizer_2017,Text_2018,TrimWhitespace_2019"/>
+      </modelingAssistantProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.common.ui.services.iconProviders" id="icon-provider">
+      <?gmfgen generated="true"?>
+      <IconProvider class="crosswalk.diagram.providers.CrosswalkIconProvider">
+         <Priority name="Low"/>
+      </IconProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.common.ui.services.parserProviders" id="parser-provider">
+      <?gmfgen generated="true"?>
+      <ParserProvider class="crosswalk.diagram.providers.CrosswalkParserProvider">
+         <Priority name="Lowest"/>
+      </ParserProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypes" id="element-types">
+      <?gmfgen generated="true"?>
+      <metamodel nsURI="http://lib.unc.edu/schemas/crosswalk">
+         <metamodelType
+               id="crosswalk-gmf.diagram.CrossWalk_1000"
+               name="%metatype.name.CrossWalk_1000"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="CrossWalk"
+               edithelper="crosswalk.diagram.edit.helpers.CrossWalkEditHelper">
+            <param name="semanticHint" value="1000"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://lib.unc.edu/schemas/crosswalk">
+         <metamodelType
+               id="crosswalk-gmf.diagram.TabSeparatedFile_2001"
+               name="%metatype.name.TabSeparatedFile_2001"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="TabSeparatedFile"
+               edithelper="crosswalk.diagram.edit.helpers.TabSeparatedFileEditHelper">
+            <param name="semanticHint" value="2001"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://lib.unc.edu/schemas/crosswalk">
+         <metamodelType
+               id="crosswalk-gmf.diagram.TitleInfo_2005"
+               name="%metatype.name.TitleInfo_2005"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="TitleInfo"
+               edithelper="crosswalk.diagram.edit.helpers.TitleInfoEditHelper">
+            <param name="semanticHint" value="2005"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://lib.unc.edu/schemas/crosswalk">
+         <metamodelType
+               id="crosswalk-gmf.diagram.Abstract_2007"
+               name="%metatype.name.Abstract_2007"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Abstract"
+               edithelper="crosswalk.diagram.edit.helpers.AbstractEditHelper">
+            <param name="semanticHint" value="2007"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://lib.unc.edu/schemas/crosswalk">
+         <metamodelType
+               id="crosswalk-gmf.diagram.Genre_2008"
+               name="%metatype.name.Genre_2008"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Genre"
+               edithelper="crosswalk.diagram.edit.helpers.GenreEditHelper">
+            <param name="semanticHint" value="2008"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://lib.unc.edu/schemas/crosswalk">
+         <metamodelType
+               id="crosswalk-gmf.diagram.Identifier_2009"
+               name="%metatype.name.Identifier_2009"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Identifier"
+               edithelper="crosswalk.diagram.edit.helpers.IdentifierEditHelper">
+            <param name="semanticHint" value="2009"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://lib.unc.edu/schemas/crosswalk">
+         <metamodelType
+               id="crosswalk-gmf.diagram.Language_2010"
+               name="%metatype.name.Language_2010"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Language"
+               edithelper="crosswalk.diagram.edit.helpers.LanguageEditHelper">
+            <param name="semanticHint" value="2010"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://lib.unc.edu/schemas/crosswalk">
+         <metamodelType
+               id="crosswalk-gmf.diagram.Name_2011"
+               name="%metatype.name.Name_2011"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Name"
+               edithelper="crosswalk.diagram.edit.helpers.NameEditHelper">
+            <param name="semanticHint" value="2011"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://lib.unc.edu/schemas/crosswalk">
+         <metamodelType
+               id="crosswalk-gmf.diagram.Subject_2012"
+               name="%metatype.name.Subject_2012"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Subject"
+               edithelper="crosswalk.diagram.edit.helpers.SubjectEditHelper">
+            <param name="semanticHint" value="2012"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://lib.unc.edu/schemas/crosswalk">
+         <metamodelType
+               id="crosswalk-gmf.diagram.TypeOfResource_2013"
+               name="%metatype.name.TypeOfResource_2013"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="TypeOfResource"
+               edithelper="crosswalk.diagram.edit.helpers.TypeOfResourceEditHelper">
+            <param name="semanticHint" value="2013"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://lib.unc.edu/schemas/crosswalk">
+         <metamodelType
+               id="crosswalk-gmf.diagram.OriginalNameRecordMatcher_2014"
+               name="%metatype.name.OriginalNameRecordMatcher_2014"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="OriginalNameRecordMatcher"
+               edithelper="crosswalk.diagram.edit.helpers.OriginalNameRecordMatcherEditHelper">
+            <param name="semanticHint" value="2014"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://lib.unc.edu/schemas/crosswalk">
+         <metamodelType
+               id="crosswalk-gmf.diagram.DateCreated_2015"
+               name="%metatype.name.DateCreated_2015"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="DateCreated"
+               edithelper="crosswalk.diagram.edit.helpers.DateCreatedEditHelper">
+            <param name="semanticHint" value="2015"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://lib.unc.edu/schemas/crosswalk">
+         <metamodelType
+               id="crosswalk-gmf.diagram.AccessCondition_2016"
+               name="%metatype.name.AccessCondition_2016"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="AccessCondition"
+               edithelper="crosswalk.diagram.edit.helpers.AccessConditionEditHelper">
+            <param name="semanticHint" value="2016"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://lib.unc.edu/schemas/crosswalk">
+         <metamodelType
+               id="crosswalk-gmf.diagram.DateRecognizer_2017"
+               name="%metatype.name.DateRecognizer_2017"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="DateRecognizer"
+               edithelper="crosswalk.diagram.edit.helpers.DateRecognizerEditHelper">
+            <param name="semanticHint" value="2017"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://lib.unc.edu/schemas/crosswalk">
+         <metamodelType
+               id="crosswalk-gmf.diagram.Text_2018"
+               name="%metatype.name.Text_2018"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Text"
+               edithelper="crosswalk.diagram.edit.helpers.TextEditHelper">
+            <param name="semanticHint" value="2018"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://lib.unc.edu/schemas/crosswalk">
+         <metamodelType
+               id="crosswalk-gmf.diagram.TrimWhitespace_2019"
+               name="%metatype.name.TrimWhitespace_2019"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="TrimWhitespace"
+               edithelper="crosswalk.diagram.edit.helpers.TrimWhitespaceEditHelper">
+            <param name="semanticHint" value="2019"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://lib.unc.edu/schemas/crosswalk">
+         <metamodelType
+               id="crosswalk-gmf.diagram.TabbedDataField_3017"
+               name="%metatype.name.TabbedDataField_3017"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="TabbedDataField"
+               edithelper="crosswalk.diagram.edit.helpers.TabbedDataFieldEditHelper">
+            <param name="semanticHint" value="3017"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://lib.unc.edu/schemas/crosswalk">
+         <metamodelType
+               id="crosswalk-gmf.diagram.StringInput_3008"
+               name="%metatype.name.StringInput_3008"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="StringInput"
+               edithelper="crosswalk.diagram.edit.helpers.StringInputEditHelper">
+            <param name="semanticHint" value="3008"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://lib.unc.edu/schemas/crosswalk">
+         <specializationType
+               id="crosswalk-gmf.diagram.StringInput_3010"
+               name="%metatype.name.StringInput_3010"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="crosswalk-gmf.diagram.StringInput_3008"/>
+            <param name="semanticHint" value="3010"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://lib.unc.edu/schemas/crosswalk">
+         <specializationType
+               id="crosswalk-gmf.diagram.StringInput_3011"
+               name="%metatype.name.StringInput_3011"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="crosswalk-gmf.diagram.StringInput_3008"/>
+            <param name="semanticHint" value="3011"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://lib.unc.edu/schemas/crosswalk">
+         <specializationType
+               id="crosswalk-gmf.diagram.StringInput_3012"
+               name="%metatype.name.StringInput_3012"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="crosswalk-gmf.diagram.StringInput_3008"/>
+            <param name="semanticHint" value="3012"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://lib.unc.edu/schemas/crosswalk">
+         <specializationType
+               id="crosswalk-gmf.diagram.StringInput_3013"
+               name="%metatype.name.StringInput_3013"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="crosswalk-gmf.diagram.StringInput_3008"/>
+            <param name="semanticHint" value="3013"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://lib.unc.edu/schemas/crosswalk">
+         <specializationType
+               id="crosswalk-gmf.diagram.StringInput_3014"
+               name="%metatype.name.StringInput_3014"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="crosswalk-gmf.diagram.StringInput_3008"/>
+            <param name="semanticHint" value="3014"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://lib.unc.edu/schemas/crosswalk">
+         <specializationType
+               id="crosswalk-gmf.diagram.StringInput_3015"
+               name="%metatype.name.StringInput_3015"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="crosswalk-gmf.diagram.StringInput_3008"/>
+            <param name="semanticHint" value="3015"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://lib.unc.edu/schemas/crosswalk">
+         <specializationType
+               id="crosswalk-gmf.diagram.StringInput_3016"
+               name="%metatype.name.StringInput_3016"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="crosswalk-gmf.diagram.StringInput_3008"/>
+            <param name="semanticHint" value="3016"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://lib.unc.edu/schemas/crosswalk">
+         <specializationType
+               id="crosswalk-gmf.diagram.StringInput_3018"
+               name="%metatype.name.StringInput_3018"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="crosswalk-gmf.diagram.StringInput_3008"/>
+            <param name="semanticHint" value="3018"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://lib.unc.edu/schemas/crosswalk">
+         <metamodelType
+               id="crosswalk-gmf.diagram.DateInput_3019"
+               name="%metatype.name.DateInput_3019"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="DateInput"
+               edithelper="crosswalk.diagram.edit.helpers.DateInputEditHelper">
+            <param name="semanticHint" value="3019"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://lib.unc.edu/schemas/crosswalk">
+         <specializationType
+               id="crosswalk-gmf.diagram.StringInput_3020"
+               name="%metatype.name.StringInput_3020"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="crosswalk-gmf.diagram.StringInput_3008"/>
+            <param name="semanticHint" value="3020"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://lib.unc.edu/schemas/crosswalk">
+         <specializationType
+               id="crosswalk-gmf.diagram.StringInput_3021"
+               name="%metatype.name.StringInput_3021"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="crosswalk-gmf.diagram.StringInput_3008"/>
+            <param name="semanticHint" value="3021"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://lib.unc.edu/schemas/crosswalk">
+         <specializationType
+               id="crosswalk-gmf.diagram.StringInput_3022"
+               name="%metatype.name.StringInput_3022"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="crosswalk-gmf.diagram.StringInput_3008"/>
+            <param name="semanticHint" value="3022"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://lib.unc.edu/schemas/crosswalk">
+         <specializationType
+               id="crosswalk-gmf.diagram.StringInputInput_4009"
+               name="%metatype.name.StringInputInput_4009"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
+            <param name="semanticHint" value="4009"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://lib.unc.edu/schemas/crosswalk">
+         <specializationType
+               id="crosswalk-gmf.diagram.DateInputInput_4010"
+               name="%metatype.name.DateInputInput_4010"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
+            <param name="semanticHint" value="4010"/>
+         </specializationType>
+      </metamodel>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypeBindings" id="element-types-bindings">
+      <?gmfgen generated="true"?>
+      <clientContext id="crosswalk-gmf.diagram.TypeContext">
+         <enablement>
+            <test
+               property="org.eclipse.gmf.runtime.emf.core.editingDomain"
+               value="crosswalk-gmf.diagram.EditingDomain"/>
+         </enablement>
+      </clientContext> 
+      <binding context="crosswalk-gmf.diagram.TypeContext">
+         <elementType ref="crosswalk-gmf.diagram.CrossWalk_1000"/>
+         <elementType ref="crosswalk-gmf.diagram.TabSeparatedFile_2001"/>
+         <elementType ref="crosswalk-gmf.diagram.TitleInfo_2005"/>
+         <elementType ref="crosswalk-gmf.diagram.Abstract_2007"/>
+         <elementType ref="crosswalk-gmf.diagram.Genre_2008"/>
+         <elementType ref="crosswalk-gmf.diagram.Identifier_2009"/>
+         <elementType ref="crosswalk-gmf.diagram.Language_2010"/>
+         <elementType ref="crosswalk-gmf.diagram.Name_2011"/>
+         <elementType ref="crosswalk-gmf.diagram.Subject_2012"/>
+         <elementType ref="crosswalk-gmf.diagram.TypeOfResource_2013"/>
+         <elementType ref="crosswalk-gmf.diagram.OriginalNameRecordMatcher_2014"/>
+         <elementType ref="crosswalk-gmf.diagram.DateCreated_2015"/>
+         <elementType ref="crosswalk-gmf.diagram.AccessCondition_2016"/>
+         <elementType ref="crosswalk-gmf.diagram.DateRecognizer_2017"/>
+         <elementType ref="crosswalk-gmf.diagram.Text_2018"/>
+         <elementType ref="crosswalk-gmf.diagram.TrimWhitespace_2019"/>
+         <elementType ref="crosswalk-gmf.diagram.TabbedDataField_3017"/>
+         <elementType ref="crosswalk-gmf.diagram.StringInput_3008"/>
+         <elementType ref="crosswalk-gmf.diagram.StringInput_3010"/>
+         <elementType ref="crosswalk-gmf.diagram.StringInput_3011"/>
+         <elementType ref="crosswalk-gmf.diagram.StringInput_3012"/>
+         <elementType ref="crosswalk-gmf.diagram.StringInput_3013"/>
+         <elementType ref="crosswalk-gmf.diagram.StringInput_3014"/>
+         <elementType ref="crosswalk-gmf.diagram.StringInput_3015"/>
+         <elementType ref="crosswalk-gmf.diagram.StringInput_3016"/>
+         <elementType ref="crosswalk-gmf.diagram.StringInput_3018"/>
+         <elementType ref="crosswalk-gmf.diagram.DateInput_3019"/>
+         <elementType ref="crosswalk-gmf.diagram.StringInput_3020"/>
+         <elementType ref="crosswalk-gmf.diagram.StringInput_3021"/>
+         <elementType ref="crosswalk-gmf.diagram.StringInput_3022"/>
+         <elementType ref="crosswalk-gmf.diagram.StringInputInput_4009"/>
+         <elementType ref="crosswalk-gmf.diagram.DateInputInput_4010"/>
+         <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
+      </binding>
+   </extension>
+	   <extension point="org.eclipse.core.expressions.propertyTesters" id="navigator-proptest.isURIEditorInput">
+      <?gmfgen generated="true"?>
+       <propertyTester
+           id="crosswalk-gmf.diagram.URIEditorInputPropertyTester"
+           type="org.eclipse.emf.common.ui.URIEditorInput"
+           namespace="crosswalk-gmf.diagram"
+           properties="isURIEditorInput"
+           class="crosswalk.diagram.part.CrosswalkUriEditorInputTester">
+       </propertyTester>
+   </extension>
+
+	   <extension point="org.eclipse.ui.navigator.viewer" id="navigator-viewbinding">
+      <?gmfgen generated="true"?>
+      <viewerContentBinding viewerId="org.eclipse.ui.navigator.ProjectExplorer">
+         <includes>
+            <contentExtension pattern="crosswalk-gmf.diagram.resourceContent"/>
+			<contentExtension pattern="crosswalk-gmf.diagram.domainResourceContent"/>
+            <contentExtension pattern="crosswalk-gmf.diagram.navigatorLinkHelper"/>
+         </includes>
+      </viewerContentBinding>
+      <viewerActionBinding viewerId="org.eclipse.ui.navigator.ProjectExplorer">
+         <includes>
+            <actionExtension pattern="crosswalk-gmf.diagram.navigatorActionProvider"/>
+         </includes>
+      </viewerActionBinding>
+   </extension>
+
+   <extension point="org.eclipse.ui.navigator.navigatorContent" id="navigator-content">
+      <?gmfgen generated="true"?>
+      <navigatorContent
+            id="crosswalk-gmf.diagram.resourceContent" 
+            name="%navigatorContentName" 
+            priority="normal" 
+            contentProvider="crosswalk.diagram.navigator.CrosswalkNavigatorContentProvider" 
+            labelProvider="crosswalk.diagram.navigator.CrosswalkNavigatorLabelProvider"
+            icon="icons/obj16/CrosswalkDiagramFile.gif"
+            activeByDefault="true">
+         <triggerPoints>
+            <or>
+	           <and>
+    	          <instanceof value="org.eclipse.core.resources.IFile"/>
+        	      <test property="org.eclipse.core.resources.extension" value="crosswalk"/>
+               </and>
+               <instanceof value="crosswalk.diagram.navigator.CrosswalkAbstractNavigatorItem"/>
+            </or>
+         </triggerPoints>
+         <possibleChildren>
+            <or>
+         	   <instanceof value="crosswalk.diagram.navigator.CrosswalkAbstractNavigatorItem"/>
+            </or>
+         </possibleChildren>
+         <commonSorter 
+               id="crosswalk-gmf.diagram.navigatorSorter" 
+               class="crosswalk.diagram.navigator.CrosswalkNavigatorSorter">
+            <parentExpression>
+               <or>
+	              <and>
+    	             <instanceof value="org.eclipse.core.resources.IFile"/>
+        	         <test property="org.eclipse.core.resources.extension" value="crosswalk"/>
+                  </and>
+                  <instanceof value="crosswalk.diagram.navigator.CrosswalkAbstractNavigatorItem"/>
+               </or>
+            </parentExpression>
+         </commonSorter>
+      </navigatorContent>
+      <navigatorContent
+            id="crosswalk-gmf.diagram.domainResourceContent" 
+            name="%domainNavigatorContentName" 
+            priority="normal" 
+            contentProvider="crosswalk.diagram.navigator.CrosswalkDomainNavigatorContentProvider" 
+            labelProvider="crosswalk.diagram.navigator.CrosswalkDomainNavigatorLabelProvider"
+            icon="icons/obj16/CrosswalkDiagramFile.gif"
+            activeByDefault="true">
+         <triggerPoints>
+            <or>
+	           <and>
+    	          <instanceof value="org.eclipse.core.resources.IFile"/>
+        	      <test property="org.eclipse.core.resources.extension" value="crosswalk"/>
+               </and>
+               <instanceof value="crosswalk.diagram.navigator.CrosswalkDomainNavigatorItem"/>
+            </or>
+         </triggerPoints>
+         <possibleChildren>
+            <instanceof value="crosswalk.diagram.navigator.CrosswalkDomainNavigatorItem"/>
+         </possibleChildren>
+      </navigatorContent>
+      <actionProvider
+            id="crosswalk-gmf.diagram.navigatorActionProvider"
+            class="crosswalk.diagram.navigator.CrosswalkNavigatorActionProvider">
+         <enablement>
+            <or>
+               <instanceof value="crosswalk.diagram.navigator.CrosswalkAbstractNavigatorItem"/>
+            </or>
+         </enablement>
+      </actionProvider>
+   </extension>
+   
+	   <extension point="org.eclipse.ui.navigator.linkHelper" id="navigator-linkhelper">
+      <?gmfgen generated="true"?>
+      <linkHelper
+            id="crosswalk-gmf.diagram.navigatorLinkHelper"
+            class="crosswalk.diagram.navigator.CrosswalkNavigatorLinkHelper">
+         <editorInputEnablement>
+            <and>
+               <instanceof value="org.eclipse.emf.common.ui.URIEditorInput"/>
+               <test property="crosswalk-gmf.diagram.isURIEditorInput"/>
+            </and>
+         </editorInputEnablement>
+         <selectionEnablement>
+            <instanceof value="crosswalk.diagram.navigator.CrosswalkAbstractNavigatorItem"/>
+         </selectionEnablement>
+      </linkHelper>
+   </extension>
+   <extension point="org.eclipse.ui.commands" id="update-cmd">
+      <?gmfgen generated="true"?>
+      <command
+         categoryId="org.eclipse.ui.category.edit"
+         defaultHandler="crosswalk.diagram.part.CrosswalkDiagramUpdateCommand"
+         description="%update.diagram.description"
+         id="crosswalk.diagram.updateDiagram"
+         name="%update.diagram.name"/>
+   </extension>
+   
+   <extension point="org.eclipse.ui.bindings" id="update-cmd-binding">
+      <?gmfgen generated="true"?>
+      <key 
+         commandId="crosswalk.diagram.updateDiagram"
+         contextId="crosswalk.diagram.ui.diagramContext"
+         schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+         sequence="F5"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.menus" id="context-menus">
+      <?gmfgen generated="true"?>
+      <!-- menuContribution locationURI="menu:org.eclipse.ui.main.menu?after=">
+      </menuContribution>
+      <menuContribution locationURI="toolbar:org.eclipse.ui.main.toolbar?after=">
+      </menuContribution -->
+      <menuContribution locationURI="popup:org.eclipse.gmf.runtime.diagram.ui.DiagramEditorContextMenu">
+         <command commandId="crosswalk-gmf.diagram.LoadResourceAction">
+            <visibleWhen>
+               <and>
+                  <with variable="activePartId"><equals value="crosswalk.diagram.part.CrosswalkDiagramEditorID"/></with>
+                  <with variable="selection"><iterate ifEmpty="false"> 
+                     <instanceof value="crosswalk.diagram.edit.parts.CrossWalkEditPart"/>
+                  </iterate></with>
+               </and>
+            </visibleWhen>
+         </command>
+      </menuContribution>
+   </extension>
+
+   <extension point="org.eclipse.ui.commands" id="menu-commands">
+      <?gmfgen generated="true"?>
+      <category id="crosswalk.diagram.part.CrosswalkDiagramEditorID" name="%cmdcategory.name" description="%cmdcategory.desc"/>
+      <command id="crosswalk-gmf.diagram.LoadResourceAction"
+         name="Load Resource"
+         categoryId="crosswalk.diagram.part.CrosswalkDiagramEditorID"
+         defaultHandler="crosswalk.diagram.part.LoadResourceAction"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.handlers" id="menu-handlers">
+      <?gmfgen generated="true"?>
+   </extension>
+
+   <!-- optionally, specify keybindings -->
+</plugin>

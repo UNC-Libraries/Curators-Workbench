@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gmftool:ToolRegistry xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:gmftool="http://www.eclipse.org/gmf/2005/ToolDefinition">
+  <palette
+      title="crosswalkPalette">
+    <tools
+        xsi:type="gmftool:ToolGroup"
+        title="Data Inputs">
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Input Connector"
+          description="link to input"/>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="MODS Element"
+          description="Create MODS Element">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Normalize Whitespace"
+          description="Create Normalize Whitespace">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Original Name Matcher"
+          description="Create Original File/Folder Name Record Matcher"/>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Date Recognizer"
+          description="Add a Date Recognizer"/>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Text"
+          description="Add custom text to your crosswalk records"/>
+    </tools>
+  </palette>
+</gmftool:ToolRegistry>

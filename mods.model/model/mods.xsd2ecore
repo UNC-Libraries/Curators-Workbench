@@ -1,0 +1,1384 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xsd2ecore:XSD2EcoreMappingRoot xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsd2ecore="http://www.eclipse.org/emf/2002/XSD2Ecore" inputs="http://www.loc.gov/standards/mods/mods.xsd#/ http://www.loc.gov/mods/xml.xsd#/ http://www.loc.gov/standards/xlink/xlink.xsd#/"
+    outputs="mods.ecore#/ ../../../plugin/org.eclipse.emf.ecore/model/XMLNamespace.ecore#/ ../../xlink.model/model/xlink.ecore#/"
+    topToBottom="true">
+  <nested inputs="bundleentry://278.fwk4354460/cache/www.w3.org/2001/XMLSchema.xsd#//string;XSDSimpleTypeDefinition=9"
+      outputs="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//languageAttributeGroup;XSDAttributeGroupDefinition=5/XSDAttributeUse"
+      outputs="mods.ecore#//XsString/lang"/>
+  <nested inputs="bundleentry://278.fwk4354460/cache/www.w3.org/2001/XMLSchema.xsd#//language;XSDSimpleTypeDefinition=30"
+      outputs="http://www.eclipse.org/emf/2003/XMLType#//Language"/>
+  <nested inputs="http://www.loc.gov/mods/xml.xsd#//lang;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDSimpleTypeDefinition"
+      outputs="../../../plugin/org.eclipse.emf.ecore/model/XMLNamespace.ecore#//LangTypeMember1">
+    <nested inputs="http://www.loc.gov/mods/xml.xsd#//lang;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDSimpleTypeDefinition/XSDEnumerationFacet"
+        outputs="../../../plugin/org.eclipse.emf.ecore/model/XMLNamespace.ecore#//LangTypeMember1/_"/>
+  </nested>
+  <nested inputs="http://www.loc.gov/mods/xml.xsd#//lang;XSDAttributeDeclaration/XSDSimpleTypeDefinition"
+      outputs="../../../plugin/org.eclipse.emf.ecore/model/XMLNamespace.ecore#//LangType"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//languageAttributeGroup;XSDAttributeGroupDefinition=5/XSDAttributeUse=1"
+      outputs="mods.ecore#//XsString/lang1"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//languageAttributeGroup;XSDAttributeGroupDefinition=5/XSDAttributeUse=2"
+      outputs="mods.ecore#//XsString/script"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//languageAttributeGroup;XSDAttributeGroupDefinition=5/XSDAttributeUse=3"
+      outputs="mods.ecore#//XsString/transliteration"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//xsString;XSDComplexTypeDefinition=55"
+      outputs="mods.ecore#//XsString"/>
+  <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//actuate;XSDAttributeDeclaration=5/XSDSimpleTypeDefinition"
+      outputs="../../xlink.model/model/xlink.ecore#//ActuateType">
+    <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//actuate;XSDAttributeDeclaration=5/XSDSimpleTypeDefinition/XSDEnumerationFacet"
+        outputs="../../xlink.model/model/xlink.ecore#//ActuateType/onLoad"/>
+    <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//actuate;XSDAttributeDeclaration=5/XSDSimpleTypeDefinition/XSDEnumerationFacet=1"
+        outputs="../../xlink.model/model/xlink.ecore#//ActuateType/onRequest"/>
+    <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//actuate;XSDAttributeDeclaration=5/XSDSimpleTypeDefinition/XSDEnumerationFacet=2"
+        outputs="../../xlink.model/model/xlink.ecore#//ActuateType/other"/>
+    <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//actuate;XSDAttributeDeclaration=5/XSDSimpleTypeDefinition/XSDEnumerationFacet=3"
+        outputs="../../xlink.model/model/xlink.ecore#//ActuateType/none"/>
+  </nested>
+  <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//simpleLink;XSDAttributeGroupDefinition/XSDAttributeUse=6"
+      outputs="mods.ecore#//UnstructuredTextDefinition/actuate"/>
+  <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//simpleLink;XSDAttributeGroupDefinition/XSDAttributeUse=3"
+      outputs="mods.ecore#//UnstructuredTextDefinition/arcrole"/>
+  <nested inputs="bundleentry://278.fwk4354460/cache/www.w3.org/2001/XMLSchema.xsd#//anyURI;XSDSimpleTypeDefinition=25"
+      outputs="http://www.eclipse.org/emf/2003/XMLType#//AnyURI"/>
+  <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//simpleLink;XSDAttributeGroupDefinition/XSDAttributeUse=1"
+      outputs="mods.ecore#//UnstructuredTextDefinition/href"/>
+  <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//simpleLink;XSDAttributeGroupDefinition/XSDAttributeUse=2"
+      outputs="mods.ecore#//UnstructuredTextDefinition/role"/>
+  <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//show;XSDAttributeDeclaration=4/XSDSimpleTypeDefinition"
+      outputs="../../xlink.model/model/xlink.ecore#//ShowType">
+    <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//show;XSDAttributeDeclaration=4/XSDSimpleTypeDefinition/XSDEnumerationFacet"
+        outputs="../../xlink.model/model/xlink.ecore#//ShowType/new"/>
+    <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//show;XSDAttributeDeclaration=4/XSDSimpleTypeDefinition/XSDEnumerationFacet=1"
+        outputs="../../xlink.model/model/xlink.ecore#//ShowType/replace"/>
+    <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//show;XSDAttributeDeclaration=4/XSDSimpleTypeDefinition/XSDEnumerationFacet=2"
+        outputs="../../xlink.model/model/xlink.ecore#//ShowType/embed"/>
+    <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//show;XSDAttributeDeclaration=4/XSDSimpleTypeDefinition/XSDEnumerationFacet=3"
+        outputs="../../xlink.model/model/xlink.ecore#//ShowType/other"/>
+    <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//show;XSDAttributeDeclaration=4/XSDSimpleTypeDefinition/XSDEnumerationFacet=4"
+        outputs="../../xlink.model/model/xlink.ecore#//ShowType/none"/>
+  </nested>
+  <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//simpleLink;XSDAttributeGroupDefinition/XSDAttributeUse=5"
+      outputs="mods.ecore#//UnstructuredTextDefinition/show"/>
+  <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//simpleLink;XSDAttributeGroupDefinition/XSDAttributeUse=4"
+      outputs="mods.ecore#//UnstructuredTextDefinition/title"/>
+  <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//simpleLink;XSDAttributeGroupDefinition/XSDAttributeUse"
+      outputs="mods.ecore#//UnstructuredTextDefinition/type1"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//unstructuredTextDefinition;XSDComplexTypeDefinition=48"
+      outputs="mods.ecore#//UnstructuredTextDefinition">
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//unstructuredTextDefinition;XSDComplexTypeDefinition=48/XSDAttributeUse"
+        outputs="mods.ecore#//UnstructuredTextDefinition/displayLabel"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//unstructuredTextDefinition;XSDComplexTypeDefinition=48/XSDAttributeUse=1"
+        outputs="mods.ecore#//UnstructuredTextDefinition/type"/>
+  </nested>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//noDefinition;XSDSimpleTypeDefinition=13"
+      outputs="mods.ecore#//NoDefinition">
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//noDefinition;XSDSimpleTypeDefinition=13/XSDEnumerationFacet"
+        outputs="mods.ecore#//NoDefinition/no"/>
+  </nested>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//abstractDefinition;XSDComplexTypeDefinition=2"
+      outputs="mods.ecore#//AbstractDefinition">
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//abstractDefinition;XSDComplexTypeDefinition=2/XSDAttributeUse=1"
+        outputs="mods.ecore#//AbstractDefinition/altRepGroup"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//abstractDefinition;XSDComplexTypeDefinition=2/XSDAttributeUse"
+        outputs="mods.ecore#//AbstractDefinition/shareable"/>
+  </nested>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//abstract;XSDElementDeclaration=2"
+      outputs="mods.ecore#//DocumentRoot/abstract"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//extensionDefinition;XSDComplexTypeDefinition=5"
+      outputs="mods.ecore#//ExtensionDefinition">
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//extensionDefinition;XSDComplexTypeDefinition=5/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="mods.ecore#//ExtensionDefinition/any"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//extensionDefinition;XSDComplexTypeDefinition=5/XSDAttributeUse"
+        outputs="mods.ecore#//ExtensionDefinition/displayLabel"/>
+  </nested>
+  <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//simpleLink;XSDAttributeGroupDefinition/XSDAttributeUse=6"
+      outputs="mods.ecore#//AccessConditionDefinition/actuate"/>
+  <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//simpleLink;XSDAttributeGroupDefinition/XSDAttributeUse=3"
+      outputs="mods.ecore#//AccessConditionDefinition/arcrole"/>
+  <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//simpleLink;XSDAttributeGroupDefinition/XSDAttributeUse=1"
+      outputs="mods.ecore#//AccessConditionDefinition/href"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//languageAttributeGroup;XSDAttributeGroupDefinition=5/XSDAttributeUse"
+      outputs="mods.ecore#//AccessConditionDefinition/lang"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//languageAttributeGroup;XSDAttributeGroupDefinition=5/XSDAttributeUse=1"
+      outputs="mods.ecore#//AccessConditionDefinition/lang1"/>
+  <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//simpleLink;XSDAttributeGroupDefinition/XSDAttributeUse=2"
+      outputs="mods.ecore#//AccessConditionDefinition/role"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//languageAttributeGroup;XSDAttributeGroupDefinition=5/XSDAttributeUse=2"
+      outputs="mods.ecore#//AccessConditionDefinition/script"/>
+  <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//simpleLink;XSDAttributeGroupDefinition/XSDAttributeUse=5"
+      outputs="mods.ecore#//AccessConditionDefinition/show"/>
+  <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//simpleLink;XSDAttributeGroupDefinition/XSDAttributeUse=4"
+      outputs="mods.ecore#//AccessConditionDefinition/title"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//languageAttributeGroup;XSDAttributeGroupDefinition=5/XSDAttributeUse=3"
+      outputs="mods.ecore#//AccessConditionDefinition/transliteration"/>
+  <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//simpleLink;XSDAttributeGroupDefinition/XSDAttributeUse"
+      outputs="mods.ecore#//AccessConditionDefinition/type"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//accessConditionDefinition;XSDComplexTypeDefinition=3"
+      outputs="mods.ecore#//AccessConditionDefinition">
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//accessConditionDefinition;XSDComplexTypeDefinition=3/XSDAttributeUse=1"
+        outputs="mods.ecore#//AccessConditionDefinition/altRepGroup"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//accessConditionDefinition;XSDComplexTypeDefinition=3/XSDAttributeUse"
+        outputs="mods.ecore#//AccessConditionDefinition/type1"/>
+  </nested>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//accessCondition;XSDElementDeclaration=3"
+      outputs="mods.ecore#//DocumentRoot/accessCondition"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//affiliation;XSDElementDeclaration=4"
+      outputs="mods.ecore#//DocumentRoot/affiliation"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//area;XSDElementDeclaration=5"
+      outputs="mods.ecore#//DocumentRoot/area"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//caption;XSDElementDeclaration=6"
+      outputs="mods.ecore#//DocumentRoot/caption"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//authorityAttributeGroup;XSDAttributeGroupDefinition/XSDAttributeUse"
+      outputs="mods.ecore#//CartographicsDefinition/authority"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//authorityAndValueURIAttributeGroup;XSDAttributeGroupDefinition=1/XSDAttributeUse"
+      outputs="mods.ecore#//CartographicsDefinition/authorityURI"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//authorityAndValueURIAttributeGroup;XSDAttributeGroupDefinition=1/XSDAttributeUse=1"
+      outputs="mods.ecore#//CartographicsDefinition/valueURI"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//cartographicsDefinition;XSDComplexTypeDefinition=22"
+      outputs="mods.ecore#//CartographicsDefinition">
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//cartographicsDefinition;XSDComplexTypeDefinition=22/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="mods.ecore#//CartographicsDefinition/scale"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//cartographicsDefinition;XSDComplexTypeDefinition=22/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="mods.ecore#//CartographicsDefinition/projection"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//cartographicsDefinition;XSDComplexTypeDefinition=22/XSDParticle/XSDModelGroup/XSDParticle=2"
+        outputs="mods.ecore#//CartographicsDefinition/coordinates"/>
+  </nested>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//cartographics;XSDElementDeclaration=7"
+      outputs="mods.ecore#//DocumentRoot/cartographics"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//city;XSDElementDeclaration=8"
+      outputs="mods.ecore#//DocumentRoot/city"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//citySection;XSDElementDeclaration=9"
+      outputs="mods.ecore#//DocumentRoot/citySection"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//authorityAttributeGroup;XSDAttributeGroupDefinition/XSDAttributeUse"
+      outputs="mods.ecore#//StringPlusAuthority/authority"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//authorityAndValueURIAttributeGroup;XSDAttributeGroupDefinition=1/XSDAttributeUse"
+      outputs="mods.ecore#//StringPlusAuthority/authorityURI"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//authorityAndValueURIAttributeGroup;XSDAttributeGroupDefinition=1/XSDAttributeUse=1"
+      outputs="mods.ecore#//StringPlusAuthority/valueURI"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//stringPlusAuthority;XSDComplexTypeDefinition=50"
+      outputs="mods.ecore#//StringPlusAuthority"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//usageAttributeDefinition;XSDSimpleTypeDefinition=19"
+      outputs="mods.ecore#//UsageAttributeDefinition">
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//usageAttributeDefinition;XSDSimpleTypeDefinition=19/XSDEnumerationFacet"
+        outputs="mods.ecore#//UsageAttributeDefinition/primary"/>
+  </nested>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//classificationDefinition;XSDComplexTypeDefinition=4"
+      outputs="mods.ecore#//ClassificationDefinition">
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//classificationDefinition;XSDComplexTypeDefinition=4/XSDAttributeUse=2"
+        outputs="mods.ecore#//ClassificationDefinition/altRepGroup"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//classificationDefinition;XSDComplexTypeDefinition=4/XSDAttributeUse=1"
+        outputs="mods.ecore#//ClassificationDefinition/displayLabel"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//classificationDefinition;XSDComplexTypeDefinition=4/XSDAttributeUse"
+        outputs="mods.ecore#//ClassificationDefinition/edition"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//classificationDefinition;XSDComplexTypeDefinition=4/XSDAttributeUse=3"
+        outputs="mods.ecore#//ClassificationDefinition/usage"/>
+  </nested>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//classification;XSDElementDeclaration=10"
+      outputs="mods.ecore#//DocumentRoot/classification"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//continent;XSDElementDeclaration=11"
+      outputs="mods.ecore#//DocumentRoot/continent"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//coordinates;XSDElementDeclaration=12"
+      outputs="mods.ecore#//DocumentRoot/coordinates"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//stringPlusAuthorityPlusType;XSDComplexTypeDefinition=52"
+      outputs="mods.ecore#//StringPlusAuthorityPlusType">
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//stringPlusAuthorityPlusType;XSDComplexTypeDefinition=52/XSDAttributeUse"
+        outputs="mods.ecore#//StringPlusAuthorityPlusType/type"/>
+  </nested>
+  <nested inputs="bundleentry://278.fwk4354460/cache/www.w3.org/2001/XMLSchema.xsd#//ID;XSDSimpleTypeDefinition=37"
+      outputs="http://www.eclipse.org/emf/2003/XMLType#//ID"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//noteBaseDefinition;XSDComplexTypeDefinition=36"
+      outputs="mods.ecore#//NoteBaseDefinition">
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//noteBaseDefinition;XSDComplexTypeDefinition=36/XSDAttributeUse"
+        outputs="mods.ecore#//NoteBaseDefinition/iD"/>
+  </nested>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//enumerationAndChronologyUnitTypeAttributeDefinition;XSDSimpleTypeDefinition=8"
+      outputs="mods.ecore#//EnumerationAndChronologyUnitTypeAttributeDefinition">
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//enumerationAndChronologyUnitTypeAttributeDefinition;XSDSimpleTypeDefinition=8/XSDEnumerationFacet"
+        outputs="mods.ecore#//EnumerationAndChronologyUnitTypeAttributeDefinition/_1"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//enumerationAndChronologyUnitTypeAttributeDefinition;XSDSimpleTypeDefinition=8/XSDEnumerationFacet=1"
+        outputs="mods.ecore#//EnumerationAndChronologyUnitTypeAttributeDefinition/_2"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//enumerationAndChronologyUnitTypeAttributeDefinition;XSDSimpleTypeDefinition=8/XSDEnumerationFacet=2"
+        outputs="mods.ecore#//EnumerationAndChronologyUnitTypeAttributeDefinition/_3"/>
+  </nested>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//enumerationAndChronologyDefinition;XSDComplexTypeDefinition=28"
+      outputs="mods.ecore#//EnumerationAndChronologyDefinition">
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//enumerationAndChronologyDefinition;XSDComplexTypeDefinition=28/XSDAttributeUse"
+        outputs="mods.ecore#//EnumerationAndChronologyDefinition/unitType"/>
+  </nested>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//copyInformationDefinition;XSDComplexTypeDefinition=23"
+      outputs="mods.ecore#//CopyInformationDefinition">
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//copyInformationDefinition;XSDComplexTypeDefinition=23/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="mods.ecore#//CopyInformationDefinition/form"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//copyInformationDefinition;XSDComplexTypeDefinition=23/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="mods.ecore#//CopyInformationDefinition/subLocation"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//copyInformationDefinition;XSDComplexTypeDefinition=23/XSDParticle/XSDModelGroup/XSDParticle=2"
+        outputs="mods.ecore#//CopyInformationDefinition/shelfLocator"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//copyInformationDefinition;XSDComplexTypeDefinition=23/XSDParticle/XSDModelGroup/XSDParticle=3"
+        outputs="mods.ecore#//CopyInformationDefinition/electronicLocator"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//copyInformationDefinition;XSDComplexTypeDefinition=23/XSDParticle/XSDModelGroup/XSDParticle=4"
+        outputs="mods.ecore#//CopyInformationDefinition/note"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//copyInformationDefinition;XSDComplexTypeDefinition=23/XSDParticle/XSDModelGroup/XSDParticle=5"
+        outputs="mods.ecore#//CopyInformationDefinition/enumerationAndChronology"/>
+  </nested>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//copyInformation;XSDElementDeclaration=13"
+      outputs="mods.ecore#//DocumentRoot/copyInformation"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//dateEncodingAttributeDefinition;XSDSimpleTypeDefinition=5"
+      outputs="mods.ecore#//DateEncodingAttributeDefinition">
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//dateEncodingAttributeDefinition;XSDSimpleTypeDefinition=5/XSDEnumerationFacet"
+        outputs="mods.ecore#//DateEncodingAttributeDefinition/w3cdtf"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//dateEncodingAttributeDefinition;XSDSimpleTypeDefinition=5/XSDEnumerationFacet=1"
+        outputs="mods.ecore#//DateEncodingAttributeDefinition/iso8601"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//dateEncodingAttributeDefinition;XSDSimpleTypeDefinition=5/XSDEnumerationFacet=2"
+        outputs="mods.ecore#//DateEncodingAttributeDefinition/marc"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//dateEncodingAttributeDefinition;XSDSimpleTypeDefinition=5/XSDEnumerationFacet=3"
+        outputs="mods.ecore#//DateEncodingAttributeDefinition/temper"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//dateEncodingAttributeDefinition;XSDSimpleTypeDefinition=5/XSDEnumerationFacet=4"
+        outputs="mods.ecore#//DateEncodingAttributeDefinition/edtf"/>
+  </nested>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//datePointAttributeDefinition;XSDSimpleTypeDefinition=6"
+      outputs="mods.ecore#//DatePointAttributeDefinition">
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//datePointAttributeDefinition;XSDSimpleTypeDefinition=6/XSDEnumerationFacet"
+        outputs="mods.ecore#//DatePointAttributeDefinition/start"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//datePointAttributeDefinition;XSDSimpleTypeDefinition=6/XSDEnumerationFacet=1"
+        outputs="mods.ecore#//DatePointAttributeDefinition/end"/>
+  </nested>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//dateQualifierAttributeDefinition;XSDSimpleTypeDefinition=7"
+      outputs="mods.ecore#//DateQualifierAttributeDefinition">
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//dateQualifierAttributeDefinition;XSDSimpleTypeDefinition=7/XSDEnumerationFacet"
+        outputs="mods.ecore#//DateQualifierAttributeDefinition/approximate"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//dateQualifierAttributeDefinition;XSDSimpleTypeDefinition=7/XSDEnumerationFacet=1"
+        outputs="mods.ecore#//DateQualifierAttributeDefinition/inferred"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//dateQualifierAttributeDefinition;XSDSimpleTypeDefinition=7/XSDEnumerationFacet=2"
+        outputs="mods.ecore#//DateQualifierAttributeDefinition/questionable"/>
+  </nested>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//dateBaseDefinition;XSDComplexTypeDefinition=25"
+      outputs="mods.ecore#//DateBaseDefinition">
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//dateBaseDefinition;XSDComplexTypeDefinition=25/XSDAttributeUse"
+        outputs="mods.ecore#//DateBaseDefinition/encoding"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//dateBaseDefinition;XSDComplexTypeDefinition=25/XSDAttributeUse=2"
+        outputs="mods.ecore#//DateBaseDefinition/point"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//dateBaseDefinition;XSDComplexTypeDefinition=25/XSDAttributeUse=1"
+        outputs="mods.ecore#//DateBaseDefinition/qualifier"/>
+  </nested>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//yesDefinition;XSDSimpleTypeDefinition=20"
+      outputs="mods.ecore#//YesDefinition">
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//yesDefinition;XSDSimpleTypeDefinition=20/XSDEnumerationFacet"
+        outputs="mods.ecore#//YesDefinition/yes"/>
+  </nested>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//dateDefinition;XSDComplexTypeDefinition=24"
+      outputs="mods.ecore#//DateDefinition">
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//dateDefinition;XSDComplexTypeDefinition=24/XSDAttributeUse"
+        outputs="mods.ecore#//DateDefinition/keyDate"/>
+  </nested>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//copyrightDate;XSDElementDeclaration=14"
+      outputs="mods.ecore#//DocumentRoot/copyrightDate"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//country;XSDElementDeclaration=15"
+      outputs="mods.ecore#//DocumentRoot/country"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//county;XSDElementDeclaration=16"
+      outputs="mods.ecore#//DocumentRoot/county"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//date;XSDElementDeclaration=17"
+      outputs="mods.ecore#//DocumentRoot/date"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//dateCaptured;XSDElementDeclaration=18"
+      outputs="mods.ecore#//DocumentRoot/dateCaptured"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//dateCreated;XSDElementDeclaration=19"
+      outputs="mods.ecore#//DocumentRoot/dateCreated"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//dateIssued;XSDElementDeclaration=20"
+      outputs="mods.ecore#//DocumentRoot/dateIssued"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//dateModified;XSDElementDeclaration=21"
+      outputs="mods.ecore#//DocumentRoot/dateModified"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//dateOtherDefinition;XSDComplexTypeDefinition=26"
+      outputs="mods.ecore#//DateOtherDefinition">
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//dateOtherDefinition;XSDComplexTypeDefinition=26/XSDAttributeUse"
+        outputs="mods.ecore#//DateOtherDefinition/type"/>
+  </nested>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//dateOther;XSDElementDeclaration=22"
+      outputs="mods.ecore#//DocumentRoot/dateOther"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//dateValid;XSDElementDeclaration=23"
+      outputs="mods.ecore#//DocumentRoot/dateValid"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//description;XSDElementDeclaration=24"
+      outputs="mods.ecore#//DocumentRoot/description"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//descriptionStandard;XSDElementDeclaration=25"
+      outputs="mods.ecore#//DocumentRoot/descriptionStandard"/>
+  <nested inputs="bundleentry://278.fwk4354460/cache/www.w3.org/2001/XMLSchema.xsd#//positiveInteger;XSDSimpleTypeDefinition=52"
+      outputs="http://www.eclipse.org/emf/2003/XMLType#//PositiveInteger"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//detailDefinition;XSDComplexTypeDefinition=27"
+      outputs="mods.ecore#//DetailDefinition">
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//detailDefinition;XSDComplexTypeDefinition=27/XSDParticle"
+        outputs="mods.ecore#//DetailDefinition/group"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//detailDefinition;XSDComplexTypeDefinition=27/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="mods.ecore#//DetailDefinition/number"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//detailDefinition;XSDComplexTypeDefinition=27/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="mods.ecore#//DetailDefinition/caption"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//detailDefinition;XSDComplexTypeDefinition=27/XSDParticle/XSDModelGroup/XSDParticle=2"
+        outputs="mods.ecore#//DetailDefinition/title"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//detailDefinition;XSDComplexTypeDefinition=27/XSDAttributeUse=1"
+        outputs="mods.ecore#//DetailDefinition/level"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//detailDefinition;XSDComplexTypeDefinition=27/XSDAttributeUse"
+        outputs="mods.ecore#//DetailDefinition/type"/>
+  </nested>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//detail;XSDElementDeclaration=26"
+      outputs="mods.ecore#//DocumentRoot/detail"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//digitalOriginDefinition;XSDSimpleTypeDefinition"
+      outputs="mods.ecore#//DigitalOriginDefinition">
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//digitalOriginDefinition;XSDSimpleTypeDefinition/XSDEnumerationFacet"
+        outputs="mods.ecore#//DigitalOriginDefinition/bornDigital"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//digitalOriginDefinition;XSDSimpleTypeDefinition/XSDEnumerationFacet=1"
+        outputs="mods.ecore#//DigitalOriginDefinition/reformattedDigital"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//digitalOriginDefinition;XSDSimpleTypeDefinition/XSDEnumerationFacet=2"
+        outputs="mods.ecore#//DigitalOriginDefinition/digitizedMicrofilm"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//digitalOriginDefinition;XSDSimpleTypeDefinition/XSDEnumerationFacet=3"
+        outputs="mods.ecore#//DigitalOriginDefinition/digitizedOtherAnalog"/>
+  </nested>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//digitalOrigin;XSDElementDeclaration=27"
+      outputs="mods.ecore#//DocumentRoot/digitalOrigin"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//displayForm;XSDElementDeclaration=28"
+      outputs="mods.ecore#//DocumentRoot/displayForm"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//stringPlusSupplied;XSDComplexTypeDefinition=51"
+      outputs="mods.ecore#//StringPlusSupplied">
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//stringPlusSupplied;XSDComplexTypeDefinition=51/XSDAttributeUse"
+        outputs="mods.ecore#//StringPlusSupplied/supplied"/>
+  </nested>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//edition;XSDElementDeclaration=29"
+      outputs="mods.ecore#//DocumentRoot/edition"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//electronicLocator;XSDElementDeclaration=30"
+      outputs="mods.ecore#//DocumentRoot/electronicLocator"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//end;XSDElementDeclaration=31"
+      outputs="mods.ecore#//DocumentRoot/end"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//enumerationAndChronology;XSDElementDeclaration=32"
+      outputs="mods.ecore#//DocumentRoot/enumerationAndChronology"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//extension;XSDElementDeclaration=33"
+      outputs="mods.ecore#//DocumentRoot/extension"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//extent;XSDElementDeclaration=34"
+      outputs="mods.ecore#//DocumentRoot/extent"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//extraterrestrialArea;XSDElementDeclaration=35"
+      outputs="mods.ecore#//DocumentRoot/extraterrestrialArea"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//form;XSDElementDeclaration=36"
+      outputs="mods.ecore#//DocumentRoot/form"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//frequency;XSDElementDeclaration=37"
+      outputs="mods.ecore#//DocumentRoot/frequency"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//stringPlusAuthorityPlusTypePlusDisplayLabel;XSDComplexTypeDefinition=53"
+      outputs="mods.ecore#//StringPlusAuthorityPlusTypePlusDisplayLabel">
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//stringPlusAuthorityPlusTypePlusDisplayLabel;XSDComplexTypeDefinition=53/XSDAttributeUse"
+        outputs="mods.ecore#//StringPlusAuthorityPlusTypePlusDisplayLabel/displayLabel"/>
+  </nested>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//genreDefinition;XSDComplexTypeDefinition=6"
+      outputs="mods.ecore#//GenreDefinition">
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//genreDefinition;XSDComplexTypeDefinition=6/XSDAttributeUse"
+        outputs="mods.ecore#//GenreDefinition/altRepGroup"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//genreDefinition;XSDComplexTypeDefinition=6/XSDAttributeUse=1"
+        outputs="mods.ecore#//GenreDefinition/usage"/>
+  </nested>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//genre;XSDElementDeclaration=38"
+      outputs="mods.ecore#//DocumentRoot/genre"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//geographic;XSDElementDeclaration=39"
+      outputs="mods.ecore#//DocumentRoot/geographic"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//placeAuthorityAttributeDefinition;XSDSimpleTypeDefinition=14"
+      outputs="mods.ecore#//PlaceAuthorityAttributeDefinition">
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//placeAuthorityAttributeDefinition;XSDSimpleTypeDefinition=14/XSDEnumerationFacet"
+        outputs="mods.ecore#//PlaceAuthorityAttributeDefinition/marcgac"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//placeAuthorityAttributeDefinition;XSDSimpleTypeDefinition=14/XSDEnumerationFacet=1"
+        outputs="mods.ecore#//PlaceAuthorityAttributeDefinition/marccountry"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//placeAuthorityAttributeDefinition;XSDSimpleTypeDefinition=14/XSDEnumerationFacet=2"
+        outputs="mods.ecore#//PlaceAuthorityAttributeDefinition/iso3166"/>
+  </nested>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//placeAuthorityAttributeGroup;XSDAttributeGroupDefinition=2/XSDAttributeUse"
+      outputs="mods.ecore#//GeographicCodeDefinition/authority"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//authorityAndValueURIAttributeGroup;XSDAttributeGroupDefinition=1/XSDAttributeUse"
+      outputs="mods.ecore#//GeographicCodeDefinition/authorityURI"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//authorityAndValueURIAttributeGroup;XSDAttributeGroupDefinition=1/XSDAttributeUse=1"
+      outputs="mods.ecore#//GeographicCodeDefinition/valueURI"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//geographicCodeDefinition;XSDComplexTypeDefinition=30"
+      outputs="mods.ecore#//GeographicCodeDefinition"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//geographicCode;XSDElementDeclaration=40"
+      outputs="mods.ecore#//DocumentRoot/geographicCode"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//authorityAttributeGroup;XSDAttributeGroupDefinition/XSDAttributeUse"
+      outputs="mods.ecore#//HierarchicalGeographicDefinition/authority"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//authorityAndValueURIAttributeGroup;XSDAttributeGroupDefinition=1/XSDAttributeUse"
+      outputs="mods.ecore#//HierarchicalGeographicDefinition/authorityURI"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//authorityAndValueURIAttributeGroup;XSDAttributeGroupDefinition=1/XSDAttributeUse=1"
+      outputs="mods.ecore#//HierarchicalGeographicDefinition/valueURI"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//hierarchicalGeographicDefinition;XSDComplexTypeDefinition=31"
+      outputs="mods.ecore#//HierarchicalGeographicDefinition">
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//hierarchicalGeographicDefinition;XSDComplexTypeDefinition=31/XSDParticle"
+        outputs="mods.ecore#//HierarchicalGeographicDefinition/group"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//hierarchicalGeographicDefinition;XSDComplexTypeDefinition=31/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="mods.ecore#//HierarchicalGeographicDefinition/extraterrestrialArea"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//hierarchicalGeographicDefinition;XSDComplexTypeDefinition=31/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="mods.ecore#//HierarchicalGeographicDefinition/continent"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//hierarchicalGeographicDefinition;XSDComplexTypeDefinition=31/XSDParticle/XSDModelGroup/XSDParticle=2"
+        outputs="mods.ecore#//HierarchicalGeographicDefinition/country"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//hierarchicalGeographicDefinition;XSDComplexTypeDefinition=31/XSDParticle/XSDModelGroup/XSDParticle=3"
+        outputs="mods.ecore#//HierarchicalGeographicDefinition/province"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//hierarchicalGeographicDefinition;XSDComplexTypeDefinition=31/XSDParticle/XSDModelGroup/XSDParticle=4"
+        outputs="mods.ecore#//HierarchicalGeographicDefinition/region"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//hierarchicalGeographicDefinition;XSDComplexTypeDefinition=31/XSDParticle/XSDModelGroup/XSDParticle=5"
+        outputs="mods.ecore#//HierarchicalGeographicDefinition/state"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//hierarchicalGeographicDefinition;XSDComplexTypeDefinition=31/XSDParticle/XSDModelGroup/XSDParticle=6"
+        outputs="mods.ecore#//HierarchicalGeographicDefinition/territory"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//hierarchicalGeographicDefinition;XSDComplexTypeDefinition=31/XSDParticle/XSDModelGroup/XSDParticle=7"
+        outputs="mods.ecore#//HierarchicalGeographicDefinition/county"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//hierarchicalGeographicDefinition;XSDComplexTypeDefinition=31/XSDParticle/XSDModelGroup/XSDParticle=8"
+        outputs="mods.ecore#//HierarchicalGeographicDefinition/city"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//hierarchicalGeographicDefinition;XSDComplexTypeDefinition=31/XSDParticle/XSDModelGroup/XSDParticle=9"
+        outputs="mods.ecore#//HierarchicalGeographicDefinition/citySection"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//hierarchicalGeographicDefinition;XSDComplexTypeDefinition=31/XSDParticle/XSDModelGroup/XSDParticle=10"
+        outputs="mods.ecore#//HierarchicalGeographicDefinition/island"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//hierarchicalGeographicDefinition;XSDComplexTypeDefinition=31/XSDParticle/XSDModelGroup/XSDParticle=11"
+        outputs="mods.ecore#//HierarchicalGeographicDefinition/area"/>
+  </nested>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//hierarchicalGeographic;XSDElementDeclaration=41"
+      outputs="mods.ecore#//DocumentRoot/hierarchicalGeographic"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//holdingExternal;XSDElementDeclaration=42"
+      outputs="mods.ecore#//DocumentRoot/holdingExternal"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//holdingSimpleDefinition;XSDComplexTypeDefinition=32"
+      outputs="mods.ecore#//HoldingSimpleDefinition">
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//holdingSimpleDefinition;XSDComplexTypeDefinition=32/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="mods.ecore#//HoldingSimpleDefinition/copyInformation"/>
+  </nested>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//holdingSimple;XSDElementDeclaration=43"
+      outputs="mods.ecore#//DocumentRoot/holdingSimple"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//identifierDefinition;XSDComplexTypeDefinition=7"
+      outputs="mods.ecore#//IdentifierDefinition">
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//identifierDefinition;XSDComplexTypeDefinition=7/XSDAttributeUse=3"
+        outputs="mods.ecore#//IdentifierDefinition/altRepGroup"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//identifierDefinition;XSDComplexTypeDefinition=7/XSDAttributeUse"
+        outputs="mods.ecore#//IdentifierDefinition/displayLabel"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//identifierDefinition;XSDComplexTypeDefinition=7/XSDAttributeUse=2"
+        outputs="mods.ecore#//IdentifierDefinition/invalid"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//identifierDefinition;XSDComplexTypeDefinition=7/XSDAttributeUse=1"
+        outputs="mods.ecore#//IdentifierDefinition/type"/>
+  </nested>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//identifier;XSDElementDeclaration=44"
+      outputs="mods.ecore#//DocumentRoot/identifier"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//internetMediaType;XSDElementDeclaration=45"
+      outputs="mods.ecore#//DocumentRoot/internetMediaType"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//island;XSDElementDeclaration=46"
+      outputs="mods.ecore#//DocumentRoot/island"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//issuanceDefinition;XSDSimpleTypeDefinition=1"
+      outputs="mods.ecore#//IssuanceDefinition">
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//issuanceDefinition;XSDSimpleTypeDefinition=1/XSDEnumerationFacet"
+        outputs="mods.ecore#//IssuanceDefinition/continuing"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//issuanceDefinition;XSDSimpleTypeDefinition=1/XSDEnumerationFacet=1"
+        outputs="mods.ecore#//IssuanceDefinition/monographic"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//issuanceDefinition;XSDSimpleTypeDefinition=1/XSDEnumerationFacet=2"
+        outputs="mods.ecore#//IssuanceDefinition/singleUnit"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//issuanceDefinition;XSDSimpleTypeDefinition=1/XSDEnumerationFacet=3"
+        outputs="mods.ecore#//IssuanceDefinition/multipartMonograph"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//issuanceDefinition;XSDSimpleTypeDefinition=1/XSDEnumerationFacet=4"
+        outputs="mods.ecore#//IssuanceDefinition/serial"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//issuanceDefinition;XSDSimpleTypeDefinition=1/XSDEnumerationFacet=5"
+        outputs="mods.ecore#//IssuanceDefinition/integratingResource"/>
+  </nested>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//issuance;XSDElementDeclaration=47"
+      outputs="mods.ecore#//DocumentRoot/issuance"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//languageAuthorityAttributeDefinition;XSDSimpleTypeDefinition=9"
+      outputs="mods.ecore#//LanguageAuthorityAttributeDefinition">
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//languageAuthorityAttributeDefinition;XSDSimpleTypeDefinition=9/XSDEnumerationFacet"
+        outputs="mods.ecore#//LanguageAuthorityAttributeDefinition/rfc3066"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//languageAuthorityAttributeDefinition;XSDSimpleTypeDefinition=9/XSDEnumerationFacet=1"
+        outputs="mods.ecore#//LanguageAuthorityAttributeDefinition/iso6392b"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//languageAuthorityAttributeDefinition;XSDSimpleTypeDefinition=9/XSDEnumerationFacet=2"
+        outputs="mods.ecore#//LanguageAuthorityAttributeDefinition/iso6393"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//languageAuthorityAttributeDefinition;XSDSimpleTypeDefinition=9/XSDEnumerationFacet=3"
+        outputs="mods.ecore#//LanguageAuthorityAttributeDefinition/rfc4646"/>
+  </nested>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//languageAuthorityAttributeGroup;XSDAttributeGroupDefinition=3/XSDAttributeUse"
+      outputs="mods.ecore#//LanguageTermDefinition/authority"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//authorityAndValueURIAttributeGroup;XSDAttributeGroupDefinition=1/XSDAttributeUse"
+      outputs="mods.ecore#//LanguageTermDefinition/authorityURI"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//codeOrTextDefinition;XSDSimpleTypeDefinition=4"
+      outputs="mods.ecore#//CodeOrTextDefinition">
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//codeOrTextDefinition;XSDSimpleTypeDefinition=4/XSDEnumerationFacet"
+        outputs="mods.ecore#//CodeOrTextDefinition/code"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//codeOrTextDefinition;XSDSimpleTypeDefinition=4/XSDEnumerationFacet=1"
+        outputs="mods.ecore#//CodeOrTextDefinition/text"/>
+  </nested>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//authorityAndValueURIAttributeGroup;XSDAttributeGroupDefinition=1/XSDAttributeUse=1"
+      outputs="mods.ecore#//LanguageTermDefinition/valueURI"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//languageTermDefinition;XSDComplexTypeDefinition=33"
+      outputs="mods.ecore#//LanguageTermDefinition">
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//languageTermDefinition;XSDComplexTypeDefinition=33/XSDAttributeUse"
+        outputs="mods.ecore#//LanguageTermDefinition/type"/>
+  </nested>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//scriptTermDefinition;XSDComplexTypeDefinition=43"
+      outputs="mods.ecore#//ScriptTermDefinition">
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//scriptTermDefinition;XSDComplexTypeDefinition=43/XSDAttributeUse"
+        outputs="mods.ecore#//ScriptTermDefinition/type"/>
+  </nested>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//languagePlusDisplayLabelAttributeGroup;XSDAttributeGroupDefinition=6/XSDAttributeUse"
+      outputs="mods.ecore#//LanguageDefinition/displayLabel"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//languageAttributeGroup;XSDAttributeGroupDefinition=5/XSDAttributeUse"
+      outputs="mods.ecore#//LanguageDefinition/lang"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//languageAttributeGroup;XSDAttributeGroupDefinition=5/XSDAttributeUse=1"
+      outputs="mods.ecore#//LanguageDefinition/lang1"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//languageAttributeGroup;XSDAttributeGroupDefinition=5/XSDAttributeUse=2"
+      outputs="mods.ecore#//LanguageDefinition/script"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//languageAttributeGroup;XSDAttributeGroupDefinition=5/XSDAttributeUse=3"
+      outputs="mods.ecore#//LanguageDefinition/transliteration"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//languageDefinition;XSDComplexTypeDefinition=8"
+      outputs="mods.ecore#//LanguageDefinition">
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//languageDefinition;XSDComplexTypeDefinition=8/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="mods.ecore#//LanguageDefinition/languageTerm"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//languageDefinition;XSDComplexTypeDefinition=8/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="mods.ecore#//LanguageDefinition/scriptTerm"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//languageDefinition;XSDComplexTypeDefinition=8/XSDAttributeUse=1"
+        outputs="mods.ecore#//LanguageDefinition/altRepGroup"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//languageDefinition;XSDComplexTypeDefinition=8/XSDAttributeUse"
+        outputs="mods.ecore#//LanguageDefinition/objectPart"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//languageDefinition;XSDComplexTypeDefinition=8/XSDAttributeUse=2"
+        outputs="mods.ecore#//LanguageDefinition/usage"/>
+  </nested>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//language;XSDElementDeclaration=48"
+      outputs="mods.ecore#//DocumentRoot/language"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//languageOfCataloging;XSDElementDeclaration=49"
+      outputs="mods.ecore#//DocumentRoot/languageOfCataloging"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//languageTerm;XSDElementDeclaration=50"
+      outputs="mods.ecore#//DocumentRoot/languageTerm"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//list;XSDElementDeclaration=51"
+      outputs="mods.ecore#//DocumentRoot/list"/>
+  <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//simpleLink;XSDAttributeGroupDefinition/XSDAttributeUse=6"
+      outputs="mods.ecore#//StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink/actuate"/>
+  <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//simpleLink;XSDAttributeGroupDefinition/XSDAttributeUse=3"
+      outputs="mods.ecore#//StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink/arcrole"/>
+  <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//simpleLink;XSDAttributeGroupDefinition/XSDAttributeUse=1"
+      outputs="mods.ecore#//StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink/href"/>
+  <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//simpleLink;XSDAttributeGroupDefinition/XSDAttributeUse=2"
+      outputs="mods.ecore#//StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink/role"/>
+  <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//simpleLink;XSDAttributeGroupDefinition/XSDAttributeUse=5"
+      outputs="mods.ecore#//StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink/show"/>
+  <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//simpleLink;XSDAttributeGroupDefinition/XSDAttributeUse=4"
+      outputs="mods.ecore#//StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink/title"/>
+  <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//simpleLink;XSDAttributeGroupDefinition/XSDAttributeUse"
+      outputs="mods.ecore#//StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink/type1"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//stringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink;XSDComplexTypeDefinition=54"
+      outputs="mods.ecore#//StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//physicalLocationDefinition;XSDComplexTypeDefinition=39"
+      outputs="mods.ecore#//PhysicalLocationDefinition"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//urlAccessAttributeDefinition;XSDSimpleTypeDefinition=17"
+      outputs="mods.ecore#//UrlAccessAttributeDefinition">
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//urlAccessAttributeDefinition;XSDSimpleTypeDefinition=17/XSDEnumerationFacet"
+        outputs="mods.ecore#//UrlAccessAttributeDefinition/preview"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//urlAccessAttributeDefinition;XSDSimpleTypeDefinition=17/XSDEnumerationFacet=1"
+        outputs="mods.ecore#//UrlAccessAttributeDefinition/rawObject"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//urlAccessAttributeDefinition;XSDSimpleTypeDefinition=17/XSDEnumerationFacet=2"
+        outputs="mods.ecore#//UrlAccessAttributeDefinition/objectInContext"/>
+  </nested>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//urlUsageAttributeDefinition;XSDSimpleTypeDefinition=18"
+      outputs="mods.ecore#//UrlUsageAttributeDefinition">
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//urlUsageAttributeDefinition;XSDSimpleTypeDefinition=18/XSDEnumerationFacet"
+        outputs="mods.ecore#//UrlUsageAttributeDefinition/primaryDisplay"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//urlUsageAttributeDefinition;XSDSimpleTypeDefinition=18/XSDEnumerationFacet=1"
+        outputs="mods.ecore#//UrlUsageAttributeDefinition/primary"/>
+  </nested>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//urlDefinition;XSDComplexTypeDefinition=49"
+      outputs="mods.ecore#//UrlDefinition">
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//urlDefinition;XSDComplexTypeDefinition=49/XSDAttributeUse=3"
+        outputs="mods.ecore#//UrlDefinition/access"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//urlDefinition;XSDComplexTypeDefinition=49/XSDAttributeUse"
+        outputs="mods.ecore#//UrlDefinition/dateLastAccessed"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//urlDefinition;XSDComplexTypeDefinition=49/XSDAttributeUse=1"
+        outputs="mods.ecore#//UrlDefinition/displayLabel"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//urlDefinition;XSDComplexTypeDefinition=49/XSDAttributeUse=2"
+        outputs="mods.ecore#//UrlDefinition/note"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//urlDefinition;XSDComplexTypeDefinition=49/XSDAttributeUse=4"
+        outputs="mods.ecore#//UrlDefinition/usage"/>
+  </nested>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//languagePlusDisplayLabelAttributeGroup;XSDAttributeGroupDefinition=6/XSDAttributeUse"
+      outputs="mods.ecore#//LocationDefinition/displayLabel"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//languageAttributeGroup;XSDAttributeGroupDefinition=5/XSDAttributeUse"
+      outputs="mods.ecore#//LocationDefinition/lang"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//languageAttributeGroup;XSDAttributeGroupDefinition=5/XSDAttributeUse=1"
+      outputs="mods.ecore#//LocationDefinition/lang1"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//languageAttributeGroup;XSDAttributeGroupDefinition=5/XSDAttributeUse=2"
+      outputs="mods.ecore#//LocationDefinition/script"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//languageAttributeGroup;XSDAttributeGroupDefinition=5/XSDAttributeUse=3"
+      outputs="mods.ecore#//LocationDefinition/transliteration"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//locationDefinition;XSDComplexTypeDefinition=9"
+      outputs="mods.ecore#//LocationDefinition">
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//locationDefinition;XSDComplexTypeDefinition=9/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="mods.ecore#//LocationDefinition/physicalLocation"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//locationDefinition;XSDComplexTypeDefinition=9/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="mods.ecore#//LocationDefinition/shelfLocator"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//locationDefinition;XSDComplexTypeDefinition=9/XSDParticle/XSDModelGroup/XSDParticle=2"
+        outputs="mods.ecore#//LocationDefinition/url"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//locationDefinition;XSDComplexTypeDefinition=9/XSDParticle/XSDModelGroup/XSDParticle=3"
+        outputs="mods.ecore#//LocationDefinition/holdingSimple"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//locationDefinition;XSDComplexTypeDefinition=9/XSDParticle/XSDModelGroup/XSDParticle=4"
+        outputs="mods.ecore#//LocationDefinition/holdingExternal"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//locationDefinition;XSDComplexTypeDefinition=9/XSDAttributeUse"
+        outputs="mods.ecore#//LocationDefinition/altRepGroup"/>
+  </nested>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//location;XSDElementDeclaration=52"
+      outputs="mods.ecore#//DocumentRoot/location"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//modsGroup;XSDModelGroupDefinition/XSDModelGroup/XSDParticle"
+      outputs="mods.ecore#//ModsDefinition/abstract"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//modsGroup;XSDModelGroupDefinition/XSDModelGroup/XSDParticle=1"
+      outputs="mods.ecore#//ModsDefinition/accessCondition"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//modsGroup;XSDModelGroupDefinition/XSDModelGroup/XSDParticle=2"
+      outputs="mods.ecore#//ModsDefinition/classification"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//modsGroup;XSDModelGroupDefinition/XSDModelGroup/XSDParticle=3"
+      outputs="mods.ecore#//ModsDefinition/extension"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//modsGroup;XSDModelGroupDefinition/XSDModelGroup/XSDParticle=4"
+      outputs="mods.ecore#//ModsDefinition/genre"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//modsGroup;XSDModelGroupDefinition/XSDModelGroup/XSDParticle=5"
+      outputs="mods.ecore#//ModsDefinition/identifier"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//modsGroup;XSDModelGroupDefinition/XSDModelGroup/XSDParticle=6"
+      outputs="mods.ecore#//ModsDefinition/language"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//modsGroup;XSDModelGroupDefinition/XSDModelGroup/XSDParticle=7"
+      outputs="mods.ecore#//ModsDefinition/location"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//namePartTypeAttributeDefinition;XSDSimpleTypeDefinition=11"
+      outputs="mods.ecore#//NamePartTypeAttributeDefinition">
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//namePartTypeAttributeDefinition;XSDSimpleTypeDefinition=11/XSDEnumerationFacet"
+        outputs="mods.ecore#//NamePartTypeAttributeDefinition/date"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//namePartTypeAttributeDefinition;XSDSimpleTypeDefinition=11/XSDEnumerationFacet=1"
+        outputs="mods.ecore#//NamePartTypeAttributeDefinition/family"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//namePartTypeAttributeDefinition;XSDSimpleTypeDefinition=11/XSDEnumerationFacet=2"
+        outputs="mods.ecore#//NamePartTypeAttributeDefinition/given"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//namePartTypeAttributeDefinition;XSDSimpleTypeDefinition=11/XSDEnumerationFacet=3"
+        outputs="mods.ecore#//NamePartTypeAttributeDefinition/termsOfAddress"/>
+  </nested>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//namePartDefinition;XSDComplexTypeDefinition=35"
+      outputs="mods.ecore#//NamePartDefinition">
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//namePartDefinition;XSDComplexTypeDefinition=35/XSDAttributeUse"
+        outputs="mods.ecore#//NamePartDefinition/type"/>
+  </nested>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//roleTermDefinition;XSDComplexTypeDefinition=42"
+      outputs="mods.ecore#//RoleTermDefinition">
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//roleTermDefinition;XSDComplexTypeDefinition=42/XSDAttributeUse"
+        outputs="mods.ecore#//RoleTermDefinition/type"/>
+  </nested>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//roleDefinition;XSDComplexTypeDefinition=41"
+      outputs="mods.ecore#//RoleDefinition">
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//roleDefinition;XSDComplexTypeDefinition=41/XSDParticle"
+        outputs="mods.ecore#//RoleDefinition/group"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//roleDefinition;XSDComplexTypeDefinition=41/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="mods.ecore#//RoleDefinition/roleTerm"/>
+  </nested>
+  <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//simpleLink;XSDAttributeGroupDefinition/XSDAttributeUse=6"
+      outputs="mods.ecore#//NameBaseDefinition/actuate"/>
+  <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//simpleLink;XSDAttributeGroupDefinition/XSDAttributeUse=3"
+      outputs="mods.ecore#//NameBaseDefinition/arcrole"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//authorityAttributeGroup;XSDAttributeGroupDefinition/XSDAttributeUse"
+      outputs="mods.ecore#//NameBaseDefinition/authority"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//authorityAndValueURIAttributeGroup;XSDAttributeGroupDefinition=1/XSDAttributeUse"
+      outputs="mods.ecore#//NameBaseDefinition/authorityURI"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//idAuthorityXlinkLanguageDisplayLabelAttributeGroup;XSDAttributeGroupDefinition=4/XSDAttributeUse=1"
+      outputs="mods.ecore#//NameBaseDefinition/displayLabel"/>
+  <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//simpleLink;XSDAttributeGroupDefinition/XSDAttributeUse=1"
+      outputs="mods.ecore#//NameBaseDefinition/href"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//idAuthorityXlinkLanguageDisplayLabelAttributeGroup;XSDAttributeGroupDefinition=4/XSDAttributeUse"
+      outputs="mods.ecore#//NameBaseDefinition/iD"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//languageAttributeGroup;XSDAttributeGroupDefinition=5/XSDAttributeUse"
+      outputs="mods.ecore#//NameBaseDefinition/lang"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//languageAttributeGroup;XSDAttributeGroupDefinition=5/XSDAttributeUse=1"
+      outputs="mods.ecore#//NameBaseDefinition/lang1"/>
+  <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//simpleLink;XSDAttributeGroupDefinition/XSDAttributeUse=2"
+      outputs="mods.ecore#//NameBaseDefinition/role1"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//languageAttributeGroup;XSDAttributeGroupDefinition=5/XSDAttributeUse=2"
+      outputs="mods.ecore#//NameBaseDefinition/script"/>
+  <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//simpleLink;XSDAttributeGroupDefinition/XSDAttributeUse=5"
+      outputs="mods.ecore#//NameBaseDefinition/show"/>
+  <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//simpleLink;XSDAttributeGroupDefinition/XSDAttributeUse=4"
+      outputs="mods.ecore#//NameBaseDefinition/title"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//languageAttributeGroup;XSDAttributeGroupDefinition=5/XSDAttributeUse=3"
+      outputs="mods.ecore#//NameBaseDefinition/transliteration"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//nameTypeAttributeDefinition;XSDSimpleTypeDefinition=12"
+      outputs="mods.ecore#//NameTypeAttributeDefinition">
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//nameTypeAttributeDefinition;XSDSimpleTypeDefinition=12/XSDEnumerationFacet"
+        outputs="mods.ecore#//NameTypeAttributeDefinition/personal"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//nameTypeAttributeDefinition;XSDSimpleTypeDefinition=12/XSDEnumerationFacet=1"
+        outputs="mods.ecore#//NameTypeAttributeDefinition/corporate"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//nameTypeAttributeDefinition;XSDSimpleTypeDefinition=12/XSDEnumerationFacet=2"
+        outputs="mods.ecore#//NameTypeAttributeDefinition/conference"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//nameTypeAttributeDefinition;XSDSimpleTypeDefinition=12/XSDEnumerationFacet=3"
+        outputs="mods.ecore#//NameTypeAttributeDefinition/family"/>
+  </nested>
+  <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//simpleLink;XSDAttributeGroupDefinition/XSDAttributeUse"
+      outputs="mods.ecore#//NameBaseDefinition/type1"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//authorityAndValueURIAttributeGroup;XSDAttributeGroupDefinition=1/XSDAttributeUse=1"
+      outputs="mods.ecore#//NameBaseDefinition/valueURI"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//nameBaseDefinition;XSDComplexTypeDefinition=34"
+      outputs="mods.ecore#//NameBaseDefinition">
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//nameBaseDefinition;XSDComplexTypeDefinition=34/XSDParticle"
+        outputs="mods.ecore#//NameBaseDefinition/group"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//nameBaseDefinition;XSDComplexTypeDefinition=34/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="mods.ecore#//NameBaseDefinition/namePart"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//nameBaseDefinition;XSDComplexTypeDefinition=34/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="mods.ecore#//NameBaseDefinition/displayForm"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//nameBaseDefinition;XSDComplexTypeDefinition=34/XSDParticle/XSDModelGroup/XSDParticle=2"
+        outputs="mods.ecore#//NameBaseDefinition/affiliation"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//nameBaseDefinition;XSDComplexTypeDefinition=34/XSDParticle/XSDModelGroup/XSDParticle=3"
+        outputs="mods.ecore#//NameBaseDefinition/role"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//nameBaseDefinition;XSDComplexTypeDefinition=34/XSDParticle/XSDModelGroup/XSDParticle=4"
+        outputs="mods.ecore#//NameBaseDefinition/description"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//nameBaseDefinition;XSDComplexTypeDefinition=34/XSDAttributeUse"
+        outputs="mods.ecore#//NameBaseDefinition/type"/>
+  </nested>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//nameDefinition;XSDComplexTypeDefinition=10"
+      outputs="mods.ecore#//NameDefinition">
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//nameDefinition;XSDComplexTypeDefinition=10/XSDAttributeUse"
+        outputs="mods.ecore#//NameDefinition/altRepGroup"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//nameDefinition;XSDComplexTypeDefinition=10/XSDAttributeUse=1"
+        outputs="mods.ecore#//NameDefinition/nameTitleGroup"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//nameDefinition;XSDComplexTypeDefinition=10/XSDAttributeUse=2"
+        outputs="mods.ecore#//NameDefinition/usage"/>
+  </nested>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//modsGroup;XSDModelGroupDefinition/XSDModelGroup/XSDParticle=8"
+      outputs="mods.ecore#//ModsDefinition/name"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//noteDefinition;XSDComplexTypeDefinition=11"
+      outputs="mods.ecore#//NoteDefinition">
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//noteDefinition;XSDComplexTypeDefinition=11/XSDAttributeUse"
+        outputs="mods.ecore#//NoteDefinition/altRepGroup"/>
+  </nested>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//modsGroup;XSDModelGroupDefinition/XSDModelGroup/XSDParticle=9"
+      outputs="mods.ecore#//ModsDefinition/note"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//placeAuthorityAttributeGroup;XSDAttributeGroupDefinition=2/XSDAttributeUse"
+      outputs="mods.ecore#//PlaceTermDefinition/authority"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//authorityAndValueURIAttributeGroup;XSDAttributeGroupDefinition=1/XSDAttributeUse"
+      outputs="mods.ecore#//PlaceTermDefinition/authorityURI"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//authorityAndValueURIAttributeGroup;XSDAttributeGroupDefinition=1/XSDAttributeUse=1"
+      outputs="mods.ecore#//PlaceTermDefinition/valueURI"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//placeTermDefinition;XSDComplexTypeDefinition=38"
+      outputs="mods.ecore#//PlaceTermDefinition">
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//placeTermDefinition;XSDComplexTypeDefinition=38/XSDAttributeUse"
+        outputs="mods.ecore#//PlaceTermDefinition/type"/>
+  </nested>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//placeDefinition;XSDComplexTypeDefinition=37"
+      outputs="mods.ecore#//PlaceDefinition">
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//placeDefinition;XSDComplexTypeDefinition=37/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="mods.ecore#//PlaceDefinition/placeTerm"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//placeDefinition;XSDComplexTypeDefinition=37/XSDAttributeUse"
+        outputs="mods.ecore#//PlaceDefinition/supplied"/>
+  </nested>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//languagePlusDisplayLabelAttributeGroup;XSDAttributeGroupDefinition=6/XSDAttributeUse"
+      outputs="mods.ecore#//OriginInfoDefinition/displayLabel"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//languageAttributeGroup;XSDAttributeGroupDefinition=5/XSDAttributeUse"
+      outputs="mods.ecore#//OriginInfoDefinition/lang"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//languageAttributeGroup;XSDAttributeGroupDefinition=5/XSDAttributeUse=1"
+      outputs="mods.ecore#//OriginInfoDefinition/lang1"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//languageAttributeGroup;XSDAttributeGroupDefinition=5/XSDAttributeUse=2"
+      outputs="mods.ecore#//OriginInfoDefinition/script"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//languageAttributeGroup;XSDAttributeGroupDefinition=5/XSDAttributeUse=3"
+      outputs="mods.ecore#//OriginInfoDefinition/transliteration"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//originInfoDefinition;XSDComplexTypeDefinition=12"
+      outputs="mods.ecore#//OriginInfoDefinition">
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//originInfoDefinition;XSDComplexTypeDefinition=12/XSDParticle"
+        outputs="mods.ecore#//OriginInfoDefinition/group"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//originInfoDefinition;XSDComplexTypeDefinition=12/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="mods.ecore#//OriginInfoDefinition/place"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//originInfoDefinition;XSDComplexTypeDefinition=12/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="mods.ecore#//OriginInfoDefinition/publisher"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//originInfoDefinition;XSDComplexTypeDefinition=12/XSDParticle/XSDModelGroup/XSDParticle=2"
+        outputs="mods.ecore#//OriginInfoDefinition/dateIssued"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//originInfoDefinition;XSDComplexTypeDefinition=12/XSDParticle/XSDModelGroup/XSDParticle=3"
+        outputs="mods.ecore#//OriginInfoDefinition/dateCreated"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//originInfoDefinition;XSDComplexTypeDefinition=12/XSDParticle/XSDModelGroup/XSDParticle=4"
+        outputs="mods.ecore#//OriginInfoDefinition/dateCaptured"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//originInfoDefinition;XSDComplexTypeDefinition=12/XSDParticle/XSDModelGroup/XSDParticle=5"
+        outputs="mods.ecore#//OriginInfoDefinition/dateValid"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//originInfoDefinition;XSDComplexTypeDefinition=12/XSDParticle/XSDModelGroup/XSDParticle=6"
+        outputs="mods.ecore#//OriginInfoDefinition/dateModified"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//originInfoDefinition;XSDComplexTypeDefinition=12/XSDParticle/XSDModelGroup/XSDParticle=7"
+        outputs="mods.ecore#//OriginInfoDefinition/copyrightDate"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//originInfoDefinition;XSDComplexTypeDefinition=12/XSDParticle/XSDModelGroup/XSDParticle=8"
+        outputs="mods.ecore#//OriginInfoDefinition/dateOther"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//originInfoDefinition;XSDComplexTypeDefinition=12/XSDParticle/XSDModelGroup/XSDParticle=9"
+        outputs="mods.ecore#//OriginInfoDefinition/edition"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//originInfoDefinition;XSDComplexTypeDefinition=12/XSDParticle/XSDModelGroup/XSDParticle=10"
+        outputs="mods.ecore#//OriginInfoDefinition/issuance"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//originInfoDefinition;XSDComplexTypeDefinition=12/XSDParticle/XSDModelGroup/XSDParticle=11"
+        outputs="mods.ecore#//OriginInfoDefinition/frequency"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//originInfoDefinition;XSDComplexTypeDefinition=12/XSDAttributeUse"
+        outputs="mods.ecore#//OriginInfoDefinition/altRepGroup"/>
+  </nested>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//modsGroup;XSDModelGroupDefinition/XSDModelGroup/XSDParticle=10"
+      outputs="mods.ecore#//ModsDefinition/originInfo"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//extentDefinition;XSDComplexTypeDefinition=29"
+      outputs="mods.ecore#//ExtentDefinition">
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//extentDefinition;XSDComplexTypeDefinition=29/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="mods.ecore#//ExtentDefinition/start"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//extentDefinition;XSDComplexTypeDefinition=29/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="mods.ecore#//ExtentDefinition/end"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//extentDefinition;XSDComplexTypeDefinition=29/XSDParticle/XSDModelGroup/XSDParticle=2"
+        outputs="mods.ecore#//ExtentDefinition/total"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//extentDefinition;XSDComplexTypeDefinition=29/XSDParticle/XSDModelGroup/XSDParticle=3"
+        outputs="mods.ecore#//ExtentDefinition/list"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//extentDefinition;XSDComplexTypeDefinition=29/XSDAttributeUse"
+        outputs="mods.ecore#//ExtentDefinition/unit"/>
+  </nested>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//languagePlusDisplayLabelAttributeGroup;XSDAttributeGroupDefinition=6/XSDAttributeUse"
+      outputs="mods.ecore#//PartDefinition/displayLabel"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//languageAttributeGroup;XSDAttributeGroupDefinition=5/XSDAttributeUse"
+      outputs="mods.ecore#//PartDefinition/lang"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//languageAttributeGroup;XSDAttributeGroupDefinition=5/XSDAttributeUse=1"
+      outputs="mods.ecore#//PartDefinition/lang1"/>
+  <nested inputs="bundleentry://278.fwk4354460/cache/www.w3.org/2001/XMLSchema.xsd#//integer;XSDSimpleTypeDefinition=40"
+      outputs="http://www.eclipse.org/emf/2003/XMLType#//Integer"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//languageAttributeGroup;XSDAttributeGroupDefinition=5/XSDAttributeUse=2"
+      outputs="mods.ecore#//PartDefinition/script"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//languageAttributeGroup;XSDAttributeGroupDefinition=5/XSDAttributeUse=3"
+      outputs="mods.ecore#//PartDefinition/transliteration"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//partDefinition;XSDComplexTypeDefinition=13"
+      outputs="mods.ecore#//PartDefinition">
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//partDefinition;XSDComplexTypeDefinition=13/XSDParticle"
+        outputs="mods.ecore#//PartDefinition/group"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//partDefinition;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="mods.ecore#//PartDefinition/detail"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//partDefinition;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="mods.ecore#//PartDefinition/extent"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//partDefinition;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle=2"
+        outputs="mods.ecore#//PartDefinition/date"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//partDefinition;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle=3"
+        outputs="mods.ecore#//PartDefinition/text"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//partDefinition;XSDComplexTypeDefinition=13/XSDAttributeUse=3"
+        outputs="mods.ecore#//PartDefinition/altRepGroup"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//partDefinition;XSDComplexTypeDefinition=13/XSDAttributeUse"
+        outputs="mods.ecore#//PartDefinition/iD"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//partDefinition;XSDComplexTypeDefinition=13/XSDAttributeUse=2"
+        outputs="mods.ecore#//PartDefinition/order"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//partDefinition;XSDComplexTypeDefinition=13/XSDAttributeUse=1"
+        outputs="mods.ecore#//PartDefinition/type"/>
+  </nested>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//modsGroup;XSDModelGroupDefinition/XSDModelGroup/XSDParticle=11"
+      outputs="mods.ecore#//ModsDefinition/part"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//reformattingQualityDefinition;XSDSimpleTypeDefinition=2"
+      outputs="mods.ecore#//ReformattingQualityDefinition">
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//reformattingQualityDefinition;XSDSimpleTypeDefinition=2/XSDEnumerationFacet"
+        outputs="mods.ecore#//ReformattingQualityDefinition/access"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//reformattingQualityDefinition;XSDSimpleTypeDefinition=2/XSDEnumerationFacet=1"
+        outputs="mods.ecore#//ReformattingQualityDefinition/preservation"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//reformattingQualityDefinition;XSDSimpleTypeDefinition=2/XSDEnumerationFacet=2"
+        outputs="mods.ecore#//ReformattingQualityDefinition/replacement"/>
+  </nested>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//languagePlusDisplayLabelAttributeGroup;XSDAttributeGroupDefinition=6/XSDAttributeUse"
+      outputs="mods.ecore#//PhysicalDescriptionDefinition/displayLabel"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//languageAttributeGroup;XSDAttributeGroupDefinition=5/XSDAttributeUse"
+      outputs="mods.ecore#//PhysicalDescriptionDefinition/lang"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//languageAttributeGroup;XSDAttributeGroupDefinition=5/XSDAttributeUse=1"
+      outputs="mods.ecore#//PhysicalDescriptionDefinition/lang1"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//languageAttributeGroup;XSDAttributeGroupDefinition=5/XSDAttributeUse=2"
+      outputs="mods.ecore#//PhysicalDescriptionDefinition/script"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//languageAttributeGroup;XSDAttributeGroupDefinition=5/XSDAttributeUse=3"
+      outputs="mods.ecore#//PhysicalDescriptionDefinition/transliteration"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//physicalDescriptionDefinition;XSDComplexTypeDefinition=14"
+      outputs="mods.ecore#//PhysicalDescriptionDefinition">
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//physicalDescriptionDefinition;XSDComplexTypeDefinition=14/XSDParticle"
+        outputs="mods.ecore#//PhysicalDescriptionDefinition/group"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//physicalDescriptionDefinition;XSDComplexTypeDefinition=14/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="mods.ecore#//PhysicalDescriptionDefinition/form"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//physicalDescriptionDefinition;XSDComplexTypeDefinition=14/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="mods.ecore#//PhysicalDescriptionDefinition/reformattingQuality"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//physicalDescriptionDefinition;XSDComplexTypeDefinition=14/XSDParticle/XSDModelGroup/XSDParticle=2"
+        outputs="mods.ecore#//PhysicalDescriptionDefinition/internetMediaType"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//physicalDescriptionDefinition;XSDComplexTypeDefinition=14/XSDParticle/XSDModelGroup/XSDParticle=3"
+        outputs="mods.ecore#//PhysicalDescriptionDefinition/extent"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//physicalDescriptionDefinition;XSDComplexTypeDefinition=14/XSDParticle/XSDModelGroup/XSDParticle=4"
+        outputs="mods.ecore#//PhysicalDescriptionDefinition/digitalOrigin"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//physicalDescriptionDefinition;XSDComplexTypeDefinition=14/XSDParticle/XSDModelGroup/XSDParticle=5"
+        outputs="mods.ecore#//PhysicalDescriptionDefinition/note"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//physicalDescriptionDefinition;XSDComplexTypeDefinition=14/XSDAttributeUse"
+        outputs="mods.ecore#//PhysicalDescriptionDefinition/altRepGroup"/>
+  </nested>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//modsGroup;XSDModelGroupDefinition/XSDModelGroup/XSDParticle=12"
+      outputs="mods.ecore#//ModsDefinition/physicalDescription"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//recordIdentifierDefinition;XSDComplexTypeDefinition=40"
+      outputs="mods.ecore#//RecordIdentifierDefinition">
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//recordIdentifierDefinition;XSDComplexTypeDefinition=40/XSDAttributeUse"
+        outputs="mods.ecore#//RecordIdentifierDefinition/source"/>
+  </nested>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//languagePlusDisplayLabelAttributeGroup;XSDAttributeGroupDefinition=6/XSDAttributeUse"
+      outputs="mods.ecore#//RecordInfoDefinition/displayLabel"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//languageAttributeGroup;XSDAttributeGroupDefinition=5/XSDAttributeUse"
+      outputs="mods.ecore#//RecordInfoDefinition/lang"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//languageAttributeGroup;XSDAttributeGroupDefinition=5/XSDAttributeUse=1"
+      outputs="mods.ecore#//RecordInfoDefinition/lang1"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//languageAttributeGroup;XSDAttributeGroupDefinition=5/XSDAttributeUse=2"
+      outputs="mods.ecore#//RecordInfoDefinition/script"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//languageAttributeGroup;XSDAttributeGroupDefinition=5/XSDAttributeUse=3"
+      outputs="mods.ecore#//RecordInfoDefinition/transliteration"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//recordInfoDefinition;XSDComplexTypeDefinition=15"
+      outputs="mods.ecore#//RecordInfoDefinition">
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//recordInfoDefinition;XSDComplexTypeDefinition=15/XSDParticle"
+        outputs="mods.ecore#//RecordInfoDefinition/group"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//recordInfoDefinition;XSDComplexTypeDefinition=15/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="mods.ecore#//RecordInfoDefinition/recordContentSource"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//recordInfoDefinition;XSDComplexTypeDefinition=15/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="mods.ecore#//RecordInfoDefinition/recordCreationDate"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//recordInfoDefinition;XSDComplexTypeDefinition=15/XSDParticle/XSDModelGroup/XSDParticle=2"
+        outputs="mods.ecore#//RecordInfoDefinition/recordChangeDate"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//recordInfoDefinition;XSDComplexTypeDefinition=15/XSDParticle/XSDModelGroup/XSDParticle=3"
+        outputs="mods.ecore#//RecordInfoDefinition/recordIdentifier"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//recordInfoDefinition;XSDComplexTypeDefinition=15/XSDParticle/XSDModelGroup/XSDParticle=4"
+        outputs="mods.ecore#//RecordInfoDefinition/languageOfCataloging"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//recordInfoDefinition;XSDComplexTypeDefinition=15/XSDParticle/XSDModelGroup/XSDParticle=5"
+        outputs="mods.ecore#//RecordInfoDefinition/recordOrigin"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//recordInfoDefinition;XSDComplexTypeDefinition=15/XSDParticle/XSDModelGroup/XSDParticle=6"
+        outputs="mods.ecore#//RecordInfoDefinition/descriptionStandard"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//recordInfoDefinition;XSDComplexTypeDefinition=15/XSDAttributeUse"
+        outputs="mods.ecore#//RecordInfoDefinition/altRepGroup"/>
+  </nested>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//modsGroup;XSDModelGroupDefinition/XSDModelGroup/XSDParticle=13"
+      outputs="mods.ecore#//ModsDefinition/recordInfo"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//modsGroup;XSDModelGroupDefinition/XSDModelGroup/XSDParticle"
+      outputs="mods.ecore#//RelatedItemDefinition/abstract"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//modsGroup;XSDModelGroupDefinition/XSDModelGroup/XSDParticle=1"
+      outputs="mods.ecore#//RelatedItemDefinition/accessCondition"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//modsGroup;XSDModelGroupDefinition/XSDModelGroup/XSDParticle=2"
+      outputs="mods.ecore#//RelatedItemDefinition/classification"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//modsGroup;XSDModelGroupDefinition/XSDModelGroup/XSDParticle=3"
+      outputs="mods.ecore#//RelatedItemDefinition/extension"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//modsGroup;XSDModelGroupDefinition/XSDModelGroup/XSDParticle=4"
+      outputs="mods.ecore#//RelatedItemDefinition/genre"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//modsGroup;XSDModelGroupDefinition/XSDModelGroup/XSDParticle=5"
+      outputs="mods.ecore#//RelatedItemDefinition/identifier"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//modsGroup;XSDModelGroupDefinition/XSDModelGroup/XSDParticle=6"
+      outputs="mods.ecore#//RelatedItemDefinition/language"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//modsGroup;XSDModelGroupDefinition/XSDModelGroup/XSDParticle=7"
+      outputs="mods.ecore#//RelatedItemDefinition/location"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//modsGroup;XSDModelGroupDefinition/XSDModelGroup/XSDParticle=8"
+      outputs="mods.ecore#//RelatedItemDefinition/name"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//modsGroup;XSDModelGroupDefinition/XSDModelGroup/XSDParticle=9"
+      outputs="mods.ecore#//RelatedItemDefinition/note"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//modsGroup;XSDModelGroupDefinition/XSDModelGroup/XSDParticle=10"
+      outputs="mods.ecore#//RelatedItemDefinition/originInfo"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//modsGroup;XSDModelGroupDefinition/XSDModelGroup/XSDParticle=11"
+      outputs="mods.ecore#//RelatedItemDefinition/part"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//modsGroup;XSDModelGroupDefinition/XSDModelGroup/XSDParticle=12"
+      outputs="mods.ecore#//RelatedItemDefinition/physicalDescription"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//modsGroup;XSDModelGroupDefinition/XSDModelGroup/XSDParticle=13"
+      outputs="mods.ecore#//RelatedItemDefinition/recordInfo"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//modsGroup;XSDModelGroupDefinition/XSDModelGroup/XSDParticle=14"
+      outputs="mods.ecore#//RelatedItemDefinition/relatedItem"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//authorityAttributeGroup;XSDAttributeGroupDefinition/XSDAttributeUse"
+      outputs="mods.ecore#//TemporalDefinition/authority"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//authorityAndValueURIAttributeGroup;XSDAttributeGroupDefinition=1/XSDAttributeUse"
+      outputs="mods.ecore#//TemporalDefinition/authorityURI"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//authorityAndValueURIAttributeGroup;XSDAttributeGroupDefinition=1/XSDAttributeUse=1"
+      outputs="mods.ecore#//TemporalDefinition/valueURI"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//temporalDefinition;XSDComplexTypeDefinition=46"
+      outputs="mods.ecore#//TemporalDefinition"/>
+  <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//simpleLink;XSDAttributeGroupDefinition/XSDAttributeUse=6"
+      outputs="mods.ecore#//TitleInfoBaseDefinition/actuate"/>
+  <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//simpleLink;XSDAttributeGroupDefinition/XSDAttributeUse=3"
+      outputs="mods.ecore#//TitleInfoBaseDefinition/arcrole"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//authorityAttributeGroup;XSDAttributeGroupDefinition/XSDAttributeUse"
+      outputs="mods.ecore#//TitleInfoBaseDefinition/authority"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//authorityAndValueURIAttributeGroup;XSDAttributeGroupDefinition=1/XSDAttributeUse"
+      outputs="mods.ecore#//TitleInfoBaseDefinition/authorityURI"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//idAuthorityXlinkLanguageDisplayLabelAttributeGroup;XSDAttributeGroupDefinition=4/XSDAttributeUse=1"
+      outputs="mods.ecore#//TitleInfoBaseDefinition/displayLabel"/>
+  <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//simpleLink;XSDAttributeGroupDefinition/XSDAttributeUse=1"
+      outputs="mods.ecore#//TitleInfoBaseDefinition/href"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//idAuthorityXlinkLanguageDisplayLabelAttributeGroup;XSDAttributeGroupDefinition=4/XSDAttributeUse"
+      outputs="mods.ecore#//TitleInfoBaseDefinition/iD"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//languageAttributeGroup;XSDAttributeGroupDefinition=5/XSDAttributeUse"
+      outputs="mods.ecore#//TitleInfoBaseDefinition/lang"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//languageAttributeGroup;XSDAttributeGroupDefinition=5/XSDAttributeUse=1"
+      outputs="mods.ecore#//TitleInfoBaseDefinition/lang1"/>
+  <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//simpleLink;XSDAttributeGroupDefinition/XSDAttributeUse=2"
+      outputs="mods.ecore#//TitleInfoBaseDefinition/role"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//languageAttributeGroup;XSDAttributeGroupDefinition=5/XSDAttributeUse=2"
+      outputs="mods.ecore#//TitleInfoBaseDefinition/script"/>
+  <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//simpleLink;XSDAttributeGroupDefinition/XSDAttributeUse=5"
+      outputs="mods.ecore#//TitleInfoBaseDefinition/show"/>
+  <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//simpleLink;XSDAttributeGroupDefinition/XSDAttributeUse=4"
+      outputs="mods.ecore#//TitleInfoBaseDefinition/title1"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//languageAttributeGroup;XSDAttributeGroupDefinition=5/XSDAttributeUse=3"
+      outputs="mods.ecore#//TitleInfoBaseDefinition/transliteration"/>
+  <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//simpleLink;XSDAttributeGroupDefinition/XSDAttributeUse"
+      outputs="mods.ecore#//TitleInfoBaseDefinition/type"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//authorityAndValueURIAttributeGroup;XSDAttributeGroupDefinition=1/XSDAttributeUse=1"
+      outputs="mods.ecore#//TitleInfoBaseDefinition/valueURI"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//titleInfoBaseDefinition;XSDComplexTypeDefinition=47"
+      outputs="mods.ecore#//TitleInfoBaseDefinition">
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//titleInfoBaseDefinition;XSDComplexTypeDefinition=47/XSDParticle"
+        outputs="mods.ecore#//TitleInfoBaseDefinition/group"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//titleInfoBaseDefinition;XSDComplexTypeDefinition=47/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="mods.ecore#//TitleInfoBaseDefinition/title"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//titleInfoBaseDefinition;XSDComplexTypeDefinition=47/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="mods.ecore#//TitleInfoBaseDefinition/subTitle"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//titleInfoBaseDefinition;XSDComplexTypeDefinition=47/XSDParticle/XSDModelGroup/XSDParticle=2"
+        outputs="mods.ecore#//TitleInfoBaseDefinition/partNumber"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//titleInfoBaseDefinition;XSDComplexTypeDefinition=47/XSDParticle/XSDModelGroup/XSDParticle=3"
+        outputs="mods.ecore#//TitleInfoBaseDefinition/partName"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//titleInfoBaseDefinition;XSDComplexTypeDefinition=47/XSDParticle/XSDModelGroup/XSDParticle=4"
+        outputs="mods.ecore#//TitleInfoBaseDefinition/nonSort"/>
+  </nested>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//titleInfoTypeAttributeDefinition;XSDSimpleTypeDefinition=16"
+      outputs="mods.ecore#//TitleInfoTypeAttributeDefinition">
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//titleInfoTypeAttributeDefinition;XSDSimpleTypeDefinition=16/XSDEnumerationFacet"
+        outputs="mods.ecore#//TitleInfoTypeAttributeDefinition/abbreviated"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//titleInfoTypeAttributeDefinition;XSDSimpleTypeDefinition=16/XSDEnumerationFacet=1"
+        outputs="mods.ecore#//TitleInfoTypeAttributeDefinition/translated"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//titleInfoTypeAttributeDefinition;XSDSimpleTypeDefinition=16/XSDEnumerationFacet=2"
+        outputs="mods.ecore#//TitleInfoTypeAttributeDefinition/alternative"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//titleInfoTypeAttributeDefinition;XSDSimpleTypeDefinition=16/XSDEnumerationFacet=3"
+        outputs="mods.ecore#//TitleInfoTypeAttributeDefinition/uniform"/>
+  </nested>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//subjectTitleInfoDefinition;XSDComplexTypeDefinition=45"
+      outputs="mods.ecore#//SubjectTitleInfoDefinition">
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//subjectTitleInfoDefinition;XSDComplexTypeDefinition=45/XSDAttributeUse"
+        outputs="mods.ecore#//SubjectTitleInfoDefinition/type1"/>
+  </nested>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//subjectNameDefinition;XSDComplexTypeDefinition=44"
+      outputs="mods.ecore#//SubjectNameDefinition"/>
+  <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//simpleLink;XSDAttributeGroupDefinition/XSDAttributeUse=6"
+      outputs="mods.ecore#//SubjectDefinition/actuate"/>
+  <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//simpleLink;XSDAttributeGroupDefinition/XSDAttributeUse=3"
+      outputs="mods.ecore#//SubjectDefinition/arcrole"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//authorityAttributeGroup;XSDAttributeGroupDefinition/XSDAttributeUse"
+      outputs="mods.ecore#//SubjectDefinition/authority"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//authorityAndValueURIAttributeGroup;XSDAttributeGroupDefinition=1/XSDAttributeUse"
+      outputs="mods.ecore#//SubjectDefinition/authorityURI"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//idAuthorityXlinkLanguageDisplayLabelAttributeGroup;XSDAttributeGroupDefinition=4/XSDAttributeUse=1"
+      outputs="mods.ecore#//SubjectDefinition/displayLabel"/>
+  <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//simpleLink;XSDAttributeGroupDefinition/XSDAttributeUse=1"
+      outputs="mods.ecore#//SubjectDefinition/href"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//idAuthorityXlinkLanguageDisplayLabelAttributeGroup;XSDAttributeGroupDefinition=4/XSDAttributeUse"
+      outputs="mods.ecore#//SubjectDefinition/iD"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//languageAttributeGroup;XSDAttributeGroupDefinition=5/XSDAttributeUse"
+      outputs="mods.ecore#//SubjectDefinition/lang"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//languageAttributeGroup;XSDAttributeGroupDefinition=5/XSDAttributeUse=1"
+      outputs="mods.ecore#//SubjectDefinition/lang1"/>
+  <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//simpleLink;XSDAttributeGroupDefinition/XSDAttributeUse=2"
+      outputs="mods.ecore#//SubjectDefinition/role"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//languageAttributeGroup;XSDAttributeGroupDefinition=5/XSDAttributeUse=2"
+      outputs="mods.ecore#//SubjectDefinition/script"/>
+  <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//simpleLink;XSDAttributeGroupDefinition/XSDAttributeUse=5"
+      outputs="mods.ecore#//SubjectDefinition/show"/>
+  <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//simpleLink;XSDAttributeGroupDefinition/XSDAttributeUse=4"
+      outputs="mods.ecore#//SubjectDefinition/title"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//languageAttributeGroup;XSDAttributeGroupDefinition=5/XSDAttributeUse=3"
+      outputs="mods.ecore#//SubjectDefinition/transliteration"/>
+  <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//simpleLink;XSDAttributeGroupDefinition/XSDAttributeUse"
+      outputs="mods.ecore#//SubjectDefinition/type"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//authorityAndValueURIAttributeGroup;XSDAttributeGroupDefinition=1/XSDAttributeUse=1"
+      outputs="mods.ecore#//SubjectDefinition/valueURI"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//subjectDefinition;XSDComplexTypeDefinition=17"
+      outputs="mods.ecore#//SubjectDefinition">
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//subjectDefinition;XSDComplexTypeDefinition=17/XSDParticle"
+        outputs="mods.ecore#//SubjectDefinition/group"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//subjectDefinition;XSDComplexTypeDefinition=17/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="mods.ecore#//SubjectDefinition/topic"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//subjectDefinition;XSDComplexTypeDefinition=17/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="mods.ecore#//SubjectDefinition/geographic"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//subjectDefinition;XSDComplexTypeDefinition=17/XSDParticle/XSDModelGroup/XSDParticle=2"
+        outputs="mods.ecore#//SubjectDefinition/temporal"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//subjectDefinition;XSDComplexTypeDefinition=17/XSDParticle/XSDModelGroup/XSDParticle=3"
+        outputs="mods.ecore#//SubjectDefinition/titleInfo"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//subjectDefinition;XSDComplexTypeDefinition=17/XSDParticle/XSDModelGroup/XSDParticle=4"
+        outputs="mods.ecore#//SubjectDefinition/name"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//subjectDefinition;XSDComplexTypeDefinition=17/XSDParticle/XSDModelGroup/XSDParticle=5"
+        outputs="mods.ecore#//SubjectDefinition/geographicCode"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//subjectDefinition;XSDComplexTypeDefinition=17/XSDParticle/XSDModelGroup/XSDParticle=6"
+        outputs="mods.ecore#//SubjectDefinition/hierarchicalGeographic"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//subjectDefinition;XSDComplexTypeDefinition=17/XSDParticle/XSDModelGroup/XSDParticle=7"
+        outputs="mods.ecore#//SubjectDefinition/cartographics"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//subjectDefinition;XSDComplexTypeDefinition=17/XSDParticle/XSDModelGroup/XSDParticle=8"
+        outputs="mods.ecore#//SubjectDefinition/occupation"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//subjectDefinition;XSDComplexTypeDefinition=17/XSDParticle/XSDModelGroup/XSDParticle=9"
+        outputs="mods.ecore#//SubjectDefinition/genre"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//subjectDefinition;XSDComplexTypeDefinition=17/XSDAttributeUse"
+        outputs="mods.ecore#//SubjectDefinition/altRepGroup"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//subjectDefinition;XSDComplexTypeDefinition=17/XSDAttributeUse=1"
+        outputs="mods.ecore#//SubjectDefinition/usage"/>
+  </nested>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//modsGroup;XSDModelGroupDefinition/XSDModelGroup/XSDParticle=15"
+      outputs="mods.ecore#//RelatedItemDefinition/subject"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//tableOfContentsDefinition;XSDComplexTypeDefinition=18"
+      outputs="mods.ecore#//TableOfContentsDefinition">
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//tableOfContentsDefinition;XSDComplexTypeDefinition=18/XSDAttributeUse=1"
+        outputs="mods.ecore#//TableOfContentsDefinition/altRepGroup"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//tableOfContentsDefinition;XSDComplexTypeDefinition=18/XSDAttributeUse"
+        outputs="mods.ecore#//TableOfContentsDefinition/shareable"/>
+  </nested>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//modsGroup;XSDModelGroupDefinition/XSDModelGroup/XSDParticle=16"
+      outputs="mods.ecore#//RelatedItemDefinition/tableOfContents"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//targetAudienceDefinition;XSDComplexTypeDefinition=19"
+      outputs="mods.ecore#//TargetAudienceDefinition">
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//targetAudienceDefinition;XSDComplexTypeDefinition=19/XSDAttributeUse=1"
+        outputs="mods.ecore#//TargetAudienceDefinition/altRepGroup"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//targetAudienceDefinition;XSDComplexTypeDefinition=19/XSDAttributeUse"
+        outputs="mods.ecore#//TargetAudienceDefinition/displayLabel"/>
+  </nested>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//modsGroup;XSDModelGroupDefinition/XSDModelGroup/XSDParticle=17"
+      outputs="mods.ecore#//RelatedItemDefinition/targetAudience"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//titleInfoDefinition;XSDComplexTypeDefinition=20"
+      outputs="mods.ecore#//TitleInfoDefinition">
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//titleInfoDefinition;XSDComplexTypeDefinition=20/XSDAttributeUse=2"
+        outputs="mods.ecore#//TitleInfoDefinition/altRepGroup"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//titleInfoDefinition;XSDComplexTypeDefinition=20/XSDAttributeUse=3"
+        outputs="mods.ecore#//TitleInfoDefinition/nameTitleGroup"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//titleInfoDefinition;XSDComplexTypeDefinition=20/XSDAttributeUse=1"
+        outputs="mods.ecore#//TitleInfoDefinition/supplied"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//titleInfoDefinition;XSDComplexTypeDefinition=20/XSDAttributeUse"
+        outputs="mods.ecore#//TitleInfoDefinition/type1"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//titleInfoDefinition;XSDComplexTypeDefinition=20/XSDAttributeUse=4"
+        outputs="mods.ecore#//TitleInfoDefinition/usage"/>
+  </nested>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//modsGroup;XSDModelGroupDefinition/XSDModelGroup/XSDParticle=18"
+      outputs="mods.ecore#//RelatedItemDefinition/titleInfo"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//resourceTypeDefinition;XSDSimpleTypeDefinition=3"
+      outputs="mods.ecore#//ResourceTypeDefinition">
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//resourceTypeDefinition;XSDSimpleTypeDefinition=3/XSDEnumerationFacet"
+        outputs="mods.ecore#//ResourceTypeDefinition/text"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//resourceTypeDefinition;XSDSimpleTypeDefinition=3/XSDEnumerationFacet=1"
+        outputs="mods.ecore#//ResourceTypeDefinition/cartographic"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//resourceTypeDefinition;XSDSimpleTypeDefinition=3/XSDEnumerationFacet=2"
+        outputs="mods.ecore#//ResourceTypeDefinition/notatedMusic"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//resourceTypeDefinition;XSDSimpleTypeDefinition=3/XSDEnumerationFacet=3"
+        outputs="mods.ecore#//ResourceTypeDefinition/soundRecordingMusical"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//resourceTypeDefinition;XSDSimpleTypeDefinition=3/XSDEnumerationFacet=4"
+        outputs="mods.ecore#//ResourceTypeDefinition/soundRecordingNonmusical"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//resourceTypeDefinition;XSDSimpleTypeDefinition=3/XSDEnumerationFacet=5"
+        outputs="mods.ecore#//ResourceTypeDefinition/soundRecording"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//resourceTypeDefinition;XSDSimpleTypeDefinition=3/XSDEnumerationFacet=6"
+        outputs="mods.ecore#//ResourceTypeDefinition/stillImage"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//resourceTypeDefinition;XSDSimpleTypeDefinition=3/XSDEnumerationFacet=7"
+        outputs="mods.ecore#//ResourceTypeDefinition/movingImage"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//resourceTypeDefinition;XSDSimpleTypeDefinition=3/XSDEnumerationFacet=8"
+        outputs="mods.ecore#//ResourceTypeDefinition/threeDimensionalObject"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//resourceTypeDefinition;XSDSimpleTypeDefinition=3/XSDEnumerationFacet=9"
+        outputs="mods.ecore#//ResourceTypeDefinition/softwareMultimedia"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//resourceTypeDefinition;XSDSimpleTypeDefinition=3/XSDEnumerationFacet=10"
+        outputs="mods.ecore#//ResourceTypeDefinition/mixedMaterial"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//resourceTypeDefinition;XSDSimpleTypeDefinition=3/XSDEnumerationFacet=11"
+        outputs="mods.ecore#//ResourceTypeDefinition/_"/>
+  </nested>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//typeOfResourceDefinition;XSDComplexTypeDefinition=21"
+      outputs="mods.ecore#//TypeOfResourceDefinition">
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//typeOfResourceDefinition;XSDComplexTypeDefinition=21/XSDAttributeUse=3"
+        outputs="mods.ecore#//TypeOfResourceDefinition/altRepGroup"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//typeOfResourceDefinition;XSDComplexTypeDefinition=21/XSDAttributeUse"
+        outputs="mods.ecore#//TypeOfResourceDefinition/collection"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//typeOfResourceDefinition;XSDComplexTypeDefinition=21/XSDAttributeUse=2"
+        outputs="mods.ecore#//TypeOfResourceDefinition/displayLabel"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//typeOfResourceDefinition;XSDComplexTypeDefinition=21/XSDAttributeUse=1"
+        outputs="mods.ecore#//TypeOfResourceDefinition/manuscript"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//typeOfResourceDefinition;XSDComplexTypeDefinition=21/XSDAttributeUse=4"
+        outputs="mods.ecore#//TypeOfResourceDefinition/usage"/>
+  </nested>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//modsGroup;XSDModelGroupDefinition/XSDModelGroup/XSDParticle=19"
+      outputs="mods.ecore#//RelatedItemDefinition/typeOfResource"/>
+  <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//simpleLink;XSDAttributeGroupDefinition/XSDAttributeUse=6"
+      outputs="mods.ecore#//RelatedItemDefinition/actuate"/>
+  <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//simpleLink;XSDAttributeGroupDefinition/XSDAttributeUse=3"
+      outputs="mods.ecore#//RelatedItemDefinition/arcrole"/>
+  <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//simpleLink;XSDAttributeGroupDefinition/XSDAttributeUse=1"
+      outputs="mods.ecore#//RelatedItemDefinition/href"/>
+  <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//simpleLink;XSDAttributeGroupDefinition/XSDAttributeUse=2"
+      outputs="mods.ecore#//RelatedItemDefinition/role"/>
+  <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//simpleLink;XSDAttributeGroupDefinition/XSDAttributeUse=5"
+      outputs="mods.ecore#//RelatedItemDefinition/show"/>
+  <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//simpleLink;XSDAttributeGroupDefinition/XSDAttributeUse=4"
+      outputs="mods.ecore#//RelatedItemDefinition/title"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//relatedItemTypeAttributeDefinition;XSDSimpleTypeDefinition=15"
+      outputs="mods.ecore#//RelatedItemTypeAttributeDefinition">
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//relatedItemTypeAttributeDefinition;XSDSimpleTypeDefinition=15/XSDEnumerationFacet"
+        outputs="mods.ecore#//RelatedItemTypeAttributeDefinition/preceding"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//relatedItemTypeAttributeDefinition;XSDSimpleTypeDefinition=15/XSDEnumerationFacet=1"
+        outputs="mods.ecore#//RelatedItemTypeAttributeDefinition/succeeding"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//relatedItemTypeAttributeDefinition;XSDSimpleTypeDefinition=15/XSDEnumerationFacet=2"
+        outputs="mods.ecore#//RelatedItemTypeAttributeDefinition/original"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//relatedItemTypeAttributeDefinition;XSDSimpleTypeDefinition=15/XSDEnumerationFacet=3"
+        outputs="mods.ecore#//RelatedItemTypeAttributeDefinition/host"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//relatedItemTypeAttributeDefinition;XSDSimpleTypeDefinition=15/XSDEnumerationFacet=4"
+        outputs="mods.ecore#//RelatedItemTypeAttributeDefinition/constituent"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//relatedItemTypeAttributeDefinition;XSDSimpleTypeDefinition=15/XSDEnumerationFacet=5"
+        outputs="mods.ecore#//RelatedItemTypeAttributeDefinition/series"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//relatedItemTypeAttributeDefinition;XSDSimpleTypeDefinition=15/XSDEnumerationFacet=6"
+        outputs="mods.ecore#//RelatedItemTypeAttributeDefinition/otherVersion"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//relatedItemTypeAttributeDefinition;XSDSimpleTypeDefinition=15/XSDEnumerationFacet=7"
+        outputs="mods.ecore#//RelatedItemTypeAttributeDefinition/otherFormat"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//relatedItemTypeAttributeDefinition;XSDSimpleTypeDefinition=15/XSDEnumerationFacet=8"
+        outputs="mods.ecore#//RelatedItemTypeAttributeDefinition/isReferencedBy"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//relatedItemTypeAttributeDefinition;XSDSimpleTypeDefinition=15/XSDEnumerationFacet=9"
+        outputs="mods.ecore#//RelatedItemTypeAttributeDefinition/references"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//relatedItemTypeAttributeDefinition;XSDSimpleTypeDefinition=15/XSDEnumerationFacet=10"
+        outputs="mods.ecore#//RelatedItemTypeAttributeDefinition/reviewOf"/>
+  </nested>
+  <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//simpleLink;XSDAttributeGroupDefinition/XSDAttributeUse"
+      outputs="mods.ecore#//RelatedItemDefinition/type1"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//relatedItemDefinition;XSDComplexTypeDefinition=16"
+      outputs="mods.ecore#//RelatedItemDefinition">
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//relatedItemDefinition;XSDComplexTypeDefinition=16/XSDParticle"
+        outputs="mods.ecore#//RelatedItemDefinition/modsGroup"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//relatedItemDefinition;XSDComplexTypeDefinition=16/XSDAttributeUse=1"
+        outputs="mods.ecore#//RelatedItemDefinition/displayLabel"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//relatedItemDefinition;XSDComplexTypeDefinition=16/XSDAttributeUse=2"
+        outputs="mods.ecore#//RelatedItemDefinition/iD"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//relatedItemDefinition;XSDComplexTypeDefinition=16/XSDAttributeUse"
+        outputs="mods.ecore#//RelatedItemDefinition/type"/>
+  </nested>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//modsGroup;XSDModelGroupDefinition/XSDModelGroup/XSDParticle=14"
+      outputs="mods.ecore#//ModsDefinition/relatedItem"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//modsGroup;XSDModelGroupDefinition/XSDModelGroup/XSDParticle=15"
+      outputs="mods.ecore#//ModsDefinition/subject"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//modsGroup;XSDModelGroupDefinition/XSDModelGroup/XSDParticle=16"
+      outputs="mods.ecore#//ModsDefinition/tableOfContents"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//modsGroup;XSDModelGroupDefinition/XSDModelGroup/XSDParticle=17"
+      outputs="mods.ecore#//ModsDefinition/targetAudience"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//modsGroup;XSDModelGroupDefinition/XSDModelGroup/XSDParticle=18"
+      outputs="mods.ecore#//ModsDefinition/titleInfo"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//modsGroup;XSDModelGroupDefinition/XSDModelGroup/XSDParticle=19"
+      outputs="mods.ecore#//ModsDefinition/typeOfResource"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//modsVersionAttributeDefinition;XSDSimpleTypeDefinition=10"
+      outputs="mods.ecore#//ModsVersionAttributeDefinition">
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//modsVersionAttributeDefinition;XSDSimpleTypeDefinition=10/XSDEnumerationFacet"
+        outputs="mods.ecore#//ModsVersionAttributeDefinition/_34"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//modsVersionAttributeDefinition;XSDSimpleTypeDefinition=10/XSDEnumerationFacet=1"
+        outputs="mods.ecore#//ModsVersionAttributeDefinition/_33"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//modsVersionAttributeDefinition;XSDSimpleTypeDefinition=10/XSDEnumerationFacet=2"
+        outputs="mods.ecore#//ModsVersionAttributeDefinition/_32"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//modsVersionAttributeDefinition;XSDSimpleTypeDefinition=10/XSDEnumerationFacet=3"
+        outputs="mods.ecore#//ModsVersionAttributeDefinition/_31"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//modsVersionAttributeDefinition;XSDSimpleTypeDefinition=10/XSDEnumerationFacet=4"
+        outputs="mods.ecore#//ModsVersionAttributeDefinition/_30"/>
+  </nested>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//modsDefinition;XSDComplexTypeDefinition"
+      outputs="mods.ecore#//ModsDefinition">
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//modsDefinition;XSDComplexTypeDefinition/XSDParticle"
+        outputs="mods.ecore#//ModsDefinition/modsGroup"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//modsDefinition;XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="mods.ecore#//ModsDefinition/iD"/>
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//modsDefinition;XSDComplexTypeDefinition/XSDAttributeUse=1"
+        outputs="mods.ecore#//ModsDefinition/version"/>
+  </nested>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//mods;XSDElementDeclaration"
+      outputs="mods.ecore#//DocumentRoot/mods"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//modsCollectionDefinition;XSDComplexTypeDefinition=1"
+      outputs="mods.ecore#//ModsCollectionDefinition">
+    <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//modsCollectionDefinition;XSDComplexTypeDefinition=1/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="mods.ecore#//ModsCollectionDefinition/mods"/>
+  </nested>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//modsCollection;XSDElementDeclaration=1"
+      outputs="mods.ecore#//DocumentRoot/modsCollection"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//name;XSDElementDeclaration=53"
+      outputs="mods.ecore#//DocumentRoot/name"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//namePart;XSDElementDeclaration=54"
+      outputs="mods.ecore#//DocumentRoot/namePart"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//nonSort;XSDElementDeclaration=55"
+      outputs="mods.ecore#//DocumentRoot/nonSort"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//note;XSDElementDeclaration=56"
+      outputs="mods.ecore#//DocumentRoot/note"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//number;XSDElementDeclaration=57"
+      outputs="mods.ecore#//DocumentRoot/number"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//occupation;XSDElementDeclaration=58"
+      outputs="mods.ecore#//DocumentRoot/occupation"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//originInfo;XSDElementDeclaration=59"
+      outputs="mods.ecore#//DocumentRoot/originInfo"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//part;XSDElementDeclaration=60"
+      outputs="mods.ecore#//DocumentRoot/part"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//partName;XSDElementDeclaration=61"
+      outputs="mods.ecore#//DocumentRoot/partName"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//partNumber;XSDElementDeclaration=62"
+      outputs="mods.ecore#//DocumentRoot/partNumber"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//physicalDescription;XSDElementDeclaration=63"
+      outputs="mods.ecore#//DocumentRoot/physicalDescription"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//physicalLocation;XSDElementDeclaration=64"
+      outputs="mods.ecore#//DocumentRoot/physicalLocation"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//place;XSDElementDeclaration=65"
+      outputs="mods.ecore#//DocumentRoot/place"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//placeTerm;XSDElementDeclaration=66"
+      outputs="mods.ecore#//DocumentRoot/placeTerm"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//projection;XSDElementDeclaration=67"
+      outputs="mods.ecore#//DocumentRoot/projection"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//province;XSDElementDeclaration=68"
+      outputs="mods.ecore#//DocumentRoot/province"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//publisher;XSDElementDeclaration=69"
+      outputs="mods.ecore#//DocumentRoot/publisher"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//recordChangeDate;XSDElementDeclaration=70"
+      outputs="mods.ecore#//DocumentRoot/recordChangeDate"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//recordContentSource;XSDElementDeclaration=71"
+      outputs="mods.ecore#//DocumentRoot/recordContentSource"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//recordCreationDate;XSDElementDeclaration=72"
+      outputs="mods.ecore#//DocumentRoot/recordCreationDate"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//recordIdentifier;XSDElementDeclaration=73"
+      outputs="mods.ecore#//DocumentRoot/recordIdentifier"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//recordInfo;XSDElementDeclaration=74"
+      outputs="mods.ecore#//DocumentRoot/recordInfo"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//recordOrigin;XSDElementDeclaration=75"
+      outputs="mods.ecore#//DocumentRoot/recordOrigin"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//reformattingQuality;XSDElementDeclaration=76"
+      outputs="mods.ecore#//DocumentRoot/reformattingQuality"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//region;XSDElementDeclaration=77"
+      outputs="mods.ecore#//DocumentRoot/region"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//relatedItem;XSDElementDeclaration=78"
+      outputs="mods.ecore#//DocumentRoot/relatedItem"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//role;XSDElementDeclaration=79"
+      outputs="mods.ecore#//DocumentRoot/role"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//roleTerm;XSDElementDeclaration=80"
+      outputs="mods.ecore#//DocumentRoot/roleTerm"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//scale;XSDElementDeclaration=81"
+      outputs="mods.ecore#//DocumentRoot/scale"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//scriptTerm;XSDElementDeclaration=82"
+      outputs="mods.ecore#//DocumentRoot/scriptTerm"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//shelfLocator;XSDElementDeclaration=83"
+      outputs="mods.ecore#//DocumentRoot/shelfLocator"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//start;XSDElementDeclaration=84"
+      outputs="mods.ecore#//DocumentRoot/start"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//state;XSDElementDeclaration=85"
+      outputs="mods.ecore#//DocumentRoot/state"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//subject;XSDElementDeclaration=86"
+      outputs="mods.ecore#//DocumentRoot/subject"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//subLocation;XSDElementDeclaration=87"
+      outputs="mods.ecore#//DocumentRoot/subLocation"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//subTitle;XSDElementDeclaration=88"
+      outputs="mods.ecore#//DocumentRoot/subTitle"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//tableOfContents;XSDElementDeclaration=89"
+      outputs="mods.ecore#//DocumentRoot/tableOfContents"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//targetAudience;XSDElementDeclaration=90"
+      outputs="mods.ecore#//DocumentRoot/targetAudience"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//temporal;XSDElementDeclaration=91"
+      outputs="mods.ecore#//DocumentRoot/temporal"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//territory;XSDElementDeclaration=92"
+      outputs="mods.ecore#//DocumentRoot/territory"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//text;XSDElementDeclaration=93"
+      outputs="mods.ecore#//DocumentRoot/text"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//title;XSDElementDeclaration=94"
+      outputs="mods.ecore#//DocumentRoot/title"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//titleInfo;XSDElementDeclaration=95"
+      outputs="mods.ecore#//DocumentRoot/titleInfo"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//topic;XSDElementDeclaration=96"
+      outputs="mods.ecore#//DocumentRoot/topic"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//total;XSDElementDeclaration=97"
+      outputs="mods.ecore#//DocumentRoot/total"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//typeOfResource;XSDElementDeclaration=98"
+      outputs="mods.ecore#//DocumentRoot/typeOfResource"/>
+  <nested inputs="http://www.loc.gov/standards/mods/mods.xsd#//url;XSDElementDeclaration=99"
+      outputs="mods.ecore#//DocumentRoot/url"/>
+  <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//actuate;XSDAttributeDeclaration=5"
+      outputs="../../xlink.model/model/xlink.ecore#//DocumentRoot/actuate"/>
+  <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//arcrole;XSDAttributeDeclaration=2"
+      outputs="../../xlink.model/model/xlink.ecore#//DocumentRoot/arcrole"/>
+  <nested inputs="http://www.loc.gov/mods/xml.xsd#//base;XSDAttributeDeclaration=2"
+      outputs="../../../plugin/org.eclipse.emf.ecore/model/XMLNamespace.ecore#//DocumentRoot/base"/>
+  <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//from;XSDAttributeDeclaration=7"
+      outputs="../../xlink.model/model/xlink.ecore#//DocumentRoot/from"/>
+  <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//href;XSDAttributeDeclaration"
+      outputs="../../xlink.model/model/xlink.ecore#//DocumentRoot/href"/>
+  <nested inputs="http://www.loc.gov/mods/xml.xsd#//id;XSDAttributeDeclaration=3"
+      outputs="../../../plugin/org.eclipse.emf.ecore/model/XMLNamespace.ecore#//DocumentRoot/id"/>
+  <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//label;XSDAttributeDeclaration=6"
+      outputs="../../xlink.model/model/xlink.ecore#//DocumentRoot/label"/>
+  <nested inputs="http://www.loc.gov/mods/xml.xsd#//lang;XSDAttributeDeclaration"
+      outputs="../../../plugin/org.eclipse.emf.ecore/model/XMLNamespace.ecore#//DocumentRoot/lang"/>
+  <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//role;XSDAttributeDeclaration=1"
+      outputs="../../xlink.model/model/xlink.ecore#//DocumentRoot/role"/>
+  <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//show;XSDAttributeDeclaration=4"
+      outputs="../../xlink.model/model/xlink.ecore#//DocumentRoot/show"/>
+  <nested inputs="http://www.loc.gov/mods/xml.xsd#//space;XSDAttributeDeclaration=1/XSDSimpleTypeDefinition"
+      outputs="../../../plugin/org.eclipse.emf.ecore/model/XMLNamespace.ecore#//SpaceType">
+    <nested inputs="http://www.loc.gov/mods/xml.xsd#//space;XSDAttributeDeclaration=1/XSDSimpleTypeDefinition/XSDEnumerationFacet"
+        outputs="../../../plugin/org.eclipse.emf.ecore/model/XMLNamespace.ecore#//SpaceType/default"/>
+    <nested inputs="http://www.loc.gov/mods/xml.xsd#//space;XSDAttributeDeclaration=1/XSDSimpleTypeDefinition/XSDEnumerationFacet=1"
+        outputs="../../../plugin/org.eclipse.emf.ecore/model/XMLNamespace.ecore#//SpaceType/preserve"/>
+  </nested>
+  <nested inputs="http://www.loc.gov/mods/xml.xsd#//space;XSDAttributeDeclaration=1"
+      outputs="../../../plugin/org.eclipse.emf.ecore/model/XMLNamespace.ecore#//DocumentRoot/space"/>
+  <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//title;XSDAttributeDeclaration=3"
+      outputs="../../xlink.model/model/xlink.ecore#//DocumentRoot/title"/>
+  <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//to;XSDAttributeDeclaration=8"
+      outputs="../../xlink.model/model/xlink.ecore#//DocumentRoot/to"/>
+</xsd2ecore:XSD2EcoreMappingRoot>
