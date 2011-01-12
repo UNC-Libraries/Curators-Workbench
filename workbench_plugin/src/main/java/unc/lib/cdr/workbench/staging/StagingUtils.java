@@ -22,12 +22,10 @@ import gov.loc.mets.util.METSConstants;
 import gov.loc.mets.util.METSUtils;
 
 import java.io.BufferedInputStream;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.URI;
-import java.net.URISyntaxException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -37,19 +35,14 @@ import org.eclipse.core.filesystem.IFileInfo;
 import org.eclipse.core.filesystem.IFileStore;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IMarker;
-import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
-import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Status;
-import org.eclipse.jface.preference.IPreferenceStore;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import unc.lib.cdr.workbench.IResourceConstants;
-import unc.lib.cdr.workbench.preferences.PreferenceConstants;
 import unc.lib.cdr.workbench.project.MetsProjectNature;
 import unc.lib.cdr.workbench.rcp.Activator;
 
@@ -119,7 +112,8 @@ public class StagingUtils {
     public static IFileStore getStageLocation(IFile f) throws CoreException {
 	// get the file store for staging this file
 	IFileStore stageFileStore = null;
-	IFileStore stageRootFileStore = getStageRoot();
+	URI stageRoot = f.getProject().getFolder("stage").getLocationURI();
+	IFileStore stageRootFileStore = EFS.getStore(stageRoot);
 	stageFileStore = stageRootFileStore.getFileStore(f.getFullPath());
 	return stageFileStore;
     }
@@ -129,32 +123,30 @@ public class StagingUtils {
      * @return
      * @throws CoreException
      */
-    public static IFileStore getStageRoot() throws CoreException {
-	// get the file store for staging this file
-	try {
-	    IPreferenceStore store = Activator.getDefault().getPreferenceStore();
-	    URI stage = null;
-	    String stageChoice = store.getString(PreferenceConstants.P_STAGE_CHOICE);
-	    if (PreferenceConstants.P_STAGE_CHOICE_IRODS_LOCAL.equals(stageChoice)) {
-		String rawPath = store.getString(PreferenceConstants.P_LOCAL_STAGE_PATH);
-		IPath path = new Path(rawPath);
-		File f = path.toFile();
-		stage = f.toURI();
-		//stage = ("file:" + rawPath.replace('\\', '/'));
-	    } else if (PreferenceConstants.P_STAGE_CHOICE_IRODS_PROD.equals(stageChoice)) {
-		stage = new URI(store.getString(PreferenceConstants.P_PROD_IRODS_URI));
-	    } else if (PreferenceConstants.P_STAGE_CHOICE_IRODS_TEST.equals(stageChoice)) {
-		stage = new URI(store.getString(PreferenceConstants.P_TEST_IRODS_URI));
-	    } else {
-		throw new Error("unknown stage choice " + stageChoice);
-	    }
-	    IFileStore stageRootFileStore = EFS.getStore(stage);
-	    return stageRootFileStore;
-	} catch (URISyntaxException e) {
-	    throw new CoreException(new Status(Status.ERROR, Activator.PLUGIN_ID,
-			    "The staging location is not configured correctly in preferences.", e));
-	}
-    }
+//    public static IFileStore getStageRoot() throws CoreException {
+//	// get the file store for staging this file
+//	try {
+//	    URI stage = this.;
+//	    String stageChoice = store.getString(PreferenceConstants.P_STAGE_CHOICE);
+//	    if (PreferenceConstants.P_STAGE_CHOICE_LOCAL.equals(stageChoice)) {
+//		String rawPath = store.getString(PreferenceConstants.P_LOCAL_STAGE_PATH);
+//		IPath path = new Path(rawPath);
+//		File f = path.toFile();
+//		stage = f.toURI();
+//		//stage = ("file:" + rawPath.replace('\\', '/'));
+//	    } else if (PreferenceConstants.P_STAGE_CHOICE_IRODS_PROD.equals(stageChoice)) {
+//		stage = new URI(store.getString(PreferenceConstants.P_PROD_IRODS_URI));
+//	    } else if (PreferenceConstants.P_STAGE_CHOICE_IRODS_TEST.equals(stageChoice)) {
+//		stage = new URI(store.getString(PreferenceConstants.P_TEST_IRODS_URI));
+//	    } else {
+//		throw new Error("unknown stage choice " + stageChoice);
+//	    }
+//	    return stageRootFileStore;
+//	} catch (URISyntaxException e) {
+//	    throw new CoreException(new Status(Status.ERROR, Activator.PLUGIN_ID,
+//			    "The staging location is not configured correctly in preferences.", e));
+//	}
+//    }
 
     /**
      * @param stageFileStore

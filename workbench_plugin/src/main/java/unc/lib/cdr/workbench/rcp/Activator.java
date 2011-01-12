@@ -1,5 +1,12 @@
 package unc.lib.cdr.workbench.rcp;
 
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
+import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
@@ -18,10 +25,14 @@ public class Activator extends AbstractUIPlugin {
     // The shared instance
     private static Activator plugin;
 
+    // InstanceScope node holding preferences that name the available staging locations
+    public static final String STAGE_LOCATIONS = "StageLocationsPreference";
+
     /**
      * The constructor
      */
     public Activator() {
+	super();
     }
 
     @Override
@@ -76,4 +87,37 @@ public class Activator extends AbstractUIPlugin {
     public static ImageDescriptor getImageDescriptor(String path) {
 	return imageDescriptorFromPlugin(PLUGIN_ID, path);
     }
+
+    public List<String[]> getDefaultStagingLocationsPreference() {
+	return convert(getPreferenceStore().getDefaultString(Activator.STAGE_LOCATIONS));
+    }
+
+    public List<String[]> getStagingLocationsPreference() {
+	return convert(getPreferenceStore().getString(Activator.STAGE_LOCATIONS));
+    }
+
+    private static List<String[]> convert(String str) {
+	List<String[]> result = new ArrayList<String[]>();
+	String[] lines = str.split("\n");
+	for(String lin : lines) {
+	    int space = lin.indexOf("|");
+	    String uri = lin.substring(0, space);
+	    String name = lin.substring(space+1);
+	    result.add(new String[] {name, uri});
+	}
+	return result;
+    }
+
+    public void setStagingLocationsPreference(List<String[]> locs) {
+	getPreferenceStore().setValue(Activator.STAGE_LOCATIONS, convertLocationsToPref(locs));
+    }
+
+    public static String convertLocationsToPref(List<String[]> locs) {
+	StringBuffer buffer = new StringBuffer();
+	for(String[] l : locs) {
+	    buffer.append(l[1]).append("|").append(l[0]).append("\n");
+	}
+	return buffer.toString();
+    }
+
 }
