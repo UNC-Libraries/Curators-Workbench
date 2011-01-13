@@ -64,6 +64,7 @@
     <module>mods.model.editor</module>
     <module>xlink.model</module>
     <module>xlink.model.edit</module>
+    <module>org.slf4j.pde</module>
   </modules>
   <build>
     <plugins>
