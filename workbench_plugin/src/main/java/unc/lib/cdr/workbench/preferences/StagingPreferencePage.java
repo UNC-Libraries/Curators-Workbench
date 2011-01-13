@@ -90,8 +90,8 @@ public class StagingPreferencePage extends PreferencePage implements IWorkbenchP
 	} else {
 	    performDefaults();
 	}
-	sLocsTable.getColumn(0).pack();
-	sLocsTable.getColumn(1).pack();
+	nameCol.pack();
+	// locCol.pack();
 	setTitle("Staging Locations");
 	setDescription("Set the staging locations available to new projects.");
 	registerButtons();

@@ -3,6 +3,9 @@ package unc.lib.cdr.workbench.project;
 import java.net.URI;
 import java.net.URISyntaxException;
 
+import org.eclipse.core.filesystem.EFS;
+import org.eclipse.core.filesystem.IFileStore;
+import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
@@ -29,11 +32,13 @@ public class NewSipProjectWizard extends Wizard implements INewWizard {
 	    location = _pageOne.getLocationURI();
 	}
 	IProject prog = MetsProjectNatureSupport.createProject(name, location);
-	URI stageURI = null;
 	try {
-	    stageURI = new URI(_pageTwo.getStageLocationWithVariables());
-	    stageURI = prog.getPathVariableManager().resolveURI(stageURI);
-	    prog.getFolder("stage").createLink(stageURI, IResource.BACKGROUND_REFRESH, new NullProgressMonitor());
+	    URI stageURI = new URI(_pageTwo.getStagingLocationForProject(prog));
+	    IFolder stage = prog.getFolder(".stage");
+	    //stage.create(true, true, new NullProgressMonitor());
+	    IFileStore stageStore = EFS.getStore(stageURI);
+	    stageStore.mkdir(EFS.NONE, new NullProgressMonitor());
+	    stage.createLink(stageURI, IFolder.ALLOW_MISSING_LOCAL | IResource.BACKGROUND_REFRESH, new NullProgressMonitor());
 	} catch (URISyntaxException e) {
 	    // TODO Auto-generated catch block
 	    e.printStackTrace();

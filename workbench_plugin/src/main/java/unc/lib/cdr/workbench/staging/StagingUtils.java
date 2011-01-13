@@ -35,6 +35,7 @@ import org.eclipse.core.filesystem.IFileInfo;
 import org.eclipse.core.filesystem.IFileStore;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IMarker;
+import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
@@ -63,40 +64,84 @@ public class StagingUtils {
 	}
 	String divID = IResourceConstants.getCapturedDivID(f);
 
-	IFileStore sourceFileStore = EFS.getStore(f.getLocationURI());
+	IFileStore sourceFileStore = null;
+	try {
+	    sourceFileStore = EFS.getStore(f.getLocationURI());
+	} catch (CoreException e) {
+	    // Cannot locate source file, set warn marker
+	    IMarker m = f.createMarker(IMarker.PROBLEM);
+	    m.setAttribute(IMarker.MESSAGE, "Failed to read captured file for staging: " + e.getLocalizedMessage());
+	    m.setAttribute(IMarker.SEVERITY, IMarker.SEVERITY_ERROR);
+	    return;
+	}
 	IFileInfo sourceFileInfo = sourceFileStore.fetchInfo();
 	int blocks = (int) (sourceFileInfo.getLength() / bufferSize);
-	monitor.beginTask("Staging " + f.getName(), 2 * blocks); // TODO
 	// calculate # of blocks
-	MetsProjectNature mpn = (MetsProjectNature) f.getProject().getNature(MetsProjectNature.NATURE_ID);
+	MetsProjectNature mpn;
+	try {
+	    mpn = (MetsProjectNature) f.getProject().getNature(MetsProjectNature.NATURE_ID);
+	} catch (CoreException e) {
+	    // Unexpected error, rethrow
+	    throw e;
+	}
 
-	IFileStore stageFileStore = getStageLocation(f);
+	IFileStore stageFileStore;
+	try {
+	    stageFileStore = getStageLocation(f);
+	} catch (CoreException e) {
+	    // Unexpected error, rethrow
+	    throw e;
+	}
 
 	// prepare for overwrite if necessary
 	IFileInfo stageFileInfo = stageFileStore.fetchInfo();
 	if (stageFileInfo.exists()) {
-	    stageFileStore.delete(EFS.NONE, null);
+	    try {
+		stageFileStore.delete(EFS.NONE, null);
+	    } catch (CoreException e) {
+		// Cannot delete previous staged version, set error marker
+		IMarker m = f.createMarker(IMarker.PROBLEM);
+		m.setAttribute(IMarker.MESSAGE,
+				"Failed to delete previously staged version: " + e.getLocalizedMessage());
+		m.setAttribute(IMarker.SEVERITY, IMarker.SEVERITY_ERROR);
+		e.printStackTrace();
+	    }
 	}
 
 	FileType fileRec = METSUtils.getDataFile(mpn.getMets(), divID, f.getLocationURI());
 	// stage the file
-	String sourceMD5 = copyWithMD5Digest(sourceFileStore, stageFileStore, monitor);
+	String sourceMD5 = null;
+	try {
+	    monitor.beginTask("Calculating digest and copying " + f.getName() + " to stage.", 2*blocks);
+	    sourceMD5 = copyWithMD5Digest(sourceFileStore, stageFileStore, monitor);
+	} catch (CoreException e) {
+	    // Unexpected copy error, rethrow
+	    throw e;
+	}
 	fileRec.setCHECKSUMTYPE(CHECKSUMTYPEType.MD5);
 	fileRec.setCHECKSUM(sourceMD5);
 
 	// get the digest of the staged file
-	String stagedMD5 = fetchMD5Digest(stageFileStore, monitor);
+	String stagedMD5;
+	try {
+	    monitor.subTask("Getting staged file digest for "+f.getName());
+	    stagedMD5 = fetchMD5Digest(stageFileStore, monitor);
+	} catch (CoreException e) {
+	    // Unexpected digest error, rethrow
+	    throw e;
+	}
 
 	if (!sourceMD5.equals(stagedMD5)) {
 	    IMarker m = f.createMarker(IMarker.PROBLEM);
 	    m.setAttribute(IMarker.MESSAGE, "staged file does not match original checksum");
+	    m.setAttribute(IMarker.SEVERITY, IMarker.SEVERITY_ERROR);
 	} else {
-
 	    // now update markers and record File in METS
 	    stageFileInfo = stageFileStore.fetchInfo();
 	    // checksum, size, location type, other loc type, URI
 	    METSUtils.addStagedFileLocator(mpn.getMets(), divID, f.getLocationURI(), stageFileStore.toURI(),
 			    LOCTYPEType.OTHER, METSConstants.LocType_EFS_SCHEME);
+	    f.findMarkers(IMarker.PROBLEM, true, IResource.DEPTH_ZERO);
 	    IMarker staged = f.createMarker(IResourceConstants.MARKER_STAGED);
 	    staged.setAttribute("stage.uri", stageFileStore.toURI().toASCIIString());
 	}
@@ -112,7 +157,7 @@ public class StagingUtils {
     public static IFileStore getStageLocation(IFile f) throws CoreException {
 	// get the file store for staging this file
 	IFileStore stageFileStore = null;
-	URI stageRoot = f.getProject().getFolder("stage").getLocationURI();
+	URI stageRoot = f.getProject().getFolder(".stage").getLocationURI();
 	IFileStore stageRootFileStore = EFS.getStore(stageRoot);
 	stageFileStore = stageRootFileStore.getFileStore(f.getFullPath());
 	return stageFileStore;
@@ -123,37 +168,39 @@ public class StagingUtils {
      * @return
      * @throws CoreException
      */
-//    public static IFileStore getStageRoot() throws CoreException {
-//	// get the file store for staging this file
-//	try {
-//	    URI stage = this.;
-//	    String stageChoice = store.getString(PreferenceConstants.P_STAGE_CHOICE);
-//	    if (PreferenceConstants.P_STAGE_CHOICE_LOCAL.equals(stageChoice)) {
-//		String rawPath = store.getString(PreferenceConstants.P_LOCAL_STAGE_PATH);
-//		IPath path = new Path(rawPath);
-//		File f = path.toFile();
-//		stage = f.toURI();
-//		//stage = ("file:" + rawPath.replace('\\', '/'));
-//	    } else if (PreferenceConstants.P_STAGE_CHOICE_IRODS_PROD.equals(stageChoice)) {
-//		stage = new URI(store.getString(PreferenceConstants.P_PROD_IRODS_URI));
-//	    } else if (PreferenceConstants.P_STAGE_CHOICE_IRODS_TEST.equals(stageChoice)) {
-//		stage = new URI(store.getString(PreferenceConstants.P_TEST_IRODS_URI));
-//	    } else {
-//		throw new Error("unknown stage choice " + stageChoice);
-//	    }
-//	    return stageRootFileStore;
-//	} catch (URISyntaxException e) {
-//	    throw new CoreException(new Status(Status.ERROR, Activator.PLUGIN_ID,
-//			    "The staging location is not configured correctly in preferences.", e));
-//	}
-//    }
+    // public static IFileStore getStageRoot() throws CoreException {
+    // // get the file store for staging this file
+    // try {
+    // URI stage = this.;
+    // String stageChoice = store.getString(PreferenceConstants.P_STAGE_CHOICE);
+    // if (PreferenceConstants.P_STAGE_CHOICE_LOCAL.equals(stageChoice)) {
+    // String rawPath = store.getString(PreferenceConstants.P_LOCAL_STAGE_PATH);
+    // IPath path = new Path(rawPath);
+    // File f = path.toFile();
+    // stage = f.toURI();
+    // //stage = ("file:" + rawPath.replace('\\', '/'));
+    // } else if
+    // (PreferenceConstants.P_STAGE_CHOICE_IRODS_PROD.equals(stageChoice)) {
+    // stage = new URI(store.getString(PreferenceConstants.P_PROD_IRODS_URI));
+    // } else if
+    // (PreferenceConstants.P_STAGE_CHOICE_IRODS_TEST.equals(stageChoice)) {
+    // stage = new URI(store.getString(PreferenceConstants.P_TEST_IRODS_URI));
+    // } else {
+    // throw new Error("unknown stage choice " + stageChoice);
+    // }
+    // return stageRootFileStore;
+    // } catch (URISyntaxException e) {
+    // throw new CoreException(new Status(Status.ERROR, Activator.PLUGIN_ID,
+    // "The staging location is not configured correctly in preferences.", e));
+    // }
+    // }
 
     /**
      * @param stageFileStore
      * @return
      */
     public static String fetchMD5Digest(IFileStore fileStore, IProgressMonitor monitor) throws CoreException {
-	monitor.subTask("retrieving checksum for file");
+	//monitor.subTask("retrieving checksum for file");
 	String result = null;
 	MessageDigest messageDigest;
 	try {
@@ -169,13 +216,7 @@ public class StagingUtils {
 	try {
 	    while ((bytesRead = in.read(buffer, 0, bufferSize)) != -1) {
 		messageDigest.update(buffer, 0, bytesRead);
-		// if (log.isDebugEnabled()) {
-		// try {
-		// Thread.sleep(10);
-		// } catch (InterruptedException e) {
-		// }
-		// }
-		// monitor.worked(1);
+		monitor.worked(1);
 	    }
 	} catch (IOException e) {
 	    throw new CoreException(new Status(Status.ERROR, Activator.PLUGIN_ID,
@@ -183,7 +224,7 @@ public class StagingUtils {
 	}
 	Hex hex = new Hex();
 	result = new String(hex.encode(messageDigest.digest()));
-	monitor.worked(1);
+	//monitor.worked(1);
 	return result;
     }
 
@@ -193,7 +234,7 @@ public class StagingUtils {
 	// TODO report progress
 	log.debug("source: " + source);
 	log.debug("destination: " + destination);
-	monitor.subTask("Copying file " + source.getName() + "...");
+	//monitor.subTask("Copying file " + source.getName() + "...");
 	String result = null;
 	byte[] buffer = new byte[bufferSize];
 	int bytesRead = 0;
@@ -214,6 +255,7 @@ public class StagingUtils {
 	    while ((bytesRead = in.read(buffer, 0, bufferSize)) != -1) {
 		out.write(buffer, 0, bytesRead);
 		messageDigest.update(buffer, 0, bytesRead);
+		monitor.worked(1);
 	    }
 	    Hex hex = new Hex();
 	    result = new String(hex.encode(messageDigest.digest()));
