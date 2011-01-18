@@ -15,12 +15,15 @@
  */
 package unc.lib.cdr.workbench.project;
 
+import org.eclipse.core.resources.IProject;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Table;
@@ -41,6 +44,11 @@ public class NewProjectStagingPage extends WizardPage {
 
     Text rawStageText = null;
     Text stageText = null;
+    Button autoStageButton = null;
+    boolean autoStage = true;
+    String stagingLocationTemplate = null;
+
+    // boolean
 
     /**
      * @param pageName
@@ -78,8 +86,8 @@ public class NewProjectStagingPage extends WizardPage {
 	    TableItem item = new TableItem(stageTable, SWT.NULL);
 	    item.setText(pair);
 	}
-	stageTable.getColumn(0).pack();
-	stageTable.getColumn(1).pack();
+	cName.pack();
+	// cUri.pack();
 	stageTable.addSelectionListener(new SelectionListener() {
 	    @Override
 	    public void widgetSelected(SelectionEvent e) {
@@ -103,16 +111,29 @@ public class NewProjectStagingPage extends WizardPage {
 	stageText.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
 
 	// checkbox - automatically stage captured files?
+	autoStageButton = new Button(composite, SWT.CHECK | SWT.RIGHT);
+	autoStageButton.setText("Automatically stage captured files");
+	autoStageButton.setSelection(true);
+	GridData buttonData = new GridData();
+	buttonData.horizontalSpan = 2;
+	autoStageButton.setLayoutData(buttonData);
+	autoStageButton.addSelectionListener(new SelectionAdapter() {
+	    @Override
+	    public void widgetSelected(SelectionEvent e) {
+		autoStage = autoStageButton.getSelection();
+	    }
+	});
 
 	this.setControl(composite);
-	stageTable.select(0);
     }
 
     private void stageSelectionChanged() {
 	String txt = this.getStageLocationWithVariables();
+	String location = computeLocationForUI(txt);
+	this.stagingLocationTemplate = txt;
 	rawStageText.setText(txt);
-	stageText.setText(computeLocation(txt));
-	if(txt != null) {
+	stageText.setText(location);
+	if (txt != null) {
 	    this.setPageComplete(true);
 	} else {
 	    this.setPageComplete(false);
@@ -123,9 +144,26 @@ public class NewProjectStagingPage extends WizardPage {
      * @param txt
      * @return
      */
-    private String computeLocation(String txt) {
-	// TODO Auto-generated method stub
-	return txt;
+    private String computeLocationForUI(String template) {
+	String location = null;
+	String name = mainPage.getProjectName();
+	if (!mainPage.useDefaults()) {
+	    location = mainPage.getLocationURI().toString();
+	} else {
+	    location = mainPage.getLocationPath().toFile().toURI().toString() + name;
+	}
+	template = template.replaceAll("\\$\\{PROJECT_NAME\\}", name);
+	template = template.replaceAll("\\$\\{PROJECT_LOC\\}", location);
+	return template;
+    }
+
+    public String getStagingLocationForProject(IProject p) {
+	String result = null;
+	String name = p.getName();
+	String location = p.getLocationURI().toString();
+	result = this.stagingLocationTemplate.replaceAll("\\$\\{PROJECT_NAME\\}", name);
+	result = result.replaceAll("\\$\\{PROJECT_LOC\\}", location);
+	return result;
     }
 
     public String getStageLocationWithVariables() {
@@ -139,6 +177,19 @@ public class NewProjectStagingPage extends WizardPage {
 
     public void setMainPage(WizardNewProjectCreationPage mainPage) {
 	this.mainPage = mainPage;
+    }
+
+    @Override
+    public boolean isPageComplete() {
+	return (this.stagingLocationTemplate != null);
+    }
+
+    public boolean isAutoStage() {
+        return autoStage;
+    }
+
+    public String getStagingLocationTemplate() {
+        return stagingLocationTemplate;
     }
 
 }
