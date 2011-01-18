@@ -1,142 +1,147 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
-  xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>unc.lib.cdr</groupId>
-  <artifactId>curators-workbench</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <packaging>pom</packaging>
-  <inceptionYear>2010</inceptionYear>
-  <properties>
-    <tycho-version>0.10.0</tycho-version>
-    <eclipse-repository-url>http://download.eclipse.org/eclipse/updates/3.6</eclipse-repository-url>
-    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  </properties>
-  <developers>
-    <developer>
-      <id>count0</id>
-      <name>Gregory N. Jansen</name>
-      <email>count0@email.unc.edu</email>
-      <url>http://www.meekmok.com/janglejack/</url>
-      <organization>University Libraries, UNC Chapel Hill</organization>
-      <organizationUrl>http://www.lib.unc.edu</organizationUrl>
-      <roles>
-        <role>developer</role>
-      </roles>
-    </developer>
-  </developers>
-  <organization>
-    <name>University Libraries, UNC Chapel Hill</name>
-    <url>http://www.unc.edu</url>
-  </organization>
-  <repositories>
-    <repository>
-      <id>update36</id>
-      <url>${eclipse-repository-url}</url>
-      <layout>p2</layout>
-    </repository>
-    <repository>
-      <id>helios</id>
-      <layout>p2</layout>
-      <url>http://download.eclipse.org/releases/helios/</url>
-    </repository>
-  </repositories>
-  <modules>
-    <module>crosswalk-gmf</module>
-    <module>crosswalk-gmf.diagram</module>
-    <module>crosswalk-gmf.edit</module>
-    <module>crosswalk-gmf.editor</module>
-    <module>workbench_feature</module>
-    <module>workbench_plugin</module>
-    <module>workbench_product</module>
-    <module>workbench_updatesite</module>
-    <module>irods-efs.plugin</module>
-    <module>mets.model</module>
-    <module>mets.model.edit</module>
-    <module>mods.model</module>
-    <module>mods.model.edit</module>
-    <module>mods.model.editor</module>
-    <module>xlink.model</module>
-    <module>xlink.model.edit</module>
-    <module>org.slf4j.pde</module>
-  </modules>
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.sonatype.tycho</groupId>
-        <artifactId>tycho-maven-plugin</artifactId>
-        <version>${tycho-version}</version>
-        <extensions>true</extensions>
-      </plugin>
-      <plugin>
-        <groupId>org.sonatype.tycho</groupId>
-        <artifactId>target-platform-configuration</artifactId>
-        <version>${tycho-version}</version>
-        <configuration>
-          <resolver>p2</resolver>
-          <pomDependencies>consider</pomDependencies>
-          <environments>
-            <environment>
-              <os>linux</os>
-              <ws>gtk</ws>
-              <arch>x86_64</arch>
-            </environment>
-            <environment>
-              <os>linux</os>
-              <ws>gtk</ws>
-              <arch>x86</arch>
-            </environment>
-            <environment>
-              <os>macosx</os>
-              <ws>carbon</ws>
-              <arch>x86</arch>
-            </environment>
-            <environment>
-              <os>macosx</os>
-              <ws>cocoa</ws>
-              <arch>x86</arch>
-            </environment>
-            <environment>
-              <os>macosx</os>
-              <ws>cocoa</ws>
-              <arch>x86_64</arch>
-            </environment>
-            <environment>
-              <os>win32</os>
-              <ws>win32</ws>
-              <arch>x86</arch>
-            </environment>
-            <environment>
-              <os>win32</os>
-              <ws>win32</ws>
-              <arch>x86_64</arch>
-            </environment>
-          </environments>
-        </configuration>
-      </plugin>
-      <plugin>
-      	<groupId>org.apache.maven.plugins</groupId>
-      	<artifactId>maven-compiler-plugin</artifactId>
-        <version>2.3.2</version>
-        <configuration>
-          <source>1.6</source>
-          <target>1.6</target>
-        </configuration>
-      </plugin>
-      
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>unc.lib.cdr</groupId>
+	<artifactId>curators-workbench</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<inceptionYear>2010</inceptionYear>
+	<properties>
+		<tycho-version>0.10.0</tycho-version>
+		<eclipse-repository-url>http://download.eclipse.org/eclipse/updates/3.6</eclipse-repository-url>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+	<developers>
+		<developer>
+			<id>count0</id>
+			<name>Gregory N. Jansen</name>
+			<email>count0@email.unc.edu</email>
+			<url>http://www.meekmok.com/janglejack/</url>
+			<organization>University Libraries, UNC Chapel Hill</organization>
+			<organizationUrl>http://www.lib.unc.edu</organizationUrl>
+			<roles>
+				<role>developer</role>
+			</roles>
+		</developer>
+	</developers>
+	<organization>
+		<name>University Libraries, UNC Chapel Hill</name>
+		<url>http://www.unc.edu</url>
+	</organization>
+	<repositories>
+		<repository>
+			<id>update36</id>
+			<url>${eclipse-repository-url}</url>
+			<layout>p2</layout>
+		</repository>
+		<repository>
+			<id>helios</id>
+			<layout>p2</layout>
+			<url>http://download.eclipse.org/releases/helios/</url>
+		</repository>
+	</repositories>
+	<modules>
+		<module>crosswalk-gmf</module>
+		<module>crosswalk-gmf.diagram</module>
+		<module>crosswalk-gmf.edit</module>
+		<module>crosswalk-gmf.editor</module>
+		<module>workbench_feature</module>
+		<module>workbench_plugin</module>
+		<module>workbench_product</module>
+		<module>workbench_updatesite</module>
+		<module>irods-efs.plugin</module>
+		<module>mets.model</module>
+		<module>mets.model.edit</module>
+		<module>mods.model</module>
+		<module>mods.model.edit</module>
+		<module>mods.model.editor</module>
+		<module>xlink.model</module>
+		<module>xlink.model.edit</module>
+		<module>org.slf4j.pde</module>
+	</modules>
+	<build>
+		<plugins>
 			<plugin>
-				<groupId>com.google.code.maven-license-plugin</groupId>
-				<artifactId>maven-license-plugin</artifactId>
-				<version>1.4.0</version>
+				<groupId>org.sonatype.tycho</groupId>
+				<artifactId>tycho-maven-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<extensions>true</extensions>
+			</plugin>
+			<plugin>
+				<groupId>org.sonatype.tycho</groupId>
+				<artifactId>target-platform-configuration</artifactId>
+				<version>${tycho-version}</version>
 				<configuration>
-					<header>${project.parent.basedir}/etc/header.txt</header>
+					<resolver>p2</resolver>
+					<pomDependencies>consider</pomDependencies>
+					<environments>
+						<environment>
+							<os>linux</os>
+							<ws>gtk</ws>
+							<arch>x86_64</arch>
+						</environment>
+						<environment>
+							<os>linux</os>
+							<ws>gtk</ws>
+							<arch>x86</arch>
+						</environment>
+						<environment>
+							<os>macosx</os>
+							<ws>carbon</ws>
+							<arch>x86</arch>
+						</environment>
+						<environment>
+							<os>macosx</os>
+							<ws>cocoa</ws>
+							<arch>x86</arch>
+						</environment>
+						<environment>
+							<os>macosx</os>
+							<ws>cocoa</ws>
+							<arch>x86_64</arch>
+						</environment>
+						<environment>
+							<os>win32</os>
+							<ws>win32</ws>
+							<arch>x86</arch>
+						</environment>
+						<environment>
+							<os>win32</os>
+							<ws>win32</ws>
+							<arch>x86_64</arch>
+						</environment>
+					</environments>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>com.mycila.maven-license-plugin</groupId>
+				<artifactId>maven-license-plugin</artifactId>
+				<version>1.9.0</version>
+				<configuration>
+					<header>${basedir}/etc/header.txt</header>
+					<failIfMissing>true</failIfMissing>
+					<aggregate>true</aggregate>
 					<properties>
 						<year>${project.inceptionYear}</year>
 					</properties>
+					<includes>
+						<include>**/src/**</include>
+					</includes>
 					<excludes>
 						<exclude>**/bin/**</exclude>
+						<exclude>org.slf4j.pde/**</exclude>
+						<exclude>**/org.slf4j.pde/**</exclude>
 					</excludes>
 					<mapping>
 						<sch>XML_STYLE</sch>
@@ -144,6 +149,6 @@
 					<encoding>UTF-8</encoding>
 				</configuration>
 			</plugin>
-    </plugins>
-  </build>
+		</plugins>
+	</build>
 </project>

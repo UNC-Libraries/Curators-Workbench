@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="Curator&apos;s Workbench" uid="curators-workbench.product" id="curators-workbench.plugin.product" application="curators-workbench.application" version="0.0.1.qualifier" useFeatures="true" includeLaunchers="false">
+<product name="Curator&apos;s Workbench" uid="curators-workbench.product" id="curators-workbench.plugin.product" application="curators-workbench.application" version="0.0.1.qualifier" useFeatures="true" includeLaunchers="true">
 
    <aboutInfo>
-      <image path="/cdr-workbench/about.png"/>
+      <image path="/workbench_plugin/about.png"/>
       <text>
          Curator&apos;s Workbench
 
@@ -26,6 +26,8 @@ UNC Chapel Hill
 
    <windowImages/>
 
+   <splash
+      location="curators-workbench.plugin" />
    <launcher name="workbench">
       <solaris/>
       <win useIco="false">
@@ -60,13 +62,26 @@ limitations under the License.
 
    <features>
       <feature id="curators-workbench.feature" version="0.0.1.qualifier"/>
-      <feature id="org.eclipse.equinox.p2.user.ui" version="2.0.0.v20100503-897HFZ-FdHjO2NQo0sD_Nt"/>
    </features>
 
-   <configurations>
-      <plugin id="org.eclipse.core.runtime" autoStart="true" startLevel="0" />
-      <plugin id="org.eclipse.equinox.common" autoStart="true" startLevel="2" />
-      <plugin id="org.eclipse.osgi" autoStart="true" startLevel="-1" />
+   <configurations> 
+      <plugin id="org.eclipse.core.runtime" autoStart="true" startLevel="4" /> 
+      <plugin id="org.eclipse.equinox.common" autoStart="true" startLevel="2" /> 
+      <plugin id="org.eclipse.equinox.ds" autoStart="true" startLevel="2" /> 
+      <plugin id="org.eclipse.equinox.p2.reconciler.dropins" 
+         autoStart="true" startLevel="4" /> 
+      <plugin id="org.eclipse.equinox.simpleconfigurator" 
+         autoStart="true" startLevel="1" /> 
+      
+      <!-- Disable update manager. It seems as if this could be 
+         achieved by the first line, but in 
+         fact the second line sets reconcile to false (see 
+         org.eclipse.equinox.p2.publisher.eclipse.ConfigCUsAction#publishBundleCUs) 
+      --> 
+      <property name="org.eclipse.update.reconcile" value="false" /> 
+      <plugin id="org.eclipse.update.configurator" autoStart="true" 
+         startLevel="4"/> 
+      
    </configurations>
 
 </product>

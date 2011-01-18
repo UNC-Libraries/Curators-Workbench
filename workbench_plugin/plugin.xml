@@ -751,7 +751,7 @@
          </property>
          <property
                name="aboutImage"
-               value="/cdr-workbench/about.png">
+               value="about.png">
          </property>
          <property
                name="aboutText"
