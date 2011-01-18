@@ -7,6 +7,7 @@
   <artifactId>curators-workbench</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
+  <inceptionYear>2010</inceptionYear>
   <properties>
     <tycho-version>0.10.0</tycho-version>
     <eclipse-repository-url>http://download.eclipse.org/eclipse/updates/3.6</eclipse-repository-url>
@@ -41,11 +42,6 @@
       <layout>p2</layout>
       <url>http://download.eclipse.org/releases/helios/</url>
     </repository>
-		<repository>
-			<id>equinox</id>
-			<url>file:/home/count0/equinox-tp</url>
-			<layout>p2</layout>
-		</repository>
   </repositories>
   <modules>
     <module>crosswalk-gmf</module>
@@ -128,6 +124,25 @@
           <target>1.6</target>
         </configuration>
       </plugin>
+      
+			<plugin>
+				<groupId>com.google.code.maven-license-plugin</groupId>
+				<artifactId>maven-license-plugin</artifactId>
+				<version>1.4.0</version>
+				<configuration>
+					<header>${project.parent.basedir}/etc/header.txt</header>
+					<properties>
+						<year>${project.inceptionYear}</year>
+					</properties>
+					<excludes>
+						<exclude>**/bin/**</exclude>
+					</excludes>
+					<mapping>
+						<sch>XML_STYLE</sch>
+					</mapping>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
     </plugins>
   </build>
 </project>

@@ -127,6 +127,10 @@
                   tooltip="Exit the workbench">
             </command>
          </menu>
+         <menu
+               id="help"
+               label="Help">
+         </menu>
       </menuContribution>
       <menuContribution
             allPopups="true"
