@@ -27,7 +27,7 @@
    </extension>
 
    <extension
-         id="curators-workbench.application"
+         id="application"
          name="Curator&apos;s Workbench Application"
          point="org.eclipse.core.runtime.applications">
       <application>
@@ -740,10 +740,10 @@
       </editor>
    </extension>
    <extension
-         id="product"
+         id="eclipse-repository"
          point="org.eclipse.core.runtime.products">
       <product
-            application="curators-workbench.application"
+            application="workbench_plugin.application"
             name="Curator&apos;s Workbench">
          <property
                name="appName"

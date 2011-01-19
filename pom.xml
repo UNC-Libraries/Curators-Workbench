@@ -2,13 +2,14 @@
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
 	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>unc.lib.cdr</groupId>
-	<artifactId>curators-workbench</artifactId>
+	<groupId>curators.workbench</groupId>
+	<artifactId>parent</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<inceptionYear>2010</inceptionYear>
 	<properties>
 		<tycho-version>0.10.0</tycho-version>
+		<tycho-groupid>org.sonatype.tycho</tycho-groupid>
 		<eclipse-repository-url>http://download.eclipse.org/eclipse/updates/3.6</eclipse-repository-url>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -30,7 +31,7 @@
 		<name>University Libraries, UNC Chapel Hill</name>
 		<url>http://www.unc.edu</url>
 	</organization>
-	<repositories>
+<!--	<repositories>
 		<repository>
 			<id>update36</id>
 			<url>${eclipse-repository-url}</url>
@@ -41,7 +42,7 @@
 			<layout>p2</layout>
 			<url>http://download.eclipse.org/releases/helios/</url>
 		</repository>
-	</repositories>
+	</repositories>-->
 	<modules>
 		<module>crosswalk-gmf</module>
 		<module>crosswalk-gmf.diagram</module>
@@ -49,8 +50,8 @@
 		<module>crosswalk-gmf.editor</module>
 		<module>workbench_feature</module>
 		<module>workbench_plugin</module>
-		<module>workbench_product</module>
-		<module>workbench_updatesite</module>
+		<module>eclipse-repository</module>
+		<!--<module>workbench_updatesite</module>-->
 		<module>irods-efs.plugin</module>
 		<module>mets.model</module>
 		<module>mets.model.edit</module>
@@ -60,58 +61,68 @@
 		<module>xlink.model</module>
 		<module>xlink.model.edit</module>
 		<module>org.slf4j.pde</module>
+		<module>target-definition</module>
 	</modules>
 	<build>
 		<plugins>
 			<plugin>
-				<groupId>org.sonatype.tycho</groupId>
+				<groupId>${tycho-groupid}</groupId>
 				<artifactId>tycho-maven-plugin</artifactId>
 				<version>${tycho-version}</version>
 				<extensions>true</extensions>
 			</plugin>
 			<plugin>
-				<groupId>org.sonatype.tycho</groupId>
+				<groupId>${tycho-groupid}</groupId>
 				<artifactId>target-platform-configuration</artifactId>
 				<version>${tycho-version}</version>
 				<configuration>
 					<resolver>p2</resolver>
-					<pomDependencies>consider</pomDependencies>
+					<target>
+						<artifact>
+							<groupId>curators.workbench</groupId>
+							<artifactId>target-definition</artifactId>
+							<version>0.0.1-SNAPSHOT</version>
+							<classifier>helios</classifier>
+						</artifact>
+					</target>
+					<ignoreTychoRepositories>true</ignoreTychoRepositories>
+					<!--<pomDependencies>consider</pomDependencies>-->
 					<environments>
-						<environment>
+						<!--<environment>
 							<os>linux</os>
 							<ws>gtk</ws>
 							<arch>x86_64</arch>
-						</environment>
+						</environment>-->
 						<environment>
 							<os>linux</os>
 							<ws>gtk</ws>
 							<arch>x86</arch>
 						</environment>
-						<environment>
+						<!--<environment>
 							<os>macosx</os>
 							<ws>carbon</ws>
 							<arch>x86</arch>
-						</environment>
-						<environment>
+						</environment>-->
+						<!--<environment>
 							<os>macosx</os>
 							<ws>cocoa</ws>
 							<arch>x86</arch>
-						</environment>
-						<environment>
+						</environment>-->
+						<!--<environment>
 							<os>macosx</os>
 							<ws>cocoa</ws>
 							<arch>x86_64</arch>
-						</environment>
+						</environment>-->
 						<environment>
 							<os>win32</os>
 							<ws>win32</ws>
 							<arch>x86</arch>
 						</environment>
-						<environment>
+						<!--<environment>
 							<os>win32</os>
 							<ws>win32</ws>
 							<arch>x86_64</arch>
-						</environment>
+						</environment>-->
 					</environments>
 				</configuration>
 			</plugin>

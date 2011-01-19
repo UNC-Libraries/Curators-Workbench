@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Curator's Workbench
-Bundle-SymbolicName: curators-workbench.plugin;singleton:=true
+Bundle-SymbolicName: workbench_plugin;singleton:=true
 Bundle-Version: 0.0.1.qualifier
 Bundle-Activator: unc.lib.cdr.workbench.rcp.Activator
 Bundle-Vendor: UNC Libraries

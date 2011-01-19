@@ -7,8 +7,8 @@
     <packaging>eclipse-update-site</packaging>
     <version>0.0.1-SNAPSHOT</version>
     <parent>
-        <groupId>unc.lib.cdr</groupId>
-        <artifactId>curators-workbench</artifactId>
+        <groupId>curators.workbench</groupId>
+        <artifactId>parent</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 </project>
