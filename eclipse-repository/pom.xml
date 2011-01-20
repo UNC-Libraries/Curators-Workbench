@@ -42,7 +42,7 @@
                 <configuration>
                     <products>
                         <product>
-                            <id>workbench.product.id</id>
+                            <id>curators-workbench</id>
                         </product>
                     </products>
                 </configuration>

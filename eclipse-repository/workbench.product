@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="Curator&apos;s Workbench" uid="workbench.product.id" id="workbench.product" application="workbench_plugin.application" version="0.0.1.qualifier" useFeatures="true" includeLaunchers="true">
+<product name="Curator&apos;s Workbench" uid="curators-workbench" id="workbench.product" application="workbench_plugin.application" version="0.0.1.qualifier" useFeatures="true" includeLaunchers="true">
 
    <aboutInfo>
       <image path="/workbench_plugin/about.png"/>
@@ -64,24 +64,13 @@ limitations under the License.
       <feature id="workbench_feature" version="0.0.1.qualifier"/>
    </features>
 
-   <configurations> 
-      <plugin id="org.eclipse.core.runtime" autoStart="true" startLevel="4" /> 
-      <plugin id="org.eclipse.equinox.common" autoStart="true" startLevel="2" /> 
-      <plugin id="org.eclipse.equinox.ds" autoStart="true" startLevel="2" /> 
-      <plugin id="org.eclipse.equinox.p2.reconciler.dropins" 
-         autoStart="true" startLevel="4" /> 
-      <plugin id="org.eclipse.equinox.simpleconfigurator" 
-         autoStart="true" startLevel="1" /> 
-      
-      <!-- Disable update manager. It seems as if this could be 
-         achieved by the first line, but in 
-         fact the second line sets reconcile to false (see 
-         org.eclipse.equinox.p2.publisher.eclipse.ConfigCUsAction#publishBundleCUs) 
-      --> 
-      <property name="org.eclipse.update.reconcile" value="false" /> 
-      <plugin id="org.eclipse.update.configurator" autoStart="true" 
-         startLevel="4"/> 
-      
+   <configurations>
+      <plugin id="org.eclipse.core.runtime" autoStart="true" startLevel="4" />
+      <plugin id="org.eclipse.equinox.common" autoStart="true" startLevel="2" />
+      <plugin id="org.eclipse.equinox.ds" autoStart="true" startLevel="2" />
+      <plugin id="org.eclipse.equinox.p2.reconciler.dropins" autoStart="true" startLevel="4" />
+      <plugin id="org.eclipse.equinox.simpleconfigurator" autoStart="true" startLevel="1" />
+      <plugin id="org.eclipse.update.configurator" autoStart="true" startLevel="4" />
    </configurations>
 
 </product>
