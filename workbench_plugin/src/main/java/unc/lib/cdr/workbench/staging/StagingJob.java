@@ -15,19 +15,24 @@
  */
 package unc.lib.cdr.workbench.staging;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IMarker;
+import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.SubProgressMonitor;
 import org.eclipse.core.runtime.jobs.Job;
 
 import unc.lib.cdr.workbench.IResourceConstants;
+import unc.lib.cdr.workbench.project.MetsProjectNature;
 
 /**
  * @author Gregory Jansen
@@ -53,7 +58,12 @@ public class StagingJob extends Job {
     @Override
     protected IStatus run(IProgressMonitor monitor) {
 	monitor.beginTask("Staging captured files..", toStage.size());
+	Set<IProject> projects = new HashSet<IProject>();
 	for (IFile r : toStage) {
+	    IProject p = r.getProject();
+	    if(!projects.contains(p)) {
+		projects.add(p);
+	    }
 	    try {
 		// is it still captured and not already staged?
 		IMarker[] captured = r.findMarkers(IResourceConstants.MARKER_CAPTURED, false, IResource.DEPTH_ZERO);
@@ -72,6 +82,14 @@ public class StagingJob extends Job {
 		    e1.printStackTrace();
 		    return e1.getStatus();
 		}
+	    }
+	}
+	// refreshLocal on staging folders in relevant projects
+	for(IProject p : projects) {
+	    try {
+		MetsProjectNature n = (MetsProjectNature)p.getNature(MetsProjectNature.NATURE_ID);
+		n.getStageFolder().refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
+	    } catch (CoreException e) {
 	    }
 	}
 	monitor.done();

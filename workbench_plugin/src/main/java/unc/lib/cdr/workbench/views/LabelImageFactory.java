@@ -32,6 +32,7 @@ import unc.lib.cdr.workbench.accession.OriginalFoldersProjectElement;
 import unc.lib.cdr.workbench.arrange.ArrangementProjectElement;
 import unc.lib.cdr.workbench.project.ICustomProjectElement;
 import unc.lib.cdr.workbench.rcp.Activator;
+import unc.lib.cdr.workbench.staging.StagedFilesProjectElement;
 import unc.lib.cdr.workbench.xwalk.CrosswalksProjectElement;
 
 /**
@@ -45,6 +46,7 @@ public class LabelImageFactory {
     public static final String ARRANGEMENT_ELEMENT = "arrangementElement";
     public static final String CROSSWALK_ELEMENT = "crosswalkElement";
     public static final String ORIGINALS_ELEMENT = "originalsElement";
+    public static final String STAGE_ELEMENT = "stageElement";
 
     public static final String FOLDER = "folder";
     public static final String FILE = "file";
@@ -69,6 +71,7 @@ public class LabelImageFactory {
 	putMyImage(ARRANGEMENT_ELEMENT, "edtsrclkup_co.gif", reg);
 	putMyImage(CROSSWALK_ELEMENT, "filter_tsk.gif", reg);
 	putMyImage(ORIGINALS_ELEMENT, "access_restriction_attrib.gif", reg);
+	putMyImage(STAGE_ELEMENT, "var_cntnt_prvdr.gif", reg);
 	putMyImage(CAPTURE_DECORATOR, "waiting_ovr.gif", reg);
 	putMyImage(STAGED_DECORATOR, "version_controlled.gif", reg);
 	putMyImage(USER_EDITED_DECORATOR, "write_obj.gif", reg);
@@ -117,6 +120,8 @@ public class LabelImageFactory {
 		key = CROSSWALK_ELEMENT;
 	    } else if(o instanceof OriginalFoldersProjectElement) {
 		key = ORIGINALS_ELEMENT;
+	    } else if(o instanceof StagedFilesProjectElement) {
+		key = STAGE_ELEMENT;
 	    }
 	}
 	return key;

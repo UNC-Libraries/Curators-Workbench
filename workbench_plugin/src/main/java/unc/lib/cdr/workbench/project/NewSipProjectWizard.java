@@ -49,7 +49,7 @@ public class NewSipProjectWizard extends Wizard implements INewWizard {
 	IProject prog = MetsProjectNatureSupport.createProject(name, location);
 	try {
 	    URI stageURI = new URI(_pageTwo.getStagingLocationForProject(prog));
-	    IFolder stage = prog.getFolder(".stage");
+	    IFolder stage = prog.getFolder(MetsProjectNature.STAGE_FOLDER_NAME);
 	    //stage.create(true, true, new NullProgressMonitor());
 	    IFileStore stageStore = EFS.getStore(stageURI);
 	    stageStore.mkdir(EFS.NONE, new NullProgressMonitor());

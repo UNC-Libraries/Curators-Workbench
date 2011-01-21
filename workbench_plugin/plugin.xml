@@ -24,6 +24,13 @@
             properties="isContainer"
             type="gov.loc.mets.DivType">
       </propertyTester>
+      <propertyTester
+            class="unc.lib.cdr.workbench.accession.PropertyTesterTopFolderName"
+            id="workbench_plugin.testTopFolderName"
+            namespace="workbench_plugin.testTopFolderName"
+            properties="folderName"
+            type="org.eclipse.core.resources.IResource">
+      </propertyTester>
    </extension>
 
    <extension
@@ -162,14 +169,20 @@
                      variable="activeMenuSelection">
                   <iterate
                         ifEmpty="false">
-                     <or>
-                        <instanceof
-                              value="org.eclipse.core.resources.IFolder">
-                        </instanceof>
-                        <instanceof
-                              value="org.eclipse.core.resources.IFile">
-                        </instanceof>
-                     </or>
+                     <and>
+                        <test
+                              property="workbench_plugin.testTopFolderName.folderName"
+                              value="originals">
+                        </test>
+                        <or>
+                           <instanceof
+                                 value="org.eclipse.core.resources.IFolder">
+                           </instanceof>
+                           <instanceof
+                                 value="org.eclipse.core.resources.IFile">
+                           </instanceof>
+                        </or>
+                     </and>
                   </iterate>
                </with>
             </visibleWhen>
@@ -592,6 +605,9 @@
             <contentExtension
                   pattern="cdr-workbench.crosswalksContent">
             </contentExtension>
+            <contentExtension
+                  pattern="workbench_plugin.stagedFileContent">
+            </contentExtension>
          </includes>
       </viewerContentBinding>
    </extension>
@@ -718,6 +734,20 @@
             </or>
          </possibleChildren>
       </navigatorContent>
+      <navigatorContent
+            activeByDefault="true"
+            contentProvider="unc.lib.cdr.workbench.staging.StagedFileContentProvider"
+            id="workbench_plugin.stagedFileContent"
+            labelProvider="org.eclipse.ui.model.WorkbenchLabelProvider"
+            name="Staged Files">
+         <triggerPoints>
+            <or>
+               <instanceof
+                     value="org.eclipse.core.resources.IProject">
+               </instanceof>
+            </or>
+         </triggerPoints>
+      </navigatorContent>
    </extension>
    <extension
          id="unc.lib.cdr.workbench.builders.CrosswalksBuilder"
@@ -767,7 +797,7 @@
    </extension>
    <extension
          point="org.slf4j.pde.loggers">
-      <loggerMapEntry regex="^unc.lib.cdr.workbench\..*" symbolicName="curators-workbench.plugin"/>
+      <loggerMapEntry regex="^unc.lib\..*" symbolicName="workbench_plugin"/>
    </extension>
    <extension
          point="org.eclipse.core.resources.variableResolvers">

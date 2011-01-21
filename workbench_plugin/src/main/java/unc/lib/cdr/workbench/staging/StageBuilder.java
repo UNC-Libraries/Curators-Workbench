@@ -75,6 +75,9 @@ public class StageBuilder extends IncrementalProjectBuilder {
 		} else {
 		    toStage.add((IFile)m.getResource());
 		}
+	    } else {
+		// TODO detect files changed since the last stage and prompt user
+		//   a list with filename, mod date, checkboxes and select/deselect all would do it.
 	    }
 	}
 	Job stagingJob = new StagingJob("Staging all captured files", toStage);

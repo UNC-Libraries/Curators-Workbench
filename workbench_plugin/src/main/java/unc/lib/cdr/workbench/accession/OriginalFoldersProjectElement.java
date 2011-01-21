@@ -37,7 +37,7 @@ public class OriginalFoldersProjectElement extends AbstractCustomProjectElement 
      */
     public OriginalFoldersProjectElement(MetsProjectNature n) {
 	super(n);
-	this.folder = n.getProject().getFolder("originals");
+	this.folder = n.getOriginalsFolder();
     }
 
     @Override

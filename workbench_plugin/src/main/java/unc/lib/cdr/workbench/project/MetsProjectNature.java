@@ -23,7 +23,6 @@ import gov.loc.mets.util.METSUtils;
 import gov.loc.mets.util.MetsResourceFactoryImpl;
 import gov.loc.mods.mods.provider.MODSItemProviderAdapterFactory;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -65,9 +64,18 @@ import org.w3._1999.xlink.provider.XlinkItemProviderAdapterFactory;
 import unc.lib.cdr.workbench.accession.OriginalFoldersProjectElement;
 import unc.lib.cdr.workbench.arrange.ArrangementProjectElement;
 import unc.lib.cdr.workbench.rcp.Activator;
+import unc.lib.cdr.workbench.staging.StagedFilesProjectElement;
 import unc.lib.cdr.workbench.xwalk.CrosswalksProjectElement;
 
 public class MetsProjectNature implements IProjectNature {
+    /**
+     *
+     */
+    public static final String ORIGINALS_FOLDER_NAME = "originals";
+    /**
+     *
+     */
+    public static final String STAGE_FOLDER_NAME = ".stage";
     private static final Logger log = LoggerFactory.getLogger(MetsProjectNature.class);
     public static final String NATURE_ID = "cdr_producer.projectNature";
     public static final QualifiedName METS_KEY = new QualifiedName(NATURE_ID, "cdr_producer.metsKey");
@@ -89,9 +97,17 @@ public class MetsProjectNature implements IProjectNature {
     private CrosswalksProjectElement crosswalksElement = null;
     private ArrangementProjectElement arrangementElement = null;
     private OriginalFoldersProjectElement originalsElement = null;
+    private StagedFilesProjectElement stagedFilesElement = null;
 
     public ExtendedMetaData getExtendedMetaData() {
 	return extendedMetaData;
+    }
+
+    public StagedFilesProjectElement getStagedFilesElement() {
+	if (stagedFilesElement == null) {
+	    this.stagedFilesElement = new StagedFilesProjectElement(this);
+	}
+	return stagedFilesElement;
     }
 
     public OriginalFoldersProjectElement getOriginalsElement() {
@@ -162,7 +178,7 @@ public class MetsProjectNature implements IProjectNature {
     public ICustomProjectElement[] getProjectElements() {
 	if (this.elements == null) {
 	    this.elements = new ICustomProjectElement[] { getOriginalsElement(),
-	    /* getArrangementElement(), */getCrosswalksElement() };
+	    /* getArrangementElement(), */getCrosswalksElement(), getStagedFilesElement() };
 	}
 	return this.elements;
     }
@@ -243,7 +259,7 @@ public class MetsProjectNature implements IProjectNature {
 	    cws.create(false, false, new NullProgressMonitor());
 	}
 
-	IFolder os = this.getProject().getFolder("originals");
+	IFolder os = this.getProject().getFolder(ORIGINALS_FOLDER_NAME);
 	if (!os.exists()) {
 	    os.create(false, false, new NullProgressMonitor());
 	}
@@ -345,6 +361,14 @@ public class MetsProjectNature implements IProjectNature {
 	    }
 	}
 	return result;
+    }
+
+    public IFolder getOriginalsFolder() {
+	return this.getProject().getFolder(ORIGINALS_FOLDER_NAME);
+    }
+
+    public IFolder getStageFolder() {
+	return this.getProject().getFolder(STAGE_FOLDER_NAME);
     }
 
 }

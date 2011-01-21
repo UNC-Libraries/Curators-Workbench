@@ -28,6 +28,9 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.SubProgressMonitor;
 import org.eclipse.core.runtime.jobs.Job;
 
+import unc.lib.cdr.workbench.IResourceConstants;
+import unc.lib.cdr.workbench.project.MetsProjectNature;
+
 /**
  * @author Gregory Jansen
  *
@@ -63,15 +66,15 @@ public class OriginalsLinkJob extends Job {
 	IStatus result = null;
 	System.out.println("starting folder link");
 	monitor.beginTask("Adding original folder link ...", 100);
-	IFolder originalsFolder = this.project.getFolder("originals");
+	IFolder originalsFolder = this.project.getFolder(MetsProjectNature.ORIGINALS_FOLDER_NAME);
 	this.folder = originalsFolder.getFolder(name);
 	try {
 	    monitor.subTask("Creating link");
 	    folder.createLink(location, IFolder.ALLOW_MISSING_LOCAL | IFolder.BACKGROUND_REFRESH, new SubProgressMonitor(monitor, 10));
-	    IMarker marker = folder.createMarker("unc.lib.cdr.workbench.markers.OriginalFileSet");
+	    IMarker marker = folder.createMarker(IResourceConstants.MARKER_ORIGINALFILESET);
 	    marker.setAttribute("type", this.location.getScheme());
-	    monitor.done();
 	    project.getWorkspace().save(false, monitor);
+	    monitor.done();
 	    return Status.OK_STATUS;
 	} catch (CoreException e) {
 	    return e.getStatus();

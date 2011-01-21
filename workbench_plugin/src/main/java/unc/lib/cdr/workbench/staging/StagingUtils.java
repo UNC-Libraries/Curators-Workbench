@@ -37,6 +37,7 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Status;
@@ -159,7 +160,8 @@ public class StagingUtils {
 	IFileStore stageFileStore = null;
 	URI stageRoot = f.getProject().getFolder(".stage").getLocationURI();
 	IFileStore stageRootFileStore = EFS.getStore(stageRoot);
-	stageFileStore = stageRootFileStore.getFileStore(f.getFullPath());
+	IPath stagePath = f.getProjectRelativePath().removeFirstSegments(1);
+	stageFileStore = stageRootFileStore.getFileStore(stagePath);
 	return stageFileStore;
     }
 
