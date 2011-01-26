@@ -19,6 +19,7 @@ package gov.loc.mets.provider;
 import gov.loc.mets.DivType;
 import gov.loc.mets.MetsFactory;
 import gov.loc.mets.MetsPackage;
+import gov.loc.mets.util.METSConstants;
 
 import java.util.Collection;
 import java.util.List;
@@ -69,21 +70,21 @@ public class DivTypeItemProvider
          * This returns the property descriptors for the adapted class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
+         * @generated NOT
          */
         @Override
         public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
                 if (itemPropertyDescriptors == null) {
                         super.getPropertyDescriptors(object);
 
-                        addADMIDPropertyDescriptor(object);
+                        //addADMIDPropertyDescriptor(object);
                         addCONTENTIDSPropertyDescriptor(object);
-                        addDMDIDPropertyDescriptor(object);
+                        //addDMDIDPropertyDescriptor(object);
                         addIDPropertyDescriptor(object);
-                        addLabelPropertyDescriptor(object);
+                        //addLabelPropertyDescriptor(object);
                         addLABEL1PropertyDescriptor(object);
-                        addORDERPropertyDescriptor(object);
-                        addORDERLABELPropertyDescriptor(object);
+                        //addORDERPropertyDescriptor(object);
+                        //addORDERLABELPropertyDescriptor(object);
                         addTYPEPropertyDescriptor(object);
                 }
                 return itemPropertyDescriptors;
@@ -293,20 +294,22 @@ public class DivTypeItemProvider
          * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
+         * @generated NOT
          */
         @Override
         public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
                 if (childrenFeatures == null) {
                         super.getChildrenFeatures(object);
-                        childrenFeatures.add(MetsPackage.Literals.DIV_TYPE__MPTR);
-                        childrenFeatures.add(MetsPackage.Literals.DIV_TYPE__FPTR);
+                        //childrenFeatures.add(MetsPackage.Literals.DIV_TYPE__MPTR);
+                        //childrenFeatures.add(MetsPackage.Literals.DIV_TYPE__FPTR);
                         childrenFeatures.add(MetsPackage.Literals.DIV_TYPE__DIV);
+                        //addUserDescriptionChildFeature(object);
+
                 }
                 return childrenFeatures;
         }
 
-        /**
+	/**
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
@@ -340,8 +343,8 @@ public class DivTypeItemProvider
         public String getText(Object object) {
                 String label = ((DivType)object).getLABEL1();
                 return label == null || label.length() == 0 ?
-                        getString("_UI_DivType_type") :
-                        getString("_UI_DivType_type") + " " + label;
+                        "Unknown " + getString("_UI_DivType_type") :
+                        label;
         }
 
         /**

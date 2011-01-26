@@ -28,6 +28,9 @@ import org.eclipse.ui.handlers.IHandlerService;
 import org.eclipse.ui.navigator.CommonNavigator;
 import org.eclipse.ui.navigator.CommonViewer;
 import org.eclipse.ui.part.FileEditorInput;
+import org.eclipse.ui.views.properties.IPropertySheetPage;
+import org.eclipse.ui.views.properties.tabbed.ITabbedPropertySheetPageContributor;
+import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -37,9 +40,11 @@ import unc.lib.cdr.workbench.rcp.Activator;
 import unc.lib.cdr.workbench.xwalk.CrosswalkTreeElement;
 import crosswalk.diagram.part.CrosswalkDiagramEditor;
 
-public class MetsProjectNavigator extends CommonNavigator implements IDoubleClickListener {
+public class MetsProjectNavigator extends CommonNavigator implements IDoubleClickListener, ITabbedPropertySheetPageContributor {
 
     private static final Logger LOG = LoggerFactory.getLogger(MetsProjectNavigator.class);
+
+    protected TabbedPropertySheetPage page;
 
     //
     // protected CommonViewer createCommonViewerObject(Composite aParent) {
@@ -74,6 +79,17 @@ public class MetsProjectNavigator extends CommonNavigator implements IDoubleClic
     @Override
     protected Object getInitialInput() {
 	return new WorkbenchWorkbenchRoot();
+    }
+
+    public String getContributorId() {
+        return getSite().getId();
+    }
+
+    @Override
+    public Object getAdapter(Class adapter) {
+        if (adapter == IPropertySheetPage.class)
+            return new TabbedPropertySheetPage(this);
+        return super.getAdapter(adapter);
     }
 
     /*

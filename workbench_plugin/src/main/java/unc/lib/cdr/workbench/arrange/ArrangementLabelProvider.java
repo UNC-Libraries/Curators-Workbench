@@ -15,67 +15,69 @@
  */
 package unc.lib.cdr.workbench.arrange;
 
-import gov.loc.mets.DivType;
+import gov.loc.mets.provider.MetsItemProviderAdapterFactory;
 
-import java.util.HashSet;
-import java.util.Set;
-
-import org.eclipse.core.resources.IResource;
-import org.eclipse.core.runtime.Platform;
-import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
-import org.eclipse.emf.edit.provider.INotifyChangedListener;
+import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
+import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
+import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.jface.viewers.DecoratingLabelProvider;
-import org.eclipse.jface.viewers.ILabelProvider;
-import org.eclipse.jface.viewers.ILabelProviderListener;
-import org.eclipse.jface.viewers.LabelProviderChangedEvent;
 import org.eclipse.swt.graphics.Image;
-import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.model.WorkbenchLabelProvider;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import unc.lib.cdr.workbench.project.MetsProjectNature;
 import unc.lib.cdr.workbench.views.LabelImageFactory;
 
-public class ArrangementLabelProvider implements ILabelProvider, INotifyChangedListener {
+public class ArrangementLabelProvider extends AdapterFactoryLabelProvider {
 
     @SuppressWarnings("unused")
     private static final Logger LOG = LoggerFactory.getLogger(ArrangementLabelProvider.class);
 
     private DecoratingLabelProvider provider = (DecoratingLabelProvider) WorkbenchLabelProvider
 		    .getDecoratingWorkbenchLabelProvider();
-    private ComposedAdapterFactory metsAdapterFactory = MetsProjectNature.getAdapterFactory();
-    private Set<ILabelProviderListener> listeners = new HashSet<ILabelProviderListener>();
+    //private ComposedAdapterFactory metsAdapterFactory = MetsProjectNature.getAdapterFactory();
+    //private Set<ILabelProviderListener> listeners = new HashSet<ILabelProviderListener>();
+
+    private static AdapterFactory adapterFactory;
+
+    static {
+	adapterFactory = new ComposedAdapterFactory(new AdapterFactory[] {
+			new ResourceItemProviderAdapterFactory(),
+			new MetsItemProviderAdapterFactory(),
+			new ReflectiveItemProviderAdapterFactory() });
+    }
 
     /**
      *
      */
     public ArrangementLabelProvider() {
-	metsAdapterFactory.addListener(this);
+	super(adapterFactory);
+	//metsAdapterFactory.addListener(this);
     }
 
-    @Override
-    public void addListener(ILabelProviderListener listener) {
-	this.listeners.add(listener);
-	this.provider.addListener(listener);
-    }
+//    @Override
+//    public void addListener(ILabelProviderListener listener) {
+//	this.listeners.add(listener);
+//	this.provider.addListener(listener);
+//    }
 
-    @Override
-    public void dispose() {
-    }
+//    @Override
+//    public void dispose() {
+//	super.dispose();
+//    }
 
-    @Override
-    public boolean isLabelProperty(Object element, String property) {
-	return true;
-	// return this.provider.isLabelProperty(element, property);
-    }
+//    @Override
+//    public boolean isLabelProperty(Object element, String property) {
+//	return super.isLabelProperty(element, property);
+//    }
 
-    @Override
-    public void removeListener(ILabelProviderListener listener) {
-	this.listeners.remove(listener);
-	this.provider.removeListener(listener);
-    }
+//    @Override
+//    public void removeListener(ILabelProviderListener listener) {
+//	this.listeners.remove(listener);
+//	this.provider.removeListener(listener);
+//    }
 
     /*
      * (non-Javadoc)
@@ -84,7 +86,7 @@ public class ArrangementLabelProvider implements ILabelProvider, INotifyChangedL
      */
     @Override
     public Image getImage(Object element) {
-	Image result = null;
+	Image result = super.getImage(element);
 	//if (element instanceof DivType) {
 	  //  DivType d = (DivType) element;
 	  //  Object adapted = Platform.getAdapterManager().getAdapter(d, IResource.class);
@@ -106,18 +108,21 @@ public class ArrangementLabelProvider implements ILabelProvider, INotifyChangedL
      */
     @Override
     public String getText(Object element) {
-	String result = null;
-	if (element instanceof DivType) {
+	if (element instanceof ArrangementProjectElement) {
+	    return ((ArrangementProjectElement) element).getText();
+	}
+	return super.getText(element);
+
+	/*if (result == null && element instanceof DivType) {
 	    DivType d = (DivType) element;
 	    result = d.getLABEL1();
 	    //Object adapted = Platform.getAdapterManager().getAdapter(d, IResource.class);
 	    //if (adapted != null) {
 		//IResource r = (IResource) adapted;
 	    //}
-	} else if (element instanceof ArrangementProjectElement) {
-	    result = ((ArrangementProjectElement) element).getText();
-	}
-	return result;
+	} else*/
+
+	//return result;
 	//return provider.getLabelDecorator().decorateText(result, element);
     }
 
@@ -128,16 +133,16 @@ public class ArrangementLabelProvider implements ILabelProvider, INotifyChangedL
      * org.eclipse.emf.edit.provider.INotifyChangedListener#notifyChanged(org
      * .eclipse.emf.common.notify.Notification)
      */
-    @Override
-    public void notifyChanged(Notification notification) {
-	// LOG.debug("notified of model change in "+notification.getNotifier());
-	final LabelProviderChangedEvent e = new LabelProviderChangedEvent(this, notification.getNotifier());
-	Display.getDefault().asyncExec(new Runnable() {
-	    public void run() {
-		for (ILabelProviderListener l : listeners) {
-		    l.labelProviderChanged(e);
-		}
-	    }
-	});
-    }
+//    @Override
+//    public void notifyChanged(Notification notification) {
+//	// LOG.debug("notified of model change in "+notification.getNotifier());
+//	final LabelProviderChangedEvent e = new LabelProviderChangedEvent(this, notification.getNotifier());
+//	Display.getDefault().asyncExec(new Runnable() {
+//	    public void run() {
+//		for (ILabelProviderListener l : listeners) {
+//		    l.labelProviderChanged(e);
+//		}
+//	    }
+//	});
+//    }
 }

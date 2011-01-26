@@ -25,6 +25,7 @@ import gov.loc.mets.FileGrpType1;
 import gov.loc.mets.FileSecType;
 import gov.loc.mets.FileType;
 import gov.loc.mets.LOCTYPEType;
+import gov.loc.mets.MdSecType;
 import gov.loc.mets.MetsFactory;
 import gov.loc.mets.MetsHdrType;
 import gov.loc.mets.MetsType;
@@ -41,6 +42,7 @@ import java.util.UUID;
 
 import javax.activation.MimetypesFileTypeMap;
 
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.xml.type.internal.XMLCalendar;
 
 /**
@@ -292,6 +294,26 @@ public class METSUtils {
 	}
 	l.setHref(stagedUri.toASCIIString());
 	return l;
+    }
+
+    /**
+     * @param div
+     * @return
+     */
+    public static EObject getDescription(DivType d, String status) {
+	EObject result = null;
+	MdSecType userModsSection = null;
+	if (d.getDMDID() != null) {
+	    for (String id : d.getDMDID()) {
+		MdSecType md = (MdSecType) d.eResource().getEObject(id);
+		if (status.equals(md.getSTATUS())) {
+		    userModsSection = md;
+		    break;
+		}
+	    }
+	    result = (EObject) userModsSection.getMdWrap().getXmlData().getAny().getValue(0);
+	}
+	return result;
     }
 
     // private static FileGrpType getFileGrpForSet(MetsType mets, String

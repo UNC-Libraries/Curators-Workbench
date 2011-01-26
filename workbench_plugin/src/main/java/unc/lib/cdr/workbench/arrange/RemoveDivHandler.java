@@ -100,7 +100,7 @@ private static final Logger LOG = LoggerFactory.getLogger(RemoveDivHandler.class
     private void removeCaptureMarker(DivType d) {
 	// get top folder/file
 	if(d.getCONTENTIDS() != null && d.getCONTENTIDS().size() > 0) {
-	    IProject p = MetsProjectNature.getProjectForMetsResource(d);
+	    IProject p = MetsProjectNature.getProjectForMetsEObject(d);
 	    String originalLoc = d.getCONTENTIDS().get(0);
 	    try {
 		IPath loc = new Path(new URI(originalLoc).getPath());

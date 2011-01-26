@@ -15,10 +15,12 @@
  */
 package unc.lib.cdr.workbench.project;
 
+import gov.loc.mets.DivType;
 import gov.loc.mets.DocumentRoot;
 import gov.loc.mets.MetsPackage;
 import gov.loc.mets.MetsType1;
 import gov.loc.mets.provider.MetsItemProviderAdapterFactory;
+import gov.loc.mets.util.METSConstants;
 import gov.loc.mets.util.METSUtils;
 import gov.loc.mets.util.MetsResourceFactoryImpl;
 import gov.loc.mods.mods.provider.MODSItemProviderAdapterFactory;
@@ -35,7 +37,9 @@ import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IProjectDescription;
 import org.eclipse.core.resources.IProjectNature;
+import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IncrementalProjectBuilder;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
@@ -331,7 +335,7 @@ public class MetsProjectNature implements IProjectNature {
 //	}
     }
 
-    public static IProject getProjectForMetsResource(EObject object) {
+    public static IProject getProjectForMetsEObject(EObject object) {
 	IProject result = null;
 	if (object.eResource() != null && object.eResource().getResourceSet() != null) {
 	    result = MetsProjectNature.rSet2Project.get(object.eResource().getResourceSet());
@@ -340,7 +344,7 @@ public class MetsProjectNature implements IProjectNature {
     }
 
     public static MetsProjectNature getNatureForMetsObject(EObject object) {
-	IProject p = getProjectForMetsResource(object);
+	IProject p = getProjectForMetsEObject(object);
 	MetsProjectNature result;
 	try {
 	    result = (MetsProjectNature) p.getNature(NATURE_ID);
@@ -352,7 +356,7 @@ public class MetsProjectNature implements IProjectNature {
 
     public static EditingDomain getEditingDomain(EObject object) {
 	EditingDomain result = null;
-	IProject p = getProjectForMetsResource(object);
+	IProject p = getProjectForMetsEObject(object);
 	if (p != null) {
 	    try {
 		MetsProjectNature mpn = (MetsProjectNature) p.getNature(MetsProjectNature.NATURE_ID);
@@ -369,6 +373,34 @@ public class MetsProjectNature implements IProjectNature {
 
     public IFolder getStageFolder() {
 	return this.getProject().getFolder(STAGE_FOLDER_NAME);
+    }
+
+    /**
+     * Finds the original file or folder object for a given div or null.
+     * @param div
+     * @return the IResource of the original
+     */
+    public static IResource getOriginal(DivType div) {
+	if (div.getCONTENTIDS().size() > 0) {
+	    for(String contentid : div.getCONTENTIDS()) {
+		try {
+		    java.net.URI originalLoc = new java.net.URI(contentid);
+		    IResource[] rs = null;
+		    if (METSConstants.Div_Folder.equals(div.getTYPE())) {
+			rs = ResourcesPlugin.getWorkspace().getRoot().findContainersForLocationURI(originalLoc);
+		    } else if (METSConstants.Div_File.equals(div.getTYPE())) {
+			rs = ResourcesPlugin.getWorkspace().getRoot().findContainersForLocationURI(originalLoc);
+		    }
+		    IProject project = MetsProjectNature.getProjectForMetsEObject(div);
+		    for (IResource r : rs) {
+			if (project.equals(r.getProject())) {
+			    return r;
+			}
+		    }
+		} catch(Exception ignored) {}
+	    }
+	}
+	return null;
     }
 
 }

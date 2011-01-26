@@ -75,7 +75,7 @@ public class LabelImageFactory {
 	putMyImage(CAPTURE_DECORATOR, "waiting_ovr.gif", reg);
 	putMyImage(STAGED_DECORATOR, "version_controlled.gif", reg);
 	putMyImage(USER_EDITED_DECORATOR, "write_obj.gif", reg);
-	putMyImage(CROSSWALKED_DECORATOR, "inst_ptr_top.gif", reg);
+	putMyImage(CROSSWALKED_DECORATOR, "crosswalk_decor.gif", reg);
 	putMyImage(CROSSWALK_RECORD, "property_obj.gif", reg);
     }
 
