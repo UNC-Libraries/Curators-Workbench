@@ -43,6 +43,7 @@ public class LabelImageFactory {
     public static String iconPath = "icons/";
     private static final int DEFAULT_ICON_SIZE = 24;
     public static final String PROJECT = "project";
+    public static final String PROJECT_CLOSED = "projectClosed";
     public static final String ARRANGEMENT_ELEMENT = "arrangementElement";
     public static final String CROSSWALK_ELEMENT = "crosswalkElement";
     public static final String ORIGINALS_ELEMENT = "originalsElement";
@@ -65,6 +66,7 @@ public class LabelImageFactory {
 
     public static void initializeImageRegistry(ImageRegistry reg) {
 	putMyImageDefaultResized(PROJECT,"24px-Crystal_Clear_app_ark.png", reg);
+	putMyImageDefaultResized(PROJECT_CLOSED,"24px-Crystal_Clear_app_kthememgr.png", reg);
 	putMyImageDefaultResized(FOLDER, "24px-Crystal_Clear_filesystem_folder_grey.png", reg);
 	putMyImageDefaultResized(FILE, "24px-Crystal_Clear_action_filenew.png", reg);
 	putMyImageDefaultResized(HARD_DISK, "24px-Crystal_Clear_app_harddrive.png", reg);
@@ -168,7 +170,8 @@ public class LabelImageFactory {
      */
     private static String getResourceImageKey(IResource o) {
 	if (o instanceof IProject) {
-	    return "project";
+	    boolean open = ((IProject)o).isOpen();
+	    return open ? PROJECT : PROJECT_CLOSED;
 	} else if (o instanceof IFolder) {
 	    IFolder f = (IFolder) o;
 	    if (f.getProject().equals(f.getParent())) {

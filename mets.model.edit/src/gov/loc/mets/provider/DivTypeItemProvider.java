@@ -19,18 +19,14 @@ package gov.loc.mets.provider;
 import gov.loc.mets.DivType;
 import gov.loc.mets.MetsFactory;
 import gov.loc.mets.MetsPackage;
-import gov.loc.mets.util.METSConstants;
 
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;

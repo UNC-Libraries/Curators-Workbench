@@ -15,6 +15,7 @@
  */
 package unc.lib.cdr.workbench.arrange;
 
+import gov.loc.mets.DivType;
 import gov.loc.mets.provider.MetsItemProviderAdapterFactory;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
@@ -110,8 +111,10 @@ public class ArrangementLabelProvider extends AdapterFactoryLabelProvider {
     public String getText(Object element) {
 	if (element instanceof ArrangementProjectElement) {
 	    return ((ArrangementProjectElement) element).getText();
+	} else if(element instanceof DivType) {
+	    return super.getText(element);
 	}
-	return super.getText(element);
+	return null;
 
 	/*if (result == null && element instanceof DivType) {
 	    DivType d = (DivType) element;

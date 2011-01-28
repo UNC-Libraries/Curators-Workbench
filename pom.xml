@@ -88,11 +88,11 @@
 					<ignoreTychoRepositories>true</ignoreTychoRepositories>
 					<!--<pomDependencies>consider</pomDependencies>-->
 					<environments>
-						<!--<environment>
+						<environment>
 							<os>linux</os>
 							<ws>gtk</ws>
 							<arch>x86_64</arch>
-						</environment>-->
+						</environment>
 						<environment>
 							<os>linux</os>
 							<ws>gtk</ws>
@@ -101,8 +101,7 @@
 						<!--<environment>
 							<os>macosx</os>
 							<ws>carbon</ws>
-							<arch>x86</arch>
-						</environment>-->
+							<arch>x86</arch>-->
 						<environment>
 							<os>macosx</os>
 							<ws>cocoa</ws>

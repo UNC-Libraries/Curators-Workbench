@@ -75,8 +75,10 @@ public class CrosswalkContentProvider implements ITreeContentProvider, IResource
 	try {
 	    if (parent instanceof IProject) {
 		IProject p = (IProject) parent;
-		MetsProjectNature n = (MetsProjectNature) p.getNature(MetsProjectNature.NATURE_ID);
-		results.add(n.getCrosswalksElement());
+		if (p.isOpen()) {
+		    MetsProjectNature n = (MetsProjectNature) p.getNature(MetsProjectNature.NATURE_ID);
+		    results.add(n.getCrosswalksElement());
+		}
 	    } else if (parent instanceof CrosswalksProjectElement) {
 		CrosswalksProjectElement e = (CrosswalksProjectElement) parent;
 		return e.getChildren();

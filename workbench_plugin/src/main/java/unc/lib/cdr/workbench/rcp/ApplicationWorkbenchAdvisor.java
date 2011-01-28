@@ -53,7 +53,7 @@ public class ApplicationWorkbenchAdvisor extends WorkbenchAdvisor {
 	try {
 	    // restore models from workbench files
 	    for(IProject p : ResourcesPlugin.getWorkspace().getRoot().getProjects()) {
-		if(p.hasNature(MetsProjectNature.NATURE_ID) && p.isOpen()) {
+		if(p.isOpen() && p.hasNature(MetsProjectNature.NATURE_ID)) {
 		    MetsProjectNature n = (MetsProjectNature)p.getNature(MetsProjectNature.NATURE_ID);
 		    n.load();
 		}

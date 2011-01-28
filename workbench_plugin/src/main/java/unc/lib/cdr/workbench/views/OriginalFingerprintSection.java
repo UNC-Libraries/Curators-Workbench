@@ -26,8 +26,8 @@ import unc.lib.cdr.workbench.project.MetsProjectNature;
 
 public class OriginalFingerprintSection extends AbstractPropertySection {
 
-@SuppressWarnings("unused")
-private static final Logger LOG = LoggerFactory.getLogger(OriginalFingerprintSection.class);
+    @SuppressWarnings("unused")
+    private static final Logger LOG = LoggerFactory.getLogger(OriginalFingerprintSection.class);
 
     private DivType div = null;
     Text checksumText = null;
@@ -59,7 +59,7 @@ private static final Logger LOG = LoggerFactory.getLogger(OriginalFingerprintSec
 	l1.setLayoutData(data);
 
 	data = new FormData();
-        data.left = new FormAttachment(l1, ITabbedPropertyConstants.HSPACE);
+	data.left = new FormAttachment(l1, ITabbedPropertyConstants.HSPACE);
 	checksumText = getWidgetFactory().createText(composite, "", SWT.READ_ONLY);
 	checksumText.setLayoutData(data);
 
@@ -75,12 +75,17 @@ private static final Logger LOG = LoggerFactory.getLogger(OriginalFingerprintSec
 
     @Override
     public void refresh() {
-	//LOG.debug("div: "+div);
+	// LOG.debug("div: "+div);
 	MetsType mets = MetsProjectNature.getNatureForMetsObject(div).getMets();
 	FileGrpType grp = METSUtils.getObjectFileGroup(mets, div.getID());
 	FileType file = grp.getFile().get(0);
-	checksumText.setText(file.getCHECKSUM());
-	checksumTypeText.setText(file.getCHECKSUMTYPE().getName());
+	if (file.getCHECKSUM() != null) {
+	    checksumText.setText(file.getCHECKSUM());
+	    checksumTypeText.setText(file.getCHECKSUMTYPE().getName());
+	} else {
+	    checksumText.setText("");
+	    checksumTypeText.setText("");
+	}
     }
 
     /**

@@ -33,13 +33,6 @@
                         </goals>
                     </execution>
                     <execution>
-                        <id>rearrange-macosx-products</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>rearrange-macosx-products</goal>
-                        </goals>
-                    </execution>
-                    <execution>
                         <id>archive-products</id>
                         <phase>package</phase>
                         <goals>
@@ -50,7 +43,8 @@
                 <configuration>
                     <products>
                         <product>
-                            <id>curators-workbench</id>
+                            <id>workbench.product.id</id>
+                            <!--<rootFolder>workbench</rootFolder>-->
                         </product>
                     </products>
                 </configuration>

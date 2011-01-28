@@ -74,11 +74,11 @@ public class CrosswalkLabelProvider implements ILabelProvider {
 	    MdSecType dmd = (MdSecType)element;
 	    StringBuilder sb = new StringBuilder(dmd.getMdWrap().getLABEL());
 	    if(METSConstants.MD_STATUS_CROSSWALK_LINKED.equals(dmd.getSTATUS())) {
-		sb.append(" - crosswalk linked");
+		sb.append(" - matched");
 	    } else if(METSConstants.MD_STATUS_CROSSWALK_NOT_LINKED.equals(dmd.getSTATUS())) {
-		sb.append(" - unlinked");
+		sb.append(" - unmatched");
 	    } else if(METSConstants.MD_STATUS_CROSSWALK_USER_LINKED.equals(dmd.getSTATUS())) {
-		sb.append(" - manually linked");
+		sb.append(" - user matched");
 	    }
 	    return sb.toString();
 	} else {

@@ -328,11 +328,11 @@ public class MetsProjectNature implements IProjectNature {
     @Override
     public void setProject(IProject project) {
 	this.project = project;
-//	try {
-//	    load();
-//	} catch (CoreException e) {
-//	    throw new Error("There was a problem loading the METS project nature", e);
-//	}
+	try {
+	    load();
+	} catch (CoreException e) {
+	    throw new Error("There was a problem loading the METS project nature", e);
+	}
     }
 
     public static IProject getProjectForMetsEObject(EObject object) {

@@ -45,27 +45,33 @@ public class OriginalsContentProvider implements ITreeContentProvider, IResource
      *
      */
     public OriginalsContentProvider() {
-	 ResourcesPlugin.getWorkspace().addResourceChangeListener(this, IResourceChangeEvent.POST_CHANGE);
+	ResourcesPlugin.getWorkspace().addResourceChangeListener(this, IResourceChangeEvent.POST_CHANGE);
     }
 
-    /* (non-Javadoc)
-     * @see org.eclipse.jface.viewers.ITreeContentProvider#getChildren(java.lang.Object)
+    /*
+     * (non-Javadoc)
+     *
+     * @see
+     * org.eclipse.jface.viewers.ITreeContentProvider#getChildren(java.lang.
+     * Object)
      */
     @Override
     public Object[] getChildren(Object parent) {
-	//log.debug("getChildren:"+parent.toString());
+	// log.debug("getChildren:"+parent.toString());
 	List<Object> results = new ArrayList<Object>();
 	try {
-	    if(parent instanceof IProject) {
-		IProject p = (IProject)parent;
-		MetsProjectNature n = (MetsProjectNature)p.getNature(MetsProjectNature.NATURE_ID);
-		results.add(n.getOriginalsElement());
+	    if (parent instanceof IProject) {
+		IProject p = (IProject) parent;
+		if (p.isOpen()) {
+		    MetsProjectNature n = (MetsProjectNature) p.getNature(MetsProjectNature.NATURE_ID);
+		    results.add(n.getOriginalsElement());
+		}
 	    } else if (parent instanceof OriginalFoldersProjectElement) {
-		OriginalFoldersProjectElement e = (OriginalFoldersProjectElement)parent;
+		OriginalFoldersProjectElement e = (OriginalFoldersProjectElement) parent;
 		return e.getChildren();
 	    } else if (parent instanceof IContainer) {
 		IContainer f = (IContainer) parent;
-		for(IResource r : f.members()) {
+		for (IResource r : f.members()) {
 		    results.add(r);
 		}
 	    }
@@ -75,26 +81,31 @@ public class OriginalsContentProvider implements ITreeContentProvider, IResource
 	return results.toArray();
     }
 
-    /* (non-Javadoc)
-     * @see org.eclipse.jface.viewers.ITreeContentProvider#getParent(java.lang.Object)
+    /*
+     * (non-Javadoc)
+     *
+     * @see
+     * org.eclipse.jface.viewers.ITreeContentProvider#getParent(java.lang.Object
+     * )
      */
     @Override
     public Object getParent(Object element) {
 	Object result = null;
-	if(element instanceof IResource) {
-	    IResource r = (IResource)element;
+	if (element instanceof IResource) {
+	    IResource r = (IResource) element;
 	    String[] segments = r.getProjectRelativePath().segments();
-	    if(segments.length == 2) {
+	    if (segments.length == 2) {
 		// found an originals folder, return OriginalsProjectElement
 		MetsProjectNature n;
 		try {
-		    n = (MetsProjectNature)r.getProject().getNature(MetsProjectNature.NATURE_ID);
+		    n = (MetsProjectNature) r.getProject().getNature(MetsProjectNature.NATURE_ID);
 		} catch (CoreException e) {
 		    throw new Error("Unexpected");
 		}
 		return n.getOriginalsElement();
 	    } else {
-		// should be a resource within an originals folder, use getParent()
+		// should be a resource within an originals folder, use
+		// getParent()
 		return r.getParent();
 	    }
 	} else {
@@ -102,38 +113,52 @@ public class OriginalsContentProvider implements ITreeContentProvider, IResource
 	}
     }
 
-    /* (non-Javadoc)
-     * @see org.eclipse.jface.viewers.ITreeContentProvider#hasChildren(java.lang.Object)
+    /*
+     * (non-Javadoc)
+     *
+     * @see
+     * org.eclipse.jface.viewers.ITreeContentProvider#hasChildren(java.lang.
+     * Object)
      */
     @Override
     public boolean hasChildren(Object element) {
-	if(element instanceof IContainer) {
+	if (element instanceof IContainer) {
 	    return true;
-	} else if(element instanceof OriginalFoldersProjectElement){
-	    return ((OriginalFoldersProjectElement)element).hasChildren();
+	} else if (element instanceof OriginalFoldersProjectElement) {
+	    return ((OriginalFoldersProjectElement) element).hasChildren();
 	} else {
 	    return false;
 	}
     }
 
-    /* (non-Javadoc)
-     * @see org.eclipse.jface.viewers.IStructuredContentProvider#getElements(java.lang.Object)
+    /*
+     * (non-Javadoc)
+     *
+     * @see
+     * org.eclipse.jface.viewers.IStructuredContentProvider#getElements(java
+     * .lang.Object)
      */
     @Override
     public Object[] getElements(Object inputElement) {
 	return this.getChildren(inputElement);
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     *
      * @see org.eclipse.jface.viewers.IContentProvider#dispose()
      */
     @Override
     public void dispose() {
-	 ResourcesPlugin.getWorkspace().removeResourceChangeListener(this);
+	ResourcesPlugin.getWorkspace().removeResourceChangeListener(this);
     }
 
-    /* (non-Javadoc)
-     * @see org.eclipse.jface.viewers.IContentProvider#inputChanged(org.eclipse.jface.viewers.Viewer, java.lang.Object, java.lang.Object)
+    /*
+     * (non-Javadoc)
+     *
+     * @see
+     * org.eclipse.jface.viewers.IContentProvider#inputChanged(org.eclipse.jface
+     * .viewers.Viewer, java.lang.Object, java.lang.Object)
      */
     @Override
     public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {

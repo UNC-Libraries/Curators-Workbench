@@ -24,6 +24,7 @@ import java.util.Set;
 
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IMarkerDelta;
+import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IResourceChangeEvent;
 import org.eclipse.core.resources.IResourceChangeListener;
@@ -96,16 +97,16 @@ public class OriginalsDecorator implements ILightweightLabelDecorator, IResource
 		    if (md != null) {
 			String st = md.getSTATUS();
 			if (METSConstants.MD_STATUS_CROSSWALK_LINKED.equals(st)) {
-			    decoration.addOverlay(
-					    LabelImageFactory.getImageDescriptorForKey(LabelImageFactory.CROSSWALKED_DECORATOR),
+			    decoration.addOverlay(LabelImageFactory
+					    .getImageDescriptorForKey(LabelImageFactory.CROSSWALKED_DECORATOR),
 					    IDecoration.BOTTOM_LEFT);
 			} else if (METSConstants.MD_STATUS_USER_EDITED.equals(st)) {
-			    decoration.addOverlay(
-					    LabelImageFactory.getImageDescriptorForKey(LabelImageFactory.USER_EDITED_DECORATOR),
+			    decoration.addOverlay(LabelImageFactory
+					    .getImageDescriptorForKey(LabelImageFactory.USER_EDITED_DECORATOR),
 					    IDecoration.TOP_RIGHT);
 			} else if (METSConstants.MD_STATUS_CROSSWALK_USER_LINKED.equals(st)) {
-			    decoration.addOverlay(
-					    LabelImageFactory.getImageDescriptorForKey(LabelImageFactory.CROSSWALKED_DECORATOR),
+			    decoration.addOverlay(LabelImageFactory
+					    .getImageDescriptorForKey(LabelImageFactory.CROSSWALKED_DECORATOR),
 					    IDecoration.BOTTOM_LEFT);
 			}
 		    }
@@ -116,7 +117,7 @@ public class OriginalsDecorator implements ILightweightLabelDecorator, IResource
 	// added/captured, queued/staged BR
 	try {
 	    ImageDescriptor overlay = null;
-	    if (r != null) {
+	    if (r != null && r.getProject().isOpen()) {
 		if (r.findMarkers(IResourceConstants.MARKER_CAPTURED, false, IResource.DEPTH_ZERO).length > 0) {
 		    boolean isFolder = (r instanceof IContainer);
 		    if (isFolder) { // captured original folder
@@ -160,36 +161,47 @@ public class OriginalsDecorator implements ILightweightLabelDecorator, IResource
 	IMarkerDelta[] captures = event.findMarkerDeltas(IResourceConstants.MARKER_CAPTURED, false);
 	IMarkerDelta[] stages = event.findMarkerDeltas(IResourceConstants.MARKER_STAGED, false);
 	for (IMarkerDelta d : captures) {
-	    changes.add(d.getResource());
-	    try {
-		MetsProjectNature n = (MetsProjectNature) d.getResource().getProject()
-				.getNature(MetsProjectNature.NATURE_ID);
-		String divID = IResourceConstants.getCapturedDivID(d.getResource());
-		if (divID != null) {
-		    Object div = n.getMetsResource().getEObject(divID);
-		    changes.add(div);
+	    if (d.getResource().getProject().isOpen()) {
+		changes.add(d.getResource());
+		try {
+		    MetsProjectNature n = (MetsProjectNature) d.getResource().getProject()
+				    .getNature(MetsProjectNature.NATURE_ID);
+		    String divID = IResourceConstants.getCapturedDivID(d.getResource());
+		    if (n != null && divID != null) {
+			Object div = n.getMetsResource().getEObject(divID);
+			if(div != null) {
+			    changes.add(div);
+			}
+		    }
+
+		} catch (CoreException e1) {
+		    e1.printStackTrace();
 		}
-	    } catch (CoreException e1) {
-		e1.printStackTrace();
 	    }
 	}
 	for (IMarkerDelta d : stages) {
-	    changes.add(d.getResource());
-	    try {
-		MetsProjectNature n = (MetsProjectNature) d.getResource().getProject()
-				.getNature(MetsProjectNature.NATURE_ID);
-		String divID = IResourceConstants.getCapturedDivID(d.getResource());
-		if (divID != null) {
-		    Object div = n.getMetsResource().getEObject(divID);
-		    changes.add(div);
+	    if (d.getResource().getProject().isOpen()) {
+		changes.add(d.getResource());
+		try {
+		    MetsProjectNature n = (MetsProjectNature) d.getResource().getProject()
+				    .getNature(MetsProjectNature.NATURE_ID);
+		    String divID = IResourceConstants.getCapturedDivID(d.getResource());
+		    if (n != null && divID != null) {
+			Object div = n.getMetsResource().getEObject(divID);
+			if(div != null) {
+			    changes.add(div);
+			}
+		    }
+		} catch (CoreException e1) {
+		    e1.printStackTrace();
 		}
-	    } catch (CoreException e1) {
-		e1.printStackTrace();
 	    }
 	}
-	LabelProviderChangedEvent e = new LabelProviderChangedEvent(this, changes.toArray());
-	for (ILabelProviderListener l : listeners) {
-	    l.labelProviderChanged(e);
+	if (changes.size() > 0) {
+	    LabelProviderChangedEvent e = new LabelProviderChangedEvent(this, changes.toArray());
+	    for (ILabelProviderListener l : listeners) {
+		l.labelProviderChanged(e);
+	    }
 	}
     }
 

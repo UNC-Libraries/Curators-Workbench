@@ -220,10 +220,10 @@ public class FileTypeImpl extends EObjectImpl implements FileType {
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @see #getCHECKSUMTYPE()
-         * @generated
+         * @generated NOT
          * @ordered
          */
-        protected static final CHECKSUMTYPEType CHECKSUMTYPE_EDEFAULT = CHECKSUMTYPEType.ADLER32;
+        protected static final CHECKSUMTYPEType CHECKSUMTYPE_EDEFAULT = CHECKSUMTYPEType.MD5;
 
         /**
          * The cached value of the '{@link #getCHECKSUMTYPE() <em>CHECKSUMTYPE</em>}' attribute.

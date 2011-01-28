@@ -81,13 +81,13 @@ public class MetsProjectContentProvider implements ITreeContentProvider, IResour
 	if (parent instanceof WorkbenchWorkbenchRoot) {
 	    List<Object> results = new ArrayList<Object>();
 	    for (IProject p : ResourcesPlugin.getWorkspace().getRoot().getProjects()) {
-		try {
-		    if (p.isOpen() && p.hasNature(MetsProjectNature.NATURE_ID)) {
+		//try {
+		    //if (p.isOpen() && p.hasNature(MetsProjectNature.NATURE_ID)) {
 			results.add(p);
-		    }
-		} catch (CoreException e) {
-		    throw new Error("Unexpected");
-		}
+		    //}
+		//} catch (CoreException e) {
+		//    throw new Error("Unexpected");
+		//}
 	    }
 	    return results.toArray();
 	} /* else if (parent instanceof IProject) {
@@ -131,7 +131,9 @@ public class MetsProjectContentProvider implements ITreeContentProvider, IResour
      */
     @Override
     public boolean hasChildren(Object element) {
-	if(element instanceof IProject || element instanceof WorkbenchWorkbenchRoot) {
+	if(element instanceof IProject) {
+	    return ((IProject)element).isOpen();
+	} else if(element instanceof WorkbenchWorkbenchRoot) {
 	    return true;
 	} /* else if(element instanceof ICustomProjectElement) {
 	    ICustomProjectElement e = (ICustomProjectElement)element;

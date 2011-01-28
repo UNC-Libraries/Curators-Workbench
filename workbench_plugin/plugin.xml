@@ -31,6 +31,13 @@
             properties="folderName"
             type="org.eclipse.core.resources.IResource">
       </propertyTester>
+      <propertyTester
+            class="unc.lib.cdr.workbench.tester.ProjectPropertyTester"
+            id="workbench_plugin.projectPropertyTester"
+            namespace="workbench_plugin.projectPropertyTester"
+            properties="open,closed"
+            type="org.eclipse.core.resources.IProject">
+      </propertyTester>
    </extension>
 
    <extension
@@ -107,6 +114,16 @@
             id="cdr-workbench.commandRescanOriginals"
             name="Refresh">
       </command>
+      <command
+            defaultHandler="unc.lib.cdr.workbench.commands.CloseProjectHandler"
+            id="workbench_plugin.commandCloseProject"
+            name="Close Project">
+      </command>
+      <command
+            defaultHandler="unc.lib.cdr.workbench.commands.OpenProjectHandler"
+            id="workbench_plugin.commandOpenProject"
+            name="Open Project">
+      </command>
    </extension>
    <extension
          point="org.eclipse.ui.menus">
@@ -133,10 +150,18 @@
                   style="push"
                   tooltip="Exit the workbench">
             </command>
+            <command
+                  commandId="org.eclipse.ui.project.closeProject"
+                  style="push">
+            </command>
          </menu>
          <menu
                id="help"
                label="Help">
+            <command
+                  commandId="org.eclipse.ui.help.aboutAction"
+                  style="push">
+            </command>
          </menu>
       </menuContribution>
       <menuContribution
@@ -351,6 +376,42 @@
                               value="org.eclipse.core.resources.IResource">
                         </instanceof>
                      </or>
+                  </iterate>
+               </with>
+            </visibleWhen>
+         </command>
+         <command
+               commandId="workbench_plugin.commandCloseProject"
+               label="Close Project"
+               style="push">
+            <visibleWhen
+                  checkEnabled="false">
+               <with
+                     variable="activeMenuSelection">
+                  <iterate
+                        ifEmpty="false"
+                        operator="or">
+                     <test
+                           property="workbench_plugin.projectPropertyTester.open">
+                     </test>
+                  </iterate>
+               </with>
+            </visibleWhen>
+         </command>
+         <command
+               commandId="workbench_plugin.commandOpenProject"
+               label="Open Project"
+               style="push">
+            <visibleWhen
+                  checkEnabled="false">
+               <with
+                     variable="activeMenuSelection">
+                  <iterate
+                        ifEmpty="false"
+                        operator="or">
+                     <test
+                           property="workbench_plugin.projectPropertyTester.closed">
+                     </test>
                   </iterate>
                </with>
             </visibleWhen>

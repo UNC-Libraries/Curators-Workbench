@@ -32,6 +32,9 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CompoundCommand;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.edit.command.AddCommand;
+import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.jface.util.LocalSelectionTransfer;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -144,16 +147,22 @@ public class ArrangementCommonDropAdapterAssistant extends CommonDropAdapterAssi
 	if (getCommonDropAdapter().getCurrentTarget() instanceof DivType) {
 	    MdSecType md = (MdSecType) mdSecs.get(0); // can only drop one
 						      // record at a time
-	    // remove any old DMDID links
+	    // remove any old DMDID links for the same mdSec
 	    MetsProjectNature mpn = MetsProjectNature.getNatureForMetsObject(md);
 	    DivType bag = METSUtils.findBagDiv(mpn.getMets());
+
+	    CompoundCommand comboCommand = new CompoundCommand("match crosswalked record to object");
 	    Iterator iter = bag.eAllContents();
 	    while(iter.hasNext()) {
 		Object o = iter.next();
 		if(o instanceof DivType) {
 		    DivType d = (DivType)o;
 		    if(d.getDMDID() != null && d.getDMDID().contains(md.getID())) {
-			d.getDMDID().remove(md.getID());
+			List dmdid = d.getDMDID();
+			dmdid.remove(md.getID());
+			Command removeDMDID = SetCommand.create(mpn.getEditingDomain(), d,  MetsPackage.eINSTANCE.getDivType_DMDID(), dmdid);
+			comboCommand.append(removeDMDID);
+			//d.getDMDID().remove(md.getID());
 		    }
 		}
 	    }
@@ -161,17 +170,25 @@ public class ArrangementCommonDropAdapterAssistant extends CommonDropAdapterAssi
 	    // add new link
 	    DivType div = (DivType) getCommonDropAdapter().getCurrentTarget();
 	    LOG.debug("got div: " + div + "\ngot mdSec: " + md);
-	    Command setStatus = SetCommand.create(mpn.getEditingDomain(), div, MetsPackage.eINSTANCE.getMdSecType_STATUS(), METSConstants.MD_STATUS_CROSSWALK_USER_LINKED);
-
-	    List<String> newDMDIDs = new ArrayList<String>();
-	    newDMDIDs.add(md.getID());
-	    Command setDMDID = SetCommand.create(mpn.getEditingDomain(), div, MetsPackage.eINSTANCE.getDivType_DMDID(), newDMDIDs);
-
-	    CompoundCommand comboCommand = new CompoundCommand("link metadata to object");
+	    Command setStatus = SetCommand.create(mpn.getEditingDomain(), md, MetsPackage.eINSTANCE.getMdSecType_STATUS(), METSConstants.MD_STATUS_CROSSWALK_USER_LINKED);
 	    comboCommand.append(setStatus);
-	    comboCommand.append(setDMDID);
+
+	    Command dmdidCmd = null;
+	    if(div.getDMDID() == null) {
+		List<String> newDMDIDs = new ArrayList<String>();
+		newDMDIDs.add(md.getID());
+		dmdidCmd = SetCommand.create(mpn.getEditingDomain(), div, MetsPackage.eINSTANCE.getDivType_DMDID(), newDMDIDs);
+	    } else {
+		List<String> newDMDIDs = div.getDMDID();
+		newDMDIDs.add(md.getID());
+		dmdidCmd = SetCommand.create(mpn.getEditingDomain(), div, MetsPackage.eINSTANCE.getDivType_DMDID(), newDMDIDs);
+	    }
+	    comboCommand.append(dmdidCmd);
+
 	    if(comboCommand.canExecute()) {
 		comboCommand.execute();
+	    } else {
+		LOG.debug("Cannot execute drop command: "+comboCommand.toString());
 	    }
 	    return Status.OK_STATUS;
 	}
