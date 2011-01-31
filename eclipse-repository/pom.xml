@@ -43,8 +43,8 @@
                 <configuration>
                     <products>
                         <product>
-                            <id>workbench.product.id</id>
-                            <!--<rootFolder>workbench</rootFolder>-->
+                            <id>curators-workbench</id>
+                            <rootFolder>curators-workbench</rootFolder>
                         </product>
                     </products>
                 </configuration>

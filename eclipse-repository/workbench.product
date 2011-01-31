@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="Curator&apos;s Workbench" uid="workbench.product.id" id="workbench.product" application="workbench_plugin.application" version="0.0.1.qualifier" useFeatures="true" includeLaunchers="true">
+<product name="Curator&apos;s Workbench" uid="curators-workbench" id="workbench.product" application="workbench_plugin.application" version="0.0.1.qualifier" useFeatures="true" includeLaunchers="true">
 
    <aboutInfo>
       <image path="/workbench_plugin/about.png"/>
