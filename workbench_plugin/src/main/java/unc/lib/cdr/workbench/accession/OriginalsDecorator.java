@@ -167,7 +167,7 @@ public class OriginalsDecorator implements ILightweightLabelDecorator, IResource
 		    MetsProjectNature n = (MetsProjectNature) d.getResource().getProject()
 				    .getNature(MetsProjectNature.NATURE_ID);
 		    String divID = IResourceConstants.getCapturedDivID(d.getResource());
-		    if (n != null && divID != null) {
+		    if (n != null && n.getMetsResource() != null && divID != null) {
 			Object div = n.getMetsResource().getEObject(divID);
 			if(div != null) {
 			    changes.add(div);
@@ -186,7 +186,7 @@ public class OriginalsDecorator implements ILightweightLabelDecorator, IResource
 		    MetsProjectNature n = (MetsProjectNature) d.getResource().getProject()
 				    .getNature(MetsProjectNature.NATURE_ID);
 		    String divID = IResourceConstants.getCapturedDivID(d.getResource());
-		    if (n != null && divID != null) {
+		    if (n != null && n.getMetsResource() != null && divID != null) {
 			Object div = n.getMetsResource().getEObject(divID);
 			if(div != null) {
 			    changes.add(div);

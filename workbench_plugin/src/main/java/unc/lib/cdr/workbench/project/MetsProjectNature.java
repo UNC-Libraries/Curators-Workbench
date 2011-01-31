@@ -26,6 +26,7 @@ import gov.loc.mets.util.MetsResourceFactoryImpl;
 import gov.loc.mods.mods.provider.MODSItemProviderAdapterFactory;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -38,6 +39,8 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IProjectDescription;
 import org.eclipse.core.resources.IProjectNature;
 import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.IResourceChangeEvent;
+import org.eclipse.core.resources.IResourceChangeListener;
 import org.eclipse.core.resources.IncrementalProjectBuilder;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
@@ -73,26 +76,60 @@ import unc.lib.cdr.workbench.xwalk.CrosswalksProjectElement;
 
 public class MetsProjectNature implements IProjectNature {
     /**
+     * @author Gregory Jansen
      *
      */
+    public class ProjectCloseListener implements IResourceChangeListener {
+
+	private IProject myproject = null;
+
+	ProjectCloseListener(IProject project) {
+	    this.myproject = project;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 *
+	 * @see
+	 * org.eclipse.core.resources.IResourceChangeListener#resourceChanged
+	 * (org.eclipse.core.resources.IResourceChangeEvent)
+	 */
+	@Override
+	public void resourceChanged(IResourceChangeEvent event) {
+	    IResource res = event.getResource();
+	    if (myproject.equals(res) && IResourceChangeEvent.PRE_CLOSE == event.getType()) {
+		log.debug("detected my project PRE_CLOSE event.");
+		// save the METS before closing..
+		try {
+		    MetsProjectNature n = (MetsProjectNature) myproject.getNature(NATURE_ID);
+		    n.save();
+		} catch (CoreException e) {
+		    e.printStackTrace();
+		} finally {
+		    ResourcesPlugin.getWorkspace().removeResourceChangeListener(this);
+		}
+
+	    }
+	}
+
+    }
+
     public static final String ORIGINALS_FOLDER_NAME = "originals";
-    /**
-     *
-     */
+    private static final String CROSSWALKS_FOLDER_NAME = "crosswalks";
     public static final String STAGE_FOLDER_NAME = ".stage";
+
     private static final Logger log = LoggerFactory.getLogger(MetsProjectNature.class);
     public static final String NATURE_ID = "cdr_producer.projectNature";
-    public static final QualifiedName METS_KEY = new QualifiedName(NATURE_ID, "cdr_producer.metsKey");
+    //public static final QualifiedName METS_KEY = new QualifiedName(NATURE_ID, "cdr_producer.metsKey");
     public static final QualifiedName EDITING_DOMAIN_KEY = new QualifiedName(NATURE_ID, "cdr_producer.editingDomain");
     public static final QualifiedName RESOURCE_SET_KEY = new QualifiedName(NATURE_ID, "cdr_producer.resourceSet");
     public static final String STAGING_BUILDER_ID = "unc.lib.cdr.workbench.builders.StageBuilder";
     public static final String CROSSWALKS_BUILDER_ID = "unc.lib.cdr.workbench.builders.CrosswalksBuilder";
     public static final Path METS_PATH = new Path("workbench-mets.xml");
-    private static Map<ResourceSet, IProject> rSet2Project = new HashMap<ResourceSet, IProject>();
-    private boolean initialized = false;
+    private static ComposedAdapterFactory adapterFactory = null;
+
     private IProject project = null;
     private ResourceSet resourceSet = null;
-    private static ComposedAdapterFactory adapterFactory = null;
     private CommandStack commandStack = null;
     private EditingDomain editingDomain = null;
     private Resource metsResource = null;
@@ -144,39 +181,19 @@ public class MetsProjectNature implements IProjectNature {
 	adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
     }
 
-    private void initialize() {
-	if (!initialized) {
-	    // Create a resource set to hold the resources.
-	    //
-	    this.resourceSet = new ResourceSetImpl();
-
-	    // Register the appropriate resource factory to handle all file
-	    // extensions.
-	    //
-	    this.resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap()
-			    .put(Resource.Factory.Registry.DEFAULT_EXTENSION, new MetsResourceFactoryImpl());
-
-	    // Register the package to ensure it is available during loading.
-	    this.resourceSet.getPackageRegistry().put(MetsPackage.eNS_URI, MetsPackage.eINSTANCE);
-
-	    MetsProjectNature.rSet2Project.put(resourceSet, getProject());
-
-	    // Create the command stack that will notify this editor as commands
-	    // are executed.
-	    commandStack = new BasicCommandStack();
-	    editingDomain = new AdapterFactoryEditingDomain(adapterFactory, commandStack, resourceSet);
-	    extendedMetaData = new BasicExtendedMetaData(resourceSet.getPackageRegistry());
-	    try {
-		this.project.setSessionProperty(EDITING_DOMAIN_KEY, editingDomain);
-		this.project.setSessionProperty(RESOURCE_SET_KEY, resourceSet);
-	    } catch (CoreException e) {
-		e.printStackTrace();
-	    }
-	    initialized = true;
-	}
-    }
-
     public MetsProjectNature() {
+	this.resourceSet = new ResourceSetImpl();
+	// Register the appropriate resource factory to handle all file
+	// extensions.
+	this.resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap()
+			.put(Resource.Factory.Registry.DEFAULT_EXTENSION, new MetsResourceFactoryImpl());
+	// Register the package to ensure it is available during loading.
+	this.resourceSet.getPackageRegistry().put(MetsPackage.eNS_URI, MetsPackage.eINSTANCE);
+	// Create the command stack that will notify this editor as commands are
+	// executed.
+	commandStack = new BasicCommandStack();
+	editingDomain = new AdapterFactoryEditingDomain(adapterFactory, commandStack, resourceSet);
+	extendedMetaData = new BasicExtendedMetaData(resourceSet.getPackageRegistry());
     }
 
     public ICustomProjectElement[] getProjectElements() {
@@ -204,9 +221,10 @@ public class MetsProjectNature implements IProjectNature {
     }
 
     public void save() throws CoreException {
-	initialize();
 	try {
-	    this.metsResource.save(new HashMap());
+	    if (this.getProject().isOpen() && this.getMetsResource() != null) {
+		this.getMetsResource().save(new HashMap());
+	    }
 	    log.debug("saved mets");
 	} catch (IOException e) {
 	    Status s = new Status(Status.ERROR, Activator.PLUGIN_ID, "Cannot save METS", e);
@@ -215,35 +233,34 @@ public class MetsProjectNature implements IProjectNature {
     }
 
     public void load() throws CoreException {
-	initialize();
 	IFile f = project.getFile(MetsProjectNature.METS_PATH);
 	Map xmlOptions = new HashMap();
 	String uri = f.getLocationURI().toString();
 	try {
+	    log.debug("METS attempting to load existing file");
 	    this.metsResource = this.resourceSet.getResource(URI.createURI(uri), true);
 	    ((ResourceImpl) this.metsResource).setIntrinsicIDToEObjectMap(new HashMap());
 	    this.metsResource.load(xmlOptions);
+	    log.debug("METS loaded from existing file");
 	} catch (Exception e) {
-	    log.debug("exception thrown, trying to create new resource.", e);
+	    log.debug("METS being created.");
 	    this.metsResource = this.resourceSet.createResource(URI.createURI(uri));
 	    ((ResourceImpl) this.metsResource).setIntrinsicIDToEObjectMap(new HashMap());
 	    DocumentRoot r = METSUtils.createInitialMetsDocument(project.getName() + " Workbench Manifest");
 	    this.metsResource.getContents().add(r);
-	    log.debug("initial mets contents created: "+this.metsResource.getContents());
+	    log.debug("METS created: " + this.metsResource.getContents());
 	    try {
 		this.metsResource.save(xmlOptions);
-		//this.metsResource.load(xmlOptions);
-		log.debug("mets saved for the first time");
+		// this.metsResource.load(xmlOptions);
+		log.debug("METS saved for the first time");
 	    } catch (IOException e1) {
 		log.error("Problem creating METS", e1);
 		Status s = new Status(Status.ERROR, Activator.PLUGIN_ID, "Cannot save METS", e1);
 		throw new CoreException(s);
 	    }
-	}
-	if (this.metsResource.getContents().size() > 0) {
-	    this.project.setSessionProperty(METS_KEY, this.metsResource.getContents().iterator().next());
-	} else {
-	    log.error("Unable to get METS object from resource");
+	} finally {
+	    IResourceChangeListener listener = new MetsProjectNature.ProjectCloseListener(project);
+	    ResourcesPlugin.getWorkspace().addResourceChangeListener(listener, IResourceChangeEvent.PRE_CLOSE);
 	}
 	for (Diagnostic d : this.metsResource.getErrors()) {
 	    log.debug(d.toString());
@@ -257,8 +274,10 @@ public class MetsProjectNature implements IProjectNature {
 
     @Override
     public void configure() throws CoreException {
-	load();
-	IFolder cws = this.getProject().getFolder("crosswalks");
+	// setProject already called
+	// TODO initialize the adapterfactories
+	//load();
+	IFolder cws = this.getProject().getFolder(CROSSWALKS_FOLDER_NAME);
 	if (!cws.exists()) {
 	    cws.create(false, false, new NullProgressMonitor());
 	}
@@ -317,7 +336,6 @@ public class MetsProjectNature implements IProjectNature {
     @Override
     public void deconfigure() throws CoreException {
 	save();
-	this.project.getSessionProperties().remove(METS_KEY);
     }
 
     @Override
@@ -329,16 +347,27 @@ public class MetsProjectNature implements IProjectNature {
     public void setProject(IProject project) {
 	this.project = project;
 	try {
+	    this.project.setSessionProperty(EDITING_DOMAIN_KEY, editingDomain);
+	    this.project.setSessionProperty(RESOURCE_SET_KEY, resourceSet);
 	    load();
 	} catch (CoreException e) {
-	    throw new Error("There was a problem loading the METS project nature", e);
+	    e.printStackTrace();
 	}
     }
 
     public static IProject getProjectForMetsEObject(EObject object) {
 	IProject result = null;
-	if (object.eResource() != null && object.eResource().getResourceSet() != null) {
-	    result = MetsProjectNature.rSet2Project.get(object.eResource().getResourceSet());
+	if (object.eResource() != null) {
+	    java.net.URI u;
+	    try {
+		u = new java.net.URI(object.eResource().getURI().toString());
+	    } catch (URISyntaxException e) {
+		throw new Error(e);
+	    }
+	    IFile[] files = ResourcesPlugin.getWorkspace().getRoot().findFilesForLocationURI(u);
+	    if (files.length > 0) {
+		result = files[0].getProject();
+	    }
 	}
 	return result;
     }
@@ -377,12 +406,13 @@ public class MetsProjectNature implements IProjectNature {
 
     /**
      * Finds the original file or folder object for a given div or null.
+     *
      * @param div
      * @return the IResource of the original
      */
     public static IResource getOriginal(DivType div) {
 	if (div.getCONTENTIDS().size() > 0) {
-	    for(String contentid : div.getCONTENTIDS()) {
+	    for (String contentid : div.getCONTENTIDS()) {
 		try {
 		    java.net.URI originalLoc = new java.net.URI(contentid);
 		    IResource[] rs = null;
@@ -397,7 +427,8 @@ public class MetsProjectNature implements IProjectNature {
 			    return r;
 			}
 		    }
-		} catch(Exception ignored) {}
+		} catch (Exception ignored) {
+		}
 	    }
 	}
 	return null;

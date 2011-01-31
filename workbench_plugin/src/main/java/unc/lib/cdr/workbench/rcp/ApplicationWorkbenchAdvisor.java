@@ -52,12 +52,12 @@ public class ApplicationWorkbenchAdvisor extends WorkbenchAdvisor {
 	ISaveParticipant saveParticipant = new METSWorkspaceSaveParticipant();
 	try {
 	    // restore models from workbench files
-	    for(IProject p : ResourcesPlugin.getWorkspace().getRoot().getProjects()) {
-		if(p.isOpen() && p.hasNature(MetsProjectNature.NATURE_ID)) {
-		    MetsProjectNature n = (MetsProjectNature)p.getNature(MetsProjectNature.NATURE_ID);
-		    n.load();
-		}
-	    }
+//	    for(IProject p : ResourcesPlugin.getWorkspace().getRoot().getProjects()) {
+//		if(p.isOpen() && p.hasNature(MetsProjectNature.NATURE_ID)) {
+//		    MetsProjectNature n = (MetsProjectNature)p.getNature(MetsProjectNature.NATURE_ID);
+//		    n.load();
+//		}
+//	    }
 	    ResourcesPlugin.getWorkspace().addSaveParticipant(Activator.PLUGIN_ID, saveParticipant);
 	} catch (CoreException e) {
 	    e.printStackTrace();

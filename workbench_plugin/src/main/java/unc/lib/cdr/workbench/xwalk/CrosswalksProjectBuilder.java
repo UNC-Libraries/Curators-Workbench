@@ -95,7 +95,6 @@ public class CrosswalksProjectBuilder extends IncrementalProjectBuilder {
 	IProject p = getProject();
 	try {
 	    if (p.isOpen() && p.hasNature(MetsProjectNature.NATURE_ID)) {
-		LOG.debug("I am over here");
 		MetsProjectNature n = (MetsProjectNature) p.getNature(MetsProjectNature.NATURE_ID);
 		for (IResource r : n.getCrosswalksElement().getFolder().members()) {
 		    if (r.exists() && r instanceof IFile

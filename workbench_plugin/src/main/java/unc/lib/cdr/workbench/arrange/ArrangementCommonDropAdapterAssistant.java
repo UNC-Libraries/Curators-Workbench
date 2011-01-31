@@ -147,29 +147,30 @@ public class ArrangementCommonDropAdapterAssistant extends CommonDropAdapterAssi
 	if (getCommonDropAdapter().getCurrentTarget() instanceof DivType) {
 	    MdSecType md = (MdSecType) mdSecs.get(0); // can only drop one
 						      // record at a time
-	    // remove any old DMDID links for the same mdSec
 	    MetsProjectNature mpn = MetsProjectNature.getNatureForMetsObject(md);
 	    DivType bag = METSUtils.findBagDiv(mpn.getMets());
-
 	    CompoundCommand comboCommand = new CompoundCommand("match crosswalked record to object");
+
+	    // unlink the mdSec from any divs
 	    Iterator iter = bag.eAllContents();
 	    while(iter.hasNext()) {
 		Object o = iter.next();
 		if(o instanceof DivType) {
 		    DivType d = (DivType)o;
 		    if(d.getDMDID() != null && d.getDMDID().contains(md.getID())) {
-			List dmdid = d.getDMDID();
+			List<String> dmdid = new ArrayList<String>();
+			dmdid.addAll(d.getDMDID());
 			dmdid.remove(md.getID());
 			Command removeDMDID = SetCommand.create(mpn.getEditingDomain(), d,  MetsPackage.eINSTANCE.getDivType_DMDID(), dmdid);
 			comboCommand.append(removeDMDID);
-			//d.getDMDID().remove(md.getID());
 		    }
 		}
 	    }
 
-	    // add new link
 	    DivType div = (DivType) getCommonDropAdapter().getCurrentTarget();
-	    LOG.debug("got div: " + div + "\ngot mdSec: " + md);
+
+	    // add new link
+	    // set the status of the mdSec to user linked crosswalk
 	    Command setStatus = SetCommand.create(mpn.getEditingDomain(), md, MetsPackage.eINSTANCE.getMdSecType_STATUS(), METSConstants.MD_STATUS_CROSSWALK_USER_LINKED);
 	    comboCommand.append(setStatus);
 
@@ -179,7 +180,8 @@ public class ArrangementCommonDropAdapterAssistant extends CommonDropAdapterAssi
 		newDMDIDs.add(md.getID());
 		dmdidCmd = SetCommand.create(mpn.getEditingDomain(), div, MetsPackage.eINSTANCE.getDivType_DMDID(), newDMDIDs);
 	    } else {
-		List<String> newDMDIDs = div.getDMDID();
+		List<String> newDMDIDs = new ArrayList<String>();
+		newDMDIDs.addAll(div.getDMDID());
 		newDMDIDs.add(md.getID());
 		dmdidCmd = SetCommand.create(mpn.getEditingDomain(), div, MetsPackage.eINSTANCE.getDivType_DMDID(), newDMDIDs);
 	    }

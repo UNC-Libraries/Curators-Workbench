@@ -28,8 +28,8 @@ import java.util.Set;
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
-import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.Path;
@@ -100,14 +100,13 @@ private static final Logger LOG = LoggerFactory.getLogger(RemoveDivHandler.class
     private void removeCaptureMarker(DivType d) {
 	// get top folder/file
 	if(d.getCONTENTIDS() != null && d.getCONTENTIDS().size() > 0) {
-	    IProject p = MetsProjectNature.getProjectForMetsEObject(d);
 	    String originalLoc = d.getCONTENTIDS().get(0);
 	    try {
 		IPath loc = new Path(new URI(originalLoc).getPath());
 		LOG.debug("Trying to uncapture: "+originalLoc+"\nwith path:"+loc);
-		IResource r = p.getWorkspace().getRoot().getContainerForLocation(loc);
+		IResource r = ResourcesPlugin.getWorkspace().getRoot().getContainerForLocation(loc);
 		if(r == null) {
-		    r = p.getWorkspace().getRoot().getFileForLocation(loc);
+		    r = ResourcesPlugin.getWorkspace().getRoot().getFileForLocation(loc);
 		}
 		if(r != null) {
 		    r.deleteMarkers(IResourceConstants.MARKER_CAPTURED, true, r.DEPTH_ZERO);

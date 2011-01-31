@@ -90,9 +90,7 @@ public class METSWorkspaceSaveParticipant implements ISaveParticipant {
 	for (IProject p : ResourcesPlugin.getWorkspace().getRoot().getProjects()) {
 	    if (p.isOpen() && p.hasNature(MetsProjectNature.NATURE_ID)) {
 		MetsProjectNature n = (MetsProjectNature) p.getNature(MetsProjectNature.NATURE_ID);
-		if (n != null) {
-		    n.save();
-		}
+		n.save();
 	    }
 	}
     }
