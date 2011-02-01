@@ -30,6 +30,7 @@ import org.eclipse.gmf.runtime.notation.View;
 
 import crosswalk.CrosswalkPackage;
 import crosswalk.diagram.edit.parts.DateInputNameEditPart;
+import crosswalk.diagram.edit.parts.DelimitedFileSourceFileEditPart;
 import crosswalk.diagram.edit.parts.StringInputName10EditPart;
 import crosswalk.diagram.edit.parts.StringInputName11EditPart;
 import crosswalk.diagram.edit.parts.StringInputName2EditPart;
@@ -41,7 +42,6 @@ import crosswalk.diagram.edit.parts.StringInputName7EditPart;
 import crosswalk.diagram.edit.parts.StringInputName8EditPart;
 import crosswalk.diagram.edit.parts.StringInputName9EditPart;
 import crosswalk.diagram.edit.parts.StringInputNameEditPart;
-import crosswalk.diagram.edit.parts.TabSeparatedFileSourceFileEditPart;
 import crosswalk.diagram.edit.parts.TabbedDataFieldColumnNumberEditPart;
 import crosswalk.diagram.edit.parts.TabbedDataFieldLabelColumnNumberEditPart;
 import crosswalk.diagram.edit.parts.TextValueEditPart;
@@ -84,21 +84,21 @@ public class CrosswalkParserProvider extends AbstractProvider implements IParser
     /**
      * @generated
      */
-    private IParser tabSeparatedFileSourceFile_5001Parser;
+    private IParser delimitedFileSourceFile_5039Parser;
 
     /**
      * @generated
      */
-    private IParser getTabSeparatedFileSourceFile_5001Parser() {
-	if (tabSeparatedFileSourceFile_5001Parser == null) {
-	    EAttribute[] features = new EAttribute[] { CrosswalkPackage.eINSTANCE.getTabSeparatedFile_SourceFile() };
+    private IParser getDelimitedFileSourceFile_5039Parser() {
+	if (delimitedFileSourceFile_5039Parser == null) {
+	    EAttribute[] features = new EAttribute[] { CrosswalkPackage.eINSTANCE.getDelimitedFile_SourceFile() };
 	    MessageFormatParser parser = new MessageFormatParser(features);
-	    parser.setViewPattern("file: {0}"); //$NON-NLS-1$
-	    parser.setEditorPattern("file: {0}"); //$NON-NLS-1$
-	    parser.setEditPattern("file: {0}"); //$NON-NLS-1$
-	    tabSeparatedFileSourceFile_5001Parser = parser;
+	    parser.setViewPattern("{0}"); //$NON-NLS-1$
+	    parser.setEditorPattern("{0}"); //$NON-NLS-1$
+	    parser.setEditPattern("{0}"); //$NON-NLS-1$
+	    delimitedFileSourceFile_5039Parser = parser;
 	}
-	return tabSeparatedFileSourceFile_5001Parser;
+	return delimitedFileSourceFile_5039Parser;
     }
 
     /**
@@ -607,8 +607,8 @@ public class CrosswalkParserProvider extends AbstractProvider implements IParser
      */
     protected IParser getParser(int visualID) {
 	switch (visualID) {
-	case TabSeparatedFileSourceFileEditPart.VISUAL_ID:
-	    return getTabSeparatedFileSourceFile_5001Parser();
+	case DelimitedFileSourceFileEditPart.VISUAL_ID:
+	    return getDelimitedFileSourceFile_5039Parser();
 	case WrappingLabel3EditPart.VISUAL_ID:
 	    return getTitleInfoLabel_5018Parser();
 	case WrappingLabel4EditPart.VISUAL_ID:

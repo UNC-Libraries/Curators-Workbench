@@ -1151,6 +1151,97 @@ public interface CrosswalkPackage extends EPackage {
         int ACCESS_CONDITION_FEATURE_COUNT = INPUT_CONSUMER_FEATURE_COUNT + 2;
 
         /**
+         * The meta object id for the '{@link crosswalk.impl.DelimitedFileImpl <em>Delimited File</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see crosswalk.impl.DelimitedFileImpl
+         * @see crosswalk.impl.CrosswalkPackageImpl#getDelimitedFile()
+         * @generated
+         */
+        int DELIMITED_FILE = 28;
+
+        /**
+         * The feature id for the '<em><b>Walk</b></em>' container reference.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         * @ordered
+         */
+        int DELIMITED_FILE__WALK = DATA_SOURCE__WALK;
+
+        /**
+         * The feature id for the '<em><b>Fields</b></em>' containment reference list.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         * @ordered
+         */
+        int DELIMITED_FILE__FIELDS = DATA_SOURCE__FIELDS;
+
+        /**
+         * The feature id for the '<em><b>Source File</b></em>' attribute.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         * @ordered
+         */
+        int DELIMITED_FILE__SOURCE_FILE = DATA_SOURCE_FEATURE_COUNT + 0;
+
+        /**
+         * The feature id for the '<em><b>Data Row</b></em>' attribute.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         * @ordered
+         */
+        int DELIMITED_FILE__DATA_ROW = DATA_SOURCE_FEATURE_COUNT + 1;
+
+        /**
+         * The feature id for the '<em><b>Header Row</b></em>' attribute.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         * @ordered
+         */
+        int DELIMITED_FILE__HEADER_ROW = DATA_SOURCE_FEATURE_COUNT + 2;
+
+        /**
+         * The feature id for the '<em><b>Text Encoding</b></em>' attribute.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         * @ordered
+         */
+        int DELIMITED_FILE__TEXT_ENCODING = DATA_SOURCE_FEATURE_COUNT + 3;
+
+        /**
+         * The feature id for the '<em><b>Field Delimiter</b></em>' attribute.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         * @ordered
+         */
+        int DELIMITED_FILE__FIELD_DELIMITER = DATA_SOURCE_FEATURE_COUNT + 4;
+
+        /**
+         * The feature id for the '<em><b>Text Delimiter</b></em>' attribute.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         * @ordered
+         */
+        int DELIMITED_FILE__TEXT_DELIMITER = DATA_SOURCE_FEATURE_COUNT + 5;
+
+        /**
+         * The number of structural features of the '<em>Delimited File</em>' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         * @ordered
+         */
+        int DELIMITED_FILE_FEATURE_COUNT = DATA_SOURCE_FEATURE_COUNT + 6;
+
+        /**
          * The meta object id for the '<em>Data Exception</em>' data type.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -1158,7 +1249,7 @@ public interface CrosswalkPackage extends EPackage {
          * @see crosswalk.impl.CrosswalkPackageImpl#getDataException()
          * @generated
          */
-        int DATA_EXCEPTION = 28;
+        int DATA_EXCEPTION = 29;
 
         /**
          * The meta object id for the '<em>IProject</em>' data type.
@@ -1168,7 +1259,7 @@ public interface CrosswalkPackage extends EPackage {
          * @see crosswalk.impl.CrosswalkPackageImpl#getIProject()
          * @generated
          */
-        int IPROJECT = 29;
+        int IPROJECT = 30;
 
         /**
          * The meta object id for the '<em>IFile</em>' data type.
@@ -1178,7 +1269,7 @@ public interface CrosswalkPackage extends EPackage {
          * @see crosswalk.impl.CrosswalkPackageImpl#getIFile()
          * @generated
          */
-        int IFILE = 30;
+        int IFILE = 31;
 
         /**
          * The meta object id for the '<em>Record Matches</em>' data type.
@@ -1188,7 +1279,7 @@ public interface CrosswalkPackage extends EPackage {
          * @see crosswalk.impl.CrosswalkPackageImpl#getRecordMatches()
          * @generated
          */
-        int RECORD_MATCHES = 31;
+        int RECORD_MATCHES = 32;
 
         /**
          * The meta object id for the '<em>IFolder</em>' data type.
@@ -1198,7 +1289,7 @@ public interface CrosswalkPackage extends EPackage {
          * @see crosswalk.impl.CrosswalkPackageImpl#getIFolder()
          * @generated
          */
-        int IFOLDER = 32;
+        int IFOLDER = 33;
 
         /**
          * The meta object id for the '<em>Record Out Of Range Exception</em>' data type.
@@ -1208,7 +1299,7 @@ public interface CrosswalkPackage extends EPackage {
          * @see crosswalk.impl.CrosswalkPackageImpl#getRecordOutOfRangeException()
          * @generated
          */
-        int RECORD_OUT_OF_RANGE_EXCEPTION = 33;
+        int RECORD_OUT_OF_RANGE_EXCEPTION = 34;
 
         /**
          * Returns the meta object for class '{@link crosswalk.TabbedDataField <em>Tabbed Data Field</em>}'.
@@ -1775,6 +1866,82 @@ public interface CrosswalkPackage extends EPackage {
          * @generated
          */
         EAttribute getAccessCondition_Type();
+
+        /**
+         * Returns the meta object for class '{@link crosswalk.DelimitedFile <em>Delimited File</em>}'.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @return the meta object for class '<em>Delimited File</em>'.
+         * @see crosswalk.DelimitedFile
+         * @generated
+         */
+        EClass getDelimitedFile();
+
+        /**
+         * Returns the meta object for the attribute '{@link crosswalk.DelimitedFile#getSourceFile <em>Source File</em>}'.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @return the meta object for the attribute '<em>Source File</em>'.
+         * @see crosswalk.DelimitedFile#getSourceFile()
+         * @see #getDelimitedFile()
+         * @generated
+         */
+        EAttribute getDelimitedFile_SourceFile();
+
+        /**
+         * Returns the meta object for the attribute '{@link crosswalk.DelimitedFile#getDataRow <em>Data Row</em>}'.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @return the meta object for the attribute '<em>Data Row</em>'.
+         * @see crosswalk.DelimitedFile#getDataRow()
+         * @see #getDelimitedFile()
+         * @generated
+         */
+        EAttribute getDelimitedFile_DataRow();
+
+        /**
+         * Returns the meta object for the attribute '{@link crosswalk.DelimitedFile#getHeaderRow <em>Header Row</em>}'.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @return the meta object for the attribute '<em>Header Row</em>'.
+         * @see crosswalk.DelimitedFile#getHeaderRow()
+         * @see #getDelimitedFile()
+         * @generated
+         */
+        EAttribute getDelimitedFile_HeaderRow();
+
+        /**
+         * Returns the meta object for the attribute '{@link crosswalk.DelimitedFile#getTextEncoding <em>Text Encoding</em>}'.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @return the meta object for the attribute '<em>Text Encoding</em>'.
+         * @see crosswalk.DelimitedFile#getTextEncoding()
+         * @see #getDelimitedFile()
+         * @generated
+         */
+        EAttribute getDelimitedFile_TextEncoding();
+
+        /**
+         * Returns the meta object for the attribute '{@link crosswalk.DelimitedFile#getFieldDelimiter <em>Field Delimiter</em>}'.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @return the meta object for the attribute '<em>Field Delimiter</em>'.
+         * @see crosswalk.DelimitedFile#getFieldDelimiter()
+         * @see #getDelimitedFile()
+         * @generated
+         */
+        EAttribute getDelimitedFile_FieldDelimiter();
+
+        /**
+         * Returns the meta object for the attribute '{@link crosswalk.DelimitedFile#getTextDelimiter <em>Text Delimiter</em>}'.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @return the meta object for the attribute '<em>Text Delimiter</em>'.
+         * @see crosswalk.DelimitedFile#getTextDelimiter()
+         * @see #getDelimitedFile()
+         * @generated
+         */
+        EAttribute getDelimitedFile_TextDelimiter();
 
         /**
          * Returns the meta object for data type '{@link crosswalk.DataException <em>Data Exception</em>}'.
@@ -2351,6 +2518,64 @@ public interface CrosswalkPackage extends EPackage {
                  * @generated
                  */
                 EAttribute ACCESS_CONDITION__TYPE = eINSTANCE.getAccessCondition_Type();
+
+                /**
+                 * The meta object literal for the '{@link crosswalk.impl.DelimitedFileImpl <em>Delimited File</em>}' class.
+                 * <!-- begin-user-doc -->
+                 * <!-- end-user-doc -->
+                 * @see crosswalk.impl.DelimitedFileImpl
+                 * @see crosswalk.impl.CrosswalkPackageImpl#getDelimitedFile()
+                 * @generated
+                 */
+                EClass DELIMITED_FILE = eINSTANCE.getDelimitedFile();
+
+                /**
+                 * The meta object literal for the '<em><b>Source File</b></em>' attribute feature.
+                 * <!-- begin-user-doc -->
+                 * <!-- end-user-doc -->
+                 * @generated
+                 */
+                EAttribute DELIMITED_FILE__SOURCE_FILE = eINSTANCE.getDelimitedFile_SourceFile();
+
+                /**
+                 * The meta object literal for the '<em><b>Data Row</b></em>' attribute feature.
+                 * <!-- begin-user-doc -->
+                 * <!-- end-user-doc -->
+                 * @generated
+                 */
+                EAttribute DELIMITED_FILE__DATA_ROW = eINSTANCE.getDelimitedFile_DataRow();
+
+                /**
+                 * The meta object literal for the '<em><b>Header Row</b></em>' attribute feature.
+                 * <!-- begin-user-doc -->
+                 * <!-- end-user-doc -->
+                 * @generated
+                 */
+                EAttribute DELIMITED_FILE__HEADER_ROW = eINSTANCE.getDelimitedFile_HeaderRow();
+
+                /**
+                 * The meta object literal for the '<em><b>Text Encoding</b></em>' attribute feature.
+                 * <!-- begin-user-doc -->
+                 * <!-- end-user-doc -->
+                 * @generated
+                 */
+                EAttribute DELIMITED_FILE__TEXT_ENCODING = eINSTANCE.getDelimitedFile_TextEncoding();
+
+                /**
+                 * The meta object literal for the '<em><b>Field Delimiter</b></em>' attribute feature.
+                 * <!-- begin-user-doc -->
+                 * <!-- end-user-doc -->
+                 * @generated
+                 */
+                EAttribute DELIMITED_FILE__FIELD_DELIMITER = eINSTANCE.getDelimitedFile_FieldDelimiter();
+
+                /**
+                 * The meta object literal for the '<em><b>Text Delimiter</b></em>' attribute feature.
+                 * <!-- begin-user-doc -->
+                 * <!-- end-user-doc -->
+                 * @generated
+                 */
+                EAttribute DELIMITED_FILE__TEXT_DELIMITER = eINSTANCE.getDelimitedFile_TextDelimiter();
 
                 /**
                  * The meta object literal for the '<em>Data Exception</em>' data type.

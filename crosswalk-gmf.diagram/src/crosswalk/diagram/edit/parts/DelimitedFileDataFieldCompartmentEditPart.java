@@ -1,17 +1,5 @@
-/**
- * Copyright 2010 The University of North Carolina at Chapel Hill
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *         http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+/*
+ * copyright 2010 University of North Carolina at Chapel Hill
  */
 package crosswalk.diagram.edit.parts;
 
@@ -24,24 +12,24 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure;
 import org.eclipse.gmf.runtime.notation.View;
 
-import crosswalk.diagram.edit.policies.TabSeparatedFileDataFieldCompartmentCanonicalEditPolicy;
-import crosswalk.diagram.edit.policies.TabSeparatedFileDataFieldCompartmentItemSemanticEditPolicy;
+import crosswalk.diagram.edit.policies.DelimitedFileDataFieldCompartmentCanonicalEditPolicy;
+import crosswalk.diagram.edit.policies.DelimitedFileDataFieldCompartmentItemSemanticEditPolicy;
 import crosswalk.diagram.part.Messages;
 
 /**
  * @generated
  */
-public class TabSeparatedFileDataFieldCompartmentEditPart extends ListCompartmentEditPart {
+public class DelimitedFileDataFieldCompartmentEditPart extends ListCompartmentEditPart {
 
     /**
      * @generated
      */
-    public static final int VISUAL_ID = 7009;
+    public static final int VISUAL_ID = 7015;
 
     /**
      * @generated
      */
-    public TabSeparatedFileDataFieldCompartmentEditPart(View view) {
+    public DelimitedFileDataFieldCompartmentEditPart(View view) {
 	super(view);
     }
 
@@ -56,7 +44,7 @@ public class TabSeparatedFileDataFieldCompartmentEditPart extends ListCompartmen
      * @generated
      */
     public String getCompartmentName() {
-	return Messages.TabSeparatedFileDataFieldCompartmentEditPart_title;
+	return Messages.DelimitedFileDataFieldCompartmentEditPart_title;
     }
 
     /**
@@ -73,11 +61,10 @@ public class TabSeparatedFileDataFieldCompartmentEditPart extends ListCompartmen
      */
     protected void createDefaultEditPolicies() {
 	super.createDefaultEditPolicies();
-	installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-			new TabSeparatedFileDataFieldCompartmentItemSemanticEditPolicy());
+	installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new DelimitedFileDataFieldCompartmentItemSemanticEditPolicy());
 	installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicy());
 	installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new DragDropEditPolicy());
-	installEditPolicy(EditPolicyRoles.CANONICAL_ROLE, new TabSeparatedFileDataFieldCompartmentCanonicalEditPolicy());
+	installEditPolicy(EditPolicyRoles.CANONICAL_ROLE, new DelimitedFileDataFieldCompartmentCanonicalEditPolicy());
     }
 
     /**

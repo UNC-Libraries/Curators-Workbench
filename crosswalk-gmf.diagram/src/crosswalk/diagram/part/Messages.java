@@ -313,7 +313,7 @@ public class Messages extends NLS {
     /**
      * @generated
      */
-    public static String TabSeparatedFileDataFieldCompartmentEditPart_title;
+    public static String DelimitedFileDataFieldCompartmentEditPart_title;
 
     /**
      * @generated

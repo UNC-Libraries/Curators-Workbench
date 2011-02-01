@@ -215,6 +215,15 @@ public interface CrosswalkFactory extends EFactory {
         AccessCondition createAccessCondition();
 
         /**
+         * Returns a new object of class '<em>Delimited File</em>'.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @return a new object of class '<em>Delimited File</em>'.
+         * @generated
+         */
+        DelimitedFile createDelimitedFile();
+
+        /**
          * Returns the package supported by this factory.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->

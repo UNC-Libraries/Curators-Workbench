@@ -416,7 +416,7 @@ public class MetsProjectNature implements IProjectNature {
 		try {
 		    java.net.URI originalLoc = new java.net.URI(contentid);
 		    IResource[] rs = null;
-		    if (METSConstants.Div_Folder.equals(div.getTYPE())) {
+		    if (METSUtils.isContainer(div)) {
 			rs = ResourcesPlugin.getWorkspace().getRoot().findContainersForLocationURI(originalLoc);
 		    } else if (METSConstants.Div_File.equals(div.getTYPE())) {
 			rs = ResourcesPlugin.getWorkspace().getRoot().findContainersForLocationURI(originalLoc);

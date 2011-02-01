@@ -51,6 +51,8 @@ public class LabelImageFactory {
 
     public static final String FOLDER = "folder";
     public static final String FILE = "file";
+    private static final String COLLECTION = "Collection";
+    private static final String DISK = "Disk";
     public static final String HARD_DISK = "hard disk";
     public static final String CD_ROM = "cd-rom";
     public static final String DVD = "dvd";
@@ -160,6 +162,10 @@ public class LabelImageFactory {
 	    return FILE;
 	} else if (METSConstants.Div_Folder.equals(o.getTYPE())) {
 	    return FOLDER;
+	} else if (METSConstants.Div_Collection.equals(o.getTYPE())) {
+	    return COLLECTION;
+	} else if (METSConstants.Div_Disk.equals(o.getTYPE())) {
+	    return DISK;
 	}
 	return null;
     }

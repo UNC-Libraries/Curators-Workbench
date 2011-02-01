@@ -31,6 +31,7 @@ public class METSConstants {
     public static String StructMapType_ARRANGED = "ARRANGED";
     public static String Div_File = "File";
     public static String Div_Folder = "Folder";
+    public static String Div_Collection = "Collection";
     public static final String Div_Disk = "Disk";
     public static final String Div_Bag = "Bag";
     public static final String FILEGROUP_Objects = "OBJECTS";

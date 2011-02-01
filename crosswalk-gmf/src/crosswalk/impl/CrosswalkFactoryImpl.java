@@ -113,6 +113,7 @@ public class CrosswalkFactoryImpl extends EFactoryImpl implements CrosswalkFacto
                         case CrosswalkPackage.DATE_RECOGNIZER: return createDateRecognizer();
                         case CrosswalkPackage.TEXT: return createText();
                         case CrosswalkPackage.ACCESS_CONDITION: return createAccessCondition();
+                        case CrosswalkPackage.DELIMITED_FILE: return createDelimitedFile();
                         default:
                                 throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
                 }
@@ -358,6 +359,16 @@ public class CrosswalkFactoryImpl extends EFactoryImpl implements CrosswalkFacto
         public AccessCondition createAccessCondition() {
                 AccessConditionImpl accessCondition = new AccessConditionImpl();
                 return accessCondition;
+        }
+
+/**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        public DelimitedFile createDelimitedFile() {
+                DelimitedFileImpl delimitedFile = new DelimitedFileImpl();
+                return delimitedFile;
         }
 
 /**

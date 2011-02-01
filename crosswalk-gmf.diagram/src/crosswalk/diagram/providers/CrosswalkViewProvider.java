@@ -68,6 +68,9 @@ import crosswalk.diagram.edit.parts.DateInputInputEditPart;
 import crosswalk.diagram.edit.parts.DateInputNameEditPart;
 import crosswalk.diagram.edit.parts.DateRecognizerEditPart;
 import crosswalk.diagram.edit.parts.DateRecognizerOutputElementInputsCompartmentEditPart;
+import crosswalk.diagram.edit.parts.DelimitedFileDataFieldCompartmentEditPart;
+import crosswalk.diagram.edit.parts.DelimitedFileEditPart;
+import crosswalk.diagram.edit.parts.DelimitedFileSourceFileEditPart;
 import crosswalk.diagram.edit.parts.GenreEditPart;
 import crosswalk.diagram.edit.parts.GenreOutputElementInputsCompartmentEditPart;
 import crosswalk.diagram.edit.parts.IdentifierEditPart;
@@ -104,9 +107,6 @@ import crosswalk.diagram.edit.parts.StringInputName9EditPart;
 import crosswalk.diagram.edit.parts.StringInputNameEditPart;
 import crosswalk.diagram.edit.parts.SubjectEditPart;
 import crosswalk.diagram.edit.parts.SubjectOutputElementInputsCompartmentEditPart;
-import crosswalk.diagram.edit.parts.TabSeparatedFileDataFieldCompartmentEditPart;
-import crosswalk.diagram.edit.parts.TabSeparatedFileEditPart;
-import crosswalk.diagram.edit.parts.TabSeparatedFileSourceFileEditPart;
 import crosswalk.diagram.edit.parts.TabbedDataFieldColumnNumberEditPart;
 import crosswalk.diagram.edit.parts.TabbedDataFieldEditPart;
 import crosswalk.diagram.edit.parts.TabbedDataFieldLabelColumnNumberEditPart;
@@ -216,7 +216,7 @@ public class CrosswalkViewProvider extends AbstractProvider implements IViewProv
 		    return false; // foreign diagram
 		}
 		switch (visualID) {
-		case TabSeparatedFileEditPart.VISUAL_ID:
+		case DelimitedFileEditPart.VISUAL_ID:
 		case TitleInfoEditPart.VISUAL_ID:
 		case AbstractEditPart.VISUAL_ID:
 		case GenreEditPart.VISUAL_ID:
@@ -256,7 +256,7 @@ public class CrosswalkViewProvider extends AbstractProvider implements IViewProv
 		}
 	    }
 	}
-	return TabSeparatedFileEditPart.VISUAL_ID == visualID || TitleInfoEditPart.VISUAL_ID == visualID
+	return DelimitedFileEditPart.VISUAL_ID == visualID || TitleInfoEditPart.VISUAL_ID == visualID
 			|| AbstractEditPart.VISUAL_ID == visualID || GenreEditPart.VISUAL_ID == visualID
 			|| IdentifierEditPart.VISUAL_ID == visualID || LanguageEditPart.VISUAL_ID == visualID
 			|| NameEditPart.VISUAL_ID == visualID || SubjectEditPart.VISUAL_ID == visualID
@@ -319,8 +319,8 @@ public class CrosswalkViewProvider extends AbstractProvider implements IViewProv
 	    visualID = CrosswalkVisualIDRegistry.getVisualID(semanticHint);
 	}
 	switch (visualID) {
-	case TabSeparatedFileEditPart.VISUAL_ID:
-	    return createTabSeparatedFile_2001(domainElement, containerView, index, persisted, preferencesHint);
+	case DelimitedFileEditPart.VISUAL_ID:
+	    return createDelimitedFile_2020(domainElement, containerView, index, persisted, preferencesHint);
 	case TitleInfoEditPart.VISUAL_ID:
 	    return createTitleInfo_2005(domainElement, containerView, index, persisted, preferencesHint);
 	case AbstractEditPart.VISUAL_ID:
@@ -402,18 +402,15 @@ public class CrosswalkViewProvider extends AbstractProvider implements IViewProv
     /**
      * @generated
      */
-    public Node createTabSeparatedFile_2001(EObject domainElement, View containerView, int index, boolean persisted,
+    public Node createDelimitedFile_2020(EObject domainElement, View containerView, int index, boolean persisted,
 		    PreferencesHint preferencesHint) {
-	Node node = NotationFactory.eINSTANCE.createNode();
-	node.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
-	node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
-	node.getStyles().add(NotationFactory.eINSTANCE.createLineStyle());
+	Shape node = NotationFactory.eINSTANCE.createShape();
 	node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
-	node.setType(CrosswalkVisualIDRegistry.getType(TabSeparatedFileEditPart.VISUAL_ID));
+	node.setType(CrosswalkVisualIDRegistry.getType(DelimitedFileEditPart.VISUAL_ID));
 	ViewUtil.insertChildView(containerView, node, index, persisted);
 	node.setElement(domainElement);
 	stampShortcut(containerView, node);
-	// initializeFromPreferences 
+	// initializeFromPreferences
 	final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
 	org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -431,10 +428,12 @@ public class CrosswalkViewProvider extends AbstractProvider implements IViewProv
 			    IPreferenceConstants.PREF_FONT_COLOR);
 	    nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
 	}
-	Node label5001 = createLabel(node,
-			CrosswalkVisualIDRegistry.getType(TabSeparatedFileSourceFileEditPart.VISUAL_ID));
-	createCompartment(node,
-			CrosswalkVisualIDRegistry.getType(TabSeparatedFileDataFieldCompartmentEditPart.VISUAL_ID),
+	org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(prefStore,
+			IPreferenceConstants.PREF_FILL_COLOR);
+	ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getFillStyle_FillColor(),
+			FigureUtilities.RGBToInteger(fillRGB));
+	Node label5039 = createLabel(node, CrosswalkVisualIDRegistry.getType(DelimitedFileSourceFileEditPart.VISUAL_ID));
+	createCompartment(node, CrosswalkVisualIDRegistry.getType(DelimitedFileDataFieldCompartmentEditPart.VISUAL_ID),
 			false, false, true, true);
 	return node;
     }
@@ -453,7 +452,7 @@ public class CrosswalkViewProvider extends AbstractProvider implements IViewProv
 	ViewUtil.insertChildView(containerView, node, index, persisted);
 	node.setElement(domainElement);
 	stampShortcut(containerView, node);
-	// initializeFromPreferences 
+	// initializeFromPreferences
 	final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
 	org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -489,7 +488,7 @@ public class CrosswalkViewProvider extends AbstractProvider implements IViewProv
 	ViewUtil.insertChildView(containerView, node, index, persisted);
 	node.setElement(domainElement);
 	stampShortcut(containerView, node);
-	// initializeFromPreferences 
+	// initializeFromPreferences
 	final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
 	org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -529,7 +528,7 @@ public class CrosswalkViewProvider extends AbstractProvider implements IViewProv
 	ViewUtil.insertChildView(containerView, node, index, persisted);
 	node.setElement(domainElement);
 	stampShortcut(containerView, node);
-	// initializeFromPreferences 
+	// initializeFromPreferences
 	final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
 	org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -569,7 +568,7 @@ public class CrosswalkViewProvider extends AbstractProvider implements IViewProv
 	ViewUtil.insertChildView(containerView, node, index, persisted);
 	node.setElement(domainElement);
 	stampShortcut(containerView, node);
-	// initializeFromPreferences 
+	// initializeFromPreferences
 	final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
 	org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -609,7 +608,7 @@ public class CrosswalkViewProvider extends AbstractProvider implements IViewProv
 	ViewUtil.insertChildView(containerView, node, index, persisted);
 	node.setElement(domainElement);
 	stampShortcut(containerView, node);
-	// initializeFromPreferences 
+	// initializeFromPreferences
 	final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
 	org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -649,7 +648,7 @@ public class CrosswalkViewProvider extends AbstractProvider implements IViewProv
 	ViewUtil.insertChildView(containerView, node, index, persisted);
 	node.setElement(domainElement);
 	stampShortcut(containerView, node);
-	// initializeFromPreferences 
+	// initializeFromPreferences
 	final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
 	org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -689,7 +688,7 @@ public class CrosswalkViewProvider extends AbstractProvider implements IViewProv
 	ViewUtil.insertChildView(containerView, node, index, persisted);
 	node.setElement(domainElement);
 	stampShortcut(containerView, node);
-	// initializeFromPreferences 
+	// initializeFromPreferences
 	final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
 	org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -729,7 +728,7 @@ public class CrosswalkViewProvider extends AbstractProvider implements IViewProv
 	ViewUtil.insertChildView(containerView, node, index, persisted);
 	node.setElement(domainElement);
 	stampShortcut(containerView, node);
-	// initializeFromPreferences 
+	// initializeFromPreferences
 	final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
 	org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -770,7 +769,7 @@ public class CrosswalkViewProvider extends AbstractProvider implements IViewProv
 	ViewUtil.insertChildView(containerView, node, index, persisted);
 	node.setElement(domainElement);
 	stampShortcut(containerView, node);
-	// initializeFromPreferences 
+	// initializeFromPreferences
 	final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
 	org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -812,7 +811,7 @@ public class CrosswalkViewProvider extends AbstractProvider implements IViewProv
 	ViewUtil.insertChildView(containerView, node, index, persisted);
 	node.setElement(domainElement);
 	stampShortcut(containerView, node);
-	// initializeFromPreferences 
+	// initializeFromPreferences
 	final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
 	org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -852,7 +851,7 @@ public class CrosswalkViewProvider extends AbstractProvider implements IViewProv
 	ViewUtil.insertChildView(containerView, node, index, persisted);
 	node.setElement(domainElement);
 	stampShortcut(containerView, node);
-	// initializeFromPreferences 
+	// initializeFromPreferences
 	final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
 	org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -893,7 +892,7 @@ public class CrosswalkViewProvider extends AbstractProvider implements IViewProv
 	ViewUtil.insertChildView(containerView, node, index, persisted);
 	node.setElement(domainElement);
 	stampShortcut(containerView, node);
-	// initializeFromPreferences 
+	// initializeFromPreferences
 	final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
 	org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -934,7 +933,7 @@ public class CrosswalkViewProvider extends AbstractProvider implements IViewProv
 	ViewUtil.insertChildView(containerView, node, index, persisted);
 	node.setElement(domainElement);
 	stampShortcut(containerView, node);
-	// initializeFromPreferences 
+	// initializeFromPreferences
 	final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
 	org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -971,7 +970,7 @@ public class CrosswalkViewProvider extends AbstractProvider implements IViewProv
 	ViewUtil.insertChildView(containerView, node, index, persisted);
 	node.setElement(domainElement);
 	stampShortcut(containerView, node);
-	// initializeFromPreferences 
+	// initializeFromPreferences
 	final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
 	org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -1011,7 +1010,7 @@ public class CrosswalkViewProvider extends AbstractProvider implements IViewProv
 	node.setType(CrosswalkVisualIDRegistry.getType(TabbedDataFieldEditPart.VISUAL_ID));
 	ViewUtil.insertChildView(containerView, node, index, persisted);
 	node.setElement(domainElement);
-	// initializeFromPreferences 
+	// initializeFromPreferences
 	final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
 	org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -1050,7 +1049,7 @@ public class CrosswalkViewProvider extends AbstractProvider implements IViewProv
 	node.setType(CrosswalkVisualIDRegistry.getType(StringInputEditPart.VISUAL_ID));
 	ViewUtil.insertChildView(containerView, node, index, persisted);
 	node.setElement(domainElement);
-	// initializeFromPreferences 
+	// initializeFromPreferences
 	final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
 	org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -1086,7 +1085,7 @@ public class CrosswalkViewProvider extends AbstractProvider implements IViewProv
 	node.setType(CrosswalkVisualIDRegistry.getType(StringInput2EditPart.VISUAL_ID));
 	ViewUtil.insertChildView(containerView, node, index, persisted);
 	node.setElement(domainElement);
-	// initializeFromPreferences 
+	// initializeFromPreferences
 	final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
 	org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -1122,7 +1121,7 @@ public class CrosswalkViewProvider extends AbstractProvider implements IViewProv
 	node.setType(CrosswalkVisualIDRegistry.getType(StringInput3EditPart.VISUAL_ID));
 	ViewUtil.insertChildView(containerView, node, index, persisted);
 	node.setElement(domainElement);
-	// initializeFromPreferences 
+	// initializeFromPreferences
 	final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
 	org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -1158,7 +1157,7 @@ public class CrosswalkViewProvider extends AbstractProvider implements IViewProv
 	node.setType(CrosswalkVisualIDRegistry.getType(StringInput4EditPart.VISUAL_ID));
 	ViewUtil.insertChildView(containerView, node, index, persisted);
 	node.setElement(domainElement);
-	// initializeFromPreferences 
+	// initializeFromPreferences
 	final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
 	org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -1194,7 +1193,7 @@ public class CrosswalkViewProvider extends AbstractProvider implements IViewProv
 	node.setType(CrosswalkVisualIDRegistry.getType(StringInput5EditPart.VISUAL_ID));
 	ViewUtil.insertChildView(containerView, node, index, persisted);
 	node.setElement(domainElement);
-	// initializeFromPreferences 
+	// initializeFromPreferences
 	final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
 	org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -1230,7 +1229,7 @@ public class CrosswalkViewProvider extends AbstractProvider implements IViewProv
 	node.setType(CrosswalkVisualIDRegistry.getType(StringInput6EditPart.VISUAL_ID));
 	ViewUtil.insertChildView(containerView, node, index, persisted);
 	node.setElement(domainElement);
-	// initializeFromPreferences 
+	// initializeFromPreferences
 	final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
 	org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -1266,7 +1265,7 @@ public class CrosswalkViewProvider extends AbstractProvider implements IViewProv
 	node.setType(CrosswalkVisualIDRegistry.getType(StringInput7EditPart.VISUAL_ID));
 	ViewUtil.insertChildView(containerView, node, index, persisted);
 	node.setElement(domainElement);
-	// initializeFromPreferences 
+	// initializeFromPreferences
 	final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
 	org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -1302,7 +1301,7 @@ public class CrosswalkViewProvider extends AbstractProvider implements IViewProv
 	node.setType(CrosswalkVisualIDRegistry.getType(StringInput8EditPart.VISUAL_ID));
 	ViewUtil.insertChildView(containerView, node, index, persisted);
 	node.setElement(domainElement);
-	// initializeFromPreferences 
+	// initializeFromPreferences
 	final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
 	org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -1338,7 +1337,7 @@ public class CrosswalkViewProvider extends AbstractProvider implements IViewProv
 	node.setType(CrosswalkVisualIDRegistry.getType(StringInput9EditPart.VISUAL_ID));
 	ViewUtil.insertChildView(containerView, node, index, persisted);
 	node.setElement(domainElement);
-	// initializeFromPreferences 
+	// initializeFromPreferences
 	final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
 	org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -1374,7 +1373,7 @@ public class CrosswalkViewProvider extends AbstractProvider implements IViewProv
 	node.setType(CrosswalkVisualIDRegistry.getType(DateInputEditPart.VISUAL_ID));
 	ViewUtil.insertChildView(containerView, node, index, persisted);
 	node.setElement(domainElement);
-	// initializeFromPreferences 
+	// initializeFromPreferences
 	final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
 	org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -1410,7 +1409,7 @@ public class CrosswalkViewProvider extends AbstractProvider implements IViewProv
 	node.setType(CrosswalkVisualIDRegistry.getType(StringInput10EditPart.VISUAL_ID));
 	ViewUtil.insertChildView(containerView, node, index, persisted);
 	node.setElement(domainElement);
-	// initializeFromPreferences 
+	// initializeFromPreferences
 	final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
 	org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -1446,7 +1445,7 @@ public class CrosswalkViewProvider extends AbstractProvider implements IViewProv
 	node.setType(CrosswalkVisualIDRegistry.getType(StringInput11EditPart.VISUAL_ID));
 	ViewUtil.insertChildView(containerView, node, index, persisted);
 	node.setElement(domainElement);
-	// initializeFromPreferences 
+	// initializeFromPreferences
 	final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
 	org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -1482,7 +1481,7 @@ public class CrosswalkViewProvider extends AbstractProvider implements IViewProv
 	node.setType(CrosswalkVisualIDRegistry.getType(StringInput12EditPart.VISUAL_ID));
 	ViewUtil.insertChildView(containerView, node, index, persisted);
 	node.setElement(domainElement);
-	// initializeFromPreferences 
+	// initializeFromPreferences
 	final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
 	org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,

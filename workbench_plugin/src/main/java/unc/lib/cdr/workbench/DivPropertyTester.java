@@ -16,7 +16,7 @@
 package unc.lib.cdr.workbench;
 
 import gov.loc.mets.DivType;
-import gov.loc.mets.util.METSConstants;
+import gov.loc.mets.util.METSUtils;
 
 import org.eclipse.core.expressions.PropertyTester;
 
@@ -33,9 +33,7 @@ public class DivPropertyTester extends PropertyTester {
 	}
 	DivType div = (DivType)receiver;
 	if(IS_CONTAINER_PROPERTY.equals(property)) {
-	    if(METSConstants.Div_Folder.equals(div.getTYPE()) || METSConstants.Div_Disk.equals(div.getTYPE())) {
-		return true;
-	    }
+	    return METSUtils.isContainer(div);
 	}
 	return false;
     }

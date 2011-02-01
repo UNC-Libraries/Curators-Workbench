@@ -1,17 +1,5 @@
-/**
- * Copyright 2010 The University of North Carolina at Chapel Hill
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *         http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+/*
+ * copyright 2010 University of North Carolina at Chapel Hill
  */
 package crosswalk.diagram.edit.policies;
 
@@ -44,7 +32,7 @@ import crosswalk.diagram.part.CrosswalkVisualIDRegistry;
 /**
  * @generated
  */
-public class TabSeparatedFileDataFieldCompartmentCanonicalEditPolicy extends CanonicalEditPolicy {
+public class DelimitedFileDataFieldCompartmentCanonicalEditPolicy extends CanonicalEditPolicy {
 
     /**
      * @generated
@@ -61,7 +49,7 @@ public class TabSeparatedFileDataFieldCompartmentCanonicalEditPolicy extends Can
 	View viewObject = (View) getHost().getModel();
 	LinkedList<EObject> result = new LinkedList<EObject>();
 	List<CrosswalkNodeDescriptor> childDescriptors = CrosswalkDiagramUpdater
-			.getTabSeparatedFileDataFieldCompartment_7009SemanticChildren(viewObject);
+			.getDelimitedFileDataFieldCompartment_7015SemanticChildren(viewObject);
 	for (CrosswalkNodeDescriptor d : childDescriptors) {
 	    result.add(d.getModelElement());
 	}
@@ -91,7 +79,7 @@ public class TabSeparatedFileDataFieldCompartmentCanonicalEditPolicy extends Can
 	}
 	LinkedList<IAdaptable> createdViews = new LinkedList<IAdaptable>();
 	List<CrosswalkNodeDescriptor> childDescriptors = CrosswalkDiagramUpdater
-			.getTabSeparatedFileDataFieldCompartment_7009SemanticChildren((View) getHost().getModel());
+			.getDelimitedFileDataFieldCompartment_7015SemanticChildren((View) getHost().getModel());
 	LinkedList<View> orphaned = new LinkedList<View>();
 	// we care to check only views we recognize as ours
 	LinkedList<View> knownViewChildren = new LinkedList<View>();

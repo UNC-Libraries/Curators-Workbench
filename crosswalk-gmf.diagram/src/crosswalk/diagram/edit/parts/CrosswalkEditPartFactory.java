@@ -47,11 +47,11 @@ public class CrosswalkEditPartFactory implements EditPartFactory {
 	    case CrossWalkEditPart.VISUAL_ID:
 		return new CrossWalkEditPart(view);
 
-	    case TabSeparatedFileEditPart.VISUAL_ID:
-		return new TabSeparatedFileEditPart(view);
+	    case DelimitedFileEditPart.VISUAL_ID:
+		return new DelimitedFileEditPart(view);
 
-	    case TabSeparatedFileSourceFileEditPart.VISUAL_ID:
-		return new TabSeparatedFileSourceFileEditPart(view);
+	    case DelimitedFileSourceFileEditPart.VISUAL_ID:
+		return new DelimitedFileSourceFileEditPart(view);
 
 	    case TitleInfoEditPart.VISUAL_ID:
 		return new TitleInfoEditPart(view);
@@ -224,8 +224,8 @@ public class CrosswalkEditPartFactory implements EditPartFactory {
 	    case StringInputName11EditPart.VISUAL_ID:
 		return new StringInputName11EditPart(view);
 
-	    case TabSeparatedFileDataFieldCompartmentEditPart.VISUAL_ID:
-		return new TabSeparatedFileDataFieldCompartmentEditPart(view);
+	    case DelimitedFileDataFieldCompartmentEditPart.VISUAL_ID:
+		return new DelimitedFileDataFieldCompartmentEditPart(view);
 
 	    case TitleInfoTitleInfoInputsCompartmentEditPart.VISUAL_ID:
 		return new TitleInfoTitleInfoInputsCompartmentEditPart(view);

@@ -45,6 +45,10 @@
     <eOperations name="Reset" lowerBound="1" eExceptions="#//DataException"/>
     <eOperations name="getRecordID" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eOperations name="getName" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eOperations name="getFieldValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eParameters name="field" lowerBound="1" eType="#//DataField"/>
+    </eOperations>
+    <eOperations name="initializeDataFields" lowerBound="1" eExceptions="#//DataException"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Walk" lowerBound="1" eType="#//CrossWalk"
         eOpposite="#//CrossWalk/DataSource"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="fields" upperBound="-1"
@@ -124,5 +128,22 @@
   <eClassifiers xsi:type="ecore:EClass" name="AccessCondition" eSuperTypes="#//InputConsumer #//OutputElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="access"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DelimitedFile" eSuperTypes="#//DataSource">
+    <eOperations name="GoToRecord" eExceptions="#//DataException #//RecordOutOfRangeException">
+      <eParameters name="RowNumber" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SourceFile" lowerBound="1"
+        eType="#//IFile"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataRow" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="1"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="headerRow" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        unsettable="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="textEncoding" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="utf-8"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fieldDelimiter" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EChar" defaultValueLiteral=","/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="textDelimiter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EChar"
+        defaultValueLiteral="&quot;"/>
   </eClassifiers>
 </ecore:EPackage>

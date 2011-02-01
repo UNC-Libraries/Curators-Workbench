@@ -132,4 +132,20 @@ public interface DataSource extends EObject {
          */
         String getName();
 
+        /**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @model fieldRequired="true"
+         * @generated
+         */
+        String getFieldValue(DataField field);
+
+        /**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @model exceptions="crosswalk.DataException"
+         * @generated
+         */
+        void initializeDataFields() throws DataException;
+
 } // DataSource

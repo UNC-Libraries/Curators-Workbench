@@ -36,11 +36,13 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import crosswalk.CrossWalk;
+import crosswalk.CrosswalkFactory;
 import crosswalk.CrosswalkPackage;
 import crosswalk.DataException;
 import crosswalk.DataField;
 import crosswalk.RecordOutOfRangeException;
 import crosswalk.TabSeparatedFile;
+import crosswalk.TabbedDataField;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '
@@ -211,22 +213,6 @@ public class TabSeparatedFileImpl extends EObjectImpl implements TabSeparatedFil
                 if (eNotificationRequired())
                         eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.TAB_SEPARATED_FILE__SOURCE_FILE, oldSourceFile, sourceFile));
         }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated NOT
-     */
-    public List<String> getCurrentRowData() {
-	if (!this.reset) {
-	    try {
-		this.Reset();
-	    } catch (DataException e) {
-		e.printStackTrace();
-	    }
-	}
-	return currentRowData;
-    }
 
     /**
          * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -416,6 +402,44 @@ public class TabSeparatedFileImpl extends EObjectImpl implements TabSeparatedFil
     }
 
     /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated NOT
+     */
+    public String getFieldValue(DataField field) {
+        if (!this.reset) {
+	    try {
+		this.Reset();
+	    } catch (DataException e) {
+		e.printStackTrace();
+	    }
+        }
+        TabbedDataField tdf = (TabbedDataField)field;
+        int index = tdf.getColumnNumber() - 1;
+	return currentRowData.get(index);
+    }
+
+    /**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated NOT
+         */
+        public void initializeDataFields() throws DataException {
+            try {
+		this.GoToRecord(this.getHeadingRow());
+	    } catch (RecordOutOfRangeException e) {
+		this.Reset();
+	    }
+	    for (int i = 0; i < this.currentRowData.size(); i++) {
+		TabbedDataField missingField = CrosswalkFactory.eINSTANCE.createTabbedDataField();
+		missingField.setColumnNumber(i + 1);
+		missingField.setLabel(this.currentRowData.get(i));
+		this.getFields().add(missingField);
+	    }
+	    this.Reset();
+        }
+
+/**
          * <!-- begin-user-doc --> <!-- end-user-doc -->
          * @generated
          */

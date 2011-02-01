@@ -1,17 +1,5 @@
-/**
- * Copyright 2010 The University of North Carolina at Chapel Hill
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *         http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+/*
+ * copyright 2010 University of North Carolina at Chapel Hill
  */
 package crosswalk.diagram.edit.parts;
 
@@ -62,12 +50,12 @@ import crosswalk.diagram.providers.CrosswalkParserProvider;
 /**
  * @generated
  */
-public class TabSeparatedFileSourceFileEditPart extends CompartmentEditPart implements ITextAwareEditPart {
+public class DelimitedFileSourceFileEditPart extends CompartmentEditPart implements ITextAwareEditPart {
 
     /**
      * @generated
      */
-    public static final int VISUAL_ID = 5001;
+    public static final int VISUAL_ID = 5039;
 
     /**
      * @generated
@@ -92,7 +80,7 @@ public class TabSeparatedFileSourceFileEditPart extends CompartmentEditPart impl
     /**
      * @generated
      */
-    public TabSeparatedFileSourceFileEditPart(View view) {
+    public DelimitedFileSourceFileEditPart(View view) {
 	super(view);
     }
 
@@ -291,10 +279,10 @@ public class TabSeparatedFileSourceFileEditPart extends CompartmentEditPart impl
     public IParser getParser() {
 	if (parser == null) {
 	    parser = CrosswalkParserProvider
-			    .getParser(CrosswalkElementTypes.TabSeparatedFile_2001,
+			    .getParser(CrosswalkElementTypes.DelimitedFile_2020,
 					    getParserElement(),
 					    CrosswalkVisualIDRegistry
-							    .getType(crosswalk.diagram.edit.parts.TabSeparatedFileSourceFileEditPart.VISUAL_ID));
+							    .getType(crosswalk.diagram.edit.parts.DelimitedFileSourceFileEditPart.VISUAL_ID));
 	}
 	return parser;
     }

@@ -225,7 +225,7 @@ public class ArrangementCommonDropAdapterAssistant extends CommonDropAdapterAssi
 	    DivType d = (DivType) target;
 	    DivType parent = (DivType) d.eContainer();
 	    int parentIndex = parent.getDiv().indexOf(d);
-	    if (METSConstants.Div_Folder.equals(d.getTYPE()) || METSConstants.Div_Disk.equals(d.getTYPE())) {
+	    if (METSUtils.isContainer(d)) {
 		switch (getCommonDropAdapter().getCurrentLocation()) {
 		case ViewerDropAdapter.LOCATION_BEFORE:
 		    // drop before this div
@@ -310,7 +310,7 @@ public class ArrangementCommonDropAdapterAssistant extends CommonDropAdapterAssi
 	    }
 	} else if (getCommonDropAdapter().getCurrentTarget() instanceof DivType) {
 	    DivType d = (DivType) getCommonDropAdapter().getCurrentTarget();
-	    if (METSConstants.Div_Folder.equals(d.getTYPE()) || METSConstants.Div_Disk.equals(d.getTYPE())) {
+	    if (METSUtils.isContainer(d)) {
 		switch (getCommonDropAdapter().getCurrentLocation()) {
 		case ViewerDropAdapter.LOCATION_NONE:
 		    break;

@@ -10,16 +10,16 @@
         href="crosswalk.ecore#//CrossWalk/DataSource"/>
     <ownedChild>
       <domainMetaElement
-          href="crosswalk.ecore#//TabSeparatedFile"/>
+          href="crosswalk.ecore#//DelimitedFile"/>
       <labelMappings
           xsi:type="gmfmap:FeatureLabelMapping"
           readOnly="true"
-          viewPattern="file: {0}"
+          viewPattern="{0}"
           editorPattern="">
         <diagramLabel
             href="crosswalk.gmfgraph#DataSourceName"/>
         <features
-            href="crosswalk.ecore#//TabSeparatedFile/SourceFile"/>
+            href="crosswalk.ecore#//DelimitedFile/SourceFile"/>
       </labelMappings>
       <diagramNode
           href="crosswalk.gmfgraph#DataSource"/>

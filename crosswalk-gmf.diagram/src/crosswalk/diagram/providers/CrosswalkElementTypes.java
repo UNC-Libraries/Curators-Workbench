@@ -39,6 +39,7 @@ import crosswalk.diagram.edit.parts.DateCreatedEditPart;
 import crosswalk.diagram.edit.parts.DateInputEditPart;
 import crosswalk.diagram.edit.parts.DateInputInputEditPart;
 import crosswalk.diagram.edit.parts.DateRecognizerEditPart;
+import crosswalk.diagram.edit.parts.DelimitedFileEditPart;
 import crosswalk.diagram.edit.parts.GenreEditPart;
 import crosswalk.diagram.edit.parts.IdentifierEditPart;
 import crosswalk.diagram.edit.parts.LanguageEditPart;
@@ -58,7 +59,6 @@ import crosswalk.diagram.edit.parts.StringInput9EditPart;
 import crosswalk.diagram.edit.parts.StringInputEditPart;
 import crosswalk.diagram.edit.parts.StringInputInputEditPart;
 import crosswalk.diagram.edit.parts.SubjectEditPart;
-import crosswalk.diagram.edit.parts.TabSeparatedFileEditPart;
 import crosswalk.diagram.edit.parts.TabbedDataFieldEditPart;
 import crosswalk.diagram.edit.parts.TextEditPart;
 import crosswalk.diagram.edit.parts.TitleInfoEditPart;
@@ -99,7 +99,8 @@ public class CrosswalkElementTypes {
     /**
      * @generated
      */
-    public static final IElementType TabSeparatedFile_2001 = getElementType("crosswalk-gmf.diagram.TabSeparatedFile_2001"); //$NON-NLS-1$
+    public static final IElementType DelimitedFile_2020 = getElementType("crosswalk-gmf.diagram.DelimitedFile_2020"); //$NON-NLS-1$
+
     /**
      * @generated
      */
@@ -357,7 +358,7 @@ public class CrosswalkElementTypes {
 
 	    elements.put(CrossWalk_1000, CrosswalkPackage.eINSTANCE.getCrossWalk());
 
-	    elements.put(TabSeparatedFile_2001, CrosswalkPackage.eINSTANCE.getTabSeparatedFile());
+	    elements.put(DelimitedFile_2020, CrosswalkPackage.eINSTANCE.getDelimitedFile());
 
 	    elements.put(TitleInfo_2005, CrosswalkPackage.eINSTANCE.getTitleInfo());
 
@@ -419,7 +420,7 @@ public class CrosswalkElementTypes {
 
 	    elements.put(DateInputInput_4010, CrosswalkPackage.eINSTANCE.getDateInput_Input());
 	}
-	return (ENamedElement) elements.get(type);
+	return elements.get(type);
     }
 
     /**
@@ -436,7 +437,7 @@ public class CrosswalkElementTypes {
 	if (KNOWN_ELEMENT_TYPES == null) {
 	    KNOWN_ELEMENT_TYPES = new HashSet<IElementType>();
 	    KNOWN_ELEMENT_TYPES.add(CrossWalk_1000);
-	    KNOWN_ELEMENT_TYPES.add(TabSeparatedFile_2001);
+	    KNOWN_ELEMENT_TYPES.add(DelimitedFile_2020);
 	    KNOWN_ELEMENT_TYPES.add(TitleInfo_2005);
 	    KNOWN_ELEMENT_TYPES.add(Abstract_2007);
 	    KNOWN_ELEMENT_TYPES.add(Genre_2008);
@@ -478,8 +479,8 @@ public class CrosswalkElementTypes {
 	switch (visualID) {
 	case CrossWalkEditPart.VISUAL_ID:
 	    return CrossWalk_1000;
-	case TabSeparatedFileEditPart.VISUAL_ID:
-	    return TabSeparatedFile_2001;
+	case DelimitedFileEditPart.VISUAL_ID:
+	    return DelimitedFile_2020;
 	case TitleInfoEditPart.VISUAL_ID:
 	    return TitleInfo_2005;
 	case AbstractEditPart.VISUAL_ID:

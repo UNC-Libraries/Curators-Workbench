@@ -216,7 +216,7 @@ copyright 2010 University of North Carolina at Chapel Hill
       <viewProvider class="crosswalk.diagram.providers.CrosswalkViewProvider">
          <Priority name="Lowest"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Crosswalk"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2001,2005,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,3017,3008,3010,3011,3012,3013,3014,3015,3016,3018,3019,3020,3021,3022"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2020,2005,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,3017,3008,3010,3011,3012,3013,3014,3015,3016,3018,3019,3020,3021,3022"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="4009,4010"/>
       </viewProvider>
    </extension>
@@ -229,16 +229,16 @@ copyright 2010 University of North Carolina at Chapel Hill
             <method name="getType()" value="Crosswalk"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-nodes">
-            <method name="getType()" value="2001,2005,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,3017,3008,3010,3011,3012,3013,3014,3015,3016,3018,3019,3020,3021,3022"/>
+            <method name="getType()" value="2020,2005,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,3017,3008,3010,3011,3012,3013,3014,3015,3016,3018,3019,3020,3021,3022"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
             <method name="getType()" value="4009,4010"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
-            <method name="getType()" value="5001,5018,5019,5020,5021,5022,5023,5024,5025,5028,5030,5032,5034,5035,5037,5026,5038,5009,5011,5012,5013,5014,5015,5016,5017,5027,5029,5031,5033,5036"/>
+            <method name="getType()" value="5039,5018,5019,5020,5021,5022,5023,5024,5025,5028,5030,5032,5034,5035,5037,5026,5038,5009,5011,5012,5013,5014,5015,5016,5017,5027,5029,5031,5033,5036"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-compartments">
-            <method name="getType()" value="7009,7001,7002,7003,7004,7005,7006,7007,7008,7010,7011,7012,7013,7014"/>
+            <method name="getType()" value="7015,7001,7002,7003,7004,7005,7006,7007,7008,7010,7011,7012,7013,7014"/>
          </object>
          <context views="generated-diagram,generated-nodes,generated-links,generated-labels,generated-compartments"/>
       </editpartProvider>
@@ -249,7 +249,7 @@ copyright 2010 University of North Carolina at Chapel Hill
       <modelingAssistantProvider class="crosswalk.diagram.providers.CrosswalkModelingAssistantProvider">
          <Priority name="Lowest"/>
          <object class="crosswalk.diagram.edit.parts.CrossWalkEditPart" id="CrossWalk_1000"/>
-         <object class="crosswalk.diagram.edit.parts.TabSeparatedFileEditPart" id="TabSeparatedFile_2001"/>
+         <object class="crosswalk.diagram.edit.parts.DelimitedFileEditPart" id="DelimitedFile_2020"/>
          <object class="crosswalk.diagram.edit.parts.TitleInfoEditPart" id="TitleInfo_2005"/>
          <object class="crosswalk.diagram.edit.parts.AbstractEditPart" id="Abstract_2007"/>
          <object class="crosswalk.diagram.edit.parts.GenreEditPart" id="Genre_2008"/>
@@ -264,7 +264,7 @@ copyright 2010 University of North Carolina at Chapel Hill
          <object class="crosswalk.diagram.edit.parts.DateRecognizerEditPart" id="DateRecognizer_2017"/>
          <object class="crosswalk.diagram.edit.parts.TextEditPart" id="Text_2018"/>
          <object class="crosswalk.diagram.edit.parts.TrimWhitespaceEditPart" id="TrimWhitespace_2019"/>
-         <context elements="CrossWalk_1000,TabSeparatedFile_2001,TitleInfo_2005,Abstract_2007,Genre_2008,Identifier_2009,Language_2010,Name_2011,Subject_2012,TypeOfResource_2013,OriginalNameRecordMatcher_2014,DateCreated_2015,AccessCondition_2016,DateRecognizer_2017,Text_2018,TrimWhitespace_2019"/>
+         <context elements="CrossWalk_1000,DelimitedFile_2020,TitleInfo_2005,Abstract_2007,Genre_2008,Identifier_2009,Language_2010,Name_2011,Subject_2012,TypeOfResource_2013,OriginalNameRecordMatcher_2014,DateCreated_2015,AccessCondition_2016,DateRecognizer_2017,Text_2018,TrimWhitespace_2019"/>
       </modelingAssistantProvider>
    </extension>
 
@@ -296,12 +296,12 @@ copyright 2010 University of North Carolina at Chapel Hill
       </metamodel>
       <metamodel nsURI="http://lib.unc.edu/schemas/crosswalk">
          <metamodelType
-               id="crosswalk-gmf.diagram.TabSeparatedFile_2001"
-               name="%metatype.name.TabSeparatedFile_2001"
+               id="crosswalk-gmf.diagram.DelimitedFile_2020"
+               name="%metatype.name.DelimitedFile_2020"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="TabSeparatedFile"
-               edithelper="crosswalk.diagram.edit.helpers.TabSeparatedFileEditHelper">
-            <param name="semanticHint" value="2001"/>
+               eclass="DelimitedFile"
+               edithelper="crosswalk.diagram.edit.helpers.DelimitedFileEditHelper">
+            <param name="semanticHint" value="2020"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://lib.unc.edu/schemas/crosswalk">
@@ -604,7 +604,7 @@ copyright 2010 University of North Carolina at Chapel Hill
       </clientContext> 
       <binding context="crosswalk-gmf.diagram.TypeContext">
          <elementType ref="crosswalk-gmf.diagram.CrossWalk_1000"/>
-         <elementType ref="crosswalk-gmf.diagram.TabSeparatedFile_2001"/>
+         <elementType ref="crosswalk-gmf.diagram.DelimitedFile_2020"/>
          <elementType ref="crosswalk-gmf.diagram.TitleInfo_2005"/>
          <elementType ref="crosswalk-gmf.diagram.Abstract_2007"/>
          <elementType ref="crosswalk-gmf.diagram.Genre_2008"/>

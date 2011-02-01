@@ -39,6 +39,8 @@ import crosswalk.diagram.edit.parts.DateInputEditPart;
 import crosswalk.diagram.edit.parts.DateInputInputEditPart;
 import crosswalk.diagram.edit.parts.DateInputNameEditPart;
 import crosswalk.diagram.edit.parts.DateRecognizerEditPart;
+import crosswalk.diagram.edit.parts.DelimitedFileEditPart;
+import crosswalk.diagram.edit.parts.DelimitedFileSourceFileEditPart;
 import crosswalk.diagram.edit.parts.GenreEditPart;
 import crosswalk.diagram.edit.parts.IdentifierEditPart;
 import crosswalk.diagram.edit.parts.LanguageEditPart;
@@ -69,8 +71,6 @@ import crosswalk.diagram.edit.parts.StringInputName8EditPart;
 import crosswalk.diagram.edit.parts.StringInputName9EditPart;
 import crosswalk.diagram.edit.parts.StringInputNameEditPart;
 import crosswalk.diagram.edit.parts.SubjectEditPart;
-import crosswalk.diagram.edit.parts.TabSeparatedFileEditPart;
-import crosswalk.diagram.edit.parts.TabSeparatedFileSourceFileEditPart;
 import crosswalk.diagram.edit.parts.TabbedDataFieldColumnNumberEditPart;
 import crosswalk.diagram.edit.parts.TabbedDataFieldEditPart;
 import crosswalk.diagram.edit.parts.TextEditPart;
@@ -151,70 +151,70 @@ public class CrosswalkNavigatorLabelProvider extends LabelProvider implements IC
      */
     public Image getImage(View view) {
 	switch (CrosswalkVisualIDRegistry.getVisualID(view)) {
-	case StringInputInputEditPart.VISUAL_ID:
-	    return getImage("Navigator?Link?http://lib.unc.edu/schemas/crosswalk?StringInput?Input", CrosswalkElementTypes.StringInputInput_4009); //$NON-NLS-1$
-	case NameEditPart.VISUAL_ID:
-	    return getImage("Navigator?TopLevelNode?http://lib.unc.edu/schemas/crosswalk?Name", CrosswalkElementTypes.Name_2011); //$NON-NLS-1$
-	case TitleInfoEditPart.VISUAL_ID:
-	    return getImage("Navigator?TopLevelNode?http://lib.unc.edu/schemas/crosswalk?TitleInfo", CrosswalkElementTypes.TitleInfo_2005); //$NON-NLS-1$
-	case TextEditPart.VISUAL_ID:
-	    return getImage("Navigator?TopLevelNode?http://lib.unc.edu/schemas/crosswalk?Text", CrosswalkElementTypes.Text_2018); //$NON-NLS-1$
-	case StringInput2EditPart.VISUAL_ID:
-	    return getImage("Navigator?Node?http://lib.unc.edu/schemas/crosswalk?StringInput", CrosswalkElementTypes.StringInput_3010); //$NON-NLS-1$
-	case StringInput12EditPart.VISUAL_ID:
-	    return getImage("Navigator?Node?http://lib.unc.edu/schemas/crosswalk?StringInput", CrosswalkElementTypes.StringInput_3022); //$NON-NLS-1$
-	case DateCreatedEditPart.VISUAL_ID:
-	    return getImage("Navigator?TopLevelNode?http://lib.unc.edu/schemas/crosswalk?DateCreated", CrosswalkElementTypes.DateCreated_2015); //$NON-NLS-1$
-	case OriginalNameRecordMatcherEditPart.VISUAL_ID:
-	    return getImage("Navigator?TopLevelNode?http://lib.unc.edu/schemas/crosswalk?OriginalNameRecordMatcher", CrosswalkElementTypes.OriginalNameRecordMatcher_2014); //$NON-NLS-1$
 	case GenreEditPart.VISUAL_ID:
 	    return getImage("Navigator?TopLevelNode?http://lib.unc.edu/schemas/crosswalk?Genre", CrosswalkElementTypes.Genre_2008); //$NON-NLS-1$
-	case DateInputInputEditPart.VISUAL_ID:
-	    return getImage("Navigator?Link?http://lib.unc.edu/schemas/crosswalk?DateInput?Input", CrosswalkElementTypes.DateInputInput_4010); //$NON-NLS-1$
-	case SubjectEditPart.VISUAL_ID:
-	    return getImage("Navigator?TopLevelNode?http://lib.unc.edu/schemas/crosswalk?Subject", CrosswalkElementTypes.Subject_2012); //$NON-NLS-1$
-	case StringInput11EditPart.VISUAL_ID:
-	    return getImage("Navigator?Node?http://lib.unc.edu/schemas/crosswalk?StringInput", CrosswalkElementTypes.StringInput_3021); //$NON-NLS-1$
-	case TabSeparatedFileEditPart.VISUAL_ID:
-	    return getImage("Navigator?TopLevelNode?http://lib.unc.edu/schemas/crosswalk?TabSeparatedFile", CrosswalkElementTypes.TabSeparatedFile_2001); //$NON-NLS-1$
-	case StringInput10EditPart.VISUAL_ID:
-	    return getImage("Navigator?Node?http://lib.unc.edu/schemas/crosswalk?StringInput", CrosswalkElementTypes.StringInput_3020); //$NON-NLS-1$
-	case StringInput3EditPart.VISUAL_ID:
-	    return getImage("Navigator?Node?http://lib.unc.edu/schemas/crosswalk?StringInput", CrosswalkElementTypes.StringInput_3011); //$NON-NLS-1$
-	case StringInput8EditPart.VISUAL_ID:
-	    return getImage("Navigator?Node?http://lib.unc.edu/schemas/crosswalk?StringInput", CrosswalkElementTypes.StringInput_3016); //$NON-NLS-1$
-	case TabbedDataFieldEditPart.VISUAL_ID:
-	    return getImage("Navigator?Node?http://lib.unc.edu/schemas/crosswalk?TabbedDataField", CrosswalkElementTypes.TabbedDataField_3017); //$NON-NLS-1$
-	case StringInput7EditPart.VISUAL_ID:
-	    return getImage("Navigator?Node?http://lib.unc.edu/schemas/crosswalk?StringInput", CrosswalkElementTypes.StringInput_3015); //$NON-NLS-1$
-	case StringInput6EditPart.VISUAL_ID:
-	    return getImage("Navigator?Node?http://lib.unc.edu/schemas/crosswalk?StringInput", CrosswalkElementTypes.StringInput_3014); //$NON-NLS-1$
-	case CrossWalkEditPart.VISUAL_ID:
-	    return getImage("Navigator?Diagram?http://lib.unc.edu/schemas/crosswalk?CrossWalk", CrosswalkElementTypes.CrossWalk_1000); //$NON-NLS-1$
-	case TypeOfResourceEditPart.VISUAL_ID:
-	    return getImage("Navigator?TopLevelNode?http://lib.unc.edu/schemas/crosswalk?TypeOfResource", CrosswalkElementTypes.TypeOfResource_2013); //$NON-NLS-1$
-	case IdentifierEditPart.VISUAL_ID:
-	    return getImage("Navigator?TopLevelNode?http://lib.unc.edu/schemas/crosswalk?Identifier", CrosswalkElementTypes.Identifier_2009); //$NON-NLS-1$
+	case DelimitedFileEditPart.VISUAL_ID:
+	    return getImage("Navigator?TopLevelNode?http://lib.unc.edu/schemas/crosswalk?DelimitedFile", CrosswalkElementTypes.DelimitedFile_2020); //$NON-NLS-1$
 	case DateInputEditPart.VISUAL_ID:
 	    return getImage("Navigator?Node?http://lib.unc.edu/schemas/crosswalk?DateInput", CrosswalkElementTypes.DateInput_3019); //$NON-NLS-1$
+	case CrossWalkEditPart.VISUAL_ID:
+	    return getImage("Navigator?Diagram?http://lib.unc.edu/schemas/crosswalk?CrossWalk", CrosswalkElementTypes.CrossWalk_1000); //$NON-NLS-1$
+	case OriginalNameRecordMatcherEditPart.VISUAL_ID:
+	    return getImage("Navigator?TopLevelNode?http://lib.unc.edu/schemas/crosswalk?OriginalNameRecordMatcher", CrosswalkElementTypes.OriginalNameRecordMatcher_2014); //$NON-NLS-1$
+	case TitleInfoEditPart.VISUAL_ID:
+	    return getImage("Navigator?TopLevelNode?http://lib.unc.edu/schemas/crosswalk?TitleInfo", CrosswalkElementTypes.TitleInfo_2005); //$NON-NLS-1$
+	case DateCreatedEditPart.VISUAL_ID:
+	    return getImage("Navigator?TopLevelNode?http://lib.unc.edu/schemas/crosswalk?DateCreated", CrosswalkElementTypes.DateCreated_2015); //$NON-NLS-1$
+	case StringInputEditPart.VISUAL_ID:
+	    return getImage("Navigator?Node?http://lib.unc.edu/schemas/crosswalk?StringInput", CrosswalkElementTypes.StringInput_3008); //$NON-NLS-1$
+	case NameEditPart.VISUAL_ID:
+	    return getImage("Navigator?TopLevelNode?http://lib.unc.edu/schemas/crosswalk?Name", CrosswalkElementTypes.Name_2011); //$NON-NLS-1$
+	case StringInput5EditPart.VISUAL_ID:
+	    return getImage("Navigator?Node?http://lib.unc.edu/schemas/crosswalk?StringInput", CrosswalkElementTypes.StringInput_3013); //$NON-NLS-1$
+	case TextEditPart.VISUAL_ID:
+	    return getImage("Navigator?TopLevelNode?http://lib.unc.edu/schemas/crosswalk?Text", CrosswalkElementTypes.Text_2018); //$NON-NLS-1$
+	case StringInput6EditPart.VISUAL_ID:
+	    return getImage("Navigator?Node?http://lib.unc.edu/schemas/crosswalk?StringInput", CrosswalkElementTypes.StringInput_3014); //$NON-NLS-1$
+	case StringInputInputEditPart.VISUAL_ID:
+	    return getImage("Navigator?Link?http://lib.unc.edu/schemas/crosswalk?StringInput?Input", CrosswalkElementTypes.StringInputInput_4009); //$NON-NLS-1$
+	case StringInput2EditPart.VISUAL_ID:
+	    return getImage("Navigator?Node?http://lib.unc.edu/schemas/crosswalk?StringInput", CrosswalkElementTypes.StringInput_3010); //$NON-NLS-1$
+	case StringInput3EditPart.VISUAL_ID:
+	    return getImage("Navigator?Node?http://lib.unc.edu/schemas/crosswalk?StringInput", CrosswalkElementTypes.StringInput_3011); //$NON-NLS-1$
+	case AbstractEditPart.VISUAL_ID:
+	    return getImage("Navigator?TopLevelNode?http://lib.unc.edu/schemas/crosswalk?Abstract", CrosswalkElementTypes.Abstract_2007); //$NON-NLS-1$
+	case IdentifierEditPart.VISUAL_ID:
+	    return getImage("Navigator?TopLevelNode?http://lib.unc.edu/schemas/crosswalk?Identifier", CrosswalkElementTypes.Identifier_2009); //$NON-NLS-1$
+	case StringInput4EditPart.VISUAL_ID:
+	    return getImage("Navigator?Node?http://lib.unc.edu/schemas/crosswalk?StringInput", CrosswalkElementTypes.StringInput_3012); //$NON-NLS-1$
+	case StringInput9EditPart.VISUAL_ID:
+	    return getImage("Navigator?Node?http://lib.unc.edu/schemas/crosswalk?StringInput", CrosswalkElementTypes.StringInput_3018); //$NON-NLS-1$
+	case StringInput8EditPart.VISUAL_ID:
+	    return getImage("Navigator?Node?http://lib.unc.edu/schemas/crosswalk?StringInput", CrosswalkElementTypes.StringInput_3016); //$NON-NLS-1$
+	case DateInputInputEditPart.VISUAL_ID:
+	    return getImage("Navigator?Link?http://lib.unc.edu/schemas/crosswalk?DateInput?Input", CrosswalkElementTypes.DateInputInput_4010); //$NON-NLS-1$
+	case TabbedDataFieldEditPart.VISUAL_ID:
+	    return getImage("Navigator?Node?http://lib.unc.edu/schemas/crosswalk?TabbedDataField", CrosswalkElementTypes.TabbedDataField_3017); //$NON-NLS-1$
+	case StringInput12EditPart.VISUAL_ID:
+	    return getImage("Navigator?Node?http://lib.unc.edu/schemas/crosswalk?StringInput", CrosswalkElementTypes.StringInput_3022); //$NON-NLS-1$
+	case StringInput7EditPart.VISUAL_ID:
+	    return getImage("Navigator?Node?http://lib.unc.edu/schemas/crosswalk?StringInput", CrosswalkElementTypes.StringInput_3015); //$NON-NLS-1$
 	case AccessConditionEditPart.VISUAL_ID:
 	    return getImage("Navigator?TopLevelNode?http://lib.unc.edu/schemas/crosswalk?AccessCondition", CrosswalkElementTypes.AccessCondition_2016); //$NON-NLS-1$
 	case DateRecognizerEditPart.VISUAL_ID:
 	    return getImage("Navigator?TopLevelNode?http://lib.unc.edu/schemas/crosswalk?DateRecognizer", CrosswalkElementTypes.DateRecognizer_2017); //$NON-NLS-1$
-	case StringInput9EditPart.VISUAL_ID:
-	    return getImage("Navigator?Node?http://lib.unc.edu/schemas/crosswalk?StringInput", CrosswalkElementTypes.StringInput_3018); //$NON-NLS-1$
 	case TrimWhitespaceEditPart.VISUAL_ID:
 	    return getImage("Navigator?TopLevelNode?http://lib.unc.edu/schemas/crosswalk?TrimWhitespace", CrosswalkElementTypes.TrimWhitespace_2019); //$NON-NLS-1$
-	case StringInputEditPart.VISUAL_ID:
-	    return getImage("Navigator?Node?http://lib.unc.edu/schemas/crosswalk?StringInput", CrosswalkElementTypes.StringInput_3008); //$NON-NLS-1$
+	case SubjectEditPart.VISUAL_ID:
+	    return getImage("Navigator?TopLevelNode?http://lib.unc.edu/schemas/crosswalk?Subject", CrosswalkElementTypes.Subject_2012); //$NON-NLS-1$
+	case StringInput11EditPart.VISUAL_ID:
+	    return getImage("Navigator?Node?http://lib.unc.edu/schemas/crosswalk?StringInput", CrosswalkElementTypes.StringInput_3021); //$NON-NLS-1$
 	case LanguageEditPart.VISUAL_ID:
 	    return getImage("Navigator?TopLevelNode?http://lib.unc.edu/schemas/crosswalk?Language", CrosswalkElementTypes.Language_2010); //$NON-NLS-1$
-	case StringInput5EditPart.VISUAL_ID:
-	    return getImage("Navigator?Node?http://lib.unc.edu/schemas/crosswalk?StringInput", CrosswalkElementTypes.StringInput_3013); //$NON-NLS-1$
-	case StringInput4EditPart.VISUAL_ID:
-	    return getImage("Navigator?Node?http://lib.unc.edu/schemas/crosswalk?StringInput", CrosswalkElementTypes.StringInput_3012); //$NON-NLS-1$
-	case AbstractEditPart.VISUAL_ID:
-	    return getImage("Navigator?TopLevelNode?http://lib.unc.edu/schemas/crosswalk?Abstract", CrosswalkElementTypes.Abstract_2007); //$NON-NLS-1$
+	case TypeOfResourceEditPart.VISUAL_ID:
+	    return getImage("Navigator?TopLevelNode?http://lib.unc.edu/schemas/crosswalk?TypeOfResource", CrosswalkElementTypes.TypeOfResource_2013); //$NON-NLS-1$
+	case StringInput10EditPart.VISUAL_ID:
+	    return getImage("Navigator?Node?http://lib.unc.edu/schemas/crosswalk?StringInput", CrosswalkElementTypes.StringInput_3020); //$NON-NLS-1$
 	}
 	return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
     }
@@ -266,70 +266,70 @@ public class CrosswalkNavigatorLabelProvider extends LabelProvider implements IC
 	    return getUnresolvedDomainElementProxyText(view);
 	}
 	switch (CrosswalkVisualIDRegistry.getVisualID(view)) {
-	case StringInputInputEditPart.VISUAL_ID:
-	    return getStringInputInput_4009Text(view);
-	case NameEditPart.VISUAL_ID:
-	    return getName_2011Text(view);
-	case TitleInfoEditPart.VISUAL_ID:
-	    return getTitleInfo_2005Text(view);
-	case TextEditPart.VISUAL_ID:
-	    return getText_2018Text(view);
-	case StringInput2EditPart.VISUAL_ID:
-	    return getStringInput_3010Text(view);
-	case StringInput12EditPart.VISUAL_ID:
-	    return getStringInput_3022Text(view);
-	case DateCreatedEditPart.VISUAL_ID:
-	    return getDateCreated_2015Text(view);
-	case OriginalNameRecordMatcherEditPart.VISUAL_ID:
-	    return getOriginalNameRecordMatcher_2014Text(view);
 	case GenreEditPart.VISUAL_ID:
 	    return getGenre_2008Text(view);
-	case DateInputInputEditPart.VISUAL_ID:
-	    return getDateInputInput_4010Text(view);
-	case SubjectEditPart.VISUAL_ID:
-	    return getSubject_2012Text(view);
-	case StringInput11EditPart.VISUAL_ID:
-	    return getStringInput_3021Text(view);
-	case TabSeparatedFileEditPart.VISUAL_ID:
-	    return getTabSeparatedFile_2001Text(view);
-	case StringInput10EditPart.VISUAL_ID:
-	    return getStringInput_3020Text(view);
-	case StringInput3EditPart.VISUAL_ID:
-	    return getStringInput_3011Text(view);
-	case StringInput8EditPart.VISUAL_ID:
-	    return getStringInput_3016Text(view);
-	case TabbedDataFieldEditPart.VISUAL_ID:
-	    return getTabbedDataField_3017Text(view);
-	case StringInput7EditPart.VISUAL_ID:
-	    return getStringInput_3015Text(view);
-	case StringInput6EditPart.VISUAL_ID:
-	    return getStringInput_3014Text(view);
-	case CrossWalkEditPart.VISUAL_ID:
-	    return getCrossWalk_1000Text(view);
-	case TypeOfResourceEditPart.VISUAL_ID:
-	    return getTypeOfResource_2013Text(view);
-	case IdentifierEditPart.VISUAL_ID:
-	    return getIdentifier_2009Text(view);
+	case DelimitedFileEditPart.VISUAL_ID:
+	    return getDelimitedFile_2020Text(view);
 	case DateInputEditPart.VISUAL_ID:
 	    return getDateInput_3019Text(view);
+	case CrossWalkEditPart.VISUAL_ID:
+	    return getCrossWalk_1000Text(view);
+	case OriginalNameRecordMatcherEditPart.VISUAL_ID:
+	    return getOriginalNameRecordMatcher_2014Text(view);
+	case TitleInfoEditPart.VISUAL_ID:
+	    return getTitleInfo_2005Text(view);
+	case DateCreatedEditPart.VISUAL_ID:
+	    return getDateCreated_2015Text(view);
+	case StringInputEditPart.VISUAL_ID:
+	    return getStringInput_3008Text(view);
+	case NameEditPart.VISUAL_ID:
+	    return getName_2011Text(view);
+	case StringInput5EditPart.VISUAL_ID:
+	    return getStringInput_3013Text(view);
+	case TextEditPart.VISUAL_ID:
+	    return getText_2018Text(view);
+	case StringInput6EditPart.VISUAL_ID:
+	    return getStringInput_3014Text(view);
+	case StringInputInputEditPart.VISUAL_ID:
+	    return getStringInputInput_4009Text(view);
+	case StringInput2EditPart.VISUAL_ID:
+	    return getStringInput_3010Text(view);
+	case StringInput3EditPart.VISUAL_ID:
+	    return getStringInput_3011Text(view);
+	case AbstractEditPart.VISUAL_ID:
+	    return getAbstract_2007Text(view);
+	case IdentifierEditPart.VISUAL_ID:
+	    return getIdentifier_2009Text(view);
+	case StringInput4EditPart.VISUAL_ID:
+	    return getStringInput_3012Text(view);
+	case StringInput9EditPart.VISUAL_ID:
+	    return getStringInput_3018Text(view);
+	case StringInput8EditPart.VISUAL_ID:
+	    return getStringInput_3016Text(view);
+	case DateInputInputEditPart.VISUAL_ID:
+	    return getDateInputInput_4010Text(view);
+	case TabbedDataFieldEditPart.VISUAL_ID:
+	    return getTabbedDataField_3017Text(view);
+	case StringInput12EditPart.VISUAL_ID:
+	    return getStringInput_3022Text(view);
+	case StringInput7EditPart.VISUAL_ID:
+	    return getStringInput_3015Text(view);
 	case AccessConditionEditPart.VISUAL_ID:
 	    return getAccessCondition_2016Text(view);
 	case DateRecognizerEditPart.VISUAL_ID:
 	    return getDateRecognizer_2017Text(view);
-	case StringInput9EditPart.VISUAL_ID:
-	    return getStringInput_3018Text(view);
 	case TrimWhitespaceEditPart.VISUAL_ID:
 	    return getTrimWhitespace_2019Text(view);
-	case StringInputEditPart.VISUAL_ID:
-	    return getStringInput_3008Text(view);
+	case SubjectEditPart.VISUAL_ID:
+	    return getSubject_2012Text(view);
+	case StringInput11EditPart.VISUAL_ID:
+	    return getStringInput_3021Text(view);
 	case LanguageEditPart.VISUAL_ID:
 	    return getLanguage_2010Text(view);
-	case StringInput5EditPart.VISUAL_ID:
-	    return getStringInput_3013Text(view);
-	case StringInput4EditPart.VISUAL_ID:
-	    return getStringInput_3012Text(view);
-	case AbstractEditPart.VISUAL_ID:
-	    return getAbstract_2007Text(view);
+	case TypeOfResourceEditPart.VISUAL_ID:
+	    return getTypeOfResource_2013Text(view);
+	case StringInput10EditPart.VISUAL_ID:
+	    return getStringInput_3020Text(view);
 	}
 	return getUnknownElementText(view);
     }
@@ -371,22 +371,6 @@ public class CrosswalkNavigatorLabelProvider extends LabelProvider implements IC
      */
     private String getStringInputInput_4009Text(View view) {
 	return ""; //$NON-NLS-1$
-    }
-
-    /**
-     * @generated
-     */
-    private String getTabSeparatedFile_2001Text(View view) {
-	IParser parser = CrosswalkParserProvider.getParser(CrosswalkElementTypes.TabSeparatedFile_2001,
-			view.getElement() != null ? view.getElement() : view,
-			CrosswalkVisualIDRegistry.getType(TabSeparatedFileSourceFileEditPart.VISUAL_ID));
-	if (parser != null) {
-	    return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
-			    ParserOptions.NONE.intValue());
-	} else {
-	    CrosswalkDiagramEditorPlugin.getInstance().logError("Parser was not found for label " + 5001); //$NON-NLS-1$
-	    return ""; //$NON-NLS-1$
-	}
     }
 
     /**
@@ -543,6 +527,22 @@ public class CrosswalkNavigatorLabelProvider extends LabelProvider implements IC
 			    ParserOptions.NONE.intValue());
 	} else {
 	    CrosswalkDiagramEditorPlugin.getInstance().logError("Parser was not found for label " + 5020); //$NON-NLS-1$
+	    return ""; //$NON-NLS-1$
+	}
+    }
+
+    /**
+     * @generated
+     */
+    private String getDelimitedFile_2020Text(View view) {
+	IParser parser = CrosswalkParserProvider.getParser(CrosswalkElementTypes.DelimitedFile_2020,
+			view.getElement() != null ? view.getElement() : view,
+			CrosswalkVisualIDRegistry.getType(DelimitedFileSourceFileEditPart.VISUAL_ID));
+	if (parser != null) {
+	    return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
+			    ParserOptions.NONE.intValue());
+	} else {
+	    CrosswalkDiagramEditorPlugin.getInstance().logError("Parser was not found for label " + 5039); //$NON-NLS-1$
 	    return ""; //$NON-NLS-1$
 	}
     }

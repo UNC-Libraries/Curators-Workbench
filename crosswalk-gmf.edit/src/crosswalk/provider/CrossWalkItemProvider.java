@@ -171,6 +171,11 @@ public class CrossWalkItemProvider
 
                 newChildDescriptors.add
                         (createChildParameter
+                                (CrosswalkPackage.Literals.CROSS_WALK__DATA_SOURCE,
+                                 CrosswalkFactory.eINSTANCE.createDelimitedFile()));
+
+                newChildDescriptors.add
+                        (createChildParameter
                                 (CrosswalkPackage.Literals.CROSS_WALK__WIDGETS,
                                  CrosswalkFactory.eINSTANCE.createTrimWhitespace()));
 

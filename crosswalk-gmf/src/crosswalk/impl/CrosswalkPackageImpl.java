@@ -40,6 +40,7 @@ import crosswalk.DateCreated;
 import crosswalk.DateGenerator;
 import crosswalk.DateInput;
 import crosswalk.DateRecognizer;
+import crosswalk.DelimitedFile;
 import crosswalk.Genre;
 import crosswalk.Identifier;
 import crosswalk.Input;
@@ -264,6 +265,13 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
          * @generated
          */
         private EClass accessConditionEClass = null;
+
+        /**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        private EClass delimitedFileEClass = null;
 
         /**
          * <!-- begin-user-doc -->
@@ -862,6 +870,69 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
          * <!-- end-user-doc -->
          * @generated
          */
+        public EClass getDelimitedFile() {
+                return delimitedFileEClass;
+        }
+
+        /**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        public EAttribute getDelimitedFile_SourceFile() {
+                return (EAttribute)delimitedFileEClass.getEStructuralFeatures().get(0);
+        }
+
+        /**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        public EAttribute getDelimitedFile_DataRow() {
+                return (EAttribute)delimitedFileEClass.getEStructuralFeatures().get(1);
+        }
+
+        /**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        public EAttribute getDelimitedFile_HeaderRow() {
+                return (EAttribute)delimitedFileEClass.getEStructuralFeatures().get(2);
+        }
+
+        /**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        public EAttribute getDelimitedFile_TextEncoding() {
+                return (EAttribute)delimitedFileEClass.getEStructuralFeatures().get(3);
+        }
+
+        /**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        public EAttribute getDelimitedFile_FieldDelimiter() {
+                return (EAttribute)delimitedFileEClass.getEStructuralFeatures().get(4);
+        }
+
+        /**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        public EAttribute getDelimitedFile_TextDelimiter() {
+                return (EAttribute)delimitedFileEClass.getEStructuralFeatures().get(5);
+        }
+
+        /**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
         public EDataType getDataException() {
                 return dataExceptionEDataType;
         }
@@ -1021,6 +1092,14 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
                 accessConditionEClass = createEClass(ACCESS_CONDITION);
                 createEAttribute(accessConditionEClass, ACCESS_CONDITION__TYPE);
 
+                delimitedFileEClass = createEClass(DELIMITED_FILE);
+                createEAttribute(delimitedFileEClass, DELIMITED_FILE__SOURCE_FILE);
+                createEAttribute(delimitedFileEClass, DELIMITED_FILE__DATA_ROW);
+                createEAttribute(delimitedFileEClass, DELIMITED_FILE__HEADER_ROW);
+                createEAttribute(delimitedFileEClass, DELIMITED_FILE__TEXT_ENCODING);
+                createEAttribute(delimitedFileEClass, DELIMITED_FILE__FIELD_DELIMITER);
+                createEAttribute(delimitedFileEClass, DELIMITED_FILE__TEXT_DELIMITER);
+
                 // Create data types
                 dataExceptionEDataType = createEDataType(DATA_EXCEPTION);
                 iProjectEDataType = createEDataType(IPROJECT);
@@ -1096,6 +1175,7 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
                 textEClass.getESuperTypes().add(this.getWalkWidget());
                 accessConditionEClass.getESuperTypes().add(this.getInputConsumer());
                 accessConditionEClass.getESuperTypes().add(this.getOutputElement());
+                delimitedFileEClass.getESuperTypes().add(this.getDataSource());
 
                 // Initialize classes and features; add operations and parameters
                 initEClass(tabbedDataFieldEClass, TabbedDataField.class, "TabbedDataField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1150,6 +1230,12 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
                 addEOperation(dataSourceEClass, ecorePackage.getEString(), "getRecordID", 1, 1, IS_UNIQUE, IS_ORDERED);
 
                 addEOperation(dataSourceEClass, ecorePackage.getEString(), "getName", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+                op = addEOperation(dataSourceEClass, ecorePackage.getEString(), "getFieldValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+                addEParameter(op, this.getDataField(), "field", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+                op = addEOperation(dataSourceEClass, null, "initializeDataFields", 1, 1, IS_UNIQUE, IS_ORDERED);
+                addEException(op, this.getDataException());
 
                 initEClass(dataFieldEClass, DataField.class, "DataField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
                 initEReference(getDataField_Source(), this.getDataSource(), this.getDataSource_Fields(), "source", null, 0, 1, DataField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1218,6 +1304,19 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 
                 initEClass(accessConditionEClass, AccessCondition.class, "AccessCondition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
                 initEAttribute(getAccessCondition_Type(), ecorePackage.getEString(), "type", "access", 0, 1, AccessCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+                initEClass(delimitedFileEClass, DelimitedFile.class, "DelimitedFile", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+                initEAttribute(getDelimitedFile_SourceFile(), this.getIFile(), "SourceFile", null, 1, 1, DelimitedFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                initEAttribute(getDelimitedFile_DataRow(), ecorePackage.getEInt(), "dataRow", "1", 1, 1, DelimitedFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                initEAttribute(getDelimitedFile_HeaderRow(), ecorePackage.getEInt(), "headerRow", null, 0, 1, DelimitedFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                initEAttribute(getDelimitedFile_TextEncoding(), ecorePackage.getEString(), "textEncoding", "utf-8", 1, 1, DelimitedFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                initEAttribute(getDelimitedFile_FieldDelimiter(), ecorePackage.getEChar(), "fieldDelimiter", ",", 1, 1, DelimitedFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                initEAttribute(getDelimitedFile_TextDelimiter(), ecorePackage.getEChar(), "textDelimiter", "\"", 0, 1, DelimitedFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+                op = addEOperation(delimitedFileEClass, null, "GoToRecord", 0, 1, IS_UNIQUE, IS_ORDERED);
+                addEParameter(op, ecorePackage.getEInt(), "RowNumber", 1, 1, IS_UNIQUE, IS_ORDERED);
+                addEException(op, this.getDataException());
+                addEException(op, this.getRecordOutOfRangeException());
 
                 // Initialize data types
                 initEDataType(dataExceptionEDataType, DataException.class, "DataException", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

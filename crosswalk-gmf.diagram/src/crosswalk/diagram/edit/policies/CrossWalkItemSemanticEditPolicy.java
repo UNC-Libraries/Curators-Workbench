@@ -26,6 +26,7 @@ import crosswalk.diagram.edit.commands.AbstractCreateCommand;
 import crosswalk.diagram.edit.commands.AccessConditionCreateCommand;
 import crosswalk.diagram.edit.commands.DateCreatedCreateCommand;
 import crosswalk.diagram.edit.commands.DateRecognizerCreateCommand;
+import crosswalk.diagram.edit.commands.DelimitedFileCreateCommand;
 import crosswalk.diagram.edit.commands.GenreCreateCommand;
 import crosswalk.diagram.edit.commands.IdentifierCreateCommand;
 import crosswalk.diagram.edit.commands.LanguageCreateCommand;
@@ -56,8 +57,8 @@ public class CrossWalkItemSemanticEditPolicy extends CrosswalkBaseItemSemanticEd
      * @generated
      */
     protected Command getCreateCommand(CreateElementRequest req) {
-	if (CrosswalkElementTypes.TabSeparatedFile_2001 == req.getElementType()) {
-	    return getGEFWrapper(new TabSeparatedFileCreateCommand(req));
+	if (CrosswalkElementTypes.DelimitedFile_2020 == req.getElementType()) {
+	    return getGEFWrapper(new DelimitedFileCreateCommand(req));
 	}
 	if (CrosswalkElementTypes.TitleInfo_2005 == req.getElementType()) {
 	    return getGEFWrapper(new TitleInfoCreateCommand(req));

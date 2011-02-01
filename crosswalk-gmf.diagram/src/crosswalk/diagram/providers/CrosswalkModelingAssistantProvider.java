@@ -42,6 +42,7 @@ import crosswalk.diagram.edit.parts.CrossWalkEditPart;
 import crosswalk.diagram.edit.parts.DateCreatedEditPart;
 import crosswalk.diagram.edit.parts.DateInputEditPart;
 import crosswalk.diagram.edit.parts.DateRecognizerEditPart;
+import crosswalk.diagram.edit.parts.DelimitedFileEditPart;
 import crosswalk.diagram.edit.parts.GenreEditPart;
 import crosswalk.diagram.edit.parts.IdentifierEditPart;
 import crosswalk.diagram.edit.parts.LanguageEditPart;
@@ -60,7 +61,6 @@ import crosswalk.diagram.edit.parts.StringInput8EditPart;
 import crosswalk.diagram.edit.parts.StringInput9EditPart;
 import crosswalk.diagram.edit.parts.StringInputEditPart;
 import crosswalk.diagram.edit.parts.SubjectEditPart;
-import crosswalk.diagram.edit.parts.TabSeparatedFileEditPart;
 import crosswalk.diagram.edit.parts.TabbedDataFieldEditPart;
 import crosswalk.diagram.edit.parts.TextEditPart;
 import crosswalk.diagram.edit.parts.TitleInfoEditPart;
@@ -82,7 +82,7 @@ public class CrosswalkModelingAssistantProvider extends ModelingAssistantProvide
 	IGraphicalEditPart editPart = (IGraphicalEditPart) host.getAdapter(IGraphicalEditPart.class);
 	if (editPart instanceof CrossWalkEditPart) {
 	    ArrayList<IElementType> types = new ArrayList<IElementType>(15);
-	    types.add(CrosswalkElementTypes.TabSeparatedFile_2001);
+	    types.add(CrosswalkElementTypes.DelimitedFile_2020);
 	    types.add(CrosswalkElementTypes.TitleInfo_2005);
 	    types.add(CrosswalkElementTypes.Abstract_2007);
 	    types.add(CrosswalkElementTypes.Genre_2008);
@@ -99,7 +99,7 @@ public class CrosswalkModelingAssistantProvider extends ModelingAssistantProvide
 	    types.add(CrosswalkElementTypes.TrimWhitespace_2019);
 	    return types;
 	}
-	if (editPart instanceof TabSeparatedFileEditPart) {
+	if (editPart instanceof DelimitedFileEditPart) {
 	    ArrayList<IElementType> types = new ArrayList<IElementType>(1);
 	    types.add(CrosswalkElementTypes.TabbedDataField_3017);
 	    return types;
@@ -397,7 +397,7 @@ public class CrosswalkModelingAssistantProvider extends ModelingAssistantProvide
 	if (elements.isEmpty()) {
 	    return null;
 	}
-	return selectElement((EObject[]) elements.toArray(new EObject[elements.size()]));
+	return selectElement(elements.toArray(new EObject[elements.size()]));
     }
 
     /**

@@ -152,9 +152,4 @@ public interface TabSeparatedFile extends DataSource {
          */
         void GoToRecord(int RowNumber) throws DataException, RecordOutOfRangeException;
 
-	/**
-	 * @return
-	 */
-	List<String> getCurrentRowData();
-
 } // TabSeparatedFile

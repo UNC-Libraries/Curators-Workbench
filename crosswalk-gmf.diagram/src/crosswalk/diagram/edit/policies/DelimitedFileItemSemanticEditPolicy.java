@@ -1,17 +1,5 @@
-/**
- * Copyright 2010 The University of North Carolina at Chapel Hill
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *         http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+/*
+ * copyright 2010 University of North Carolina at Chapel Hill
  */
 package crosswalk.diagram.edit.policies;
 
@@ -30,8 +18,8 @@ import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 
+import crosswalk.diagram.edit.parts.DelimitedFileDataFieldCompartmentEditPart;
 import crosswalk.diagram.edit.parts.StringInputInputEditPart;
-import crosswalk.diagram.edit.parts.TabSeparatedFileDataFieldCompartmentEditPart;
 import crosswalk.diagram.edit.parts.TabbedDataFieldEditPart;
 import crosswalk.diagram.part.CrosswalkVisualIDRegistry;
 import crosswalk.diagram.providers.CrosswalkElementTypes;
@@ -39,19 +27,18 @@ import crosswalk.diagram.providers.CrosswalkElementTypes;
 /**
  * @generated
  */
-public class TabSeparatedFileItemSemanticEditPolicy extends CrosswalkBaseItemSemanticEditPolicy {
+public class DelimitedFileItemSemanticEditPolicy extends CrosswalkBaseItemSemanticEditPolicy {
 
     /**
      * @generated
      */
-    public TabSeparatedFileItemSemanticEditPolicy() {
-	super(CrosswalkElementTypes.TabSeparatedFile_2001);
+    public DelimitedFileItemSemanticEditPolicy() {
+	super(CrosswalkElementTypes.DelimitedFile_2020);
     }
 
     /**
      * @generated
      */
-    @Override
     protected Command getDestroyElementCommand(DestroyElementRequest req) {
 	View view = (View) getHost().getModel();
 	CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(getEditingDomain(), null);
@@ -77,7 +64,7 @@ public class TabSeparatedFileItemSemanticEditPolicy extends CrosswalkBaseItemSem
 	for (Iterator<?> nit = view.getChildren().iterator(); nit.hasNext();) {
 	    Node node = (Node) nit.next();
 	    switch (CrosswalkVisualIDRegistry.getVisualID(node)) {
-	    case TabSeparatedFileDataFieldCompartmentEditPart.VISUAL_ID:
+	    case DelimitedFileDataFieldCompartmentEditPart.VISUAL_ID:
 		for (Iterator<?> cit = node.getChildren().iterator(); cit.hasNext();) {
 		    Node cnode = (Node) cit.next();
 		    switch (CrosswalkVisualIDRegistry.getVisualID(cnode)) {

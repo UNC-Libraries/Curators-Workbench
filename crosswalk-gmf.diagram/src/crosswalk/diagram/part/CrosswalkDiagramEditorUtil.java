@@ -277,24 +277,7 @@ public class CrosswalkDiagramEditorUtil {
 	if (source != null) {
 	    result.setDataSource(source);
 	    try {
-		result.getDataSource().getFields().clear();
-		//result.getDataSource().Reset();
-		if (result.getDataSource() instanceof TabSeparatedFile) {
-		    System.out.println("new data source, making data fields..");
-		    TabSeparatedFile tsf = (TabSeparatedFile) result.getDataSource();
-		    try {
-			tsf.GoToRecord(tsf.getHeadingRow());
-		    } catch (RecordOutOfRangeException e) {
-			tsf.Reset();
-		    }
-		    for (int i = 0; i < tsf.getCurrentRowData().size(); i++) {
-			TabbedDataField missingField = CrosswalkFactory.eINSTANCE.createTabbedDataField();
-			missingField.setColumnNumber(i + 1);
-			missingField.setLabel(tsf.getCurrentRowData().get(i));
-			tsf.getFields().add(missingField);
-		    }
-		    tsf.Reset();
-		}
+		result.getDataSource().initializeDataFields();
 	    } catch (DataException e) {
 		throw new ExecutionException("There was a problem resetting the data source.", e);
 	    }

@@ -163,7 +163,7 @@ public class ArrangementDropListener extends ViewerDropAdapter {
 	    DivType d = (DivType) this.getCurrentTarget();
 	    DivType parent = (DivType)d.eContainer();
 	    int parentIndex = parent.getDiv().indexOf(d);
-	    if (METSConstants.Div_Folder.equals(d.getTYPE()) || METSConstants.Div_Disk.equals(d.getTYPE())) {
+	    if (METSUtils.isContainer(d)) {
 		switch (this.getCurrentLocation()) {
 		case ViewerDropAdapter.LOCATION_BEFORE:
 		    // drop before this div
@@ -266,7 +266,7 @@ public class ArrangementDropListener extends ViewerDropAdapter {
 	    }
 	} else if (this.getCurrentTarget() instanceof DivType) {
 	    DivType d = (DivType) this.getCurrentTarget();
-	    if (METSConstants.Div_Folder.equals(d.getTYPE()) || METSConstants.Div_Disk.equals(d.getTYPE())) {
+	    if (METSUtils.isContainer(d)) {
 		switch (this.getCurrentLocation()) {
 		case ViewerDropAdapter.LOCATION_NONE:
 		    break;

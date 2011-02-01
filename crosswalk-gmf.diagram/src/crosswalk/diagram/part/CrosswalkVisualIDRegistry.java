@@ -34,6 +34,9 @@ import crosswalk.diagram.edit.parts.DateInputEditPart;
 import crosswalk.diagram.edit.parts.DateInputNameEditPart;
 import crosswalk.diagram.edit.parts.DateRecognizerEditPart;
 import crosswalk.diagram.edit.parts.DateRecognizerOutputElementInputsCompartmentEditPart;
+import crosswalk.diagram.edit.parts.DelimitedFileDataFieldCompartmentEditPart;
+import crosswalk.diagram.edit.parts.DelimitedFileEditPart;
+import crosswalk.diagram.edit.parts.DelimitedFileSourceFileEditPart;
 import crosswalk.diagram.edit.parts.GenreEditPart;
 import crosswalk.diagram.edit.parts.GenreOutputElementInputsCompartmentEditPart;
 import crosswalk.diagram.edit.parts.IdentifierEditPart;
@@ -69,9 +72,6 @@ import crosswalk.diagram.edit.parts.StringInputName9EditPart;
 import crosswalk.diagram.edit.parts.StringInputNameEditPart;
 import crosswalk.diagram.edit.parts.SubjectEditPart;
 import crosswalk.diagram.edit.parts.SubjectOutputElementInputsCompartmentEditPart;
-import crosswalk.diagram.edit.parts.TabSeparatedFileDataFieldCompartmentEditPart;
-import crosswalk.diagram.edit.parts.TabSeparatedFileEditPart;
-import crosswalk.diagram.edit.parts.TabSeparatedFileSourceFileEditPart;
 import crosswalk.diagram.edit.parts.TabbedDataFieldColumnNumberEditPart;
 import crosswalk.diagram.edit.parts.TabbedDataFieldEditPart;
 import crosswalk.diagram.edit.parts.TabbedDataFieldLabelColumnNumberEditPart;
@@ -134,7 +134,7 @@ public class CrosswalkVisualIDRegistry {
 	while (view != diagram) {
 	    EAnnotation annotation = view.getEAnnotation("Shortcut"); //$NON-NLS-1$
 	    if (annotation != null) {
-		return (String) annotation.getDetails().get("modelID"); //$NON-NLS-1$
+		return annotation.getDetails().get("modelID"); //$NON-NLS-1$
 	    }
 	    view = (View) view.eContainer();
 	}
@@ -200,8 +200,8 @@ public class CrosswalkVisualIDRegistry {
 	}
 	switch (containerVisualID) {
 	case CrossWalkEditPart.VISUAL_ID:
-	    if (CrosswalkPackage.eINSTANCE.getTabSeparatedFile().isSuperTypeOf(domainElement.eClass())) {
-		return TabSeparatedFileEditPart.VISUAL_ID;
+	    if (CrosswalkPackage.eINSTANCE.getDelimitedFile().isSuperTypeOf(domainElement.eClass())) {
+		return DelimitedFileEditPart.VISUAL_ID;
 	    }
 	    if (CrosswalkPackage.eINSTANCE.getTitleInfo().isSuperTypeOf(domainElement.eClass())) {
 		return TitleInfoEditPart.VISUAL_ID;
@@ -246,7 +246,7 @@ public class CrosswalkVisualIDRegistry {
 		return TrimWhitespaceEditPart.VISUAL_ID;
 	    }
 	    break;
-	case TabSeparatedFileDataFieldCompartmentEditPart.VISUAL_ID:
+	case DelimitedFileDataFieldCompartmentEditPart.VISUAL_ID:
 	    if (CrosswalkPackage.eINSTANCE.getTabbedDataField().isSuperTypeOf(domainElement.eClass())) {
 		return TabbedDataFieldEditPart.VISUAL_ID;
 	    }
@@ -340,7 +340,7 @@ public class CrosswalkVisualIDRegistry {
 	}
 	switch (containerVisualID) {
 	case CrossWalkEditPart.VISUAL_ID:
-	    if (TabSeparatedFileEditPart.VISUAL_ID == nodeVisualID) {
+	    if (DelimitedFileEditPart.VISUAL_ID == nodeVisualID) {
 		return true;
 	    }
 	    if (TitleInfoEditPart.VISUAL_ID == nodeVisualID) {
@@ -386,11 +386,11 @@ public class CrosswalkVisualIDRegistry {
 		return true;
 	    }
 	    break;
-	case TabSeparatedFileEditPart.VISUAL_ID:
-	    if (TabSeparatedFileSourceFileEditPart.VISUAL_ID == nodeVisualID) {
+	case DelimitedFileEditPart.VISUAL_ID:
+	    if (DelimitedFileSourceFileEditPart.VISUAL_ID == nodeVisualID) {
 		return true;
 	    }
-	    if (TabSeparatedFileDataFieldCompartmentEditPart.VISUAL_ID == nodeVisualID) {
+	    if (DelimitedFileDataFieldCompartmentEditPart.VISUAL_ID == nodeVisualID) {
 		return true;
 	    }
 	    break;
@@ -576,7 +576,7 @@ public class CrosswalkVisualIDRegistry {
 		return true;
 	    }
 	    break;
-	case TabSeparatedFileDataFieldCompartmentEditPart.VISUAL_ID:
+	case DelimitedFileDataFieldCompartmentEditPart.VISUAL_ID:
 	    if (TabbedDataFieldEditPart.VISUAL_ID == nodeVisualID) {
 		return true;
 	    }

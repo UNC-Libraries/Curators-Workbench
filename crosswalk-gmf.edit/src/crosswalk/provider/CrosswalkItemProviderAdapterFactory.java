@@ -506,6 +506,29 @@ public class CrosswalkItemProviderAdapterFactory extends CrosswalkAdapterFactory
         }
 
         /**
+         * This keeps track of the one adapter used for all {@link crosswalk.DelimitedFile} instances.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        protected DelimitedFileItemProvider delimitedFileItemProvider;
+
+        /**
+         * This creates an adapter for a {@link crosswalk.DelimitedFile}.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        @Override
+        public Adapter createDelimitedFileAdapter() {
+                if (delimitedFileItemProvider == null) {
+                        delimitedFileItemProvider = new DelimitedFileItemProvider(this);
+                }
+
+                return delimitedFileItemProvider;
+        }
+
+        /**
          * This returns the root adapter factory that contains this factory.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->

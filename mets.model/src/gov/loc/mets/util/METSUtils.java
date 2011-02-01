@@ -316,6 +316,19 @@ public class METSUtils {
 	return result;
     }
 
+    /**
+     * @param d
+     * @return
+     */
+    public static boolean isContainer(DivType d) {
+	if (METSConstants.Div_Folder.equals(d.getTYPE()) || METSConstants.Div_Collection.equals(d.getTYPE())
+			    || METSConstants.Div_Disk.equals(d.getTYPE())) {
+	    return true;
+	} else {
+	    return false;
+	}
+    }
+
     // private static FileGrpType getFileGrpForSet(MetsType mets, String
     // fileSetUniqueName) {
     // String fileGrpID = getFileSetGroupID(fileSetUniqueName);

@@ -53,6 +53,7 @@ import crosswalk.diagram.edit.parts.CrossWalkEditPart;
 import crosswalk.diagram.edit.parts.DateCreatedEditPart;
 import crosswalk.diagram.edit.parts.DateInputEditPart;
 import crosswalk.diagram.edit.parts.DateRecognizerEditPart;
+import crosswalk.diagram.edit.parts.DelimitedFileEditPart;
 import crosswalk.diagram.edit.parts.GenreEditPart;
 import crosswalk.diagram.edit.parts.IdentifierEditPart;
 import crosswalk.diagram.edit.parts.LanguageEditPart;
@@ -71,7 +72,6 @@ import crosswalk.diagram.edit.parts.StringInput8EditPart;
 import crosswalk.diagram.edit.parts.StringInput9EditPart;
 import crosswalk.diagram.edit.parts.StringInputEditPart;
 import crosswalk.diagram.edit.parts.SubjectEditPart;
-import crosswalk.diagram.edit.parts.TabSeparatedFileEditPart;
 import crosswalk.diagram.edit.parts.TabbedDataFieldEditPart;
 import crosswalk.diagram.edit.parts.TextEditPart;
 import crosswalk.diagram.edit.parts.TitleInfoEditPart;
@@ -136,7 +136,7 @@ public class CrossWalkCanonicalEditPolicy extends CanonicalEditPolicy {
     private boolean isMyDiagramElement(View view) {
 	int visualID = CrosswalkVisualIDRegistry.getVisualID(view);
 	switch (visualID) {
-	case TabSeparatedFileEditPart.VISUAL_ID:
+	case DelimitedFileEditPart.VISUAL_ID:
 	case TitleInfoEditPart.VISUAL_ID:
 	case AbstractEditPart.VISUAL_ID:
 	case GenreEditPart.VISUAL_ID:
@@ -178,7 +178,7 @@ public class CrossWalkCanonicalEditPolicy extends CanonicalEditPolicy {
 	// alternative to #cleanCanonicalSemanticChildren(getViewChildren(), semanticChildren)
 	//
 	// iteration happens over list of desired semantic elements, trying to find best matching View, while original CEP
-	// iterates views, potentially losing view (size/bounds) information - i.e. if there are few views to reference same EObject, only last one 
+	// iterates views, potentially losing view (size/bounds) information - i.e. if there are few views to reference same EObject, only last one
 	// to answer isOrphaned == true will be used for the domain element representation, see #cleanCanonicalSemanticChildren()
 	for (Iterator<CrosswalkNodeDescriptor> descriptorsIterator = childDescriptors.iterator(); descriptorsIterator
 			.hasNext();) {
@@ -298,9 +298,9 @@ public class CrossWalkCanonicalEditPolicy extends CanonicalEditPolicy {
 	    }
 	    break;
 	}
-	case TabSeparatedFileEditPart.VISUAL_ID: {
+	case DelimitedFileEditPart.VISUAL_ID: {
 	    if (!domain2NotationMap.containsKey(view.getElement())) {
-		result.addAll(CrosswalkDiagramUpdater.getTabSeparatedFile_2001ContainedLinks(view));
+		result.addAll(CrosswalkDiagramUpdater.getDelimitedFile_2020ContainedLinks(view));
 	    }
 	    if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
 		domain2NotationMap.put(view.getElement(), view);
@@ -607,7 +607,7 @@ public class CrossWalkCanonicalEditPolicy extends CanonicalEditPolicy {
      * @generated
      */
     private EditPart getEditPart(EObject domainModelElement, Map<EObject, View> domain2NotationMap) {
-	View view = (View) domain2NotationMap.get(domainModelElement);
+	View view = domain2NotationMap.get(domainModelElement);
 	if (view != null) {
 	    return (EditPart) getHost().getViewer().getEditPartRegistry().get(view);
 	}

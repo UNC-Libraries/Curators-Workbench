@@ -32,7 +32,7 @@ import org.eclipse.ui.actions.WorkspaceModifyOperation;
 
 import crosswalk.CrosswalkFactory;
 import crosswalk.DataSource;
-import crosswalk.TabSeparatedFile;
+import crosswalk.DelimitedFile;
 
 /**
  * @generated
@@ -92,9 +92,12 @@ public class CrosswalkCreationWizard extends Wizard implements INewWizard {
 	DataSource result = null;
 	if (this.getSelection().size() > 0) {
 	    if (this.getSelection().getFirstElement() instanceof IFile) {
-		// TODO implement other data sources
 		IFile source = (IFile) this.getSelection().getFirstElement();
-		TabSeparatedFile tsf = CrosswalkFactory.eINSTANCE.createTabSeparatedFile();
+		DelimitedFile tsf = CrosswalkFactory.eINSTANCE.createDelimitedFile();
+		tsf.setDataRow(2);
+		tsf.setHeaderRow(1);
+		tsf.setTextDelimiter('"');
+		tsf.setFieldDelimiter('\t');
 		tsf.setSourceFile(source);
 		result = tsf;
 	    }

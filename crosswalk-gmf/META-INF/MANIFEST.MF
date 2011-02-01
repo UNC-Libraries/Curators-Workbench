@@ -3,7 +3,8 @@ Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: crosswalk-gmf;singleton:=true
 Bundle-Version: 0.0.1.qualifier
-Bundle-ClassPath: .
+Bundle-ClassPath: .,
+ lib/opencsv-2.2.jar
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6

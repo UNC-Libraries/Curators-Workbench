@@ -102,15 +102,8 @@ public class TabbedDataFieldImpl extends DataFieldImpl implements TabbedDataFiel
     @Override
     public String getResultString() throws DataException {
 	String result = null;
-	DataSource ds = this.getSource();
-	TabSeparatedFile tsf = null;
-	if(ds instanceof TabSeparatedFile) {
-	    tsf = (TabSeparatedFile)ds;
-	} else {
-	    throw new DataException("Expected a tabbed data source but found "+ds.toString());
-	}
 	try {
-	    result = tsf.getCurrentRowData().get(this.getColumnNumber()-1);
+	    result = this.getSource().getFieldValue(this);
 	} catch (IndexOutOfBoundsException e) {
 	    // throw new DataException("No such column in this row.", e);
 	    // returning null when no such column in the data

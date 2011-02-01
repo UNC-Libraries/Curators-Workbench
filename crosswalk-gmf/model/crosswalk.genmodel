@@ -50,6 +50,10 @@
       <genOperations ecoreOperation="crosswalk.ecore#//DataSource/Reset"/>
       <genOperations ecoreOperation="crosswalk.ecore#//DataSource/getRecordID"/>
       <genOperations ecoreOperation="crosswalk.ecore#//DataSource/getName"/>
+      <genOperations ecoreOperation="crosswalk.ecore#//DataSource/getFieldValue">
+        <genParameters ecoreParameter="crosswalk.ecore#//DataSource/getFieldValue/field"/>
+      </genOperations>
+      <genOperations ecoreOperation="crosswalk.ecore#//DataSource/initializeDataFields"/>
     </genClasses>
     <genClasses ecoreClass="crosswalk.ecore#//DataField">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference crosswalk.ecore#//DataField/source"/>
@@ -104,6 +108,17 @@
     </genClasses>
     <genClasses ecoreClass="crosswalk.ecore#//AccessCondition">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//AccessCondition/type"/>
+    </genClasses>
+    <genClasses ecoreClass="crosswalk.ecore#//DelimitedFile">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//DelimitedFile/SourceFile"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//DelimitedFile/dataRow"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//DelimitedFile/headerRow"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//DelimitedFile/textEncoding"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//DelimitedFile/fieldDelimiter"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//DelimitedFile/textDelimiter"/>
+      <genOperations ecoreOperation="crosswalk.ecore#//DelimitedFile/GoToRecord">
+        <genParameters ecoreParameter="crosswalk.ecore#//DelimitedFile/GoToRecord/RowNumber"/>
+      </genOperations>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

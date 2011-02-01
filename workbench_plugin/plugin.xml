@@ -104,9 +104,9 @@
       </command>
       <command
             defaultHandler="unc.lib.cdr.workbench.commands.ExportCDRSIPHandler"
-            description="Export CDR SIP (METS)"
+            description="Export CDR Submission"
             id="cdr-workbench.commandExportCDRSubmission"
-            name="Export CDR SIP (METS)">
+            name="Export CDR Submission">
       </command>
       <command
             defaultHandler="unc.lib.cdr.workbench.accession.RescanOriginalsHandler"
@@ -337,9 +337,9 @@
          </command>
          <command
                commandId="cdr-workbench.commandExportCDRSubmission"
-               label="Export CDR SIP (METS)"
+               label="Export CDR Submission"
                style="push"
-               tooltip="export a METS file for CDR ingest">
+               tooltip="Export a METS manifest for CDR ingest.">
             <visibleWhen
                   checkEnabled="false">
                <or>

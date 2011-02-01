@@ -37,6 +37,7 @@ import crosswalk.DateCreated;
 import crosswalk.DateGenerator;
 import crosswalk.DateInput;
 import crosswalk.DateRecognizer;
+import crosswalk.DelimitedFile;
 import crosswalk.Genre;
 import crosswalk.Identifier;
 import crosswalk.Input;
@@ -47,7 +48,6 @@ import crosswalk.OutputElement;
 import crosswalk.StringGenerator;
 import crosswalk.StringInput;
 import crosswalk.Subject;
-import crosswalk.TabSeparatedFile;
 import crosswalk.TabbedDataField;
 import crosswalk.Text;
 import crosswalk.TitleInfo;
@@ -65,6 +65,8 @@ import crosswalk.diagram.edit.parts.DateInputEditPart;
 import crosswalk.diagram.edit.parts.DateInputInputEditPart;
 import crosswalk.diagram.edit.parts.DateRecognizerEditPart;
 import crosswalk.diagram.edit.parts.DateRecognizerOutputElementInputsCompartmentEditPart;
+import crosswalk.diagram.edit.parts.DelimitedFileDataFieldCompartmentEditPart;
+import crosswalk.diagram.edit.parts.DelimitedFileEditPart;
 import crosswalk.diagram.edit.parts.GenreEditPart;
 import crosswalk.diagram.edit.parts.GenreOutputElementInputsCompartmentEditPart;
 import crosswalk.diagram.edit.parts.IdentifierEditPart;
@@ -90,8 +92,6 @@ import crosswalk.diagram.edit.parts.StringInputEditPart;
 import crosswalk.diagram.edit.parts.StringInputInputEditPart;
 import crosswalk.diagram.edit.parts.SubjectEditPart;
 import crosswalk.diagram.edit.parts.SubjectOutputElementInputsCompartmentEditPart;
-import crosswalk.diagram.edit.parts.TabSeparatedFileDataFieldCompartmentEditPart;
-import crosswalk.diagram.edit.parts.TabSeparatedFileEditPart;
 import crosswalk.diagram.edit.parts.TabbedDataFieldEditPart;
 import crosswalk.diagram.edit.parts.TextEditPart;
 import crosswalk.diagram.edit.parts.TitleInfoEditPart;
@@ -114,8 +114,8 @@ public class CrosswalkDiagramUpdater {
 	switch (CrosswalkVisualIDRegistry.getVisualID(view)) {
 	case CrossWalkEditPart.VISUAL_ID:
 	    return getCrossWalk_1000SemanticChildren(view);
-	case TabSeparatedFileDataFieldCompartmentEditPart.VISUAL_ID:
-	    return getTabSeparatedFileDataFieldCompartment_7009SemanticChildren(view);
+	case DelimitedFileDataFieldCompartmentEditPart.VISUAL_ID:
+	    return getDelimitedFileDataFieldCompartment_7015SemanticChildren(view);
 	case TitleInfoTitleInfoInputsCompartmentEditPart.VISUAL_ID:
 	    return getTitleInfoOutputElementInputsCompartment_7001SemanticChildren(view);
 	case AbstractOutputElementInputsCompartmentEditPart.VISUAL_ID:
@@ -158,7 +158,7 @@ public class CrosswalkDiagramUpdater {
 	{
 	    DataSource childElement = modelElement.getDataSource();
 	    int visualID = CrosswalkVisualIDRegistry.getNodeVisualID(view, childElement);
-	    if (visualID == TabSeparatedFileEditPart.VISUAL_ID) {
+	    if (visualID == DelimitedFileEditPart.VISUAL_ID) {
 		result.add(new CrosswalkNodeDescriptor(childElement, visualID));
 	    }
 	}
@@ -232,7 +232,7 @@ public class CrosswalkDiagramUpdater {
     /**
      * @generated
      */
-    public static List<CrosswalkNodeDescriptor> getTabSeparatedFileDataFieldCompartment_7009SemanticChildren(View view) {
+    public static List<CrosswalkNodeDescriptor> getDelimitedFileDataFieldCompartment_7015SemanticChildren(View view) {
 	if (false == view.eContainer() instanceof View) {
 	    return Collections.emptyList();
 	}
@@ -240,7 +240,7 @@ public class CrosswalkDiagramUpdater {
 	if (!containerView.isSetElement()) {
 	    return Collections.emptyList();
 	}
-	TabSeparatedFile modelElement = (TabSeparatedFile) containerView.getElement();
+	DelimitedFile modelElement = (DelimitedFile) containerView.getElement();
 	LinkedList<CrosswalkNodeDescriptor> result = new LinkedList<CrosswalkNodeDescriptor>();
 	for (Iterator<?> it = modelElement.getFields().iterator(); it.hasNext();) {
 	    DataField childElement = (DataField) it.next();
@@ -579,8 +579,8 @@ public class CrosswalkDiagramUpdater {
 	switch (CrosswalkVisualIDRegistry.getVisualID(view)) {
 	case CrossWalkEditPart.VISUAL_ID:
 	    return getCrossWalk_1000ContainedLinks(view);
-	case TabSeparatedFileEditPart.VISUAL_ID:
-	    return getTabSeparatedFile_2001ContainedLinks(view);
+	case DelimitedFileEditPart.VISUAL_ID:
+	    return getDelimitedFile_2020ContainedLinks(view);
 	case TitleInfoEditPart.VISUAL_ID:
 	    return getTitleInfo_2005ContainedLinks(view);
 	case AbstractEditPart.VISUAL_ID:
@@ -646,8 +646,8 @@ public class CrosswalkDiagramUpdater {
      */
     public static List<CrosswalkLinkDescriptor> getIncomingLinks(View view) {
 	switch (CrosswalkVisualIDRegistry.getVisualID(view)) {
-	case TabSeparatedFileEditPart.VISUAL_ID:
-	    return getTabSeparatedFile_2001IncomingLinks(view);
+	case DelimitedFileEditPart.VISUAL_ID:
+	    return getDelimitedFile_2020IncomingLinks(view);
 	case TitleInfoEditPart.VISUAL_ID:
 	    return getTitleInfo_2005IncomingLinks(view);
 	case AbstractEditPart.VISUAL_ID:
@@ -713,8 +713,8 @@ public class CrosswalkDiagramUpdater {
      */
     public static List<CrosswalkLinkDescriptor> getOutgoingLinks(View view) {
 	switch (CrosswalkVisualIDRegistry.getVisualID(view)) {
-	case TabSeparatedFileEditPart.VISUAL_ID:
-	    return getTabSeparatedFile_2001OutgoingLinks(view);
+	case DelimitedFileEditPart.VISUAL_ID:
+	    return getDelimitedFile_2020OutgoingLinks(view);
 	case TitleInfoEditPart.VISUAL_ID:
 	    return getTitleInfo_2005OutgoingLinks(view);
 	case AbstractEditPart.VISUAL_ID:
@@ -785,7 +785,7 @@ public class CrosswalkDiagramUpdater {
     /**
      * @generated
      */
-    public static List<CrosswalkLinkDescriptor> getTabSeparatedFile_2001ContainedLinks(View view) {
+    public static List<CrosswalkLinkDescriptor> getDelimitedFile_2020ContainedLinks(View view) {
 	return Collections.emptyList();
     }
 
@@ -1027,7 +1027,7 @@ public class CrosswalkDiagramUpdater {
     /**
      * @generated
      */
-    public static List<CrosswalkLinkDescriptor> getTabSeparatedFile_2001IncomingLinks(View view) {
+    public static List<CrosswalkLinkDescriptor> getDelimitedFile_2020IncomingLinks(View view) {
 	return Collections.emptyList();
     }
 
@@ -1250,7 +1250,7 @@ public class CrosswalkDiagramUpdater {
     /**
      * @generated
      */
-    public static List<CrosswalkLinkDescriptor> getTabSeparatedFile_2001OutgoingLinks(View view) {
+    public static List<CrosswalkLinkDescriptor> getDelimitedFile_2020OutgoingLinks(View view) {
 	return Collections.emptyList();
     }
 

@@ -719,41 +719,35 @@
       </labels>
     </childNodes>
     <topLevelNodes
-        visualID="2001"
-        editPartClassName="TabSeparatedFileEditPart"
-        itemSemanticEditPolicyClassName="TabSeparatedFileItemSemanticEditPolicy"
-        notationViewFactoryClassName="TabSeparatedFileViewFactory"
-        canonicalEditPolicyClassName="TabSeparatedFileCanonicalEditPolicy"
+        visualID="2020"
+        editPartClassName="DelimitedFileEditPart"
+        itemSemanticEditPolicyClassName="DelimitedFileItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="DelimitedFileCanonicalEditPolicy"
         compartments="//@diagram/@compartments.0"
-        graphicalNodeEditPolicyClassName="TabSeparatedFileGraphicalNodeEditPolicy"
-        createCommandClassName="TabSeparatedFileCreateCommand">
+        graphicalNodeEditPolicyClassName="DelimitedFileGraphicalNodeEditPolicy"
+        createCommandClassName="DelimitedFileCreateCommand">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
           xsi:type="gmfgen:MetamodelType"
-          editHelperClassName="TabSeparatedFileEditHelper"/>
+          editHelperClassName="DelimitedFileEditHelper"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           layoutType="TOOLBAR_LAYOUT"
           className="DataSourceFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class DataSourceFigure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureDataSourceNameFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fFigureFieldCompartmentRect; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public DataSourceFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.ToolbarLayout layoutThis = new org.eclipse.draw2d.ToolbarLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.ToolbarLayout.ALIGN_TOPLEFT&#xA;);&#xA;&#xA;&#x9;layoutThis.setSpacing(5);&#xA;&#x9;layoutThis.setVertical(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(10)&#xA;, getMapMode().DPtoLP(10)&#xA;, getMapMode().DPtoLP(10)&#xA;, getMapMode().DPtoLP(10)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel l0 = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;l0.setText(&quot;Data Source&quot;);&#xA;&#xA;this.add(l0);&#xA;&#xA;&#xA;&#xA;fFigureDataSourceNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureDataSourceNameFigure.setText(&quot;faaa&quot;);&#xA;&#xA;this.add(fFigureDataSourceNameFigure);&#xA;&#xA;&#xA;&#xA;fFigureFieldCompartmentRect = new org.eclipse.draw2d.RectangleFigure();&#xA;fFigureFieldCompartmentRect.setFill(false);&#xA;fFigureFieldCompartmentRect.setOutline(false);&#xA;&#xA;this.add(fFigureFieldCompartmentRect);&#xA;&#xA;&#x9;org.eclipse.draw2d.ToolbarLayout layoutFFigureFieldCompartmentRect = new org.eclipse.draw2d.ToolbarLayout();&#xA;&#x9;layoutFFigureFieldCompartmentRect.setStretchMinorAxis(false);&#xA;&#x9;layoutFFigureFieldCompartmentRect.setMinorAlignment(org.eclipse.draw2d.ToolbarLayout.ALIGN_CENTER&#xA;);&#xA;&#xA;&#x9;layoutFFigureFieldCompartmentRect.setSpacing(0);&#xA;&#x9;layoutFFigureFieldCompartmentRect.setVertical(true);&#xA;&#xA;&#x9;fFigureFieldCompartmentRect.setLayoutManager(layoutFFigureFieldCompartmentRect);&#xA;&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureDataSourceNameFigure() {&#xA;&#x9;&#x9;return fFigureDataSourceNameFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getFigureFieldCompartmentRect() {&#xA;&#x9;&#x9;return fFigureFieldCompartmentRect;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
-        <attributes
-            xsi:type="gmfgen:StyleAttributes"
-            fixedBackground="true"/>
-      </viewmap>
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class DataSourceFigure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureDataSourceNameFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fFigureFieldCompartmentRect; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public DataSourceFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.ToolbarLayout layoutThis = new org.eclipse.draw2d.ToolbarLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.ToolbarLayout.ALIGN_TOPLEFT&#xA;);&#xA;&#xA;&#x9;layoutThis.setSpacing(5);&#xA;&#x9;layoutThis.setVertical(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(10)&#xA;, getMapMode().DPtoLP(10)&#xA;, getMapMode().DPtoLP(10)&#xA;, getMapMode().DPtoLP(10)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel l0 = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;l0.setText(&quot;Data Source&quot;);&#xA;&#xA;this.add(l0);&#xA;&#xA;&#xA;&#xA;fFigureDataSourceNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureDataSourceNameFigure.setText(&quot;faaa&quot;);&#xA;&#xA;this.add(fFigureDataSourceNameFigure);&#xA;&#xA;&#xA;&#xA;fFigureFieldCompartmentRect = new org.eclipse.draw2d.RectangleFigure();&#xA;fFigureFieldCompartmentRect.setFill(false);&#xA;fFigureFieldCompartmentRect.setOutline(false);&#xA;&#xA;this.add(fFigureFieldCompartmentRect);&#xA;&#xA;&#x9;org.eclipse.draw2d.ToolbarLayout layoutFFigureFieldCompartmentRect = new org.eclipse.draw2d.ToolbarLayout();&#xA;&#x9;layoutFFigureFieldCompartmentRect.setStretchMinorAxis(false);&#xA;&#x9;layoutFFigureFieldCompartmentRect.setMinorAlignment(org.eclipse.draw2d.ToolbarLayout.ALIGN_CENTER&#xA;);&#xA;&#xA;&#x9;layoutFFigureFieldCompartmentRect.setSpacing(0);&#xA;&#x9;layoutFFigureFieldCompartmentRect.setVertical(true);&#xA;&#xA;&#x9;fFigureFieldCompartmentRect.setLayoutManager(layoutFFigureFieldCompartmentRect);&#xA;&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureDataSourceNameFigure() {&#xA;&#x9;&#x9;return fFigureDataSourceNameFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getFigureFieldCompartmentRect() {&#xA;&#x9;&#x9;return fFigureFieldCompartmentRect;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
       <modelFacet>
         <metaClass
-            href="crosswalk.genmodel#//crosswalk/TabSeparatedFile"/>
+            href="crosswalk.genmodel#//crosswalk/DelimitedFile"/>
         <containmentMetaFeature
             href="crosswalk.genmodel#//crosswalk/CrossWalk/DataSource"/>
         <childMetaFeature
             href="crosswalk.genmodel#//crosswalk/CrossWalk/DataSource"/>
       </modelFacet>
       <labels
-          visualID="5001"
-          editPartClassName="TabSeparatedFileSourceFileEditPart"
-          itemSemanticEditPolicyClassName="TabSeparatedFileSourceFileItemSemanticEditPolicy"
-          notationViewFactoryClassName="TabSeparatedFileSourceFileViewFactory"
+          visualID="5039"
+          editPartClassName="DelimitedFileSourceFileEditPart"
+          itemSemanticEditPolicyClassName="DelimitedFileSourceFileItemSemanticEditPolicy"
           readOnly="true">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -764,10 +758,10 @@
         <modelFacet
             xsi:type="gmfgen:FeatureLabelModelFacet"
             parser="//@labelParsers/@implementations.1"
-            viewPattern="file: {0}"
+            viewPattern="{0}"
             editorPattern="">
           <metaFeatures
-              href="crosswalk.genmodel#//crosswalk/TabSeparatedFile/SourceFile"/>
+              href="crosswalk.genmodel#//crosswalk/DelimitedFile/SourceFile"/>
         </modelFacet>
       </labels>
     </topLevelNodes>
@@ -1459,11 +1453,10 @@
       </modelFacet>
     </links>
     <compartments
-        visualID="7009"
-        editPartClassName="TabSeparatedFileDataFieldCompartmentEditPart"
-        itemSemanticEditPolicyClassName="TabSeparatedFileDataFieldCompartmentItemSemanticEditPolicy"
-        notationViewFactoryClassName="TabSeparatedFileDataFieldCompartmentViewFactory"
-        canonicalEditPolicyClassName="TabSeparatedFileDataFieldCompartmentCanonicalEditPolicy"
+        visualID="7015"
+        editPartClassName="DelimitedFileDataFieldCompartmentEditPart"
+        itemSemanticEditPolicyClassName="DelimitedFileDataFieldCompartmentItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="DelimitedFileDataFieldCompartmentCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.0"
         title="DataFieldCompartment"
         canCollapse="false"
