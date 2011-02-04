@@ -90,7 +90,9 @@ public class StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlinkItemProvider ex
 					"_UI_StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_actuate_feature",
 					"_UI_StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_type"),
 			MODSPackage.eINSTANCE.getStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_Actuate(), true,
-			false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+			false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+			getString("_UI_XLinkPropertyCategory"),
+			new String[] { "org.eclipse.ui.views.properties.expert" }));
     }
 
     /**
@@ -108,7 +110,9 @@ public class StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlinkItemProvider ex
 					"_UI_StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_arcrole_feature",
 					"_UI_StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_type"),
 			MODSPackage.eINSTANCE.getStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_Arcrole(), true,
-			false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+			false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+			getString("_UI_XLinkPropertyCategory"),
+			new String[] { "org.eclipse.ui.views.properties.expert" }));
     }
 
     /**
@@ -126,7 +130,9 @@ public class StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlinkItemProvider ex
 					"_UI_StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_href_feature",
 					"_UI_StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_type"),
 			MODSPackage.eINSTANCE.getStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_Href(), true,
-			false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+			false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+			getString("_UI_XLinkPropertyCategory"),
+			new String[] { "org.eclipse.ui.views.properties.expert" }));
     }
 
     /**
@@ -144,7 +150,9 @@ public class StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlinkItemProvider ex
 					"_UI_StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_role_feature",
 					"_UI_StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_type"),
 			MODSPackage.eINSTANCE.getStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_Role(), true,
-			false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+			false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+			getString("_UI_XLinkPropertyCategory"),
+			new String[] { "org.eclipse.ui.views.properties.expert" }));
     }
 
     /**
@@ -162,7 +170,9 @@ public class StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlinkItemProvider ex
 					"_UI_StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_show_feature",
 					"_UI_StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_type"),
 			MODSPackage.eINSTANCE.getStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_Show(), true,
-			false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+			false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+			getString("_UI_XLinkPropertyCategory"),
+			new String[] { "org.eclipse.ui.views.properties.expert" }));
     }
 
     /**
@@ -180,7 +190,9 @@ public class StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlinkItemProvider ex
 					"_UI_StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_title_feature",
 					"_UI_StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_type"),
 			MODSPackage.eINSTANCE.getStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_Title(), true,
-			false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+			false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+			getString("_UI_XLinkPropertyCategory"),
+			new String[] { "org.eclipse.ui.views.properties.expert" }));
     }
 
     /**
@@ -198,7 +210,9 @@ public class StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlinkItemProvider ex
 					"_UI_StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_type1_feature",
 					"_UI_StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_type"),
 			MODSPackage.eINSTANCE.getStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_Type1(), true,
-			false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+			false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+			getString("_UI_XLinkPropertyCategory"),
+			new String[] { "org.eclipse.ui.views.properties.expert" }));
     }
 
     /**

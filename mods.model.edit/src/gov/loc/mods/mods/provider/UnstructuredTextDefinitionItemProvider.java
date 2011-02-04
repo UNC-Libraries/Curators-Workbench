@@ -91,7 +91,8 @@ public class UnstructuredTextDefinitionItemProvider extends XsStringItemProvider
 					"_UI_UnstructuredTextDefinition_actuate_feature",
 					"_UI_UnstructuredTextDefinition_type"), MODSPackage.eINSTANCE
 					.getUnstructuredTextDefinition_Actuate(), true, false, false,
-			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString("_UI_XLinkPropertyCategory"),
+			new String[] { "org.eclipse.ui.views.properties.expert" }));
     }
 
     /**
@@ -109,7 +110,8 @@ public class UnstructuredTextDefinitionItemProvider extends XsStringItemProvider
 					"_UI_UnstructuredTextDefinition_arcrole_feature",
 					"_UI_UnstructuredTextDefinition_type"), MODSPackage.eINSTANCE
 					.getUnstructuredTextDefinition_Arcrole(), true, false, false,
-			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString("_UI_XLinkPropertyCategory"),
+			new String[] { "org.eclipse.ui.views.properties.expert" }));
     }
 
     /**
@@ -144,7 +146,8 @@ public class UnstructuredTextDefinitionItemProvider extends XsStringItemProvider
 			getString("_UI_PropertyDescriptor_description", "_UI_UnstructuredTextDefinition_href_feature",
 					"_UI_UnstructuredTextDefinition_type"), MODSPackage.eINSTANCE
 					.getUnstructuredTextDefinition_Href(), true, false, false,
-			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString("_UI_XLinkPropertyCategory"),
+			new String[] { "org.eclipse.ui.views.properties.expert" }));
     }
 
     /**
@@ -161,7 +164,8 @@ public class UnstructuredTextDefinitionItemProvider extends XsStringItemProvider
 			getString("_UI_PropertyDescriptor_description", "_UI_UnstructuredTextDefinition_role_feature",
 					"_UI_UnstructuredTextDefinition_type"), MODSPackage.eINSTANCE
 					.getUnstructuredTextDefinition_Role(), true, false, false,
-			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString("_UI_XLinkPropertyCategory"),
+			new String[] { "org.eclipse.ui.views.properties.expert" }));
     }
 
     /**
@@ -178,7 +182,8 @@ public class UnstructuredTextDefinitionItemProvider extends XsStringItemProvider
 			getString("_UI_PropertyDescriptor_description", "_UI_UnstructuredTextDefinition_show_feature",
 					"_UI_UnstructuredTextDefinition_type"), MODSPackage.eINSTANCE
 					.getUnstructuredTextDefinition_Show(), true, false, false,
-			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString("_UI_XLinkPropertyCategory"),
+			new String[] { "org.eclipse.ui.views.properties.expert" }));
     }
 
     /**
@@ -195,7 +200,8 @@ public class UnstructuredTextDefinitionItemProvider extends XsStringItemProvider
 			getString("_UI_PropertyDescriptor_description", "_UI_UnstructuredTextDefinition_title_feature",
 					"_UI_UnstructuredTextDefinition_type"), MODSPackage.eINSTANCE
 					.getUnstructuredTextDefinition_Title(), true, false, false,
-			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString("_UI_XLinkPropertyCategory"),
+			new String[] { "org.eclipse.ui.views.properties.expert" }));
     }
 
     /**
@@ -212,7 +218,8 @@ public class UnstructuredTextDefinitionItemProvider extends XsStringItemProvider
 			getString("_UI_PropertyDescriptor_description", "_UI_UnstructuredTextDefinition_type_feature",
 					"_UI_UnstructuredTextDefinition_type"), MODSPackage.eINSTANCE
 					.getUnstructuredTextDefinition_Type(), true, false, false,
-			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString("_UI_XLinkPropertyCategory"),
+			new String[] { "org.eclipse.ui.views.properties.expert" }));
     }
 
     /**

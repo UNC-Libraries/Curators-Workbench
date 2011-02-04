@@ -16,9 +16,7 @@
 package gov.loc.mods.mods.provider;
 
 import org.eclipse.emf.common.EMFPlugin;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.w3._1999.xlink.provider.XlinkEditPlugin;
 
 /**
@@ -35,6 +33,10 @@ public final class ModsEditPlugin extends EMFPlugin {
      * @generated
      */
     public static final ModsEditPlugin INSTANCE = new ModsEditPlugin();
+
+    public static final String[] EXPERT_FILTER = new String[] { "org.eclipse.ui.views.properties.expert" };
+
+    public static final String XLINK_CATEGORY = "xlink";
 
     /**
      * Keep track of the singleton.

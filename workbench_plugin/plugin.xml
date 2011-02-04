@@ -21,7 +21,7 @@
             class="unc.lib.cdr.workbench.DivPropertyTester"
             id="cdr-workbench.propertyDivTester"
             namespace="cdr-workbench"
-            properties="isContainer"
+            properties="isContainer,isFolder"
             type="gov.loc.mets.DivType">
       </propertyTester>
       <propertyTester
@@ -124,13 +124,18 @@
             id="workbench_plugin.commandOpenProject"
             name="Open Project">
       </command>
+      <command
+            defaultHandler="unc.lib.cdr.workbench.commands.ConvertToCollectionHandler"
+            description="Make this folder into a collection."
+            id="workbench_plugin.commandConvertToCollection"
+            name="Convert to Collection">
+      </command>
    </extension>
    <extension
          point="org.eclipse.ui.menus">
       <menuContribution
             locationURI="menu:org.eclipse.ui.main.menu">
          <menu
-               icon="icons/48px-Crystal_Clear_app_kthememgr.png"
                id="fileMenu"
                label="Project">
             <command
@@ -411,6 +416,23 @@
                         operator="or">
                      <test
                            property="workbench_plugin.projectPropertyTester.closed">
+                     </test>
+                  </iterate>
+               </with>
+            </visibleWhen>
+         </command>
+         <command
+               commandId="workbench_plugin.commandConvertToCollection"
+               label="Convert to Collection"
+               style="push">
+            <visibleWhen
+                  checkEnabled="false">
+               <with
+                     variable="activeMenuSelection">
+                  <iterate
+                        ifEmpty="false">
+                     <test
+                           property="cdr-workbench.isFolder">
                      </test>
                   </iterate>
                </with>

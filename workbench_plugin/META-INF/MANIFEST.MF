@@ -417,6 +417,5 @@ Export-Package: .,
    org.eclipse.core.resources,
    org.eclipse.swt.graphics,
    org.eclipse.jface.viewers,
-   org.eclipse.core.commands",
- unc.lib.cdr.workbench.xwalk.wiz;uses:="org.eclipse.jface.wizard,org.eclipse.core.resources,org.eclipse.swt.widgets"
+   org.eclipse.core.commands"
 Import-Package: org.slf4j;version="0.0.0"

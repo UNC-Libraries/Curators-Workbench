@@ -15,6 +15,8 @@
  */
 package crosswalk;
 
+import java.util.List;
+
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -37,6 +39,8 @@ import org.eclipse.emf.ecore.EReference;
  * @generated
  */
 public interface CrosswalkPackage extends EPackage {
+
+    public List<EClass> getDataSourceImplementations();
         /**
          * The package name.
          * <!-- begin-user-doc -->

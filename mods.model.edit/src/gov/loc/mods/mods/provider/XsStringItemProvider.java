@@ -15,6 +15,7 @@
  */
 package gov.loc.mods.mods.provider;
 
+import static gov.loc.mods.mods.provider.ModsEditPlugin.EXPERT_FILTER;
 import gov.loc.mods.mods.MODSPackage;
 import gov.loc.mods.mods.XsString;
 
@@ -23,9 +24,7 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -68,7 +67,6 @@ public class XsStringItemProvider extends ItemProviderAdapter implements IEditin
 
 	    addValuePropertyDescriptor(object);
 	    addLangPropertyDescriptor(object);
-	    addLang1PropertyDescriptor(object);
 	    addScriptPropertyDescriptor(object);
 	    addTransliterationPropertyDescriptor(object);
 	}
@@ -82,13 +80,16 @@ public class XsStringItemProvider extends ItemProviderAdapter implements IEditin
      * @generated
      */
     protected void addValuePropertyDescriptor(Object object) {
-	itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-			getResourceLocator(),
-			getString("_UI_XsString_value_feature"),
-			getString("_UI_PropertyDescriptor_description", "_UI_XsString_value_feature",
-					"_UI_XsString_type"), MODSPackage.eINSTANCE.getXsString_Value(), true, false,
-			false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	itemPropertyDescriptors
+			.add(createItemPropertyDescriptor(
+					((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+					getResourceLocator(),
+					getString("_UI_XsString_value_feature"),
+					getString("_UI_PropertyDescriptor_description", "_UI_XsString_value_feature",
+							"_UI_XsString_type"),
+					MODSPackage.eINSTANCE.getXsString_Value(), true, false, false,
+					ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+					getString("_UI_TextPropertyCategory"), null));
     }
 
     /**
@@ -104,23 +105,8 @@ public class XsStringItemProvider extends ItemProviderAdapter implements IEditin
 			getString("_UI_XsString_lang_feature"),
 			getString("_UI_PropertyDescriptor_description", "_UI_XsString_lang_feature",
 					"_UI_XsString_type"), MODSPackage.eINSTANCE.getXsString_Lang(), true, false,
-			false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
-    }
-
-    /**
-     * This adds a property descriptor for the Lang1 feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void addLang1PropertyDescriptor(Object object) {
-	itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-			getResourceLocator(),
-			getString("_UI_XsString_lang1_feature"),
-			getString("_UI_PropertyDescriptor_description", "_UI_XsString_lang1_feature",
-					"_UI_XsString_type"), MODSPackage.eINSTANCE.getXsString_Lang1(), true, false,
-			false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+			false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null,
+			new String[] { "org.eclipse.ui.views.properties.expert" }));
     }
 
     /**
@@ -136,7 +122,8 @@ public class XsStringItemProvider extends ItemProviderAdapter implements IEditin
 			getString("_UI_XsString_script_feature"),
 			getString("_UI_PropertyDescriptor_description", "_UI_XsString_script_feature",
 					"_UI_XsString_type"), MODSPackage.eINSTANCE.getXsString_Script(), true, false,
-			false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+			false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString("_UI_TextPropertyCategory"),
+			new String[] { "org.eclipse.ui.views.properties.expert" }));
     }
 
     /**
@@ -152,7 +139,9 @@ public class XsStringItemProvider extends ItemProviderAdapter implements IEditin
 			getString("_UI_XsString_transliteration_feature"),
 			getString("_UI_PropertyDescriptor_description", "_UI_XsString_transliteration_feature",
 					"_UI_XsString_type"), MODSPackage.eINSTANCE.getXsString_Transliteration(),
-			true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+			true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+			getString("_UI_TextPropertyCategory"),
+			new String[] { "org.eclipse.ui.views.properties.expert" }));
     }
 
     /**

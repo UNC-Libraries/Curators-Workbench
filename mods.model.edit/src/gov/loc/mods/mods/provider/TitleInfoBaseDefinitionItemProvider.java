@@ -336,575 +336,575 @@ public class TitleInfoBaseDefinitionItemProvider extends ItemProviderAdapter imp
     protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 	super.collectNewChildDescriptors(newChildDescriptors, object);
 
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Title(),
-//					MODSFactory.eINSTANCE.createXsString())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Title(),
-//					MODSFactory.eINSTANCE.createUnstructuredTextDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Title(),
-//					MODSFactory.eINSTANCE.createAbstractDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Title(),
-//					MODSFactory.eINSTANCE.createStringPlusAuthority())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Title(),
-//					MODSFactory.eINSTANCE.createClassificationDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Title(),
-//					MODSFactory.eINSTANCE.createDateBaseDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Title(),
-//					MODSFactory.eINSTANCE.createDateDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Title(),
-//					MODSFactory.eINSTANCE.createDateOtherDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Title(),
-//					MODSFactory.eINSTANCE.createEnumerationAndChronologyDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Title(),
-//					MODSFactory.eINSTANCE.createStringPlusAuthorityPlusType())));
-//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Title(),
+	//					MODSFactory.eINSTANCE.createXsString())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Title(),
+	//					MODSFactory.eINSTANCE.createUnstructuredTextDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Title(),
+	//					MODSFactory.eINSTANCE.createAbstractDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Title(),
+	//					MODSFactory.eINSTANCE.createStringPlusAuthority())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Title(),
+	//					MODSFactory.eINSTANCE.createClassificationDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Title(),
+	//					MODSFactory.eINSTANCE.createDateBaseDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Title(),
+	//					MODSFactory.eINSTANCE.createDateDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Title(),
+	//					MODSFactory.eINSTANCE.createDateOtherDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Title(),
+	//					MODSFactory.eINSTANCE.createEnumerationAndChronologyDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Title(),
+	//					MODSFactory.eINSTANCE.createStringPlusAuthorityPlusType())));
+	//
 	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
 			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Title(),
 					MODSFactory.eINSTANCE.createStringPlusAuthorityPlusTypePlusDisplayLabel())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Title(),
-//					MODSFactory.eINSTANCE.createGenreDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Title(),
-//					MODSFactory.eINSTANCE.createGeographicCodeDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Title(),
-//					MODSFactory.eINSTANCE.createIdentifierDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Title(),
-//					MODSFactory.eINSTANCE.createLanguageTermDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Title(),
-//					MODSFactory.eINSTANCE.createNamePartDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Title(),
-//					MODSFactory.eINSTANCE.createNoteBaseDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Title(),
-//					MODSFactory.eINSTANCE.createNoteDefinition())));
-//
-//	newChildDescriptors
-//			.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//					FeatureMapUtil.createEntry(MODSPackage.eINSTANCE
-//							.getTitleInfoBaseDefinition_Title(), MODSFactory.eINSTANCE
-//							.createStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Title(),
-//					MODSFactory.eINSTANCE.createPhysicalLocationDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Title(),
-//					MODSFactory.eINSTANCE.createPlaceTermDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Title(),
-//					MODSFactory.eINSTANCE.createRecordIdentifierDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Title(),
-//					MODSFactory.eINSTANCE.createRoleTermDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Title(),
-//					MODSFactory.eINSTANCE.createScriptTermDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Title(),
-//					MODSFactory.eINSTANCE.createStringPlusSupplied())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Title(),
-//					MODSFactory.eINSTANCE.createTableOfContentsDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Title(),
-//					MODSFactory.eINSTANCE.createTargetAudienceDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Title(),
-//					MODSFactory.eINSTANCE.createTemporalDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_SubTitle(),
-//					MODSFactory.eINSTANCE.createXsString())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_SubTitle(),
-//					MODSFactory.eINSTANCE.createUnstructuredTextDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_SubTitle(),
-//					MODSFactory.eINSTANCE.createAbstractDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_SubTitle(),
-//					MODSFactory.eINSTANCE.createStringPlusAuthority())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_SubTitle(),
-//					MODSFactory.eINSTANCE.createClassificationDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_SubTitle(),
-//					MODSFactory.eINSTANCE.createDateBaseDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_SubTitle(),
-//					MODSFactory.eINSTANCE.createDateDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_SubTitle(),
-//					MODSFactory.eINSTANCE.createDateOtherDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_SubTitle(),
-//					MODSFactory.eINSTANCE.createEnumerationAndChronologyDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_SubTitle(),
-//					MODSFactory.eINSTANCE.createStringPlusAuthorityPlusType())));
-//
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Title(),
+	//					MODSFactory.eINSTANCE.createGenreDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Title(),
+	//					MODSFactory.eINSTANCE.createGeographicCodeDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Title(),
+	//					MODSFactory.eINSTANCE.createIdentifierDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Title(),
+	//					MODSFactory.eINSTANCE.createLanguageTermDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Title(),
+	//					MODSFactory.eINSTANCE.createNamePartDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Title(),
+	//					MODSFactory.eINSTANCE.createNoteBaseDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Title(),
+	//					MODSFactory.eINSTANCE.createNoteDefinition())));
+	//
+	//	newChildDescriptors
+	//			.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//					FeatureMapUtil.createEntry(MODSPackage.eINSTANCE
+	//							.getTitleInfoBaseDefinition_Title(), MODSFactory.eINSTANCE
+	//							.createStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Title(),
+	//					MODSFactory.eINSTANCE.createPhysicalLocationDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Title(),
+	//					MODSFactory.eINSTANCE.createPlaceTermDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Title(),
+	//					MODSFactory.eINSTANCE.createRecordIdentifierDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Title(),
+	//					MODSFactory.eINSTANCE.createRoleTermDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Title(),
+	//					MODSFactory.eINSTANCE.createScriptTermDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Title(),
+	//					MODSFactory.eINSTANCE.createStringPlusSupplied())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Title(),
+	//					MODSFactory.eINSTANCE.createTableOfContentsDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Title(),
+	//					MODSFactory.eINSTANCE.createTargetAudienceDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Title(),
+	//					MODSFactory.eINSTANCE.createTemporalDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_SubTitle(),
+	//					MODSFactory.eINSTANCE.createXsString())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_SubTitle(),
+	//					MODSFactory.eINSTANCE.createUnstructuredTextDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_SubTitle(),
+	//					MODSFactory.eINSTANCE.createAbstractDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_SubTitle(),
+	//					MODSFactory.eINSTANCE.createStringPlusAuthority())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_SubTitle(),
+	//					MODSFactory.eINSTANCE.createClassificationDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_SubTitle(),
+	//					MODSFactory.eINSTANCE.createDateBaseDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_SubTitle(),
+	//					MODSFactory.eINSTANCE.createDateDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_SubTitle(),
+	//					MODSFactory.eINSTANCE.createDateOtherDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_SubTitle(),
+	//					MODSFactory.eINSTANCE.createEnumerationAndChronologyDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_SubTitle(),
+	//					MODSFactory.eINSTANCE.createStringPlusAuthorityPlusType())));
+	//
 	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
 			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_SubTitle(),
 					MODSFactory.eINSTANCE.createStringPlusAuthorityPlusTypePlusDisplayLabel())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_SubTitle(),
-//					MODSFactory.eINSTANCE.createGenreDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_SubTitle(),
-//					MODSFactory.eINSTANCE.createGeographicCodeDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_SubTitle(),
-//					MODSFactory.eINSTANCE.createIdentifierDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_SubTitle(),
-//					MODSFactory.eINSTANCE.createLanguageTermDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_SubTitle(),
-//					MODSFactory.eINSTANCE.createNamePartDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_SubTitle(),
-//					MODSFactory.eINSTANCE.createNoteBaseDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_SubTitle(),
-//					MODSFactory.eINSTANCE.createNoteDefinition())));
-//
-//	newChildDescriptors
-//			.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//					FeatureMapUtil.createEntry(MODSPackage.eINSTANCE
-//							.getTitleInfoBaseDefinition_SubTitle(), MODSFactory.eINSTANCE
-//							.createStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_SubTitle(),
-//					MODSFactory.eINSTANCE.createPhysicalLocationDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_SubTitle(),
-//					MODSFactory.eINSTANCE.createPlaceTermDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_SubTitle(),
-//					MODSFactory.eINSTANCE.createRecordIdentifierDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_SubTitle(),
-//					MODSFactory.eINSTANCE.createRoleTermDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_SubTitle(),
-//					MODSFactory.eINSTANCE.createScriptTermDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_SubTitle(),
-//					MODSFactory.eINSTANCE.createStringPlusSupplied())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_SubTitle(),
-//					MODSFactory.eINSTANCE.createTableOfContentsDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_SubTitle(),
-//					MODSFactory.eINSTANCE.createTargetAudienceDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_SubTitle(),
-//					MODSFactory.eINSTANCE.createTemporalDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartNumber(),
-//					MODSFactory.eINSTANCE.createXsString())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartNumber(),
-//					MODSFactory.eINSTANCE.createUnstructuredTextDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartNumber(),
-//					MODSFactory.eINSTANCE.createAbstractDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartNumber(),
-//					MODSFactory.eINSTANCE.createStringPlusAuthority())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartNumber(),
-//					MODSFactory.eINSTANCE.createClassificationDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartNumber(),
-//					MODSFactory.eINSTANCE.createDateBaseDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartNumber(),
-//					MODSFactory.eINSTANCE.createDateDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartNumber(),
-//					MODSFactory.eINSTANCE.createDateOtherDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartNumber(),
-//					MODSFactory.eINSTANCE.createEnumerationAndChronologyDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartNumber(),
-//					MODSFactory.eINSTANCE.createStringPlusAuthorityPlusType())));
-//
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_SubTitle(),
+	//					MODSFactory.eINSTANCE.createGenreDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_SubTitle(),
+	//					MODSFactory.eINSTANCE.createGeographicCodeDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_SubTitle(),
+	//					MODSFactory.eINSTANCE.createIdentifierDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_SubTitle(),
+	//					MODSFactory.eINSTANCE.createLanguageTermDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_SubTitle(),
+	//					MODSFactory.eINSTANCE.createNamePartDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_SubTitle(),
+	//					MODSFactory.eINSTANCE.createNoteBaseDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_SubTitle(),
+	//					MODSFactory.eINSTANCE.createNoteDefinition())));
+	//
+	//	newChildDescriptors
+	//			.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//					FeatureMapUtil.createEntry(MODSPackage.eINSTANCE
+	//							.getTitleInfoBaseDefinition_SubTitle(), MODSFactory.eINSTANCE
+	//							.createStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_SubTitle(),
+	//					MODSFactory.eINSTANCE.createPhysicalLocationDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_SubTitle(),
+	//					MODSFactory.eINSTANCE.createPlaceTermDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_SubTitle(),
+	//					MODSFactory.eINSTANCE.createRecordIdentifierDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_SubTitle(),
+	//					MODSFactory.eINSTANCE.createRoleTermDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_SubTitle(),
+	//					MODSFactory.eINSTANCE.createScriptTermDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_SubTitle(),
+	//					MODSFactory.eINSTANCE.createStringPlusSupplied())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_SubTitle(),
+	//					MODSFactory.eINSTANCE.createTableOfContentsDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_SubTitle(),
+	//					MODSFactory.eINSTANCE.createTargetAudienceDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_SubTitle(),
+	//					MODSFactory.eINSTANCE.createTemporalDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartNumber(),
+	//					MODSFactory.eINSTANCE.createXsString())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartNumber(),
+	//					MODSFactory.eINSTANCE.createUnstructuredTextDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartNumber(),
+	//					MODSFactory.eINSTANCE.createAbstractDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartNumber(),
+	//					MODSFactory.eINSTANCE.createStringPlusAuthority())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartNumber(),
+	//					MODSFactory.eINSTANCE.createClassificationDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartNumber(),
+	//					MODSFactory.eINSTANCE.createDateBaseDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartNumber(),
+	//					MODSFactory.eINSTANCE.createDateDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartNumber(),
+	//					MODSFactory.eINSTANCE.createDateOtherDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartNumber(),
+	//					MODSFactory.eINSTANCE.createEnumerationAndChronologyDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartNumber(),
+	//					MODSFactory.eINSTANCE.createStringPlusAuthorityPlusType())));
+	//
 	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
 			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartNumber(),
 					MODSFactory.eINSTANCE.createStringPlusAuthorityPlusTypePlusDisplayLabel())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartNumber(),
-//					MODSFactory.eINSTANCE.createGenreDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartNumber(),
-//					MODSFactory.eINSTANCE.createGeographicCodeDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartNumber(),
-//					MODSFactory.eINSTANCE.createIdentifierDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartNumber(),
-//					MODSFactory.eINSTANCE.createLanguageTermDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartNumber(),
-//					MODSFactory.eINSTANCE.createNamePartDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartNumber(),
-//					MODSFactory.eINSTANCE.createNoteBaseDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartNumber(),
-//					MODSFactory.eINSTANCE.createNoteDefinition())));
-//
-//	newChildDescriptors
-//			.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//					FeatureMapUtil.createEntry(MODSPackage.eINSTANCE
-//							.getTitleInfoBaseDefinition_PartNumber(), MODSFactory.eINSTANCE
-//							.createStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartNumber(),
-//					MODSFactory.eINSTANCE.createPhysicalLocationDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartNumber(),
-//					MODSFactory.eINSTANCE.createPlaceTermDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartNumber(),
-//					MODSFactory.eINSTANCE.createRecordIdentifierDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartNumber(),
-//					MODSFactory.eINSTANCE.createRoleTermDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartNumber(),
-//					MODSFactory.eINSTANCE.createScriptTermDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartNumber(),
-//					MODSFactory.eINSTANCE.createStringPlusSupplied())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartNumber(),
-//					MODSFactory.eINSTANCE.createTableOfContentsDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartNumber(),
-//					MODSFactory.eINSTANCE.createTargetAudienceDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartNumber(),
-//					MODSFactory.eINSTANCE.createTemporalDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartName(),
-//					MODSFactory.eINSTANCE.createXsString())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartName(),
-//					MODSFactory.eINSTANCE.createUnstructuredTextDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartName(),
-//					MODSFactory.eINSTANCE.createAbstractDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartName(),
-//					MODSFactory.eINSTANCE.createStringPlusAuthority())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartName(),
-//					MODSFactory.eINSTANCE.createClassificationDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartName(),
-//					MODSFactory.eINSTANCE.createDateBaseDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartName(),
-//					MODSFactory.eINSTANCE.createDateDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartName(),
-//					MODSFactory.eINSTANCE.createDateOtherDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartName(),
-//					MODSFactory.eINSTANCE.createEnumerationAndChronologyDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartName(),
-//					MODSFactory.eINSTANCE.createStringPlusAuthorityPlusType())));
-//
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartNumber(),
+	//					MODSFactory.eINSTANCE.createGenreDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartNumber(),
+	//					MODSFactory.eINSTANCE.createGeographicCodeDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartNumber(),
+	//					MODSFactory.eINSTANCE.createIdentifierDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartNumber(),
+	//					MODSFactory.eINSTANCE.createLanguageTermDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartNumber(),
+	//					MODSFactory.eINSTANCE.createNamePartDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartNumber(),
+	//					MODSFactory.eINSTANCE.createNoteBaseDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartNumber(),
+	//					MODSFactory.eINSTANCE.createNoteDefinition())));
+	//
+	//	newChildDescriptors
+	//			.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//					FeatureMapUtil.createEntry(MODSPackage.eINSTANCE
+	//							.getTitleInfoBaseDefinition_PartNumber(), MODSFactory.eINSTANCE
+	//							.createStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartNumber(),
+	//					MODSFactory.eINSTANCE.createPhysicalLocationDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartNumber(),
+	//					MODSFactory.eINSTANCE.createPlaceTermDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartNumber(),
+	//					MODSFactory.eINSTANCE.createRecordIdentifierDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartNumber(),
+	//					MODSFactory.eINSTANCE.createRoleTermDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartNumber(),
+	//					MODSFactory.eINSTANCE.createScriptTermDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartNumber(),
+	//					MODSFactory.eINSTANCE.createStringPlusSupplied())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartNumber(),
+	//					MODSFactory.eINSTANCE.createTableOfContentsDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartNumber(),
+	//					MODSFactory.eINSTANCE.createTargetAudienceDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartNumber(),
+	//					MODSFactory.eINSTANCE.createTemporalDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartName(),
+	//					MODSFactory.eINSTANCE.createXsString())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartName(),
+	//					MODSFactory.eINSTANCE.createUnstructuredTextDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartName(),
+	//					MODSFactory.eINSTANCE.createAbstractDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartName(),
+	//					MODSFactory.eINSTANCE.createStringPlusAuthority())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartName(),
+	//					MODSFactory.eINSTANCE.createClassificationDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartName(),
+	//					MODSFactory.eINSTANCE.createDateBaseDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartName(),
+	//					MODSFactory.eINSTANCE.createDateDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartName(),
+	//					MODSFactory.eINSTANCE.createDateOtherDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartName(),
+	//					MODSFactory.eINSTANCE.createEnumerationAndChronologyDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartName(),
+	//					MODSFactory.eINSTANCE.createStringPlusAuthorityPlusType())));
+	//
 	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
 			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartName(),
 					MODSFactory.eINSTANCE.createStringPlusAuthorityPlusTypePlusDisplayLabel())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartName(),
-//					MODSFactory.eINSTANCE.createGenreDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartName(),
-//					MODSFactory.eINSTANCE.createGeographicCodeDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartName(),
-//					MODSFactory.eINSTANCE.createIdentifierDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartName(),
-//					MODSFactory.eINSTANCE.createLanguageTermDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartName(),
-//					MODSFactory.eINSTANCE.createNamePartDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartName(),
-//					MODSFactory.eINSTANCE.createNoteBaseDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartName(),
-//					MODSFactory.eINSTANCE.createNoteDefinition())));
-//
-//	newChildDescriptors
-//			.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//					FeatureMapUtil.createEntry(MODSPackage.eINSTANCE
-//							.getTitleInfoBaseDefinition_PartName(), MODSFactory.eINSTANCE
-//							.createStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartName(),
-//					MODSFactory.eINSTANCE.createPhysicalLocationDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartName(),
-//					MODSFactory.eINSTANCE.createPlaceTermDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartName(),
-//					MODSFactory.eINSTANCE.createRecordIdentifierDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartName(),
-//					MODSFactory.eINSTANCE.createRoleTermDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartName(),
-//					MODSFactory.eINSTANCE.createScriptTermDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartName(),
-//					MODSFactory.eINSTANCE.createStringPlusSupplied())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartName(),
-//					MODSFactory.eINSTANCE.createTableOfContentsDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartName(),
-//					MODSFactory.eINSTANCE.createTargetAudienceDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartName(),
-//					MODSFactory.eINSTANCE.createTemporalDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_NonSort(),
-//					MODSFactory.eINSTANCE.createXsString())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_NonSort(),
-//					MODSFactory.eINSTANCE.createUnstructuredTextDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_NonSort(),
-//					MODSFactory.eINSTANCE.createAbstractDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_NonSort(),
-//					MODSFactory.eINSTANCE.createStringPlusAuthority())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_NonSort(),
-//					MODSFactory.eINSTANCE.createClassificationDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_NonSort(),
-//					MODSFactory.eINSTANCE.createDateBaseDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_NonSort(),
-//					MODSFactory.eINSTANCE.createDateDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_NonSort(),
-//					MODSFactory.eINSTANCE.createDateOtherDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_NonSort(),
-//					MODSFactory.eINSTANCE.createEnumerationAndChronologyDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_NonSort(),
-//					MODSFactory.eINSTANCE.createStringPlusAuthorityPlusType())));
-//
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartName(),
+	//					MODSFactory.eINSTANCE.createGenreDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartName(),
+	//					MODSFactory.eINSTANCE.createGeographicCodeDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartName(),
+	//					MODSFactory.eINSTANCE.createIdentifierDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartName(),
+	//					MODSFactory.eINSTANCE.createLanguageTermDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartName(),
+	//					MODSFactory.eINSTANCE.createNamePartDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartName(),
+	//					MODSFactory.eINSTANCE.createNoteBaseDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartName(),
+	//					MODSFactory.eINSTANCE.createNoteDefinition())));
+	//
+	//	newChildDescriptors
+	//			.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//					FeatureMapUtil.createEntry(MODSPackage.eINSTANCE
+	//							.getTitleInfoBaseDefinition_PartName(), MODSFactory.eINSTANCE
+	//							.createStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartName(),
+	//					MODSFactory.eINSTANCE.createPhysicalLocationDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartName(),
+	//					MODSFactory.eINSTANCE.createPlaceTermDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartName(),
+	//					MODSFactory.eINSTANCE.createRecordIdentifierDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartName(),
+	//					MODSFactory.eINSTANCE.createRoleTermDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartName(),
+	//					MODSFactory.eINSTANCE.createScriptTermDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartName(),
+	//					MODSFactory.eINSTANCE.createStringPlusSupplied())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartName(),
+	//					MODSFactory.eINSTANCE.createTableOfContentsDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartName(),
+	//					MODSFactory.eINSTANCE.createTargetAudienceDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartName(),
+	//					MODSFactory.eINSTANCE.createTemporalDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_NonSort(),
+	//					MODSFactory.eINSTANCE.createXsString())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_NonSort(),
+	//					MODSFactory.eINSTANCE.createUnstructuredTextDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_NonSort(),
+	//					MODSFactory.eINSTANCE.createAbstractDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_NonSort(),
+	//					MODSFactory.eINSTANCE.createStringPlusAuthority())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_NonSort(),
+	//					MODSFactory.eINSTANCE.createClassificationDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_NonSort(),
+	//					MODSFactory.eINSTANCE.createDateBaseDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_NonSort(),
+	//					MODSFactory.eINSTANCE.createDateDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_NonSort(),
+	//					MODSFactory.eINSTANCE.createDateOtherDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_NonSort(),
+	//					MODSFactory.eINSTANCE.createEnumerationAndChronologyDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_NonSort(),
+	//					MODSFactory.eINSTANCE.createStringPlusAuthorityPlusType())));
+	//
 	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
 			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_NonSort(),
 					MODSFactory.eINSTANCE.createStringPlusAuthorityPlusTypePlusDisplayLabel())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_NonSort(),
-//					MODSFactory.eINSTANCE.createGenreDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_NonSort(),
-//					MODSFactory.eINSTANCE.createGeographicCodeDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_NonSort(),
-//					MODSFactory.eINSTANCE.createIdentifierDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_NonSort(),
-//					MODSFactory.eINSTANCE.createLanguageTermDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_NonSort(),
-//					MODSFactory.eINSTANCE.createNamePartDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_NonSort(),
-//					MODSFactory.eINSTANCE.createNoteBaseDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_NonSort(),
-//					MODSFactory.eINSTANCE.createNoteDefinition())));
-//
-//	newChildDescriptors
-//			.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//					FeatureMapUtil.createEntry(MODSPackage.eINSTANCE
-//							.getTitleInfoBaseDefinition_NonSort(), MODSFactory.eINSTANCE
-//							.createStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_NonSort(),
-//					MODSFactory.eINSTANCE.createPhysicalLocationDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_NonSort(),
-//					MODSFactory.eINSTANCE.createPlaceTermDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_NonSort(),
-//					MODSFactory.eINSTANCE.createRecordIdentifierDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_NonSort(),
-//					MODSFactory.eINSTANCE.createRoleTermDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_NonSort(),
-//					MODSFactory.eINSTANCE.createScriptTermDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_NonSort(),
-//					MODSFactory.eINSTANCE.createStringPlusSupplied())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_NonSort(),
-//					MODSFactory.eINSTANCE.createTableOfContentsDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_NonSort(),
-//					MODSFactory.eINSTANCE.createTargetAudienceDefinition())));
-//
-//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
-//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_NonSort(),
-//					MODSFactory.eINSTANCE.createTemporalDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_NonSort(),
+	//					MODSFactory.eINSTANCE.createGenreDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_NonSort(),
+	//					MODSFactory.eINSTANCE.createGeographicCodeDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_NonSort(),
+	//					MODSFactory.eINSTANCE.createIdentifierDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_NonSort(),
+	//					MODSFactory.eINSTANCE.createLanguageTermDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_NonSort(),
+	//					MODSFactory.eINSTANCE.createNamePartDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_NonSort(),
+	//					MODSFactory.eINSTANCE.createNoteBaseDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_NonSort(),
+	//					MODSFactory.eINSTANCE.createNoteDefinition())));
+	//
+	//	newChildDescriptors
+	//			.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//					FeatureMapUtil.createEntry(MODSPackage.eINSTANCE
+	//							.getTitleInfoBaseDefinition_NonSort(), MODSFactory.eINSTANCE
+	//							.createStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_NonSort(),
+	//					MODSFactory.eINSTANCE.createPhysicalLocationDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_NonSort(),
+	//					MODSFactory.eINSTANCE.createPlaceTermDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_NonSort(),
+	//					MODSFactory.eINSTANCE.createRecordIdentifierDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_NonSort(),
+	//					MODSFactory.eINSTANCE.createRoleTermDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_NonSort(),
+	//					MODSFactory.eINSTANCE.createScriptTermDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_NonSort(),
+	//					MODSFactory.eINSTANCE.createStringPlusSupplied())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_NonSort(),
+	//					MODSFactory.eINSTANCE.createTableOfContentsDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_NonSort(),
+	//					MODSFactory.eINSTANCE.createTargetAudienceDefinition())));
+	//
+	//	newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Group(),
+	//			FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_NonSort(),
+	//					MODSFactory.eINSTANCE.createTemporalDefinition())));
     }
 
     /**

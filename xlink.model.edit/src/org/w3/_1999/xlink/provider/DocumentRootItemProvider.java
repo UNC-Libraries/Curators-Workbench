@@ -105,8 +105,10 @@ public class DocumentRootItemProvider
                                  false,
                                  false,
                                  ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                                 null,
-                                 null));
+                                 getString("_UI_xlinkPropertyCategory"),
+                                 new String[] {
+                                        "org.eclipse.ui.views.properties.expert"
+                                 }));
         }
 
         /**
@@ -127,8 +129,10 @@ public class DocumentRootItemProvider
                                  false,
                                  false,
                                  ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                                 null,
-                                 null));
+                                 getString("_UI_xlinkPropertyCategory"),
+                                 new String[] {
+                                        "org.eclipse.ui.views.properties.expert"
+                                 }));
         }
 
         /**
@@ -149,8 +153,10 @@ public class DocumentRootItemProvider
                                  false,
                                  false,
                                  ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                                 null,
-                                 null));
+                                 getString("_UI_xlinkPropertyCategory"),
+                                 new String[] {
+                                        "org.eclipse.ui.views.properties.expert"
+                                 }));
         }
 
         /**
@@ -171,7 +177,7 @@ public class DocumentRootItemProvider
                                  false,
                                  false,
                                  ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                                 null,
+                                 getString("_UI_xlinkPropertyCategory"),
                                  null));
         }
 
@@ -193,8 +199,10 @@ public class DocumentRootItemProvider
                                  false,
                                  false,
                                  ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                                 null,
-                                 null));
+                                 getString("_UI_xlinkPropertyCategory"),
+                                 new String[] {
+                                        "org.eclipse.ui.views.properties.expert"
+                                 }));
         }
 
         /**
@@ -215,8 +223,10 @@ public class DocumentRootItemProvider
                                  false,
                                  false,
                                  ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                                 null,
-                                 null));
+                                 getString("_UI_xlinkPropertyCategory"),
+                                 new String[] {
+                                        "org.eclipse.ui.views.properties.expert"
+                                 }));
         }
 
         /**
@@ -237,8 +247,10 @@ public class DocumentRootItemProvider
                                  false,
                                  false,
                                  ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                                 null,
-                                 null));
+                                 getString("_UI_xlinkPropertyCategory"),
+                                 new String[] {
+                                        "org.eclipse.ui.views.properties.expert"
+                                 }));
         }
 
         /**
@@ -259,8 +271,10 @@ public class DocumentRootItemProvider
                                  false,
                                  false,
                                  ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                                 null,
-                                 null));
+                                 getString("_UI_xlinkPropertyCategory"),
+                                 new String[] {
+                                        "org.eclipse.ui.views.properties.expert"
+                                 }));
         }
 
         /**
@@ -281,8 +295,10 @@ public class DocumentRootItemProvider
                                  false,
                                  false,
                                  ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                                 null,
-                                 null));
+                                 getString("_UI_xlinkPropertyCategory"),
+                                 new String[] {
+                                        "org.eclipse.ui.views.properties.expert"
+                                 }));
         }
 
         /**

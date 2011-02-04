@@ -597,24 +597,44 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mods.ecore#//ScriptTermDefinition/type"/>
     </genClasses>
     <genClasses ecoreClass="mods.ecore#//StringPlusAuthority">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mods.ecore#//StringPlusAuthority/authority"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mods.ecore#//StringPlusAuthority/authorityURI"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mods.ecore#//StringPlusAuthority/valueURI"/>
+      <genFeatures createChild="false" propertyCategory="XLink" ecoreFeature="ecore:EAttribute mods.ecore#//StringPlusAuthority/authority">
+        <propertyFilterFlags>org.eclipse.ui.views.properties.expert</propertyFilterFlags>
+      </genFeatures>
+      <genFeatures createChild="false" propertyCategory="Authority" ecoreFeature="ecore:EAttribute mods.ecore#//StringPlusAuthority/authorityURI">
+        <propertyFilterFlags>org.eclipse.ui.views.properties.expert</propertyFilterFlags>
+      </genFeatures>
+      <genFeatures createChild="false" propertyCategory="Authority" ecoreFeature="ecore:EAttribute mods.ecore#//StringPlusAuthority/valueURI">
+        <propertyFilterFlags>org.eclipse.ui.views.properties.expert</propertyFilterFlags>
+      </genFeatures>
     </genClasses>
     <genClasses ecoreClass="mods.ecore#//StringPlusAuthorityPlusType">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mods.ecore#//StringPlusAuthorityPlusType/type"/>
+      <genFeatures createChild="false" propertySortChoices="true" ecoreFeature="ecore:EAttribute mods.ecore#//StringPlusAuthorityPlusType/type"/>
     </genClasses>
     <genClasses ecoreClass="mods.ecore#//StringPlusAuthorityPlusTypePlusDisplayLabel">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mods.ecore#//StringPlusAuthorityPlusTypePlusDisplayLabel/displayLabel"/>
     </genClasses>
     <genClasses ecoreClass="mods.ecore#//StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mods.ecore#//StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink/actuate"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mods.ecore#//StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink/arcrole"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mods.ecore#//StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink/href"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mods.ecore#//StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink/role"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mods.ecore#//StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink/show"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mods.ecore#//StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink/title"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mods.ecore#//StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink/type1"/>
+      <genFeatures createChild="false" propertyCategory="XLink" ecoreFeature="ecore:EAttribute mods.ecore#//StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink/actuate">
+        <propertyFilterFlags>org.eclipse.ui.views.properties.expert</propertyFilterFlags>
+      </genFeatures>
+      <genFeatures createChild="false" propertyCategory="XLink" ecoreFeature="ecore:EAttribute mods.ecore#//StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink/arcrole">
+        <propertyFilterFlags>org.eclipse.ui.views.properties.expert</propertyFilterFlags>
+      </genFeatures>
+      <genFeatures createChild="false" propertyCategory="XLink" ecoreFeature="ecore:EAttribute mods.ecore#//StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink/href">
+        <propertyFilterFlags>org.eclipse.ui.views.properties.expert</propertyFilterFlags>
+      </genFeatures>
+      <genFeatures createChild="false" propertyCategory="XLink" ecoreFeature="ecore:EAttribute mods.ecore#//StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink/role">
+        <propertyFilterFlags>org.eclipse.ui.views.properties.expert</propertyFilterFlags>
+      </genFeatures>
+      <genFeatures createChild="false" propertyCategory="XLink" ecoreFeature="ecore:EAttribute mods.ecore#//StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink/show">
+        <propertyFilterFlags>org.eclipse.ui.views.properties.expert</propertyFilterFlags>
+      </genFeatures>
+      <genFeatures createChild="false" propertyCategory="XLink" ecoreFeature="ecore:EAttribute mods.ecore#//StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink/title">
+        <propertyFilterFlags>org.eclipse.ui.views.properties.expert</propertyFilterFlags>
+      </genFeatures>
+      <genFeatures createChild="false" propertyCategory="XLink" ecoreFeature="ecore:EAttribute mods.ecore#//StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink/type1">
+        <propertyFilterFlags>org.eclipse.ui.views.properties.expert</propertyFilterFlags>
+      </genFeatures>
     </genClasses>
     <genClasses ecoreClass="mods.ecore#//StringPlusSupplied">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mods.ecore#//StringPlusSupplied/supplied"/>
@@ -707,14 +727,28 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mods.ecore#//TypeOfResourceDefinition/usage"/>
     </genClasses>
     <genClasses ecoreClass="mods.ecore#//UnstructuredTextDefinition">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mods.ecore#//UnstructuredTextDefinition/actuate"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mods.ecore#//UnstructuredTextDefinition/arcrole"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mods.ecore#//UnstructuredTextDefinition/displayLabel"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mods.ecore#//UnstructuredTextDefinition/href"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mods.ecore#//UnstructuredTextDefinition/role"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mods.ecore#//UnstructuredTextDefinition/show"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mods.ecore#//UnstructuredTextDefinition/title"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mods.ecore#//UnstructuredTextDefinition/type"/>
+      <genFeatures createChild="false" propertyCategory="XLink" ecoreFeature="ecore:EAttribute mods.ecore#//UnstructuredTextDefinition/actuate">
+        <propertyFilterFlags>org.eclipse.ui.views.properties.expert</propertyFilterFlags>
+      </genFeatures>
+      <genFeatures createChild="false" propertyCategory="XLink" ecoreFeature="ecore:EAttribute mods.ecore#//UnstructuredTextDefinition/arcrole">
+        <propertyFilterFlags>org.eclipse.ui.views.properties.expert</propertyFilterFlags>
+      </genFeatures>
+      <genFeatures createChild="false" propertyCategory="" ecoreFeature="ecore:EAttribute mods.ecore#//UnstructuredTextDefinition/displayLabel"/>
+      <genFeatures createChild="false" propertyCategory="XLink" ecoreFeature="ecore:EAttribute mods.ecore#//UnstructuredTextDefinition/href">
+        <propertyFilterFlags>org.eclipse.ui.views.properties.expert</propertyFilterFlags>
+      </genFeatures>
+      <genFeatures createChild="false" propertyCategory="XLink" ecoreFeature="ecore:EAttribute mods.ecore#//UnstructuredTextDefinition/role">
+        <propertyFilterFlags>org.eclipse.ui.views.properties.expert</propertyFilterFlags>
+      </genFeatures>
+      <genFeatures createChild="false" propertyCategory="XLink" ecoreFeature="ecore:EAttribute mods.ecore#//UnstructuredTextDefinition/show">
+        <propertyFilterFlags>org.eclipse.ui.views.properties.expert</propertyFilterFlags>
+      </genFeatures>
+      <genFeatures createChild="false" propertyCategory="XLink" ecoreFeature="ecore:EAttribute mods.ecore#//UnstructuredTextDefinition/title">
+        <propertyFilterFlags>org.eclipse.ui.views.properties.expert</propertyFilterFlags>
+      </genFeatures>
+      <genFeatures createChild="false" propertyCategory="XLink" ecoreFeature="ecore:EAttribute mods.ecore#//UnstructuredTextDefinition/type">
+        <propertyFilterFlags>org.eclipse.ui.views.properties.expert</propertyFilterFlags>
+      </genFeatures>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mods.ecore#//UnstructuredTextDefinition/type1"/>
     </genClasses>
     <genClasses ecoreClass="mods.ecore#//UrlDefinition">
@@ -726,12 +760,19 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mods.ecore#//UrlDefinition/usage"/>
     </genClasses>
     <genClasses ecoreClass="mods.ecore#//XsString">
-      <genFeatures createChild="false" propertyDescription="" ecoreFeature="ecore:EAttribute mods.ecore#//XsString/value"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mods.ecore#//XsString/lang"/>
-      <genFeatures property="None" createChild="false" propertyCategory="" propertyDescription=""
+      <genFeatures createChild="false" propertyCategory="Text" propertyDescription=""
+          ecoreFeature="ecore:EAttribute mods.ecore#//XsString/value"/>
+      <genFeatures createChild="false" propertyCategory="" ecoreFeature="ecore:EAttribute mods.ecore#//XsString/lang">
+        <propertyFilterFlags>org.eclipse.ui.views.properties.expert</propertyFilterFlags>
+      </genFeatures>
+      <genFeatures property="None" createChild="false" propertyCategory="Text" propertyDescription=""
           ecoreFeature="ecore:EAttribute mods.ecore#//XsString/lang1"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mods.ecore#//XsString/script"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mods.ecore#//XsString/transliteration"/>
+      <genFeatures createChild="false" propertyCategory="Text" ecoreFeature="ecore:EAttribute mods.ecore#//XsString/script">
+        <propertyFilterFlags>org.eclipse.ui.views.properties.expert</propertyFilterFlags>
+      </genFeatures>
+      <genFeatures createChild="false" propertyCategory="Text" ecoreFeature="ecore:EAttribute mods.ecore#//XsString/transliteration">
+        <propertyFilterFlags>org.eclipse.ui.views.properties.expert</propertyFilterFlags>
+      </genFeatures>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

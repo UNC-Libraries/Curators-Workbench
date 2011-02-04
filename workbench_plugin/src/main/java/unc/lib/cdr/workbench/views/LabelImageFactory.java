@@ -70,6 +70,7 @@ public class LabelImageFactory {
 	putMyImageDefaultResized(PROJECT,"24px-Crystal_Clear_app_ark.png", reg);
 	putMyImageDefaultResized(PROJECT_CLOSED,"24px-Crystal_Clear_app_kthememgr.png", reg);
 	putMyImageDefaultResized(FOLDER, "24px-Crystal_Clear_filesystem_folder_grey.png", reg);
+	putMyImageDefaultResized(COLLECTION, "24px-Crystal_Clear_app_file-manager.png", reg);
 	putMyImageDefaultResized(FILE, "24px-Crystal_Clear_action_filenew.png", reg);
 	putMyImageDefaultResized(HARD_DISK, "24px-Crystal_Clear_app_harddrive.png", reg);
 	putMyImage(ARRANGEMENT_ELEMENT, "edtsrclkup_co.gif", reg);

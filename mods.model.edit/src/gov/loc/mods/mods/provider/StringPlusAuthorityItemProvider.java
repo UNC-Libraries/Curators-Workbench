@@ -84,7 +84,8 @@ public class StringPlusAuthorityItemProvider extends XsStringItemProvider implem
 			getString("_UI_PropertyDescriptor_description", "_UI_StringPlusAuthority_authority_feature",
 					"_UI_StringPlusAuthority_type"), MODSPackage.eINSTANCE
 					.getStringPlusAuthority_Authority(), true, false, false,
-			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString("_UI_XLinkPropertyCategory"),
+			new String[] { "org.eclipse.ui.views.properties.expert" }));
     }
 
     /**
@@ -101,7 +102,8 @@ public class StringPlusAuthorityItemProvider extends XsStringItemProvider implem
 			getString("_UI_PropertyDescriptor_description", "_UI_StringPlusAuthority_authorityURI_feature",
 					"_UI_StringPlusAuthority_type"), MODSPackage.eINSTANCE
 					.getStringPlusAuthority_AuthorityURI(), true, false, false,
-			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString("_UI_AuthorityPropertyCategory"),
+			new String[] { "org.eclipse.ui.views.properties.expert" }));
     }
 
     /**
@@ -118,7 +120,8 @@ public class StringPlusAuthorityItemProvider extends XsStringItemProvider implem
 			getString("_UI_PropertyDescriptor_description", "_UI_StringPlusAuthority_valueURI_feature",
 					"_UI_StringPlusAuthority_type"), MODSPackage.eINSTANCE
 					.getStringPlusAuthority_ValueURI(), true, false, false,
-			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString("_UI_AuthorityPropertyCategory"),
+			new String[] { "org.eclipse.ui.views.properties.expert" }));
     }
 
     /**

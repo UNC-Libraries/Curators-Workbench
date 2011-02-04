@@ -15,6 +15,9 @@
  */
 package crosswalk.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import gov.loc.mods.mods.MODSPackage;
 
 import org.eclipse.core.resources.IFile;
@@ -22,6 +25,7 @@ import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
@@ -70,6 +74,23 @@ import crosswalk.WalkWidget;
  * @generated
  */
 public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPackage {
+
+    public List<EClass> getDataSourceImplementations() {
+	List<EClass> dataSourceTypes = new ArrayList<EClass>();
+	EClass dataSourceType = getDataSource();
+	for(EClassifier c : getEClassifiers()) {
+	    if(c instanceof EClass) {
+		EClass clazz = (EClass)c;
+		if(clazz.getEAllSuperTypes().contains(dataSourceType)) {
+		    if(!clazz.isAbstract()) {
+			dataSourceTypes.add(clazz);
+		    }
+		}
+	    }
+	}
+	return dataSourceTypes;
+    }
+
         /**
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -343,7 +364,7 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 
         /**
          * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-         * 
+         *
          * <p>This method is used to initialize {@link CrosswalkPackage#eINSTANCE} when that field is accessed.
          * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
          * <!-- begin-user-doc -->
@@ -373,7 +394,7 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
                 // Mark meta-data to indicate it can't be changed
                 theCrosswalkPackage.freeze();
 
-  
+
                 // Update the registry and return the package
                 EPackage.Registry.INSTANCE.put(CrosswalkPackage.eNS_URI, theCrosswalkPackage);
                 return theCrosswalkPackage;

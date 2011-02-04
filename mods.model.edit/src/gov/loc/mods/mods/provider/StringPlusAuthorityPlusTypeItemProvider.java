@@ -82,7 +82,7 @@ public class StringPlusAuthorityPlusTypeItemProvider extends StringPlusAuthority
 			getString("_UI_StringPlusAuthorityPlusType_type_feature"),
 			getString("_UI_PropertyDescriptor_description", "_UI_StringPlusAuthorityPlusType_type_feature",
 					"_UI_StringPlusAuthorityPlusType_type"), MODSPackage.eINSTANCE
-					.getStringPlusAuthorityPlusType_Type(), true, false, false,
+					.getStringPlusAuthorityPlusType_Type(), true, false, true,
 			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
     }
 

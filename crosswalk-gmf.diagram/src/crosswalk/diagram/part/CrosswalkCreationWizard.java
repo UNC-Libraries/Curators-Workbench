@@ -16,14 +16,21 @@
 package crosswalk.diagram.part;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.wizard.IWizardPage;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
@@ -31,14 +38,13 @@ import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 
 import crosswalk.CrosswalkFactory;
+import crosswalk.CrosswalkPackage;
 import crosswalk.DataSource;
-import crosswalk.DelimitedFile;
 
 /**
  * @generated
  */
 public class CrosswalkCreationWizard extends Wizard implements INewWizard {
-
     /**
      * @generated
      */
@@ -49,10 +55,15 @@ public class CrosswalkCreationWizard extends Wizard implements INewWizard {
      */
     protected IStructuredSelection selection;
 
-    /**
-     * @generated
-     */
-    protected CrosswalkCreationWizardPage diagramModelFilePage;
+    protected IProject project;
+
+    protected CrosswalkPickDataSourceWizardPage dataSourceTypePage;
+    protected DelimitedFileDataSourceWizardPage delimitedFilePage;
+
+    protected Map<EClass, IWizardPage> dataSourceTypePages = new HashMap<EClass, IWizardPage>();
+
+    protected EClass selectedDataSourceType;
+    protected DataSource dataSource;
 
     /**
      * @generated
@@ -63,6 +74,8 @@ public class CrosswalkCreationWizard extends Wizard implements INewWizard {
      * @generated
      */
     private boolean openNewlyCreatedDiagramEditor = true;
+
+    protected String crosswalkName;
 
     /**
      * @generated
@@ -76,33 +89,6 @@ public class CrosswalkCreationWizard extends Wizard implements INewWizard {
      */
     public IStructuredSelection getSelection() {
 	return selection;
-    }
-
-    public IFile getSelectedFile() {
-	IFile result = null;
-	if (this.getSelection().size() > 0) {
-	    if (this.getSelection().getFirstElement() instanceof IFile) {
-		result = (IFile) this.getSelection().getFirstElement();
-	    }
-	}
-	return result;
-    }
-
-    public DataSource getSelectedDataSource() {
-	DataSource result = null;
-	if (this.getSelection().size() > 0) {
-	    if (this.getSelection().getFirstElement() instanceof IFile) {
-		IFile source = (IFile) this.getSelection().getFirstElement();
-		DelimitedFile tsf = CrosswalkFactory.eINSTANCE.createDelimitedFile();
-		tsf.setDataRow(2);
-		tsf.setHeaderRow(1);
-		tsf.setTextDelimiter('"');
-		tsf.setFieldDelimiter('\t');
-		tsf.setSourceFile(source);
-		result = tsf;
-	    }
-	}
-	return result;
     }
 
     /**
@@ -127,11 +113,16 @@ public class CrosswalkCreationWizard extends Wizard implements INewWizard {
     }
 
     /**
-     * @generated
+     * @generated NOT
      */
     public void init(IWorkbench workbench, IStructuredSelection selection) {
 	this.workbench = workbench;
 	this.selection = selection;
+	if(this.getSelection() != null) {
+	    if(this.getSelection().getFirstElement() instanceof IResource) {
+		this.project = ((IResource)this.getSelection().getFirstElement()).getProject();
+	    }
+	}
 	setWindowTitle(Messages.CrosswalkCreationWizardTitle);
 	setDefaultPageImageDescriptor(CrosswalkDiagramEditorPlugin
 			.getBundledImageDescriptor("icons/wizban/NewCrosswalkWizard.gif")); //$NON-NLS-1$
@@ -143,20 +134,17 @@ public class CrosswalkCreationWizard extends Wizard implements INewWizard {
      */
     @Override
     public void addPages() {
-	diagramModelFilePage = new CrosswalkCreationWizardPage("DiagramModelFile", getSelection(), "crosswalk"); //$NON-NLS-1$ //$NON-NLS-2$
-	diagramModelFilePage.setTitle(Messages.CrosswalkCreationWizard_DiagramModelFilePageTitle);
-	diagramModelFilePage.setDescription(Messages.CrosswalkCreationWizard_DiagramModelFilePageDescription);
-	IFile selection = this.getSelectedFile();
-	if (selection != null) {
-	    diagramModelFilePage.setContainerFullPath(selection.getProject().getFolder("crosswalks").getFullPath());
-	    String defaultName = selection.getName();
-	    String ext = selection.getFileExtension();
-	    if (ext != null) {
-		defaultName = defaultName.substring(0, defaultName.length() - (ext.length() + 1));
-	    }
-	    diagramModelFilePage.setFileName(defaultName);
-	}
-	addPage(diagramModelFilePage);
+	System.out.println("addPages called");
+	dataSourceTypePage = new CrosswalkPickDataSourceWizardPage("Choose a data source type.");
+	delimitedFilePage = new DelimitedFileDataSourceWizardPage("Choose your text file and set delimiter characters.");
+	this.dataSourceTypePages.put(CrosswalkPackage.eINSTANCE.getDelimitedFile(), delimitedFilePage);
+	this.addPage(dataSourceTypePage);
+	this.addPage(delimitedFilePage);
+    }
+
+    private URI getCrosswalkFileURI() {
+	IFile f = this.project.getFolder("crosswalks").getFile(this.crosswalkName+".crosswalk");
+	return URI.createPlatformResourceURI(f.getLocation().toString(), true);
     }
 
     /**
@@ -164,12 +152,14 @@ public class CrosswalkCreationWizard extends Wizard implements INewWizard {
      */
     @Override
     public boolean performFinish() {
+	if(dataSource == null) { // create the selected type of data source, if not set by a page
+	    dataSource = (DataSource)CrosswalkFactory.eINSTANCE.create(this.selectedDataSourceType);
+	}
 	IRunnableWithProgress op = new WorkspaceModifyOperation(null) {
-
 	    @Override
 	    protected void execute(IProgressMonitor monitor) throws CoreException, InterruptedException {
-		diagram = CrosswalkDiagramEditorUtil.createDiagramWithSource(diagramModelFilePage.getURI(), monitor,
-				getSelectedDataSource());
+		diagram = CrosswalkDiagramEditorUtil.createDiagramWithSource(getCrosswalkFileURI(), monitor,
+				dataSource);
 		if (isOpenNewlyCreatedDiagramEditor() && diagram != null) {
 		    try {
 			CrosswalkDiagramEditorUtil.openDiagram(diagram);
@@ -194,5 +184,10 @@ public class CrosswalkCreationWizard extends Wizard implements INewWizard {
 	    return false;
 	}
 	return diagram != null;
+    }
+
+    @Override
+    public boolean canFinish() {
+	return (this.project != null && this.selectedDataSourceType != null && this.crosswalkName != null);
     }
 }

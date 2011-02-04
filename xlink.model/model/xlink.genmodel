@@ -25,18 +25,36 @@
     <genDataTypes ecoreDataType="xlink.ecore#//ActuateTypeObject"/>
     <genDataTypes ecoreDataType="xlink.ecore#//ShowTypeObject"/>
     <genClasses ecoreClass="xlink.ecore#//DocumentRoot">
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute xlink.ecore#//DocumentRoot/mixed"/>
+      <genFeatures property="None" notify="false" createChild="false" propertyCategory="xlink"
+          ecoreFeature="ecore:EAttribute xlink.ecore#//DocumentRoot/mixed"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference xlink.ecore#//DocumentRoot/xMLNSPrefixMap"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference xlink.ecore#//DocumentRoot/xSISchemaLocation"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xlink.ecore#//DocumentRoot/actuate"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xlink.ecore#//DocumentRoot/arcrole"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xlink.ecore#//DocumentRoot/from"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xlink.ecore#//DocumentRoot/href"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xlink.ecore#//DocumentRoot/label"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xlink.ecore#//DocumentRoot/role"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xlink.ecore#//DocumentRoot/show"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xlink.ecore#//DocumentRoot/title"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xlink.ecore#//DocumentRoot/to"/>
+      <genFeatures createChild="false" propertyCategory="xlink" ecoreFeature="ecore:EAttribute xlink.ecore#//DocumentRoot/actuate">
+        <propertyFilterFlags>org.eclipse.ui.views.properties.expert</propertyFilterFlags>
+      </genFeatures>
+      <genFeatures createChild="false" propertyCategory="xlink" ecoreFeature="ecore:EAttribute xlink.ecore#//DocumentRoot/arcrole">
+        <propertyFilterFlags>org.eclipse.ui.views.properties.expert</propertyFilterFlags>
+      </genFeatures>
+      <genFeatures createChild="false" propertyCategory="xlink" ecoreFeature="ecore:EAttribute xlink.ecore#//DocumentRoot/from">
+        <propertyFilterFlags>org.eclipse.ui.views.properties.expert</propertyFilterFlags>
+      </genFeatures>
+      <genFeatures createChild="false" propertyCategory="xlink" ecoreFeature="ecore:EAttribute xlink.ecore#//DocumentRoot/href"/>
+      <genFeatures createChild="false" propertyCategory="xlink" ecoreFeature="ecore:EAttribute xlink.ecore#//DocumentRoot/label">
+        <propertyFilterFlags>org.eclipse.ui.views.properties.expert</propertyFilterFlags>
+      </genFeatures>
+      <genFeatures createChild="false" propertyCategory="xlink" ecoreFeature="ecore:EAttribute xlink.ecore#//DocumentRoot/role">
+        <propertyFilterFlags>org.eclipse.ui.views.properties.expert</propertyFilterFlags>
+      </genFeatures>
+      <genFeatures createChild="false" propertyCategory="xlink" ecoreFeature="ecore:EAttribute xlink.ecore#//DocumentRoot/show">
+        <propertyFilterFlags>org.eclipse.ui.views.properties.expert</propertyFilterFlags>
+      </genFeatures>
+      <genFeatures createChild="false" propertyCategory="xlink" ecoreFeature="ecore:EAttribute xlink.ecore#//DocumentRoot/title">
+        <propertyFilterFlags>org.eclipse.ui.views.properties.expert</propertyFilterFlags>
+      </genFeatures>
+      <genFeatures createChild="false" propertyCategory="xlink" propertyDescription=""
+          ecoreFeature="ecore:EAttribute xlink.ecore#//DocumentRoot/to">
+        <propertyFilterFlags>org.eclipse.ui.views.properties.expert</propertyFilterFlags>
+      </genFeatures>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
