@@ -857,10 +857,6 @@
       </startup>
    </extension>
    <extension
-         point="org.slf4j.pde.loggers">
-      <loggerMapEntry regex="^unc.lib\..*" symbolicName="workbench_plugin"/>
-   </extension>
-   <extension
          point="org.eclipse.core.resources.variableResolvers">
       <variableResolver
             class="unc.lib.cdr.workbench.project.VariableResolver"

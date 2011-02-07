@@ -53,12 +53,12 @@ public class NewSipProjectWizard extends Wizard implements INewWizard {
 	    //stage.create(true, true, new NullProgressMonitor());
 	    IFileStore stageStore = EFS.getStore(stageURI);
 	    stageStore.mkdir(EFS.NONE, new NullProgressMonitor());
+	    // TODO if linking fails, then throw an error!!
+	    System.out.println("staging URI: "+stageURI.toString());
 	    stage.createLink(stageURI, IFolder.ALLOW_MISSING_LOCAL | IResource.BACKGROUND_REFRESH, new NullProgressMonitor());
 	} catch (URISyntaxException e) {
-	    // TODO Auto-generated catch block
 	    e.printStackTrace();
 	} catch (CoreException e) {
-	    // TODO Auto-generated catch block
 	    e.printStackTrace();
 	}
 	return true;
