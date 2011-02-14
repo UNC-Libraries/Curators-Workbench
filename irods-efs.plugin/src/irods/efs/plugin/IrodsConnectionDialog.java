@@ -284,7 +284,7 @@ public class IrodsConnectionDialog extends TitleAreaDialog {
 		super.okPressed();
 		IrodsEFSFileSystem.storeConnectionDetails(this.account);
 		try {
-		    this.location = IrodsEFSFileSystem.removeUserInfo(this.account.toURI(false));
+		    this.location = IrodsEFSFileSystem.removePassword(this.account.toURI(false));
 		} catch (JargonException e) {
 		    throw new Error(e);
 		}

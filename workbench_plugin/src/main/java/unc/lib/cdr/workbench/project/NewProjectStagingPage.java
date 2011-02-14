@@ -15,6 +15,9 @@
  */
 package unc.lib.cdr.workbench.project;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+
 import org.eclipse.core.resources.IProject;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
@@ -152,8 +155,14 @@ public class NewProjectStagingPage extends WizardPage {
 	} else {
 	    location = mainPage.getLocationPath().toFile().toURI().toString() + name;
 	}
-	template = template.replaceAll("\\$\\{PROJECT_NAME\\}", name);
-	template = template.replaceAll("\\$\\{PROJECT_LOC\\}", location);
+	try {
+	template = template.replaceAll("\\$\\{PROJECT_NAME\\}", URLEncoder.encode(name,"utf-8"));
+	template = template.replaceAll("\\$\\{PROJECT_LOC\\}", URLEncoder.encode(location,"utf-8"));
+	template = template.replaceAll("\\$\\{USER_NAME\\}", URLEncoder.encode(System.getProperty("user.name"),"utf-8"));
+	System.getProperties();
+	} catch(UnsupportedEncodingException e) {
+	    throw new Error(e);
+	}
 	return template;
     }
 
@@ -161,8 +170,12 @@ public class NewProjectStagingPage extends WizardPage {
 	String result = null;
 	String name = p.getName();
 	String location = p.getLocationURI().toString();
-	result = this.stagingLocationTemplate.replaceAll("\\$\\{PROJECT_NAME\\}", name);
-	result = result.replaceAll("\\$\\{PROJECT_LOC\\}", location);
+	try {
+	    result = this.stagingLocationTemplate.replaceAll("\\$\\{PROJECT_NAME\\}", URLEncoder.encode(name, "utf-8"));
+	    result = result.replaceAll("\\$\\{PROJECT_LOC\\}", URLEncoder.encode(location, "utf-8"));
+	    result = result.replaceAll("\\$\\{USER_NAME\\}", URLEncoder.encode(System.getProperty("user.name"), "utf-8"));
+	} catch (UnsupportedEncodingException e) {
+	}
 	return result;
     }
 
@@ -185,11 +198,11 @@ public class NewProjectStagingPage extends WizardPage {
     }
 
     public boolean isAutoStage() {
-        return autoStage;
+	return autoStage;
     }
 
     public String getStagingLocationTemplate() {
-        return stagingLocationTemplate;
+	return stagingLocationTemplate;
     }
 
 }

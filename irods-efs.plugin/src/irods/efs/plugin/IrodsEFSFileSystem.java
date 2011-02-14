@@ -55,22 +55,11 @@ public class IrodsEFSFileSystem extends FileSystem {
      * @return the server base URI for which connection details are stored
      */
     public static URI storeConnectionDetails(IRODSAccount a) {
-	URI serverURI = getGridURI(a.getHost(), a.getPort());
+	URI serverURI = getAccountURI(a.getHost(), a.getPort(), a.getUserName(), a.getZone());
 	IPreferenceStore store = Activator.getDefault().getPreferenceStore();
 	if (a.getPassword() != null) {
-	    store.setValue(serverURI + "#password", a.getPassword());
-	}
-	if (a.getUserName() != null) {
-	    store.setValue(serverURI + "#username", a.getUserName());
-	}
-	if (a.getZone() != null) {
-	    store.setValue(serverURI + "#zone", a.getZone());
-	}
-	if (a.getDefaultStorageResource() != null) {
-	    store.setValue(serverURI + "#defaultResource", a.getDefaultStorageResource());
-	}
-	if (a.getHomeDirectory() != null) {
-	    store.setValue(serverURI + "#homeDirectory", a.getHomeDirectory());
+	    store.setValue(serverURI.toString(), a.getPassword());
+	    System.out.println("Storing: "+serverURI.toString() + " "+a.getPassword());
 	}
 	return serverURI;
     }
@@ -83,11 +72,20 @@ public class IrodsEFSFileSystem extends FileSystem {
      */
     protected static IRODSAccount getAccount(URI uri) {
 	IRODSAccount result = null;
-	URI serverURI = getGridURI(uri.getHost(), uri.getPort());
+	String userName = uri.getUserInfo();
+	if (userName != null && userName.contains(":")) {
+	    userName = userName.substring(0, userName.indexOf(":"));
+	}
+	String zone = null;
+	String[] pathParts = uri.getPath().split("/");
+	if(pathParts.length > 0) {
+	    zone = pathParts[0];
+	}
+	URI serverURI = getAccountURI(uri.getHost(), uri.getPort(), userName, zone);
 	IPreferenceStore store = Activator.getDefault().getPreferenceStore();
 	String password = store.getString(serverURI + "#password");
-	String userName = store.getString(serverURI + "#username");
-	if (userName == null || userName.isEmpty() || password == null || password.isEmpty()) {
+	// String userName = store.getString(serverURI + "#username");
+	if (password == null || password.isEmpty()) {
 	    promptForLogin("Need a username and password to connect to iRODS.", serverURI, store, userName);
 	}
 
@@ -96,12 +94,13 @@ public class IrodsEFSFileSystem extends FileSystem {
 	int port = uri.getPort();
 	// load connection details
 	password = store.getString(serverURI + "#password");
-	userName = store.getString(serverURI + "#username");
-	String zone = store.getString(serverURI + "#zone");
-	String defaultStorageResource = store.getString(serverURI + "#defaultResource");
-	String homeDirectory = store.getString(serverURI + "#homeDirectory");
+	// userName = store.getString(serverURI + "#username");
+	// String zone = store.getString(serverURI + "#zone");
+	// String defaultStorageResource = store.getString(serverURI +
+	// "#defaultResource");
+	// String homeDirectory = store.getString(serverURI + "#homeDirectory");
 
-	result = new IRODSAccount(host, port, userName, password, homeDirectory, zone, defaultStorageResource);
+	result = new IRODSAccount(host, port, userName, password, "", zone, "fake");
 	return result;
     }
 
@@ -113,25 +112,29 @@ public class IrodsEFSFileSystem extends FileSystem {
 		LoginInputDialog d = new LoginInputDialog(s, message, serverURI, username);
 		if (Dialog.OK == d.open()) {
 		    store.setValue(serverURI + "#password", d.getPassword());
-		    store.setValue(serverURI + "#username", d.getUsername());
+		    //store.setValue(serverURI + "#username", d.getUsername());
 		}
 	    }
 	});
     }
 
-    private static URI getGridURI(String host, int port) {
+    private static URI getAccountURI(String host, int port, String userName, String zone) {
 	try {
-	    return new URI("irods", null, host, port, null, null, null);
+	    return new URI("irods", userName, host, port, "/"+zone+"/", null, null);
 	} catch (URISyntaxException e) {
 	    throw new Error("Cannot make URI for iRODS without user info and path", e);
 	}
     }
 
-    public static URI removeUserInfo(URI uri) {
+    public static URI removePassword(URI uri) {
 	try {
-	    return new URI(uri.getScheme(), null, uri.getHost(), uri.getPort(), uri.getPath(), null, null);
+	    String userName = uri.getUserInfo();
+	    if (userName.contains(":")) {
+		userName = userName.substring(0, userName.indexOf(":"));
+	    }
+	    return new URI(uri.getScheme(), userName, uri.getHost(), uri.getPort(), uri.getPath(), null, null);
 	} catch (URISyntaxException e) {
-	    throw new Error("Cannot make URI for iRODS without user info and path", e);
+	    throw new Error("Cannot make URI for iRODS without password.", e);
 	}
     }
 

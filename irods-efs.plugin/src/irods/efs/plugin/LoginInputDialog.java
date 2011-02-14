@@ -83,7 +83,7 @@ public class LoginInputDialog extends Dialog {
 	Label userId = new Label(group, SWT.None);
 	userId.setText("Username");
 
-	textUsername = new Text(group,SWT.BORDER);
+	textUsername = new Text(group,SWT.BORDER | SWT.READ_ONLY);
 	textUsername.setText(this.defaultUsername);
 	textUsername.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
 

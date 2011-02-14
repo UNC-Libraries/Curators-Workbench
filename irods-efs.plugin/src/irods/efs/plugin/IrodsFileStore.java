@@ -25,6 +25,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -82,7 +83,7 @@ public class IrodsFileStore extends FileStore {
 	try {
 	    IRODSFileSystem irodsFileSystem = IRODSFileSystem.instance();
 	    IRODSFileFactory ff = irodsFileSystem.getIRODSFileFactory(this.account);
-	    IRODSFile file = ff.instanceIRODSFile(uri.getPath());
+	    IRODSFile file = ff.instanceIRODSFile(getDecodedPath());
 	    monitor.worked(1);
 	    // remove path and just give names
 	    for (String c : file.list()) {
@@ -99,6 +100,16 @@ public class IrodsFileStore extends FileStore {
 	} catch (JargonException e) {
 	    throw new CoreException(new Status(Status.ERROR, Activator.PLUGIN_ID, "Problem fetching child names", e));
 	}
+    }
+
+    private String getDecodedPath() {
+	String result = null;
+	try {
+	result = URLDecoder.decode(this.uri.getPath(),"utf-8");
+	} catch(UnsupportedEncodingException e) {
+	    throw new Error(e);
+	}
+	return result;
     }
 
     /*
@@ -120,7 +131,7 @@ public class IrodsFileStore extends FileStore {
 	try {
 	    IRODSFileSystem irodsFileSystem = IRODSFileSystem.instance();
 	    IRODSFileFactory iff = irodsFileSystem.getIRODSFileFactory(this.account);
-	    f = iff.instanceIRODSFile(uri.getPath());
+	    f = iff.instanceIRODSFile(getDecodedPath());
 	} catch (Exception e) {
 	    throw new CoreException(new Status(Status.ERROR, Activator.PLUGIN_ID, "Problem connecting to IRODS", e));
 	}
@@ -256,7 +267,7 @@ public class IrodsFileStore extends FileStore {
 	    q.append(RodsGenQueryEnum.COL_COLL_MODIFY_TIME.getName());
 	    q.append(" where ");
 	    q.append(RodsGenQueryEnum.COL_COLL_NAME.getName());
-	    q.append(" = '").append(escapeSingleQuotes(uri.getPath())).append("'");
+	    q.append(" = '").append(escapeSingleQuotes(getDecodedPath())).append("'");
 
 	    IRODSQuery irodsQuery;
 	    IRODSFileSystem irodsFileSystem = IRODSFileSystem.instance();
@@ -301,6 +312,11 @@ public class IrodsFileStore extends FileStore {
      */
     @Override
     public IFileStore getChild(String name) {
+	try {
+	    name = URLEncoder.encode(name, "utf-8");
+	} catch(UnsupportedEncodingException e) {
+	    throw new Error(e);
+	}
 	StringBuilder newPath = new StringBuilder();
 	if (this.uri.getPath().endsWith("/")) {
 	    newPath.append(this.uri.getPath()).append(name);
@@ -309,7 +325,7 @@ public class IrodsFileStore extends FileStore {
 	}
 	URI child = null;
 	try {
-	    child = new URI(this.uri.getScheme(), null, this.uri.getHost(), this.uri.getPort(), newPath.toString(),
+	    child = new URI(this.uri.getScheme(), this.uri.getUserInfo(), this.uri.getHost(), this.uri.getPort(), newPath.toString(),
 			    null, null);
 	} catch (URISyntaxException er) {
 	    throw new Error(er);
@@ -381,7 +397,7 @@ public class IrodsFileStore extends FileStore {
 	}
 	URI result;
 	try {
-	    result = new URI(this.uri.getScheme(), null, this.uri.getHost(), this.uri.getPort(), parentPath, null, null);
+	    result = new URI(this.uri.getScheme(), this.uri.getUserInfo(), this.uri.getHost(), this.uri.getPort(), parentPath, null, null);
 	} catch (URISyntaxException e) {
 	    throw new Error(e);
 	}
@@ -405,7 +421,7 @@ public class IrodsFileStore extends FileStore {
 	try {
 	    IRODSFileSystem irodsFileSystem = IRODSFileSystem.instance();
 	    IRODSFileFactory ff = irodsFileSystem.getIRODSFileFactory(this.account);
-	    IRODSFile file = ff.instanceIRODSFile(uri.getPath());
+	    IRODSFile file = ff.instanceIRODSFile(getDecodedPath());
 	    monitor.worked(1);
 	    result = ff.instanceIRODSFileInputStream(file);
 	    // irodsSession.closeSession();
@@ -437,7 +453,7 @@ public class IrodsFileStore extends FileStore {
 	try {
 	    IRODSFileSystem irodsFileSystem = IRODSFileSystem.instance();
 	    IRODSFileFactory irodsFileFactory = irodsFileSystem.getIRODSFileFactory(account);
-	    IRODSFile file = irodsFileFactory.instanceIRODSFile(uri.getPath());
+	    IRODSFile file = irodsFileFactory.instanceIRODSFile(getDecodedPath());
 	    file.delete();
 	    irodsFileSystem.close();
 	    monitor.worked(1);
@@ -461,7 +477,7 @@ public class IrodsFileStore extends FileStore {
 	try {
 	    IRODSFileSystem irodsFileSystem = IRODSFileSystem.instance();
 	    IRODSFileFactory irodsFileFactory = irodsFileSystem.getIRODSFileFactory(account);
-	    IRODSFile file = irodsFileFactory.instanceIRODSFile(uri.getPath());
+	    IRODSFile file = irodsFileFactory.instanceIRODSFile(getDecodedPath());
 	    if (makeParents) {
 		file.mkdirs();
 	    } else {
@@ -486,14 +502,14 @@ public class IrodsFileStore extends FileStore {
 	try {
 	    IRODSFileSystem irodsFileSystem = IRODSFileSystem.instance();
 	    IRODSFileFactory irodsFileFactory = irodsFileSystem.getIRODSFileFactory(this.account);
-	    IRODSFile irodsFile = irodsFileFactory.instanceIRODSFile(uri.getPath());
+	    IRODSFile irodsFile = irodsFileFactory.instanceIRODSFile(getDecodedPath());
 	    IRODSFile parent = irodsFileFactory.instanceIRODSFile(irodsFile.getParent());
 	    if (!parent.exists()) {
 		parent.mkdirs();
 	    }
 	    parent.close();
 	    irodsFile.close();
-	    IRODSFileOutputStream irodsFileOutputStream = irodsFileFactory.instanceIRODSFileOutputStream(uri.getPath());
+	    IRODSFileOutputStream irodsFileOutputStream = irodsFileFactory.instanceIRODSFileOutputStream(getDecodedPath());
 	    monitor.worked(1);
 	    monitor.done();
 	    return irodsFileOutputStream;
