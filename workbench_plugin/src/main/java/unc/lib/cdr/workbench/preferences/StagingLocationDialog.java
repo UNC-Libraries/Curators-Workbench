@@ -41,8 +41,9 @@ public class StagingLocationDialog extends TitleAreaDialog {
     String title = null;
 
     String locMsg = "You may use these variables to create a project-based location:\n"+
-	" ${PROJECT_HOME} - the project folder, for using a sub-folder\n" +
-	" ${PROJECT_NAME} - name of the project, for using a central staging location";
+	" ${PROJECT_HOME} - project folder path, for using a sub-folder\n" +
+	" ${PROJECT_NAME} - name of the project, for using a central staging location\n" +
+	" ${USER_NAME} - name of the user logged into this computer";
 
     /**
      * @param parentShell

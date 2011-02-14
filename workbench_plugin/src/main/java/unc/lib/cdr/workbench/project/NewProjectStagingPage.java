@@ -158,6 +158,8 @@ public class NewProjectStagingPage extends WizardPage {
 	try {
 	template = template.replaceAll("\\$\\{PROJECT_NAME\\}", URLEncoder.encode(name,"utf-8"));
 	template = template.replaceAll("\\$\\{PROJECT_LOC\\}", URLEncoder.encode(location,"utf-8"));
+	template = template.replaceAll("\\$\\{USER_NAME\\}", URLEncoder.encode(System.getProperty("user.name"),"utf-8"));
+	System.getProperties();
 	} catch(UnsupportedEncodingException e) {
 	    throw new Error(e);
 	}
@@ -171,6 +173,7 @@ public class NewProjectStagingPage extends WizardPage {
 	try {
 	    result = this.stagingLocationTemplate.replaceAll("\\$\\{PROJECT_NAME\\}", URLEncoder.encode(name, "utf-8"));
 	    result = result.replaceAll("\\$\\{PROJECT_LOC\\}", URLEncoder.encode(location, "utf-8"));
+	    result = result.replaceAll("\\$\\{USER_NAME\\}", URLEncoder.encode(System.getProperty("user.name"), "utf-8"));
 	} catch (UnsupportedEncodingException e) {
 	}
 	return result;

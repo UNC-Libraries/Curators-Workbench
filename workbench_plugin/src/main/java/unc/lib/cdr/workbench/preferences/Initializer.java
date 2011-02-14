@@ -39,7 +39,7 @@ public class Initializer extends AbstractPreferenceInitializer {
 	locs.add(new String[] {"stage folder in project location", "${PROJECT_LOC}/stage"});
 
 	// add example iRODS path (using dynamic path variable for project name)
-	locs.add(new String[] {"example iRODS location", "irods://icat.example.com:1247/myZone/home/a_user_id/${PROJECT_NAME}/stage"});
+	locs.add(new String[] {"CDR DEV iRODS", "irods://${USER_NAME}@cdr-dev-vault.libint.unc.edu:5555/cdrTestZone/home/${USER_NAME}/staging/${PROJECT_NAME}"});
 
 	// set Local Staging Folder
 	String osUserHome = (String) System.getProperties().get("user.home");
