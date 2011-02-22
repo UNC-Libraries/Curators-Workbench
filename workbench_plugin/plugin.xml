@@ -145,24 +145,18 @@
                   style="push">
             </command>
             <command
-                  commandId="org.eclipse.ui.window.preferences"
-                  label="Preferences"
-                  style="push">
-            </command>
-            <command
                   commandId="unc.lib.cdr.pw.commands.Exit"
-                  label="Exit"
                   style="push"
                   tooltip="Exit the workbench">
-            </command>
-            <command
-                  commandId="org.eclipse.ui.project.closeProject"
-                  style="push">
             </command>
          </menu>
          <menu
                id="help"
                label="Help">
+            <command
+                  commandId="org.eclipse.ui.window.preferences"
+                  style="push">
+            </command>
             <command
                   commandId="org.eclipse.ui.help.aboutAction"
                   style="push">
@@ -491,6 +485,12 @@
                class="org.eclipse.core.resources.IResource">
          </selection>
       </wizard>
+      <primaryWizard
+            id="cdr-workbench.wizard.new.project">
+      </primaryWizard>
+      <primaryWizard
+            id="crosswalk.diagram.part.CrosswalkCreationWizardID">
+      </primaryWizard>
    </extension>
    <extension
          point="org.eclipse.core.runtime.adapters">
@@ -506,6 +506,12 @@
          point="org.eclipse.ui.perspectiveExtensions">
       <perspectiveExtension
             targetID="*">
+         <newWizardShortcut
+               id="cdr-workbench.wizard.new.project">
+         </newWizardShortcut>
+         <newWizardShortcut
+               id="crosswalk.diagram.part.CrosswalkCreationWizardID">
+         </newWizardShortcut>
       </perspectiveExtension>
       <perspectiveExtension
             targetID="cdr-workbench.AccessionPerspective">

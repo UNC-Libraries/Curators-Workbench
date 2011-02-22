@@ -48,16 +48,13 @@ public class NewSipProjectWizard extends Wizard implements INewWizard {
 	}
 	IProject prog = MetsProjectNatureSupport.createProject(name, location);
 	try {
-	    URI stageURI = new URI(_pageTwo.getStagingLocationForProject(prog));
+	    URI stageURI = _pageTwo.computeStageLocation(prog.getLocationURI(), prog.getName());
 	    IFolder stage = prog.getFolder(MetsProjectNature.STAGE_FOLDER_NAME);
-	    //stage.create(true, true, new NullProgressMonitor());
 	    IFileStore stageStore = EFS.getStore(stageURI);
 	    stageStore.mkdir(EFS.NONE, new NullProgressMonitor());
 	    // TODO if linking fails, then throw an error!!
-	    System.out.println("staging URI: "+stageURI.toString());
-	    stage.createLink(stageURI, IFolder.ALLOW_MISSING_LOCAL | IResource.BACKGROUND_REFRESH, new NullProgressMonitor());
-	} catch (URISyntaxException e) {
-	    e.printStackTrace();
+	    System.out.println("staging URI passed to EFS.getStore: "+stageURI.toString());
+	    stage.createLink(stageURI, IFolder.ALLOW_MISSING_LOCAL, new NullProgressMonitor());
 	} catch (CoreException e) {
 	    e.printStackTrace();
 	}

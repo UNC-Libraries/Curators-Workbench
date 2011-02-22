@@ -260,6 +260,7 @@ public class MetsProjectNature implements IProjectNature {
 	    }
 	} finally {
 	    IResourceChangeListener listener = new MetsProjectNature.ProjectCloseListener(project);
+	    // TODO listen for changes to the project name and update METS
 	    ResourcesPlugin.getWorkspace().addResourceChangeListener(listener, IResourceChangeEvent.PRE_CLOSE);
 	}
 	for (Diagnostic d : this.metsResource.getErrors()) {
