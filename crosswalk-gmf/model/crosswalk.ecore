@@ -144,6 +144,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="fieldDelimiter" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EChar" defaultValueLiteral=","/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="textDelimiter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EChar"
-        defaultValueLiteral="&quot;"/>
+        defaultValueLiteral="&quot;" unsettable="true"/>
   </eClassifiers>
 </ecore:EPackage>

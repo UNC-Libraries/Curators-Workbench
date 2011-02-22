@@ -192,6 +192,15 @@ public class DelimitedFileImpl extends EObjectImpl implements DelimitedFile {
     protected char textDelimiter = TEXT_DELIMITER_EDEFAULT;
 
     /**
+         * This is true if the Text Delimiter attribute has been set.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         * @ordered
+         */
+        protected boolean textDelimiterESet;
+
+/**
          * <!-- begin-user-doc --> <!-- end-user-doc -->
          * @generated
          */
@@ -371,11 +380,36 @@ public class DelimitedFileImpl extends EObjectImpl implements DelimitedFile {
     public void setTextDelimiter(char newTextDelimiter) {
                 char oldTextDelimiter = textDelimiter;
                 textDelimiter = newTextDelimiter;
+                boolean oldTextDelimiterESet = textDelimiterESet;
+                textDelimiterESet = true;
                 if (eNotificationRequired())
-                        eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.DELIMITED_FILE__TEXT_DELIMITER, oldTextDelimiter, textDelimiter));
+                        eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.DELIMITED_FILE__TEXT_DELIMITER, oldTextDelimiter, textDelimiter, !oldTextDelimiterESet));
         }
 
     /**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        public void unsetTextDelimiter() {
+                char oldTextDelimiter = textDelimiter;
+                boolean oldTextDelimiterESet = textDelimiterESet;
+                textDelimiter = TEXT_DELIMITER_EDEFAULT;
+                textDelimiterESet = false;
+                if (eNotificationRequired())
+                        eNotify(new ENotificationImpl(this, Notification.UNSET, CrosswalkPackage.DELIMITED_FILE__TEXT_DELIMITER, oldTextDelimiter, TEXT_DELIMITER_EDEFAULT, oldTextDelimiterESet));
+        }
+
+/**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        public boolean isSetTextDelimiter() {
+                return textDelimiterESet;
+        }
+
+/**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated NOT
@@ -486,6 +520,22 @@ public class DelimitedFileImpl extends EObjectImpl implements DelimitedFile {
 	}
     }
 
+    public String[] getRawRowData() {
+	if (!this.reset) {
+	    try {
+		this.Reset();
+	    } catch (Exception e) {
+		e.printStackTrace();
+	    }
+	}
+	try {
+	    return this.lines.get(currentRowNumber - 1);
+	} catch (Exception e) {
+	    e.printStackTrace();
+	    return null;
+	}
+    }
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      *
@@ -493,18 +543,29 @@ public class DelimitedFileImpl extends EObjectImpl implements DelimitedFile {
      */
     public void initializeDataFields() throws DataException {
 	try {
+	    this.getFields().clear();
 	    this.Reset();
-	    this.GoToRecord(this.getHeaderRow());
+	    if(this.isSetHeaderRow()) {
+		this.GoToRecord(this.getHeaderRow());
+		String[] headerRow = this.getRawRowData();
+		for (int i = 0; i < headerRow.length; i++) {
+		    TabbedDataField missingField = CrosswalkFactory.eINSTANCE.createTabbedDataField();
+		    missingField.setColumnNumber(i + 1);
+		    missingField.setLabel(headerRow[i]);
+		    this.getFields().add(missingField);
+		}
+	    } else {
+		this.GoToRecord(this.getDataRow());
+		String[] headerRow = this.getRawRowData();
+		for (int i = 0; i < headerRow.length; i++) {
+		    TabbedDataField missingField = CrosswalkFactory.eINSTANCE.createTabbedDataField();
+		    missingField.setColumnNumber(i + 1);
+		    missingField.setLabel("Column "+ (i+1));
+		    this.getFields().add(missingField);
+		}
+	    }
 	} catch (RecordOutOfRangeException e) {
 	    e.printStackTrace();
-	}
-	this.getFields().clear();
-	String[] headerRow = this.lines.get(currentRowNumber-1);
-	for (int i = 0; i < headerRow.length; i++) {
-	    TabbedDataField missingField = CrosswalkFactory.eINSTANCE.createTabbedDataField();
-	    missingField.setColumnNumber(i + 1);
-	    missingField.setLabel(headerRow[i]);
-	    this.getFields().add(missingField);
 	}
 	this.Reset();
     }
@@ -648,7 +709,7 @@ public class DelimitedFileImpl extends EObjectImpl implements DelimitedFile {
                                 setFieldDelimiter(FIELD_DELIMITER_EDEFAULT);
                                 return;
                         case CrosswalkPackage.DELIMITED_FILE__TEXT_DELIMITER:
-                                setTextDelimiter(TEXT_DELIMITER_EDEFAULT);
+                                unsetTextDelimiter();
                                 return;
                 }
                 super.eUnset(featureID);
@@ -676,7 +737,7 @@ public class DelimitedFileImpl extends EObjectImpl implements DelimitedFile {
                         case CrosswalkPackage.DELIMITED_FILE__FIELD_DELIMITER:
                                 return fieldDelimiter != FIELD_DELIMITER_EDEFAULT;
                         case CrosswalkPackage.DELIMITED_FILE__TEXT_DELIMITER:
-                                return textDelimiter != TEXT_DELIMITER_EDEFAULT;
+                                return isSetTextDelimiter();
                 }
                 return super.eIsSet(featureID);
         }
@@ -701,7 +762,7 @@ public class DelimitedFileImpl extends EObjectImpl implements DelimitedFile {
                 result.append(", fieldDelimiter: ");
                 result.append(fieldDelimiter);
                 result.append(", textDelimiter: ");
-                result.append(textDelimiter);
+                if (textDelimiterESet) result.append(textDelimiter); else result.append("<unset>");
                 result.append(')');
                 return result.toString();
         }

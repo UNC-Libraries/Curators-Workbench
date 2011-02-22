@@ -202,9 +202,11 @@ public interface DelimitedFile extends DataSource {
          * </p>
          * <!-- end-user-doc -->
          * @return the value of the '<em>Text Delimiter</em>' attribute.
+         * @see #isSetTextDelimiter()
+         * @see #unsetTextDelimiter()
          * @see #setTextDelimiter(char)
          * @see crosswalk.CrosswalkPackage#getDelimitedFile_TextDelimiter()
-         * @model default="\""
+         * @model default="\"" unsettable="true"
          * @generated
          */
         char getTextDelimiter();
@@ -214,10 +216,35 @@ public interface DelimitedFile extends DataSource {
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @param value the new value of the '<em>Text Delimiter</em>' attribute.
+         * @see #isSetTextDelimiter()
+         * @see #unsetTextDelimiter()
          * @see #getTextDelimiter()
          * @generated
          */
         void setTextDelimiter(char value);
+
+        /**
+         * Unsets the value of the '{@link crosswalk.DelimitedFile#getTextDelimiter <em>Text Delimiter</em>}' attribute.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see #isSetTextDelimiter()
+         * @see #getTextDelimiter()
+         * @see #setTextDelimiter(char)
+         * @generated
+         */
+        void unsetTextDelimiter();
+
+        /**
+         * Returns whether the value of the '{@link crosswalk.DelimitedFile#getTextDelimiter <em>Text Delimiter</em>}' attribute is set.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @return whether the value of the '<em>Text Delimiter</em>' attribute is set.
+         * @see #unsetTextDelimiter()
+         * @see #getTextDelimiter()
+         * @see #setTextDelimiter(char)
+         * @generated
+         */
+        boolean isSetTextDelimiter();
 
         /**
          * <!-- begin-user-doc -->
@@ -226,5 +253,7 @@ public interface DelimitedFile extends DataSource {
          * @generated
          */
         void GoToRecord(int RowNumber) throws DataException, RecordOutOfRangeException;
+
+        public String[] getRawRowData();
 
 } // DelimitedFile
