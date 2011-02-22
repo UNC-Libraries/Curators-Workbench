@@ -15,10 +15,10 @@
  */
 package unc.lib.cdr.workbench.project;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
+import java.net.URI;
+import java.net.URISyntaxException;
 
-import org.eclipse.core.resources.IProject;
+import org.eclipse.core.filesystem.URIUtil;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
@@ -131,61 +131,51 @@ public class NewProjectStagingPage extends WizardPage {
     }
 
     private void stageSelectionChanged() {
-	String txt = this.getStageLocationWithVariables();
-	String location = computeLocationForUI(txt);
-	this.stagingLocationTemplate = txt;
-	rawStageText.setText(txt);
-	stageText.setText(location);
-	if (txt != null) {
-	    this.setPageComplete(true);
-	} else {
-	    this.setPageComplete(false);
+	if (stageTable.getSelectionIndex() != -1) {
+	    this.stagingLocationTemplate = stageTable.getSelection()[0].getText(1);
 	}
+	URI projectLocation = null;
+	if (!mainPage.useDefaults()) {
+	    projectLocation = mainPage.getLocationURI();
+	} else {
+	    projectLocation = URIUtil.toURI(mainPage.getLocationPath().append(mainPage.getProjectName()));
+	}
+	URI location = computeStageLocation(projectLocation, mainPage.getProjectName());
+	rawStageText.setText(stagingLocationTemplate);
+	stageText.setText(location.toString());
+	this.setPageComplete(this.stagingLocationTemplate != null);
     }
 
     /**
-     * @param txt
-     * @return
+     * @param projectLocation
+     *            Project Location URI
+     * @param projectName
+     *            Project Name
+     * @return staging URI
      */
-    private String computeLocationForUI(String template) {
-	String location = null;
-	String name = mainPage.getProjectName();
-	if (!mainPage.useDefaults()) {
-	    location = mainPage.getLocationURI().toString();
-	} else {
-	    location = mainPage.getLocationPath().toFile().toURI().toString() + name;
-	}
+    URI computeStageLocation(URI projectLocation, String projectName) {
+	System.out.println("computeStageLocation: projectLocation="+projectLocation);
+	System.out.println("computeStageLocation: projectName="+projectName);
 	try {
-	template = template.replaceAll("\\$\\{PROJECT_NAME\\}", URLEncoder.encode(name,"utf-8"));
-	template = template.replaceAll("\\$\\{PROJECT_LOC\\}", URLEncoder.encode(location,"utf-8"));
-	template = template.replaceAll("\\$\\{USER_NAME\\}", URLEncoder.encode(System.getProperty("user.name"),"utf-8"));
-	System.getProperties();
-	} catch(UnsupportedEncodingException e) {
+	    projectName = new URI("file", projectName, null).toString();
+	    projectName = projectName.substring(projectName.indexOf(":")+1);
+	    System.out.println("computeStageLocation: projectNameEncoded="+projectName);
+	} catch(URISyntaxException e) {
 	    throw new Error(e);
 	}
-	return template;
-    }
-
-    public String getStagingLocationForProject(IProject p) {
-	String result = null;
-	String name = p.getName();
-	String location = p.getLocationURI().toString();
+	URI result;
+	String userName = System.getProperty("user.name");
+	String stageLocation = null;
+	stageLocation = stagingLocationTemplate.replaceAll("\\$\\{PROJECT_NAME\\}", projectName);
+	stageLocation = stageLocation.replaceAll("\\$\\{PROJECT_LOC\\}", projectLocation.toString());
+	stageLocation = stageLocation.replaceAll("\\$\\{USER_NAME\\}", userName);
+	System.out.println("stageLocation str before new URI call: "+stageLocation);
 	try {
-	    result = this.stagingLocationTemplate.replaceAll("\\$\\{PROJECT_NAME\\}", URLEncoder.encode(name, "utf-8"));
-	    result = result.replaceAll("\\$\\{PROJECT_LOC\\}", URLEncoder.encode(location, "utf-8"));
-	    result = result.replaceAll("\\$\\{USER_NAME\\}", URLEncoder.encode(System.getProperty("user.name"), "utf-8"));
-	} catch (UnsupportedEncodingException e) {
+	    result = new URI(stageLocation);
+	} catch(URISyntaxException e) {
+	    throw new Error(e);
 	}
 	return result;
-    }
-
-    public String getStageLocationWithVariables() {
-	if (stageTable.getSelectionIndex() != -1) {
-	    String pattern = stageTable.getSelection()[0].getText(1);
-	    return pattern;
-	} else {
-	    return null;
-	}
     }
 
     public void setMainPage(WizardNewProjectCreationPage mainPage) {
@@ -199,10 +189,6 @@ public class NewProjectStagingPage extends WizardPage {
 
     public boolean isAutoStage() {
 	return autoStage;
-    }
-
-    public String getStagingLocationTemplate() {
-	return stagingLocationTemplate;
     }
 
 }

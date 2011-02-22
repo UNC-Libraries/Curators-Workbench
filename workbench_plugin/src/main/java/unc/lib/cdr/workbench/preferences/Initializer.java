@@ -46,7 +46,7 @@ public class Initializer extends AbstractPreferenceInitializer {
 	File dir = new File(osUserHome + "/workbench_staging");
 	locs.add(new String[] {"stage folder in user home", dir.toURI().toString()+"/${PROJECT_NAME}"});
 	String str = Activator.convertLocationsToPref(locs);
-	Activator.getDefault().getLog().log(new Status(IStatus.INFO, Activator.PLUGIN_ID, "setting defaults: "+str));
+	//Activator.getDefault().getLog().log(new Status(IStatus.INFO, Activator.PLUGIN_ID, "setting defaults: "+str));
 
 	IEclipsePreferences prefs = new DefaultScope().getNode(Activator.PLUGIN_ID);
 	prefs.put(Activator.STAGE_LOCATIONS, str);
