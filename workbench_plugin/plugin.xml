@@ -433,6 +433,20 @@
             </visibleWhen>
          </command>
       </menuContribution>
+      <menuContribution
+            allPopups="false"
+            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+         <toolbar
+               id="workbench_plugin.workbenchToolbar">
+            <command
+                  commandId="cdr-workbench.commandImportTabularMetadata"
+                  disabledIcon="icons/crosswalk_add_disabled.gif"
+                  icon="icons/crosswalk_add.gif"
+                  label="Create a Metadata Crosswalk"
+                  style="push">
+            </command>
+         </toolbar>
+      </menuContribution>
    </extension>
    <extension
          point="org.eclipse.ui.views">
