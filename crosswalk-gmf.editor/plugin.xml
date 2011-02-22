@@ -18,7 +18,7 @@
             id="crosswalk.presentation.CrosswalkModelWizardID"
             name="%_UI_CrosswalkModelWizard_label"
             class="crosswalk.presentation.CrosswalkModelWizard"
-            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            category="org.eclipse.ui.Basic"
             icon="icons/full/obj16/CrosswalkModelFile.gif">
          <description>%_UI_CrosswalkModelWizard_description</description>
          <selection class="org.eclipse.core.resources.IResource"/>
