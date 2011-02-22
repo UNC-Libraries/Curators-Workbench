@@ -25,7 +25,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URLDecoder;
-import java.net.URLEncoder;
+//import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -104,11 +104,12 @@ public class IrodsFileStore extends FileStore {
 
     private String getDecodedPath() {
 	String result = null;
-	try {
-	result = URLDecoder.decode(this.uri.getPath(),"utf-8");
-	} catch(UnsupportedEncodingException e) {
-	    throw new Error(e);
-	}
+	//try {
+	    // result = URLDecoder.decode(this.uri.getPath(),"utf-8");
+	    result = this.uri.getPath();
+//	} catch(UnsupportedEncodingException e) {
+//	    throw new Error(e);
+//	}
 	return result;
     }
 
@@ -312,11 +313,13 @@ public class IrodsFileStore extends FileStore {
      */
     @Override
     public IFileStore getChild(String name) {
-	try {
-	    name = URLEncoder.encode(name, "utf-8");
-	} catch(UnsupportedEncodingException e) {
-	    throw new Error(e);
-	}
+//	try {
+//	    name = new URI("file", name, null).toString();
+//	    name = name.substring(name.indexOf(":")+1);
+//	    //name = URLEncoder.encode(name, "utf-8");
+//	} catch(URISyntaxException e) {
+//	    throw new Error(e);
+//	}
 	StringBuilder newPath = new StringBuilder();
 	if (this.uri.getPath().endsWith("/")) {
 	    newPath.append(this.uri.getPath()).append(name);
