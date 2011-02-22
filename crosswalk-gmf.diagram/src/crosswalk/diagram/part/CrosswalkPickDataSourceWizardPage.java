@@ -81,7 +81,6 @@ public class CrosswalkPickDataSourceWizardPage extends WizardPage implements IWi
 	crosswalkNameText.addListener(SWT.Modify, new Listener() {
 	    @Override
 	    public void handleEvent(Event event) {
-		System.out.println(event);
 		validatePage();
 		getWizard().getContainer().updateButtons();
 	    }

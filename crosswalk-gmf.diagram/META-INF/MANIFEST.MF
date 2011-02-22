@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: crosswalk-gmf.diagram; singleton:=true
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 0.0.1.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: crosswalk.diagram.part.CrosswalkDiagramEditorPlugin
 Bundle-Vendor: %providerName
@@ -50,6 +50,6 @@ Require-Bundle: org.eclipse.core.runtime,
  mods.model.edit;visibility:=reexport,
  xlink.model;visibility:=reexport,
  xlink.model.edit;visibility:=reexport,
- crosswalk-gmf.edit;bundle-version="0.0.1"
+ crosswalk-gmf.edit
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6

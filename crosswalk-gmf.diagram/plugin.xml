@@ -47,7 +47,7 @@ copyright 2010 University of North Carolina at Chapel Hill
   	  <wizard
   	     name="%newWizardName"
   	     icon="icons/obj16/CrosswalkDiagramFile.gif"
-  	     category="org.eclipse.ui.Examples"
+  	     category="org.eclipse.ui.Basic"
   	     class="crosswalk.diagram.part.CrosswalkCreationWizard"
   	     id="crosswalk.diagram.part.CrosswalkCreationWizardID">
   	  	 <description>%newWizardDesc</description>  

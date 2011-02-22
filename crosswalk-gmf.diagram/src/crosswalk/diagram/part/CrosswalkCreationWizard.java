@@ -59,6 +59,7 @@ public class CrosswalkCreationWizard extends Wizard implements INewWizard {
 
     protected CrosswalkPickDataSourceWizardPage dataSourceTypePage;
     protected DelimitedFileDataSourceWizardPage delimitedFilePage;
+    protected DelimitedFileDelimitersWizardPage delimitedFileDelimitersPage;
 
     protected Map<EClass, IWizardPage> dataSourceTypePages = new HashMap<EClass, IWizardPage>();
 
@@ -136,15 +137,20 @@ public class CrosswalkCreationWizard extends Wizard implements INewWizard {
     public void addPages() {
 	System.out.println("addPages called");
 	dataSourceTypePage = new CrosswalkPickDataSourceWizardPage("Choose a data source type.");
-	delimitedFilePage = new DelimitedFileDataSourceWizardPage("Choose your text file and set delimiter characters.");
+	delimitedFilePage = new DelimitedFileDataSourceWizardPage("Choose your text file and character set.");
+	delimitedFileDelimitersPage = new DelimitedFileDelimitersWizardPage("Choose the delimiters and significant rows.");
+	delimitedFileDelimitersPage.filePage = delimitedFilePage;
 	this.dataSourceTypePages.put(CrosswalkPackage.eINSTANCE.getDelimitedFile(), delimitedFilePage);
 	this.addPage(dataSourceTypePage);
 	this.addPage(delimitedFilePage);
+	this.addPage(delimitedFileDelimitersPage);
     }
 
     private URI getCrosswalkFileURI() {
 	IFile f = this.project.getFolder("crosswalks").getFile(this.crosswalkName+".crosswalk");
-	return URI.createPlatformResourceURI(f.getLocation().toString(), true);
+	URI result = URI.createPlatformResourceURI(f.getFullPath().toString(), true);
+	System.out.println("Crosswalk File URI: " +result);
+	return result;
     }
 
     /**
