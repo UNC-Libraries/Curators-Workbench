@@ -67,7 +67,7 @@ public class TextValueEditPart extends CompartmentEditPart implements ITextAware
     /**
      * @generated
      */
-    public static final int VISUAL_ID = 5035;
+    public static final int VISUAL_ID = 5028;
 
     /**
      * @generated
@@ -295,7 +295,7 @@ public class TextValueEditPart extends CompartmentEditPart implements ITextAware
     public IParser getParser() {
 	if (parser == null) {
 	    parser = CrosswalkParserProvider
-			    .getParser(CrosswalkElementTypes.Text_2018, getParserElement(), CrosswalkVisualIDRegistry
+			    .getParser(CrosswalkElementTypes.Text_2014, getParserElement(), CrosswalkVisualIDRegistry
 					    .getType(crosswalk.diagram.edit.parts.TextValueEditPart.VISUAL_ID));
 	}
 	return parser;

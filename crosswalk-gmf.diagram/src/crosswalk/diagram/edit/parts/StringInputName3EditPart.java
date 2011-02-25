@@ -67,7 +67,7 @@ public class StringInputName3EditPart extends CompartmentEditPart implements ITe
     /**
      * @generated
      */
-    public static final int VISUAL_ID = 5013;
+    public static final int VISUAL_ID = 5008;
 
     /**
      * @generated
@@ -290,7 +290,7 @@ public class StringInputName3EditPart extends CompartmentEditPart implements ITe
      */
     public IParser getParser() {
 	if (parser == null) {
-	    parser = CrosswalkParserProvider.getParser(CrosswalkElementTypes.StringInput_3012, getParserElement(),
+	    parser = CrosswalkParserProvider.getParser(CrosswalkElementTypes.StringInput_3004, getParserElement(),
 			    CrosswalkVisualIDRegistry
 					    .getType(crosswalk.diagram.edit.parts.StringInputName3EditPart.VISUAL_ID));
 	}

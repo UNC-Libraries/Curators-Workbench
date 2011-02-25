@@ -45,7 +45,7 @@ public class TypeOfResourceItemSemanticEditPolicy extends CrosswalkBaseItemSeman
      * @generated
      */
     public TypeOfResourceItemSemanticEditPolicy() {
-	super(CrosswalkElementTypes.TypeOfResource_2013);
+	super(CrosswalkElementTypes.TypeOfResource_2009);
     }
 
     /**

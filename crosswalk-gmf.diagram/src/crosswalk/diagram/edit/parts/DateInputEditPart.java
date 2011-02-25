@@ -56,7 +56,7 @@ public class DateInputEditPart extends ShapeNodeEditPart {
     /**
      * @generated
      */
-    public static final int VISUAL_ID = 3019;
+    public static final int VISUAL_ID = 3011;
 
     /**
      * @generated
@@ -265,7 +265,7 @@ public class DateInputEditPart extends ShapeNodeEditPart {
      */
     public List<IElementType> getMARelTypesOnSource() {
 	ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-	types.add(CrosswalkElementTypes.DateInputInput_4010);
+	types.add(CrosswalkElementTypes.DateInputInput_4002);
 	return types;
     }
 
@@ -275,7 +275,7 @@ public class DateInputEditPart extends ShapeNodeEditPart {
     public List<IElementType> getMARelTypesOnSourceAndTarget(IGraphicalEditPart targetEditPart) {
 	LinkedList<IElementType> types = new LinkedList<IElementType>();
 	if (targetEditPart instanceof DateRecognizerEditPart) {
-	    types.add(CrosswalkElementTypes.DateInputInput_4010);
+	    types.add(CrosswalkElementTypes.DateInputInput_4002);
 	}
 	return types;
     }
@@ -285,8 +285,8 @@ public class DateInputEditPart extends ShapeNodeEditPart {
      */
     public List<IElementType> getMATypesForTarget(IElementType relationshipType) {
 	LinkedList<IElementType> types = new LinkedList<IElementType>();
-	if (relationshipType == CrosswalkElementTypes.DateInputInput_4010) {
-	    types.add(CrosswalkElementTypes.DateRecognizer_2017);
+	if (relationshipType == CrosswalkElementTypes.DateInputInput_4002) {
+	    types.add(CrosswalkElementTypes.DateRecognizer_2013);
 	}
 	return types;
     }
@@ -328,8 +328,8 @@ public class DateInputEditPart extends ShapeNodeEditPart {
 
 	    Ellipse stringInputEllipsis0 = new Ellipse();
 	    stringInputEllipsis0.setBackgroundColor(ColorConstants.red);
-	    stringInputEllipsis0.setPreferredSize(new Dimension(getMapMode().DPtoLP(10), getMapMode().DPtoLP(10)));
-	    stringInputEllipsis0.setMaximumSize(new Dimension(getMapMode().DPtoLP(10), getMapMode().DPtoLP(10)));
+	    stringInputEllipsis0.setPreferredSize(new Dimension(getMapMode().DPtoLP(15), getMapMode().DPtoLP(15)));
+	    stringInputEllipsis0.setMaximumSize(new Dimension(getMapMode().DPtoLP(15), getMapMode().DPtoLP(15)));
 
 	    this.add(stringInputEllipsis0);
 

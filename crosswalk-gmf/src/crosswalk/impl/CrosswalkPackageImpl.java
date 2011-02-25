@@ -50,6 +50,8 @@ import crosswalk.Identifier;
 import crosswalk.Input;
 import crosswalk.InputConsumer;
 import crosswalk.Language;
+import crosswalk.MappedAttribute;
+import crosswalk.MappedElement;
 import crosswalk.Name;
 import crosswalk.OriginalNameRecordMatcher;
 import crosswalk.OutputElement;
@@ -299,6 +301,20 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
          * <!-- end-user-doc -->
          * @generated
          */
+        private EClass mappedElementEClass = null;
+
+        /**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        private EClass mappedAttributeEClass = null;
+
+        /**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
         private EDataType dataExceptionEDataType = null;
 
         /**
@@ -470,6 +486,15 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
          */
         public EReference getCrossWalk_Elements() {
                 return (EReference)crossWalkEClass.getEStructuralFeatures().get(2);
+        }
+
+        /**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        public EReference getCrossWalk_OutputType() {
+                return (EReference)crossWalkEClass.getEStructuralFeatures().get(3);
         }
 
         /**
@@ -954,6 +979,78 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
          * <!-- end-user-doc -->
          * @generated
          */
+        public EClass getMappedElement() {
+                return mappedElementEClass;
+        }
+
+        /**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        public EReference getMappedElement_ChildElements() {
+                return (EReference)mappedElementEClass.getEStructuralFeatures().get(0);
+        }
+
+        /**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        public EReference getMappedElement_Attributes() {
+                return (EReference)mappedElementEClass.getEStructuralFeatures().get(1);
+        }
+
+        /**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        public EReference getMappedElement_MappedFeature() {
+                return (EReference)mappedElementEClass.getEStructuralFeatures().get(2);
+        }
+
+        /**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        public EReference getMappedElement_Text() {
+                return (EReference)mappedElementEClass.getEStructuralFeatures().get(3);
+        }
+
+        /**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        public EReference getMappedElement_Parent() {
+                return (EReference)mappedElementEClass.getEStructuralFeatures().get(4);
+        }
+
+        /**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        public EClass getMappedAttribute() {
+                return mappedAttributeEClass;
+        }
+
+        /**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        public EReference getMappedAttribute_MappedFeature() {
+                return (EReference)mappedAttributeEClass.getEStructuralFeatures().get(0);
+        }
+
+        /**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
         public EDataType getDataException() {
                 return dataExceptionEDataType;
         }
@@ -1042,6 +1139,7 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
                 createEReference(crossWalkEClass, CROSS_WALK__DATA_SOURCE);
                 createEReference(crossWalkEClass, CROSS_WALK__WIDGETS);
                 createEReference(crossWalkEClass, CROSS_WALK__ELEMENTS);
+                createEReference(crossWalkEClass, CROSS_WALK__OUTPUT_TYPE);
 
                 outputElementEClass = createEClass(OUTPUT_ELEMENT);
                 createEReference(outputElementEClass, OUTPUT_ELEMENT__WALK);
@@ -1121,6 +1219,16 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
                 createEAttribute(delimitedFileEClass, DELIMITED_FILE__FIELD_DELIMITER);
                 createEAttribute(delimitedFileEClass, DELIMITED_FILE__TEXT_DELIMITER);
 
+                mappedElementEClass = createEClass(MAPPED_ELEMENT);
+                createEReference(mappedElementEClass, MAPPED_ELEMENT__CHILD_ELEMENTS);
+                createEReference(mappedElementEClass, MAPPED_ELEMENT__ATTRIBUTES);
+                createEReference(mappedElementEClass, MAPPED_ELEMENT__MAPPED_FEATURE);
+                createEReference(mappedElementEClass, MAPPED_ELEMENT__TEXT);
+                createEReference(mappedElementEClass, MAPPED_ELEMENT__PARENT);
+
+                mappedAttributeEClass = createEClass(MAPPED_ATTRIBUTE);
+                createEReference(mappedAttributeEClass, MAPPED_ATTRIBUTE__MAPPED_FEATURE);
+
                 // Create data types
                 dataExceptionEDataType = createEDataType(DATA_EXCEPTION);
                 iProjectEDataType = createEDataType(IPROJECT);
@@ -1197,6 +1305,9 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
                 accessConditionEClass.getESuperTypes().add(this.getInputConsumer());
                 accessConditionEClass.getESuperTypes().add(this.getOutputElement());
                 delimitedFileEClass.getESuperTypes().add(this.getDataSource());
+                mappedElementEClass.getESuperTypes().add(this.getOutputElement());
+                mappedAttributeEClass.getESuperTypes().add(this.getOutputElement());
+                mappedAttributeEClass.getESuperTypes().add(this.getStringInput());
 
                 // Initialize classes and features; add operations and parameters
                 initEClass(tabbedDataFieldEClass, TabbedDataField.class, "TabbedDataField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1210,6 +1321,7 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
                 initEReference(getCrossWalk_DataSource(), this.getDataSource(), this.getDataSource_Walk(), "DataSource", null, 1, 1, CrossWalk.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
                 initEReference(getCrossWalk_Widgets(), this.getWalkWidget(), this.getWalkWidget_Walk(), "Widgets", null, 0, -1, CrossWalk.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
                 initEReference(getCrossWalk_Elements(), this.getOutputElement(), this.getOutputElement_Walk(), "Elements", null, 1, -1, CrossWalk.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                initEReference(getCrossWalk_OutputType(), ecorePackage.getEClass(), null, "outputType", null, 1, 1, CrossWalk.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
                 EOperation op = addEOperation(crossWalkEClass, this.getIProject(), "getProject", 1, 1, IS_UNIQUE, IS_ORDERED);
                 addEException(op, this.getDataException());
@@ -1338,6 +1450,16 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
                 addEParameter(op, ecorePackage.getEInt(), "RowNumber", 1, 1, IS_UNIQUE, IS_ORDERED);
                 addEException(op, this.getDataException());
                 addEException(op, this.getRecordOutOfRangeException());
+
+                initEClass(mappedElementEClass, MappedElement.class, "MappedElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+                initEReference(getMappedElement_ChildElements(), this.getMappedElement(), this.getMappedElement_Parent(), "childElements", null, 0, -1, MappedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                initEReference(getMappedElement_Attributes(), this.getMappedAttribute(), null, "attributes", null, 0, -1, MappedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                initEReference(getMappedElement_MappedFeature(), ecorePackage.getEReference(), null, "mappedFeature", null, 1, 1, MappedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                initEReference(getMappedElement_Text(), this.getStringInput(), null, "text", null, 0, 1, MappedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                initEReference(getMappedElement_Parent(), this.getMappedElement(), this.getMappedElement_ChildElements(), "parent", null, 0, 1, MappedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+                initEClass(mappedAttributeEClass, MappedAttribute.class, "MappedAttribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+                initEReference(getMappedAttribute_MappedFeature(), ecorePackage.getEReference(), null, "mappedFeature", null, 1, 1, MappedAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
                 // Initialize data types
                 initEDataType(dataExceptionEDataType, DataException.class, "DataException", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

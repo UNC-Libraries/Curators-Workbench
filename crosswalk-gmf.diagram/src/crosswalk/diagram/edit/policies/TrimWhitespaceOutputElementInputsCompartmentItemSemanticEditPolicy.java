@@ -31,14 +31,14 @@ public class TrimWhitespaceOutputElementInputsCompartmentItemSemanticEditPolicy 
      * @generated
      */
     public TrimWhitespaceOutputElementInputsCompartmentItemSemanticEditPolicy() {
-	super(CrosswalkElementTypes.TrimWhitespace_2019);
+	super(CrosswalkElementTypes.TrimWhitespace_2015);
     }
 
     /**
      * @generated
      */
     protected Command getCreateCommand(CreateElementRequest req) {
-	if (CrosswalkElementTypes.StringInput_3022 == req.getElementType()) {
+	if (CrosswalkElementTypes.StringInput_3014 == req.getElementType()) {
 	    return getGEFWrapper(new StringInput12CreateCommand(req));
 	}
 	return super.getCreateCommand(req);

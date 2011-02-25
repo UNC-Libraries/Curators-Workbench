@@ -53,6 +53,16 @@ public class Messages extends NLS {
     /**
      * @generated
      */
+    public static String CrosswalkCreationWizard_DomainModelFilePageTitle;
+
+    /**
+     * @generated
+     */
+    public static String CrosswalkCreationWizard_DomainModelFilePageDescription;
+
+    /**
+     * @generated
+     */
     public static String CrosswalkCreationWizardOpenEditorError;
 
     /**
@@ -313,12 +323,32 @@ public class Messages extends NLS {
     /**
      * @generated
      */
+    public static String XMLElement7CreationTool_title;
+
+    /**
+     * @generated
+     */
+    public static String XMLElement7CreationTool_desc;
+
+    /**
+     * @generated
+     */
+    public static String XMLAttribute8CreationTool_title;
+
+    /**
+     * @generated
+     */
+    public static String XMLAttribute8CreationTool_desc;
+
+    /**
+     * @generated
+     */
     public static String DelimitedFileDataFieldCompartmentEditPart_title;
 
     /**
      * @generated
      */
-    public static String TitleInfoTitleInfoInputsCompartmentEditPart_title;
+    public static String TitleInfoOutputElementInputsCompartmentEditPart_title;
 
     /**
      * @generated
@@ -358,7 +388,7 @@ public class Messages extends NLS {
     /**
      * @generated
      */
-    public static String OriginalNameRecordMatcherOutputElementInputsCompartmentEditPart_title;
+    public static String OriginalNameRecordMatcherRecordMatcherInputsCompartmentEditPart_title;
 
     /**
      * @generated
@@ -383,22 +413,17 @@ public class Messages extends NLS {
     /**
      * @generated
      */
+    public static String MappedElementChildElementsCompartmentEditPart_title;
+
+    /**
+     * @generated
+     */
     public static String CommandName_OpenDiagram;
 
     /**
      * @generated
      */
-    public static String NavigatorGroupName_DateInput_3019_outgoinglinks;
-
-    /**
-     * @generated
-     */
-    public static String NavigatorGroupName_StringInput_3020_outgoinglinks;
-
-    /**
-     * @generated
-     */
-    public static String NavigatorGroupName_StringInput_3021_outgoinglinks;
+    public static String NavigatorGroupName_StringInput_3017_outgoinglinks;
 
     /**
      * @generated
@@ -408,17 +433,17 @@ public class Messages extends NLS {
     /**
      * @generated
      */
-    public static String NavigatorGroupName_TrimWhitespace_2019_incominglinks;
+    public static String NavigatorGroupName_DateRecognizer_2013_incominglinks;
 
     /**
      * @generated
      */
-    public static String NavigatorGroupName_Text_2018_incominglinks;
+    public static String NavigatorGroupName_MappedAttribute_3016_outgoinglinks;
 
     /**
      * @generated
      */
-    public static String NavigatorGroupName_StringInputInput_4009_target;
+    public static String NavigatorGroupName_TabbedDataField_3001_incominglinks;
 
     /**
      * @generated
@@ -428,7 +453,22 @@ public class Messages extends NLS {
     /**
      * @generated
      */
-    public static String NavigatorGroupName_StringInput_3011_outgoinglinks;
+    public static String NavigatorGroupName_StringInput_3005_outgoinglinks;
+
+    /**
+     * @generated
+     */
+    public static String NavigatorGroupName_StringInput_3004_outgoinglinks;
+
+    /**
+     * @generated
+     */
+    public static String NavigatorGroupName_DateInput_3011_outgoinglinks;
+
+    /**
+     * @generated
+     */
+    public static String NavigatorGroupName_TrimWhitespace_2015_incominglinks;
 
     /**
      * @generated
@@ -438,27 +478,37 @@ public class Messages extends NLS {
     /**
      * @generated
      */
-    public static String NavigatorGroupName_DateRecognizer_2017_incominglinks;
-
-    /**
-     * @generated
-     */
     public static String NavigatorGroupName_StringInput_3012_outgoinglinks;
 
     /**
      * @generated
      */
-    public static String NavigatorGroupName_StringInput_3018_outgoinglinks;
+    public static String NavigatorGroupName_StringInput_3003_outgoinglinks;
 
     /**
      * @generated
      */
-    public static String NavigatorGroupName_StringInput_3016_outgoinglinks;
+    public static String NavigatorGroupName_DateInputInput_4002_target;
 
     /**
      * @generated
      */
-    public static String NavigatorGroupName_StringInput_3022_outgoinglinks;
+    public static String NavigatorGroupName_DateInputInput_4002_source;
+
+    /**
+     * @generated
+     */
+    public static String NavigatorGroupName_StringInputInput_4001_target;
+
+    /**
+     * @generated
+     */
+    public static String NavigatorGroupName_StringInputInput_4001_source;
+
+    /**
+     * @generated
+     */
+    public static String NavigatorGroupName_StringInput_3002_outgoinglinks;
 
     /**
      * @generated
@@ -468,32 +518,27 @@ public class Messages extends NLS {
     /**
      * @generated
      */
-    public static String NavigatorGroupName_DateInputInput_4010_target;
+    public static String NavigatorGroupName_Text_2014_incominglinks;
 
     /**
      * @generated
      */
-    public static String NavigatorGroupName_DateInputInput_4010_source;
-
-    /**
-     * @generated
-     */
-    public static String NavigatorGroupName_TabbedDataField_3017_incominglinks;
-
-    /**
-     * @generated
-     */
-    public static String NavigatorGroupName_StringInput_3015_outgoinglinks;
-
-    /**
-     * @generated
-     */
-    public static String NavigatorGroupName_StringInputInput_4009_source;
+    public static String NavigatorGroupName_StringInput_3009_outgoinglinks;
 
     /**
      * @generated
      */
     public static String NavigatorGroupName_CrossWalk_1000_links;
+
+    /**
+     * @generated
+     */
+    public static String NavigatorGroupName_StringInput_3007_outgoinglinks;
+
+    /**
+     * @generated
+     */
+    public static String NavigatorGroupName_StringInput_3006_outgoinglinks;
 
     /**
      * @generated

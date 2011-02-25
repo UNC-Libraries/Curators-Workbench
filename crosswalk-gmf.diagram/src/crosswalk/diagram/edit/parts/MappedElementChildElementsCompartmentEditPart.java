@@ -1,47 +1,37 @@
-/**
- * Copyright 2010 The University of North Carolina at Chapel Hill
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *         http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+/*
+ * copyright 2010 University of North Carolina at Chapel Hill
  */
 package crosswalk.diagram.edit.parts;
 
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.gef.EditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ListCompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
+import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ResizableCompartmentEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure;
 import org.eclipse.gmf.runtime.notation.View;
 
-import crosswalk.diagram.edit.policies.OriginalNameRecordMatcherOutputElementInputsCompartmentCanonicalEditPolicy;
-import crosswalk.diagram.edit.policies.OriginalNameRecordMatcherOutputElementInputsCompartmentItemSemanticEditPolicy;
+import crosswalk.diagram.edit.policies.MappedElementChildElementsCompartmentCanonicalEditPolicy;
+import crosswalk.diagram.edit.policies.MappedElementChildElementsCompartmentItemSemanticEditPolicy;
 import crosswalk.diagram.part.Messages;
 
 /**
  * @generated
  */
-public class OriginalNameRecordMatcherOutputElementInputsCompartmentEditPart extends ListCompartmentEditPart {
+public class MappedElementChildElementsCompartmentEditPart extends ListCompartmentEditPart {
 
     /**
      * @generated
      */
-    public static final int VISUAL_ID = 7010;
+    public static final int VISUAL_ID = 7015;
 
     /**
      * @generated
      */
-    public OriginalNameRecordMatcherOutputElementInputsCompartmentEditPart(View view) {
+    public MappedElementChildElementsCompartmentEditPart(View view) {
 	super(view);
     }
 
@@ -56,7 +46,7 @@ public class OriginalNameRecordMatcherOutputElementInputsCompartmentEditPart ext
      * @generated
      */
     public String getCompartmentName() {
-	return Messages.OriginalNameRecordMatcherOutputElementInputsCompartmentEditPart_title;
+	return Messages.MappedElementChildElementsCompartmentEditPart_title;
     }
 
     /**
@@ -73,12 +63,13 @@ public class OriginalNameRecordMatcherOutputElementInputsCompartmentEditPart ext
      */
     protected void createDefaultEditPolicies() {
 	super.createDefaultEditPolicies();
+	installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE, new ResizableCompartmentEditPolicy());
 	installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-			new OriginalNameRecordMatcherOutputElementInputsCompartmentItemSemanticEditPolicy());
+			new MappedElementChildElementsCompartmentItemSemanticEditPolicy());
 	installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicy());
 	installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new DragDropEditPolicy());
 	installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
-			new OriginalNameRecordMatcherOutputElementInputsCompartmentCanonicalEditPolicy());
+			new MappedElementChildElementsCompartmentCanonicalEditPolicy());
     }
 
     /**

@@ -323,40 +323,40 @@ public class CrosswalkBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 	/**
 	 * @generated
 	 */
-	public boolean canCreateStringInputInput_4009(StringInput source, StringGenerator target) {
+	public boolean canCreateStringInputInput_4001(StringInput source, StringGenerator target) {
 	    if (source != null) {
 		if (source.getInput() != null) {
 		    return false;
 		}
 	    }
 
-	    return canExistStringInputInput_4009(source, target);
+	    return canExistStringInputInput_4001(source, target);
 	}
 
 	/**
 	 * @generated
 	 */
-	public boolean canCreateDateInputInput_4010(DateInput source, DateGenerator target) {
+	public boolean canCreateDateInputInput_4002(DateInput source, DateGenerator target) {
 	    if (source != null) {
 		if (source.getInput() != null) {
 		    return false;
 		}
 	    }
 
-	    return canExistDateInputInput_4010(source, target);
+	    return canExistDateInputInput_4002(source, target);
 	}
 
 	/**
 	 * @generated
 	 */
-	public boolean canExistStringInputInput_4009(StringInput source, StringGenerator target) {
+	public boolean canExistStringInputInput_4001(StringInput source, StringGenerator target) {
 	    return true;
 	}
 
 	/**
 	 * @generated
 	 */
-	public boolean canExistDateInputInput_4010(DateInput source, DateGenerator target) {
+	public boolean canExistDateInputInput_4002(DateInput source, DateGenerator target) {
 	    return true;
 	}
     }

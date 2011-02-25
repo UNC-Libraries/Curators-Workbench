@@ -162,11 +162,11 @@
               xsi:type="gmfgraph:ConstantColor"
               value="red"/>
           <maximumSize
-              dx="10"
-              dy="10"/>
+              dx="15"
+              dy="15"/>
           <preferredSize
-              dx="10"
-              dy="10"/>
+              dx="15"
+              dy="15"/>
         </children>
         <children
             xsi:type="gmfgraph:Label"
@@ -254,6 +254,48 @@
       <accessors
           figure="//@figures.0/@descriptors.6/@actualFigure/@children.1/@children.0"/>
     </descriptors>
+    <descriptors
+        name="MappedElementFigure">
+      <actualFigure
+          xsi:type="gmfgraph:RoundedRectangle"
+          name="Rounded"
+          cornerWidth="20"
+          cornerHeight="20">
+        <layout
+            xsi:type="gmfgraph:FlowLayout"
+            vertical="true"
+            majorAlignment="CENTER"
+            minorAlignment="CENTER"/>
+        <insets
+            top="10"
+            left="10"
+            bottom="10"
+            right="10"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="Label"
+            text="Unknown MODS Element"/>
+        <children
+            xsi:type="gmfgraph:Rectangle"
+            name="ChildPane"
+            outline="false">
+          <layout
+              xsi:type="gmfgraph:FlowLayout"
+              vertical="true"
+              forceSingleLine="true"
+              majorAlignment="END"
+              minorAlignment="FILL"
+              majorSpacing="2"
+              minorSpacing="2"/>
+        </children>
+      </actualFigure>
+      <accessors
+          accessor="getChildPane"
+          figure="//@figures.0/@descriptors.7/@actualFigure/@children.1"/>
+      <accessors
+          accessor="getLabel"
+          figure="//@figures.0/@descriptors.7/@actualFigure/@children.0"/>
+    </descriptors>
   </figures>
   <nodes
       name="DataSource"
@@ -272,6 +314,10 @@
   <nodes
       name="RecordMatcher"
       figure="RecordMatcherFigure"/>
+  <nodes
+      name="MappedElementNode"
+      figure="MappedElementFigure"
+      contentPane="//@figures.0/@descriptors.7/@accessors.0"/>
   <connections
       name="StringConnection"
       figure="StringConnectionFigure"/>
@@ -287,6 +333,11 @@
       name="RecordMatcherInputsCompartment"
       figure="RecordMatcherFigure"
       accessor="//@figures.0/@descriptors.0/@accessors.0"/>
+  <compartments
+      name="ChildElementsCompartment"
+      figure="MappedElementFigure"
+      collapsible="true"
+      accessor="//@figures.0/@descriptors.7/@accessors.0"/>
   <labels
       name="DataSourceName"
       figure="DataSourceFigure"
@@ -317,4 +368,8 @@
       figure="DataFieldFigure"
       elementIcon="false"
       accessor="//@figures.0/@descriptors.5/@accessors.1"/>
+  <labels
+      name="XMLElementLabel"
+      figure="MappedElementFigure"
+      accessor="//@figures.0/@descriptors.7/@accessors.1"/>
 </gmfgraph:Canvas>

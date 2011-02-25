@@ -33,7 +33,7 @@ public class DateInputInputEditPart extends ConnectionNodeEditPart implements IT
     /**
      * @generated
      */
-    public static final int VISUAL_ID = 4010;
+    public static final int VISUAL_ID = 4002;
 
     /**
      * @generated

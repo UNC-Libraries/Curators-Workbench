@@ -67,7 +67,7 @@ public class WrappingLabelEditPart extends CompartmentEditPart implements ITextA
     /**
      * @generated
      */
-    public static final int VISUAL_ID = 5009;
+    public static final int VISUAL_ID = 5005;
 
     /**
      * @generated
@@ -187,7 +187,11 @@ public class WrappingLabelEditPart extends CompartmentEditPart implements ITextA
      * @generated
      */
     protected Image getLabelIcon() {
-	return null;
+	EObject parserElement = getParserElement();
+	if (parserElement == null) {
+	    return null;
+	}
+	return CrosswalkElementTypes.getImage(parserElement.eClass());
     }
 
     /**
@@ -290,7 +294,7 @@ public class WrappingLabelEditPart extends CompartmentEditPart implements ITextA
      */
     public IParser getParser() {
 	if (parser == null) {
-	    parser = CrosswalkParserProvider.getParser(CrosswalkElementTypes.StringInput_3008, getParserElement(),
+	    parser = CrosswalkParserProvider.getParser(CrosswalkElementTypes.TitleInfo_2002, getParserElement(),
 			    CrosswalkVisualIDRegistry
 					    .getType(crosswalk.diagram.edit.parts.WrappingLabelEditPart.VISUAL_ID));
 	}

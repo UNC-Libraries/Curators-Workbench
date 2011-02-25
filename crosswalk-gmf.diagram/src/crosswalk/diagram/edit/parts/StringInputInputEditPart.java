@@ -33,7 +33,7 @@ public class StringInputInputEditPart extends ConnectionNodeEditPart implements 
     /**
      * @generated
      */
-    public static final int VISUAL_ID = 4009;
+    public static final int VISUAL_ID = 4001;
 
     /**
      * @generated

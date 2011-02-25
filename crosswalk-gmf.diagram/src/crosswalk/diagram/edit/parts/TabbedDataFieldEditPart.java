@@ -56,7 +56,7 @@ public class TabbedDataFieldEditPart extends ShapeNodeEditPart {
     /**
      * @generated
      */
-    public static final int VISUAL_ID = 3017;
+    public static final int VISUAL_ID = 3001;
 
     /**
      * @generated
@@ -130,9 +130,8 @@ public class TabbedDataFieldEditPart extends ShapeNodeEditPart {
      * @generated
      */
     protected boolean addFixedChild(EditPart childEditPart) {
-	if (childEditPart instanceof TabbedDataFieldColumnNumberEditPart) {
-	    ((TabbedDataFieldColumnNumberEditPart) childEditPart).setLabel(getPrimaryShape()
-			    .getFigureDataFieldValueLabelFigure());
+	if (childEditPart instanceof WrappingLabel15EditPart) {
+	    ((WrappingLabel15EditPart) childEditPart).setLabel(getPrimaryShape().getFigureDataFieldValueLabelFigure());
 	    return true;
 	}
 	if (childEditPart instanceof TabbedDataFieldLabelColumnNumberEditPart) {
@@ -147,7 +146,7 @@ public class TabbedDataFieldEditPart extends ShapeNodeEditPart {
      * @generated
      */
     protected boolean removeFixedChild(EditPart childEditPart) {
-	if (childEditPart instanceof TabbedDataFieldColumnNumberEditPart) {
+	if (childEditPart instanceof WrappingLabel15EditPart) {
 	    return true;
 	}
 	if (childEditPart instanceof TabbedDataFieldLabelColumnNumberEditPart) {
@@ -283,7 +282,7 @@ public class TabbedDataFieldEditPart extends ShapeNodeEditPart {
      */
     @Override
     public EditPart getPrimaryChildEditPart() {
-	return getChildBySemanticHint(CrosswalkVisualIDRegistry.getType(TabbedDataFieldColumnNumberEditPart.VISUAL_ID));
+	return getChildBySemanticHint(CrosswalkVisualIDRegistry.getType(WrappingLabel15EditPart.VISUAL_ID));
     }
 
     /**
@@ -291,7 +290,7 @@ public class TabbedDataFieldEditPart extends ShapeNodeEditPart {
      */
     public List<IElementType> getMARelTypesOnTarget() {
 	ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-	types.add(CrosswalkElementTypes.StringInputInput_4009);
+	types.add(CrosswalkElementTypes.StringInputInput_4001);
 	return types;
     }
 
@@ -300,19 +299,21 @@ public class TabbedDataFieldEditPart extends ShapeNodeEditPart {
      */
     public List<IElementType> getMATypesForSource(IElementType relationshipType) {
 	LinkedList<IElementType> types = new LinkedList<IElementType>();
-	if (relationshipType == CrosswalkElementTypes.StringInputInput_4009) {
+	if (relationshipType == CrosswalkElementTypes.StringInputInput_4001) {
+	    types.add(CrosswalkElementTypes.StringInput_3002);
+	    types.add(CrosswalkElementTypes.StringInput_3003);
+	    types.add(CrosswalkElementTypes.StringInput_3004);
+	    types.add(CrosswalkElementTypes.StringInput_3005);
+	    types.add(CrosswalkElementTypes.StringInput_3006);
+	    types.add(CrosswalkElementTypes.StringInput_3007);
 	    types.add(CrosswalkElementTypes.StringInput_3008);
+	    types.add(CrosswalkElementTypes.StringInput_3009);
 	    types.add(CrosswalkElementTypes.StringInput_3010);
-	    types.add(CrosswalkElementTypes.StringInput_3011);
 	    types.add(CrosswalkElementTypes.StringInput_3012);
 	    types.add(CrosswalkElementTypes.StringInput_3013);
 	    types.add(CrosswalkElementTypes.StringInput_3014);
-	    types.add(CrosswalkElementTypes.StringInput_3015);
-	    types.add(CrosswalkElementTypes.StringInput_3016);
-	    types.add(CrosswalkElementTypes.StringInput_3018);
-	    types.add(CrosswalkElementTypes.StringInput_3020);
-	    types.add(CrosswalkElementTypes.StringInput_3021);
-	    types.add(CrosswalkElementTypes.StringInput_3022);
+	    types.add(CrosswalkElementTypes.MappedAttribute_3016);
+	    types.add(CrosswalkElementTypes.StringInput_3017);
 	}
 	return types;
     }

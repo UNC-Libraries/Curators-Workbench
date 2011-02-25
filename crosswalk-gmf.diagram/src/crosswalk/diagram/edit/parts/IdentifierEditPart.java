@@ -60,7 +60,7 @@ public class IdentifierEditPart extends ShapeNodeEditPart {
     /**
      * @generated
      */
-    public static final int VISUAL_ID = 2009;
+    public static final int VISUAL_ID = 2005;
 
     /**
      * @generated
@@ -131,8 +131,8 @@ public class IdentifierEditPart extends ShapeNodeEditPart {
      * @generated
      */
     protected boolean addFixedChild(EditPart childEditPart) {
-	if (childEditPart instanceof WrappingLabel6EditPart) {
-	    ((WrappingLabel6EditPart) childEditPart).setLabel(getPrimaryShape().getFigureOutputElementLabelFigure());
+	if (childEditPart instanceof WrappingLabel4EditPart) {
+	    ((WrappingLabel4EditPart) childEditPart).setLabel(getPrimaryShape().getFigureOutputElementLabelFigure());
 	    return true;
 	}
 	if (childEditPart instanceof IdentifierOutputElementInputsCompartmentEditPart) {
@@ -148,7 +148,7 @@ public class IdentifierEditPart extends ShapeNodeEditPart {
      * @generated
      */
     protected boolean removeFixedChild(EditPart childEditPart) {
-	if (childEditPart instanceof WrappingLabel6EditPart) {
+	if (childEditPart instanceof WrappingLabel4EditPart) {
 	    return true;
 	}
 	if (childEditPart instanceof IdentifierOutputElementInputsCompartmentEditPart) {
@@ -280,7 +280,7 @@ public class IdentifierEditPart extends ShapeNodeEditPart {
      * @generated
      */
     public EditPart getPrimaryChildEditPart() {
-	return getChildBySemanticHint(CrosswalkVisualIDRegistry.getType(WrappingLabel6EditPart.VISUAL_ID));
+	return getChildBySemanticHint(CrosswalkVisualIDRegistry.getType(WrappingLabel4EditPart.VISUAL_ID));
     }
 
     /**
@@ -291,7 +291,7 @@ public class IdentifierEditPart extends ShapeNodeEditPart {
 	    CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request).getViewAndElementDescriptor()
 			    .getCreateElementRequestAdapter();
 	    IElementType type = (IElementType) adapter.getAdapter(IElementType.class);
-	    if (type == CrosswalkElementTypes.StringInput_3012) {
+	    if (type == CrosswalkElementTypes.StringInput_3005) {
 		return getChildBySemanticHint(CrosswalkVisualIDRegistry
 				.getType(IdentifierOutputElementInputsCompartmentEditPart.VISUAL_ID));
 	    }

@@ -67,7 +67,7 @@ public class DateInputNameEditPart extends CompartmentEditPart implements ITextA
     /**
      * @generated
      */
-    public static final int VISUAL_ID = 5029;
+    public static final int VISUAL_ID = 5022;
 
     /**
      * @generated
@@ -290,7 +290,7 @@ public class DateInputNameEditPart extends CompartmentEditPart implements ITextA
      */
     public IParser getParser() {
 	if (parser == null) {
-	    parser = CrosswalkParserProvider.getParser(CrosswalkElementTypes.DateInput_3019, getParserElement(),
+	    parser = CrosswalkParserProvider.getParser(CrosswalkElementTypes.DateInput_3011, getParserElement(),
 			    CrosswalkVisualIDRegistry
 					    .getType(crosswalk.diagram.edit.parts.DateInputNameEditPart.VISUAL_ID));
 	}

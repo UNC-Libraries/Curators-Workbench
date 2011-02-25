@@ -57,13 +57,18 @@ import crosswalk.diagram.edit.parts.IdentifierEditPart;
 import crosswalk.diagram.edit.parts.IdentifierOutputElementInputsCompartmentEditPart;
 import crosswalk.diagram.edit.parts.LanguageEditPart;
 import crosswalk.diagram.edit.parts.LanguageOutputElementInputsCompartmentEditPart;
+import crosswalk.diagram.edit.parts.MappedAttributeEditPart;
+import crosswalk.diagram.edit.parts.MappedElement2EditPart;
+import crosswalk.diagram.edit.parts.MappedElementChildElementsCompartmentEditPart;
+import crosswalk.diagram.edit.parts.MappedElementEditPart;
 import crosswalk.diagram.edit.parts.NameEditPart;
 import crosswalk.diagram.edit.parts.NameOutputElementInputsCompartmentEditPart;
 import crosswalk.diagram.edit.parts.OriginalNameRecordMatcherEditPart;
-import crosswalk.diagram.edit.parts.OriginalNameRecordMatcherOutputElementInputsCompartmentEditPart;
+import crosswalk.diagram.edit.parts.OriginalNameRecordMatcherRecordMatcherInputsCompartmentEditPart;
 import crosswalk.diagram.edit.parts.StringInput10EditPart;
 import crosswalk.diagram.edit.parts.StringInput11EditPart;
 import crosswalk.diagram.edit.parts.StringInput12EditPart;
+import crosswalk.diagram.edit.parts.StringInput13EditPart;
 import crosswalk.diagram.edit.parts.StringInput2EditPart;
 import crosswalk.diagram.edit.parts.StringInput3EditPart;
 import crosswalk.diagram.edit.parts.StringInput4EditPart;
@@ -79,7 +84,7 @@ import crosswalk.diagram.edit.parts.SubjectOutputElementInputsCompartmentEditPar
 import crosswalk.diagram.edit.parts.TabbedDataFieldEditPart;
 import crosswalk.diagram.edit.parts.TextEditPart;
 import crosswalk.diagram.edit.parts.TitleInfoEditPart;
-import crosswalk.diagram.edit.parts.TitleInfoTitleInfoInputsCompartmentEditPart;
+import crosswalk.diagram.edit.parts.TitleInfoOutputElementInputsCompartmentEditPart;
 import crosswalk.diagram.edit.parts.TrimWhitespaceEditPart;
 import crosswalk.diagram.edit.parts.TrimWhitespaceOutputElementInputsCompartmentEditPart;
 import crosswalk.diagram.edit.parts.TypeOfResourceEditPart;
@@ -125,7 +130,6 @@ public class CrosswalkNavigatorContentProvider implements ICommonContentProvider
 	TransactionalEditingDomain editingDomain = GMFEditingDomainFactory.INSTANCE.createEditingDomain();
 	myEditingDomain = (AdapterFactoryEditingDomain) editingDomain;
 	myEditingDomain.setResourceToReadOnlyMap(new HashMap() {
-	    @Override
 	    public Object get(Object key) {
 		if (!containsKey(key)) {
 		    put(key, Boolean.TRUE);
@@ -268,14 +272,123 @@ public class CrosswalkNavigatorContentProvider implements ICommonContentProvider
     private Object[] getViewChildren(View view, Object parentElement) {
 	switch (CrosswalkVisualIDRegistry.getVisualID(view)) {
 
-	case GenreEditPart.VISUAL_ID: {
+	case SubjectEditPart.VISUAL_ID: {
 	    LinkedList<CrosswalkAbstractNavigatorItem> result = new LinkedList<CrosswalkAbstractNavigatorItem>();
 	    Node sv = (Node) view;
 	    Collection<View> connectedViews;
 	    connectedViews = getChildrenByType(Collections.singleton(sv),
-			    CrosswalkVisualIDRegistry.getType(GenreOutputElementInputsCompartmentEditPart.VISUAL_ID));
+			    CrosswalkVisualIDRegistry.getType(SubjectOutputElementInputsCompartmentEditPart.VISUAL_ID));
 	    connectedViews = getChildrenByType(connectedViews,
-			    CrosswalkVisualIDRegistry.getType(StringInput3EditPart.VISUAL_ID));
+			    CrosswalkVisualIDRegistry.getType(StringInput7EditPart.VISUAL_ID));
+	    result.addAll(createNavigatorItems(connectedViews, parentElement, false));
+	    return result.toArray();
+	}
+
+	case StringInput11EditPart.VISUAL_ID: {
+	    LinkedList<CrosswalkAbstractNavigatorItem> result = new LinkedList<CrosswalkAbstractNavigatorItem>();
+	    Node sv = (Node) view;
+	    CrosswalkNavigatorGroup outgoinglinks = new CrosswalkNavigatorGroup(
+			    Messages.NavigatorGroupName_StringInput_3013_outgoinglinks,
+			    "icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+	    Collection<View> connectedViews;
+	    connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+			    CrosswalkVisualIDRegistry.getType(StringInputInputEditPart.VISUAL_ID));
+	    outgoinglinks.addChildren(createNavigatorItems(connectedViews, outgoinglinks, true));
+	    if (!outgoinglinks.isEmpty()) {
+		result.add(outgoinglinks);
+	    }
+	    return result.toArray();
+	}
+
+	case LanguageEditPart.VISUAL_ID: {
+	    LinkedList<CrosswalkAbstractNavigatorItem> result = new LinkedList<CrosswalkAbstractNavigatorItem>();
+	    Node sv = (Node) view;
+	    Collection<View> connectedViews;
+	    connectedViews = getChildrenByType(Collections.singleton(sv),
+			    CrosswalkVisualIDRegistry.getType(LanguageOutputElementInputsCompartmentEditPart.VISUAL_ID));
+	    connectedViews = getChildrenByType(connectedViews,
+			    CrosswalkVisualIDRegistry.getType(StringInput5EditPart.VISUAL_ID));
+	    result.addAll(createNavigatorItems(connectedViews, parentElement, false));
+	    return result.toArray();
+	}
+
+	case TabbedDataFieldEditPart.VISUAL_ID: {
+	    LinkedList<CrosswalkAbstractNavigatorItem> result = new LinkedList<CrosswalkAbstractNavigatorItem>();
+	    Node sv = (Node) view;
+	    CrosswalkNavigatorGroup incominglinks = new CrosswalkNavigatorGroup(
+			    Messages.NavigatorGroupName_TabbedDataField_3001_incominglinks,
+			    "icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+	    Collection<View> connectedViews;
+	    connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+			    CrosswalkVisualIDRegistry.getType(StringInputInputEditPart.VISUAL_ID));
+	    incominglinks.addChildren(createNavigatorItems(connectedViews, incominglinks, true));
+	    if (!incominglinks.isEmpty()) {
+		result.add(incominglinks);
+	    }
+	    return result.toArray();
+	}
+
+	case MappedElementEditPart.VISUAL_ID: {
+	    LinkedList<CrosswalkAbstractNavigatorItem> result = new LinkedList<CrosswalkAbstractNavigatorItem>();
+	    Node sv = (Node) view;
+	    Collection<View> connectedViews;
+	    connectedViews = getChildrenByType(Collections.singleton(sv),
+			    CrosswalkVisualIDRegistry.getType(MappedElementChildElementsCompartmentEditPart.VISUAL_ID));
+	    connectedViews = getChildrenByType(connectedViews,
+			    CrosswalkVisualIDRegistry.getType(MappedElement2EditPart.VISUAL_ID));
+	    result.addAll(createNavigatorItems(connectedViews, parentElement, false));
+	    connectedViews = getChildrenByType(Collections.singleton(sv),
+			    CrosswalkVisualIDRegistry.getType(MappedElementChildElementsCompartmentEditPart.VISUAL_ID));
+	    connectedViews = getChildrenByType(connectedViews,
+			    CrosswalkVisualIDRegistry.getType(MappedAttributeEditPart.VISUAL_ID));
+	    result.addAll(createNavigatorItems(connectedViews, parentElement, false));
+	    connectedViews = getChildrenByType(Collections.singleton(sv),
+			    CrosswalkVisualIDRegistry.getType(MappedElementChildElementsCompartmentEditPart.VISUAL_ID));
+	    connectedViews = getChildrenByType(connectedViews,
+			    CrosswalkVisualIDRegistry.getType(StringInput13EditPart.VISUAL_ID));
+	    result.addAll(createNavigatorItems(connectedViews, parentElement, false));
+	    return result.toArray();
+	}
+
+	case OriginalNameRecordMatcherEditPart.VISUAL_ID: {
+	    LinkedList<CrosswalkAbstractNavigatorItem> result = new LinkedList<CrosswalkAbstractNavigatorItem>();
+	    Node sv = (Node) view;
+	    Collection<View> connectedViews;
+	    connectedViews = getChildrenByType(
+			    Collections.singleton(sv),
+			    CrosswalkVisualIDRegistry
+					    .getType(OriginalNameRecordMatcherRecordMatcherInputsCompartmentEditPart.VISUAL_ID));
+	    connectedViews = getChildrenByType(connectedViews,
+			    CrosswalkVisualIDRegistry.getType(StringInput9EditPart.VISUAL_ID));
+	    result.addAll(createNavigatorItems(connectedViews, parentElement, false));
+	    return result.toArray();
+	}
+
+	case StringInputEditPart.VISUAL_ID: {
+	    LinkedList<CrosswalkAbstractNavigatorItem> result = new LinkedList<CrosswalkAbstractNavigatorItem>();
+	    Node sv = (Node) view;
+	    CrosswalkNavigatorGroup outgoinglinks = new CrosswalkNavigatorGroup(
+			    Messages.NavigatorGroupName_StringInput_3002_outgoinglinks,
+			    "icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+	    Collection<View> connectedViews;
+	    connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+			    CrosswalkVisualIDRegistry.getType(StringInputInputEditPart.VISUAL_ID));
+	    outgoinglinks.addChildren(createNavigatorItems(connectedViews, outgoinglinks, true));
+	    if (!outgoinglinks.isEmpty()) {
+		result.add(outgoinglinks);
+	    }
+	    return result.toArray();
+	}
+
+	case IdentifierEditPart.VISUAL_ID: {
+	    LinkedList<CrosswalkAbstractNavigatorItem> result = new LinkedList<CrosswalkAbstractNavigatorItem>();
+	    Node sv = (Node) view;
+	    Collection<View> connectedViews;
+	    connectedViews = getChildrenByType(Collections.singleton(sv),
+			    CrosswalkVisualIDRegistry
+					    .getType(IdentifierOutputElementInputsCompartmentEditPart.VISUAL_ID));
+	    connectedViews = getChildrenByType(connectedViews,
+			    CrosswalkVisualIDRegistry.getType(StringInput4EditPart.VISUAL_ID));
 	    result.addAll(createNavigatorItems(connectedViews, parentElement, false));
 	    return result.toArray();
 	}
@@ -292,19 +405,62 @@ public class CrosswalkNavigatorContentProvider implements ICommonContentProvider
 	    return result.toArray();
 	}
 
-	case DateInputEditPart.VISUAL_ID: {
+	case DateRecognizerEditPart.VISUAL_ID: {
 	    LinkedList<CrosswalkAbstractNavigatorItem> result = new LinkedList<CrosswalkAbstractNavigatorItem>();
 	    Node sv = (Node) view;
-	    CrosswalkNavigatorGroup outgoinglinks = new CrosswalkNavigatorGroup(
-			    Messages.NavigatorGroupName_DateInput_3019_outgoinglinks,
-			    "icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+	    CrosswalkNavigatorGroup incominglinks = new CrosswalkNavigatorGroup(
+			    Messages.NavigatorGroupName_DateRecognizer_2013_incominglinks,
+			    "icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 	    Collection<View> connectedViews;
-	    connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+	    connectedViews = getChildrenByType(Collections.singleton(sv),
+			    CrosswalkVisualIDRegistry
+					    .getType(DateRecognizerOutputElementInputsCompartmentEditPart.VISUAL_ID));
+	    connectedViews = getChildrenByType(connectedViews,
+			    CrosswalkVisualIDRegistry.getType(StringInput11EditPart.VISUAL_ID));
+	    result.addAll(createNavigatorItems(connectedViews, parentElement, false));
+	    connectedViews = getIncomingLinksByType(Collections.singleton(sv),
 			    CrosswalkVisualIDRegistry.getType(DateInputInputEditPart.VISUAL_ID));
-	    outgoinglinks.addChildren(createNavigatorItems(connectedViews, outgoinglinks, true));
-	    if (!outgoinglinks.isEmpty()) {
-		result.add(outgoinglinks);
+	    incominglinks.addChildren(createNavigatorItems(connectedViews, incominglinks, true));
+	    if (!incominglinks.isEmpty()) {
+		result.add(incominglinks);
 	    }
+	    return result.toArray();
+	}
+
+	case GenreEditPart.VISUAL_ID: {
+	    LinkedList<CrosswalkAbstractNavigatorItem> result = new LinkedList<CrosswalkAbstractNavigatorItem>();
+	    Node sv = (Node) view;
+	    Collection<View> connectedViews;
+	    connectedViews = getChildrenByType(Collections.singleton(sv),
+			    CrosswalkVisualIDRegistry.getType(GenreOutputElementInputsCompartmentEditPart.VISUAL_ID));
+	    connectedViews = getChildrenByType(connectedViews,
+			    CrosswalkVisualIDRegistry.getType(StringInput3EditPart.VISUAL_ID));
+	    result.addAll(createNavigatorItems(connectedViews, parentElement, false));
+	    return result.toArray();
+	}
+
+	case DateCreatedEditPart.VISUAL_ID: {
+	    LinkedList<CrosswalkAbstractNavigatorItem> result = new LinkedList<CrosswalkAbstractNavigatorItem>();
+	    Node sv = (Node) view;
+	    Collection<View> connectedViews;
+	    connectedViews = getChildrenByType(Collections.singleton(sv),
+			    CrosswalkVisualIDRegistry
+					    .getType(DateCreatedOutputElementInputsCompartmentEditPart.VISUAL_ID));
+	    connectedViews = getChildrenByType(connectedViews,
+			    CrosswalkVisualIDRegistry.getType(DateInputEditPart.VISUAL_ID));
+	    result.addAll(createNavigatorItems(connectedViews, parentElement, false));
+	    return result.toArray();
+	}
+
+	case NameEditPart.VISUAL_ID: {
+	    LinkedList<CrosswalkAbstractNavigatorItem> result = new LinkedList<CrosswalkAbstractNavigatorItem>();
+	    Node sv = (Node) view;
+	    Collection<View> connectedViews;
+	    connectedViews = getChildrenByType(Collections.singleton(sv),
+			    CrosswalkVisualIDRegistry.getType(NameOutputElementInputsCompartmentEditPart.VISUAL_ID));
+	    connectedViews = getChildrenByType(connectedViews,
+			    CrosswalkVisualIDRegistry.getType(StringInput6EditPart.VISUAL_ID));
+	    result.addAll(createNavigatorItems(connectedViews, parentElement, false));
 	    return result.toArray();
 	}
 
@@ -360,6 +516,9 @@ public class CrosswalkNavigatorContentProvider implements ICommonContentProvider
 	    connectedViews = getChildrenByType(Collections.singleton(sv),
 			    CrosswalkVisualIDRegistry.getType(TrimWhitespaceEditPart.VISUAL_ID));
 	    result.addAll(createNavigatorItems(connectedViews, parentElement, false));
+	    connectedViews = getChildrenByType(Collections.singleton(sv),
+			    CrosswalkVisualIDRegistry.getType(MappedElementEditPart.VISUAL_ID));
+	    result.addAll(createNavigatorItems(connectedViews, parentElement, false));
 	    connectedViews = getDiagramLinksByType(Collections.singleton(sv),
 			    CrosswalkVisualIDRegistry.getType(StringInputInputEditPart.VISUAL_ID));
 	    links.addChildren(createNavigatorItems(connectedViews, links, false));
@@ -372,54 +531,53 @@ public class CrosswalkNavigatorContentProvider implements ICommonContentProvider
 	    return result.toArray();
 	}
 
-	case OriginalNameRecordMatcherEditPart.VISUAL_ID: {
-	    LinkedList<CrosswalkAbstractNavigatorItem> result = new LinkedList<CrosswalkAbstractNavigatorItem>();
-	    Node sv = (Node) view;
-	    Collection<View> connectedViews;
-	    connectedViews = getChildrenByType(
-			    Collections.singleton(sv),
-			    CrosswalkVisualIDRegistry
-					    .getType(OriginalNameRecordMatcherOutputElementInputsCompartmentEditPart.VISUAL_ID));
-	    connectedViews = getChildrenByType(connectedViews,
-			    CrosswalkVisualIDRegistry.getType(StringInput9EditPart.VISUAL_ID));
-	    result.addAll(createNavigatorItems(connectedViews, parentElement, false));
-	    return result.toArray();
-	}
-
-	case TitleInfoEditPart.VISUAL_ID: {
-	    LinkedList<CrosswalkAbstractNavigatorItem> result = new LinkedList<CrosswalkAbstractNavigatorItem>();
-	    Node sv = (Node) view;
-	    Collection<View> connectedViews;
-	    connectedViews = getChildrenByType(Collections.singleton(sv),
-			    CrosswalkVisualIDRegistry.getType(TitleInfoTitleInfoInputsCompartmentEditPart.VISUAL_ID));
-	    connectedViews = getChildrenByType(connectedViews,
-			    CrosswalkVisualIDRegistry.getType(StringInputEditPart.VISUAL_ID));
-	    result.addAll(createNavigatorItems(connectedViews, parentElement, false));
-	    return result.toArray();
-	}
-
-	case DateCreatedEditPart.VISUAL_ID: {
+	case TypeOfResourceEditPart.VISUAL_ID: {
 	    LinkedList<CrosswalkAbstractNavigatorItem> result = new LinkedList<CrosswalkAbstractNavigatorItem>();
 	    Node sv = (Node) view;
 	    Collection<View> connectedViews;
 	    connectedViews = getChildrenByType(Collections.singleton(sv),
 			    CrosswalkVisualIDRegistry
-					    .getType(DateCreatedOutputElementInputsCompartmentEditPart.VISUAL_ID));
+					    .getType(TypeOfResourceOutputElementInputsCompartmentEditPart.VISUAL_ID));
 	    connectedViews = getChildrenByType(connectedViews,
+			    CrosswalkVisualIDRegistry.getType(StringInput8EditPart.VISUAL_ID));
+	    result.addAll(createNavigatorItems(connectedViews, parentElement, false));
+	    return result.toArray();
+	}
+
+	case DateInputInputEditPart.VISUAL_ID: {
+	    LinkedList<CrosswalkAbstractNavigatorItem> result = new LinkedList<CrosswalkAbstractNavigatorItem>();
+	    Edge sv = (Edge) view;
+	    CrosswalkNavigatorGroup target = new CrosswalkNavigatorGroup(
+			    Messages.NavigatorGroupName_DateInputInput_4002_target,
+			    "icons/linkTargetNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+	    CrosswalkNavigatorGroup source = new CrosswalkNavigatorGroup(
+			    Messages.NavigatorGroupName_DateInputInput_4002_source,
+			    "icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+	    Collection<View> connectedViews;
+	    connectedViews = getLinksTargetByType(Collections.singleton(sv),
+			    CrosswalkVisualIDRegistry.getType(DateRecognizerEditPart.VISUAL_ID));
+	    target.addChildren(createNavigatorItems(connectedViews, target, true));
+	    connectedViews = getLinksSourceByType(Collections.singleton(sv),
 			    CrosswalkVisualIDRegistry.getType(DateInputEditPart.VISUAL_ID));
-	    result.addAll(createNavigatorItems(connectedViews, parentElement, false));
+	    source.addChildren(createNavigatorItems(connectedViews, source, true));
+	    if (!target.isEmpty()) {
+		result.add(target);
+	    }
+	    if (!source.isEmpty()) {
+		result.add(source);
+	    }
 	    return result.toArray();
 	}
 
-	case StringInputEditPart.VISUAL_ID: {
+	case DateInputEditPart.VISUAL_ID: {
 	    LinkedList<CrosswalkAbstractNavigatorItem> result = new LinkedList<CrosswalkAbstractNavigatorItem>();
 	    Node sv = (Node) view;
 	    CrosswalkNavigatorGroup outgoinglinks = new CrosswalkNavigatorGroup(
-			    Messages.NavigatorGroupName_StringInput_3008_outgoinglinks,
+			    Messages.NavigatorGroupName_DateInput_3011_outgoinglinks,
 			    "icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 	    Collection<View> connectedViews;
 	    connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-			    CrosswalkVisualIDRegistry.getType(StringInputInputEditPart.VISUAL_ID));
+			    CrosswalkVisualIDRegistry.getType(DateInputInputEditPart.VISUAL_ID));
 	    outgoinglinks.addChildren(createNavigatorItems(connectedViews, outgoinglinks, true));
 	    if (!outgoinglinks.isEmpty()) {
 		result.add(outgoinglinks);
@@ -427,23 +585,24 @@ public class CrosswalkNavigatorContentProvider implements ICommonContentProvider
 	    return result.toArray();
 	}
 
-	case NameEditPart.VISUAL_ID: {
+	case AccessConditionEditPart.VISUAL_ID: {
 	    LinkedList<CrosswalkAbstractNavigatorItem> result = new LinkedList<CrosswalkAbstractNavigatorItem>();
 	    Node sv = (Node) view;
 	    Collection<View> connectedViews;
 	    connectedViews = getChildrenByType(Collections.singleton(sv),
-			    CrosswalkVisualIDRegistry.getType(NameOutputElementInputsCompartmentEditPart.VISUAL_ID));
+			    CrosswalkVisualIDRegistry
+					    .getType(AccessConditionOutputElementInputsCompartmentEditPart.VISUAL_ID));
 	    connectedViews = getChildrenByType(connectedViews,
-			    CrosswalkVisualIDRegistry.getType(StringInput6EditPart.VISUAL_ID));
+			    CrosswalkVisualIDRegistry.getType(StringInput10EditPart.VISUAL_ID));
 	    result.addAll(createNavigatorItems(connectedViews, parentElement, false));
 	    return result.toArray();
 	}
 
-	case StringInput5EditPart.VISUAL_ID: {
+	case StringInput6EditPart.VISUAL_ID: {
 	    LinkedList<CrosswalkAbstractNavigatorItem> result = new LinkedList<CrosswalkAbstractNavigatorItem>();
 	    Node sv = (Node) view;
 	    CrosswalkNavigatorGroup outgoinglinks = new CrosswalkNavigatorGroup(
-			    Messages.NavigatorGroupName_StringInput_3013_outgoinglinks,
+			    Messages.NavigatorGroupName_StringInput_3007_outgoinglinks,
 			    "icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 	    Collection<View> connectedViews;
 	    connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
@@ -459,7 +618,7 @@ public class CrosswalkNavigatorContentProvider implements ICommonContentProvider
 	    LinkedList<CrosswalkAbstractNavigatorItem> result = new LinkedList<CrosswalkAbstractNavigatorItem>();
 	    Node sv = (Node) view;
 	    CrosswalkNavigatorGroup incominglinks = new CrosswalkNavigatorGroup(
-			    Messages.NavigatorGroupName_Text_2018_incominglinks,
+			    Messages.NavigatorGroupName_Text_2014_incominglinks,
 			    "icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 	    Collection<View> connectedViews;
 	    connectedViews = getIncomingLinksByType(Collections.singleton(sv),
@@ -471,11 +630,33 @@ public class CrosswalkNavigatorContentProvider implements ICommonContentProvider
 	    return result.toArray();
 	}
 
-	case StringInput6EditPart.VISUAL_ID: {
+	case TrimWhitespaceEditPart.VISUAL_ID: {
+	    LinkedList<CrosswalkAbstractNavigatorItem> result = new LinkedList<CrosswalkAbstractNavigatorItem>();
+	    Node sv = (Node) view;
+	    CrosswalkNavigatorGroup incominglinks = new CrosswalkNavigatorGroup(
+			    Messages.NavigatorGroupName_TrimWhitespace_2015_incominglinks,
+			    "icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+	    Collection<View> connectedViews;
+	    connectedViews = getChildrenByType(Collections.singleton(sv),
+			    CrosswalkVisualIDRegistry
+					    .getType(TrimWhitespaceOutputElementInputsCompartmentEditPart.VISUAL_ID));
+	    connectedViews = getChildrenByType(connectedViews,
+			    CrosswalkVisualIDRegistry.getType(StringInput12EditPart.VISUAL_ID));
+	    result.addAll(createNavigatorItems(connectedViews, parentElement, false));
+	    connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+			    CrosswalkVisualIDRegistry.getType(StringInputInputEditPart.VISUAL_ID));
+	    incominglinks.addChildren(createNavigatorItems(connectedViews, incominglinks, true));
+	    if (!incominglinks.isEmpty()) {
+		result.add(incominglinks);
+	    }
+	    return result.toArray();
+	}
+
+	case StringInput13EditPart.VISUAL_ID: {
 	    LinkedList<CrosswalkAbstractNavigatorItem> result = new LinkedList<CrosswalkAbstractNavigatorItem>();
 	    Node sv = (Node) view;
 	    CrosswalkNavigatorGroup outgoinglinks = new CrosswalkNavigatorGroup(
-			    Messages.NavigatorGroupName_StringInput_3014_outgoinglinks,
+			    Messages.NavigatorGroupName_StringInput_3017_outgoinglinks,
 			    "icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 	    Collection<View> connectedViews;
 	    connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
@@ -491,10 +672,10 @@ public class CrosswalkNavigatorContentProvider implements ICommonContentProvider
 	    LinkedList<CrosswalkAbstractNavigatorItem> result = new LinkedList<CrosswalkAbstractNavigatorItem>();
 	    Edge sv = (Edge) view;
 	    CrosswalkNavigatorGroup target = new CrosswalkNavigatorGroup(
-			    Messages.NavigatorGroupName_StringInputInput_4009_target,
+			    Messages.NavigatorGroupName_StringInputInput_4001_target,
 			    "icons/linkTargetNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 	    CrosswalkNavigatorGroup source = new CrosswalkNavigatorGroup(
-			    Messages.NavigatorGroupName_StringInputInput_4009_source,
+			    Messages.NavigatorGroupName_StringInputInput_4001_source,
 			    "icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 	    Collection<View> connectedViews;
 	    connectedViews = getLinksTargetByType(Collections.singleton(sv),
@@ -542,6 +723,12 @@ public class CrosswalkNavigatorContentProvider implements ICommonContentProvider
 	    connectedViews = getLinksSourceByType(Collections.singleton(sv),
 			    CrosswalkVisualIDRegistry.getType(StringInput12EditPart.VISUAL_ID));
 	    source.addChildren(createNavigatorItems(connectedViews, source, true));
+	    connectedViews = getLinksSourceByType(Collections.singleton(sv),
+			    CrosswalkVisualIDRegistry.getType(MappedAttributeEditPart.VISUAL_ID));
+	    source.addChildren(createNavigatorItems(connectedViews, source, true));
+	    connectedViews = getLinksSourceByType(Collections.singleton(sv),
+			    CrosswalkVisualIDRegistry.getType(StringInput13EditPart.VISUAL_ID));
+	    source.addChildren(createNavigatorItems(connectedViews, source, true));
 	    if (!target.isEmpty()) {
 		result.add(target);
 	    }
@@ -551,11 +738,11 @@ public class CrosswalkNavigatorContentProvider implements ICommonContentProvider
 	    return result.toArray();
 	}
 
-	case StringInput2EditPart.VISUAL_ID: {
+	case StringInput5EditPart.VISUAL_ID: {
 	    LinkedList<CrosswalkAbstractNavigatorItem> result = new LinkedList<CrosswalkAbstractNavigatorItem>();
 	    Node sv = (Node) view;
 	    CrosswalkNavigatorGroup outgoinglinks = new CrosswalkNavigatorGroup(
-			    Messages.NavigatorGroupName_StringInput_3010_outgoinglinks,
+			    Messages.NavigatorGroupName_StringInput_3006_outgoinglinks,
 			    "icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 	    Collection<View> connectedViews;
 	    connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
@@ -567,11 +754,43 @@ public class CrosswalkNavigatorContentProvider implements ICommonContentProvider
 	    return result.toArray();
 	}
 
-	case StringInput3EditPart.VISUAL_ID: {
+	case StringInput4EditPart.VISUAL_ID: {
 	    LinkedList<CrosswalkAbstractNavigatorItem> result = new LinkedList<CrosswalkAbstractNavigatorItem>();
 	    Node sv = (Node) view;
 	    CrosswalkNavigatorGroup outgoinglinks = new CrosswalkNavigatorGroup(
-			    Messages.NavigatorGroupName_StringInput_3011_outgoinglinks,
+			    Messages.NavigatorGroupName_StringInput_3005_outgoinglinks,
+			    "icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+	    Collection<View> connectedViews;
+	    connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+			    CrosswalkVisualIDRegistry.getType(StringInputInputEditPart.VISUAL_ID));
+	    outgoinglinks.addChildren(createNavigatorItems(connectedViews, outgoinglinks, true));
+	    if (!outgoinglinks.isEmpty()) {
+		result.add(outgoinglinks);
+	    }
+	    return result.toArray();
+	}
+
+	case StringInput7EditPart.VISUAL_ID: {
+	    LinkedList<CrosswalkAbstractNavigatorItem> result = new LinkedList<CrosswalkAbstractNavigatorItem>();
+	    Node sv = (Node) view;
+	    CrosswalkNavigatorGroup outgoinglinks = new CrosswalkNavigatorGroup(
+			    Messages.NavigatorGroupName_StringInput_3008_outgoinglinks,
+			    "icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+	    Collection<View> connectedViews;
+	    connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+			    CrosswalkVisualIDRegistry.getType(StringInputInputEditPart.VISUAL_ID));
+	    outgoinglinks.addChildren(createNavigatorItems(connectedViews, outgoinglinks, true));
+	    if (!outgoinglinks.isEmpty()) {
+		result.add(outgoinglinks);
+	    }
+	    return result.toArray();
+	}
+
+	case StringInput10EditPart.VISUAL_ID: {
+	    LinkedList<CrosswalkAbstractNavigatorItem> result = new LinkedList<CrosswalkAbstractNavigatorItem>();
+	    Node sv = (Node) view;
+	    CrosswalkNavigatorGroup outgoinglinks = new CrosswalkNavigatorGroup(
+			    Messages.NavigatorGroupName_StringInput_3012_outgoinglinks,
 			    "icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 	    Collection<View> connectedViews;
 	    connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
@@ -595,24 +814,11 @@ public class CrosswalkNavigatorContentProvider implements ICommonContentProvider
 	    return result.toArray();
 	}
 
-	case IdentifierEditPart.VISUAL_ID: {
-	    LinkedList<CrosswalkAbstractNavigatorItem> result = new LinkedList<CrosswalkAbstractNavigatorItem>();
-	    Node sv = (Node) view;
-	    Collection<View> connectedViews;
-	    connectedViews = getChildrenByType(Collections.singleton(sv),
-			    CrosswalkVisualIDRegistry
-					    .getType(IdentifierOutputElementInputsCompartmentEditPart.VISUAL_ID));
-	    connectedViews = getChildrenByType(connectedViews,
-			    CrosswalkVisualIDRegistry.getType(StringInput4EditPart.VISUAL_ID));
-	    result.addAll(createNavigatorItems(connectedViews, parentElement, false));
-	    return result.toArray();
-	}
-
-	case StringInput4EditPart.VISUAL_ID: {
+	case StringInput12EditPart.VISUAL_ID: {
 	    LinkedList<CrosswalkAbstractNavigatorItem> result = new LinkedList<CrosswalkAbstractNavigatorItem>();
 	    Node sv = (Node) view;
 	    CrosswalkNavigatorGroup outgoinglinks = new CrosswalkNavigatorGroup(
-			    Messages.NavigatorGroupName_StringInput_3012_outgoinglinks,
+			    Messages.NavigatorGroupName_StringInput_3014_outgoinglinks,
 			    "icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 	    Collection<View> connectedViews;
 	    connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
@@ -628,7 +834,39 @@ public class CrosswalkNavigatorContentProvider implements ICommonContentProvider
 	    LinkedList<CrosswalkAbstractNavigatorItem> result = new LinkedList<CrosswalkAbstractNavigatorItem>();
 	    Node sv = (Node) view;
 	    CrosswalkNavigatorGroup outgoinglinks = new CrosswalkNavigatorGroup(
-			    Messages.NavigatorGroupName_StringInput_3018_outgoinglinks,
+			    Messages.NavigatorGroupName_StringInput_3010_outgoinglinks,
+			    "icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+	    Collection<View> connectedViews;
+	    connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+			    CrosswalkVisualIDRegistry.getType(StringInputInputEditPart.VISUAL_ID));
+	    outgoinglinks.addChildren(createNavigatorItems(connectedViews, outgoinglinks, true));
+	    if (!outgoinglinks.isEmpty()) {
+		result.add(outgoinglinks);
+	    }
+	    return result.toArray();
+	}
+
+	case StringInput2EditPart.VISUAL_ID: {
+	    LinkedList<CrosswalkAbstractNavigatorItem> result = new LinkedList<CrosswalkAbstractNavigatorItem>();
+	    Node sv = (Node) view;
+	    CrosswalkNavigatorGroup outgoinglinks = new CrosswalkNavigatorGroup(
+			    Messages.NavigatorGroupName_StringInput_3003_outgoinglinks,
+			    "icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+	    Collection<View> connectedViews;
+	    connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+			    CrosswalkVisualIDRegistry.getType(StringInputInputEditPart.VISUAL_ID));
+	    outgoinglinks.addChildren(createNavigatorItems(connectedViews, outgoinglinks, true));
+	    if (!outgoinglinks.isEmpty()) {
+		result.add(outgoinglinks);
+	    }
+	    return result.toArray();
+	}
+
+	case StringInput3EditPart.VISUAL_ID: {
+	    LinkedList<CrosswalkAbstractNavigatorItem> result = new LinkedList<CrosswalkAbstractNavigatorItem>();
+	    Node sv = (Node) view;
+	    CrosswalkNavigatorGroup outgoinglinks = new CrosswalkNavigatorGroup(
+			    Messages.NavigatorGroupName_StringInput_3004_outgoinglinks,
 			    "icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 	    Collection<View> connectedViews;
 	    connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
@@ -644,7 +882,7 @@ public class CrosswalkNavigatorContentProvider implements ICommonContentProvider
 	    LinkedList<CrosswalkAbstractNavigatorItem> result = new LinkedList<CrosswalkAbstractNavigatorItem>();
 	    Node sv = (Node) view;
 	    CrosswalkNavigatorGroup outgoinglinks = new CrosswalkNavigatorGroup(
-			    Messages.NavigatorGroupName_StringInput_3016_outgoinglinks,
+			    Messages.NavigatorGroupName_StringInput_3009_outgoinglinks,
 			    "icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 	    Collection<View> connectedViews;
 	    connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
@@ -656,52 +894,11 @@ public class CrosswalkNavigatorContentProvider implements ICommonContentProvider
 	    return result.toArray();
 	}
 
-	case DateInputInputEditPart.VISUAL_ID: {
-	    LinkedList<CrosswalkAbstractNavigatorItem> result = new LinkedList<CrosswalkAbstractNavigatorItem>();
-	    Edge sv = (Edge) view;
-	    CrosswalkNavigatorGroup target = new CrosswalkNavigatorGroup(
-			    Messages.NavigatorGroupName_DateInputInput_4010_target,
-			    "icons/linkTargetNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-	    CrosswalkNavigatorGroup source = new CrosswalkNavigatorGroup(
-			    Messages.NavigatorGroupName_DateInputInput_4010_source,
-			    "icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-	    Collection<View> connectedViews;
-	    connectedViews = getLinksTargetByType(Collections.singleton(sv),
-			    CrosswalkVisualIDRegistry.getType(DateRecognizerEditPart.VISUAL_ID));
-	    target.addChildren(createNavigatorItems(connectedViews, target, true));
-	    connectedViews = getLinksSourceByType(Collections.singleton(sv),
-			    CrosswalkVisualIDRegistry.getType(DateInputEditPart.VISUAL_ID));
-	    source.addChildren(createNavigatorItems(connectedViews, source, true));
-	    if (!target.isEmpty()) {
-		result.add(target);
-	    }
-	    if (!source.isEmpty()) {
-		result.add(source);
-	    }
-	    return result.toArray();
-	}
-
-	case TabbedDataFieldEditPart.VISUAL_ID: {
-	    LinkedList<CrosswalkAbstractNavigatorItem> result = new LinkedList<CrosswalkAbstractNavigatorItem>();
-	    Node sv = (Node) view;
-	    CrosswalkNavigatorGroup incominglinks = new CrosswalkNavigatorGroup(
-			    Messages.NavigatorGroupName_TabbedDataField_3017_incominglinks,
-			    "icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-	    Collection<View> connectedViews;
-	    connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-			    CrosswalkVisualIDRegistry.getType(StringInputInputEditPart.VISUAL_ID));
-	    incominglinks.addChildren(createNavigatorItems(connectedViews, incominglinks, true));
-	    if (!incominglinks.isEmpty()) {
-		result.add(incominglinks);
-	    }
-	    return result.toArray();
-	}
-
-	case StringInput12EditPart.VISUAL_ID: {
+	case MappedAttributeEditPart.VISUAL_ID: {
 	    LinkedList<CrosswalkAbstractNavigatorItem> result = new LinkedList<CrosswalkAbstractNavigatorItem>();
 	    Node sv = (Node) view;
 	    CrosswalkNavigatorGroup outgoinglinks = new CrosswalkNavigatorGroup(
-			    Messages.NavigatorGroupName_StringInput_3022_outgoinglinks,
+			    Messages.NavigatorGroupName_MappedAttribute_3016_outgoinglinks,
 			    "icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 	    Collection<View> connectedViews;
 	    connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
@@ -713,145 +910,16 @@ public class CrosswalkNavigatorContentProvider implements ICommonContentProvider
 	    return result.toArray();
 	}
 
-	case StringInput7EditPart.VISUAL_ID: {
-	    LinkedList<CrosswalkAbstractNavigatorItem> result = new LinkedList<CrosswalkAbstractNavigatorItem>();
-	    Node sv = (Node) view;
-	    CrosswalkNavigatorGroup outgoinglinks = new CrosswalkNavigatorGroup(
-			    Messages.NavigatorGroupName_StringInput_3015_outgoinglinks,
-			    "icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-	    Collection<View> connectedViews;
-	    connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-			    CrosswalkVisualIDRegistry.getType(StringInputInputEditPart.VISUAL_ID));
-	    outgoinglinks.addChildren(createNavigatorItems(connectedViews, outgoinglinks, true));
-	    if (!outgoinglinks.isEmpty()) {
-		result.add(outgoinglinks);
-	    }
-	    return result.toArray();
-	}
-
-	case AccessConditionEditPart.VISUAL_ID: {
+	case TitleInfoEditPart.VISUAL_ID: {
 	    LinkedList<CrosswalkAbstractNavigatorItem> result = new LinkedList<CrosswalkAbstractNavigatorItem>();
 	    Node sv = (Node) view;
 	    Collection<View> connectedViews;
 	    connectedViews = getChildrenByType(Collections.singleton(sv),
 			    CrosswalkVisualIDRegistry
-					    .getType(AccessConditionOutputElementInputsCompartmentEditPart.VISUAL_ID));
+					    .getType(TitleInfoOutputElementInputsCompartmentEditPart.VISUAL_ID));
 	    connectedViews = getChildrenByType(connectedViews,
-			    CrosswalkVisualIDRegistry.getType(StringInput10EditPart.VISUAL_ID));
+			    CrosswalkVisualIDRegistry.getType(StringInputEditPart.VISUAL_ID));
 	    result.addAll(createNavigatorItems(connectedViews, parentElement, false));
-	    return result.toArray();
-	}
-
-	case DateRecognizerEditPart.VISUAL_ID: {
-	    LinkedList<CrosswalkAbstractNavigatorItem> result = new LinkedList<CrosswalkAbstractNavigatorItem>();
-	    Node sv = (Node) view;
-	    CrosswalkNavigatorGroup incominglinks = new CrosswalkNavigatorGroup(
-			    Messages.NavigatorGroupName_DateRecognizer_2017_incominglinks,
-			    "icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-	    Collection<View> connectedViews;
-	    connectedViews = getChildrenByType(Collections.singleton(sv),
-			    CrosswalkVisualIDRegistry
-					    .getType(DateRecognizerOutputElementInputsCompartmentEditPart.VISUAL_ID));
-	    connectedViews = getChildrenByType(connectedViews,
-			    CrosswalkVisualIDRegistry.getType(StringInput11EditPart.VISUAL_ID));
-	    result.addAll(createNavigatorItems(connectedViews, parentElement, false));
-	    connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-			    CrosswalkVisualIDRegistry.getType(DateInputInputEditPart.VISUAL_ID));
-	    incominglinks.addChildren(createNavigatorItems(connectedViews, incominglinks, true));
-	    if (!incominglinks.isEmpty()) {
-		result.add(incominglinks);
-	    }
-	    return result.toArray();
-	}
-
-	case TrimWhitespaceEditPart.VISUAL_ID: {
-	    LinkedList<CrosswalkAbstractNavigatorItem> result = new LinkedList<CrosswalkAbstractNavigatorItem>();
-	    Node sv = (Node) view;
-	    CrosswalkNavigatorGroup incominglinks = new CrosswalkNavigatorGroup(
-			    Messages.NavigatorGroupName_TrimWhitespace_2019_incominglinks,
-			    "icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-	    Collection<View> connectedViews;
-	    connectedViews = getChildrenByType(Collections.singleton(sv),
-			    CrosswalkVisualIDRegistry
-					    .getType(TrimWhitespaceOutputElementInputsCompartmentEditPart.VISUAL_ID));
-	    connectedViews = getChildrenByType(connectedViews,
-			    CrosswalkVisualIDRegistry.getType(StringInput12EditPart.VISUAL_ID));
-	    result.addAll(createNavigatorItems(connectedViews, parentElement, false));
-	    connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-			    CrosswalkVisualIDRegistry.getType(StringInputInputEditPart.VISUAL_ID));
-	    incominglinks.addChildren(createNavigatorItems(connectedViews, incominglinks, true));
-	    if (!incominglinks.isEmpty()) {
-		result.add(incominglinks);
-	    }
-	    return result.toArray();
-	}
-
-	case SubjectEditPart.VISUAL_ID: {
-	    LinkedList<CrosswalkAbstractNavigatorItem> result = new LinkedList<CrosswalkAbstractNavigatorItem>();
-	    Node sv = (Node) view;
-	    Collection<View> connectedViews;
-	    connectedViews = getChildrenByType(Collections.singleton(sv),
-			    CrosswalkVisualIDRegistry.getType(SubjectOutputElementInputsCompartmentEditPart.VISUAL_ID));
-	    connectedViews = getChildrenByType(connectedViews,
-			    CrosswalkVisualIDRegistry.getType(StringInput7EditPart.VISUAL_ID));
-	    result.addAll(createNavigatorItems(connectedViews, parentElement, false));
-	    return result.toArray();
-	}
-
-	case StringInput11EditPart.VISUAL_ID: {
-	    LinkedList<CrosswalkAbstractNavigatorItem> result = new LinkedList<CrosswalkAbstractNavigatorItem>();
-	    Node sv = (Node) view;
-	    CrosswalkNavigatorGroup outgoinglinks = new CrosswalkNavigatorGroup(
-			    Messages.NavigatorGroupName_StringInput_3021_outgoinglinks,
-			    "icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-	    Collection<View> connectedViews;
-	    connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-			    CrosswalkVisualIDRegistry.getType(StringInputInputEditPart.VISUAL_ID));
-	    outgoinglinks.addChildren(createNavigatorItems(connectedViews, outgoinglinks, true));
-	    if (!outgoinglinks.isEmpty()) {
-		result.add(outgoinglinks);
-	    }
-	    return result.toArray();
-	}
-
-	case LanguageEditPart.VISUAL_ID: {
-	    LinkedList<CrosswalkAbstractNavigatorItem> result = new LinkedList<CrosswalkAbstractNavigatorItem>();
-	    Node sv = (Node) view;
-	    Collection<View> connectedViews;
-	    connectedViews = getChildrenByType(Collections.singleton(sv),
-			    CrosswalkVisualIDRegistry.getType(LanguageOutputElementInputsCompartmentEditPart.VISUAL_ID));
-	    connectedViews = getChildrenByType(connectedViews,
-			    CrosswalkVisualIDRegistry.getType(StringInput5EditPart.VISUAL_ID));
-	    result.addAll(createNavigatorItems(connectedViews, parentElement, false));
-	    return result.toArray();
-	}
-
-	case TypeOfResourceEditPart.VISUAL_ID: {
-	    LinkedList<CrosswalkAbstractNavigatorItem> result = new LinkedList<CrosswalkAbstractNavigatorItem>();
-	    Node sv = (Node) view;
-	    Collection<View> connectedViews;
-	    connectedViews = getChildrenByType(Collections.singleton(sv),
-			    CrosswalkVisualIDRegistry
-					    .getType(TypeOfResourceOutputElementInputsCompartmentEditPart.VISUAL_ID));
-	    connectedViews = getChildrenByType(connectedViews,
-			    CrosswalkVisualIDRegistry.getType(StringInput8EditPart.VISUAL_ID));
-	    result.addAll(createNavigatorItems(connectedViews, parentElement, false));
-	    return result.toArray();
-	}
-
-	case StringInput10EditPart.VISUAL_ID: {
-	    LinkedList<CrosswalkAbstractNavigatorItem> result = new LinkedList<CrosswalkAbstractNavigatorItem>();
-	    Node sv = (Node) view;
-	    CrosswalkNavigatorGroup outgoinglinks = new CrosswalkNavigatorGroup(
-			    Messages.NavigatorGroupName_StringInput_3020_outgoinglinks,
-			    "icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-	    Collection<View> connectedViews;
-	    connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-			    CrosswalkVisualIDRegistry.getType(StringInputInputEditPart.VISUAL_ID));
-	    outgoinglinks.addChildren(createNavigatorItems(connectedViews, outgoinglinks, true));
-	    if (!outgoinglinks.isEmpty()) {
-		result.add(outgoinglinks);
-	    }
 	    return result.toArray();
 	}
 	}

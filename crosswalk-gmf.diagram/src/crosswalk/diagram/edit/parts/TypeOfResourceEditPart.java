@@ -60,7 +60,7 @@ public class TypeOfResourceEditPart extends ShapeNodeEditPart {
     /**
      * @generated
      */
-    public static final int VISUAL_ID = 2013;
+    public static final int VISUAL_ID = 2009;
 
     /**
      * @generated
@@ -131,8 +131,8 @@ public class TypeOfResourceEditPart extends ShapeNodeEditPart {
      * @generated
      */
     protected boolean addFixedChild(EditPart childEditPart) {
-	if (childEditPart instanceof WrappingLabel10EditPart) {
-	    ((WrappingLabel10EditPart) childEditPart).setLabel(getPrimaryShape().getFigureOutputElementLabelFigure());
+	if (childEditPart instanceof WrappingLabel8EditPart) {
+	    ((WrappingLabel8EditPart) childEditPart).setLabel(getPrimaryShape().getFigureOutputElementLabelFigure());
 	    return true;
 	}
 	if (childEditPart instanceof TypeOfResourceOutputElementInputsCompartmentEditPart) {
@@ -148,7 +148,7 @@ public class TypeOfResourceEditPart extends ShapeNodeEditPart {
      * @generated
      */
     protected boolean removeFixedChild(EditPart childEditPart) {
-	if (childEditPart instanceof WrappingLabel10EditPart) {
+	if (childEditPart instanceof WrappingLabel8EditPart) {
 	    return true;
 	}
 	if (childEditPart instanceof TypeOfResourceOutputElementInputsCompartmentEditPart) {
@@ -280,7 +280,7 @@ public class TypeOfResourceEditPart extends ShapeNodeEditPart {
      * @generated
      */
     public EditPart getPrimaryChildEditPart() {
-	return getChildBySemanticHint(CrosswalkVisualIDRegistry.getType(WrappingLabel10EditPart.VISUAL_ID));
+	return getChildBySemanticHint(CrosswalkVisualIDRegistry.getType(WrappingLabel8EditPart.VISUAL_ID));
     }
 
     /**
@@ -291,7 +291,7 @@ public class TypeOfResourceEditPart extends ShapeNodeEditPart {
 	    CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request).getViewAndElementDescriptor()
 			    .getCreateElementRequestAdapter();
 	    IElementType type = (IElementType) adapter.getAdapter(IElementType.class);
-	    if (type == CrosswalkElementTypes.StringInput_3016) {
+	    if (type == CrosswalkElementTypes.StringInput_3009) {
 		return getChildBySemanticHint(CrosswalkVisualIDRegistry
 				.getType(TypeOfResourceOutputElementInputsCompartmentEditPart.VISUAL_ID));
 	    }

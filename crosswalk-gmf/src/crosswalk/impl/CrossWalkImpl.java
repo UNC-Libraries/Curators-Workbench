@@ -50,6 +50,7 @@ import crosswalk.WalkWidget;
  *   <li>{@link crosswalk.impl.CrossWalkImpl#getDataSource <em>Data Source</em>}</li>
  *   <li>{@link crosswalk.impl.CrossWalkImpl#getWidgets <em>Widgets</em>}</li>
  *   <li>{@link crosswalk.impl.CrossWalkImpl#getElements <em>Elements</em>}</li>
+ *   <li>{@link crosswalk.impl.CrossWalkImpl#getOutputType <em>Output Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -85,6 +86,16 @@ public class CrossWalkImpl extends EObjectImpl implements CrossWalk {
          * @ordered
          */
         protected EList<OutputElement> elements;
+
+        /**
+         * The cached value of the '{@link #getOutputType() <em>Output Type</em>}' reference.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see #getOutputType()
+         * @generated
+         * @ordered
+         */
+        protected EClass outputType;
 
         /**
          * <!-- begin-user-doc -->
@@ -175,6 +186,44 @@ public class CrossWalkImpl extends EObjectImpl implements CrossWalk {
         /**
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
+         * @generated
+         */
+        public EClass getOutputType() {
+                if (outputType != null && outputType.eIsProxy()) {
+                        InternalEObject oldOutputType = (InternalEObject)outputType;
+                        outputType = (EClass)eResolveProxy(oldOutputType);
+                        if (outputType != oldOutputType) {
+                                if (eNotificationRequired())
+                                        eNotify(new ENotificationImpl(this, Notification.RESOLVE, CrosswalkPackage.CROSS_WALK__OUTPUT_TYPE, oldOutputType, outputType));
+                        }
+                }
+                return outputType;
+        }
+
+        /**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        public EClass basicGetOutputType() {
+                return outputType;
+        }
+
+        /**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        public void setOutputType(EClass newOutputType) {
+                EClass oldOutputType = outputType;
+                outputType = newOutputType;
+                if (eNotificationRequired())
+                        eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.CROSS_WALK__OUTPUT_TYPE, oldOutputType, outputType));
+        }
+
+        /**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
          * @generated NOT
          */
         public IProject getProject() throws DataException {
@@ -236,6 +285,9 @@ public class CrossWalkImpl extends EObjectImpl implements CrossWalk {
                                 return getWidgets();
                         case CrosswalkPackage.CROSS_WALK__ELEMENTS:
                                 return getElements();
+                        case CrosswalkPackage.CROSS_WALK__OUTPUT_TYPE:
+                                if (resolve) return getOutputType();
+                                return basicGetOutputType();
                 }
                 return super.eGet(featureID, resolve, coreType);
         }
@@ -260,6 +312,9 @@ public class CrossWalkImpl extends EObjectImpl implements CrossWalk {
                                 getElements().clear();
                                 getElements().addAll((Collection<? extends OutputElement>)newValue);
                                 return;
+                        case CrosswalkPackage.CROSS_WALK__OUTPUT_TYPE:
+                                setOutputType((EClass)newValue);
+                                return;
                 }
                 super.eSet(featureID, newValue);
         }
@@ -281,6 +336,9 @@ public class CrossWalkImpl extends EObjectImpl implements CrossWalk {
                         case CrosswalkPackage.CROSS_WALK__ELEMENTS:
                                 getElements().clear();
                                 return;
+                        case CrosswalkPackage.CROSS_WALK__OUTPUT_TYPE:
+                                setOutputType((EClass)null);
+                                return;
                 }
                 super.eUnset(featureID);
         }
@@ -299,6 +357,8 @@ public class CrossWalkImpl extends EObjectImpl implements CrossWalk {
                                 return widgets != null && !widgets.isEmpty();
                         case CrosswalkPackage.CROSS_WALK__ELEMENTS:
                                 return elements != null && !elements.isEmpty();
+                        case CrosswalkPackage.CROSS_WALK__OUTPUT_TYPE:
+                                return outputType != null;
                 }
                 return super.eIsSet(featureID);
         }

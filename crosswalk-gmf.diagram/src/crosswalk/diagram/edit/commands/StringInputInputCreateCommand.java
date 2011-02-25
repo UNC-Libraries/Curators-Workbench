@@ -68,7 +68,7 @@ public class StringInputInputCreateCommand extends EditElementCommand {
 	    return true; // link creation is in progress; source is not defined yet
 	}
 	// target may be null here but it's possible to check constraint
-	return CrosswalkBaseItemSemanticEditPolicy.getLinkConstraints().canCreateStringInputInput_4009(getSource(),
+	return CrosswalkBaseItemSemanticEditPolicy.getLinkConstraints().canCreateStringInputInput_4001(getSource(),
 			getTarget());
     }
 

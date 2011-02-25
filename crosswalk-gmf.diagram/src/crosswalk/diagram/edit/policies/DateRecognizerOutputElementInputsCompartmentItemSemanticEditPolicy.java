@@ -31,14 +31,14 @@ public class DateRecognizerOutputElementInputsCompartmentItemSemanticEditPolicy 
      * @generated
      */
     public DateRecognizerOutputElementInputsCompartmentItemSemanticEditPolicy() {
-	super(CrosswalkElementTypes.DateRecognizer_2017);
+	super(CrosswalkElementTypes.DateRecognizer_2013);
     }
 
     /**
      * @generated
      */
     protected Command getCreateCommand(CreateElementRequest req) {
-	if (CrosswalkElementTypes.StringInput_3021 == req.getElementType()) {
+	if (CrosswalkElementTypes.StringInput_3013 == req.getElementType()) {
 	    return getGEFWrapper(new StringInput11CreateCommand(req));
 	}
 	return super.getCreateCommand(req);

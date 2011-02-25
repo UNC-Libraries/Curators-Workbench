@@ -45,7 +45,7 @@ public class DateInputItemSemanticEditPolicy extends CrosswalkBaseItemSemanticEd
      * @generated
      */
     public DateInputItemSemanticEditPolicy() {
-	super(CrosswalkElementTypes.DateInput_3019);
+	super(CrosswalkElementTypes.DateInput_3011);
     }
 
     /**
@@ -90,7 +90,7 @@ public class DateInputItemSemanticEditPolicy extends CrosswalkBaseItemSemanticEd
      * @generated
      */
     protected Command getStartCreateRelationshipCommand(CreateRelationshipRequest req) {
-	if (CrosswalkElementTypes.DateInputInput_4010 == req.getElementType()) {
+	if (CrosswalkElementTypes.DateInputInput_4002 == req.getElementType()) {
 	    return getGEFWrapper(new DateInputInputCreateCommand(req, req.getSource(), req.getTarget()));
 	}
 	return null;
@@ -100,7 +100,7 @@ public class DateInputItemSemanticEditPolicy extends CrosswalkBaseItemSemanticEd
      * @generated
      */
     protected Command getCompleteCreateRelationshipCommand(CreateRelationshipRequest req) {
-	if (CrosswalkElementTypes.DateInputInput_4010 == req.getElementType()) {
+	if (CrosswalkElementTypes.DateInputInput_4002 == req.getElementType()) {
 	    return null;
 	}
 	return null;

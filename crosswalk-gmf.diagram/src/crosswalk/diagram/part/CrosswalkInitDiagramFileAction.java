@@ -84,7 +84,7 @@ public class CrosswalkInitDiagramFileAction implements IObjectActionDelegate {
      */
     public void run(IAction action) {
 	TransactionalEditingDomain editingDomain = GMFEditingDomainFactory.INSTANCE.createEditingDomain();
-	ResourceSet resourceSet = new ResourceSetImpl();
+	ResourceSet resourceSet = editingDomain.getResourceSet();
 	EObject diagramRoot = null;
 	try {
 	    Resource resource = resourceSet.getResource(domainModelURI, true);

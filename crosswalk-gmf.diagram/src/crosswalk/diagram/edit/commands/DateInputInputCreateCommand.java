@@ -68,7 +68,7 @@ public class DateInputInputCreateCommand extends EditElementCommand {
 	    return true; // link creation is in progress; source is not defined yet
 	}
 	// target may be null here but it's possible to check constraint
-	return CrosswalkBaseItemSemanticEditPolicy.getLinkConstraints().canCreateDateInputInput_4010(getSource(),
+	return CrosswalkBaseItemSemanticEditPolicy.getLinkConstraints().canCreateDateInputInput_4002(getSource(),
 			getTarget());
     }
 

@@ -45,7 +45,7 @@ public class IdentifierItemSemanticEditPolicy extends CrosswalkBaseItemSemanticE
      * @generated
      */
     public IdentifierItemSemanticEditPolicy() {
-	super(CrosswalkElementTypes.Identifier_2009);
+	super(CrosswalkElementTypes.Identifier_2005);
     }
 
     /**

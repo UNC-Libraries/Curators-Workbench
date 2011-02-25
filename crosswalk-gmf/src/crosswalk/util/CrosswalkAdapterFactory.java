@@ -197,6 +197,14 @@ public class CrosswalkAdapterFactory extends AdapterFactoryImpl {
                                 return createDelimitedFileAdapter();
                         }
                         @Override
+                        public Adapter caseMappedElement(MappedElement object) {
+                                return createMappedElementAdapter();
+                        }
+                        @Override
+                        public Adapter caseMappedAttribute(MappedAttribute object) {
+                                return createMappedAttributeAdapter();
+                        }
+                        @Override
                         public Adapter defaultCase(EObject object) {
                                 return createEObjectAdapter();
                         }
@@ -619,6 +627,34 @@ public class CrosswalkAdapterFactory extends AdapterFactoryImpl {
          * @generated
          */
         public Adapter createDelimitedFileAdapter() {
+                return null;
+        }
+
+        /**
+         * Creates a new adapter for an object of class '{@link crosswalk.MappedElement <em>Mapped Element</em>}'.
+         * <!-- begin-user-doc -->
+         * This default implementation returns null so that we can easily ignore cases;
+         * it's useful to ignore a case when inheritance will catch all the cases anyway.
+         * <!-- end-user-doc -->
+         * @return the new adapter.
+         * @see crosswalk.MappedElement
+         * @generated
+         */
+        public Adapter createMappedElementAdapter() {
+                return null;
+        }
+
+        /**
+         * Creates a new adapter for an object of class '{@link crosswalk.MappedAttribute <em>Mapped Attribute</em>}'.
+         * <!-- begin-user-doc -->
+         * This default implementation returns null so that we can easily ignore cases;
+         * it's useful to ignore a case when inheritance will catch all the cases anyway.
+         * <!-- end-user-doc -->
+         * @return the new adapter.
+         * @see crosswalk.MappedAttribute
+         * @generated
+         */
+        public Adapter createMappedAttributeAdapter() {
                 return null;
         }
 

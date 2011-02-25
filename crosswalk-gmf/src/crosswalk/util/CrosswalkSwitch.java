@@ -308,6 +308,22 @@ public class CrosswalkSwitch<T> {
                                 if (result == null) result = defaultCase(theEObject);
                                 return result;
                         }
+                        case CrosswalkPackage.MAPPED_ELEMENT: {
+                                MappedElement mappedElement = (MappedElement)theEObject;
+                                T result = caseMappedElement(mappedElement);
+                                if (result == null) result = caseOutputElement(mappedElement);
+                                if (result == null) result = defaultCase(theEObject);
+                                return result;
+                        }
+                        case CrosswalkPackage.MAPPED_ATTRIBUTE: {
+                                MappedAttribute mappedAttribute = (MappedAttribute)theEObject;
+                                T result = caseMappedAttribute(mappedAttribute);
+                                if (result == null) result = caseOutputElement(mappedAttribute);
+                                if (result == null) result = caseStringInput(mappedAttribute);
+                                if (result == null) result = caseInput(mappedAttribute);
+                                if (result == null) result = defaultCase(theEObject);
+                                return result;
+                        }
                         default: return defaultCase(theEObject);
                 }
         }
@@ -744,6 +760,36 @@ public class CrosswalkSwitch<T> {
          * @generated
          */
         public T caseDelimitedFile(DelimitedFile object) {
+                return null;
+        }
+
+        /**
+         * Returns the result of interpreting the object as an instance of '<em>Mapped Element</em>'.
+         * <!-- begin-user-doc -->
+         * This implementation returns null;
+         * returning a non-null result will terminate the switch.
+         * <!-- end-user-doc -->
+         * @param object the target of the switch.
+         * @return the result of interpreting the object as an instance of '<em>Mapped Element</em>'.
+         * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+         * @generated
+         */
+        public T caseMappedElement(MappedElement object) {
+                return null;
+        }
+
+        /**
+         * Returns the result of interpreting the object as an instance of '<em>Mapped Attribute</em>'.
+         * <!-- begin-user-doc -->
+         * This implementation returns null;
+         * returning a non-null result will terminate the switch.
+         * <!-- end-user-doc -->
+         * @param object the target of the switch.
+         * @return the result of interpreting the object as an instance of '<em>Mapped Attribute</em>'.
+         * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+         * @generated
+         */
+        public T caseMappedAttribute(MappedAttribute object) {
                 return null;
         }
 

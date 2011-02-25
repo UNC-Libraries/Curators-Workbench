@@ -114,6 +114,8 @@ public class CrosswalkFactoryImpl extends EFactoryImpl implements CrosswalkFacto
                         case CrosswalkPackage.TEXT: return createText();
                         case CrosswalkPackage.ACCESS_CONDITION: return createAccessCondition();
                         case CrosswalkPackage.DELIMITED_FILE: return createDelimitedFile();
+                        case CrosswalkPackage.MAPPED_ELEMENT: return createMappedElement();
+                        case CrosswalkPackage.MAPPED_ATTRIBUTE: return createMappedAttribute();
                         default:
                                 throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
                 }
@@ -369,6 +371,26 @@ public class CrosswalkFactoryImpl extends EFactoryImpl implements CrosswalkFacto
         public DelimitedFile createDelimitedFile() {
                 DelimitedFileImpl delimitedFile = new DelimitedFileImpl();
                 return delimitedFile;
+        }
+
+/**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        public MappedElement createMappedElement() {
+                MappedElementImpl mappedElement = new MappedElementImpl();
+                return mappedElement;
+        }
+
+/**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        public MappedAttribute createMappedAttribute() {
+                MappedAttributeImpl mappedAttribute = new MappedAttributeImpl();
+                return mappedAttribute;
         }
 
 /**

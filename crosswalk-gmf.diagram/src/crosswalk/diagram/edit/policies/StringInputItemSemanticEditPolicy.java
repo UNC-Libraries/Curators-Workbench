@@ -45,7 +45,7 @@ public class StringInputItemSemanticEditPolicy extends CrosswalkBaseItemSemantic
      * @generated
      */
     public StringInputItemSemanticEditPolicy() {
-	super(CrosswalkElementTypes.StringInput_3008);
+	super(CrosswalkElementTypes.StringInput_3002);
     }
 
     /**
@@ -90,7 +90,7 @@ public class StringInputItemSemanticEditPolicy extends CrosswalkBaseItemSemantic
      * @generated
      */
     protected Command getStartCreateRelationshipCommand(CreateRelationshipRequest req) {
-	if (CrosswalkElementTypes.StringInputInput_4009 == req.getElementType()) {
+	if (CrosswalkElementTypes.StringInputInput_4001 == req.getElementType()) {
 	    return getGEFWrapper(new StringInputInputCreateCommand(req, req.getSource(), req.getTarget()));
 	}
 	return null;
@@ -100,7 +100,7 @@ public class StringInputItemSemanticEditPolicy extends CrosswalkBaseItemSemantic
      * @generated
      */
     protected Command getCompleteCreateRelationshipCommand(CreateRelationshipRequest req) {
-	if (CrosswalkElementTypes.StringInputInput_4009 == req.getElementType()) {
+	if (CrosswalkElementTypes.StringInputInput_4001 == req.getElementType()) {
 	    return null;
 	}
 	return null;

@@ -30,7 +30,7 @@ public class StringInputInputItemSemanticEditPolicy extends CrosswalkBaseItemSem
      * @generated
      */
     public StringInputInputItemSemanticEditPolicy() {
-	super(CrosswalkElementTypes.StringInputInput_4009);
+	super(CrosswalkElementTypes.StringInputInput_4001);
     }
 
     /**

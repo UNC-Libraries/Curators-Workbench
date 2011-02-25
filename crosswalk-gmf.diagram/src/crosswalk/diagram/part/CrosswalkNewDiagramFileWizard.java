@@ -90,7 +90,8 @@ public class CrosswalkNewDiagramFileWizard extends Wizard {
 	    throw new IllegalArgumentException("Unsupported URI: " + domainModelURI); //$NON-NLS-1$
 	}
 	myFileCreationPage.setContainerFullPath(filePath);
-	myFileCreationPage.setFileName(CrosswalkDiagramEditorUtil.getUniqueFileName(filePath, fileName, "crosswalk")); //$NON-NLS-1$
+	myFileCreationPage.setFileName(CrosswalkDiagramEditorUtil.getUniqueFileName(filePath, fileName,
+			"crosswalk_diagram")); //$NON-NLS-1$
 
 	diagramRootElementSelectionPage = new DiagramRootElementSelectionPage(
 			Messages.CrosswalkNewDiagramFileWizard_RootSelectionPageName);
@@ -135,7 +136,6 @@ public class CrosswalkNewDiagramFileWizard extends Wizard {
 		Diagram diagram = ViewService.createDiagram(diagramRootElementSelectionPage.getModelElement(),
 				CrossWalkEditPart.MODEL_ID, CrosswalkDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT);
 		diagramResource.getContents().add(diagram);
-		diagramResource.getContents().add(diagram.getElement());
 		return CommandResult.newOKCommandResult();
 	    }
 	};

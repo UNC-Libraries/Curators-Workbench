@@ -36,7 +36,7 @@ public class NameOutputElementInputsCompartmentEditPart extends ListCompartmentE
     /**
      * @generated
      */
-    public static final int VISUAL_ID = 7006;
+    public static final int VISUAL_ID = 7007;
 
     /**
      * @generated

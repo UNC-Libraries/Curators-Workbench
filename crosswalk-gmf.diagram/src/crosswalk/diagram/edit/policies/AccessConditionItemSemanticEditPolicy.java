@@ -45,7 +45,7 @@ public class AccessConditionItemSemanticEditPolicy extends CrosswalkBaseItemSema
      * @generated
      */
     public AccessConditionItemSemanticEditPolicy() {
-	super(CrosswalkElementTypes.AccessCondition_2016);
+	super(CrosswalkElementTypes.AccessCondition_2012);
     }
 
     /**

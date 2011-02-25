@@ -55,7 +55,7 @@ public class DelimitedFileSourceFileEditPart extends CompartmentEditPart impleme
     /**
      * @generated
      */
-    public static final int VISUAL_ID = 5039;
+    public static final int VISUAL_ID = 5003;
 
     /**
      * @generated
@@ -279,7 +279,7 @@ public class DelimitedFileSourceFileEditPart extends CompartmentEditPart impleme
     public IParser getParser() {
 	if (parser == null) {
 	    parser = CrosswalkParserProvider
-			    .getParser(CrosswalkElementTypes.DelimitedFile_2020,
+			    .getParser(CrosswalkElementTypes.DelimitedFile_2001,
 					    getParserElement(),
 					    CrosswalkVisualIDRegistry
 							    .getType(crosswalk.diagram.edit.parts.DelimitedFileSourceFileEditPart.VISUAL_ID));

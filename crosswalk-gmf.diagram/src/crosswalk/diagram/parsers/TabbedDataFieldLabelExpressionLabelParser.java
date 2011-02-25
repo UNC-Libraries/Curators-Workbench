@@ -76,8 +76,7 @@ public class TabbedDataFieldLabelExpressionLabelParser implements IParser {
 	}
 	IFile affectedFile = WorkspaceSynchronizer.getFile(target.eResource());
 	return new AbstractTransactionalCommand(editingDomain,
-			"Set Values", affectedFile == null ? null : Collections.singletonList(affectedFile)) { //$NON-NLS-1$
-	    @Override
+			"Set Values", affectedFile == null ? null : Collections.singletonList(affectedFile)) { //$NON-NLS-1$ 
 	    protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info)
 			    throws ExecutionException {
 		return new CommandResult(updateValues(target, newString));
@@ -97,7 +96,7 @@ public class TabbedDataFieldLabelExpressionLabelParser implements IParser {
      */
     public boolean isAffectingEvent(Object event, int flags) {
 	// XXX Any event is recognized as important, unless there's a way to extract this information from expression itself.
-	// TODO analyze expressions (e.g. using OCL parser) to find out structural features in use
+	// TODO analyze expressions (e.g. using OCL parser) to find out structural features in use  
 	return true;
     }
 
@@ -133,7 +132,7 @@ public class TabbedDataFieldLabelExpressionLabelParser implements IParser {
 	    TabbedDataField tdf = (TabbedDataField) self;
 	    try {
 		String r = tdf.getResultString();
-		if(r == null || r.trim().length() == 0) {
+		if (r == null || r.trim().length() == 0) {
 		    return "";
 		}
 		if (r.length() > 50) {

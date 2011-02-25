@@ -87,7 +87,7 @@ public class StringInputInputReorientCommand extends EditElementCommand {
 	if (!(oldEnd instanceof StringGenerator && newEnd instanceof StringInput)) {
 	    return false;
 	}
-	return CrosswalkBaseItemSemanticEditPolicy.getLinkConstraints().canExistStringInputInput_4009(getNewSource(),
+	return CrosswalkBaseItemSemanticEditPolicy.getLinkConstraints().canExistStringInputInput_4001(getNewSource(),
 			getOldTarget());
     }
 
@@ -98,7 +98,7 @@ public class StringInputInputReorientCommand extends EditElementCommand {
 	if (!(oldEnd instanceof StringGenerator && newEnd instanceof StringGenerator)) {
 	    return false;
 	}
-	return CrosswalkBaseItemSemanticEditPolicy.getLinkConstraints().canExistStringInputInput_4009(getOldSource(),
+	return CrosswalkBaseItemSemanticEditPolicy.getLinkConstraints().canExistStringInputInput_4001(getOldSource(),
 			getNewTarget());
     }
 

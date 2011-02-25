@@ -18,6 +18,7 @@ package crosswalk;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.emf.common.util.EList;
 
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -31,6 +32,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link crosswalk.CrossWalk#getDataSource <em>Data Source</em>}</li>
  *   <li>{@link crosswalk.CrossWalk#getWidgets <em>Widgets</em>}</li>
  *   <li>{@link crosswalk.CrossWalk#getElements <em>Elements</em>}</li>
+ *   <li>{@link crosswalk.CrossWalk#getOutputType <em>Output Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -102,6 +104,32 @@ public interface CrossWalk extends EObject {
          * @generated
          */
         EList<OutputElement> getElements();
+
+        /**
+         * Returns the value of the '<em><b>Output Type</b></em>' reference.
+         * <!-- begin-user-doc -->
+         * <p>
+         * If the meaning of the '<em>Output Type</em>' reference isn't clear,
+         * there really should be more of a description here...
+         * </p>
+         * <!-- end-user-doc -->
+         * @return the value of the '<em>Output Type</em>' reference.
+         * @see #setOutputType(EClass)
+         * @see crosswalk.CrosswalkPackage#getCrossWalk_OutputType()
+         * @model required="true"
+         * @generated
+         */
+        EClass getOutputType();
+
+        /**
+         * Sets the value of the '{@link crosswalk.CrossWalk#getOutputType <em>Output Type</em>}' reference.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @param value the new value of the '<em>Output Type</em>' reference.
+         * @see #getOutputType()
+         * @generated
+         */
+        void setOutputType(EClass value);
 
         /**
          * <!-- begin-user-doc -->

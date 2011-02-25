@@ -61,7 +61,7 @@ public class TypeOfResourceOutputElementInputsCompartmentCanonicalEditPolicy ext
 	View viewObject = (View) getHost().getModel();
 	LinkedList<EObject> result = new LinkedList<EObject>();
 	List<CrosswalkNodeDescriptor> childDescriptors = CrosswalkDiagramUpdater
-			.getTypeOfResourceOutputElementInputsCompartment_7008SemanticChildren(viewObject);
+			.getTypeOfResourceOutputElementInputsCompartment_7009SemanticChildren(viewObject);
 	for (CrosswalkNodeDescriptor d : childDescriptors) {
 	    result.add(d.getModelElement());
 	}
@@ -91,7 +91,7 @@ public class TypeOfResourceOutputElementInputsCompartmentCanonicalEditPolicy ext
 	}
 	LinkedList<IAdaptable> createdViews = new LinkedList<IAdaptable>();
 	List<CrosswalkNodeDescriptor> childDescriptors = CrosswalkDiagramUpdater
-			.getTypeOfResourceOutputElementInputsCompartment_7008SemanticChildren((View) getHost()
+			.getTypeOfResourceOutputElementInputsCompartment_7009SemanticChildren((View) getHost()
 					.getModel());
 	LinkedList<View> orphaned = new LinkedList<View>();
 	// we care to check only views we recognize as ours

@@ -58,7 +58,7 @@ public class OriginalNameRecordMatcherEditPart extends ShapeNodeEditPart {
     /**
      * @generated
      */
-    public static final int VISUAL_ID = 2014;
+    public static final int VISUAL_ID = 2010;
 
     /**
      * @generated
@@ -126,14 +126,14 @@ public class OriginalNameRecordMatcherEditPart extends ShapeNodeEditPart {
      * @generated
      */
     protected boolean addFixedChild(EditPart childEditPart) {
-	if (childEditPart instanceof WrappingLabel2EditPart) {
-	    ((WrappingLabel2EditPart) childEditPart).setLabel(getPrimaryShape().getFigureOutputElementLabelFigure());
+	if (childEditPart instanceof WrappingLabel9EditPart) {
+	    ((WrappingLabel9EditPart) childEditPart).setLabel(getPrimaryShape().getFigureOutputElementLabelFigure());
 	    return true;
 	}
-	if (childEditPart instanceof OriginalNameRecordMatcherOutputElementInputsCompartmentEditPart) {
+	if (childEditPart instanceof OriginalNameRecordMatcherRecordMatcherInputsCompartmentEditPart) {
 	    IFigure pane = getPrimaryShape().getContentPane();
 	    setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
-	    pane.add(((OriginalNameRecordMatcherOutputElementInputsCompartmentEditPart) childEditPart).getFigure());
+	    pane.add(((OriginalNameRecordMatcherRecordMatcherInputsCompartmentEditPart) childEditPart).getFigure());
 	    return true;
 	}
 	return false;
@@ -143,13 +143,13 @@ public class OriginalNameRecordMatcherEditPart extends ShapeNodeEditPart {
      * @generated
      */
     protected boolean removeFixedChild(EditPart childEditPart) {
-	if (childEditPart instanceof WrappingLabel2EditPart) {
+	if (childEditPart instanceof WrappingLabel9EditPart) {
 	    return true;
 	}
-	if (childEditPart instanceof OriginalNameRecordMatcherOutputElementInputsCompartmentEditPart) {
+	if (childEditPart instanceof OriginalNameRecordMatcherRecordMatcherInputsCompartmentEditPart) {
 	    IFigure pane = getPrimaryShape().getContentPane();
 	    setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
-	    pane.remove(((OriginalNameRecordMatcherOutputElementInputsCompartmentEditPart) childEditPart).getFigure());
+	    pane.remove(((OriginalNameRecordMatcherRecordMatcherInputsCompartmentEditPart) childEditPart).getFigure());
 	    return true;
 	}
 	return false;
@@ -179,7 +179,7 @@ public class OriginalNameRecordMatcherEditPart extends ShapeNodeEditPart {
      * @generated
      */
     protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
-	if (editPart instanceof OriginalNameRecordMatcherOutputElementInputsCompartmentEditPart) {
+	if (editPart instanceof OriginalNameRecordMatcherRecordMatcherInputsCompartmentEditPart) {
 	    return getPrimaryShape().getContentPane();
 	}
 	return getContentPane();
@@ -275,7 +275,7 @@ public class OriginalNameRecordMatcherEditPart extends ShapeNodeEditPart {
      * @generated
      */
     public EditPart getPrimaryChildEditPart() {
-	return getChildBySemanticHint(CrosswalkVisualIDRegistry.getType(WrappingLabel2EditPart.VISUAL_ID));
+	return getChildBySemanticHint(CrosswalkVisualIDRegistry.getType(WrappingLabel9EditPart.VISUAL_ID));
     }
 
     /**
@@ -286,9 +286,9 @@ public class OriginalNameRecordMatcherEditPart extends ShapeNodeEditPart {
 	    CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request).getViewAndElementDescriptor()
 			    .getCreateElementRequestAdapter();
 	    IElementType type = (IElementType) adapter.getAdapter(IElementType.class);
-	    if (type == CrosswalkElementTypes.StringInput_3018) {
+	    if (type == CrosswalkElementTypes.StringInput_3010) {
 		return getChildBySemanticHint(CrosswalkVisualIDRegistry
-				.getType(OriginalNameRecordMatcherOutputElementInputsCompartmentEditPart.VISUAL_ID));
+				.getType(OriginalNameRecordMatcherRecordMatcherInputsCompartmentEditPart.VISUAL_ID));
 	    }
 	}
 	return super.getTargetEditPart(request);

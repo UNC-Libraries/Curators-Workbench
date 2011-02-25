@@ -55,6 +55,8 @@ public class CrosswalkPaletteFactory {
 	paletteContainer.add(createOriginalNameMatcher4CreationTool());
 	paletteContainer.add(createDateRecognizer5CreationTool());
 	paletteContainer.add(createText6CreationTool());
+	paletteContainer.add(createXMLElement7CreationTool());
+	paletteContainer.add(createXMLAttribute8CreationTool());
 	return paletteContainer;
     }
 
@@ -63,12 +65,12 @@ public class CrosswalkPaletteFactory {
      */
     private ToolEntry createInputConnector1CreationTool() {
 	ArrayList<IElementType> types = new ArrayList<IElementType>(2);
-	types.add(CrosswalkElementTypes.StringInputInput_4009);
-	types.add(CrosswalkElementTypes.DateInputInput_4010);
+	types.add(CrosswalkElementTypes.StringInputInput_4001);
+	types.add(CrosswalkElementTypes.DateInputInput_4002);
 	LinkToolEntry entry = new LinkToolEntry(Messages.InputConnector1CreationTool_title,
 			Messages.InputConnector1CreationTool_desc, types);
 	entry.setId("createInputConnector1CreationTool"); //$NON-NLS-1$
-	entry.setSmallIcon(CrosswalkElementTypes.getImageDescriptor(CrosswalkElementTypes.StringInputInput_4009));
+	entry.setSmallIcon(CrosswalkElementTypes.getImageDescriptor(CrosswalkElementTypes.StringInputInput_4001));
 	entry.setLargeIcon(entry.getSmallIcon());
 	return entry;
     }
@@ -78,20 +80,20 @@ public class CrosswalkPaletteFactory {
      */
     private ToolEntry createMODSElement2CreationTool() {
 	ArrayList<IElementType> types = new ArrayList<IElementType>(10);
-	types.add(CrosswalkElementTypes.TitleInfo_2005);
-	types.add(CrosswalkElementTypes.Abstract_2007);
-	types.add(CrosswalkElementTypes.Genre_2008);
-	types.add(CrosswalkElementTypes.Identifier_2009);
-	types.add(CrosswalkElementTypes.Language_2010);
-	types.add(CrosswalkElementTypes.Name_2011);
-	types.add(CrosswalkElementTypes.Subject_2012);
-	types.add(CrosswalkElementTypes.TypeOfResource_2013);
-	types.add(CrosswalkElementTypes.DateCreated_2015);
-	types.add(CrosswalkElementTypes.AccessCondition_2016);
+	types.add(CrosswalkElementTypes.TitleInfo_2002);
+	types.add(CrosswalkElementTypes.Abstract_2003);
+	types.add(CrosswalkElementTypes.Genre_2004);
+	types.add(CrosswalkElementTypes.Identifier_2005);
+	types.add(CrosswalkElementTypes.Language_2006);
+	types.add(CrosswalkElementTypes.Name_2007);
+	types.add(CrosswalkElementTypes.Subject_2008);
+	types.add(CrosswalkElementTypes.TypeOfResource_2009);
+	types.add(CrosswalkElementTypes.DateCreated_2011);
+	types.add(CrosswalkElementTypes.AccessCondition_2012);
 	NodeToolEntry entry = new NodeToolEntry(Messages.MODSElement2CreationTool_title,
 			Messages.MODSElement2CreationTool_desc, types);
 	entry.setId("createMODSElement2CreationTool"); //$NON-NLS-1$
-	entry.setSmallIcon(CrosswalkElementTypes.getImageDescriptor(CrosswalkElementTypes.TitleInfo_2005));
+	entry.setSmallIcon(CrosswalkElementTypes.getImageDescriptor(CrosswalkElementTypes.TitleInfo_2002));
 	entry.setLargeIcon(entry.getSmallIcon());
 	return entry;
     }
@@ -102,9 +104,9 @@ public class CrosswalkPaletteFactory {
     private ToolEntry createNormalizeWhitespace3CreationTool() {
 	NodeToolEntry entry = new NodeToolEntry(Messages.NormalizeWhitespace3CreationTool_title,
 			Messages.NormalizeWhitespace3CreationTool_desc,
-			Collections.singletonList(CrosswalkElementTypes.TrimWhitespace_2019));
+			Collections.singletonList(CrosswalkElementTypes.TrimWhitespace_2015));
 	entry.setId("createNormalizeWhitespace3CreationTool"); //$NON-NLS-1$
-	entry.setSmallIcon(CrosswalkElementTypes.getImageDescriptor(CrosswalkElementTypes.TrimWhitespace_2019));
+	entry.setSmallIcon(CrosswalkElementTypes.getImageDescriptor(CrosswalkElementTypes.TrimWhitespace_2015));
 	entry.setLargeIcon(entry.getSmallIcon());
 	return entry;
     }
@@ -115,10 +117,10 @@ public class CrosswalkPaletteFactory {
     private ToolEntry createOriginalNameMatcher4CreationTool() {
 	NodeToolEntry entry = new NodeToolEntry(Messages.OriginalNameMatcher4CreationTool_title,
 			Messages.OriginalNameMatcher4CreationTool_desc,
-			Collections.singletonList(CrosswalkElementTypes.OriginalNameRecordMatcher_2014));
+			Collections.singletonList(CrosswalkElementTypes.OriginalNameRecordMatcher_2010));
 	entry.setId("createOriginalNameMatcher4CreationTool"); //$NON-NLS-1$
 	entry.setSmallIcon(CrosswalkElementTypes
-			.getImageDescriptor(CrosswalkElementTypes.OriginalNameRecordMatcher_2014));
+			.getImageDescriptor(CrosswalkElementTypes.OriginalNameRecordMatcher_2010));
 	entry.setLargeIcon(entry.getSmallIcon());
 	return entry;
     }
@@ -129,9 +131,9 @@ public class CrosswalkPaletteFactory {
     private ToolEntry createDateRecognizer5CreationTool() {
 	NodeToolEntry entry = new NodeToolEntry(Messages.DateRecognizer5CreationTool_title,
 			Messages.DateRecognizer5CreationTool_desc,
-			Collections.singletonList(CrosswalkElementTypes.DateRecognizer_2017));
+			Collections.singletonList(CrosswalkElementTypes.DateRecognizer_2013));
 	entry.setId("createDateRecognizer5CreationTool"); //$NON-NLS-1$
-	entry.setSmallIcon(CrosswalkElementTypes.getImageDescriptor(CrosswalkElementTypes.DateRecognizer_2017));
+	entry.setSmallIcon(CrosswalkElementTypes.getImageDescriptor(CrosswalkElementTypes.DateRecognizer_2013));
 	entry.setLargeIcon(entry.getSmallIcon());
 	return entry;
     }
@@ -141,9 +143,37 @@ public class CrosswalkPaletteFactory {
      */
     private ToolEntry createText6CreationTool() {
 	NodeToolEntry entry = new NodeToolEntry(Messages.Text6CreationTool_title, Messages.Text6CreationTool_desc,
-			Collections.singletonList(CrosswalkElementTypes.Text_2018));
+			Collections.singletonList(CrosswalkElementTypes.Text_2014));
 	entry.setId("createText6CreationTool"); //$NON-NLS-1$
-	entry.setSmallIcon(CrosswalkElementTypes.getImageDescriptor(CrosswalkElementTypes.Text_2018));
+	entry.setSmallIcon(CrosswalkElementTypes.getImageDescriptor(CrosswalkElementTypes.Text_2014));
+	entry.setLargeIcon(entry.getSmallIcon());
+	return entry;
+    }
+
+    /**
+     * @generated
+     */
+    private ToolEntry createXMLElement7CreationTool() {
+	ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+	types.add(CrosswalkElementTypes.MappedElement_2016);
+	types.add(CrosswalkElementTypes.MappedElement_3015);
+	NodeToolEntry entry = new NodeToolEntry(Messages.XMLElement7CreationTool_title,
+			Messages.XMLElement7CreationTool_desc, types);
+	entry.setId("createXMLElement7CreationTool"); //$NON-NLS-1$
+	entry.setSmallIcon(CrosswalkElementTypes.getImageDescriptor(CrosswalkElementTypes.MappedElement_2016));
+	entry.setLargeIcon(entry.getSmallIcon());
+	return entry;
+    }
+
+    /**
+     * @generated
+     */
+    private ToolEntry createXMLAttribute8CreationTool() {
+	NodeToolEntry entry = new NodeToolEntry(Messages.XMLAttribute8CreationTool_title,
+			Messages.XMLAttribute8CreationTool_desc,
+			Collections.singletonList(CrosswalkElementTypes.MappedAttribute_3016));
+	entry.setId("createXMLAttribute8CreationTool"); //$NON-NLS-1$
+	entry.setSmallIcon(CrosswalkElementTypes.getImageDescriptor(CrosswalkElementTypes.MappedAttribute_3016));
 	entry.setLargeIcon(entry.getSmallIcon());
 	return entry;
     }
@@ -169,6 +199,7 @@ public class CrosswalkPaletteFactory {
 	/**
 	 * @generated
 	 */
+	@Override
 	public Tool createTool() {
 	    Tool tool = new UnspecifiedTypeCreationTool(elementTypes);
 	    tool.setProperties(getToolProperties());
@@ -197,6 +228,7 @@ public class CrosswalkPaletteFactory {
 	/**
 	 * @generated
 	 */
+	@Override
 	public Tool createTool() {
 	    Tool tool = new UnspecifiedTypeConnectionTool(relationshipTypes);
 	    tool.setProperties(getToolProperties());

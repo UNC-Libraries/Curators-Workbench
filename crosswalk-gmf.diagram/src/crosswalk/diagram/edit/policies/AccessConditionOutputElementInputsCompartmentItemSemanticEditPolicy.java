@@ -31,14 +31,14 @@ public class AccessConditionOutputElementInputsCompartmentItemSemanticEditPolicy
      * @generated
      */
     public AccessConditionOutputElementInputsCompartmentItemSemanticEditPolicy() {
-	super(CrosswalkElementTypes.AccessCondition_2016);
+	super(CrosswalkElementTypes.AccessCondition_2012);
     }
 
     /**
      * @generated
      */
     protected Command getCreateCommand(CreateElementRequest req) {
-	if (CrosswalkElementTypes.StringInput_3020 == req.getElementType()) {
+	if (CrosswalkElementTypes.StringInput_3012 == req.getElementType()) {
 	    return getGEFWrapper(new StringInput10CreateCommand(req));
 	}
 	return super.getCreateCommand(req);

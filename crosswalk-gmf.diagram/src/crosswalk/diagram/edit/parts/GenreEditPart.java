@@ -60,7 +60,7 @@ public class GenreEditPart extends ShapeNodeEditPart {
     /**
      * @generated
      */
-    public static final int VISUAL_ID = 2008;
+    public static final int VISUAL_ID = 2004;
 
     /**
      * @generated
@@ -131,8 +131,8 @@ public class GenreEditPart extends ShapeNodeEditPart {
      * @generated
      */
     protected boolean addFixedChild(EditPart childEditPart) {
-	if (childEditPart instanceof WrappingLabel5EditPart) {
-	    ((WrappingLabel5EditPart) childEditPart).setLabel(getPrimaryShape().getFigureOutputElementLabelFigure());
+	if (childEditPart instanceof WrappingLabel3EditPart) {
+	    ((WrappingLabel3EditPart) childEditPart).setLabel(getPrimaryShape().getFigureOutputElementLabelFigure());
 	    return true;
 	}
 	if (childEditPart instanceof GenreOutputElementInputsCompartmentEditPart) {
@@ -148,7 +148,7 @@ public class GenreEditPart extends ShapeNodeEditPart {
      * @generated
      */
     protected boolean removeFixedChild(EditPart childEditPart) {
-	if (childEditPart instanceof WrappingLabel5EditPart) {
+	if (childEditPart instanceof WrappingLabel3EditPart) {
 	    return true;
 	}
 	if (childEditPart instanceof GenreOutputElementInputsCompartmentEditPart) {
@@ -280,7 +280,7 @@ public class GenreEditPart extends ShapeNodeEditPart {
      * @generated
      */
     public EditPart getPrimaryChildEditPart() {
-	return getChildBySemanticHint(CrosswalkVisualIDRegistry.getType(WrappingLabel5EditPart.VISUAL_ID));
+	return getChildBySemanticHint(CrosswalkVisualIDRegistry.getType(WrappingLabel3EditPart.VISUAL_ID));
     }
 
     /**
@@ -291,7 +291,7 @@ public class GenreEditPart extends ShapeNodeEditPart {
 	    CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request).getViewAndElementDescriptor()
 			    .getCreateElementRequestAdapter();
 	    IElementType type = (IElementType) adapter.getAdapter(IElementType.class);
-	    if (type == CrosswalkElementTypes.StringInput_3011) {
+	    if (type == CrosswalkElementTypes.StringInput_3004) {
 		return getChildBySemanticHint(CrosswalkVisualIDRegistry
 				.getType(GenreOutputElementInputsCompartmentEditPart.VISUAL_ID));
 	    }

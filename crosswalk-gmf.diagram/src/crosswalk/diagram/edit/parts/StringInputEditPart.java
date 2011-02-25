@@ -55,7 +55,7 @@ public class StringInputEditPart extends ShapeNodeEditPart {
     /**
      * @generated
      */
-    public static final int VISUAL_ID = 3008;
+    public static final int VISUAL_ID = 3002;
 
     /**
      * @generated
@@ -122,8 +122,8 @@ public class StringInputEditPart extends ShapeNodeEditPart {
      * @generated
      */
     protected boolean addFixedChild(EditPart childEditPart) {
-	if (childEditPart instanceof WrappingLabelEditPart) {
-	    ((WrappingLabelEditPart) childEditPart).setLabel(getPrimaryShape().getFigureInputLabel());
+	if (childEditPart instanceof StringInputNameEditPart) {
+	    ((StringInputNameEditPart) childEditPart).setLabel(getPrimaryShape().getFigureInputLabel());
 	    return true;
 	}
 	return false;
@@ -133,7 +133,7 @@ public class StringInputEditPart extends ShapeNodeEditPart {
      * @generated
      */
     protected boolean removeFixedChild(EditPart childEditPart) {
-	if (childEditPart instanceof WrappingLabelEditPart) {
+	if (childEditPart instanceof StringInputNameEditPart) {
 	    return true;
 	}
 	return false;
@@ -256,7 +256,7 @@ public class StringInputEditPart extends ShapeNodeEditPart {
      * @generated
      */
     public EditPart getPrimaryChildEditPart() {
-	return getChildBySemanticHint(CrosswalkVisualIDRegistry.getType(WrappingLabelEditPart.VISUAL_ID));
+	return getChildBySemanticHint(CrosswalkVisualIDRegistry.getType(StringInputNameEditPart.VISUAL_ID));
     }
 
     /**
@@ -264,7 +264,7 @@ public class StringInputEditPart extends ShapeNodeEditPart {
      */
     public List<IElementType> getMARelTypesOnSource() {
 	ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-	types.add(CrosswalkElementTypes.StringInputInput_4009);
+	types.add(CrosswalkElementTypes.StringInputInput_4001);
 	return types;
     }
 
@@ -274,13 +274,13 @@ public class StringInputEditPart extends ShapeNodeEditPart {
     public List<IElementType> getMARelTypesOnSourceAndTarget(IGraphicalEditPart targetEditPart) {
 	LinkedList<IElementType> types = new LinkedList<IElementType>();
 	if (targetEditPart instanceof TextEditPart) {
-	    types.add(CrosswalkElementTypes.StringInputInput_4009);
+	    types.add(CrosswalkElementTypes.StringInputInput_4001);
 	}
 	if (targetEditPart instanceof TrimWhitespaceEditPart) {
-	    types.add(CrosswalkElementTypes.StringInputInput_4009);
+	    types.add(CrosswalkElementTypes.StringInputInput_4001);
 	}
 	if (targetEditPart instanceof TabbedDataFieldEditPart) {
-	    types.add(CrosswalkElementTypes.StringInputInput_4009);
+	    types.add(CrosswalkElementTypes.StringInputInput_4001);
 	}
 	return types;
     }
@@ -290,10 +290,10 @@ public class StringInputEditPart extends ShapeNodeEditPart {
      */
     public List<IElementType> getMATypesForTarget(IElementType relationshipType) {
 	LinkedList<IElementType> types = new LinkedList<IElementType>();
-	if (relationshipType == CrosswalkElementTypes.StringInputInput_4009) {
-	    types.add(CrosswalkElementTypes.Text_2018);
-	    types.add(CrosswalkElementTypes.TrimWhitespace_2019);
-	    types.add(CrosswalkElementTypes.TabbedDataField_3017);
+	if (relationshipType == CrosswalkElementTypes.StringInputInput_4001) {
+	    types.add(CrosswalkElementTypes.Text_2014);
+	    types.add(CrosswalkElementTypes.TrimWhitespace_2015);
+	    types.add(CrosswalkElementTypes.TabbedDataField_3001);
 	}
 	return types;
     }
@@ -335,8 +335,8 @@ public class StringInputEditPart extends ShapeNodeEditPart {
 
 	    Ellipse stringInputEllipsis0 = new Ellipse();
 	    stringInputEllipsis0.setBackgroundColor(ColorConstants.red);
-	    stringInputEllipsis0.setPreferredSize(new Dimension(getMapMode().DPtoLP(10), getMapMode().DPtoLP(10)));
-	    stringInputEllipsis0.setMaximumSize(new Dimension(getMapMode().DPtoLP(10), getMapMode().DPtoLP(10)));
+	    stringInputEllipsis0.setPreferredSize(new Dimension(getMapMode().DPtoLP(15), getMapMode().DPtoLP(15)));
+	    stringInputEllipsis0.setMaximumSize(new Dimension(getMapMode().DPtoLP(15), getMapMode().DPtoLP(15)));
 
 	    this.add(stringInputEllipsis0);
 

@@ -45,7 +45,7 @@ public class AbstractItemSemanticEditPolicy extends CrosswalkBaseItemSemanticEdi
      * @generated
      */
     public AbstractItemSemanticEditPolicy() {
-	super(CrosswalkElementTypes.Abstract_2007);
+	super(CrosswalkElementTypes.Abstract_2003);
     }
 
     /**

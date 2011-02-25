@@ -87,7 +87,7 @@ public class DateInputInputReorientCommand extends EditElementCommand {
 	if (!(oldEnd instanceof DateGenerator && newEnd instanceof DateInput)) {
 	    return false;
 	}
-	return CrosswalkBaseItemSemanticEditPolicy.getLinkConstraints().canExistDateInputInput_4010(getNewSource(),
+	return CrosswalkBaseItemSemanticEditPolicy.getLinkConstraints().canExistDateInputInput_4002(getNewSource(),
 			getOldTarget());
     }
 
@@ -98,7 +98,7 @@ public class DateInputInputReorientCommand extends EditElementCommand {
 	if (!(oldEnd instanceof DateGenerator && newEnd instanceof DateGenerator)) {
 	    return false;
 	}
-	return CrosswalkBaseItemSemanticEditPolicy.getLinkConstraints().canExistDateInputInput_4010(getOldSource(),
+	return CrosswalkBaseItemSemanticEditPolicy.getLinkConstraints().canExistDateInputInput_4002(getOldSource(),
 			getNewTarget());
     }
 

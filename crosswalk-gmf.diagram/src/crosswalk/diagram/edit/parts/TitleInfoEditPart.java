@@ -60,7 +60,7 @@ public class TitleInfoEditPart extends ShapeNodeEditPart {
     /**
      * @generated
      */
-    public static final int VISUAL_ID = 2005;
+    public static final int VISUAL_ID = 2002;
 
     /**
      * @generated
@@ -131,14 +131,14 @@ public class TitleInfoEditPart extends ShapeNodeEditPart {
      * @generated
      */
     protected boolean addFixedChild(EditPart childEditPart) {
-	if (childEditPart instanceof WrappingLabel3EditPart) {
-	    ((WrappingLabel3EditPart) childEditPart).setLabel(getPrimaryShape().getFigureOutputElementLabelFigure());
+	if (childEditPart instanceof WrappingLabelEditPart) {
+	    ((WrappingLabelEditPart) childEditPart).setLabel(getPrimaryShape().getFigureOutputElementLabelFigure());
 	    return true;
 	}
-	if (childEditPart instanceof TitleInfoTitleInfoInputsCompartmentEditPart) {
+	if (childEditPart instanceof TitleInfoOutputElementInputsCompartmentEditPart) {
 	    IFigure pane = getPrimaryShape().getContentPane();
 	    setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
-	    pane.add(((TitleInfoTitleInfoInputsCompartmentEditPart) childEditPart).getFigure());
+	    pane.add(((TitleInfoOutputElementInputsCompartmentEditPart) childEditPart).getFigure());
 	    return true;
 	}
 	return false;
@@ -148,13 +148,13 @@ public class TitleInfoEditPart extends ShapeNodeEditPart {
      * @generated
      */
     protected boolean removeFixedChild(EditPart childEditPart) {
-	if (childEditPart instanceof WrappingLabel3EditPart) {
+	if (childEditPart instanceof WrappingLabelEditPart) {
 	    return true;
 	}
-	if (childEditPart instanceof TitleInfoTitleInfoInputsCompartmentEditPart) {
+	if (childEditPart instanceof TitleInfoOutputElementInputsCompartmentEditPart) {
 	    IFigure pane = getPrimaryShape().getContentPane();
 	    setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
-	    pane.remove(((TitleInfoTitleInfoInputsCompartmentEditPart) childEditPart).getFigure());
+	    pane.remove(((TitleInfoOutputElementInputsCompartmentEditPart) childEditPart).getFigure());
 	    return true;
 	}
 	return false;
@@ -184,7 +184,7 @@ public class TitleInfoEditPart extends ShapeNodeEditPart {
      * @generated
      */
     protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
-	if (editPart instanceof TitleInfoTitleInfoInputsCompartmentEditPart) {
+	if (editPart instanceof TitleInfoOutputElementInputsCompartmentEditPart) {
 	    return getPrimaryShape().getContentPane();
 	}
 	return getContentPane();
@@ -280,7 +280,7 @@ public class TitleInfoEditPart extends ShapeNodeEditPart {
      * @generated
      */
     public EditPart getPrimaryChildEditPart() {
-	return getChildBySemanticHint(CrosswalkVisualIDRegistry.getType(WrappingLabel3EditPart.VISUAL_ID));
+	return getChildBySemanticHint(CrosswalkVisualIDRegistry.getType(WrappingLabelEditPart.VISUAL_ID));
     }
 
     /**
@@ -291,9 +291,9 @@ public class TitleInfoEditPart extends ShapeNodeEditPart {
 	    CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request).getViewAndElementDescriptor()
 			    .getCreateElementRequestAdapter();
 	    IElementType type = (IElementType) adapter.getAdapter(IElementType.class);
-	    if (type == CrosswalkElementTypes.StringInput_3008) {
+	    if (type == CrosswalkElementTypes.StringInput_3002) {
 		return getChildBySemanticHint(CrosswalkVisualIDRegistry
-				.getType(TitleInfoTitleInfoInputsCompartmentEditPart.VISUAL_ID));
+				.getType(TitleInfoOutputElementInputsCompartmentEditPart.VISUAL_ID));
 	    }
 	}
 	return super.getTargetEditPart(request);

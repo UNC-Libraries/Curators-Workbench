@@ -61,7 +61,7 @@ public class GenreOutputElementInputsCompartmentCanonicalEditPolicy extends Cano
 	View viewObject = (View) getHost().getModel();
 	LinkedList<EObject> result = new LinkedList<EObject>();
 	List<CrosswalkNodeDescriptor> childDescriptors = CrosswalkDiagramUpdater
-			.getGenreOutputElementInputsCompartment_7003SemanticChildren(viewObject);
+			.getGenreOutputElementInputsCompartment_7004SemanticChildren(viewObject);
 	for (CrosswalkNodeDescriptor d : childDescriptors) {
 	    result.add(d.getModelElement());
 	}
@@ -91,7 +91,7 @@ public class GenreOutputElementInputsCompartmentCanonicalEditPolicy extends Cano
 	}
 	LinkedList<IAdaptable> createdViews = new LinkedList<IAdaptable>();
 	List<CrosswalkNodeDescriptor> childDescriptors = CrosswalkDiagramUpdater
-			.getGenreOutputElementInputsCompartment_7003SemanticChildren((View) getHost().getModel());
+			.getGenreOutputElementInputsCompartment_7004SemanticChildren((View) getHost().getModel());
 	LinkedList<View> orphaned = new LinkedList<View>();
 	// we care to check only views we recognize as ours
 	LinkedList<View> knownViewChildren = new LinkedList<View>();

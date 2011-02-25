@@ -30,14 +30,14 @@ public class GenreOutputElementInputsCompartmentItemSemanticEditPolicy extends C
      * @generated
      */
     public GenreOutputElementInputsCompartmentItemSemanticEditPolicy() {
-	super(CrosswalkElementTypes.Genre_2008);
+	super(CrosswalkElementTypes.Genre_2004);
     }
 
     /**
      * @generated
      */
     protected Command getCreateCommand(CreateElementRequest req) {
-	if (CrosswalkElementTypes.StringInput_3011 == req.getElementType()) {
+	if (CrosswalkElementTypes.StringInput_3004 == req.getElementType()) {
 	    return getGEFWrapper(new StringInput3CreateCommand(req));
 	}
 	return super.getCreateCommand(req);

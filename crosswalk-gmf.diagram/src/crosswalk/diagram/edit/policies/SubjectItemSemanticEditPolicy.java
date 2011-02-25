@@ -45,7 +45,7 @@ public class SubjectItemSemanticEditPolicy extends CrosswalkBaseItemSemanticEdit
      * @generated
      */
     public SubjectItemSemanticEditPolicy() {
-	super(CrosswalkElementTypes.Subject_2012);
+	super(CrosswalkElementTypes.Subject_2008);
     }
 
     /**

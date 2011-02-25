@@ -45,7 +45,7 @@ public class GenreItemSemanticEditPolicy extends CrosswalkBaseItemSemanticEditPo
      * @generated
      */
     public GenreItemSemanticEditPolicy() {
-	super(CrosswalkElementTypes.Genre_2008);
+	super(CrosswalkElementTypes.Genre_2004);
     }
 
     /**

@@ -224,6 +224,24 @@ public interface CrosswalkFactory extends EFactory {
         DelimitedFile createDelimitedFile();
 
         /**
+         * Returns a new object of class '<em>Mapped Element</em>'.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @return a new object of class '<em>Mapped Element</em>'.
+         * @generated
+         */
+        MappedElement createMappedElement();
+
+        /**
+         * Returns a new object of class '<em>Mapped Attribute</em>'.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @return a new object of class '<em>Mapped Attribute</em>'.
+         * @generated
+         */
+        MappedAttribute createMappedAttribute();
+
+        /**
          * Returns the package supported by this factory.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->

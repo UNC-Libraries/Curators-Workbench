@@ -57,11 +57,15 @@ import crosswalk.diagram.edit.parts.DelimitedFileEditPart;
 import crosswalk.diagram.edit.parts.GenreEditPart;
 import crosswalk.diagram.edit.parts.IdentifierEditPart;
 import crosswalk.diagram.edit.parts.LanguageEditPart;
+import crosswalk.diagram.edit.parts.MappedAttributeEditPart;
+import crosswalk.diagram.edit.parts.MappedElement2EditPart;
+import crosswalk.diagram.edit.parts.MappedElementEditPart;
 import crosswalk.diagram.edit.parts.NameEditPart;
 import crosswalk.diagram.edit.parts.OriginalNameRecordMatcherEditPart;
 import crosswalk.diagram.edit.parts.StringInput10EditPart;
 import crosswalk.diagram.edit.parts.StringInput11EditPart;
 import crosswalk.diagram.edit.parts.StringInput12EditPart;
+import crosswalk.diagram.edit.parts.StringInput13EditPart;
 import crosswalk.diagram.edit.parts.StringInput2EditPart;
 import crosswalk.diagram.edit.parts.StringInput3EditPart;
 import crosswalk.diagram.edit.parts.StringInput4EditPart;
@@ -151,6 +155,7 @@ public class CrossWalkCanonicalEditPolicy extends CanonicalEditPolicy {
 	case DateRecognizerEditPart.VISUAL_ID:
 	case TextEditPart.VISUAL_ID:
 	case TrimWhitespaceEditPart.VISUAL_ID:
+	case MappedElementEditPart.VISUAL_ID:
 	    return true;
 	}
 	return false;
@@ -178,7 +183,7 @@ public class CrossWalkCanonicalEditPolicy extends CanonicalEditPolicy {
 	// alternative to #cleanCanonicalSemanticChildren(getViewChildren(), semanticChildren)
 	//
 	// iteration happens over list of desired semantic elements, trying to find best matching View, while original CEP
-	// iterates views, potentially losing view (size/bounds) information - i.e. if there are few views to reference same EObject, only last one
+	// iterates views, potentially losing view (size/bounds) information - i.e. if there are few views to reference same EObject, only last one 
 	// to answer isOrphaned == true will be used for the domain element representation, see #cleanCanonicalSemanticChildren()
 	for (Iterator<CrosswalkNodeDescriptor> descriptorsIterator = childDescriptors.iterator(); descriptorsIterator
 			.hasNext();) {
@@ -300,7 +305,7 @@ public class CrossWalkCanonicalEditPolicy extends CanonicalEditPolicy {
 	}
 	case DelimitedFileEditPart.VISUAL_ID: {
 	    if (!domain2NotationMap.containsKey(view.getElement())) {
-		result.addAll(CrosswalkDiagramUpdater.getDelimitedFile_2020ContainedLinks(view));
+		result.addAll(CrosswalkDiagramUpdater.getDelimitedFile_2001ContainedLinks(view));
 	    }
 	    if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
 		domain2NotationMap.put(view.getElement(), view);
@@ -309,7 +314,7 @@ public class CrossWalkCanonicalEditPolicy extends CanonicalEditPolicy {
 	}
 	case TitleInfoEditPart.VISUAL_ID: {
 	    if (!domain2NotationMap.containsKey(view.getElement())) {
-		result.addAll(CrosswalkDiagramUpdater.getTitleInfo_2005ContainedLinks(view));
+		result.addAll(CrosswalkDiagramUpdater.getTitleInfo_2002ContainedLinks(view));
 	    }
 	    if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
 		domain2NotationMap.put(view.getElement(), view);
@@ -318,7 +323,7 @@ public class CrossWalkCanonicalEditPolicy extends CanonicalEditPolicy {
 	}
 	case AbstractEditPart.VISUAL_ID: {
 	    if (!domain2NotationMap.containsKey(view.getElement())) {
-		result.addAll(CrosswalkDiagramUpdater.getAbstract_2007ContainedLinks(view));
+		result.addAll(CrosswalkDiagramUpdater.getAbstract_2003ContainedLinks(view));
 	    }
 	    if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
 		domain2NotationMap.put(view.getElement(), view);
@@ -327,7 +332,7 @@ public class CrossWalkCanonicalEditPolicy extends CanonicalEditPolicy {
 	}
 	case GenreEditPart.VISUAL_ID: {
 	    if (!domain2NotationMap.containsKey(view.getElement())) {
-		result.addAll(CrosswalkDiagramUpdater.getGenre_2008ContainedLinks(view));
+		result.addAll(CrosswalkDiagramUpdater.getGenre_2004ContainedLinks(view));
 	    }
 	    if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
 		domain2NotationMap.put(view.getElement(), view);
@@ -336,7 +341,7 @@ public class CrossWalkCanonicalEditPolicy extends CanonicalEditPolicy {
 	}
 	case IdentifierEditPart.VISUAL_ID: {
 	    if (!domain2NotationMap.containsKey(view.getElement())) {
-		result.addAll(CrosswalkDiagramUpdater.getIdentifier_2009ContainedLinks(view));
+		result.addAll(CrosswalkDiagramUpdater.getIdentifier_2005ContainedLinks(view));
 	    }
 	    if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
 		domain2NotationMap.put(view.getElement(), view);
@@ -345,7 +350,7 @@ public class CrossWalkCanonicalEditPolicy extends CanonicalEditPolicy {
 	}
 	case LanguageEditPart.VISUAL_ID: {
 	    if (!domain2NotationMap.containsKey(view.getElement())) {
-		result.addAll(CrosswalkDiagramUpdater.getLanguage_2010ContainedLinks(view));
+		result.addAll(CrosswalkDiagramUpdater.getLanguage_2006ContainedLinks(view));
 	    }
 	    if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
 		domain2NotationMap.put(view.getElement(), view);
@@ -354,7 +359,7 @@ public class CrossWalkCanonicalEditPolicy extends CanonicalEditPolicy {
 	}
 	case NameEditPart.VISUAL_ID: {
 	    if (!domain2NotationMap.containsKey(view.getElement())) {
-		result.addAll(CrosswalkDiagramUpdater.getName_2011ContainedLinks(view));
+		result.addAll(CrosswalkDiagramUpdater.getName_2007ContainedLinks(view));
 	    }
 	    if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
 		domain2NotationMap.put(view.getElement(), view);
@@ -363,7 +368,7 @@ public class CrossWalkCanonicalEditPolicy extends CanonicalEditPolicy {
 	}
 	case SubjectEditPart.VISUAL_ID: {
 	    if (!domain2NotationMap.containsKey(view.getElement())) {
-		result.addAll(CrosswalkDiagramUpdater.getSubject_2012ContainedLinks(view));
+		result.addAll(CrosswalkDiagramUpdater.getSubject_2008ContainedLinks(view));
 	    }
 	    if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
 		domain2NotationMap.put(view.getElement(), view);
@@ -372,7 +377,7 @@ public class CrossWalkCanonicalEditPolicy extends CanonicalEditPolicy {
 	}
 	case TypeOfResourceEditPart.VISUAL_ID: {
 	    if (!domain2NotationMap.containsKey(view.getElement())) {
-		result.addAll(CrosswalkDiagramUpdater.getTypeOfResource_2013ContainedLinks(view));
+		result.addAll(CrosswalkDiagramUpdater.getTypeOfResource_2009ContainedLinks(view));
 	    }
 	    if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
 		domain2NotationMap.put(view.getElement(), view);
@@ -381,7 +386,7 @@ public class CrossWalkCanonicalEditPolicy extends CanonicalEditPolicy {
 	}
 	case OriginalNameRecordMatcherEditPart.VISUAL_ID: {
 	    if (!domain2NotationMap.containsKey(view.getElement())) {
-		result.addAll(CrosswalkDiagramUpdater.getOriginalNameRecordMatcher_2014ContainedLinks(view));
+		result.addAll(CrosswalkDiagramUpdater.getOriginalNameRecordMatcher_2010ContainedLinks(view));
 	    }
 	    if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
 		domain2NotationMap.put(view.getElement(), view);
@@ -390,7 +395,7 @@ public class CrossWalkCanonicalEditPolicy extends CanonicalEditPolicy {
 	}
 	case DateCreatedEditPart.VISUAL_ID: {
 	    if (!domain2NotationMap.containsKey(view.getElement())) {
-		result.addAll(CrosswalkDiagramUpdater.getDateCreated_2015ContainedLinks(view));
+		result.addAll(CrosswalkDiagramUpdater.getDateCreated_2011ContainedLinks(view));
 	    }
 	    if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
 		domain2NotationMap.put(view.getElement(), view);
@@ -399,7 +404,7 @@ public class CrossWalkCanonicalEditPolicy extends CanonicalEditPolicy {
 	}
 	case AccessConditionEditPart.VISUAL_ID: {
 	    if (!domain2NotationMap.containsKey(view.getElement())) {
-		result.addAll(CrosswalkDiagramUpdater.getAccessCondition_2016ContainedLinks(view));
+		result.addAll(CrosswalkDiagramUpdater.getAccessCondition_2012ContainedLinks(view));
 	    }
 	    if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
 		domain2NotationMap.put(view.getElement(), view);
@@ -408,7 +413,7 @@ public class CrossWalkCanonicalEditPolicy extends CanonicalEditPolicy {
 	}
 	case DateRecognizerEditPart.VISUAL_ID: {
 	    if (!domain2NotationMap.containsKey(view.getElement())) {
-		result.addAll(CrosswalkDiagramUpdater.getDateRecognizer_2017ContainedLinks(view));
+		result.addAll(CrosswalkDiagramUpdater.getDateRecognizer_2013ContainedLinks(view));
 	    }
 	    if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
 		domain2NotationMap.put(view.getElement(), view);
@@ -417,7 +422,7 @@ public class CrossWalkCanonicalEditPolicy extends CanonicalEditPolicy {
 	}
 	case TextEditPart.VISUAL_ID: {
 	    if (!domain2NotationMap.containsKey(view.getElement())) {
-		result.addAll(CrosswalkDiagramUpdater.getText_2018ContainedLinks(view));
+		result.addAll(CrosswalkDiagramUpdater.getText_2014ContainedLinks(view));
 	    }
 	    if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
 		domain2NotationMap.put(view.getElement(), view);
@@ -426,7 +431,16 @@ public class CrossWalkCanonicalEditPolicy extends CanonicalEditPolicy {
 	}
 	case TrimWhitespaceEditPart.VISUAL_ID: {
 	    if (!domain2NotationMap.containsKey(view.getElement())) {
-		result.addAll(CrosswalkDiagramUpdater.getTrimWhitespace_2019ContainedLinks(view));
+		result.addAll(CrosswalkDiagramUpdater.getTrimWhitespace_2015ContainedLinks(view));
+	    }
+	    if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+		domain2NotationMap.put(view.getElement(), view);
+	    }
+	    break;
+	}
+	case MappedElementEditPart.VISUAL_ID: {
+	    if (!domain2NotationMap.containsKey(view.getElement())) {
+		result.addAll(CrosswalkDiagramUpdater.getMappedElement_2016ContainedLinks(view));
 	    }
 	    if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
 		domain2NotationMap.put(view.getElement(), view);
@@ -435,7 +449,7 @@ public class CrossWalkCanonicalEditPolicy extends CanonicalEditPolicy {
 	}
 	case TabbedDataFieldEditPart.VISUAL_ID: {
 	    if (!domain2NotationMap.containsKey(view.getElement())) {
-		result.addAll(CrosswalkDiagramUpdater.getTabbedDataField_3017ContainedLinks(view));
+		result.addAll(CrosswalkDiagramUpdater.getTabbedDataField_3001ContainedLinks(view));
 	    }
 	    if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
 		domain2NotationMap.put(view.getElement(), view);
@@ -444,7 +458,7 @@ public class CrossWalkCanonicalEditPolicy extends CanonicalEditPolicy {
 	}
 	case StringInputEditPart.VISUAL_ID: {
 	    if (!domain2NotationMap.containsKey(view.getElement())) {
-		result.addAll(CrosswalkDiagramUpdater.getStringInput_3008ContainedLinks(view));
+		result.addAll(CrosswalkDiagramUpdater.getStringInput_3002ContainedLinks(view));
 	    }
 	    if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
 		domain2NotationMap.put(view.getElement(), view);
@@ -453,7 +467,7 @@ public class CrossWalkCanonicalEditPolicy extends CanonicalEditPolicy {
 	}
 	case StringInput2EditPart.VISUAL_ID: {
 	    if (!domain2NotationMap.containsKey(view.getElement())) {
-		result.addAll(CrosswalkDiagramUpdater.getStringInput_3010ContainedLinks(view));
+		result.addAll(CrosswalkDiagramUpdater.getStringInput_3003ContainedLinks(view));
 	    }
 	    if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
 		domain2NotationMap.put(view.getElement(), view);
@@ -462,7 +476,7 @@ public class CrossWalkCanonicalEditPolicy extends CanonicalEditPolicy {
 	}
 	case StringInput3EditPart.VISUAL_ID: {
 	    if (!domain2NotationMap.containsKey(view.getElement())) {
-		result.addAll(CrosswalkDiagramUpdater.getStringInput_3011ContainedLinks(view));
+		result.addAll(CrosswalkDiagramUpdater.getStringInput_3004ContainedLinks(view));
 	    }
 	    if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
 		domain2NotationMap.put(view.getElement(), view);
@@ -471,7 +485,7 @@ public class CrossWalkCanonicalEditPolicy extends CanonicalEditPolicy {
 	}
 	case StringInput4EditPart.VISUAL_ID: {
 	    if (!domain2NotationMap.containsKey(view.getElement())) {
-		result.addAll(CrosswalkDiagramUpdater.getStringInput_3012ContainedLinks(view));
+		result.addAll(CrosswalkDiagramUpdater.getStringInput_3005ContainedLinks(view));
 	    }
 	    if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
 		domain2NotationMap.put(view.getElement(), view);
@@ -480,7 +494,7 @@ public class CrossWalkCanonicalEditPolicy extends CanonicalEditPolicy {
 	}
 	case StringInput5EditPart.VISUAL_ID: {
 	    if (!domain2NotationMap.containsKey(view.getElement())) {
-		result.addAll(CrosswalkDiagramUpdater.getStringInput_3013ContainedLinks(view));
+		result.addAll(CrosswalkDiagramUpdater.getStringInput_3006ContainedLinks(view));
 	    }
 	    if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
 		domain2NotationMap.put(view.getElement(), view);
@@ -489,7 +503,7 @@ public class CrossWalkCanonicalEditPolicy extends CanonicalEditPolicy {
 	}
 	case StringInput6EditPart.VISUAL_ID: {
 	    if (!domain2NotationMap.containsKey(view.getElement())) {
-		result.addAll(CrosswalkDiagramUpdater.getStringInput_3014ContainedLinks(view));
+		result.addAll(CrosswalkDiagramUpdater.getStringInput_3007ContainedLinks(view));
 	    }
 	    if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
 		domain2NotationMap.put(view.getElement(), view);
@@ -498,7 +512,7 @@ public class CrossWalkCanonicalEditPolicy extends CanonicalEditPolicy {
 	}
 	case StringInput7EditPart.VISUAL_ID: {
 	    if (!domain2NotationMap.containsKey(view.getElement())) {
-		result.addAll(CrosswalkDiagramUpdater.getStringInput_3015ContainedLinks(view));
+		result.addAll(CrosswalkDiagramUpdater.getStringInput_3008ContainedLinks(view));
 	    }
 	    if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
 		domain2NotationMap.put(view.getElement(), view);
@@ -507,7 +521,7 @@ public class CrossWalkCanonicalEditPolicy extends CanonicalEditPolicy {
 	}
 	case StringInput8EditPart.VISUAL_ID: {
 	    if (!domain2NotationMap.containsKey(view.getElement())) {
-		result.addAll(CrosswalkDiagramUpdater.getStringInput_3016ContainedLinks(view));
+		result.addAll(CrosswalkDiagramUpdater.getStringInput_3009ContainedLinks(view));
 	    }
 	    if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
 		domain2NotationMap.put(view.getElement(), view);
@@ -516,7 +530,7 @@ public class CrossWalkCanonicalEditPolicy extends CanonicalEditPolicy {
 	}
 	case StringInput9EditPart.VISUAL_ID: {
 	    if (!domain2NotationMap.containsKey(view.getElement())) {
-		result.addAll(CrosswalkDiagramUpdater.getStringInput_3018ContainedLinks(view));
+		result.addAll(CrosswalkDiagramUpdater.getStringInput_3010ContainedLinks(view));
 	    }
 	    if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
 		domain2NotationMap.put(view.getElement(), view);
@@ -525,7 +539,7 @@ public class CrossWalkCanonicalEditPolicy extends CanonicalEditPolicy {
 	}
 	case DateInputEditPart.VISUAL_ID: {
 	    if (!domain2NotationMap.containsKey(view.getElement())) {
-		result.addAll(CrosswalkDiagramUpdater.getDateInput_3019ContainedLinks(view));
+		result.addAll(CrosswalkDiagramUpdater.getDateInput_3011ContainedLinks(view));
 	    }
 	    if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
 		domain2NotationMap.put(view.getElement(), view);
@@ -534,7 +548,7 @@ public class CrossWalkCanonicalEditPolicy extends CanonicalEditPolicy {
 	}
 	case StringInput10EditPart.VISUAL_ID: {
 	    if (!domain2NotationMap.containsKey(view.getElement())) {
-		result.addAll(CrosswalkDiagramUpdater.getStringInput_3020ContainedLinks(view));
+		result.addAll(CrosswalkDiagramUpdater.getStringInput_3012ContainedLinks(view));
 	    }
 	    if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
 		domain2NotationMap.put(view.getElement(), view);
@@ -543,7 +557,7 @@ public class CrossWalkCanonicalEditPolicy extends CanonicalEditPolicy {
 	}
 	case StringInput11EditPart.VISUAL_ID: {
 	    if (!domain2NotationMap.containsKey(view.getElement())) {
-		result.addAll(CrosswalkDiagramUpdater.getStringInput_3021ContainedLinks(view));
+		result.addAll(CrosswalkDiagramUpdater.getStringInput_3013ContainedLinks(view));
 	    }
 	    if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
 		domain2NotationMap.put(view.getElement(), view);
@@ -552,7 +566,34 @@ public class CrossWalkCanonicalEditPolicy extends CanonicalEditPolicy {
 	}
 	case StringInput12EditPart.VISUAL_ID: {
 	    if (!domain2NotationMap.containsKey(view.getElement())) {
-		result.addAll(CrosswalkDiagramUpdater.getStringInput_3022ContainedLinks(view));
+		result.addAll(CrosswalkDiagramUpdater.getStringInput_3014ContainedLinks(view));
+	    }
+	    if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+		domain2NotationMap.put(view.getElement(), view);
+	    }
+	    break;
+	}
+	case MappedElement2EditPart.VISUAL_ID: {
+	    if (!domain2NotationMap.containsKey(view.getElement())) {
+		result.addAll(CrosswalkDiagramUpdater.getMappedElement_3015ContainedLinks(view));
+	    }
+	    if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+		domain2NotationMap.put(view.getElement(), view);
+	    }
+	    break;
+	}
+	case MappedAttributeEditPart.VISUAL_ID: {
+	    if (!domain2NotationMap.containsKey(view.getElement())) {
+		result.addAll(CrosswalkDiagramUpdater.getMappedAttribute_3016ContainedLinks(view));
+	    }
+	    if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+		domain2NotationMap.put(view.getElement(), view);
+	    }
+	    break;
+	}
+	case StringInput13EditPart.VISUAL_ID: {
+	    if (!domain2NotationMap.containsKey(view.getElement())) {
+		result.addAll(CrosswalkDiagramUpdater.getStringInput_3017ContainedLinks(view));
 	    }
 	    if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
 		domain2NotationMap.put(view.getElement(), view);
@@ -607,7 +648,7 @@ public class CrossWalkCanonicalEditPolicy extends CanonicalEditPolicy {
      * @generated
      */
     private EditPart getEditPart(EObject domainModelElement, Map<EObject, View> domain2NotationMap) {
-	View view = domain2NotationMap.get(domainModelElement);
+	View view = (View) domain2NotationMap.get(domainModelElement);
 	if (view != null) {
 	    return (EditPart) getHost().getViewer().getEditPartRegistry().get(view);
 	}

@@ -18,6 +18,8 @@ package crosswalk.diagram.edit.parts;
 import java.util.Collections;
 import java.util.List;
 
+import org.eclipse.draw2d.ColorConstants;
+import org.eclipse.draw2d.IFigure;
 import org.eclipse.gef.GraphicalEditPart;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.commands.Command;
@@ -53,23 +55,33 @@ public class CrossWalkEditPart extends DiagramEditPart {
     }
 
     /**
-     * @generated
+     * @generated NOT
      */
+    @Override
     protected void createDefaultEditPolicies() {
 	super.createDefaultEditPolicies();
 	installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new CrossWalkItemSemanticEditPolicy());
 	installEditPolicy(EditPolicyRoles.CANONICAL_ROLE, new CrossWalkCanonicalEditPolicy());
-	// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.POPUPBAR_ROLE);
+	//removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.POPUPBAR_ROLE);
+    }
+
+    @Override
+    protected IFigure createFigure() {
+	IFigure fig = super.createFigure();
+	fig.setBackgroundColor(ColorConstants.lightGray);
+	fig.setOpaque(true);
+	return fig;
     }
 
     /**
      * @generated
      */
-    /*package-local*/static class NodeLabelDragPolicy extends NonResizableEditPolicy {
+    /* package-local */static class NodeLabelDragPolicy extends NonResizableEditPolicy {
 
 	/**
 	 * @generated
 	 */
+	@Override
 	@SuppressWarnings("rawtypes")
 	protected List createSelectionHandles() {
 	    MoveHandle h = new MoveHandle((GraphicalEditPart) getHost());
@@ -80,6 +92,7 @@ public class CrossWalkEditPart extends DiagramEditPart {
 	/**
 	 * @generated
 	 */
+	@Override
 	public Command getCommand(Request request) {
 	    return null;
 	}
@@ -87,6 +100,7 @@ public class CrossWalkEditPart extends DiagramEditPart {
 	/**
 	 * @generated
 	 */
+	@Override
 	public boolean understandsRequest(Request request) {
 	    return false;
 	}

@@ -30,14 +30,14 @@ public class IdentifierOutputElementInputsCompartmentItemSemanticEditPolicy exte
      * @generated
      */
     public IdentifierOutputElementInputsCompartmentItemSemanticEditPolicy() {
-	super(CrosswalkElementTypes.Identifier_2009);
+	super(CrosswalkElementTypes.Identifier_2005);
     }
 
     /**
      * @generated
      */
     protected Command getCreateCommand(CreateElementRequest req) {
-	if (CrosswalkElementTypes.StringInput_3012 == req.getElementType()) {
+	if (CrosswalkElementTypes.StringInput_3005 == req.getElementType()) {
 	    return getGEFWrapper(new StringInput4CreateCommand(req));
 	}
 	return super.getCreateCommand(req);

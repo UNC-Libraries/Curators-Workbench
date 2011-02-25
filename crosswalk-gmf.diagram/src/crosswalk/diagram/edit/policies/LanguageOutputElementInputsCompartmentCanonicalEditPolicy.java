@@ -61,7 +61,7 @@ public class LanguageOutputElementInputsCompartmentCanonicalEditPolicy extends C
 	View viewObject = (View) getHost().getModel();
 	LinkedList<EObject> result = new LinkedList<EObject>();
 	List<CrosswalkNodeDescriptor> childDescriptors = CrosswalkDiagramUpdater
-			.getLanguageOutputElementInputsCompartment_7005SemanticChildren(viewObject);
+			.getLanguageOutputElementInputsCompartment_7006SemanticChildren(viewObject);
 	for (CrosswalkNodeDescriptor d : childDescriptors) {
 	    result.add(d.getModelElement());
 	}
@@ -91,7 +91,7 @@ public class LanguageOutputElementInputsCompartmentCanonicalEditPolicy extends C
 	}
 	LinkedList<IAdaptable> createdViews = new LinkedList<IAdaptable>();
 	List<CrosswalkNodeDescriptor> childDescriptors = CrosswalkDiagramUpdater
-			.getLanguageOutputElementInputsCompartment_7005SemanticChildren((View) getHost().getModel());
+			.getLanguageOutputElementInputsCompartment_7006SemanticChildren((View) getHost().getModel());
 	LinkedList<View> orphaned = new LinkedList<View>();
 	// we care to check only views we recognize as ours
 	LinkedList<View> knownViewChildren = new LinkedList<View>();

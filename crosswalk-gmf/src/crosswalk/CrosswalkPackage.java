@@ -393,13 +393,22 @@ public interface CrosswalkPackage extends EPackage {
         int CROSS_WALK__ELEMENTS = 2;
 
         /**
+         * The feature id for the '<em><b>Output Type</b></em>' reference.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         * @ordered
+         */
+        int CROSS_WALK__OUTPUT_TYPE = 3;
+
+        /**
          * The number of structural features of the '<em>Cross Walk</em>' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          * @ordered
          */
-        int CROSS_WALK_FEATURE_COUNT = 3;
+        int CROSS_WALK_FEATURE_COUNT = 4;
 
         /**
          * The feature id for the '<em><b>Walk</b></em>' container reference.
@@ -1246,6 +1255,143 @@ public interface CrosswalkPackage extends EPackage {
         int DELIMITED_FILE_FEATURE_COUNT = DATA_SOURCE_FEATURE_COUNT + 6;
 
         /**
+         * The meta object id for the '{@link crosswalk.impl.MappedElementImpl <em>Mapped Element</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see crosswalk.impl.MappedElementImpl
+         * @see crosswalk.impl.CrosswalkPackageImpl#getMappedElement()
+         * @generated
+         */
+        int MAPPED_ELEMENT = 29;
+
+        /**
+         * The feature id for the '<em><b>Walk</b></em>' container reference.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         * @ordered
+         */
+        int MAPPED_ELEMENT__WALK = OUTPUT_ELEMENT__WALK;
+
+        /**
+         * The feature id for the '<em><b>Child Elements</b></em>' containment reference list.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         * @ordered
+         */
+        int MAPPED_ELEMENT__CHILD_ELEMENTS = OUTPUT_ELEMENT_FEATURE_COUNT + 0;
+
+        /**
+         * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         * @ordered
+         */
+        int MAPPED_ELEMENT__ATTRIBUTES = OUTPUT_ELEMENT_FEATURE_COUNT + 1;
+
+        /**
+         * The feature id for the '<em><b>Mapped Feature</b></em>' reference.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         * @ordered
+         */
+        int MAPPED_ELEMENT__MAPPED_FEATURE = OUTPUT_ELEMENT_FEATURE_COUNT + 2;
+
+        /**
+         * The feature id for the '<em><b>Text</b></em>' containment reference.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         * @ordered
+         */
+        int MAPPED_ELEMENT__TEXT = OUTPUT_ELEMENT_FEATURE_COUNT + 3;
+
+        /**
+         * The feature id for the '<em><b>Parent</b></em>' container reference.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         * @ordered
+         */
+        int MAPPED_ELEMENT__PARENT = OUTPUT_ELEMENT_FEATURE_COUNT + 4;
+
+        /**
+         * The number of structural features of the '<em>Mapped Element</em>' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         * @ordered
+         */
+        int MAPPED_ELEMENT_FEATURE_COUNT = OUTPUT_ELEMENT_FEATURE_COUNT + 5;
+
+        /**
+         * The meta object id for the '{@link crosswalk.impl.MappedAttributeImpl <em>Mapped Attribute</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see crosswalk.impl.MappedAttributeImpl
+         * @see crosswalk.impl.CrosswalkPackageImpl#getMappedAttribute()
+         * @generated
+         */
+        int MAPPED_ATTRIBUTE = 30;
+
+        /**
+         * The feature id for the '<em><b>Walk</b></em>' container reference.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         * @ordered
+         */
+        int MAPPED_ATTRIBUTE__WALK = OUTPUT_ELEMENT__WALK;
+
+        /**
+         * The feature id for the '<em><b>Name</b></em>' attribute.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         * @ordered
+         */
+        int MAPPED_ATTRIBUTE__NAME = OUTPUT_ELEMENT_FEATURE_COUNT + 0;
+
+        /**
+         * The feature id for the '<em><b>Consumer</b></em>' container reference.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         * @ordered
+         */
+        int MAPPED_ATTRIBUTE__CONSUMER = OUTPUT_ELEMENT_FEATURE_COUNT + 1;
+
+        /**
+         * The feature id for the '<em><b>Input</b></em>' reference.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         * @ordered
+         */
+        int MAPPED_ATTRIBUTE__INPUT = OUTPUT_ELEMENT_FEATURE_COUNT + 2;
+
+        /**
+         * The feature id for the '<em><b>Mapped Feature</b></em>' reference.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         * @ordered
+         */
+        int MAPPED_ATTRIBUTE__MAPPED_FEATURE = OUTPUT_ELEMENT_FEATURE_COUNT + 3;
+
+        /**
+         * The number of structural features of the '<em>Mapped Attribute</em>' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         * @ordered
+         */
+        int MAPPED_ATTRIBUTE_FEATURE_COUNT = OUTPUT_ELEMENT_FEATURE_COUNT + 4;
+
+        /**
          * The meta object id for the '<em>Data Exception</em>' data type.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -1253,7 +1399,7 @@ public interface CrosswalkPackage extends EPackage {
          * @see crosswalk.impl.CrosswalkPackageImpl#getDataException()
          * @generated
          */
-        int DATA_EXCEPTION = 29;
+        int DATA_EXCEPTION = 31;
 
         /**
          * The meta object id for the '<em>IProject</em>' data type.
@@ -1263,7 +1409,7 @@ public interface CrosswalkPackage extends EPackage {
          * @see crosswalk.impl.CrosswalkPackageImpl#getIProject()
          * @generated
          */
-        int IPROJECT = 30;
+        int IPROJECT = 32;
 
         /**
          * The meta object id for the '<em>IFile</em>' data type.
@@ -1273,7 +1419,7 @@ public interface CrosswalkPackage extends EPackage {
          * @see crosswalk.impl.CrosswalkPackageImpl#getIFile()
          * @generated
          */
-        int IFILE = 31;
+        int IFILE = 33;
 
         /**
          * The meta object id for the '<em>Record Matches</em>' data type.
@@ -1283,7 +1429,7 @@ public interface CrosswalkPackage extends EPackage {
          * @see crosswalk.impl.CrosswalkPackageImpl#getRecordMatches()
          * @generated
          */
-        int RECORD_MATCHES = 32;
+        int RECORD_MATCHES = 34;
 
         /**
          * The meta object id for the '<em>IFolder</em>' data type.
@@ -1293,7 +1439,7 @@ public interface CrosswalkPackage extends EPackage {
          * @see crosswalk.impl.CrosswalkPackageImpl#getIFolder()
          * @generated
          */
-        int IFOLDER = 33;
+        int IFOLDER = 35;
 
         /**
          * The meta object id for the '<em>Record Out Of Range Exception</em>' data type.
@@ -1303,7 +1449,7 @@ public interface CrosswalkPackage extends EPackage {
          * @see crosswalk.impl.CrosswalkPackageImpl#getRecordOutOfRangeException()
          * @generated
          */
-        int RECORD_OUT_OF_RANGE_EXCEPTION = 34;
+        int RECORD_OUT_OF_RANGE_EXCEPTION = 36;
 
         /**
          * Returns the meta object for class '{@link crosswalk.TabbedDataField <em>Tabbed Data Field</em>}'.
@@ -1388,6 +1534,17 @@ public interface CrosswalkPackage extends EPackage {
          * @generated
          */
         EReference getCrossWalk_Elements();
+
+        /**
+         * Returns the meta object for the reference '{@link crosswalk.CrossWalk#getOutputType <em>Output Type</em>}'.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @return the meta object for the reference '<em>Output Type</em>'.
+         * @see crosswalk.CrossWalk#getOutputType()
+         * @see #getCrossWalk()
+         * @generated
+         */
+        EReference getCrossWalk_OutputType();
 
         /**
          * Returns the meta object for class '{@link crosswalk.OutputElement <em>Output Element</em>}'.
@@ -1948,6 +2105,92 @@ public interface CrosswalkPackage extends EPackage {
         EAttribute getDelimitedFile_TextDelimiter();
 
         /**
+         * Returns the meta object for class '{@link crosswalk.MappedElement <em>Mapped Element</em>}'.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @return the meta object for class '<em>Mapped Element</em>'.
+         * @see crosswalk.MappedElement
+         * @generated
+         */
+        EClass getMappedElement();
+
+        /**
+         * Returns the meta object for the containment reference list '{@link crosswalk.MappedElement#getChildElements <em>Child Elements</em>}'.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @return the meta object for the containment reference list '<em>Child Elements</em>'.
+         * @see crosswalk.MappedElement#getChildElements()
+         * @see #getMappedElement()
+         * @generated
+         */
+        EReference getMappedElement_ChildElements();
+
+        /**
+         * Returns the meta object for the containment reference list '{@link crosswalk.MappedElement#getAttributes <em>Attributes</em>}'.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @return the meta object for the containment reference list '<em>Attributes</em>'.
+         * @see crosswalk.MappedElement#getAttributes()
+         * @see #getMappedElement()
+         * @generated
+         */
+        EReference getMappedElement_Attributes();
+
+        /**
+         * Returns the meta object for the reference '{@link crosswalk.MappedElement#getMappedFeature <em>Mapped Feature</em>}'.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @return the meta object for the reference '<em>Mapped Feature</em>'.
+         * @see crosswalk.MappedElement#getMappedFeature()
+         * @see #getMappedElement()
+         * @generated
+         */
+        EReference getMappedElement_MappedFeature();
+
+        /**
+         * Returns the meta object for the containment reference '{@link crosswalk.MappedElement#getText <em>Text</em>}'.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @return the meta object for the containment reference '<em>Text</em>'.
+         * @see crosswalk.MappedElement#getText()
+         * @see #getMappedElement()
+         * @generated
+         */
+        EReference getMappedElement_Text();
+
+        /**
+         * Returns the meta object for the container reference '{@link crosswalk.MappedElement#getParent <em>Parent</em>}'.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @return the meta object for the container reference '<em>Parent</em>'.
+         * @see crosswalk.MappedElement#getParent()
+         * @see #getMappedElement()
+         * @generated
+         */
+        EReference getMappedElement_Parent();
+
+        /**
+         * Returns the meta object for class '{@link crosswalk.MappedAttribute <em>Mapped Attribute</em>}'.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @return the meta object for class '<em>Mapped Attribute</em>'.
+         * @see crosswalk.MappedAttribute
+         * @generated
+         */
+        EClass getMappedAttribute();
+
+        /**
+         * Returns the meta object for the reference '{@link crosswalk.MappedAttribute#getMappedFeature <em>Mapped Feature</em>}'.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @return the meta object for the reference '<em>Mapped Feature</em>'.
+         * @see crosswalk.MappedAttribute#getMappedFeature()
+         * @see #getMappedAttribute()
+         * @generated
+         */
+        EReference getMappedAttribute_MappedFeature();
+
+        /**
          * Returns the meta object for data type '{@link crosswalk.DataException <em>Data Exception</em>}'.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -2106,6 +2349,14 @@ public interface CrosswalkPackage extends EPackage {
                  * @generated
                  */
                 EReference CROSS_WALK__ELEMENTS = eINSTANCE.getCrossWalk_Elements();
+
+                /**
+                 * The meta object literal for the '<em><b>Output Type</b></em>' reference feature.
+                 * <!-- begin-user-doc -->
+                 * <!-- end-user-doc -->
+                 * @generated
+                 */
+                EReference CROSS_WALK__OUTPUT_TYPE = eINSTANCE.getCrossWalk_OutputType();
 
                 /**
                  * The meta object literal for the '{@link crosswalk.OutputElement <em>Output Element</em>}' class.
@@ -2580,6 +2831,74 @@ public interface CrosswalkPackage extends EPackage {
                  * @generated
                  */
                 EAttribute DELIMITED_FILE__TEXT_DELIMITER = eINSTANCE.getDelimitedFile_TextDelimiter();
+
+                /**
+                 * The meta object literal for the '{@link crosswalk.impl.MappedElementImpl <em>Mapped Element</em>}' class.
+                 * <!-- begin-user-doc -->
+                 * <!-- end-user-doc -->
+                 * @see crosswalk.impl.MappedElementImpl
+                 * @see crosswalk.impl.CrosswalkPackageImpl#getMappedElement()
+                 * @generated
+                 */
+                EClass MAPPED_ELEMENT = eINSTANCE.getMappedElement();
+
+                /**
+                 * The meta object literal for the '<em><b>Child Elements</b></em>' containment reference list feature.
+                 * <!-- begin-user-doc -->
+                 * <!-- end-user-doc -->
+                 * @generated
+                 */
+                EReference MAPPED_ELEMENT__CHILD_ELEMENTS = eINSTANCE.getMappedElement_ChildElements();
+
+                /**
+                 * The meta object literal for the '<em><b>Attributes</b></em>' containment reference list feature.
+                 * <!-- begin-user-doc -->
+                 * <!-- end-user-doc -->
+                 * @generated
+                 */
+                EReference MAPPED_ELEMENT__ATTRIBUTES = eINSTANCE.getMappedElement_Attributes();
+
+                /**
+                 * The meta object literal for the '<em><b>Mapped Feature</b></em>' reference feature.
+                 * <!-- begin-user-doc -->
+                 * <!-- end-user-doc -->
+                 * @generated
+                 */
+                EReference MAPPED_ELEMENT__MAPPED_FEATURE = eINSTANCE.getMappedElement_MappedFeature();
+
+                /**
+                 * The meta object literal for the '<em><b>Text</b></em>' containment reference feature.
+                 * <!-- begin-user-doc -->
+                 * <!-- end-user-doc -->
+                 * @generated
+                 */
+                EReference MAPPED_ELEMENT__TEXT = eINSTANCE.getMappedElement_Text();
+
+                /**
+                 * The meta object literal for the '<em><b>Parent</b></em>' container reference feature.
+                 * <!-- begin-user-doc -->
+                 * <!-- end-user-doc -->
+                 * @generated
+                 */
+                EReference MAPPED_ELEMENT__PARENT = eINSTANCE.getMappedElement_Parent();
+
+                /**
+                 * The meta object literal for the '{@link crosswalk.impl.MappedAttributeImpl <em>Mapped Attribute</em>}' class.
+                 * <!-- begin-user-doc -->
+                 * <!-- end-user-doc -->
+                 * @see crosswalk.impl.MappedAttributeImpl
+                 * @see crosswalk.impl.CrosswalkPackageImpl#getMappedAttribute()
+                 * @generated
+                 */
+                EClass MAPPED_ATTRIBUTE = eINSTANCE.getMappedAttribute();
+
+                /**
+                 * The meta object literal for the '<em><b>Mapped Feature</b></em>' reference feature.
+                 * <!-- begin-user-doc -->
+                 * <!-- end-user-doc -->
+                 * @generated
+                 */
+                EReference MAPPED_ATTRIBUTE__MAPPED_FEATURE = eINSTANCE.getMappedAttribute_MappedFeature();
 
                 /**
                  * The meta object literal for the '<em>Data Exception</em>' data type.

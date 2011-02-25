@@ -45,7 +45,7 @@ public class LanguageItemSemanticEditPolicy extends CrosswalkBaseItemSemanticEdi
      * @generated
      */
     public LanguageItemSemanticEditPolicy() {
-	super(CrosswalkElementTypes.Language_2010);
+	super(CrosswalkElementTypes.Language_2006);
     }
 
     /**

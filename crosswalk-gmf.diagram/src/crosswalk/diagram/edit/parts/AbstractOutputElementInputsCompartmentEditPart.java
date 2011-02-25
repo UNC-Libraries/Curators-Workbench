@@ -36,7 +36,7 @@ public class AbstractOutputElementInputsCompartmentEditPart extends ListCompartm
     /**
      * @generated
      */
-    public static final int VISUAL_ID = 7002;
+    public static final int VISUAL_ID = 7003;
 
     /**
      * @generated

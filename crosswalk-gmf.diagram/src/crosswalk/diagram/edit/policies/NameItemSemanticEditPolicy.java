@@ -45,7 +45,7 @@ public class NameItemSemanticEditPolicy extends CrosswalkBaseItemSemanticEditPol
      * @generated
      */
     public NameItemSemanticEditPolicy() {
-	super(CrosswalkElementTypes.Name_2011);
+	super(CrosswalkElementTypes.Name_2007);
     }
 
     /**

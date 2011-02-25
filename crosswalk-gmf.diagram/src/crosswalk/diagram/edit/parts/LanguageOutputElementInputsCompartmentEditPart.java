@@ -36,7 +36,7 @@ public class LanguageOutputElementInputsCompartmentEditPart extends ListCompartm
     /**
      * @generated
      */
-    public static final int VISUAL_ID = 7005;
+    public static final int VISUAL_ID = 7006;
 
     /**
      * @generated

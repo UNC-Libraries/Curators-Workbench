@@ -1,18 +1,3 @@
-/**
- * Copyright 2010 The University of North Carolina at Chapel Hill
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *         http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 package crosswalk.diagram.edit.parts;
 
 import org.eclipse.draw2d.IFigure;
@@ -24,24 +9,24 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure;
 import org.eclipse.gmf.runtime.notation.View;
 
-import crosswalk.diagram.edit.policies.TitleInfoTitleInfoInputsCompartmentCanonicalEditPolicy;
-import crosswalk.diagram.edit.policies.TitleInfoTitleInfoInputsCompartmentItemSemanticEditPolicy;
+import crosswalk.diagram.edit.policies.OriginalNameRecordMatcherRecordMatcherInputsCompartmentCanonicalEditPolicy;
+import crosswalk.diagram.edit.policies.OriginalNameRecordMatcherRecordMatcherInputsCompartmentItemSemanticEditPolicy;
 import crosswalk.diagram.part.Messages;
 
 /**
  * @generated
  */
-public class TitleInfoTitleInfoInputsCompartmentEditPart extends ListCompartmentEditPart {
+public class OriginalNameRecordMatcherRecordMatcherInputsCompartmentEditPart extends ListCompartmentEditPart {
 
     /**
      * @generated
      */
-    public static final int VISUAL_ID = 7001;
+    public static final int VISUAL_ID = 7010;
 
     /**
      * @generated
      */
-    public TitleInfoTitleInfoInputsCompartmentEditPart(View view) {
+    public OriginalNameRecordMatcherRecordMatcherInputsCompartmentEditPart(View view) {
 	super(view);
     }
 
@@ -56,7 +41,7 @@ public class TitleInfoTitleInfoInputsCompartmentEditPart extends ListCompartment
      * @generated
      */
     public String getCompartmentName() {
-	return Messages.TitleInfoTitleInfoInputsCompartmentEditPart_title;
+	return Messages.OriginalNameRecordMatcherRecordMatcherInputsCompartmentEditPart_title;
     }
 
     /**
@@ -74,10 +59,11 @@ public class TitleInfoTitleInfoInputsCompartmentEditPart extends ListCompartment
     protected void createDefaultEditPolicies() {
 	super.createDefaultEditPolicies();
 	installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-			new TitleInfoTitleInfoInputsCompartmentItemSemanticEditPolicy());
+			new OriginalNameRecordMatcherRecordMatcherInputsCompartmentItemSemanticEditPolicy());
 	installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicy());
 	installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new DragDropEditPolicy());
-	installEditPolicy(EditPolicyRoles.CANONICAL_ROLE, new TitleInfoTitleInfoInputsCompartmentCanonicalEditPolicy());
+	installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
+			new OriginalNameRecordMatcherRecordMatcherInputsCompartmentCanonicalEditPolicy());
     }
 
     /**

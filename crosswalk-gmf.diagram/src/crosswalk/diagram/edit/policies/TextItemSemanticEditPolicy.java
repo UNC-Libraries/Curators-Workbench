@@ -45,7 +45,7 @@ public class TextItemSemanticEditPolicy extends CrosswalkBaseItemSemanticEditPol
      * @generated
      */
     public TextItemSemanticEditPolicy() {
-	super(CrosswalkElementTypes.Text_2018);
+	super(CrosswalkElementTypes.Text_2014);
     }
 
     /**
@@ -90,7 +90,7 @@ public class TextItemSemanticEditPolicy extends CrosswalkBaseItemSemanticEditPol
      * @generated
      */
     protected Command getStartCreateRelationshipCommand(CreateRelationshipRequest req) {
-	if (CrosswalkElementTypes.StringInputInput_4009 == req.getElementType()) {
+	if (CrosswalkElementTypes.StringInputInput_4001 == req.getElementType()) {
 	    return null;
 	}
 	return null;
@@ -100,7 +100,7 @@ public class TextItemSemanticEditPolicy extends CrosswalkBaseItemSemanticEditPol
      * @generated
      */
     protected Command getCompleteCreateRelationshipCommand(CreateRelationshipRequest req) {
-	if (CrosswalkElementTypes.StringInputInput_4009 == req.getElementType()) {
+	if (CrosswalkElementTypes.StringInputInput_4001 == req.getElementType()) {
 	    return getGEFWrapper(new StringInputInputCreateCommand(req, req.getSource(), req.getTarget()));
 	}
 	return null;

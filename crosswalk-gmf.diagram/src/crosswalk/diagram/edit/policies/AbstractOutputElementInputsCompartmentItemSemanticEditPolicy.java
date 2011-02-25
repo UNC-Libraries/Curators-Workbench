@@ -30,14 +30,14 @@ public class AbstractOutputElementInputsCompartmentItemSemanticEditPolicy extend
      * @generated
      */
     public AbstractOutputElementInputsCompartmentItemSemanticEditPolicy() {
-	super(CrosswalkElementTypes.Abstract_2007);
+	super(CrosswalkElementTypes.Abstract_2003);
     }
 
     /**
      * @generated
      */
     protected Command getCreateCommand(CreateElementRequest req) {
-	if (CrosswalkElementTypes.StringInput_3010 == req.getElementType()) {
+	if (CrosswalkElementTypes.StringInput_3003 == req.getElementType()) {
 	    return getGEFWrapper(new StringInput2CreateCommand(req));
 	}
 	return super.getCreateCommand(req);

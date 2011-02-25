@@ -67,7 +67,7 @@ public class TabbedDataFieldLabelColumnNumberEditPart extends CompartmentEditPar
     /**
      * @generated
      */
-    public static final int VISUAL_ID = 5038;
+    public static final int VISUAL_ID = 5002;
 
     /**
      * @generated
@@ -291,7 +291,7 @@ public class TabbedDataFieldLabelColumnNumberEditPart extends CompartmentEditPar
     public IParser getParser() {
 	if (parser == null) {
 	    parser = CrosswalkParserProvider
-			    .getParser(CrosswalkElementTypes.TabbedDataField_3017,
+			    .getParser(CrosswalkElementTypes.TabbedDataField_3001,
 					    getParserElement(),
 					    CrosswalkVisualIDRegistry
 							    .getType(crosswalk.diagram.edit.parts.TabbedDataFieldLabelColumnNumberEditPart.VISUAL_ID));

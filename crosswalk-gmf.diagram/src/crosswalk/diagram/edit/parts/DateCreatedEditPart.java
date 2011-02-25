@@ -60,7 +60,7 @@ public class DateCreatedEditPart extends ShapeNodeEditPart {
     /**
      * @generated
      */
-    public static final int VISUAL_ID = 2015;
+    public static final int VISUAL_ID = 2011;
 
     /**
      * @generated
@@ -131,8 +131,8 @@ public class DateCreatedEditPart extends ShapeNodeEditPart {
      * @generated
      */
     protected boolean addFixedChild(EditPart childEditPart) {
-	if (childEditPart instanceof WrappingLabel11EditPart) {
-	    ((WrappingLabel11EditPart) childEditPart).setLabel(getPrimaryShape().getFigureOutputElementLabelFigure());
+	if (childEditPart instanceof WrappingLabel10EditPart) {
+	    ((WrappingLabel10EditPart) childEditPart).setLabel(getPrimaryShape().getFigureOutputElementLabelFigure());
 	    return true;
 	}
 	if (childEditPart instanceof DateCreatedOutputElementInputsCompartmentEditPart) {
@@ -148,7 +148,7 @@ public class DateCreatedEditPart extends ShapeNodeEditPart {
      * @generated
      */
     protected boolean removeFixedChild(EditPart childEditPart) {
-	if (childEditPart instanceof WrappingLabel11EditPart) {
+	if (childEditPart instanceof WrappingLabel10EditPart) {
 	    return true;
 	}
 	if (childEditPart instanceof DateCreatedOutputElementInputsCompartmentEditPart) {
@@ -280,7 +280,7 @@ public class DateCreatedEditPart extends ShapeNodeEditPart {
      * @generated
      */
     public EditPart getPrimaryChildEditPart() {
-	return getChildBySemanticHint(CrosswalkVisualIDRegistry.getType(WrappingLabel11EditPart.VISUAL_ID));
+	return getChildBySemanticHint(CrosswalkVisualIDRegistry.getType(WrappingLabel10EditPart.VISUAL_ID));
     }
 
     /**
@@ -291,7 +291,7 @@ public class DateCreatedEditPart extends ShapeNodeEditPart {
 	    CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request).getViewAndElementDescriptor()
 			    .getCreateElementRequestAdapter();
 	    IElementType type = (IElementType) adapter.getAdapter(IElementType.class);
-	    if (type == CrosswalkElementTypes.DateInput_3019) {
+	    if (type == CrosswalkElementTypes.DateInput_3011) {
 		return getChildBySemanticHint(CrosswalkVisualIDRegistry
 				.getType(DateCreatedOutputElementInputsCompartmentEditPart.VISUAL_ID));
 	    }

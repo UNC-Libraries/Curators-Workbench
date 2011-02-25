@@ -49,7 +49,7 @@ public class DelimitedFileDataFieldCompartmentCanonicalEditPolicy extends Canoni
 	View viewObject = (View) getHost().getModel();
 	LinkedList<EObject> result = new LinkedList<EObject>();
 	List<CrosswalkNodeDescriptor> childDescriptors = CrosswalkDiagramUpdater
-			.getDelimitedFileDataFieldCompartment_7015SemanticChildren(viewObject);
+			.getDelimitedFileDataFieldCompartment_7001SemanticChildren(viewObject);
 	for (CrosswalkNodeDescriptor d : childDescriptors) {
 	    result.add(d.getModelElement());
 	}
@@ -79,7 +79,7 @@ public class DelimitedFileDataFieldCompartmentCanonicalEditPolicy extends Canoni
 	}
 	LinkedList<IAdaptable> createdViews = new LinkedList<IAdaptable>();
 	List<CrosswalkNodeDescriptor> childDescriptors = CrosswalkDiagramUpdater
-			.getDelimitedFileDataFieldCompartment_7015SemanticChildren((View) getHost().getModel());
+			.getDelimitedFileDataFieldCompartment_7001SemanticChildren((View) getHost().getModel());
 	LinkedList<View> orphaned = new LinkedList<View>();
 	// we care to check only views we recognize as ours
 	LinkedList<View> knownViewChildren = new LinkedList<View>();

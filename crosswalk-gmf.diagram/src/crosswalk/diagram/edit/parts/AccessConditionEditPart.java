@@ -60,7 +60,7 @@ public class AccessConditionEditPart extends ShapeNodeEditPart {
     /**
      * @generated
      */
-    public static final int VISUAL_ID = 2016;
+    public static final int VISUAL_ID = 2012;
 
     /**
      * @generated
@@ -131,8 +131,8 @@ public class AccessConditionEditPart extends ShapeNodeEditPart {
      * @generated
      */
     protected boolean addFixedChild(EditPart childEditPart) {
-	if (childEditPart instanceof WrappingLabel12EditPart) {
-	    ((WrappingLabel12EditPart) childEditPart).setLabel(getPrimaryShape().getFigureOutputElementLabelFigure());
+	if (childEditPart instanceof WrappingLabel11EditPart) {
+	    ((WrappingLabel11EditPart) childEditPart).setLabel(getPrimaryShape().getFigureOutputElementLabelFigure());
 	    return true;
 	}
 	if (childEditPart instanceof AccessConditionOutputElementInputsCompartmentEditPart) {
@@ -148,7 +148,7 @@ public class AccessConditionEditPart extends ShapeNodeEditPart {
      * @generated
      */
     protected boolean removeFixedChild(EditPart childEditPart) {
-	if (childEditPart instanceof WrappingLabel12EditPart) {
+	if (childEditPart instanceof WrappingLabel11EditPart) {
 	    return true;
 	}
 	if (childEditPart instanceof AccessConditionOutputElementInputsCompartmentEditPart) {
@@ -280,7 +280,7 @@ public class AccessConditionEditPart extends ShapeNodeEditPart {
      * @generated
      */
     public EditPart getPrimaryChildEditPart() {
-	return getChildBySemanticHint(CrosswalkVisualIDRegistry.getType(WrappingLabel12EditPart.VISUAL_ID));
+	return getChildBySemanticHint(CrosswalkVisualIDRegistry.getType(WrappingLabel11EditPart.VISUAL_ID));
     }
 
     /**
@@ -291,7 +291,7 @@ public class AccessConditionEditPart extends ShapeNodeEditPart {
 	    CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request).getViewAndElementDescriptor()
 			    .getCreateElementRequestAdapter();
 	    IElementType type = (IElementType) adapter.getAdapter(IElementType.class);
-	    if (type == CrosswalkElementTypes.StringInput_3020) {
+	    if (type == CrosswalkElementTypes.StringInput_3012) {
 		return getChildBySemanticHint(CrosswalkVisualIDRegistry
 				.getType(AccessConditionOutputElementInputsCompartmentEditPart.VISUAL_ID));
 	    }

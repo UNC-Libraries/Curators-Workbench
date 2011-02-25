@@ -33,7 +33,7 @@ public class DelimitedFileItemSemanticEditPolicy extends CrosswalkBaseItemSemant
      * @generated
      */
     public DelimitedFileItemSemanticEditPolicy() {
-	super(CrosswalkElementTypes.DelimitedFile_2020);
+	super(CrosswalkElementTypes.DelimitedFile_2001);
     }
 
     /**

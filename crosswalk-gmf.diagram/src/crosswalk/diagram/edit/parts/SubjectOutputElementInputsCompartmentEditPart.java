@@ -36,7 +36,7 @@ public class SubjectOutputElementInputsCompartmentEditPart extends ListCompartme
     /**
      * @generated
      */
-    public static final int VISUAL_ID = 7007;
+    public static final int VISUAL_ID = 7008;
 
     /**
      * @generated

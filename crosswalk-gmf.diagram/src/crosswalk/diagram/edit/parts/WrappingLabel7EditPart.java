@@ -67,7 +67,7 @@ public class WrappingLabel7EditPart extends CompartmentEditPart implements IText
     /**
      * @generated
      */
-    public static final int VISUAL_ID = 5022;
+    public static final int VISUAL_ID = 5017;
 
     /**
      * @generated
@@ -294,7 +294,7 @@ public class WrappingLabel7EditPart extends CompartmentEditPart implements IText
      */
     public IParser getParser() {
 	if (parser == null) {
-	    parser = CrosswalkParserProvider.getParser(CrosswalkElementTypes.Language_2010, getParserElement(),
+	    parser = CrosswalkParserProvider.getParser(CrosswalkElementTypes.Subject_2008, getParserElement(),
 			    CrosswalkVisualIDRegistry
 					    .getType(crosswalk.diagram.edit.parts.WrappingLabel7EditPart.VISUAL_ID));
 	}

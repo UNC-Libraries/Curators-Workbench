@@ -30,6 +30,7 @@ import crosswalk.diagram.edit.commands.DelimitedFileCreateCommand;
 import crosswalk.diagram.edit.commands.GenreCreateCommand;
 import crosswalk.diagram.edit.commands.IdentifierCreateCommand;
 import crosswalk.diagram.edit.commands.LanguageCreateCommand;
+import crosswalk.diagram.edit.commands.MappedElementCreateCommand;
 import crosswalk.diagram.edit.commands.NameCreateCommand;
 import crosswalk.diagram.edit.commands.OriginalNameRecordMatcherCreateCommand;
 import crosswalk.diagram.edit.commands.SubjectCreateCommand;
@@ -57,50 +58,53 @@ public class CrossWalkItemSemanticEditPolicy extends CrosswalkBaseItemSemanticEd
      * @generated
      */
     protected Command getCreateCommand(CreateElementRequest req) {
-	if (CrosswalkElementTypes.DelimitedFile_2020 == req.getElementType()) {
+	if (CrosswalkElementTypes.DelimitedFile_2001 == req.getElementType()) {
 	    return getGEFWrapper(new DelimitedFileCreateCommand(req));
 	}
-	if (CrosswalkElementTypes.TitleInfo_2005 == req.getElementType()) {
+	if (CrosswalkElementTypes.TitleInfo_2002 == req.getElementType()) {
 	    return getGEFWrapper(new TitleInfoCreateCommand(req));
 	}
-	if (CrosswalkElementTypes.Abstract_2007 == req.getElementType()) {
+	if (CrosswalkElementTypes.Abstract_2003 == req.getElementType()) {
 	    return getGEFWrapper(new AbstractCreateCommand(req));
 	}
-	if (CrosswalkElementTypes.Genre_2008 == req.getElementType()) {
+	if (CrosswalkElementTypes.Genre_2004 == req.getElementType()) {
 	    return getGEFWrapper(new GenreCreateCommand(req));
 	}
-	if (CrosswalkElementTypes.Identifier_2009 == req.getElementType()) {
+	if (CrosswalkElementTypes.Identifier_2005 == req.getElementType()) {
 	    return getGEFWrapper(new IdentifierCreateCommand(req));
 	}
-	if (CrosswalkElementTypes.Language_2010 == req.getElementType()) {
+	if (CrosswalkElementTypes.Language_2006 == req.getElementType()) {
 	    return getGEFWrapper(new LanguageCreateCommand(req));
 	}
-	if (CrosswalkElementTypes.Name_2011 == req.getElementType()) {
+	if (CrosswalkElementTypes.Name_2007 == req.getElementType()) {
 	    return getGEFWrapper(new NameCreateCommand(req));
 	}
-	if (CrosswalkElementTypes.Subject_2012 == req.getElementType()) {
+	if (CrosswalkElementTypes.Subject_2008 == req.getElementType()) {
 	    return getGEFWrapper(new SubjectCreateCommand(req));
 	}
-	if (CrosswalkElementTypes.TypeOfResource_2013 == req.getElementType()) {
+	if (CrosswalkElementTypes.TypeOfResource_2009 == req.getElementType()) {
 	    return getGEFWrapper(new TypeOfResourceCreateCommand(req));
 	}
-	if (CrosswalkElementTypes.OriginalNameRecordMatcher_2014 == req.getElementType()) {
+	if (CrosswalkElementTypes.OriginalNameRecordMatcher_2010 == req.getElementType()) {
 	    return getGEFWrapper(new OriginalNameRecordMatcherCreateCommand(req));
 	}
-	if (CrosswalkElementTypes.DateCreated_2015 == req.getElementType()) {
+	if (CrosswalkElementTypes.DateCreated_2011 == req.getElementType()) {
 	    return getGEFWrapper(new DateCreatedCreateCommand(req));
 	}
-	if (CrosswalkElementTypes.AccessCondition_2016 == req.getElementType()) {
+	if (CrosswalkElementTypes.AccessCondition_2012 == req.getElementType()) {
 	    return getGEFWrapper(new AccessConditionCreateCommand(req));
 	}
-	if (CrosswalkElementTypes.DateRecognizer_2017 == req.getElementType()) {
+	if (CrosswalkElementTypes.DateRecognizer_2013 == req.getElementType()) {
 	    return getGEFWrapper(new DateRecognizerCreateCommand(req));
 	}
-	if (CrosswalkElementTypes.Text_2018 == req.getElementType()) {
+	if (CrosswalkElementTypes.Text_2014 == req.getElementType()) {
 	    return getGEFWrapper(new TextCreateCommand(req));
 	}
-	if (CrosswalkElementTypes.TrimWhitespace_2019 == req.getElementType()) {
+	if (CrosswalkElementTypes.TrimWhitespace_2015 == req.getElementType()) {
 	    return getGEFWrapper(new TrimWhitespaceCreateCommand(req));
+	}
+	if (CrosswalkElementTypes.MappedElement_2016 == req.getElementType()) {
+	    return getGEFWrapper(new MappedElementCreateCommand(req));
 	}
 	return super.getCreateCommand(req);
     }

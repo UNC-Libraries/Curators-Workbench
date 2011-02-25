@@ -31,14 +31,14 @@ public class TypeOfResourceOutputElementInputsCompartmentItemSemanticEditPolicy 
      * @generated
      */
     public TypeOfResourceOutputElementInputsCompartmentItemSemanticEditPolicy() {
-	super(CrosswalkElementTypes.TypeOfResource_2013);
+	super(CrosswalkElementTypes.TypeOfResource_2009);
     }
 
     /**
      * @generated
      */
     protected Command getCreateCommand(CreateElementRequest req) {
-	if (CrosswalkElementTypes.StringInput_3016 == req.getElementType()) {
+	if (CrosswalkElementTypes.StringInput_3009 == req.getElementType()) {
 	    return getGEFWrapper(new StringInput8CreateCommand(req));
 	}
 	return super.getCreateCommand(req);

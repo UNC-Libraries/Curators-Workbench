@@ -36,7 +36,7 @@ public class TypeOfResourceOutputElementInputsCompartmentEditPart extends ListCo
     /**
      * @generated
      */
-    public static final int VISUAL_ID = 7008;
+    public static final int VISUAL_ID = 7009;
 
     /**
      * @generated

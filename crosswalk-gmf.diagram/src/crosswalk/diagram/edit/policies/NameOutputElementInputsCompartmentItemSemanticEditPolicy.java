@@ -30,14 +30,14 @@ public class NameOutputElementInputsCompartmentItemSemanticEditPolicy extends Cr
      * @generated
      */
     public NameOutputElementInputsCompartmentItemSemanticEditPolicy() {
-	super(CrosswalkElementTypes.Name_2011);
+	super(CrosswalkElementTypes.Name_2007);
     }
 
     /**
      * @generated
      */
     protected Command getCreateCommand(CreateElementRequest req) {
-	if (CrosswalkElementTypes.StringInput_3014 == req.getElementType()) {
+	if (CrosswalkElementTypes.StringInput_3007 == req.getElementType()) {
 	    return getGEFWrapper(new StringInput6CreateCommand(req));
 	}
 	return super.getCreateCommand(req);

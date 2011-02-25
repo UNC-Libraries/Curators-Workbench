@@ -15,6 +15,8 @@
  */
 package crosswalk.diagram.part;
 
+import gov.loc.mods.mods.MODSPackage;
+
 import java.io.IOException;
 import java.util.Collections;
 import java.util.HashMap;
@@ -166,17 +168,18 @@ public class CrosswalkDiagramEditorUtil {
      * This method should be called within a workspace modify operation since it creates resources.
      * @generated
      */
-    public static Resource createDiagram(URI diagramURI, IProgressMonitor progressMonitor) {
+    public static Resource createDiagram(URI diagramURI, URI modelURI, IProgressMonitor progressMonitor) {
 	TransactionalEditingDomain editingDomain = GMFEditingDomainFactory.INSTANCE.createEditingDomain();
 	progressMonitor.beginTask(Messages.CrosswalkDiagramEditorUtil_CreateDiagramProgressTask, 3);
 	final Resource diagramResource = editingDomain.getResourceSet().createResource(diagramURI);
+	final Resource modelResource = editingDomain.getResourceSet().createResource(modelURI);
 	final String diagramName = diagramURI.lastSegment();
 	AbstractTransactionalCommand command = new AbstractTransactionalCommand(editingDomain,
 			Messages.CrosswalkDiagramEditorUtil_CreateDiagramCommandLabel, Collections.EMPTY_LIST) {
 	    protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info)
 			    throws ExecutionException {
 		CrossWalk model = createInitialModel();
-		attachModelToResource(model, diagramResource);
+		attachModelToResource(model, modelResource);
 
 		Diagram diagram = ViewService.createDiagram(model, CrossWalkEditPart.MODEL_ID,
 				CrosswalkDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT);
@@ -187,7 +190,7 @@ public class CrosswalkDiagramEditorUtil {
 		}
 
 		try {
-
+		    modelResource.save(crosswalk.diagram.part.CrosswalkDiagramEditorUtil.getSaveOptions());
 		    diagramResource.save(crosswalk.diagram.part.CrosswalkDiagramEditorUtil.getSaveOptions());
 		} catch (IOException e) {
 
@@ -203,7 +206,7 @@ public class CrosswalkDiagramEditorUtil {
 	} catch (ExecutionException e) {
 	    CrosswalkDiagramEditorPlugin.getInstance().logError("Unable to create model and diagram", e); //$NON-NLS-1$
 	}
-
+	setCharset(WorkspaceSynchronizer.getFile(modelResource));
 	setCharset(WorkspaceSynchronizer.getFile(diagramResource));
 	return diagramResource;
     }
@@ -274,6 +277,7 @@ public class CrosswalkDiagramEditorUtil {
      */
     private static CrossWalk createInitialModel(DataSource source) throws ExecutionException {
 	CrossWalk result = CrosswalkFactory.eINSTANCE.createCrossWalk();
+	result.setOutputType(MODSPackage.eINSTANCE.getModsDefinition());
 	if (source != null) {
 	    result.setDataSource(source);
 	    try {

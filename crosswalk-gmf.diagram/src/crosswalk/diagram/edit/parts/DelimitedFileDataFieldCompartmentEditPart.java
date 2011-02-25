@@ -24,7 +24,7 @@ public class DelimitedFileDataFieldCompartmentEditPart extends ListCompartmentEd
     /**
      * @generated
      */
-    public static final int VISUAL_ID = 7015;
+    public static final int VISUAL_ID = 7001;
 
     /**
      * @generated

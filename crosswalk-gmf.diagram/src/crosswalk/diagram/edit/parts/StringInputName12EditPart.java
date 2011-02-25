@@ -1,17 +1,5 @@
-/**
- * Copyright 2010 The University of North Carolina at Chapel Hill
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *         http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+/*
+ * copyright 2010 University of North Carolina at Chapel Hill
  */
 package crosswalk.diagram.edit.parts;
 
@@ -62,12 +50,12 @@ import crosswalk.diagram.providers.CrosswalkParserProvider;
 /**
  * @generated
  */
-public class TabbedDataFieldColumnNumberEditPart extends CompartmentEditPart implements ITextAwareEditPart {
+public class StringInputName12EditPart extends CompartmentEditPart implements ITextAwareEditPart {
 
     /**
      * @generated
      */
-    public static final int VISUAL_ID = 5026;
+    public static final int VISUAL_ID = 5029;
 
     /**
      * @generated
@@ -92,7 +80,7 @@ public class TabbedDataFieldColumnNumberEditPart extends CompartmentEditPart imp
     /**
      * @generated
      */
-    public TabbedDataFieldColumnNumberEditPart(View view) {
+    public StringInputName12EditPart(View view) {
 	super(view);
     }
 
@@ -290,11 +278,9 @@ public class TabbedDataFieldColumnNumberEditPart extends CompartmentEditPart imp
      */
     public IParser getParser() {
 	if (parser == null) {
-	    parser = CrosswalkParserProvider
-			    .getParser(CrosswalkElementTypes.TabbedDataField_3017,
-					    getParserElement(),
-					    CrosswalkVisualIDRegistry
-							    .getType(crosswalk.diagram.edit.parts.TabbedDataFieldColumnNumberEditPart.VISUAL_ID));
+	    parser = CrosswalkParserProvider.getParser(CrosswalkElementTypes.StringInput_3014, getParserElement(),
+			    CrosswalkVisualIDRegistry
+					    .getType(crosswalk.diagram.edit.parts.StringInputName12EditPart.VISUAL_ID));
 	}
 	return parser;
     }

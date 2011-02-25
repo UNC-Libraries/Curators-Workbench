@@ -42,6 +42,14 @@
           xsi:type="gmftool:CreationTool"
           title="Text"
           description="Add custom text to your crosswalk records"/>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="XML Element"
+          description="Add an Element"/>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="XML Attribute"
+          description="Create an XML Attribute"/>
     </tools>
   </palette>
 </gmftool:ToolRegistry>

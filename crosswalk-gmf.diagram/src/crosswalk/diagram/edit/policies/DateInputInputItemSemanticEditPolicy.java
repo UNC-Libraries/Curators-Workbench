@@ -30,7 +30,7 @@ public class DateInputInputItemSemanticEditPolicy extends CrosswalkBaseItemSeman
      * @generated
      */
     public DateInputInputItemSemanticEditPolicy() {
-	super(CrosswalkElementTypes.DateInputInput_4010);
+	super(CrosswalkElementTypes.DateInputInput_4002);
     }
 
     /**

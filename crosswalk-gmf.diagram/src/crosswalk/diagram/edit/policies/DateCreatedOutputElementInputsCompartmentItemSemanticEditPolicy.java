@@ -31,14 +31,14 @@ public class DateCreatedOutputElementInputsCompartmentItemSemanticEditPolicy ext
      * @generated
      */
     public DateCreatedOutputElementInputsCompartmentItemSemanticEditPolicy() {
-	super(CrosswalkElementTypes.DateCreated_2015);
+	super(CrosswalkElementTypes.DateCreated_2011);
     }
 
     /**
      * @generated
      */
     protected Command getCreateCommand(CreateElementRequest req) {
-	if (CrosswalkElementTypes.DateInput_3019 == req.getElementType()) {
+	if (CrosswalkElementTypes.DateInput_3011 == req.getElementType()) {
 	    return getGEFWrapper(new DateInputCreateCommand(req));
 	}
 	return super.getCreateCommand(req);

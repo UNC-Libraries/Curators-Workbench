@@ -45,7 +45,7 @@ public class DateCreatedItemSemanticEditPolicy extends CrosswalkBaseItemSemantic
      * @generated
      */
     public DateCreatedItemSemanticEditPolicy() {
-	super(CrosswalkElementTypes.DateCreated_2015);
+	super(CrosswalkElementTypes.DateCreated_2011);
     }
 
     /**
