@@ -1,2 +1,5 @@
 /.project
 /.settings
+/*/bin
+*/bin
+bin
