@@ -1,24 +1,15 @@
 /**
- * Copyright 2010 The University of North Carolina at Chapel Hill
+ * <copyright>
+ * </copyright>
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *         http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * $Id$
  */
 package crosswalk.provider;
 
 
-import crosswalk.CrossWalk;
 import crosswalk.CrosswalkFactory;
 import crosswalk.CrosswalkPackage;
+import crosswalk.MappedElement;
 
 import java.util.Collection;
 import java.util.List;
@@ -41,12 +32,12 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link crosswalk.CrossWalk} object.
+ * This is the item provider adapter for a {@link crosswalk.MappedElement} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class CrossWalkItemProvider
+public class MappedElementItemProvider
         extends ItemProviderAdapter
         implements
                 IEditingDomainItemProvider,
@@ -60,7 +51,7 @@ public class CrossWalkItemProvider
          * <!-- end-user-doc -->
          * @generated
          */
-        public CrossWalkItemProvider(AdapterFactory adapterFactory) {
+        public MappedElementItemProvider(AdapterFactory adapterFactory) {
                 super(adapterFactory);
         }
 
@@ -75,26 +66,49 @@ public class CrossWalkItemProvider
                 if (itemPropertyDescriptors == null) {
                         super.getPropertyDescriptors(object);
 
-                        addOutputTypePropertyDescriptor(object);
+                        addMappedFeaturePropertyDescriptor(object);
+                        addTextPropertyDescriptor(object);
                 }
                 return itemPropertyDescriptors;
         }
 
         /**
-         * This adds a property descriptor for the Output Type feature.
+         * This adds a property descriptor for the Mapped Feature feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        protected void addOutputTypePropertyDescriptor(Object object) {
+        protected void addMappedFeaturePropertyDescriptor(Object object) {
                 itemPropertyDescriptors.add
                         (createItemPropertyDescriptor
                                 (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
                                  getResourceLocator(),
-                                 getString("_UI_CrossWalk_outputType_feature"),
-                                 getString("_UI_PropertyDescriptor_description", "_UI_CrossWalk_outputType_feature", "_UI_CrossWalk_type"),
-                                 CrosswalkPackage.Literals.CROSS_WALK__OUTPUT_TYPE,
+                                 getString("_UI_MappedElement_mappedFeature_feature"),
+                                 getString("_UI_PropertyDescriptor_description", "_UI_MappedElement_mappedFeature_feature", "_UI_MappedElement_type"),
+                                 CrosswalkPackage.Literals.MAPPED_ELEMENT__MAPPED_FEATURE,
                                  true,
+                                 false,
+                                 true,
+                                 null,
+                                 null,
+                                 null));
+        }
+
+        /**
+         * This adds a property descriptor for the Text feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        protected void addTextPropertyDescriptor(Object object) {
+                itemPropertyDescriptors.add
+                        (createItemPropertyDescriptor
+                                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+                                 getResourceLocator(),
+                                 getString("_UI_MappedElement_text_feature"),
+                                 getString("_UI_PropertyDescriptor_description", "_UI_MappedElement_text_feature", "_UI_MappedElement_type"),
+                                 CrosswalkPackage.Literals.MAPPED_ELEMENT__TEXT,
+                                 false,
                                  false,
                                  true,
                                  null,
@@ -114,9 +128,8 @@ public class CrossWalkItemProvider
         public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
                 if (childrenFeatures == null) {
                         super.getChildrenFeatures(object);
-                        childrenFeatures.add(CrosswalkPackage.Literals.CROSS_WALK__DATA_SOURCE);
-                        childrenFeatures.add(CrosswalkPackage.Literals.CROSS_WALK__WIDGETS);
-                        childrenFeatures.add(CrosswalkPackage.Literals.CROSS_WALK__ELEMENTS);
+                        childrenFeatures.add(CrosswalkPackage.Literals.MAPPED_ELEMENT__CHILD_ELEMENTS);
+                        childrenFeatures.add(CrosswalkPackage.Literals.MAPPED_ELEMENT__ATTRIBUTES);
                 }
                 return childrenFeatures;
         }
@@ -135,17 +148,6 @@ public class CrossWalkItemProvider
         }
 
         /**
-         * This returns CrossWalk.gif.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        @Override
-        public Object getImage(Object object) {
-                return overlayImage(object, getResourceLocator().getImage("full/obj16/CrossWalk"));
-        }
-
-        /**
          * This returns the label text for the adapted class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -153,7 +155,7 @@ public class CrossWalkItemProvider
          */
         @Override
         public String getText(Object object) {
-                return getString("_UI_CrossWalk_type");
+                return getString("_UI_MappedElement_type");
         }
 
         /**
@@ -167,10 +169,9 @@ public class CrossWalkItemProvider
         public void notifyChanged(Notification notification) {
                 updateChildren(notification);
 
-                switch (notification.getFeatureID(CrossWalk.class)) {
-                        case CrosswalkPackage.CROSS_WALK__DATA_SOURCE:
-                        case CrosswalkPackage.CROSS_WALK__WIDGETS:
-                        case CrosswalkPackage.CROSS_WALK__ELEMENTS:
+                switch (notification.getFeatureID(MappedElement.class)) {
+                        case CrosswalkPackage.MAPPED_ELEMENT__CHILD_ELEMENTS:
+                        case CrosswalkPackage.MAPPED_ELEMENT__ATTRIBUTES:
                                 fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
                                 return;
                 }
@@ -190,42 +191,12 @@ public class CrossWalkItemProvider
 
                 newChildDescriptors.add
                         (createChildParameter
-                                (CrosswalkPackage.Literals.CROSS_WALK__DATA_SOURCE,
-                                 CrosswalkFactory.eINSTANCE.createTabSeparatedFile()));
-
-                newChildDescriptors.add
-                        (createChildParameter
-                                (CrosswalkPackage.Literals.CROSS_WALK__DATA_SOURCE,
-                                 CrosswalkFactory.eINSTANCE.createDelimitedFile()));
-
-                newChildDescriptors.add
-                        (createChildParameter
-                                (CrosswalkPackage.Literals.CROSS_WALK__WIDGETS,
-                                 CrosswalkFactory.eINSTANCE.createTrimWhitespace()));
-
-                newChildDescriptors.add
-                        (createChildParameter
-                                (CrosswalkPackage.Literals.CROSS_WALK__WIDGETS,
-                                 CrosswalkFactory.eINSTANCE.createOriginalNameRecordMatcher()));
-
-                newChildDescriptors.add
-                        (createChildParameter
-                                (CrosswalkPackage.Literals.CROSS_WALK__WIDGETS,
-                                 CrosswalkFactory.eINSTANCE.createDateRecognizer()));
-
-                newChildDescriptors.add
-                        (createChildParameter
-                                (CrosswalkPackage.Literals.CROSS_WALK__WIDGETS,
-                                 CrosswalkFactory.eINSTANCE.createText()));
-
-                newChildDescriptors.add
-                        (createChildParameter
-                                (CrosswalkPackage.Literals.CROSS_WALK__ELEMENTS,
+                                (CrosswalkPackage.Literals.MAPPED_ELEMENT__CHILD_ELEMENTS,
                                  CrosswalkFactory.eINSTANCE.createMappedElement()));
 
                 newChildDescriptors.add
                         (createChildParameter
-                                (CrosswalkPackage.Literals.CROSS_WALK__ELEMENTS,
+                                (CrosswalkPackage.Literals.MAPPED_ELEMENT__ATTRIBUTES,
                                  CrosswalkFactory.eINSTANCE.createMappedAttribute()));
         }
 

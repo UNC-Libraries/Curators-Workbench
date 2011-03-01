@@ -1,6 +1,3 @@
-/*
- * copyright 2010 University of North Carolina at Chapel Hill
- */
 package crosswalk.diagram.edit.parts;
 
 import java.util.ArrayList;

@@ -10,17 +10,24 @@
         title="Data Inputs">
       <tools
           xsi:type="gmftool:CreationTool"
+          title="XML Element"
+          description="Add an Element"/>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="XML Attribute"
+          description="Create an XML Attribute"/>
+      <tools
+          xsi:type="gmftool:CreationTool"
           title="Input Connector"
           description="link to input"/>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="MODS Element"
-          description="Create MODS Element">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
+          title="Original Name Matcher"
+          description="Create Original File/Folder Name Record Matcher"/>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Fixed Text"
+          description="Add custom text to your crosswalk records"/>
       <tools
           xsi:type="gmftool:CreationTool"
           title="Normalize Whitespace"
@@ -32,24 +39,8 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="Original Name Matcher"
-          description="Create Original File/Folder Name Record Matcher"/>
-      <tools
-          xsi:type="gmftool:CreationTool"
           title="Date Recognizer"
           description="Add a Date Recognizer"/>
-      <tools
-          xsi:type="gmftool:CreationTool"
-          title="Text"
-          description="Add custom text to your crosswalk records"/>
-      <tools
-          xsi:type="gmftool:CreationTool"
-          title="XML Element"
-          description="Add an Element"/>
-      <tools
-          xsi:type="gmftool:CreationTool"
-          title="XML Attribute"
-          description="Create an XML Attribute"/>
     </tools>
   </palette>
 </gmftool:ToolRegistry>

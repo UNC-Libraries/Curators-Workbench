@@ -3,7 +3,7 @@
     xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/crosswalk-gmf/src"
     modelPluginID="crosswalk-gmf" modelName="Crosswalk" importerID="org.eclipse.emf.importer.ecore"
-    complianceLevel="6.0" copyrightFields="false" usedGenPackages="../../mods.model/model/mods.genmodel#//mods ../../xlink.model/model/xlink.genmodel#//xlink platform:/plugin/org.eclipse.emf.ecore/model/XMLNamespace.genmodel#//namespace">
+    complianceLevel="6.0" copyrightFields="false">
   <foreignModel>crosswalk.ecore</foreignModel>
   <genPackages prefix="Crosswalk" disposableProviderFactory="true" ecorePackage="crosswalk.ecore#/">
     <genDataTypes ecoreDataType="crosswalk.ecore#//DataException"/>
@@ -16,7 +16,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//TabbedDataField/ColumnNumber"/>
     </genClasses>
     <genClasses provider="Stateful" ecoreClass="crosswalk.ecore#//TrimWhitespace"/>
-    <genClasses provider="Stateful" ecoreClass="crosswalk.ecore#//TitleInfo"/>
     <genClasses ecoreClass="crosswalk.ecore#//CrossWalk">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference crosswalk.ecore#//CrossWalk/DataSource"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference crosswalk.ecore#//CrossWalk/Widgets"/>
@@ -75,15 +74,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//Input/Name"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference crosswalk.ecore#//Input/Consumer"/>
     </genClasses>
-    <genClasses ecoreClass="crosswalk.ecore#//Abstract"/>
-    <genClasses ecoreClass="crosswalk.ecore#//Genre"/>
-    <genClasses ecoreClass="crosswalk.ecore#//Identifier"/>
-    <genClasses ecoreClass="crosswalk.ecore#//Language"/>
-    <genClasses ecoreClass="crosswalk.ecore#//Name">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//Name/type"/>
-    </genClasses>
-    <genClasses ecoreClass="crosswalk.ecore#//Subject"/>
-    <genClasses ecoreClass="crosswalk.ecore#//TypeOfResource"/>
     <genClasses image="false" ecoreClass="crosswalk.ecore#//RecordMatcherStrategy">
       <genOperations ecoreOperation="crosswalk.ecore#//RecordMatcherStrategy/getMatches"/>
       <genOperations ecoreOperation="crosswalk.ecore#//RecordMatcherStrategy/run"/>
@@ -94,7 +84,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//OriginalNameRecordMatcher/baseFolder"/>
       <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference crosswalk.ecore#//OriginalNameRecordMatcher/input"/>
     </genClasses>
-    <genClasses ecoreClass="crosswalk.ecore#//DateCreated"/>
     <genClasses ecoreClass="crosswalk.ecore#//DateInput">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference crosswalk.ecore#//DateInput/Input"/>
     </genClasses>
@@ -107,9 +96,6 @@
     <genClasses ecoreClass="crosswalk.ecore#//Text">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//Text/Value"/>
     </genClasses>
-    <genClasses ecoreClass="crosswalk.ecore#//AccessCondition">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//AccessCondition/type"/>
-    </genClasses>
     <genClasses ecoreClass="crosswalk.ecore#//DelimitedFile">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//DelimitedFile/SourceFile"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//DelimitedFile/dataRow"/>
@@ -121,7 +107,7 @@
         <genParameters ecoreParameter="crosswalk.ecore#//DelimitedFile/GoToRecord/RowNumber"/>
       </genOperations>
     </genClasses>
-    <genClasses ecoreClass="crosswalk.ecore#//MappedElement">
+    <genClasses image="false" ecoreClass="crosswalk.ecore#//MappedElement">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference crosswalk.ecore#//MappedElement/childElements"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference crosswalk.ecore#//MappedElement/attributes"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference crosswalk.ecore#//MappedElement/mappedFeature"/>
@@ -129,7 +115,7 @@
           propertyDescription="" propertySortChoices="true" ecoreFeature="ecore:EReference crosswalk.ecore#//MappedElement/text"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference crosswalk.ecore#//MappedElement/parent"/>
     </genClasses>
-    <genClasses ecoreClass="crosswalk.ecore#//MappedAttribute">
+    <genClasses image="false" ecoreClass="crosswalk.ecore#//MappedAttribute">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference crosswalk.ecore#//MappedAttribute/mappedFeature"/>
     </genClasses>
   </genPackages>

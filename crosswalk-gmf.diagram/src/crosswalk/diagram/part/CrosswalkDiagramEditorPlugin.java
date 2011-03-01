@@ -15,8 +15,6 @@
  */
 package crosswalk.diagram.part;
 
-import gov.loc.mods.mods.provider.MODSItemProviderAdapterFactory;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -132,8 +130,6 @@ public class CrosswalkDiagramEditorPlugin extends AbstractUIPlugin {
      */
     protected void fillItemProviderFactories(List<AdapterFactory> factories) {
 	factories.add(new CrosswalkItemProviderAdapterFactory());
-	factories.add(new MODSItemProviderAdapterFactory());
-	factories.add(new org.w3._1999.xlink.provider.XlinkItemProviderAdapterFactory());
 	factories.add(new ResourceItemProviderAdapterFactory());
 	factories.add(new ReflectiveItemProviderAdapterFactory());
     }

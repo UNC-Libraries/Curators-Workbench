@@ -53,15 +53,6 @@ public interface CrosswalkFactory extends EFactory {
         TrimWhitespace createTrimWhitespace();
 
         /**
-         * Returns a new object of class '<em>Title Info</em>'.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @return a new object of class '<em>Title Info</em>'.
-         * @generated
-         */
-        TitleInfo createTitleInfo();
-
-        /**
          * Returns a new object of class '<em>Cross Walk</em>'.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -98,69 +89,6 @@ public interface CrosswalkFactory extends EFactory {
         StringInput createStringInput();
 
         /**
-         * Returns a new object of class '<em>Abstract</em>'.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @return a new object of class '<em>Abstract</em>'.
-         * @generated
-         */
-        Abstract createAbstract();
-
-        /**
-         * Returns a new object of class '<em>Genre</em>'.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @return a new object of class '<em>Genre</em>'.
-         * @generated
-         */
-        Genre createGenre();
-
-        /**
-         * Returns a new object of class '<em>Identifier</em>'.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @return a new object of class '<em>Identifier</em>'.
-         * @generated
-         */
-        Identifier createIdentifier();
-
-        /**
-         * Returns a new object of class '<em>Language</em>'.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @return a new object of class '<em>Language</em>'.
-         * @generated
-         */
-        Language createLanguage();
-
-        /**
-         * Returns a new object of class '<em>Name</em>'.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @return a new object of class '<em>Name</em>'.
-         * @generated
-         */
-        Name createName();
-
-        /**
-         * Returns a new object of class '<em>Subject</em>'.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @return a new object of class '<em>Subject</em>'.
-         * @generated
-         */
-        Subject createSubject();
-
-        /**
-         * Returns a new object of class '<em>Type Of Resource</em>'.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @return a new object of class '<em>Type Of Resource</em>'.
-         * @generated
-         */
-        TypeOfResource createTypeOfResource();
-
-        /**
          * Returns a new object of class '<em>Original Name Record Matcher</em>'.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -168,15 +96,6 @@ public interface CrosswalkFactory extends EFactory {
          * @generated
          */
         OriginalNameRecordMatcher createOriginalNameRecordMatcher();
-
-        /**
-         * Returns a new object of class '<em>Date Created</em>'.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @return a new object of class '<em>Date Created</em>'.
-         * @generated
-         */
-        DateCreated createDateCreated();
 
         /**
          * Returns a new object of class '<em>Date Input</em>'.
@@ -204,15 +123,6 @@ public interface CrosswalkFactory extends EFactory {
          * @generated
          */
         Text createText();
-
-        /**
-         * Returns a new object of class '<em>Access Condition</em>'.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @return a new object of class '<em>Access Condition</em>'.
-         * @generated
-         */
-        AccessCondition createAccessCondition();
 
         /**
          * Returns a new object of class '<em>Delimited File</em>'.

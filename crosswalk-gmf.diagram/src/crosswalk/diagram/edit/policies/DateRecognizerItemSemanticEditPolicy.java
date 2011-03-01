@@ -1,18 +1,3 @@
-/**
- * Copyright 2010 The University of North Carolina at Chapel Hill
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *         http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 package crosswalk.diagram.edit.policies;
 
 import java.util.Iterator;
@@ -36,7 +21,7 @@ import crosswalk.diagram.edit.commands.DateInputInputCreateCommand;
 import crosswalk.diagram.edit.commands.DateInputInputReorientCommand;
 import crosswalk.diagram.edit.parts.DateInputInputEditPart;
 import crosswalk.diagram.edit.parts.DateRecognizerOutputElementInputsCompartmentEditPart;
-import crosswalk.diagram.edit.parts.StringInput11EditPart;
+import crosswalk.diagram.edit.parts.StringInputEditPart;
 import crosswalk.diagram.edit.parts.StringInputInputEditPart;
 import crosswalk.diagram.part.CrosswalkVisualIDRegistry;
 import crosswalk.diagram.providers.CrosswalkElementTypes;
@@ -95,7 +80,7 @@ public class DateRecognizerItemSemanticEditPolicy extends CrosswalkBaseItemSeman
 		for (Iterator<?> cit = node.getChildren().iterator(); cit.hasNext();) {
 		    Node cnode = (Node) cit.next();
 		    switch (CrosswalkVisualIDRegistry.getVisualID(cnode)) {
-		    case StringInput11EditPart.VISUAL_ID:
+		    case StringInputEditPart.VISUAL_ID:
 			for (Iterator<?> it = cnode.getSourceEdges().iterator(); it.hasNext();) {
 			    Edge outgoingLink = (Edge) it.next();
 			    if (CrosswalkVisualIDRegistry.getVisualID(outgoingLink) == StringInputInputEditPart.VISUAL_ID) {

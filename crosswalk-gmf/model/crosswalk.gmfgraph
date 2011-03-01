@@ -304,10 +304,6 @@
       name="StringInput"
       figure="StringInputFigure"/>
   <nodes
-      name="OutputElement"
-      figure="RoundedOutputElementFigure"
-      contentPane="//@figures.0/@descriptors.0/@accessors.0"/>
-  <nodes
       name="DataField"
       figure="DataFieldFigure"
       contentPane="//@figures.0/@descriptors.2/@accessors.1"/>
@@ -318,13 +314,13 @@
       name="MappedElementNode"
       figure="MappedElementFigure"
       contentPane="//@figures.0/@descriptors.7/@accessors.0"/>
+  <nodes
+      name="GenericWidgetNode"
+      figure="RoundedOutputElementFigure"
+      contentPane="//@figures.0/@descriptors.0/@accessors.0"/>
   <connections
       name="StringConnection"
       figure="StringConnectionFigure"/>
-  <compartments
-      name="OutputElementInputsCompartment"
-      figure="RoundedOutputElementFigure"
-      accessor="//@figures.0/@descriptors.0/@accessors.0"/>
   <compartments
       name="DataFieldCompartment"
       figure="DataSourceFigure"
@@ -338,6 +334,11 @@
       figure="MappedElementFigure"
       collapsible="true"
       accessor="//@figures.0/@descriptors.7/@accessors.0"/>
+  <compartments
+      name="GenericWidgetCompartment"
+      figure="RoundedOutputElementFigure"
+      collapsible="true"
+      accessor="//@figures.0/@descriptors.0/@accessors.0"/>
   <labels
       name="DataSourceName"
       figure="DataSourceFigure"

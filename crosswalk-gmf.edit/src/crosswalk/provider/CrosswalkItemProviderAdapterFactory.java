@@ -116,17 +116,6 @@ public class CrosswalkItemProviderAdapterFactory extends CrosswalkAdapterFactory
         }
 
         /**
-         * This creates an adapter for a {@link crosswalk.TitleInfo}.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        @Override
-        public Adapter createTitleInfoAdapter() {
-                return new TitleInfoItemProvider(this);
-        }
-
-        /**
          * This keeps track of the one adapter used for all {@link crosswalk.CrossWalk} instances.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -207,167 +196,6 @@ public class CrosswalkItemProviderAdapterFactory extends CrosswalkAdapterFactory
         }
 
         /**
-         * This keeps track of the one adapter used for all {@link crosswalk.Abstract} instances.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        protected AbstractItemProvider abstractItemProvider;
-
-        /**
-         * This creates an adapter for a {@link crosswalk.Abstract}.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        @Override
-        public Adapter createAbstractAdapter() {
-                if (abstractItemProvider == null) {
-                        abstractItemProvider = new AbstractItemProvider(this);
-                }
-
-                return abstractItemProvider;
-        }
-
-        /**
-         * This keeps track of the one adapter used for all {@link crosswalk.Genre} instances.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        protected GenreItemProvider genreItemProvider;
-
-        /**
-         * This creates an adapter for a {@link crosswalk.Genre}.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        @Override
-        public Adapter createGenreAdapter() {
-                if (genreItemProvider == null) {
-                        genreItemProvider = new GenreItemProvider(this);
-                }
-
-                return genreItemProvider;
-        }
-
-        /**
-         * This keeps track of the one adapter used for all {@link crosswalk.Identifier} instances.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        protected IdentifierItemProvider identifierItemProvider;
-
-        /**
-         * This creates an adapter for a {@link crosswalk.Identifier}.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        @Override
-        public Adapter createIdentifierAdapter() {
-                if (identifierItemProvider == null) {
-                        identifierItemProvider = new IdentifierItemProvider(this);
-                }
-
-                return identifierItemProvider;
-        }
-
-        /**
-         * This keeps track of the one adapter used for all {@link crosswalk.Language} instances.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        protected LanguageItemProvider languageItemProvider;
-
-        /**
-         * This creates an adapter for a {@link crosswalk.Language}.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        @Override
-        public Adapter createLanguageAdapter() {
-                if (languageItemProvider == null) {
-                        languageItemProvider = new LanguageItemProvider(this);
-                }
-
-                return languageItemProvider;
-        }
-
-        /**
-         * This keeps track of the one adapter used for all {@link crosswalk.Name} instances.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        protected NameItemProvider nameItemProvider;
-
-        /**
-         * This creates an adapter for a {@link crosswalk.Name}.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        @Override
-        public Adapter createNameAdapter() {
-                if (nameItemProvider == null) {
-                        nameItemProvider = new NameItemProvider(this);
-                }
-
-                return nameItemProvider;
-        }
-
-        /**
-         * This keeps track of the one adapter used for all {@link crosswalk.Subject} instances.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        protected SubjectItemProvider subjectItemProvider;
-
-        /**
-         * This creates an adapter for a {@link crosswalk.Subject}.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        @Override
-        public Adapter createSubjectAdapter() {
-                if (subjectItemProvider == null) {
-                        subjectItemProvider = new SubjectItemProvider(this);
-                }
-
-                return subjectItemProvider;
-        }
-
-        /**
-         * This keeps track of the one adapter used for all {@link crosswalk.TypeOfResource} instances.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        protected TypeOfResourceItemProvider typeOfResourceItemProvider;
-
-        /**
-         * This creates an adapter for a {@link crosswalk.TypeOfResource}.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        @Override
-        public Adapter createTypeOfResourceAdapter() {
-                if (typeOfResourceItemProvider == null) {
-                        typeOfResourceItemProvider = new TypeOfResourceItemProvider(this);
-                }
-
-                return typeOfResourceItemProvider;
-        }
-
-        /**
          * This keeps track of the one adapter used for all {@link crosswalk.OriginalNameRecordMatcher} instances.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -388,29 +216,6 @@ public class CrosswalkItemProviderAdapterFactory extends CrosswalkAdapterFactory
                 }
 
                 return originalNameRecordMatcherItemProvider;
-        }
-
-        /**
-         * This keeps track of the one adapter used for all {@link crosswalk.DateCreated} instances.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        protected DateCreatedItemProvider dateCreatedItemProvider;
-
-        /**
-         * This creates an adapter for a {@link crosswalk.DateCreated}.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        @Override
-        public Adapter createDateCreatedAdapter() {
-                if (dateCreatedItemProvider == null) {
-                        dateCreatedItemProvider = new DateCreatedItemProvider(this);
-                }
-
-                return dateCreatedItemProvider;
         }
 
         /**
@@ -483,29 +288,6 @@ public class CrosswalkItemProviderAdapterFactory extends CrosswalkAdapterFactory
         }
 
         /**
-         * This keeps track of the one adapter used for all {@link crosswalk.AccessCondition} instances.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        protected AccessConditionItemProvider accessConditionItemProvider;
-
-        /**
-         * This creates an adapter for a {@link crosswalk.AccessCondition}.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        @Override
-        public Adapter createAccessConditionAdapter() {
-                if (accessConditionItemProvider == null) {
-                        accessConditionItemProvider = new AccessConditionItemProvider(this);
-                }
-
-                return accessConditionItemProvider;
-        }
-
-        /**
          * This keeps track of the one adapter used for all {@link crosswalk.DelimitedFile} instances.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -526,6 +308,52 @@ public class CrosswalkItemProviderAdapterFactory extends CrosswalkAdapterFactory
                 }
 
                 return delimitedFileItemProvider;
+        }
+
+        /**
+         * This keeps track of the one adapter used for all {@link crosswalk.MappedElement} instances.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        protected MappedElementItemProvider mappedElementItemProvider;
+
+        /**
+         * This creates an adapter for a {@link crosswalk.MappedElement}.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        @Override
+        public Adapter createMappedElementAdapter() {
+                if (mappedElementItemProvider == null) {
+                        mappedElementItemProvider = new MappedElementItemProvider(this);
+                }
+
+                return mappedElementItemProvider;
+        }
+
+        /**
+         * This keeps track of the one adapter used for all {@link crosswalk.MappedAttribute} instances.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        protected MappedAttributeItemProvider mappedAttributeItemProvider;
+
+        /**
+         * This creates an adapter for a {@link crosswalk.MappedAttribute}.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        @Override
+        public Adapter createMappedAttributeAdapter() {
+                if (mappedAttributeItemProvider == null) {
+                        mappedAttributeItemProvider = new MappedAttributeItemProvider(this);
+                }
+
+                return mappedAttributeItemProvider;
         }
 
         /**

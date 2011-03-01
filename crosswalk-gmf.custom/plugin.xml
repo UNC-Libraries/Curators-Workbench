@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.gmf.runtime.emf.type.core.elementTypes">
+      <metamodel
+            nsURI="http://lib.unc.edu/schemas/crosswalk">
+         <adviceBinding
+               class="crosswalk.custom.MappedElementEditHelperAdvice"
+               id="crosswalk-gmf.custom.adviceBindingMappedElement"
+               inheritance="all"
+               typeId="crosswalk-gmf.custom.adviceBindingMappedElement">
+         </adviceBinding>
+      </metamodel>
+   </extension>
+
+</plugin>

@@ -19,6 +19,7 @@ import org.eclipse.gef.commands.Command;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 
 import crosswalk.diagram.edit.commands.StringInput11CreateCommand;
+import crosswalk.diagram.edit.commands.StringInputCreateCommand;
 import crosswalk.diagram.providers.CrosswalkElementTypes;
 
 /**
@@ -38,8 +39,8 @@ public class DateRecognizerOutputElementInputsCompartmentItemSemanticEditPolicy 
      * @generated
      */
     protected Command getCreateCommand(CreateElementRequest req) {
-	if (CrosswalkElementTypes.StringInput_3013 == req.getElementType()) {
-	    return getGEFWrapper(new StringInput11CreateCommand(req));
+	if (CrosswalkElementTypes.StringInput_3002 == req.getElementType()) {
+	    return getGEFWrapper(new StringInputCreateCommand(req));
 	}
 	return super.getCreateCommand(req);
     }

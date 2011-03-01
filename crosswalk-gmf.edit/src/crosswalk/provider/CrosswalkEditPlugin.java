@@ -54,8 +54,6 @@ public final class CrosswalkEditPlugin extends EMFPlugin {
         public CrosswalkEditPlugin() {
                 super
                   (new ResourceLocator [] {
-                     ModsEditPlugin.INSTANCE,
-                     XlinkEditPlugin.INSTANCE,
                    });
         }
 

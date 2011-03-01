@@ -96,390 +96,6 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="3002"
-        editPartClassName="StringInputEditPart"
-        itemSemanticEditPolicyClassName="StringInputItemSemanticEditPolicy"
-        notationViewFactoryClassName="StringInputViewFactory"
-        canonicalEditPolicyClassName="StringInputCanonicalEditPolicy"
-        graphicalNodeEditPolicyClassName="StringInputGraphicalNodeEditPolicy"
-        createCommandClassName="StringInputCreateCommand"
-        containers="//@diagram/@compartments.1">
-      <diagramRunTimeClass
-          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-      <elementType
-          xsi:type="gmfgen:MetamodelType"
-          editHelperClassName="StringInputEditHelper"/>
-      <viewmap
-          xsi:type="gmfgen:InnerClassViewmap"
-          layoutType="TOOLBAR_LAYOUT"
-          className="StringInputFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class StringInputFigure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureInputLabel; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public StringInputFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.ToolbarLayout layoutThis = new org.eclipse.draw2d.ToolbarLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.ToolbarLayout.ALIGN_TOPLEFT&#xA;);&#xA;&#xA;&#x9;layoutThis.setSpacing(5);&#xA;&#x9;layoutThis.setVertical(false);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setFill(false);&#xA;this.setOutline(false);&#xA;this.setMaximumSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(50)&#xA;, getMapMode().DPtoLP(12)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;org.eclipse.draw2d.Ellipse stringInputEllipsis0 = new org.eclipse.draw2d.Ellipse();&#xA;&#x9;stringInputEllipsis0.setBackgroundColor(org.eclipse.draw2d.ColorConstants.red);&#xA;stringInputEllipsis0.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(15)&#xA;, getMapMode().DPtoLP(15)&#xA;));&#xA;stringInputEllipsis0.setMaximumSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(15)&#xA;, getMapMode().DPtoLP(15)&#xA;));&#xA;&#xA;this.add(stringInputEllipsis0);&#xA;&#xA;&#xA;&#xA;fFigureInputLabel = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureInputLabel.setText(&quot;input&quot;);&#xA;&#xA;this.add(fFigureInputLabel);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureInputLabel() {&#xA;&#x9;&#x9;return fFigureInputLabel;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
-      <modelFacet>
-        <metaClass
-            href="crosswalk.genmodel#//crosswalk/StringInput"/>
-        <containmentMetaFeature
-            href="crosswalk.genmodel#//crosswalk/InputConsumer/Inputs"/>
-        <childMetaFeature
-            href="crosswalk.genmodel#//crosswalk/InputConsumer/Inputs"/>
-      </modelFacet>
-      <labels
-          visualID="5004"
-          editPartClassName="StringInputNameEditPart"
-          itemSemanticEditPolicyClassName="StringInputNameItemSemanticEditPolicy"
-          notationViewFactoryClassName="StringInputNameViewFactory"
-          readOnly="true">
-        <diagramRunTimeClass
-            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-        <viewmap
-            xsi:type="gmfgen:ParentAssignedViewmap"
-            getterName="getFigureInputLabel"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
-        <modelFacet
-            xsi:type="gmfgen:FeatureLabelModelFacet"
-            parser="//@labelParsers/@implementations.1"
-            viewPattern="{0}">
-          <metaFeatures
-              href="crosswalk.genmodel#//crosswalk/Input/Name"/>
-        </modelFacet>
-      </labels>
-    </childNodes>
-    <childNodes
-        visualID="3003"
-        editPartClassName="StringInput2EditPart"
-        itemSemanticEditPolicyClassName="StringInput2ItemSemanticEditPolicy"
-        notationViewFactoryClassName="StringInputViewFactory"
-        canonicalEditPolicyClassName="StringInput2CanonicalEditPolicy"
-        graphicalNodeEditPolicyClassName="StringInput2GraphicalNodeEditPolicy"
-        createCommandClassName="StringInput2CreateCommand"
-        containers="//@diagram/@compartments.2">
-      <diagramRunTimeClass
-          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-      <elementType
-          xsi:type="gmfgen:SpecializationType"
-          metamodelType="//@diagram/@childNodes.1/@elementType"/>
-      <viewmap
-          xsi:type="gmfgen:InnerClassViewmap"
-          layoutType="TOOLBAR_LAYOUT"
-          className="StringInputFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class StringInputFigure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureInputLabel; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public StringInputFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.ToolbarLayout layoutThis = new org.eclipse.draw2d.ToolbarLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.ToolbarLayout.ALIGN_TOPLEFT&#xA;);&#xA;&#xA;&#x9;layoutThis.setSpacing(5);&#xA;&#x9;layoutThis.setVertical(false);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setFill(false);&#xA;this.setOutline(false);&#xA;this.setMaximumSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(50)&#xA;, getMapMode().DPtoLP(12)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;org.eclipse.draw2d.Ellipse stringInputEllipsis0 = new org.eclipse.draw2d.Ellipse();&#xA;&#x9;stringInputEllipsis0.setBackgroundColor(org.eclipse.draw2d.ColorConstants.red);&#xA;stringInputEllipsis0.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(15)&#xA;, getMapMode().DPtoLP(15)&#xA;));&#xA;stringInputEllipsis0.setMaximumSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(15)&#xA;, getMapMode().DPtoLP(15)&#xA;));&#xA;&#xA;this.add(stringInputEllipsis0);&#xA;&#xA;&#xA;&#xA;fFigureInputLabel = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureInputLabel.setText(&quot;input&quot;);&#xA;&#xA;this.add(fFigureInputLabel);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureInputLabel() {&#xA;&#x9;&#x9;return fFigureInputLabel;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
-      <modelFacet>
-        <metaClass
-            href="crosswalk.genmodel#//crosswalk/StringInput"/>
-        <containmentMetaFeature
-            href="crosswalk.genmodel#//crosswalk/InputConsumer/Inputs"/>
-        <childMetaFeature
-            href="crosswalk.genmodel#//crosswalk/InputConsumer/Inputs"/>
-      </modelFacet>
-      <labels
-          visualID="5006"
-          editPartClassName="StringInputName2EditPart"
-          itemSemanticEditPolicyClassName="StringInputName2ItemSemanticEditPolicy"
-          notationViewFactoryClassName="StringInputNameViewFactory"
-          readOnly="true">
-        <diagramRunTimeClass
-            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-        <viewmap
-            xsi:type="gmfgen:ParentAssignedViewmap"
-            getterName="getFigureInputLabel"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
-        <modelFacet
-            xsi:type="gmfgen:FeatureLabelModelFacet"
-            parser="//@labelParsers/@implementations.1"
-            viewPattern="{0}">
-          <metaFeatures
-              href="crosswalk.genmodel#//crosswalk/Input/Name"/>
-        </modelFacet>
-      </labels>
-    </childNodes>
-    <childNodes
-        visualID="3004"
-        editPartClassName="StringInput3EditPart"
-        itemSemanticEditPolicyClassName="StringInput3ItemSemanticEditPolicy"
-        notationViewFactoryClassName="StringInputViewFactory"
-        canonicalEditPolicyClassName="StringInput3CanonicalEditPolicy"
-        graphicalNodeEditPolicyClassName="StringInput3GraphicalNodeEditPolicy"
-        createCommandClassName="StringInput3CreateCommand"
-        containers="//@diagram/@compartments.3">
-      <diagramRunTimeClass
-          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-      <elementType
-          xsi:type="gmfgen:SpecializationType"
-          metamodelType="//@diagram/@childNodes.1/@elementType"/>
-      <viewmap
-          xsi:type="gmfgen:InnerClassViewmap"
-          layoutType="TOOLBAR_LAYOUT"
-          className="StringInputFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class StringInputFigure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureInputLabel; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public StringInputFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.ToolbarLayout layoutThis = new org.eclipse.draw2d.ToolbarLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.ToolbarLayout.ALIGN_TOPLEFT&#xA;);&#xA;&#xA;&#x9;layoutThis.setSpacing(5);&#xA;&#x9;layoutThis.setVertical(false);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setFill(false);&#xA;this.setOutline(false);&#xA;this.setMaximumSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(50)&#xA;, getMapMode().DPtoLP(12)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;org.eclipse.draw2d.Ellipse stringInputEllipsis0 = new org.eclipse.draw2d.Ellipse();&#xA;&#x9;stringInputEllipsis0.setBackgroundColor(org.eclipse.draw2d.ColorConstants.red);&#xA;stringInputEllipsis0.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(15)&#xA;, getMapMode().DPtoLP(15)&#xA;));&#xA;stringInputEllipsis0.setMaximumSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(15)&#xA;, getMapMode().DPtoLP(15)&#xA;));&#xA;&#xA;this.add(stringInputEllipsis0);&#xA;&#xA;&#xA;&#xA;fFigureInputLabel = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureInputLabel.setText(&quot;input&quot;);&#xA;&#xA;this.add(fFigureInputLabel);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureInputLabel() {&#xA;&#x9;&#x9;return fFigureInputLabel;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
-      <modelFacet>
-        <metaClass
-            href="crosswalk.genmodel#//crosswalk/StringInput"/>
-        <containmentMetaFeature
-            href="crosswalk.genmodel#//crosswalk/InputConsumer/Inputs"/>
-        <childMetaFeature
-            href="crosswalk.genmodel#//crosswalk/InputConsumer/Inputs"/>
-      </modelFacet>
-      <labels
-          visualID="5008"
-          editPartClassName="StringInputName3EditPart"
-          itemSemanticEditPolicyClassName="StringInputName3ItemSemanticEditPolicy"
-          notationViewFactoryClassName="StringInputNameViewFactory"
-          readOnly="true">
-        <diagramRunTimeClass
-            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-        <viewmap
-            xsi:type="gmfgen:ParentAssignedViewmap"
-            getterName="getFigureInputLabel"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
-        <modelFacet
-            xsi:type="gmfgen:FeatureLabelModelFacet"
-            parser="//@labelParsers/@implementations.1"
-            viewPattern="{0}">
-          <metaFeatures
-              href="crosswalk.genmodel#//crosswalk/Input/Name"/>
-        </modelFacet>
-      </labels>
-    </childNodes>
-    <childNodes
-        visualID="3005"
-        editPartClassName="StringInput4EditPart"
-        itemSemanticEditPolicyClassName="StringInput4ItemSemanticEditPolicy"
-        notationViewFactoryClassName="StringInputViewFactory"
-        canonicalEditPolicyClassName="StringInput4CanonicalEditPolicy"
-        graphicalNodeEditPolicyClassName="StringInput4GraphicalNodeEditPolicy"
-        createCommandClassName="StringInput4CreateCommand"
-        containers="//@diagram/@compartments.4">
-      <diagramRunTimeClass
-          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-      <elementType
-          xsi:type="gmfgen:SpecializationType"
-          metamodelType="//@diagram/@childNodes.1/@elementType"/>
-      <viewmap
-          xsi:type="gmfgen:InnerClassViewmap"
-          layoutType="TOOLBAR_LAYOUT"
-          className="StringInputFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class StringInputFigure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureInputLabel; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public StringInputFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.ToolbarLayout layoutThis = new org.eclipse.draw2d.ToolbarLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.ToolbarLayout.ALIGN_TOPLEFT&#xA;);&#xA;&#xA;&#x9;layoutThis.setSpacing(5);&#xA;&#x9;layoutThis.setVertical(false);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setFill(false);&#xA;this.setOutline(false);&#xA;this.setMaximumSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(50)&#xA;, getMapMode().DPtoLP(12)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;org.eclipse.draw2d.Ellipse stringInputEllipsis0 = new org.eclipse.draw2d.Ellipse();&#xA;&#x9;stringInputEllipsis0.setBackgroundColor(org.eclipse.draw2d.ColorConstants.red);&#xA;stringInputEllipsis0.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(15)&#xA;, getMapMode().DPtoLP(15)&#xA;));&#xA;stringInputEllipsis0.setMaximumSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(15)&#xA;, getMapMode().DPtoLP(15)&#xA;));&#xA;&#xA;this.add(stringInputEllipsis0);&#xA;&#xA;&#xA;&#xA;fFigureInputLabel = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureInputLabel.setText(&quot;input&quot;);&#xA;&#xA;this.add(fFigureInputLabel);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureInputLabel() {&#xA;&#x9;&#x9;return fFigureInputLabel;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
-      <modelFacet>
-        <metaClass
-            href="crosswalk.genmodel#//crosswalk/StringInput"/>
-        <containmentMetaFeature
-            href="crosswalk.genmodel#//crosswalk/InputConsumer/Inputs"/>
-        <childMetaFeature
-            href="crosswalk.genmodel#//crosswalk/InputConsumer/Inputs"/>
-      </modelFacet>
-      <labels
-          visualID="5010"
-          editPartClassName="StringInputName4EditPart"
-          itemSemanticEditPolicyClassName="StringInputName4ItemSemanticEditPolicy"
-          notationViewFactoryClassName="StringInputNameViewFactory"
-          readOnly="true">
-        <diagramRunTimeClass
-            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-        <viewmap
-            xsi:type="gmfgen:ParentAssignedViewmap"
-            getterName="getFigureInputLabel"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
-        <modelFacet
-            xsi:type="gmfgen:FeatureLabelModelFacet"
-            parser="//@labelParsers/@implementations.1"
-            viewPattern="{0}">
-          <metaFeatures
-              href="crosswalk.genmodel#//crosswalk/Input/Name"/>
-        </modelFacet>
-      </labels>
-    </childNodes>
-    <childNodes
-        visualID="3006"
-        editPartClassName="StringInput5EditPart"
-        itemSemanticEditPolicyClassName="StringInput5ItemSemanticEditPolicy"
-        notationViewFactoryClassName="StringInputViewFactory"
-        canonicalEditPolicyClassName="StringInput5CanonicalEditPolicy"
-        graphicalNodeEditPolicyClassName="StringInput5GraphicalNodeEditPolicy"
-        createCommandClassName="StringInput5CreateCommand"
-        containers="//@diagram/@compartments.5">
-      <diagramRunTimeClass
-          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-      <elementType
-          xsi:type="gmfgen:SpecializationType"
-          metamodelType="//@diagram/@childNodes.1/@elementType"/>
-      <viewmap
-          xsi:type="gmfgen:InnerClassViewmap"
-          layoutType="TOOLBAR_LAYOUT"
-          className="StringInputFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class StringInputFigure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureInputLabel; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public StringInputFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.ToolbarLayout layoutThis = new org.eclipse.draw2d.ToolbarLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.ToolbarLayout.ALIGN_TOPLEFT&#xA;);&#xA;&#xA;&#x9;layoutThis.setSpacing(5);&#xA;&#x9;layoutThis.setVertical(false);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setFill(false);&#xA;this.setOutline(false);&#xA;this.setMaximumSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(50)&#xA;, getMapMode().DPtoLP(12)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;org.eclipse.draw2d.Ellipse stringInputEllipsis0 = new org.eclipse.draw2d.Ellipse();&#xA;&#x9;stringInputEllipsis0.setBackgroundColor(org.eclipse.draw2d.ColorConstants.red);&#xA;stringInputEllipsis0.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(15)&#xA;, getMapMode().DPtoLP(15)&#xA;));&#xA;stringInputEllipsis0.setMaximumSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(15)&#xA;, getMapMode().DPtoLP(15)&#xA;));&#xA;&#xA;this.add(stringInputEllipsis0);&#xA;&#xA;&#xA;&#xA;fFigureInputLabel = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureInputLabel.setText(&quot;input&quot;);&#xA;&#xA;this.add(fFigureInputLabel);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureInputLabel() {&#xA;&#x9;&#x9;return fFigureInputLabel;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
-      <modelFacet>
-        <metaClass
-            href="crosswalk.genmodel#//crosswalk/StringInput"/>
-        <containmentMetaFeature
-            href="crosswalk.genmodel#//crosswalk/InputConsumer/Inputs"/>
-        <childMetaFeature
-            href="crosswalk.genmodel#//crosswalk/InputConsumer/Inputs"/>
-      </modelFacet>
-      <labels
-          visualID="5012"
-          editPartClassName="StringInputName5EditPart"
-          itemSemanticEditPolicyClassName="StringInputName5ItemSemanticEditPolicy"
-          notationViewFactoryClassName="StringInputNameViewFactory"
-          readOnly="true">
-        <diagramRunTimeClass
-            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-        <viewmap
-            xsi:type="gmfgen:ParentAssignedViewmap"
-            getterName="getFigureInputLabel"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
-        <modelFacet
-            xsi:type="gmfgen:FeatureLabelModelFacet"
-            parser="//@labelParsers/@implementations.1"
-            viewPattern="{0}">
-          <metaFeatures
-              href="crosswalk.genmodel#//crosswalk/Input/Name"/>
-        </modelFacet>
-      </labels>
-    </childNodes>
-    <childNodes
-        visualID="3007"
-        editPartClassName="StringInput6EditPart"
-        itemSemanticEditPolicyClassName="StringInput6ItemSemanticEditPolicy"
-        notationViewFactoryClassName="StringInputViewFactory"
-        canonicalEditPolicyClassName="StringInput6CanonicalEditPolicy"
-        graphicalNodeEditPolicyClassName="StringInput6GraphicalNodeEditPolicy"
-        createCommandClassName="StringInput6CreateCommand"
-        containers="//@diagram/@compartments.6">
-      <diagramRunTimeClass
-          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-      <elementType
-          xsi:type="gmfgen:SpecializationType"
-          metamodelType="//@diagram/@childNodes.1/@elementType"/>
-      <viewmap
-          xsi:type="gmfgen:InnerClassViewmap"
-          layoutType="TOOLBAR_LAYOUT"
-          className="StringInputFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class StringInputFigure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureInputLabel; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public StringInputFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.ToolbarLayout layoutThis = new org.eclipse.draw2d.ToolbarLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.ToolbarLayout.ALIGN_TOPLEFT&#xA;);&#xA;&#xA;&#x9;layoutThis.setSpacing(5);&#xA;&#x9;layoutThis.setVertical(false);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setFill(false);&#xA;this.setOutline(false);&#xA;this.setMaximumSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(50)&#xA;, getMapMode().DPtoLP(12)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;org.eclipse.draw2d.Ellipse stringInputEllipsis0 = new org.eclipse.draw2d.Ellipse();&#xA;&#x9;stringInputEllipsis0.setBackgroundColor(org.eclipse.draw2d.ColorConstants.red);&#xA;stringInputEllipsis0.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(15)&#xA;, getMapMode().DPtoLP(15)&#xA;));&#xA;stringInputEllipsis0.setMaximumSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(15)&#xA;, getMapMode().DPtoLP(15)&#xA;));&#xA;&#xA;this.add(stringInputEllipsis0);&#xA;&#xA;&#xA;&#xA;fFigureInputLabel = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureInputLabel.setText(&quot;input&quot;);&#xA;&#xA;this.add(fFigureInputLabel);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureInputLabel() {&#xA;&#x9;&#x9;return fFigureInputLabel;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
-      <modelFacet>
-        <metaClass
-            href="crosswalk.genmodel#//crosswalk/StringInput"/>
-        <containmentMetaFeature
-            href="crosswalk.genmodel#//crosswalk/InputConsumer/Inputs"/>
-        <childMetaFeature
-            href="crosswalk.genmodel#//crosswalk/InputConsumer/Inputs"/>
-      </modelFacet>
-      <labels
-          visualID="5014"
-          editPartClassName="StringInputName6EditPart"
-          itemSemanticEditPolicyClassName="StringInputName6ItemSemanticEditPolicy"
-          notationViewFactoryClassName="StringInputNameViewFactory"
-          readOnly="true">
-        <diagramRunTimeClass
-            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-        <viewmap
-            xsi:type="gmfgen:ParentAssignedViewmap"
-            getterName="getFigureInputLabel"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
-        <modelFacet
-            xsi:type="gmfgen:FeatureLabelModelFacet"
-            parser="//@labelParsers/@implementations.1"
-            viewPattern="{0}">
-          <metaFeatures
-              href="crosswalk.genmodel#//crosswalk/Input/Name"/>
-        </modelFacet>
-      </labels>
-    </childNodes>
-    <childNodes
-        visualID="3008"
-        editPartClassName="StringInput7EditPart"
-        itemSemanticEditPolicyClassName="StringInput7ItemSemanticEditPolicy"
-        notationViewFactoryClassName="StringInputViewFactory"
-        canonicalEditPolicyClassName="StringInput7CanonicalEditPolicy"
-        graphicalNodeEditPolicyClassName="StringInput7GraphicalNodeEditPolicy"
-        createCommandClassName="StringInput7CreateCommand"
-        containers="//@diagram/@compartments.7">
-      <diagramRunTimeClass
-          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-      <elementType
-          xsi:type="gmfgen:SpecializationType"
-          metamodelType="//@diagram/@childNodes.1/@elementType"/>
-      <viewmap
-          xsi:type="gmfgen:InnerClassViewmap"
-          layoutType="TOOLBAR_LAYOUT"
-          className="StringInputFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class StringInputFigure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureInputLabel; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public StringInputFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.ToolbarLayout layoutThis = new org.eclipse.draw2d.ToolbarLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.ToolbarLayout.ALIGN_TOPLEFT&#xA;);&#xA;&#xA;&#x9;layoutThis.setSpacing(5);&#xA;&#x9;layoutThis.setVertical(false);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setFill(false);&#xA;this.setOutline(false);&#xA;this.setMaximumSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(50)&#xA;, getMapMode().DPtoLP(12)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;org.eclipse.draw2d.Ellipse stringInputEllipsis0 = new org.eclipse.draw2d.Ellipse();&#xA;&#x9;stringInputEllipsis0.setBackgroundColor(org.eclipse.draw2d.ColorConstants.red);&#xA;stringInputEllipsis0.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(15)&#xA;, getMapMode().DPtoLP(15)&#xA;));&#xA;stringInputEllipsis0.setMaximumSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(15)&#xA;, getMapMode().DPtoLP(15)&#xA;));&#xA;&#xA;this.add(stringInputEllipsis0);&#xA;&#xA;&#xA;&#xA;fFigureInputLabel = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureInputLabel.setText(&quot;input&quot;);&#xA;&#xA;this.add(fFigureInputLabel);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureInputLabel() {&#xA;&#x9;&#x9;return fFigureInputLabel;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
-      <modelFacet>
-        <metaClass
-            href="crosswalk.genmodel#//crosswalk/StringInput"/>
-        <containmentMetaFeature
-            href="crosswalk.genmodel#//crosswalk/InputConsumer/Inputs"/>
-        <childMetaFeature
-            href="crosswalk.genmodel#//crosswalk/InputConsumer/Inputs"/>
-      </modelFacet>
-      <labels
-          visualID="5016"
-          editPartClassName="StringInputName7EditPart"
-          itemSemanticEditPolicyClassName="StringInputName7ItemSemanticEditPolicy"
-          notationViewFactoryClassName="StringInputNameViewFactory"
-          readOnly="true">
-        <diagramRunTimeClass
-            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-        <viewmap
-            xsi:type="gmfgen:ParentAssignedViewmap"
-            getterName="getFigureInputLabel"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
-        <modelFacet
-            xsi:type="gmfgen:FeatureLabelModelFacet"
-            parser="//@labelParsers/@implementations.1"
-            viewPattern="{0}">
-          <metaFeatures
-              href="crosswalk.genmodel#//crosswalk/Input/Name"/>
-        </modelFacet>
-      </labels>
-    </childNodes>
-    <childNodes
-        visualID="3009"
-        editPartClassName="StringInput8EditPart"
-        itemSemanticEditPolicyClassName="StringInput8ItemSemanticEditPolicy"
-        notationViewFactoryClassName="StringInputViewFactory"
-        canonicalEditPolicyClassName="StringInput8CanonicalEditPolicy"
-        graphicalNodeEditPolicyClassName="StringInput8GraphicalNodeEditPolicy"
-        createCommandClassName="StringInput8CreateCommand"
-        containers="//@diagram/@compartments.8">
-      <diagramRunTimeClass
-          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-      <elementType
-          xsi:type="gmfgen:SpecializationType"
-          metamodelType="//@diagram/@childNodes.1/@elementType"/>
-      <viewmap
-          xsi:type="gmfgen:InnerClassViewmap"
-          layoutType="TOOLBAR_LAYOUT"
-          className="StringInputFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class StringInputFigure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureInputLabel; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public StringInputFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.ToolbarLayout layoutThis = new org.eclipse.draw2d.ToolbarLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.ToolbarLayout.ALIGN_TOPLEFT&#xA;);&#xA;&#xA;&#x9;layoutThis.setSpacing(5);&#xA;&#x9;layoutThis.setVertical(false);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setFill(false);&#xA;this.setOutline(false);&#xA;this.setMaximumSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(50)&#xA;, getMapMode().DPtoLP(12)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;org.eclipse.draw2d.Ellipse stringInputEllipsis0 = new org.eclipse.draw2d.Ellipse();&#xA;&#x9;stringInputEllipsis0.setBackgroundColor(org.eclipse.draw2d.ColorConstants.red);&#xA;stringInputEllipsis0.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(15)&#xA;, getMapMode().DPtoLP(15)&#xA;));&#xA;stringInputEllipsis0.setMaximumSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(15)&#xA;, getMapMode().DPtoLP(15)&#xA;));&#xA;&#xA;this.add(stringInputEllipsis0);&#xA;&#xA;&#xA;&#xA;fFigureInputLabel = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureInputLabel.setText(&quot;input&quot;);&#xA;&#xA;this.add(fFigureInputLabel);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureInputLabel() {&#xA;&#x9;&#x9;return fFigureInputLabel;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
-      <modelFacet>
-        <metaClass
-            href="crosswalk.genmodel#//crosswalk/StringInput"/>
-        <containmentMetaFeature
-            href="crosswalk.genmodel#//crosswalk/InputConsumer/Inputs"/>
-        <childMetaFeature
-            href="crosswalk.genmodel#//crosswalk/InputConsumer/Inputs"/>
-      </modelFacet>
-      <labels
-          visualID="5018"
-          editPartClassName="StringInputName8EditPart"
-          itemSemanticEditPolicyClassName="StringInputName8ItemSemanticEditPolicy"
-          notationViewFactoryClassName="StringInputNameViewFactory"
-          readOnly="true">
-        <diagramRunTimeClass
-            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-        <viewmap
-            xsi:type="gmfgen:ParentAssignedViewmap"
-            getterName="getFigureInputLabel"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
-        <modelFacet
-            xsi:type="gmfgen:FeatureLabelModelFacet"
-            parser="//@labelParsers/@implementations.1"
-            viewPattern="{0}">
-          <metaFeatures
-              href="crosswalk.genmodel#//crosswalk/Input/Name"/>
-        </modelFacet>
-      </labels>
-    </childNodes>
-    <childNodes
         visualID="3010"
         editPartClassName="StringInput9EditPart"
         itemSemanticEditPolicyClassName="StringInput9ItemSemanticEditPolicy"
@@ -487,12 +103,12 @@
         canonicalEditPolicyClassName="StringInput9CanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="StringInput9GraphicalNodeEditPolicy"
         createCommandClassName="StringInput9CreateCommand"
-        containers="//@diagram/@compartments.9">
+        containers="//@diagram/@compartments.1">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
-          xsi:type="gmfgen:SpecializationType"
-          metamodelType="//@diagram/@childNodes.1/@elementType"/>
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="StringInputEditHelper"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           layoutType="TOOLBAR_LAYOUT"
@@ -527,62 +143,14 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="3011"
-        editPartClassName="DateInputEditPart"
-        itemSemanticEditPolicyClassName="DateInputItemSemanticEditPolicy"
-        notationViewFactoryClassName="DateInputViewFactory"
-        canonicalEditPolicyClassName="DateInputCanonicalEditPolicy"
-        graphicalNodeEditPolicyClassName="DateInputGraphicalNodeEditPolicy"
-        createCommandClassName="DateInputCreateCommand"
-        containers="//@diagram/@compartments.10">
-      <diagramRunTimeClass
-          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-      <elementType
-          xsi:type="gmfgen:MetamodelType"
-          editHelperClassName="DateInputEditHelper"/>
-      <viewmap
-          xsi:type="gmfgen:InnerClassViewmap"
-          layoutType="TOOLBAR_LAYOUT"
-          className="StringInputFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class StringInputFigure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureInputLabel; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public StringInputFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.ToolbarLayout layoutThis = new org.eclipse.draw2d.ToolbarLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.ToolbarLayout.ALIGN_TOPLEFT&#xA;);&#xA;&#xA;&#x9;layoutThis.setSpacing(5);&#xA;&#x9;layoutThis.setVertical(false);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setFill(false);&#xA;this.setOutline(false);&#xA;this.setMaximumSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(50)&#xA;, getMapMode().DPtoLP(12)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;org.eclipse.draw2d.Ellipse stringInputEllipsis0 = new org.eclipse.draw2d.Ellipse();&#xA;&#x9;stringInputEllipsis0.setBackgroundColor(org.eclipse.draw2d.ColorConstants.red);&#xA;stringInputEllipsis0.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(15)&#xA;, getMapMode().DPtoLP(15)&#xA;));&#xA;stringInputEllipsis0.setMaximumSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(15)&#xA;, getMapMode().DPtoLP(15)&#xA;));&#xA;&#xA;this.add(stringInputEllipsis0);&#xA;&#xA;&#xA;&#xA;fFigureInputLabel = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureInputLabel.setText(&quot;input&quot;);&#xA;&#xA;this.add(fFigureInputLabel);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureInputLabel() {&#xA;&#x9;&#x9;return fFigureInputLabel;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
-      <modelFacet>
-        <metaClass
-            href="crosswalk.genmodel#//crosswalk/DateInput"/>
-        <containmentMetaFeature
-            href="crosswalk.genmodel#//crosswalk/InputConsumer/Inputs"/>
-        <childMetaFeature
-            href="crosswalk.genmodel#//crosswalk/InputConsumer/Inputs"/>
-      </modelFacet>
-      <labels
-          visualID="5022"
-          editPartClassName="DateInputNameEditPart"
-          itemSemanticEditPolicyClassName="DateInputNameItemSemanticEditPolicy"
-          notationViewFactoryClassName="DateInputNameViewFactory"
-          readOnly="true">
-        <diagramRunTimeClass
-            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-        <viewmap
-            xsi:type="gmfgen:ParentAssignedViewmap"
-            getterName="getFigureInputLabel"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
-        <modelFacet
-            xsi:type="gmfgen:FeatureLabelModelFacet"
-            parser="//@labelParsers/@implementations.1"
-            viewPattern="{0}">
-          <metaFeatures
-              href="crosswalk.genmodel#//crosswalk/Input/Name"/>
-        </modelFacet>
-      </labels>
-    </childNodes>
-    <childNodes
-        visualID="3012"
-        editPartClassName="StringInput10EditPart"
-        itemSemanticEditPolicyClassName="StringInput10ItemSemanticEditPolicy"
+        visualID="3002"
+        editPartClassName="StringInputEditPart"
+        itemSemanticEditPolicyClassName="StringInputItemSemanticEditPolicy"
         notationViewFactoryClassName="StringInputViewFactory"
-        canonicalEditPolicyClassName="StringInput10CanonicalEditPolicy"
-        graphicalNodeEditPolicyClassName="StringInput10GraphicalNodeEditPolicy"
-        createCommandClassName="StringInput10CreateCommand"
-        containers="//@diagram/@compartments.11">
+        canonicalEditPolicyClassName="StringInputCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="StringInputGraphicalNodeEditPolicy"
+        createCommandClassName="StringInputCreateCommand"
+        containers="//@diagram/@compartments.2">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -602,57 +170,9 @@
             href="crosswalk.genmodel#//crosswalk/InputConsumer/Inputs"/>
       </modelFacet>
       <labels
-          visualID="5024"
-          editPartClassName="StringInputName10EditPart"
-          itemSemanticEditPolicyClassName="StringInputName10ItemSemanticEditPolicy"
-          notationViewFactoryClassName="StringInputNameViewFactory"
-          readOnly="true">
-        <diagramRunTimeClass
-            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-        <viewmap
-            xsi:type="gmfgen:ParentAssignedViewmap"
-            getterName="getFigureInputLabel"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
-        <modelFacet
-            xsi:type="gmfgen:FeatureLabelModelFacet"
-            parser="//@labelParsers/@implementations.1"
-            viewPattern="{0}">
-          <metaFeatures
-              href="crosswalk.genmodel#//crosswalk/Input/Name"/>
-        </modelFacet>
-      </labels>
-    </childNodes>
-    <childNodes
-        visualID="3013"
-        editPartClassName="StringInput11EditPart"
-        itemSemanticEditPolicyClassName="StringInput11ItemSemanticEditPolicy"
-        notationViewFactoryClassName="StringInputViewFactory"
-        canonicalEditPolicyClassName="StringInput11CanonicalEditPolicy"
-        graphicalNodeEditPolicyClassName="StringInput11GraphicalNodeEditPolicy"
-        createCommandClassName="StringInput11CreateCommand"
-        containers="//@diagram/@compartments.12">
-      <diagramRunTimeClass
-          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-      <elementType
-          xsi:type="gmfgen:SpecializationType"
-          metamodelType="//@diagram/@childNodes.1/@elementType"/>
-      <viewmap
-          xsi:type="gmfgen:InnerClassViewmap"
-          layoutType="TOOLBAR_LAYOUT"
-          className="StringInputFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class StringInputFigure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureInputLabel; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public StringInputFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.ToolbarLayout layoutThis = new org.eclipse.draw2d.ToolbarLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.ToolbarLayout.ALIGN_TOPLEFT&#xA;);&#xA;&#xA;&#x9;layoutThis.setSpacing(5);&#xA;&#x9;layoutThis.setVertical(false);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setFill(false);&#xA;this.setOutline(false);&#xA;this.setMaximumSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(50)&#xA;, getMapMode().DPtoLP(12)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;org.eclipse.draw2d.Ellipse stringInputEllipsis0 = new org.eclipse.draw2d.Ellipse();&#xA;&#x9;stringInputEllipsis0.setBackgroundColor(org.eclipse.draw2d.ColorConstants.red);&#xA;stringInputEllipsis0.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(15)&#xA;, getMapMode().DPtoLP(15)&#xA;));&#xA;stringInputEllipsis0.setMaximumSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(15)&#xA;, getMapMode().DPtoLP(15)&#xA;));&#xA;&#xA;this.add(stringInputEllipsis0);&#xA;&#xA;&#xA;&#xA;fFigureInputLabel = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureInputLabel.setText(&quot;input&quot;);&#xA;&#xA;this.add(fFigureInputLabel);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureInputLabel() {&#xA;&#x9;&#x9;return fFigureInputLabel;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
-      <modelFacet>
-        <metaClass
-            href="crosswalk.genmodel#//crosswalk/StringInput"/>
-        <containmentMetaFeature
-            href="crosswalk.genmodel#//crosswalk/InputConsumer/Inputs"/>
-        <childMetaFeature
-            href="crosswalk.genmodel#//crosswalk/InputConsumer/Inputs"/>
-      </modelFacet>
-      <labels
-          visualID="5026"
-          editPartClassName="StringInputName11EditPart"
-          itemSemanticEditPolicyClassName="StringInputName11ItemSemanticEditPolicy"
+          visualID="5004"
+          editPartClassName="StringInputNameEditPart"
+          itemSemanticEditPolicyClassName="StringInputNameItemSemanticEditPolicy"
           notationViewFactoryClassName="StringInputNameViewFactory"
           readOnly="true">
         <diagramRunTimeClass
@@ -670,14 +190,14 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="3014"
-        editPartClassName="StringInput12EditPart"
-        itemSemanticEditPolicyClassName="StringInput12ItemSemanticEditPolicy"
+        visualID="3003"
+        editPartClassName="StringInput2EditPart"
+        itemSemanticEditPolicyClassName="StringInput2ItemSemanticEditPolicy"
         notationViewFactoryClassName="StringInputViewFactory"
-        canonicalEditPolicyClassName="StringInput12CanonicalEditPolicy"
-        graphicalNodeEditPolicyClassName="StringInput12GraphicalNodeEditPolicy"
-        createCommandClassName="StringInput12CreateCommand"
-        containers="//@diagram/@compartments.13">
+        canonicalEditPolicyClassName="StringInput2CanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="StringInput2GraphicalNodeEditPolicy"
+        createCommandClassName="StringInput2CreateCommand"
+        containers="//@diagram/@compartments.3">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -697,9 +217,9 @@
             href="crosswalk.genmodel#//crosswalk/InputConsumer/Inputs"/>
       </modelFacet>
       <labels
-          visualID="5029"
-          editPartClassName="StringInputName12EditPart"
-          itemSemanticEditPolicyClassName="StringInputName12ItemSemanticEditPolicy"
+          visualID="5006"
+          editPartClassName="StringInputName2EditPart"
+          itemSemanticEditPolicyClassName="StringInputName2ItemSemanticEditPolicy"
           notationViewFactoryClassName="StringInputNameViewFactory"
           readOnly="true">
         <diagramRunTimeClass
@@ -724,12 +244,12 @@
         canonicalEditPolicyClassName="MappedElement2CanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="MappedElement2GraphicalNodeEditPolicy"
         createCommandClassName="MappedElement2CreateCommand"
-        containers="//@diagram/@compartments.14">
+        containers="//@diagram/@compartments.4">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
           xsi:type="gmfgen:SpecializationType"
-          metamodelType="//@diagram/@topLevelNodes.15/@elementType"/>
+          metamodelType="//@diagram/@topLevelNodes.5/@elementType"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           layoutType="FLOW_LAYOUT"
@@ -758,7 +278,7 @@
             figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
         <modelFacet
             xsi:type="gmfgen:ExpressionLabelModelFacet"
-            parser="//@labelParsers/@implementations.15"/>
+            parser="//@labelParsers/@implementations.5"/>
       </labels>
     </childNodes>
     <childNodes
@@ -769,7 +289,7 @@
         canonicalEditPolicyClassName="MappedAttributeCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="MappedAttributeGraphicalNodeEditPolicy"
         createCommandClassName="MappedAttributeCreateCommand"
-        containers="//@diagram/@compartments.14">
+        containers="//@diagram/@compartments.4">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -817,7 +337,7 @@
         canonicalEditPolicyClassName="StringInput13CanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="StringInput13GraphicalNodeEditPolicy"
         createCommandClassName="StringInput13CreateCommand"
-        containers="//@diagram/@compartments.14">
+        containers="//@diagram/@compartments.4">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -907,372 +427,12 @@
       </labels>
     </topLevelNodes>
     <topLevelNodes
-        visualID="2002"
-        editPartClassName="TitleInfoEditPart"
-        itemSemanticEditPolicyClassName="TitleInfoItemSemanticEditPolicy"
-        notationViewFactoryClassName="TitleInfoViewFactory"
-        canonicalEditPolicyClassName="TitleInfoCanonicalEditPolicy"
-        compartments="//@diagram/@compartments.1"
-        graphicalNodeEditPolicyClassName="TitleInfoGraphicalNodeEditPolicy"
-        createCommandClassName="TitleInfoCreateCommand">
-      <diagramRunTimeClass
-          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-      <elementType
-          xsi:type="gmfgen:MetamodelType"
-          editHelperClassName="TitleInfoEditHelper"/>
-      <viewmap
-          xsi:type="gmfgen:InnerClassViewmap"
-          layoutType="FLOW_LAYOUT"
-          className="RoundedOutputElementFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class RoundedOutputElementFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fContentPane; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureOutputElementLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public RoundedOutputElementFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_CENTER&#xA;);&#xA;&#xA;&#x9;layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_CENTER&#xA;);&#xA;&#x9;layoutThis.setMajorSpacing(5);&#xA;&#x9;layoutThis.setMinorSpacing(5);&#xA;&#x9;layoutThis.setHorizontal(false);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(20)&#xA;, getMapMode().DPtoLP(20)&#xA;));&#xA;&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(10)&#xA;, getMapMode().DPtoLP(10)&#xA;, getMapMode().DPtoLP(10)&#xA;, getMapMode().DPtoLP(10)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureOutputElementLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureOutputElementLabelFigure.setText(&quot;Unknown MODS Element&quot;);&#xA;&#xA;this.add(fFigureOutputElementLabelFigure);&#xA;&#xA;&#xA;&#xA;fContentPane = new org.eclipse.draw2d.RectangleFigure();&#xA;fContentPane.setOutline(false);&#xA;&#xA;this.add(fContentPane);&#xA;&#xA;&#x9;org.eclipse.draw2d.ToolbarLayout layoutFContentPane = new org.eclipse.draw2d.ToolbarLayout();&#xA;&#x9;layoutFContentPane.setStretchMinorAxis(false);&#xA;&#x9;layoutFContentPane.setMinorAlignment(org.eclipse.draw2d.ToolbarLayout.ALIGN_CENTER&#xA;);&#xA;&#xA;&#x9;layoutFContentPane.setSpacing(2);&#xA;&#x9;layoutFContentPane.setVertical(true);&#xA;&#xA;&#x9;fContentPane.setLayoutManager(layoutFContentPane);&#xA;&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getContentPane() {&#xA;&#x9;&#x9;return fContentPane;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureOutputElementLabelFigure() {&#xA;&#x9;&#x9;return fFigureOutputElementLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
-      <modelFacet>
-        <metaClass
-            href="crosswalk.genmodel#//crosswalk/TitleInfo"/>
-        <containmentMetaFeature
-            href="crosswalk.genmodel#//crosswalk/CrossWalk/Elements"/>
-        <childMetaFeature
-            href="crosswalk.genmodel#//crosswalk/CrossWalk/Elements"/>
-      </modelFacet>
-      <labels
-          visualID="5005"
-          editPartClassName="WrappingLabelEditPart"
-          itemSemanticEditPolicyClassName="WrappingLabelItemSemanticEditPolicy"
-          notationViewFactoryClassName="TitleInfoLabelViewFactory"
-          readOnly="true"
-          elementIcon="true">
-        <diagramRunTimeClass
-            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-        <viewmap
-            xsi:type="gmfgen:ParentAssignedViewmap"
-            getterName="getFigureOutputElementLabelFigure"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
-        <modelFacet
-            xsi:type="gmfgen:ExpressionLabelModelFacet"
-            parser="//@labelParsers/@implementations.2"/>
-      </labels>
-    </topLevelNodes>
-    <topLevelNodes
-        visualID="2003"
-        editPartClassName="AbstractEditPart"
-        itemSemanticEditPolicyClassName="AbstractItemSemanticEditPolicy"
-        notationViewFactoryClassName="AbstractViewFactory"
-        canonicalEditPolicyClassName="AbstractCanonicalEditPolicy"
-        compartments="//@diagram/@compartments.2"
-        graphicalNodeEditPolicyClassName="AbstractGraphicalNodeEditPolicy"
-        createCommandClassName="AbstractCreateCommand">
-      <diagramRunTimeClass
-          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-      <elementType
-          xsi:type="gmfgen:MetamodelType"
-          editHelperClassName="AbstractEditHelper"/>
-      <viewmap
-          xsi:type="gmfgen:InnerClassViewmap"
-          layoutType="FLOW_LAYOUT"
-          className="RoundedOutputElementFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class RoundedOutputElementFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fContentPane; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureOutputElementLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public RoundedOutputElementFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_CENTER&#xA;);&#xA;&#xA;&#x9;layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_CENTER&#xA;);&#xA;&#x9;layoutThis.setMajorSpacing(5);&#xA;&#x9;layoutThis.setMinorSpacing(5);&#xA;&#x9;layoutThis.setHorizontal(false);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(20)&#xA;, getMapMode().DPtoLP(20)&#xA;));&#xA;&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(10)&#xA;, getMapMode().DPtoLP(10)&#xA;, getMapMode().DPtoLP(10)&#xA;, getMapMode().DPtoLP(10)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureOutputElementLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureOutputElementLabelFigure.setText(&quot;Unknown MODS Element&quot;);&#xA;&#xA;this.add(fFigureOutputElementLabelFigure);&#xA;&#xA;&#xA;&#xA;fContentPane = new org.eclipse.draw2d.RectangleFigure();&#xA;fContentPane.setOutline(false);&#xA;&#xA;this.add(fContentPane);&#xA;&#xA;&#x9;org.eclipse.draw2d.ToolbarLayout layoutFContentPane = new org.eclipse.draw2d.ToolbarLayout();&#xA;&#x9;layoutFContentPane.setStretchMinorAxis(false);&#xA;&#x9;layoutFContentPane.setMinorAlignment(org.eclipse.draw2d.ToolbarLayout.ALIGN_CENTER&#xA;);&#xA;&#xA;&#x9;layoutFContentPane.setSpacing(2);&#xA;&#x9;layoutFContentPane.setVertical(true);&#xA;&#xA;&#x9;fContentPane.setLayoutManager(layoutFContentPane);&#xA;&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getContentPane() {&#xA;&#x9;&#x9;return fContentPane;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureOutputElementLabelFigure() {&#xA;&#x9;&#x9;return fFigureOutputElementLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
-      <modelFacet>
-        <metaClass
-            href="crosswalk.genmodel#//crosswalk/Abstract"/>
-        <containmentMetaFeature
-            href="crosswalk.genmodel#//crosswalk/CrossWalk/Elements"/>
-        <childMetaFeature
-            href="crosswalk.genmodel#//crosswalk/CrossWalk/Elements"/>
-      </modelFacet>
-      <labels
-          visualID="5007"
-          editPartClassName="WrappingLabel2EditPart"
-          itemSemanticEditPolicyClassName="WrappingLabel2ItemSemanticEditPolicy"
-          notationViewFactoryClassName="AbstractLabelViewFactory"
-          readOnly="true"
-          elementIcon="true">
-        <diagramRunTimeClass
-            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-        <viewmap
-            xsi:type="gmfgen:ParentAssignedViewmap"
-            getterName="getFigureOutputElementLabelFigure"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
-        <modelFacet
-            xsi:type="gmfgen:ExpressionLabelModelFacet"
-            parser="//@labelParsers/@implementations.3"/>
-      </labels>
-    </topLevelNodes>
-    <topLevelNodes
-        visualID="2004"
-        editPartClassName="GenreEditPart"
-        itemSemanticEditPolicyClassName="GenreItemSemanticEditPolicy"
-        notationViewFactoryClassName="GenreViewFactory"
-        canonicalEditPolicyClassName="GenreCanonicalEditPolicy"
-        compartments="//@diagram/@compartments.3"
-        graphicalNodeEditPolicyClassName="GenreGraphicalNodeEditPolicy"
-        createCommandClassName="GenreCreateCommand">
-      <diagramRunTimeClass
-          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-      <elementType
-          xsi:type="gmfgen:MetamodelType"
-          editHelperClassName="GenreEditHelper"/>
-      <viewmap
-          xsi:type="gmfgen:InnerClassViewmap"
-          layoutType="FLOW_LAYOUT"
-          className="RoundedOutputElementFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class RoundedOutputElementFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fContentPane; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureOutputElementLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public RoundedOutputElementFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_CENTER&#xA;);&#xA;&#xA;&#x9;layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_CENTER&#xA;);&#xA;&#x9;layoutThis.setMajorSpacing(5);&#xA;&#x9;layoutThis.setMinorSpacing(5);&#xA;&#x9;layoutThis.setHorizontal(false);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(20)&#xA;, getMapMode().DPtoLP(20)&#xA;));&#xA;&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(10)&#xA;, getMapMode().DPtoLP(10)&#xA;, getMapMode().DPtoLP(10)&#xA;, getMapMode().DPtoLP(10)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureOutputElementLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureOutputElementLabelFigure.setText(&quot;Unknown MODS Element&quot;);&#xA;&#xA;this.add(fFigureOutputElementLabelFigure);&#xA;&#xA;&#xA;&#xA;fContentPane = new org.eclipse.draw2d.RectangleFigure();&#xA;fContentPane.setOutline(false);&#xA;&#xA;this.add(fContentPane);&#xA;&#xA;&#x9;org.eclipse.draw2d.ToolbarLayout layoutFContentPane = new org.eclipse.draw2d.ToolbarLayout();&#xA;&#x9;layoutFContentPane.setStretchMinorAxis(false);&#xA;&#x9;layoutFContentPane.setMinorAlignment(org.eclipse.draw2d.ToolbarLayout.ALIGN_CENTER&#xA;);&#xA;&#xA;&#x9;layoutFContentPane.setSpacing(2);&#xA;&#x9;layoutFContentPane.setVertical(true);&#xA;&#xA;&#x9;fContentPane.setLayoutManager(layoutFContentPane);&#xA;&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getContentPane() {&#xA;&#x9;&#x9;return fContentPane;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureOutputElementLabelFigure() {&#xA;&#x9;&#x9;return fFigureOutputElementLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
-      <modelFacet>
-        <metaClass
-            href="crosswalk.genmodel#//crosswalk/Genre"/>
-        <containmentMetaFeature
-            href="crosswalk.genmodel#//crosswalk/CrossWalk/Elements"/>
-        <childMetaFeature
-            href="crosswalk.genmodel#//crosswalk/CrossWalk/Elements"/>
-      </modelFacet>
-      <labels
-          visualID="5009"
-          editPartClassName="WrappingLabel3EditPart"
-          itemSemanticEditPolicyClassName="WrappingLabel3ItemSemanticEditPolicy"
-          notationViewFactoryClassName="GenreLabelViewFactory"
-          readOnly="true"
-          elementIcon="true">
-        <diagramRunTimeClass
-            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-        <viewmap
-            xsi:type="gmfgen:ParentAssignedViewmap"
-            getterName="getFigureOutputElementLabelFigure"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
-        <modelFacet
-            xsi:type="gmfgen:ExpressionLabelModelFacet"
-            parser="//@labelParsers/@implementations.4"/>
-      </labels>
-    </topLevelNodes>
-    <topLevelNodes
-        visualID="2005"
-        editPartClassName="IdentifierEditPart"
-        itemSemanticEditPolicyClassName="IdentifierItemSemanticEditPolicy"
-        notationViewFactoryClassName="IdentifierViewFactory"
-        canonicalEditPolicyClassName="IdentifierCanonicalEditPolicy"
-        compartments="//@diagram/@compartments.4"
-        graphicalNodeEditPolicyClassName="IdentifierGraphicalNodeEditPolicy"
-        createCommandClassName="IdentifierCreateCommand">
-      <diagramRunTimeClass
-          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-      <elementType
-          xsi:type="gmfgen:MetamodelType"
-          editHelperClassName="IdentifierEditHelper"/>
-      <viewmap
-          xsi:type="gmfgen:InnerClassViewmap"
-          layoutType="FLOW_LAYOUT"
-          className="RoundedOutputElementFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class RoundedOutputElementFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fContentPane; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureOutputElementLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public RoundedOutputElementFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_CENTER&#xA;);&#xA;&#xA;&#x9;layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_CENTER&#xA;);&#xA;&#x9;layoutThis.setMajorSpacing(5);&#xA;&#x9;layoutThis.setMinorSpacing(5);&#xA;&#x9;layoutThis.setHorizontal(false);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(20)&#xA;, getMapMode().DPtoLP(20)&#xA;));&#xA;&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(10)&#xA;, getMapMode().DPtoLP(10)&#xA;, getMapMode().DPtoLP(10)&#xA;, getMapMode().DPtoLP(10)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureOutputElementLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureOutputElementLabelFigure.setText(&quot;Unknown MODS Element&quot;);&#xA;&#xA;this.add(fFigureOutputElementLabelFigure);&#xA;&#xA;&#xA;&#xA;fContentPane = new org.eclipse.draw2d.RectangleFigure();&#xA;fContentPane.setOutline(false);&#xA;&#xA;this.add(fContentPane);&#xA;&#xA;&#x9;org.eclipse.draw2d.ToolbarLayout layoutFContentPane = new org.eclipse.draw2d.ToolbarLayout();&#xA;&#x9;layoutFContentPane.setStretchMinorAxis(false);&#xA;&#x9;layoutFContentPane.setMinorAlignment(org.eclipse.draw2d.ToolbarLayout.ALIGN_CENTER&#xA;);&#xA;&#xA;&#x9;layoutFContentPane.setSpacing(2);&#xA;&#x9;layoutFContentPane.setVertical(true);&#xA;&#xA;&#x9;fContentPane.setLayoutManager(layoutFContentPane);&#xA;&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getContentPane() {&#xA;&#x9;&#x9;return fContentPane;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureOutputElementLabelFigure() {&#xA;&#x9;&#x9;return fFigureOutputElementLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
-      <modelFacet>
-        <metaClass
-            href="crosswalk.genmodel#//crosswalk/Identifier"/>
-        <containmentMetaFeature
-            href="crosswalk.genmodel#//crosswalk/CrossWalk/Elements"/>
-        <childMetaFeature
-            href="crosswalk.genmodel#//crosswalk/CrossWalk/Elements"/>
-      </modelFacet>
-      <labels
-          visualID="5011"
-          editPartClassName="WrappingLabel4EditPart"
-          itemSemanticEditPolicyClassName="WrappingLabel4ItemSemanticEditPolicy"
-          notationViewFactoryClassName="IdentifierLabelViewFactory"
-          readOnly="true"
-          elementIcon="true">
-        <diagramRunTimeClass
-            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-        <viewmap
-            xsi:type="gmfgen:ParentAssignedViewmap"
-            getterName="getFigureOutputElementLabelFigure"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
-        <modelFacet
-            xsi:type="gmfgen:ExpressionLabelModelFacet"
-            parser="//@labelParsers/@implementations.5"/>
-      </labels>
-    </topLevelNodes>
-    <topLevelNodes
-        visualID="2006"
-        editPartClassName="LanguageEditPart"
-        itemSemanticEditPolicyClassName="LanguageItemSemanticEditPolicy"
-        notationViewFactoryClassName="LanguageViewFactory"
-        canonicalEditPolicyClassName="LanguageCanonicalEditPolicy"
-        compartments="//@diagram/@compartments.5"
-        graphicalNodeEditPolicyClassName="LanguageGraphicalNodeEditPolicy"
-        createCommandClassName="LanguageCreateCommand">
-      <diagramRunTimeClass
-          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-      <elementType
-          xsi:type="gmfgen:MetamodelType"
-          editHelperClassName="LanguageEditHelper"/>
-      <viewmap
-          xsi:type="gmfgen:InnerClassViewmap"
-          layoutType="FLOW_LAYOUT"
-          className="RoundedOutputElementFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class RoundedOutputElementFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fContentPane; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureOutputElementLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public RoundedOutputElementFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_CENTER&#xA;);&#xA;&#xA;&#x9;layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_CENTER&#xA;);&#xA;&#x9;layoutThis.setMajorSpacing(5);&#xA;&#x9;layoutThis.setMinorSpacing(5);&#xA;&#x9;layoutThis.setHorizontal(false);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(20)&#xA;, getMapMode().DPtoLP(20)&#xA;));&#xA;&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(10)&#xA;, getMapMode().DPtoLP(10)&#xA;, getMapMode().DPtoLP(10)&#xA;, getMapMode().DPtoLP(10)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureOutputElementLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureOutputElementLabelFigure.setText(&quot;Unknown MODS Element&quot;);&#xA;&#xA;this.add(fFigureOutputElementLabelFigure);&#xA;&#xA;&#xA;&#xA;fContentPane = new org.eclipse.draw2d.RectangleFigure();&#xA;fContentPane.setOutline(false);&#xA;&#xA;this.add(fContentPane);&#xA;&#xA;&#x9;org.eclipse.draw2d.ToolbarLayout layoutFContentPane = new org.eclipse.draw2d.ToolbarLayout();&#xA;&#x9;layoutFContentPane.setStretchMinorAxis(false);&#xA;&#x9;layoutFContentPane.setMinorAlignment(org.eclipse.draw2d.ToolbarLayout.ALIGN_CENTER&#xA;);&#xA;&#xA;&#x9;layoutFContentPane.setSpacing(2);&#xA;&#x9;layoutFContentPane.setVertical(true);&#xA;&#xA;&#x9;fContentPane.setLayoutManager(layoutFContentPane);&#xA;&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getContentPane() {&#xA;&#x9;&#x9;return fContentPane;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureOutputElementLabelFigure() {&#xA;&#x9;&#x9;return fFigureOutputElementLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
-      <modelFacet>
-        <metaClass
-            href="crosswalk.genmodel#//crosswalk/Language"/>
-        <containmentMetaFeature
-            href="crosswalk.genmodel#//crosswalk/CrossWalk/Elements"/>
-        <childMetaFeature
-            href="crosswalk.genmodel#//crosswalk/CrossWalk/Elements"/>
-      </modelFacet>
-      <labels
-          visualID="5013"
-          editPartClassName="WrappingLabel5EditPart"
-          itemSemanticEditPolicyClassName="WrappingLabel5ItemSemanticEditPolicy"
-          notationViewFactoryClassName="LanguageLabelViewFactory"
-          readOnly="true"
-          elementIcon="true">
-        <diagramRunTimeClass
-            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-        <viewmap
-            xsi:type="gmfgen:ParentAssignedViewmap"
-            getterName="getFigureOutputElementLabelFigure"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
-        <modelFacet
-            xsi:type="gmfgen:ExpressionLabelModelFacet"
-            parser="//@labelParsers/@implementations.6"/>
-      </labels>
-    </topLevelNodes>
-    <topLevelNodes
-        visualID="2007"
-        editPartClassName="NameEditPart"
-        itemSemanticEditPolicyClassName="NameItemSemanticEditPolicy"
-        notationViewFactoryClassName="NameViewFactory"
-        canonicalEditPolicyClassName="NameCanonicalEditPolicy"
-        compartments="//@diagram/@compartments.6"
-        graphicalNodeEditPolicyClassName="NameGraphicalNodeEditPolicy"
-        createCommandClassName="NameCreateCommand">
-      <diagramRunTimeClass
-          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-      <elementType
-          xsi:type="gmfgen:MetamodelType"
-          editHelperClassName="NameEditHelper"/>
-      <viewmap
-          xsi:type="gmfgen:InnerClassViewmap"
-          layoutType="FLOW_LAYOUT"
-          className="RoundedOutputElementFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class RoundedOutputElementFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fContentPane; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureOutputElementLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public RoundedOutputElementFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_CENTER&#xA;);&#xA;&#xA;&#x9;layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_CENTER&#xA;);&#xA;&#x9;layoutThis.setMajorSpacing(5);&#xA;&#x9;layoutThis.setMinorSpacing(5);&#xA;&#x9;layoutThis.setHorizontal(false);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(20)&#xA;, getMapMode().DPtoLP(20)&#xA;));&#xA;&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(10)&#xA;, getMapMode().DPtoLP(10)&#xA;, getMapMode().DPtoLP(10)&#xA;, getMapMode().DPtoLP(10)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureOutputElementLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureOutputElementLabelFigure.setText(&quot;Unknown MODS Element&quot;);&#xA;&#xA;this.add(fFigureOutputElementLabelFigure);&#xA;&#xA;&#xA;&#xA;fContentPane = new org.eclipse.draw2d.RectangleFigure();&#xA;fContentPane.setOutline(false);&#xA;&#xA;this.add(fContentPane);&#xA;&#xA;&#x9;org.eclipse.draw2d.ToolbarLayout layoutFContentPane = new org.eclipse.draw2d.ToolbarLayout();&#xA;&#x9;layoutFContentPane.setStretchMinorAxis(false);&#xA;&#x9;layoutFContentPane.setMinorAlignment(org.eclipse.draw2d.ToolbarLayout.ALIGN_CENTER&#xA;);&#xA;&#xA;&#x9;layoutFContentPane.setSpacing(2);&#xA;&#x9;layoutFContentPane.setVertical(true);&#xA;&#xA;&#x9;fContentPane.setLayoutManager(layoutFContentPane);&#xA;&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getContentPane() {&#xA;&#x9;&#x9;return fContentPane;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureOutputElementLabelFigure() {&#xA;&#x9;&#x9;return fFigureOutputElementLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
-      <modelFacet>
-        <metaClass
-            href="crosswalk.genmodel#//crosswalk/Name"/>
-        <containmentMetaFeature
-            href="crosswalk.genmodel#//crosswalk/CrossWalk/Elements"/>
-        <childMetaFeature
-            href="crosswalk.genmodel#//crosswalk/CrossWalk/Elements"/>
-      </modelFacet>
-      <labels
-          visualID="5015"
-          editPartClassName="WrappingLabel6EditPart"
-          itemSemanticEditPolicyClassName="WrappingLabel6ItemSemanticEditPolicy"
-          notationViewFactoryClassName="NameLabelViewFactory"
-          readOnly="true"
-          elementIcon="true">
-        <diagramRunTimeClass
-            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-        <viewmap
-            xsi:type="gmfgen:ParentAssignedViewmap"
-            getterName="getFigureOutputElementLabelFigure"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
-        <modelFacet
-            xsi:type="gmfgen:ExpressionLabelModelFacet"
-            parser="//@labelParsers/@implementations.7"/>
-      </labels>
-    </topLevelNodes>
-    <topLevelNodes
-        visualID="2008"
-        editPartClassName="SubjectEditPart"
-        itemSemanticEditPolicyClassName="SubjectItemSemanticEditPolicy"
-        notationViewFactoryClassName="SubjectViewFactory"
-        canonicalEditPolicyClassName="SubjectCanonicalEditPolicy"
-        compartments="//@diagram/@compartments.7"
-        graphicalNodeEditPolicyClassName="SubjectGraphicalNodeEditPolicy"
-        createCommandClassName="SubjectCreateCommand">
-      <diagramRunTimeClass
-          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-      <elementType
-          xsi:type="gmfgen:MetamodelType"
-          editHelperClassName="SubjectEditHelper"/>
-      <viewmap
-          xsi:type="gmfgen:InnerClassViewmap"
-          layoutType="FLOW_LAYOUT"
-          className="RoundedOutputElementFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class RoundedOutputElementFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fContentPane; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureOutputElementLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public RoundedOutputElementFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_CENTER&#xA;);&#xA;&#xA;&#x9;layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_CENTER&#xA;);&#xA;&#x9;layoutThis.setMajorSpacing(5);&#xA;&#x9;layoutThis.setMinorSpacing(5);&#xA;&#x9;layoutThis.setHorizontal(false);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(20)&#xA;, getMapMode().DPtoLP(20)&#xA;));&#xA;&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(10)&#xA;, getMapMode().DPtoLP(10)&#xA;, getMapMode().DPtoLP(10)&#xA;, getMapMode().DPtoLP(10)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureOutputElementLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureOutputElementLabelFigure.setText(&quot;Unknown MODS Element&quot;);&#xA;&#xA;this.add(fFigureOutputElementLabelFigure);&#xA;&#xA;&#xA;&#xA;fContentPane = new org.eclipse.draw2d.RectangleFigure();&#xA;fContentPane.setOutline(false);&#xA;&#xA;this.add(fContentPane);&#xA;&#xA;&#x9;org.eclipse.draw2d.ToolbarLayout layoutFContentPane = new org.eclipse.draw2d.ToolbarLayout();&#xA;&#x9;layoutFContentPane.setStretchMinorAxis(false);&#xA;&#x9;layoutFContentPane.setMinorAlignment(org.eclipse.draw2d.ToolbarLayout.ALIGN_CENTER&#xA;);&#xA;&#xA;&#x9;layoutFContentPane.setSpacing(2);&#xA;&#x9;layoutFContentPane.setVertical(true);&#xA;&#xA;&#x9;fContentPane.setLayoutManager(layoutFContentPane);&#xA;&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getContentPane() {&#xA;&#x9;&#x9;return fContentPane;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureOutputElementLabelFigure() {&#xA;&#x9;&#x9;return fFigureOutputElementLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
-      <modelFacet>
-        <metaClass
-            href="crosswalk.genmodel#//crosswalk/Subject"/>
-        <containmentMetaFeature
-            href="crosswalk.genmodel#//crosswalk/CrossWalk/Elements"/>
-        <childMetaFeature
-            href="crosswalk.genmodel#//crosswalk/CrossWalk/Elements"/>
-      </modelFacet>
-      <labels
-          visualID="5017"
-          editPartClassName="WrappingLabel7EditPart"
-          itemSemanticEditPolicyClassName="WrappingLabel7ItemSemanticEditPolicy"
-          notationViewFactoryClassName="SubjectLabelViewFactory"
-          readOnly="true"
-          elementIcon="true">
-        <diagramRunTimeClass
-            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-        <viewmap
-            xsi:type="gmfgen:ParentAssignedViewmap"
-            getterName="getFigureOutputElementLabelFigure"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
-        <modelFacet
-            xsi:type="gmfgen:ExpressionLabelModelFacet"
-            parser="//@labelParsers/@implementations.8"/>
-      </labels>
-    </topLevelNodes>
-    <topLevelNodes
-        visualID="2009"
-        editPartClassName="TypeOfResourceEditPart"
-        itemSemanticEditPolicyClassName="TypeOfResourceItemSemanticEditPolicy"
-        notationViewFactoryClassName="TypeOfResourceViewFactory"
-        canonicalEditPolicyClassName="TypeOfResourceCanonicalEditPolicy"
-        compartments="//@diagram/@compartments.8"
-        graphicalNodeEditPolicyClassName="TypeOfResourceGraphicalNodeEditPolicy"
-        createCommandClassName="TypeOfResourceCreateCommand">
-      <diagramRunTimeClass
-          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-      <elementType
-          xsi:type="gmfgen:MetamodelType"
-          editHelperClassName="TypeOfResourceEditHelper"/>
-      <viewmap
-          xsi:type="gmfgen:InnerClassViewmap"
-          layoutType="FLOW_LAYOUT"
-          className="RoundedOutputElementFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class RoundedOutputElementFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fContentPane; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureOutputElementLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public RoundedOutputElementFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_CENTER&#xA;);&#xA;&#xA;&#x9;layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_CENTER&#xA;);&#xA;&#x9;layoutThis.setMajorSpacing(5);&#xA;&#x9;layoutThis.setMinorSpacing(5);&#xA;&#x9;layoutThis.setHorizontal(false);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(20)&#xA;, getMapMode().DPtoLP(20)&#xA;));&#xA;&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(10)&#xA;, getMapMode().DPtoLP(10)&#xA;, getMapMode().DPtoLP(10)&#xA;, getMapMode().DPtoLP(10)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureOutputElementLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureOutputElementLabelFigure.setText(&quot;Unknown MODS Element&quot;);&#xA;&#xA;this.add(fFigureOutputElementLabelFigure);&#xA;&#xA;&#xA;&#xA;fContentPane = new org.eclipse.draw2d.RectangleFigure();&#xA;fContentPane.setOutline(false);&#xA;&#xA;this.add(fContentPane);&#xA;&#xA;&#x9;org.eclipse.draw2d.ToolbarLayout layoutFContentPane = new org.eclipse.draw2d.ToolbarLayout();&#xA;&#x9;layoutFContentPane.setStretchMinorAxis(false);&#xA;&#x9;layoutFContentPane.setMinorAlignment(org.eclipse.draw2d.ToolbarLayout.ALIGN_CENTER&#xA;);&#xA;&#xA;&#x9;layoutFContentPane.setSpacing(2);&#xA;&#x9;layoutFContentPane.setVertical(true);&#xA;&#xA;&#x9;fContentPane.setLayoutManager(layoutFContentPane);&#xA;&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getContentPane() {&#xA;&#x9;&#x9;return fContentPane;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureOutputElementLabelFigure() {&#xA;&#x9;&#x9;return fFigureOutputElementLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
-      <modelFacet>
-        <metaClass
-            href="crosswalk.genmodel#//crosswalk/TypeOfResource"/>
-        <containmentMetaFeature
-            href="crosswalk.genmodel#//crosswalk/CrossWalk/Elements"/>
-        <childMetaFeature
-            href="crosswalk.genmodel#//crosswalk/CrossWalk/Elements"/>
-      </modelFacet>
-      <labels
-          visualID="5019"
-          editPartClassName="WrappingLabel8EditPart"
-          itemSemanticEditPolicyClassName="WrappingLabel8ItemSemanticEditPolicy"
-          notationViewFactoryClassName="TypeOfResourceLabelViewFactory"
-          readOnly="true"
-          elementIcon="true">
-        <diagramRunTimeClass
-            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-        <viewmap
-            xsi:type="gmfgen:ParentAssignedViewmap"
-            getterName="getFigureOutputElementLabelFigure"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
-        <modelFacet
-            xsi:type="gmfgen:ExpressionLabelModelFacet"
-            parser="//@labelParsers/@implementations.9"/>
-      </labels>
-    </topLevelNodes>
-    <topLevelNodes
         visualID="2010"
         editPartClassName="OriginalNameRecordMatcherEditPart"
         itemSemanticEditPolicyClassName="OriginalNameRecordMatcherItemSemanticEditPolicy"
         notationViewFactoryClassName="OriginalNameRecordMatcherViewFactory"
         canonicalEditPolicyClassName="OriginalNameRecordMatcherCanonicalEditPolicy"
-        compartments="//@diagram/@compartments.9"
+        compartments="//@diagram/@compartments.1"
         graphicalNodeEditPolicyClassName="OriginalNameRecordMatcherGraphicalNodeEditPolicy"
         createCommandClassName="OriginalNameRecordMatcherCreateCommand">
       <diagramRunTimeClass
@@ -1308,97 +468,7 @@
             figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
         <modelFacet
             xsi:type="gmfgen:ExpressionLabelModelFacet"
-            parser="//@labelParsers/@implementations.10"/>
-      </labels>
-    </topLevelNodes>
-    <topLevelNodes
-        visualID="2011"
-        editPartClassName="DateCreatedEditPart"
-        itemSemanticEditPolicyClassName="DateCreatedItemSemanticEditPolicy"
-        notationViewFactoryClassName="DateCreatedViewFactory"
-        canonicalEditPolicyClassName="DateCreatedCanonicalEditPolicy"
-        compartments="//@diagram/@compartments.10"
-        graphicalNodeEditPolicyClassName="DateCreatedGraphicalNodeEditPolicy"
-        createCommandClassName="DateCreatedCreateCommand">
-      <diagramRunTimeClass
-          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-      <elementType
-          xsi:type="gmfgen:MetamodelType"
-          editHelperClassName="DateCreatedEditHelper"/>
-      <viewmap
-          xsi:type="gmfgen:InnerClassViewmap"
-          layoutType="FLOW_LAYOUT"
-          className="RoundedOutputElementFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class RoundedOutputElementFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fContentPane; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureOutputElementLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public RoundedOutputElementFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_CENTER&#xA;);&#xA;&#xA;&#x9;layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_CENTER&#xA;);&#xA;&#x9;layoutThis.setMajorSpacing(5);&#xA;&#x9;layoutThis.setMinorSpacing(5);&#xA;&#x9;layoutThis.setHorizontal(false);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(20)&#xA;, getMapMode().DPtoLP(20)&#xA;));&#xA;&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(10)&#xA;, getMapMode().DPtoLP(10)&#xA;, getMapMode().DPtoLP(10)&#xA;, getMapMode().DPtoLP(10)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureOutputElementLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureOutputElementLabelFigure.setText(&quot;Unknown MODS Element&quot;);&#xA;&#xA;this.add(fFigureOutputElementLabelFigure);&#xA;&#xA;&#xA;&#xA;fContentPane = new org.eclipse.draw2d.RectangleFigure();&#xA;fContentPane.setOutline(false);&#xA;&#xA;this.add(fContentPane);&#xA;&#xA;&#x9;org.eclipse.draw2d.ToolbarLayout layoutFContentPane = new org.eclipse.draw2d.ToolbarLayout();&#xA;&#x9;layoutFContentPane.setStretchMinorAxis(false);&#xA;&#x9;layoutFContentPane.setMinorAlignment(org.eclipse.draw2d.ToolbarLayout.ALIGN_CENTER&#xA;);&#xA;&#xA;&#x9;layoutFContentPane.setSpacing(2);&#xA;&#x9;layoutFContentPane.setVertical(true);&#xA;&#xA;&#x9;fContentPane.setLayoutManager(layoutFContentPane);&#xA;&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getContentPane() {&#xA;&#x9;&#x9;return fContentPane;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureOutputElementLabelFigure() {&#xA;&#x9;&#x9;return fFigureOutputElementLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
-      <modelFacet>
-        <metaClass
-            href="crosswalk.genmodel#//crosswalk/DateCreated"/>
-        <containmentMetaFeature
-            href="crosswalk.genmodel#//crosswalk/CrossWalk/Elements"/>
-        <childMetaFeature
-            href="crosswalk.genmodel#//crosswalk/CrossWalk/Elements"/>
-      </modelFacet>
-      <labels
-          visualID="5023"
-          editPartClassName="WrappingLabel10EditPart"
-          itemSemanticEditPolicyClassName="WrappingLabel10ItemSemanticEditPolicy"
-          notationViewFactoryClassName="DateCreatedLabelViewFactory"
-          readOnly="true"
-          elementIcon="true">
-        <diagramRunTimeClass
-            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-        <viewmap
-            xsi:type="gmfgen:ParentAssignedViewmap"
-            getterName="getFigureOutputElementLabelFigure"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
-        <modelFacet
-            xsi:type="gmfgen:ExpressionLabelModelFacet"
-            parser="//@labelParsers/@implementations.11"/>
-      </labels>
-    </topLevelNodes>
-    <topLevelNodes
-        visualID="2012"
-        editPartClassName="AccessConditionEditPart"
-        itemSemanticEditPolicyClassName="AccessConditionItemSemanticEditPolicy"
-        notationViewFactoryClassName="AccessConditionViewFactory"
-        canonicalEditPolicyClassName="AccessConditionCanonicalEditPolicy"
-        compartments="//@diagram/@compartments.11"
-        graphicalNodeEditPolicyClassName="AccessConditionGraphicalNodeEditPolicy"
-        createCommandClassName="AccessConditionCreateCommand">
-      <diagramRunTimeClass
-          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-      <elementType
-          xsi:type="gmfgen:MetamodelType"
-          editHelperClassName="AccessConditionEditHelper"/>
-      <viewmap
-          xsi:type="gmfgen:InnerClassViewmap"
-          layoutType="FLOW_LAYOUT"
-          className="RoundedOutputElementFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class RoundedOutputElementFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fContentPane; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureOutputElementLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public RoundedOutputElementFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_CENTER&#xA;);&#xA;&#xA;&#x9;layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_CENTER&#xA;);&#xA;&#x9;layoutThis.setMajorSpacing(5);&#xA;&#x9;layoutThis.setMinorSpacing(5);&#xA;&#x9;layoutThis.setHorizontal(false);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(20)&#xA;, getMapMode().DPtoLP(20)&#xA;));&#xA;&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(10)&#xA;, getMapMode().DPtoLP(10)&#xA;, getMapMode().DPtoLP(10)&#xA;, getMapMode().DPtoLP(10)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureOutputElementLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureOutputElementLabelFigure.setText(&quot;Unknown MODS Element&quot;);&#xA;&#xA;this.add(fFigureOutputElementLabelFigure);&#xA;&#xA;&#xA;&#xA;fContentPane = new org.eclipse.draw2d.RectangleFigure();&#xA;fContentPane.setOutline(false);&#xA;&#xA;this.add(fContentPane);&#xA;&#xA;&#x9;org.eclipse.draw2d.ToolbarLayout layoutFContentPane = new org.eclipse.draw2d.ToolbarLayout();&#xA;&#x9;layoutFContentPane.setStretchMinorAxis(false);&#xA;&#x9;layoutFContentPane.setMinorAlignment(org.eclipse.draw2d.ToolbarLayout.ALIGN_CENTER&#xA;);&#xA;&#xA;&#x9;layoutFContentPane.setSpacing(2);&#xA;&#x9;layoutFContentPane.setVertical(true);&#xA;&#xA;&#x9;fContentPane.setLayoutManager(layoutFContentPane);&#xA;&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getContentPane() {&#xA;&#x9;&#x9;return fContentPane;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureOutputElementLabelFigure() {&#xA;&#x9;&#x9;return fFigureOutputElementLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
-      <modelFacet>
-        <metaClass
-            href="crosswalk.genmodel#//crosswalk/AccessCondition"/>
-        <containmentMetaFeature
-            href="crosswalk.genmodel#//crosswalk/CrossWalk/Elements"/>
-        <childMetaFeature
-            href="crosswalk.genmodel#//crosswalk/CrossWalk/Elements"/>
-      </modelFacet>
-      <labels
-          visualID="5025"
-          editPartClassName="WrappingLabel11EditPart"
-          itemSemanticEditPolicyClassName="WrappingLabel11ItemSemanticEditPolicy"
-          notationViewFactoryClassName="AccessConditionLabelViewFactory"
-          readOnly="true"
-          elementIcon="true">
-        <diagramRunTimeClass
-            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-        <viewmap
-            xsi:type="gmfgen:ParentAssignedViewmap"
-            getterName="getFigureOutputElementLabelFigure"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
-        <modelFacet
-            xsi:type="gmfgen:ExpressionLabelModelFacet"
-            parser="//@labelParsers/@implementations.12"/>
+            parser="//@labelParsers/@implementations.2"/>
       </labels>
     </topLevelNodes>
     <topLevelNodes
@@ -1407,7 +477,7 @@
         itemSemanticEditPolicyClassName="DateRecognizerItemSemanticEditPolicy"
         notationViewFactoryClassName="DateRecognizerViewFactory"
         canonicalEditPolicyClassName="DateRecognizerCanonicalEditPolicy"
-        compartments="//@diagram/@compartments.12"
+        compartments="//@diagram/@compartments.2"
         graphicalNodeEditPolicyClassName="DateRecognizerGraphicalNodeEditPolicy"
         createCommandClassName="DateRecognizerCreateCommand">
       <diagramRunTimeClass
@@ -1443,7 +513,7 @@
             figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
         <modelFacet
             xsi:type="gmfgen:ExpressionLabelModelFacet"
-            parser="//@labelParsers/@implementations.13"/>
+            parser="//@labelParsers/@implementations.3"/>
       </labels>
     </topLevelNodes>
     <topLevelNodes
@@ -1500,7 +570,7 @@
         itemSemanticEditPolicyClassName="TrimWhitespaceItemSemanticEditPolicy"
         notationViewFactoryClassName="TrimWhitespaceViewFactory"
         canonicalEditPolicyClassName="TrimWhitespaceCanonicalEditPolicy"
-        compartments="//@diagram/@compartments.13"
+        compartments="//@diagram/@compartments.3"
         graphicalNodeEditPolicyClassName="TrimWhitespaceGraphicalNodeEditPolicy"
         createCommandClassName="TrimWhitespaceCreateCommand">
       <diagramRunTimeClass
@@ -1536,7 +606,7 @@
             figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
         <modelFacet
             xsi:type="gmfgen:ExpressionLabelModelFacet"
-            parser="//@labelParsers/@implementations.14"/>
+            parser="//@labelParsers/@implementations.4"/>
       </labels>
     </topLevelNodes>
     <topLevelNodes
@@ -1545,7 +615,7 @@
         itemSemanticEditPolicyClassName="MappedElementItemSemanticEditPolicy"
         notationViewFactoryClassName="MappedElementViewFactory"
         canonicalEditPolicyClassName="MappedElementCanonicalEditPolicy"
-        compartments="//@diagram/@compartments.14"
+        compartments="//@diagram/@compartments.4"
         graphicalNodeEditPolicyClassName="MappedElementGraphicalNodeEditPolicy"
         createCommandClassName="MappedElementCreateCommand">
       <diagramRunTimeClass
@@ -1581,7 +651,7 @@
             figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
         <modelFacet
             xsi:type="gmfgen:ExpressionLabelModelFacet"
-            parser="//@labelParsers/@implementations.16"/>
+            parser="//@labelParsers/@implementations.6"/>
       </labels>
     </topLevelNodes>
     <links
@@ -1653,196 +723,16 @@
           figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
     </compartments>
     <compartments
-        visualID="7002"
-        editPartClassName="TitleInfoOutputElementInputsCompartmentEditPart"
-        itemSemanticEditPolicyClassName="TitleInfoOutputElementInputsCompartmentItemSemanticEditPolicy"
-        notationViewFactoryClassName="TitleInfoOutputElementInputsCompartmentViewFactory"
-        canonicalEditPolicyClassName="TitleInfoOutputElementInputsCompartmentCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.1"
-        title="OutputElementInputsCompartment"
-        canCollapse="false"
-        needsTitle="false"
-        node="//@diagram/@topLevelNodes.1">
-      <diagramRunTimeClass
-          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-      <viewmap
-          xsi:type="gmfgen:ParentAssignedViewmap"
-          getterName="getContentPane"
-          figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
-    </compartments>
-    <compartments
-        visualID="7003"
-        editPartClassName="AbstractOutputElementInputsCompartmentEditPart"
-        itemSemanticEditPolicyClassName="AbstractOutputElementInputsCompartmentItemSemanticEditPolicy"
-        notationViewFactoryClassName="AbstractOutputElementInputsCompartmentViewFactory"
-        canonicalEditPolicyClassName="AbstractOutputElementInputsCompartmentCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.2"
-        title="OutputElementInputsCompartment"
-        canCollapse="false"
-        needsTitle="false"
-        node="//@diagram/@topLevelNodes.2">
-      <diagramRunTimeClass
-          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-      <viewmap
-          xsi:type="gmfgen:ParentAssignedViewmap"
-          getterName="getContentPane"
-          figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
-    </compartments>
-    <compartments
-        visualID="7004"
-        editPartClassName="GenreOutputElementInputsCompartmentEditPart"
-        itemSemanticEditPolicyClassName="GenreOutputElementInputsCompartmentItemSemanticEditPolicy"
-        notationViewFactoryClassName="GenreOutputElementInputsCompartmentViewFactory"
-        canonicalEditPolicyClassName="GenreOutputElementInputsCompartmentCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.3"
-        title="OutputElementInputsCompartment"
-        canCollapse="false"
-        needsTitle="false"
-        node="//@diagram/@topLevelNodes.3">
-      <diagramRunTimeClass
-          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-      <viewmap
-          xsi:type="gmfgen:ParentAssignedViewmap"
-          getterName="getContentPane"
-          figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
-    </compartments>
-    <compartments
-        visualID="7005"
-        editPartClassName="IdentifierOutputElementInputsCompartmentEditPart"
-        itemSemanticEditPolicyClassName="IdentifierOutputElementInputsCompartmentItemSemanticEditPolicy"
-        notationViewFactoryClassName="IdentifierOutputElementInputsCompartmentViewFactory"
-        canonicalEditPolicyClassName="IdentifierOutputElementInputsCompartmentCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.4"
-        title="OutputElementInputsCompartment"
-        canCollapse="false"
-        needsTitle="false"
-        node="//@diagram/@topLevelNodes.4">
-      <diagramRunTimeClass
-          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-      <viewmap
-          xsi:type="gmfgen:ParentAssignedViewmap"
-          getterName="getContentPane"
-          figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
-    </compartments>
-    <compartments
-        visualID="7006"
-        editPartClassName="LanguageOutputElementInputsCompartmentEditPart"
-        itemSemanticEditPolicyClassName="LanguageOutputElementInputsCompartmentItemSemanticEditPolicy"
-        notationViewFactoryClassName="LanguageOutputElementInputsCompartmentViewFactory"
-        canonicalEditPolicyClassName="LanguageOutputElementInputsCompartmentCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.5"
-        title="OutputElementInputsCompartment"
-        canCollapse="false"
-        needsTitle="false"
-        node="//@diagram/@topLevelNodes.5">
-      <diagramRunTimeClass
-          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-      <viewmap
-          xsi:type="gmfgen:ParentAssignedViewmap"
-          getterName="getContentPane"
-          figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
-    </compartments>
-    <compartments
-        visualID="7007"
-        editPartClassName="NameOutputElementInputsCompartmentEditPart"
-        itemSemanticEditPolicyClassName="NameOutputElementInputsCompartmentItemSemanticEditPolicy"
-        notationViewFactoryClassName="NameOutputElementInputsCompartmentViewFactory"
-        canonicalEditPolicyClassName="NameOutputElementInputsCompartmentCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.6"
-        title="OutputElementInputsCompartment"
-        canCollapse="false"
-        needsTitle="false"
-        node="//@diagram/@topLevelNodes.6">
-      <diagramRunTimeClass
-          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-      <viewmap
-          xsi:type="gmfgen:ParentAssignedViewmap"
-          getterName="getContentPane"
-          figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
-    </compartments>
-    <compartments
-        visualID="7008"
-        editPartClassName="SubjectOutputElementInputsCompartmentEditPart"
-        itemSemanticEditPolicyClassName="SubjectOutputElementInputsCompartmentItemSemanticEditPolicy"
-        notationViewFactoryClassName="SubjectOutputElementInputsCompartmentViewFactory"
-        canonicalEditPolicyClassName="SubjectOutputElementInputsCompartmentCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.7"
-        title="OutputElementInputsCompartment"
-        canCollapse="false"
-        needsTitle="false"
-        node="//@diagram/@topLevelNodes.7">
-      <diagramRunTimeClass
-          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-      <viewmap
-          xsi:type="gmfgen:ParentAssignedViewmap"
-          getterName="getContentPane"
-          figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
-    </compartments>
-    <compartments
-        visualID="7009"
-        editPartClassName="TypeOfResourceOutputElementInputsCompartmentEditPart"
-        itemSemanticEditPolicyClassName="TypeOfResourceOutputElementInputsCompartmentItemSemanticEditPolicy"
-        notationViewFactoryClassName="TypeOfResourceOutputElementInputsCompartmentViewFactory"
-        canonicalEditPolicyClassName="TypeOfResourceOutputElementInputsCompartmentCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.8"
-        title="OutputElementInputsCompartment"
-        canCollapse="false"
-        needsTitle="false"
-        node="//@diagram/@topLevelNodes.8">
-      <diagramRunTimeClass
-          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-      <viewmap
-          xsi:type="gmfgen:ParentAssignedViewmap"
-          getterName="getContentPane"
-          figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
-    </compartments>
-    <compartments
         visualID="7010"
         editPartClassName="OriginalNameRecordMatcherRecordMatcherInputsCompartmentEditPart"
         itemSemanticEditPolicyClassName="OriginalNameRecordMatcherRecordMatcherInputsCompartmentItemSemanticEditPolicy"
         notationViewFactoryClassName="OriginalNameRecordMatcherRecordMatcherInputsCompartmentViewFactory"
         canonicalEditPolicyClassName="OriginalNameRecordMatcherRecordMatcherInputsCompartmentCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.9"
+        childNodes="//@diagram/@childNodes.1"
         title="RecordMatcherInputsCompartment"
         canCollapse="false"
         needsTitle="false"
-        node="//@diagram/@topLevelNodes.9">
-      <diagramRunTimeClass
-          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-      <viewmap
-          xsi:type="gmfgen:ParentAssignedViewmap"
-          getterName="getContentPane"
-          figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
-    </compartments>
-    <compartments
-        visualID="7011"
-        editPartClassName="DateCreatedOutputElementInputsCompartmentEditPart"
-        itemSemanticEditPolicyClassName="DateCreatedOutputElementInputsCompartmentItemSemanticEditPolicy"
-        notationViewFactoryClassName="DateCreatedOutputElementInputsCompartmentViewFactory"
-        canonicalEditPolicyClassName="DateCreatedOutputElementInputsCompartmentCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.10"
-        title="OutputElementInputsCompartment"
-        canCollapse="false"
-        needsTitle="false"
-        node="//@diagram/@topLevelNodes.10">
-      <diagramRunTimeClass
-          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-      <viewmap
-          xsi:type="gmfgen:ParentAssignedViewmap"
-          getterName="getContentPane"
-          figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
-    </compartments>
-    <compartments
-        visualID="7012"
-        editPartClassName="AccessConditionOutputElementInputsCompartmentEditPart"
-        itemSemanticEditPolicyClassName="AccessConditionOutputElementInputsCompartmentItemSemanticEditPolicy"
-        notationViewFactoryClassName="AccessConditionOutputElementInputsCompartmentViewFactory"
-        canonicalEditPolicyClassName="AccessConditionOutputElementInputsCompartmentCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.11"
-        title="OutputElementInputsCompartment"
-        canCollapse="false"
-        needsTitle="false"
-        node="//@diagram/@topLevelNodes.11">
+        node="//@diagram/@topLevelNodes.1">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
@@ -1856,11 +746,11 @@
         itemSemanticEditPolicyClassName="DateRecognizerOutputElementInputsCompartmentItemSemanticEditPolicy"
         notationViewFactoryClassName="DateRecognizerOutputElementInputsCompartmentViewFactory"
         canonicalEditPolicyClassName="DateRecognizerOutputElementInputsCompartmentCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.12"
-        title="OutputElementInputsCompartment"
+        childNodes="//@diagram/@childNodes.2"
+        title="GenericWidgetCompartment"
         canCollapse="false"
         needsTitle="false"
-        node="//@diagram/@topLevelNodes.12">
+        node="//@diagram/@topLevelNodes.2">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
@@ -1874,11 +764,11 @@
         itemSemanticEditPolicyClassName="TrimWhitespaceOutputElementInputsCompartmentItemSemanticEditPolicy"
         notationViewFactoryClassName="TrimWhitespaceOutputElementInputsCompartmentViewFactory"
         canonicalEditPolicyClassName="TrimWhitespaceOutputElementInputsCompartmentCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.13"
-        title="OutputElementInputsCompartment"
+        childNodes="//@diagram/@childNodes.3"
+        title="GenericWidgetCompartment"
         canCollapse="false"
         needsTitle="false"
-        node="//@diagram/@topLevelNodes.14">
+        node="//@diagram/@topLevelNodes.4">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
@@ -1892,10 +782,10 @@
         itemSemanticEditPolicyClassName="MappedElementChildElementsCompartmentItemSemanticEditPolicy"
         notationViewFactoryClassName="MappedElementChildElementsCompartmentViewFactory"
         canonicalEditPolicyClassName="MappedElementChildElementsCompartmentCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.14 //@diagram/@childNodes.15 //@diagram/@childNodes.16"
+        childNodes="//@diagram/@childNodes.4 //@diagram/@childNodes.5 //@diagram/@childNodes.6"
         title="ChildElementsCompartment"
         needsTitle="false"
-        node="//@diagram/@topLevelNodes.15">
+        node="//@diagram/@topLevelNodes.5">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
@@ -1908,44 +798,38 @@
           title="Data Inputs">
         <entries
             xsi:type="gmfgen:ToolEntry"
-            title="Input Connector"
-            description="link to input"
+            title="XML Element"
+            description="Add an Element"
             genLinks="//@diagram/@links.0 //@diagram/@links.1"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
-            title="MODS Element"
-            description="Create MODS Element"
-            genNodes="//@diagram/@topLevelNodes.1 //@diagram/@topLevelNodes.2 //@diagram/@topLevelNodes.3 //@diagram/@topLevelNodes.4 //@diagram/@topLevelNodes.5 //@diagram/@topLevelNodes.6 //@diagram/@topLevelNodes.7 //@diagram/@topLevelNodes.8 //@diagram/@topLevelNodes.10 //@diagram/@topLevelNodes.11"/>
+            title="XML Attribute"
+            description="Create an XML Attribute"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
-            title="Normalize Whitespace"
-            description="Create Normalize Whitespace"
-            genNodes="//@diagram/@topLevelNodes.14"/>
+            title="Input Connector"
+            description="link to input"
+            genNodes="//@diagram/@topLevelNodes.4"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Original Name Matcher"
             description="Create Original File/Folder Name Record Matcher"
-            genNodes="//@diagram/@topLevelNodes.9"/>
+            genNodes="//@diagram/@topLevelNodes.1"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="Fixed Text"
+            description="Add custom text to your crosswalk records"
+            genNodes="//@diagram/@topLevelNodes.2"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="Normalize Whitespace"
+            description="Create Normalize Whitespace"
+            genNodes="//@diagram/@topLevelNodes.3"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Date Recognizer"
             description="Add a Date Recognizer"
-            genNodes="//@diagram/@topLevelNodes.12"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="Text"
-            description="Add custom text to your crosswalk records"
-            genNodes="//@diagram/@topLevelNodes.13"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="XML Element"
-            description="Add an Element"
-            genNodes="//@diagram/@topLevelNodes.15 //@diagram/@childNodes.14"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="XML Attribute"
-            description="Create an XML Attribute"
-            genNodes="//@diagram/@childNodes.15"/>
+            genNodes="//@diagram/@topLevelNodes.5 //@diagram/@childNodes.4"/>
       </groups>
     </palette>
     <preferencePages
@@ -1974,7 +858,9 @@
           kind="RulersAndGrid"/>
     </preferencePages>
   </diagram>
-  <plugin>
+  <plugin
+      provider="UNC Chapel Hill Libraries"
+      version="0.0.1.qualifier">
     <requiredPlugins>org.eclipse.draw2d</requiredPlugins>
     <requiredPlugins>org.eclipse.gmf.runtime.draw2d.ui</requiredPlugins>
   </plugin>
@@ -2001,86 +887,26 @@
         parent="//@diagram"
         child="//@diagram/@topLevelNodes.2"/>
     <childReferences
-        parent="//@diagram/@topLevelNodes.3"
-        child="//@diagram/@childNodes.3"/>
-    <childReferences
         parent="//@diagram"
         child="//@diagram/@topLevelNodes.3"/>
     <childReferences
         parent="//@diagram/@topLevelNodes.4"
-        child="//@diagram/@childNodes.4"/>
+        child="//@diagram/@childNodes.3"/>
     <childReferences
         parent="//@diagram"
         child="//@diagram/@topLevelNodes.4"/>
     <childReferences
         parent="//@diagram/@topLevelNodes.5"
+        child="//@diagram/@childNodes.4"/>
+    <childReferences
+        parent="//@diagram/@topLevelNodes.5"
         child="//@diagram/@childNodes.5"/>
     <childReferences
-        parent="//@diagram"
-        child="//@diagram/@topLevelNodes.5"/>
-    <childReferences
-        parent="//@diagram/@topLevelNodes.6"
+        parent="//@diagram/@topLevelNodes.5"
         child="//@diagram/@childNodes.6"/>
     <childReferences
         parent="//@diagram"
-        child="//@diagram/@topLevelNodes.6"/>
-    <childReferences
-        parent="//@diagram/@topLevelNodes.7"
-        child="//@diagram/@childNodes.7"/>
-    <childReferences
-        parent="//@diagram"
-        child="//@diagram/@topLevelNodes.7"/>
-    <childReferences
-        parent="//@diagram/@topLevelNodes.8"
-        child="//@diagram/@childNodes.8"/>
-    <childReferences
-        parent="//@diagram"
-        child="//@diagram/@topLevelNodes.8"/>
-    <childReferences
-        parent="//@diagram/@topLevelNodes.9"
-        child="//@diagram/@childNodes.9"/>
-    <childReferences
-        parent="//@diagram"
-        child="//@diagram/@topLevelNodes.9"/>
-    <childReferences
-        parent="//@diagram/@topLevelNodes.10"
-        child="//@diagram/@childNodes.10"/>
-    <childReferences
-        parent="//@diagram"
-        child="//@diagram/@topLevelNodes.10"/>
-    <childReferences
-        parent="//@diagram/@topLevelNodes.11"
-        child="//@diagram/@childNodes.11"/>
-    <childReferences
-        parent="//@diagram"
-        child="//@diagram/@topLevelNodes.11"/>
-    <childReferences
-        parent="//@diagram/@topLevelNodes.12"
-        child="//@diagram/@childNodes.12"/>
-    <childReferences
-        parent="//@diagram"
-        child="//@diagram/@topLevelNodes.12"/>
-    <childReferences
-        parent="//@diagram"
-        child="//@diagram/@topLevelNodes.13"/>
-    <childReferences
-        parent="//@diagram/@topLevelNodes.14"
-        child="//@diagram/@childNodes.13"/>
-    <childReferences
-        parent="//@diagram"
-        child="//@diagram/@topLevelNodes.14"/>
-    <childReferences
-        parent="//@diagram/@topLevelNodes.15"
-        child="//@diagram/@childNodes.14"/>
-    <childReferences
-        parent="//@diagram/@topLevelNodes.15"
-        child="//@diagram/@childNodes.15"/>
-    <childReferences
-        parent="//@diagram/@topLevelNodes.15"
-        child="//@diagram/@childNodes.16"/>
-    <childReferences
-        parent="//@diagram"
-        child="//@diagram/@topLevelNodes.15"/>
+        child="//@diagram/@topLevelNodes.5"/>
     <childReferences
         parent="//@diagram"
         child="//@diagram/@links.0"
@@ -2088,24 +914,24 @@
         groupIcon="icons/linksNavigatorGroup.gif"/>
     <childReferences
         parent="//@diagram/@links.0"
-        child="//@diagram/@topLevelNodes.13"
+        child="//@diagram/@topLevelNodes.3"
         referenceType="out_target"
         groupName="target"
         groupIcon="icons/linkTargetNavigatorGroup.gif"/>
     <childReferences
-        parent="//@diagram/@topLevelNodes.13"
+        parent="//@diagram/@topLevelNodes.3"
         child="//@diagram/@links.0"
         referenceType="in_source"
         groupName="incoming links"
         groupIcon="icons/incomingLinksNavigatorGroup.gif"/>
     <childReferences
         parent="//@diagram/@links.0"
-        child="//@diagram/@topLevelNodes.14"
+        child="//@diagram/@topLevelNodes.4"
         referenceType="out_target"
         groupName="target"
         groupIcon="icons/linkTargetNavigatorGroup.gif"/>
     <childReferences
-        parent="//@diagram/@topLevelNodes.14"
+        parent="//@diagram/@topLevelNodes.4"
         child="//@diagram/@links.0"
         referenceType="in_source"
         groupName="incoming links"
@@ -2160,18 +986,6 @@
         groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
     <childReferences
         parent="//@diagram/@links.0"
-        child="//@diagram/@childNodes.4"
-        referenceType="in_source"
-        groupName="source"
-        groupIcon="icons/linkSourceNavigatorGroup.gif"/>
-    <childReferences
-        parent="//@diagram/@childNodes.4"
-        child="//@diagram/@links.0"
-        referenceType="out_target"
-        groupName="outgoing links"
-        groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
-    <childReferences
-        parent="//@diagram/@links.0"
         child="//@diagram/@childNodes.5"
         referenceType="in_source"
         groupName="source"
@@ -2195,130 +1009,22 @@
         groupName="outgoing links"
         groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
     <childReferences
-        parent="//@diagram/@links.0"
-        child="//@diagram/@childNodes.7"
-        referenceType="in_source"
-        groupName="source"
-        groupIcon="icons/linkSourceNavigatorGroup.gif"/>
-    <childReferences
-        parent="//@diagram/@childNodes.7"
-        child="//@diagram/@links.0"
-        referenceType="out_target"
-        groupName="outgoing links"
-        groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
-    <childReferences
-        parent="//@diagram/@links.0"
-        child="//@diagram/@childNodes.8"
-        referenceType="in_source"
-        groupName="source"
-        groupIcon="icons/linkSourceNavigatorGroup.gif"/>
-    <childReferences
-        parent="//@diagram/@childNodes.8"
-        child="//@diagram/@links.0"
-        referenceType="out_target"
-        groupName="outgoing links"
-        groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
-    <childReferences
-        parent="//@diagram/@links.0"
-        child="//@diagram/@childNodes.9"
-        referenceType="in_source"
-        groupName="source"
-        groupIcon="icons/linkSourceNavigatorGroup.gif"/>
-    <childReferences
-        parent="//@diagram/@childNodes.9"
-        child="//@diagram/@links.0"
-        referenceType="out_target"
-        groupName="outgoing links"
-        groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
-    <childReferences
-        parent="//@diagram/@links.0"
-        child="//@diagram/@childNodes.11"
-        referenceType="in_source"
-        groupName="source"
-        groupIcon="icons/linkSourceNavigatorGroup.gif"/>
-    <childReferences
-        parent="//@diagram/@childNodes.11"
-        child="//@diagram/@links.0"
-        referenceType="out_target"
-        groupName="outgoing links"
-        groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
-    <childReferences
-        parent="//@diagram/@links.0"
-        child="//@diagram/@childNodes.12"
-        referenceType="in_source"
-        groupName="source"
-        groupIcon="icons/linkSourceNavigatorGroup.gif"/>
-    <childReferences
-        parent="//@diagram/@childNodes.12"
-        child="//@diagram/@links.0"
-        referenceType="out_target"
-        groupName="outgoing links"
-        groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
-    <childReferences
-        parent="//@diagram/@links.0"
-        child="//@diagram/@childNodes.13"
-        referenceType="in_source"
-        groupName="source"
-        groupIcon="icons/linkSourceNavigatorGroup.gif"/>
-    <childReferences
-        parent="//@diagram/@childNodes.13"
-        child="//@diagram/@links.0"
-        referenceType="out_target"
-        groupName="outgoing links"
-        groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
-    <childReferences
-        parent="//@diagram/@links.0"
-        child="//@diagram/@childNodes.15"
-        referenceType="in_source"
-        groupName="source"
-        groupIcon="icons/linkSourceNavigatorGroup.gif"/>
-    <childReferences
-        parent="//@diagram/@childNodes.15"
-        child="//@diagram/@links.0"
-        referenceType="out_target"
-        groupName="outgoing links"
-        groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
-    <childReferences
-        parent="//@diagram/@links.0"
-        child="//@diagram/@childNodes.16"
-        referenceType="in_source"
-        groupName="source"
-        groupIcon="icons/linkSourceNavigatorGroup.gif"/>
-    <childReferences
-        parent="//@diagram/@childNodes.16"
-        child="//@diagram/@links.0"
-        referenceType="out_target"
-        groupName="outgoing links"
-        groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
-    <childReferences
         parent="//@diagram"
         child="//@diagram/@links.1"
         groupName="links"
         groupIcon="icons/linksNavigatorGroup.gif"/>
     <childReferences
         parent="//@diagram/@links.1"
-        child="//@diagram/@topLevelNodes.12"
+        child="//@diagram/@topLevelNodes.2"
         referenceType="out_target"
         groupName="target"
         groupIcon="icons/linkTargetNavigatorGroup.gif"/>
     <childReferences
-        parent="//@diagram/@topLevelNodes.12"
+        parent="//@diagram/@topLevelNodes.2"
         child="//@diagram/@links.1"
         referenceType="in_source"
         groupName="incoming links"
         groupIcon="icons/incomingLinksNavigatorGroup.gif"/>
-    <childReferences
-        parent="//@diagram/@links.1"
-        child="//@diagram/@childNodes.10"
-        referenceType="in_source"
-        groupName="source"
-        groupIcon="icons/linkSourceNavigatorGroup.gif"/>
-    <childReferences
-        parent="//@diagram/@childNodes.10"
-        child="//@diagram/@links.1"
-        referenceType="out_target"
-        groupName="outgoing links"
-        groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
   </navigator>
   <diagramUpdater/>
   <propertySheet>
@@ -2357,26 +1063,6 @@
     <providers
         xsi:type="gmfgen:GenLiteralExpressionProvider">
       <expressions
-          body="&quot;TitleInfo&quot;"/>
-      <expressions
-          body="&quot;Abstract&quot;"/>
-      <expressions
-          body="&quot;Genre&quot;"/>
-      <expressions
-          body="&quot;Identifier&quot;"/>
-      <expressions
-          body="&quot;Language&quot;"/>
-      <expressions
-          body="&quot;Name&quot;"/>
-      <expressions
-          body="&quot;Subject&quot;"/>
-      <expressions
-          body="&quot;TypeOfResource&quot;"/>
-      <expressions
-          body="&quot;Date Created&quot;"/>
-      <expressions
-          body="&quot;Access Condition&quot;"/>
-      <expressions
           body="&quot;Date Recognizer&quot;"/>
       <expressions
           body="&quot;Normalize Whitespace&quot;"/>
@@ -2393,108 +1079,38 @@
     </implementations>
     <implementations
         xsi:type="gmfgen:PredefinedParser"
-        uses="//@diagram/@childNodes.0/@labels.1/@modelFacet //@diagram/@topLevelNodes.0/@labels.0/@modelFacet //@diagram/@childNodes.1/@labels.0/@modelFacet //@diagram/@childNodes.2/@labels.0/@modelFacet //@diagram/@childNodes.3/@labels.0/@modelFacet //@diagram/@childNodes.4/@labels.0/@modelFacet //@diagram/@childNodes.5/@labels.0/@modelFacet //@diagram/@childNodes.6/@labels.0/@modelFacet //@diagram/@childNodes.7/@labels.0/@modelFacet //@diagram/@childNodes.8/@labels.0/@modelFacet //@diagram/@childNodes.9/@labels.0/@modelFacet //@diagram/@childNodes.10/@labels.0/@modelFacet //@diagram/@childNodes.11/@labels.0/@modelFacet //@diagram/@childNodes.12/@labels.0/@modelFacet //@diagram/@topLevelNodes.13/@labels.0/@modelFacet //@diagram/@childNodes.13/@labels.0/@modelFacet //@diagram/@childNodes.15/@labels.0/@modelFacet //@diagram/@childNodes.16/@labels.0/@modelFacet"/>
+        uses="//@diagram/@childNodes.0/@labels.1/@modelFacet //@diagram/@topLevelNodes.0/@labels.0/@modelFacet //@diagram/@childNodes.1/@labels.0/@modelFacet //@diagram/@childNodes.2/@labels.0/@modelFacet //@diagram/@topLevelNodes.3/@labels.0/@modelFacet //@diagram/@childNodes.3/@labels.0/@modelFacet //@diagram/@childNodes.5/@labels.0/@modelFacet //@diagram/@childNodes.6/@labels.0/@modelFacet"/>
     <implementations
         xsi:type="gmfgen:ExpressionLabelParser"
         uses="//@diagram/@topLevelNodes.1/@labels.0/@modelFacet"
-        viewExpression="//@expressionProviders/@providers.1/@expressions.0">
-      <expressionContext
-          href="crosswalk.genmodel#//crosswalk/TitleInfo"/>
-    </implementations>
-    <implementations
-        xsi:type="gmfgen:ExpressionLabelParser"
-        uses="//@diagram/@topLevelNodes.2/@labels.0/@modelFacet"
-        viewExpression="//@expressionProviders/@providers.1/@expressions.1">
-      <expressionContext
-          href="crosswalk.genmodel#//crosswalk/Abstract"/>
-    </implementations>
-    <implementations
-        xsi:type="gmfgen:ExpressionLabelParser"
-        uses="//@diagram/@topLevelNodes.3/@labels.0/@modelFacet"
-        viewExpression="//@expressionProviders/@providers.1/@expressions.2">
-      <expressionContext
-          href="crosswalk.genmodel#//crosswalk/Genre"/>
-    </implementations>
-    <implementations
-        xsi:type="gmfgen:ExpressionLabelParser"
-        uses="//@diagram/@topLevelNodes.4/@labels.0/@modelFacet"
-        viewExpression="//@expressionProviders/@providers.1/@expressions.3">
-      <expressionContext
-          href="crosswalk.genmodel#//crosswalk/Identifier"/>
-    </implementations>
-    <implementations
-        xsi:type="gmfgen:ExpressionLabelParser"
-        uses="//@diagram/@topLevelNodes.5/@labels.0/@modelFacet"
-        viewExpression="//@expressionProviders/@providers.1/@expressions.4">
-      <expressionContext
-          href="crosswalk.genmodel#//crosswalk/Language"/>
-    </implementations>
-    <implementations
-        xsi:type="gmfgen:ExpressionLabelParser"
-        uses="//@diagram/@topLevelNodes.6/@labels.0/@modelFacet"
-        viewExpression="//@expressionProviders/@providers.1/@expressions.5">
-      <expressionContext
-          href="crosswalk.genmodel#//crosswalk/Name"/>
-    </implementations>
-    <implementations
-        xsi:type="gmfgen:ExpressionLabelParser"
-        uses="//@diagram/@topLevelNodes.7/@labels.0/@modelFacet"
-        viewExpression="//@expressionProviders/@providers.1/@expressions.6">
-      <expressionContext
-          href="crosswalk.genmodel#//crosswalk/Subject"/>
-    </implementations>
-    <implementations
-        xsi:type="gmfgen:ExpressionLabelParser"
-        uses="//@diagram/@topLevelNodes.8/@labels.0/@modelFacet"
-        viewExpression="//@expressionProviders/@providers.1/@expressions.7">
-      <expressionContext
-          href="crosswalk.genmodel#//crosswalk/TypeOfResource"/>
-    </implementations>
-    <implementations
-        xsi:type="gmfgen:ExpressionLabelParser"
-        uses="//@diagram/@topLevelNodes.9/@labels.0/@modelFacet"
         viewExpression="//@expressionProviders/@providers.0/@expressions.1">
       <expressionContext
           href="crosswalk.genmodel#//crosswalk/OriginalNameRecordMatcher"/>
     </implementations>
     <implementations
         xsi:type="gmfgen:ExpressionLabelParser"
-        uses="//@diagram/@topLevelNodes.10/@labels.0/@modelFacet"
-        viewExpression="//@expressionProviders/@providers.1/@expressions.8">
-      <expressionContext
-          href="crosswalk.genmodel#//crosswalk/DateCreated"/>
-    </implementations>
-    <implementations
-        xsi:type="gmfgen:ExpressionLabelParser"
-        uses="//@diagram/@topLevelNodes.11/@labels.0/@modelFacet"
-        viewExpression="//@expressionProviders/@providers.1/@expressions.9">
-      <expressionContext
-          href="crosswalk.genmodel#//crosswalk/AccessCondition"/>
-    </implementations>
-    <implementations
-        xsi:type="gmfgen:ExpressionLabelParser"
-        uses="//@diagram/@topLevelNodes.12/@labels.0/@modelFacet"
-        viewExpression="//@expressionProviders/@providers.1/@expressions.10">
+        uses="//@diagram/@topLevelNodes.2/@labels.0/@modelFacet"
+        viewExpression="//@expressionProviders/@providers.1/@expressions.0">
       <expressionContext
           href="crosswalk.genmodel#//crosswalk/DateRecognizer"/>
     </implementations>
     <implementations
         xsi:type="gmfgen:ExpressionLabelParser"
-        uses="//@diagram/@topLevelNodes.14/@labels.0/@modelFacet"
-        viewExpression="//@expressionProviders/@providers.1/@expressions.11">
+        uses="//@diagram/@topLevelNodes.4/@labels.0/@modelFacet"
+        viewExpression="//@expressionProviders/@providers.1/@expressions.1">
       <expressionContext
           href="crosswalk.genmodel#//crosswalk/TrimWhitespace"/>
     </implementations>
     <implementations
         xsi:type="gmfgen:ExpressionLabelParser"
-        uses="//@diagram/@childNodes.14/@labels.0/@modelFacet"
+        uses="//@diagram/@childNodes.4/@labels.0/@modelFacet"
         viewExpression="//@expressionProviders/@providers.0/@expressions.2">
       <expressionContext
           href="crosswalk.genmodel#//crosswalk/MappedElement"/>
     </implementations>
     <implementations
         xsi:type="gmfgen:ExpressionLabelParser"
-        uses="//@diagram/@topLevelNodes.15/@labels.0/@modelFacet"
+        uses="//@diagram/@topLevelNodes.5/@labels.0/@modelFacet"
         viewExpression="//@expressionProviders/@providers.0/@expressions.3">
       <expressionContext
           href="crosswalk.genmodel#//crosswalk/MappedElement"/>

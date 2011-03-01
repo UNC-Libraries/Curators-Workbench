@@ -263,32 +263,32 @@ public class Messages extends NLS {
     /**
      * @generated
      */
-    public static String InputConnector1CreationTool_title;
+    public static String XMLElement1CreationTool_title;
 
     /**
      * @generated
      */
-    public static String InputConnector1CreationTool_desc;
+    public static String XMLElement1CreationTool_desc;
 
     /**
      * @generated
      */
-    public static String MODSElement2CreationTool_title;
+    public static String XMLAttribute2CreationTool_title;
 
     /**
      * @generated
      */
-    public static String MODSElement2CreationTool_desc;
+    public static String XMLAttribute2CreationTool_desc;
 
     /**
      * @generated
      */
-    public static String NormalizeWhitespace3CreationTool_title;
+    public static String InputConnector3CreationTool_title;
 
     /**
      * @generated
      */
-    public static String NormalizeWhitespace3CreationTool_desc;
+    public static String InputConnector3CreationTool_desc;
 
     /**
      * @generated
@@ -303,42 +303,32 @@ public class Messages extends NLS {
     /**
      * @generated
      */
-    public static String DateRecognizer5CreationTool_title;
+    public static String FixedText5CreationTool_title;
 
     /**
      * @generated
      */
-    public static String DateRecognizer5CreationTool_desc;
+    public static String FixedText5CreationTool_desc;
 
     /**
      * @generated
      */
-    public static String Text6CreationTool_title;
+    public static String NormalizeWhitespace6CreationTool_title;
 
     /**
      * @generated
      */
-    public static String Text6CreationTool_desc;
+    public static String NormalizeWhitespace6CreationTool_desc;
 
     /**
      * @generated
      */
-    public static String XMLElement7CreationTool_title;
+    public static String DateRecognizer7CreationTool_title;
 
     /**
      * @generated
      */
-    public static String XMLElement7CreationTool_desc;
-
-    /**
-     * @generated
-     */
-    public static String XMLAttribute8CreationTool_title;
-
-    /**
-     * @generated
-     */
-    public static String XMLAttribute8CreationTool_desc;
+    public static String DateRecognizer7CreationTool_desc;
 
     /**
      * @generated
@@ -348,57 +338,7 @@ public class Messages extends NLS {
     /**
      * @generated
      */
-    public static String TitleInfoOutputElementInputsCompartmentEditPart_title;
-
-    /**
-     * @generated
-     */
-    public static String AbstractOutputElementInputsCompartmentEditPart_title;
-
-    /**
-     * @generated
-     */
-    public static String GenreOutputElementInputsCompartmentEditPart_title;
-
-    /**
-     * @generated
-     */
-    public static String IdentifierOutputElementInputsCompartmentEditPart_title;
-
-    /**
-     * @generated
-     */
-    public static String LanguageOutputElementInputsCompartmentEditPart_title;
-
-    /**
-     * @generated
-     */
-    public static String NameOutputElementInputsCompartmentEditPart_title;
-
-    /**
-     * @generated
-     */
-    public static String SubjectOutputElementInputsCompartmentEditPart_title;
-
-    /**
-     * @generated
-     */
-    public static String TypeOfResourceOutputElementInputsCompartmentEditPart_title;
-
-    /**
-     * @generated
-     */
     public static String OriginalNameRecordMatcherRecordMatcherInputsCompartmentEditPart_title;
-
-    /**
-     * @generated
-     */
-    public static String DateCreatedOutputElementInputsCompartmentEditPart_title;
-
-    /**
-     * @generated
-     */
-    public static String AccessConditionOutputElementInputsCompartmentEditPart_title;
 
     /**
      * @generated
@@ -448,37 +388,7 @@ public class Messages extends NLS {
     /**
      * @generated
      */
-    public static String NavigatorGroupName_StringInput_3008_outgoinglinks;
-
-    /**
-     * @generated
-     */
-    public static String NavigatorGroupName_StringInput_3005_outgoinglinks;
-
-    /**
-     * @generated
-     */
-    public static String NavigatorGroupName_StringInput_3004_outgoinglinks;
-
-    /**
-     * @generated
-     */
-    public static String NavigatorGroupName_DateInput_3011_outgoinglinks;
-
-    /**
-     * @generated
-     */
     public static String NavigatorGroupName_TrimWhitespace_2015_incominglinks;
-
-    /**
-     * @generated
-     */
-    public static String NavigatorGroupName_StringInput_3014_outgoinglinks;
-
-    /**
-     * @generated
-     */
-    public static String NavigatorGroupName_StringInput_3012_outgoinglinks;
 
     /**
      * @generated
@@ -489,11 +399,6 @@ public class Messages extends NLS {
      * @generated
      */
     public static String NavigatorGroupName_DateInputInput_4002_target;
-
-    /**
-     * @generated
-     */
-    public static String NavigatorGroupName_DateInputInput_4002_source;
 
     /**
      * @generated
@@ -513,32 +418,12 @@ public class Messages extends NLS {
     /**
      * @generated
      */
-    public static String NavigatorGroupName_StringInput_3013_outgoinglinks;
-
-    /**
-     * @generated
-     */
     public static String NavigatorGroupName_Text_2014_incominglinks;
 
     /**
      * @generated
      */
-    public static String NavigatorGroupName_StringInput_3009_outgoinglinks;
-
-    /**
-     * @generated
-     */
     public static String NavigatorGroupName_CrossWalk_1000_links;
-
-    /**
-     * @generated
-     */
-    public static String NavigatorGroupName_StringInput_3007_outgoinglinks;
-
-    /**
-     * @generated
-     */
-    public static String NavigatorGroupName_StringInput_3006_outgoinglinks;
 
     /**
      * @generated

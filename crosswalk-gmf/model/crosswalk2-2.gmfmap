@@ -65,382 +65,6 @@
   </nodes>
   <nodes>
     <containmentFeature
-        href="crosswalk.ecore#//CrossWalk/Elements"/>
-    <ownedChild>
-      <domainMetaElement
-          href="crosswalk.ecore#//TitleInfo"/>
-      <labelMappings
-          xsi:type="gmfmap:ExpressionLabelMapping"
-          readOnly="true">
-        <diagramLabel
-            href="crosswalk.gmfgraph#OutputElementLabel"/>
-        <viewExpression
-            body="&quot;TitleInfo&quot;"
-            language="literal"/>
-      </labelMappings>
-      <tool
-          xsi:type="gmftool:CreationTool"
-          href="crosswalk.gmftool#//@palette/@tools.0/@tools.1"/>
-      <diagramNode
-          href="crosswalk.gmfgraph#OutputElement"/>
-      <children
-          compartment="//@nodes.1/@ownedChild/@compartments.0">
-        <containmentFeature
-            href="crosswalk.ecore#//InputConsumer/Inputs"/>
-        <ownedChild>
-          <domainMetaElement
-              href="crosswalk.ecore#//StringInput"/>
-          <labelMappings
-              xsi:type="gmfmap:FeatureLabelMapping"
-              readOnly="true"
-              viewPattern="{0}">
-            <diagramLabel
-                href="crosswalk.gmfgraph#StringInputLabel"/>
-            <features
-                href="crosswalk.ecore#//Input/Name"/>
-          </labelMappings>
-          <diagramNode
-              href="crosswalk.gmfgraph#StringInput"/>
-        </ownedChild>
-      </children>
-      <compartments
-          children="//@nodes.1/@ownedChild/@children.0">
-        <compartment
-            href="crosswalk.gmfgraph#OutputElementInputsCompartment"/>
-      </compartments>
-    </ownedChild>
-  </nodes>
-  <nodes>
-    <containmentFeature
-        href="crosswalk.ecore#//CrossWalk/Elements"/>
-    <ownedChild>
-      <domainMetaElement
-          href="crosswalk.ecore#//Abstract"/>
-      <labelMappings
-          xsi:type="gmfmap:ExpressionLabelMapping"
-          readOnly="true">
-        <diagramLabel
-            href="crosswalk.gmfgraph#OutputElementLabel"/>
-        <viewExpression
-            body="&quot;Abstract&quot;"
-            language="literal"/>
-      </labelMappings>
-      <tool
-          xsi:type="gmftool:CreationTool"
-          href="crosswalk.gmftool#//@palette/@tools.0/@tools.1"/>
-      <diagramNode
-          href="crosswalk.gmfgraph#OutputElement"/>
-      <children
-          compartment="//@nodes.2/@ownedChild/@compartments.0">
-        <containmentFeature
-            href="crosswalk.ecore#//InputConsumer/Inputs"/>
-        <ownedChild>
-          <domainMetaElement
-              href="crosswalk.ecore#//StringInput"/>
-          <labelMappings
-              xsi:type="gmfmap:FeatureLabelMapping"
-              readOnly="true"
-              viewPattern="{0}">
-            <diagramLabel
-                href="crosswalk.gmfgraph#StringInputLabel"/>
-            <features
-                href="crosswalk.ecore#//Input/Name"/>
-          </labelMappings>
-          <diagramNode
-              href="crosswalk.gmfgraph#StringInput"/>
-        </ownedChild>
-      </children>
-      <compartments
-          children="//@nodes.2/@ownedChild/@children.0">
-        <compartment
-            href="crosswalk.gmfgraph#OutputElementInputsCompartment"/>
-      </compartments>
-    </ownedChild>
-  </nodes>
-  <nodes>
-    <containmentFeature
-        href="crosswalk.ecore#//CrossWalk/Elements"/>
-    <ownedChild>
-      <domainMetaElement
-          href="crosswalk.ecore#//Genre"/>
-      <labelMappings
-          xsi:type="gmfmap:ExpressionLabelMapping"
-          readOnly="true">
-        <diagramLabel
-            href="crosswalk.gmfgraph#OutputElementLabel"/>
-        <viewExpression
-            body="&quot;Genre&quot;"
-            language="literal"/>
-      </labelMappings>
-      <tool
-          xsi:type="gmftool:CreationTool"
-          href="crosswalk.gmftool#//@palette/@tools.0/@tools.1"/>
-      <diagramNode
-          href="crosswalk.gmfgraph#OutputElement"/>
-      <children
-          compartment="//@nodes.3/@ownedChild/@compartments.0">
-        <containmentFeature
-            href="crosswalk.ecore#//InputConsumer/Inputs"/>
-        <ownedChild>
-          <domainMetaElement
-              href="crosswalk.ecore#//StringInput"/>
-          <labelMappings
-              xsi:type="gmfmap:FeatureLabelMapping"
-              readOnly="true"
-              viewPattern="{0}">
-            <diagramLabel
-                href="crosswalk.gmfgraph#StringInputLabel"/>
-            <features
-                href="crosswalk.ecore#//Input/Name"/>
-          </labelMappings>
-          <diagramNode
-              href="crosswalk.gmfgraph#StringInput"/>
-        </ownedChild>
-      </children>
-      <compartments
-          children="//@nodes.3/@ownedChild/@children.0">
-        <compartment
-            href="crosswalk.gmfgraph#OutputElementInputsCompartment"/>
-      </compartments>
-    </ownedChild>
-  </nodes>
-  <nodes>
-    <containmentFeature
-        href="crosswalk.ecore#//CrossWalk/Elements"/>
-    <ownedChild>
-      <domainMetaElement
-          href="crosswalk.ecore#//Identifier"/>
-      <labelMappings
-          xsi:type="gmfmap:ExpressionLabelMapping"
-          readOnly="true">
-        <diagramLabel
-            href="crosswalk.gmfgraph#OutputElementLabel"/>
-        <viewExpression
-            body="&quot;Identifier&quot;"
-            language="literal"/>
-      </labelMappings>
-      <tool
-          xsi:type="gmftool:CreationTool"
-          href="crosswalk.gmftool#//@palette/@tools.0/@tools.1"/>
-      <diagramNode
-          href="crosswalk.gmfgraph#OutputElement"/>
-      <children
-          compartment="//@nodes.4/@ownedChild/@compartments.0">
-        <containmentFeature
-            href="crosswalk.ecore#//InputConsumer/Inputs"/>
-        <ownedChild>
-          <domainMetaElement
-              href="crosswalk.ecore#//StringInput"/>
-          <labelMappings
-              xsi:type="gmfmap:FeatureLabelMapping"
-              readOnly="true"
-              viewPattern="{0}">
-            <diagramLabel
-                href="crosswalk.gmfgraph#StringInputLabel"/>
-            <features
-                href="crosswalk.ecore#//Input/Name"/>
-          </labelMappings>
-          <diagramNode
-              href="crosswalk.gmfgraph#StringInput"/>
-        </ownedChild>
-      </children>
-      <compartments
-          children="//@nodes.4/@ownedChild/@children.0">
-        <compartment
-            href="crosswalk.gmfgraph#OutputElementInputsCompartment"/>
-      </compartments>
-    </ownedChild>
-  </nodes>
-  <nodes>
-    <containmentFeature
-        href="crosswalk.ecore#//CrossWalk/Elements"/>
-    <ownedChild>
-      <domainMetaElement
-          href="crosswalk.ecore#//Language"/>
-      <labelMappings
-          xsi:type="gmfmap:ExpressionLabelMapping"
-          readOnly="true">
-        <diagramLabel
-            href="crosswalk.gmfgraph#OutputElementLabel"/>
-        <viewExpression
-            body="&quot;Language&quot;"
-            language="literal"/>
-      </labelMappings>
-      <tool
-          xsi:type="gmftool:CreationTool"
-          href="crosswalk.gmftool#//@palette/@tools.0/@tools.1"/>
-      <diagramNode
-          href="crosswalk.gmfgraph#OutputElement"/>
-      <children
-          compartment="//@nodes.5/@ownedChild/@compartments.0">
-        <containmentFeature
-            href="crosswalk.ecore#//InputConsumer/Inputs"/>
-        <ownedChild>
-          <domainMetaElement
-              href="crosswalk.ecore#//StringInput"/>
-          <labelMappings
-              xsi:type="gmfmap:FeatureLabelMapping"
-              readOnly="true"
-              viewPattern="{0}">
-            <diagramLabel
-                href="crosswalk.gmfgraph#StringInputLabel"/>
-            <features
-                href="crosswalk.ecore#//Input/Name"/>
-          </labelMappings>
-          <diagramNode
-              href="crosswalk.gmfgraph#StringInput"/>
-        </ownedChild>
-      </children>
-      <compartments
-          children="//@nodes.5/@ownedChild/@children.0">
-        <compartment
-            href="crosswalk.gmfgraph#OutputElementInputsCompartment"/>
-      </compartments>
-    </ownedChild>
-  </nodes>
-  <nodes>
-    <containmentFeature
-        href="crosswalk.ecore#//CrossWalk/Elements"/>
-    <ownedChild>
-      <domainMetaElement
-          href="crosswalk.ecore#//Name"/>
-      <labelMappings
-          xsi:type="gmfmap:ExpressionLabelMapping"
-          readOnly="true">
-        <diagramLabel
-            href="crosswalk.gmfgraph#OutputElementLabel"/>
-        <viewExpression
-            body="&quot;Name&quot;"
-            language="literal"/>
-      </labelMappings>
-      <tool
-          xsi:type="gmftool:CreationTool"
-          href="crosswalk.gmftool#//@palette/@tools.0/@tools.1"/>
-      <diagramNode
-          href="crosswalk.gmfgraph#OutputElement"/>
-      <children
-          compartment="//@nodes.6/@ownedChild/@compartments.0">
-        <containmentFeature
-            href="crosswalk.ecore#//InputConsumer/Inputs"/>
-        <ownedChild>
-          <domainMetaElement
-              href="crosswalk.ecore#//StringInput"/>
-          <labelMappings
-              xsi:type="gmfmap:FeatureLabelMapping"
-              readOnly="true"
-              viewPattern="{0}">
-            <diagramLabel
-                href="crosswalk.gmfgraph#StringInputLabel"/>
-            <features
-                href="crosswalk.ecore#//Input/Name"/>
-          </labelMappings>
-          <diagramNode
-              href="crosswalk.gmfgraph#StringInput"/>
-        </ownedChild>
-      </children>
-      <compartments
-          children="//@nodes.6/@ownedChild/@children.0">
-        <compartment
-            href="crosswalk.gmfgraph#OutputElementInputsCompartment"/>
-      </compartments>
-    </ownedChild>
-  </nodes>
-  <nodes>
-    <containmentFeature
-        href="crosswalk.ecore#//CrossWalk/Elements"/>
-    <ownedChild>
-      <domainMetaElement
-          href="crosswalk.ecore#//Subject"/>
-      <labelMappings
-          xsi:type="gmfmap:ExpressionLabelMapping"
-          readOnly="true">
-        <diagramLabel
-            href="crosswalk.gmfgraph#OutputElementLabel"/>
-        <viewExpression
-            body="&quot;Subject&quot;"
-            language="literal"/>
-      </labelMappings>
-      <tool
-          xsi:type="gmftool:CreationTool"
-          href="crosswalk.gmftool#//@palette/@tools.0/@tools.1"/>
-      <diagramNode
-          href="crosswalk.gmfgraph#OutputElement"/>
-      <children
-          compartment="//@nodes.7/@ownedChild/@compartments.0">
-        <containmentFeature
-            href="crosswalk.ecore#//InputConsumer/Inputs"/>
-        <ownedChild>
-          <domainMetaElement
-              href="crosswalk.ecore#//StringInput"/>
-          <labelMappings
-              xsi:type="gmfmap:FeatureLabelMapping"
-              readOnly="true"
-              viewPattern="{0}">
-            <diagramLabel
-                href="crosswalk.gmfgraph#StringInputLabel"/>
-            <features
-                href="crosswalk.ecore#//Input/Name"/>
-          </labelMappings>
-          <diagramNode
-              href="crosswalk.gmfgraph#StringInput"/>
-        </ownedChild>
-      </children>
-      <compartments
-          children="//@nodes.7/@ownedChild/@children.0">
-        <compartment
-            href="crosswalk.gmfgraph#OutputElementInputsCompartment"/>
-      </compartments>
-    </ownedChild>
-  </nodes>
-  <nodes>
-    <containmentFeature
-        href="crosswalk.ecore#//CrossWalk/Elements"/>
-    <ownedChild>
-      <domainMetaElement
-          href="crosswalk.ecore#//TypeOfResource"/>
-      <labelMappings
-          xsi:type="gmfmap:ExpressionLabelMapping"
-          readOnly="true">
-        <diagramLabel
-            href="crosswalk.gmfgraph#OutputElementLabel"/>
-        <viewExpression
-            body="&quot;TypeOfResource&quot;"
-            language="literal"/>
-      </labelMappings>
-      <tool
-          xsi:type="gmftool:CreationTool"
-          href="crosswalk.gmftool#//@palette/@tools.0/@tools.1"/>
-      <diagramNode
-          href="crosswalk.gmfgraph#OutputElement"/>
-      <children
-          compartment="//@nodes.8/@ownedChild/@compartments.0">
-        <containmentFeature
-            href="crosswalk.ecore#//InputConsumer/Inputs"/>
-        <ownedChild>
-          <domainMetaElement
-              href="crosswalk.ecore#//StringInput"/>
-          <labelMappings
-              xsi:type="gmfmap:FeatureLabelMapping"
-              readOnly="true"
-              viewPattern="{0}">
-            <diagramLabel
-                href="crosswalk.gmfgraph#StringInputLabel"/>
-            <features
-                href="crosswalk.ecore#//Input/Name"/>
-          </labelMappings>
-          <diagramNode
-              href="crosswalk.gmfgraph#StringInput"/>
-        </ownedChild>
-      </children>
-      <compartments
-          children="//@nodes.8/@ownedChild/@children.0">
-        <compartment
-            href="crosswalk.gmfgraph#OutputElementInputsCompartment"/>
-      </compartments>
-    </ownedChild>
-  </nodes>
-  <nodes>
-    <containmentFeature
         href="crosswalk.ecore#//CrossWalk/Widgets"/>
     <ownedChild>
       <domainMetaElement
@@ -460,7 +84,7 @@
       <diagramNode
           href="crosswalk.gmfgraph#RecordMatcher"/>
       <children
-          compartment="//@nodes.9/@ownedChild/@compartments.0">
+          compartment="//@nodes.1/@ownedChild/@compartments.0">
         <containmentFeature
             href="crosswalk.ecore#//OriginalNameRecordMatcher/input"/>
         <ownedChild>
@@ -479,103 +103,9 @@
         </ownedChild>
       </children>
       <compartments
-          children="//@nodes.9/@ownedChild/@children.0">
+          children="//@nodes.1/@ownedChild/@children.0">
         <compartment
             href="crosswalk.gmfgraph#RecordMatcherInputsCompartment"/>
-      </compartments>
-    </ownedChild>
-  </nodes>
-  <nodes>
-    <containmentFeature
-        href="crosswalk.ecore#//CrossWalk/Elements"/>
-    <ownedChild>
-      <domainMetaElement
-          href="crosswalk.ecore#//DateCreated"/>
-      <labelMappings
-          xsi:type="gmfmap:ExpressionLabelMapping"
-          readOnly="true">
-        <diagramLabel
-            href="crosswalk.gmfgraph#OutputElementLabel"/>
-        <viewExpression
-            body="&quot;Date Created&quot;"
-            language="literal"/>
-      </labelMappings>
-      <tool
-          xsi:type="gmftool:CreationTool"
-          href="crosswalk.gmftool#//@palette/@tools.0/@tools.1"/>
-      <diagramNode
-          href="crosswalk.gmfgraph#OutputElement"/>
-      <children
-          compartment="//@nodes.10/@ownedChild/@compartments.0">
-        <containmentFeature
-            href="crosswalk.ecore#//InputConsumer/Inputs"/>
-        <ownedChild>
-          <domainMetaElement
-              href="crosswalk.ecore#//DateInput"/>
-          <labelMappings
-              xsi:type="gmfmap:FeatureLabelMapping"
-              readOnly="true"
-              viewPattern="{0}">
-            <diagramLabel
-                href="crosswalk.gmfgraph#StringInputLabel"/>
-            <features
-                href="crosswalk.ecore#//Input/Name"/>
-          </labelMappings>
-          <diagramNode
-              href="crosswalk.gmfgraph#StringInput"/>
-        </ownedChild>
-      </children>
-      <compartments
-          children="//@nodes.10/@ownedChild/@children.0">
-        <compartment
-            href="crosswalk.gmfgraph#OutputElementInputsCompartment"/>
-      </compartments>
-    </ownedChild>
-  </nodes>
-  <nodes>
-    <containmentFeature
-        href="crosswalk.ecore#//CrossWalk/Elements"/>
-    <ownedChild>
-      <domainMetaElement
-          href="crosswalk.ecore#//AccessCondition"/>
-      <labelMappings
-          xsi:type="gmfmap:ExpressionLabelMapping"
-          readOnly="true">
-        <diagramLabel
-            href="crosswalk.gmfgraph#OutputElementLabel"/>
-        <viewExpression
-            body="&quot;Access Condition&quot;"
-            language="literal"/>
-      </labelMappings>
-      <tool
-          xsi:type="gmftool:CreationTool"
-          href="crosswalk.gmftool#//@palette/@tools.0/@tools.1"/>
-      <diagramNode
-          href="crosswalk.gmfgraph#OutputElement"/>
-      <children
-          compartment="//@nodes.11/@ownedChild/@compartments.0">
-        <containmentFeature
-            href="crosswalk.ecore#//InputConsumer/Inputs"/>
-        <ownedChild>
-          <domainMetaElement
-              href="crosswalk.ecore#//StringInput"/>
-          <labelMappings
-              xsi:type="gmfmap:FeatureLabelMapping"
-              readOnly="true"
-              viewPattern="{0}">
-            <diagramLabel
-                href="crosswalk.gmfgraph#StringInputLabel"/>
-            <features
-                href="crosswalk.ecore#//Input/Name"/>
-          </labelMappings>
-          <diagramNode
-              href="crosswalk.gmfgraph#StringInput"/>
-        </ownedChild>
-      </children>
-      <compartments
-          children="//@nodes.11/@ownedChild/@children.0">
-        <compartment
-            href="crosswalk.gmfgraph#OutputElementInputsCompartment"/>
       </compartments>
     </ownedChild>
   </nodes>
@@ -598,9 +128,9 @@
           xsi:type="gmftool:CreationTool"
           href="crosswalk.gmftool#//@palette/@tools.0/@tools.4"/>
       <diagramNode
-          href="crosswalk.gmfgraph#OutputElement"/>
+          href="crosswalk.gmfgraph#GenericWidgetNode"/>
       <children
-          compartment="//@nodes.12/@ownedChild/@compartments.0">
+          compartment="//@nodes.2/@ownedChild/@compartments.0">
         <containmentFeature
             href="crosswalk.ecore#//InputConsumer/Inputs"/>
         <ownedChild>
@@ -619,9 +149,9 @@
         </ownedChild>
       </children>
       <compartments
-          children="//@nodes.12/@ownedChild/@children.0">
+          children="//@nodes.2/@ownedChild/@children.0">
         <compartment
-            href="crosswalk.gmfgraph#OutputElementInputsCompartment"/>
+            href="crosswalk.gmfgraph#GenericWidgetCompartment"/>
       </compartments>
     </ownedChild>
   </nodes>
@@ -644,7 +174,7 @@
           xsi:type="gmftool:CreationTool"
           href="crosswalk.gmftool#//@palette/@tools.0/@tools.5"/>
       <diagramNode
-          href="crosswalk.gmfgraph#OutputElement"/>
+          href="crosswalk.gmfgraph#GenericWidgetNode"/>
     </ownedChild>
   </nodes>
   <nodes>
@@ -666,9 +196,9 @@
           xsi:type="gmftool:CreationTool"
           href="crosswalk.gmftool#//@palette/@tools.0/@tools.2"/>
       <diagramNode
-          href="crosswalk.gmfgraph#OutputElement"/>
+          href="crosswalk.gmfgraph#GenericWidgetNode"/>
       <children
-          compartment="//@nodes.14/@ownedChild/@compartments.0">
+          compartment="//@nodes.4/@ownedChild/@compartments.0">
         <containmentFeature
             href="crosswalk.ecore#//InputConsumer/Inputs"/>
         <ownedChild>
@@ -687,9 +217,9 @@
         </ownedChild>
       </children>
       <compartments
-          children="//@nodes.14/@ownedChild/@children.0">
+          children="//@nodes.4/@ownedChild/@children.0">
         <compartment
-            href="crosswalk.gmfgraph#OutputElementInputsCompartment"/>
+            href="crosswalk.gmfgraph#GenericWidgetCompartment"/>
       </compartments>
     </ownedChild>
   </nodes>
@@ -714,7 +244,7 @@
       <diagramNode
           href="crosswalk.gmfgraph#MappedElementNode"/>
       <children
-          compartment="//@nodes.15/@ownedChild/@compartments.0">
+          compartment="//@nodes.5/@ownedChild/@compartments.0">
         <containmentFeature
             href="crosswalk.ecore#//MappedElement/childElements"/>
         <ownedChild>
@@ -737,7 +267,7 @@
         </ownedChild>
       </children>
       <children
-          compartment="//@nodes.15/@ownedChild/@compartments.0">
+          compartment="//@nodes.5/@ownedChild/@compartments.0">
         <containmentFeature
             href="crosswalk.ecore#//MappedElement/attributes"/>
         <ownedChild>
@@ -752,15 +282,12 @@
             <features
                 href="crosswalk.ecore#//Input/Name"/>
           </labelMappings>
-          <tool
-              xsi:type="gmftool:CreationTool"
-              href="crosswalk.gmftool#//@palette/@tools.0/@tools.7"/>
           <diagramNode
               href="crosswalk.gmfgraph#StringInput"/>
         </ownedChild>
       </children>
       <children
-          compartment="//@nodes.15/@ownedChild/@compartments.0">
+          compartment="//@nodes.5/@ownedChild/@compartments.0">
         <containmentFeature
             href="crosswalk.ecore#//MappedElement/text"/>
         <ownedChild>
@@ -780,7 +307,7 @@
         </ownedChild>
       </children>
       <compartments
-          children="//@nodes.15/@ownedChild/@children.0 //@nodes.15/@ownedChild/@children.1 //@nodes.15/@ownedChild/@children.2">
+          children="//@nodes.5/@ownedChild/@children.0 //@nodes.5/@ownedChild/@children.1 //@nodes.5/@ownedChild/@children.2">
         <compartment
             href="crosswalk.gmfgraph#ChildElementsCompartment"/>
       </compartments>

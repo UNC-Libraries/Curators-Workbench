@@ -282,18 +282,9 @@ public class TextEditPart extends ShapeNodeEditPart {
     public List<IElementType> getMATypesForSource(IElementType relationshipType) {
 	LinkedList<IElementType> types = new LinkedList<IElementType>();
 	if (relationshipType == CrosswalkElementTypes.StringInputInput_4001) {
+	    types.add(CrosswalkElementTypes.StringInput_3010);
 	    types.add(CrosswalkElementTypes.StringInput_3002);
 	    types.add(CrosswalkElementTypes.StringInput_3003);
-	    types.add(CrosswalkElementTypes.StringInput_3004);
-	    types.add(CrosswalkElementTypes.StringInput_3005);
-	    types.add(CrosswalkElementTypes.StringInput_3006);
-	    types.add(CrosswalkElementTypes.StringInput_3007);
-	    types.add(CrosswalkElementTypes.StringInput_3008);
-	    types.add(CrosswalkElementTypes.StringInput_3009);
-	    types.add(CrosswalkElementTypes.StringInput_3010);
-	    types.add(CrosswalkElementTypes.StringInput_3012);
-	    types.add(CrosswalkElementTypes.StringInput_3013);
-	    types.add(CrosswalkElementTypes.StringInput_3014);
 	    types.add(CrosswalkElementTypes.MappedAttribute_3016);
 	    types.add(CrosswalkElementTypes.StringInput_3017);
 	}

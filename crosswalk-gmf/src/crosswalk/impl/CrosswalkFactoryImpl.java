@@ -15,7 +15,6 @@
  */
 package crosswalk.impl;
 
-import crosswalk.*;
 import java.net.URI;
 import java.net.URISyntaxException;
 
@@ -30,26 +29,24 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
-import crosswalk.Abstract;
 import crosswalk.CrossWalk;
 import crosswalk.CrosswalkFactory;
 import crosswalk.CrosswalkPackage;
 import crosswalk.DataException;
 import crosswalk.DataField;
-import crosswalk.Genre;
-import crosswalk.Identifier;
-import crosswalk.Language;
-import crosswalk.Name;
+import crosswalk.DateInput;
+import crosswalk.DateRecognizer;
+import crosswalk.DelimitedFile;
+import crosswalk.MappedAttribute;
+import crosswalk.MappedElement;
 import crosswalk.OriginalNameRecordMatcher;
 import crosswalk.RecordMatches;
 import crosswalk.RecordOutOfRangeException;
 import crosswalk.StringInput;
-import crosswalk.Subject;
 import crosswalk.TabSeparatedFile;
 import crosswalk.TabbedDataField;
-import crosswalk.TitleInfo;
+import crosswalk.Text;
 import crosswalk.TrimWhitespace;
-import crosswalk.TypeOfResource;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!--
@@ -65,7 +62,7 @@ public class CrosswalkFactoryImpl extends EFactoryImpl implements CrosswalkFacto
          */
     public static CrosswalkFactory init() {
                 try {
-                        CrosswalkFactory theCrosswalkFactory = (CrosswalkFactory)EPackage.Registry.INSTANCE.getEFactory("http://lib.unc.edu/schemas/crosswalk"); 
+                        CrosswalkFactory theCrosswalkFactory = (CrosswalkFactory)EPackage.Registry.INSTANCE.getEFactory("http://lib.unc.edu/schemas/crosswalk");
                         if (theCrosswalkFactory != null) {
                                 return theCrosswalkFactory;
                         }
@@ -95,24 +92,14 @@ public class CrosswalkFactoryImpl extends EFactoryImpl implements CrosswalkFacto
                 switch (eClass.getClassifierID()) {
                         case CrosswalkPackage.TABBED_DATA_FIELD: return createTabbedDataField();
                         case CrosswalkPackage.TRIM_WHITESPACE: return createTrimWhitespace();
-                        case CrosswalkPackage.TITLE_INFO: return createTitleInfo();
                         case CrosswalkPackage.CROSS_WALK: return createCrossWalk();
                         case CrosswalkPackage.TAB_SEPARATED_FILE: return createTabSeparatedFile();
                         case CrosswalkPackage.DATA_FIELD: return createDataField();
                         case CrosswalkPackage.STRING_INPUT: return createStringInput();
-                        case CrosswalkPackage.ABSTRACT: return createAbstract();
-                        case CrosswalkPackage.GENRE: return createGenre();
-                        case CrosswalkPackage.IDENTIFIER: return createIdentifier();
-                        case CrosswalkPackage.LANGUAGE: return createLanguage();
-                        case CrosswalkPackage.NAME: return createName();
-                        case CrosswalkPackage.SUBJECT: return createSubject();
-                        case CrosswalkPackage.TYPE_OF_RESOURCE: return createTypeOfResource();
                         case CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER: return createOriginalNameRecordMatcher();
-                        case CrosswalkPackage.DATE_CREATED: return createDateCreated();
                         case CrosswalkPackage.DATE_INPUT: return createDateInput();
                         case CrosswalkPackage.DATE_RECOGNIZER: return createDateRecognizer();
                         case CrosswalkPackage.TEXT: return createText();
-                        case CrosswalkPackage.ACCESS_CONDITION: return createAccessCondition();
                         case CrosswalkPackage.DELIMITED_FILE: return createDelimitedFile();
                         case CrosswalkPackage.MAPPED_ELEMENT: return createMappedElement();
                         case CrosswalkPackage.MAPPED_ATTRIBUTE: return createMappedAttribute();
@@ -191,15 +178,6 @@ public class CrosswalkFactoryImpl extends EFactoryImpl implements CrosswalkFacto
          * <!-- begin-user-doc --> <!-- end-user-doc -->
          * @generated
          */
-    public TitleInfo createTitleInfo() {
-                TitleInfoImpl titleInfo = new TitleInfoImpl();
-                return titleInfo;
-        }
-
-    /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * @generated
-         */
     public CrossWalk createCrossWalk() {
                 CrossWalkImpl crossWalk = new CrossWalkImpl();
                 return crossWalk;
@@ -238,89 +216,9 @@ public class CrosswalkFactoryImpl extends EFactoryImpl implements CrosswalkFacto
          * <!-- end-user-doc -->
          * @generated
          */
-        public Abstract createAbstract() {
-                AbstractImpl abstract_ = new AbstractImpl();
-                return abstract_;
-        }
-
-/**
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        public Genre createGenre() {
-                GenreImpl genre = new GenreImpl();
-                return genre;
-        }
-
-/**
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        public Identifier createIdentifier() {
-                IdentifierImpl identifier = new IdentifierImpl();
-                return identifier;
-        }
-
-/**
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        public Language createLanguage() {
-                LanguageImpl language = new LanguageImpl();
-                return language;
-        }
-
-/**
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        public Name createName() {
-                NameImpl name = new NameImpl();
-                return name;
-        }
-
-/**
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        public Subject createSubject() {
-                SubjectImpl subject = new SubjectImpl();
-                return subject;
-        }
-
-/**
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        public TypeOfResource createTypeOfResource() {
-                TypeOfResourceImpl typeOfResource = new TypeOfResourceImpl();
-                return typeOfResource;
-        }
-
-/**
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
         public OriginalNameRecordMatcher createOriginalNameRecordMatcher() {
                 OriginalNameRecordMatcherImpl originalNameRecordMatcher = new OriginalNameRecordMatcherImpl();
                 return originalNameRecordMatcher;
-        }
-
-/**
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        public DateCreated createDateCreated() {
-                DateCreatedImpl dateCreated = new DateCreatedImpl();
-                return dateCreated;
         }
 
 /**
@@ -351,16 +249,6 @@ public class CrosswalkFactoryImpl extends EFactoryImpl implements CrosswalkFacto
         public Text createText() {
                 TextImpl text = new TextImpl();
                 return text;
-        }
-
-/**
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        public AccessCondition createAccessCondition() {
-                AccessConditionImpl accessCondition = new AccessConditionImpl();
-                return accessCondition;
         }
 
 /**

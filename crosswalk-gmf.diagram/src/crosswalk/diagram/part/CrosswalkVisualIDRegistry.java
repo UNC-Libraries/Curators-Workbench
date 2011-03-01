@@ -23,89 +23,39 @@ import org.eclipse.gmf.runtime.notation.View;
 
 import crosswalk.CrossWalk;
 import crosswalk.CrosswalkPackage;
-import crosswalk.diagram.edit.parts.AbstractEditPart;
-import crosswalk.diagram.edit.parts.AbstractOutputElementInputsCompartmentEditPart;
-import crosswalk.diagram.edit.parts.AccessConditionEditPart;
-import crosswalk.diagram.edit.parts.AccessConditionOutputElementInputsCompartmentEditPart;
 import crosswalk.diagram.edit.parts.CrossWalkEditPart;
-import crosswalk.diagram.edit.parts.DateCreatedEditPart;
-import crosswalk.diagram.edit.parts.DateCreatedOutputElementInputsCompartmentEditPart;
-import crosswalk.diagram.edit.parts.DateInputEditPart;
-import crosswalk.diagram.edit.parts.DateInputNameEditPart;
 import crosswalk.diagram.edit.parts.DateRecognizerEditPart;
 import crosswalk.diagram.edit.parts.DateRecognizerOutputElementInputsCompartmentEditPart;
 import crosswalk.diagram.edit.parts.DelimitedFileDataFieldCompartmentEditPart;
 import crosswalk.diagram.edit.parts.DelimitedFileEditPart;
 import crosswalk.diagram.edit.parts.DelimitedFileSourceFileEditPart;
-import crosswalk.diagram.edit.parts.GenreEditPart;
-import crosswalk.diagram.edit.parts.GenreOutputElementInputsCompartmentEditPart;
-import crosswalk.diagram.edit.parts.IdentifierEditPart;
-import crosswalk.diagram.edit.parts.IdentifierOutputElementInputsCompartmentEditPart;
-import crosswalk.diagram.edit.parts.LanguageEditPart;
-import crosswalk.diagram.edit.parts.LanguageOutputElementInputsCompartmentEditPart;
 import crosswalk.diagram.edit.parts.MappedAttributeEditPart;
 import crosswalk.diagram.edit.parts.MappedAttributeNameEditPart;
 import crosswalk.diagram.edit.parts.MappedElement2EditPart;
 import crosswalk.diagram.edit.parts.MappedElementChildElementsCompartmentEditPart;
 import crosswalk.diagram.edit.parts.MappedElementEditPart;
-import crosswalk.diagram.edit.parts.NameEditPart;
-import crosswalk.diagram.edit.parts.NameOutputElementInputsCompartmentEditPart;
 import crosswalk.diagram.edit.parts.OriginalNameRecordMatcherEditPart;
 import crosswalk.diagram.edit.parts.OriginalNameRecordMatcherRecordMatcherInputsCompartmentEditPart;
-import crosswalk.diagram.edit.parts.StringInput10EditPart;
-import crosswalk.diagram.edit.parts.StringInput11EditPart;
-import crosswalk.diagram.edit.parts.StringInput12EditPart;
 import crosswalk.diagram.edit.parts.StringInput13EditPart;
 import crosswalk.diagram.edit.parts.StringInput2EditPart;
-import crosswalk.diagram.edit.parts.StringInput3EditPart;
-import crosswalk.diagram.edit.parts.StringInput4EditPart;
-import crosswalk.diagram.edit.parts.StringInput5EditPart;
-import crosswalk.diagram.edit.parts.StringInput6EditPart;
-import crosswalk.diagram.edit.parts.StringInput7EditPart;
-import crosswalk.diagram.edit.parts.StringInput8EditPart;
 import crosswalk.diagram.edit.parts.StringInput9EditPart;
 import crosswalk.diagram.edit.parts.StringInputEditPart;
-import crosswalk.diagram.edit.parts.StringInputName10EditPart;
-import crosswalk.diagram.edit.parts.StringInputName11EditPart;
-import crosswalk.diagram.edit.parts.StringInputName12EditPart;
 import crosswalk.diagram.edit.parts.StringInputName13EditPart;
 import crosswalk.diagram.edit.parts.StringInputName2EditPart;
-import crosswalk.diagram.edit.parts.StringInputName3EditPart;
-import crosswalk.diagram.edit.parts.StringInputName4EditPart;
-import crosswalk.diagram.edit.parts.StringInputName5EditPart;
-import crosswalk.diagram.edit.parts.StringInputName6EditPart;
-import crosswalk.diagram.edit.parts.StringInputName7EditPart;
-import crosswalk.diagram.edit.parts.StringInputName8EditPart;
 import crosswalk.diagram.edit.parts.StringInputName9EditPart;
 import crosswalk.diagram.edit.parts.StringInputNameEditPart;
-import crosswalk.diagram.edit.parts.SubjectEditPart;
-import crosswalk.diagram.edit.parts.SubjectOutputElementInputsCompartmentEditPart;
 import crosswalk.diagram.edit.parts.TabbedDataFieldEditPart;
 import crosswalk.diagram.edit.parts.TabbedDataFieldLabelColumnNumberEditPart;
 import crosswalk.diagram.edit.parts.TextEditPart;
 import crosswalk.diagram.edit.parts.TextValueEditPart;
-import crosswalk.diagram.edit.parts.TitleInfoEditPart;
-import crosswalk.diagram.edit.parts.TitleInfoOutputElementInputsCompartmentEditPart;
 import crosswalk.diagram.edit.parts.TrimWhitespaceEditPart;
 import crosswalk.diagram.edit.parts.TrimWhitespaceOutputElementInputsCompartmentEditPart;
-import crosswalk.diagram.edit.parts.TypeOfResourceEditPart;
-import crosswalk.diagram.edit.parts.TypeOfResourceOutputElementInputsCompartmentEditPart;
-import crosswalk.diagram.edit.parts.WrappingLabel10EditPart;
-import crosswalk.diagram.edit.parts.WrappingLabel11EditPart;
 import crosswalk.diagram.edit.parts.WrappingLabel12EditPart;
 import crosswalk.diagram.edit.parts.WrappingLabel13EditPart;
 import crosswalk.diagram.edit.parts.WrappingLabel14EditPart;
 import crosswalk.diagram.edit.parts.WrappingLabel15EditPart;
 import crosswalk.diagram.edit.parts.WrappingLabel16EditPart;
-import crosswalk.diagram.edit.parts.WrappingLabel2EditPart;
-import crosswalk.diagram.edit.parts.WrappingLabel3EditPart;
-import crosswalk.diagram.edit.parts.WrappingLabel4EditPart;
-import crosswalk.diagram.edit.parts.WrappingLabel5EditPart;
-import crosswalk.diagram.edit.parts.WrappingLabel6EditPart;
-import crosswalk.diagram.edit.parts.WrappingLabel7EditPart;
-import crosswalk.diagram.edit.parts.WrappingLabel8EditPart;
 import crosswalk.diagram.edit.parts.WrappingLabel9EditPart;
-import crosswalk.diagram.edit.parts.WrappingLabelEditPart;
 
 /**
  * This registry is used to determine which type of visual object should be
@@ -212,38 +162,8 @@ public class CrosswalkVisualIDRegistry {
 	    if (CrosswalkPackage.eINSTANCE.getDelimitedFile().isSuperTypeOf(domainElement.eClass())) {
 		return DelimitedFileEditPart.VISUAL_ID;
 	    }
-	    if (CrosswalkPackage.eINSTANCE.getTitleInfo().isSuperTypeOf(domainElement.eClass())) {
-		return TitleInfoEditPart.VISUAL_ID;
-	    }
-	    if (CrosswalkPackage.eINSTANCE.getAbstract().isSuperTypeOf(domainElement.eClass())) {
-		return AbstractEditPart.VISUAL_ID;
-	    }
-	    if (CrosswalkPackage.eINSTANCE.getGenre().isSuperTypeOf(domainElement.eClass())) {
-		return GenreEditPart.VISUAL_ID;
-	    }
-	    if (CrosswalkPackage.eINSTANCE.getIdentifier().isSuperTypeOf(domainElement.eClass())) {
-		return IdentifierEditPart.VISUAL_ID;
-	    }
-	    if (CrosswalkPackage.eINSTANCE.getLanguage().isSuperTypeOf(domainElement.eClass())) {
-		return LanguageEditPart.VISUAL_ID;
-	    }
-	    if (CrosswalkPackage.eINSTANCE.getName_().isSuperTypeOf(domainElement.eClass())) {
-		return NameEditPart.VISUAL_ID;
-	    }
-	    if (CrosswalkPackage.eINSTANCE.getSubject().isSuperTypeOf(domainElement.eClass())) {
-		return SubjectEditPart.VISUAL_ID;
-	    }
-	    if (CrosswalkPackage.eINSTANCE.getTypeOfResource().isSuperTypeOf(domainElement.eClass())) {
-		return TypeOfResourceEditPart.VISUAL_ID;
-	    }
 	    if (CrosswalkPackage.eINSTANCE.getOriginalNameRecordMatcher().isSuperTypeOf(domainElement.eClass())) {
 		return OriginalNameRecordMatcherEditPart.VISUAL_ID;
-	    }
-	    if (CrosswalkPackage.eINSTANCE.getDateCreated().isSuperTypeOf(domainElement.eClass())) {
-		return DateCreatedEditPart.VISUAL_ID;
-	    }
-	    if (CrosswalkPackage.eINSTANCE.getAccessCondition().isSuperTypeOf(domainElement.eClass())) {
-		return AccessConditionEditPart.VISUAL_ID;
 	    }
 	    if (CrosswalkPackage.eINSTANCE.getDateRecognizer().isSuperTypeOf(domainElement.eClass())) {
 		return DateRecognizerEditPart.VISUAL_ID;
@@ -263,69 +183,19 @@ public class CrosswalkVisualIDRegistry {
 		return TabbedDataFieldEditPart.VISUAL_ID;
 	    }
 	    break;
-	case TitleInfoOutputElementInputsCompartmentEditPart.VISUAL_ID:
-	    if (CrosswalkPackage.eINSTANCE.getStringInput().isSuperTypeOf(domainElement.eClass())) {
-		return StringInputEditPart.VISUAL_ID;
-	    }
-	    break;
-	case AbstractOutputElementInputsCompartmentEditPart.VISUAL_ID:
-	    if (CrosswalkPackage.eINSTANCE.getStringInput().isSuperTypeOf(domainElement.eClass())) {
-		return StringInput2EditPart.VISUAL_ID;
-	    }
-	    break;
-	case GenreOutputElementInputsCompartmentEditPart.VISUAL_ID:
-	    if (CrosswalkPackage.eINSTANCE.getStringInput().isSuperTypeOf(domainElement.eClass())) {
-		return StringInput3EditPart.VISUAL_ID;
-	    }
-	    break;
-	case IdentifierOutputElementInputsCompartmentEditPart.VISUAL_ID:
-	    if (CrosswalkPackage.eINSTANCE.getStringInput().isSuperTypeOf(domainElement.eClass())) {
-		return StringInput4EditPart.VISUAL_ID;
-	    }
-	    break;
-	case LanguageOutputElementInputsCompartmentEditPart.VISUAL_ID:
-	    if (CrosswalkPackage.eINSTANCE.getStringInput().isSuperTypeOf(domainElement.eClass())) {
-		return StringInput5EditPart.VISUAL_ID;
-	    }
-	    break;
-	case NameOutputElementInputsCompartmentEditPart.VISUAL_ID:
-	    if (CrosswalkPackage.eINSTANCE.getStringInput().isSuperTypeOf(domainElement.eClass())) {
-		return StringInput6EditPart.VISUAL_ID;
-	    }
-	    break;
-	case SubjectOutputElementInputsCompartmentEditPart.VISUAL_ID:
-	    if (CrosswalkPackage.eINSTANCE.getStringInput().isSuperTypeOf(domainElement.eClass())) {
-		return StringInput7EditPart.VISUAL_ID;
-	    }
-	    break;
-	case TypeOfResourceOutputElementInputsCompartmentEditPart.VISUAL_ID:
-	    if (CrosswalkPackage.eINSTANCE.getStringInput().isSuperTypeOf(domainElement.eClass())) {
-		return StringInput8EditPart.VISUAL_ID;
-	    }
-	    break;
 	case OriginalNameRecordMatcherRecordMatcherInputsCompartmentEditPart.VISUAL_ID:
 	    if (CrosswalkPackage.eINSTANCE.getStringInput().isSuperTypeOf(domainElement.eClass())) {
 		return StringInput9EditPart.VISUAL_ID;
 	    }
 	    break;
-	case DateCreatedOutputElementInputsCompartmentEditPart.VISUAL_ID:
-	    if (CrosswalkPackage.eINSTANCE.getDateInput().isSuperTypeOf(domainElement.eClass())) {
-		return DateInputEditPart.VISUAL_ID;
-	    }
-	    break;
-	case AccessConditionOutputElementInputsCompartmentEditPart.VISUAL_ID:
-	    if (CrosswalkPackage.eINSTANCE.getStringInput().isSuperTypeOf(domainElement.eClass())) {
-		return StringInput10EditPart.VISUAL_ID;
-	    }
-	    break;
 	case DateRecognizerOutputElementInputsCompartmentEditPart.VISUAL_ID:
 	    if (CrosswalkPackage.eINSTANCE.getStringInput().isSuperTypeOf(domainElement.eClass())) {
-		return StringInput11EditPart.VISUAL_ID;
+		return StringInputEditPart.VISUAL_ID;
 	    }
 	    break;
 	case TrimWhitespaceOutputElementInputsCompartmentEditPart.VISUAL_ID:
 	    if (CrosswalkPackage.eINSTANCE.getStringInput().isSuperTypeOf(domainElement.eClass())) {
-		return StringInput12EditPart.VISUAL_ID;
+		return StringInput2EditPart.VISUAL_ID;
 	    }
 	    break;
 	case MappedElementChildElementsCompartmentEditPart.VISUAL_ID:
@@ -366,37 +236,7 @@ public class CrosswalkVisualIDRegistry {
 	    if (DelimitedFileEditPart.VISUAL_ID == nodeVisualID) {
 		return true;
 	    }
-	    if (TitleInfoEditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    if (AbstractEditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    if (GenreEditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    if (IdentifierEditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    if (LanguageEditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    if (NameEditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    if (SubjectEditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    if (TypeOfResourceEditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
 	    if (OriginalNameRecordMatcherEditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    if (DateCreatedEditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    if (AccessConditionEditPart.VISUAL_ID == nodeVisualID) {
 		return true;
 	    }
 	    if (DateRecognizerEditPart.VISUAL_ID == nodeVisualID) {
@@ -420,91 +260,11 @@ public class CrosswalkVisualIDRegistry {
 		return true;
 	    }
 	    break;
-	case TitleInfoEditPart.VISUAL_ID:
-	    if (WrappingLabelEditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    if (TitleInfoOutputElementInputsCompartmentEditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    break;
-	case AbstractEditPart.VISUAL_ID:
-	    if (WrappingLabel2EditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    if (AbstractOutputElementInputsCompartmentEditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    break;
-	case GenreEditPart.VISUAL_ID:
-	    if (WrappingLabel3EditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    if (GenreOutputElementInputsCompartmentEditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    break;
-	case IdentifierEditPart.VISUAL_ID:
-	    if (WrappingLabel4EditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    if (IdentifierOutputElementInputsCompartmentEditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    break;
-	case LanguageEditPart.VISUAL_ID:
-	    if (WrappingLabel5EditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    if (LanguageOutputElementInputsCompartmentEditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    break;
-	case NameEditPart.VISUAL_ID:
-	    if (WrappingLabel6EditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    if (NameOutputElementInputsCompartmentEditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    break;
-	case SubjectEditPart.VISUAL_ID:
-	    if (WrappingLabel7EditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    if (SubjectOutputElementInputsCompartmentEditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    break;
-	case TypeOfResourceEditPart.VISUAL_ID:
-	    if (WrappingLabel8EditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    if (TypeOfResourceOutputElementInputsCompartmentEditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    break;
 	case OriginalNameRecordMatcherEditPart.VISUAL_ID:
 	    if (WrappingLabel9EditPart.VISUAL_ID == nodeVisualID) {
 		return true;
 	    }
 	    if (OriginalNameRecordMatcherRecordMatcherInputsCompartmentEditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    break;
-	case DateCreatedEditPart.VISUAL_ID:
-	    if (WrappingLabel10EditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    if (DateCreatedOutputElementInputsCompartmentEditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    break;
-	case AccessConditionEditPart.VISUAL_ID:
-	    if (WrappingLabel11EditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    if (AccessConditionOutputElementInputsCompartmentEditPart.VISUAL_ID == nodeVisualID) {
 		return true;
 	    }
 	    break;
@@ -545,6 +305,11 @@ public class CrosswalkVisualIDRegistry {
 		return true;
 	    }
 	    break;
+	case StringInput9EditPart.VISUAL_ID:
+	    if (StringInputName9EditPart.VISUAL_ID == nodeVisualID) {
+		return true;
+	    }
+	    break;
 	case StringInputEditPart.VISUAL_ID:
 	    if (StringInputNameEditPart.VISUAL_ID == nodeVisualID) {
 		return true;
@@ -552,61 +317,6 @@ public class CrosswalkVisualIDRegistry {
 	    break;
 	case StringInput2EditPart.VISUAL_ID:
 	    if (StringInputName2EditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    break;
-	case StringInput3EditPart.VISUAL_ID:
-	    if (StringInputName3EditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    break;
-	case StringInput4EditPart.VISUAL_ID:
-	    if (StringInputName4EditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    break;
-	case StringInput5EditPart.VISUAL_ID:
-	    if (StringInputName5EditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    break;
-	case StringInput6EditPart.VISUAL_ID:
-	    if (StringInputName6EditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    break;
-	case StringInput7EditPart.VISUAL_ID:
-	    if (StringInputName7EditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    break;
-	case StringInput8EditPart.VISUAL_ID:
-	    if (StringInputName8EditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    break;
-	case StringInput9EditPart.VISUAL_ID:
-	    if (StringInputName9EditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    break;
-	case DateInputEditPart.VISUAL_ID:
-	    if (DateInputNameEditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    break;
-	case StringInput10EditPart.VISUAL_ID:
-	    if (StringInputName10EditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    break;
-	case StringInput11EditPart.VISUAL_ID:
-	    if (StringInputName11EditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    break;
-	case StringInput12EditPart.VISUAL_ID:
-	    if (StringInputName12EditPart.VISUAL_ID == nodeVisualID) {
 		return true;
 	    }
 	    break;
@@ -630,68 +340,18 @@ public class CrosswalkVisualIDRegistry {
 		return true;
 	    }
 	    break;
-	case TitleInfoOutputElementInputsCompartmentEditPart.VISUAL_ID:
-	    if (StringInputEditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    break;
-	case AbstractOutputElementInputsCompartmentEditPart.VISUAL_ID:
-	    if (StringInput2EditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    break;
-	case GenreOutputElementInputsCompartmentEditPart.VISUAL_ID:
-	    if (StringInput3EditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    break;
-	case IdentifierOutputElementInputsCompartmentEditPart.VISUAL_ID:
-	    if (StringInput4EditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    break;
-	case LanguageOutputElementInputsCompartmentEditPart.VISUAL_ID:
-	    if (StringInput5EditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    break;
-	case NameOutputElementInputsCompartmentEditPart.VISUAL_ID:
-	    if (StringInput6EditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    break;
-	case SubjectOutputElementInputsCompartmentEditPart.VISUAL_ID:
-	    if (StringInput7EditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    break;
-	case TypeOfResourceOutputElementInputsCompartmentEditPart.VISUAL_ID:
-	    if (StringInput8EditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    break;
 	case OriginalNameRecordMatcherRecordMatcherInputsCompartmentEditPart.VISUAL_ID:
 	    if (StringInput9EditPart.VISUAL_ID == nodeVisualID) {
 		return true;
 	    }
 	    break;
-	case DateCreatedOutputElementInputsCompartmentEditPart.VISUAL_ID:
-	    if (DateInputEditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    break;
-	case AccessConditionOutputElementInputsCompartmentEditPart.VISUAL_ID:
-	    if (StringInput10EditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    break;
 	case DateRecognizerOutputElementInputsCompartmentEditPart.VISUAL_ID:
-	    if (StringInput11EditPart.VISUAL_ID == nodeVisualID) {
+	    if (StringInputEditPart.VISUAL_ID == nodeVisualID) {
 		return true;
 	    }
 	    break;
 	case TrimWhitespaceOutputElementInputsCompartmentEditPart.VISUAL_ID:
-	    if (StringInput12EditPart.VISUAL_ID == nodeVisualID) {
+	    if (StringInput2EditPart.VISUAL_ID == nodeVisualID) {
 		return true;
 	    }
 	    break;

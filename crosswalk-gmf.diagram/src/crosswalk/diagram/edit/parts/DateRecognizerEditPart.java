@@ -1,23 +1,4 @@
-/**
- * Copyright 2010 The University of North Carolina at Chapel Hill
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *         http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 package crosswalk.diagram.edit.parts;
-
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
 
 import org.eclipse.draw2d.FlowLayout;
 import org.eclipse.draw2d.IFigure;
@@ -36,9 +17,7 @@ import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gef.requests.CreateRequest;
 import org.eclipse.gmf.runtime.diagram.core.edithelpers.CreateElementRequestAdapter;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.ITextAwareEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ConstrainedToolbarLayoutEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.FlowLayoutEditPolicy;
@@ -51,7 +30,6 @@ import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
 
-import crosswalk.diagram.edit.policies.CrosswalkTextSelectionEditPolicy;
 import crosswalk.diagram.edit.policies.DateRecognizerItemSemanticEditPolicy;
 import crosswalk.diagram.part.CrosswalkVisualIDRegistry;
 import crosswalk.diagram.providers.CrosswalkElementTypes;
@@ -290,32 +268,12 @@ public class DateRecognizerEditPart extends ShapeNodeEditPart {
     /**
      * @generated
      */
-    public List<IElementType> getMARelTypesOnTarget() {
-	ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-	types.add(CrosswalkElementTypes.DateInputInput_4002);
-	return types;
-    }
-
-    /**
-     * @generated
-     */
-    public List<IElementType> getMATypesForSource(IElementType relationshipType) {
-	LinkedList<IElementType> types = new LinkedList<IElementType>();
-	if (relationshipType == CrosswalkElementTypes.DateInputInput_4002) {
-	    types.add(CrosswalkElementTypes.DateInput_3011);
-	}
-	return types;
-    }
-
-    /**
-     * @generated
-     */
     public EditPart getTargetEditPart(Request request) {
 	if (request instanceof CreateViewAndElementRequest) {
 	    CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request).getViewAndElementDescriptor()
 			    .getCreateElementRequestAdapter();
 	    IElementType type = (IElementType) adapter.getAdapter(IElementType.class);
-	    if (type == CrosswalkElementTypes.StringInput_3013) {
+	    if (type == CrosswalkElementTypes.StringInput_3002) {
 		return getChildBySemanticHint(CrosswalkVisualIDRegistry
 				.getType(DateRecognizerOutputElementInputsCompartmentEditPart.VISUAL_ID));
 	    }

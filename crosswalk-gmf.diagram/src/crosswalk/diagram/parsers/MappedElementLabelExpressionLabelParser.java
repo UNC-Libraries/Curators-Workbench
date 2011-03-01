@@ -116,7 +116,12 @@ public class MappedElementLabelExpressionLabelParser implements IParser {
      */
     private String evaluatePrintExpression(EObject self) {
 	StringBuilder sb = new StringBuilder();
-	sb.append("<").append(((MappedElement) self).getMappedFeature().getName()).append(">");
+	MappedElement me = (MappedElement) self;
+	if (me.getMappedFeature() != null) {
+	    sb.append("<").append(me.getMappedFeature().getName()).append(">");
+	} else {
+	    sb.append("unmapped element");
+	}
 	return sb.toString();
     }
 

@@ -89,10 +89,6 @@ public class CrosswalkAdapterFactory extends AdapterFactoryImpl {
                                 return createTrimWhitespaceAdapter();
                         }
                         @Override
-                        public Adapter caseTitleInfo(TitleInfo object) {
-                                return createTitleInfoAdapter();
-                        }
-                        @Override
                         public Adapter caseCrossWalk(CrossWalk object) {
                                 return createCrossWalkAdapter();
                         }
@@ -133,44 +129,12 @@ public class CrosswalkAdapterFactory extends AdapterFactoryImpl {
                                 return createInputAdapter();
                         }
                         @Override
-                        public Adapter caseAbstract(Abstract object) {
-                                return createAbstractAdapter();
-                        }
-                        @Override
-                        public Adapter caseGenre(Genre object) {
-                                return createGenreAdapter();
-                        }
-                        @Override
-                        public Adapter caseIdentifier(Identifier object) {
-                                return createIdentifierAdapter();
-                        }
-                        @Override
-                        public Adapter caseLanguage(Language object) {
-                                return createLanguageAdapter();
-                        }
-                        @Override
-                        public Adapter caseName(Name object) {
-                                return createNameAdapter();
-                        }
-                        @Override
-                        public Adapter caseSubject(Subject object) {
-                                return createSubjectAdapter();
-                        }
-                        @Override
-                        public Adapter caseTypeOfResource(TypeOfResource object) {
-                                return createTypeOfResourceAdapter();
-                        }
-                        @Override
                         public Adapter caseRecordMatcherStrategy(RecordMatcherStrategy object) {
                                 return createRecordMatcherStrategyAdapter();
                         }
                         @Override
                         public Adapter caseOriginalNameRecordMatcher(OriginalNameRecordMatcher object) {
                                 return createOriginalNameRecordMatcherAdapter();
-                        }
-                        @Override
-                        public Adapter caseDateCreated(DateCreated object) {
-                                return createDateCreatedAdapter();
                         }
                         @Override
                         public Adapter caseDateInput(DateInput object) {
@@ -187,10 +151,6 @@ public class CrosswalkAdapterFactory extends AdapterFactoryImpl {
                         @Override
                         public Adapter caseText(Text object) {
                                 return createTextAdapter();
-                        }
-                        @Override
-                        public Adapter caseAccessCondition(AccessCondition object) {
-                                return createAccessConditionAdapter();
                         }
                         @Override
                         public Adapter caseDelimitedFile(DelimitedFile object) {
@@ -249,20 +209,6 @@ public class CrosswalkAdapterFactory extends AdapterFactoryImpl {
          * @generated
          */
         public Adapter createTrimWhitespaceAdapter() {
-                return null;
-        }
-
-        /**
-         * Creates a new adapter for an object of class '{@link crosswalk.TitleInfo <em>Title Info</em>}'.
-         * <!-- begin-user-doc -->
-         * This default implementation returns null so that we can easily ignore cases;
-         * it's useful to ignore a case when inheritance will catch all the cases anyway.
-         * <!-- end-user-doc -->
-         * @return the new adapter.
-         * @see crosswalk.TitleInfo
-         * @generated
-         */
-        public Adapter createTitleInfoAdapter() {
                 return null;
         }
 
@@ -407,104 +353,6 @@ public class CrosswalkAdapterFactory extends AdapterFactoryImpl {
         }
 
         /**
-         * Creates a new adapter for an object of class '{@link crosswalk.Abstract <em>Abstract</em>}'.
-         * <!-- begin-user-doc -->
-         * This default implementation returns null so that we can easily ignore cases;
-         * it's useful to ignore a case when inheritance will catch all the cases anyway.
-         * <!-- end-user-doc -->
-         * @return the new adapter.
-         * @see crosswalk.Abstract
-         * @generated
-         */
-        public Adapter createAbstractAdapter() {
-                return null;
-        }
-
-        /**
-         * Creates a new adapter for an object of class '{@link crosswalk.Genre <em>Genre</em>}'.
-         * <!-- begin-user-doc -->
-         * This default implementation returns null so that we can easily ignore cases;
-         * it's useful to ignore a case when inheritance will catch all the cases anyway.
-         * <!-- end-user-doc -->
-         * @return the new adapter.
-         * @see crosswalk.Genre
-         * @generated
-         */
-        public Adapter createGenreAdapter() {
-                return null;
-        }
-
-        /**
-         * Creates a new adapter for an object of class '{@link crosswalk.Identifier <em>Identifier</em>}'.
-         * <!-- begin-user-doc -->
-         * This default implementation returns null so that we can easily ignore cases;
-         * it's useful to ignore a case when inheritance will catch all the cases anyway.
-         * <!-- end-user-doc -->
-         * @return the new adapter.
-         * @see crosswalk.Identifier
-         * @generated
-         */
-        public Adapter createIdentifierAdapter() {
-                return null;
-        }
-
-        /**
-         * Creates a new adapter for an object of class '{@link crosswalk.Language <em>Language</em>}'.
-         * <!-- begin-user-doc -->
-         * This default implementation returns null so that we can easily ignore cases;
-         * it's useful to ignore a case when inheritance will catch all the cases anyway.
-         * <!-- end-user-doc -->
-         * @return the new adapter.
-         * @see crosswalk.Language
-         * @generated
-         */
-        public Adapter createLanguageAdapter() {
-                return null;
-        }
-
-        /**
-         * Creates a new adapter for an object of class '{@link crosswalk.Name <em>Name</em>}'.
-         * <!-- begin-user-doc -->
-         * This default implementation returns null so that we can easily ignore cases;
-         * it's useful to ignore a case when inheritance will catch all the cases anyway.
-         * <!-- end-user-doc -->
-         * @return the new adapter.
-         * @see crosswalk.Name
-         * @generated
-         */
-        public Adapter createNameAdapter() {
-                return null;
-        }
-
-        /**
-         * Creates a new adapter for an object of class '{@link crosswalk.Subject <em>Subject</em>}'.
-         * <!-- begin-user-doc -->
-         * This default implementation returns null so that we can easily ignore cases;
-         * it's useful to ignore a case when inheritance will catch all the cases anyway.
-         * <!-- end-user-doc -->
-         * @return the new adapter.
-         * @see crosswalk.Subject
-         * @generated
-         */
-        public Adapter createSubjectAdapter() {
-                return null;
-        }
-
-        /**
-         * Creates a new adapter for an object of class '{@link crosswalk.TypeOfResource <em>Type Of Resource</em>}'.
-         * <!-- begin-user-doc -->
-         * This default implementation returns null so that we can easily ignore cases;
-         * it's useful to ignore a case when inheritance will catch all the cases anyway.
-         * <!-- end-user-doc -->
-         * @return the new adapter.
-         * @see crosswalk.TypeOfResource
-         * @generated
-         */
-        public Adapter createTypeOfResourceAdapter() {
-                return null;
-        }
-
-        /**
          * Creates a new adapter for an object of class '{@link crosswalk.RecordMatcherStrategy <em>Record Matcher Strategy</em>}'.
          * <!-- begin-user-doc -->
          * This default implementation returns null so that we can easily ignore cases;
@@ -529,20 +377,6 @@ public class CrosswalkAdapterFactory extends AdapterFactoryImpl {
          * @generated
          */
         public Adapter createOriginalNameRecordMatcherAdapter() {
-                return null;
-        }
-
-        /**
-         * Creates a new adapter for an object of class '{@link crosswalk.DateCreated <em>Date Created</em>}'.
-         * <!-- begin-user-doc -->
-         * This default implementation returns null so that we can easily ignore cases;
-         * it's useful to ignore a case when inheritance will catch all the cases anyway.
-         * <!-- end-user-doc -->
-         * @return the new adapter.
-         * @see crosswalk.DateCreated
-         * @generated
-         */
-        public Adapter createDateCreatedAdapter() {
                 return null;
         }
 
@@ -599,20 +433,6 @@ public class CrosswalkAdapterFactory extends AdapterFactoryImpl {
          * @generated
          */
         public Adapter createTextAdapter() {
-                return null;
-        }
-
-        /**
-         * Creates a new adapter for an object of class '{@link crosswalk.AccessCondition <em>Access Condition</em>}'.
-         * <!-- begin-user-doc -->
-         * This default implementation returns null so that we can easily ignore cases;
-         * it's useful to ignore a case when inheritance will catch all the cases anyway.
-         * <!-- end-user-doc -->
-         * @return the new adapter.
-         * @see crosswalk.AccessCondition
-         * @generated
-         */
-        public Adapter createAccessConditionAdapter() {
                 return null;
         }
 

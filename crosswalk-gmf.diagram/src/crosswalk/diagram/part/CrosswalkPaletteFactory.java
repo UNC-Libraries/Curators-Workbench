@@ -49,27 +49,26 @@ public class CrosswalkPaletteFactory {
     private PaletteContainer createDataInputs1Group() {
 	PaletteGroup paletteContainer = new PaletteGroup(Messages.DataInputs1Group_title);
 	paletteContainer.setId("createDataInputs1Group"); //$NON-NLS-1$
-	paletteContainer.add(createInputConnector1CreationTool());
-	paletteContainer.add(createMODSElement2CreationTool());
-	paletteContainer.add(createNormalizeWhitespace3CreationTool());
+	paletteContainer.add(createXMLElement1CreationTool());
+	paletteContainer.add(createXMLAttribute2CreationTool());
+	paletteContainer.add(createInputConnector3CreationTool());
 	paletteContainer.add(createOriginalNameMatcher4CreationTool());
-	paletteContainer.add(createDateRecognizer5CreationTool());
-	paletteContainer.add(createText6CreationTool());
-	paletteContainer.add(createXMLElement7CreationTool());
-	paletteContainer.add(createXMLAttribute8CreationTool());
+	paletteContainer.add(createFixedText5CreationTool());
+	paletteContainer.add(createNormalizeWhitespace6CreationTool());
+	paletteContainer.add(createDateRecognizer7CreationTool());
 	return paletteContainer;
     }
 
     /**
      * @generated
      */
-    private ToolEntry createInputConnector1CreationTool() {
+    private ToolEntry createXMLElement1CreationTool() {
 	ArrayList<IElementType> types = new ArrayList<IElementType>(2);
 	types.add(CrosswalkElementTypes.StringInputInput_4001);
 	types.add(CrosswalkElementTypes.DateInputInput_4002);
-	LinkToolEntry entry = new LinkToolEntry(Messages.InputConnector1CreationTool_title,
-			Messages.InputConnector1CreationTool_desc, types);
-	entry.setId("createInputConnector1CreationTool"); //$NON-NLS-1$
+	LinkToolEntry entry = new LinkToolEntry(Messages.XMLElement1CreationTool_title,
+			Messages.XMLElement1CreationTool_desc, types);
+	entry.setId("createXMLElement1CreationTool"); //$NON-NLS-1$
 	entry.setSmallIcon(CrosswalkElementTypes.getImageDescriptor(CrosswalkElementTypes.StringInputInput_4001));
 	entry.setLargeIcon(entry.getSmallIcon());
 	return entry;
@@ -78,34 +77,22 @@ public class CrosswalkPaletteFactory {
     /**
      * @generated
      */
-    private ToolEntry createMODSElement2CreationTool() {
-	ArrayList<IElementType> types = new ArrayList<IElementType>(10);
-	types.add(CrosswalkElementTypes.TitleInfo_2002);
-	types.add(CrosswalkElementTypes.Abstract_2003);
-	types.add(CrosswalkElementTypes.Genre_2004);
-	types.add(CrosswalkElementTypes.Identifier_2005);
-	types.add(CrosswalkElementTypes.Language_2006);
-	types.add(CrosswalkElementTypes.Name_2007);
-	types.add(CrosswalkElementTypes.Subject_2008);
-	types.add(CrosswalkElementTypes.TypeOfResource_2009);
-	types.add(CrosswalkElementTypes.DateCreated_2011);
-	types.add(CrosswalkElementTypes.AccessCondition_2012);
-	NodeToolEntry entry = new NodeToolEntry(Messages.MODSElement2CreationTool_title,
-			Messages.MODSElement2CreationTool_desc, types);
-	entry.setId("createMODSElement2CreationTool"); //$NON-NLS-1$
-	entry.setSmallIcon(CrosswalkElementTypes.getImageDescriptor(CrosswalkElementTypes.TitleInfo_2002));
-	entry.setLargeIcon(entry.getSmallIcon());
+    private ToolEntry createXMLAttribute2CreationTool() {
+	ToolEntry entry = new ToolEntry(Messages.XMLAttribute2CreationTool_title,
+			Messages.XMLAttribute2CreationTool_desc, null, null) {
+	};
+	entry.setId("createXMLAttribute2CreationTool"); //$NON-NLS-1$
 	return entry;
     }
 
     /**
      * @generated
      */
-    private ToolEntry createNormalizeWhitespace3CreationTool() {
-	NodeToolEntry entry = new NodeToolEntry(Messages.NormalizeWhitespace3CreationTool_title,
-			Messages.NormalizeWhitespace3CreationTool_desc,
+    private ToolEntry createInputConnector3CreationTool() {
+	NodeToolEntry entry = new NodeToolEntry(Messages.InputConnector3CreationTool_title,
+			Messages.InputConnector3CreationTool_desc,
 			Collections.singletonList(CrosswalkElementTypes.TrimWhitespace_2015));
-	entry.setId("createNormalizeWhitespace3CreationTool"); //$NON-NLS-1$
+	entry.setId("createInputConnector3CreationTool"); //$NON-NLS-1$
 	entry.setSmallIcon(CrosswalkElementTypes.getImageDescriptor(CrosswalkElementTypes.TrimWhitespace_2015));
 	entry.setLargeIcon(entry.getSmallIcon());
 	return entry;
@@ -128,11 +115,11 @@ public class CrosswalkPaletteFactory {
     /**
      * @generated
      */
-    private ToolEntry createDateRecognizer5CreationTool() {
-	NodeToolEntry entry = new NodeToolEntry(Messages.DateRecognizer5CreationTool_title,
-			Messages.DateRecognizer5CreationTool_desc,
+    private ToolEntry createFixedText5CreationTool() {
+	NodeToolEntry entry = new NodeToolEntry(Messages.FixedText5CreationTool_title,
+			Messages.FixedText5CreationTool_desc,
 			Collections.singletonList(CrosswalkElementTypes.DateRecognizer_2013));
-	entry.setId("createDateRecognizer5CreationTool"); //$NON-NLS-1$
+	entry.setId("createFixedText5CreationTool"); //$NON-NLS-1$
 	entry.setSmallIcon(CrosswalkElementTypes.getImageDescriptor(CrosswalkElementTypes.DateRecognizer_2013));
 	entry.setLargeIcon(entry.getSmallIcon());
 	return entry;
@@ -141,10 +128,11 @@ public class CrosswalkPaletteFactory {
     /**
      * @generated
      */
-    private ToolEntry createText6CreationTool() {
-	NodeToolEntry entry = new NodeToolEntry(Messages.Text6CreationTool_title, Messages.Text6CreationTool_desc,
+    private ToolEntry createNormalizeWhitespace6CreationTool() {
+	NodeToolEntry entry = new NodeToolEntry(Messages.NormalizeWhitespace6CreationTool_title,
+			Messages.NormalizeWhitespace6CreationTool_desc,
 			Collections.singletonList(CrosswalkElementTypes.Text_2014));
-	entry.setId("createText6CreationTool"); //$NON-NLS-1$
+	entry.setId("createNormalizeWhitespace6CreationTool"); //$NON-NLS-1$
 	entry.setSmallIcon(CrosswalkElementTypes.getImageDescriptor(CrosswalkElementTypes.Text_2014));
 	entry.setLargeIcon(entry.getSmallIcon());
 	return entry;
@@ -153,27 +141,14 @@ public class CrosswalkPaletteFactory {
     /**
      * @generated
      */
-    private ToolEntry createXMLElement7CreationTool() {
+    private ToolEntry createDateRecognizer7CreationTool() {
 	ArrayList<IElementType> types = new ArrayList<IElementType>(2);
 	types.add(CrosswalkElementTypes.MappedElement_2016);
 	types.add(CrosswalkElementTypes.MappedElement_3015);
-	NodeToolEntry entry = new NodeToolEntry(Messages.XMLElement7CreationTool_title,
-			Messages.XMLElement7CreationTool_desc, types);
-	entry.setId("createXMLElement7CreationTool"); //$NON-NLS-1$
+	NodeToolEntry entry = new NodeToolEntry(Messages.DateRecognizer7CreationTool_title,
+			Messages.DateRecognizer7CreationTool_desc, types);
+	entry.setId("createDateRecognizer7CreationTool"); //$NON-NLS-1$
 	entry.setSmallIcon(CrosswalkElementTypes.getImageDescriptor(CrosswalkElementTypes.MappedElement_2016));
-	entry.setLargeIcon(entry.getSmallIcon());
-	return entry;
-    }
-
-    /**
-     * @generated
-     */
-    private ToolEntry createXMLAttribute8CreationTool() {
-	NodeToolEntry entry = new NodeToolEntry(Messages.XMLAttribute8CreationTool_title,
-			Messages.XMLAttribute8CreationTool_desc,
-			Collections.singletonList(CrosswalkElementTypes.MappedAttribute_3016));
-	entry.setId("createXMLAttribute8CreationTool"); //$NON-NLS-1$
-	entry.setSmallIcon(CrosswalkElementTypes.getImageDescriptor(CrosswalkElementTypes.MappedAttribute_3016));
 	entry.setLargeIcon(entry.getSmallIcon());
 	return entry;
     }

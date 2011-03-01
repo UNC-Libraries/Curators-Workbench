@@ -53,71 +53,11 @@ public class CrosswalkEditPartFactory implements EditPartFactory {
 	    case DelimitedFileSourceFileEditPart.VISUAL_ID:
 		return new DelimitedFileSourceFileEditPart(view);
 
-	    case TitleInfoEditPart.VISUAL_ID:
-		return new TitleInfoEditPart(view);
-
-	    case WrappingLabelEditPart.VISUAL_ID:
-		return new WrappingLabelEditPart(view);
-
-	    case AbstractEditPart.VISUAL_ID:
-		return new AbstractEditPart(view);
-
-	    case WrappingLabel2EditPart.VISUAL_ID:
-		return new WrappingLabel2EditPart(view);
-
-	    case GenreEditPart.VISUAL_ID:
-		return new GenreEditPart(view);
-
-	    case WrappingLabel3EditPart.VISUAL_ID:
-		return new WrappingLabel3EditPart(view);
-
-	    case IdentifierEditPart.VISUAL_ID:
-		return new IdentifierEditPart(view);
-
-	    case WrappingLabel4EditPart.VISUAL_ID:
-		return new WrappingLabel4EditPart(view);
-
-	    case LanguageEditPart.VISUAL_ID:
-		return new LanguageEditPart(view);
-
-	    case WrappingLabel5EditPart.VISUAL_ID:
-		return new WrappingLabel5EditPart(view);
-
-	    case NameEditPart.VISUAL_ID:
-		return new NameEditPart(view);
-
-	    case WrappingLabel6EditPart.VISUAL_ID:
-		return new WrappingLabel6EditPart(view);
-
-	    case SubjectEditPart.VISUAL_ID:
-		return new SubjectEditPart(view);
-
-	    case WrappingLabel7EditPart.VISUAL_ID:
-		return new WrappingLabel7EditPart(view);
-
-	    case TypeOfResourceEditPart.VISUAL_ID:
-		return new TypeOfResourceEditPart(view);
-
-	    case WrappingLabel8EditPart.VISUAL_ID:
-		return new WrappingLabel8EditPart(view);
-
 	    case OriginalNameRecordMatcherEditPart.VISUAL_ID:
 		return new OriginalNameRecordMatcherEditPart(view);
 
 	    case WrappingLabel9EditPart.VISUAL_ID:
 		return new WrappingLabel9EditPart(view);
-
-	    case DateCreatedEditPart.VISUAL_ID:
-		return new DateCreatedEditPart(view);
-
-	    case WrappingLabel10EditPart.VISUAL_ID:
-		return new WrappingLabel10EditPart(view);
-
-	    case AccessConditionEditPart.VISUAL_ID:
-		return new AccessConditionEditPart(view);
-
-	    case WrappingLabel11EditPart.VISUAL_ID:
-		return new WrappingLabel11EditPart(view);
 
 	    case DateRecognizerEditPart.VISUAL_ID:
 		return new DateRecognizerEditPart(view);
@@ -152,6 +92,12 @@ public class CrosswalkEditPartFactory implements EditPartFactory {
 	    case TabbedDataFieldLabelColumnNumberEditPart.VISUAL_ID:
 		return new TabbedDataFieldLabelColumnNumberEditPart(view);
 
+	    case StringInput9EditPart.VISUAL_ID:
+		return new StringInput9EditPart(view);
+
+	    case StringInputName9EditPart.VISUAL_ID:
+		return new StringInputName9EditPart(view);
+
 	    case StringInputEditPart.VISUAL_ID:
 		return new StringInputEditPart(view);
 
@@ -163,72 +109,6 @@ public class CrosswalkEditPartFactory implements EditPartFactory {
 
 	    case StringInputName2EditPart.VISUAL_ID:
 		return new StringInputName2EditPart(view);
-
-	    case StringInput3EditPart.VISUAL_ID:
-		return new StringInput3EditPart(view);
-
-	    case StringInputName3EditPart.VISUAL_ID:
-		return new StringInputName3EditPart(view);
-
-	    case StringInput4EditPart.VISUAL_ID:
-		return new StringInput4EditPart(view);
-
-	    case StringInputName4EditPart.VISUAL_ID:
-		return new StringInputName4EditPart(view);
-
-	    case StringInput5EditPart.VISUAL_ID:
-		return new StringInput5EditPart(view);
-
-	    case StringInputName5EditPart.VISUAL_ID:
-		return new StringInputName5EditPart(view);
-
-	    case StringInput6EditPart.VISUAL_ID:
-		return new StringInput6EditPart(view);
-
-	    case StringInputName6EditPart.VISUAL_ID:
-		return new StringInputName6EditPart(view);
-
-	    case StringInput7EditPart.VISUAL_ID:
-		return new StringInput7EditPart(view);
-
-	    case StringInputName7EditPart.VISUAL_ID:
-		return new StringInputName7EditPart(view);
-
-	    case StringInput8EditPart.VISUAL_ID:
-		return new StringInput8EditPart(view);
-
-	    case StringInputName8EditPart.VISUAL_ID:
-		return new StringInputName8EditPart(view);
-
-	    case StringInput9EditPart.VISUAL_ID:
-		return new StringInput9EditPart(view);
-
-	    case StringInputName9EditPart.VISUAL_ID:
-		return new StringInputName9EditPart(view);
-
-	    case DateInputEditPart.VISUAL_ID:
-		return new DateInputEditPart(view);
-
-	    case DateInputNameEditPart.VISUAL_ID:
-		return new DateInputNameEditPart(view);
-
-	    case StringInput10EditPart.VISUAL_ID:
-		return new StringInput10EditPart(view);
-
-	    case StringInputName10EditPart.VISUAL_ID:
-		return new StringInputName10EditPart(view);
-
-	    case StringInput11EditPart.VISUAL_ID:
-		return new StringInput11EditPart(view);
-
-	    case StringInputName11EditPart.VISUAL_ID:
-		return new StringInputName11EditPart(view);
-
-	    case StringInput12EditPart.VISUAL_ID:
-		return new StringInput12EditPart(view);
-
-	    case StringInputName12EditPart.VISUAL_ID:
-		return new StringInputName12EditPart(view);
 
 	    case MappedElement2EditPart.VISUAL_ID:
 		return new MappedElement2EditPart(view);
@@ -251,38 +131,8 @@ public class CrosswalkEditPartFactory implements EditPartFactory {
 	    case DelimitedFileDataFieldCompartmentEditPart.VISUAL_ID:
 		return new DelimitedFileDataFieldCompartmentEditPart(view);
 
-	    case TitleInfoOutputElementInputsCompartmentEditPart.VISUAL_ID:
-		return new TitleInfoOutputElementInputsCompartmentEditPart(view);
-
-	    case AbstractOutputElementInputsCompartmentEditPart.VISUAL_ID:
-		return new AbstractOutputElementInputsCompartmentEditPart(view);
-
-	    case GenreOutputElementInputsCompartmentEditPart.VISUAL_ID:
-		return new GenreOutputElementInputsCompartmentEditPart(view);
-
-	    case IdentifierOutputElementInputsCompartmentEditPart.VISUAL_ID:
-		return new IdentifierOutputElementInputsCompartmentEditPart(view);
-
-	    case LanguageOutputElementInputsCompartmentEditPart.VISUAL_ID:
-		return new LanguageOutputElementInputsCompartmentEditPart(view);
-
-	    case NameOutputElementInputsCompartmentEditPart.VISUAL_ID:
-		return new NameOutputElementInputsCompartmentEditPart(view);
-
-	    case SubjectOutputElementInputsCompartmentEditPart.VISUAL_ID:
-		return new SubjectOutputElementInputsCompartmentEditPart(view);
-
-	    case TypeOfResourceOutputElementInputsCompartmentEditPart.VISUAL_ID:
-		return new TypeOfResourceOutputElementInputsCompartmentEditPart(view);
-
 	    case OriginalNameRecordMatcherRecordMatcherInputsCompartmentEditPart.VISUAL_ID:
 		return new OriginalNameRecordMatcherRecordMatcherInputsCompartmentEditPart(view);
-
-	    case DateCreatedOutputElementInputsCompartmentEditPart.VISUAL_ID:
-		return new DateCreatedOutputElementInputsCompartmentEditPart(view);
-
-	    case AccessConditionOutputElementInputsCompartmentEditPart.VISUAL_ID:
-		return new AccessConditionOutputElementInputsCompartmentEditPart(view);
 
 	    case DateRecognizerOutputElementInputsCompartmentEditPart.VISUAL_ID:
 		return new DateRecognizerOutputElementInputsCompartmentEditPart(view);

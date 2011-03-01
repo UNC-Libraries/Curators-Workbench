@@ -19,6 +19,7 @@ import org.eclipse.gef.commands.Command;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 
 import crosswalk.diagram.edit.commands.StringInput12CreateCommand;
+import crosswalk.diagram.edit.commands.StringInput2CreateCommand;
 import crosswalk.diagram.providers.CrosswalkElementTypes;
 
 /**
@@ -38,8 +39,8 @@ public class TrimWhitespaceOutputElementInputsCompartmentItemSemanticEditPolicy 
      * @generated
      */
     protected Command getCreateCommand(CreateElementRequest req) {
-	if (CrosswalkElementTypes.StringInput_3014 == req.getElementType()) {
-	    return getGEFWrapper(new StringInput12CreateCommand(req));
+	if (CrosswalkElementTypes.StringInput_3003 == req.getElementType()) {
+	    return getGEFWrapper(new StringInput2CreateCommand(req));
 	}
 	return super.getCreateCommand(req);
     }

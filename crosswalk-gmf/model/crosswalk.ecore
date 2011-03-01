@@ -8,7 +8,6 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TrimWhitespace" eSuperTypes="#//WalkWidget #//StringGenerator #//InputConsumer"/>
-  <eClassifiers xsi:type="ecore:EClass" name="TitleInfo" eSuperTypes="#//InputConsumer #//OutputElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="CrossWalk">
     <eOperations name="getProject" lowerBound="1" eType="#//IProject" eExceptions="#//DataException"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="DataSource" lowerBound="1"
@@ -83,16 +82,6 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="IProject" instanceClassName="org.eclipse.core.resources.IProject"/>
   <eClassifiers xsi:type="ecore:EDataType" name="IFile" instanceClassName="org.eclipse.core.resources.IFile"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Abstract" eSuperTypes="#//InputConsumer #//OutputElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Genre" eSuperTypes="#//InputConsumer #//OutputElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Identifier" eSuperTypes="#//InputConsumer #//OutputElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Language" eSuperTypes="#//InputConsumer #//OutputElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Name" eSuperTypes="#//InputConsumer #//OutputElement">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EEnum ../../mods.model/model/mods.ecore#//NameTypeAttributeDefinition"
-        unsettable="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Subject" eSuperTypes="#//InputConsumer #//OutputElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="TypeOfResource" eSuperTypes="#//InputConsumer #//OutputElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="RecordMatcherStrategy" abstract="true"
       interface="true" eSuperTypes="#//WalkWidget">
     <eOperations name="getMatches" lowerBound="1" eType="#//RecordMatches"/>
@@ -111,7 +100,6 @@
   <eClassifiers xsi:type="ecore:EDataType" name="RecordMatches" instanceClassName="crosswalk.RecordMatches"/>
   <eClassifiers xsi:type="ecore:EDataType" name="IFolder" instanceClassName="org.eclipse.core.resources.IFolder"/>
   <eClassifiers xsi:type="ecore:EDataType" name="RecordOutOfRangeException" instanceClassName="crosswalk.RecordOutOfRangeException"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DateCreated" eSuperTypes="#//InputConsumer #//OutputElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="DateInput" eSuperTypes="#//Input">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Input" eType="#//DateGenerator"
         unsettable="true"/>
@@ -126,10 +114,6 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Text" eSuperTypes="#//StringGenerator #//WalkWidget">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AccessCondition" eSuperTypes="#//InputConsumer #//OutputElement">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        defaultValueLiteral="access"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DelimitedFile" eSuperTypes="#//DataSource">
     <eOperations name="GoToRecord" eExceptions="#//DataException #//RecordOutOfRangeException">

@@ -1,18 +1,3 @@
-/**
- * Copyright 2010 The University of North Carolina at Chapel Hill
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *         http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 package crosswalk.diagram.edit.parts;
 
 import java.util.ArrayList;
@@ -36,9 +21,7 @@ import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gef.requests.CreateRequest;
 import org.eclipse.gmf.runtime.diagram.core.edithelpers.CreateElementRequestAdapter;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.ITextAwareEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ConstrainedToolbarLayoutEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.FlowLayoutEditPolicy;
@@ -51,7 +34,6 @@ import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
 
-import crosswalk.diagram.edit.policies.CrosswalkTextSelectionEditPolicy;
 import crosswalk.diagram.edit.policies.TrimWhitespaceItemSemanticEditPolicy;
 import crosswalk.diagram.part.CrosswalkVisualIDRegistry;
 import crosswalk.diagram.providers.CrosswalkElementTypes;
@@ -302,18 +284,9 @@ public class TrimWhitespaceEditPart extends ShapeNodeEditPart {
     public List<IElementType> getMATypesForSource(IElementType relationshipType) {
 	LinkedList<IElementType> types = new LinkedList<IElementType>();
 	if (relationshipType == CrosswalkElementTypes.StringInputInput_4001) {
+	    types.add(CrosswalkElementTypes.StringInput_3010);
 	    types.add(CrosswalkElementTypes.StringInput_3002);
 	    types.add(CrosswalkElementTypes.StringInput_3003);
-	    types.add(CrosswalkElementTypes.StringInput_3004);
-	    types.add(CrosswalkElementTypes.StringInput_3005);
-	    types.add(CrosswalkElementTypes.StringInput_3006);
-	    types.add(CrosswalkElementTypes.StringInput_3007);
-	    types.add(CrosswalkElementTypes.StringInput_3008);
-	    types.add(CrosswalkElementTypes.StringInput_3009);
-	    types.add(CrosswalkElementTypes.StringInput_3010);
-	    types.add(CrosswalkElementTypes.StringInput_3012);
-	    types.add(CrosswalkElementTypes.StringInput_3013);
-	    types.add(CrosswalkElementTypes.StringInput_3014);
 	    types.add(CrosswalkElementTypes.MappedAttribute_3016);
 	    types.add(CrosswalkElementTypes.StringInput_3017);
 	}
@@ -328,7 +301,7 @@ public class TrimWhitespaceEditPart extends ShapeNodeEditPart {
 	    CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request).getViewAndElementDescriptor()
 			    .getCreateElementRequestAdapter();
 	    IElementType type = (IElementType) adapter.getAdapter(IElementType.class);
-	    if (type == CrosswalkElementTypes.StringInput_3014) {
+	    if (type == CrosswalkElementTypes.StringInput_3003) {
 		return getChildBySemanticHint(CrosswalkVisualIDRegistry
 				.getType(TrimWhitespaceOutputElementInputsCompartmentEditPart.VISUAL_ID));
 	    }

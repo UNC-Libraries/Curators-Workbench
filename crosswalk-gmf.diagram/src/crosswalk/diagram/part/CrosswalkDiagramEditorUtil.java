@@ -46,7 +46,6 @@ import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.workspace.util.WorkspaceSynchronizer;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.common.core.command.CommandResult;
-import org.eclipse.gmf.runtime.common.core.util.Log;
 import org.eclipse.gmf.runtime.diagram.core.services.ViewService;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
@@ -71,9 +70,6 @@ import crosswalk.CrossWalk;
 import crosswalk.CrosswalkFactory;
 import crosswalk.DataException;
 import crosswalk.DataSource;
-import crosswalk.RecordOutOfRangeException;
-import crosswalk.TabSeparatedFile;
-import crosswalk.TabbedDataField;
 import crosswalk.diagram.edit.parts.CrossWalkEditPart;
 
 /**

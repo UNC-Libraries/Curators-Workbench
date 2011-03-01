@@ -13,86 +13,6 @@
         queryText="true"/>
   </nodeTraces>
   <nodeTraces
-      visualID="2002"
-      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://lib.unc.edu/schemas/crosswalk' and _eClass_.name = 'TitleInfo') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://lib.unc.edu/schemas/crosswalk' and _eClass_.name = 'CrossWalk') and _containmentMF_.name = 'Elements')">
-    <nodeLabelTraces
-        visualID="5005"
-        queryText="true"/>
-    <compartmentTraces
-        visualID="7002"
-        queryText="true"/>
-  </nodeTraces>
-  <nodeTraces
-      visualID="2003"
-      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://lib.unc.edu/schemas/crosswalk' and _eClass_.name = 'Abstract') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://lib.unc.edu/schemas/crosswalk' and _eClass_.name = 'CrossWalk') and _containmentMF_.name = 'Elements')">
-    <nodeLabelTraces
-        visualID="5007"
-        queryText="true"/>
-    <compartmentTraces
-        visualID="7003"
-        queryText="true"/>
-  </nodeTraces>
-  <nodeTraces
-      visualID="2004"
-      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://lib.unc.edu/schemas/crosswalk' and _eClass_.name = 'Genre') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://lib.unc.edu/schemas/crosswalk' and _eClass_.name = 'CrossWalk') and _containmentMF_.name = 'Elements')">
-    <nodeLabelTraces
-        visualID="5009"
-        queryText="true"/>
-    <compartmentTraces
-        visualID="7004"
-        queryText="true"/>
-  </nodeTraces>
-  <nodeTraces
-      visualID="2005"
-      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://lib.unc.edu/schemas/crosswalk' and _eClass_.name = 'Identifier') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://lib.unc.edu/schemas/crosswalk' and _eClass_.name = 'CrossWalk') and _containmentMF_.name = 'Elements')">
-    <nodeLabelTraces
-        visualID="5011"
-        queryText="true"/>
-    <compartmentTraces
-        visualID="7005"
-        queryText="true"/>
-  </nodeTraces>
-  <nodeTraces
-      visualID="2006"
-      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://lib.unc.edu/schemas/crosswalk' and _eClass_.name = 'Language') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://lib.unc.edu/schemas/crosswalk' and _eClass_.name = 'CrossWalk') and _containmentMF_.name = 'Elements')">
-    <nodeLabelTraces
-        visualID="5013"
-        queryText="true"/>
-    <compartmentTraces
-        visualID="7006"
-        queryText="true"/>
-  </nodeTraces>
-  <nodeTraces
-      visualID="2007"
-      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://lib.unc.edu/schemas/crosswalk' and _eClass_.name = 'Name') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://lib.unc.edu/schemas/crosswalk' and _eClass_.name = 'CrossWalk') and _containmentMF_.name = 'Elements')">
-    <nodeLabelTraces
-        visualID="5015"
-        queryText="true"/>
-    <compartmentTraces
-        visualID="7007"
-        queryText="true"/>
-  </nodeTraces>
-  <nodeTraces
-      visualID="2008"
-      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://lib.unc.edu/schemas/crosswalk' and _eClass_.name = 'Subject') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://lib.unc.edu/schemas/crosswalk' and _eClass_.name = 'CrossWalk') and _containmentMF_.name = 'Elements')">
-    <nodeLabelTraces
-        visualID="5017"
-        queryText="true"/>
-    <compartmentTraces
-        visualID="7008"
-        queryText="true"/>
-  </nodeTraces>
-  <nodeTraces
-      visualID="2009"
-      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://lib.unc.edu/schemas/crosswalk' and _eClass_.name = 'TypeOfResource') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://lib.unc.edu/schemas/crosswalk' and _eClass_.name = 'CrossWalk') and _containmentMF_.name = 'Elements')">
-    <nodeLabelTraces
-        visualID="5019"
-        queryText="true"/>
-    <compartmentTraces
-        visualID="7009"
-        queryText="true"/>
-  </nodeTraces>
-  <nodeTraces
       visualID="2010"
       queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://lib.unc.edu/schemas/crosswalk' and _eClass_.name = 'OriginalNameRecordMatcher') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://lib.unc.edu/schemas/crosswalk' and _eClass_.name = 'CrossWalk') and _containmentMF_.name = 'Widgets')">
     <nodeLabelTraces
@@ -100,26 +20,6 @@
         queryText="true"/>
     <compartmentTraces
         visualID="7010"
-        queryText="true"/>
-  </nodeTraces>
-  <nodeTraces
-      visualID="2011"
-      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://lib.unc.edu/schemas/crosswalk' and _eClass_.name = 'DateCreated') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://lib.unc.edu/schemas/crosswalk' and _eClass_.name = 'CrossWalk') and _containmentMF_.name = 'Elements')">
-    <nodeLabelTraces
-        visualID="5023"
-        queryText="true"/>
-    <compartmentTraces
-        visualID="7011"
-        queryText="true"/>
-  </nodeTraces>
-  <nodeTraces
-      visualID="2012"
-      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://lib.unc.edu/schemas/crosswalk' and _eClass_.name = 'AccessCondition') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://lib.unc.edu/schemas/crosswalk' and _eClass_.name = 'CrossWalk') and _containmentMF_.name = 'Elements')">
-    <nodeLabelTraces
-        visualID="5025"
-        queryText="true"/>
-    <compartmentTraces
-        visualID="7012"
         queryText="true"/>
   </nodeTraces>
   <nodeTraces
@@ -184,80 +84,10 @@
         queryText="true"/>
   </childNodeTraces>
   <childNodeTraces
-      visualID="3004"
-      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://lib.unc.edu/schemas/crosswalk' and _eClass_.name = 'StringInput') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://lib.unc.edu/schemas/crosswalk' and _eClass_.name = 'InputConsumer') and _containmentMF_.name = 'Inputs')">
-    <nodeLabelTraces
-        visualID="5008"
-        queryText="true"/>
-  </childNodeTraces>
-  <childNodeTraces
-      visualID="3005"
-      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://lib.unc.edu/schemas/crosswalk' and _eClass_.name = 'StringInput') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://lib.unc.edu/schemas/crosswalk' and _eClass_.name = 'InputConsumer') and _containmentMF_.name = 'Inputs')">
-    <nodeLabelTraces
-        visualID="5010"
-        queryText="true"/>
-  </childNodeTraces>
-  <childNodeTraces
-      visualID="3006"
-      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://lib.unc.edu/schemas/crosswalk' and _eClass_.name = 'StringInput') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://lib.unc.edu/schemas/crosswalk' and _eClass_.name = 'InputConsumer') and _containmentMF_.name = 'Inputs')">
-    <nodeLabelTraces
-        visualID="5012"
-        queryText="true"/>
-  </childNodeTraces>
-  <childNodeTraces
-      visualID="3007"
-      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://lib.unc.edu/schemas/crosswalk' and _eClass_.name = 'StringInput') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://lib.unc.edu/schemas/crosswalk' and _eClass_.name = 'InputConsumer') and _containmentMF_.name = 'Inputs')">
-    <nodeLabelTraces
-        visualID="5014"
-        queryText="true"/>
-  </childNodeTraces>
-  <childNodeTraces
-      visualID="3008"
-      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://lib.unc.edu/schemas/crosswalk' and _eClass_.name = 'StringInput') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://lib.unc.edu/schemas/crosswalk' and _eClass_.name = 'InputConsumer') and _containmentMF_.name = 'Inputs')">
-    <nodeLabelTraces
-        visualID="5016"
-        queryText="true"/>
-  </childNodeTraces>
-  <childNodeTraces
-      visualID="3009"
-      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://lib.unc.edu/schemas/crosswalk' and _eClass_.name = 'StringInput') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://lib.unc.edu/schemas/crosswalk' and _eClass_.name = 'InputConsumer') and _containmentMF_.name = 'Inputs')">
-    <nodeLabelTraces
-        visualID="5018"
-        queryText="true"/>
-  </childNodeTraces>
-  <childNodeTraces
       visualID="3010"
       queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://lib.unc.edu/schemas/crosswalk' and _eClass_.name = 'StringInput') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://lib.unc.edu/schemas/crosswalk' and _eClass_.name = 'OriginalNameRecordMatcher') and _containmentMF_.name = 'input')">
     <nodeLabelTraces
         visualID="5020"
-        queryText="true"/>
-  </childNodeTraces>
-  <childNodeTraces
-      visualID="3011"
-      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://lib.unc.edu/schemas/crosswalk' and _eClass_.name = 'DateInput') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://lib.unc.edu/schemas/crosswalk' and _eClass_.name = 'InputConsumer') and _containmentMF_.name = 'Inputs')">
-    <nodeLabelTraces
-        visualID="5022"
-        queryText="true"/>
-  </childNodeTraces>
-  <childNodeTraces
-      visualID="3012"
-      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://lib.unc.edu/schemas/crosswalk' and _eClass_.name = 'StringInput') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://lib.unc.edu/schemas/crosswalk' and _eClass_.name = 'InputConsumer') and _containmentMF_.name = 'Inputs')">
-    <nodeLabelTraces
-        visualID="5024"
-        queryText="true"/>
-  </childNodeTraces>
-  <childNodeTraces
-      visualID="3013"
-      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://lib.unc.edu/schemas/crosswalk' and _eClass_.name = 'StringInput') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://lib.unc.edu/schemas/crosswalk' and _eClass_.name = 'InputConsumer') and _containmentMF_.name = 'Inputs')">
-    <nodeLabelTraces
-        visualID="5026"
-        queryText="true"/>
-  </childNodeTraces>
-  <childNodeTraces
-      visualID="3014"
-      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://lib.unc.edu/schemas/crosswalk' and _eClass_.name = 'StringInput') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://lib.unc.edu/schemas/crosswalk' and _eClass_.name = 'InputConsumer') and _containmentMF_.name = 'Inputs')">
-    <nodeLabelTraces
-        visualID="5029"
         queryText="true"/>
   </childNodeTraces>
   <childNodeTraces
