@@ -59,8 +59,11 @@ public class IrodsEFSFileSystem extends FileSystem {
 	IPreferenceStore store = Activator.getDefault().getPreferenceStore();
 	if (a.getPassword() != null) {
 	    store.setValue(serverURI.toString(), a.getPassword());
-	    System.out.println("Storing: "+serverURI.toString() + " "+a.getPassword());
 	}
+	if(a.getUserName() != null) {
+	    store.setValue(serverURI.toString(), a.getUserName());
+	}
+	System.out.println("Storing: "+serverURI.toString() + " "+a.getUserName() + "/"+a.getPassword());
 	return serverURI;
     }
 
@@ -84,9 +87,11 @@ public class IrodsEFSFileSystem extends FileSystem {
 	URI serverURI = getAccountURI(uri.getHost(), uri.getPort(), userName, zone);
 	IPreferenceStore store = Activator.getDefault().getPreferenceStore();
 	String password = store.getString(serverURI + "#password");
-	// String userName = store.getString(serverURI + "#username");
-	if (password == null || password.isEmpty()) {
-	    promptForLogin("Need a username and password to connect to iRODS.", serverURI, store, userName);
+
+	String storedUserName = store.getString(serverURI + "#username");
+	if (password == null || password.isEmpty() || storedUserName == null || storedUserName.isEmpty()) {
+	    String promptName = (userName == null) ? storedUserName : userName;
+	    promptForLogin("Need a username and password to connect to iRODS.", serverURI, store, userName, zone);
 	}
 
 	// set basics from URI
@@ -94,7 +99,11 @@ public class IrodsEFSFileSystem extends FileSystem {
 	int port = uri.getPort();
 	// load connection details
 	password = store.getString(serverURI + "#password");
-	// userName = store.getString(serverURI + "#username");
+	userName = store.getString(serverURI + "#username");
+
+	if(password == null || userName == null) {
+	    throw new Error("there was a problem connecting to iRODS");
+	}
 	// String zone = store.getString(serverURI + "#zone");
 	// String defaultStorageResource = store.getString(serverURI +
 	// "#defaultResource");
@@ -105,14 +114,14 @@ public class IrodsEFSFileSystem extends FileSystem {
     }
 
     private static void promptForLogin(final String message, final URI serverURI, final IPreferenceStore store,
-		    final String username) {
+		    final String username, final String zone) {
 	Display.getDefault().syncExec(new Runnable() {
 	    public void run() {
 		Shell s = Display.getCurrent().getActiveShell();
-		LoginInputDialog d = new LoginInputDialog(s, message, serverURI, username);
+		LoginInputDialog d = new LoginInputDialog(s, message, serverURI, username, zone);
 		if (Dialog.OK == d.open()) {
 		    store.setValue(serverURI + "#password", d.getPassword());
-		    //store.setValue(serverURI + "#username", d.getUsername());
+		    store.setValue(serverURI + "#username", d.getUsername());
 		}
 	    }
 	});
@@ -129,12 +138,12 @@ public class IrodsEFSFileSystem extends FileSystem {
     public static URI removePassword(URI uri) {
 	try {
 	    String userName = uri.getUserInfo();
-	    if (userName.contains(":")) {
+	    if (userName != null && userName.contains(":")) {
 		userName = userName.substring(0, userName.indexOf(":"));
 	    }
 	    return new URI(uri.getScheme(), userName, uri.getHost(), uri.getPort(), uri.getPath(), null, null);
 	} catch (URISyntaxException e) {
-	    throw new Error("Cannot make URI for iRODS without password.", e);
+	    throw new Error("Problem removing password from an iRODS URI.", e);
 	}
     }
 
