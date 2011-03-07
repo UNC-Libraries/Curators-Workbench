@@ -7,7 +7,8 @@ Bundle-ClassPath: .
 Bundle-Activator: crosswalk.diagram.part.CrosswalkDiagramEditorPlugin
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Export-Package: crosswalk.diagram.edit.commands,
+Export-Package: crosswalk.diagram.custom,
+ crosswalk.diagram.edit.commands,
  crosswalk.diagram.edit.helpers,
  crosswalk.diagram.edit.parts,
  crosswalk.diagram.edit.policies,

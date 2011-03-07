@@ -298,7 +298,7 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 
         /**
          * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-         *
+         * 
          * <p>This method is used to initialize {@link CrosswalkPackage#eINSTANCE} when that field is accessed.
          * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
          * <!-- begin-user-doc -->
@@ -325,7 +325,7 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
                 // Mark meta-data to indicate it can't be changed
                 theCrosswalkPackage.freeze();
 
-
+  
                 // Update the registry and return the package
                 EPackage.Registry.INSTANCE.put(CrosswalkPackage.eNS_URI, theCrosswalkPackage);
                 return theCrosswalkPackage;
@@ -1199,7 +1199,7 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
                 initEReference(getMappedElement_Parent(), this.getMappedElement(), this.getMappedElement_ChildElements(), "parent", null, 0, 1, MappedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
                 initEClass(mappedAttributeEClass, MappedAttribute.class, "MappedAttribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-                initEReference(getMappedAttribute_MappedFeature(), ecorePackage.getEReference(), null, "mappedFeature", null, 1, 1, MappedAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                initEReference(getMappedAttribute_MappedFeature(), ecorePackage.getEAttribute(), null, "mappedFeature", null, 1, 1, MappedAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
                 // Initialize data types
                 initEDataType(dataExceptionEDataType, DataException.class, "DataException", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

@@ -988,5 +988,44 @@
          </propertySection>
       </propertySections>
    </extension>
+   <extension
+         point="org.eclipse.gmf.runtime.emf.type.core.elementTypes">
+      <metamodel
+            nsURI="http://lib.unc.edu/schemas/crosswalk">
+         <adviceBinding
+               class="unc.lib.cdr.workbench.gmf.MappedElementEditHelperAdvice"
+               id="workbench_plugin.adviceBindingMappedElement"
+               inheritance="all"
+               typeId="crosswalk-gmf.diagram.MappedElement_2016">
+         </adviceBinding>
+         <adviceBinding
+               class="unc.lib.cdr.workbench.gmf.MappedAttributeEditHelperAdvice"
+               id="workbench_plugin.adviceBindingMappedAttribute"
+               inheritance="all"
+               typeId="crosswalk-gmf.diagram.MappedAttribute_3016">
+         </adviceBinding>
+         <adviceBinding
+               class="unc.lib.cdr.workbench.gmf.MappedElementEditHelperAdvice"
+               id="workbench_plugin.adviceBindingMappedCrossWalk"
+               inheritance="all"
+               typeId="crosswalk-gmf.diagram.CrossWalk_1000">
+         </adviceBinding>
+      </metamodel>
+   </extension>
+   <extension
+         point="org.eclipse.gmf.runtime.emf.type.core.elementTypeBindings">
+      <binding
+            context="crosswalk-gmf.diagram.TypeContext">
+         <advice
+               ref="workbench_plugin.adviceBindingMappedElement">
+         </advice>
+         <advice
+               ref="workbench_plugin.adviceBindingMappedAttribute">
+         </advice>
+         <advice
+               ref="workbench_plugin.adviceBindingMappedCrossWalk">
+         </advice>
+      </binding>
+   </extension>
 
 </plugin>

@@ -6,6 +6,7 @@
  */
 package crosswalk;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.util.FeatureMap;
 
@@ -35,12 +36,12 @@ public interface MappedAttribute extends OutputElement, StringInput {
          * </p>
          * <!-- end-user-doc -->
          * @return the value of the '<em>Mapped Feature</em>' reference.
-         * @see #setMappedFeature(EReference)
+         * @see #setMappedFeature(EAttribute)
          * @see crosswalk.CrosswalkPackage#getMappedAttribute_MappedFeature()
          * @model required="true"
          * @generated
          */
-        EReference getMappedFeature();
+        EAttribute getMappedFeature();
 
         /**
          * Sets the value of the '{@link crosswalk.MappedAttribute#getMappedFeature <em>Mapped Feature</em>}' reference.
@@ -50,6 +51,6 @@ public interface MappedAttribute extends OutputElement, StringInput {
          * @see #getMappedFeature()
          * @generated
          */
-        void setMappedFeature(EReference value);
+        void setMappedFeature(EAttribute value);
 
 } // MappedAttribute

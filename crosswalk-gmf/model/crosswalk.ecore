@@ -146,6 +146,6 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MappedAttribute" eSuperTypes="#//OutputElement #//StringInput">
     <eStructuralFeatures xsi:type="ecore:EReference" name="mappedFeature" lowerBound="1"
-        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EAttribute"/>
   </eClassifiers>
 </ecore:EPackage>

@@ -23,9 +23,10 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.eclipse.core.runtime.IAdaptable;
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
-import org.eclipse.gef.editparts.AbstractEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.emf.type.core.ElementTypeRegistry;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
@@ -37,6 +38,7 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 
+import crosswalk.diagram.custom.MappedModelUtil;
 import crosswalk.diagram.edit.parts.CrossWalkEditPart;
 import crosswalk.diagram.edit.parts.DateRecognizerEditPart;
 import crosswalk.diagram.edit.parts.DelimitedFileEditPart;
@@ -59,7 +61,7 @@ import crosswalk.diagram.part.Messages;
 public class CrosswalkModelingAssistantProvider extends ModelingAssistantProvider {
 
     /**
-     * @generated
+     * @generated NOT
      */
     @Override
     public List getTypesForPopupBar(IAdaptable host) {
@@ -96,9 +98,15 @@ public class CrosswalkModelingAssistantProvider extends ModelingAssistantProvide
 	}
 	if (editPart instanceof MappedElementEditPart) {
 	    ArrayList<IElementType> types = new ArrayList<IElementType>(3);
-	    types.add(CrosswalkElementTypes.MappedElement_3015);
-	    types.add(CrosswalkElementTypes.MappedAttribute_3016);
-	    types.add(CrosswalkElementTypes.StringInput_3017);
+	    // TODO check for available references and attributes
+	    EObject el = editPart.resolveSemanticElement();
+	    if (MappedModelUtil.getChildElementFeatures(el).size() > 0) {
+		types.add(CrosswalkElementTypes.MappedElement_3015);
+	    }
+	    if (MappedModelUtil.getAttributes(el).size() > 0) {
+		types.add(CrosswalkElementTypes.MappedAttribute_3016);
+	    }
+	    //types.add(CrosswalkElementTypes.StringInput_3017);
 	    return types;
 	}
 	return Collections.EMPTY_LIST;

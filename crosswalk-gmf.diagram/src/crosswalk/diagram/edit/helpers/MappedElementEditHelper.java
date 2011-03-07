@@ -14,14 +14,11 @@ public class MappedElementEditHelper extends CrosswalkBaseEditHelper {
 
     @Override
     protected ICommand getCreateCommand(CreateElementRequest req) {
-	//System.out.println("In EditHelper.getCreateCommand: "+req.getLabel()+"\nContainer: "+req.getContainer()+"\nNew Object: "+req.getNewElement());
 	return null;
     }
 
     @Override
     protected ICommand getConfigureCommand(ConfigureRequest req) {
-	// TODO Auto-generated method stub
-	System.out.println("In the getConfigureCommand of EditHelper");
-	return super.getConfigureCommand(req);
+	return null;
     }
 }

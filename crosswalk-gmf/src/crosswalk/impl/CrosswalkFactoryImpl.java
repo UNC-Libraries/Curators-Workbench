@@ -15,6 +15,7 @@
  */
 package crosswalk.impl;
 
+import crosswalk.*;
 import java.net.URI;
 import java.net.URISyntaxException;
 
@@ -62,7 +63,7 @@ public class CrosswalkFactoryImpl extends EFactoryImpl implements CrosswalkFacto
          */
     public static CrosswalkFactory init() {
                 try {
-                        CrosswalkFactory theCrosswalkFactory = (CrosswalkFactory)EPackage.Registry.INSTANCE.getEFactory("http://lib.unc.edu/schemas/crosswalk");
+                        CrosswalkFactory theCrosswalkFactory = (CrosswalkFactory)EPackage.Registry.INSTANCE.getEFactory("http://lib.unc.edu/schemas/crosswalk"); 
                         if (theCrosswalkFactory != null) {
                                 return theCrosswalkFactory;
                         }
