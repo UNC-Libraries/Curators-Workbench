@@ -1,0 +1,694 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0xb7740536, pid=4091, tid=3063982960
+#
+# JRE version: 6.0_24-b07
+# Java VM: Java HotSpot(TM) Server VM (19.1-b02 mixed mode linux-x86 )
+# Problematic frame:
+# C  [libc.so.6+0x110536]
+#
+# If you would like to submit a bug report, please visit:
+#   http://java.sun.com/webapps/bugreport/crash.jsp
+# The crash happened outside the Java Virtual Machine in native code.
+# See problematic frame for where to report the bug.
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x09b2f400):  JavaThread "main" [_thread_in_native, id=4099, stack(0xb69ba000,0xb6a0b000)]
+
+siginfo:si_signo=SIGSEGV: si_errno=0, si_code=2 (SEGV_ACCERR), si_addr=0x7e70d000
+
+Registers:
+EAX=0x7e706810, EBX=0xb776a5b0, ECX=0x00008c36, EDX=0x0ad3a4f0
+ESP=0xb6a08a24, EBP=0xb6a08a58, ESI=0x7e7067de, EDI=0x000067e0
+EIP=0xb7740536, CR2=0x7e70d000, EFLAGS=0x00210206
+
+Register to memory mapping:
+
+EAX=0x7e706810
+0x7e706810 is pointing to unknown location
+
+EBX=0xb776a5b0
+0xb776a5b0: <offset 0x13a5b0> in /lib/tls/i686/cmov/libc.so.6 at 0xb7630000
+
+ECX=0x00008c36
+0x00008c36 is pointing to unknown location
+
+EDX=0x0ad3a4f0
+0x0ad3a4f0 is pointing to unknown location
+
+ESP=0xb6a08a24
+0xb6a08a24 is pointing into the stack for thread: 0x09b2f400
+"main" prio=10 tid=0x09b2f400 nid=0x1003 runnable [0xb6a08000]
+   java.lang.Thread.State: RUNNABLE
+
+EBP=0xb6a08a58
+0xb6a08a58 is pointing into the stack for thread: 0x09b2f400
+"main" prio=10 tid=0x09b2f400 nid=0x1003 runnable [0xb6a08000]
+   java.lang.Thread.State: RUNNABLE
+
+ESI=0x7e7067de
+0x7e7067de is pointing to unknown location
+
+EDI=0x000067e0
+0x000067e0 is pointing to unknown location
+
+
+Top of Stack: (sp=0xb6a08a24)
+0xb6a08a24:   09c4a878 b693fabc b693b015 0ad3a4e8
+0xb6a08a34:   7e70680c 0000f43e 09b2fb24 00006608
+0xb6a08a44:   00008363 0000f43e b693fabc 7ed1f994
+0xb6a08a54:   00000000 b6a08a88 b693b2fb 7f41dd10
+0xb6a08a64:   7ed1f994 00000000 b6a08a78 b6a08a9c
+0xb6a08a74:   b3931fa7 5bbd78a2 b693fabc b6a08ad0
+0xb6a08a84:   09b2f518 b6a08ef8 b69320f9 7f41dd10
+0xb6a08a94:   b6a08ad0 00000014 00000014 b6a08ad0 
+
+Instructions: (pc=0xb7740536)
+0xb7740526:   7f 20 66 0f 7f 54 3a e0 66 0f 7f 5c 3a f0 7c 30
+0xb7740536:   66 0f 6f 54 38 10 83 e9 20 66 0f 6f 5c 38 20 66 
+
+Stack: [0xb69ba000,0xb6a0b000],  sp=0xb6a08a24,  free space=314k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  [libc.so.6+0x110536]
+C  [libzip.so+0xc2fb]  ZIP_GetEntry+0x10b
+C  [libzip.so+0x30f9]  Java_java_util_zip_ZipFile_getEntry+0xc9
+J  java.util.zip.ZipFile.getEntry(JLjava/lang/String;Z)J
+j  java.util.zip.ZipFile.getEntry(Ljava/lang/String;)Ljava/util/zip/ZipEntry;+31
+j  java.util.jar.JarFile.getEntry(Ljava/lang/String;)Ljava/util/zip/ZipEntry;+2
+j  sun.net.www.protocol.jar.URLJarFile.getEntry(Ljava/lang/String;)Ljava/util/zip/ZipEntry;+2
+j  sun.net.www.protocol.jar.JarURLConnection.connect()V+62
+j  sun.net.www.protocol.jar.JarURLConnection.getInputStream()Ljava/io/InputStream;+1
+j  java.net.URL.openStream()Ljava/io/InputStream;+4
+j  org.sonatype.guice.bean.reflect.Streams.openStream(Ljava/net/URL;)Ljava/io/InputStream;+22
+j  org.sonatype.guice.bean.reflect.URLClassSpace.getClassPathEntries(Ljava/net/URL;)[Ljava/lang/String;+64
+j  org.sonatype.guice.bean.reflect.URLClassSpace.expandClassPath([Ljava/net/URL;)[Ljava/net/URL;+82
+j  org.sonatype.guice.bean.reflect.URLClassSpace.getClassPath()[Ljava/net/URL;+44
+j  org.sonatype.guice.bean.reflect.URLClassSpace.findEntries(Ljava/lang/String;Ljava/lang/String;Z)Ljava/util/Enumeration;+8
+j  org.sonatype.guice.plexus.scanners.PlexusXmlScanner.scan(Lorg/sonatype/guice/bean/reflect/ClassSpace;Z)Ljava/util/Map;+49
+j  org.sonatype.guice.plexus.binders.PlexusXmlBeanModule.configure(Lcom/google/inject/Binder;)Lorg/sonatype/guice/plexus/config/PlexusBeanSource;+45
+j  org.sonatype.guice.plexus.binders.PlexusBindingModule.configure()V+42
+j  com.google.inject.AbstractModule.configure(Lcom/google/inject/Binder;)V+31
+j  com.google.inject.spi.Elements$RecordingBinder.install(Lcom/google/inject/Module;)V+31
+j  com.google.inject.spi.Elements.getElements(Lcom/google/inject/Stage;Ljava/lang/Iterable;)Ljava/util/List;+40
+j  com.google.inject.spi.Elements.getElements([Lcom/google/inject/Module;)Ljava/util/List;+7
+j  org.sonatype.guice.bean.binders.MergedModule.configure(Lcom/google/inject/Binder;)V+48
+j  com.google.inject.spi.Elements$RecordingBinder.install(Lcom/google/inject/Module;)V+31
+j  com.google.inject.spi.Elements.getElements(Lcom/google/inject/Stage;Ljava/lang/Iterable;)Ljava/util/List;+40
+j  com.google.inject.internal.InjectorShell$Builder.build(Lcom/google/inject/internal/BindingProcessor;Lcom/google/inject/internal/util/$Stopwatch;Lcom/google/inject/internal/Errors;)Ljava/util/List;+175
+j  com.google.inject.internal.InternalInjectorCreator.build()Lcom/google/inject/Injector;+44
+j  com.google.inject.InjectorBuilder.build()Lcom/google/inject/Injector;+31
+j  com.google.inject.Guice.createInjector(Lcom/google/inject/Stage;Ljava/lang/Iterable;)Lcom/google/inject/Injector;+15
+j  com.google.inject.Guice.createInjector(Ljava/lang/Iterable;)Lcom/google/inject/Injector;+4
+j  com.google.inject.Guice.createInjector([Lcom/google/inject/Module;)Lcom/google/inject/Injector;+4
+j  org.codehaus.plexus.DefaultPlexusContainer.addPlexusInjector(Ljava/util/List;[Lcom/google/inject/Module;)V+88
+j  org.codehaus.plexus.DefaultPlexusContainer.discoverComponents(Lorg/codehaus/plexus/classworlds/realm/ClassRealm;)Ljava/util/List;+135
+j  org.apache.maven.plugin.internal.DefaultMavenPluginManager.createPluginRealm(Lorg/apache/maven/plugin/descriptor/PluginDescriptor;Lorg/apache/maven/execution/MavenSession;Ljava/lang/ClassLoader;Ljava/util/List;Lorg/sonatype/aether/graph/DependencyFilter;)V+306
+j  org.apache.maven.plugin.internal.DefaultMavenPluginManager.setupPluginRealm(Lorg/apache/maven/plugin/descriptor/PluginDescriptor;Lorg/apache/maven/execution/MavenSession;Ljava/lang/ClassLoader;Ljava/util/List;Lorg/sonatype/aether/graph/DependencyFilter;)V+93
+j  org.apache.maven.plugin.DefaultBuildPluginManager.getPluginRealm(Lorg/apache/maven/execution/MavenSession;Lorg/apache/maven/plugin/descriptor/PluginDescriptor;)Lorg/codehaus/plexus/classworlds/realm/ClassRealm;+20
+j  org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(Lorg/apache/maven/execution/MavenSession;Lorg/apache/maven/plugin/MojoExecution;)V+21
+j  org.apache.maven.lifecycle.internal.MojoExecutor.execute(Lorg/apache/maven/execution/MavenSession;Lorg/apache/maven/plugin/MojoExecution;Lorg/apache/maven/lifecycle/internal/ProjectIndex;Lorg/apache/maven/lifecycle/internal/DependencyContext;)V+181
+j  org.apache.maven.lifecycle.internal.MojoExecutor.execute(Lorg/apache/maven/execution/MavenSession;Lorg/apache/maven/plugin/MojoExecution;Lorg/apache/maven/lifecycle/internal/ProjectIndex;Lorg/apache/maven/lifecycle/internal/DependencyContext;Lorg/apache/maven/lifecycle/internal/PhaseRecorder;)V+6
+j  org.apache.maven.lifecycle.internal.MojoExecutor.execute(Lorg/apache/maven/execution/MavenSession;Ljava/util/List;Lorg/apache/maven/lifecycle/internal/ProjectIndex;)V+60
+j  org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(Lorg/apache/maven/execution/MavenSession;Lorg/apache/maven/execution/MavenSession;Lorg/apache/maven/lifecycle/internal/ReactorContext;Lorg/apache/maven/project/MavenProject;Lorg/apache/maven/lifecycle/internal/TaskSegment;)V+107
+j  org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(Lorg/apache/maven/execution/MavenSession;Lorg/apache/maven/lifecycle/internal/ReactorContext;Lorg/apache/maven/project/MavenProject;Lorg/apache/maven/lifecycle/internal/TaskSegment;)V+7
+j  org.apache.maven.lifecycle.internal.LifecycleStarter.singleThreadedBuild(Lorg/apache/maven/execution/MavenSession;Lorg/apache/maven/lifecycle/internal/ReactorContext;Lorg/apache/maven/lifecycle/internal/ProjectBuildList;Ljava/util/List;Lorg/apache/maven/lifecycle/internal/ReactorBuildStatus;)V+77
+j  org.apache.maven.lifecycle.internal.LifecycleStarter.execute(Lorg/apache/maven/execution/MavenSession;)V+421
+j  org.apache.maven.DefaultMaven.doExecute(Lorg/apache/maven/execution/MavenExecutionRequest;)Lorg/apache/maven/execution/MavenExecutionResult;+585
+j  org.apache.maven.DefaultMaven.execute(Lorg/apache/maven/execution/MavenExecutionRequest;)Lorg/apache/maven/execution/MavenExecutionResult;+11
+j  org.apache.maven.cli.MavenCli.execute(Lorg/apache/maven/cli/MavenCli$CliRequest;)I+8
+j  org.apache.maven.cli.MavenCli.doMain(Lorg/apache/maven/cli/MavenCli$CliRequest;)I+48
+j  org.apache.maven.cli.MavenCli.main([Ljava/lang/String;Lorg/codehaus/plexus/classworlds/ClassWorld;)I+18
+v  ~StubRoutines::call_stub
+V  [libjvm.so+0x3cfb21]
+V  [libjvm.so+0x5c5478]
+V  [libjvm.so+0x3cf94f]
+V  [libjvm.so+0x61ad5b]
+V  [libjvm.so+0x61e137]
+V  [libjvm.so+0x44d35f]
+C  [libjava.so+0x151d4]  Java_sun_reflect_NativeMethodAccessorImpl_invoke0+0x34
+j  sun.reflect.NativeMethodAccessorImpl.invoke0(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+0
+j  sun.reflect.NativeMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+87
+j  sun.reflect.DelegatingMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+6
+j  java.lang.reflect.Method.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+161
+j  org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced([Ljava/lang/String;)V+45
+j  org.codehaus.plexus.classworlds.launcher.Launcher.launch([Ljava/lang/String;)V+2
+j  org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode([Ljava/lang/String;)I+97
+j  org.codehaus.plexus.classworlds.launcher.Launcher.main([Ljava/lang/String;)V+1
+v  ~StubRoutines::call_stub
+V  [libjvm.so+0x3cfb21]
+V  [libjvm.so+0x5c5478]
+V  [libjvm.so+0x3cf94f]
+V  [libjvm.so+0x402ca4]
+V  [libjvm.so+0x3f2b4c]
+C  [java+0x1b98]  JavaMain+0x2c8
+C  [libpthread.so.0+0x596e]
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+J  java.util.zip.ZipFile.getEntry(JLjava/lang/String;Z)J
+j  java.util.zip.ZipFile.getEntry(Ljava/lang/String;)Ljava/util/zip/ZipEntry;+31
+j  java.util.jar.JarFile.getEntry(Ljava/lang/String;)Ljava/util/zip/ZipEntry;+2
+j  sun.net.www.protocol.jar.URLJarFile.getEntry(Ljava/lang/String;)Ljava/util/zip/ZipEntry;+2
+j  sun.net.www.protocol.jar.JarURLConnection.connect()V+62
+j  sun.net.www.protocol.jar.JarURLConnection.getInputStream()Ljava/io/InputStream;+1
+j  java.net.URL.openStream()Ljava/io/InputStream;+4
+j  org.sonatype.guice.bean.reflect.Streams.openStream(Ljava/net/URL;)Ljava/io/InputStream;+22
+j  org.sonatype.guice.bean.reflect.URLClassSpace.getClassPathEntries(Ljava/net/URL;)[Ljava/lang/String;+64
+j  org.sonatype.guice.bean.reflect.URLClassSpace.expandClassPath([Ljava/net/URL;)[Ljava/net/URL;+82
+j  org.sonatype.guice.bean.reflect.URLClassSpace.getClassPath()[Ljava/net/URL;+44
+j  org.sonatype.guice.bean.reflect.URLClassSpace.findEntries(Ljava/lang/String;Ljava/lang/String;Z)Ljava/util/Enumeration;+8
+j  org.sonatype.guice.plexus.scanners.PlexusXmlScanner.scan(Lorg/sonatype/guice/bean/reflect/ClassSpace;Z)Ljava/util/Map;+49
+j  org.sonatype.guice.plexus.binders.PlexusXmlBeanModule.configure(Lcom/google/inject/Binder;)Lorg/sonatype/guice/plexus/config/PlexusBeanSource;+45
+j  org.sonatype.guice.plexus.binders.PlexusBindingModule.configure()V+42
+j  com.google.inject.AbstractModule.configure(Lcom/google/inject/Binder;)V+31
+j  com.google.inject.spi.Elements$RecordingBinder.install(Lcom/google/inject/Module;)V+31
+j  com.google.inject.spi.Elements.getElements(Lcom/google/inject/Stage;Ljava/lang/Iterable;)Ljava/util/List;+40
+j  com.google.inject.spi.Elements.getElements([Lcom/google/inject/Module;)Ljava/util/List;+7
+j  org.sonatype.guice.bean.binders.MergedModule.configure(Lcom/google/inject/Binder;)V+48
+j  com.google.inject.spi.Elements$RecordingBinder.install(Lcom/google/inject/Module;)V+31
+j  com.google.inject.spi.Elements.getElements(Lcom/google/inject/Stage;Ljava/lang/Iterable;)Ljava/util/List;+40
+j  com.google.inject.internal.InjectorShell$Builder.build(Lcom/google/inject/internal/BindingProcessor;Lcom/google/inject/internal/util/$Stopwatch;Lcom/google/inject/internal/Errors;)Ljava/util/List;+175
+j  com.google.inject.internal.InternalInjectorCreator.build()Lcom/google/inject/Injector;+44
+j  com.google.inject.InjectorBuilder.build()Lcom/google/inject/Injector;+31
+j  com.google.inject.Guice.createInjector(Lcom/google/inject/Stage;Ljava/lang/Iterable;)Lcom/google/inject/Injector;+15
+j  com.google.inject.Guice.createInjector(Ljava/lang/Iterable;)Lcom/google/inject/Injector;+4
+j  com.google.inject.Guice.createInjector([Lcom/google/inject/Module;)Lcom/google/inject/Injector;+4
+j  org.codehaus.plexus.DefaultPlexusContainer.addPlexusInjector(Ljava/util/List;[Lcom/google/inject/Module;)V+88
+j  org.codehaus.plexus.DefaultPlexusContainer.discoverComponents(Lorg/codehaus/plexus/classworlds/realm/ClassRealm;)Ljava/util/List;+135
+j  org.apache.maven.plugin.internal.DefaultMavenPluginManager.createPluginRealm(Lorg/apache/maven/plugin/descriptor/PluginDescriptor;Lorg/apache/maven/execution/MavenSession;Ljava/lang/ClassLoader;Ljava/util/List;Lorg/sonatype/aether/graph/DependencyFilter;)V+306
+j  org.apache.maven.plugin.internal.DefaultMavenPluginManager.setupPluginRealm(Lorg/apache/maven/plugin/descriptor/PluginDescriptor;Lorg/apache/maven/execution/MavenSession;Ljava/lang/ClassLoader;Ljava/util/List;Lorg/sonatype/aether/graph/DependencyFilter;)V+93
+j  org.apache.maven.plugin.DefaultBuildPluginManager.getPluginRealm(Lorg/apache/maven/execution/MavenSession;Lorg/apache/maven/plugin/descriptor/PluginDescriptor;)Lorg/codehaus/plexus/classworlds/realm/ClassRealm;+20
+j  org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(Lorg/apache/maven/execution/MavenSession;Lorg/apache/maven/plugin/MojoExecution;)V+21
+j  org.apache.maven.lifecycle.internal.MojoExecutor.execute(Lorg/apache/maven/execution/MavenSession;Lorg/apache/maven/plugin/MojoExecution;Lorg/apache/maven/lifecycle/internal/ProjectIndex;Lorg/apache/maven/lifecycle/internal/DependencyContext;)V+181
+j  org.apache.maven.lifecycle.internal.MojoExecutor.execute(Lorg/apache/maven/execution/MavenSession;Lorg/apache/maven/plugin/MojoExecution;Lorg/apache/maven/lifecycle/internal/ProjectIndex;Lorg/apache/maven/lifecycle/internal/DependencyContext;Lorg/apache/maven/lifecycle/internal/PhaseRecorder;)V+6
+j  org.apache.maven.lifecycle.internal.MojoExecutor.execute(Lorg/apache/maven/execution/MavenSession;Ljava/util/List;Lorg/apache/maven/lifecycle/internal/ProjectIndex;)V+60
+j  org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(Lorg/apache/maven/execution/MavenSession;Lorg/apache/maven/execution/MavenSession;Lorg/apache/maven/lifecycle/internal/ReactorContext;Lorg/apache/maven/project/MavenProject;Lorg/apache/maven/lifecycle/internal/TaskSegment;)V+107
+j  org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(Lorg/apache/maven/execution/MavenSession;Lorg/apache/maven/lifecycle/internal/ReactorContext;Lorg/apache/maven/project/MavenProject;Lorg/apache/maven/lifecycle/internal/TaskSegment;)V+7
+j  org.apache.maven.lifecycle.internal.LifecycleStarter.singleThreadedBuild(Lorg/apache/maven/execution/MavenSession;Lorg/apache/maven/lifecycle/internal/ReactorContext;Lorg/apache/maven/lifecycle/internal/ProjectBuildList;Ljava/util/List;Lorg/apache/maven/lifecycle/internal/ReactorBuildStatus;)V+77
+j  org.apache.maven.lifecycle.internal.LifecycleStarter.execute(Lorg/apache/maven/execution/MavenSession;)V+421
+j  org.apache.maven.DefaultMaven.doExecute(Lorg/apache/maven/execution/MavenExecutionRequest;)Lorg/apache/maven/execution/MavenExecutionResult;+585
+j  org.apache.maven.DefaultMaven.execute(Lorg/apache/maven/execution/MavenExecutionRequest;)Lorg/apache/maven/execution/MavenExecutionResult;+11
+j  org.apache.maven.cli.MavenCli.execute(Lorg/apache/maven/cli/MavenCli$CliRequest;)I+8
+j  org.apache.maven.cli.MavenCli.doMain(Lorg/apache/maven/cli/MavenCli$CliRequest;)I+48
+j  org.apache.maven.cli.MavenCli.main([Ljava/lang/String;Lorg/codehaus/plexus/classworlds/ClassWorld;)I+18
+v  ~StubRoutines::call_stub
+j  sun.reflect.NativeMethodAccessorImpl.invoke0(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+0
+j  sun.reflect.NativeMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+87
+j  sun.reflect.DelegatingMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+6
+j  java.lang.reflect.Method.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+161
+j  org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced([Ljava/lang/String;)V+45
+j  org.codehaus.plexus.classworlds.launcher.Launcher.launch([Ljava/lang/String;)V+2
+j  org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode([Ljava/lang/String;)I+97
+j  org.codehaus.plexus.classworlds.launcher.Launcher.main([Ljava/lang/String;)V+1
+v  ~StubRoutines::call_stub
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x0a430c00 JavaThread "Keep-Alive-Timer" daemon [_thread_blocked, id=4861, stack(0x7dd4e000,0x7dd9f000)]
+  0x0a8c0400 JavaThread "[ThreadPool Manager] - Idle Thread" daemon [_thread_blocked, id=4190, stack(0x7e30d000,0x7e35e000)]
+  0x09df4000 JavaThread "Worker-2" [_thread_blocked, id=4186, stack(0x7e3af000,0x7e400000)]
+  0x7e621000 JavaThread "Worker-1" [_thread_blocked, id=4185, stack(0x7e70d000,0x7e75e000)]
+  0x7e0b0000 JavaThread "MultiThreadedHttpConnectionManager cleanup" daemon [_thread_blocked, id=4184, stack(0x7e7af000,0x7e800000)]
+  0x7eff6000 JavaThread "Worker-JM" [_thread_blocked, id=4180, stack(0x7eb0e000,0x7eb5f000)]
+  0x0a5ff400 JavaThread "[Timer] - Main Queue Handler" daemon [_thread_blocked, id=4179, stack(0x7f6af000,0x7f700000)]
+  0x0a110000 JavaThread "Framework Event Dispatcher" daemon [_thread_blocked, id=4177, stack(0x7f641000,0x7f692000)]
+  0x0a0fc800 JavaThread "Start Level Event Dispatcher" daemon [_thread_blocked, id=4176, stack(0x7f3af000,0x7f400000)]
+  0x09bdf800 JavaThread "State Data Manager" daemon [_thread_blocked, id=4175, stack(0x7f35e000,0x7f3af000)]
+  0x7fb02400 JavaThread "Low Memory Detector" daemon [_thread_blocked, id=4108, stack(0x7faaf000,0x7fb00000)]
+  0x7fb00800 JavaThread "CompilerThread1" daemon [_thread_blocked, id=4107, stack(0x7fc26000,0x7fca7000)]
+  0x09bc4000 JavaThread "CompilerThread0" daemon [_thread_blocked, id=4106, stack(0x7fca7000,0x7fd28000)]
+  0x09bc2800 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=4105, stack(0x7fd28000,0x7fd79000)]
+  0x09bb3400 JavaThread "Finalizer" daemon [_thread_blocked, id=4104, stack(0x7fdb8000,0x7fe09000)]
+  0x09baec00 JavaThread "Reference Handler" daemon [_thread_blocked, id=4103, stack(0x7fe09000,0x7fe5a000)]
+=>0x09b2f400 JavaThread "main" [_thread_in_native, id=4099, stack(0xb69ba000,0xb6a0b000)]
+
+Other Threads:
+  0x09baac00 VMThread [stack: 0x7fe5a000,0x7fedb000] [id=4102]
+  0x7fb04800 WatcherThread [stack: 0x7fa2e000,0x7faaf000] [id=4109]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap
+ PSYoungGen      total 244608K, used 28316K [0xa3c60000, 0xb3860000, 0xb3860000)
+  eden space 231168K, 8% used [0xa3c60000,0xa5069f88,0xb1e20000)
+  from space 13440K, 58% used [0xb1e20000,0xb25bd3f0,0xb2b40000)
+  to   space 13248K, 0% used [0xb2b70000,0xb2b70000,0xb3860000)
+ PSOldGen        total 87872K, used 74268K [0x84460000, 0x89a30000, 0xa3c60000)
+  object space 87872K, 84% used [0x84460000,0x88ce71e0,0x89a30000)
+ PSPermGen       total 46144K, used 46027K [0x80460000, 0x83170000, 0x84460000)
+  object space 46144K, 99% used [0x80460000,0x83152e48,0x83170000)
+
+Dynamic libraries:
+08048000-08052000 r-xp 00000000 08:01 4933368    /usr/lib/jvm/java-6-sun-1.6.0.24/jre/bin/java
+08052000-08053000 rwxp 00009000 08:01 4933368    /usr/lib/jvm/java-6-sun-1.6.0.24/jre/bin/java
+09b29000-0b984000 rwxp 00000000 00:00 0          [heap]
+7c600000-7c6e1000 rwxp 00000000 00:00 0 
+7c6e1000-7c700000 ---p 00000000 00:00 0 
+7c800000-7c8fe000 rwxp 00000000 00:00 0 
+7c8fe000-7c900000 ---p 00000000 00:00 0 
+7c900000-7c9fc000 rwxp 00000000 00:00 0 
+7c9fc000-7ca00000 ---p 00000000 00:00 0 
+7ca00000-7caf4000 rwxp 00000000 00:00 0 
+7caf4000-7cb00000 ---p 00000000 00:00 0 
+7cc00000-7ccfe000 rwxp 00000000 00:00 0 
+7ccfe000-7cd00000 ---p 00000000 00:00 0 
+7cd00000-7ce00000 rwxp 00000000 00:00 0 
+7ce00000-7cefb000 rwxp 00000000 00:00 0 
+7cefb000-7cf00000 ---p 00000000 00:00 0 
+7d100000-7d1ff000 rwxp 00000000 00:00 0 
+7d1ff000-7d200000 ---p 00000000 00:00 0 
+7d300000-7d3fb000 rwxp 00000000 00:00 0 
+7d3fb000-7d400000 ---p 00000000 00:00 0 
+7d400000-7d4f8000 rwxp 00000000 00:00 0 
+7d4f8000-7d500000 ---p 00000000 00:00 0 
+7d500000-7d6dd000 rwxp 00000000 00:00 0 
+7d6dd000-7d700000 ---p 00000000 00:00 0 
+7d700000-7d7ff000 rwxp 00000000 00:00 0 
+7d7ff000-7d800000 ---p 00000000 00:00 0 
+7d800000-7d8fe000 rwxp 00000000 00:00 0 
+7d8fe000-7d900000 ---p 00000000 00:00 0 
+7d900000-7d9fc000 rwxp 00000000 00:00 0 
+7d9fc000-7da00000 ---p 00000000 00:00 0 
+7da5e000-7da61000 ---p 00000000 00:00 0 
+7da61000-7daaf000 rwxp 00000000 00:00 0 
+7daaf000-7dab2000 ---p 00000000 00:00 0 
+7dab2000-7db00000 rwxp 00000000 00:00 0 
+7db00000-7dbef000 rwxp 00000000 00:00 0 
+7dbef000-7dc00000 ---p 00000000 00:00 0 
+7dc00000-7dcf5000 rwxp 00000000 00:00 0 
+7dcf5000-7dd00000 ---p 00000000 00:00 0 
+7dd1c000-7dd1d000 r-xs 00003000 08:01 4825358    /home/count0/.m2/repository/org/sonatype/tycho/tycho-p2-publisher-plugin/0.11.0-SNAPSHOT/tycho-p2-publisher-plugin-0.11.0-SNAPSHOT.jar
+7dd1d000-7dd1f000 r-xs 00002000 08:01 4825351    /home/count0/.m2/repository/org/sonatype/tycho/tycho-p2-plugin/0.11.0-SNAPSHOT/tycho-p2-plugin-0.11.0-SNAPSHOT.jar
+7dd1f000-7dd48000 r-xs 00425000 08:01 4825278    /home/count0/.m2/repository/org/sonatype/tycho/org.eclipse.jdt.core/3.6.1.v_A68_R36x/org.eclipse.jdt.core-3.6.1.v_A68_R36x.jar
+7dd48000-7dd4a000 r-xs 00001000 08:01 4825281    /home/count0/.m2/repository/org/sonatype/tycho/tycho-compiler-jdt/0.11.0-SNAPSHOT/tycho-compiler-jdt-0.11.0-SNAPSHOT.jar
+7dd4a000-7dd4b000 r-xs 00004000 08:01 3842168    /home/count0/.m2/repository/org/codehaus/plexus/plexus-compiler-api/1.6/plexus-compiler-api-1.6.jar
+7dd4b000-7dd4d000 r-xs 00000000 08:01 3883922    /home/count0/.m2/repository/org/codehaus/plexus/plexus-compiler-manager/1.6/plexus-compiler-manager-1.6.jar
+7dd4d000-7dd4e000 r-xs 00005000 08:01 4825287    /home/count0/.m2/repository/org/sonatype/tycho/maven-osgi-compiler-plugin/0.11.0-SNAPSHOT/maven-osgi-compiler-plugin-0.11.0-SNAPSHOT.jar
+7dd4e000-7dd51000 ---p 00000000 00:00 0 
+7dd51000-7dd9f000 rwxp 00000000 00:00 0 
+7dd9f000-7dda2000 ---p 00000000 00:00 0 
+7dda2000-7ddf0000 rwxp 00000000 00:00 0 
+7ddf0000-7ddf2000 r-xs 0000d000 08:01 5432519    /home/count0/.m2/repository/org/codehaus/plexus/plexus-interpolation/1.13/plexus-interpolation-1.13.jar
+7ddf2000-7ddf3000 r-xs 00001000 08:01 5390436    /home/count0/.m2/repository/org/sonatype/plexus/plexus-build-api/0.0.4/plexus-build-api-0.0.4.jar
+7ddf3000-7ddf5000 r-xs 00007000 08:01 4997125    /home/count0/.m2/repository/org/apache/maven/shared/maven-filtering/1.0-beta-4/maven-filtering-1.0-beta-4.jar
+7ddf5000-7ddf7000 r-xs 00002000 08:01 4104513    /home/count0/.m2/repository/org/codehaus/plexus/plexus-interactivity-api/1.0-alpha-4/plexus-interactivity-api-1.0-alpha-4.jar
+7ddf7000-7de00000 r-xs 00075000 08:01 5005938    /home/count0/.m2/repository/org/apache/maven/surefire/surefire-api/2.4.3/surefire-api-2.4.3.jar
+7de00000-7dee1000 rwxp 00000000 00:00 0 
+7dee1000-7df00000 ---p 00000000 00:00 0 
+7df00000-7e000000 rwxp 00000000 00:00 0 
+7e000000-7e0e3000 rwxp 00000000 00:00 0 
+7e0e3000-7e100000 ---p 00000000 00:00 0 
+7e100000-7e1e1000 rwxp 00000000 00:00 0 
+7e1e1000-7e200000 ---p 00000000 00:00 0 
+7e200000-7e2f8000 rwxp 00000000 00:00 0 
+7e2f8000-7e300000 ---p 00000000 00:00 0 
+7e300000-7e302000 r-xs 00006000 08:01 4104509    /home/count0/.m2/repository/commons-cli/commons-cli/1.0/commons-cli-1.0.jar
+7e302000-7e303000 r-xs 00001000 08:01 4129819    /home/count0/.m2/repository/org/apache/maven/doxia/doxia-sink-api/1.0-alpha-7/doxia-sink-api-1.0-alpha-7.jar
+7e303000-7e304000 r-xs 00002000 08:01 4129771    /home/count0/.m2/repository/org/apache/maven/reporting/maven-reporting-api/2.0.6/maven-reporting-api-2.0.6.jar
+7e304000-7e305000 r-xs 00005000 08:01 4571447    /home/count0/.m2/repository/org/apache/maven/plugins/maven-resources-plugin/2.4.3/maven-resources-plugin-2.4.3.jar
+7e305000-7e307000 r-xs 00002000 08:01 4129517    /home/count0/.m2/repository/org/apache/maven/shared/maven-osgi/0.2.0/maven-osgi-0.2.0.jar
+7e307000-7e30d000 r-xs 0003c000 08:01 5005935    /home/count0/.m2/repository/org/apache/maven/surefire/surefire-booter/2.4.3/surefire-booter-2.4.3.jar
+7e30d000-7e310000 ---p 00000000 00:00 0 
+7e310000-7e35e000 rwxp 00000000 00:00 0 
+7e35e000-7e361000 ---p 00000000 00:00 0 
+7e361000-7e3af000 rwxp 00000000 00:00 0 
+7e3af000-7e3b2000 ---p 00000000 00:00 0 
+7e3b2000-7e400000 rwxp 00000000 00:00 0 
+7e400000-7e4ec000 rwxp 00000000 00:00 0 
+7e4ec000-7e500000 ---p 00000000 00:00 0 
+7e500000-7e5e2000 rwxp 00000000 00:00 0 
+7e5e2000-7e600000 ---p 00000000 00:00 0 
+7e600000-7e6fd000 rwxp 00000000 00:00 0 
+7e6fd000-7e700000 ---p 00000000 00:00 0 
+7e700000-7e702000 r-xs 00025000 08:01 4571457    /home/count0/.m2/repository/biz/aQute/bndlib/0.0.236/bndlib-0.0.236.jar
+7e702000-7e706000 r-xs 0002f000 08:01 4104656    /home/count0/.m2/repository/commons-lang/commons-lang/2.1/commons-lang-2.1.jar
+7e706000-7e709000 r-xs 00016000 08:01 4556527    /home/count0/.m2/repository/org/sonatype/tycho/maven-osgi-packaging-plugin/0.11.0-SNAPSHOT/maven-osgi-packaging-plugin-0.11.0-SNAPSHOT.jar
+7e709000-7e70a000 r-xs 00002000 08:01 4104713    /home/count0/.m2/repository/org/codehaus/plexus/plexus-digest/1.0/plexus-digest-1.0.jar
+7e70a000-7e70d000 r-xs 0001b000 08:01 3687122    /home/count0/.m2/repository/junit/junit/3.8.1/junit-3.8.1.jar
+7e70d000-7e710000 ---p 00000000 00:00 0 
+7e710000-7e75e000 rwxp 00000000 00:00 0 
+7e75e000-7e761000 ---p 00000000 00:00 0 
+7e761000-7e7af000 rwxp 00000000 00:00 0 
+7e7af000-7e7b2000 ---p 00000000 00:00 0 
+7e7b2000-7e800000 rwxp 00000000 00:00 0 
+7e800000-7e8f7000 rwxp 00000000 00:00 0 
+7e8f7000-7e900000 ---p 00000000 00:00 0 
+7e900000-7e9f3000 rwxp 00000000 00:00 0 
+7e9f3000-7ea00000 ---p 00000000 00:00 0 
+7ea00000-7eafe000 rwxp 00000000 00:00 0 
+7eafe000-7eb00000 ---p 00000000 00:00 0 
+7eb00000-7eb01000 r-xs 00004000 08:01 4161681    /home/count0/.m2/repository/org/apache/maven/maven-archiver/2.4/maven-archiver-2.4.jar
+7eb01000-7eb02000 r-xs 00005000 08:01 4507818    /home/count0/.m2/repository/org/apache/maven/plugins/maven-install-plugin/2.3.1/maven-install-plugin-2.3.1.jar
+7eb02000-7eb06000 r-xs 00033000 08:01 3924033    /home/count0/.m2/repository/org/codehaus/plexus/plexus-utils/2.0.5/plexus-utils-2.0.5.jar
+7eb06000-7eb07000 r-xs 00005000 08:01 4571484    /home/count0/.m2/repository/org/apache/maven/plugins/maven-clean-plugin/2.4.1/maven-clean-plugin-2.4.1.jar
+7eb07000-7eb0e000 r-xs 00094000 08:01 4849672    /usr/lib/jvm/java-6-sun-1.6.0.24/jre/lib/jsse.jar
+7eb0e000-7eb11000 ---p 00000000 00:00 0 
+7eb11000-7eb5f000 rwxp 00000000 00:00 0 
+7eb5f000-7eb62000 r-xs 00013000 08:01 4849673    /usr/lib/jvm/java-6-sun-1.6.0.24/jre/lib/jce.jar
+7eb62000-7eb67000 r-xs 0003f000 08:01 2941073    /home/count0/.m2/repository/org/sonatype/tycho/tycho-p2-runtime/0.11.0-SNAPSHOT/eclipse/plugins/org.eclipse.equinox.p2.publisher_1.1.2.v201012021428.jar
+7eb67000-7eb69000 r-xs 00003000 08:01 4825174    /home/count0/.m2/repository/org/sonatype/tycho/org.sonatype.tycho.p2.tools.impl/0.11.0-SNAPSHOT/org.sonatype.tycho.p2.tools.impl-0.11.0-SNAPSHOT.jar
+7eb69000-7eb6b000 r-xs 0000e000 08:01 4532700    /home/count0/.m2/repository/org/sonatype/tycho/org.sonatype.tycho.p2.maven.repository/0.11.0-SNAPSHOT/org.sonatype.tycho.p2.maven.repository-0.11.0-SNAPSHOT.jar
+7eb6b000-7eb6e000 r-xs 00011000 08:01 4556519    /home/count0/.m2/repository/org/sonatype/tycho/org.sonatype.tycho.p2.impl/0.11.0-SNAPSHOT/org.sonatype.tycho.p2.impl-0.11.0-SNAPSHOT.jar
+7eb6e000-7eb71000 r-xs 0000a000 08:01 4825376    /home/count0/.m2/repository/org/sonatype/tycho/tycho-p2-runtime/0.11.0-SNAPSHOT/eclipse/plugins/org.eclipse.ecf.filetransfer_4.0.0.v20100906-1425.jar
+7eb71000-7eb73000 r-xs 0000a000 08:01 4825377    /home/count0/.m2/repository/org/sonatype/tycho/tycho-p2-runtime/0.11.0-SNAPSHOT/eclipse/plugins/org.eclipse.equinox.launcher_1.1.1.R36x_v20101122_1400.jar
+7eb73000-7eb77000 r-xs 00028000 08:01 4825378    /home/count0/.m2/repository/org/sonatype/tycho/tycho-p2-runtime/0.11.0-SNAPSHOT/eclipse/plugins/org.eclipse.equinox.p2.engine_2.0.0.v20100606.jar
+7eb77000-7eb78000 r-xs 00000000 08:01 4825379    /home/count0/.m2/repository/org/sonatype/tycho/tycho-p2-runtime/0.11.0-SNAPSHOT/eclipse/plugins/org.sonatype.tycho.noopsecurity_0.11.0.201101281506.jar
+7eb78000-7eb7a000 r-xs 0000f000 08:01 4825380    /home/count0/.m2/repository/org/sonatype/tycho/tycho-p2-runtime/0.11.0-SNAPSHOT/eclipse/plugins/org.eclipse.ecf.provider.filetransfer.httpclient_4.0.0.v20100906-1425.jar
+7eb7a000-7eb7b000 r-xs 00005000 08:01 4825382    /home/count0/.m2/repository/org/sonatype/tycho/tycho-p2-runtime/0.11.0-SNAPSHOT/eclipse/plugins/org.eclipse.equinox.p2.garbagecollector_1.0.100.v20100503.jar
+7eb7b000-7eb7d000 r-xs 00016000 08:01 4825384    /home/count0/.m2/repository/org/sonatype/tycho/tycho-p2-runtime/0.11.0-SNAPSHOT/eclipse/plugins/org.eclipse.equinox.p2.director_2.0.3.R36x_v20101117-1018.jar
+7eb7d000-7eb80000 r-xs 00014000 08:01 4825385    /home/count0/.m2/repository/org/sonatype/tycho/tycho-p2-runtime/0.11.0-SNAPSHOT/eclipse/plugins/org.eclipse.core.jobs_3.5.1.R36x_v20100824.jar
+7eb80000-7eb84000 r-xs 00021000 08:01 4825386    /home/count0/.m2/repository/org/sonatype/tycho/tycho-p2-runtime/0.11.0-SNAPSHOT/eclipse/plugins/org.eclipse.equinox.p2.repository_2.0.2.R36x_v20110111-1500.jar
+7eb84000-7eb88000 r-xs 00034000 08:01 4825387    /home/count0/.m2/repository/org/sonatype/tycho/tycho-p2-runtime/0.11.0-SNAPSHOT/eclipse/plugins/org.eclipse.equinox.p2.repository.tools_2.0.1.R36x_v20100823.jar
+7eb88000-7eb8b000 r-xs 00019000 08:01 4825389    /home/count0/.m2/repository/org/sonatype/tycho/tycho-p2-runtime/0.11.0-SNAPSHOT/eclipse/plugins/org.eclipse.equinox.preferences_3.3.0.v20100503.jar
+7eb8b000-7eb8d000 r-xs 0000a000 08:01 4825390    /home/count0/.m2/repository/org/sonatype/tycho/tycho-p2-runtime/0.11.0-SNAPSHOT/eclipse/plugins/org.apache.commons.logging_1.0.4.v201005080501.jar
+7eb8d000-7eb8e000 r-xs 00005000 08:01 4825391    /home/count0/.m2/repository/org/sonatype/tycho/tycho-p2-runtime/0.11.0-SNAPSHOT/eclipse/plugins/org.eclipse.equinox.simpleconfigurator.manipulator_2.0.0.v20100503.jar
+7eb8e000-7eb90000 r-xs 0000c000 08:01 4825423    /home/count0/.m2/repository/org/sonatype/tycho/tycho-p2-runtime/0.11.0-SNAPSHOT/eclipse/plugins/org.eclipse.ecf.identity_3.1.0.v20100906-1425.jar
+7eb90000-7eb92000 r-xs 0000c000 08:01 4825422    /home/count0/.m2/repository/org/sonatype/tycho/tycho-p2-runtime/0.11.0-SNAPSHOT/eclipse/plugins/org.apache.commons.codec_1.3.0.v20100518-1140.jar
+7eb92000-7eb93000 r-xs 0000e000 08:01 4825421    /home/count0/.m2/repository/org/sonatype/tycho/tycho-p2-runtime/0.11.0-SNAPSHOT/eclipse/plugins/org.eclipse.equinox.frameworkadmin.equinox_1.0.200.v20100505.jar
+7eb93000-7eb95000 r-xs 00010000 08:01 4825420    /home/count0/.m2/repository/org/sonatype/tycho/tycho-p2-runtime/0.11.0-SNAPSHOT/eclipse/plugins/org.eclipse.core.runtime_3.6.0.v20100505.jar
+7eb95000-7eb97000 r-xs 0000f000 08:01 4825419    /home/count0/.m2/repository/org/sonatype/tycho/tycho-p2-runtime/0.11.0-SNAPSHOT/eclipse/plugins/org.eclipse.equinox.p2.jarprocessor_1.0.200.v20100503a.jar
+7eb97000-7eb9a000 r-xs 00017000 08:01 4825418    /home/count0/.m2/repository/org/sonatype/tycho/tycho-p2-runtime/0.11.0-SNAPSHOT/eclipse/plugins/org.eclipse.equinox.security_1.0.200.v20100503.jar
+7eb9a000-7eb9d000 r-xs 00018000 08:01 4825417    /home/count0/.m2/repository/org/sonatype/tycho/tycho-p2-runtime/0.11.0-SNAPSHOT/eclipse/plugins/org.eclipse.equinox.p2.metadata.repository_1.1.0.v20100513.jar
+7eb9d000-7eba0000 r-xs 0001c000 08:01 4825416    /home/count0/.m2/repository/org/sonatype/tycho/tycho-p2-runtime/0.11.0-SNAPSHOT/eclipse/plugins/org.eclipse.equinox.p2.artifact.repository_1.1.1.R36x_v20100901.jar
+7eba0000-7eba2000 r-xs 00003000 08:01 4825415    /home/count0/.m2/repository/org/sonatype/tycho/tycho-p2-runtime/0.11.0-SNAPSHOT/eclipse/plugins/org.eclipse.ecf.provider.filetransfer.httpclient.ssl_1.0.0.v20100906-1425.jar
+7eba2000-7eba7000 r-xs 0002b000 08:01 4825414    /home/count0/.m2/repository/org/sonatype/tycho/tycho-p2-runtime/0.11.0-SNAPSHOT/eclipse/plugins/org.sat4j.core_2.2.0.v20100429.jar
+7eba7000-7ebaf000 r-xs 00049000 08:01 4825412    /home/count0/.m2/repository/org/sonatype/tycho/tycho-p2-runtime/0.11.0-SNAPSHOT/eclipse/plugins/org.eclipse.equinox.p2.metadata_2.0.1.R36x_v20101202.jar
+7ebaf000-7ebb1000 r-xs 00012000 08:01 4825411    /home/count0/.m2/repository/org/sonatype/tycho/tycho-p2-runtime/0.11.0-SNAPSHOT/eclipse/plugins/org.eclipse.equinox.p2.updatesite_1.0.201.R36x_v20100823.jar
+7ebb1000-7ebb4000 r-xs 0001a000 08:01 4825410    /home/count0/.m2/repository/org/sonatype/tycho/tycho-p2-runtime/0.11.0-SNAPSHOT/eclipse/plugins/org.eclipse.equinox.p2.touchpoint.eclipse_2.0.3.R36x_v20101202.jar
+7ebb4000-7ebb8000 r-xs 00014000 08:01 4825409    /home/count0/.m2/repository/org/sonatype/tycho/tycho-p2-runtime/0.11.0-SNAPSHOT/eclipse/plugins/org.eclipse.ecf_3.1.0.v20100906-1425.jar
+7ebb8000-7ebbb000 r-xs 0000e000 08:01 4825408    /home/count0/.m2/repository/org/sonatype/tycho/tycho-p2-runtime/0.11.0-SNAPSHOT/eclipse/plugins/org.eclipse.core.net_1.2.100.I20100511-0800.jar
+7ebbb000-7ebc1000 r-xs 00049000 08:01 4825407    /home/count0/.m2/repository/org/sonatype/tycho/tycho-p2-runtime/0.11.0-SNAPSHOT/eclipse/plugins/org.apache.commons.httpclient_3.1.0.v201005080502.jar
+7ebc1000-7ebc2000 r-xs 00002000 08:01 4825394    /home/count0/.m2/repository/org/sonatype/tycho/tycho-p2-runtime/0.11.0-SNAPSHOT/eclipse/plugins/org.eclipse.ecf.ssl_1.0.100.v20100906-1425.jar
+7ebc2000-7ebc4000 r-xs 00001000 08:01 4825392    /home/count0/.m2/repository/org/sonatype/tycho/tycho-p2-runtime/0.11.0-SNAPSHOT/eclipse/plugins/org.eclipse.ecf.provider.filetransfer.ssl_1.0.0.v20100906-1425.jar
+7ebc4000-7ebc7000 r-xs 0001c000 08:01 4825395    /home/count0/.m2/repository/org/sonatype/tycho/tycho-p2-runtime/0.11.0-SNAPSHOT/eclipse/plugins/org.eclipse.ecf.provider.filetransfer_3.1.0.v20100906-1425.jar
+7ebc7000-7ebc9000 r-xs 0000c000 08:01 4825396    /home/count0/.m2/repository/org/sonatype/tycho/tycho-p2-runtime/0.11.0-SNAPSHOT/eclipse/plugins/org.eclipse.equinox.p2.director.app_1.0.201.R36x_v20100823.jar
+7ebc9000-7ebcb000 r-xs 00007000 08:01 4825397    /home/count0/.m2/repository/org/sonatype/tycho/tycho-p2-runtime/0.11.0-SNAPSHOT/eclipse/plugins/org.eclipse.equinox.frameworkadmin_2.0.0.v20100503.jar
+7ebcb000-7ebce000 r-xs 00014000 08:01 4825398    /home/count0/.m2/repository/org/sonatype/tycho/tycho-p2-runtime/0.11.0-SNAPSHOT/eclipse/plugins/org.eclipse.core.contenttype_3.4.100.v20100505-1235.jar
+7ebce000-7ebd1000 r-xs 0000e000 08:01 4825400    /home/count0/.m2/repository/org/sonatype/tycho/tycho-p2-runtime/0.11.0-SNAPSHOT/eclipse/plugins/org.eclipse.equinox.p2.core_2.0.3.R36x_v20110111.jar
+7ebd1000-7ebd4000 r-xs 0001b000 08:01 4825405    /home/count0/.m2/repository/org/sonatype/tycho/tycho-p2-runtime/0.11.0-SNAPSHOT/eclipse/plugins/org.sat4j.pb_2.2.0.v20100429.jar
+7ebd4000-7ebd8000 r-xs 00029000 08:01 4825413    /home/count0/.m2/repository/org/sonatype/tycho/tycho-p2-runtime/0.11.0-SNAPSHOT/eclipse/plugins/org.eclipse.equinox.registry_3.5.0.v20100503.jar
+7ebd8000-7ebda000 r-xs 00003000 08:01 4825388    /home/count0/.m2/repository/org/sonatype/tycho/tycho-p2-runtime/0.11.0-SNAPSHOT/eclipse/plugins/org.eclipse.core.runtime.compatibility.registry_3.3.0.v20100520.jar
+7ebda000-7ebdc000 r-xs 00017000 08:01 4825375    /home/count0/.m2/repository/org/sonatype/tycho/tycho-p2-runtime/0.11.0-SNAPSHOT/eclipse/plugins/org.eclipse.equinox.common_3.6.0.v20100503.jar
+7ebdc000-7ebde000 r-xs 00013000 08:01 4825406    /home/count0/.m2/repository/org/sonatype/tycho/tycho-p2-runtime/0.11.0-SNAPSHOT/eclipse/plugins/org.eclipse.equinox.app_1.3.1.R36x_v20100803.jar
+7ebde000-7ebe0000 r-xs 00008000 08:01 4825404    /home/count0/.m2/repository/org/sonatype/tycho/tycho-p2-runtime/0.11.0-SNAPSHOT/eclipse/plugins/org.eclipse.equinox.simpleconfigurator_1.0.200.v20100503.jar
+7ebe0000-7ebe2000 r-xs 0000b000 08:01 4825403    /home/count0/.m2/repository/org/sonatype/tycho/tycho-p2-runtime/0.11.0-SNAPSHOT/eclipse/plugins/org.eclipse.equinox.p2.touchpoint.natives_1.0.201.R36x_v20110111.jar
+7ebe2000-7ebe5000 r-xs 0000e000 08:01 4825381    /home/count0/.m2/repository/org/sonatype/tycho/tycho-p2-runtime/0.11.0-SNAPSHOT/eclipse/plugins/org.eclipse.osgi.services_3.2.100.v20100503.jar
+7ebe5000-7ebe7000 r-xs 00011000 08:01 4825424    /home/count0/.m2/repository/org/sonatype/tycho/tycho-p2-runtime/0.11.0-SNAPSHOT/eclipse/plugins/org.eclipse.equinox.util_1.0.200.v20100503.jar
+7ebe7000-7ebe9000 r-xs 0002b000 08:01 4825393    /home/count0/.m2/repository/org/sonatype/tycho/tycho-p2-runtime/0.11.0-SNAPSHOT/eclipse/plugins/org.eclipse.equinox.ds_1.2.1.R36x_v20100803.jar
+7ebe9000-7ebeb000 r-xs 00001000 08:01 4825156    /home/count0/.m2/repository/org/sonatype/tycho/org.sonatype.tycho.p2.tools.facade/0.11.0-SNAPSHOT/org.sonatype.tycho.p2.tools.facade-0.11.0-SNAPSHOT.jar
+7ebeb000-7ebed000 r-xs 00003000 08:01 4516321    /home/count0/.m2/repository/org/sonatype/tycho/org.sonatype.tycho.p2/0.11.0-SNAPSHOT/org.sonatype.tycho.p2-0.11.0-SNAPSHOT.jar
+7ebed000-7ebef000 r-xs 00001000 08:01 4825217    /home/count0/.m2/repository/org/sonatype/tycho/tycho-equinox/0.11.0-SNAPSHOT/tycho-equinox-0.11.0-SNAPSHOT.jar
+7ebef000-7ec00000 r-xs 00108000 08:01 4825214    /home/count0/.m2/repository/org/sonatype/tycho/org.eclipse.osgi/3.6.1.R36x_v20100806/org.eclipse.osgi-3.6.1.R36x_v20100806.jar
+7ec00000-7ecf0000 rwxp 00000000 00:00 0 
+7ecf0000-7ed00000 ---p 00000000 00:00 0 
+7ed00000-7edf6000 rwxp 00000000 00:00 0 
+7edf6000-7ee00000 ---p 00000000 00:00 0 
+7ee00000-7eff7000 rwxp 00000000 00:00 0 
+7eff7000-7f000000 ---p 00000000 00:00 0 
+7f000000-7f1fc000 rwxp 00000000 00:00 0 
+7f1fc000-7f200000 ---p 00000000 00:00 0 
+7f200000-7f2ff000 rwxp 00000000 00:00 0 
+7f2ff000-7f300000 ---p 00000000 00:00 0 
+7f300000-7f302000 r-xs 00004000 08:01 4825253    /home/count0/.m2/repository/org/sonatype/tycho/tycho-equinox-launching/0.11.0-SNAPSHOT/tycho-equinox-launching-0.11.0-SNAPSHOT.jar
+7f302000-7f30d000 r-xs 00069000 08:01 4767975    /home/count0/.m2/repository/org/sonatype/sisu/sisu-guice/2.1.7/sisu-guice-2.1.7-noaop.jar
+7f30d000-7f310000 ---p 00000000 00:00 0 
+7f310000-7f35e000 rwxp 00000000 00:00 0 
+7f35e000-7f361000 ---p 00000000 00:00 0 
+7f361000-7f3af000 rwxp 00000000 00:00 0 
+7f3af000-7f3b2000 ---p 00000000 00:00 0 
+7f3b2000-7f400000 rwxp 00000000 00:00 0 
+7f400000-7f4ff000 rwxp 00000000 00:00 0 
+7f4ff000-7f500000 ---p 00000000 00:00 0 
+7f500000-7f5f9000 rwxp 00000000 00:00 0 
+7f5f9000-7f600000 ---p 00000000 00:00 0 
+7f600000-7f605000 r-xs 00021000 08:01 4767976    /home/count0/.m2/repository/org/sonatype/sisu/sisu-inject-bean/1.4.2/sisu-inject-bean-1.4.2.jar
+7f605000-7f607000 r-xs 00000000 08:01 4677872    /home/count0/.m2/repository/org/codehaus/plexus/plexus-component-annotations/1.5.5/plexus-component-annotations-1.5.5.jar
+7f607000-7f609000 r-xs 00007000 08:01 4825263    /home/count0/.m2/repository/org/sonatype/tycho/tycho-p2-facade/0.11.0-SNAPSHOT/tycho-p2-facade-0.11.0-SNAPSHOT.jar
+7f609000-7f60b000 r-xs 00001000 08:01 4825232    /home/count0/.m2/repository/org/sonatype/tycho/tycho-embedder-api/0.11.0-SNAPSHOT/tycho-embedder-api-0.11.0-SNAPSHOT.jar
+7f60b000-7f60d000 r-xs 00006000 08:01 4825224    /home/count0/.m2/repository/org/sonatype/tycho/tycho-metadata-model/0.11.0-SNAPSHOT/tycho-metadata-model-0.11.0-SNAPSHOT.jar
+7f60d000-7f610000 r-xs 00019000 08:01 4694066    /home/count0/.m2/repository/de/pdark/decentxml/1.3/decentxml-1.3.jar
+7f610000-7f620000 r-xp 00000000 08:01 4489905    /lib/tls/i686/cmov/libresolv-2.11.1.so
+7f620000-7f621000 r-xp 00010000 08:01 4489905    /lib/tls/i686/cmov/libresolv-2.11.1.so
+7f621000-7f622000 rwxp 00011000 08:01 4489905    /lib/tls/i686/cmov/libresolv-2.11.1.so
+7f622000-7f624000 rwxp 00000000 00:00 0 
+7f624000-7f628000 r-xp 00000000 08:01 4489897    /lib/tls/i686/cmov/libnss_dns-2.11.1.so
+7f628000-7f629000 r-xp 00004000 08:01 4489897    /lib/tls/i686/cmov/libnss_dns-2.11.1.so
+7f629000-7f62a000 rwxp 00005000 08:01 4489897    /lib/tls/i686/cmov/libnss_dns-2.11.1.so
+7f62a000-7f62b000 r-xs 00002000 08:01 4825441    /home/count0/.m2/repository/org/sonatype/tycho/tycho-p2-runtime/0.11.0-SNAPSHOT/eclipse/configuration/org.eclipse.osgi/bundles/34/1/.cp/runtime_registry_compatibility.jar
+7f62b000-7f62c000 r-xs 00000000 08:01 4825204    /home/count0/.m2/repository/org/sonatype/tycho/tycho-equinox-api/0.11.0-SNAPSHOT/tycho-equinox-api-0.11.0-SNAPSHOT.jar
+7f62c000-7f62e000 r-xs 0000a000 08:01 4161685    /home/count0/.m2/repository/org/codehaus/plexus/plexus-io/1.0-alpha-4/plexus-io-1.0-alpha-4.jar
+7f62e000-7f632000 r-xs 00028000 08:01 4161683    /home/count0/.m2/repository/org/codehaus/plexus/plexus-archiver/1.0-alpha-12/plexus-archiver-1.0-alpha-12.jar
+7f632000-7f636000 r-xs 00033000 08:01 4677890    /home/count0/.m2/repository/org/codehaus/plexus/plexus-utils/2.0.4/plexus-utils-2.0.4.jar
+7f636000-7f638000 r-xs 00002000 08:01 5447690    /home/count0/.m2/repository/org/sonatype/plexus/plexus-cipher/1.4/plexus-cipher-1.4.jar
+7f638000-7f63a000 r-xs 0000d000 08:01 4556505    /home/count0/.m2/repository/org/codehaus/plexus/plexus-interpolation/1.14/plexus-interpolation-1.14.jar
+7f63a000-7f63e000 r-xs 00017000 08:01 4631028    /home/count0/.m2/repository/org/sonatype/aether/aether-util/1.7/aether-util-1.7.jar
+7f63e000-7f641000 r-xs 0001e000 08:01 4825247    /home/count0/.m2/repository/org/sonatype/tycho/tycho-osgi-components/0.11.0-SNAPSHOT/tycho-osgi-components-0.11.0-SNAPSHOT.jar
+7f641000-7f644000 ---p 00000000 00:00 0 
+7f644000-7f692000 rwxp 00000000 00:00 0 
+7f692000-7f699000 r-xp 00000000 08:01 4933420    /usr/lib/jvm/java-6-sun-1.6.0.24/jre/lib/i386/libnio.so
+7f699000-7f69a000 rwxp 00006000 08:01 4933420    /usr/lib/jvm/java-6-sun-1.6.0.24/jre/lib/i386/libnio.so
+7f69a000-7f6ae000 r-xp 00000000 08:01 4933509    /usr/lib/jvm/java-6-sun-1.6.0.24/jre/lib/i386/libnet.so
+7f6ae000-7f6af000 rwxp 00013000 08:01 4933509    /usr/lib/jvm/java-6-sun-1.6.0.24/jre/lib/i386/libnet.so
+7f6af000-7f6b2000 ---p 00000000 00:00 0 
+7f6b2000-7f700000 rwxp 00000000 00:00 0 
+7f700000-7f7fc000 rwxp 00000000 00:00 0 
+7f7fc000-7f800000 ---p 00000000 00:00 0 
+7f800000-7f8fe000 rwxp 00000000 00:00 0 
+7f8fe000-7f900000 ---p 00000000 00:00 0 
+7f900000-7fa00000 rwxp 00000000 00:00 0 
+7fa00000-7fa01000 r-xs 00006000 08:01 5447686    /home/count0/.m2/repository/org/sonatype/plexus/plexus-sec-dispatcher/1.3/plexus-sec-dispatcher-1.3.jar
+7fa01000-7fa03000 r-xs 00000000 08:01 4825269    /home/count0/.m2/repository/org/sonatype/tycho/tycho-maven-plugin/0.11.0-SNAPSHOT/tycho-maven-plugin-0.11.0-SNAPSHOT.jar
+7fa03000-7fa05000 r-xp 00000000 08:01 4491934    /lib/libnss_mdns4_minimal.so.2
+7fa05000-7fa06000 r-xp 00001000 08:01 4491934    /lib/libnss_mdns4_minimal.so.2
+7fa06000-7fa07000 rwxp 00002000 08:01 4491934    /lib/libnss_mdns4_minimal.so.2
+7fa07000-7fa0a000 r-xs 00010000 08:01 4407681    /home/count0/Applications/apache-maven-3.0.1/lib/aether-api-1.8.jar
+7fa0a000-7fa0d000 r-xs 00019000 08:01 4407683    /home/count0/Applications/apache-maven-3.0.1/lib/aether-util-1.8.jar
+7fa0d000-7fa0f000 r-xs 00002000 08:01 4407682    /home/count0/Applications/apache-maven-3.0.1/lib/aether-spi-1.8.jar
+7fa0f000-7fa11000 r-xs 0000b000 08:01 4407672    /home/count0/Applications/apache-maven-3.0.1/lib/maven-artifact-3.0.1.jar
+7fa11000-7fa12000 r-xs 00006000 08:01 4407697    /home/count0/Applications/apache-maven-3.0.1/lib/aether-connector-wagon-1.8.jar
+7fa12000-7fa14000 r-xs 0000d000 08:01 4407662    /home/count0/Applications/apache-maven-3.0.1/lib/plexus-interpolation-1.14.jar
+7fa14000-7fa17000 r-xs 00008000 08:01 4407660    /home/count0/Applications/apache-maven-3.0.1/lib/maven-settings-builder-3.0.1.jar
+7fa17000-7fa19000 r-xs 00005000 08:01 4407691    /home/count0/Applications/apache-maven-3.0.1/lib/wagon-http-shared-1.0-beta-7.jar
+7fa19000-7fa1d000 r-xs 00033000 08:01 4407653    /home/count0/Applications/apache-maven-3.0.1/lib/plexus-utils-2.0.4.jar
+7fa1d000-7fa1f000 r-xs 00000000 08:01 4407665    /home/count0/Applications/apache-maven-3.0.1/lib/plexus-component-annotations-1.5.5.jar
+7fa1f000-7fa21000 r-xs 00008000 08:01 4407692    /home/count0/Applications/apache-maven-3.0.1/lib/xercesMinimal-1.9.6.2.jar
+7fa21000-7fa23000 r-xs 00009000 08:01 4407650    /home/count0/Applications/apache-maven-3.0.1/lib/maven-embedder-3.0.1.jar
+7fa23000-7fa2e000 r-xs 0006a000 08:01 4407678    /home/count0/Applications/apache-maven-3.0.1/lib/sisu-guice-2.9.1-noaop.jar
+7fa2e000-7fa2f000 ---p 00000000 00:00 0 
+7fa2f000-7faaf000 rwxp 00000000 00:00 0 
+7faaf000-7fab2000 ---p 00000000 00:00 0 
+7fab2000-7fb00000 rwxp 00000000 00:00 0 
+7fb00000-7fbfc000 rwxp 00000000 00:00 0 
+7fbfc000-7fc00000 ---p 00000000 00:00 0 
+7fc00000-7fc01000 r-xp 00000000 00:00 0 
+7fc01000-7fc03000 r-xs 0000a000 08:01 4407652    /home/count0/Applications/apache-maven-3.0.1/lib/maven-settings-3.0.1.jar
+7fc03000-7fc05000 r-xs 00002000 08:01 4407669    /home/count0/Applications/apache-maven-3.0.1/lib/plexus-cipher-1.4.jar
+7fc05000-7fc0a000 r-xs 00020000 08:01 4407679    /home/count0/Applications/apache-maven-3.0.1/lib/maven-model-builder-3.0.1.jar
+7fc0a000-7fc0d000 r-xs 00019000 08:01 4407694    /home/count0/Applications/apache-maven-3.0.1/lib/nekohtml-1.9.6.2.jar
+7fc0d000-7fc0f000 r-xs 0000b000 08:01 4407688    /home/count0/Applications/apache-maven-3.0.1/lib/wagon-provider-api-1.0-beta-7.jar
+7fc0f000-7fc15000 r-xs 00040000 08:01 4407686    /home/count0/Applications/apache-maven-3.0.1/lib/maven-compat-3.0.1.jar
+7fc15000-7fc1a000 r-xs 00023000 08:01 4407677    /home/count0/Applications/apache-maven-3.0.1/lib/sisu-inject-bean-1.4.3.1.jar
+7fc1a000-7fc1c000 r-xs 00009000 08:01 4407689    /home/count0/Applications/apache-maven-3.0.1/lib/commons-cli-1.2.jar
+7fc1c000-7fc1f000 r-xs 00018000 08:01 4407685    /home/count0/Applications/apache-maven-3.0.1/lib/aether-impl-1.8.jar
+7fc1f000-7fc26000 r-xs 0002c000 08:01 4407676    /home/count0/Applications/apache-maven-3.0.1/lib/sisu-inject-plexus-1.4.3.1.jar
+7fc26000-7fc29000 ---p 00000000 00:00 0 
+7fc29000-7fca7000 rwxp 00000000 00:00 0 
+7fca7000-7fcaa000 ---p 00000000 00:00 0 
+7fcaa000-7fd28000 rwxp 00000000 00:00 0 
+7fd28000-7fd2b000 ---p 00000000 00:00 0 
+7fd2b000-7fd79000 rwxp 00000000 00:00 0 
+7fd79000-7fdb8000 r-xp 00000000 08:01 3475424    /usr/lib/locale/en_US.utf8/LC_CTYPE
+7fdb8000-7fdbb000 ---p 00000000 00:00 0 
+7fdbb000-7fe09000 rwxp 00000000 00:00 0 
+7fe09000-7fe0c000 ---p 00000000 00:00 0 
+7fe0c000-7fe5a000 rwxp 00000000 00:00 0 
+7fe5a000-7fe5b000 ---p 00000000 00:00 0 
+7fe5b000-7ff0f000 rwxp 00000000 00:00 0 
+7ff0f000-800a7000 r-xs 03027000 08:01 4849713    /usr/lib/jvm/java-6-sun-1.6.0.24/jre/lib/rt.jar
+800a7000-800a8000 ---p 00000000 00:00 0 
+800a8000-80128000 rwxp 00000000 00:00 0 
+80128000-80129000 ---p 00000000 00:00 0 
+80129000-801c0000 rwxp 00000000 00:00 0 
+801c0000-801c9000 rwxp 00000000 00:00 0 
+801c9000-801f4000 rwxp 00000000 00:00 0 
+801f4000-802c5000 rwxp 00000000 00:00 0 
+802c5000-802dc000 rwxp 00000000 00:00 0 
+802dc000-802e5000 rwxp 00000000 00:00 0 
+802e5000-80310000 rwxp 00000000 00:00 0 
+80310000-803e1000 rwxp 00000000 00:00 0 
+803e1000-8045f000 rwxp 00000000 00:00 0 
+8045f000-83170000 rwxp 00000000 00:00 0 
+83170000-84460000 rwxp 00000000 00:00 0 
+84460000-89a30000 rwxp 00000000 00:00 0 
+89a30000-a3c60000 rwxp 00000000 00:00 0 
+a3c60000-b3860000 rwxp 00000000 00:00 0 
+b3860000-b3861000 r-xs 00006000 08:01 4407667    /home/count0/Applications/apache-maven-3.0.1/lib/plexus-sec-dispatcher-1.3.jar
+b3861000-b3862000 r-xs 00003000 08:01 4407690    /home/count0/Applications/apache-maven-3.0.1/lib/wagon-http-lightweight-1.0-beta-7.jar
+b3862000-b3864000 r-xs 0000b000 08:01 4407680    /home/count0/Applications/apache-maven-3.0.1/lib/maven-aether-provider-3.0.1.jar
+b3864000-b386f000 r-xs 00077000 08:01 4407655    /home/count0/Applications/apache-maven-3.0.1/lib/maven-core-3.0.1.jar
+b386f000-b3891000 rwxp 00000000 00:00 0 
+b3891000-b392f000 rwxp 00000000 00:00 0 
+b392f000-b418f000 rwxp 00000000 00:00 0 
+b418f000-b692f000 rwxp 00000000 00:00 0 
+b692f000-b693e000 r-xp 00000000 08:01 4933421    /usr/lib/jvm/java-6-sun-1.6.0.24/jre/lib/i386/libzip.so
+b693e000-b6940000 rwxp 0000e000 08:01 4933421    /usr/lib/jvm/java-6-sun-1.6.0.24/jre/lib/i386/libzip.so
+b6940000-b694a000 r-xp 00000000 08:01 4489899    /lib/tls/i686/cmov/libnss_files-2.11.1.so
+b694a000-b694b000 r-xp 00009000 08:01 4489899    /lib/tls/i686/cmov/libnss_files-2.11.1.so
+b694b000-b694c000 rwxp 0000a000 08:01 4489899    /lib/tls/i686/cmov/libnss_files-2.11.1.so
+b694c000-b6954000 r-xp 00000000 08:01 4489901    /lib/tls/i686/cmov/libnss_nis-2.11.1.so
+b6954000-b6955000 r-xp 00007000 08:01 4489901    /lib/tls/i686/cmov/libnss_nis-2.11.1.so
+b6955000-b6956000 rwxp 00008000 08:01 4489901    /lib/tls/i686/cmov/libnss_nis-2.11.1.so
+b6956000-b695c000 r-xp 00000000 08:01 4489896    /lib/tls/i686/cmov/libnss_compat-2.11.1.so
+b695c000-b695d000 r-xp 00006000 08:01 4489896    /lib/tls/i686/cmov/libnss_compat-2.11.1.so
+b695d000-b695e000 rwxp 00007000 08:01 4489896    /lib/tls/i686/cmov/libnss_compat-2.11.1.so
+b695e000-b6971000 r-xp 00000000 08:01 4489895    /lib/tls/i686/cmov/libnsl-2.11.1.so
+b6971000-b6972000 r-xp 00012000 08:01 4489895    /lib/tls/i686/cmov/libnsl-2.11.1.so
+b6972000-b6973000 rwxp 00013000 08:01 4489895    /lib/tls/i686/cmov/libnsl-2.11.1.so
+b6973000-b6975000 rwxp 00000000 00:00 0 
+b6975000-b6976000 r-xs 00002000 08:01 4407696    /home/count0/Applications/apache-maven-3.0.1/lib/wagon-file-1.0-beta-7.jar
+b6976000-b6978000 r-xs 00006000 08:01 4407670    /home/count0/Applications/apache-maven-3.0.1/lib/maven-repository-metadata-3.0.1.jar
+b6978000-b697a000 r-xs 0000a000 08:01 4407674    /home/count0/Applications/apache-maven-3.0.1/lib/maven-plugin-api-3.0.1.jar
+b697a000-b697d000 r-xs 00026000 08:01 4407658    /home/count0/Applications/apache-maven-3.0.1/lib/maven-model-3.0.1.jar
+b697d000-b6984000 r-xs 00000000 08:01 9084949    /usr/lib/gconv/gconv-modules.cache
+b6984000-b698c000 rwxs 00000000 08:01 8848243    /tmp/hsperfdata_count0/4091
+b698c000-b69af000 r-xp 00000000 08:01 4933416    /usr/lib/jvm/java-6-sun-1.6.0.24/jre/lib/i386/libjava.so
+b69af000-b69b1000 rwxp 00023000 08:01 4933416    /usr/lib/jvm/java-6-sun-1.6.0.24/jre/lib/i386/libjava.so
+b69b1000-b69b8000 r-xp 00000000 08:01 4489906    /lib/tls/i686/cmov/librt-2.11.1.so
+b69b8000-b69b9000 r-xp 00006000 08:01 4489906    /lib/tls/i686/cmov/librt-2.11.1.so
+b69b9000-b69ba000 rwxp 00007000 08:01 4489906    /lib/tls/i686/cmov/librt-2.11.1.so
+b69ba000-b69bd000 ---p 00000000 00:00 0 
+b69bd000-b6a0b000 rwxp 00000000 00:00 0 
+b6a0b000-b6a2f000 r-xp 00000000 08:01 4489893    /lib/tls/i686/cmov/libm-2.11.1.so
+b6a2f000-b6a30000 r-xp 00023000 08:01 4489893    /lib/tls/i686/cmov/libm-2.11.1.so
+b6a30000-b6a31000 rwxp 00024000 08:01 4489893    /lib/tls/i686/cmov/libm-2.11.1.so
+b6a31000-b71be000 r-xp 00000000 08:01 4933479    /usr/lib/jvm/java-6-sun-1.6.0.24/jre/lib/i386/server/libjvm.so
+b71be000-b7211000 rwxp 0078d000 08:01 4933479    /usr/lib/jvm/java-6-sun-1.6.0.24/jre/lib/i386/server/libjvm.so
+b7211000-b7630000 rwxp 00000000 00:00 0 
+b7630000-b7783000 r-xp 00000000 08:01 4489889    /lib/tls/i686/cmov/libc-2.11.1.so
+b7783000-b7784000 ---p 00153000 08:01 4489889    /lib/tls/i686/cmov/libc-2.11.1.so
+b7784000-b7786000 r-xp 00153000 08:01 4489889    /lib/tls/i686/cmov/libc-2.11.1.so
+b7786000-b7787000 rwxp 00155000 08:01 4489889    /lib/tls/i686/cmov/libc-2.11.1.so
+b7787000-b778a000 rwxp 00000000 00:00 0 
+b778a000-b778c000 r-xp 00000000 08:01 4489892    /lib/tls/i686/cmov/libdl-2.11.1.so
+b778c000-b778d000 r-xp 00001000 08:01 4489892    /lib/tls/i686/cmov/libdl-2.11.1.so
+b778d000-b778e000 rwxp 00002000 08:01 4489892    /lib/tls/i686/cmov/libdl-2.11.1.so
+b778e000-b7795000 r-xp 00000000 08:01 4933425    /usr/lib/jvm/java-6-sun-1.6.0.24/jre/lib/i386/jli/libjli.so
+b7795000-b7797000 rwxp 00006000 08:01 4933425    /usr/lib/jvm/java-6-sun-1.6.0.24/jre/lib/i386/jli/libjli.so
+b7797000-b7798000 rwxp 00000000 00:00 0 
+b7798000-b77ad000 r-xp 00000000 08:01 4489904    /lib/tls/i686/cmov/libpthread-2.11.1.so
+b77ad000-b77ae000 r-xp 00014000 08:01 4489904    /lib/tls/i686/cmov/libpthread-2.11.1.so
+b77ae000-b77af000 rwxp 00015000 08:01 4489904    /lib/tls/i686/cmov/libpthread-2.11.1.so
+b77af000-b77b1000 rwxp 00000000 00:00 0 
+b77b1000-b77b3000 r-xs 0000a000 08:01 4063347    /home/count0/Applications/apache-maven-3.0.1/boot/plexus-classworlds-2.4.jar
+b77b3000-b77b9000 r-xp 00000000 08:01 4933482    /usr/lib/jvm/java-6-sun-1.6.0.24/jre/lib/i386/native_threads/libhpi.so
+b77b9000-b77ba000 rwxp 00006000 08:01 4933482    /usr/lib/jvm/java-6-sun-1.6.0.24/jre/lib/i386/native_threads/libhpi.so
+b77ba000-b77bb000 rwxp 00000000 00:00 0 
+b77bb000-b77bc000 r-xp 00000000 00:00 0 
+b77bc000-b77c7000 r-xp 00000000 08:01 4933494    /usr/lib/jvm/java-6-sun-1.6.0.24/jre/lib/i386/libverify.so
+b77c7000-b77c8000 rwxp 0000b000 08:01 4933494    /usr/lib/jvm/java-6-sun-1.6.0.24/jre/lib/i386/libverify.so
+b77c8000-b77ca000 rwxp 00000000 00:00 0 
+b77ca000-b77cb000 r-xp 00000000 00:00 0          [vdso]
+b77cb000-b77e6000 r-xp 00000000 08:01 4489868    /lib/ld-2.11.1.so
+b77e6000-b77e7000 r-xp 0001a000 08:01 4489868    /lib/ld-2.11.1.so
+b77e7000-b77e8000 rwxp 0001b000 08:01 4489868    /lib/ld-2.11.1.so
+bf868000-bf87d000 rwxp 00000000 00:00 0          [stack]
+
+VM Arguments:
+jvm_args: -Dclassworlds.conf=/home/count0/Applications/apache-maven-3.0.1/bin/m2.conf -Dmaven.home=/home/count0/Applications/apache-maven-3.0.1 
+java_command: org.codehaus.plexus.classworlds.launcher.Launcher clean install
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=/usr/lib/jvm/java-6-sun
+PATH=/home/count0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/opt/iRODS/clients/icommands/bin
+USERNAME=count0
+LD_LIBRARY_PATH=/usr/lib/jvm/java-6-sun-1.6.0.24/jre/lib/i386/server:/usr/lib/jvm/java-6-sun-1.6.0.24/jre/lib/i386:/usr/lib/jvm/java-6-sun-1.6.0.24/jre/../lib/i386
+SHELL=/bin/bash
+DISPLAY=:0.0
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0x708f80], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGBUS: [libjvm.so+0x708f80], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGFPE: [libjvm.so+0x5c4100], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGPIPE: [libjvm.so+0x5c4100], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGXFSZ: [libjvm.so+0x5c4100], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGILL: [libjvm.so+0x5c4100], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGUSR1: SIG_DFL, sa_mask[0]=0x00000000, sa_flags=0x00000000
+SIGUSR2: [libjvm.so+0x5c70e0], sa_mask[0]=0x00000000, sa_flags=0x10000004
+SIGHUP: [libjvm.so+0x5c6cc0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGINT: [libjvm.so+0x5c6cc0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGTERM: [libjvm.so+0x5c6cc0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGQUIT: [libjvm.so+0x5c6cc0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+
+
+---------------  S Y S T E M  ---------------
+
+OS:squeeze/sid
+
+uname:Linux 2.6.32-29-generic #58-Ubuntu SMP Fri Feb 11 19:00:09 UTC 2011 i686
+libc:glibc 2.11.1 NPTL 2.11.1 
+rlimit: STACK 8192k, CORE 0k, NPROC infinity, NOFILE 1024, AS infinity
+load average:2.91 1.41 1.09
+
+/proc/meminfo:
+MemTotal:        3095744 kB
+MemFree:          169712 kB
+Buffers:          266788 kB
+Cached:           683480 kB
+SwapCached:            0 kB
+Active:          1856624 kB
+Inactive:         891592 kB
+Active(anon):    1484396 kB
+Inactive(anon):   325144 kB
+Active(file):     372228 kB
+Inactive(file):   566448 kB
+Unevictable:          36 kB
+Mlocked:              36 kB
+HighTotal:       2235208 kB
+HighFree:           2728 kB
+LowTotal:         860536 kB
+LowFree:          166984 kB
+SwapTotal:       6032368 kB
+SwapFree:        6032360 kB
+Dirty:             22840 kB
+Writeback:             0 kB
+AnonPages:       1798000 kB
+Mapped:           144204 kB
+Shmem:             11584 kB
+Slab:             101320 kB
+SReclaimable:      89192 kB
+SUnreclaim:        12128 kB
+KernelStack:        3504 kB
+PageTables:        11484 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:     7580240 kB
+Committed_AS:    3561232 kB
+VmallocTotal:     122880 kB
+VmallocUsed:       56644 kB
+VmallocChunk:      54892 kB
+HardwareCorrupted:     0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       4096 kB
+DirectMap4k:       12280 kB
+DirectMap4M:      897024 kB
+
+
+CPU:total 2 (2 cores per cpu, 1 threads per core) family 6 model 15 stepping 6, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3
+
+Memory: 4k page, physical 3095744k(169712k free), swap 6032368k(6032360k free)
+
+vm_info: Java HotSpot(TM) Server VM (19.1-b02) for linux-x86 JRE (1.6.0_24-b07), built on Feb  2 2011 16:51:52 by "java_re" with gcc 3.2.1-7a (J2SE release)
+
+time: Tue Mar  8 09:58:31 2011
+elapsed time: 152 seconds
+

@@ -19,7 +19,7 @@ UNC Chapel Hill
    </configIni>
 
    <launcherArgs>
-      <programArgs>-console -consoleLog</programArgs>
+      <programArgs>-data @user.home/curators-workspace</programArgs>
       <vmArgs>-Dosgi.requiredJavaVersion=1.5 -XX:MaxPermSize=128m -Xms128m -Xmx512m -Djargon.debug=0</vmArgs>
    </launcherArgs>
    
