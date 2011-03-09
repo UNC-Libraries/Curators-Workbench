@@ -1,0 +1,7 @@
+# Tracing options for the crosswalk-gmf.diagram plug-in
+
+# Common issues
+crosswalk-gmf.diagram/debug=false
+
+# Visual IDs
+crosswalk-gmf.diagram/debug/visualID=false
