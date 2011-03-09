@@ -117,7 +117,7 @@ public class OriginalsDecorator implements ILightweightLabelDecorator, IResource
 	// added/captured, queued/staged BR
 	try {
 	    ImageDescriptor overlay = null;
-	    if (r != null && r.getProject().isOpen()) {
+	    if (r != null && r.getProject() != null && r.getProject().isOpen()) {
 		if (r.findMarkers(IResourceConstants.MARKER_CAPTURED, false, IResource.DEPTH_ZERO).length > 0) {
 		    boolean isFolder = (r instanceof IContainer);
 		    if (isFolder) { // captured original folder

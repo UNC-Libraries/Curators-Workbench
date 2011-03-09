@@ -17,28 +17,42 @@ package irods.efs.plugin;
 
 import java.net.URI;
 
-import org.eclipse.jface.dialogs.Dialog;
+import org.eclipse.jface.dialogs.IDialogConstants;
+import org.eclipse.jface.dialogs.IMessageProvider;
+import org.eclipse.jface.dialogs.TitleAreaDialog;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
+import org.irods.jargon.core.connection.IRODSAccount;
+import org.irods.jargon.core.exception.JargonException;
+import org.irods.jargon.core.pub.IRODSFileSystem;
+import org.irods.jargon.core.pub.ResourceAO;
+import org.irods.jargon.core.pub.io.IRODSFile;
+import org.irods.jargon.core.pub.io.IRODSFileFactory;
 
 /**
  * @author Gregory Jansen
  *
  */
-public class LoginInputDialog extends Dialog {
+public class LoginInputDialog extends TitleAreaDialog {
     String message;
     URI irodsURI;
+    String zone;
     String defaultUsername;
     Text textUsername;
     Text textPassword;
     Shell shell = null;
+
+    Button okButton;
 
     String username = null;
     String password = null;
@@ -46,13 +60,14 @@ public class LoginInputDialog extends Dialog {
     /**
      * @param parentShell
      */
-    protected LoginInputDialog(Shell parentShell, String message, URI irodsURI, String defaultUsername) {
+    protected LoginInputDialog(Shell parentShell, String message, URI irodsURI, String defaultUsername, String zone) {
 	super(parentShell);
 	this.message = message;
 	this.irodsURI = irodsURI;
 	this.defaultUsername = defaultUsername;
 	this.textPassword = null;
 	this.textUsername = null;
+	this.zone = zone;
     }
 
     @Override
@@ -69,6 +84,8 @@ public class LoginInputDialog extends Dialog {
     private void createControls(Composite composite) {
 	shell = composite.getShell();
 	shell.setText("iRODS Authentication");
+
+	this.setMessage(message);
 	Group group = new Group(composite, SWT.None);
 	group.setText("");
 
@@ -83,8 +100,11 @@ public class LoginInputDialog extends Dialog {
 	Label userId = new Label(group, SWT.None);
 	userId.setText("Username");
 
-	textUsername = new Text(group,SWT.BORDER | SWT.READ_ONLY);
-	textUsername.setText(this.defaultUsername);
+	textUsername = new Text(group,SWT.BORDER);
+	if(this.defaultUsername != null && !this.defaultUsername.isEmpty()) {
+	    textUsername.setText(this.defaultUsername);
+	    textUsername.setEditable(false);
+	}
 	textUsername.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
 
 	Label userPsw = new Label(group, SWT.None);
@@ -96,6 +116,93 @@ public class LoginInputDialog extends Dialog {
 
 	group.pack();
 	composite.pack();
+    }
+
+    @Override
+    protected void createButtonsForButtonBar(Composite parent) {
+	GridData gridData = new GridData();
+	gridData.verticalAlignment = GridData.FILL;
+	gridData.horizontalSpan = 3;
+	gridData.grabExcessHorizontalSpace = true;
+	gridData.grabExcessVerticalSpace = true;
+	gridData.horizontalAlignment = SWT.CENTER;
+
+	parent.setLayoutData(gridData);
+	// Create Add button
+	// Own method as we need to overview the SelectionAdapter
+	createOkButton(parent, OK, "Okay", true);
+
+	// Create Cancel button
+	Button cancelButton = createButton(parent, CANCEL, "Cancel", false);
+
+	// Add a SelectionListener
+	cancelButton.addSelectionListener(new SelectionAdapter() {
+	    @Override
+	    public void widgetSelected(SelectionEvent e) {
+		setReturnCode(CANCEL);
+		close();
+	    }
+	});
+
+	// Create Test button
+	Button testButton = createButton(parent, IDialogConstants.PROCEED_ID, "Test", false);
+
+	// Add a SelectionListener
+	testButton.addSelectionListener(new SelectionAdapter() {
+	    @Override
+	    public void widgetSelected(SelectionEvent e) {
+		if (validFormInputs()) {
+		    IRODSAccount account = makeAccount();
+		    testConnection(account);
+		}
+	    }
+	});
+    }
+
+    /**
+     * @return
+     */
+    protected IRODSAccount makeAccount() {
+	IRODSAccount result = new IRODSAccount(this.irodsURI.getHost(), this.irodsURI.getPort(), textUsername.getText(), textPassword.getText(),"",zone, "fake");
+	return result;
+    }
+
+    /**
+     * @return
+     */
+    protected boolean validFormInputs() {
+	return textPassword.getText() != null && !textPassword.getText().isEmpty() && textUsername.getText() != null
+	&& !textUsername.getText().isEmpty();
+    }
+
+    /**
+     * @param parent
+     * @param ok
+     * @param string
+     * @param b
+     */
+    private Button createOkButton(Composite parent, int ok, String string, boolean defaultButton) {
+	// increment the number of columns in the button bar
+	((GridLayout) parent.getLayout()).numColumns++;
+	okButton = new Button(parent, SWT.PUSH);
+	okButton.setEnabled(false);
+	okButton.setText(string);
+	// button.setFont(JFaceResources.getDialogFont());
+	// button.setData(new Integer(id));
+	okButton.addSelectionListener(new SelectionAdapter() {
+	    @Override
+	    public void widgetSelected(SelectionEvent event) {
+		okPressed();
+	    }
+	});
+	if (defaultButton) {
+	    Shell shell = parent.getShell();
+	    if (shell != null) {
+		shell.setDefaultButton(okButton);
+	    }
+	}
+	setButtonLayoutData(okButton);
+	return okButton;
     }
 
     @Override
@@ -111,6 +218,41 @@ public class LoginInputDialog extends Dialog {
 
     public String getPassword() {
         return password;
+    }
+
+    private boolean testConnection(IRODSAccount account) {
+	boolean result = false;
+	try {
+	    IRODSFileSystem irodsFileSystem = IRODSFileSystem.instance();
+	    IRODSFileFactory ff = irodsFileSystem.getIRODSFileFactory(account);
+	    String testPath = "/lakjsdf/asdfl/asdf/thispathisgarbage";
+	    //System.out.println("testing path:"+testPath);
+	    IRODSFile file = ff.instanceIRODSFile(testPath);
+
+	    file.exists();
+	    result = true;
+		setMessage("Connection succeeded.",
+				IMessageProvider.INFORMATION);
+	} catch (JargonException e) {
+	    String msg = null;
+	    if (e.getCause() != null) {
+		msg = e.getCause().getLocalizedMessage();
+	    } else {
+		msg = e.getLocalizedMessage();
+	    }
+	    if(msg.contains("826000")) {
+		setMessage("Connection failed: Bad username or password.", IMessageProvider.ERROR);
+	    } else {
+		setMessage("Connection failed due to an error: " + msg, IMessageProvider.ERROR);
+	    }
+	}
+	if (result) {
+	    setMessage("Connection succeeded", IMessageProvider.INFORMATION);
+	    this.okButton.setEnabled(true);
+	} else {
+	    this.okButton.setEnabled(false);
+	}
+	return result;
     }
 
 }

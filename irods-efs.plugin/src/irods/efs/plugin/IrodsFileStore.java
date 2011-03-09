@@ -15,8 +15,6 @@
  */
 package irods.efs.plugin;
 
-import static org.irods.jargon.core.utils.IRODSDataConversionUtil.escapeSingleQuotes;
-
 import java.io.File;
 import java.io.FilenameFilter;
 import java.io.InputStream;
@@ -25,7 +23,6 @@ import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URLDecoder;
-//import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,16 +37,16 @@ import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Status;
 import org.irods.jargon.core.connection.IRODSAccount;
 import org.irods.jargon.core.exception.JargonException;
+import org.irods.jargon.core.pub.CollectionAO;
+import org.irods.jargon.core.pub.DataObjectAO;
 import org.irods.jargon.core.pub.IRODSAccessObjectFactory;
 import org.irods.jargon.core.pub.IRODSFileSystem;
-import org.irods.jargon.core.pub.IRODSGenQueryExecutor;
+import org.irods.jargon.core.pub.domain.Collection;
+import org.irods.jargon.core.pub.domain.DataObject;
 import org.irods.jargon.core.pub.io.IRODSFile;
 import org.irods.jargon.core.pub.io.IRODSFileFactory;
 import org.irods.jargon.core.pub.io.IRODSFileInputStream;
 import org.irods.jargon.core.pub.io.IRODSFileOutputStream;
-import org.irods.jargon.core.query.IRODSQuery;
-import org.irods.jargon.core.query.IRODSQueryResultRow;
-import org.irods.jargon.core.query.IRODSQueryResultSet;
 import org.irods.jargon.core.query.JargonQueryException;
 import org.irods.jargon.core.query.RodsGenQueryEnum;
 
@@ -176,69 +173,18 @@ public class IrodsFileStore extends FileStore {
      * @return
      */
     private void fetchDataInfo(FileInfo info, IProgressMonitor monitor) throws CoreException {
-	// it is a file, there should be NO trailing slash on URI
 	if (monitor == null) {
 	    monitor = new NullProgressMonitor();
 	}
-
-	// build path and name separately
-	// log.debug("raw path: "+uri.getRawPath());
-	String[] split = uri.getRawPath().substring(1).split("/");
-	String name = split[split.length - 1];
-	StringBuilder p = new StringBuilder();
-	if (split.length == 1) {
-	    p.append("/");
-	} else {
-	    for (int i = 0; i < split.length - 1; i++) {
-		p.append("/").append(split[i]);
-	    }
-	}
-	String path = null;
 	try {
-	    // log.debug("p: "+p);
-	    path = URLDecoder.decode(p.toString(), "UTF-8");
-	    name = URLDecoder.decode(name, "UTF-8");
-	    // log.debug("path: "+path);
-	} catch (UnsupportedEncodingException e1) {
-	    throw new CoreException(new Status(Status.ERROR, Activator.PLUGIN_ID, "cannot manipulate file path", e1));
-	}
-
-	try {
-	    // build query
-	    StringBuilder q = new StringBuilder();
-	    q.append("select ");
-	    q.append(RodsGenQueryEnum.COL_DATA_NAME.getName()).append(", ");
-	    q.append(RodsGenQueryEnum.COL_D_DATA_ID.getName()).append(", ");
-	    q.append(RodsGenQueryEnum.COL_D_MODIFY_TIME.getName()).append(", ");
-	    q.append(RodsGenQueryEnum.COL_DATA_SIZE.getName());
-	    q.append(" where ");
-	    q.append(RodsGenQueryEnum.COL_COLL_NAME.getName());
-	    q.append(" = '").append(escapeSingleQuotes(path)).append("'");
-	    q.append(" and ");
-	    q.append(RodsGenQueryEnum.COL_DATA_NAME.getName());
-	    q.append(" = '").append(escapeSingleQuotes(name)).append("'");
-
-	    //log.debug("fetchDataInfo query: " + q.toString());
-
-	    IRODSQuery irodsQuery;
 	    IRODSFileSystem irodsFileSystem = IRODSFileSystem.instance();
 	    IRODSAccessObjectFactory aof = irodsFileSystem.getIRODSAccessObjectFactory();
-	    irodsQuery = IRODSQuery.instance(q.toString(), 1);
-
-	    // execute query
-	    IRODSGenQueryExecutor irodsGenQueryExecutor = aof.getIRODSGenQueryExecutor(account);
-	    IRODSQueryResultSet resultSet = irodsGenQueryExecutor.executeIRODSQuery(irodsQuery, 0);
-
-	    // set the file info object from the query result
-	    IRODSQueryResultRow r = null;
-	    r = resultSet.getFirstResult();
-	    info.setExists(true); // does it exist
-	    String modified = r.getColumn(RodsGenQueryEnum.COL_D_MODIFY_TIME.getName());
-	    info.setLastModified(Integer.parseInt(modified)); // millisecond
-	    // timestamp
-	    String size = r.getColumn(RodsGenQueryEnum.COL_DATA_SIZE.getName());
-	    info.setLength(Integer.parseInt(size));
-	    info.setName(r.getColumn(RodsGenQueryEnum.COL_DATA_NAME.getName()));
+	    DataObjectAO doao = aof.getDataObjectAO(account);
+	    DataObject dObject = doao.findByAbsolutePath(getDecodedPath());
+	    info.setExists(true);
+	    info.setLastModified(dObject.getUpdatedAt().getTime());
+	    info.setLength(dObject.getDataSize());
+	    info.setName(dObject.getDataName());
 	    info.setAttribute(EFS.ATTRIBUTE_ARCHIVE, false);
 	    info.setAttribute(EFS.ATTRIBUTE_EXECUTABLE, false);
 	    info.setAttribute(EFS.ATTRIBUTE_HIDDEN, false);
@@ -247,8 +193,6 @@ public class IrodsFileStore extends FileStore {
 	} catch (JargonException e) {
 	    throw new CoreException(new Status(Status.ERROR, Activator.PLUGIN_ID, "Problem executing IRODS data query",
 			    e));
-	} catch (JargonQueryException e) {
-	    throw new CoreException(new Status(Status.ERROR, Activator.PLUGIN_ID, "Problem with IRODS data query", e));
 	}
     }
 
@@ -259,39 +203,14 @@ public class IrodsFileStore extends FileStore {
 	if (monitor == null) {
 	    monitor = new NullProgressMonitor();
 	}
-	// build query
 	try {
-	    StringBuilder q = new StringBuilder();
-	    q.append("select ");
-	    q.append(RodsGenQueryEnum.COL_COLL_ID.getName()).append(", ");
-	    q.append(RodsGenQueryEnum.COL_COLL_NAME.getName()).append(", ");
-	    q.append(RodsGenQueryEnum.COL_COLL_MODIFY_TIME.getName());
-	    q.append(" where ");
-	    q.append(RodsGenQueryEnum.COL_COLL_NAME.getName());
-	    q.append(" = '").append(escapeSingleQuotes(getDecodedPath())).append("'");
-
-	    IRODSQuery irodsQuery;
 	    IRODSFileSystem irodsFileSystem = IRODSFileSystem.instance();
 	    IRODSAccessObjectFactory aof = irodsFileSystem.getIRODSAccessObjectFactory();
-	    irodsQuery = IRODSQuery.instance(q.toString(), 1);
-
-	    // execute query
-	    IRODSGenQueryExecutor irodsGenQueryExecutor = aof.getIRODSGenQueryExecutor(account);
-	    IRODSQueryResultSet resultSet = irodsGenQueryExecutor.executeIRODSQuery(irodsQuery, 0);
-
-	    // set the file info object from the query result
-	    IRODSQueryResultRow r = null;
-	    r = resultSet.getFirstResult();
+	    CollectionAO cao = aof.getCollectionAO(account);
+	    Collection cObject = cao.findByAbsolutePath(getDecodedPath());
 	    info.setExists(true);
-	    String modified = r.getColumn(RodsGenQueryEnum.COL_COLL_MODIFY_TIME.getName());
-	    info.setLastModified(Integer.parseInt(modified));
-	    // remove path
-	    String collName = r.getColumn(RodsGenQueryEnum.COL_COLL_NAME.getName());
-	    if ("/".equals(collName)) {
-		info.setName("");
-	    } else {
-		info.setName(collName.substring(collName.lastIndexOf("/") + 1));
-	    }
+	    info.setLastModified(cObject.getModifiedAt().getTime());
+	    info.setName(cObject.getCollectionName());
 	    info.setAttribute(EFS.ATTRIBUTE_ARCHIVE, false);
 	    info.setAttribute(EFS.ATTRIBUTE_EXECUTABLE, false);
 	    info.setAttribute(EFS.ATTRIBUTE_HIDDEN, false);
@@ -300,8 +219,6 @@ public class IrodsFileStore extends FileStore {
 	} catch (JargonException e) {
 	    throw new CoreException(new Status(Status.ERROR, Activator.PLUGIN_ID, "Problem executing IRODS data query",
 			    e));
-	} catch (JargonQueryException e) {
-	    throw new CoreException(new Status(Status.ERROR, Activator.PLUGIN_ID, "Problem with IRODS data query", e));
 	}
     }
 
