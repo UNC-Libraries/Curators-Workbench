@@ -1,0 +1,57 @@
+<!-- Maybe we'll one day set the owning group id on object-owner property,
+but for now an object like this one would be updated/deleted by admin only -->
+<examples xmlns:mets="lkajsdf" xmlns:cdr="foo">
+	<mets:amdSec>
+		<mets:rightsMD ID="d-1000-rmd">
+			<mets:mdWrap mdType="other" otherMdType="rightsMD">
+				<mets:xmlData>
+
+					<cdr:access-control-list inherit="no">
+						<cdr:embargo end-date="YYYY-MM-DD">
+							<cdr:subject groupid="userGroup"/>
+							<cdr:subject groupid="anotherGroup"/>
+						</cdr:embargo>
+						<cdr:grant roleid="permitMetadataRead">
+							<cdr:subject groupid="userGroup"/>
+							<cdr:subject groupid="generalPublic"/>
+						</cdr:grant>
+						<cdr:grant roleid="permitOriginalsRead">
+							<cdr:subject groupid="userGroup"/>
+							<!--<cdr:subject groupid="generalPublic">-->
+						</cdr:grant>
+						<cdr:grant roleid="permitDerivativesRead">
+							<cdr:subject groupid="userGroup"/>
+							<cdr:subject groupid="generalPublic"/>
+						</cdr:grant>
+					</cdr:access-control-list>
+
+				</mets:xmlData>
+			</mets:mdWrap>
+		</mets:rightsMD>
+	</mets:amdSec>
+
+	<mets:amdSec>
+		<mets:rightsMD ID="d-1000-rmd">
+			<mets:mdWrap mdType="other" otherMdType="rightsMD">
+				<mets:xmlData>
+
+					<cdr:access-control inherit="no">
+						<cdr:embargo end-date="2012-01-01"/>
+						<cdr:grant roleid="patron" groupid="rlausers"/>
+						<cdr:grant roleid="curator" groupid="userGroup"/>
+					</cdr:access-control>
+
+				</mets:xmlData>
+			</mets:mdWrap>
+		</mets:rightsMD>
+	</mets:amdSec>
+
+	<!-- Late Caveat on above
+Because we have such granular permissions/roles defined above, we allow for all sorts of insane permissions to be set.
+This could be avoided by assigning groups to something more like a higher-level role.  
+
+Things like "curator", "discovery", "user". Role assignments would therefore imply a whole set of Fedora permissions that makes sense together.
+For instance, a "curator" group would always need all the Read permissions.
+
+Currently a group assigned the role of "permitOriginalsUpdate" doesn't have any other permissions outside of the ability to update originals.-->
+</examples>
