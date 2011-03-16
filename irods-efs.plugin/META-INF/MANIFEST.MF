@@ -16,7 +16,7 @@ Bundle-ClassPath: .,
  lib/log4j-1.2.16.jar,
  lib/slf4j-log4j12-1.6.0.jar,
  lib/slf4j-api-1.6.0.jar,
- lib/jargon-core-2.4.1-SNAPSHOT.jar
+ lib/jargon-core-2.4.1-20110309.143554-8.jar
 Import-Package: org.eclipse.core.filesystem
 Export-Package: edu.sdsc.grid.io,
  edu.sdsc.grid.io.irods,
