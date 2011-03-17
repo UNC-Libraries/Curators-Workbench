@@ -33,18 +33,13 @@ import org.eclipse.swt.graphics.Image;
 
 import crosswalk.CrosswalkPackage;
 import crosswalk.diagram.edit.parts.CrossWalkEditPart;
-import crosswalk.diagram.edit.parts.DateInputInputEditPart;
 import crosswalk.diagram.edit.parts.DateRecognizerEditPart;
 import crosswalk.diagram.edit.parts.DelimitedFileEditPart;
+import crosswalk.diagram.edit.parts.InputOutputEditPart;
 import crosswalk.diagram.edit.parts.MappedAttributeEditPart;
 import crosswalk.diagram.edit.parts.MappedElement2EditPart;
 import crosswalk.diagram.edit.parts.MappedElementEditPart;
 import crosswalk.diagram.edit.parts.OriginalNameRecordMatcherEditPart;
-import crosswalk.diagram.edit.parts.StringInput13EditPart;
-import crosswalk.diagram.edit.parts.StringInput2EditPart;
-import crosswalk.diagram.edit.parts.StringInput9EditPart;
-import crosswalk.diagram.edit.parts.StringInputEditPart;
-import crosswalk.diagram.edit.parts.StringInputInputEditPart;
 import crosswalk.diagram.edit.parts.TabbedDataFieldEditPart;
 import crosswalk.diagram.edit.parts.TextEditPart;
 import crosswalk.diagram.edit.parts.TrimWhitespaceEditPart;
@@ -118,21 +113,6 @@ public class CrosswalkElementTypes {
     /**
      * @generated
      */
-    public static final IElementType StringInput_3002 = getElementType("crosswalk-gmf.diagram.StringInput_3002"); //$NON-NLS-1$
-
-    /**
-     * @generated
-     */
-    public static final IElementType StringInput_3003 = getElementType("crosswalk-gmf.diagram.StringInput_3003"); //$NON-NLS-1$
-
-    /**
-     * @generated
-     */
-    public static final IElementType StringInput_3010 = getElementType("crosswalk-gmf.diagram.StringInput_3010"); //$NON-NLS-1$
-
-    /**
-     * @generated
-     */
     public static final IElementType MappedElement_3015 = getElementType("crosswalk-gmf.diagram.MappedElement_3015"); //$NON-NLS-1$
 
     /**
@@ -143,17 +123,7 @@ public class CrosswalkElementTypes {
     /**
      * @generated
      */
-    public static final IElementType StringInput_3017 = getElementType("crosswalk-gmf.diagram.StringInput_3017"); //$NON-NLS-1$
-
-    /**
-     * @generated
-     */
-    public static final IElementType StringInputInput_4001 = getElementType("crosswalk-gmf.diagram.StringInputInput_4001"); //$NON-NLS-1$
-
-    /**
-     * @generated
-     */
-    public static final IElementType DateInputInput_4002 = getElementType("crosswalk-gmf.diagram.DateInputInput_4002"); //$NON-NLS-1$
+    public static final IElementType InputOutput_4003 = getElementType("crosswalk-gmf.diagram.InputOutput_4003"); //$NON-NLS-1$
 
     /**
      * @generated
@@ -278,21 +248,11 @@ public class CrosswalkElementTypes {
 
 	    elements.put(TabbedDataField_3001, CrosswalkPackage.eINSTANCE.getTabbedDataField());
 
-	    elements.put(StringInput_3010, CrosswalkPackage.eINSTANCE.getStringInput());
-
-	    elements.put(StringInput_3002, CrosswalkPackage.eINSTANCE.getStringInput());
-
-	    elements.put(StringInput_3003, CrosswalkPackage.eINSTANCE.getStringInput());
-
 	    elements.put(MappedElement_3015, CrosswalkPackage.eINSTANCE.getMappedElement());
 
 	    elements.put(MappedAttribute_3016, CrosswalkPackage.eINSTANCE.getMappedAttribute());
 
-	    elements.put(StringInput_3017, CrosswalkPackage.eINSTANCE.getStringInput());
-
-	    elements.put(StringInputInput_4001, CrosswalkPackage.eINSTANCE.getStringInput_Input());
-
-	    elements.put(DateInputInput_4002, CrosswalkPackage.eINSTANCE.getDateInput_Input());
+	    elements.put(InputOutput_4003, CrosswalkPackage.eINSTANCE.getInput_Output());
 	}
 	return (ENamedElement) elements.get(type);
     }
@@ -318,14 +278,9 @@ public class CrosswalkElementTypes {
 	    KNOWN_ELEMENT_TYPES.add(TrimWhitespace_2015);
 	    KNOWN_ELEMENT_TYPES.add(MappedElement_2016);
 	    KNOWN_ELEMENT_TYPES.add(TabbedDataField_3001);
-	    KNOWN_ELEMENT_TYPES.add(StringInput_3010);
-	    KNOWN_ELEMENT_TYPES.add(StringInput_3002);
-	    KNOWN_ELEMENT_TYPES.add(StringInput_3003);
 	    KNOWN_ELEMENT_TYPES.add(MappedElement_3015);
 	    KNOWN_ELEMENT_TYPES.add(MappedAttribute_3016);
-	    KNOWN_ELEMENT_TYPES.add(StringInput_3017);
-	    KNOWN_ELEMENT_TYPES.add(StringInputInput_4001);
-	    KNOWN_ELEMENT_TYPES.add(DateInputInput_4002);
+	    KNOWN_ELEMENT_TYPES.add(InputOutput_4003);
 	}
 	return KNOWN_ELEMENT_TYPES.contains(elementType);
     }
@@ -351,22 +306,12 @@ public class CrosswalkElementTypes {
 	    return MappedElement_2016;
 	case TabbedDataFieldEditPart.VISUAL_ID:
 	    return TabbedDataField_3001;
-	case StringInput9EditPart.VISUAL_ID:
-	    return StringInput_3010;
-	case StringInputEditPart.VISUAL_ID:
-	    return StringInput_3002;
-	case StringInput2EditPart.VISUAL_ID:
-	    return StringInput_3003;
 	case MappedElement2EditPart.VISUAL_ID:
 	    return MappedElement_3015;
 	case MappedAttributeEditPart.VISUAL_ID:
 	    return MappedAttribute_3016;
-	case StringInput13EditPart.VISUAL_ID:
-	    return StringInput_3017;
-	case StringInputInputEditPart.VISUAL_ID:
-	    return StringInputInput_4001;
-	case DateInputInputEditPart.VISUAL_ID:
-	    return DateInputInput_4002;
+	case InputOutputEditPart.VISUAL_ID:
+	    return InputOutput_4003;
 	}
 	return null;
     }

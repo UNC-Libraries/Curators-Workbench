@@ -62,15 +62,6 @@ public interface CrosswalkFactory extends EFactory {
         CrossWalk createCrossWalk();
 
         /**
-         * Returns a new object of class '<em>Tab Separated File</em>'.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @return a new object of class '<em>Tab Separated File</em>'.
-         * @generated
-         */
-        TabSeparatedFile createTabSeparatedFile();
-
-        /**
          * Returns a new object of class '<em>Data Field</em>'.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -80,15 +71,6 @@ public interface CrosswalkFactory extends EFactory {
         DataField createDataField();
 
         /**
-         * Returns a new object of class '<em>String Input</em>'.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @return a new object of class '<em>String Input</em>'.
-         * @generated
-         */
-        StringInput createStringInput();
-
-        /**
          * Returns a new object of class '<em>Original Name Record Matcher</em>'.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -96,15 +78,6 @@ public interface CrosswalkFactory extends EFactory {
          * @generated
          */
         OriginalNameRecordMatcher createOriginalNameRecordMatcher();
-
-        /**
-         * Returns a new object of class '<em>Date Input</em>'.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @return a new object of class '<em>Date Input</em>'.
-         * @generated
-         */
-        DateInput createDateInput();
 
         /**
          * Returns a new object of class '<em>Date Recognizer</em>'.
@@ -150,6 +123,15 @@ public interface CrosswalkFactory extends EFactory {
          * @generated
          */
         MappedAttribute createMappedAttribute();
+
+        /**
+         * Returns a new object of class '<em>Date To ISO8601 String Conversion</em>'.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @return a new object of class '<em>Date To ISO8601 String Conversion</em>'.
+         * @generated
+         */
+        DateToISO8601StringConversion createDateToISO8601StringConversion();
 
         /**
          * Returns the package supported by this factory.

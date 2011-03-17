@@ -35,7 +35,6 @@ import crosswalk.CrosswalkFactory;
 import crosswalk.CrosswalkPackage;
 import crosswalk.DataException;
 import crosswalk.DataField;
-import crosswalk.DateInput;
 import crosswalk.DateRecognizer;
 import crosswalk.DelimitedFile;
 import crosswalk.MappedAttribute;
@@ -43,8 +42,6 @@ import crosswalk.MappedElement;
 import crosswalk.OriginalNameRecordMatcher;
 import crosswalk.RecordMatches;
 import crosswalk.RecordOutOfRangeException;
-import crosswalk.StringInput;
-import crosswalk.TabSeparatedFile;
 import crosswalk.TabbedDataField;
 import crosswalk.Text;
 import crosswalk.TrimWhitespace;
@@ -55,6 +52,8 @@ import crosswalk.TrimWhitespace;
  * @generated
  */
 public class CrosswalkFactoryImpl extends EFactoryImpl implements CrosswalkFactory {
+    private static MappedElementFeatureSetupAdapter mappedElementFeatureSetupAdapter =  new MappedElementFeatureSetupAdapter();
+
     /**
          * Creates the default factory implementation.
          * <!-- begin-user-doc --> <!--
@@ -94,16 +93,14 @@ public class CrosswalkFactoryImpl extends EFactoryImpl implements CrosswalkFacto
                         case CrosswalkPackage.TABBED_DATA_FIELD: return createTabbedDataField();
                         case CrosswalkPackage.TRIM_WHITESPACE: return createTrimWhitespace();
                         case CrosswalkPackage.CROSS_WALK: return createCrossWalk();
-                        case CrosswalkPackage.TAB_SEPARATED_FILE: return createTabSeparatedFile();
                         case CrosswalkPackage.DATA_FIELD: return createDataField();
-                        case CrosswalkPackage.STRING_INPUT: return createStringInput();
                         case CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER: return createOriginalNameRecordMatcher();
-                        case CrosswalkPackage.DATE_INPUT: return createDateInput();
                         case CrosswalkPackage.DATE_RECOGNIZER: return createDateRecognizer();
                         case CrosswalkPackage.TEXT: return createText();
                         case CrosswalkPackage.DELIMITED_FILE: return createDelimitedFile();
                         case CrosswalkPackage.MAPPED_ELEMENT: return createMappedElement();
                         case CrosswalkPackage.MAPPED_ATTRIBUTE: return createMappedAttribute();
+                        case CrosswalkPackage.DATE_TO_ISO8601_STRING_CONVERSION: return createDateToISO8601StringConversion();
                         default:
                                 throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
                 }
@@ -185,15 +182,6 @@ public class CrosswalkFactoryImpl extends EFactoryImpl implements CrosswalkFacto
         }
 
     /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * @generated
-         */
-    public TabSeparatedFile createTabSeparatedFile() {
-                TabSeparatedFileImpl tabSeparatedFile = new TabSeparatedFileImpl();
-                return tabSeparatedFile;
-        }
-
-    /**
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
@@ -204,15 +192,6 @@ public class CrosswalkFactoryImpl extends EFactoryImpl implements CrosswalkFacto
         }
 
 /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * @generated
-         */
-    public StringInput createStringInput() {
-                StringInputImpl stringInput = new StringInputImpl();
-                return stringInput;
-        }
-
-    /**
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
@@ -220,16 +199,6 @@ public class CrosswalkFactoryImpl extends EFactoryImpl implements CrosswalkFacto
         public OriginalNameRecordMatcher createOriginalNameRecordMatcher() {
                 OriginalNameRecordMatcherImpl originalNameRecordMatcher = new OriginalNameRecordMatcherImpl();
                 return originalNameRecordMatcher;
-        }
-
-/**
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        public DateInput createDateInput() {
-                DateInputImpl dateInput = new DateInputImpl();
-                return dateInput;
         }
 
 /**
@@ -265,10 +234,11 @@ public class CrosswalkFactoryImpl extends EFactoryImpl implements CrosswalkFacto
 /**
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
+         * @generated NOT
          */
         public MappedElement createMappedElement() {
                 MappedElementImpl mappedElement = new MappedElementImpl();
+                mappedElement.eAdapters().add(CrosswalkFactoryImpl.mappedElementFeatureSetupAdapter);
                 return mappedElement;
         }
 
@@ -280,6 +250,16 @@ public class CrosswalkFactoryImpl extends EFactoryImpl implements CrosswalkFacto
         public MappedAttribute createMappedAttribute() {
                 MappedAttributeImpl mappedAttribute = new MappedAttributeImpl();
                 return mappedAttribute;
+        }
+
+/**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        public DateToISO8601StringConversion createDateToISO8601StringConversion() {
+                DateToISO8601StringConversionImpl dateToISO8601StringConversion = new DateToISO8601StringConversionImpl();
+                return dateToISO8601StringConversion;
         }
 
 /**

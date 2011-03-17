@@ -21,8 +21,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import crosswalk.CrosswalkPackage;
 import crosswalk.DataException;
-import crosswalk.DataSource;
-import crosswalk.TabSeparatedFile;
 import crosswalk.TabbedDataField;
 
 /**
@@ -93,23 +91,6 @@ public class TabbedDataFieldImpl extends DataFieldImpl implements TabbedDataFiel
                 if (eNotificationRequired())
                         eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.TABBED_DATA_FIELD__COLUMN_NUMBER, oldColumnNumber, columnNumber));
         }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated NOT
-     */
-    @Override
-    public String getResultString() throws DataException {
-	String result = null;
-	try {
-	    result = this.getSource().getFieldValue(this);
-	} catch (IndexOutOfBoundsException e) {
-	    // throw new DataException("No such column in this row.", e);
-	    // returning null when no such column in the data
-	}
-	return result;
-    }
 
     /**
          * <!-- begin-user-doc --> <!-- end-user-doc -->

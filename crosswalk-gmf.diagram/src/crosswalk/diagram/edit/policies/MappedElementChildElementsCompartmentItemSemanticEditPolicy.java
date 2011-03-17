@@ -8,7 +8,6 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 
 import crosswalk.diagram.edit.commands.MappedAttributeCreateCommand;
 import crosswalk.diagram.edit.commands.MappedElement2CreateCommand;
-import crosswalk.diagram.edit.commands.StringInput13CreateCommand;
 import crosswalk.diagram.providers.CrosswalkElementTypes;
 
 /**
@@ -32,9 +31,6 @@ public class MappedElementChildElementsCompartmentItemSemanticEditPolicy extends
 	}
 	if (CrosswalkElementTypes.MappedAttribute_3016 == req.getElementType()) {
 	    return getGEFWrapper(new MappedAttributeCreateCommand(req));
-	}
-	if (CrosswalkElementTypes.StringInput_3017 == req.getElementType()) {
-	    return getGEFWrapper(new StringInput13CreateCommand(req));
 	}
 	return super.getCreateCommand(req);
     }

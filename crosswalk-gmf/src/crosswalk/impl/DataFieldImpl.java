@@ -15,21 +15,20 @@
  */
 package crosswalk.impl;
 
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
+import org.eclipse.emf.ecore.EcorePackage;
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+
 import crosswalk.CrosswalkPackage;
 import crosswalk.DataException;
 import crosswalk.DataField;
 import crosswalk.DataSource;
-
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
-
-import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -149,12 +148,19 @@ public class DataFieldImpl extends EObjectImpl implements DataField {
         /**
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
+         * @generated NOT
          */
-        public String getResultString() throws DataException {
-                // TODO: implement this method
-                // Ensure that you remove @generated or mark it @generated NOT
-                throw new UnsupportedOperationException();
+        public Object getResult() throws DataException {
+               return this.getSource().getFieldValue(this);
+        }
+
+        /**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated NOT
+         */
+        public EDataType getOutputEDataType() {
+            return EcorePackage.eINSTANCE.getEString();
         }
 
         /**

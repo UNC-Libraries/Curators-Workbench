@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  * The following features are supported:
  * <ul>
  *   <li>{@link crosswalk.MappedAttribute#getMappedFeature <em>Mapped Feature</em>}</li>
+ *   <li>{@link crosswalk.MappedAttribute#getConversionStrategy <em>Conversion Strategy</em>}</li>
  * </ul>
  * </p>
  *
@@ -26,7 +27,7 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  * @model
  * @generated
  */
-public interface MappedAttribute extends OutputElement, StringInput {
+public interface MappedAttribute extends OutputElement, Input {
         /**
          * Returns the value of the '<em><b>Mapped Feature</b></em>' reference.
          * <!-- begin-user-doc -->
@@ -52,5 +53,58 @@ public interface MappedAttribute extends OutputElement, StringInput {
          * @generated
          */
         void setMappedFeature(EAttribute value);
+
+        /**
+         * Returns the value of the '<em><b>Conversion Strategy</b></em>' containment reference.
+         * <!-- begin-user-doc -->
+         * <p>
+         * If the meaning of the '<em>Conversion Strategy</em>' reference isn't clear,
+         * there really should be more of a description here...
+         * </p>
+         * <!-- end-user-doc -->
+         * @return the value of the '<em>Conversion Strategy</em>' containment reference.
+         * @see #isSetConversionStrategy()
+         * @see #unsetConversionStrategy()
+         * @see #setConversionStrategy(ConversionStrategy)
+         * @see crosswalk.CrosswalkPackage#getMappedAttribute_ConversionStrategy()
+         * @model containment="true" unsettable="true"
+         * @generated
+         */
+        ConversionStrategy getConversionStrategy();
+
+        /**
+         * Sets the value of the '{@link crosswalk.MappedAttribute#getConversionStrategy <em>Conversion Strategy</em>}' containment reference.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @param value the new value of the '<em>Conversion Strategy</em>' containment reference.
+         * @see #isSetConversionStrategy()
+         * @see #unsetConversionStrategy()
+         * @see #getConversionStrategy()
+         * @generated
+         */
+        void setConversionStrategy(ConversionStrategy value);
+
+        /**
+         * Unsets the value of the '{@link crosswalk.MappedAttribute#getConversionStrategy <em>Conversion Strategy</em>}' containment reference.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see #isSetConversionStrategy()
+         * @see #getConversionStrategy()
+         * @see #setConversionStrategy(ConversionStrategy)
+         * @generated
+         */
+        void unsetConversionStrategy();
+
+        /**
+         * Returns whether the value of the '{@link crosswalk.MappedAttribute#getConversionStrategy <em>Conversion Strategy</em>}' containment reference is set.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @return whether the value of the '<em>Conversion Strategy</em>' containment reference is set.
+         * @see #unsetConversionStrategy()
+         * @see #getConversionStrategy()
+         * @see #setConversionStrategy(ConversionStrategy)
+         * @generated
+         */
+        boolean isSetConversionStrategy();
 
 } // MappedAttribute

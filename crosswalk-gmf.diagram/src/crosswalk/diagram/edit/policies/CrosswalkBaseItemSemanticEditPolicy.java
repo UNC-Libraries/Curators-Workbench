@@ -15,8 +15,11 @@
  */
 package crosswalk.diagram.edit.policies;
 
+import java.util.Collections;
 import java.util.Iterator;
+import java.util.Map;
 
+import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.commands.Command;
@@ -46,11 +49,11 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientRelationshipReques
 import org.eclipse.gmf.runtime.emf.type.core.requests.SetRequest;
 import org.eclipse.gmf.runtime.notation.View;
 
-import crosswalk.DateGenerator;
-import crosswalk.DateInput;
-import crosswalk.StringGenerator;
-import crosswalk.StringInput;
+import crosswalk.CrosswalkPackage;
+import crosswalk.Input;
+import crosswalk.Output;
 import crosswalk.diagram.edit.helpers.CrosswalkBaseEditHelper;
+import crosswalk.diagram.expressions.CrosswalkOCLFactory;
 import crosswalk.diagram.part.CrosswalkDiagramEditorPlugin;
 import crosswalk.diagram.part.CrosswalkVisualIDRegistry;
 import crosswalk.diagram.providers.CrosswalkElementTypes;
@@ -84,9 +87,10 @@ public class CrosswalkBaseItemSemanticEditPolicy extends SemanticEditPolicy {
      * so command switch can decide what kind of diagram element is being edited.
      * It is done in those cases when it's not possible to deduce diagram
      * element kind from domain element.
-     * 
+     *
      * @generated
      */
+    @Override
     public Command getCommand(Request request) {
 	if (request instanceof ReconnectRequest) {
 	    Object view = ((ReconnectRequest) request).getConnectionEditPart().getModel();
@@ -110,6 +114,7 @@ public class CrosswalkBaseItemSemanticEditPolicy extends SemanticEditPolicy {
     /**
      * @generated
      */
+    @Override
     protected Command getSemanticCommand(IEditCommandRequest request) {
 	IEditCommandRequest completedRequest = completeRequest(request);
 	Command semanticCommand = getSemanticCommandSwitch(completedRequest);
@@ -323,41 +328,39 @@ public class CrosswalkBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 	/**
 	 * @generated
 	 */
-	public boolean canCreateStringInputInput_4001(StringInput source, StringGenerator target) {
+	public boolean canCreateInputOutput_4003(Input source, Output target) {
 	    if (source != null) {
-		if (source.getInput() != null) {
+		if (source.getOutput() != null) {
 		    return false;
 		}
 	    }
 
-	    return canExistStringInputInput_4001(source, target);
+	    return canExistInputOutput_4003(source, target);
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
-	public boolean canCreateDateInputInput_4002(DateInput source, DateGenerator target) {
-	    if (source != null) {
-		if (source.getInput() != null) {
-		    return false;
+	public boolean canExistInputOutput_4003(Input source, Output target) {
+	    System.out.println(source+"->"+target);
+	    boolean result = false;
+	    try {
+		// TODO: implement this method, using source and target
+		// to access link source and target, respectively
+		// Ensure that you remove @generated or mark it @generated NOT
+		if(target == null) {
+		    result = true;
+		} else if(source != null && source.getInputEDataType() != null) {
+		    System.out.println(source.getInputEDataType()+"->"+target.getOutputEDataType());
+		    if(source.getInputEDataType().getInstanceClass().equals(target.getOutputEDataType().getInstanceClass())) {
+			result = true;
+		    }
 		}
+	    } catch (Exception e) {
+		CrosswalkDiagramEditorPlugin.getInstance().logError("Link constraint evaluation error", e); //$NON-NLS-1$
+		return false;
 	    }
-
-	    return canExistDateInputInput_4002(source, target);
-	}
-
-	/**
-	 * @generated
-	 */
-	public boolean canExistStringInputInput_4001(StringInput source, StringGenerator target) {
-	    return true;
-	}
-
-	/**
-	 * @generated
-	 */
-	public boolean canExistDateInputInput_4002(DateInput source, DateGenerator target) {
-	    return true;
+	    return result;
 	}
     }
 

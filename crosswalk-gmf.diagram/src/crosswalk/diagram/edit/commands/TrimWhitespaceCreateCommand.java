@@ -66,12 +66,11 @@ public class TrimWhitespaceCreateCommand extends EditElementCommand {
     }
 
     /**
-     * @generated NOT
+     * @generated
      */
     @Override
     protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
 	TrimWhitespace newElement = CrosswalkFactory.eINSTANCE.createTrimWhitespace();
-	newElement.initInputs();
 
 	CrossWalk owner = (CrossWalk) getElementToEdit();
 	owner.getWidgets().add(newElement);

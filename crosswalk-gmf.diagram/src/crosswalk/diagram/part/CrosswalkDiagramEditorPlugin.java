@@ -36,6 +36,7 @@ import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
 import crosswalk.diagram.edit.policies.CrosswalkBaseItemSemanticEditPolicy;
+import crosswalk.diagram.expressions.CrosswalkOCLFactory;
 import crosswalk.diagram.providers.ElementInitializers;
 import crosswalk.provider.CrosswalkItemProviderAdapterFactory;
 

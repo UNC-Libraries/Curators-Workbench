@@ -7,7 +7,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ColumnNumber" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="1"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TrimWhitespace" eSuperTypes="#//WalkWidget #//StringGenerator #//InputConsumer"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TrimWhitespace" eSuperTypes="#//WalkWidget #//Output #//Input"/>
   <eClassifiers xsi:type="ecore:EClass" name="CrossWalk">
     <eOperations name="getProject" lowerBound="1" eType="#//IProject" eExceptions="#//DataException"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="DataSource" lowerBound="1"
@@ -30,16 +30,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="Walk" lowerBound="1" eType="#//CrossWalk"
         eOpposite="#//CrossWalk/Widgets"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TabSeparatedFile" eSuperTypes="#//DataSource">
-    <eOperations name="GoToRecord" eExceptions="#//DataException #//RecordOutOfRangeException">
-      <eParameters name="RowNumber" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SourceFile" eType="#//IFile"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="DataStartingRow" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="1"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="HeadingRow" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-        unsettable="true"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DataSource" abstract="true" interface="true">
     <eOperations name="GoToExample" eExceptions="#//DataException #//RecordOutOfRangeException"/>
     <eOperations name="NextRecord" lowerBound="1" eExceptions="#//DataException #//RecordOutOfRangeException"/>
@@ -55,30 +45,21 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="fields" upperBound="-1"
         eType="#//DataField" containment="true" eOpposite="#//DataField/source"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DataField" eSuperTypes="#//StringGenerator">
+  <eClassifiers xsi:type="ecore:EClass" name="DataField" eSuperTypes="#//Output">
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//DataSource"
         eOpposite="#//DataSource/fields"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="StringInput" eSuperTypes="#//Input">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Input" eType="#//StringGenerator"
-        unsettable="true"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="DataException" instanceClassName="crosswalk.DataException"/>
-  <eClassifiers xsi:type="ecore:EClass" name="StringGenerator" abstract="true" interface="true">
-    <eOperations name="getResultString" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+  <eClassifiers xsi:type="ecore:EClass" name="Output" abstract="true" interface="true">
+    <eOperations name="getResult" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"
         eExceptions="#//DataException"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="InputConsumer" abstract="true">
-    <eOperations name="initInputs" lowerBound="1"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Inputs" upperBound="-1"
-        eType="#//Input" containment="true" eOpposite="#//Input/Consumer"/>
+    <eOperations name="getOutputEDataType" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EDataType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Input" abstract="true" interface="true">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        defaultValueLiteral="input"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Consumer" eType="#//InputConsumer"
-        eOpposite="#//InputConsumer/Inputs"/>
+    <eOperations name="getInputEDataType" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EDataType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Output" eType="#//Output"
+        unsettable="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="IProject" instanceClassName="org.eclipse.core.resources.IProject"/>
   <eClassifiers xsi:type="ecore:EDataType" name="IFile" instanceClassName="org.eclipse.core.resources.IFile"/>
@@ -87,32 +68,22 @@
     <eOperations name="getMatches" lowerBound="1" eType="#//RecordMatches"/>
     <eOperations name="run" lowerBound="1" eExceptions="#//DataException"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="OriginalNameRecordMatcher" eSuperTypes="#//RecordMatcherStrategy">
+  <eClassifiers xsi:type="ecore:EClass" name="OriginalNameRecordMatcher" eSuperTypes="#//RecordMatcherStrategy #//Input">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="caseSensitive" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="includeFileExtension" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="baseFolder" eType="#//IFolder"
         unsettable="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="input" lowerBound="1" eType="#//StringInput"
-        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="RecordMatches" instanceClassName="crosswalk.RecordMatches"/>
   <eClassifiers xsi:type="ecore:EDataType" name="IFolder" instanceClassName="org.eclipse.core.resources.IFolder"/>
   <eClassifiers xsi:type="ecore:EDataType" name="RecordOutOfRangeException" instanceClassName="crosswalk.RecordOutOfRangeException"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DateInput" eSuperTypes="#//Input">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Input" eType="#//DateGenerator"
-        unsettable="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DateGenerator" abstract="true" interface="true">
-    <eOperations name="getResultString" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        eExceptions="#//DataException"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DateRecognizer" eSuperTypes="#//InputConsumer #//DateGenerator #//WalkWidget">
+  <eClassifiers xsi:type="ecore:EClass" name="DateRecognizer" eSuperTypes="#//WalkWidget #//Output #//Input">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Format" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="yy-MM-dd"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Text" eSuperTypes="#//StringGenerator #//WalkWidget">
+  <eClassifiers xsi:type="ecore:EClass" name="Text" eSuperTypes="#//Output #//WalkWidget">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DelimitedFile" eSuperTypes="#//DataSource">
@@ -139,13 +110,22 @@
         eType="#//MappedAttribute" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="mappedFeature" lowerBound="1"
         eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="text" eType="#//StringInput"
-        unsettable="true" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//MappedElement"
         eOpposite="#//MappedElement/childElements"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MappedAttribute" eSuperTypes="#//OutputElement #//StringInput">
+  <eClassifiers xsi:type="ecore:EClass" name="MappedAttribute" eSuperTypes="#//OutputElement #//Input">
     <eStructuralFeatures xsi:type="ecore:EReference" name="mappedFeature" lowerBound="1"
         eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EAttribute"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="conversionStrategy" eType="#//ConversionStrategy"
+        unsettable="true" containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ConversionStrategy" abstract="true"
+      interface="true">
+    <eOperations name="convert" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject">
+      <eParameters name="input" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    </eOperations>
+    <eOperations name="getInputDataType" lowerBound="1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EDataType"/>
+    <eOperations name="getOutputDataType" lowerBound="1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EDataType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DateToISO8601StringConversion" eSuperTypes="#//ConversionStrategy"/>
 </ecore:EPackage>

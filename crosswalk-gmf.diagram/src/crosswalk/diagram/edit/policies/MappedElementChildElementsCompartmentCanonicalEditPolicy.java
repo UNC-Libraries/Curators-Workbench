@@ -28,7 +28,6 @@ import org.eclipse.gmf.runtime.notation.View;
 import crosswalk.CrosswalkPackage;
 import crosswalk.diagram.edit.parts.MappedAttributeEditPart;
 import crosswalk.diagram.edit.parts.MappedElement2EditPart;
-import crosswalk.diagram.edit.parts.StringInput13EditPart;
 import crosswalk.diagram.part.CrosswalkDiagramUpdater;
 import crosswalk.diagram.part.CrosswalkNodeDescriptor;
 import crosswalk.diagram.part.CrosswalkVisualIDRegistry;
@@ -51,7 +50,6 @@ public class MappedElementChildElementsCompartmentCanonicalEditPolicy extends Ca
 	    myFeaturesToSynchronize = new HashSet<EStructuralFeature>();
 	    myFeaturesToSynchronize.add(CrosswalkPackage.eINSTANCE.getMappedElement_ChildElements());
 	    myFeaturesToSynchronize.add(CrosswalkPackage.eINSTANCE.getMappedElement_Attributes());
-	    myFeaturesToSynchronize.add(CrosswalkPackage.eINSTANCE.getMappedElement_Text());
 	}
 	return myFeaturesToSynchronize;
     }
@@ -83,8 +81,7 @@ public class MappedElementChildElementsCompartmentCanonicalEditPolicy extends Ca
      */
     private boolean isMyDiagramElement(View view) {
 	int visualID = CrosswalkVisualIDRegistry.getVisualID(view);
-	return visualID == MappedElement2EditPart.VISUAL_ID || visualID == MappedAttributeEditPart.VISUAL_ID
-			|| visualID == StringInput13EditPart.VISUAL_ID;
+	return visualID == MappedElement2EditPart.VISUAL_ID || visualID == MappedAttributeEditPart.VISUAL_ID;
     }
 
     /**

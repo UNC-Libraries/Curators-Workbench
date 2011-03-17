@@ -92,24 +92,6 @@ public class CrosswalkEditPartFactory implements EditPartFactory {
 	    case TabbedDataFieldLabelColumnNumberEditPart.VISUAL_ID:
 		return new TabbedDataFieldLabelColumnNumberEditPart(view);
 
-	    case StringInput9EditPart.VISUAL_ID:
-		return new StringInput9EditPart(view);
-
-	    case StringInputName9EditPart.VISUAL_ID:
-		return new StringInputName9EditPart(view);
-
-	    case StringInputEditPart.VISUAL_ID:
-		return new StringInputEditPart(view);
-
-	    case StringInputNameEditPart.VISUAL_ID:
-		return new StringInputNameEditPart(view);
-
-	    case StringInput2EditPart.VISUAL_ID:
-		return new StringInput2EditPart(view);
-
-	    case StringInputName2EditPart.VISUAL_ID:
-		return new StringInputName2EditPart(view);
-
 	    case MappedElement2EditPart.VISUAL_ID:
 		return new MappedElement2EditPart(view);
 
@@ -122,32 +104,17 @@ public class CrosswalkEditPartFactory implements EditPartFactory {
 	    case MappedAttributeNameEditPart.VISUAL_ID:
 		return new MappedAttributeNameEditPart(view);
 
-	    case StringInput13EditPart.VISUAL_ID:
-		return new StringInput13EditPart(view);
-
-	    case StringInputName13EditPart.VISUAL_ID:
-		return new StringInputName13EditPart(view);
-
 	    case DelimitedFileDataFieldCompartmentEditPart.VISUAL_ID:
 		return new DelimitedFileDataFieldCompartmentEditPart(view);
-
-	    case OriginalNameRecordMatcherRecordMatcherInputsCompartmentEditPart.VISUAL_ID:
-		return new OriginalNameRecordMatcherRecordMatcherInputsCompartmentEditPart(view);
-
-	    case DateRecognizerOutputElementInputsCompartmentEditPart.VISUAL_ID:
-		return new DateRecognizerOutputElementInputsCompartmentEditPart(view);
-
-	    case TrimWhitespaceOutputElementInputsCompartmentEditPart.VISUAL_ID:
-		return new TrimWhitespaceOutputElementInputsCompartmentEditPart(view);
 
 	    case MappedElementChildElementsCompartmentEditPart.VISUAL_ID:
 		return new MappedElementChildElementsCompartmentEditPart(view);
 
-	    case StringInputInputEditPart.VISUAL_ID:
-		return new StringInputInputEditPart(view);
+	    case MappedElementChildElementsCompartment2EditPart.VISUAL_ID:
+		return new MappedElementChildElementsCompartment2EditPart(view);
 
-	    case DateInputInputEditPart.VISUAL_ID:
-		return new DateInputInputEditPart(view);
+	    case InputOutputEditPart.VISUAL_ID:
+		return new InputOutputEditPart(view);
 
 	    }
 	}

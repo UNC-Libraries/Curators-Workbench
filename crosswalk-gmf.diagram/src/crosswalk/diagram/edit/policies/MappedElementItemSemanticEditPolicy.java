@@ -18,11 +18,10 @@ import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 
+import crosswalk.diagram.edit.parts.InputOutputEditPart;
 import crosswalk.diagram.edit.parts.MappedAttributeEditPart;
 import crosswalk.diagram.edit.parts.MappedElement2EditPart;
 import crosswalk.diagram.edit.parts.MappedElementChildElementsCompartmentEditPart;
-import crosswalk.diagram.edit.parts.StringInput13EditPart;
-import crosswalk.diagram.edit.parts.StringInputInputEditPart;
 import crosswalk.diagram.part.CrosswalkVisualIDRegistry;
 import crosswalk.diagram.providers.CrosswalkElementTypes;
 
@@ -79,23 +78,7 @@ public class MappedElementItemSemanticEditPolicy extends CrosswalkBaseItemSemant
 		    case MappedAttributeEditPart.VISUAL_ID:
 			for (Iterator<?> it = cnode.getSourceEdges().iterator(); it.hasNext();) {
 			    Edge outgoingLink = (Edge) it.next();
-			    if (CrosswalkVisualIDRegistry.getVisualID(outgoingLink) == StringInputInputEditPart.VISUAL_ID) {
-				DestroyReferenceRequest r = new DestroyReferenceRequest(outgoingLink.getSource()
-						.getElement(), null, outgoingLink.getTarget().getElement(), false);
-				cmd.add(new DestroyReferenceCommand(r));
-				cmd.add(new DeleteCommand(getEditingDomain(), outgoingLink));
-				continue;
-			    }
-			}
-			cmd.add(new DestroyElementCommand(new DestroyElementRequest(getEditingDomain(), cnode
-					.getElement(), false))); // directlyOwned: true
-			// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
-			// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
-			break;
-		    case StringInput13EditPart.VISUAL_ID:
-			for (Iterator<?> it = cnode.getSourceEdges().iterator(); it.hasNext();) {
-			    Edge outgoingLink = (Edge) it.next();
-			    if (CrosswalkVisualIDRegistry.getVisualID(outgoingLink) == StringInputInputEditPart.VISUAL_ID) {
+			    if (CrosswalkVisualIDRegistry.getVisualID(outgoingLink) == InputOutputEditPart.VISUAL_ID) {
 				DestroyReferenceRequest r = new DestroyReferenceRequest(outgoingLink.getSource()
 						.getElement(), null, outgoingLink.getTarget().getElement(), false);
 				cmd.add(new DestroyReferenceCommand(r));

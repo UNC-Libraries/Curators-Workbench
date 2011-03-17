@@ -26,6 +26,6 @@ package crosswalk;
  * @model
  * @generated
  */
-public interface TrimWhitespace extends WalkWidget, StringGenerator, InputConsumer {
+public interface TrimWhitespace extends WalkWidget, Output, Input {
 
 } // TrimWhitespace

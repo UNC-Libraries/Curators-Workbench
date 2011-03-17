@@ -338,22 +338,12 @@ public class Messages extends NLS {
     /**
      * @generated
      */
-    public static String OriginalNameRecordMatcherRecordMatcherInputsCompartmentEditPart_title;
-
-    /**
-     * @generated
-     */
-    public static String DateRecognizerOutputElementInputsCompartmentEditPart_title;
-
-    /**
-     * @generated
-     */
-    public static String TrimWhitespaceOutputElementInputsCompartmentEditPart_title;
-
-    /**
-     * @generated
-     */
     public static String MappedElementChildElementsCompartmentEditPart_title;
+
+    /**
+     * @generated
+     */
+    public static String MappedElementChildElementsCompartment2EditPart_title;
 
     /**
      * @generated
@@ -363,17 +353,12 @@ public class Messages extends NLS {
     /**
      * @generated
      */
-    public static String NavigatorGroupName_StringInput_3017_outgoinglinks;
-
-    /**
-     * @generated
-     */
-    public static String NavigatorGroupName_StringInput_3010_outgoinglinks;
-
-    /**
-     * @generated
-     */
     public static String NavigatorGroupName_DateRecognizer_2013_incominglinks;
+
+    /**
+     * @generated
+     */
+    public static String NavigatorGroupName_DateRecognizer_2013_outgoinglinks;
 
     /**
      * @generated
@@ -393,32 +378,27 @@ public class Messages extends NLS {
     /**
      * @generated
      */
-    public static String NavigatorGroupName_StringInput_3003_outgoinglinks;
-
-    /**
-     * @generated
-     */
-    public static String NavigatorGroupName_DateInputInput_4002_target;
-
-    /**
-     * @generated
-     */
-    public static String NavigatorGroupName_StringInputInput_4001_target;
-
-    /**
-     * @generated
-     */
-    public static String NavigatorGroupName_StringInputInput_4001_source;
-
-    /**
-     * @generated
-     */
-    public static String NavigatorGroupName_StringInput_3002_outgoinglinks;
+    public static String NavigatorGroupName_TrimWhitespace_2015_outgoinglinks;
 
     /**
      * @generated
      */
     public static String NavigatorGroupName_Text_2014_incominglinks;
+
+    /**
+     * @generated
+     */
+    public static String NavigatorGroupName_InputOutput_4003_target;
+
+    /**
+     * @generated
+     */
+    public static String NavigatorGroupName_InputOutput_4003_source;
+
+    /**
+     * @generated
+     */
+    public static String NavigatorGroupName_OriginalNameRecordMatcher_2010_outgoinglinks;
 
     /**
      * @generated

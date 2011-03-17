@@ -94,14 +94,14 @@ public class MappedAttributeEditPart extends ShapeNodeEditPart {
      * @generated
      */
     protected IFigure createNodeShape() {
-	return primaryShape = new StringInputFigure();
+	return primaryShape = new MappedAttributeFigure();
     }
 
     /**
      * @generated
      */
-    public StringInputFigure getPrimaryShape() {
-	return (StringInputFigure) primaryShape;
+    public MappedAttributeFigure getPrimaryShape() {
+	return (MappedAttributeFigure) primaryShape;
     }
 
     /**
@@ -109,7 +109,7 @@ public class MappedAttributeEditPart extends ShapeNodeEditPart {
      */
     protected boolean addFixedChild(EditPart childEditPart) {
 	if (childEditPart instanceof MappedAttributeNameEditPart) {
-	    ((MappedAttributeNameEditPart) childEditPart).setLabel(getPrimaryShape().getFigureInputLabel());
+	    ((MappedAttributeNameEditPart) childEditPart).setLabel(getPrimaryShape().getFigureAttributeLabel());
 	    return true;
 	}
 	return false;
@@ -250,7 +250,7 @@ public class MappedAttributeEditPart extends ShapeNodeEditPart {
      */
     public List<IElementType> getMARelTypesOnSource() {
 	ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-	types.add(CrosswalkElementTypes.StringInputInput_4001);
+	types.add(CrosswalkElementTypes.InputOutput_4003);
 	return types;
     }
 
@@ -259,14 +259,17 @@ public class MappedAttributeEditPart extends ShapeNodeEditPart {
      */
     public List<IElementType> getMARelTypesOnSourceAndTarget(IGraphicalEditPart targetEditPart) {
 	LinkedList<IElementType> types = new LinkedList<IElementType>();
+	if (targetEditPart instanceof DateRecognizerEditPart) {
+	    types.add(CrosswalkElementTypes.InputOutput_4003);
+	}
 	if (targetEditPart instanceof TextEditPart) {
-	    types.add(CrosswalkElementTypes.StringInputInput_4001);
+	    types.add(CrosswalkElementTypes.InputOutput_4003);
 	}
 	if (targetEditPart instanceof TrimWhitespaceEditPart) {
-	    types.add(CrosswalkElementTypes.StringInputInput_4001);
+	    types.add(CrosswalkElementTypes.InputOutput_4003);
 	}
 	if (targetEditPart instanceof TabbedDataFieldEditPart) {
-	    types.add(CrosswalkElementTypes.StringInputInput_4001);
+	    types.add(CrosswalkElementTypes.InputOutput_4003);
 	}
 	return types;
     }
@@ -276,7 +279,8 @@ public class MappedAttributeEditPart extends ShapeNodeEditPart {
      */
     public List<IElementType> getMATypesForTarget(IElementType relationshipType) {
 	LinkedList<IElementType> types = new LinkedList<IElementType>();
-	if (relationshipType == CrosswalkElementTypes.StringInputInput_4001) {
+	if (relationshipType == CrosswalkElementTypes.InputOutput_4003) {
+	    types.add(CrosswalkElementTypes.DateRecognizer_2013);
 	    types.add(CrosswalkElementTypes.Text_2014);
 	    types.add(CrosswalkElementTypes.TrimWhitespace_2015);
 	    types.add(CrosswalkElementTypes.TabbedDataField_3001);
@@ -287,17 +291,17 @@ public class MappedAttributeEditPart extends ShapeNodeEditPart {
     /**
      * @generated
      */
-    public class StringInputFigure extends RectangleFigure {
+    public class MappedAttributeFigure extends RectangleFigure {
 
 	/**
 	 * @generated
 	 */
-	private WrappingLabel fFigureInputLabel;
+	private WrappingLabel fFigureAttributeLabel;
 
 	/**
 	 * @generated
 	 */
-	public StringInputFigure() {
+	public MappedAttributeFigure() {
 
 	    ToolbarLayout layoutThis = new ToolbarLayout();
 	    layoutThis.setStretchMinorAxis(false);
@@ -321,23 +325,23 @@ public class MappedAttributeEditPart extends ShapeNodeEditPart {
 
 	    Ellipse stringInputEllipsis0 = new Ellipse();
 	    stringInputEllipsis0.setBackgroundColor(ColorConstants.red);
-	    stringInputEllipsis0.setPreferredSize(new Dimension(getMapMode().DPtoLP(15), getMapMode().DPtoLP(15)));
-	    stringInputEllipsis0.setMaximumSize(new Dimension(getMapMode().DPtoLP(15), getMapMode().DPtoLP(15)));
+	    stringInputEllipsis0.setPreferredSize(new Dimension(getMapMode().DPtoLP(10), getMapMode().DPtoLP(10)));
+	    stringInputEllipsis0.setMaximumSize(new Dimension(getMapMode().DPtoLP(10), getMapMode().DPtoLP(10)));
 
 	    this.add(stringInputEllipsis0);
 
-	    fFigureInputLabel = new WrappingLabel();
-	    fFigureInputLabel.setText("input");
+	    fFigureAttributeLabel = new WrappingLabel();
+	    fFigureAttributeLabel.setText("input");
 
-	    this.add(fFigureInputLabel);
+	    this.add(fFigureAttributeLabel);
 
 	}
 
 	/**
 	 * @generated
 	 */
-	public WrappingLabel getFigureInputLabel() {
-	    return fFigureInputLabel;
+	public WrappingLabel getFigureAttributeLabel() {
+	    return fFigureAttributeLabel;
 	}
 
     }

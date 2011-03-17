@@ -15,12 +15,8 @@
  */
 package crosswalk.provider;
 
-import gov.loc.mods.mods.provider.ModsEditPlugin;
-import gov.loc.mods.mods.provider.ModsEditPlugin;
 import org.eclipse.emf.common.EMFPlugin;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-import org.w3._1999.xlink.provider.XlinkEditPlugin;
 
 /**
  * This is the central singleton for the Crosswalk edit plugin.

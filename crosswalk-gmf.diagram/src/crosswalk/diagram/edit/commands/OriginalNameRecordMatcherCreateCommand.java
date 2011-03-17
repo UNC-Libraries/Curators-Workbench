@@ -66,12 +66,11 @@ public class OriginalNameRecordMatcherCreateCommand extends EditElementCommand {
     }
 
     /**
-     * @generated NOT
+     * @generated
      */
     @Override
     protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
 	OriginalNameRecordMatcher newElement = CrosswalkFactory.eINSTANCE.createOriginalNameRecordMatcher();
-	newElement.setInput(CrosswalkFactory.eINSTANCE.createStringInput());
 
 	CrossWalk owner = (CrossWalk) getElementToEdit();
 	owner.getWidgets().add(newElement);

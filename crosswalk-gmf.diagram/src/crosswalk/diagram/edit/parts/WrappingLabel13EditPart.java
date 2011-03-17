@@ -187,11 +187,7 @@ public class WrappingLabel13EditPart extends CompartmentEditPart implements ITex
      * @generated
      */
     protected Image getLabelIcon() {
-	EObject parserElement = getParserElement();
-	if (parserElement == null) {
-	    return null;
-	}
-	return CrosswalkElementTypes.getImage(parserElement.eClass());
+	return null;
     }
 
     /**

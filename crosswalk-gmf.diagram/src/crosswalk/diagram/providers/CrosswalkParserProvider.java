@@ -31,10 +31,6 @@ import org.eclipse.gmf.runtime.notation.View;
 import crosswalk.CrosswalkPackage;
 import crosswalk.diagram.edit.parts.DelimitedFileSourceFileEditPart;
 import crosswalk.diagram.edit.parts.MappedAttributeNameEditPart;
-import crosswalk.diagram.edit.parts.StringInputName13EditPart;
-import crosswalk.diagram.edit.parts.StringInputName2EditPart;
-import crosswalk.diagram.edit.parts.StringInputName9EditPart;
-import crosswalk.diagram.edit.parts.StringInputNameEditPart;
 import crosswalk.diagram.edit.parts.TabbedDataFieldLabelColumnNumberEditPart;
 import crosswalk.diagram.edit.parts.TextValueEditPart;
 import crosswalk.diagram.edit.parts.WrappingLabel12EditPart;
@@ -44,6 +40,7 @@ import crosswalk.diagram.edit.parts.WrappingLabel15EditPart;
 import crosswalk.diagram.edit.parts.WrappingLabel16EditPart;
 import crosswalk.diagram.edit.parts.WrappingLabel9EditPart;
 import crosswalk.diagram.parsers.DateRecognizerLabelExpressionLabelParser;
+import crosswalk.diagram.parsers.MappedAttributeLabelExpressionLabelParser;
 import crosswalk.diagram.parsers.MappedElementLabelExpressionLabelParser;
 import crosswalk.diagram.parsers.MessageFormatParser;
 import crosswalk.diagram.parsers.OriginalNameRecordMatcherLabelExpressionLabelParser;
@@ -194,57 +191,6 @@ public class CrosswalkParserProvider extends AbstractProvider implements IParser
     /**
      * @generated
      */
-    private IParser stringInputName_5004Parser;
-
-    /**
-     * @generated
-     */
-    private IParser getStringInputName_5004Parser() {
-	if (stringInputName_5004Parser == null) {
-	    EAttribute[] features = new EAttribute[] { CrosswalkPackage.eINSTANCE.getInput_Name() };
-	    MessageFormatParser parser = new MessageFormatParser(features);
-	    stringInputName_5004Parser = parser;
-	}
-	return stringInputName_5004Parser;
-    }
-
-    /**
-     * @generated
-     */
-    private IParser stringInputName_5006Parser;
-
-    /**
-     * @generated
-     */
-    private IParser getStringInputName_5006Parser() {
-	if (stringInputName_5006Parser == null) {
-	    EAttribute[] features = new EAttribute[] { CrosswalkPackage.eINSTANCE.getInput_Name() };
-	    MessageFormatParser parser = new MessageFormatParser(features);
-	    stringInputName_5006Parser = parser;
-	}
-	return stringInputName_5006Parser;
-    }
-
-    /**
-     * @generated
-     */
-    private IParser stringInputName_5020Parser;
-
-    /**
-     * @generated
-     */
-    private IParser getStringInputName_5020Parser() {
-	if (stringInputName_5020Parser == null) {
-	    EAttribute[] features = new EAttribute[] { CrosswalkPackage.eINSTANCE.getInput_Name() };
-	    MessageFormatParser parser = new MessageFormatParser(features);
-	    stringInputName_5020Parser = parser;
-	}
-	return stringInputName_5020Parser;
-    }
-
-    /**
-     * @generated
-     */
     private MappedElementLabelExpressionLabelParser mappedElementLabel_5031Parser;
 
     /**
@@ -260,41 +206,16 @@ public class CrosswalkParserProvider extends AbstractProvider implements IParser
     /**
      * @generated
      */
-    private IParser mappedAttributeName_5032Parser;
+    private MappedAttributeLabelExpressionLabelParser mappedAttributeLabel_5032Parser;
 
     /**
      * @generated
      */
-    private IParser getMappedAttributeName_5032Parser() {
-	if (mappedAttributeName_5032Parser == null) {
-	    EAttribute[] features = new EAttribute[] { CrosswalkPackage.eINSTANCE.getInput_Name() };
-	    MessageFormatParser parser = new MessageFormatParser(features);
-	    parser.setViewPattern("{0}"); //$NON-NLS-1$
-	    parser.setEditorPattern("{0}"); //$NON-NLS-1$
-	    parser.setEditPattern("{0}"); //$NON-NLS-1$
-	    mappedAttributeName_5032Parser = parser;
+    private IParser getMappedAttributeLabel_5032Parser() {
+	if (mappedAttributeLabel_5032Parser == null) {
+	    mappedAttributeLabel_5032Parser = new MappedAttributeLabelExpressionLabelParser();
 	}
-	return mappedAttributeName_5032Parser;
-    }
-
-    /**
-     * @generated
-     */
-    private IParser stringInputName_5033Parser;
-
-    /**
-     * @generated
-     */
-    private IParser getStringInputName_5033Parser() {
-	if (stringInputName_5033Parser == null) {
-	    EAttribute[] features = new EAttribute[] { CrosswalkPackage.eINSTANCE.getInput_Name() };
-	    MessageFormatParser parser = new MessageFormatParser(features);
-	    parser.setViewPattern("{0}"); //$NON-NLS-1$
-	    parser.setEditorPattern("{0}"); //$NON-NLS-1$
-	    parser.setEditPattern("{0}"); //$NON-NLS-1$
-	    stringInputName_5033Parser = parser;
-	}
-	return stringInputName_5033Parser;
+	return mappedAttributeLabel_5032Parser;
     }
 
     /**
@@ -318,18 +239,10 @@ public class CrosswalkParserProvider extends AbstractProvider implements IParser
 	    return getTabbedDataFieldLabel_5001Parser();
 	case TabbedDataFieldLabelColumnNumberEditPart.VISUAL_ID:
 	    return getTabbedDataFieldLabelColumnNumber_5002Parser();
-	case StringInputName9EditPart.VISUAL_ID:
-	    return getStringInputName_5020Parser();
-	case StringInputNameEditPart.VISUAL_ID:
-	    return getStringInputName_5004Parser();
-	case StringInputName2EditPart.VISUAL_ID:
-	    return getStringInputName_5006Parser();
 	case WrappingLabel16EditPart.VISUAL_ID:
 	    return getMappedElementLabel_5031Parser();
 	case MappedAttributeNameEditPart.VISUAL_ID:
-	    return getMappedAttributeName_5032Parser();
-	case StringInputName13EditPart.VISUAL_ID:
-	    return getStringInputName_5033Parser();
+	    return getMappedAttributeLabel_5032Parser();
 	}
 	return null;
     }

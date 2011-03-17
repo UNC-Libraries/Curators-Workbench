@@ -100,7 +100,7 @@ public class CrosswalkSwitch<T> {
                                 TabbedDataField tabbedDataField = (TabbedDataField)theEObject;
                                 T result = caseTabbedDataField(tabbedDataField);
                                 if (result == null) result = caseDataField(tabbedDataField);
-                                if (result == null) result = caseStringGenerator(tabbedDataField);
+                                if (result == null) result = caseOutput(tabbedDataField);
                                 if (result == null) result = defaultCase(theEObject);
                                 return result;
                         }
@@ -108,8 +108,8 @@ public class CrosswalkSwitch<T> {
                                 TrimWhitespace trimWhitespace = (TrimWhitespace)theEObject;
                                 T result = caseTrimWhitespace(trimWhitespace);
                                 if (result == null) result = caseWalkWidget(trimWhitespace);
-                                if (result == null) result = caseStringGenerator(trimWhitespace);
-                                if (result == null) result = caseInputConsumer(trimWhitespace);
+                                if (result == null) result = caseOutput(trimWhitespace);
+                                if (result == null) result = caseInput(trimWhitespace);
                                 if (result == null) result = defaultCase(theEObject);
                                 return result;
                         }
@@ -131,13 +131,6 @@ public class CrosswalkSwitch<T> {
                                 if (result == null) result = defaultCase(theEObject);
                                 return result;
                         }
-                        case CrosswalkPackage.TAB_SEPARATED_FILE: {
-                                TabSeparatedFile tabSeparatedFile = (TabSeparatedFile)theEObject;
-                                T result = caseTabSeparatedFile(tabSeparatedFile);
-                                if (result == null) result = caseDataSource(tabSeparatedFile);
-                                if (result == null) result = defaultCase(theEObject);
-                                return result;
-                        }
                         case CrosswalkPackage.DATA_SOURCE: {
                                 DataSource dataSource = (DataSource)theEObject;
                                 T result = caseDataSource(dataSource);
@@ -147,26 +140,13 @@ public class CrosswalkSwitch<T> {
                         case CrosswalkPackage.DATA_FIELD: {
                                 DataField dataField = (DataField)theEObject;
                                 T result = caseDataField(dataField);
-                                if (result == null) result = caseStringGenerator(dataField);
+                                if (result == null) result = caseOutput(dataField);
                                 if (result == null) result = defaultCase(theEObject);
                                 return result;
                         }
-                        case CrosswalkPackage.STRING_INPUT: {
-                                StringInput stringInput = (StringInput)theEObject;
-                                T result = caseStringInput(stringInput);
-                                if (result == null) result = caseInput(stringInput);
-                                if (result == null) result = defaultCase(theEObject);
-                                return result;
-                        }
-                        case CrosswalkPackage.STRING_GENERATOR: {
-                                StringGenerator stringGenerator = (StringGenerator)theEObject;
-                                T result = caseStringGenerator(stringGenerator);
-                                if (result == null) result = defaultCase(theEObject);
-                                return result;
-                        }
-                        case CrosswalkPackage.INPUT_CONSUMER: {
-                                InputConsumer inputConsumer = (InputConsumer)theEObject;
-                                T result = caseInputConsumer(inputConsumer);
+                        case CrosswalkPackage.OUTPUT: {
+                                Output output = (Output)theEObject;
+                                T result = caseOutput(output);
                                 if (result == null) result = defaultCase(theEObject);
                                 return result;
                         }
@@ -187,36 +167,24 @@ public class CrosswalkSwitch<T> {
                                 OriginalNameRecordMatcher originalNameRecordMatcher = (OriginalNameRecordMatcher)theEObject;
                                 T result = caseOriginalNameRecordMatcher(originalNameRecordMatcher);
                                 if (result == null) result = caseRecordMatcherStrategy(originalNameRecordMatcher);
+                                if (result == null) result = caseInput(originalNameRecordMatcher);
                                 if (result == null) result = caseWalkWidget(originalNameRecordMatcher);
-                                if (result == null) result = defaultCase(theEObject);
-                                return result;
-                        }
-                        case CrosswalkPackage.DATE_INPUT: {
-                                DateInput dateInput = (DateInput)theEObject;
-                                T result = caseDateInput(dateInput);
-                                if (result == null) result = caseInput(dateInput);
-                                if (result == null) result = defaultCase(theEObject);
-                                return result;
-                        }
-                        case CrosswalkPackage.DATE_GENERATOR: {
-                                DateGenerator dateGenerator = (DateGenerator)theEObject;
-                                T result = caseDateGenerator(dateGenerator);
                                 if (result == null) result = defaultCase(theEObject);
                                 return result;
                         }
                         case CrosswalkPackage.DATE_RECOGNIZER: {
                                 DateRecognizer dateRecognizer = (DateRecognizer)theEObject;
                                 T result = caseDateRecognizer(dateRecognizer);
-                                if (result == null) result = caseInputConsumer(dateRecognizer);
-                                if (result == null) result = caseDateGenerator(dateRecognizer);
                                 if (result == null) result = caseWalkWidget(dateRecognizer);
+                                if (result == null) result = caseOutput(dateRecognizer);
+                                if (result == null) result = caseInput(dateRecognizer);
                                 if (result == null) result = defaultCase(theEObject);
                                 return result;
                         }
                         case CrosswalkPackage.TEXT: {
                                 Text text = (Text)theEObject;
                                 T result = caseText(text);
-                                if (result == null) result = caseStringGenerator(text);
+                                if (result == null) result = caseOutput(text);
                                 if (result == null) result = caseWalkWidget(text);
                                 if (result == null) result = defaultCase(theEObject);
                                 return result;
@@ -239,8 +207,20 @@ public class CrosswalkSwitch<T> {
                                 MappedAttribute mappedAttribute = (MappedAttribute)theEObject;
                                 T result = caseMappedAttribute(mappedAttribute);
                                 if (result == null) result = caseOutputElement(mappedAttribute);
-                                if (result == null) result = caseStringInput(mappedAttribute);
                                 if (result == null) result = caseInput(mappedAttribute);
+                                if (result == null) result = defaultCase(theEObject);
+                                return result;
+                        }
+                        case CrosswalkPackage.CONVERSION_STRATEGY: {
+                                ConversionStrategy conversionStrategy = (ConversionStrategy)theEObject;
+                                T result = caseConversionStrategy(conversionStrategy);
+                                if (result == null) result = defaultCase(theEObject);
+                                return result;
+                        }
+                        case CrosswalkPackage.DATE_TO_ISO8601_STRING_CONVERSION: {
+                                DateToISO8601StringConversion dateToISO8601StringConversion = (DateToISO8601StringConversion)theEObject;
+                                T result = caseDateToISO8601StringConversion(dateToISO8601StringConversion);
+                                if (result == null) result = caseConversionStrategy(dateToISO8601StringConversion);
                                 if (result == null) result = defaultCase(theEObject);
                                 return result;
                         }
@@ -324,21 +304,6 @@ public class CrosswalkSwitch<T> {
         }
 
         /**
-         * Returns the result of interpreting the object as an instance of '<em>Tab Separated File</em>'.
-         * <!-- begin-user-doc -->
-         * This implementation returns null;
-         * returning a non-null result will terminate the switch.
-         * <!-- end-user-doc -->
-         * @param object the target of the switch.
-         * @return the result of interpreting the object as an instance of '<em>Tab Separated File</em>'.
-         * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-         * @generated
-         */
-        public T caseTabSeparatedFile(TabSeparatedFile object) {
-                return null;
-        }
-
-        /**
          * Returns the result of interpreting the object as an instance of '<em>Data Source</em>'.
          * <!-- begin-user-doc -->
          * This implementation returns null;
@@ -369,47 +334,17 @@ public class CrosswalkSwitch<T> {
         }
 
         /**
-         * Returns the result of interpreting the object as an instance of '<em>String Input</em>'.
+         * Returns the result of interpreting the object as an instance of '<em>Output</em>'.
          * <!-- begin-user-doc -->
          * This implementation returns null;
          * returning a non-null result will terminate the switch.
          * <!-- end-user-doc -->
          * @param object the target of the switch.
-         * @return the result of interpreting the object as an instance of '<em>String Input</em>'.
+         * @return the result of interpreting the object as an instance of '<em>Output</em>'.
          * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
          * @generated
          */
-        public T caseStringInput(StringInput object) {
-                return null;
-        }
-
-        /**
-         * Returns the result of interpreting the object as an instance of '<em>String Generator</em>'.
-         * <!-- begin-user-doc -->
-         * This implementation returns null;
-         * returning a non-null result will terminate the switch.
-         * <!-- end-user-doc -->
-         * @param object the target of the switch.
-         * @return the result of interpreting the object as an instance of '<em>String Generator</em>'.
-         * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-         * @generated
-         */
-        public T caseStringGenerator(StringGenerator object) {
-                return null;
-        }
-
-        /**
-         * Returns the result of interpreting the object as an instance of '<em>Input Consumer</em>'.
-         * <!-- begin-user-doc -->
-         * This implementation returns null;
-         * returning a non-null result will terminate the switch.
-         * <!-- end-user-doc -->
-         * @param object the target of the switch.
-         * @return the result of interpreting the object as an instance of '<em>Input Consumer</em>'.
-         * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-         * @generated
-         */
-        public T caseInputConsumer(InputConsumer object) {
+        public T caseOutput(Output object) {
                 return null;
         }
 
@@ -455,36 +390,6 @@ public class CrosswalkSwitch<T> {
          * @generated
          */
         public T caseOriginalNameRecordMatcher(OriginalNameRecordMatcher object) {
-                return null;
-        }
-
-        /**
-         * Returns the result of interpreting the object as an instance of '<em>Date Input</em>'.
-         * <!-- begin-user-doc -->
-         * This implementation returns null;
-         * returning a non-null result will terminate the switch.
-         * <!-- end-user-doc -->
-         * @param object the target of the switch.
-         * @return the result of interpreting the object as an instance of '<em>Date Input</em>'.
-         * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-         * @generated
-         */
-        public T caseDateInput(DateInput object) {
-                return null;
-        }
-
-        /**
-         * Returns the result of interpreting the object as an instance of '<em>Date Generator</em>'.
-         * <!-- begin-user-doc -->
-         * This implementation returns null;
-         * returning a non-null result will terminate the switch.
-         * <!-- end-user-doc -->
-         * @param object the target of the switch.
-         * @return the result of interpreting the object as an instance of '<em>Date Generator</em>'.
-         * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-         * @generated
-         */
-        public T caseDateGenerator(DateGenerator object) {
                 return null;
         }
 
@@ -560,6 +465,36 @@ public class CrosswalkSwitch<T> {
          * @generated
          */
         public T caseMappedAttribute(MappedAttribute object) {
+                return null;
+        }
+
+        /**
+         * Returns the result of interpreting the object as an instance of '<em>Conversion Strategy</em>'.
+         * <!-- begin-user-doc -->
+         * This implementation returns null;
+         * returning a non-null result will terminate the switch.
+         * <!-- end-user-doc -->
+         * @param object the target of the switch.
+         * @return the result of interpreting the object as an instance of '<em>Conversion Strategy</em>'.
+         * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+         * @generated
+         */
+        public T caseConversionStrategy(ConversionStrategy object) {
+                return null;
+        }
+
+        /**
+         * Returns the result of interpreting the object as an instance of '<em>Date To ISO8601 String Conversion</em>'.
+         * <!-- begin-user-doc -->
+         * This implementation returns null;
+         * returning a non-null result will terminate the switch.
+         * <!-- end-user-doc -->
+         * @param object the target of the switch.
+         * @return the result of interpreting the object as an instance of '<em>Date To ISO8601 String Conversion</em>'.
+         * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+         * @generated
+         */
+        public T caseDateToISO8601StringConversion(DateToISO8601StringConversion object) {
                 return null;
         }
 

@@ -28,7 +28,6 @@ import org.eclipse.core.resources.IFolder;
  *   <li>{@link crosswalk.OriginalNameRecordMatcher#isCaseSensitive <em>Case Sensitive</em>}</li>
  *   <li>{@link crosswalk.OriginalNameRecordMatcher#isIncludeFileExtension <em>Include File Extension</em>}</li>
  *   <li>{@link crosswalk.OriginalNameRecordMatcher#getBaseFolder <em>Base Folder</em>}</li>
- *   <li>{@link crosswalk.OriginalNameRecordMatcher#getInput <em>Input</em>}</li>
  * </ul>
  * </p>
  *
@@ -36,7 +35,7 @@ import org.eclipse.core.resources.IFolder;
  * @model
  * @generated
  */
-public interface OriginalNameRecordMatcher extends RecordMatcherStrategy {
+public interface OriginalNameRecordMatcher extends RecordMatcherStrategy, Input {
         /**
          * Returns the value of the '<em><b>Case Sensitive</b></em>' attribute.
          * The default value is <code>"false"</code>.
@@ -143,31 +142,5 @@ public interface OriginalNameRecordMatcher extends RecordMatcherStrategy {
          * @generated
          */
         boolean isSetBaseFolder();
-
-        /**
-         * Returns the value of the '<em><b>Input</b></em>' containment reference.
-         * <!-- begin-user-doc -->
-         * <p>
-         * If the meaning of the '<em>Input</em>' containment reference isn't clear,
-         * there really should be more of a description here...
-         * </p>
-         * <!-- end-user-doc -->
-         * @return the value of the '<em>Input</em>' containment reference.
-         * @see #setInput(StringInput)
-         * @see crosswalk.CrosswalkPackage#getOriginalNameRecordMatcher_Input()
-         * @model containment="true" required="true"
-         * @generated
-         */
-        StringInput getInput();
-
-        /**
-         * Sets the value of the '{@link crosswalk.OriginalNameRecordMatcher#getInput <em>Input</em>}' containment reference.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @param value the new value of the '<em>Input</em>' containment reference.
-         * @see #getInput()
-         * @generated
-         */
-        void setInput(StringInput value);
 
 } // OriginalNameRecordMatcher

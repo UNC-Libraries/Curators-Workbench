@@ -22,7 +22,6 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link crosswalk.MappedElement#getChildElements <em>Child Elements</em>}</li>
  *   <li>{@link crosswalk.MappedElement#getAttributes <em>Attributes</em>}</li>
  *   <li>{@link crosswalk.MappedElement#getMappedFeature <em>Mapped Feature</em>}</li>
- *   <li>{@link crosswalk.MappedElement#getText <em>Text</em>}</li>
  *   <li>{@link crosswalk.MappedElement#getParent <em>Parent</em>}</li>
  * </ul>
  * </p>
@@ -91,59 +90,6 @@ public interface MappedElement extends OutputElement {
          * @generated
          */
         void setMappedFeature(EReference value);
-
-        /**
-         * Returns the value of the '<em><b>Text</b></em>' containment reference.
-         * <!-- begin-user-doc -->
-         * <p>
-         * If the meaning of the '<em>Text</em>' reference isn't clear,
-         * there really should be more of a description here...
-         * </p>
-         * <!-- end-user-doc -->
-         * @return the value of the '<em>Text</em>' containment reference.
-         * @see #isSetText()
-         * @see #unsetText()
-         * @see #setText(StringInput)
-         * @see crosswalk.CrosswalkPackage#getMappedElement_Text()
-         * @model containment="true" unsettable="true"
-         * @generated
-         */
-        StringInput getText();
-
-        /**
-         * Sets the value of the '{@link crosswalk.MappedElement#getText <em>Text</em>}' containment reference.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @param value the new value of the '<em>Text</em>' containment reference.
-         * @see #isSetText()
-         * @see #unsetText()
-         * @see #getText()
-         * @generated
-         */
-        void setText(StringInput value);
-
-        /**
-         * Unsets the value of the '{@link crosswalk.MappedElement#getText <em>Text</em>}' containment reference.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @see #isSetText()
-         * @see #getText()
-         * @see #setText(StringInput)
-         * @generated
-         */
-        void unsetText();
-
-        /**
-         * Returns whether the value of the '{@link crosswalk.MappedElement#getText <em>Text</em>}' containment reference is set.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @return whether the value of the '<em>Text</em>' containment reference is set.
-         * @see #unsetText()
-         * @see #getText()
-         * @see #setText(StringInput)
-         * @generated
-         */
-        boolean isSetText();
 
         /**
          * Returns the value of the '<em><b>Parent</b></em>' container reference.

@@ -131,14 +131,18 @@ public class TabbedDataFieldLabelExpressionLabelParser implements IParser {
 	if (self instanceof TabbedDataField) {
 	    TabbedDataField tdf = (TabbedDataField) self;
 	    try {
-		String r = tdf.getResultString();
-		if (r == null || r.trim().length() == 0) {
+		Object r = tdf.getResult();
+		if (r == null) {
 		    return "";
+		} else if (r instanceof String) {
+		    String str = (String) r;
+		    if (str.length() > 50) {
+			str = str.substring(0, 50);
+		    }
+		    return str;
+		} else {
+		    return r.toString();
 		}
-		if (r.length() > 50) {
-		    r = r.substring(0, 50);
-		}
-		return r.trim();
 	    } catch (DataException e) {
 		return e.getLocalizedMessage();
 	    }

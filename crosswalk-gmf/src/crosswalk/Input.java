@@ -15,6 +15,7 @@
  */
 package crosswalk;
 
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -25,8 +26,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link crosswalk.Input#getName <em>Name</em>}</li>
- *   <li>{@link crosswalk.Input#getConsumer <em>Consumer</em>}</li>
+ *   <li>{@link crosswalk.Input#getOutput <em>Output</em>}</li>
  * </ul>
  * </p>
  *
@@ -36,58 +36,64 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Input extends EObject {
         /**
-         * Returns the value of the '<em><b>Name</b></em>' attribute.
-         * The default value is <code>"input"</code>.
+         * Returns the value of the '<em><b>Output</b></em>' reference.
          * <!-- begin-user-doc -->
          * <p>
-         * If the meaning of the '<em>Name</em>' attribute isn't clear,
+         * If the meaning of the '<em>Output</em>' reference isn't clear,
          * there really should be more of a description here...
          * </p>
          * <!-- end-user-doc -->
-         * @return the value of the '<em>Name</em>' attribute.
-         * @see #setName(String)
-         * @see crosswalk.CrosswalkPackage#getInput_Name()
-         * @model default="input" required="true"
+         * @return the value of the '<em>Output</em>' reference.
+         * @see #isSetOutput()
+         * @see #unsetOutput()
+         * @see #setOutput(Output)
+         * @see crosswalk.CrosswalkPackage#getInput_Output()
+         * @model unsettable="true"
          * @generated
          */
-        String getName();
+        Output getOutput();
 
         /**
-         * Sets the value of the '{@link crosswalk.Input#getName <em>Name</em>}' attribute.
+         * Sets the value of the '{@link crosswalk.Input#getOutput <em>Output</em>}' reference.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @param value the new value of the '<em>Name</em>' attribute.
-         * @see #getName()
+         * @param value the new value of the '<em>Output</em>' reference.
+         * @see #isSetOutput()
+         * @see #unsetOutput()
+         * @see #getOutput()
          * @generated
          */
-        void setName(String value);
+        void setOutput(Output value);
 
         /**
-         * Returns the value of the '<em><b>Consumer</b></em>' container reference.
-         * It is bidirectional and its opposite is '{@link crosswalk.InputConsumer#getInputs <em>Inputs</em>}'.
+         * Unsets the value of the '{@link crosswalk.Input#getOutput <em>Output</em>}' reference.
          * <!-- begin-user-doc -->
-         * <p>
-         * If the meaning of the '<em>Consumer</em>' reference isn't clear,
-         * there really should be more of a description here...
-         * </p>
          * <!-- end-user-doc -->
-         * @return the value of the '<em>Consumer</em>' container reference.
-         * @see #setConsumer(InputConsumer)
-         * @see crosswalk.CrosswalkPackage#getInput_Consumer()
-         * @see crosswalk.InputConsumer#getInputs
-         * @model opposite="Inputs" transient="false"
+         * @see #isSetOutput()
+         * @see #getOutput()
+         * @see #setOutput(Output)
          * @generated
          */
-        InputConsumer getConsumer();
+        void unsetOutput();
 
         /**
-         * Sets the value of the '{@link crosswalk.Input#getConsumer <em>Consumer</em>}' container reference.
+         * Returns whether the value of the '{@link crosswalk.Input#getOutput <em>Output</em>}' reference is set.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @param value the new value of the '<em>Consumer</em>' container reference.
-         * @see #getConsumer()
+         * @return whether the value of the '<em>Output</em>' reference is set.
+         * @see #unsetOutput()
+         * @see #getOutput()
+         * @see #setOutput(Output)
          * @generated
          */
-        void setConsumer(InputConsumer value);
+        boolean isSetOutput();
+
+        /**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @model kind="operation"
+         * @generated
+         */
+        EDataType getInputEDataType();
 
 } // Input

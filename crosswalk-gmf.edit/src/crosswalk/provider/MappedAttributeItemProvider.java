@@ -7,17 +7,12 @@
 package crosswalk.provider;
 
 
-import crosswalk.CrosswalkPackage;
-import crosswalk.MappedAttribute;
-
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -28,6 +23,9 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
+import crosswalk.CrosswalkPackage;
+import crosswalk.MappedAttribute;
 
 /**
  * This is the item provider adapter for a {@link crosswalk.MappedAttribute} object.
@@ -64,72 +62,27 @@ public class MappedAttributeItemProvider
                 if (itemPropertyDescriptors == null) {
                         super.getPropertyDescriptors(object);
 
-                        addNamePropertyDescriptor(object);
-                        addConsumerPropertyDescriptor(object);
-                        addInputPropertyDescriptor(object);
+                        addOutputPropertyDescriptor(object);
                         addMappedFeaturePropertyDescriptor(object);
+                        addConversionStrategyPropertyDescriptor(object);
                 }
                 return itemPropertyDescriptors;
         }
 
         /**
-         * This adds a property descriptor for the Name feature.
+         * This adds a property descriptor for the Output feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        protected void addNamePropertyDescriptor(Object object) {
+        protected void addOutputPropertyDescriptor(Object object) {
                 itemPropertyDescriptors.add
                         (createItemPropertyDescriptor
                                 (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
                                  getResourceLocator(),
-                                 getString("_UI_Input_Name_feature"),
-                                 getString("_UI_PropertyDescriptor_description", "_UI_Input_Name_feature", "_UI_Input_type"),
-                                 CrosswalkPackage.Literals.INPUT__NAME,
-                                 true,
-                                 false,
-                                 false,
-                                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                                 null,
-                                 null));
-        }
-
-        /**
-         * This adds a property descriptor for the Consumer feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        protected void addConsumerPropertyDescriptor(Object object) {
-                itemPropertyDescriptors.add
-                        (createItemPropertyDescriptor
-                                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                                 getResourceLocator(),
-                                 getString("_UI_Input_Consumer_feature"),
-                                 getString("_UI_PropertyDescriptor_description", "_UI_Input_Consumer_feature", "_UI_Input_type"),
-                                 CrosswalkPackage.Literals.INPUT__CONSUMER,
-                                 true,
-                                 false,
-                                 true,
-                                 null,
-                                 null,
-                                 null));
-        }
-
-        /**
-         * This adds a property descriptor for the Input feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        protected void addInputPropertyDescriptor(Object object) {
-                itemPropertyDescriptors.add
-                        (createItemPropertyDescriptor
-                                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                                 getResourceLocator(),
-                                 getString("_UI_StringInput_Input_feature"),
-                                 getString("_UI_PropertyDescriptor_description", "_UI_StringInput_Input_feature", "_UI_StringInput_type"),
-                                 CrosswalkPackage.Literals.STRING_INPUT__INPUT,
+                                 getString("_UI_Input_Output_feature"),
+                                 getString("_UI_PropertyDescriptor_description", "_UI_Input_Output_feature", "_UI_Input_type"),
+                                 CrosswalkPackage.Literals.INPUT__OUTPUT,
                                  true,
                                  false,
                                  true,
@@ -161,6 +114,28 @@ public class MappedAttributeItemProvider
         }
 
         /**
+         * This adds a property descriptor for the Conversion Strategy feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        protected void addConversionStrategyPropertyDescriptor(Object object) {
+                itemPropertyDescriptors.add
+                        (createItemPropertyDescriptor
+                                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+                                 getResourceLocator(),
+                                 getString("_UI_MappedAttribute_conversionStrategy_feature"),
+                                 getString("_UI_PropertyDescriptor_description", "_UI_MappedAttribute_conversionStrategy_feature", "_UI_MappedAttribute_type"),
+                                 CrosswalkPackage.Literals.MAPPED_ATTRIBUTE__CONVERSION_STRATEGY,
+                                 true,
+                                 false,
+                                 true,
+                                 null,
+                                 null,
+                                 null));
+        }
+
+        /**
          * This returns the label text for the adapted class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -168,10 +143,7 @@ public class MappedAttributeItemProvider
          */
         @Override
         public String getText(Object object) {
-                String label = ((MappedAttribute)object).getName();
-                return label == null || label.length() == 0 ?
-                        getString("_UI_MappedAttribute_type") :
-                        getString("_UI_MappedAttribute_type") + " " + label;
+                return getString("_UI_MappedAttribute_type");
         }
 
         /**
@@ -184,13 +156,6 @@ public class MappedAttributeItemProvider
         @Override
         public void notifyChanged(Notification notification) {
                 updateChildren(notification);
-
-                switch (notification.getFeatureID(MappedAttribute.class)) {
-                        case CrosswalkPackage.MAPPED_ATTRIBUTE__NAME:
-                        case CrosswalkPackage.MAPPED_ATTRIBUTE__INPUT:
-                                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-                                return;
-                }
                 super.notifyChanged(notification);
         }
 

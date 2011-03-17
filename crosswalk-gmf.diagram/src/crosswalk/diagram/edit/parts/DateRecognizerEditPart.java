@@ -1,27 +1,25 @@
 package crosswalk.diagram.edit.parts;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
 import org.eclipse.draw2d.FlowLayout;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.MarginBorder;
-import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
-import org.eclipse.draw2d.ToolbarLayout;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
-import org.eclipse.gef.Request;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gef.requests.CreateRequest;
-import org.eclipse.gmf.runtime.diagram.core.edithelpers.CreateElementRequestAdapter;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.FlowLayoutEditPolicy;
-import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewAndElementRequest;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
@@ -65,7 +63,6 @@ public class DateRecognizerEditPart extends ShapeNodeEditPart {
      * @generated
      */
     protected void createDefaultEditPolicies() {
-	installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicy());
 	super.createDefaultEditPolicies();
 	installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new DateRecognizerItemSemanticEditPolicy());
 	installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
@@ -99,14 +96,14 @@ public class DateRecognizerEditPart extends ShapeNodeEditPart {
      * @generated
      */
     protected IFigure createNodeShape() {
-	return primaryShape = new RoundedOutputElementFigure();
+	return primaryShape = new WidgetFigure();
     }
 
     /**
      * @generated
      */
-    public RoundedOutputElementFigure getPrimaryShape() {
-	return (RoundedOutputElementFigure) primaryShape;
+    public WidgetFigure getPrimaryShape() {
+	return (WidgetFigure) primaryShape;
     }
 
     /**
@@ -114,13 +111,7 @@ public class DateRecognizerEditPart extends ShapeNodeEditPart {
      */
     protected boolean addFixedChild(EditPart childEditPart) {
 	if (childEditPart instanceof WrappingLabel12EditPart) {
-	    ((WrappingLabel12EditPart) childEditPart).setLabel(getPrimaryShape().getFigureOutputElementLabelFigure());
-	    return true;
-	}
-	if (childEditPart instanceof DateRecognizerOutputElementInputsCompartmentEditPart) {
-	    IFigure pane = getPrimaryShape().getContentPane();
-	    setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
-	    pane.add(((DateRecognizerOutputElementInputsCompartmentEditPart) childEditPart).getFigure());
+	    ((WrappingLabel12EditPart) childEditPart).setLabel(getPrimaryShape().getFigureWidgetLabelFigure());
 	    return true;
 	}
 	return false;
@@ -131,12 +122,6 @@ public class DateRecognizerEditPart extends ShapeNodeEditPart {
      */
     protected boolean removeFixedChild(EditPart childEditPart) {
 	if (childEditPart instanceof WrappingLabel12EditPart) {
-	    return true;
-	}
-	if (childEditPart instanceof DateRecognizerOutputElementInputsCompartmentEditPart) {
-	    IFigure pane = getPrimaryShape().getContentPane();
-	    setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
-	    pane.remove(((DateRecognizerOutputElementInputsCompartmentEditPart) childEditPart).getFigure());
 	    return true;
 	}
 	return false;
@@ -166,9 +151,6 @@ public class DateRecognizerEditPart extends ShapeNodeEditPart {
      * @generated
      */
     protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
-	if (editPart instanceof DateRecognizerOutputElementInputsCompartmentEditPart) {
-	    return getPrimaryShape().getContentPane();
-	}
 	return getContentPane();
     }
 
@@ -268,37 +250,83 @@ public class DateRecognizerEditPart extends ShapeNodeEditPart {
     /**
      * @generated
      */
-    public EditPart getTargetEditPart(Request request) {
-	if (request instanceof CreateViewAndElementRequest) {
-	    CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request).getViewAndElementDescriptor()
-			    .getCreateElementRequestAdapter();
-	    IElementType type = (IElementType) adapter.getAdapter(IElementType.class);
-	    if (type == CrosswalkElementTypes.StringInput_3002) {
-		return getChildBySemanticHint(CrosswalkVisualIDRegistry
-				.getType(DateRecognizerOutputElementInputsCompartmentEditPart.VISUAL_ID));
-	    }
-	}
-	return super.getTargetEditPart(request);
+    public List<IElementType> getMARelTypesOnSource() {
+	ArrayList<IElementType> types = new ArrayList<IElementType>(1);
+	types.add(CrosswalkElementTypes.InputOutput_4003);
+	return types;
     }
 
     /**
      * @generated
      */
-    public class RoundedOutputElementFigure extends RoundedRectangle {
+    public List<IElementType> getMARelTypesOnSourceAndTarget(IGraphicalEditPart targetEditPart) {
+	LinkedList<IElementType> types = new LinkedList<IElementType>();
+	if (targetEditPart instanceof crosswalk.diagram.edit.parts.DateRecognizerEditPart) {
+	    types.add(CrosswalkElementTypes.InputOutput_4003);
+	}
+	if (targetEditPart instanceof TextEditPart) {
+	    types.add(CrosswalkElementTypes.InputOutput_4003);
+	}
+	if (targetEditPart instanceof TrimWhitespaceEditPart) {
+	    types.add(CrosswalkElementTypes.InputOutput_4003);
+	}
+	if (targetEditPart instanceof TabbedDataFieldEditPart) {
+	    types.add(CrosswalkElementTypes.InputOutput_4003);
+	}
+	return types;
+    }
+
+    /**
+     * @generated
+     */
+    public List<IElementType> getMATypesForTarget(IElementType relationshipType) {
+	LinkedList<IElementType> types = new LinkedList<IElementType>();
+	if (relationshipType == CrosswalkElementTypes.InputOutput_4003) {
+	    types.add(CrosswalkElementTypes.DateRecognizer_2013);
+	    types.add(CrosswalkElementTypes.Text_2014);
+	    types.add(CrosswalkElementTypes.TrimWhitespace_2015);
+	    types.add(CrosswalkElementTypes.TabbedDataField_3001);
+	}
+	return types;
+    }
+
+    /**
+     * @generated
+     */
+    public List<IElementType> getMARelTypesOnTarget() {
+	ArrayList<IElementType> types = new ArrayList<IElementType>(1);
+	types.add(CrosswalkElementTypes.InputOutput_4003);
+	return types;
+    }
+
+    /**
+     * @generated
+     */
+    public List<IElementType> getMATypesForSource(IElementType relationshipType) {
+	LinkedList<IElementType> types = new LinkedList<IElementType>();
+	if (relationshipType == CrosswalkElementTypes.InputOutput_4003) {
+	    types.add(CrosswalkElementTypes.OriginalNameRecordMatcher_2010);
+	    types.add(CrosswalkElementTypes.DateRecognizer_2013);
+	    types.add(CrosswalkElementTypes.TrimWhitespace_2015);
+	    types.add(CrosswalkElementTypes.MappedAttribute_3016);
+	}
+	return types;
+    }
+
+    /**
+     * @generated
+     */
+    public class WidgetFigure extends RoundedRectangle {
 
 	/**
 	 * @generated
 	 */
-	private RectangleFigure fContentPane;
-	/**
-	 * @generated
-	 */
-	private WrappingLabel fFigureOutputElementLabelFigure;
+	private WrappingLabel fFigureWidgetLabelFigure;
 
 	/**
 	 * @generated
 	 */
-	public RoundedOutputElementFigure() {
+	public WidgetFigure() {
 
 	    FlowLayout layoutThis = new FlowLayout();
 	    layoutThis.setStretchMinorAxis(false);
@@ -323,39 +351,18 @@ public class DateRecognizerEditPart extends ShapeNodeEditPart {
 	 */
 	private void createContents() {
 
-	    fFigureOutputElementLabelFigure = new WrappingLabel();
-	    fFigureOutputElementLabelFigure.setText("Unknown MODS Element");
+	    fFigureWidgetLabelFigure = new WrappingLabel();
+	    fFigureWidgetLabelFigure.setText("Unknown Widget");
 
-	    this.add(fFigureOutputElementLabelFigure);
-
-	    fContentPane = new RectangleFigure();
-	    fContentPane.setOutline(false);
-
-	    this.add(fContentPane);
-
-	    ToolbarLayout layoutFContentPane = new ToolbarLayout();
-	    layoutFContentPane.setStretchMinorAxis(false);
-	    layoutFContentPane.setMinorAlignment(ToolbarLayout.ALIGN_CENTER);
-
-	    layoutFContentPane.setSpacing(2);
-	    layoutFContentPane.setVertical(true);
-
-	    fContentPane.setLayoutManager(layoutFContentPane);
+	    this.add(fFigureWidgetLabelFigure);
 
 	}
 
 	/**
 	 * @generated
 	 */
-	public RectangleFigure getContentPane() {
-	    return fContentPane;
-	}
-
-	/**
-	 * @generated
-	 */
-	public WrappingLabel getFigureOutputElementLabelFigure() {
-	    return fFigureOutputElementLabelFigure;
+	public WrappingLabel getFigureWidgetLabelFigure() {
+	    return fFigureWidgetLabelFigure;
 	}
 
     }

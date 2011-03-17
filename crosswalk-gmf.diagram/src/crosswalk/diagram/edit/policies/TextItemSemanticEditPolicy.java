@@ -30,9 +30,9 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientReferenceRelations
 import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.View;
 
-import crosswalk.diagram.edit.commands.StringInputInputCreateCommand;
-import crosswalk.diagram.edit.commands.StringInputInputReorientCommand;
-import crosswalk.diagram.edit.parts.StringInputInputEditPart;
+import crosswalk.diagram.edit.commands.InputOutputCreateCommand;
+import crosswalk.diagram.edit.commands.InputOutputReorientCommand;
+import crosswalk.diagram.edit.parts.InputOutputEditPart;
 import crosswalk.diagram.part.CrosswalkVisualIDRegistry;
 import crosswalk.diagram.providers.CrosswalkElementTypes;
 
@@ -57,7 +57,7 @@ public class TextItemSemanticEditPolicy extends CrosswalkBaseItemSemanticEditPol
 	cmd.setTransactionNestingEnabled(false);
 	for (Iterator<?> it = view.getTargetEdges().iterator(); it.hasNext();) {
 	    Edge incomingLink = (Edge) it.next();
-	    if (CrosswalkVisualIDRegistry.getVisualID(incomingLink) == StringInputInputEditPart.VISUAL_ID) {
+	    if (CrosswalkVisualIDRegistry.getVisualID(incomingLink) == InputOutputEditPart.VISUAL_ID) {
 		DestroyReferenceRequest r = new DestroyReferenceRequest(incomingLink.getSource().getElement(), null,
 				incomingLink.getTarget().getElement(), false);
 		cmd.add(new DestroyReferenceCommand(r));
@@ -90,7 +90,7 @@ public class TextItemSemanticEditPolicy extends CrosswalkBaseItemSemanticEditPol
      * @generated
      */
     protected Command getStartCreateRelationshipCommand(CreateRelationshipRequest req) {
-	if (CrosswalkElementTypes.StringInputInput_4001 == req.getElementType()) {
+	if (CrosswalkElementTypes.InputOutput_4003 == req.getElementType()) {
 	    return null;
 	}
 	return null;
@@ -100,8 +100,8 @@ public class TextItemSemanticEditPolicy extends CrosswalkBaseItemSemanticEditPol
      * @generated
      */
     protected Command getCompleteCreateRelationshipCommand(CreateRelationshipRequest req) {
-	if (CrosswalkElementTypes.StringInputInput_4001 == req.getElementType()) {
-	    return getGEFWrapper(new StringInputInputCreateCommand(req, req.getSource(), req.getTarget()));
+	if (CrosswalkElementTypes.InputOutput_4003 == req.getElementType()) {
+	    return getGEFWrapper(new InputOutputCreateCommand(req, req.getSource(), req.getTarget()));
 	}
 	return null;
     }
@@ -114,8 +114,8 @@ public class TextItemSemanticEditPolicy extends CrosswalkBaseItemSemanticEditPol
      */
     protected Command getReorientReferenceRelationshipCommand(ReorientReferenceRelationshipRequest req) {
 	switch (getVisualID(req)) {
-	case StringInputInputEditPart.VISUAL_ID:
-	    return getGEFWrapper(new StringInputInputReorientCommand(req));
+	case InputOutputEditPart.VISUAL_ID:
+	    return getGEFWrapper(new InputOutputReorientCommand(req));
 	}
 	return super.getReorientReferenceRelationshipCommand(req);
     }

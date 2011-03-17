@@ -15,6 +15,7 @@
  */
 package crosswalk.impl;
 
+import crosswalk.ConversionStrategy;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,22 +37,18 @@ import crosswalk.CrosswalkPackage;
 import crosswalk.DataException;
 import crosswalk.DataField;
 import crosswalk.DataSource;
-import crosswalk.DateGenerator;
-import crosswalk.DateInput;
 import crosswalk.DateRecognizer;
+import crosswalk.DateToISO8601StringConversion;
 import crosswalk.DelimitedFile;
 import crosswalk.Input;
-import crosswalk.InputConsumer;
 import crosswalk.MappedAttribute;
 import crosswalk.MappedElement;
 import crosswalk.OriginalNameRecordMatcher;
+import crosswalk.Output;
 import crosswalk.OutputElement;
 import crosswalk.RecordMatcherStrategy;
 import crosswalk.RecordMatches;
 import crosswalk.RecordOutOfRangeException;
-import crosswalk.StringGenerator;
-import crosswalk.StringInput;
-import crosswalk.TabSeparatedFile;
 import crosswalk.TabbedDataField;
 import crosswalk.Text;
 import crosswalk.TrimWhitespace;
@@ -121,13 +118,6 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
          * <!-- end-user-doc -->
          * @generated
          */
-        private EClass tabSeparatedFileEClass = null;
-
-        /**
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
         private EClass dataSourceEClass = null;
 
         /**
@@ -142,21 +132,7 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
          * <!-- end-user-doc -->
          * @generated
          */
-        private EClass stringInputEClass = null;
-
-        /**
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        private EClass stringGeneratorEClass = null;
-
-        /**
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        private EClass inputConsumerEClass = null;
+        private EClass outputEClass = null;
 
         /**
          * <!-- begin-user-doc -->
@@ -178,20 +154,6 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
          * @generated
          */
         private EClass originalNameRecordMatcherEClass = null;
-
-        /**
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        private EClass dateInputEClass = null;
-
-        /**
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        private EClass dateGeneratorEClass = null;
 
         /**
          * <!-- begin-user-doc -->
@@ -227,6 +189,20 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
          * @generated
          */
         private EClass mappedAttributeEClass = null;
+
+        /**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        private EClass conversionStrategyEClass = null;
+
+        /**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        private EClass dateToISO8601StringConversionEClass = null;
 
         /**
          * <!-- begin-user-doc -->
@@ -444,42 +420,6 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
          * <!-- end-user-doc -->
          * @generated
          */
-        public EClass getTabSeparatedFile() {
-                return tabSeparatedFileEClass;
-        }
-
-        /**
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        public EAttribute getTabSeparatedFile_SourceFile() {
-                return (EAttribute)tabSeparatedFileEClass.getEStructuralFeatures().get(0);
-        }
-
-        /**
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        public EAttribute getTabSeparatedFile_DataStartingRow() {
-                return (EAttribute)tabSeparatedFileEClass.getEStructuralFeatures().get(1);
-        }
-
-        /**
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        public EAttribute getTabSeparatedFile_HeadingRow() {
-                return (EAttribute)tabSeparatedFileEClass.getEStructuralFeatures().get(2);
-        }
-
-        /**
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
         public EClass getDataSource() {
                 return dataSourceEClass;
         }
@@ -534,44 +474,8 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
          * <!-- end-user-doc -->
          * @generated
          */
-        public EClass getStringInput() {
-                return stringInputEClass;
-        }
-
-        /**
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        public EReference getStringInput_Input() {
-                return (EReference)stringInputEClass.getEStructuralFeatures().get(0);
-        }
-
-        /**
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        public EClass getStringGenerator() {
-                return stringGeneratorEClass;
-        }
-
-        /**
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        public EClass getInputConsumer() {
-                return inputConsumerEClass;
-        }
-
-        /**
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        public EReference getInputConsumer_Inputs() {
-                return (EReference)inputConsumerEClass.getEStructuralFeatures().get(0);
+        public EClass getOutput() {
+                return outputEClass;
         }
 
         /**
@@ -588,17 +492,8 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
          * <!-- end-user-doc -->
          * @generated
          */
-        public EAttribute getInput_Name() {
-                return (EAttribute)inputEClass.getEStructuralFeatures().get(0);
-        }
-
-        /**
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        public EReference getInput_Consumer() {
-                return (EReference)inputEClass.getEStructuralFeatures().get(1);
+        public EReference getInput_Output() {
+                return (EReference)inputEClass.getEStructuralFeatures().get(0);
         }
 
         /**
@@ -644,42 +539,6 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
          */
         public EAttribute getOriginalNameRecordMatcher_BaseFolder() {
                 return (EAttribute)originalNameRecordMatcherEClass.getEStructuralFeatures().get(2);
-        }
-
-        /**
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        public EReference getOriginalNameRecordMatcher_Input() {
-                return (EReference)originalNameRecordMatcherEClass.getEStructuralFeatures().get(3);
-        }
-
-        /**
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        public EClass getDateInput() {
-                return dateInputEClass;
-        }
-
-        /**
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        public EReference getDateInput_Input() {
-                return (EReference)dateInputEClass.getEStructuralFeatures().get(0);
-        }
-
-        /**
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        public EClass getDateGenerator() {
-                return dateGeneratorEClass;
         }
 
         /**
@@ -822,17 +681,8 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
          * <!-- end-user-doc -->
          * @generated
          */
-        public EReference getMappedElement_Text() {
-                return (EReference)mappedElementEClass.getEStructuralFeatures().get(3);
-        }
-
-        /**
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
         public EReference getMappedElement_Parent() {
-                return (EReference)mappedElementEClass.getEStructuralFeatures().get(4);
+                return (EReference)mappedElementEClass.getEStructuralFeatures().get(3);
         }
 
         /**
@@ -851,6 +701,33 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
          */
         public EReference getMappedAttribute_MappedFeature() {
                 return (EReference)mappedAttributeEClass.getEStructuralFeatures().get(0);
+        }
+
+        /**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        public EReference getMappedAttribute_ConversionStrategy() {
+                return (EReference)mappedAttributeEClass.getEStructuralFeatures().get(1);
+        }
+
+        /**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        public EClass getConversionStrategy() {
+                return conversionStrategyEClass;
+        }
+
+        /**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        public EClass getDateToISO8601StringConversion() {
+                return dateToISO8601StringConversionEClass;
         }
 
         /**
@@ -952,11 +829,6 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
                 walkWidgetEClass = createEClass(WALK_WIDGET);
                 createEReference(walkWidgetEClass, WALK_WIDGET__WALK);
 
-                tabSeparatedFileEClass = createEClass(TAB_SEPARATED_FILE);
-                createEAttribute(tabSeparatedFileEClass, TAB_SEPARATED_FILE__SOURCE_FILE);
-                createEAttribute(tabSeparatedFileEClass, TAB_SEPARATED_FILE__DATA_STARTING_ROW);
-                createEAttribute(tabSeparatedFileEClass, TAB_SEPARATED_FILE__HEADING_ROW);
-
                 dataSourceEClass = createEClass(DATA_SOURCE);
                 createEReference(dataSourceEClass, DATA_SOURCE__WALK);
                 createEReference(dataSourceEClass, DATA_SOURCE__FIELDS);
@@ -965,17 +837,10 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
                 createEReference(dataFieldEClass, DATA_FIELD__SOURCE);
                 createEAttribute(dataFieldEClass, DATA_FIELD__LABEL);
 
-                stringInputEClass = createEClass(STRING_INPUT);
-                createEReference(stringInputEClass, STRING_INPUT__INPUT);
-
-                stringGeneratorEClass = createEClass(STRING_GENERATOR);
-
-                inputConsumerEClass = createEClass(INPUT_CONSUMER);
-                createEReference(inputConsumerEClass, INPUT_CONSUMER__INPUTS);
+                outputEClass = createEClass(OUTPUT);
 
                 inputEClass = createEClass(INPUT);
-                createEAttribute(inputEClass, INPUT__NAME);
-                createEReference(inputEClass, INPUT__CONSUMER);
+                createEReference(inputEClass, INPUT__OUTPUT);
 
                 recordMatcherStrategyEClass = createEClass(RECORD_MATCHER_STRATEGY);
 
@@ -983,12 +848,6 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
                 createEAttribute(originalNameRecordMatcherEClass, ORIGINAL_NAME_RECORD_MATCHER__CASE_SENSITIVE);
                 createEAttribute(originalNameRecordMatcherEClass, ORIGINAL_NAME_RECORD_MATCHER__INCLUDE_FILE_EXTENSION);
                 createEAttribute(originalNameRecordMatcherEClass, ORIGINAL_NAME_RECORD_MATCHER__BASE_FOLDER);
-                createEReference(originalNameRecordMatcherEClass, ORIGINAL_NAME_RECORD_MATCHER__INPUT);
-
-                dateInputEClass = createEClass(DATE_INPUT);
-                createEReference(dateInputEClass, DATE_INPUT__INPUT);
-
-                dateGeneratorEClass = createEClass(DATE_GENERATOR);
 
                 dateRecognizerEClass = createEClass(DATE_RECOGNIZER);
                 createEAttribute(dateRecognizerEClass, DATE_RECOGNIZER__FORMAT);
@@ -1008,11 +867,15 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
                 createEReference(mappedElementEClass, MAPPED_ELEMENT__CHILD_ELEMENTS);
                 createEReference(mappedElementEClass, MAPPED_ELEMENT__ATTRIBUTES);
                 createEReference(mappedElementEClass, MAPPED_ELEMENT__MAPPED_FEATURE);
-                createEReference(mappedElementEClass, MAPPED_ELEMENT__TEXT);
                 createEReference(mappedElementEClass, MAPPED_ELEMENT__PARENT);
 
                 mappedAttributeEClass = createEClass(MAPPED_ATTRIBUTE);
                 createEReference(mappedAttributeEClass, MAPPED_ATTRIBUTE__MAPPED_FEATURE);
+                createEReference(mappedAttributeEClass, MAPPED_ATTRIBUTE__CONVERSION_STRATEGY);
+
+                conversionStrategyEClass = createEClass(CONVERSION_STRATEGY);
+
+                dateToISO8601StringConversionEClass = createEClass(DATE_TO_ISO8601_STRING_CONVERSION);
 
                 // Create data types
                 dataExceptionEDataType = createEDataType(DATA_EXCEPTION);
@@ -1053,23 +916,22 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
                 // Add supertypes to classes
                 tabbedDataFieldEClass.getESuperTypes().add(this.getDataField());
                 trimWhitespaceEClass.getESuperTypes().add(this.getWalkWidget());
-                trimWhitespaceEClass.getESuperTypes().add(this.getStringGenerator());
-                trimWhitespaceEClass.getESuperTypes().add(this.getInputConsumer());
-                tabSeparatedFileEClass.getESuperTypes().add(this.getDataSource());
-                dataFieldEClass.getESuperTypes().add(this.getStringGenerator());
-                stringInputEClass.getESuperTypes().add(this.getInput());
+                trimWhitespaceEClass.getESuperTypes().add(this.getOutput());
+                trimWhitespaceEClass.getESuperTypes().add(this.getInput());
+                dataFieldEClass.getESuperTypes().add(this.getOutput());
                 recordMatcherStrategyEClass.getESuperTypes().add(this.getWalkWidget());
                 originalNameRecordMatcherEClass.getESuperTypes().add(this.getRecordMatcherStrategy());
-                dateInputEClass.getESuperTypes().add(this.getInput());
-                dateRecognizerEClass.getESuperTypes().add(this.getInputConsumer());
-                dateRecognizerEClass.getESuperTypes().add(this.getDateGenerator());
+                originalNameRecordMatcherEClass.getESuperTypes().add(this.getInput());
                 dateRecognizerEClass.getESuperTypes().add(this.getWalkWidget());
-                textEClass.getESuperTypes().add(this.getStringGenerator());
+                dateRecognizerEClass.getESuperTypes().add(this.getOutput());
+                dateRecognizerEClass.getESuperTypes().add(this.getInput());
+                textEClass.getESuperTypes().add(this.getOutput());
                 textEClass.getESuperTypes().add(this.getWalkWidget());
                 delimitedFileEClass.getESuperTypes().add(this.getDataSource());
                 mappedElementEClass.getESuperTypes().add(this.getOutputElement());
                 mappedAttributeEClass.getESuperTypes().add(this.getOutputElement());
-                mappedAttributeEClass.getESuperTypes().add(this.getStringInput());
+                mappedAttributeEClass.getESuperTypes().add(this.getInput());
+                dateToISO8601StringConversionEClass.getESuperTypes().add(this.getConversionStrategy());
 
                 // Initialize classes and features; add operations and parameters
                 initEClass(tabbedDataFieldEClass, TabbedDataField.class, "TabbedDataField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1094,16 +956,6 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 
                 initEClass(walkWidgetEClass, WalkWidget.class, "WalkWidget", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
                 initEReference(getWalkWidget_Walk(), this.getCrossWalk(), this.getCrossWalk_Widgets(), "Walk", null, 1, 1, WalkWidget.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-                initEClass(tabSeparatedFileEClass, TabSeparatedFile.class, "TabSeparatedFile", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-                initEAttribute(getTabSeparatedFile_SourceFile(), this.getIFile(), "SourceFile", null, 0, 1, TabSeparatedFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-                initEAttribute(getTabSeparatedFile_DataStartingRow(), ecorePackage.getEInt(), "DataStartingRow", "1", 1, 1, TabSeparatedFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-                initEAttribute(getTabSeparatedFile_HeadingRow(), ecorePackage.getEInt(), "HeadingRow", null, 0, 1, TabSeparatedFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-                op = addEOperation(tabSeparatedFileEClass, null, "GoToRecord", 0, 1, IS_UNIQUE, IS_ORDERED);
-                addEParameter(op, ecorePackage.getEInt(), "RowNumber", 1, 1, IS_UNIQUE, IS_ORDERED);
-                addEException(op, this.getDataException());
-                addEException(op, this.getRecordOutOfRangeException());
 
                 initEClass(dataSourceEClass, DataSource.class, "DataSource", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
                 initEReference(getDataSource_Walk(), this.getCrossWalk(), this.getCrossWalk_DataSource(), "Walk", null, 1, 1, DataSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1134,22 +986,17 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
                 initEReference(getDataField_Source(), this.getDataSource(), this.getDataSource_Fields(), "source", null, 0, 1, DataField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
                 initEAttribute(getDataField_Label(), ecorePackage.getEString(), "label", null, 0, 1, DataField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-                initEClass(stringInputEClass, StringInput.class, "StringInput", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-                initEReference(getStringInput_Input(), this.getStringGenerator(), null, "Input", null, 0, 1, StringInput.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                initEClass(outputEClass, Output.class, "Output", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-                initEClass(stringGeneratorEClass, StringGenerator.class, "StringGenerator", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-                op = addEOperation(stringGeneratorEClass, ecorePackage.getEString(), "getResultString", 1, 1, IS_UNIQUE, IS_ORDERED);
+                op = addEOperation(outputEClass, ecorePackage.getEJavaObject(), "getResult", 1, 1, IS_UNIQUE, IS_ORDERED);
                 addEException(op, this.getDataException());
 
-                initEClass(inputConsumerEClass, InputConsumer.class, "InputConsumer", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-                initEReference(getInputConsumer_Inputs(), this.getInput(), this.getInput_Consumer(), "Inputs", null, 0, -1, InputConsumer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-                addEOperation(inputConsumerEClass, null, "initInputs", 1, 1, IS_UNIQUE, IS_ORDERED);
+                addEOperation(outputEClass, ecorePackage.getEDataType(), "getOutputEDataType", 0, 1, IS_UNIQUE, IS_ORDERED);
 
                 initEClass(inputEClass, Input.class, "Input", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-                initEAttribute(getInput_Name(), ecorePackage.getEString(), "Name", "input", 1, 1, Input.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-                initEReference(getInput_Consumer(), this.getInputConsumer(), this.getInputConsumer_Inputs(), "Consumer", null, 0, 1, Input.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                initEReference(getInput_Output(), this.getOutput(), null, "Output", null, 0, 1, Input.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+                addEOperation(inputEClass, ecorePackage.getEDataType(), "getInputEDataType", 0, 1, IS_UNIQUE, IS_ORDERED);
 
                 initEClass(recordMatcherStrategyEClass, RecordMatcherStrategy.class, "RecordMatcherStrategy", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1162,15 +1009,6 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
                 initEAttribute(getOriginalNameRecordMatcher_CaseSensitive(), ecorePackage.getEBoolean(), "caseSensitive", "false", 1, 1, OriginalNameRecordMatcher.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
                 initEAttribute(getOriginalNameRecordMatcher_IncludeFileExtension(), ecorePackage.getEBoolean(), "includeFileExtension", "false", 1, 1, OriginalNameRecordMatcher.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
                 initEAttribute(getOriginalNameRecordMatcher_BaseFolder(), this.getIFolder(), "baseFolder", null, 0, 1, OriginalNameRecordMatcher.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-                initEReference(getOriginalNameRecordMatcher_Input(), this.getStringInput(), null, "input", null, 1, 1, OriginalNameRecordMatcher.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-                initEClass(dateInputEClass, DateInput.class, "DateInput", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-                initEReference(getDateInput_Input(), this.getDateGenerator(), null, "Input", null, 0, 1, DateInput.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-                initEClass(dateGeneratorEClass, DateGenerator.class, "DateGenerator", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-                op = addEOperation(dateGeneratorEClass, ecorePackage.getEString(), "getResultString", 1, 1, IS_UNIQUE, IS_ORDERED);
-                addEException(op, this.getDataException());
 
                 initEClass(dateRecognizerEClass, DateRecognizer.class, "DateRecognizer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
                 initEAttribute(getDateRecognizer_Format(), ecorePackage.getEString(), "Format", "yy-MM-dd", 1, 1, DateRecognizer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1195,11 +1033,22 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
                 initEReference(getMappedElement_ChildElements(), this.getMappedElement(), this.getMappedElement_Parent(), "childElements", null, 0, -1, MappedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
                 initEReference(getMappedElement_Attributes(), this.getMappedAttribute(), null, "attributes", null, 0, -1, MappedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
                 initEReference(getMappedElement_MappedFeature(), ecorePackage.getEReference(), null, "mappedFeature", null, 1, 1, MappedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-                initEReference(getMappedElement_Text(), this.getStringInput(), null, "text", null, 0, 1, MappedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
                 initEReference(getMappedElement_Parent(), this.getMappedElement(), this.getMappedElement_ChildElements(), "parent", null, 0, 1, MappedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
                 initEClass(mappedAttributeEClass, MappedAttribute.class, "MappedAttribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
                 initEReference(getMappedAttribute_MappedFeature(), ecorePackage.getEAttribute(), null, "mappedFeature", null, 1, 1, MappedAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                initEReference(getMappedAttribute_ConversionStrategy(), this.getConversionStrategy(), null, "conversionStrategy", null, 0, 1, MappedAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+                initEClass(conversionStrategyEClass, ConversionStrategy.class, "ConversionStrategy", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+                op = addEOperation(conversionStrategyEClass, ecorePackage.getEJavaObject(), "convert", 1, 1, IS_UNIQUE, IS_ORDERED);
+                addEParameter(op, ecorePackage.getEJavaObject(), "input", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+                addEOperation(conversionStrategyEClass, ecorePackage.getEDataType(), "getInputDataType", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+                addEOperation(conversionStrategyEClass, ecorePackage.getEDataType(), "getOutputDataType", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+                initEClass(dateToISO8601StringConversionEClass, DateToISO8601StringConversion.class, "DateToISO8601StringConversion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
                 // Initialize data types
                 initEDataType(dataExceptionEDataType, DataException.class, "DataException", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

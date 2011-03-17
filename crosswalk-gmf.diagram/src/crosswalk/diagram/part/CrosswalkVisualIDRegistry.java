@@ -25,31 +25,21 @@ import crosswalk.CrossWalk;
 import crosswalk.CrosswalkPackage;
 import crosswalk.diagram.edit.parts.CrossWalkEditPart;
 import crosswalk.diagram.edit.parts.DateRecognizerEditPart;
-import crosswalk.diagram.edit.parts.DateRecognizerOutputElementInputsCompartmentEditPart;
 import crosswalk.diagram.edit.parts.DelimitedFileDataFieldCompartmentEditPart;
 import crosswalk.diagram.edit.parts.DelimitedFileEditPart;
 import crosswalk.diagram.edit.parts.DelimitedFileSourceFileEditPart;
 import crosswalk.diagram.edit.parts.MappedAttributeEditPart;
 import crosswalk.diagram.edit.parts.MappedAttributeNameEditPart;
 import crosswalk.diagram.edit.parts.MappedElement2EditPart;
+import crosswalk.diagram.edit.parts.MappedElementChildElementsCompartment2EditPart;
 import crosswalk.diagram.edit.parts.MappedElementChildElementsCompartmentEditPart;
 import crosswalk.diagram.edit.parts.MappedElementEditPart;
 import crosswalk.diagram.edit.parts.OriginalNameRecordMatcherEditPart;
-import crosswalk.diagram.edit.parts.OriginalNameRecordMatcherRecordMatcherInputsCompartmentEditPart;
-import crosswalk.diagram.edit.parts.StringInput13EditPart;
-import crosswalk.diagram.edit.parts.StringInput2EditPart;
-import crosswalk.diagram.edit.parts.StringInput9EditPart;
-import crosswalk.diagram.edit.parts.StringInputEditPart;
-import crosswalk.diagram.edit.parts.StringInputName13EditPart;
-import crosswalk.diagram.edit.parts.StringInputName2EditPart;
-import crosswalk.diagram.edit.parts.StringInputName9EditPart;
-import crosswalk.diagram.edit.parts.StringInputNameEditPart;
 import crosswalk.diagram.edit.parts.TabbedDataFieldEditPart;
 import crosswalk.diagram.edit.parts.TabbedDataFieldLabelColumnNumberEditPart;
 import crosswalk.diagram.edit.parts.TextEditPart;
 import crosswalk.diagram.edit.parts.TextValueEditPart;
 import crosswalk.diagram.edit.parts.TrimWhitespaceEditPart;
-import crosswalk.diagram.edit.parts.TrimWhitespaceOutputElementInputsCompartmentEditPart;
 import crosswalk.diagram.edit.parts.WrappingLabel12EditPart;
 import crosswalk.diagram.edit.parts.WrappingLabel13EditPart;
 import crosswalk.diagram.edit.parts.WrappingLabel14EditPart;
@@ -183,21 +173,6 @@ public class CrosswalkVisualIDRegistry {
 		return TabbedDataFieldEditPart.VISUAL_ID;
 	    }
 	    break;
-	case OriginalNameRecordMatcherRecordMatcherInputsCompartmentEditPart.VISUAL_ID:
-	    if (CrosswalkPackage.eINSTANCE.getStringInput().isSuperTypeOf(domainElement.eClass())) {
-		return StringInput9EditPart.VISUAL_ID;
-	    }
-	    break;
-	case DateRecognizerOutputElementInputsCompartmentEditPart.VISUAL_ID:
-	    if (CrosswalkPackage.eINSTANCE.getStringInput().isSuperTypeOf(domainElement.eClass())) {
-		return StringInputEditPart.VISUAL_ID;
-	    }
-	    break;
-	case TrimWhitespaceOutputElementInputsCompartmentEditPart.VISUAL_ID:
-	    if (CrosswalkPackage.eINSTANCE.getStringInput().isSuperTypeOf(domainElement.eClass())) {
-		return StringInput2EditPart.VISUAL_ID;
-	    }
-	    break;
 	case MappedElementChildElementsCompartmentEditPart.VISUAL_ID:
 	    if (CrosswalkPackage.eINSTANCE.getMappedElement().isSuperTypeOf(domainElement.eClass())) {
 		return MappedElement2EditPart.VISUAL_ID;
@@ -205,8 +180,13 @@ public class CrosswalkVisualIDRegistry {
 	    if (CrosswalkPackage.eINSTANCE.getMappedAttribute().isSuperTypeOf(domainElement.eClass())) {
 		return MappedAttributeEditPart.VISUAL_ID;
 	    }
-	    if (CrosswalkPackage.eINSTANCE.getStringInput().isSuperTypeOf(domainElement.eClass())) {
-		return StringInput13EditPart.VISUAL_ID;
+	    break;
+	case MappedElementChildElementsCompartment2EditPart.VISUAL_ID:
+	    if (CrosswalkPackage.eINSTANCE.getMappedElement().isSuperTypeOf(domainElement.eClass())) {
+		return MappedElement2EditPart.VISUAL_ID;
+	    }
+	    if (CrosswalkPackage.eINSTANCE.getMappedAttribute().isSuperTypeOf(domainElement.eClass())) {
+		return MappedAttributeEditPart.VISUAL_ID;
 	    }
 	    break;
 	}
@@ -264,15 +244,9 @@ public class CrosswalkVisualIDRegistry {
 	    if (WrappingLabel9EditPart.VISUAL_ID == nodeVisualID) {
 		return true;
 	    }
-	    if (OriginalNameRecordMatcherRecordMatcherInputsCompartmentEditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
 	    break;
 	case DateRecognizerEditPart.VISUAL_ID:
 	    if (WrappingLabel12EditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    if (DateRecognizerOutputElementInputsCompartmentEditPart.VISUAL_ID == nodeVisualID) {
 		return true;
 	    }
 	    break;
@@ -283,9 +257,6 @@ public class CrosswalkVisualIDRegistry {
 	    break;
 	case TrimWhitespaceEditPart.VISUAL_ID:
 	    if (WrappingLabel13EditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    if (TrimWhitespaceOutputElementInputsCompartmentEditPart.VISUAL_ID == nodeVisualID) {
 		return true;
 	    }
 	    break;
@@ -305,23 +276,11 @@ public class CrosswalkVisualIDRegistry {
 		return true;
 	    }
 	    break;
-	case StringInput9EditPart.VISUAL_ID:
-	    if (StringInputName9EditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    break;
-	case StringInputEditPart.VISUAL_ID:
-	    if (StringInputNameEditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    break;
-	case StringInput2EditPart.VISUAL_ID:
-	    if (StringInputName2EditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    break;
 	case MappedElement2EditPart.VISUAL_ID:
 	    if (WrappingLabel16EditPart.VISUAL_ID == nodeVisualID) {
+		return true;
+	    }
+	    if (MappedElementChildElementsCompartment2EditPart.VISUAL_ID == nodeVisualID) {
 		return true;
 	    }
 	    break;
@@ -330,28 +289,8 @@ public class CrosswalkVisualIDRegistry {
 		return true;
 	    }
 	    break;
-	case StringInput13EditPart.VISUAL_ID:
-	    if (StringInputName13EditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    break;
 	case DelimitedFileDataFieldCompartmentEditPart.VISUAL_ID:
 	    if (TabbedDataFieldEditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    break;
-	case OriginalNameRecordMatcherRecordMatcherInputsCompartmentEditPart.VISUAL_ID:
-	    if (StringInput9EditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    break;
-	case DateRecognizerOutputElementInputsCompartmentEditPart.VISUAL_ID:
-	    if (StringInputEditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    break;
-	case TrimWhitespaceOutputElementInputsCompartmentEditPart.VISUAL_ID:
-	    if (StringInput2EditPart.VISUAL_ID == nodeVisualID) {
 		return true;
 	    }
 	    break;
@@ -362,7 +301,12 @@ public class CrosswalkVisualIDRegistry {
 	    if (MappedAttributeEditPart.VISUAL_ID == nodeVisualID) {
 		return true;
 	    }
-	    if (StringInput13EditPart.VISUAL_ID == nodeVisualID) {
+	    break;
+	case MappedElementChildElementsCompartment2EditPart.VISUAL_ID:
+	    if (MappedElement2EditPart.VISUAL_ID == nodeVisualID) {
+		return true;
+	    }
+	    if (MappedAttributeEditPart.VISUAL_ID == nodeVisualID) {
 		return true;
 	    }
 	    break;

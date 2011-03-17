@@ -54,10 +54,6 @@ import crosswalk.diagram.edit.parts.MappedAttributeEditPart;
 import crosswalk.diagram.edit.parts.MappedElement2EditPart;
 import crosswalk.diagram.edit.parts.MappedElementEditPart;
 import crosswalk.diagram.edit.parts.OriginalNameRecordMatcherEditPart;
-import crosswalk.diagram.edit.parts.StringInput13EditPart;
-import crosswalk.diagram.edit.parts.StringInput2EditPart;
-import crosswalk.diagram.edit.parts.StringInput9EditPart;
-import crosswalk.diagram.edit.parts.StringInputEditPart;
 import crosswalk.diagram.edit.parts.TabbedDataFieldEditPart;
 import crosswalk.diagram.edit.parts.TextEditPart;
 import crosswalk.diagram.edit.parts.TrimWhitespaceEditPart;
@@ -336,33 +332,6 @@ public class CrossWalkCanonicalEditPolicy extends CanonicalEditPolicy {
 	    }
 	    break;
 	}
-	case StringInput9EditPart.VISUAL_ID: {
-	    if (!domain2NotationMap.containsKey(view.getElement())) {
-		result.addAll(CrosswalkDiagramUpdater.getStringInput_3010ContainedLinks(view));
-	    }
-	    if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-		domain2NotationMap.put(view.getElement(), view);
-	    }
-	    break;
-	}
-	case StringInputEditPart.VISUAL_ID: {
-	    if (!domain2NotationMap.containsKey(view.getElement())) {
-		result.addAll(CrosswalkDiagramUpdater.getStringInput_3002ContainedLinks(view));
-	    }
-	    if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-		domain2NotationMap.put(view.getElement(), view);
-	    }
-	    break;
-	}
-	case StringInput2EditPart.VISUAL_ID: {
-	    if (!domain2NotationMap.containsKey(view.getElement())) {
-		result.addAll(CrosswalkDiagramUpdater.getStringInput_3003ContainedLinks(view));
-	    }
-	    if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-		domain2NotationMap.put(view.getElement(), view);
-	    }
-	    break;
-	}
 	case MappedElement2EditPart.VISUAL_ID: {
 	    if (!domain2NotationMap.containsKey(view.getElement())) {
 		result.addAll(CrosswalkDiagramUpdater.getMappedElement_3015ContainedLinks(view));
@@ -375,15 +344,6 @@ public class CrossWalkCanonicalEditPolicy extends CanonicalEditPolicy {
 	case MappedAttributeEditPart.VISUAL_ID: {
 	    if (!domain2NotationMap.containsKey(view.getElement())) {
 		result.addAll(CrosswalkDiagramUpdater.getMappedAttribute_3016ContainedLinks(view));
-	    }
-	    if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-		domain2NotationMap.put(view.getElement(), view);
-	    }
-	    break;
-	}
-	case StringInput13EditPart.VISUAL_ID: {
-	    if (!domain2NotationMap.containsKey(view.getElement())) {
-		result.addAll(CrosswalkDiagramUpdater.getStringInput_3017ContainedLinks(view));
 	    }
 	    if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
 		domain2NotationMap.put(view.getElement(), view);

@@ -66,12 +66,11 @@ public class DateRecognizerCreateCommand extends EditElementCommand {
     }
 
     /**
-     * @generated NOT
+     * @generated
      */
     @Override
     protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
 	DateRecognizer newElement = CrosswalkFactory.eINSTANCE.createDateRecognizer();
-	newElement.initInputs();
 
 	CrossWalk owner = (CrossWalk) getElementToEdit();
 	owner.getWidgets().add(newElement);

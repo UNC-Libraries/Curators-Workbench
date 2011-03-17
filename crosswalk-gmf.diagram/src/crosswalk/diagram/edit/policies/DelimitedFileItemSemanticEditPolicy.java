@@ -19,7 +19,7 @@ import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 
 import crosswalk.diagram.edit.parts.DelimitedFileDataFieldCompartmentEditPart;
-import crosswalk.diagram.edit.parts.StringInputInputEditPart;
+import crosswalk.diagram.edit.parts.InputOutputEditPart;
 import crosswalk.diagram.edit.parts.TabbedDataFieldEditPart;
 import crosswalk.diagram.part.CrosswalkVisualIDRegistry;
 import crosswalk.diagram.providers.CrosswalkElementTypes;
@@ -71,7 +71,7 @@ public class DelimitedFileItemSemanticEditPolicy extends CrosswalkBaseItemSemant
 		    case TabbedDataFieldEditPart.VISUAL_ID:
 			for (Iterator<?> it = cnode.getTargetEdges().iterator(); it.hasNext();) {
 			    Edge incomingLink = (Edge) it.next();
-			    if (CrosswalkVisualIDRegistry.getVisualID(incomingLink) == StringInputInputEditPart.VISUAL_ID) {
+			    if (CrosswalkVisualIDRegistry.getVisualID(incomingLink) == InputOutputEditPart.VISUAL_ID) {
 				DestroyReferenceRequest r = new DestroyReferenceRequest(incomingLink.getSource()
 						.getElement(), null, incomingLink.getTarget().getElement(), false);
 				cmd.add(new DestroyReferenceCommand(r));

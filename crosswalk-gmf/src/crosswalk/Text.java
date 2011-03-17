@@ -32,7 +32,7 @@ package crosswalk;
  * @model
  * @generated
  */
-public interface Text extends StringGenerator, WalkWidget {
+public interface Text extends Output, WalkWidget {
         /**
          * Returns the value of the '<em><b>Value</b></em>' attribute.
          * <!-- begin-user-doc -->

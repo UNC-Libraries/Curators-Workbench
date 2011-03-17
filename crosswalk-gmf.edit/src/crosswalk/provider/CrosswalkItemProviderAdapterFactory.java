@@ -15,15 +15,12 @@
  */
 package crosswalk.provider;
 
-import crosswalk.util.CrosswalkAdapterFactory;
-
 import java.util.ArrayList;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.edit.provider.ChangeNotifier;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
@@ -36,6 +33,8 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.INotifyChangedListener;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+
+import crosswalk.util.CrosswalkAdapterFactory;
 
 /**
  * This is the factory that is used to provide the interfaces needed to support Viewers.
@@ -139,29 +138,6 @@ public class CrosswalkItemProviderAdapterFactory extends CrosswalkAdapterFactory
         }
 
         /**
-         * This keeps track of the one adapter used for all {@link crosswalk.TabSeparatedFile} instances.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        protected TabSeparatedFileItemProvider tabSeparatedFileItemProvider;
-
-        /**
-         * This creates an adapter for a {@link crosswalk.TabSeparatedFile}.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        @Override
-        public Adapter createTabSeparatedFileAdapter() {
-                if (tabSeparatedFileItemProvider == null) {
-                        tabSeparatedFileItemProvider = new TabSeparatedFileItemProvider(this);
-                }
-
-                return tabSeparatedFileItemProvider;
-        }
-
-        /**
          * This keeps track of the one adapter used for all {@link crosswalk.DataField} instances.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -185,17 +161,6 @@ public class CrosswalkItemProviderAdapterFactory extends CrosswalkAdapterFactory
         }
 
         /**
-         * This creates an adapter for a {@link crosswalk.StringInput}.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        @Override
-        public Adapter createStringInputAdapter() {
-                return new StringInputItemProvider(this);
-        }
-
-        /**
          * This keeps track of the one adapter used for all {@link crosswalk.OriginalNameRecordMatcher} instances.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -216,29 +181,6 @@ public class CrosswalkItemProviderAdapterFactory extends CrosswalkAdapterFactory
                 }
 
                 return originalNameRecordMatcherItemProvider;
-        }
-
-        /**
-         * This keeps track of the one adapter used for all {@link crosswalk.DateInput} instances.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        protected DateInputItemProvider dateInputItemProvider;
-
-        /**
-         * This creates an adapter for a {@link crosswalk.DateInput}.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        @Override
-        public Adapter createDateInputAdapter() {
-                if (dateInputItemProvider == null) {
-                        dateInputItemProvider = new DateInputItemProvider(this);
-                }
-
-                return dateInputItemProvider;
         }
 
         /**
@@ -354,6 +296,29 @@ public class CrosswalkItemProviderAdapterFactory extends CrosswalkAdapterFactory
                 }
 
                 return mappedAttributeItemProvider;
+        }
+
+        /**
+         * This keeps track of the one adapter used for all {@link crosswalk.DateToISO8601StringConversion} instances.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        protected DateToISO8601StringConversionItemProvider dateToISO8601StringConversionItemProvider;
+
+        /**
+         * This creates an adapter for a {@link crosswalk.DateToISO8601StringConversion}.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        @Override
+        public Adapter createDateToISO8601StringConversionAdapter() {
+                if (dateToISO8601StringConversionItemProvider == null) {
+                        dateToISO8601StringConversionItemProvider = new DateToISO8601StringConversionItemProvider(this);
+                }
+
+                return dateToISO8601StringConversionItemProvider;
         }
 
         /**

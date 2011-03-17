@@ -32,6 +32,7 @@ import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
+
 import crosswalk.diagram.edit.policies.MappedElementItemSemanticEditPolicy;
 import crosswalk.diagram.part.CrosswalkVisualIDRegistry;
 import crosswalk.diagram.providers.CrosswalkElementTypes;
@@ -286,10 +287,6 @@ public class MappedElementEditPart extends ShapeNodeEditPart {
 				.getType(MappedElementChildElementsCompartmentEditPart.VISUAL_ID));
 	    }
 	    if (type == CrosswalkElementTypes.MappedAttribute_3016) {
-		return getChildBySemanticHint(CrosswalkVisualIDRegistry
-				.getType(MappedElementChildElementsCompartmentEditPart.VISUAL_ID));
-	    }
-	    if (type == CrosswalkElementTypes.StringInput_3017) {
 		return getChildBySemanticHint(CrosswalkVisualIDRegistry
 				.getType(MappedElementChildElementsCompartmentEditPart.VISUAL_ID));
 	    }

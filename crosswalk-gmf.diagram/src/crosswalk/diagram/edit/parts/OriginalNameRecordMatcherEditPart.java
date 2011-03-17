@@ -15,28 +15,26 @@
  */
 package crosswalk.diagram.edit.parts;
 
-import org.eclipse.draw2d.ColorConstants;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
 import org.eclipse.draw2d.FlowLayout;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.MarginBorder;
-import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
-import org.eclipse.draw2d.ToolbarLayout;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
-import org.eclipse.gef.Request;
+import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
-import org.eclipse.gmf.runtime.diagram.core.edithelpers.CreateElementRequestAdapter;
+import org.eclipse.gef.requests.CreateRequest;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.ITextAwareEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ConstrainedToolbarLayoutEditPolicy;
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
-import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewAndElementRequest;
+import org.eclipse.gmf.runtime.diagram.ui.editpolicies.FlowLayoutEditPolicy;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
@@ -45,7 +43,6 @@ import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
 
-import crosswalk.diagram.edit.policies.CrosswalkTextSelectionEditPolicy;
 import crosswalk.diagram.edit.policies.OriginalNameRecordMatcherItemSemanticEditPolicy;
 import crosswalk.diagram.part.CrosswalkVisualIDRegistry;
 import crosswalk.diagram.providers.CrosswalkElementTypes;
@@ -81,7 +78,6 @@ public class OriginalNameRecordMatcherEditPart extends ShapeNodeEditPart {
      * @generated
      */
     protected void createDefaultEditPolicies() {
-	installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicy());
 	super.createDefaultEditPolicies();
 	installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new OriginalNameRecordMatcherItemSemanticEditPolicy());
 	installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
@@ -94,15 +90,18 @@ public class OriginalNameRecordMatcherEditPart extends ShapeNodeEditPart {
      */
     protected LayoutEditPolicy createLayoutEditPolicy() {
 
-	ConstrainedToolbarLayoutEditPolicy lep = new ConstrainedToolbarLayoutEditPolicy() {
+	FlowLayoutEditPolicy lep = new FlowLayoutEditPolicy() {
 
-	    protected EditPolicy createChildEditPolicy(EditPart child) {
-		if (child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE) == null) {
-		    if (child instanceof ITextAwareEditPart) {
-			return new CrosswalkTextSelectionEditPolicy();
-		    }
-		}
-		return super.createChildEditPolicy(child);
+	    protected Command createAddCommand(EditPart child, EditPart after) {
+		return null;
+	    }
+
+	    protected Command createMoveChildCommand(EditPart child, EditPart after) {
+		return null;
+	    }
+
+	    protected Command getCreateCommand(CreateRequest request) {
+		return null;
 	    }
 	};
 	return lep;
@@ -112,14 +111,14 @@ public class OriginalNameRecordMatcherEditPart extends ShapeNodeEditPart {
      * @generated
      */
     protected IFigure createNodeShape() {
-	return primaryShape = new RecordMatcherFigure();
+	return primaryShape = new WidgetFigure();
     }
 
     /**
      * @generated
      */
-    public RecordMatcherFigure getPrimaryShape() {
-	return (RecordMatcherFigure) primaryShape;
+    public WidgetFigure getPrimaryShape() {
+	return (WidgetFigure) primaryShape;
     }
 
     /**
@@ -127,13 +126,7 @@ public class OriginalNameRecordMatcherEditPart extends ShapeNodeEditPart {
      */
     protected boolean addFixedChild(EditPart childEditPart) {
 	if (childEditPart instanceof WrappingLabel9EditPart) {
-	    ((WrappingLabel9EditPart) childEditPart).setLabel(getPrimaryShape().getFigureOutputElementLabelFigure());
-	    return true;
-	}
-	if (childEditPart instanceof OriginalNameRecordMatcherRecordMatcherInputsCompartmentEditPart) {
-	    IFigure pane = getPrimaryShape().getContentPane();
-	    setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
-	    pane.add(((OriginalNameRecordMatcherRecordMatcherInputsCompartmentEditPart) childEditPart).getFigure());
+	    ((WrappingLabel9EditPart) childEditPart).setLabel(getPrimaryShape().getFigureWidgetLabelFigure());
 	    return true;
 	}
 	return false;
@@ -144,12 +137,6 @@ public class OriginalNameRecordMatcherEditPart extends ShapeNodeEditPart {
      */
     protected boolean removeFixedChild(EditPart childEditPart) {
 	if (childEditPart instanceof WrappingLabel9EditPart) {
-	    return true;
-	}
-	if (childEditPart instanceof OriginalNameRecordMatcherRecordMatcherInputsCompartmentEditPart) {
-	    IFigure pane = getPrimaryShape().getContentPane();
-	    setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
-	    pane.remove(((OriginalNameRecordMatcherRecordMatcherInputsCompartmentEditPart) childEditPart).getFigure());
 	    return true;
 	}
 	return false;
@@ -179,9 +166,6 @@ public class OriginalNameRecordMatcherEditPart extends ShapeNodeEditPart {
      * @generated
      */
     protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
-	if (editPart instanceof OriginalNameRecordMatcherRecordMatcherInputsCompartmentEditPart) {
-	    return getPrimaryShape().getContentPane();
-	}
 	return getContentPane();
     }
 
@@ -281,50 +265,76 @@ public class OriginalNameRecordMatcherEditPart extends ShapeNodeEditPart {
     /**
      * @generated
      */
-    public EditPart getTargetEditPart(Request request) {
-	if (request instanceof CreateViewAndElementRequest) {
-	    CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request).getViewAndElementDescriptor()
-			    .getCreateElementRequestAdapter();
-	    IElementType type = (IElementType) adapter.getAdapter(IElementType.class);
-	    if (type == CrosswalkElementTypes.StringInput_3010) {
-		return getChildBySemanticHint(CrosswalkVisualIDRegistry
-				.getType(OriginalNameRecordMatcherRecordMatcherInputsCompartmentEditPart.VISUAL_ID));
-	    }
-	}
-	return super.getTargetEditPart(request);
+    public List<IElementType> getMARelTypesOnSource() {
+	ArrayList<IElementType> types = new ArrayList<IElementType>(1);
+	types.add(CrosswalkElementTypes.InputOutput_4003);
+	return types;
     }
 
     /**
      * @generated
      */
-    public class RecordMatcherFigure extends RectangleFigure {
+    public List<IElementType> getMARelTypesOnSourceAndTarget(IGraphicalEditPart targetEditPart) {
+	LinkedList<IElementType> types = new LinkedList<IElementType>();
+	if (targetEditPart instanceof DateRecognizerEditPart) {
+	    types.add(CrosswalkElementTypes.InputOutput_4003);
+	}
+	if (targetEditPart instanceof TextEditPart) {
+	    types.add(CrosswalkElementTypes.InputOutput_4003);
+	}
+	if (targetEditPart instanceof TrimWhitespaceEditPart) {
+	    types.add(CrosswalkElementTypes.InputOutput_4003);
+	}
+	if (targetEditPart instanceof TabbedDataFieldEditPart) {
+	    types.add(CrosswalkElementTypes.InputOutput_4003);
+	}
+	return types;
+    }
+
+    /**
+     * @generated
+     */
+    public List<IElementType> getMATypesForTarget(IElementType relationshipType) {
+	LinkedList<IElementType> types = new LinkedList<IElementType>();
+	if (relationshipType == CrosswalkElementTypes.InputOutput_4003) {
+	    types.add(CrosswalkElementTypes.DateRecognizer_2013);
+	    types.add(CrosswalkElementTypes.Text_2014);
+	    types.add(CrosswalkElementTypes.TrimWhitespace_2015);
+	    types.add(CrosswalkElementTypes.TabbedDataField_3001);
+	}
+	return types;
+    }
+
+    /**
+     * @generated
+     */
+    public class WidgetFigure extends RoundedRectangle {
 
 	/**
 	 * @generated
 	 */
-	private RectangleFigure fContentPane;
-	/**
-	 * @generated
-	 */
-	private WrappingLabel fFigureOutputElementLabelFigure;
+	private WrappingLabel fFigureWidgetLabelFigure;
 
 	/**
 	 * @generated
 	 */
-	public RecordMatcherFigure() {
+	public WidgetFigure() {
 
-	    ToolbarLayout layoutThis = new ToolbarLayout();
+	    FlowLayout layoutThis = new FlowLayout();
 	    layoutThis.setStretchMinorAxis(false);
-	    layoutThis.setMinorAlignment(ToolbarLayout.ALIGN_TOPLEFT);
+	    layoutThis.setMinorAlignment(FlowLayout.ALIGN_CENTER);
 
-	    layoutThis.setSpacing(0);
-	    layoutThis.setVertical(false);
+	    layoutThis.setMajorAlignment(FlowLayout.ALIGN_CENTER);
+	    layoutThis.setMajorSpacing(5);
+	    layoutThis.setMinorSpacing(5);
+	    layoutThis.setHorizontal(false);
 
 	    this.setLayoutManager(layoutThis);
 
-	    this.setFill(false);
-	    this.setOutline(false);
-	    this.setLineWidth(0);
+	    this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(20), getMapMode().DPtoLP(20)));
+
+	    this.setBorder(new MarginBorder(getMapMode().DPtoLP(10), getMapMode().DPtoLP(10), getMapMode().DPtoLP(10),
+			    getMapMode().DPtoLP(10)));
 	    createContents();
 	}
 
@@ -333,58 +343,18 @@ public class OriginalNameRecordMatcherEditPart extends ShapeNodeEditPart {
 	 */
 	private void createContents() {
 
-	    fContentPane = new RectangleFigure();
-	    fContentPane.setOutline(false);
+	    fFigureWidgetLabelFigure = new WrappingLabel();
+	    fFigureWidgetLabelFigure.setText("Unknown Widget");
 
-	    this.add(fContentPane);
-
-	    ToolbarLayout layoutFContentPane = new ToolbarLayout();
-	    layoutFContentPane.setStretchMinorAxis(false);
-	    layoutFContentPane.setMinorAlignment(ToolbarLayout.ALIGN_CENTER);
-
-	    layoutFContentPane.setSpacing(2);
-	    layoutFContentPane.setVertical(true);
-
-	    fContentPane.setLayoutManager(layoutFContentPane);
-
-	    RoundedRectangle roundedElementFigure0 = new RoundedRectangle();
-	    roundedElementFigure0.setCornerDimensions(new Dimension(getMapMode().DPtoLP(20), getMapMode().DPtoLP(20)));
-
-	    roundedElementFigure0.setBorder(new MarginBorder(getMapMode().DPtoLP(10), getMapMode().DPtoLP(10),
-			    getMapMode().DPtoLP(10), getMapMode().DPtoLP(10)));
-
-	    this.add(roundedElementFigure0);
-
-	    FlowLayout layoutRoundedElementFigure0 = new FlowLayout();
-	    layoutRoundedElementFigure0.setStretchMinorAxis(false);
-	    layoutRoundedElementFigure0.setMinorAlignment(FlowLayout.ALIGN_CENTER);
-
-	    layoutRoundedElementFigure0.setMajorAlignment(FlowLayout.ALIGN_CENTER);
-	    layoutRoundedElementFigure0.setMajorSpacing(5);
-	    layoutRoundedElementFigure0.setMinorSpacing(5);
-	    layoutRoundedElementFigure0.setHorizontal(true);
-
-	    roundedElementFigure0.setLayoutManager(layoutRoundedElementFigure0);
-
-	    fFigureOutputElementLabelFigure = new WrappingLabel();
-	    fFigureOutputElementLabelFigure.setText("Unknown MODS Element");
-
-	    roundedElementFigure0.add(fFigureOutputElementLabelFigure);
+	    this.add(fFigureWidgetLabelFigure);
 
 	}
 
 	/**
 	 * @generated
 	 */
-	public RectangleFigure getContentPane() {
-	    return fContentPane;
-	}
-
-	/**
-	 * @generated
-	 */
-	public WrappingLabel getFigureOutputElementLabelFigure() {
-	    return fFigureOutputElementLabelFigure;
+	public WrappingLabel getFigureWidgetLabelFigure() {
+	    return fFigureWidgetLabelFigure;
 	}
 
     }

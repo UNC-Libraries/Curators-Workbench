@@ -27,10 +27,8 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
 
-import crosswalk.CrossWalk;
 import crosswalk.CrosswalkFactory;
 import crosswalk.DataSource;
-import crosswalk.TabSeparatedFile;
 import crosswalk.TabbedDataField;
 
 /**

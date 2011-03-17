@@ -32,7 +32,7 @@ package crosswalk;
  * @model
  * @generated
  */
-public interface DateRecognizer extends InputConsumer, DateGenerator, WalkWidget {
+public interface DateRecognizer extends WalkWidget, Output, Input {
 
         /**
          * Returns the value of the '<em><b>Format</b></em>' attribute.

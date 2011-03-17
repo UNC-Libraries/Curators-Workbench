@@ -39,41 +39,47 @@ public class MappedElementEditHelperAdvice extends AbstractEditHelperAdvice impl
 
     @Override
     protected ICommand getBeforeCreateCommand(final CreateElementRequest request) {
-	ICommand result = new CreateElementCommand(request) {
-	    @Override
-	    protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info)
-			    throws ExecutionException {
-		LOG.debug("Executing Before Create Command!");
-		EObject parent = request.getContainer();
-		EClass classToCreate = request.getElementType().getEClass();
-		// switch between create element and create attribute
-		List<EStructuralFeature> possibleFeatures = null;
-		String message = null;
-		if (CrosswalkPackage.eINSTANCE.getMappedElement().equals(classToCreate)) {
-		    possibleFeatures = MappedModelUtil.getChildElementFeatures(parent);
-		    message = "Pick a child element.";
-		} else if (CrosswalkPackage.eINSTANCE.getMappedAttribute().equals(classToCreate)) {
-		    possibleFeatures = MappedModelUtil.getAttributes(parent);
-		    message = "Pick an attribute";
+	// TODO return null unless creating an element/attribute!
+	ICommand result = null;
+	EClass classToCreate = request.getElementType().getEClass();
+	if (CrosswalkPackage.eINSTANCE.getMappedElement().equals(classToCreate)
+			|| CrosswalkPackage.eINSTANCE.getMappedAttribute().equals(classToCreate)) {
+	    result = new CreateElementCommand(request) {
+		@Override
+		protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info)
+				throws ExecutionException {
+		    LOG.debug("Executing Before Create Command!");
+		    EObject parent = request.getContainer();
+		    EClass classToCreate = request.getElementType().getEClass();
+		    // switch between create element and create attribute
+		    List<EStructuralFeature> possibleFeatures = null;
+		    String message = null;
+		    if (CrosswalkPackage.eINSTANCE.getMappedElement().equals(classToCreate)) {
+			possibleFeatures = MappedModelUtil.getChildElementFeatures(parent);
+			message = "Pick a child element.";
+		    } else if (CrosswalkPackage.eINSTANCE.getMappedAttribute().equals(classToCreate)) {
+			possibleFeatures = MappedModelUtil.getAttributes(parent);
+			message = "Pick an attribute";
+		    }
+		    Shell shell = PlatformUI.getWorkbench().getDisplay().getActiveShell();
+		    MappedFeatureChoiceDialog dialog = new MappedFeatureChoiceDialog(shell);
+		    dialog.setFeatures(possibleFeatures);
+		    dialog.setMessage(message);
+		    EStructuralFeature answer = dialog.open();
+		    if (answer != null) {
+			LOG.debug("got ref selection:" + answer);
+			// set request params to deliver answer
+			Map<String, Object> params = new HashMap<String, Object>();
+			params.put(MAPPED_FEATURE_PARAM, answer);
+			request.addParameters(params);
+		    } else {
+			LOG.debug("no answer given, trying to cancel..");
+			return CommandResult.newCancelledCommandResult();
+		    }
+		    return CommandResult.newOKCommandResult();
 		}
-		Shell shell = PlatformUI.getWorkbench().getDisplay().getActiveShell();
-		MappedFeatureChoiceDialog dialog = new MappedFeatureChoiceDialog(shell);
-		dialog.setFeatures(possibleFeatures);
-		dialog.setMessage(message);
-		EStructuralFeature answer = dialog.open();
-		if (answer != null) {
-		    LOG.debug("got ref selection:" + answer);
-		    // set request params to deliver answer
-		    Map<String, Object> params = new HashMap<String, Object>();
-		    params.put(MAPPED_FEATURE_PARAM, answer);
-		    request.addParameters(params);
-		} else {
-		    LOG.debug("no answer given, trying to cancel..");
-		    return CommandResult.newCancelledCommandResult();
-		}
-		return CommandResult.newOKCommandResult();
-	    }
-	};
+	    };
+	}
 	return result;
     }
 
@@ -81,32 +87,36 @@ public class MappedElementEditHelperAdvice extends AbstractEditHelperAdvice impl
     protected ICommand getAfterCreateCommand(final CreateElementRequest request) {
 
 	ICommand result = null;
-	EObject container = request.getContainer();
-	if (container instanceof MappedElement || container instanceof CrossWalk) {
-	    // LOG.debug("create element request: " + request.getLabel());
-	    result = new CreateElementCommand(request) {
+	EClass classToCreate = request.getElementType().getEClass();
+	if (CrosswalkPackage.eINSTANCE.getMappedElement().equals(classToCreate)
+			|| CrosswalkPackage.eINSTANCE.getMappedAttribute().equals(classToCreate)) {
+	    EObject container = request.getContainer();
+	    if (container instanceof MappedElement || container instanceof CrossWalk) {
+		// LOG.debug("create element request: " + request.getLabel());
+		result = new CreateElementCommand(request) {
 
-		@Override
-		protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info)
-				throws ExecutionException {
-		    LOG.debug("Executing MappedElement ConfigureCommand!");
+		    @Override
+		    protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info)
+				    throws ExecutionException {
+			LOG.debug("Executing MappedElement ConfigureCommand!");
 
-		    EStructuralFeature feature = (EStructuralFeature) request.getParameters().get(
-				    MAPPED_FEATURE_PARAM);
-		    Object o = request.getNewElement();
-		    if (o instanceof MappedElement) {
-			MappedElement me = (MappedElement) request.getNewElement();
-			me.setMappedFeature((EReference) feature);
-			return CommandResult.newOKCommandResult();
-		    } else if (o instanceof MappedAttribute) {
-			MappedAttribute ma = (MappedAttribute) request.getNewElement();
-			ma.setMappedFeature((EAttribute) feature);
-			return CommandResult.newOKCommandResult();
-		    } else {
-			return CommandResult.newErrorCommandResult("Could not find mapped feature param.");
+			EStructuralFeature feature = (EStructuralFeature) request.getParameters().get(
+					MAPPED_FEATURE_PARAM);
+			Object o = request.getNewElement();
+			if (o instanceof MappedElement) {
+			    MappedElement me = (MappedElement) request.getNewElement();
+			    me.setMappedFeature((EReference) feature);
+			    return CommandResult.newOKCommandResult();
+			} else if (o instanceof MappedAttribute) {
+			    MappedAttribute ma = (MappedAttribute) request.getNewElement();
+			    ma.setMappedFeature((EAttribute) feature);
+			    return CommandResult.newOKCommandResult();
+			} else {
+			    return CommandResult.newErrorCommandResult("Could not find mapped feature param.");
+			}
 		    }
-		}
-	    };
+		};
+	    }
 	}
 	return result;
     }

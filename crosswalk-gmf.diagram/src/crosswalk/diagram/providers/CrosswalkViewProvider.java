@@ -57,34 +57,23 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.FontData;
 
 import crosswalk.diagram.edit.parts.CrossWalkEditPart;
-import crosswalk.diagram.edit.parts.DateInputInputEditPart;
 import crosswalk.diagram.edit.parts.DateRecognizerEditPart;
-import crosswalk.diagram.edit.parts.DateRecognizerOutputElementInputsCompartmentEditPart;
 import crosswalk.diagram.edit.parts.DelimitedFileDataFieldCompartmentEditPart;
 import crosswalk.diagram.edit.parts.DelimitedFileEditPart;
 import crosswalk.diagram.edit.parts.DelimitedFileSourceFileEditPart;
+import crosswalk.diagram.edit.parts.InputOutputEditPart;
 import crosswalk.diagram.edit.parts.MappedAttributeEditPart;
 import crosswalk.diagram.edit.parts.MappedAttributeNameEditPart;
 import crosswalk.diagram.edit.parts.MappedElement2EditPart;
+import crosswalk.diagram.edit.parts.MappedElementChildElementsCompartment2EditPart;
 import crosswalk.diagram.edit.parts.MappedElementChildElementsCompartmentEditPart;
 import crosswalk.diagram.edit.parts.MappedElementEditPart;
 import crosswalk.diagram.edit.parts.OriginalNameRecordMatcherEditPart;
-import crosswalk.diagram.edit.parts.OriginalNameRecordMatcherRecordMatcherInputsCompartmentEditPart;
-import crosswalk.diagram.edit.parts.StringInput13EditPart;
-import crosswalk.diagram.edit.parts.StringInput2EditPart;
-import crosswalk.diagram.edit.parts.StringInput9EditPart;
-import crosswalk.diagram.edit.parts.StringInputEditPart;
-import crosswalk.diagram.edit.parts.StringInputInputEditPart;
-import crosswalk.diagram.edit.parts.StringInputName13EditPart;
-import crosswalk.diagram.edit.parts.StringInputName2EditPart;
-import crosswalk.diagram.edit.parts.StringInputName9EditPart;
-import crosswalk.diagram.edit.parts.StringInputNameEditPart;
 import crosswalk.diagram.edit.parts.TabbedDataFieldEditPart;
 import crosswalk.diagram.edit.parts.TabbedDataFieldLabelColumnNumberEditPart;
 import crosswalk.diagram.edit.parts.TextEditPart;
 import crosswalk.diagram.edit.parts.TextValueEditPart;
 import crosswalk.diagram.edit.parts.TrimWhitespaceEditPart;
-import crosswalk.diagram.edit.parts.TrimWhitespaceOutputElementInputsCompartmentEditPart;
 import crosswalk.diagram.edit.parts.WrappingLabel12EditPart;
 import crosswalk.diagram.edit.parts.WrappingLabel13EditPart;
 import crosswalk.diagram.edit.parts.WrappingLabel14EditPart;
@@ -182,12 +171,8 @@ public class CrosswalkViewProvider extends AbstractProvider implements IViewProv
 		case TrimWhitespaceEditPart.VISUAL_ID:
 		case MappedElementEditPart.VISUAL_ID:
 		case TabbedDataFieldEditPart.VISUAL_ID:
-		case StringInput9EditPart.VISUAL_ID:
 		case MappedAttributeEditPart.VISUAL_ID:
-		case StringInputEditPart.VISUAL_ID:
-		case StringInput2EditPart.VISUAL_ID:
 		case MappedElement2EditPart.VISUAL_ID:
-		case StringInput13EditPart.VISUAL_ID:
 		    if (domainElement == null
 				    || visualID != CrosswalkVisualIDRegistry.getNodeVisualID(op.getContainerView(),
 						    domainElement)) {
@@ -202,10 +187,9 @@ public class CrosswalkViewProvider extends AbstractProvider implements IViewProv
 	return DelimitedFileEditPart.VISUAL_ID == visualID || OriginalNameRecordMatcherEditPart.VISUAL_ID == visualID
 			|| DateRecognizerEditPart.VISUAL_ID == visualID || TextEditPart.VISUAL_ID == visualID
 			|| TrimWhitespaceEditPart.VISUAL_ID == visualID || MappedElementEditPart.VISUAL_ID == visualID
-			|| TabbedDataFieldEditPart.VISUAL_ID == visualID || StringInput9EditPart.VISUAL_ID == visualID
-			|| StringInputEditPart.VISUAL_ID == visualID || StringInput2EditPart.VISUAL_ID == visualID
+			|| TabbedDataFieldEditPart.VISUAL_ID == visualID
 			|| MappedElement2EditPart.VISUAL_ID == visualID
-			|| MappedAttributeEditPart.VISUAL_ID == visualID || StringInput13EditPart.VISUAL_ID == visualID;
+			|| MappedAttributeEditPart.VISUAL_ID == visualID;
     }
 
     /**
@@ -267,18 +251,10 @@ public class CrosswalkViewProvider extends AbstractProvider implements IViewProv
 	    return createMappedElement_2016(domainElement, containerView, index, persisted, preferencesHint);
 	case TabbedDataFieldEditPart.VISUAL_ID:
 	    return createTabbedDataField_3001(domainElement, containerView, index, persisted, preferencesHint);
-	case StringInput9EditPart.VISUAL_ID:
-	    return createStringInput_3010(domainElement, containerView, index, persisted, preferencesHint);
-	case StringInputEditPart.VISUAL_ID:
-	    return createStringInput_3002(domainElement, containerView, index, persisted, preferencesHint);
-	case StringInput2EditPart.VISUAL_ID:
-	    return createStringInput_3003(domainElement, containerView, index, persisted, preferencesHint);
 	case MappedElement2EditPart.VISUAL_ID:
 	    return createMappedElement_3015(domainElement, containerView, index, persisted, preferencesHint);
 	case MappedAttributeEditPart.VISUAL_ID:
 	    return createMappedAttribute_3016(domainElement, containerView, index, persisted, preferencesHint);
-	case StringInput13EditPart.VISUAL_ID:
-	    return createStringInput_3017(domainElement, containerView, index, persisted, preferencesHint);
 	}
 	// can't happen, provided #provides(CreateNodeViewOperation) is correct
 	return null;
@@ -292,10 +268,8 @@ public class CrosswalkViewProvider extends AbstractProvider implements IViewProv
 	IElementType elementType = getSemanticElementType(semanticAdapter);
 	String elementTypeHint = ((IHintedType) elementType).getSemanticHint();
 	switch (CrosswalkVisualIDRegistry.getVisualID(elementTypeHint)) {
-	case StringInputInputEditPart.VISUAL_ID:
-	    return createStringInputInput_4001(containerView, index, persisted, preferencesHint);
-	case DateInputInputEditPart.VISUAL_ID:
-	    return createDateInputInput_4002(containerView, index, persisted, preferencesHint);
+	case InputOutputEditPart.VISUAL_ID:
+	    return createInputOutput_4003(containerView, index, persisted, preferencesHint);
 	}
 	// can never happen, provided #provides(CreateEdgeViewOperation) is correct
 	return null;
@@ -374,11 +348,6 @@ public class CrosswalkViewProvider extends AbstractProvider implements IViewProv
 	ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 			FigureUtilities.RGBToInteger(fillRGB));
 	Node label5021 = createLabel(node, CrosswalkVisualIDRegistry.getType(WrappingLabel9EditPart.VISUAL_ID));
-	createCompartment(
-			node,
-			CrosswalkVisualIDRegistry
-					.getType(OriginalNameRecordMatcherRecordMatcherInputsCompartmentEditPart.VISUAL_ID),
-			false, false, true, true);
 	return node;
     }
 
@@ -416,10 +385,6 @@ public class CrosswalkViewProvider extends AbstractProvider implements IViewProv
 	ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 			FigureUtilities.RGBToInteger(fillRGB));
 	Node label5027 = createLabel(node, CrosswalkVisualIDRegistry.getType(WrappingLabel12EditPart.VISUAL_ID));
-	createCompartment(node,
-			CrosswalkVisualIDRegistry
-					.getType(DateRecognizerOutputElementInputsCompartmentEditPart.VISUAL_ID),
-			false, false, true, true);
 	return node;
     }
 
@@ -494,10 +459,6 @@ public class CrosswalkViewProvider extends AbstractProvider implements IViewProv
 	ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 			FigureUtilities.RGBToInteger(fillRGB));
 	Node label5030 = createLabel(node, CrosswalkVisualIDRegistry.getType(WrappingLabel13EditPart.VISUAL_ID));
-	createCompartment(node,
-			CrosswalkVisualIDRegistry
-					.getType(TrimWhitespaceOutputElementInputsCompartmentEditPart.VISUAL_ID),
-			false, false, true, true);
 	return node;
     }
 
@@ -582,114 +543,6 @@ public class CrosswalkViewProvider extends AbstractProvider implements IViewProv
     /**
      * @generated
      */
-    public Node createStringInput_3002(EObject domainElement, View containerView, int index, boolean persisted,
-		    PreferencesHint preferencesHint) {
-	Shape node = NotationFactory.eINSTANCE.createShape();
-	node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
-	node.setType(CrosswalkVisualIDRegistry.getType(StringInputEditPart.VISUAL_ID));
-	ViewUtil.insertChildView(containerView, node, index, persisted);
-	node.setElement(domainElement);
-	// initializeFromPreferences 
-	final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
-
-	org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
-			IPreferenceConstants.PREF_LINE_COLOR);
-	ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getLineStyle_LineColor(),
-			FigureUtilities.RGBToInteger(lineRGB));
-	FontStyle nodeFontStyle = (FontStyle) node.getStyle(NotationPackage.Literals.FONT_STYLE);
-	if (nodeFontStyle != null) {
-	    FontData fontData = PreferenceConverter.getFontData(prefStore, IPreferenceConstants.PREF_DEFAULT_FONT);
-	    nodeFontStyle.setFontName(fontData.getName());
-	    nodeFontStyle.setFontHeight(fontData.getHeight());
-	    nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
-	    nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
-	    org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter.getColor(prefStore,
-			    IPreferenceConstants.PREF_FONT_COLOR);
-	    nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
-	}
-	org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(prefStore,
-			IPreferenceConstants.PREF_FILL_COLOR);
-	ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getFillStyle_FillColor(),
-			FigureUtilities.RGBToInteger(fillRGB));
-	Node label5004 = createLabel(node, CrosswalkVisualIDRegistry.getType(StringInputNameEditPart.VISUAL_ID));
-	return node;
-    }
-
-    /**
-     * @generated
-     */
-    public Node createStringInput_3003(EObject domainElement, View containerView, int index, boolean persisted,
-		    PreferencesHint preferencesHint) {
-	Shape node = NotationFactory.eINSTANCE.createShape();
-	node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
-	node.setType(CrosswalkVisualIDRegistry.getType(StringInput2EditPart.VISUAL_ID));
-	ViewUtil.insertChildView(containerView, node, index, persisted);
-	node.setElement(domainElement);
-	// initializeFromPreferences 
-	final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
-
-	org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
-			IPreferenceConstants.PREF_LINE_COLOR);
-	ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getLineStyle_LineColor(),
-			FigureUtilities.RGBToInteger(lineRGB));
-	FontStyle nodeFontStyle = (FontStyle) node.getStyle(NotationPackage.Literals.FONT_STYLE);
-	if (nodeFontStyle != null) {
-	    FontData fontData = PreferenceConverter.getFontData(prefStore, IPreferenceConstants.PREF_DEFAULT_FONT);
-	    nodeFontStyle.setFontName(fontData.getName());
-	    nodeFontStyle.setFontHeight(fontData.getHeight());
-	    nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
-	    nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
-	    org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter.getColor(prefStore,
-			    IPreferenceConstants.PREF_FONT_COLOR);
-	    nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
-	}
-	org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(prefStore,
-			IPreferenceConstants.PREF_FILL_COLOR);
-	ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getFillStyle_FillColor(),
-			FigureUtilities.RGBToInteger(fillRGB));
-	Node label5006 = createLabel(node, CrosswalkVisualIDRegistry.getType(StringInputName2EditPart.VISUAL_ID));
-	return node;
-    }
-
-    /**
-     * @generated
-     */
-    public Node createStringInput_3010(EObject domainElement, View containerView, int index, boolean persisted,
-		    PreferencesHint preferencesHint) {
-	Shape node = NotationFactory.eINSTANCE.createShape();
-	node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
-	node.setType(CrosswalkVisualIDRegistry.getType(StringInput9EditPart.VISUAL_ID));
-	ViewUtil.insertChildView(containerView, node, index, persisted);
-	node.setElement(domainElement);
-	// initializeFromPreferences 
-	final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
-
-	org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
-			IPreferenceConstants.PREF_LINE_COLOR);
-	ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getLineStyle_LineColor(),
-			FigureUtilities.RGBToInteger(lineRGB));
-	FontStyle nodeFontStyle = (FontStyle) node.getStyle(NotationPackage.Literals.FONT_STYLE);
-	if (nodeFontStyle != null) {
-	    FontData fontData = PreferenceConverter.getFontData(prefStore, IPreferenceConstants.PREF_DEFAULT_FONT);
-	    nodeFontStyle.setFontName(fontData.getName());
-	    nodeFontStyle.setFontHeight(fontData.getHeight());
-	    nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
-	    nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
-	    org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter.getColor(prefStore,
-			    IPreferenceConstants.PREF_FONT_COLOR);
-	    nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
-	}
-	org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(prefStore,
-			IPreferenceConstants.PREF_FILL_COLOR);
-	ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getFillStyle_FillColor(),
-			FigureUtilities.RGBToInteger(fillRGB));
-	Node label5020 = createLabel(node, CrosswalkVisualIDRegistry.getType(StringInputName9EditPart.VISUAL_ID));
-	return node;
-    }
-
-    /**
-     * @generated
-     */
     public Node createMappedElement_3015(EObject domainElement, View containerView, int index, boolean persisted,
 		    PreferencesHint preferencesHint) {
 	Shape node = NotationFactory.eINSTANCE.createShape();
@@ -720,6 +573,9 @@ public class CrosswalkViewProvider extends AbstractProvider implements IViewProv
 	ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 			FigureUtilities.RGBToInteger(fillRGB));
 	Node label5031 = createLabel(node, CrosswalkVisualIDRegistry.getType(WrappingLabel16EditPart.VISUAL_ID));
+	createCompartment(node,
+			CrosswalkVisualIDRegistry.getType(MappedElementChildElementsCompartment2EditPart.VISUAL_ID),
+			true, false, true, true);
 	return node;
     }
 
@@ -762,44 +618,7 @@ public class CrosswalkViewProvider extends AbstractProvider implements IViewProv
     /**
      * @generated
      */
-    public Node createStringInput_3017(EObject domainElement, View containerView, int index, boolean persisted,
-		    PreferencesHint preferencesHint) {
-	Shape node = NotationFactory.eINSTANCE.createShape();
-	node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
-	node.setType(CrosswalkVisualIDRegistry.getType(StringInput13EditPart.VISUAL_ID));
-	ViewUtil.insertChildView(containerView, node, index, persisted);
-	node.setElement(domainElement);
-	// initializeFromPreferences 
-	final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
-
-	org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
-			IPreferenceConstants.PREF_LINE_COLOR);
-	ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getLineStyle_LineColor(),
-			FigureUtilities.RGBToInteger(lineRGB));
-	FontStyle nodeFontStyle = (FontStyle) node.getStyle(NotationPackage.Literals.FONT_STYLE);
-	if (nodeFontStyle != null) {
-	    FontData fontData = PreferenceConverter.getFontData(prefStore, IPreferenceConstants.PREF_DEFAULT_FONT);
-	    nodeFontStyle.setFontName(fontData.getName());
-	    nodeFontStyle.setFontHeight(fontData.getHeight());
-	    nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
-	    nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
-	    org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter.getColor(prefStore,
-			    IPreferenceConstants.PREF_FONT_COLOR);
-	    nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
-	}
-	org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(prefStore,
-			IPreferenceConstants.PREF_FILL_COLOR);
-	ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getFillStyle_FillColor(),
-			FigureUtilities.RGBToInteger(fillRGB));
-	Node label5033 = createLabel(node, CrosswalkVisualIDRegistry.getType(StringInputName13EditPart.VISUAL_ID));
-	return node;
-    }
-
-    /**
-     * @generated
-     */
-    public Edge createStringInputInput_4001(View containerView, int index, boolean persisted,
-		    PreferencesHint preferencesHint) {
+    public Edge createInputOutput_4003(View containerView, int index, boolean persisted, PreferencesHint preferencesHint) {
 	Edge edge = NotationFactory.eINSTANCE.createEdge();
 	edge.getStyles().add(NotationFactory.eINSTANCE.createRoutingStyle());
 	edge.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
@@ -810,44 +629,7 @@ public class CrosswalkViewProvider extends AbstractProvider implements IViewProv
 	bendpoints.setPoints(points);
 	edge.setBendpoints(bendpoints);
 	ViewUtil.insertChildView(containerView, edge, index, persisted);
-	edge.setType(CrosswalkVisualIDRegistry.getType(StringInputInputEditPart.VISUAL_ID));
-	edge.setElement(null);
-	// initializePreferences
-	final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
-	FontStyle edgeFontStyle = (FontStyle) edge.getStyle(NotationPackage.Literals.FONT_STYLE);
-	if (edgeFontStyle != null) {
-	    FontData fontData = PreferenceConverter.getFontData(prefStore, IPreferenceConstants.PREF_DEFAULT_FONT);
-	    edgeFontStyle.setFontName(fontData.getName());
-	    edgeFontStyle.setFontHeight(fontData.getHeight());
-	    edgeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
-	    edgeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
-	    org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter.getColor(prefStore,
-			    IPreferenceConstants.PREF_FONT_COLOR);
-	    edgeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
-	}
-	Routing routing = Routing.get(prefStore.getInt(IPreferenceConstants.PREF_LINE_STYLE));
-	if (routing != null) {
-	    ViewUtil.setStructuralFeatureValue(edge, NotationPackage.eINSTANCE.getRoutingStyle_Routing(), routing);
-	}
-	return edge;
-    }
-
-    /**
-     * @generated
-     */
-    public Edge createDateInputInput_4002(View containerView, int index, boolean persisted,
-		    PreferencesHint preferencesHint) {
-	Edge edge = NotationFactory.eINSTANCE.createEdge();
-	edge.getStyles().add(NotationFactory.eINSTANCE.createRoutingStyle());
-	edge.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
-	RelativeBendpoints bendpoints = NotationFactory.eINSTANCE.createRelativeBendpoints();
-	ArrayList<RelativeBendpoint> points = new ArrayList<RelativeBendpoint>(2);
-	points.add(new RelativeBendpoint());
-	points.add(new RelativeBendpoint());
-	bendpoints.setPoints(points);
-	edge.setBendpoints(bendpoints);
-	ViewUtil.insertChildView(containerView, edge, index, persisted);
-	edge.setType(CrosswalkVisualIDRegistry.getType(DateInputInputEditPart.VISUAL_ID));
+	edge.setType(CrosswalkVisualIDRegistry.getType(InputOutputEditPart.VISUAL_ID));
 	edge.setElement(null);
 	// initializePreferences
 	final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();

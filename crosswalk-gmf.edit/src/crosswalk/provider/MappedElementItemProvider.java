@@ -7,20 +7,13 @@
 package crosswalk.provider;
 
 
-import crosswalk.CrosswalkFactory;
-import crosswalk.CrosswalkPackage;
-import crosswalk.MappedElement;
-
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -30,6 +23,10 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
+import crosswalk.CrosswalkFactory;
+import crosswalk.CrosswalkPackage;
+import crosswalk.MappedElement;
 
 /**
  * This is the item provider adapter for a {@link crosswalk.MappedElement} object.
@@ -67,7 +64,6 @@ public class MappedElementItemProvider
                         super.getPropertyDescriptors(object);
 
                         addMappedFeaturePropertyDescriptor(object);
-                        addTextPropertyDescriptor(object);
                 }
                 return itemPropertyDescriptors;
         }
@@ -87,28 +83,6 @@ public class MappedElementItemProvider
                                  getString("_UI_PropertyDescriptor_description", "_UI_MappedElement_mappedFeature_feature", "_UI_MappedElement_type"),
                                  CrosswalkPackage.Literals.MAPPED_ELEMENT__MAPPED_FEATURE,
                                  true,
-                                 false,
-                                 true,
-                                 null,
-                                 null,
-                                 null));
-        }
-
-        /**
-         * This adds a property descriptor for the Text feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        protected void addTextPropertyDescriptor(Object object) {
-                itemPropertyDescriptors.add
-                        (createItemPropertyDescriptor
-                                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                                 getResourceLocator(),
-                                 getString("_UI_MappedElement_text_feature"),
-                                 getString("_UI_PropertyDescriptor_description", "_UI_MappedElement_text_feature", "_UI_MappedElement_type"),
-                                 CrosswalkPackage.Literals.MAPPED_ELEMENT__TEXT,
-                                 false,
                                  false,
                                  true,
                                  null,

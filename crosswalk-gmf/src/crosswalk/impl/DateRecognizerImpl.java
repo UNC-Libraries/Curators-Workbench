@@ -15,26 +15,22 @@
  */
 package crosswalk.impl;
 
-import crosswalk.CrossWalk;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
+import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import crosswalk.CrosswalkPackage;
 import crosswalk.DataException;
-import crosswalk.DateGenerator;
 import crosswalk.DateRecognizer;
-import crosswalk.WalkWidget;
 import crosswalk.Input;
-import crosswalk.StringGenerator;
-import crosswalk.StringInput;
+import crosswalk.Output;
 
 /**
  * <!-- begin-user-doc -->
@@ -43,15 +39,32 @@ import crosswalk.StringInput;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link crosswalk.impl.DateRecognizerImpl#getWalk <em>Walk</em>}</li>
+ *   <li>{@link crosswalk.impl.DateRecognizerImpl#getOutput <em>Output</em>}</li>
  *   <li>{@link crosswalk.impl.DateRecognizerImpl#getFormat <em>Format</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class DateRecognizerImpl extends InputConsumerImpl implements DateRecognizer {
-    private static final SimpleDateFormat isoFormat = new SimpleDateFormat("yyyy-MM-dd");
+public class DateRecognizerImpl extends WalkWidgetImpl implements DateRecognizer {
+    /**
+         * The cached value of the '{@link #getOutput() <em>Output</em>}' reference.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see #getOutput()
+         * @generated
+         * @ordered
+         */
+        protected Output output;
+        /**
+         * This is true if the Output reference has been set.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         * @ordered
+         */
+        protected boolean outputESet;
+private static final SimpleDateFormat isoFormat = new SimpleDateFormat("yyyy-MM-dd");
     private SimpleDateFormat inFormat = null;
 
     	/**
@@ -97,40 +110,62 @@ public class DateRecognizerImpl extends InputConsumerImpl implements DateRecogni
          * <!-- end-user-doc -->
          * @generated
          */
-        public CrossWalk getWalk() {
-                if (eContainerFeatureID() != CrosswalkPackage.DATE_RECOGNIZER__WALK) return null;
-                return (CrossWalk)eContainer();
-        }
-
-        /**
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        public NotificationChain basicSetWalk(CrossWalk newWalk, NotificationChain msgs) {
-                msgs = eBasicSetContainer((InternalEObject)newWalk, CrosswalkPackage.DATE_RECOGNIZER__WALK, msgs);
-                return msgs;
-        }
-
-        /**
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        public void setWalk(CrossWalk newWalk) {
-                if (newWalk != eInternalContainer() || (eContainerFeatureID() != CrosswalkPackage.DATE_RECOGNIZER__WALK && newWalk != null)) {
-                        if (EcoreUtil.isAncestor(this, newWalk))
-                                throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
-                        NotificationChain msgs = null;
-                        if (eInternalContainer() != null)
-                                msgs = eBasicRemoveFromContainer(msgs);
-                        if (newWalk != null)
-                                msgs = ((InternalEObject)newWalk).eInverseAdd(this, CrosswalkPackage.CROSS_WALK__WIDGETS, CrossWalk.class, msgs);
-                        msgs = basicSetWalk(newWalk, msgs);
-                        if (msgs != null) msgs.dispatch();
+        public Output getOutput() {
+                if (output != null && output.eIsProxy()) {
+                        InternalEObject oldOutput = (InternalEObject)output;
+                        output = (Output)eResolveProxy(oldOutput);
+                        if (output != oldOutput) {
+                                if (eNotificationRequired())
+                                        eNotify(new ENotificationImpl(this, Notification.RESOLVE, CrosswalkPackage.DATE_RECOGNIZER__OUTPUT, oldOutput, output));
+                        }
                 }
-                else if (eNotificationRequired())
-                        eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.DATE_RECOGNIZER__WALK, newWalk, newWalk));
+                return output;
+        }
+
+        /**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        public Output basicGetOutput() {
+                return output;
+        }
+
+        /**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        public void setOutput(Output newOutput) {
+                Output oldOutput = output;
+                output = newOutput;
+                boolean oldOutputESet = outputESet;
+                outputESet = true;
+                if (eNotificationRequired())
+                        eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.DATE_RECOGNIZER__OUTPUT, oldOutput, output, !oldOutputESet));
+        }
+
+        /**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        public void unsetOutput() {
+                Output oldOutput = output;
+                boolean oldOutputESet = outputESet;
+                output = null;
+                outputESet = false;
+                if (eNotificationRequired())
+                        eNotify(new ENotificationImpl(this, Notification.UNSET, CrosswalkPackage.DATE_RECOGNIZER__OUTPUT, oldOutput, null, oldOutputESet));
+        }
+
+        /**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        public boolean isSetOutput() {
+                return outputESet;
         }
 
         /**
@@ -160,27 +195,28 @@ public class DateRecognizerImpl extends InputConsumerImpl implements DateRecogni
          * <!-- end-user-doc -->
          * @generated NOT
          */
-        public String getResultString() throws DataException {
-            String result = null;
-            String inValue = null;
-            if(this.getInputs().size() > 0) {
-        	Input in = getInputs().get(0);
-        	if(in != null && in instanceof StringInput) {
-        	    StringGenerator sg = ((StringInput)in).getInput();
-        	    if(sg != null) {
-        		inValue = sg.getResultString();
-        	    }
-        	}
-            }
-            if(inValue != null) {
-        	if(inFormat == null) {
-        	    initFormat();
-        	}
-        	try {
-		    Date d = inFormat.parse(inValue);
-		    result = isoFormat.format(d);
-		} catch (ParseException e) {
-		}
+        public EDataType getInputEDataType() {
+                return EcorePackage.eINSTANCE.getEString();
+        }
+
+        /**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated NOT
+         */
+        public Object getResult() throws DataException {
+            Date result = null;
+            if(this.getFormat() != null) {
+                SimpleDateFormat sdf = new SimpleDateFormat(this.getFormat());
+                if(this.getOutput() != null) {
+                    Object o = this.getOutput().getResult();
+                    if(o != null && o instanceof String) {
+                	try {
+			    result = sdf.parse((String)o);
+			} catch (ParseException e) {
+			}
+                    }
+                }
             }
             return result;
         }
@@ -188,45 +224,10 @@ public class DateRecognizerImpl extends InputConsumerImpl implements DateRecogni
         /**
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
+         * @generated NOT
          */
-        @Override
-        public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-                switch (featureID) {
-                        case CrosswalkPackage.DATE_RECOGNIZER__WALK:
-                                if (eInternalContainer() != null)
-                                        msgs = eBasicRemoveFromContainer(msgs);
-                                return basicSetWalk((CrossWalk)otherEnd, msgs);
-                }
-                return super.eInverseAdd(otherEnd, featureID, msgs);
-        }
-
-        /**
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        @Override
-        public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-                switch (featureID) {
-                        case CrosswalkPackage.DATE_RECOGNIZER__WALK:
-                                return basicSetWalk(null, msgs);
-                }
-                return super.eInverseRemove(otherEnd, featureID, msgs);
-        }
-
-        /**
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        @Override
-        public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-                switch (eContainerFeatureID()) {
-                        case CrosswalkPackage.DATE_RECOGNIZER__WALK:
-                                return eInternalContainer().eInverseRemove(this, CrosswalkPackage.CROSS_WALK__WIDGETS, CrossWalk.class, msgs);
-                }
-                return super.eBasicRemoveFromContainerFeature(msgs);
+        public EDataType getOutputEDataType() {
+                return EcorePackage.eINSTANCE.getEDate();
         }
 
         private void initFormat() {
@@ -241,8 +242,9 @@ public class DateRecognizerImpl extends InputConsumerImpl implements DateRecogni
         @Override
         public Object eGet(int featureID, boolean resolve, boolean coreType) {
                 switch (featureID) {
-                        case CrosswalkPackage.DATE_RECOGNIZER__WALK:
-                                return getWalk();
+                        case CrosswalkPackage.DATE_RECOGNIZER__OUTPUT:
+                                if (resolve) return getOutput();
+                                return basicGetOutput();
                         case CrosswalkPackage.DATE_RECOGNIZER__FORMAT:
                                 return getFormat();
                 }
@@ -257,8 +259,8 @@ public class DateRecognizerImpl extends InputConsumerImpl implements DateRecogni
         @Override
         public void eSet(int featureID, Object newValue) {
                 switch (featureID) {
-                        case CrosswalkPackage.DATE_RECOGNIZER__WALK:
-                                setWalk((CrossWalk)newValue);
+                        case CrosswalkPackage.DATE_RECOGNIZER__OUTPUT:
+                                setOutput((Output)newValue);
                                 return;
                         case CrosswalkPackage.DATE_RECOGNIZER__FORMAT:
                                 setFormat((String)newValue);
@@ -275,8 +277,8 @@ public class DateRecognizerImpl extends InputConsumerImpl implements DateRecogni
         @Override
         public void eUnset(int featureID) {
                 switch (featureID) {
-                        case CrosswalkPackage.DATE_RECOGNIZER__WALK:
-                                setWalk((CrossWalk)null);
+                        case CrosswalkPackage.DATE_RECOGNIZER__OUTPUT:
+                                unsetOutput();
                                 return;
                         case CrosswalkPackage.DATE_RECOGNIZER__FORMAT:
                                 setFormat(FORMAT_EDEFAULT);
@@ -293,8 +295,8 @@ public class DateRecognizerImpl extends InputConsumerImpl implements DateRecogni
         @Override
         public boolean eIsSet(int featureID) {
                 switch (featureID) {
-                        case CrosswalkPackage.DATE_RECOGNIZER__WALK:
-                                return getWalk() != null;
+                        case CrosswalkPackage.DATE_RECOGNIZER__OUTPUT:
+                                return isSetOutput();
                         case CrosswalkPackage.DATE_RECOGNIZER__FORMAT:
                                 return FORMAT_EDEFAULT == null ? format != null : !FORMAT_EDEFAULT.equals(format);
                 }
@@ -308,14 +310,14 @@ public class DateRecognizerImpl extends InputConsumerImpl implements DateRecogni
          */
         @Override
         public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-                if (baseClass == DateGenerator.class) {
+                if (baseClass == Output.class) {
                         switch (derivedFeatureID) {
                                 default: return -1;
                         }
                 }
-                if (baseClass == WalkWidget.class) {
+                if (baseClass == Input.class) {
                         switch (derivedFeatureID) {
-                                case CrosswalkPackage.DATE_RECOGNIZER__WALK: return CrosswalkPackage.WALK_WIDGET__WALK;
+                                case CrosswalkPackage.DATE_RECOGNIZER__OUTPUT: return CrosswalkPackage.INPUT__OUTPUT;
                                 default: return -1;
                         }
                 }
@@ -329,14 +331,14 @@ public class DateRecognizerImpl extends InputConsumerImpl implements DateRecogni
          */
         @Override
         public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-                if (baseClass == DateGenerator.class) {
+                if (baseClass == Output.class) {
                         switch (baseFeatureID) {
                                 default: return -1;
                         }
                 }
-                if (baseClass == WalkWidget.class) {
+                if (baseClass == Input.class) {
                         switch (baseFeatureID) {
-                                case CrosswalkPackage.WALK_WIDGET__WALK: return CrosswalkPackage.DATE_RECOGNIZER__WALK;
+                                case CrosswalkPackage.INPUT__OUTPUT: return CrosswalkPackage.DATE_RECOGNIZER__OUTPUT;
                                 default: return -1;
                         }
                 }
@@ -358,13 +360,5 @@ public class DateRecognizerImpl extends InputConsumerImpl implements DateRecogni
                 result.append(')');
                 return result.toString();
         }
-
-        /* (non-Javadoc)
-	 * @see crosswalk.impl.InputConsumerImpl#getStringInputNames()
-	 */
-	@Override
-	public String[] getStringInputNames() {
-	    return inputNames;
-	}
 
 } //DateRecognizerImpl

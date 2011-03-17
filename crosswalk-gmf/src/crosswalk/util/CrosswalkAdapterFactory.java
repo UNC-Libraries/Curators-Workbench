@@ -101,10 +101,6 @@ public class CrosswalkAdapterFactory extends AdapterFactoryImpl {
                                 return createWalkWidgetAdapter();
                         }
                         @Override
-                        public Adapter caseTabSeparatedFile(TabSeparatedFile object) {
-                                return createTabSeparatedFileAdapter();
-                        }
-                        @Override
                         public Adapter caseDataSource(DataSource object) {
                                 return createDataSourceAdapter();
                         }
@@ -113,16 +109,8 @@ public class CrosswalkAdapterFactory extends AdapterFactoryImpl {
                                 return createDataFieldAdapter();
                         }
                         @Override
-                        public Adapter caseStringInput(StringInput object) {
-                                return createStringInputAdapter();
-                        }
-                        @Override
-                        public Adapter caseStringGenerator(StringGenerator object) {
-                                return createStringGeneratorAdapter();
-                        }
-                        @Override
-                        public Adapter caseInputConsumer(InputConsumer object) {
-                                return createInputConsumerAdapter();
+                        public Adapter caseOutput(Output object) {
+                                return createOutputAdapter();
                         }
                         @Override
                         public Adapter caseInput(Input object) {
@@ -135,14 +123,6 @@ public class CrosswalkAdapterFactory extends AdapterFactoryImpl {
                         @Override
                         public Adapter caseOriginalNameRecordMatcher(OriginalNameRecordMatcher object) {
                                 return createOriginalNameRecordMatcherAdapter();
-                        }
-                        @Override
-                        public Adapter caseDateInput(DateInput object) {
-                                return createDateInputAdapter();
-                        }
-                        @Override
-                        public Adapter caseDateGenerator(DateGenerator object) {
-                                return createDateGeneratorAdapter();
                         }
                         @Override
                         public Adapter caseDateRecognizer(DateRecognizer object) {
@@ -163,6 +143,14 @@ public class CrosswalkAdapterFactory extends AdapterFactoryImpl {
                         @Override
                         public Adapter caseMappedAttribute(MappedAttribute object) {
                                 return createMappedAttributeAdapter();
+                        }
+                        @Override
+                        public Adapter caseConversionStrategy(ConversionStrategy object) {
+                                return createConversionStrategyAdapter();
+                        }
+                        @Override
+                        public Adapter caseDateToISO8601StringConversion(DateToISO8601StringConversion object) {
+                                return createDateToISO8601StringConversionAdapter();
                         }
                         @Override
                         public Adapter defaultCase(EObject object) {
@@ -255,20 +243,6 @@ public class CrosswalkAdapterFactory extends AdapterFactoryImpl {
         }
 
         /**
-         * Creates a new adapter for an object of class '{@link crosswalk.TabSeparatedFile <em>Tab Separated File</em>}'.
-         * <!-- begin-user-doc -->
-         * This default implementation returns null so that we can easily ignore cases;
-         * it's useful to ignore a case when inheritance will catch all the cases anyway.
-         * <!-- end-user-doc -->
-         * @return the new adapter.
-         * @see crosswalk.TabSeparatedFile
-         * @generated
-         */
-        public Adapter createTabSeparatedFileAdapter() {
-                return null;
-        }
-
-        /**
          * Creates a new adapter for an object of class '{@link crosswalk.DataSource <em>Data Source</em>}'.
          * <!-- begin-user-doc -->
          * This default implementation returns null so that we can easily ignore cases;
@@ -297,44 +271,16 @@ public class CrosswalkAdapterFactory extends AdapterFactoryImpl {
         }
 
         /**
-         * Creates a new adapter for an object of class '{@link crosswalk.StringInput <em>String Input</em>}'.
+         * Creates a new adapter for an object of class '{@link crosswalk.Output <em>Output</em>}'.
          * <!-- begin-user-doc -->
          * This default implementation returns null so that we can easily ignore cases;
          * it's useful to ignore a case when inheritance will catch all the cases anyway.
          * <!-- end-user-doc -->
          * @return the new adapter.
-         * @see crosswalk.StringInput
+         * @see crosswalk.Output
          * @generated
          */
-        public Adapter createStringInputAdapter() {
-                return null;
-        }
-
-        /**
-         * Creates a new adapter for an object of class '{@link crosswalk.StringGenerator <em>String Generator</em>}'.
-         * <!-- begin-user-doc -->
-         * This default implementation returns null so that we can easily ignore cases;
-         * it's useful to ignore a case when inheritance will catch all the cases anyway.
-         * <!-- end-user-doc -->
-         * @return the new adapter.
-         * @see crosswalk.StringGenerator
-         * @generated
-         */
-        public Adapter createStringGeneratorAdapter() {
-                return null;
-        }
-
-        /**
-         * Creates a new adapter for an object of class '{@link crosswalk.InputConsumer <em>Input Consumer</em>}'.
-         * <!-- begin-user-doc -->
-         * This default implementation returns null so that we can easily ignore cases;
-         * it's useful to ignore a case when inheritance will catch all the cases anyway.
-         * <!-- end-user-doc -->
-         * @return the new adapter.
-         * @see crosswalk.InputConsumer
-         * @generated
-         */
-        public Adapter createInputConsumerAdapter() {
+        public Adapter createOutputAdapter() {
                 return null;
         }
 
@@ -377,34 +323,6 @@ public class CrosswalkAdapterFactory extends AdapterFactoryImpl {
          * @generated
          */
         public Adapter createOriginalNameRecordMatcherAdapter() {
-                return null;
-        }
-
-        /**
-         * Creates a new adapter for an object of class '{@link crosswalk.DateInput <em>Date Input</em>}'.
-         * <!-- begin-user-doc -->
-         * This default implementation returns null so that we can easily ignore cases;
-         * it's useful to ignore a case when inheritance will catch all the cases anyway.
-         * <!-- end-user-doc -->
-         * @return the new adapter.
-         * @see crosswalk.DateInput
-         * @generated
-         */
-        public Adapter createDateInputAdapter() {
-                return null;
-        }
-
-        /**
-         * Creates a new adapter for an object of class '{@link crosswalk.DateGenerator <em>Date Generator</em>}'.
-         * <!-- begin-user-doc -->
-         * This default implementation returns null so that we can easily ignore cases;
-         * it's useful to ignore a case when inheritance will catch all the cases anyway.
-         * <!-- end-user-doc -->
-         * @return the new adapter.
-         * @see crosswalk.DateGenerator
-         * @generated
-         */
-        public Adapter createDateGeneratorAdapter() {
                 return null;
         }
 
@@ -475,6 +393,34 @@ public class CrosswalkAdapterFactory extends AdapterFactoryImpl {
          * @generated
          */
         public Adapter createMappedAttributeAdapter() {
+                return null;
+        }
+
+        /**
+         * Creates a new adapter for an object of class '{@link crosswalk.ConversionStrategy <em>Conversion Strategy</em>}'.
+         * <!-- begin-user-doc -->
+         * This default implementation returns null so that we can easily ignore cases;
+         * it's useful to ignore a case when inheritance will catch all the cases anyway.
+         * <!-- end-user-doc -->
+         * @return the new adapter.
+         * @see crosswalk.ConversionStrategy
+         * @generated
+         */
+        public Adapter createConversionStrategyAdapter() {
+                return null;
+        }
+
+        /**
+         * Creates a new adapter for an object of class '{@link crosswalk.DateToISO8601StringConversion <em>Date To ISO8601 String Conversion</em>}'.
+         * <!-- begin-user-doc -->
+         * This default implementation returns null so that we can easily ignore cases;
+         * it's useful to ignore a case when inheritance will catch all the cases anyway.
+         * <!-- end-user-doc -->
+         * @return the new adapter.
+         * @see crosswalk.DateToISO8601StringConversion
+         * @generated
+         */
+        public Adapter createDateToISO8601StringConversionAdapter() {
                 return null;
         }
 

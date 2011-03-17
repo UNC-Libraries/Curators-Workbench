@@ -30,18 +30,20 @@ import java.util.Set;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
+import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import crosswalk.CrosswalkPackage;
 import crosswalk.DataException;
 import crosswalk.DataSource;
+import crosswalk.Input;
 import crosswalk.OriginalNameRecordMatcher;
+import crosswalk.Output;
 import crosswalk.RecordMatches;
 import crosswalk.RecordOutOfRangeException;
-import crosswalk.StringInput;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '
@@ -49,10 +51,10 @@ import crosswalk.StringInput;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link crosswalk.impl.OriginalNameRecordMatcherImpl#getOutput <em>Output</em>}</li>
  *   <li>{@link crosswalk.impl.OriginalNameRecordMatcherImpl#isCaseSensitive <em>Case Sensitive</em>}</li>
  *   <li>{@link crosswalk.impl.OriginalNameRecordMatcherImpl#isIncludeFileExtension <em>Include File Extension</em>}</li>
  *   <li>{@link crosswalk.impl.OriginalNameRecordMatcherImpl#getBaseFolder <em>Base Folder</em>}</li>
- *   <li>{@link crosswalk.impl.OriginalNameRecordMatcherImpl#getInput <em>Input</em>}</li>
  * </ul>
  * </p>
  *
@@ -60,6 +62,25 @@ import crosswalk.StringInput;
  */
 public class OriginalNameRecordMatcherImpl extends WalkWidgetImpl implements OriginalNameRecordMatcher {
     /**
+         * The cached value of the '{@link #getOutput() <em>Output</em>}' reference.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see #getOutput()
+         * @generated
+         * @ordered
+         */
+        protected Output output;
+
+        /**
+         * This is true if the Output reference has been set.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         * @ordered
+         */
+        protected boolean outputESet;
+
+/**
          * The default value of the '{@link #isCaseSensitive() <em>Case Sensitive</em>}' attribute.
          * <!-- begin-user-doc --> <!--
      * end-user-doc -->
@@ -127,15 +148,6 @@ public class OriginalNameRecordMatcherImpl extends WalkWidgetImpl implements Ori
     protected boolean baseFolderESet;
 
     /**
-         * The cached value of the '{@link #getInput() <em>Input</em>}' containment reference.
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * @see #getInput()
-         * @generated
-         * @ordered
-         */
-    protected StringInput input;
-
-    /**
          * <!-- begin-user-doc --> <!-- end-user-doc -->
          * @generated
          */
@@ -153,6 +165,69 @@ public class OriginalNameRecordMatcherImpl extends WalkWidgetImpl implements Ori
         }
 
     /**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        public Output getOutput() {
+                if (output != null && output.eIsProxy()) {
+                        InternalEObject oldOutput = (InternalEObject)output;
+                        output = (Output)eResolveProxy(oldOutput);
+                        if (output != oldOutput) {
+                                if (eNotificationRequired())
+                                        eNotify(new ENotificationImpl(this, Notification.RESOLVE, CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__OUTPUT, oldOutput, output));
+                        }
+                }
+                return output;
+        }
+
+/**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        public Output basicGetOutput() {
+                return output;
+        }
+
+/**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        public void setOutput(Output newOutput) {
+                Output oldOutput = output;
+                output = newOutput;
+                boolean oldOutputESet = outputESet;
+                outputESet = true;
+                if (eNotificationRequired())
+                        eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__OUTPUT, oldOutput, output, !oldOutputESet));
+        }
+
+/**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        public void unsetOutput() {
+                Output oldOutput = output;
+                boolean oldOutputESet = outputESet;
+                output = null;
+                outputESet = false;
+                if (eNotificationRequired())
+                        eNotify(new ENotificationImpl(this, Notification.UNSET, CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__OUTPUT, oldOutput, null, oldOutputESet));
+        }
+
+/**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        public boolean isSetOutput() {
+                return outputESet;
+        }
+
+/**
          * <!-- begin-user-doc --> <!-- end-user-doc -->
          * @generated
          */
@@ -233,46 +308,15 @@ public class OriginalNameRecordMatcherImpl extends WalkWidgetImpl implements Ori
         }
 
     /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * @generated
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated NOT
          */
-    public StringInput getInput() {
-                return input;
+        public EDataType getInputEDataType() {
+                return EcorePackage.eINSTANCE.getEString();
         }
 
-    /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * @generated
-         */
-    public NotificationChain basicSetInput(StringInput newInput, NotificationChain msgs) {
-                StringInput oldInput = input;
-                input = newInput;
-                if (eNotificationRequired()) {
-                        ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__INPUT, oldInput, newInput);
-                        if (msgs == null) msgs = notification; else msgs.add(notification);
-                }
-                return msgs;
-        }
-
-    /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * @generated
-         */
-    public void setInput(StringInput newInput) {
-                if (newInput != input) {
-                        NotificationChain msgs = null;
-                        if (input != null)
-                                msgs = ((InternalEObject)input).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__INPUT, null, msgs);
-                        if (newInput != null)
-                                msgs = ((InternalEObject)newInput).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__INPUT, null, msgs);
-                        msgs = basicSetInput(newInput, msgs);
-                        if (msgs != null) msgs.dispatch();
-                }
-                else if (eNotificationRequired())
-                        eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__INPUT, newInput, newInput));
-        }
-
-    /**
+/**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated NOT
@@ -351,26 +395,13 @@ public class OriginalNameRecordMatcherImpl extends WalkWidgetImpl implements Ori
     }
 
     /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * @generated
-         */
-    @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-                switch (featureID) {
-                        case CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__INPUT:
-                                return basicSetInput(null, msgs);
-                }
-                return super.eInverseRemove(otherEnd, featureID, msgs);
-        }
-
-    /**
      * @param ds
      * @param recordPatterns
      */
     private void processRecord(DataSource ds, Map<String, Set<String>> recordPatterns) {
 	String pattern = null;
 	try {
-	    pattern = this.getInput().getInput().getResultString();
+	    pattern = (String)this.getOutput().getResult();
 	} catch (DataException e) {
 	    // expected?
 	} catch (NullPointerException e) {
@@ -453,14 +484,15 @@ public class OriginalNameRecordMatcherImpl extends WalkWidgetImpl implements Ori
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
                 switch (featureID) {
+                        case CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__OUTPUT:
+                                if (resolve) return getOutput();
+                                return basicGetOutput();
                         case CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__CASE_SENSITIVE:
                                 return isCaseSensitive();
                         case CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__INCLUDE_FILE_EXTENSION:
                                 return isIncludeFileExtension();
                         case CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__BASE_FOLDER:
                                 return getBaseFolder();
-                        case CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__INPUT:
-                                return getInput();
                 }
                 return super.eGet(featureID, resolve, coreType);
         }
@@ -472,6 +504,9 @@ public class OriginalNameRecordMatcherImpl extends WalkWidgetImpl implements Ori
     @Override
     public void eSet(int featureID, Object newValue) {
                 switch (featureID) {
+                        case CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__OUTPUT:
+                                setOutput((Output)newValue);
+                                return;
                         case CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__CASE_SENSITIVE:
                                 setCaseSensitive((Boolean)newValue);
                                 return;
@@ -480,9 +515,6 @@ public class OriginalNameRecordMatcherImpl extends WalkWidgetImpl implements Ori
                                 return;
                         case CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__BASE_FOLDER:
                                 setBaseFolder((IFolder)newValue);
-                                return;
-                        case CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__INPUT:
-                                setInput((StringInput)newValue);
                                 return;
                 }
                 super.eSet(featureID, newValue);
@@ -495,6 +527,9 @@ public class OriginalNameRecordMatcherImpl extends WalkWidgetImpl implements Ori
     @Override
     public void eUnset(int featureID) {
                 switch (featureID) {
+                        case CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__OUTPUT:
+                                unsetOutput();
+                                return;
                         case CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__CASE_SENSITIVE:
                                 setCaseSensitive(CASE_SENSITIVE_EDEFAULT);
                                 return;
@@ -503,9 +538,6 @@ public class OriginalNameRecordMatcherImpl extends WalkWidgetImpl implements Ori
                                 return;
                         case CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__BASE_FOLDER:
                                 unsetBaseFolder();
-                                return;
-                        case CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__INPUT:
-                                setInput((StringInput)null);
                                 return;
                 }
                 super.eUnset(featureID);
@@ -518,19 +550,51 @@ public class OriginalNameRecordMatcherImpl extends WalkWidgetImpl implements Ori
     @Override
     public boolean eIsSet(int featureID) {
                 switch (featureID) {
+                        case CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__OUTPUT:
+                                return isSetOutput();
                         case CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__CASE_SENSITIVE:
                                 return caseSensitive != CASE_SENSITIVE_EDEFAULT;
                         case CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__INCLUDE_FILE_EXTENSION:
                                 return includeFileExtension != INCLUDE_FILE_EXTENSION_EDEFAULT;
                         case CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__BASE_FOLDER:
                                 return isSetBaseFolder();
-                        case CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__INPUT:
-                                return input != null;
                 }
                 return super.eIsSet(featureID);
         }
 
     /**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        @Override
+        public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+                if (baseClass == Input.class) {
+                        switch (derivedFeatureID) {
+                                case CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__OUTPUT: return CrosswalkPackage.INPUT__OUTPUT;
+                                default: return -1;
+                        }
+                }
+                return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+        }
+
+/**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        @Override
+        public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+                if (baseClass == Input.class) {
+                        switch (baseFeatureID) {
+                                case CrosswalkPackage.INPUT__OUTPUT: return CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__OUTPUT;
+                                default: return -1;
+                        }
+                }
+                return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+        }
+
+/**
          * <!-- begin-user-doc --> <!-- end-user-doc -->
          * @generated
          */

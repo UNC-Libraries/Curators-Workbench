@@ -26,7 +26,6 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Dialog;
 import org.eclipse.swt.widgets.Display;
-import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 
 /**
@@ -34,7 +33,7 @@ import org.eclipse.swt.widgets.Shell;
  *
  */
 public class MappedFeatureChoiceDialog extends Dialog {
-    private String message;
+    private String message = "Model Mapping";
     private List<EStructuralFeature> features;
     private EStructuralFeature answer;
 
@@ -80,11 +79,11 @@ public class MappedFeatureChoiceDialog extends Dialog {
       shell.setLayout(new GridLayout(2, true));
 
       // Show the message
-      Label label = new Label(shell, SWT.NONE);
-      label.setText(message);
+      //Label label = new Label(shell, SWT.NONE);
+      //label.setText(message);
       GridData data = new GridData();
       data.horizontalSpan = 2;
-      label.setLayoutData(data);
+      //label.setLayoutData(data);
 
       // Display the input combo
       final org.eclipse.swt.widgets.List choice = new org.eclipse.swt.widgets.List(shell, SWT.BORDER | SWT.SINGLE | SWT.V_SCROLL);

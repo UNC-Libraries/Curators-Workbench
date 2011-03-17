@@ -33,7 +33,7 @@ package crosswalk;
  * @model
  * @generated
  */
-public interface DataField extends StringGenerator {
+public interface DataField extends Output {
         /**
          * Returns the value of the '<em><b>Source</b></em>' container reference.
          * It is bidirectional and its opposite is '{@link crosswalk.DataSource#getFields <em>Fields</em>}'.

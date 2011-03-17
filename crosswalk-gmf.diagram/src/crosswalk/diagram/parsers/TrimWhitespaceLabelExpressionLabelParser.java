@@ -85,7 +85,7 @@ public class TrimWhitespaceLabelExpressionLabelParser implements IParser {
      * @generated
      */
     public String getPrintString(IAdaptable element, int flags) {
-	return "Normalize Whitespace";
+	return "Trim Spaces";
     }
 
     /**

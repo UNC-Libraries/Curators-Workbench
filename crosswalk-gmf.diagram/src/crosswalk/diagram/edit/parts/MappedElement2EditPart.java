@@ -14,21 +14,28 @@ import org.eclipse.draw2d.ToolbarLayout;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
+import org.eclipse.gef.Request;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gef.requests.CreateRequest;
+import org.eclipse.gmf.runtime.diagram.core.edithelpers.CreateElementRequestAdapter;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.FlowLayoutEditPolicy;
+import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewAndElementRequest;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
+import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
+
 import crosswalk.diagram.edit.policies.MappedElement2ItemSemanticEditPolicy;
 import crosswalk.diagram.part.CrosswalkVisualIDRegistry;
+import crosswalk.diagram.providers.CrosswalkElementTypes;
 
 /**
  * @generated
@@ -62,6 +69,7 @@ public class MappedElement2EditPart extends ShapeNodeEditPart {
      */
     @Override
     protected void createDefaultEditPolicies() {
+	installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicy());
 	super.createDefaultEditPolicies();
 	installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new MappedElement2ItemSemanticEditPolicy());
 	installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
@@ -113,6 +121,12 @@ public class MappedElement2EditPart extends ShapeNodeEditPart {
 	    ((WrappingLabel16EditPart) childEditPart).setLabel(getPrimaryShape().getLabel());
 	    return true;
 	}
+	if (childEditPart instanceof MappedElementChildElementsCompartment2EditPart) {
+	    IFigure pane = getPrimaryShape().getChildPane();
+	    setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
+	    pane.add(((MappedElementChildElementsCompartment2EditPart) childEditPart).getFigure());
+	    return true;
+	}
 	return false;
     }
 
@@ -121,6 +135,12 @@ public class MappedElement2EditPart extends ShapeNodeEditPart {
      */
     protected boolean removeFixedChild(EditPart childEditPart) {
 	if (childEditPart instanceof WrappingLabel16EditPart) {
+	    return true;
+	}
+	if (childEditPart instanceof MappedElementChildElementsCompartment2EditPart) {
+	    IFigure pane = getPrimaryShape().getChildPane();
+	    setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
+	    pane.remove(((MappedElementChildElementsCompartment2EditPart) childEditPart).getFigure());
 	    return true;
 	}
 	return false;
@@ -150,6 +170,9 @@ public class MappedElement2EditPart extends ShapeNodeEditPart {
      * @generated
      */
     protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
+	if (editPart instanceof MappedElementChildElementsCompartment2EditPart) {
+	    return getPrimaryShape().getChildPane();
+	}
 	return getContentPane();
     }
 
@@ -249,6 +272,26 @@ public class MappedElement2EditPart extends ShapeNodeEditPart {
     @Override
     public EditPart getPrimaryChildEditPart() {
 	return getChildBySemanticHint(CrosswalkVisualIDRegistry.getType(WrappingLabel16EditPart.VISUAL_ID));
+    }
+
+    /**
+     * @generated
+     */
+    public EditPart getTargetEditPart(Request request) {
+	if (request instanceof CreateViewAndElementRequest) {
+	    CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request).getViewAndElementDescriptor()
+			    .getCreateElementRequestAdapter();
+	    IElementType type = (IElementType) adapter.getAdapter(IElementType.class);
+	    if (type == CrosswalkElementTypes.MappedElement_3015) {
+		return getChildBySemanticHint(CrosswalkVisualIDRegistry
+				.getType(MappedElementChildElementsCompartment2EditPart.VISUAL_ID));
+	    }
+	    if (type == CrosswalkElementTypes.MappedAttribute_3016) {
+		return getChildBySemanticHint(CrosswalkVisualIDRegistry
+				.getType(MappedElementChildElementsCompartment2EditPart.VISUAL_ID));
+	    }
+	}
+	return super.getTargetEditPart(request);
     }
 
     /**

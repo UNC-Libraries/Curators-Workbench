@@ -5,69 +5,23 @@
     xmlns:gmfgraph="http://www.eclipse.org/gmf/2006/GraphicalDefinition" name="crosswalk">
   <figures
       name="Default">
-    <figures
-        xsi:type="gmfgraph:Rectangle"
-        name="StringInputContentPane"
-        outline="false"
-        lineWidth="0">
-      <layout
-          xsi:type="gmfgraph:FlowLayout"
-          vertical="true"
-          forceSingleLine="true"
-          majorAlignment="END"
-          minorAlignment="FILL"
-          majorSpacing="2"/>
-    </figures>
     <descriptors
-        name="RoundedOutputElementFigure">
-      <actualFigure
-          xsi:type="gmfgraph:RoundedRectangle"
-          name="RoundedElementFigure"
-          cornerWidth="20"
-          cornerHeight="20">
-        <layout
-            xsi:type="gmfgraph:FlowLayout"
-            vertical="true"
-            majorAlignment="CENTER"
-            minorAlignment="CENTER"/>
-        <insets
-            top="10"
-            left="10"
-            bottom="10"
-            right="10"/>
-        <children
-            xsi:type="gmfgraph:Label"
-            name="OutputElementLabelFigure"
-            text="Unknown MODS Element"/>
-        <children
-            xsi:type="gmfgraph:Rectangle"
-            name="OEContentPane"
-            outline="false">
-          <layout
-              xsi:type="gmfgraph:FlowLayout"
-              vertical="true"
-              forceSingleLine="true"
-              majorAlignment="END"
-              minorAlignment="FILL"
-              majorSpacing="2"
-              minorSpacing="2"/>
-        </children>
-      </actualFigure>
-      <accessors
-          accessor="getContentPane"
-          figure="//@figures.0/@descriptors.0/@actualFigure/@children.1"/>
-      <accessors
-          figure="//@figures.0/@descriptors.0/@actualFigure/@children.0"/>
-    </descriptors>
-    <descriptors
-        name="StringConnectionFigure">
+        name="InputConnectionFigure">
       <actualFigure
           xsi:type="gmfgraph:PolylineConnection"
-          name="StringConnectionPolylineConnection"
-          lineWidth="5">
+          name="InputPolylineConnection"
+          lineWidth="2"
+          sourceDecoration="//@figures.0/@descriptors.0/@actualFigure/@children.0">
         <foregroundColor
             xsi:type="gmfgraph:ConstantColor"
-            value="green"/>
+            value="darkGreen"/>
+        <children
+            xsi:type="gmfgraph:PolylineDecoration"
+            name="DefaultArrow">
+          <size
+              x="20"
+              y="20"/>
+        </children>
       </actualFigure>
     </descriptors>
     <descriptors
@@ -107,46 +61,15 @@
         </children>
       </actualFigure>
       <accessors
-          figure="//@figures.0/@descriptors.2/@actualFigure/@children.1"/>
+          figure="//@figures.0/@descriptors.1/@actualFigure/@children.1"/>
       <accessors
-          figure="//@figures.0/@descriptors.2/@actualFigure/@children.2"/>
+          figure="//@figures.0/@descriptors.1/@actualFigure/@children.2"/>
     </descriptors>
     <descriptors
-        name="StringOutputFigure">
+        name="MappedAttributeFigure">
       <actualFigure
           xsi:type="gmfgraph:Rectangle"
-          name="StringOutputRect"
-          outline="false"
-          fill="false">
-        <layout
-            xsi:type="gmfgraph:FlowLayout"
-            forceSingleLine="true"/>
-        <children
-            xsi:type="gmfgraph:Label"
-            name="OutputLabel"
-            text="output"/>
-        <children
-            xsi:type="gmfgraph:Ellipse"
-            name="StringOutputEllipsis">
-          <backgroundColor
-              xsi:type="gmfgraph:ConstantColor"
-              value="green"/>
-          <maximumSize
-              dx="10"
-              dy="10"/>
-          <preferredSize
-              dx="10"
-              dy="10"/>
-        </children>
-      </actualFigure>
-      <accessors
-          figure="//@figures.0/@descriptors.3/@actualFigure/@children.0"/>
-    </descriptors>
-    <descriptors
-        name="StringInputFigure">
-      <actualFigure
-          xsi:type="gmfgraph:Rectangle"
-          name="StringInputRect"
+          name=""
           outline="false"
           fill="false">
         <layout
@@ -162,19 +85,19 @@
               xsi:type="gmfgraph:ConstantColor"
               value="red"/>
           <maximumSize
-              dx="15"
-              dy="15"/>
+              dx="10"
+              dy="10"/>
           <preferredSize
-              dx="15"
-              dy="15"/>
+              dx="10"
+              dy="10"/>
         </children>
         <children
             xsi:type="gmfgraph:Label"
-            name="InputLabel"
+            name="AttributeLabel"
             text="input"/>
       </actualFigure>
       <accessors
-          figure="//@figures.0/@descriptors.4/@actualFigure/@children.1"/>
+          figure="//@figures.0/@descriptors.2/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="DataFieldFigure">
@@ -198,61 +121,9 @@
         </children>
       </actualFigure>
       <accessors
-          figure="//@figures.0/@descriptors.5/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.3/@actualFigure/@children.0"/>
       <accessors
-          figure="//@figures.0/@descriptors.5/@actualFigure/@children.1"/>
-    </descriptors>
-    <descriptors
-        name="RecordMatcherFigure">
-      <actualFigure
-          xsi:type="gmfgraph:Rectangle"
-          name=""
-          outline="false"
-          fill="false"
-          lineWidth="0">
-        <layout
-            xsi:type="gmfgraph:FlowLayout"
-            forceSingleLine="true"
-            majorSpacing="0"
-            minorSpacing="0"/>
-        <children
-            xsi:type="gmfgraph:Rectangle"
-            name="RMContentPane"
-            outline="false">
-          <layout
-              xsi:type="gmfgraph:FlowLayout"
-              vertical="true"
-              forceSingleLine="true"
-              majorAlignment="END"
-              minorAlignment="FILL"
-              majorSpacing="2"
-              minorSpacing="2"/>
-        </children>
-        <children
-            xsi:type="gmfgraph:RoundedRectangle"
-            name="RoundedElementFigure"
-            cornerWidth="20"
-            cornerHeight="20">
-          <layout
-              xsi:type="gmfgraph:FlowLayout"
-              majorAlignment="CENTER"
-              minorAlignment="CENTER"/>
-          <insets
-              top="10"
-              left="10"
-              bottom="10"
-              right="10"/>
-          <children
-              xsi:type="gmfgraph:Label"
-              name="OutputElementLabelFigure"
-              text="Unknown MODS Element"/>
-        </children>
-      </actualFigure>
-      <accessors
-          accessor="getContentPane"
-          figure="//@figures.0/@descriptors.6/@actualFigure/@children.0"/>
-      <accessors
-          figure="//@figures.0/@descriptors.6/@actualFigure/@children.1/@children.0"/>
+          figure="//@figures.0/@descriptors.3/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="MappedElementFigure">
@@ -291,86 +162,94 @@
       </actualFigure>
       <accessors
           accessor="getChildPane"
-          figure="//@figures.0/@descriptors.7/@actualFigure/@children.1"/>
+          figure="//@figures.0/@descriptors.4/@actualFigure/@children.1"/>
       <accessors
           accessor="getLabel"
-          figure="//@figures.0/@descriptors.7/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.4/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
+        name="WidgetFigure">
+      <actualFigure
+          xsi:type="gmfgraph:RoundedRectangle"
+          name="RoundedRect"
+          cornerWidth="20"
+          cornerHeight="20">
+        <layout
+            xsi:type="gmfgraph:FlowLayout"
+            vertical="true"
+            majorAlignment="CENTER"
+            minorAlignment="CENTER"/>
+        <insets
+            top="10"
+            left="10"
+            bottom="10"
+            right="10"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="WidgetLabelFigure"
+            text="Unknown Widget"/>
+      </actualFigure>
+      <accessors
+          figure="//@figures.0/@descriptors.5/@actualFigure/@children.0"/>
     </descriptors>
   </figures>
   <nodes
       name="DataSource"
       figure="DataSourceFigure"/>
   <nodes
-      name="StringInput"
-      figure="StringInputFigure"/>
-  <nodes
       name="DataField"
       figure="DataFieldFigure"
-      contentPane="//@figures.0/@descriptors.2/@accessors.1"/>
-  <nodes
-      name="RecordMatcher"
-      figure="RecordMatcherFigure"/>
+      contentPane="//@figures.0/@descriptors.1/@accessors.1"/>
   <nodes
       name="MappedElementNode"
       figure="MappedElementFigure"
-      contentPane="//@figures.0/@descriptors.7/@accessors.0"/>
+      contentPane="//@figures.0/@descriptors.4/@accessors.0"/>
+  <nodes
+      name="MappedAttributeNode"
+      figure="MappedAttributeFigure"/>
   <nodes
       name="GenericWidgetNode"
-      figure="RoundedOutputElementFigure"
-      contentPane="//@figures.0/@descriptors.0/@accessors.0"/>
+      figure="WidgetFigure"/>
   <connections
-      name="StringConnection"
-      figure="StringConnectionFigure"/>
+      name="InputConnection"
+      figure="InputConnectionFigure"/>
   <compartments
       name="DataFieldCompartment"
       figure="DataSourceFigure"
-      accessor="//@figures.0/@descriptors.2/@accessors.1"/>
-  <compartments
-      name="RecordMatcherInputsCompartment"
-      figure="RecordMatcherFigure"
-      accessor="//@figures.0/@descriptors.0/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.1/@accessors.1"/>
   <compartments
       name="ChildElementsCompartment"
       figure="MappedElementFigure"
       collapsible="true"
-      accessor="//@figures.0/@descriptors.7/@accessors.0"/>
-  <compartments
-      name="GenericWidgetCompartment"
-      figure="RoundedOutputElementFigure"
-      collapsible="true"
-      accessor="//@figures.0/@descriptors.0/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.4/@accessors.0"/>
   <labels
       name="DataSourceName"
       figure="DataSourceFigure"
       elementIcon="false"
-      accessor="//@figures.0/@descriptors.2/@accessors.0"/>
-  <labels
-      name="StringInputLabel"
-      figure="StringInputFigure"
-      affixedParentSide="WEST"
-      elementIcon="false"
-      accessor="//@figures.0/@descriptors.4/@accessors.0"/>
-  <labels
-      name="StringOutputLabel"
-      figure="StringOutputFigure"
-      elementIcon="false"
-      accessor="//@figures.0/@descriptors.3/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.1/@accessors.0"/>
   <labels
       name="DataFieldLabel"
       figure="DataFieldFigure"
       elementIcon="false"
-      accessor="//@figures.0/@descriptors.5/@accessors.0"/>
-  <labels
-      name="OutputElementLabel"
-      figure="RoundedOutputElementFigure"
-      accessor="//@figures.0/@descriptors.0/@accessors.1"/>
+      accessor="//@figures.0/@descriptors.3/@accessors.0"/>
   <labels
       name="DataFieldValue"
       figure="DataFieldFigure"
       elementIcon="false"
-      accessor="//@figures.0/@descriptors.5/@accessors.1"/>
+      accessor="//@figures.0/@descriptors.3/@accessors.1"/>
   <labels
       name="XMLElementLabel"
       figure="MappedElementFigure"
-      accessor="//@figures.0/@descriptors.7/@accessors.1"/>
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.4/@accessors.1"/>
+  <labels
+      name="XMLAttributeLabel"
+      figure="MappedAttributeFigure"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.2/@accessors.0"/>
+  <labels
+      name="WidgetLabel"
+      figure="WidgetFigure"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.5/@accessors.0"/>
 </gmfgraph:Canvas>

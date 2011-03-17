@@ -20,7 +20,6 @@ import java.util.LinkedList;
 import java.util.List;
 
 import org.eclipse.draw2d.ColorConstants;
-import org.eclipse.draw2d.FlowLayout;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.Shape;
@@ -35,7 +34,6 @@ import org.eclipse.gef.requests.CreateRequest;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.FlowLayoutEditPolicy;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
@@ -290,7 +288,7 @@ public class TabbedDataFieldEditPart extends ShapeNodeEditPart {
      */
     public List<IElementType> getMARelTypesOnTarget() {
 	ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-	types.add(CrosswalkElementTypes.StringInputInput_4001);
+	types.add(CrosswalkElementTypes.InputOutput_4003);
 	return types;
     }
 
@@ -299,12 +297,11 @@ public class TabbedDataFieldEditPart extends ShapeNodeEditPart {
      */
     public List<IElementType> getMATypesForSource(IElementType relationshipType) {
 	LinkedList<IElementType> types = new LinkedList<IElementType>();
-	if (relationshipType == CrosswalkElementTypes.StringInputInput_4001) {
-	    types.add(CrosswalkElementTypes.StringInput_3010);
-	    types.add(CrosswalkElementTypes.StringInput_3002);
-	    types.add(CrosswalkElementTypes.StringInput_3003);
+	if (relationshipType == CrosswalkElementTypes.InputOutput_4003) {
+	    types.add(CrosswalkElementTypes.OriginalNameRecordMatcher_2010);
+	    types.add(CrosswalkElementTypes.DateRecognizer_2013);
+	    types.add(CrosswalkElementTypes.TrimWhitespace_2015);
 	    types.add(CrosswalkElementTypes.MappedAttribute_3016);
-	    types.add(CrosswalkElementTypes.StringInput_3017);
 	}
 	return types;
     }
