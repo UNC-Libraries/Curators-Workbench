@@ -39,6 +39,7 @@ public class MappedElementEditHelperAdvice extends AbstractEditHelperAdvice impl
 
     @Override
     protected ICommand getBeforeCreateCommand(final CreateElementRequest request) {
+	System.out.println("advice got before create request: "+request.getLabel()+request.getContainmentFeature()+request.getElementType());
 	// TODO return null unless creating an element/attribute!
 	ICommand result = null;
 	EClass classToCreate = request.getElementType().getEClass();

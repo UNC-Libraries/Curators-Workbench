@@ -102,7 +102,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="crosswalk.gmftool#//@palette/@tools.0/@tools.6"/>
+          href="crosswalk.gmftool#//@palette/@tools.0/@tools.4"/>
       <diagramNode
           href="crosswalk.gmfgraph#GenericWidgetNode"/>
     </ownedChild>
@@ -124,7 +124,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="crosswalk.gmftool#//@palette/@tools.0/@tools.4"/>
+          href="crosswalk.gmftool#//@palette/@tools.0/@tools.5"/>
       <diagramNode
           href="crosswalk.gmfgraph#GenericWidgetNode"/>
     </ownedChild>
@@ -146,7 +146,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="crosswalk.gmftool#//@palette/@tools.0/@tools.5"/>
+          href="crosswalk.gmftool#//@palette/@tools.0/@tools.6"/>
       <diagramNode
           href="crosswalk.gmfgraph#GenericWidgetNode"/>
     </ownedChild>

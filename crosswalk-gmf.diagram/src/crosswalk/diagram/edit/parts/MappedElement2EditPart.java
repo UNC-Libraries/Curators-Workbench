@@ -326,8 +326,8 @@ public class MappedElement2EditPart extends ShapeNodeEditPart {
 
 	    this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(20), getMapMode().DPtoLP(20)));
 
-	    this.setBorder(new MarginBorder(getMapMode().DPtoLP(10), getMapMode().DPtoLP(10), getMapMode().DPtoLP(10),
-			    getMapMode().DPtoLP(10)));
+	    this.setBorder(new MarginBorder(getMapMode().DPtoLP(5), getMapMode().DPtoLP(5), getMapMode().DPtoLP(5),
+			    getMapMode().DPtoLP(5)));
 	    createContents();
 	}
 
@@ -350,7 +350,7 @@ public class MappedElement2EditPart extends ShapeNodeEditPart {
 	    layoutFChildPane.setStretchMinorAxis(false);
 	    layoutFChildPane.setMinorAlignment(ToolbarLayout.ALIGN_CENTER);
 
-	    layoutFChildPane.setSpacing(2);
+	    layoutFChildPane.setSpacing(3);
 	    layoutFChildPane.setVertical(true);
 
 	    fChildPane.setLayoutManager(layoutFChildPane);

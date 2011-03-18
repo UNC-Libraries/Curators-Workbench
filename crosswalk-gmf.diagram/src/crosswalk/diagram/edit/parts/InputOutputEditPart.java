@@ -4,6 +4,7 @@ import org.eclipse.draw2d.ColorConstants;
 import org.eclipse.draw2d.Connection;
 import org.eclipse.draw2d.PolylineDecoration;
 import org.eclipse.draw2d.RotatableDecoration;
+import org.eclipse.draw2d.geometry.PointList;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ConnectionNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ITreeBranchEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
@@ -77,7 +78,12 @@ public class InputOutputEditPart extends ConnectionNodeEditPart implements ITree
 	 */
 	private RotatableDecoration createSourceDecoration() {
 	    PolylineDecoration df = new PolylineDecoration();
-	    df.setSize(getMapMode().DPtoLP(20), getMapMode().DPtoLP(20));
+	    PointList pl = new PointList();
+	    pl.addPoint(getMapMode().DPtoLP(-1), getMapMode().DPtoLP(1));
+	    pl.addPoint(getMapMode().DPtoLP(0), getMapMode().DPtoLP(0));
+	    pl.addPoint(getMapMode().DPtoLP(-1), getMapMode().DPtoLP(-1));
+	    df.setTemplate(pl);
+	    df.setScale(getMapMode().DPtoLP(7), getMapMode().DPtoLP(3));
 	    return df;
 	}
 

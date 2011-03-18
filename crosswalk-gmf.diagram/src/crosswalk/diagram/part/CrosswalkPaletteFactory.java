@@ -53,9 +53,9 @@ public class CrosswalkPaletteFactory {
 	paletteContainer.add(createXMLAttribute2CreationTool());
 	paletteContainer.add(createInputConnector3CreationTool());
 	paletteContainer.add(createOriginalNameMatcher4CreationTool());
-	paletteContainer.add(createFixedText5CreationTool());
-	paletteContainer.add(createNormalizeWhitespace6CreationTool());
-	paletteContainer.add(createDateRecognizer7CreationTool());
+	paletteContainer.add(createDateMaker5CreationTool());
+	paletteContainer.add(createFixedText6CreationTool());
+	paletteContainer.add(createTrimSpaces7CreationTool());
 	return paletteContainer;
     }
 
@@ -117,11 +117,24 @@ public class CrosswalkPaletteFactory {
     /**
      * @generated
      */
-    private ToolEntry createFixedText5CreationTool() {
-	NodeToolEntry entry = new NodeToolEntry(Messages.FixedText5CreationTool_title,
-			Messages.FixedText5CreationTool_desc,
+    private ToolEntry createDateMaker5CreationTool() {
+	NodeToolEntry entry = new NodeToolEntry(Messages.DateMaker5CreationTool_title,
+			Messages.DateMaker5CreationTool_desc,
+			Collections.singletonList(CrosswalkElementTypes.DateRecognizer_2013));
+	entry.setId("createDateMaker5CreationTool"); //$NON-NLS-1$
+	entry.setSmallIcon(CrosswalkElementTypes.getImageDescriptor(CrosswalkElementTypes.DateRecognizer_2013));
+	entry.setLargeIcon(entry.getSmallIcon());
+	return entry;
+    }
+
+    /**
+     * @generated
+     */
+    private ToolEntry createFixedText6CreationTool() {
+	NodeToolEntry entry = new NodeToolEntry(Messages.FixedText6CreationTool_title,
+			Messages.FixedText6CreationTool_desc,
 			Collections.singletonList(CrosswalkElementTypes.Text_2014));
-	entry.setId("createFixedText5CreationTool"); //$NON-NLS-1$
+	entry.setId("createFixedText6CreationTool"); //$NON-NLS-1$
 	entry.setSmallIcon(CrosswalkElementTypes.getImageDescriptor(CrosswalkElementTypes.Text_2014));
 	entry.setLargeIcon(entry.getSmallIcon());
 	return entry;
@@ -130,25 +143,12 @@ public class CrosswalkPaletteFactory {
     /**
      * @generated
      */
-    private ToolEntry createNormalizeWhitespace6CreationTool() {
-	NodeToolEntry entry = new NodeToolEntry(Messages.NormalizeWhitespace6CreationTool_title,
-			Messages.NormalizeWhitespace6CreationTool_desc,
+    private ToolEntry createTrimSpaces7CreationTool() {
+	NodeToolEntry entry = new NodeToolEntry(Messages.TrimSpaces7CreationTool_title,
+			Messages.TrimSpaces7CreationTool_desc,
 			Collections.singletonList(CrosswalkElementTypes.TrimWhitespace_2015));
-	entry.setId("createNormalizeWhitespace6CreationTool"); //$NON-NLS-1$
+	entry.setId("createTrimSpaces7CreationTool"); //$NON-NLS-1$
 	entry.setSmallIcon(CrosswalkElementTypes.getImageDescriptor(CrosswalkElementTypes.TrimWhitespace_2015));
-	entry.setLargeIcon(entry.getSmallIcon());
-	return entry;
-    }
-
-    /**
-     * @generated
-     */
-    private ToolEntry createDateRecognizer7CreationTool() {
-	NodeToolEntry entry = new NodeToolEntry(Messages.DateRecognizer7CreationTool_title,
-			Messages.DateRecognizer7CreationTool_desc,
-			Collections.singletonList(CrosswalkElementTypes.DateRecognizer_2013));
-	entry.setId("createDateRecognizer7CreationTool"); //$NON-NLS-1$
-	entry.setSmallIcon(CrosswalkElementTypes.getImageDescriptor(CrosswalkElementTypes.DateRecognizer_2013));
 	entry.setLargeIcon(entry.getSmallIcon());
 	return entry;
     }

@@ -18,9 +18,13 @@
         <children
             xsi:type="gmfgraph:PolylineDecoration"
             name="DefaultArrow">
-          <size
-              x="20"
-              y="20"/>
+          <template
+              x="-1"
+              y="1"/>
+          <template/>
+          <template
+              x="-1"
+              y="-1"/>
         </children>
       </actualFigure>
     </descriptors>
@@ -74,10 +78,8 @@
           fill="false">
         <layout
             xsi:type="gmfgraph:FlowLayout"
-            forceSingleLine="true"/>
-        <maximumSize
-            dx="50"
-            dy="12"/>
+            forceSingleLine="true"
+            minorSpacing="1"/>
         <children
             xsi:type="gmfgraph:Ellipse"
             name="StringInputEllipsis">
@@ -138,10 +140,10 @@
             majorAlignment="CENTER"
             minorAlignment="CENTER"/>
         <insets
-            top="10"
-            left="10"
-            bottom="10"
-            right="10"/>
+            top="5"
+            left="5"
+            bottom="5"
+            right="5"/>
         <children
             xsi:type="gmfgraph:Label"
             name="Label"
@@ -156,8 +158,8 @@
               forceSingleLine="true"
               majorAlignment="END"
               minorAlignment="FILL"
-              majorSpacing="2"
-              minorSpacing="2"/>
+              majorSpacing="3"
+              minorSpacing="3"/>
         </children>
       </actualFigure>
       <accessors
@@ -206,7 +208,14 @@
       contentPane="//@figures.0/@descriptors.4/@accessors.0"/>
   <nodes
       name="MappedAttributeNode"
-      figure="MappedAttributeFigure"/>
+      figure="MappedAttributeFigure">
+    <facets
+        xsi:type="gmfgraph:DefaultSizeFacet">
+      <defaultSize
+          dx="40"
+          dy="10"/>
+    </facets>
+  </nodes>
   <nodes
       name="GenericWidgetNode"
       figure="WidgetFigure"/>
@@ -221,6 +230,7 @@
       name="ChildElementsCompartment"
       figure="MappedElementFigure"
       collapsible="true"
+      needsTitle="true"
       accessor="//@figures.0/@descriptors.4/@accessors.0"/>
   <labels
       name="DataSourceName"

@@ -303,32 +303,32 @@ public class Messages extends NLS {
     /**
      * @generated
      */
-    public static String FixedText5CreationTool_title;
+    public static String DateMaker5CreationTool_title;
 
     /**
      * @generated
      */
-    public static String FixedText5CreationTool_desc;
+    public static String DateMaker5CreationTool_desc;
 
     /**
      * @generated
      */
-    public static String NormalizeWhitespace6CreationTool_title;
+    public static String FixedText6CreationTool_title;
 
     /**
      * @generated
      */
-    public static String NormalizeWhitespace6CreationTool_desc;
+    public static String FixedText6CreationTool_desc;
 
     /**
      * @generated
      */
-    public static String DateRecognizer7CreationTool_title;
+    public static String TrimSpaces7CreationTool_title;
 
     /**
      * @generated
      */
-    public static String DateRecognizer7CreationTool_desc;
+    public static String TrimSpaces7CreationTool_desc;
 
     /**
      * @generated

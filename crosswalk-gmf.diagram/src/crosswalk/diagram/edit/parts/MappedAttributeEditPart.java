@@ -156,7 +156,7 @@ public class MappedAttributeEditPart extends ShapeNodeEditPart {
      * @generated
      */
     protected NodeFigure createNodePlate() {
-	DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(40, 40);
+	DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(40, 10);
 	return result;
     }
 
@@ -314,7 +314,6 @@ public class MappedAttributeEditPart extends ShapeNodeEditPart {
 
 	    this.setFill(false);
 	    this.setOutline(false);
-	    this.setMaximumSize(new Dimension(getMapMode().DPtoLP(50), getMapMode().DPtoLP(12)));
 	    createContents();
 	}
 

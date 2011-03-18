@@ -154,23 +154,19 @@ public class TextImpl extends EObjectImpl implements Text {
         /**
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
+         * @generated NOT
          */
         public Object getResult() throws DataException {
-                // TODO: implement this method
-                // Ensure that you remove @generated or mark it @generated NOT
-                throw new UnsupportedOperationException();
+                return this.getValue();
         }
 
         /**
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
+         * @generated NOT
          */
         public EDataType getOutputEDataType() {
-                // TODO: implement this method
-                // Ensure that you remove @generated or mark it @generated NOT
-                throw new UnsupportedOperationException();
+                return EcorePackage.eINSTANCE.getEString();
         }
 
         /**
