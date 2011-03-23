@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  * <ul>
  *   <li>{@link crosswalk.MappedAttribute#getMappedFeature <em>Mapped Feature</em>}</li>
  *   <li>{@link crosswalk.MappedAttribute#getConversionStrategy <em>Conversion Strategy</em>}</li>
+ *   <li>{@link crosswalk.MappedAttribute#getDefaultValue <em>Default Value</em>}</li>
  * </ul>
  * </p>
  *
@@ -106,5 +107,58 @@ public interface MappedAttribute extends OutputElement, Input {
          * @generated
          */
         boolean isSetConversionStrategy();
+
+        /**
+         * Returns the value of the '<em><b>Default Value</b></em>' attribute.
+         * <!-- begin-user-doc -->
+         * <p>
+         * If the meaning of the '<em>Default Value</em>' attribute isn't clear,
+         * there really should be more of a description here...
+         * </p>
+         * <!-- end-user-doc -->
+         * @return the value of the '<em>Default Value</em>' attribute.
+         * @see #isSetDefaultValue()
+         * @see #unsetDefaultValue()
+         * @see #setDefaultValue(String)
+         * @see crosswalk.CrosswalkPackage#getMappedAttribute_DefaultValue()
+         * @model unsettable="true"
+         * @generated
+         */
+        String getDefaultValue();
+
+        /**
+         * Sets the value of the '{@link crosswalk.MappedAttribute#getDefaultValue <em>Default Value</em>}' attribute.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @param value the new value of the '<em>Default Value</em>' attribute.
+         * @see #isSetDefaultValue()
+         * @see #unsetDefaultValue()
+         * @see #getDefaultValue()
+         * @generated
+         */
+        void setDefaultValue(String value);
+
+        /**
+         * Unsets the value of the '{@link crosswalk.MappedAttribute#getDefaultValue <em>Default Value</em>}' attribute.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see #isSetDefaultValue()
+         * @see #getDefaultValue()
+         * @see #setDefaultValue(String)
+         * @generated
+         */
+        void unsetDefaultValue();
+
+        /**
+         * Returns whether the value of the '{@link crosswalk.MappedAttribute#getDefaultValue <em>Default Value</em>}' attribute is set.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @return whether the value of the '<em>Default Value</em>' attribute is set.
+         * @see #unsetDefaultValue()
+         * @see #getDefaultValue()
+         * @see #setDefaultValue(String)
+         * @generated
+         */
+        boolean isSetDefaultValue();
 
 } // MappedAttribute

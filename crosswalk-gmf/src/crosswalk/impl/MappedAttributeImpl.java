@@ -35,6 +35,7 @@ import crosswalk.Output;
  *   <li>{@link crosswalk.impl.MappedAttributeImpl#getOutput <em>Output</em>}</li>
  *   <li>{@link crosswalk.impl.MappedAttributeImpl#getMappedFeature <em>Mapped Feature</em>}</li>
  *   <li>{@link crosswalk.impl.MappedAttributeImpl#getConversionStrategy <em>Conversion Strategy</em>}</li>
+ *   <li>{@link crosswalk.impl.MappedAttributeImpl#getDefaultValue <em>Default Value</em>}</li>
  * </ul>
  * </p>
  *
@@ -87,6 +88,35 @@ public class MappedAttributeImpl extends EObjectImpl implements MappedAttribute 
          * @ordered
          */
         protected boolean conversionStrategyESet;
+
+/**
+         * The default value of the '{@link #getDefaultValue() <em>Default Value</em>}' attribute.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see #getDefaultValue()
+         * @generated
+         * @ordered
+         */
+        protected static final String DEFAULT_VALUE_EDEFAULT = null;
+
+/**
+         * The cached value of the '{@link #getDefaultValue() <em>Default Value</em>}' attribute.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see #getDefaultValue()
+         * @generated
+         * @ordered
+         */
+        protected String defaultValue = DEFAULT_VALUE_EDEFAULT;
+
+/**
+         * This is true if the Default Value attribute has been set.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         * @ordered
+         */
+        protected boolean defaultValueESet;
 
 /**
          * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -332,6 +362,52 @@ public class MappedAttributeImpl extends EObjectImpl implements MappedAttribute 
         }
 
 /**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        public String getDefaultValue() {
+                return defaultValue;
+        }
+
+/**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        public void setDefaultValue(String newDefaultValue) {
+                String oldDefaultValue = defaultValue;
+                defaultValue = newDefaultValue;
+                boolean oldDefaultValueESet = defaultValueESet;
+                defaultValueESet = true;
+                if (eNotificationRequired())
+                        eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.MAPPED_ATTRIBUTE__DEFAULT_VALUE, oldDefaultValue, defaultValue, !oldDefaultValueESet));
+        }
+
+/**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        public void unsetDefaultValue() {
+                String oldDefaultValue = defaultValue;
+                boolean oldDefaultValueESet = defaultValueESet;
+                defaultValue = DEFAULT_VALUE_EDEFAULT;
+                defaultValueESet = false;
+                if (eNotificationRequired())
+                        eNotify(new ENotificationImpl(this, Notification.UNSET, CrosswalkPackage.MAPPED_ATTRIBUTE__DEFAULT_VALUE, oldDefaultValue, DEFAULT_VALUE_EDEFAULT, oldDefaultValueESet));
+        }
+
+/**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        public boolean isSetDefaultValue() {
+                return defaultValueESet;
+        }
+
+/**
          * <!-- begin-user-doc --> <!-- end-user-doc -->
          * @generated NOT
          */
@@ -433,6 +509,8 @@ public class MappedAttributeImpl extends EObjectImpl implements MappedAttribute 
                                 return basicGetMappedFeature();
                         case CrosswalkPackage.MAPPED_ATTRIBUTE__CONVERSION_STRATEGY:
                                 return getConversionStrategy();
+                        case CrosswalkPackage.MAPPED_ATTRIBUTE__DEFAULT_VALUE:
+                                return getDefaultValue();
                 }
                 return super.eGet(featureID, resolve, coreType);
         }
@@ -455,6 +533,9 @@ public class MappedAttributeImpl extends EObjectImpl implements MappedAttribute 
                                 return;
                         case CrosswalkPackage.MAPPED_ATTRIBUTE__CONVERSION_STRATEGY:
                                 setConversionStrategy((ConversionStrategy)newValue);
+                                return;
+                        case CrosswalkPackage.MAPPED_ATTRIBUTE__DEFAULT_VALUE:
+                                setDefaultValue((String)newValue);
                                 return;
                 }
                 super.eSet(featureID, newValue);
@@ -479,6 +560,9 @@ public class MappedAttributeImpl extends EObjectImpl implements MappedAttribute 
                         case CrosswalkPackage.MAPPED_ATTRIBUTE__CONVERSION_STRATEGY:
                                 unsetConversionStrategy();
                                 return;
+                        case CrosswalkPackage.MAPPED_ATTRIBUTE__DEFAULT_VALUE:
+                                unsetDefaultValue();
+                                return;
                 }
                 super.eUnset(featureID);
         }
@@ -498,6 +582,8 @@ public class MappedAttributeImpl extends EObjectImpl implements MappedAttribute 
                                 return mappedFeature != null;
                         case CrosswalkPackage.MAPPED_ATTRIBUTE__CONVERSION_STRATEGY:
                                 return isSetConversionStrategy();
+                        case CrosswalkPackage.MAPPED_ATTRIBUTE__DEFAULT_VALUE:
+                                return isSetDefaultValue();
                 }
                 return super.eIsSet(featureID);
         }
@@ -530,6 +616,22 @@ public class MappedAttributeImpl extends EObjectImpl implements MappedAttribute 
                         }
                 }
                 return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+        }
+
+/**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        @Override
+        public String toString() {
+                if (eIsProxy()) return super.toString();
+
+                StringBuffer result = new StringBuffer(super.toString());
+                result.append(" (defaultValue: ");
+                if (defaultValueESet) result.append(defaultValue); else result.append("<unset>");
+                result.append(')');
+                return result.toString();
         }
 
 } // MappedAttributeImpl

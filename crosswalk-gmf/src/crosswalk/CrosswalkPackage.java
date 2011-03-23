@@ -765,13 +765,22 @@ public interface CrosswalkPackage extends EPackage {
         int MAPPED_ATTRIBUTE__CONVERSION_STRATEGY = OUTPUT_ELEMENT_FEATURE_COUNT + 2;
 
         /**
+         * The feature id for the '<em><b>Default Value</b></em>' attribute.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         * @ordered
+         */
+        int MAPPED_ATTRIBUTE__DEFAULT_VALUE = OUTPUT_ELEMENT_FEATURE_COUNT + 3;
+
+        /**
          * The number of structural features of the '<em>Mapped Attribute</em>' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          * @ordered
          */
-        int MAPPED_ATTRIBUTE_FEATURE_COUNT = OUTPUT_ELEMENT_FEATURE_COUNT + 3;
+        int MAPPED_ATTRIBUTE_FEATURE_COUNT = OUTPUT_ELEMENT_FEATURE_COUNT + 4;
 
         /**
          * The meta object id for the '{@link crosswalk.ConversionStrategy <em>Conversion Strategy</em>}' class.
@@ -1351,6 +1360,17 @@ public interface CrosswalkPackage extends EPackage {
         EReference getMappedAttribute_ConversionStrategy();
 
         /**
+         * Returns the meta object for the attribute '{@link crosswalk.MappedAttribute#getDefaultValue <em>Default Value</em>}'.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @return the meta object for the attribute '<em>Default Value</em>'.
+         * @see crosswalk.MappedAttribute#getDefaultValue()
+         * @see #getMappedAttribute()
+         * @generated
+         */
+        EAttribute getMappedAttribute_DefaultValue();
+
+        /**
          * Returns the meta object for class '{@link crosswalk.ConversionStrategy <em>Conversion Strategy</em>}'.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -1849,6 +1869,14 @@ public interface CrosswalkPackage extends EPackage {
                  * @generated
                  */
                 EReference MAPPED_ATTRIBUTE__CONVERSION_STRATEGY = eINSTANCE.getMappedAttribute_ConversionStrategy();
+
+                /**
+                 * The meta object literal for the '<em><b>Default Value</b></em>' attribute feature.
+                 * <!-- begin-user-doc -->
+                 * <!-- end-user-doc -->
+                 * @generated
+                 */
+                EAttribute MAPPED_ATTRIBUTE__DEFAULT_VALUE = eINSTANCE.getMappedAttribute_DefaultValue();
 
                 /**
                  * The meta object literal for the '{@link crosswalk.ConversionStrategy <em>Conversion Strategy</em>}' class.

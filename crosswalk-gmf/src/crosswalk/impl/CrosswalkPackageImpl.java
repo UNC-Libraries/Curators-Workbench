@@ -717,6 +717,15 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
          * <!-- end-user-doc -->
          * @generated
          */
+        public EAttribute getMappedAttribute_DefaultValue() {
+                return (EAttribute)mappedAttributeEClass.getEStructuralFeatures().get(2);
+        }
+
+        /**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
         public EClass getConversionStrategy() {
                 return conversionStrategyEClass;
         }
@@ -872,6 +881,7 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
                 mappedAttributeEClass = createEClass(MAPPED_ATTRIBUTE);
                 createEReference(mappedAttributeEClass, MAPPED_ATTRIBUTE__MAPPED_FEATURE);
                 createEReference(mappedAttributeEClass, MAPPED_ATTRIBUTE__CONVERSION_STRATEGY);
+                createEAttribute(mappedAttributeEClass, MAPPED_ATTRIBUTE__DEFAULT_VALUE);
 
                 conversionStrategyEClass = createEClass(CONVERSION_STRATEGY);
 
@@ -1038,6 +1048,7 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
                 initEClass(mappedAttributeEClass, MappedAttribute.class, "MappedAttribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
                 initEReference(getMappedAttribute_MappedFeature(), ecorePackage.getEAttribute(), null, "mappedFeature", null, 1, 1, MappedAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
                 initEReference(getMappedAttribute_ConversionStrategy(), this.getConversionStrategy(), null, "conversionStrategy", null, 0, 1, MappedAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                initEAttribute(getMappedAttribute_DefaultValue(), ecorePackage.getEString(), "defaultValue", null, 0, 1, MappedAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
                 initEClass(conversionStrategyEClass, ConversionStrategy.class, "ConversionStrategy", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

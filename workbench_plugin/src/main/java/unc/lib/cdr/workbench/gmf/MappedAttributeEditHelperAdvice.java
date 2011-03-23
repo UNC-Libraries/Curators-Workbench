@@ -14,7 +14,7 @@ public class MappedAttributeEditHelperAdvice implements IEditHelperAdvice {
 
     @Override
     public ICommand getAfterEditCommand(IEditCommandRequest request) {
-	// TODO Auto-generated method stub
+	System.out.println("change color of ellipse here, MAhelperadvice");
 	return null;
     }
 

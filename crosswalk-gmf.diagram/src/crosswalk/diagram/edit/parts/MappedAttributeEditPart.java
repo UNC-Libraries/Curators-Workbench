@@ -12,6 +12,7 @@ import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.ToolbarLayout;
 import org.eclipse.draw2d.geometry.Dimension;
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
@@ -28,6 +29,8 @@ import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
 
+import crosswalk.CrosswalkPackage;
+import crosswalk.MappedAttribute;
 import crosswalk.diagram.edit.policies.CrosswalkTextSelectionEditPolicy;
 import crosswalk.diagram.edit.policies.MappedAttributeItemSemanticEditPolicy;
 import crosswalk.diagram.part.CrosswalkVisualIDRegistry;
@@ -63,11 +66,13 @@ public class MappedAttributeEditPart extends ShapeNodeEditPart {
     /**
      * @generated
      */
+    @Override
     protected void createDefaultEditPolicies() {
 	super.createDefaultEditPolicies();
 	installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new MappedAttributeItemSemanticEditPolicy());
 	installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
-	// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
+	// XXX need an SCR to runtime to have another abstract superclass that
+	// would let children add reasonable editpolicies
 	// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
     }
 
@@ -78,6 +83,7 @@ public class MappedAttributeEditPart extends ShapeNodeEditPart {
 
 	ConstrainedToolbarLayoutEditPolicy lep = new ConstrainedToolbarLayoutEditPolicy() {
 
+	    @Override
 	    protected EditPolicy createChildEditPolicy(EditPart child) {
 		if (child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE) == null) {
 		    if (child instanceof ITextAwareEditPart) {
@@ -128,6 +134,7 @@ public class MappedAttributeEditPart extends ShapeNodeEditPart {
     /**
      * @generated
      */
+    @Override
     protected void addChildVisual(EditPart childEditPart, int index) {
 	if (addFixedChild(childEditPart)) {
 	    return;
@@ -138,6 +145,7 @@ public class MappedAttributeEditPart extends ShapeNodeEditPart {
     /**
      * @generated
      */
+    @Override
     protected void removeChildVisual(EditPart childEditPart) {
 	if (removeFixedChild(childEditPart)) {
 	    return;
@@ -148,6 +156,7 @@ public class MappedAttributeEditPart extends ShapeNodeEditPart {
     /**
      * @generated
      */
+    @Override
     protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
 	return getContentPane();
     }
@@ -162,12 +171,13 @@ public class MappedAttributeEditPart extends ShapeNodeEditPart {
 
     /**
      * Creates figure for this edit part.
-     * 
-     * Body of this method does not depend on settings in generation model
-     * so you may safely remove <i>generated</i> tag and modify it.
-     * 
+     *
+     * Body of this method does not depend on settings in generation model so
+     * you may safely remove <i>generated</i> tag and modify it.
+     *
      * @generated
      */
+    @Override
     protected NodeFigure createNodeFigure() {
 	NodeFigure figure = createNodePlate();
 	figure.setLayoutManager(new StackLayout());
@@ -178,9 +188,11 @@ public class MappedAttributeEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Default implementation treats passed figure as content pane.
-     * Respects layout one may have set for generated figure.
-     * @param nodeShape instance of generated figure class
+     * Default implementation treats passed figure as content pane. Respects
+     * layout one may have set for generated figure.
+     *
+     * @param nodeShape
+     *            instance of generated figure class
      * @generated
      */
     protected IFigure setupContentPane(IFigure nodeShape) {
@@ -195,6 +207,7 @@ public class MappedAttributeEditPart extends ShapeNodeEditPart {
     /**
      * @generated
      */
+    @Override
     public IFigure getContentPane() {
 	if (contentPane != null) {
 	    return contentPane;
@@ -205,6 +218,7 @@ public class MappedAttributeEditPart extends ShapeNodeEditPart {
     /**
      * @generated
      */
+    @Override
     protected void setForegroundColor(Color color) {
 	if (primaryShape != null) {
 	    primaryShape.setForegroundColor(color);
@@ -214,6 +228,7 @@ public class MappedAttributeEditPart extends ShapeNodeEditPart {
     /**
      * @generated
      */
+    @Override
     protected void setBackgroundColor(Color color) {
 	if (primaryShape != null) {
 	    primaryShape.setBackgroundColor(color);
@@ -223,6 +238,7 @@ public class MappedAttributeEditPart extends ShapeNodeEditPart {
     /**
      * @generated
      */
+    @Override
     protected void setLineWidth(int width) {
 	if (primaryShape instanceof Shape) {
 	    ((Shape) primaryShape).setLineWidth(width);
@@ -232,6 +248,7 @@ public class MappedAttributeEditPart extends ShapeNodeEditPart {
     /**
      * @generated
      */
+    @Override
     protected void setLineType(int style) {
 	if (primaryShape instanceof Shape) {
 	    ((Shape) primaryShape).setLineStyle(style);
@@ -241,6 +258,7 @@ public class MappedAttributeEditPart extends ShapeNodeEditPart {
     /**
      * @generated
      */
+    @Override
     public EditPart getPrimaryChildEditPart() {
 	return getChildBySemanticHint(CrosswalkVisualIDRegistry.getType(MappedAttributeNameEditPart.VISUAL_ID));
     }
@@ -344,5 +362,17 @@ public class MappedAttributeEditPart extends ShapeNodeEditPart {
 	}
 
     }
+
+//    @Override
+//    protected void handleNotificationEvent(Notification notification) {
+//	super.handleNotificationEvent(notification);
+//	System.out.println("Got notification HERE:"+notification.getFeature());
+//	if (CrosswalkPackage.eINSTANCE.getInput_Output().equals(notification.getFeature())
+//			|| CrosswalkPackage.eINSTANCE.getMappedAttribute_DefaultValue().equals(notification.getFeature())
+//			) {
+//	    refreshVisuals();
+//	}
+//
+//    }
 
 }

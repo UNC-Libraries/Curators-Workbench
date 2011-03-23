@@ -63,31 +63,8 @@ public class MappedElementItemProvider
                 if (itemPropertyDescriptors == null) {
                         super.getPropertyDescriptors(object);
 
-                        addMappedFeaturePropertyDescriptor(object);
                 }
                 return itemPropertyDescriptors;
-        }
-
-        /**
-         * This adds a property descriptor for the Mapped Feature feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        protected void addMappedFeaturePropertyDescriptor(Object object) {
-                itemPropertyDescriptors.add
-                        (createItemPropertyDescriptor
-                                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                                 getResourceLocator(),
-                                 getString("_UI_MappedElement_mappedFeature_feature"),
-                                 getString("_UI_PropertyDescriptor_description", "_UI_MappedElement_mappedFeature_feature", "_UI_MappedElement_type"),
-                                 CrosswalkPackage.Literals.MAPPED_ELEMENT__MAPPED_FEATURE,
-                                 true,
-                                 false,
-                                 true,
-                                 null,
-                                 null,
-                                 null));
         }
 
         /**

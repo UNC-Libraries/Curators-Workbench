@@ -6,6 +6,7 @@ package crosswalk.diagram.edit.parts;
 import java.util.Collections;
 import java.util.List;
 
+import org.eclipse.draw2d.ColorConstants;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.Label;
 import org.eclipse.draw2d.geometry.Point;
@@ -42,6 +43,7 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
 
+import crosswalk.MappedAttribute;
 import crosswalk.diagram.edit.policies.CrosswalkTextSelectionEditPolicy;
 import crosswalk.diagram.part.CrosswalkVisualIDRegistry;
 import crosswalk.diagram.providers.CrosswalkElementTypes;
@@ -87,6 +89,7 @@ public class MappedAttributeNameEditPart extends CompartmentEditPart implements 
     /**
      * @generated
      */
+    @Override
     protected void createDefaultEditPolicies() {
 	super.createDefaultEditPolicies();
 	installEditPolicy(EditPolicy.SELECTION_FEEDBACK_ROLE, new CrosswalkTextSelectionEditPolicy());
@@ -152,6 +155,7 @@ public class MappedAttributeNameEditPart extends CompartmentEditPart implements 
     /**
      * @generated
      */
+    @Override
     @SuppressWarnings("rawtypes")
     protected List getModelChildren() {
 	return Collections.EMPTY_LIST;
@@ -160,6 +164,7 @@ public class MappedAttributeNameEditPart extends CompartmentEditPart implements 
     /**
      * @generated
      */
+    @Override
     public IGraphicalEditPart getChildBySemanticHint(String semanticHint) {
 	return null;
     }
@@ -335,6 +340,7 @@ public class MappedAttributeNameEditPart extends CompartmentEditPart implements 
     /**
      * @generated
      */
+    @Override
     protected void performDirectEditRequest(Request request) {
 	final Request theRequest = request;
 	try {
@@ -363,8 +369,18 @@ public class MappedAttributeNameEditPart extends CompartmentEditPart implements 
     /**
      * @generated
      */
+    @Override
     protected void refreshVisuals() {
 	super.refreshVisuals();
+//	System.out.println("In refresh visuals!!");
+//	MappedAttribute ma = (MappedAttribute) resolveSemanticElement();
+//	if (ma.isSetOutput()) {
+//	    setBackgroundColor(ColorConstants.green);
+//	} else if (ma.isSetDefaultValue()) {
+//	    setBackgroundColor(ColorConstants.yellow);
+//	} else {
+//	    setBackgroundColor(ColorConstants.red);
+//	}
 	refreshLabel();
 	refreshFont();
 	refreshFontColor();
@@ -411,6 +427,7 @@ public class MappedAttributeNameEditPart extends CompartmentEditPart implements 
     /**
      * @generated
      */
+    @Override
     protected void refreshFont() {
 	FontStyle style = (FontStyle) getFontStyleOwnerView().getStyle(NotationPackage.eINSTANCE.getFontStyle());
 	if (style != null) {
@@ -423,6 +440,7 @@ public class MappedAttributeNameEditPart extends CompartmentEditPart implements 
     /**
      * @generated
      */
+    @Override
     protected void setFontColor(Color color) {
 	getFigure().setForegroundColor(color);
     }
@@ -430,6 +448,7 @@ public class MappedAttributeNameEditPart extends CompartmentEditPart implements 
     /**
      * @generated
      */
+    @Override
     protected void addSemanticListeners() {
 	if (getParser() instanceof ISemanticParser) {
 	    EObject element = resolveSemanticElement();
@@ -445,6 +464,7 @@ public class MappedAttributeNameEditPart extends CompartmentEditPart implements 
     /**
      * @generated
      */
+    @Override
     protected void removeSemanticListeners() {
 	if (parserElements != null) {
 	    for (int i = 0; i < parserElements.size(); i++) {
@@ -458,10 +478,12 @@ public class MappedAttributeNameEditPart extends CompartmentEditPart implements 
     /**
      * @generated
      */
+    @Override
     protected AccessibleEditPart getAccessibleEditPart() {
 	if (accessibleEP == null) {
 	    accessibleEP = new AccessibleGraphicalEditPart() {
 
+		@Override
 		public void getName(AccessibleEvent e) {
 		    e.result = getLabelTextHelper(getFigure());
 		}
@@ -480,6 +502,7 @@ public class MappedAttributeNameEditPart extends CompartmentEditPart implements 
     /**
      * @generated
      */
+    @Override
     protected void addNotationalListeners() {
 	super.addNotationalListeners();
 	addListenerFilter("PrimaryView", this, getPrimaryView()); //$NON-NLS-1$
@@ -488,6 +511,7 @@ public class MappedAttributeNameEditPart extends CompartmentEditPart implements 
     /**
      * @generated
      */
+    @Override
     protected void removeNotationalListeners() {
 	super.removeNotationalListeners();
 	removeListenerFilter("PrimaryView"); //$NON-NLS-1$
@@ -496,6 +520,7 @@ public class MappedAttributeNameEditPart extends CompartmentEditPart implements 
     /**
      * @generated
      */
+    @Override
     protected void handleNotificationEvent(Notification event) {
 	Object feature = event.getFeature();
 	if (NotationPackage.eINSTANCE.getFontStyle_FontColor().equals(feature)) {
@@ -531,6 +556,7 @@ public class MappedAttributeNameEditPart extends CompartmentEditPart implements 
     /**
      * @generated
      */
+    @Override
     protected IFigure createFigure() {
 	// Parent should assign one using setLabel() method
 	return null;

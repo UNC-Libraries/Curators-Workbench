@@ -15,6 +15,8 @@
  */
 package crosswalk.impl;
 
+import gov.loc.mods.mods.DateEncodingAttributeDefinition;
+import gov.loc.mods.mods.MODSFactory;
 import gov.loc.mods.mods.MODSPackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -39,10 +41,10 @@ public class MappedElementFeatureSetupAdapter extends AdapterImpl {
 
     @Override
     public void notifyChanged(Notification msg) {
-	System.out.println("Setup adapter notified by: " + msg.getNotifier());
+	//System.out.println("Setup adapter notified by: " + msg.getNotifier());
 	if (CrosswalkPackage.eINSTANCE.getMappedElement_MappedFeature() == msg.getFeature()) {
 	    // change to the mapped feature, adjust mapped children as necessary
-	    System.out.println("Changed the mapped feature to this: " + msg.getNewValue());
+	    //System.out.println("Changed the mapped feature to this: " + msg.getNewValue());
 	    MappedElementImpl me = (MappedElementImpl) msg.getNotifier();
 	    if (me.getMappedFeature() != null) {
 		EClass type = me.getMappedFeature().getEReferenceType();
@@ -50,6 +52,7 @@ public class MappedElementFeatureSetupAdapter extends AdapterImpl {
 		    // this is a date!
 		    EAttribute textAttr = me.getXMLTextAttributeInReferenceType();
 		    mapEDateToStringAttribute(me, textAttr);
+		    mapEncodingAttribute(me);
 		} else { // detect a text value attribute
 		    EAttribute textValue = me.getXMLTextAttributeInReferenceType();
 		    if (textValue != null) {
@@ -60,6 +63,25 @@ public class MappedElementFeatureSetupAdapter extends AdapterImpl {
 		}
 	    }
 	}
+    }
+
+    /**
+     * @param me
+     */
+    private void mapEncodingAttribute(MappedElementImpl me) {
+	MappedAttribute encodingAttr = null;
+	for(MappedAttribute ma : me.getAttributes()) {
+	    if(MODSPackage.eINSTANCE.getDateBaseDefinition_Encoding().equals(ma.getMappedFeature())) {
+		encodingAttr = ma;
+		break;
+	    }
+	}
+	if(encodingAttr == null) {
+	    encodingAttr = CrosswalkFactory.eINSTANCE.createMappedAttribute();
+	    encodingAttr.setMappedFeature(MODSPackage.eINSTANCE.getDateBaseDefinition_Encoding());
+	    me.getAttributes().add(encodingAttr);
+	}
+	encodingAttr.setDefaultValue(DateEncodingAttributeDefinition.ISO8601.getLiteral());
     }
 
     /**

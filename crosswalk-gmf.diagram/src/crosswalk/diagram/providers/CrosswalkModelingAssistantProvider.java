@@ -111,9 +111,9 @@ public class CrosswalkModelingAssistantProvider extends ModelingAssistantProvide
 	} else {
 	    types = getTypesForPopupBarGen(host);
 	}
-	//	for (IElementType e : types) {
-	//	    System.out.println("popup type: " + e);
-	//	}
+//	for (IElementType e : types) {
+//	    System.out.println("popup type: " + e);
+//	}
 	return types;
     }
 
@@ -261,7 +261,7 @@ public class CrosswalkModelingAssistantProvider extends ModelingAssistantProvide
 	if (elements.isEmpty()) {
 	    return null;
 	}
-	return selectElement((EObject[]) elements.toArray(new EObject[elements.size()]));
+	return selectElement(elements.toArray(new EObject[elements.size()]));
     }
 
     /**

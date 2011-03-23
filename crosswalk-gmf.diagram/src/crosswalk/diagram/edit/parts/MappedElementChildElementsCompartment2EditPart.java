@@ -60,7 +60,6 @@ public class MappedElementChildElementsCompartment2EditPart extends ListCompartm
      */
     protected void createDefaultEditPolicies() {
 	super.createDefaultEditPolicies();
-	installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE, new ResizableCompartmentEditPolicy());
 	installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 			new MappedElementChildElementsCompartment2ItemSemanticEditPolicy());
 	installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicy());

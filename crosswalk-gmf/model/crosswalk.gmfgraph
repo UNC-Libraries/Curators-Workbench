@@ -100,6 +100,8 @@
       </actualFigure>
       <accessors
           figure="//@figures.0/@descriptors.2/@actualFigure/@children.1"/>
+      <accessors
+          figure="//@figures.0/@descriptors.2/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
         name="DataFieldFigure">
@@ -229,8 +231,6 @@
   <compartments
       name="ChildElementsCompartment"
       figure="MappedElementFigure"
-      collapsible="true"
-      needsTitle="true"
       accessor="//@figures.0/@descriptors.4/@accessors.0"/>
   <labels
       name="DataSourceName"

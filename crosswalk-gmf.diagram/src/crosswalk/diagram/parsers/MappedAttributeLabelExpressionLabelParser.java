@@ -7,8 +7,8 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.eclipse.emf.workspace.util.WorkspaceSynchronizer;
@@ -61,7 +61,8 @@ public class MappedAttributeLabelExpressionLabelParser implements IParser {
 	}
 	IFile affectedFile = WorkspaceSynchronizer.getFile(target.eResource());
 	return new AbstractTransactionalCommand(editingDomain,
-			"Set Values", affectedFile == null ? null : Collections.singletonList(affectedFile)) { //$NON-NLS-1$ 
+			"Set Values", affectedFile == null ? null : Collections.singletonList(affectedFile)) { //$NON-NLS-1$
+	    @Override
 	    protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info)
 			    throws ExecutionException {
 		return new CommandResult(updateValues(target, newString));
@@ -81,7 +82,7 @@ public class MappedAttributeLabelExpressionLabelParser implements IParser {
      */
     public boolean isAffectingEvent(Object event, int flags) {
 	// XXX Any event is recognized as important, unless there's a way to extract this information from expression itself.
-	// TODO analyze expressions (e.g. using OCL parser) to find out structural features in use  
+	// TODO analyze expressions (e.g. using OCL parser) to find out structural features in use
 	return true;
     }
 
@@ -116,15 +117,19 @@ public class MappedAttributeLabelExpressionLabelParser implements IParser {
 	StringBuilder sb = new StringBuilder();
 	MappedAttribute ma = (MappedAttribute) self;
 	if (ma.getMappedFeature() != null) {
+	    sb.append(ma.getMappedFeature().getName());
 	    if ("String".equals(ma.getInputEDataType().getName())) {
-		sb.append(ma.getMappedFeature().getName());
+		// do nothing for now
+	    } else if(ma.getInputEDataType() instanceof EEnum) {
+		    // nothing for now
 	    } else {
-		System.out.println(ma.getInputEDataType());
-		sb.append(ma.getMappedFeature().getName()).append(" (")
-				.append(ma.getInputEDataType().getInstanceClass().getSimpleName()).append(")");
+		sb.append(" (").append(ma.getInputEDataType().getInstanceClass().getSimpleName()).append(")");
 	    }
 	} else {
-	    sb.append("unmapped attribute");
+	    sb.append("Error (Unmapped Attribute)");
+	}
+	if(ma.isSetDefaultValue()) {
+	    sb.append(" [").append(ma.getDefaultValue()).append("]");
 	}
 	return sb.toString();
     }

@@ -498,7 +498,7 @@ public class CrosswalkViewProvider extends AbstractProvider implements IViewProv
 	Node label5034 = createLabel(node, CrosswalkVisualIDRegistry.getType(WrappingLabel14EditPart.VISUAL_ID));
 	createCompartment(node,
 			CrosswalkVisualIDRegistry.getType(MappedElementChildElementsCompartmentEditPart.VISUAL_ID),
-			true, false, true, true);
+			false, false, true, true);
 	return node;
     }
 
@@ -575,7 +575,7 @@ public class CrosswalkViewProvider extends AbstractProvider implements IViewProv
 	Node label5031 = createLabel(node, CrosswalkVisualIDRegistry.getType(WrappingLabel16EditPart.VISUAL_ID));
 	createCompartment(node,
 			CrosswalkVisualIDRegistry.getType(MappedElementChildElementsCompartment2EditPart.VISUAL_ID),
-			true, false, true, true);
+			false, false, true, true);
 	return node;
     }
 

@@ -342,16 +342,11 @@ public class CrosswalkBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 	 * @generated NOT
 	 */
 	public boolean canExistInputOutput_4003(Input source, Output target) {
-	    System.out.println(source + "->" + target);
 	    boolean result = false;
 	    try {
-		// TODO: implement this method, using source and target
-		// to access link source and target, respectively
-		// Ensure that you remove @generated or mark it @generated NOT
 		if (target == null) {
 		    result = true;
 		} else if (source != null && source.getInputEDataType() != null) {
-		    System.out.println(source.getInputEDataType() + "->" + target.getOutputEDataType());
 		    if (source.getInputEDataType().getInstanceClass()
 				    .equals(target.getOutputEDataType().getInstanceClass())) {
 			result = true;
