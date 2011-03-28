@@ -39,7 +39,7 @@ public class GrantTypeImpl extends EObjectImpl implements GrantType {
          * @generated
          * @ordered
          */
-        protected static final Object GROUP_EDEFAULT = null;
+        protected static final String GROUP_EDEFAULT = null;
 
         /**
          * The cached value of the '{@link #getGroup() <em>Group</em>}' attribute.
@@ -49,7 +49,7 @@ public class GrantTypeImpl extends EObjectImpl implements GrantType {
          * @generated
          * @ordered
          */
-        protected Object group = GROUP_EDEFAULT;
+        protected String group = GROUP_EDEFAULT;
 
         /**
          * The default value of the '{@link #getRole() <em>Role</em>}' attribute.
@@ -59,7 +59,7 @@ public class GrantTypeImpl extends EObjectImpl implements GrantType {
          * @generated
          * @ordered
          */
-        protected static final Object ROLE_EDEFAULT = null;
+        protected static final String ROLE_EDEFAULT = null;
 
         /**
          * The cached value of the '{@link #getRole() <em>Role</em>}' attribute.
@@ -69,7 +69,7 @@ public class GrantTypeImpl extends EObjectImpl implements GrantType {
          * @generated
          * @ordered
          */
-        protected Object role = ROLE_EDEFAULT;
+        protected String role = ROLE_EDEFAULT;
 
         /**
          * <!-- begin-user-doc -->
@@ -95,7 +95,7 @@ public class GrantTypeImpl extends EObjectImpl implements GrantType {
          * <!-- end-user-doc -->
          * @generated
          */
-        public Object getGroup() {
+        public String getGroup() {
                 return group;
         }
 
@@ -104,8 +104,8 @@ public class GrantTypeImpl extends EObjectImpl implements GrantType {
          * <!-- end-user-doc -->
          * @generated
          */
-        public void setGroup(Object newGroup) {
-                Object oldGroup = group;
+        public void setGroup(String newGroup) {
+                String oldGroup = group;
                 group = newGroup;
                 if (eNotificationRequired())
                         eNotify(new ENotificationImpl(this, Notification.SET, AclPackage.GRANT_TYPE__GROUP, oldGroup, group));
@@ -116,7 +116,7 @@ public class GrantTypeImpl extends EObjectImpl implements GrantType {
          * <!-- end-user-doc -->
          * @generated
          */
-        public Object getRole() {
+        public String getRole() {
                 return role;
         }
 
@@ -125,8 +125,8 @@ public class GrantTypeImpl extends EObjectImpl implements GrantType {
          * <!-- end-user-doc -->
          * @generated
          */
-        public void setRole(Object newRole) {
-                Object oldRole = role;
+        public void setRole(String newRole) {
+                String oldRole = role;
                 role = newRole;
                 if (eNotificationRequired())
                         eNotify(new ENotificationImpl(this, Notification.SET, AclPackage.GRANT_TYPE__ROLE, oldRole, role));
@@ -157,10 +157,10 @@ public class GrantTypeImpl extends EObjectImpl implements GrantType {
         public void eSet(int featureID, Object newValue) {
                 switch (featureID) {
                         case AclPackage.GRANT_TYPE__GROUP:
-                                setGroup(newValue);
+                                setGroup((String)newValue);
                                 return;
                         case AclPackage.GRANT_TYPE__ROLE:
-                                setRole(newValue);
+                                setRole((String)newValue);
                                 return;
                 }
                 super.eSet(featureID, newValue);

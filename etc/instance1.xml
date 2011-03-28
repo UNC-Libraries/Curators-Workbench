@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ac:access-control xmlns:ac="http://www.lib.unc.edu/cdr/2011/access-control"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.lib.unc.edu/cdr/2011/access-control file:/home/count0/workspace-helios/curators-workbench/access-control/model/access-control.xsd"
+  inherit="true" embargo-until="2012-01-01">
+ <grant role="patron" group="public"/>
+ <grant role="curator" group="unc:app:lib:cdr:xyz"/>
+</ac:access-control>

@@ -1,17 +1,8 @@
 /**
- * Copyright 2010 The University of North Carolina at Chapel Hill
+ * <copyright>
+ * </copyright>
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *         http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * $Id$
  */
 package gov.loc.mets.impl;
 
@@ -1055,8 +1046,8 @@ public class MetsPackageImpl extends EPackageImpl implements MetsPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        public EAttribute getDivType_ADMID() {
-                return (EAttribute)divTypeEClass.getEStructuralFeatures().get(3);
+        public EReference getDivType_AmdSec() {
+                return (EReference)divTypeEClass.getEStructuralFeatures().get(3);
         }
 
         /**
@@ -1073,8 +1064,8 @@ public class MetsPackageImpl extends EPackageImpl implements MetsPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        public EAttribute getDivType_DMDID() {
-                return (EAttribute)divTypeEClass.getEStructuralFeatures().get(5);
+        public EReference getDivType_DmdSec() {
+                return (EReference)divTypeEClass.getEStructuralFeatures().get(5);
         }
 
         /**
@@ -3501,9 +3492,9 @@ public class MetsPackageImpl extends EPackageImpl implements MetsPackage {
                 createEReference(divTypeEClass, DIV_TYPE__MPTR);
                 createEReference(divTypeEClass, DIV_TYPE__FPTR);
                 createEReference(divTypeEClass, DIV_TYPE__DIV);
-                createEAttribute(divTypeEClass, DIV_TYPE__ADMID);
+                createEReference(divTypeEClass, DIV_TYPE__AMD_SEC);
                 createEAttribute(divTypeEClass, DIV_TYPE__CONTENTIDS);
-                createEAttribute(divTypeEClass, DIV_TYPE__DMDID);
+                createEReference(divTypeEClass, DIV_TYPE__DMD_SEC);
                 createEAttribute(divTypeEClass, DIV_TYPE__ID);
                 createEAttribute(divTypeEClass, DIV_TYPE__LABEL);
                 createEAttribute(divTypeEClass, DIV_TYPE__LABEL1);
@@ -3893,9 +3884,9 @@ public class MetsPackageImpl extends EPackageImpl implements MetsPackage {
                 initEReference(getDivType_Mptr(), this.getMptrType(), null, "mptr", null, 0, -1, DivType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
                 initEReference(getDivType_Fptr(), this.getFptrType(), null, "fptr", null, 0, -1, DivType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
                 initEReference(getDivType_Div(), this.getDivType(), null, "div", null, 0, -1, DivType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-                initEAttribute(getDivType_ADMID(), theXMLTypePackage.getIDREFS(), "aDMID", null, 0, 1, DivType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                initEReference(getDivType_AmdSec(), this.getAmdSecType(), null, "amdSec", null, 0, -1, DivType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
                 initEAttribute(getDivType_CONTENTIDS(), this.getURIs(), "cONTENTIDS", null, 0, 1, DivType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-                initEAttribute(getDivType_DMDID(), theXMLTypePackage.getIDREFS(), "dMDID", null, 0, 1, DivType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                initEReference(getDivType_DmdSec(), this.getMdSecType(), null, "dmdSec", null, 0, -1, DivType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
                 initEAttribute(getDivType_ID(), theXMLTypePackage.getID(), "iD", null, 0, 1, DivType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
                 initEAttribute(getDivType_Label(), theXMLTypePackage.getString(), "label", null, 0, 1, DivType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
                 initEAttribute(getDivType_LABEL1(), theXMLTypePackage.getString(), "lABEL1", null, 0, 1, DivType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4729,7 +4720,7 @@ public class MetsPackageImpl extends EPackageImpl implements MetsPackage {
                          "namespace", "##targetNamespace"
                    });			
                 addAnnotation
-                  (getDivType_ADMID(), 
+                  (getDivType_AmdSec(), 
                    source, 
                    new String[] {
                          "kind", "attribute",
@@ -4743,7 +4734,7 @@ public class MetsPackageImpl extends EPackageImpl implements MetsPackage {
                          "name", "CONTENTIDS"
                    });			
                 addAnnotation
-                  (getDivType_DMDID(), 
+                  (getDivType_DmdSec(), 
                    source, 
                    new String[] {
                          "kind", "attribute",

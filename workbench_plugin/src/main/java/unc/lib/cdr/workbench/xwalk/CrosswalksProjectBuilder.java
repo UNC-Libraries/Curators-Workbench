@@ -109,8 +109,10 @@ public class CrosswalksProjectBuilder extends IncrementalProjectBuilder {
     }
 
     /**
-     * @param nature the METS project nature
-     * @param file the crosswalk definition file
+     * @param nature
+     *            the METS project nature
+     * @param file
+     *            the crosswalk definition file
      */
     private void runCrosswalk(MetsProjectNature nature, IFile file) {
 	LOG.debug("running crosswalk: " + file.getName());
@@ -182,8 +184,8 @@ public class CrosswalksProjectBuilder extends IncrementalProjectBuilder {
 	}
 
 	// add the new records to mets
-	Command addCommand = AddCommand.create(nature.getEditingDomain(), m, MetsPackage.eINSTANCE.getMetsType_DmdSec(),
-			dmdSecs);
+	Command addCommand = AddCommand.create(nature.getEditingDomain(), m,
+			MetsPackage.eINSTANCE.getMetsType_DmdSec(), dmdSecs);
 	if (addCommand.canExecute()) {
 	    nature.getEditingDomain().getCommandStack().execute(addCommand);
 	} else {
@@ -201,28 +203,25 @@ public class CrosswalksProjectBuilder extends IncrementalProjectBuilder {
 		    LOG.debug("Got matches: " + matches.getMatches().size() + " matched, "
 				    + matches.getRecordCollisions().size() + " record collisions, "
 				    + matches.getResourceCollisions().size() + " resource collisions.");
-		    //DivType bag = METSUtils.findBagDiv(m);
+		    // DivType bag = METSUtils.findBagDiv(m);
 		    // TODO set warnings for collisions
 		    // TODO set links and status for matches
 		    for (Entry<DivType, String> match : matches.getMatches().entrySet()) {
 			String divID = match.getKey().getID();
-			System.out.println("got id "+divID+" for resource "+match.getKey());
+			System.out.println("got id " + divID + " for resource " + match.getKey());
 			if (divID != null) {
-			    //DivType div = METSUtils.findDivTreeSearch(bag, divID);
+			    // DivType div = METSUtils.findDivTreeSearch(bag,
+			    // divID);
 			    DivType div = (DivType) m.eResource().getEObject(divID);
-			    if(div.getDMDID() == null) {
-				div.setDMDID(new ArrayList<String>());
-			    }
 			    String dmdID = makeMdSecID(file, match.getValue());
-			    if (!div.getDMDID().contains(dmdID)) {
-				div.getDMDID().add(dmdID);
-			    }
 			    EObject o = m.eResource().getEObject(dmdID);
-			    if(o != null && o instanceof MdSecType) {
-				MdSecType md = (MdSecType)o;
+			    if (o != null && o instanceof MdSecType) {
+				MdSecType md = (MdSecType) o;
 				md.setSTATUS(METSConstants.MD_STATUS_CROSSWALK_LINKED);
+				if (!div.getDmdSec().contains(md)) {
+				    div.getDmdSec().add(md);
+				}
 			    }
-
 			}
 		    }
 		} catch (DataException e) {
@@ -244,17 +243,17 @@ public class CrosswalksProjectBuilder extends IncrementalProjectBuilder {
      */
     private void clearOldMDRecordsAndCrosswalkLinks(EditingDomain d, MetsType m, CrossWalk cw, IFile f) {
 	Set<MdSecType> removeDMD = new HashSet<MdSecType>();
-	Set<String> removeDMDIDLink = new HashSet<String>();
+	Set<MdSecType> removeDMDIDLink = new HashSet<MdSecType>();
 	for (MdSecType md : m.getDmdSec()) {
 	    String cwGroupName = f.getName();
 	    if (cwGroupName.equals(md.getGROUPID())) {
 		removeDMD.add(md);
 		if (METSConstants.MD_STATUS_CROSSWALK_LINKED.equals(md.getSTATUS())) {
-		    removeDMDIDLink.add(md.getID());
+		    removeDMDIDLink.add(md);
 		}
 	    }
 	}
-	for (String dmdID : removeDMDIDLink) {
+	for (MdSecType md : removeDMDIDLink) {
 	    // remove dmdid ref if status is AUTO_LINKED
 	    DivType bag = METSUtils.findBagDiv(m);
 	    Iterator<EObject> bagChildren = bag.eAllContents();
@@ -262,8 +261,8 @@ public class CrosswalksProjectBuilder extends IncrementalProjectBuilder {
 		EObject o = bagChildren.next();
 		if (o instanceof DivType) {
 		    DivType div = (DivType) o;
-		    if (div.getDMDID() != null && div.getDMDID().contains(dmdID)) {
-			div.getDMDID().remove(dmdID);
+		    if (div.getDmdSec().contains(md)) {
+			div.getDmdSec().remove(md);
 			break;
 		    }
 		}
@@ -303,7 +302,7 @@ public class CrosswalksProjectBuilder extends IncrementalProjectBuilder {
 
 	MdWrapType wrap = MetsFactory.eINSTANCE.createMdWrapType();
 	wrap.setMDTYPE(MDTYPEType.MODS);
-	wrap.setLABEL("record "+recordID);
+	wrap.setLABEL("record " + recordID);
 	XmlDataType1 xml = MetsFactory.eINSTANCE.createXmlDataType1();
 	// LOG.debug(r.toString());
 
@@ -314,12 +313,13 @@ public class CrosswalksProjectBuilder extends IncrementalProjectBuilder {
     }
 
     /**
-     * @param file the Crosswalk Definition File
+     * @param file
+     *            the Crosswalk Definition File
      * @param recordID
      * @return
      */
     private String makeMdSecID(IFile crosswalkFile, String recordID) {
-	return "cw_"+crosswalkFile.hashCode()+"_"+recordID;
+	return "cw_" + crosswalkFile.hashCode() + "_" + recordID;
     }
 
     /**

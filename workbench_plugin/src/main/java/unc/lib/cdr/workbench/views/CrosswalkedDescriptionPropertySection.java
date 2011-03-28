@@ -112,9 +112,8 @@ private static final Logger LOG = LoggerFactory.getLogger(CrosswalkedDescription
 		i.dispose();
 	    }
 	    List<MdSecType> cwMdSecs = new ArrayList<MdSecType>();
-	    if (this.div != null && this.div.getDMDID() != null) {
-		for (String id : this.div.getDMDID()) {
-		    MdSecType md = (MdSecType) this.div.eResource().getEObject(id);
+	    if (this.div != null) {
+		for (MdSecType md : this.div.getDmdSec()) {
 		    //LOG.debug(md.toString());
 		    if (METSConstants.MD_STATUS_CROSSWALK_LINKED.equals(md.getSTATUS())) {
 			cwMdSecs.add(md);

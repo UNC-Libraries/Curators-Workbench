@@ -35,13 +35,13 @@ public interface GrantType extends EObject {
          * </p>
          * <!-- end-user-doc -->
          * @return the value of the '<em>Group</em>' attribute.
-         * @see #setGroup(Object)
+         * @see #setGroup(String)
          * @see edu.unc.lib.schemas.acl.AclPackage#getGrantType_Group()
-         * @model dataType="org.eclipse.emf.ecore.xml.type.AnySimpleType" required="true"
-         *        extendedMetaData="kind='attribute' name='group'"
+         * @model dataType="org.eclipse.emf.ecore.xml.type.String" required="true"
+         *        extendedMetaData="kind='attribute' name='group' namespace='##targetNamespace'"
          * @generated
          */
-        Object getGroup();
+        String getGroup();
 
         /**
          * Sets the value of the '{@link edu.unc.lib.schemas.acl.GrantType#getGroup <em>Group</em>}' attribute.
@@ -51,7 +51,7 @@ public interface GrantType extends EObject {
          * @see #getGroup()
          * @generated
          */
-        void setGroup(Object value);
+        void setGroup(String value);
 
         /**
          * Returns the value of the '<em><b>Role</b></em>' attribute.
@@ -62,13 +62,13 @@ public interface GrantType extends EObject {
          * </p>
          * <!-- end-user-doc -->
          * @return the value of the '<em>Role</em>' attribute.
-         * @see #setRole(Object)
+         * @see #setRole(String)
          * @see edu.unc.lib.schemas.acl.AclPackage#getGrantType_Role()
-         * @model dataType="org.eclipse.emf.ecore.xml.type.AnySimpleType" required="true"
-         *        extendedMetaData="kind='attribute' name='role'"
+         * @model dataType="org.eclipse.emf.ecore.xml.type.String" required="true"
+         *        extendedMetaData="kind='attribute' name='role' namespace='##targetNamespace'"
          * @generated
          */
-        Object getRole();
+        String getRole();
 
         /**
          * Sets the value of the '{@link edu.unc.lib.schemas.acl.GrantType#getRole <em>Role</em>}' attribute.
@@ -78,6 +78,6 @@ public interface GrantType extends EObject {
          * @see #getRole()
          * @generated
          */
-        void setRole(Object value);
+        void setRole(String value);
 
 } // GrantType

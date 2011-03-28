@@ -17,6 +17,7 @@ package unc.lib.cdr.workbench.arrange;
 
 import gov.loc.mets.DivType;
 import gov.loc.mets.MdSecType;
+import gov.loc.mets.MetsPackage;
 import gov.loc.mets.MetsType;
 import gov.loc.mets.util.METSConstants;
 import gov.loc.mets.util.METSUtils;
@@ -29,6 +30,10 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.jobs.Job;
+import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.common.command.CompoundCommand;
+import org.eclipse.emf.edit.command.SetCommand;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.jface.util.LocalSelectionTransfer;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.Viewer;
@@ -121,12 +126,25 @@ public class ArrangementDropListener extends ViewerDropAdapter {
 	LOG.debug("dropMdSecType called");
 	if(this.getCurrentTarget() instanceof DivType) {
 	    DivType div = (DivType)this.getCurrentTarget();
+	    EditingDomain domain = MetsProjectNature.getEditingDomain(div);
 	    MdSecType md = mdSecs.get(0); // can only drop one record at a time
-	    if(div.getDMDID() != null) {
-		div.getDMDID().clear();
-		div.getDMDID().add(md.getID());
-		md.setSTATUS(METSConstants.MD_STATUS_CROSSWALK_USER_LINKED);
+
+	    CompoundCommand comboCommand = new CompoundCommand("user matching crosswalked record to object");
+
+	    List<MdSecType> newDMDIDs = new ArrayList<MdSecType>();
+	    newDMDIDs.addAll(div.getDmdSec());
+	    newDMDIDs.add(md);
+	    Command dmdidCmd = SetCommand.create(domain, div,
+			    MetsPackage.eINSTANCE.getDivType_DmdSec(), newDMDIDs);
+	    Command mdStatusCmd = SetCommand.create(domain, md, MetsPackage.eINSTANCE.getMdSecType_STATUS(), METSConstants.MD_STATUS_CROSSWALK_USER_LINKED);
+	    comboCommand.append(dmdidCmd);
+	    comboCommand.append(mdStatusCmd);
+	    if (comboCommand.canExecute()) {
+		comboCommand.execute();
 		return true;
+	    } else {
+		LOG.debug("Cannot execute drop command: " + comboCommand.toString());
+		return false;
 	    }
 	}
 	return false;

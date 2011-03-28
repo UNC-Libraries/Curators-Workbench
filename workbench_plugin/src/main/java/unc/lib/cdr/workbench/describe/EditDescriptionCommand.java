@@ -65,22 +65,16 @@ public class EditDescriptionCommand extends AbstractHandler implements IHandler 
 	ModsDefinition modsDef = null;
 	boolean saveRequired = false;
 	List<MdSecType> otherModsSec = new ArrayList<MdSecType>();
-	if (d.getDMDID() != null) {
-	    for (String id : d.getDMDID()) {
-		EObject e = r.getEObject(id);
-		if (e instanceof MdSecType) {
-		    MdSecType md = (MdSecType) e;
-		    if (METSConstants.MD_STATUS_USER_EDITED.equals(md.getSTATUS())) {
-			userModsSec = md;
-			Object o = md.getMdWrap().getXmlData().getAny().getValue(0);
-			if(o != null && o instanceof ModsDefinition) {
-			    modsDef = (ModsDefinition)o;
-			}
-			break;
-		    } else {
-			otherModsSec.add(md);
-		    }
+	for (MdSecType md : d.getDmdSec()) {
+	    if (METSConstants.MD_STATUS_USER_EDITED.equals(md.getSTATUS())) {
+		userModsSec = md;
+		Object o = md.getMdWrap().getXmlData().getAny().getValue(0);
+		if (o != null && o instanceof ModsDefinition) {
+		    modsDef = (ModsDefinition) o;
 		}
+		break;
+	    } else {
+		otherModsSec.add(md);
 	    }
 	}
 	if (userModsSec == null) {
@@ -89,7 +83,7 @@ public class EditDescriptionCommand extends AbstractHandler implements IHandler 
 	    userModsSec = MetsFactory.eINSTANCE.createMdSecType();
 	    userModsSec.setSTATUS(METSConstants.MD_STATUS_USER_EDITED);
 	    userModsSec.setCREATED(new XMLCalendar(new java.util.Date(System.currentTimeMillis()), XMLCalendar.DATETIME));
-	    //userModsSec.setGROUPID("foo"); // username?
+	    // userModsSec.setGROUPID("foo"); // username?
 	    String ID = METSUtils.makeXMLUUID();
 	    userModsSec.setID(ID);
 	    n.getMets().getDmdSec().add(userModsSec);
@@ -105,20 +99,18 @@ public class EditDescriptionCommand extends AbstractHandler implements IHandler 
 	    userModsSec.setMdWrap(wrap);
 
 	    // link div to dmdSec
-	    if(d.getDMDID() == null) {
-		d.setDMDID(new ArrayList<String>());
-	    }
-	    d.getDMDID().add(ID);
+	    d.getDmdSec().add(userModsSec);
 	    // TODO prompt for element copy from otherMods records
 	}
-	if(modsDef == null) { // perhaps the editor allows deletes of the root MODS element?
+	if (modsDef == null) { // perhaps the editor allows deletes of the root
+			       // MODS element?
 	    saveRequired = true;
 	    userModsSec.getMdWrap().getXmlData().getAny().clear();
 	    modsDef = MODSFactory.eINSTANCE.createModsDefinition();
 	    modsDef.setID(METSUtils.makeXMLUUID());
 	    userModsSec.getMdWrap().getXmlData().getAny().add(MODSPackage.eINSTANCE.getDocumentRoot_Mods(), modsDef);
 	}
-	if(saveRequired) {
+	if (saveRequired) {
 	    try {
 		n.save();
 	    } catch (CoreException e) {
@@ -128,7 +120,8 @@ public class EditDescriptionCommand extends AbstractHandler implements IHandler 
 	// load the name of the MODS element.. description of <div label>?
 	String fragmentID = r.getURIFragment(modsDef);
 	String projectName = n.getProject().getName();
-	URIFragmentEditorInput input = new URIFragmentEditorInput(projectName, fragmentID, "Description of '"+d.getLABEL1() + "'", modsDef);
+	URIFragmentEditorInput input = new URIFragmentEditorInput(projectName, fragmentID, "Description of '"
+			+ d.getLABEL1() + "'", modsDef);
 	IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
 	IWorkbenchPage page = window.getActivePage();
 	try {

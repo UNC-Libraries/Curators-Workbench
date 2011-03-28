@@ -1,22 +1,15 @@
 /**
- * Copyright 2010 The University of North Carolina at Chapel Hill
+ * <copyright>
+ * </copyright>
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *         http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * $Id$
  */
 package gov.loc.mets.impl;
 
+import gov.loc.mets.AmdSecType;
 import gov.loc.mets.DivType;
 import gov.loc.mets.FptrType;
+import gov.loc.mets.MdSecType;
 import gov.loc.mets.MetsPackage;
 import gov.loc.mets.MptrType;
 
@@ -37,6 +30,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -49,9 +43,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link gov.loc.mets.impl.DivTypeImpl#getMptr <em>Mptr</em>}</li>
  *   <li>{@link gov.loc.mets.impl.DivTypeImpl#getFptr <em>Fptr</em>}</li>
  *   <li>{@link gov.loc.mets.impl.DivTypeImpl#getDiv <em>Div</em>}</li>
- *   <li>{@link gov.loc.mets.impl.DivTypeImpl#getADMID <em>ADMID</em>}</li>
+ *   <li>{@link gov.loc.mets.impl.DivTypeImpl#getAmdSec <em>Amd Sec</em>}</li>
  *   <li>{@link gov.loc.mets.impl.DivTypeImpl#getCONTENTIDS <em>CONTENTIDS</em>}</li>
- *   <li>{@link gov.loc.mets.impl.DivTypeImpl#getDMDID <em>DMDID</em>}</li>
+ *   <li>{@link gov.loc.mets.impl.DivTypeImpl#getDmdSec <em>Dmd Sec</em>}</li>
  *   <li>{@link gov.loc.mets.impl.DivTypeImpl#getID <em>ID</em>}</li>
  *   <li>{@link gov.loc.mets.impl.DivTypeImpl#getLabel <em>Label</em>}</li>
  *   <li>{@link gov.loc.mets.impl.DivTypeImpl#getLABEL1 <em>LABEL1</em>}</li>
@@ -95,24 +89,14 @@ public class DivTypeImpl extends EObjectImpl implements DivType {
         protected EList<DivType> div;
 
         /**
-         * The default value of the '{@link #getADMID() <em>ADMID</em>}' attribute.
+         * The cached value of the '{@link #getAmdSec() <em>Amd Sec</em>}' reference list.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getADMID()
+         * @see #getAmdSec()
          * @generated
          * @ordered
          */
-        protected static final List<String> ADMID_EDEFAULT = null;
-
-        /**
-         * The cached value of the '{@link #getADMID() <em>ADMID</em>}' attribute.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @see #getADMID()
-         * @generated
-         * @ordered
-         */
-        protected List<String> aDMID = ADMID_EDEFAULT;
+        protected EList<AmdSecType> amdSec;
 
         /**
          * The default value of the '{@link #getCONTENTIDS() <em>CONTENTIDS</em>}' attribute.
@@ -135,24 +119,14 @@ public class DivTypeImpl extends EObjectImpl implements DivType {
         protected List<String> cONTENTIDS = CONTENTIDS_EDEFAULT;
 
         /**
-         * The default value of the '{@link #getDMDID() <em>DMDID</em>}' attribute.
+         * The cached value of the '{@link #getDmdSec() <em>Dmd Sec</em>}' reference list.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getDMDID()
+         * @see #getDmdSec()
          * @generated
          * @ordered
          */
-        protected static final List<String> DMDID_EDEFAULT = null;
-
-        /**
-         * The cached value of the '{@link #getDMDID() <em>DMDID</em>}' attribute.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @see #getDMDID()
-         * @generated
-         * @ordered
-         */
-        protected List<String> dMDID = DMDID_EDEFAULT;
+        protected EList<MdSecType> dmdSec;
 
         /**
          * The default value of the '{@link #getID() <em>ID</em>}' attribute.
@@ -334,20 +308,11 @@ public class DivTypeImpl extends EObjectImpl implements DivType {
          * <!-- end-user-doc -->
          * @generated
          */
-        public List<String> getADMID() {
-                return aDMID;
-        }
-
-        /**
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        public void setADMID(List<String> newADMID) {
-                List<String> oldADMID = aDMID;
-                aDMID = newADMID;
-                if (eNotificationRequired())
-                        eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.DIV_TYPE__ADMID, oldADMID, aDMID));
+        public EList<AmdSecType> getAmdSec() {
+                if (amdSec == null) {
+                        amdSec = new EObjectEList<AmdSecType>(AmdSecType.class, this, MetsPackage.DIV_TYPE__AMD_SEC);
+                }
+                return amdSec;
         }
 
         /**
@@ -376,20 +341,11 @@ public class DivTypeImpl extends EObjectImpl implements DivType {
          * <!-- end-user-doc -->
          * @generated
          */
-        public List<String> getDMDID() {
-                return dMDID;
-        }
-
-        /**
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        public void setDMDID(List<String> newDMDID) {
-                List<String> oldDMDID = dMDID;
-                dMDID = newDMDID;
-                if (eNotificationRequired())
-                        eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.DIV_TYPE__DMDID, oldDMDID, dMDID));
+        public EList<MdSecType> getDmdSec() {
+                if (dmdSec == null) {
+                        dmdSec = new EObjectEList<MdSecType>(MdSecType.class, this, MetsPackage.DIV_TYPE__DMD_SEC);
+                }
+                return dmdSec;
         }
 
         /**
@@ -550,12 +506,12 @@ public class DivTypeImpl extends EObjectImpl implements DivType {
                                 return getFptr();
                         case MetsPackage.DIV_TYPE__DIV:
                                 return getDiv();
-                        case MetsPackage.DIV_TYPE__ADMID:
-                                return getADMID();
+                        case MetsPackage.DIV_TYPE__AMD_SEC:
+                                return getAmdSec();
                         case MetsPackage.DIV_TYPE__CONTENTIDS:
                                 return getCONTENTIDS();
-                        case MetsPackage.DIV_TYPE__DMDID:
-                                return getDMDID();
+                        case MetsPackage.DIV_TYPE__DMD_SEC:
+                                return getDmdSec();
                         case MetsPackage.DIV_TYPE__ID:
                                 return getID();
                         case MetsPackage.DIV_TYPE__LABEL:
@@ -593,14 +549,16 @@ public class DivTypeImpl extends EObjectImpl implements DivType {
                                 getDiv().clear();
                                 getDiv().addAll((Collection<? extends DivType>)newValue);
                                 return;
-                        case MetsPackage.DIV_TYPE__ADMID:
-                                setADMID((List<String>)newValue);
+                        case MetsPackage.DIV_TYPE__AMD_SEC:
+                                getAmdSec().clear();
+                                getAmdSec().addAll((Collection<? extends AmdSecType>)newValue);
                                 return;
                         case MetsPackage.DIV_TYPE__CONTENTIDS:
                                 setCONTENTIDS((List<String>)newValue);
                                 return;
-                        case MetsPackage.DIV_TYPE__DMDID:
-                                setDMDID((List<String>)newValue);
+                        case MetsPackage.DIV_TYPE__DMD_SEC:
+                                getDmdSec().clear();
+                                getDmdSec().addAll((Collection<? extends MdSecType>)newValue);
                                 return;
                         case MetsPackage.DIV_TYPE__ID:
                                 setID((String)newValue);
@@ -641,14 +599,14 @@ public class DivTypeImpl extends EObjectImpl implements DivType {
                         case MetsPackage.DIV_TYPE__DIV:
                                 getDiv().clear();
                                 return;
-                        case MetsPackage.DIV_TYPE__ADMID:
-                                setADMID(ADMID_EDEFAULT);
+                        case MetsPackage.DIV_TYPE__AMD_SEC:
+                                getAmdSec().clear();
                                 return;
                         case MetsPackage.DIV_TYPE__CONTENTIDS:
                                 setCONTENTIDS(CONTENTIDS_EDEFAULT);
                                 return;
-                        case MetsPackage.DIV_TYPE__DMDID:
-                                setDMDID(DMDID_EDEFAULT);
+                        case MetsPackage.DIV_TYPE__DMD_SEC:
+                                getDmdSec().clear();
                                 return;
                         case MetsPackage.DIV_TYPE__ID:
                                 setID(ID_EDEFAULT);
@@ -686,12 +644,12 @@ public class DivTypeImpl extends EObjectImpl implements DivType {
                                 return fptr != null && !fptr.isEmpty();
                         case MetsPackage.DIV_TYPE__DIV:
                                 return div != null && !div.isEmpty();
-                        case MetsPackage.DIV_TYPE__ADMID:
-                                return ADMID_EDEFAULT == null ? aDMID != null : !ADMID_EDEFAULT.equals(aDMID);
+                        case MetsPackage.DIV_TYPE__AMD_SEC:
+                                return amdSec != null && !amdSec.isEmpty();
                         case MetsPackage.DIV_TYPE__CONTENTIDS:
                                 return CONTENTIDS_EDEFAULT == null ? cONTENTIDS != null : !CONTENTIDS_EDEFAULT.equals(cONTENTIDS);
-                        case MetsPackage.DIV_TYPE__DMDID:
-                                return DMDID_EDEFAULT == null ? dMDID != null : !DMDID_EDEFAULT.equals(dMDID);
+                        case MetsPackage.DIV_TYPE__DMD_SEC:
+                                return dmdSec != null && !dmdSec.isEmpty();
                         case MetsPackage.DIV_TYPE__ID:
                                 return ID_EDEFAULT == null ? iD != null : !ID_EDEFAULT.equals(iD);
                         case MetsPackage.DIV_TYPE__LABEL:
@@ -718,12 +676,8 @@ public class DivTypeImpl extends EObjectImpl implements DivType {
                 if (eIsProxy()) return super.toString();
 
                 StringBuffer result = new StringBuffer(super.toString());
-                result.append(" (aDMID: ");
-                result.append(aDMID);
-                result.append(", cONTENTIDS: ");
+                result.append(" (cONTENTIDS: ");
                 result.append(cONTENTIDS);
-                result.append(", dMDID: ");
-                result.append(dMDID);
                 result.append(", iD: ");
                 result.append(iD);
                 result.append(", label: ");

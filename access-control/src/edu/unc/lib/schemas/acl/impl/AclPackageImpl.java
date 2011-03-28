@@ -300,7 +300,7 @@ public class AclPackageImpl extends EPackageImpl implements AclPackage {
                 // Initialize classes and features; add operations and parameters
                 initEClass(accessControlTypeEClass, AccessControlType.class, "AccessControlType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
                 initEReference(getAccessControlType_Grant(), this.getGrantType(), null, "grant", null, 0, -1, AccessControlType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-                initEAttribute(getAccessControlType_EmbargoUntil(), theXMLTypePackage.getDate(), "embargoUntil", null, 0, 1, AccessControlType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                initEAttribute(getAccessControlType_EmbargoUntil(), theXMLTypePackage.getDate(), "embargoUntil", null, 0, 1, AccessControlType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
                 initEAttribute(getAccessControlType_Inherit(), theXMLTypePackage.getBoolean(), "inherit", "true", 0, 1, AccessControlType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
                 initEClass(documentRootEClass, DocumentRoot.class, "DocumentRoot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -310,8 +310,8 @@ public class AclPackageImpl extends EPackageImpl implements AclPackage {
                 initEReference(getDocumentRoot_AccessControl(), this.getAccessControlType(), null, "accessControl", null, 0, -2, null, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
                 initEClass(grantTypeEClass, GrantType.class, "GrantType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-                initEAttribute(getGrantType_Group(), theXMLTypePackage.getAnySimpleType(), "group", null, 1, 1, GrantType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-                initEAttribute(getGrantType_Role(), theXMLTypePackage.getAnySimpleType(), "role", null, 1, 1, GrantType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                initEAttribute(getGrantType_Group(), theXMLTypePackage.getString(), "group", null, 1, 1, GrantType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                initEAttribute(getGrantType_Role(), theXMLTypePackage.getString(), "role", null, 1, 1, GrantType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
                 // Create resource
                 createResource(eNS_URI);
@@ -341,21 +341,24 @@ public class AclPackageImpl extends EPackageImpl implements AclPackage {
                    source, 
                    new String[] {
                          "kind", "element",
-                         "name", "grant"
+                         "name", "grant",
+                         "namespace", "##targetNamespace"
                    });		
                 addAnnotation
                   (getAccessControlType_EmbargoUntil(), 
                    source, 
                    new String[] {
                          "kind", "attribute",
-                         "name", "embargo-until"
+                         "name", "embargo-until",
+                         "namespace", "##targetNamespace"
                    });		
                 addAnnotation
                   (getAccessControlType_Inherit(), 
                    source, 
                    new String[] {
                          "kind", "attribute",
-                         "name", "inherit"
+                         "name", "inherit",
+                         "namespace", "##targetNamespace"
                    });		
                 addAnnotation
                   (documentRootEClass, 
@@ -405,14 +408,16 @@ public class AclPackageImpl extends EPackageImpl implements AclPackage {
                    source, 
                    new String[] {
                          "kind", "attribute",
-                         "name", "group"
+                         "name", "group",
+                         "namespace", "##targetNamespace"
                    });		
                 addAnnotation
                   (getGrantType_Role(), 
                    source, 
                    new String[] {
                          "kind", "attribute",
-                         "name", "role"
+                         "name", "role",
+                         "namespace", "##targetNamespace"
                    });
         }
 

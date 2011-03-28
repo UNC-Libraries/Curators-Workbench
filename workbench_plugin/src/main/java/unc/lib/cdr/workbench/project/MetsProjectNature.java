@@ -15,6 +15,7 @@
  */
 package unc.lib.cdr.workbench.project;
 
+import edu.unc.lib.schemas.acl.provider.AclItemProviderAdapterFactory;
 import gov.loc.mets.DivType;
 import gov.loc.mets.DocumentRoot;
 import gov.loc.mets.MetsPackage;
@@ -178,6 +179,7 @@ public class MetsProjectNature implements IProjectNature {
 	adapterFactory.addAdapterFactory(new MetsItemProviderAdapterFactory());
 	adapterFactory.addAdapterFactory(new XlinkItemProviderAdapterFactory());
 	adapterFactory.addAdapterFactory(new MODSItemProviderAdapterFactory());
+	adapterFactory.addAdapterFactory(new AclItemProviderAdapterFactory());
 	adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
     }
 

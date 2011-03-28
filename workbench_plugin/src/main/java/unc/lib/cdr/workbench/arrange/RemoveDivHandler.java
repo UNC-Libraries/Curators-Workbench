@@ -15,6 +15,7 @@
  */
 package unc.lib.cdr.workbench.arrange;
 
+import gov.loc.mets.AmdSecType;
 import gov.loc.mets.DivType;
 import gov.loc.mets.FptrType;
 import gov.loc.mets.MdSecType;
@@ -52,8 +53,9 @@ import unc.lib.cdr.workbench.project.MetsProjectNature;
  */
 public class RemoveDivHandler extends AbstractHandler {
 
-@SuppressWarnings("unused")
-private static final Logger LOG = LoggerFactory.getLogger(RemoveDivHandler.class);
+    @SuppressWarnings("unused")
+    private static final Logger LOG = LoggerFactory.getLogger(RemoveDivHandler.class);
+
     /*
      * (non-Javadoc)
      *
@@ -76,7 +78,7 @@ private static final Logger LOG = LoggerFactory.getLogger(RemoveDivHandler.class
 		while (iter.hasNext()) {
 		    EObject i = iter.next();
 		    if (i instanceof DivType) {
-			DivType desc = (DivType)i;
+			DivType desc = (DivType) i;
 			removeCaptureMarker(desc);
 			addLinkedElements(toDelete, desc);
 		    }
@@ -99,19 +101,19 @@ private static final Logger LOG = LoggerFactory.getLogger(RemoveDivHandler.class
      */
     private void removeCaptureMarker(DivType d) {
 	// get top folder/file
-	if(d.getCONTENTIDS() != null && d.getCONTENTIDS().size() > 0) {
+	if (d.getCONTENTIDS() != null && d.getCONTENTIDS().size() > 0) {
 	    String originalLoc = d.getCONTENTIDS().get(0);
 	    try {
 		IPath loc = new Path(new URI(originalLoc).getPath());
-		LOG.debug("Trying to uncapture: "+originalLoc+"\nwith path:"+loc);
+		LOG.debug("Trying to uncapture: " + originalLoc + "\nwith path:" + loc);
 		IResource r = ResourcesPlugin.getWorkspace().getRoot().getContainerForLocation(loc);
-		if(r == null) {
+		if (r == null) {
 		    r = ResourcesPlugin.getWorkspace().getRoot().getFileForLocation(loc);
 		}
-		if(r != null) {
+		if (r != null) {
 		    r.deleteMarkers(IResourceConstants.MARKER_CAPTURED, true, r.DEPTH_ZERO);
 		} else {
-		    LOG.debug("Cannot find resource for path: "+loc);
+		    LOG.debug("Cannot find resource for path: " + loc);
 		}
 
 	    } catch (URISyntaxException e) {
@@ -135,29 +137,18 @@ private static final Logger LOG = LoggerFactory.getLogger(RemoveDivHandler.class
      *            the DivType with potential links
      */
     private void addLinkedElements(Set<EObject> toDelete, DivType div) {
-	if (div.getDMDID() != null) {
-	    for (String dmdid : div.getDMDID()) {
-		EObject ob = div.eResource().getEObject(dmdid);
-		// only change link status of crosswalked stuff
-		if (ob != null && ob instanceof MdSecType) {
-		    MdSecType dmd = (MdSecType)ob;
-		    if(METSConstants.MD_STATUS_CROSSWALK_LINKED.equals(dmd.getSTATUS())) {
-			dmd.setSTATUS(METSConstants.MD_STATUS_CROSSWALK_NOT_LINKED);
-		    } if(METSConstants.MD_STATUS_CROSSWALK_USER_LINKED.equals(dmd.getSTATUS())) {
-			dmd.setSTATUS(METSConstants.MD_STATUS_CROSSWALK_NOT_LINKED);
-		    } else {
-			toDelete.add(ob);
-		    }
-		}
+	for (MdSecType dmd : div.getDmdSec()) {
+	    if (METSConstants.MD_STATUS_CROSSWALK_LINKED.equals(dmd.getSTATUS())) {
+		dmd.setSTATUS(METSConstants.MD_STATUS_CROSSWALK_NOT_LINKED);
+	    }
+	    if (METSConstants.MD_STATUS_CROSSWALK_USER_LINKED.equals(dmd.getSTATUS())) {
+		dmd.setSTATUS(METSConstants.MD_STATUS_CROSSWALK_NOT_LINKED);
+	    } else {
+		toDelete.add(dmd);
 	    }
 	}
-	if (div.getADMID() != null) {
-	    for (String admid : div.getADMID()) {
-		EObject ob = div.eResource().getEObject(admid);
-		if (ob != null) {
-		    toDelete.add(ob);
-		}
-	    }
+	for (AmdSecType amd : div.getAmdSec()) {
+	    toDelete.add(amd);
 	}
 	if (div.getFptr() != null) {
 	    for (FptrType f : div.getFptr()) {
@@ -165,7 +156,7 @@ private static final Logger LOG = LoggerFactory.getLogger(RemoveDivHandler.class
 		if (ob != null) {
 		    toDelete.add(ob);
 		} else {
-		    LOG.debug("Cannot find FILEID: "+f.getFILEID());
+		    LOG.debug("Cannot find FILEID: " + f.getFILEID());
 		}
 	    }
 	}

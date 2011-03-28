@@ -2,8 +2,8 @@
 <xsd2ecore:XSD2EcoreMappingRoot xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI" xmlns:xsd2ecore="http://www.eclipse.org/emf/2002/XSD2Ecore" inputs="../../curators-workbench/etc/acl.xsd#/"
     outputs="acl.ecore#/" topToBottom="true">
-  <nested inputs="bundleentry://902.fwk20324370/cache/www.w3.org/2001/MagicXMLSchema.xsd#//anySimpleType;XSDSimpleTypeDefinition=1"
-      outputs="http://www.eclipse.org/emf/2003/XMLType#//AnySimpleType"/>
+  <nested inputs="bundleentry://902.fwk8106640/cache/www.w3.org/2001/XMLSchema.xsd#//string;XSDSimpleTypeDefinition=9"
+      outputs="http://www.eclipse.org/emf/2003/XMLType#//String"/>
   <nested inputs="../../curators-workbench/etc/acl.xsd#//accessControl;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/grant;XSDElementDeclaration/XSDComplexTypeDefinition"
       outputs="acl.ecore#//GrantType">
     <nested inputs="../../curators-workbench/etc/acl.xsd#//accessControl;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/grant;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1"
@@ -11,9 +11,9 @@
     <nested inputs="../../curators-workbench/etc/acl.xsd#//accessControl;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/grant;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse"
         outputs="acl.ecore#//GrantType/role"/>
   </nested>
-  <nested inputs="bundleentry://902.fwk20324370/cache/www.w3.org/2001/XMLSchema.xsd#//date;XSDSimpleTypeDefinition=17"
+  <nested inputs="bundleentry://902.fwk8106640/cache/www.w3.org/2001/XMLSchema.xsd#//date;XSDSimpleTypeDefinition=17"
       outputs="http://www.eclipse.org/emf/2003/XMLType#//Date"/>
-  <nested inputs="bundleentry://902.fwk20324370/cache/www.w3.org/2001/XMLSchema.xsd#//boolean;XSDSimpleTypeDefinition=10"
+  <nested inputs="bundleentry://902.fwk8106640/cache/www.w3.org/2001/XMLSchema.xsd#//boolean;XSDSimpleTypeDefinition=10"
       outputs="http://www.eclipse.org/emf/2003/XMLType#//Boolean"/>
   <nested inputs="../../curators-workbench/etc/acl.xsd#//accessControl;XSDElementDeclaration/XSDComplexTypeDefinition"
       outputs="acl.ecore#//AccessControlType">

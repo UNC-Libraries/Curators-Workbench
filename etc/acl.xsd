@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://lib.unc.edu/schemas/acl"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    targetNamespace="http://lib.unc.edu/schemas/acl" elementFormDefault="qualified" attributeFormDefault="qualified">
+
+    <xs:element name="accessControl">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" minOccurs="0" name="grant">
+                    <xs:complexType>
+                        <xs:attribute use="required" name="role" type="xs:string"/>
+                        <xs:attribute use="required" name="group" type="xs:string"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute use="optional" default="true" name="inherit" type="xs:boolean"/>
+            <xs:attribute use="optional" name="embargo-until" type="xs:date" ecore:unsettable="true"/>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

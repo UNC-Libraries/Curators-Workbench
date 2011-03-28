@@ -17,13 +17,10 @@ public class UserDescriptionDivTypeFilter implements IFilter {
     public boolean select(Object toTest) {
 	if (toTest instanceof DivType) {
 	    DivType d = (DivType) toTest;
-	    if (d.getDMDID() != null) {
-		for (String id : d.getDMDID()) {
-		    MdSecType md = (MdSecType) d.eResource().getEObject(id);
-		    if (METSConstants.MD_STATUS_USER_EDITED.equals(md.getSTATUS())) {
-			//LOG.debug("found a user description");
-			return true;
-		    }
+	    for (MdSecType md : d.getDmdSec()) {
+		if (METSConstants.MD_STATUS_USER_EDITED.equals(md.getSTATUS())) {
+		    // LOG.debug("found a user description");
+		    return true;
 		}
 	    }
 	}

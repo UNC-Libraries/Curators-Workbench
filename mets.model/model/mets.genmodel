@@ -4,7 +4,7 @@
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/mets.model/src"
     modelPluginID="mets.model" modelName="Mets" importerID="org.eclipse.xsd.ecore.importer"
     complianceLevel="6.0" copyrightFields="false" usedGenPackages="../../xlink.model/model/xlink.genmodel#//xlink">
-  <foreignModel>http://www.loc.gov/standards/mets/mets.xsd</foreignModel>
+  <foreignModel>../../curators-workbench/etc/mets.xsd</foreignModel>
   <genPackages prefix="Mets" basePackage="gov.loc" resource="XML" disposableProviderFactory="true"
       ecorePackage="mets.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="mets.ecore#//ARCLINKORDERType">
@@ -178,13 +178,13 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mets.ecore#//BehaviorType/lABEL"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mets.ecore#//BehaviorType/sTRUCTID"/>
     </genClasses>
-    <genClasses provider="Stateful" ecoreClass="mets.ecore#//DivType" labelFeature="#//mets/DivType/lABEL1">
+    <genClasses ecoreClass="mets.ecore#//DivType" labelFeature="#//mets/DivType/lABEL1">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mets.ecore#//DivType/mptr"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mets.ecore#//DivType/fptr"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mets.ecore#//DivType/div"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mets.ecore#//DivType/aDMID"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference mets.ecore#//DivType/amdSec"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mets.ecore#//DivType/cONTENTIDS"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mets.ecore#//DivType/dMDID"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference mets.ecore#//DivType/dmdSec"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mets.ecore#//DivType/iD"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mets.ecore#//DivType/label"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mets.ecore#//DivType/lABEL1"/>

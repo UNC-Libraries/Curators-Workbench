@@ -1,17 +1,8 @@
 /**
- * Copyright 2010 The University of North Carolina at Chapel Hill
+ * <copyright>
+ * </copyright>
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *         http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * $Id$
  */
 package gov.loc.mets;
 
@@ -582,13 +573,13 @@ public interface MetsPackage extends EPackage {
         int DIV_TYPE__DIV = 2;
 
         /**
-         * The feature id for the '<em><b>ADMID</b></em>' attribute.
+         * The feature id for the '<em><b>Amd Sec</b></em>' reference list.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          * @ordered
          */
-        int DIV_TYPE__ADMID = 3;
+        int DIV_TYPE__AMD_SEC = 3;
 
         /**
          * The feature id for the '<em><b>CONTENTIDS</b></em>' attribute.
@@ -600,13 +591,13 @@ public interface MetsPackage extends EPackage {
         int DIV_TYPE__CONTENTIDS = 4;
 
         /**
-         * The feature id for the '<em><b>DMDID</b></em>' attribute.
+         * The feature id for the '<em><b>Dmd Sec</b></em>' reference list.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          * @ordered
          */
-        int DIV_TYPE__DMDID = 5;
+        int DIV_TYPE__DMD_SEC = 5;
 
         /**
          * The feature id for the '<em><b>ID</b></em>' attribute.
@@ -4025,15 +4016,15 @@ public interface MetsPackage extends EPackage {
         EReference getDivType_Div();
 
         /**
-         * Returns the meta object for the attribute '{@link gov.loc.mets.DivType#getADMID <em>ADMID</em>}'.
+         * Returns the meta object for the reference list '{@link gov.loc.mets.DivType#getAmdSec <em>Amd Sec</em>}'.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @return the meta object for the attribute '<em>ADMID</em>'.
-         * @see gov.loc.mets.DivType#getADMID()
+         * @return the meta object for the reference list '<em>Amd Sec</em>'.
+         * @see gov.loc.mets.DivType#getAmdSec()
          * @see #getDivType()
          * @generated
          */
-        EAttribute getDivType_ADMID();
+        EReference getDivType_AmdSec();
 
         /**
          * Returns the meta object for the attribute '{@link gov.loc.mets.DivType#getCONTENTIDS <em>CONTENTIDS</em>}'.
@@ -4047,15 +4038,15 @@ public interface MetsPackage extends EPackage {
         EAttribute getDivType_CONTENTIDS();
 
         /**
-         * Returns the meta object for the attribute '{@link gov.loc.mets.DivType#getDMDID <em>DMDID</em>}'.
+         * Returns the meta object for the reference list '{@link gov.loc.mets.DivType#getDmdSec <em>Dmd Sec</em>}'.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @return the meta object for the attribute '<em>DMDID</em>'.
-         * @see gov.loc.mets.DivType#getDMDID()
+         * @return the meta object for the reference list '<em>Dmd Sec</em>'.
+         * @see gov.loc.mets.DivType#getDmdSec()
          * @see #getDivType()
          * @generated
          */
-        EAttribute getDivType_DMDID();
+        EReference getDivType_DmdSec();
 
         /**
          * Returns the meta object for the attribute '{@link gov.loc.mets.DivType#getID <em>ID</em>}'.
@@ -7325,12 +7316,12 @@ public interface MetsPackage extends EPackage {
                 EReference DIV_TYPE__DIV = eINSTANCE.getDivType_Div();
 
                 /**
-                 * The meta object literal for the '<em><b>ADMID</b></em>' attribute feature.
+                 * The meta object literal for the '<em><b>Amd Sec</b></em>' reference list feature.
                  * <!-- begin-user-doc -->
                  * <!-- end-user-doc -->
                  * @generated
                  */
-                EAttribute DIV_TYPE__ADMID = eINSTANCE.getDivType_ADMID();
+                EReference DIV_TYPE__AMD_SEC = eINSTANCE.getDivType_AmdSec();
 
                 /**
                  * The meta object literal for the '<em><b>CONTENTIDS</b></em>' attribute feature.
@@ -7341,12 +7332,12 @@ public interface MetsPackage extends EPackage {
                 EAttribute DIV_TYPE__CONTENTIDS = eINSTANCE.getDivType_CONTENTIDS();
 
                 /**
-                 * The meta object literal for the '<em><b>DMDID</b></em>' attribute feature.
+                 * The meta object literal for the '<em><b>Dmd Sec</b></em>' reference list feature.
                  * <!-- begin-user-doc -->
                  * <!-- end-user-doc -->
                  * @generated
                  */
-                EAttribute DIV_TYPE__DMDID = eINSTANCE.getDivType_DMDID();
+                EReference DIV_TYPE__DMD_SEC = eINSTANCE.getDivType_DmdSec();
 
                 /**
                  * The meta object literal for the '<em><b>ID</b></em>' attribute feature.

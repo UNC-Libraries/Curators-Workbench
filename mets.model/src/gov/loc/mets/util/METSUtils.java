@@ -303,16 +303,13 @@ public class METSUtils {
     public static EObject getDescription(DivType d, String status) {
 	EObject result = null;
 	MdSecType userModsSection = null;
-	if (d.getDMDID() != null) {
-	    for (String id : d.getDMDID()) {
-		MdSecType md = (MdSecType) d.eResource().getEObject(id);
+	    for (MdSecType md : d.getDmdSec()) {
 		if (status.equals(md.getSTATUS())) {
 		    userModsSection = md;
 		    break;
 		}
 	    }
 	    result = (EObject) userModsSection.getMdWrap().getXmlData().getAny().getValue(0);
-	}
 	return result;
     }
 

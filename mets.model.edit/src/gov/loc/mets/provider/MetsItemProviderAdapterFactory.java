@@ -64,14 +64,6 @@ public class MetsItemProviderAdapterFactory extends MetsAdapterFactory implement
         protected IChangeNotifier changeNotifier = new ChangeNotifier();
 
         /**
-         * This keeps track of all the item providers created, so that they can be {@link #dispose disposed}.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        protected Disposable disposable = new Disposable();
-
-        /**
          * This keeps track of all the supported types checked by {@link #isFactoryForType isFactoryForType}.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -232,6 +224,14 @@ public class MetsItemProviderAdapterFactory extends MetsAdapterFactory implement
         }
 
         /**
+         * This keeps track of the one adapter used for all {@link gov.loc.mets.DivType} instances.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        protected DivTypeItemProvider divTypeItemProvider;
+
+        /**
          * This creates an adapter for a {@link gov.loc.mets.DivType}.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -239,7 +239,11 @@ public class MetsItemProviderAdapterFactory extends MetsAdapterFactory implement
          */
         @Override
         public Adapter createDivTypeAdapter() {
-                return new DivTypeItemProvider(this);
+                if (divTypeItemProvider == null) {
+                        divTypeItemProvider = new DivTypeItemProvider(this);
+                }
+
+                return divTypeItemProvider;
         }
 
         /**
@@ -991,20 +995,6 @@ public class MetsItemProviderAdapterFactory extends MetsAdapterFactory implement
         }
 
         /**
-         * Associates an adapter with a notifier via the base implementation, then records it to ensure it will be disposed.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        @Override
-        protected void associate(Adapter adapter, Notifier target) {
-                super.associate(adapter, target);
-                if (adapter != null) {
-                        disposable.add(adapter);
-                }
-        }
-
-        /**
          * This adds a listener.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -1045,7 +1035,43 @@ public class MetsItemProviderAdapterFactory extends MetsAdapterFactory implement
          * @generated
          */
         public void dispose() {
-                disposable.dispose();
+                if (agentTypeItemProvider != null) agentTypeItemProvider.dispose();
+                if (altRecordIDTypeItemProvider != null) altRecordIDTypeItemProvider.dispose();
+                if (amdSecTypeItemProvider != null) amdSecTypeItemProvider.dispose();
+                if (areaTypeItemProvider != null) areaTypeItemProvider.dispose();
+                if (behaviorSecTypeItemProvider != null) behaviorSecTypeItemProvider.dispose();
+                if (behaviorTypeItemProvider != null) behaviorTypeItemProvider.dispose();
+                if (divTypeItemProvider != null) divTypeItemProvider.dispose();
+                if (documentRootItemProvider != null) documentRootItemProvider.dispose();
+                if (fContentTypeItemProvider != null) fContentTypeItemProvider.dispose();
+                if (fileGrpTypeItemProvider != null) fileGrpTypeItemProvider.dispose();
+                if (fileGrpType1ItemProvider != null) fileGrpType1ItemProvider.dispose();
+                if (fileSecTypeItemProvider != null) fileSecTypeItemProvider.dispose();
+                if (fileTypeItemProvider != null) fileTypeItemProvider.dispose();
+                if (fLocatTypeItemProvider != null) fLocatTypeItemProvider.dispose();
+                if (fptrTypeItemProvider != null) fptrTypeItemProvider.dispose();
+                if (mdRefTypeItemProvider != null) mdRefTypeItemProvider.dispose();
+                if (mdSecTypeItemProvider != null) mdSecTypeItemProvider.dispose();
+                if (mdWrapTypeItemProvider != null) mdWrapTypeItemProvider.dispose();
+                if (metsDocumentIDTypeItemProvider != null) metsDocumentIDTypeItemProvider.dispose();
+                if (metsHdrTypeItemProvider != null) metsHdrTypeItemProvider.dispose();
+                if (metsTypeItemProvider != null) metsTypeItemProvider.dispose();
+                if (metsType1ItemProvider != null) metsType1ItemProvider.dispose();
+                if (mptrTypeItemProvider != null) mptrTypeItemProvider.dispose();
+                if (objectTypeItemProvider != null) objectTypeItemProvider.dispose();
+                if (parTypeItemProvider != null) parTypeItemProvider.dispose();
+                if (seqTypeItemProvider != null) seqTypeItemProvider.dispose();
+                if (smArcLinkTypeItemProvider != null) smArcLinkTypeItemProvider.dispose();
+                if (smLinkGrpTypeItemProvider != null) smLinkGrpTypeItemProvider.dispose();
+                if (smLinkTypeItemProvider != null) smLinkTypeItemProvider.dispose();
+                if (smLocatorLinkTypeItemProvider != null) smLocatorLinkTypeItemProvider.dispose();
+                if (streamTypeItemProvider != null) streamTypeItemProvider.dispose();
+                if (structLinkTypeItemProvider != null) structLinkTypeItemProvider.dispose();
+                if (structLinkType1ItemProvider != null) structLinkType1ItemProvider.dispose();
+                if (structMapTypeItemProvider != null) structMapTypeItemProvider.dispose();
+                if (transformFileTypeItemProvider != null) transformFileTypeItemProvider.dispose();
+                if (xmlDataTypeItemProvider != null) xmlDataTypeItemProvider.dispose();
+                if (xmlDataType1ItemProvider != null) xmlDataType1ItemProvider.dispose();
         }
 
 }

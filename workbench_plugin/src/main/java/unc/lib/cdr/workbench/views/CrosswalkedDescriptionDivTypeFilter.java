@@ -12,14 +12,11 @@ public class CrosswalkedDescriptionDivTypeFilter implements IFilter {
     public boolean select(Object toTest) {
 	if (toTest instanceof DivType) {
 	    DivType d = (DivType) toTest;
-	    if (d.getDMDID() != null) {
-		for (String id : d.getDMDID()) {
-		    MdSecType md = (MdSecType) d.eResource().getEObject(id);
-		    if (METSConstants.MD_STATUS_CROSSWALK_LINKED.equals(md.getSTATUS())) {
-			return true;
-		    } else if(METSConstants.MD_STATUS_CROSSWALK_USER_LINKED.equals(md.getSTATUS())) {
-			return true;
-		    }
+	    for (MdSecType md : d.getDmdSec()) {
+		if (METSConstants.MD_STATUS_CROSSWALK_LINKED.equals(md.getSTATUS())) {
+		    return true;
+		} else if (METSConstants.MD_STATUS_CROSSWALK_USER_LINKED.equals(md.getSTATUS())) {
+		    return true;
 		}
 	    }
 	}

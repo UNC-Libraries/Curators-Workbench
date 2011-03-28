@@ -43,7 +43,7 @@ public interface AccessControlType extends EObject {
          * @return the value of the '<em>Grant</em>' containment reference list.
          * @see edu.unc.lib.schemas.acl.AclPackage#getAccessControlType_Grant()
          * @model containment="true"
-         *        extendedMetaData="kind='element' name='grant'"
+         *        extendedMetaData="kind='element' name='grant' namespace='##targetNamespace'"
          * @generated
          */
         EList<GrantType> getGrant();
@@ -57,10 +57,12 @@ public interface AccessControlType extends EObject {
          * </p>
          * <!-- end-user-doc -->
          * @return the value of the '<em>Embargo Until</em>' attribute.
+         * @see #isSetEmbargoUntil()
+         * @see #unsetEmbargoUntil()
          * @see #setEmbargoUntil(XMLGregorianCalendar)
          * @see edu.unc.lib.schemas.acl.AclPackage#getAccessControlType_EmbargoUntil()
-         * @model dataType="org.eclipse.emf.ecore.xml.type.Date"
-         *        extendedMetaData="kind='attribute' name='embargo-until'"
+         * @model unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Date"
+         *        extendedMetaData="kind='attribute' name='embargo-until' namespace='##targetNamespace'"
          * @generated
          */
         XMLGregorianCalendar getEmbargoUntil();
@@ -70,10 +72,35 @@ public interface AccessControlType extends EObject {
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @param value the new value of the '<em>Embargo Until</em>' attribute.
+         * @see #isSetEmbargoUntil()
+         * @see #unsetEmbargoUntil()
          * @see #getEmbargoUntil()
          * @generated
          */
         void setEmbargoUntil(XMLGregorianCalendar value);
+
+        /**
+         * Unsets the value of the '{@link edu.unc.lib.schemas.acl.AccessControlType#getEmbargoUntil <em>Embargo Until</em>}' attribute.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see #isSetEmbargoUntil()
+         * @see #getEmbargoUntil()
+         * @see #setEmbargoUntil(XMLGregorianCalendar)
+         * @generated
+         */
+        void unsetEmbargoUntil();
+
+        /**
+         * Returns whether the value of the '{@link edu.unc.lib.schemas.acl.AccessControlType#getEmbargoUntil <em>Embargo Until</em>}' attribute is set.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @return whether the value of the '<em>Embargo Until</em>' attribute is set.
+         * @see #unsetEmbargoUntil()
+         * @see #getEmbargoUntil()
+         * @see #setEmbargoUntil(XMLGregorianCalendar)
+         * @generated
+         */
+        boolean isSetEmbargoUntil();
 
         /**
          * Returns the value of the '<em><b>Inherit</b></em>' attribute.
@@ -90,7 +117,7 @@ public interface AccessControlType extends EObject {
          * @see #setInherit(boolean)
          * @see edu.unc.lib.schemas.acl.AclPackage#getAccessControlType_Inherit()
          * @model default="true" unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Boolean"
-         *        extendedMetaData="kind='attribute' name='inherit'"
+         *        extendedMetaData="kind='attribute' name='inherit' namespace='##targetNamespace'"
          * @generated
          */
         boolean isInherit();

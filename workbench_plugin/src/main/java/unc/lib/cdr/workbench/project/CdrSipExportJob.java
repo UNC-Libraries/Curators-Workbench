@@ -244,15 +244,14 @@ public class CdrSipExportJob extends Job {
 	    EObject eo = bagChildren.next();
 	    if(eo instanceof DivType) {
 		DivType d = (DivType)eo;
-		if(d.getDMDID() != null && d.getDMDID().size() > 1) {
+		if(d.getDmdSec().size() > 1) {
 		    MdSecType userCreated = null;
 		    Set<MdSecType> others = new HashSet<MdSecType>();
-		    for(String dmdid : d.getDMDID()) {
-			MdSecType md = (MdSecType)metsResource.getEObject(dmdid);
+		    for(MdSecType md : d.getDmdSec()) {
 			if(METSConstants.MD_STATUS_USER_EDITED.equals(md.getSTATUS())) {
 			    if(userCreated != null) {
 				others.add(md);
-				LOG.error("found more than one user created dmdSec for the same div: "+dmdid);
+				LOG.error("found more than one user created dmdSec for the same div: "+d);
 			    } else {
 				userCreated = md;
 			    }
@@ -261,19 +260,20 @@ public class CdrSipExportJob extends Job {
 			}
 		    }
 		    // if userCreate not null, use it.  otherwise combine the others
-		    List<String> dmdids = new ArrayList<String>();
+		    List<MdSecType> dmdids = new ArrayList<MdSecType>();
 		    if(userCreated != null) {
 			remove.addAll(others);
-			dmdids.add(userCreated.getID());
+			dmdids.add(userCreated);
 		    } else {
 			// FIXME merge all crosswalks together into one dmdSec
 			Iterator<MdSecType> i = others.iterator();
-			dmdids.add(i.next().getID());
+			dmdids.add(i.next());
 			while(i.hasNext()) {
 			    remove.add(i.next());
 			}
 		    }
-		    d.setDMDID(dmdids);
+		    d.getDmdSec().clear();
+		    d.getDmdSec().addAll(dmdids);
 		}
 	    }
 	}

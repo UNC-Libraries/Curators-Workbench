@@ -89,26 +89,23 @@ public class OriginalsDecorator implements ILightweightLabelDecorator, IResource
 	    }
 	    // described, crosswalked
 	    MetsProjectNature n = MetsProjectNature.getNatureForMetsObject(d);
-	    if (d.getDMDID() != null) {
-		boolean userEdited = false;
-		boolean crosswalked = false;
-		for (String id : d.getDMDID()) {
-		    MdSecType md = (MdSecType) n.getMetsResource().getEObject(id);
-		    if (md != null) {
-			String st = md.getSTATUS();
-			if (METSConstants.MD_STATUS_CROSSWALK_LINKED.equals(st)) {
-			    decoration.addOverlay(LabelImageFactory
-					    .getImageDescriptorForKey(LabelImageFactory.CROSSWALKED_DECORATOR),
-					    IDecoration.BOTTOM_LEFT);
-			} else if (METSConstants.MD_STATUS_USER_EDITED.equals(st)) {
-			    decoration.addOverlay(LabelImageFactory
-					    .getImageDescriptorForKey(LabelImageFactory.USER_EDITED_DECORATOR),
-					    IDecoration.TOP_RIGHT);
-			} else if (METSConstants.MD_STATUS_CROSSWALK_USER_LINKED.equals(st)) {
-			    decoration.addOverlay(LabelImageFactory
-					    .getImageDescriptorForKey(LabelImageFactory.CROSSWALKED_DECORATOR),
-					    IDecoration.BOTTOM_LEFT);
-			}
+	    boolean userEdited = false;
+	    boolean crosswalked = false;
+	    for (MdSecType md : d.getDmdSec()) {
+		if (md != null) {
+		    String st = md.getSTATUS();
+		    if (METSConstants.MD_STATUS_CROSSWALK_LINKED.equals(st)) {
+			decoration.addOverlay(LabelImageFactory
+					.getImageDescriptorForKey(LabelImageFactory.CROSSWALKED_DECORATOR),
+					IDecoration.BOTTOM_LEFT);
+		    } else if (METSConstants.MD_STATUS_USER_EDITED.equals(st)) {
+			decoration.addOverlay(LabelImageFactory
+					.getImageDescriptorForKey(LabelImageFactory.USER_EDITED_DECORATOR),
+					IDecoration.TOP_RIGHT);
+		    } else if (METSConstants.MD_STATUS_CROSSWALK_USER_LINKED.equals(st)) {
+			decoration.addOverlay(LabelImageFactory
+					.getImageDescriptorForKey(LabelImageFactory.CROSSWALKED_DECORATOR),
+					IDecoration.BOTTOM_LEFT);
 		    }
 		}
 	    }
@@ -169,7 +166,7 @@ public class OriginalsDecorator implements ILightweightLabelDecorator, IResource
 		    String divID = IResourceConstants.getCapturedDivID(d.getResource());
 		    if (n != null && n.getMetsResource() != null && divID != null) {
 			Object div = n.getMetsResource().getEObject(divID);
-			if(div != null) {
+			if (div != null) {
 			    changes.add(div);
 			}
 		    }
@@ -188,7 +185,7 @@ public class OriginalsDecorator implements ILightweightLabelDecorator, IResource
 		    String divID = IResourceConstants.getCapturedDivID(d.getResource());
 		    if (n != null && n.getMetsResource() != null && divID != null) {
 			Object div = n.getMetsResource().getEObject(divID);
-			if(div != null) {
+			if (div != null) {
 			    changes.add(div);
 			}
 		    }

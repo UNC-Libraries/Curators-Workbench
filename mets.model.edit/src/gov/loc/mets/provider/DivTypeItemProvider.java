@@ -87,23 +87,23 @@ public class DivTypeItemProvider
         }
 
         /**
-         * This adds a property descriptor for the ADMID feature.
+         * This adds a property descriptor for the Amd Sec feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        protected void addADMIDPropertyDescriptor(Object object) {
+        protected void addAmdSecPropertyDescriptor(Object object) {
                 itemPropertyDescriptors.add
                         (createItemPropertyDescriptor
                                 (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
                                  getResourceLocator(),
-                                 getString("_UI_DivType_aDMID_feature"),
-                                 getString("_UI_PropertyDescriptor_description", "_UI_DivType_aDMID_feature", "_UI_DivType_type"),
-                                 MetsPackage.Literals.DIV_TYPE__ADMID,
+                                 getString("_UI_DivType_amdSec_feature"),
+                                 getString("_UI_PropertyDescriptor_description", "_UI_DivType_amdSec_feature", "_UI_DivType_type"),
+                                 MetsPackage.Literals.DIV_TYPE__AMD_SEC,
                                  true,
                                  false,
-                                 false,
-                                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                                 true,
+                                 null,
                                  null,
                                  null));
         }
@@ -131,23 +131,23 @@ public class DivTypeItemProvider
         }
 
         /**
-         * This adds a property descriptor for the DMDID feature.
+         * This adds a property descriptor for the Dmd Sec feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        protected void addDMDIDPropertyDescriptor(Object object) {
+        protected void addDmdSecPropertyDescriptor(Object object) {
                 itemPropertyDescriptors.add
                         (createItemPropertyDescriptor
                                 (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
                                  getResourceLocator(),
-                                 getString("_UI_DivType_dMDID_feature"),
-                                 getString("_UI_PropertyDescriptor_description", "_UI_DivType_dMDID_feature", "_UI_DivType_type"),
-                                 MetsPackage.Literals.DIV_TYPE__DMDID,
+                                 getString("_UI_DivType_dmdSec_feature"),
+                                 getString("_UI_PropertyDescriptor_description", "_UI_DivType_dmdSec_feature", "_UI_DivType_type"),
+                                 MetsPackage.Literals.DIV_TYPE__DMD_SEC,
                                  true,
                                  false,
-                                 false,
-                                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                                 true,
+                                 null,
                                  null,
                                  null));
         }
@@ -339,8 +339,8 @@ public class DivTypeItemProvider
         public String getText(Object object) {
                 String label = ((DivType)object).getLABEL1();
                 return label == null || label.length() == 0 ?
-                        "Unknown " + getString("_UI_DivType_type") :
-                        label;
+                        getString("_UI_DivType_type") :
+                        getString("_UI_DivType_type") + " " + label;
         }
 
         /**
@@ -355,9 +355,7 @@ public class DivTypeItemProvider
                 updateChildren(notification);
 
                 switch (notification.getFeatureID(DivType.class)) {
-                        case MetsPackage.DIV_TYPE__ADMID:
                         case MetsPackage.DIV_TYPE__CONTENTIDS:
-                        case MetsPackage.DIV_TYPE__DMDID:
                         case MetsPackage.DIV_TYPE__ID:
                         case MetsPackage.DIV_TYPE__LABEL:
                         case MetsPackage.DIV_TYPE__LABEL1:

@@ -1,0 +1,249 @@
+/**
+ * Copyright 2011 The University of North Carolina at Chapel Hill
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package unc.lib.cdr.workbench.acl;
+
+import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.ModifyEvent;
+import org.eclipse.swt.events.ModifyListener;
+import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Combo;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Text;
+import org.eclipse.ui.forms.IDetailsPage;
+import org.eclipse.ui.forms.IFormPart;
+import org.eclipse.ui.forms.IManagedForm;
+import org.eclipse.ui.forms.editor.FormEditor;
+import org.eclipse.ui.forms.widgets.FormToolkit;
+import org.eclipse.ui.forms.widgets.Section;
+import org.eclipse.ui.forms.widgets.TableWrapData;
+import org.eclipse.ui.forms.widgets.TableWrapLayout;
+
+import edu.unc.lib.schemas.acl.GrantType;
+
+/**
+ * @author Gregory Jansen
+ *
+ */
+public class GrantTypeDetailsPage implements IDetailsPage {
+    private IManagedForm mform;
+    private GrantType input;
+    private Combo roleCombo;
+    private Text groupText;
+    private boolean isDirty = false;
+
+
+
+    public GrantTypeDetailsPage() {
+	//editor.getSite().getPage().addPartListener(this);
+    }
+
+    /*
+     * (non-Javadoc)
+     *
+     * @see
+     * org.eclipse.ui.forms.IFormPart#initialize(org.eclipse.ui.forms.IManagedForm
+     * )
+     */
+    @Override
+    public void initialize(IManagedForm form) {
+	this.mform = form;
+    }
+
+    /*
+     * (non-Javadoc)
+     *
+     * @see org.eclipse.ui.forms.IFormPart#dispose()
+     */
+    @Override
+    public void dispose() {
+
+    }
+
+    /*
+     * (non-Javadoc)
+     *
+     * @see org.eclipse.ui.forms.IFormPart#isDirty()
+     */
+    @Override
+    public boolean isDirty() {
+	return isDirty;
+    }
+
+    /*
+     * (non-Javadoc)
+     *
+     * @see org.eclipse.ui.forms.IFormPart#commit(boolean)
+     */
+    @Override
+    public void commit(boolean onSave) {
+	if (input != null) {
+	    input.setRole(roleCombo.getText());
+	    input.setGroup(groupText.getText());
+	}
+	isDirty = false;
+	this.mform.dirtyStateChanged();
+    }
+
+    /*
+     * (non-Javadoc)
+     *
+     * @see org.eclipse.ui.forms.IFormPart#setFormInput(java.lang.Object)
+     */
+    @Override
+    public boolean setFormInput(Object input) {
+	//System.out.println("setFormInput(): " + input);
+	return false;
+    }
+
+    /*
+     * (non-Javadoc)
+     *
+     * @see org.eclipse.ui.forms.IFormPart#setFocus()
+     */
+    @Override
+    public void setFocus() {
+	this.roleCombo.setFocus();
+    }
+
+    /*
+     * (non-Javadoc)
+     *
+     * @see org.eclipse.ui.forms.IFormPart#isStale()
+     */
+    @Override
+    public boolean isStale() {
+	return false;
+    }
+
+    /*
+     * (non-Javadoc)
+     *
+     * @see org.eclipse.ui.forms.IFormPart#refresh()
+     */
+    @Override
+    public void refresh() {
+	update();
+    }
+
+    /*
+     * (non-Javadoc)
+     *
+     * @see
+     * org.eclipse.ui.forms.IPartSelectionListener#selectionChanged(org.eclipse
+     * .ui.forms.IFormPart, org.eclipse.jface.viewers.ISelection)
+     */
+    @Override
+    public void selectionChanged(IFormPart part, ISelection selection) {
+	IStructuredSelection ssel = (IStructuredSelection) selection;
+	if (ssel.size() == 1) {
+	    //System.out.println("selectionChanged: " + ssel.getFirstElement());
+	    input = (GrantType) ssel.getFirstElement();
+	} else {
+	    input = null;
+	}
+	update();
+    }
+
+    /**
+     * Update form from model
+     */
+    private void update() {
+	if (this.input != null) {
+	    if (this.input.getGroup() != null) {
+		this.groupText.setText(this.input.getGroup());
+	    } else {
+		this.groupText.setText("");
+	    }
+	    if (this.input.getRole() != null) {
+		this.roleCombo.setText(this.input.getRole());
+	    } else {
+		this.roleCombo.setText("");
+	    }
+	}
+	isDirty = false;
+    }
+
+    /*
+     * (non-Javadoc)
+     *
+     * @see
+     * org.eclipse.ui.forms.IDetailsPage#createContents(org.eclipse.swt.widgets
+     * .Composite)
+     */
+    @Override
+    public void createContents(Composite parent) {
+	TableWrapLayout layout = new TableWrapLayout();
+	layout.topMargin = 5;
+	layout.leftMargin = 5;
+	layout.rightMargin = 2;
+	layout.bottomMargin = 2;
+	parent.setLayout(layout);
+
+	FormToolkit toolkit = mform.getToolkit();
+	Section s1 = toolkit.createSection(parent, Section.DESCRIPTION | Section.TITLE_BAR);
+	s1.setText("Grant Detail"); //$NON-NLS-1$
+	s1.setDescription("Edit the role granted to the group."); //$NON-NLS-1$
+	s1.marginWidth = 10;
+	//s1.marginHeight = 5;
+	TableWrapData td = new TableWrapData(TableWrapData.FILL_GRAB, TableWrapData.FILL_GRAB);
+	td.grabHorizontal = true;
+	s1.setLayoutData(td);
+
+	Composite client = toolkit.createComposite(s1);
+	GridLayout glayout = new GridLayout();
+	glayout.marginWidth = glayout.marginHeight = 0;
+	glayout.numColumns = 2;
+	glayout.verticalSpacing = 10;
+	client.setLayout(glayout);
+	client.setLayoutData(td);
+
+	toolkit.createLabel(client, "Role"); //$NON-NLS-1$
+	roleCombo = new Combo(client, SWT.SINGLE | SWT.BORDER);
+	    //toolkit.createText(client, "", SWT.SINGLE | SWT.BORDER); //$NON-NLS-1$
+	roleCombo.setItems(new String[] {"patron","curator"});
+	roleCombo.addModifyListener(new ModifyListener() {
+	    public void modifyText(ModifyEvent e) {
+		isDirty = true;
+		//if (input != null)
+		  //  input.setRole(roleText.getText());
+	    }
+	});
+
+	GridData gd;
+	gd = new GridData(GridData.FILL_HORIZONTAL);
+	gd.widthHint = 10;
+	gd.heightHint = 15;
+	roleCombo.setLayoutData(gd);
+
+	toolkit.createLabel(client, "Group"); //$NON-NLS-1$
+	groupText = toolkit.createText(client, "", SWT.SINGLE | SWT.BORDER); //$NON-NLS-1$
+	groupText.addModifyListener(new ModifyListener() {
+	    public void modifyText(ModifyEvent e) {
+		isDirty = true;
+		//if (input != null)
+		  //  input.setGroup(groupText.getText());
+	    }
+	});
+	groupText.setLayoutData(gd);
+
+	s1.setClient(client);
+	//toolkit.paintBordersFor(s1);
+    }
+
+}

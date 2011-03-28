@@ -1,91 +1,91 @@
 <?xml version="1.0" encoding="ASCII"?>
 <xsd2ecore:XSD2EcoreMappingRoot xmi:version="2.0"
-    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsd2ecore="http://www.eclipse.org/emf/2002/XSD2Ecore" inputs="http://www.loc.gov/standards/mets/mets.xsd#/ http://www.loc.gov/standards/xlink/xlink.xsd#/"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsd2ecore="http://www.eclipse.org/emf/2002/XSD2Ecore" inputs="../../curators-workbench/etc/mets.xsd#/ http://www.loc.gov/standards/xlink/xlink.xsd#/"
     outputs="mets.ecore#/ ../../xlink.model/model/xlink.ecore#/" topToBottom="true">
-  <nested inputs="bundleentry://278.fwk4354460/cache/www.w3.org/2001/XMLSchema.xsd#//string;XSDSimpleTypeDefinition=9"
+  <nested inputs="bundleentry://902.fwk8106640/cache/www.w3.org/2001/XMLSchema.xsd#//string;XSDSimpleTypeDefinition=9"
       outputs="http://www.eclipse.org/emf/2003/XMLType#//String"/>
-  <nested inputs="bundleentry://278.fwk4354460/cache/www.w3.org/2001/XMLSchema.xsd#//ID;XSDSimpleTypeDefinition=37"
+  <nested inputs="bundleentry://902.fwk8106640/cache/www.w3.org/2001/XMLSchema.xsd#//ID;XSDSimpleTypeDefinition=37"
       outputs="http://www.eclipse.org/emf/2003/XMLType#//ID"/>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/metsHdr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/agent;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1/ROLE;XSDAttributeDeclaration/XSDSimpleTypeDefinition"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/metsHdr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/agent;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1/ROLE;XSDAttributeDeclaration/XSDSimpleTypeDefinition"
       outputs="mets.ecore#//ROLEType">
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/metsHdr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/agent;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1/ROLE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/metsHdr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/agent;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1/ROLE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet"
         outputs="mets.ecore#//ROLEType/CREATOR"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/metsHdr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/agent;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1/ROLE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=1"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/metsHdr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/agent;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1/ROLE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=1"
         outputs="mets.ecore#//ROLEType/EDITOR"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/metsHdr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/agent;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1/ROLE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=2"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/metsHdr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/agent;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1/ROLE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=2"
         outputs="mets.ecore#//ROLEType/ARCHIVIST"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/metsHdr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/agent;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1/ROLE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=3"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/metsHdr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/agent;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1/ROLE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=3"
         outputs="mets.ecore#//ROLEType/PRESERVATION"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/metsHdr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/agent;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1/ROLE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=4"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/metsHdr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/agent;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1/ROLE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=4"
         outputs="mets.ecore#//ROLEType/DISSEMINATOR"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/metsHdr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/agent;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1/ROLE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=5"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/metsHdr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/agent;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1/ROLE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=5"
         outputs="mets.ecore#//ROLEType/CUSTODIAN"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/metsHdr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/agent;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1/ROLE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=6"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/metsHdr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/agent;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1/ROLE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=6"
         outputs="mets.ecore#//ROLEType/IPOWNER"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/metsHdr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/agent;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1/ROLE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=7"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/metsHdr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/agent;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1/ROLE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=7"
         outputs="mets.ecore#//ROLEType/OTHER"/>
   </nested>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/metsHdr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/agent;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=3/TYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/metsHdr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/agent;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=3/TYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition"
       outputs="mets.ecore#//TYPEType">
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/metsHdr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/agent;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=3/TYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/metsHdr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/agent;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=3/TYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet"
         outputs="mets.ecore#//TYPEType/INDIVIDUAL"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/metsHdr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/agent;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=3/TYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=1"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/metsHdr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/agent;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=3/TYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=1"
         outputs="mets.ecore#//TYPEType/ORGANIZATION"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/metsHdr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/agent;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=3/TYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=2"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/metsHdr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/agent;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=3/TYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=2"
         outputs="mets.ecore#//TYPEType/OTHER"/>
   </nested>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/metsHdr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/agent;XSDElementDeclaration/XSDComplexTypeDefinition"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/metsHdr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/agent;XSDElementDeclaration/XSDComplexTypeDefinition"
       outputs="mets.ecore#//AgentType">
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/metsHdr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/agent;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/metsHdr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/agent;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
         outputs="mets.ecore#//AgentType/name"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/metsHdr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/agent;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/metsHdr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/agent;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1"
         outputs="mets.ecore#//AgentType/note"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/metsHdr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/agent;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/metsHdr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/agent;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse"
         outputs="mets.ecore#//AgentType/iD"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/metsHdr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/agent;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=2"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/metsHdr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/agent;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=2"
         outputs="mets.ecore#//AgentType/oTHERROLE"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/metsHdr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/agent;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=4"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/metsHdr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/agent;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=4"
         outputs="mets.ecore#//AgentType/oTHERTYPE"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/metsHdr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/agent;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/metsHdr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/agent;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1"
         outputs="mets.ecore#//AgentType/rOLE"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/metsHdr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/agent;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=3"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/metsHdr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/agent;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=3"
         outputs="mets.ecore#//AgentType/tYPE"/>
   </nested>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/metsHdr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1/altRecordID;XSDElementDeclaration/XSDComplexTypeDefinition"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/metsHdr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1/altRecordID;XSDElementDeclaration/XSDComplexTypeDefinition"
       outputs="mets.ecore#//AltRecordIDType">
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/metsHdr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1/altRecordID;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/metsHdr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1/altRecordID;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse"
         outputs="mets.ecore#//AltRecordIDType/iD"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/metsHdr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1/altRecordID;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/metsHdr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1/altRecordID;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1"
         outputs="mets.ecore#//AltRecordIDType/tYPE"/>
   </nested>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/metsHdr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2/metsDocumentID;XSDElementDeclaration/XSDComplexTypeDefinition"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/metsHdr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2/metsDocumentID;XSDElementDeclaration/XSDComplexTypeDefinition"
       outputs="mets.ecore#//MetsDocumentIDType">
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/metsHdr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2/metsDocumentID;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/metsHdr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2/metsDocumentID;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse"
         outputs="mets.ecore#//MetsDocumentIDType/iD"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/metsHdr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2/metsDocumentID;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/metsHdr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2/metsDocumentID;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1"
         outputs="mets.ecore#//MetsDocumentIDType/tYPE"/>
   </nested>
-  <nested inputs="bundleentry://278.fwk4354460/cache/www.w3.org/2001/XMLSchema.xsd#//IDREFS;XSDSimpleTypeDefinition=31"
+  <nested inputs="bundleentry://902.fwk8106640/cache/www.w3.org/2001/XMLSchema.xsd#//IDREFS;XSDSimpleTypeDefinition=31"
       outputs="http://www.eclipse.org/emf/2003/XMLType#//IDREFS"/>
-  <nested inputs="bundleentry://278.fwk4354460/cache/www.w3.org/2001/XMLSchema.xsd#//dateTime;XSDSimpleTypeDefinition=15"
+  <nested inputs="bundleentry://902.fwk8106640/cache/www.w3.org/2001/XMLSchema.xsd#//dateTime;XSDSimpleTypeDefinition=15"
       outputs="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/metsHdr;XSDElementDeclaration/XSDComplexTypeDefinition"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/metsHdr;XSDElementDeclaration/XSDComplexTypeDefinition"
       outputs="mets.ecore#//MetsHdrType">
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/metsHdr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/metsHdr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
         outputs="mets.ecore#//MetsHdrType/agent"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/metsHdr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/metsHdr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1"
         outputs="mets.ecore#//MetsHdrType/altRecordID"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/metsHdr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/metsHdr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2"
         outputs="mets.ecore#//MetsHdrType/metsDocumentID"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/metsHdr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/metsHdr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1"
         outputs="mets.ecore#//MetsHdrType/aDMID"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/metsHdr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=2"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/metsHdr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=2"
         outputs="mets.ecore#//MetsHdrType/cREATEDATE"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/metsHdr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/metsHdr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse"
         outputs="mets.ecore#//MetsHdrType/iD"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/metsHdr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=3"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/metsHdr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=3"
         outputs="mets.ecore#//MetsHdrType/lASTMODDATE"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/metsHdr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=4"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/metsHdr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=4"
         outputs="mets.ecore#//MetsHdrType/rECORDSTATUS"/>
   </nested>
   <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//actuate;XSDAttributeDeclaration=5/XSDSimpleTypeDefinition"
@@ -103,112 +103,112 @@
       outputs="mets.ecore#//MdRefType/actuate"/>
   <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//simpleLink;XSDAttributeGroupDefinition/XSDAttributeUse=3"
       outputs="mets.ecore#//MdRefType/arcrole"/>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//FILECORE;XSDAttributeGroupDefinition=2/XSDAttributeUse=3"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//FILECORE;XSDAttributeGroupDefinition=2/XSDAttributeUse=3"
       outputs="mets.ecore#//MdRefType/cHECKSUM"/>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//FILECORE;XSDAttributeGroupDefinition=2/XSDAttributeUse=4/CHECKSUMTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//FILECORE;XSDAttributeGroupDefinition=2/XSDAttributeUse=4/CHECKSUMTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition"
       outputs="mets.ecore#//CHECKSUMTYPEType">
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//FILECORE;XSDAttributeGroupDefinition=2/XSDAttributeUse=4/CHECKSUMTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//FILECORE;XSDAttributeGroupDefinition=2/XSDAttributeUse=4/CHECKSUMTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet"
         outputs="mets.ecore#//CHECKSUMTYPEType/Adler32"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//FILECORE;XSDAttributeGroupDefinition=2/XSDAttributeUse=4/CHECKSUMTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=1"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//FILECORE;XSDAttributeGroupDefinition=2/XSDAttributeUse=4/CHECKSUMTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=1"
         outputs="mets.ecore#//CHECKSUMTYPEType/CRC32"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//FILECORE;XSDAttributeGroupDefinition=2/XSDAttributeUse=4/CHECKSUMTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=2"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//FILECORE;XSDAttributeGroupDefinition=2/XSDAttributeUse=4/CHECKSUMTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=2"
         outputs="mets.ecore#//CHECKSUMTYPEType/HAVAL"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//FILECORE;XSDAttributeGroupDefinition=2/XSDAttributeUse=4/CHECKSUMTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=3"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//FILECORE;XSDAttributeGroupDefinition=2/XSDAttributeUse=4/CHECKSUMTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=3"
         outputs="mets.ecore#//CHECKSUMTYPEType/MD5"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//FILECORE;XSDAttributeGroupDefinition=2/XSDAttributeUse=4/CHECKSUMTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=4"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//FILECORE;XSDAttributeGroupDefinition=2/XSDAttributeUse=4/CHECKSUMTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=4"
         outputs="mets.ecore#//CHECKSUMTYPEType/MNP"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//FILECORE;XSDAttributeGroupDefinition=2/XSDAttributeUse=4/CHECKSUMTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=5"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//FILECORE;XSDAttributeGroupDefinition=2/XSDAttributeUse=4/CHECKSUMTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=5"
         outputs="mets.ecore#//CHECKSUMTYPEType/SHA1"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//FILECORE;XSDAttributeGroupDefinition=2/XSDAttributeUse=4/CHECKSUMTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=6"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//FILECORE;XSDAttributeGroupDefinition=2/XSDAttributeUse=4/CHECKSUMTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=6"
         outputs="mets.ecore#//CHECKSUMTYPEType/SHA256"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//FILECORE;XSDAttributeGroupDefinition=2/XSDAttributeUse=4/CHECKSUMTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=7"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//FILECORE;XSDAttributeGroupDefinition=2/XSDAttributeUse=4/CHECKSUMTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=7"
         outputs="mets.ecore#//CHECKSUMTYPEType/SHA384"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//FILECORE;XSDAttributeGroupDefinition=2/XSDAttributeUse=4/CHECKSUMTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=8"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//FILECORE;XSDAttributeGroupDefinition=2/XSDAttributeUse=4/CHECKSUMTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=8"
         outputs="mets.ecore#//CHECKSUMTYPEType/SHA512"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//FILECORE;XSDAttributeGroupDefinition=2/XSDAttributeUse=4/CHECKSUMTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=9"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//FILECORE;XSDAttributeGroupDefinition=2/XSDAttributeUse=4/CHECKSUMTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=9"
         outputs="mets.ecore#//CHECKSUMTYPEType/TIGER"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//FILECORE;XSDAttributeGroupDefinition=2/XSDAttributeUse=4/CHECKSUMTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=10"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//FILECORE;XSDAttributeGroupDefinition=2/XSDAttributeUse=4/CHECKSUMTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=10"
         outputs="mets.ecore#//CHECKSUMTYPEType/WHIRLPOOL"/>
   </nested>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//FILECORE;XSDAttributeGroupDefinition=2/XSDAttributeUse=4"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//FILECORE;XSDAttributeGroupDefinition=2/XSDAttributeUse=4"
       outputs="mets.ecore#//MdRefType/cHECKSUMTYPE"/>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//FILECORE;XSDAttributeGroupDefinition=2/XSDAttributeUse=2"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//FILECORE;XSDAttributeGroupDefinition=2/XSDAttributeUse=2"
       outputs="mets.ecore#//MdRefType/cREATED"/>
-  <nested inputs="bundleentry://278.fwk4354460/cache/www.w3.org/2001/XMLSchema.xsd#//anyURI;XSDSimpleTypeDefinition=25"
+  <nested inputs="bundleentry://902.fwk8106640/cache/www.w3.org/2001/XMLSchema.xsd#//anyURI;XSDSimpleTypeDefinition=25"
       outputs="http://www.eclipse.org/emf/2003/XMLType#//AnyURI"/>
   <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//simpleLink;XSDAttributeGroupDefinition/XSDAttributeUse=1"
       outputs="mets.ecore#//MdRefType/href"/>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//LOCATION;XSDAttributeGroupDefinition=1/XSDAttributeUse/LOCTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//LOCATION;XSDAttributeGroupDefinition=1/XSDAttributeUse/LOCTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition"
       outputs="mets.ecore#//LOCTYPEType">
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//LOCATION;XSDAttributeGroupDefinition=1/XSDAttributeUse/LOCTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//LOCATION;XSDAttributeGroupDefinition=1/XSDAttributeUse/LOCTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet"
         outputs="mets.ecore#//LOCTYPEType/ARK"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//LOCATION;XSDAttributeGroupDefinition=1/XSDAttributeUse/LOCTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=1"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//LOCATION;XSDAttributeGroupDefinition=1/XSDAttributeUse/LOCTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=1"
         outputs="mets.ecore#//LOCTYPEType/URN"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//LOCATION;XSDAttributeGroupDefinition=1/XSDAttributeUse/LOCTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=2"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//LOCATION;XSDAttributeGroupDefinition=1/XSDAttributeUse/LOCTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=2"
         outputs="mets.ecore#//LOCTYPEType/URL"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//LOCATION;XSDAttributeGroupDefinition=1/XSDAttributeUse/LOCTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=3"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//LOCATION;XSDAttributeGroupDefinition=1/XSDAttributeUse/LOCTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=3"
         outputs="mets.ecore#//LOCTYPEType/PURL"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//LOCATION;XSDAttributeGroupDefinition=1/XSDAttributeUse/LOCTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=4"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//LOCATION;XSDAttributeGroupDefinition=1/XSDAttributeUse/LOCTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=4"
         outputs="mets.ecore#//LOCTYPEType/HANDLE"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//LOCATION;XSDAttributeGroupDefinition=1/XSDAttributeUse/LOCTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=5"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//LOCATION;XSDAttributeGroupDefinition=1/XSDAttributeUse/LOCTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=5"
         outputs="mets.ecore#//LOCTYPEType/DOI"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//LOCATION;XSDAttributeGroupDefinition=1/XSDAttributeUse/LOCTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=6"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//LOCATION;XSDAttributeGroupDefinition=1/XSDAttributeUse/LOCTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=6"
         outputs="mets.ecore#//LOCTYPEType/OTHER"/>
   </nested>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//LOCATION;XSDAttributeGroupDefinition=1/XSDAttributeUse"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//LOCATION;XSDAttributeGroupDefinition=1/XSDAttributeUse"
       outputs="mets.ecore#//MdRefType/lOCTYPE"/>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//METADATA;XSDAttributeGroupDefinition/XSDAttributeUse/MDTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//METADATA;XSDAttributeGroupDefinition/XSDAttributeUse/MDTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition"
       outputs="mets.ecore#//MDTYPEType">
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//METADATA;XSDAttributeGroupDefinition/XSDAttributeUse/MDTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//METADATA;XSDAttributeGroupDefinition/XSDAttributeUse/MDTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet"
         outputs="mets.ecore#//MDTYPEType/MARC"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//METADATA;XSDAttributeGroupDefinition/XSDAttributeUse/MDTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=1"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//METADATA;XSDAttributeGroupDefinition/XSDAttributeUse/MDTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=1"
         outputs="mets.ecore#//MDTYPEType/MODS"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//METADATA;XSDAttributeGroupDefinition/XSDAttributeUse/MDTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=2"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//METADATA;XSDAttributeGroupDefinition/XSDAttributeUse/MDTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=2"
         outputs="mets.ecore#//MDTYPEType/EAD"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//METADATA;XSDAttributeGroupDefinition/XSDAttributeUse/MDTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=3"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//METADATA;XSDAttributeGroupDefinition/XSDAttributeUse/MDTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=3"
         outputs="mets.ecore#//MDTYPEType/DC"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//METADATA;XSDAttributeGroupDefinition/XSDAttributeUse/MDTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=4"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//METADATA;XSDAttributeGroupDefinition/XSDAttributeUse/MDTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=4"
         outputs="mets.ecore#//MDTYPEType/NISOIMG"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//METADATA;XSDAttributeGroupDefinition/XSDAttributeUse/MDTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=5"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//METADATA;XSDAttributeGroupDefinition/XSDAttributeUse/MDTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=5"
         outputs="mets.ecore#//MDTYPEType/LCAV"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//METADATA;XSDAttributeGroupDefinition/XSDAttributeUse/MDTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=6"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//METADATA;XSDAttributeGroupDefinition/XSDAttributeUse/MDTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=6"
         outputs="mets.ecore#//MDTYPEType/VRA"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//METADATA;XSDAttributeGroupDefinition/XSDAttributeUse/MDTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=7"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//METADATA;XSDAttributeGroupDefinition/XSDAttributeUse/MDTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=7"
         outputs="mets.ecore#//MDTYPEType/TEIHDR"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//METADATA;XSDAttributeGroupDefinition/XSDAttributeUse/MDTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=8"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//METADATA;XSDAttributeGroupDefinition/XSDAttributeUse/MDTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=8"
         outputs="mets.ecore#//MDTYPEType/DDI"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//METADATA;XSDAttributeGroupDefinition/XSDAttributeUse/MDTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=9"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//METADATA;XSDAttributeGroupDefinition/XSDAttributeUse/MDTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=9"
         outputs="mets.ecore#//MDTYPEType/FGDC"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//METADATA;XSDAttributeGroupDefinition/XSDAttributeUse/MDTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=10"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//METADATA;XSDAttributeGroupDefinition/XSDAttributeUse/MDTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=10"
         outputs="mets.ecore#//MDTYPEType/LOM"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//METADATA;XSDAttributeGroupDefinition/XSDAttributeUse/MDTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=11"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//METADATA;XSDAttributeGroupDefinition/XSDAttributeUse/MDTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=11"
         outputs="mets.ecore#//MDTYPEType/PREMIS"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//METADATA;XSDAttributeGroupDefinition/XSDAttributeUse/MDTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=12"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//METADATA;XSDAttributeGroupDefinition/XSDAttributeUse/MDTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=12"
         outputs="mets.ecore#//MDTYPEType/PREMISOBJECT"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//METADATA;XSDAttributeGroupDefinition/XSDAttributeUse/MDTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=13"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//METADATA;XSDAttributeGroupDefinition/XSDAttributeUse/MDTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=13"
         outputs="mets.ecore#//MDTYPEType/PREMISAGENT"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//METADATA;XSDAttributeGroupDefinition/XSDAttributeUse/MDTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=14"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//METADATA;XSDAttributeGroupDefinition/XSDAttributeUse/MDTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=14"
         outputs="mets.ecore#//MDTYPEType/PREMISRIGHTS"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//METADATA;XSDAttributeGroupDefinition/XSDAttributeUse/MDTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=15"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//METADATA;XSDAttributeGroupDefinition/XSDAttributeUse/MDTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=15"
         outputs="mets.ecore#//MDTYPEType/PREMISEVENT"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//METADATA;XSDAttributeGroupDefinition/XSDAttributeUse/MDTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=16"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//METADATA;XSDAttributeGroupDefinition/XSDAttributeUse/MDTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=16"
         outputs="mets.ecore#//MDTYPEType/TEXTMD"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//METADATA;XSDAttributeGroupDefinition/XSDAttributeUse/MDTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=17"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//METADATA;XSDAttributeGroupDefinition/XSDAttributeUse/MDTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=17"
         outputs="mets.ecore#//MDTYPEType/METSRIGHTS"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//METADATA;XSDAttributeGroupDefinition/XSDAttributeUse/MDTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=18"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//METADATA;XSDAttributeGroupDefinition/XSDAttributeUse/MDTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=18"
         outputs="mets.ecore#//MDTYPEType/ISO191152003NAP"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//METADATA;XSDAttributeGroupDefinition/XSDAttributeUse/MDTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=19"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//METADATA;XSDAttributeGroupDefinition/XSDAttributeUse/MDTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=19"
         outputs="mets.ecore#//MDTYPEType/OTHER"/>
   </nested>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//METADATA;XSDAttributeGroupDefinition/XSDAttributeUse"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//METADATA;XSDAttributeGroupDefinition/XSDAttributeUse"
       outputs="mets.ecore#//MdRefType/mDTYPE"/>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//METADATA;XSDAttributeGroupDefinition/XSDAttributeUse=2"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//METADATA;XSDAttributeGroupDefinition/XSDAttributeUse=2"
       outputs="mets.ecore#//MdRefType/mDTYPEVERSION"/>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//FILECORE;XSDAttributeGroupDefinition=2/XSDAttributeUse"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//FILECORE;XSDAttributeGroupDefinition=2/XSDAttributeUse"
       outputs="mets.ecore#//MdRefType/mIMETYPE"/>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//LOCATION;XSDAttributeGroupDefinition=1/XSDAttributeUse=1"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//LOCATION;XSDAttributeGroupDefinition=1/XSDAttributeUse=1"
       outputs="mets.ecore#//MdRefType/oTHERLOCTYPE"/>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//METADATA;XSDAttributeGroupDefinition/XSDAttributeUse=1"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//METADATA;XSDAttributeGroupDefinition/XSDAttributeUse=1"
       outputs="mets.ecore#//MdRefType/oTHERMDTYPE"/>
   <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//simpleLink;XSDAttributeGroupDefinition/XSDAttributeUse=2"
       outputs="mets.ecore#//MdRefType/role"/>
@@ -227,85 +227,85 @@
   </nested>
   <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//simpleLink;XSDAttributeGroupDefinition/XSDAttributeUse=5"
       outputs="mets.ecore#//MdRefType/show"/>
-  <nested inputs="bundleentry://278.fwk4354460/cache/www.w3.org/2001/XMLSchema.xsd#//long;XSDSimpleTypeDefinition=43"
+  <nested inputs="bundleentry://902.fwk8106640/cache/www.w3.org/2001/XMLSchema.xsd#//long;XSDSimpleTypeDefinition=43"
       outputs="http://www.eclipse.org/emf/2003/XMLType#//Long"/>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//FILECORE;XSDAttributeGroupDefinition=2/XSDAttributeUse=1"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//FILECORE;XSDAttributeGroupDefinition=2/XSDAttributeUse=1"
       outputs="mets.ecore#//MdRefType/sIZE"/>
   <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//simpleLink;XSDAttributeGroupDefinition/XSDAttributeUse=4"
       outputs="mets.ecore#//MdRefType/title"/>
   <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//simpleLink;XSDAttributeGroupDefinition/XSDAttributeUse"
       outputs="mets.ecore#//MdRefType/type"/>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//mdSecType;XSDComplexTypeDefinition=12/XSDParticle/XSDModelGroup/XSDParticle/mdRef;XSDElementDeclaration/XSDComplexTypeDefinition"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//mdSecType;XSDComplexTypeDefinition=12/XSDParticle/XSDModelGroup/XSDParticle/mdRef;XSDElementDeclaration/XSDComplexTypeDefinition"
       outputs="mets.ecore#//MdRefType">
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//mdSecType;XSDComplexTypeDefinition=12/XSDParticle/XSDModelGroup/XSDParticle/mdRef;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//mdSecType;XSDComplexTypeDefinition=12/XSDParticle/XSDModelGroup/XSDParticle/mdRef;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse"
         outputs="mets.ecore#//MdRefType/iD"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//mdSecType;XSDComplexTypeDefinition=12/XSDParticle/XSDModelGroup/XSDParticle/mdRef;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//mdSecType;XSDComplexTypeDefinition=12/XSDParticle/XSDModelGroup/XSDParticle/mdRef;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1"
         outputs="mets.ecore#//MdRefType/lABEL"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//mdSecType;XSDComplexTypeDefinition=12/XSDParticle/XSDModelGroup/XSDParticle/mdRef;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=2"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//mdSecType;XSDComplexTypeDefinition=12/XSDParticle/XSDModelGroup/XSDParticle/mdRef;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=2"
         outputs="mets.ecore#//MdRefType/xPTR"/>
   </nested>
-  <nested inputs="bundleentry://278.fwk4354460/cache/www.w3.org/2001/XMLSchema.xsd#//base64Binary;XSDSimpleTypeDefinition=24"
+  <nested inputs="bundleentry://902.fwk8106640/cache/www.w3.org/2001/XMLSchema.xsd#//base64Binary;XSDSimpleTypeDefinition=24"
       outputs="http://www.eclipse.org/emf/2003/XMLType#//Base64Binary"/>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//mdSecType;XSDComplexTypeDefinition=12/XSDParticle/XSDModelGroup/XSDParticle=1/mdWrap;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1/xmlData;XSDElementDeclaration/XSDComplexTypeDefinition"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//mdSecType;XSDComplexTypeDefinition=12/XSDParticle/XSDModelGroup/XSDParticle=1/mdWrap;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1/xmlData;XSDElementDeclaration/XSDComplexTypeDefinition"
       outputs="mets.ecore#//XmlDataType1">
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//mdSecType;XSDComplexTypeDefinition=12/XSDParticle/XSDModelGroup/XSDParticle=1/mdWrap;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1/xmlData;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//mdSecType;XSDComplexTypeDefinition=12/XSDParticle/XSDModelGroup/XSDParticle=1/mdWrap;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1/xmlData;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
         outputs="mets.ecore#//XmlDataType1/any"/>
   </nested>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//FILECORE;XSDAttributeGroupDefinition=2/XSDAttributeUse=3"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//FILECORE;XSDAttributeGroupDefinition=2/XSDAttributeUse=3"
       outputs="mets.ecore#//MdWrapType/cHECKSUM"/>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//FILECORE;XSDAttributeGroupDefinition=2/XSDAttributeUse=4"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//FILECORE;XSDAttributeGroupDefinition=2/XSDAttributeUse=4"
       outputs="mets.ecore#//MdWrapType/cHECKSUMTYPE"/>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//FILECORE;XSDAttributeGroupDefinition=2/XSDAttributeUse=2"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//FILECORE;XSDAttributeGroupDefinition=2/XSDAttributeUse=2"
       outputs="mets.ecore#//MdWrapType/cREATED"/>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//METADATA;XSDAttributeGroupDefinition/XSDAttributeUse"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//METADATA;XSDAttributeGroupDefinition/XSDAttributeUse"
       outputs="mets.ecore#//MdWrapType/mDTYPE"/>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//METADATA;XSDAttributeGroupDefinition/XSDAttributeUse=2"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//METADATA;XSDAttributeGroupDefinition/XSDAttributeUse=2"
       outputs="mets.ecore#//MdWrapType/mDTYPEVERSION"/>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//FILECORE;XSDAttributeGroupDefinition=2/XSDAttributeUse"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//FILECORE;XSDAttributeGroupDefinition=2/XSDAttributeUse"
       outputs="mets.ecore#//MdWrapType/mIMETYPE"/>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//METADATA;XSDAttributeGroupDefinition/XSDAttributeUse=1"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//METADATA;XSDAttributeGroupDefinition/XSDAttributeUse=1"
       outputs="mets.ecore#//MdWrapType/oTHERMDTYPE"/>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//FILECORE;XSDAttributeGroupDefinition=2/XSDAttributeUse=1"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//FILECORE;XSDAttributeGroupDefinition=2/XSDAttributeUse=1"
       outputs="mets.ecore#//MdWrapType/sIZE"/>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//mdSecType;XSDComplexTypeDefinition=12/XSDParticle/XSDModelGroup/XSDParticle=1/mdWrap;XSDElementDeclaration/XSDComplexTypeDefinition"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//mdSecType;XSDComplexTypeDefinition=12/XSDParticle/XSDModelGroup/XSDParticle=1/mdWrap;XSDElementDeclaration/XSDComplexTypeDefinition"
       outputs="mets.ecore#//MdWrapType">
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//mdSecType;XSDComplexTypeDefinition=12/XSDParticle/XSDModelGroup/XSDParticle=1/mdWrap;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//mdSecType;XSDComplexTypeDefinition=12/XSDParticle/XSDModelGroup/XSDParticle=1/mdWrap;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
         outputs="mets.ecore#//MdWrapType/binData"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//mdSecType;XSDComplexTypeDefinition=12/XSDParticle/XSDModelGroup/XSDParticle=1/mdWrap;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//mdSecType;XSDComplexTypeDefinition=12/XSDParticle/XSDModelGroup/XSDParticle=1/mdWrap;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1"
         outputs="mets.ecore#//MdWrapType/xmlData"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//mdSecType;XSDComplexTypeDefinition=12/XSDParticle/XSDModelGroup/XSDParticle=1/mdWrap;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//mdSecType;XSDComplexTypeDefinition=12/XSDParticle/XSDModelGroup/XSDParticle=1/mdWrap;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse"
         outputs="mets.ecore#//MdWrapType/iD"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//mdSecType;XSDComplexTypeDefinition=12/XSDParticle/XSDModelGroup/XSDParticle=1/mdWrap;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//mdSecType;XSDComplexTypeDefinition=12/XSDParticle/XSDModelGroup/XSDParticle=1/mdWrap;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1"
         outputs="mets.ecore#//MdWrapType/lABEL"/>
   </nested>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//mdSecType;XSDComplexTypeDefinition=12"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//mdSecType;XSDComplexTypeDefinition=12"
       outputs="mets.ecore#//MdSecType">
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//mdSecType;XSDComplexTypeDefinition=12/XSDParticle/XSDModelGroup/XSDParticle"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//mdSecType;XSDComplexTypeDefinition=12/XSDParticle/XSDModelGroup/XSDParticle"
         outputs="mets.ecore#//MdSecType/mdRef"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//mdSecType;XSDComplexTypeDefinition=12/XSDParticle/XSDModelGroup/XSDParticle=1"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//mdSecType;XSDComplexTypeDefinition=12/XSDParticle/XSDModelGroup/XSDParticle=1"
         outputs="mets.ecore#//MdSecType/mdWrap"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//mdSecType;XSDComplexTypeDefinition=12/XSDAttributeUse=2"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//mdSecType;XSDComplexTypeDefinition=12/XSDAttributeUse=2"
         outputs="mets.ecore#//MdSecType/aDMID"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//mdSecType;XSDComplexTypeDefinition=12/XSDAttributeUse=3"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//mdSecType;XSDComplexTypeDefinition=12/XSDAttributeUse=3"
         outputs="mets.ecore#//MdSecType/cREATED"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//mdSecType;XSDComplexTypeDefinition=12/XSDAttributeUse=1"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//mdSecType;XSDComplexTypeDefinition=12/XSDAttributeUse=1"
         outputs="mets.ecore#//MdSecType/gROUPID"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//mdSecType;XSDComplexTypeDefinition=12/XSDAttributeUse"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//mdSecType;XSDComplexTypeDefinition=12/XSDAttributeUse"
         outputs="mets.ecore#//MdSecType/iD"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//mdSecType;XSDComplexTypeDefinition=12/XSDAttributeUse=4"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//mdSecType;XSDComplexTypeDefinition=12/XSDAttributeUse=4"
         outputs="mets.ecore#//MdSecType/sTATUS"/>
   </nested>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//amdSecType;XSDComplexTypeDefinition=1"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//amdSecType;XSDComplexTypeDefinition=1"
       outputs="mets.ecore#//AmdSecType">
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//amdSecType;XSDComplexTypeDefinition=1/XSDParticle/XSDModelGroup/XSDParticle"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//amdSecType;XSDComplexTypeDefinition=1/XSDParticle/XSDModelGroup/XSDParticle"
         outputs="mets.ecore#//AmdSecType/techMD"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//amdSecType;XSDComplexTypeDefinition=1/XSDParticle/XSDModelGroup/XSDParticle=1"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//amdSecType;XSDComplexTypeDefinition=1/XSDParticle/XSDModelGroup/XSDParticle=1"
         outputs="mets.ecore#//AmdSecType/rightsMD"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//amdSecType;XSDComplexTypeDefinition=1/XSDParticle/XSDModelGroup/XSDParticle=2"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//amdSecType;XSDComplexTypeDefinition=1/XSDParticle/XSDModelGroup/XSDParticle=2"
         outputs="mets.ecore#//AmdSecType/sourceMD"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//amdSecType;XSDComplexTypeDefinition=1/XSDParticle/XSDModelGroup/XSDParticle=3"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//amdSecType;XSDComplexTypeDefinition=1/XSDParticle/XSDModelGroup/XSDParticle=3"
         outputs="mets.ecore#//AmdSecType/digiprovMD"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//amdSecType;XSDComplexTypeDefinition=1/XSDAttributeUse"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//amdSecType;XSDComplexTypeDefinition=1/XSDAttributeUse"
         outputs="mets.ecore#//AmdSecType/iD"/>
   </nested>
   <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//simpleLink;XSDAttributeGroupDefinition/XSDAttributeUse=6"
@@ -314,9 +314,9 @@
       outputs="mets.ecore#//FLocatType/arcrole"/>
   <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//simpleLink;XSDAttributeGroupDefinition/XSDAttributeUse=1"
       outputs="mets.ecore#//FLocatType/href"/>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//LOCATION;XSDAttributeGroupDefinition=1/XSDAttributeUse"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//LOCATION;XSDAttributeGroupDefinition=1/XSDAttributeUse"
       outputs="mets.ecore#//FLocatType/lOCTYPE"/>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//LOCATION;XSDAttributeGroupDefinition=1/XSDAttributeUse=1"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//LOCATION;XSDAttributeGroupDefinition=1/XSDAttributeUse=1"
       outputs="mets.ecore#//FLocatType/oTHERLOCTYPE"/>
   <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//simpleLink;XSDAttributeGroupDefinition/XSDAttributeUse=2"
       outputs="mets.ecore#//FLocatType/role"/>
@@ -326,164 +326,164 @@
       outputs="mets.ecore#//FLocatType/title"/>
   <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//simpleLink;XSDAttributeGroupDefinition/XSDAttributeUse"
       outputs="mets.ecore#//FLocatType/type"/>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle/FLocat;XSDElementDeclaration/XSDComplexTypeDefinition"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle/FLocat;XSDElementDeclaration/XSDComplexTypeDefinition"
       outputs="mets.ecore#//FLocatType">
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle/FLocat;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle/FLocat;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse"
         outputs="mets.ecore#//FLocatType/iD"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle/FLocat;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle/FLocat;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1"
         outputs="mets.ecore#//FLocatType/uSE"/>
   </nested>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle=1/FContent;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1/xmlData;XSDElementDeclaration/XSDComplexTypeDefinition"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle=1/FContent;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1/xmlData;XSDElementDeclaration/XSDComplexTypeDefinition"
       outputs="mets.ecore#//XmlDataType">
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle=1/FContent;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1/xmlData;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle=1/FContent;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1/xmlData;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
         outputs="mets.ecore#//XmlDataType/any"/>
   </nested>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle=1/FContent;XSDElementDeclaration/XSDComplexTypeDefinition"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle=1/FContent;XSDElementDeclaration/XSDComplexTypeDefinition"
       outputs="mets.ecore#//FContentType">
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle=1/FContent;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle=1/FContent;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
         outputs="mets.ecore#//FContentType/binData"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle=1/FContent;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle=1/FContent;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1"
         outputs="mets.ecore#//FContentType/xmlData"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle=1/FContent;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle=1/FContent;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse"
         outputs="mets.ecore#//FContentType/iD"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle=1/FContent;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle=1/FContent;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1"
         outputs="mets.ecore#//FContentType/uSE"/>
   </nested>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle=2/stream;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=7/BETYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle=2/stream;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=7/BETYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition"
       outputs="mets.ecore#//BETYPEType2">
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle=2/stream;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=7/BETYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle=2/stream;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=7/BETYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet"
         outputs="mets.ecore#//BETYPEType2/BYTE"/>
   </nested>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle=2/stream;XSDElementDeclaration/XSDComplexTypeDefinition"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle=2/stream;XSDElementDeclaration/XSDComplexTypeDefinition"
       outputs="mets.ecore#//StreamType">
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle=2/stream;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=3"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle=2/stream;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=3"
         outputs="mets.ecore#//StreamType/aDMID"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle=2/stream;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=5"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle=2/stream;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=5"
         outputs="mets.ecore#//StreamType/bEGIN"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle=2/stream;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=7"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle=2/stream;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=7"
         outputs="mets.ecore#//StreamType/bETYPE"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle=2/stream;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=4"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle=2/stream;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=4"
         outputs="mets.ecore#//StreamType/dMDID"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle=2/stream;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=6"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle=2/stream;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=6"
         outputs="mets.ecore#//StreamType/eND"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle=2/stream;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle=2/stream;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse"
         outputs="mets.ecore#//StreamType/iD"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle=2/stream;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=2"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle=2/stream;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=2"
         outputs="mets.ecore#//StreamType/oWNERID"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle=2/stream;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle=2/stream;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1"
         outputs="mets.ecore#//StreamType/streamType"/>
   </nested>
-  <nested inputs="bundleentry://278.fwk4354460/cache/www.w3.org/2001/XMLSchema.xsd#//IDREF;XSDSimpleTypeDefinition=38"
+  <nested inputs="bundleentry://902.fwk8106640/cache/www.w3.org/2001/XMLSchema.xsd#//IDREF;XSDSimpleTypeDefinition=38"
       outputs="http://www.eclipse.org/emf/2003/XMLType#//IDREF"/>
-  <nested inputs="bundleentry://278.fwk4354460/cache/www.w3.org/2001/XMLSchema.xsd#//positiveInteger;XSDSimpleTypeDefinition=52"
+  <nested inputs="bundleentry://902.fwk8106640/cache/www.w3.org/2001/XMLSchema.xsd#//positiveInteger;XSDSimpleTypeDefinition=52"
       outputs="http://www.eclipse.org/emf/2003/XMLType#//PositiveInteger"/>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle=3/transformFile;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1/TRANSFORMTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle=3/transformFile;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1/TRANSFORMTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition"
       outputs="mets.ecore#//TRANSFORMTYPEType">
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle=3/transformFile;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1/TRANSFORMTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle=3/transformFile;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1/TRANSFORMTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet"
         outputs="mets.ecore#//TRANSFORMTYPEType/decompression"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle=3/transformFile;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1/TRANSFORMTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=1"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle=3/transformFile;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1/TRANSFORMTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=1"
         outputs="mets.ecore#//TRANSFORMTYPEType/decryption"/>
   </nested>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle=3/transformFile;XSDElementDeclaration/XSDComplexTypeDefinition"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle=3/transformFile;XSDElementDeclaration/XSDComplexTypeDefinition"
       outputs="mets.ecore#//TransformFileType">
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle=3/transformFile;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle=3/transformFile;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse"
         outputs="mets.ecore#//TransformFileType/iD"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle=3/transformFile;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=2"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle=3/transformFile;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=2"
         outputs="mets.ecore#//TransformFileType/tRANSFORMALGORITHM"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle=3/transformFile;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=4"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle=3/transformFile;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=4"
         outputs="mets.ecore#//TransformFileType/tRANSFORMBEHAVIOR"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle=3/transformFile;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=3"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle=3/transformFile;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=3"
         outputs="mets.ecore#//TransformFileType/tRANSFORMKEY"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle=3/transformFile;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=5"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle=3/transformFile;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=5"
         outputs="mets.ecore#//TransformFileType/tRANSFORMORDER"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle=3/transformFile;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle=3/transformFile;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1"
         outputs="mets.ecore#//TransformFileType/tRANSFORMTYPE"/>
   </nested>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDAttributeUse=9/BETYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDAttributeUse=9/BETYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition"
       outputs="mets.ecore#//BETYPEType1">
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDAttributeUse=9/BETYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDAttributeUse=9/BETYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet"
         outputs="mets.ecore#//BETYPEType1/BYTE"/>
   </nested>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//FILECORE;XSDAttributeGroupDefinition=2/XSDAttributeUse=3"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//FILECORE;XSDAttributeGroupDefinition=2/XSDAttributeUse=3"
       outputs="mets.ecore#//FileType/cHECKSUM"/>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//FILECORE;XSDAttributeGroupDefinition=2/XSDAttributeUse=4"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//FILECORE;XSDAttributeGroupDefinition=2/XSDAttributeUse=4"
       outputs="mets.ecore#//FileType/cHECKSUMTYPE"/>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//FILECORE;XSDAttributeGroupDefinition=2/XSDAttributeUse=2"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//FILECORE;XSDAttributeGroupDefinition=2/XSDAttributeUse=2"
       outputs="mets.ecore#//FileType/cREATED"/>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//FILECORE;XSDAttributeGroupDefinition=2/XSDAttributeUse"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//FILECORE;XSDAttributeGroupDefinition=2/XSDAttributeUse"
       outputs="mets.ecore#//FileType/mIMETYPE"/>
-  <nested inputs="bundleentry://278.fwk4354460/cache/www.w3.org/2001/XMLSchema.xsd#//int;XSDSimpleTypeDefinition=44"
+  <nested inputs="bundleentry://902.fwk8106640/cache/www.w3.org/2001/XMLSchema.xsd#//int;XSDSimpleTypeDefinition=44"
       outputs="http://www.eclipse.org/emf/2003/XMLType#//Int"/>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//FILECORE;XSDAttributeGroupDefinition=2/XSDAttributeUse=1"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//FILECORE;XSDAttributeGroupDefinition=2/XSDAttributeUse=1"
       outputs="mets.ecore#//FileType/sIZE"/>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//fileType;XSDComplexTypeDefinition=13"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//fileType;XSDComplexTypeDefinition=13"
       outputs="mets.ecore#//FileType">
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle"
         outputs="mets.ecore#//FileType/fLocat"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle=1"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle=1"
         outputs="mets.ecore#//FileType/fContent"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle=2"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle=2"
         outputs="mets.ecore#//FileType/stream"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle=3"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle=3"
         outputs="mets.ecore#//FileType/transformFile"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle=4"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle=4"
         outputs="mets.ecore#//FileType/file"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDAttributeUse=3"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDAttributeUse=3"
         outputs="mets.ecore#//FileType/aDMID"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDAttributeUse=7"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDAttributeUse=7"
         outputs="mets.ecore#//FileType/bEGIN"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDAttributeUse=9"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDAttributeUse=9"
         outputs="mets.ecore#//FileType/bETYPE"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDAttributeUse=4"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDAttributeUse=4"
         outputs="mets.ecore#//FileType/dMDID"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDAttributeUse=8"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDAttributeUse=8"
         outputs="mets.ecore#//FileType/eND"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDAttributeUse=5"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDAttributeUse=5"
         outputs="mets.ecore#//FileType/gROUPID"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDAttributeUse"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDAttributeUse"
         outputs="mets.ecore#//FileType/iD"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDAttributeUse=2"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDAttributeUse=2"
         outputs="mets.ecore#//FileType/oWNERID"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDAttributeUse=1"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDAttributeUse=1"
         outputs="mets.ecore#//FileType/sEQ"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDAttributeUse=6"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDAttributeUse=6"
         outputs="mets.ecore#//FileType/uSE"/>
   </nested>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//fileGrpType;XSDComplexTypeDefinition=2"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//fileGrpType;XSDComplexTypeDefinition=2"
       outputs="mets.ecore#//FileGrpType">
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//fileGrpType;XSDComplexTypeDefinition=2/XSDParticle/XSDModelGroup/XSDParticle"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//fileGrpType;XSDComplexTypeDefinition=2/XSDParticle/XSDModelGroup/XSDParticle"
         outputs="mets.ecore#//FileGrpType/fileGrp"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//fileGrpType;XSDComplexTypeDefinition=2/XSDParticle/XSDModelGroup/XSDParticle=1"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//fileGrpType;XSDComplexTypeDefinition=2/XSDParticle/XSDModelGroup/XSDParticle=1"
         outputs="mets.ecore#//FileGrpType/file"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//fileGrpType;XSDComplexTypeDefinition=2/XSDAttributeUse=2"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//fileGrpType;XSDComplexTypeDefinition=2/XSDAttributeUse=2"
         outputs="mets.ecore#//FileGrpType/aDMID"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//fileGrpType;XSDComplexTypeDefinition=2/XSDAttributeUse"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//fileGrpType;XSDComplexTypeDefinition=2/XSDAttributeUse"
         outputs="mets.ecore#//FileGrpType/iD"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//fileGrpType;XSDComplexTypeDefinition=2/XSDAttributeUse=3"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//fileGrpType;XSDComplexTypeDefinition=2/XSDAttributeUse=3"
         outputs="mets.ecore#//FileGrpType/uSE"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//fileGrpType;XSDComplexTypeDefinition=2/XSDAttributeUse=1"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//fileGrpType;XSDComplexTypeDefinition=2/XSDAttributeUse=1"
         outputs="mets.ecore#//FileGrpType/vERSDATE"/>
   </nested>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=3/fileSec;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/fileGrp;XSDElementDeclaration/XSDComplexTypeDefinition"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=3/fileSec;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/fileGrp;XSDElementDeclaration/XSDComplexTypeDefinition"
       outputs="mets.ecore#//FileGrpType1"/>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=3/fileSec;XSDElementDeclaration/XSDComplexTypeDefinition"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=3/fileSec;XSDElementDeclaration/XSDComplexTypeDefinition"
       outputs="mets.ecore#//FileSecType">
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=3/fileSec;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=3/fileSec;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
         outputs="mets.ecore#//FileSecType/fileGrp"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=3/fileSec;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=3/fileSec;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse"
         outputs="mets.ecore#//FileSecType/iD"/>
   </nested>
   <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//simpleLink;XSDAttributeGroupDefinition/XSDAttributeUse=6"
       outputs="mets.ecore#//MptrType/actuate"/>
   <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//simpleLink;XSDAttributeGroupDefinition/XSDAttributeUse=3"
       outputs="mets.ecore#//MptrType/arcrole"/>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//URIs;XSDSimpleTypeDefinition"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//URIs;XSDSimpleTypeDefinition"
       outputs="mets.ecore#//URIs"/>
   <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//simpleLink;XSDAttributeGroupDefinition/XSDAttributeUse=1"
       outputs="mets.ecore#//MptrType/href"/>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//LOCATION;XSDAttributeGroupDefinition=1/XSDAttributeUse"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//LOCATION;XSDAttributeGroupDefinition=1/XSDAttributeUse"
       outputs="mets.ecore#//MptrType/lOCTYPE"/>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//LOCATION;XSDAttributeGroupDefinition=1/XSDAttributeUse=1"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//LOCATION;XSDAttributeGroupDefinition=1/XSDAttributeUse=1"
       outputs="mets.ecore#//MptrType/oTHERLOCTYPE"/>
   <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//simpleLink;XSDAttributeGroupDefinition/XSDAttributeUse=2"
       outputs="mets.ecore#//MptrType/role"/>
@@ -493,193 +493,193 @@
       outputs="mets.ecore#//MptrType/title"/>
   <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//simpleLink;XSDAttributeGroupDefinition/XSDAttributeUse"
       outputs="mets.ecore#//MptrType/type"/>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//divType;XSDComplexTypeDefinition=4/XSDParticle/XSDModelGroup/XSDParticle/mptr;XSDElementDeclaration/XSDComplexTypeDefinition"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//divType;XSDComplexTypeDefinition=4/XSDParticle/XSDModelGroup/XSDParticle/mptr;XSDElementDeclaration/XSDComplexTypeDefinition"
       outputs="mets.ecore#//MptrType">
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//divType;XSDComplexTypeDefinition=4/XSDParticle/XSDModelGroup/XSDParticle/mptr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//divType;XSDComplexTypeDefinition=4/XSDParticle/XSDModelGroup/XSDParticle/mptr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1"
         outputs="mets.ecore#//MptrType/cONTENTIDS"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//divType;XSDComplexTypeDefinition=4/XSDParticle/XSDModelGroup/XSDParticle/mptr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//divType;XSDComplexTypeDefinition=4/XSDParticle/XSDModelGroup/XSDParticle/mptr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse"
         outputs="mets.ecore#//MptrType/iD"/>
   </nested>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=6/BETYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=6/BETYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition"
       outputs="mets.ecore#//BETYPEType">
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=6/BETYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=6/BETYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet"
         outputs="mets.ecore#//BETYPEType/BYTE"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=6/BETYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=1"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=6/BETYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=1"
         outputs="mets.ecore#//BETYPEType/IDREF"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=6/BETYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=2"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=6/BETYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=2"
         outputs="mets.ecore#//BETYPEType/SMIL"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=6/BETYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=3"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=6/BETYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=3"
         outputs="mets.ecore#//BETYPEType/MIDI"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=6/BETYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=4"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=6/BETYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=4"
         outputs="mets.ecore#//BETYPEType/SMPTE25"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=6/BETYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=5"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=6/BETYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=5"
         outputs="mets.ecore#//BETYPEType/SMPTE24"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=6/BETYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=6"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=6/BETYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=6"
         outputs="mets.ecore#//BETYPEType/SMPTEDF30"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=6/BETYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=7"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=6/BETYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=7"
         outputs="mets.ecore#//BETYPEType/SMPTENDF30"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=6/BETYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=8"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=6/BETYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=8"
         outputs="mets.ecore#//BETYPEType/SMPTEDF2997"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=6/BETYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=9"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=6/BETYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=9"
         outputs="mets.ecore#//BETYPEType/SMPTENDF2997"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=6/BETYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=10"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=6/BETYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=10"
         outputs="mets.ecore#//BETYPEType/TIME"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=6/BETYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=11"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=6/BETYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=11"
         outputs="mets.ecore#//BETYPEType/TCF"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=6/BETYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=12"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=6/BETYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=12"
         outputs="mets.ecore#//BETYPEType/XPTR"/>
   </nested>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=8/EXTTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=8/EXTTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition"
       outputs="mets.ecore#//EXTTYPEType">
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=8/EXTTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=8/EXTTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet"
         outputs="mets.ecore#//EXTTYPEType/BYTE"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=8/EXTTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=1"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=8/EXTTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=1"
         outputs="mets.ecore#//EXTTYPEType/SMIL"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=8/EXTTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=2"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=8/EXTTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=2"
         outputs="mets.ecore#//EXTTYPEType/MIDI"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=8/EXTTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=3"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=8/EXTTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=3"
         outputs="mets.ecore#//EXTTYPEType/SMPTE25"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=8/EXTTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=4"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=8/EXTTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=4"
         outputs="mets.ecore#//EXTTYPEType/SMPTE24"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=8/EXTTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=5"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=8/EXTTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=5"
         outputs="mets.ecore#//EXTTYPEType/SMPTEDF30"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=8/EXTTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=6"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=8/EXTTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=6"
         outputs="mets.ecore#//EXTTYPEType/SMPTENDF30"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=8/EXTTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=7"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=8/EXTTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=7"
         outputs="mets.ecore#//EXTTYPEType/SMPTEDF2997"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=8/EXTTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=8"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=8/EXTTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=8"
         outputs="mets.ecore#//EXTTYPEType/SMPTENDF2997"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=8/EXTTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=9"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=8/EXTTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=9"
         outputs="mets.ecore#//EXTTYPEType/TIME"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=8/EXTTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=10"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=8/EXTTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=10"
         outputs="mets.ecore#//EXTTYPEType/TCF"/>
   </nested>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=2/SHAPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=2/SHAPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition"
       outputs="mets.ecore#//SHAPEType">
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=2/SHAPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=2/SHAPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet"
         outputs="mets.ecore#//SHAPEType/RECT"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=2/SHAPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=1"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=2/SHAPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=1"
         outputs="mets.ecore#//SHAPEType/CIRCLE"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=2/SHAPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=2"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=2/SHAPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=2"
         outputs="mets.ecore#//SHAPEType/POLY"/>
   </nested>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//areaType;XSDComplexTypeDefinition=7"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//areaType;XSDComplexTypeDefinition=7"
       outputs="mets.ecore#//AreaType">
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=9"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=9"
         outputs="mets.ecore#//AreaType/aDMID"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=4"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=4"
         outputs="mets.ecore#//AreaType/bEGIN"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=6"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=6"
         outputs="mets.ecore#//AreaType/bETYPE"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=10"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=10"
         outputs="mets.ecore#//AreaType/cONTENTIDS"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=3"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=3"
         outputs="mets.ecore#//AreaType/cOORDS"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=5"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=5"
         outputs="mets.ecore#//AreaType/eND"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=7"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=7"
         outputs="mets.ecore#//AreaType/eXTENT"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=8"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=8"
         outputs="mets.ecore#//AreaType/eXTTYPE"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=1"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=1"
         outputs="mets.ecore#//AreaType/fILEID"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse"
         outputs="mets.ecore#//AreaType/iD"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=2"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//areaType;XSDComplexTypeDefinition=7/XSDAttributeUse=2"
         outputs="mets.ecore#//AreaType/sHAPE"/>
   </nested>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//seqType;XSDComplexTypeDefinition=6"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//seqType;XSDComplexTypeDefinition=6"
       outputs="mets.ecore#//SeqType">
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//seqType;XSDComplexTypeDefinition=6/XSDParticle"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//seqType;XSDComplexTypeDefinition=6/XSDParticle"
         outputs="mets.ecore#//SeqType/group"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//seqType;XSDComplexTypeDefinition=6/XSDParticle/XSDModelGroup/XSDParticle"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//seqType;XSDComplexTypeDefinition=6/XSDParticle/XSDModelGroup/XSDParticle"
         outputs="mets.ecore#//SeqType/area"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//seqType;XSDComplexTypeDefinition=6/XSDParticle/XSDModelGroup/XSDParticle=1"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//seqType;XSDComplexTypeDefinition=6/XSDParticle/XSDModelGroup/XSDParticle=1"
         outputs="mets.ecore#//SeqType/par"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//seqType;XSDComplexTypeDefinition=6/XSDAttributeUse"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//seqType;XSDComplexTypeDefinition=6/XSDAttributeUse"
         outputs="mets.ecore#//SeqType/iD"/>
   </nested>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//parType;XSDComplexTypeDefinition=5"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//parType;XSDComplexTypeDefinition=5"
       outputs="mets.ecore#//ParType">
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//parType;XSDComplexTypeDefinition=5/XSDParticle"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//parType;XSDComplexTypeDefinition=5/XSDParticle"
         outputs="mets.ecore#//ParType/group"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//parType;XSDComplexTypeDefinition=5/XSDParticle/XSDModelGroup/XSDParticle"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//parType;XSDComplexTypeDefinition=5/XSDParticle/XSDModelGroup/XSDParticle"
         outputs="mets.ecore#//ParType/area"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//parType;XSDComplexTypeDefinition=5/XSDParticle/XSDModelGroup/XSDParticle=1"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//parType;XSDComplexTypeDefinition=5/XSDParticle/XSDModelGroup/XSDParticle=1"
         outputs="mets.ecore#//ParType/seq"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//parType;XSDComplexTypeDefinition=5/XSDAttributeUse"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//parType;XSDComplexTypeDefinition=5/XSDAttributeUse"
         outputs="mets.ecore#//ParType/iD"/>
   </nested>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//divType;XSDComplexTypeDefinition=4/XSDParticle/XSDModelGroup/XSDParticle=1/fptr;XSDElementDeclaration/XSDComplexTypeDefinition"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//divType;XSDComplexTypeDefinition=4/XSDParticle/XSDModelGroup/XSDParticle=1/fptr;XSDElementDeclaration/XSDComplexTypeDefinition"
       outputs="mets.ecore#//FptrType">
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//divType;XSDComplexTypeDefinition=4/XSDParticle/XSDModelGroup/XSDParticle=1/fptr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//divType;XSDComplexTypeDefinition=4/XSDParticle/XSDModelGroup/XSDParticle=1/fptr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
         outputs="mets.ecore#//FptrType/par"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//divType;XSDComplexTypeDefinition=4/XSDParticle/XSDModelGroup/XSDParticle=1/fptr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//divType;XSDComplexTypeDefinition=4/XSDParticle/XSDModelGroup/XSDParticle=1/fptr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1"
         outputs="mets.ecore#//FptrType/seq"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//divType;XSDComplexTypeDefinition=4/XSDParticle/XSDModelGroup/XSDParticle=1/fptr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//divType;XSDComplexTypeDefinition=4/XSDParticle/XSDModelGroup/XSDParticle=1/fptr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2"
         outputs="mets.ecore#//FptrType/area"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//divType;XSDComplexTypeDefinition=4/XSDParticle/XSDModelGroup/XSDParticle=1/fptr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=2"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//divType;XSDComplexTypeDefinition=4/XSDParticle/XSDModelGroup/XSDParticle=1/fptr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=2"
         outputs="mets.ecore#//FptrType/cONTENTIDS"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//divType;XSDComplexTypeDefinition=4/XSDParticle/XSDModelGroup/XSDParticle=1/fptr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//divType;XSDComplexTypeDefinition=4/XSDParticle/XSDModelGroup/XSDParticle=1/fptr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1"
         outputs="mets.ecore#//FptrType/fILEID"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//divType;XSDComplexTypeDefinition=4/XSDParticle/XSDModelGroup/XSDParticle=1/fptr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//divType;XSDComplexTypeDefinition=4/XSDParticle/XSDModelGroup/XSDParticle=1/fptr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse"
         outputs="mets.ecore#//FptrType/iD"/>
   </nested>
-  <nested inputs="bundleentry://278.fwk4354460/cache/www.w3.org/2001/XMLSchema.xsd#//integer;XSDSimpleTypeDefinition=40"
+  <nested inputs="bundleentry://902.fwk8106640/cache/www.w3.org/2001/XMLSchema.xsd#//integer;XSDSimpleTypeDefinition=40"
       outputs="http://www.eclipse.org/emf/2003/XMLType#//Integer"/>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//divType;XSDComplexTypeDefinition=4"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//divType;XSDComplexTypeDefinition=4"
       outputs="mets.ecore#//DivType">
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//divType;XSDComplexTypeDefinition=4/XSDParticle/XSDModelGroup/XSDParticle"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//divType;XSDComplexTypeDefinition=4/XSDParticle/XSDModelGroup/XSDParticle"
         outputs="mets.ecore#//DivType/mptr"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//divType;XSDComplexTypeDefinition=4/XSDParticle/XSDModelGroup/XSDParticle=1"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//divType;XSDComplexTypeDefinition=4/XSDParticle/XSDModelGroup/XSDParticle=1"
         outputs="mets.ecore#//DivType/fptr"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//divType;XSDComplexTypeDefinition=4/XSDParticle/XSDModelGroup/XSDParticle=2"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//divType;XSDComplexTypeDefinition=4/XSDParticle/XSDModelGroup/XSDParticle=2"
         outputs="mets.ecore#//DivType/div"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//divType;XSDComplexTypeDefinition=4/XSDAttributeUse=5"
-        outputs="mets.ecore#//DivType/aDMID"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//divType;XSDComplexTypeDefinition=4/XSDAttributeUse=7"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//divType;XSDComplexTypeDefinition=4/XSDAttributeUse=5"
+        outputs="mets.ecore#//DivType/amdSec"/>
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//divType;XSDComplexTypeDefinition=4/XSDAttributeUse=7"
         outputs="mets.ecore#//DivType/cONTENTIDS"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//divType;XSDComplexTypeDefinition=4/XSDAttributeUse=4"
-        outputs="mets.ecore#//DivType/dMDID"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//divType;XSDComplexTypeDefinition=4/XSDAttributeUse"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//divType;XSDComplexTypeDefinition=4/XSDAttributeUse=4"
+        outputs="mets.ecore#//DivType/dmdSec"/>
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//divType;XSDComplexTypeDefinition=4/XSDAttributeUse"
         outputs="mets.ecore#//DivType/iD"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//divType;XSDComplexTypeDefinition=4/XSDAttributeUse=8"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//divType;XSDComplexTypeDefinition=4/XSDAttributeUse=8"
         outputs="mets.ecore#//DivType/label"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//divType;XSDComplexTypeDefinition=4/XSDAttributeUse=3"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//divType;XSDComplexTypeDefinition=4/XSDAttributeUse=3"
         outputs="mets.ecore#//DivType/lABEL1"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//divType;XSDComplexTypeDefinition=4/XSDAttributeUse=1"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//divType;XSDComplexTypeDefinition=4/XSDAttributeUse=1"
         outputs="mets.ecore#//DivType/oRDER"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//divType;XSDComplexTypeDefinition=4/XSDAttributeUse=2"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//divType;XSDComplexTypeDefinition=4/XSDAttributeUse=2"
         outputs="mets.ecore#//DivType/oRDERLABEL"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//divType;XSDComplexTypeDefinition=4/XSDAttributeUse=6"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//divType;XSDComplexTypeDefinition=4/XSDAttributeUse=6"
         outputs="mets.ecore#//DivType/tYPE"/>
   </nested>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//structMapType;XSDComplexTypeDefinition=3"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//structMapType;XSDComplexTypeDefinition=3"
       outputs="mets.ecore#//StructMapType">
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//structMapType;XSDComplexTypeDefinition=3/XSDParticle/XSDModelGroup/XSDParticle"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//structMapType;XSDComplexTypeDefinition=3/XSDParticle/XSDModelGroup/XSDParticle"
         outputs="mets.ecore#//StructMapType/div"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//structMapType;XSDComplexTypeDefinition=3/XSDAttributeUse"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//structMapType;XSDComplexTypeDefinition=3/XSDAttributeUse"
         outputs="mets.ecore#//StructMapType/iD"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//structMapType;XSDComplexTypeDefinition=3/XSDAttributeUse=2"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//structMapType;XSDComplexTypeDefinition=3/XSDAttributeUse=2"
         outputs="mets.ecore#//StructMapType/lABEL"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//structMapType;XSDComplexTypeDefinition=3/XSDAttributeUse=1"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//structMapType;XSDComplexTypeDefinition=3/XSDAttributeUse=1"
         outputs="mets.ecore#//StructMapType/tYPE"/>
   </nested>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//structLinkType;XSDComplexTypeDefinition=8/XSDParticle/XSDModelGroup/XSDParticle/smLink;XSDElementDeclaration/XSDComplexTypeDefinition"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//structLinkType;XSDComplexTypeDefinition=8/XSDParticle/XSDModelGroup/XSDParticle/smLink;XSDElementDeclaration/XSDComplexTypeDefinition"
       outputs="mets.ecore#//SmLinkType">
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//structLinkType;XSDComplexTypeDefinition=8/XSDParticle/XSDModelGroup/XSDParticle/smLink;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=4"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//structLinkType;XSDComplexTypeDefinition=8/XSDParticle/XSDModelGroup/XSDParticle/smLink;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=4"
         outputs="mets.ecore#//SmLinkType/actuate"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//structLinkType;XSDComplexTypeDefinition=8/XSDParticle/XSDModelGroup/XSDParticle/smLink;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//structLinkType;XSDComplexTypeDefinition=8/XSDParticle/XSDModelGroup/XSDParticle/smLink;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1"
         outputs="mets.ecore#//SmLinkType/arcrole"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//structLinkType;XSDComplexTypeDefinition=8/XSDParticle/XSDModelGroup/XSDParticle/smLink;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=6"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//structLinkType;XSDComplexTypeDefinition=8/XSDParticle/XSDModelGroup/XSDParticle/smLink;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=6"
         outputs="mets.ecore#//SmLinkType/from"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//structLinkType;XSDComplexTypeDefinition=8/XSDParticle/XSDModelGroup/XSDParticle/smLink;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//structLinkType;XSDComplexTypeDefinition=8/XSDParticle/XSDModelGroup/XSDParticle/smLink;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse"
         outputs="mets.ecore#//SmLinkType/iD"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//structLinkType;XSDComplexTypeDefinition=8/XSDParticle/XSDModelGroup/XSDParticle/smLink;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=3"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//structLinkType;XSDComplexTypeDefinition=8/XSDParticle/XSDModelGroup/XSDParticle/smLink;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=3"
         outputs="mets.ecore#//SmLinkType/show"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//structLinkType;XSDComplexTypeDefinition=8/XSDParticle/XSDModelGroup/XSDParticle/smLink;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=2"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//structLinkType;XSDComplexTypeDefinition=8/XSDParticle/XSDModelGroup/XSDParticle/smLink;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=2"
         outputs="mets.ecore#//SmLinkType/title"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//structLinkType;XSDComplexTypeDefinition=8/XSDParticle/XSDModelGroup/XSDParticle/smLink;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=5"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//structLinkType;XSDComplexTypeDefinition=8/XSDParticle/XSDModelGroup/XSDParticle/smLink;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=5"
         outputs="mets.ecore#//SmLinkType/to"/>
   </nested>
   <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//locatorLink;XSDAttributeGroupDefinition=2/XSDAttributeUse=1"
@@ -692,9 +692,9 @@
       outputs="mets.ecore#//SmLocatorLinkType/title"/>
   <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//locatorLink;XSDAttributeGroupDefinition=2/XSDAttributeUse"
       outputs="mets.ecore#//SmLocatorLinkType/type"/>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//structLinkType;XSDComplexTypeDefinition=8/XSDParticle/XSDModelGroup/XSDParticle=1/smLinkGrp;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/smLocatorLink;XSDElementDeclaration/XSDComplexTypeDefinition"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//structLinkType;XSDComplexTypeDefinition=8/XSDParticle/XSDModelGroup/XSDParticle=1/smLinkGrp;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/smLocatorLink;XSDElementDeclaration/XSDComplexTypeDefinition"
       outputs="mets.ecore#//SmLocatorLinkType">
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//structLinkType;XSDComplexTypeDefinition=8/XSDParticle/XSDModelGroup/XSDParticle=1/smLinkGrp;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/smLocatorLink;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//structLinkType;XSDComplexTypeDefinition=8/XSDParticle/XSDModelGroup/XSDParticle=1/smLinkGrp;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/smLocatorLink;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse"
         outputs="mets.ecore#//SmLocatorLinkType/iD"/>
   </nested>
   <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//arcLink;XSDAttributeGroupDefinition=3/XSDAttributeUse=4"
@@ -711,20 +711,20 @@
       outputs="mets.ecore#//SmArcLinkType/to"/>
   <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//arcLink;XSDAttributeGroupDefinition=3/XSDAttributeUse"
       outputs="mets.ecore#//SmArcLinkType/type"/>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//structLinkType;XSDComplexTypeDefinition=8/XSDParticle/XSDModelGroup/XSDParticle=1/smLinkGrp;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1/smArcLink;XSDElementDeclaration/XSDComplexTypeDefinition"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//structLinkType;XSDComplexTypeDefinition=8/XSDParticle/XSDModelGroup/XSDParticle=1/smLinkGrp;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1/smArcLink;XSDElementDeclaration/XSDComplexTypeDefinition"
       outputs="mets.ecore#//SmArcLinkType">
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//structLinkType;XSDComplexTypeDefinition=8/XSDParticle/XSDModelGroup/XSDParticle=1/smLinkGrp;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1/smArcLink;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=2"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//structLinkType;XSDComplexTypeDefinition=8/XSDParticle/XSDModelGroup/XSDParticle=1/smLinkGrp;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1/smArcLink;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=2"
         outputs="mets.ecore#//SmArcLinkType/aDMID"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//structLinkType;XSDComplexTypeDefinition=8/XSDParticle/XSDModelGroup/XSDParticle=1/smLinkGrp;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1/smArcLink;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//structLinkType;XSDComplexTypeDefinition=8/XSDParticle/XSDModelGroup/XSDParticle=1/smLinkGrp;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1/smArcLink;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1"
         outputs="mets.ecore#//SmArcLinkType/aRCTYPE"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//structLinkType;XSDComplexTypeDefinition=8/XSDParticle/XSDModelGroup/XSDParticle=1/smLinkGrp;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1/smArcLink;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//structLinkType;XSDComplexTypeDefinition=8/XSDParticle/XSDModelGroup/XSDParticle=1/smLinkGrp;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1/smArcLink;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse"
         outputs="mets.ecore#//SmArcLinkType/iD"/>
   </nested>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//structLinkType;XSDComplexTypeDefinition=8/XSDParticle/XSDModelGroup/XSDParticle=1/smLinkGrp;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1/ARCLINKORDER;XSDAttributeDeclaration/XSDSimpleTypeDefinition"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//structLinkType;XSDComplexTypeDefinition=8/XSDParticle/XSDModelGroup/XSDParticle=1/smLinkGrp;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1/ARCLINKORDER;XSDAttributeDeclaration/XSDSimpleTypeDefinition"
       outputs="mets.ecore#//ARCLINKORDERType">
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//structLinkType;XSDComplexTypeDefinition=8/XSDParticle/XSDModelGroup/XSDParticle=1/smLinkGrp;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1/ARCLINKORDER;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//structLinkType;XSDComplexTypeDefinition=8/XSDParticle/XSDModelGroup/XSDParticle=1/smLinkGrp;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1/ARCLINKORDER;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet"
         outputs="mets.ecore#//ARCLINKORDERType/ordered"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//structLinkType;XSDComplexTypeDefinition=8/XSDParticle/XSDModelGroup/XSDParticle=1/smLinkGrp;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1/ARCLINKORDER;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=1"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//structLinkType;XSDComplexTypeDefinition=8/XSDParticle/XSDModelGroup/XSDParticle=1/smLinkGrp;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1/ARCLINKORDER;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=1"
         outputs="mets.ecore#//ARCLINKORDERType/unordered"/>
   </nested>
   <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//extendedLink;XSDAttributeGroupDefinition=1/XSDAttributeUse=1"
@@ -733,29 +733,29 @@
       outputs="mets.ecore#//SmLinkGrpType/title"/>
   <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//extendedLink;XSDAttributeGroupDefinition=1/XSDAttributeUse"
       outputs="mets.ecore#//SmLinkGrpType/type"/>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//structLinkType;XSDComplexTypeDefinition=8/XSDParticle/XSDModelGroup/XSDParticle=1/smLinkGrp;XSDElementDeclaration/XSDComplexTypeDefinition"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//structLinkType;XSDComplexTypeDefinition=8/XSDParticle/XSDModelGroup/XSDParticle=1/smLinkGrp;XSDElementDeclaration/XSDComplexTypeDefinition"
       outputs="mets.ecore#//SmLinkGrpType">
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//structLinkType;XSDComplexTypeDefinition=8/XSDParticle/XSDModelGroup/XSDParticle=1/smLinkGrp;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//structLinkType;XSDComplexTypeDefinition=8/XSDParticle/XSDModelGroup/XSDParticle=1/smLinkGrp;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
         outputs="mets.ecore#//SmLinkGrpType/smLocatorLink"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//structLinkType;XSDComplexTypeDefinition=8/XSDParticle/XSDModelGroup/XSDParticle=1/smLinkGrp;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//structLinkType;XSDComplexTypeDefinition=8/XSDParticle/XSDModelGroup/XSDParticle=1/smLinkGrp;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1"
         outputs="mets.ecore#//SmLinkGrpType/smArcLink"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//structLinkType;XSDComplexTypeDefinition=8/XSDParticle/XSDModelGroup/XSDParticle=1/smLinkGrp;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//structLinkType;XSDComplexTypeDefinition=8/XSDParticle/XSDModelGroup/XSDParticle=1/smLinkGrp;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1"
         outputs="mets.ecore#//SmLinkGrpType/aRCLINKORDER"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//structLinkType;XSDComplexTypeDefinition=8/XSDParticle/XSDModelGroup/XSDParticle=1/smLinkGrp;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//structLinkType;XSDComplexTypeDefinition=8/XSDParticle/XSDModelGroup/XSDParticle=1/smLinkGrp;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse"
         outputs="mets.ecore#//SmLinkGrpType/iD"/>
   </nested>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//structLinkType;XSDComplexTypeDefinition=8"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//structLinkType;XSDComplexTypeDefinition=8"
       outputs="mets.ecore#//StructLinkType">
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//structLinkType;XSDComplexTypeDefinition=8/XSDParticle"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//structLinkType;XSDComplexTypeDefinition=8/XSDParticle"
         outputs="mets.ecore#//StructLinkType/group"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//structLinkType;XSDComplexTypeDefinition=8/XSDParticle/XSDModelGroup/XSDParticle"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//structLinkType;XSDComplexTypeDefinition=8/XSDParticle/XSDModelGroup/XSDParticle"
         outputs="mets.ecore#//StructLinkType/smLink"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//structLinkType;XSDComplexTypeDefinition=8/XSDParticle/XSDModelGroup/XSDParticle=1"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//structLinkType;XSDComplexTypeDefinition=8/XSDParticle/XSDModelGroup/XSDParticle=1"
         outputs="mets.ecore#//StructLinkType/smLinkGrp"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//structLinkType;XSDComplexTypeDefinition=8/XSDAttributeUse"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//structLinkType;XSDComplexTypeDefinition=8/XSDAttributeUse"
         outputs="mets.ecore#//StructLinkType/iD"/>
   </nested>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=5/structLink;XSDElementDeclaration/XSDComplexTypeDefinition"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=5/structLink;XSDElementDeclaration/XSDComplexTypeDefinition"
       outputs="mets.ecore#//StructLinkType1"/>
   <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//simpleLink;XSDAttributeGroupDefinition/XSDAttributeUse=6"
       outputs="mets.ecore#//ObjectType/actuate"/>
@@ -763,9 +763,9 @@
       outputs="mets.ecore#//ObjectType/arcrole"/>
   <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//simpleLink;XSDAttributeGroupDefinition/XSDAttributeUse=1"
       outputs="mets.ecore#//ObjectType/href"/>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//LOCATION;XSDAttributeGroupDefinition=1/XSDAttributeUse"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//LOCATION;XSDAttributeGroupDefinition=1/XSDAttributeUse"
       outputs="mets.ecore#//ObjectType/lOCTYPE"/>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//LOCATION;XSDAttributeGroupDefinition=1/XSDAttributeUse=1"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//LOCATION;XSDAttributeGroupDefinition=1/XSDAttributeUse=1"
       outputs="mets.ecore#//ObjectType/oTHERLOCTYPE"/>
   <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//simpleLink;XSDAttributeGroupDefinition/XSDAttributeUse=2"
       outputs="mets.ecore#//ObjectType/role"/>
@@ -775,77 +775,77 @@
       outputs="mets.ecore#//ObjectType/title"/>
   <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//simpleLink;XSDAttributeGroupDefinition/XSDAttributeUse"
       outputs="mets.ecore#//ObjectType/type"/>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//objectType;XSDComplexTypeDefinition=11"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//objectType;XSDComplexTypeDefinition=11"
       outputs="mets.ecore#//ObjectType">
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//objectType;XSDComplexTypeDefinition=11/XSDAttributeUse"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//objectType;XSDComplexTypeDefinition=11/XSDAttributeUse"
         outputs="mets.ecore#//ObjectType/iD"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//objectType;XSDComplexTypeDefinition=11/XSDAttributeUse=1"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//objectType;XSDComplexTypeDefinition=11/XSDAttributeUse=1"
         outputs="mets.ecore#//ObjectType/lABEL"/>
   </nested>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//behaviorType;XSDComplexTypeDefinition=10"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//behaviorType;XSDComplexTypeDefinition=10"
       outputs="mets.ecore#//BehaviorType">
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//behaviorType;XSDComplexTypeDefinition=10/XSDParticle/XSDModelGroup/XSDParticle"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//behaviorType;XSDComplexTypeDefinition=10/XSDParticle/XSDModelGroup/XSDParticle"
         outputs="mets.ecore#//BehaviorType/interfaceDef"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//behaviorType;XSDComplexTypeDefinition=10/XSDParticle/XSDModelGroup/XSDParticle=1"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//behaviorType;XSDComplexTypeDefinition=10/XSDParticle/XSDModelGroup/XSDParticle=1"
         outputs="mets.ecore#//BehaviorType/mechanism"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//behaviorType;XSDComplexTypeDefinition=10/XSDAttributeUse=6"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//behaviorType;XSDComplexTypeDefinition=10/XSDAttributeUse=6"
         outputs="mets.ecore#//BehaviorType/aDMID"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//behaviorType;XSDComplexTypeDefinition=10/XSDAttributeUse=2"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//behaviorType;XSDComplexTypeDefinition=10/XSDAttributeUse=2"
         outputs="mets.ecore#//BehaviorType/bTYPE"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//behaviorType;XSDComplexTypeDefinition=10/XSDAttributeUse=3"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//behaviorType;XSDComplexTypeDefinition=10/XSDAttributeUse=3"
         outputs="mets.ecore#//BehaviorType/cREATED"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//behaviorType;XSDComplexTypeDefinition=10/XSDAttributeUse=5"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//behaviorType;XSDComplexTypeDefinition=10/XSDAttributeUse=5"
         outputs="mets.ecore#//BehaviorType/gROUPID"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//behaviorType;XSDComplexTypeDefinition=10/XSDAttributeUse"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//behaviorType;XSDComplexTypeDefinition=10/XSDAttributeUse"
         outputs="mets.ecore#//BehaviorType/iD"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//behaviorType;XSDComplexTypeDefinition=10/XSDAttributeUse=4"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//behaviorType;XSDComplexTypeDefinition=10/XSDAttributeUse=4"
         outputs="mets.ecore#//BehaviorType/lABEL"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//behaviorType;XSDComplexTypeDefinition=10/XSDAttributeUse=1"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//behaviorType;XSDComplexTypeDefinition=10/XSDAttributeUse=1"
         outputs="mets.ecore#//BehaviorType/sTRUCTID"/>
   </nested>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//behaviorSecType;XSDComplexTypeDefinition=9"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//behaviorSecType;XSDComplexTypeDefinition=9"
       outputs="mets.ecore#//BehaviorSecType">
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//behaviorSecType;XSDComplexTypeDefinition=9/XSDParticle/XSDModelGroup/XSDParticle"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//behaviorSecType;XSDComplexTypeDefinition=9/XSDParticle/XSDModelGroup/XSDParticle"
         outputs="mets.ecore#//BehaviorSecType/behaviorSec"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//behaviorSecType;XSDComplexTypeDefinition=9/XSDParticle/XSDModelGroup/XSDParticle=1"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//behaviorSecType;XSDComplexTypeDefinition=9/XSDParticle/XSDModelGroup/XSDParticle=1"
         outputs="mets.ecore#//BehaviorSecType/behavior"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//behaviorSecType;XSDComplexTypeDefinition=9/XSDAttributeUse=1"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//behaviorSecType;XSDComplexTypeDefinition=9/XSDAttributeUse=1"
         outputs="mets.ecore#//BehaviorSecType/cREATED"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//behaviorSecType;XSDComplexTypeDefinition=9/XSDAttributeUse"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//behaviorSecType;XSDComplexTypeDefinition=9/XSDAttributeUse"
         outputs="mets.ecore#//BehaviorSecType/iD"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//behaviorSecType;XSDComplexTypeDefinition=9/XSDAttributeUse=2"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//behaviorSecType;XSDComplexTypeDefinition=9/XSDAttributeUse=2"
         outputs="mets.ecore#//BehaviorSecType/lABEL"/>
   </nested>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//metsType;XSDComplexTypeDefinition"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//metsType;XSDComplexTypeDefinition"
       outputs="mets.ecore#//MetsType">
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
         outputs="mets.ecore#//MetsType/metsHdr"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1"
         outputs="mets.ecore#//MetsType/dmdSec"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2"
         outputs="mets.ecore#//MetsType/amdSec"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=3"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=3"
         outputs="mets.ecore#//MetsType/fileSec"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=4"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=4"
         outputs="mets.ecore#//MetsType/structMap"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=5"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=5"
         outputs="mets.ecore#//MetsType/structLink"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=6"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=6"
         outputs="mets.ecore#//MetsType/behaviorSec"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDAttributeUse"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDAttributeUse"
         outputs="mets.ecore#//MetsType/iD"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDAttributeUse=2"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDAttributeUse=2"
         outputs="mets.ecore#//MetsType/lABEL"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDAttributeUse=1"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDAttributeUse=1"
         outputs="mets.ecore#//MetsType/oBJID"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDAttributeUse=4"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDAttributeUse=4"
         outputs="mets.ecore#//MetsType/pROFILE"/>
-    <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDAttributeUse=3"
+    <nested inputs="../../curators-workbench/etc/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDAttributeUse=3"
         outputs="mets.ecore#//MetsType/tYPE"/>
   </nested>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//mets;XSDElementDeclaration/XSDComplexTypeDefinition"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//mets;XSDElementDeclaration/XSDComplexTypeDefinition"
       outputs="mets.ecore#//MetsType1"/>
-  <nested inputs="http://www.loc.gov/standards/mets/mets.xsd#//mets;XSDElementDeclaration"
+  <nested inputs="../../curators-workbench/etc/mets.xsd#//mets;XSDElementDeclaration"
       outputs="mets.ecore#//DocumentRoot/mets"/>
   <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//actuate;XSDAttributeDeclaration=5"
       outputs="../../xlink.model/model/xlink.ecore#//DocumentRoot/actuate"/>

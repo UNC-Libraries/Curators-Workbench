@@ -1,17 +1,8 @@
 /**
- * Copyright 2010 The University of North Carolina at Chapel Hill
+ * <copyright>
+ * </copyright>
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *         http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * $Id$
  */
 package gov.loc.mets;
 
@@ -43,9 +34,9 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link gov.loc.mets.DivType#getMptr <em>Mptr</em>}</li>
  *   <li>{@link gov.loc.mets.DivType#getFptr <em>Fptr</em>}</li>
  *   <li>{@link gov.loc.mets.DivType#getDiv <em>Div</em>}</li>
- *   <li>{@link gov.loc.mets.DivType#getADMID <em>ADMID</em>}</li>
+ *   <li>{@link gov.loc.mets.DivType#getAmdSec <em>Amd Sec</em>}</li>
  *   <li>{@link gov.loc.mets.DivType#getCONTENTIDS <em>CONTENTIDS</em>}</li>
- *   <li>{@link gov.loc.mets.DivType#getDMDID <em>DMDID</em>}</li>
+ *   <li>{@link gov.loc.mets.DivType#getDmdSec <em>Dmd Sec</em>}</li>
  *   <li>{@link gov.loc.mets.DivType#getID <em>ID</em>}</li>
  *   <li>{@link gov.loc.mets.DivType#getLabel <em>Label</em>}</li>
  *   <li>{@link gov.loc.mets.DivType#getLABEL1 <em>LABEL1</em>}</li>
@@ -114,31 +105,21 @@ public interface DivType extends EObject {
         EList<DivType> getDiv();
 
         /**
-         * Returns the value of the '<em><b>ADMID</b></em>' attribute.
+         * Returns the value of the '<em><b>Amd Sec</b></em>' reference list.
+         * The list contents are of type {@link gov.loc.mets.AmdSecType}.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * <!-- begin-model-doc -->
          * ADMID (IDREFS/O): Contains the ID attribute values identifying the &lt;rightsMD&gt;, &lt;sourceMD&gt;, &lt;techMD&gt; and/or &lt;digiprovMD&gt; elements within the &lt;amdSec&gt; of the METS document that contain or link to administrative metadata pertaining to the structural division represented by the &lt;div&gt; element. Typically the &lt;div&gt; ADMID attribute would be used to identify the &lt;rightsMD&gt; element or elements that pertain to the &lt;div&gt;, but it could be used anytime there was a need to link a &lt;div&gt; with pertinent administrative metadata. For more information on using METS IDREFS and IDREF type attributes for internal linking, see Chapter 4 of the METS Primer.
          * 				
          * <!-- end-model-doc -->
-         * @return the value of the '<em>ADMID</em>' attribute.
-         * @see #setADMID(List)
-         * @see gov.loc.mets.MetsPackage#getDivType_ADMID()
-         * @model dataType="org.eclipse.emf.ecore.xml.type.IDREFS" many="false"
+         * @return the value of the '<em>Amd Sec</em>' reference list.
+         * @see gov.loc.mets.MetsPackage#getDivType_AmdSec()
+         * @model resolveProxies="false"
          *        extendedMetaData="kind='attribute' name='ADMID'"
          * @generated
          */
-        List<String> getADMID();
-
-        /**
-         * Sets the value of the '{@link gov.loc.mets.DivType#getADMID <em>ADMID</em>}' attribute.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @param value the new value of the '<em>ADMID</em>' attribute.
-         * @see #getADMID()
-         * @generated
-         */
-        void setADMID(List<String> value);
+        EList<AmdSecType> getAmdSec();
 
         /**
          * Returns the value of the '<em><b>CONTENTIDS</b></em>' attribute.
@@ -168,31 +149,21 @@ public interface DivType extends EObject {
         void setCONTENTIDS(List<String> value);
 
         /**
-         * Returns the value of the '<em><b>DMDID</b></em>' attribute.
+         * Returns the value of the '<em><b>Dmd Sec</b></em>' reference list.
+         * The list contents are of type {@link gov.loc.mets.MdSecType}.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * <!-- begin-model-doc -->
          * DMDID (IDREFS/O): Contains the ID attribute values identifying the &lt;dmdSec&gt;, elements in the METS document that contain or link to descriptive metadata pertaining to the structural division represented by the current &lt;div&gt; element.  For more information on using METS IDREFS and IDREF type attributes for internal linking, see Chapter 4 of the METS Primer.
          * 				
          * <!-- end-model-doc -->
-         * @return the value of the '<em>DMDID</em>' attribute.
-         * @see #setDMDID(List)
-         * @see gov.loc.mets.MetsPackage#getDivType_DMDID()
-         * @model dataType="org.eclipse.emf.ecore.xml.type.IDREFS" many="false"
+         * @return the value of the '<em>Dmd Sec</em>' reference list.
+         * @see gov.loc.mets.MetsPackage#getDivType_DmdSec()
+         * @model resolveProxies="false"
          *        extendedMetaData="kind='attribute' name='DMDID'"
          * @generated
          */
-        List<String> getDMDID();
-
-        /**
-         * Sets the value of the '{@link gov.loc.mets.DivType#getDMDID <em>DMDID</em>}' attribute.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @param value the new value of the '<em>DMDID</em>' attribute.
-         * @see #getDMDID()
-         * @generated
-         */
-        void setDMDID(List<String> value);
+        EList<MdSecType> getDmdSec();
 
         /**
          * Returns the value of the '<em><b>ID</b></em>' attribute.

@@ -75,6 +75,15 @@ public class AccessControlTypeImpl extends EObjectImpl implements AccessControlT
         protected XMLGregorianCalendar embargoUntil = EMBARGO_UNTIL_EDEFAULT;
 
         /**
+         * This is true if the Embargo Until attribute has been set.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         * @ordered
+         */
+        protected boolean embargoUntilESet;
+
+        /**
          * The default value of the '{@link #isInherit() <em>Inherit</em>}' attribute.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -151,8 +160,33 @@ public class AccessControlTypeImpl extends EObjectImpl implements AccessControlT
         public void setEmbargoUntil(XMLGregorianCalendar newEmbargoUntil) {
                 XMLGregorianCalendar oldEmbargoUntil = embargoUntil;
                 embargoUntil = newEmbargoUntil;
+                boolean oldEmbargoUntilESet = embargoUntilESet;
+                embargoUntilESet = true;
                 if (eNotificationRequired())
-                        eNotify(new ENotificationImpl(this, Notification.SET, AclPackage.ACCESS_CONTROL_TYPE__EMBARGO_UNTIL, oldEmbargoUntil, embargoUntil));
+                        eNotify(new ENotificationImpl(this, Notification.SET, AclPackage.ACCESS_CONTROL_TYPE__EMBARGO_UNTIL, oldEmbargoUntil, embargoUntil, !oldEmbargoUntilESet));
+        }
+
+        /**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        public void unsetEmbargoUntil() {
+                XMLGregorianCalendar oldEmbargoUntil = embargoUntil;
+                boolean oldEmbargoUntilESet = embargoUntilESet;
+                embargoUntil = EMBARGO_UNTIL_EDEFAULT;
+                embargoUntilESet = false;
+                if (eNotificationRequired())
+                        eNotify(new ENotificationImpl(this, Notification.UNSET, AclPackage.ACCESS_CONTROL_TYPE__EMBARGO_UNTIL, oldEmbargoUntil, EMBARGO_UNTIL_EDEFAULT, oldEmbargoUntilESet));
+        }
+
+        /**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        public boolean isSetEmbargoUntil() {
+                return embargoUntilESet;
         }
 
         /**
@@ -268,7 +302,7 @@ public class AccessControlTypeImpl extends EObjectImpl implements AccessControlT
                                 getGrant().clear();
                                 return;
                         case AclPackage.ACCESS_CONTROL_TYPE__EMBARGO_UNTIL:
-                                setEmbargoUntil(EMBARGO_UNTIL_EDEFAULT);
+                                unsetEmbargoUntil();
                                 return;
                         case AclPackage.ACCESS_CONTROL_TYPE__INHERIT:
                                 unsetInherit();
@@ -288,7 +322,7 @@ public class AccessControlTypeImpl extends EObjectImpl implements AccessControlT
                         case AclPackage.ACCESS_CONTROL_TYPE__GRANT:
                                 return grant != null && !grant.isEmpty();
                         case AclPackage.ACCESS_CONTROL_TYPE__EMBARGO_UNTIL:
-                                return EMBARGO_UNTIL_EDEFAULT == null ? embargoUntil != null : !EMBARGO_UNTIL_EDEFAULT.equals(embargoUntil);
+                                return isSetEmbargoUntil();
                         case AclPackage.ACCESS_CONTROL_TYPE__INHERIT:
                                 return isSetInherit();
                 }
@@ -306,7 +340,7 @@ public class AccessControlTypeImpl extends EObjectImpl implements AccessControlT
 
                 StringBuffer result = new StringBuffer(super.toString());
                 result.append(" (embargoUntil: ");
-                result.append(embargoUntil);
+                if (embargoUntilESet) result.append(embargoUntil); else result.append("<unset>");
                 result.append(", inherit: ");
                 if (inheritESet) result.append(inherit); else result.append("<unset>");
                 result.append(')');
