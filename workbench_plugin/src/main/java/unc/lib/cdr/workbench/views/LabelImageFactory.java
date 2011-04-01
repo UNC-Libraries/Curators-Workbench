@@ -65,6 +65,7 @@ public class LabelImageFactory {
     public static final String USER_EDITED_DECORATOR = "userEdited";
     public static final String CROSSWALKED_DECORATOR = "crosswalked";
     public static final String CROSSWALK_RECORD = "crosswalkRecord";
+    public static final String ACL_DECORATOR = "accessControlled";
 
     public static void initializeImageRegistry(ImageRegistry reg) {
 	putMyImageDefaultResized(PROJECT,"24px-Crystal_Clear_app_ark.png", reg);
@@ -82,6 +83,7 @@ public class LabelImageFactory {
 	putMyImage(USER_EDITED_DECORATOR, "write_obj.gif", reg);
 	putMyImage(CROSSWALKED_DECORATOR, "crosswalk_decor.gif", reg);
 	putMyImage(CROSSWALK_RECORD, "property_obj.gif", reg);
+	putMyImage(ACL_DECORATOR, "key_sm.gif", reg);
     }
 
     private static void putMyImageDefaultResized(String key, String filename, ImageRegistry reg) {

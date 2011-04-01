@@ -43,7 +43,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link gov.loc.mets.impl.DivTypeImpl#getMptr <em>Mptr</em>}</li>
  *   <li>{@link gov.loc.mets.impl.DivTypeImpl#getFptr <em>Fptr</em>}</li>
  *   <li>{@link gov.loc.mets.impl.DivTypeImpl#getDiv <em>Div</em>}</li>
- *   <li>{@link gov.loc.mets.impl.DivTypeImpl#getAmdSec <em>Amd Sec</em>}</li>
+ *   <li>{@link gov.loc.mets.impl.DivTypeImpl#getMdSec <em>Md Sec</em>}</li>
  *   <li>{@link gov.loc.mets.impl.DivTypeImpl#getCONTENTIDS <em>CONTENTIDS</em>}</li>
  *   <li>{@link gov.loc.mets.impl.DivTypeImpl#getDmdSec <em>Dmd Sec</em>}</li>
  *   <li>{@link gov.loc.mets.impl.DivTypeImpl#getID <em>ID</em>}</li>
@@ -89,14 +89,14 @@ public class DivTypeImpl extends EObjectImpl implements DivType {
         protected EList<DivType> div;
 
         /**
-         * The cached value of the '{@link #getAmdSec() <em>Amd Sec</em>}' reference list.
+         * The cached value of the '{@link #getMdSec() <em>Md Sec</em>}' reference list.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getAmdSec()
+         * @see #getMdSec()
          * @generated
          * @ordered
          */
-        protected EList<AmdSecType> amdSec;
+        protected EList<MdSecType> mdSec;
 
         /**
          * The default value of the '{@link #getCONTENTIDS() <em>CONTENTIDS</em>}' attribute.
@@ -308,11 +308,11 @@ public class DivTypeImpl extends EObjectImpl implements DivType {
          * <!-- end-user-doc -->
          * @generated
          */
-        public EList<AmdSecType> getAmdSec() {
-                if (amdSec == null) {
-                        amdSec = new EObjectEList<AmdSecType>(AmdSecType.class, this, MetsPackage.DIV_TYPE__AMD_SEC);
+        public EList<MdSecType> getMdSec() {
+                if (mdSec == null) {
+                        mdSec = new EObjectEList<MdSecType>(MdSecType.class, this, MetsPackage.DIV_TYPE__MD_SEC);
                 }
-                return amdSec;
+                return mdSec;
         }
 
         /**
@@ -506,8 +506,8 @@ public class DivTypeImpl extends EObjectImpl implements DivType {
                                 return getFptr();
                         case MetsPackage.DIV_TYPE__DIV:
                                 return getDiv();
-                        case MetsPackage.DIV_TYPE__AMD_SEC:
-                                return getAmdSec();
+                        case MetsPackage.DIV_TYPE__MD_SEC:
+                                return getMdSec();
                         case MetsPackage.DIV_TYPE__CONTENTIDS:
                                 return getCONTENTIDS();
                         case MetsPackage.DIV_TYPE__DMD_SEC:
@@ -549,9 +549,9 @@ public class DivTypeImpl extends EObjectImpl implements DivType {
                                 getDiv().clear();
                                 getDiv().addAll((Collection<? extends DivType>)newValue);
                                 return;
-                        case MetsPackage.DIV_TYPE__AMD_SEC:
-                                getAmdSec().clear();
-                                getAmdSec().addAll((Collection<? extends AmdSecType>)newValue);
+                        case MetsPackage.DIV_TYPE__MD_SEC:
+                                getMdSec().clear();
+                                getMdSec().addAll((Collection<? extends MdSecType>)newValue);
                                 return;
                         case MetsPackage.DIV_TYPE__CONTENTIDS:
                                 setCONTENTIDS((List<String>)newValue);
@@ -599,8 +599,8 @@ public class DivTypeImpl extends EObjectImpl implements DivType {
                         case MetsPackage.DIV_TYPE__DIV:
                                 getDiv().clear();
                                 return;
-                        case MetsPackage.DIV_TYPE__AMD_SEC:
-                                getAmdSec().clear();
+                        case MetsPackage.DIV_TYPE__MD_SEC:
+                                getMdSec().clear();
                                 return;
                         case MetsPackage.DIV_TYPE__CONTENTIDS:
                                 setCONTENTIDS(CONTENTIDS_EDEFAULT);
@@ -644,8 +644,8 @@ public class DivTypeImpl extends EObjectImpl implements DivType {
                                 return fptr != null && !fptr.isEmpty();
                         case MetsPackage.DIV_TYPE__DIV:
                                 return div != null && !div.isEmpty();
-                        case MetsPackage.DIV_TYPE__AMD_SEC:
-                                return amdSec != null && !amdSec.isEmpty();
+                        case MetsPackage.DIV_TYPE__MD_SEC:
+                                return mdSec != null && !mdSec.isEmpty();
                         case MetsPackage.DIV_TYPE__CONTENTIDS:
                                 return CONTENTIDS_EDEFAULT == null ? cONTENTIDS != null : !CONTENTIDS_EDEFAULT.equals(cONTENTIDS);
                         case MetsPackage.DIV_TYPE__DMD_SEC:

@@ -62,6 +62,8 @@
 		<module>xlink.model.edit</module>
 		<module>org.slf4j.pde</module>
 		<module>target-definition</module>
+		<module>access-control</module>
+		<module>access-control.edit</module>
 	</modules>
 	<build>
 		<plugins>

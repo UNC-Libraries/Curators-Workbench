@@ -17,6 +17,7 @@ package unc.lib.cdr.workbench.accession;
 
 import gov.loc.mets.DivType;
 import gov.loc.mets.MdSecType;
+import gov.loc.mets.MetsPackage;
 import gov.loc.mets.util.METSConstants;
 
 import java.util.HashSet;
@@ -106,6 +107,15 @@ public class OriginalsDecorator implements ILightweightLabelDecorator, IResource
 			decoration.addOverlay(LabelImageFactory
 					.getImageDescriptorForKey(LabelImageFactory.CROSSWALKED_DECORATOR),
 					IDecoration.BOTTOM_LEFT);
+		    }
+		}
+	    }
+	    for(MdSecType md : d.getMdSec()) { // process admin metadata overlays
+		if(md != null) {
+		    if(MetsPackage.eINSTANCE.getAmdSecType_RightsMD().equals(md.eContainingFeature())) {
+			decoration.addOverlay(LabelImageFactory
+					.getImageDescriptorForKey(LabelImageFactory.ACL_DECORATOR),
+					IDecoration.TOP_LEFT);
 		    }
 		}
 	    }

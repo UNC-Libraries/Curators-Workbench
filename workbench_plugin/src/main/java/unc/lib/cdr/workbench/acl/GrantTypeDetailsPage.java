@@ -214,7 +214,7 @@ public class GrantTypeDetailsPage implements IDetailsPage {
 	client.setLayoutData(td);
 
 	toolkit.createLabel(client, "Role"); //$NON-NLS-1$
-	roleCombo = new Combo(client, SWT.SINGLE | SWT.BORDER);
+	roleCombo = new Combo(client, SWT.SINGLE | SWT.BORDER | SWT.READ_ONLY);
 	    //toolkit.createText(client, "", SWT.SINGLE | SWT.BORDER); //$NON-NLS-1$
 	roleCombo.setItems(new String[] {"patron","curator"});
 	roleCombo.addModifyListener(new ModifyListener() {

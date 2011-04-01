@@ -1046,7 +1046,7 @@ public class MetsPackageImpl extends EPackageImpl implements MetsPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        public EReference getDivType_AmdSec() {
+        public EReference getDivType_MdSec() {
                 return (EReference)divTypeEClass.getEStructuralFeatures().get(3);
         }
 
@@ -3492,7 +3492,7 @@ public class MetsPackageImpl extends EPackageImpl implements MetsPackage {
                 createEReference(divTypeEClass, DIV_TYPE__MPTR);
                 createEReference(divTypeEClass, DIV_TYPE__FPTR);
                 createEReference(divTypeEClass, DIV_TYPE__DIV);
-                createEReference(divTypeEClass, DIV_TYPE__AMD_SEC);
+                createEReference(divTypeEClass, DIV_TYPE__MD_SEC);
                 createEAttribute(divTypeEClass, DIV_TYPE__CONTENTIDS);
                 createEReference(divTypeEClass, DIV_TYPE__DMD_SEC);
                 createEAttribute(divTypeEClass, DIV_TYPE__ID);
@@ -3884,7 +3884,7 @@ public class MetsPackageImpl extends EPackageImpl implements MetsPackage {
                 initEReference(getDivType_Mptr(), this.getMptrType(), null, "mptr", null, 0, -1, DivType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
                 initEReference(getDivType_Fptr(), this.getFptrType(), null, "fptr", null, 0, -1, DivType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
                 initEReference(getDivType_Div(), this.getDivType(), null, "div", null, 0, -1, DivType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-                initEReference(getDivType_AmdSec(), this.getAmdSecType(), null, "amdSec", null, 0, -1, DivType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                initEReference(getDivType_MdSec(), this.getMdSecType(), null, "mdSec", null, 0, -1, DivType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
                 initEAttribute(getDivType_CONTENTIDS(), this.getURIs(), "cONTENTIDS", null, 0, 1, DivType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
                 initEReference(getDivType_DmdSec(), this.getMdSecType(), null, "dmdSec", null, 0, -1, DivType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
                 initEAttribute(getDivType_ID(), theXMLTypePackage.getID(), "iD", null, 0, 1, DivType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4720,7 +4720,7 @@ public class MetsPackageImpl extends EPackageImpl implements MetsPackage {
                          "namespace", "##targetNamespace"
                    });			
                 addAnnotation
-                  (getDivType_AmdSec(), 
+                  (getDivType_MdSec(), 
                    source, 
                    new String[] {
                          "kind", "attribute",

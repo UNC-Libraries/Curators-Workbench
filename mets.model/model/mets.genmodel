@@ -182,7 +182,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mets.ecore#//DivType/mptr"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mets.ecore#//DivType/fptr"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mets.ecore#//DivType/div"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference mets.ecore#//DivType/amdSec"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference mets.ecore#//DivType/mdSec"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mets.ecore#//DivType/cONTENTIDS"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference mets.ecore#//DivType/dmdSec"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mets.ecore#//DivType/iD"/>

@@ -699,7 +699,7 @@ to clarify the differences between the ORDER, ORDERLABEL, and LABEL attributes f
 				</xsd:documentation>
 			</xsd:annotation>
 		</xsd:attribute>
-		<xsd:attribute name="ADMID" type="xsd:IDREFS" use="optional" ecore:name="amdSec" ecore:reference="amdSecType" ecore:opposite="div">
+		<xsd:attribute name="ADMID" type="xsd:IDREFS" use="optional" ecore:name="mdSec" ecore:reference="mdSecType" ecore:opposite="div">
 			<xsd:annotation>
 				<xsd:documentation xml:lang="en">ADMID (IDREFS/O): Contains the ID attribute values identifying the &lt;rightsMD&gt;, &lt;sourceMD&gt;, &lt;techMD&gt; and/or &lt;digiprovMD&gt; elements within the &lt;amdSec&gt; of the METS document that contain or link to administrative metadata pertaining to the structural division represented by the &lt;div&gt; element. Typically the &lt;div&gt; ADMID attribute would be used to identify the &lt;rightsMD&gt; element or elements that pertain to the &lt;div&gt;, but it could be used anytime there was a need to link a &lt;div&gt; with pertinent administrative metadata. For more information on using METS IDREFS and IDREF type attributes for internal linking, see Chapter 4 of the METS Primer.
 				</xsd:documentation>

@@ -2,9 +2,9 @@
 <xsd2ecore:XSD2EcoreMappingRoot xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI" xmlns:xsd2ecore="http://www.eclipse.org/emf/2002/XSD2Ecore" inputs="../../curators-workbench/etc/mets.xsd#/ http://www.loc.gov/standards/xlink/xlink.xsd#/"
     outputs="mets.ecore#/ ../../xlink.model/model/xlink.ecore#/" topToBottom="true">
-  <nested inputs="bundleentry://902.fwk8106640/cache/www.w3.org/2001/XMLSchema.xsd#//string;XSDSimpleTypeDefinition=9"
+  <nested inputs="bundleentry://902.fwk17320380/cache/www.w3.org/2001/XMLSchema.xsd#//string;XSDSimpleTypeDefinition=9"
       outputs="http://www.eclipse.org/emf/2003/XMLType#//String"/>
-  <nested inputs="bundleentry://902.fwk8106640/cache/www.w3.org/2001/XMLSchema.xsd#//ID;XSDSimpleTypeDefinition=37"
+  <nested inputs="bundleentry://902.fwk17320380/cache/www.w3.org/2001/XMLSchema.xsd#//ID;XSDSimpleTypeDefinition=37"
       outputs="http://www.eclipse.org/emf/2003/XMLType#//ID"/>
   <nested inputs="../../curators-workbench/etc/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/metsHdr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/agent;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1/ROLE;XSDAttributeDeclaration/XSDSimpleTypeDefinition"
       outputs="mets.ecore#//ROLEType">
@@ -65,9 +65,9 @@
     <nested inputs="../../curators-workbench/etc/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/metsHdr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2/metsDocumentID;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1"
         outputs="mets.ecore#//MetsDocumentIDType/tYPE"/>
   </nested>
-  <nested inputs="bundleentry://902.fwk8106640/cache/www.w3.org/2001/XMLSchema.xsd#//IDREFS;XSDSimpleTypeDefinition=31"
+  <nested inputs="bundleentry://902.fwk17320380/cache/www.w3.org/2001/XMLSchema.xsd#//IDREFS;XSDSimpleTypeDefinition=31"
       outputs="http://www.eclipse.org/emf/2003/XMLType#//IDREFS"/>
-  <nested inputs="bundleentry://902.fwk8106640/cache/www.w3.org/2001/XMLSchema.xsd#//dateTime;XSDSimpleTypeDefinition=15"
+  <nested inputs="bundleentry://902.fwk17320380/cache/www.w3.org/2001/XMLSchema.xsd#//dateTime;XSDSimpleTypeDefinition=15"
       outputs="http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
   <nested inputs="../../curators-workbench/etc/mets.xsd#//metsType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/metsHdr;XSDElementDeclaration/XSDComplexTypeDefinition"
       outputs="mets.ecore#//MetsHdrType">
@@ -134,7 +134,7 @@
       outputs="mets.ecore#//MdRefType/cHECKSUMTYPE"/>
   <nested inputs="../../curators-workbench/etc/mets.xsd#//FILECORE;XSDAttributeGroupDefinition=2/XSDAttributeUse=2"
       outputs="mets.ecore#//MdRefType/cREATED"/>
-  <nested inputs="bundleentry://902.fwk8106640/cache/www.w3.org/2001/XMLSchema.xsd#//anyURI;XSDSimpleTypeDefinition=25"
+  <nested inputs="bundleentry://902.fwk17320380/cache/www.w3.org/2001/XMLSchema.xsd#//anyURI;XSDSimpleTypeDefinition=25"
       outputs="http://www.eclipse.org/emf/2003/XMLType#//AnyURI"/>
   <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//simpleLink;XSDAttributeGroupDefinition/XSDAttributeUse=1"
       outputs="mets.ecore#//MdRefType/href"/>
@@ -227,7 +227,7 @@
   </nested>
   <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//simpleLink;XSDAttributeGroupDefinition/XSDAttributeUse=5"
       outputs="mets.ecore#//MdRefType/show"/>
-  <nested inputs="bundleentry://902.fwk8106640/cache/www.w3.org/2001/XMLSchema.xsd#//long;XSDSimpleTypeDefinition=43"
+  <nested inputs="bundleentry://902.fwk17320380/cache/www.w3.org/2001/XMLSchema.xsd#//long;XSDSimpleTypeDefinition=43"
       outputs="http://www.eclipse.org/emf/2003/XMLType#//Long"/>
   <nested inputs="../../curators-workbench/etc/mets.xsd#//FILECORE;XSDAttributeGroupDefinition=2/XSDAttributeUse=1"
       outputs="mets.ecore#//MdRefType/sIZE"/>
@@ -244,7 +244,7 @@
     <nested inputs="../../curators-workbench/etc/mets.xsd#//mdSecType;XSDComplexTypeDefinition=12/XSDParticle/XSDModelGroup/XSDParticle/mdRef;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=2"
         outputs="mets.ecore#//MdRefType/xPTR"/>
   </nested>
-  <nested inputs="bundleentry://902.fwk8106640/cache/www.w3.org/2001/XMLSchema.xsd#//base64Binary;XSDSimpleTypeDefinition=24"
+  <nested inputs="bundleentry://902.fwk17320380/cache/www.w3.org/2001/XMLSchema.xsd#//base64Binary;XSDSimpleTypeDefinition=24"
       outputs="http://www.eclipse.org/emf/2003/XMLType#//Base64Binary"/>
   <nested inputs="../../curators-workbench/etc/mets.xsd#//mdSecType;XSDComplexTypeDefinition=12/XSDParticle/XSDModelGroup/XSDParticle=1/mdWrap;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1/xmlData;XSDElementDeclaration/XSDComplexTypeDefinition"
       outputs="mets.ecore#//XmlDataType1">
@@ -373,9 +373,9 @@
     <nested inputs="../../curators-workbench/etc/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle=2/stream;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1"
         outputs="mets.ecore#//StreamType/streamType"/>
   </nested>
-  <nested inputs="bundleentry://902.fwk8106640/cache/www.w3.org/2001/XMLSchema.xsd#//IDREF;XSDSimpleTypeDefinition=38"
+  <nested inputs="bundleentry://902.fwk17320380/cache/www.w3.org/2001/XMLSchema.xsd#//IDREF;XSDSimpleTypeDefinition=38"
       outputs="http://www.eclipse.org/emf/2003/XMLType#//IDREF"/>
-  <nested inputs="bundleentry://902.fwk8106640/cache/www.w3.org/2001/XMLSchema.xsd#//positiveInteger;XSDSimpleTypeDefinition=52"
+  <nested inputs="bundleentry://902.fwk17320380/cache/www.w3.org/2001/XMLSchema.xsd#//positiveInteger;XSDSimpleTypeDefinition=52"
       outputs="http://www.eclipse.org/emf/2003/XMLType#//PositiveInteger"/>
   <nested inputs="../../curators-workbench/etc/mets.xsd#//fileType;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle=3/transformFile;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1/TRANSFORMTYPE;XSDAttributeDeclaration/XSDSimpleTypeDefinition"
       outputs="mets.ecore#//TRANSFORMTYPEType">
@@ -412,7 +412,7 @@
       outputs="mets.ecore#//FileType/cREATED"/>
   <nested inputs="../../curators-workbench/etc/mets.xsd#//FILECORE;XSDAttributeGroupDefinition=2/XSDAttributeUse"
       outputs="mets.ecore#//FileType/mIMETYPE"/>
-  <nested inputs="bundleentry://902.fwk8106640/cache/www.w3.org/2001/XMLSchema.xsd#//int;XSDSimpleTypeDefinition=44"
+  <nested inputs="bundleentry://902.fwk17320380/cache/www.w3.org/2001/XMLSchema.xsd#//int;XSDSimpleTypeDefinition=44"
       outputs="http://www.eclipse.org/emf/2003/XMLType#//Int"/>
   <nested inputs="../../curators-workbench/etc/mets.xsd#//FILECORE;XSDAttributeGroupDefinition=2/XSDAttributeUse=1"
       outputs="mets.ecore#//FileType/sIZE"/>
@@ -625,7 +625,7 @@
     <nested inputs="../../curators-workbench/etc/mets.xsd#//divType;XSDComplexTypeDefinition=4/XSDParticle/XSDModelGroup/XSDParticle=1/fptr;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse"
         outputs="mets.ecore#//FptrType/iD"/>
   </nested>
-  <nested inputs="bundleentry://902.fwk8106640/cache/www.w3.org/2001/XMLSchema.xsd#//integer;XSDSimpleTypeDefinition=40"
+  <nested inputs="bundleentry://902.fwk17320380/cache/www.w3.org/2001/XMLSchema.xsd#//integer;XSDSimpleTypeDefinition=40"
       outputs="http://www.eclipse.org/emf/2003/XMLType#//Integer"/>
   <nested inputs="../../curators-workbench/etc/mets.xsd#//divType;XSDComplexTypeDefinition=4"
       outputs="mets.ecore#//DivType">
@@ -636,7 +636,7 @@
     <nested inputs="../../curators-workbench/etc/mets.xsd#//divType;XSDComplexTypeDefinition=4/XSDParticle/XSDModelGroup/XSDParticle=2"
         outputs="mets.ecore#//DivType/div"/>
     <nested inputs="../../curators-workbench/etc/mets.xsd#//divType;XSDComplexTypeDefinition=4/XSDAttributeUse=5"
-        outputs="mets.ecore#//DivType/amdSec"/>
+        outputs="mets.ecore#//DivType/mdSec"/>
     <nested inputs="../../curators-workbench/etc/mets.xsd#//divType;XSDComplexTypeDefinition=4/XSDAttributeUse=7"
         outputs="mets.ecore#//DivType/cONTENTIDS"/>
     <nested inputs="../../curators-workbench/etc/mets.xsd#//divType;XSDComplexTypeDefinition=4/XSDAttributeUse=4"

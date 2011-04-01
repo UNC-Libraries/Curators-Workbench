@@ -131,6 +131,17 @@ public class MappedAttributeItemProvider extends ItemProviderAdapter implements 
         }
 
 /**
+         * This returns MappedAttribute.gif.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        @Override
+        public Object getImage(Object object) {
+                return overlayImage(object, getResourceLocator().getImage("full/obj16/MappedAttribute"));
+        }
+
+/**
      * This adds a property descriptor for the Default Value feature. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *

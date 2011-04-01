@@ -34,7 +34,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link gov.loc.mets.DivType#getMptr <em>Mptr</em>}</li>
  *   <li>{@link gov.loc.mets.DivType#getFptr <em>Fptr</em>}</li>
  *   <li>{@link gov.loc.mets.DivType#getDiv <em>Div</em>}</li>
- *   <li>{@link gov.loc.mets.DivType#getAmdSec <em>Amd Sec</em>}</li>
+ *   <li>{@link gov.loc.mets.DivType#getMdSec <em>Md Sec</em>}</li>
  *   <li>{@link gov.loc.mets.DivType#getCONTENTIDS <em>CONTENTIDS</em>}</li>
  *   <li>{@link gov.loc.mets.DivType#getDmdSec <em>Dmd Sec</em>}</li>
  *   <li>{@link gov.loc.mets.DivType#getID <em>ID</em>}</li>
@@ -105,21 +105,21 @@ public interface DivType extends EObject {
         EList<DivType> getDiv();
 
         /**
-         * Returns the value of the '<em><b>Amd Sec</b></em>' reference list.
-         * The list contents are of type {@link gov.loc.mets.AmdSecType}.
+         * Returns the value of the '<em><b>Md Sec</b></em>' reference list.
+         * The list contents are of type {@link gov.loc.mets.MdSecType}.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * <!-- begin-model-doc -->
          * ADMID (IDREFS/O): Contains the ID attribute values identifying the &lt;rightsMD&gt;, &lt;sourceMD&gt;, &lt;techMD&gt; and/or &lt;digiprovMD&gt; elements within the &lt;amdSec&gt; of the METS document that contain or link to administrative metadata pertaining to the structural division represented by the &lt;div&gt; element. Typically the &lt;div&gt; ADMID attribute would be used to identify the &lt;rightsMD&gt; element or elements that pertain to the &lt;div&gt;, but it could be used anytime there was a need to link a &lt;div&gt; with pertinent administrative metadata. For more information on using METS IDREFS and IDREF type attributes for internal linking, see Chapter 4 of the METS Primer.
          * 				
          * <!-- end-model-doc -->
-         * @return the value of the '<em>Amd Sec</em>' reference list.
-         * @see gov.loc.mets.MetsPackage#getDivType_AmdSec()
+         * @return the value of the '<em>Md Sec</em>' reference list.
+         * @see gov.loc.mets.MetsPackage#getDivType_MdSec()
          * @model resolveProxies="false"
          *        extendedMetaData="kind='attribute' name='ADMID'"
          * @generated
          */
-        EList<AmdSecType> getAmdSec();
+        EList<MdSecType> getMdSec();
 
         /**
          * Returns the value of the '<em><b>CONTENTIDS</b></em>' attribute.

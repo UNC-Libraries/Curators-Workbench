@@ -24,6 +24,7 @@ import gov.loc.mets.MDTYPEType;
 import gov.loc.mets.MdSecType;
 import gov.loc.mets.MdWrapType;
 import gov.loc.mets.MetsFactory;
+import gov.loc.mets.MetsPackage;
 import gov.loc.mets.XmlDataType1;
 import gov.loc.mets.util.METSConstants;
 import gov.loc.mets.util.METSUtils;
@@ -56,30 +57,27 @@ public class EditAccessControlsCommand extends AbstractHandler implements IHandl
 	LOG.debug(String.valueOf(d));
 	MetsProjectNature n = MetsProjectNature.getNatureForMetsObject(d);
 
-	AmdSecType amdSec = null;
-	if (d.getAmdSec().size() > 0) {
-	    amdSec = d.getAmdSec().get(0);
-	} else {
-	    amdSec = MetsFactory.eINSTANCE.createAmdSecType();
-	    amdSec.setID(METSUtils.makeXMLUUID());
-	    // link div to amdSec
-	    d.getAmdSec().add(amdSec);
-	    n.getMets().getAmdSec().add(amdSec);
-	}
-
 	MdSecType rightsSec = null;
-	for (MdSecType md : amdSec.getRightsMD()) {
+	for (MdSecType md : d.getMdSec()) {
 	    if (METSConstants.MD_STATUS_USER_EDITED.equals(md.getSTATUS())) {
-		rightsSec = md;
-		break;
+		if (MetsPackage.eINSTANCE.getAmdSecType_RightsMD().equals(md.eContainingFeature())) {
+		    rightsSec = md;
+		    break;
+		}
 	    }
 	}
+
 	if (rightsSec == null) {
+	    AmdSecType amdSec = MetsFactory.eINSTANCE.createAmdSecType();
+	    n.getMets().getAmdSec().add(amdSec);
+
 	    rightsSec = MetsFactory.eINSTANCE.createMdSecType();
 	    rightsSec.setSTATUS(METSConstants.MD_STATUS_USER_EDITED);
 	    rightsSec.setCREATED(new XMLCalendar(new java.util.Date(System.currentTimeMillis()), XMLCalendar.DATETIME));
 	    rightsSec.setID(METSUtils.makeXMLUUID());
 	    amdSec.getRightsMD().add(rightsSec);
+	    // link div to rightsMD
+	    d.getMdSec().add(rightsSec);
 	}
 
 	AccessControlType acl = null;
@@ -106,7 +104,7 @@ public class EditAccessControlsCommand extends AbstractHandler implements IHandl
 	} catch (CoreException e) {
 	    throw new ExecutionException("There were unexpected problems opening the MODS Editor", e);
 	}
-	ACLEditorInput input = new ACLEditorInput("Access Controls for '"+d.getLABEL1() + "'", acl);
+	ACLEditorInput input = new ACLEditorInput("Access Controls for '" + d.getLABEL1() + "'", acl);
 	IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
 	IWorkbenchPage page = window.getActivePage();
 	try {

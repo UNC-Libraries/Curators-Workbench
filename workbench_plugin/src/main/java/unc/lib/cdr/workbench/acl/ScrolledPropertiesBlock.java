@@ -107,8 +107,8 @@ public class ScrolledPropertiesBlock extends MasterDetailsBlock implements ISele
 	    @Override
 	    public void widgetSelected(SelectionEvent e) {
 		GrantType newGrant = AclFactory.eINSTANCE.createGrantType();
-		newGrant.setGroup("group");
-		newGrant.setRole("role");
+		newGrant.setGroup("public");
+		newGrant.setRole("patron");
 		((ACLEditorInput) page.getEditorInput()).getModel().getGrant().add(newGrant);
 		viewer.refresh();
 	    }

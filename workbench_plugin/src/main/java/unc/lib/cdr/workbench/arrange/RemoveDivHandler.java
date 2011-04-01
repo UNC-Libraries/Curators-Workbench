@@ -147,8 +147,8 @@ public class RemoveDivHandler extends AbstractHandler {
 		toDelete.add(dmd);
 	    }
 	}
-	for (AmdSecType amd : div.getAmdSec()) {
-	    toDelete.add(amd);
+	for (MdSecType md : div.getMdSec()) {
+	    toDelete.add(md);
 	}
 	if (div.getFptr() != null) {
 	    for (FptrType f : div.getFptr()) {

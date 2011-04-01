@@ -573,13 +573,13 @@ public interface MetsPackage extends EPackage {
         int DIV_TYPE__DIV = 2;
 
         /**
-         * The feature id for the '<em><b>Amd Sec</b></em>' reference list.
+         * The feature id for the '<em><b>Md Sec</b></em>' reference list.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          * @ordered
          */
-        int DIV_TYPE__AMD_SEC = 3;
+        int DIV_TYPE__MD_SEC = 3;
 
         /**
          * The feature id for the '<em><b>CONTENTIDS</b></em>' attribute.
@@ -4016,15 +4016,15 @@ public interface MetsPackage extends EPackage {
         EReference getDivType_Div();
 
         /**
-         * Returns the meta object for the reference list '{@link gov.loc.mets.DivType#getAmdSec <em>Amd Sec</em>}'.
+         * Returns the meta object for the reference list '{@link gov.loc.mets.DivType#getMdSec <em>Md Sec</em>}'.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @return the meta object for the reference list '<em>Amd Sec</em>'.
-         * @see gov.loc.mets.DivType#getAmdSec()
+         * @return the meta object for the reference list '<em>Md Sec</em>'.
+         * @see gov.loc.mets.DivType#getMdSec()
          * @see #getDivType()
          * @generated
          */
-        EReference getDivType_AmdSec();
+        EReference getDivType_MdSec();
 
         /**
          * Returns the meta object for the attribute '{@link gov.loc.mets.DivType#getCONTENTIDS <em>CONTENTIDS</em>}'.
@@ -7316,12 +7316,12 @@ public interface MetsPackage extends EPackage {
                 EReference DIV_TYPE__DIV = eINSTANCE.getDivType_Div();
 
                 /**
-                 * The meta object literal for the '<em><b>Amd Sec</b></em>' reference list feature.
+                 * The meta object literal for the '<em><b>Md Sec</b></em>' reference list feature.
                  * <!-- begin-user-doc -->
                  * <!-- end-user-doc -->
                  * @generated
                  */
-                EReference DIV_TYPE__AMD_SEC = eINSTANCE.getDivType_AmdSec();
+                EReference DIV_TYPE__MD_SEC = eINSTANCE.getDivType_MdSec();
 
                 /**
                  * The meta object literal for the '<em><b>CONTENTIDS</b></em>' attribute feature.

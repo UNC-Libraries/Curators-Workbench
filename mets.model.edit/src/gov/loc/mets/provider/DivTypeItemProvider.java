@@ -87,19 +87,19 @@ public class DivTypeItemProvider
         }
 
         /**
-         * This adds a property descriptor for the Amd Sec feature.
+         * This adds a property descriptor for the Md Sec feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        protected void addAmdSecPropertyDescriptor(Object object) {
+        protected void addMdSecPropertyDescriptor(Object object) {
                 itemPropertyDescriptors.add
                         (createItemPropertyDescriptor
                                 (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
                                  getResourceLocator(),
-                                 getString("_UI_DivType_amdSec_feature"),
-                                 getString("_UI_PropertyDescriptor_description", "_UI_DivType_amdSec_feature", "_UI_DivType_type"),
-                                 MetsPackage.Literals.DIV_TYPE__AMD_SEC,
+                                 getString("_UI_DivType_mdSec_feature"),
+                                 getString("_UI_PropertyDescriptor_description", "_UI_DivType_mdSec_feature", "_UI_DivType_type"),
+                                 MetsPackage.Literals.DIV_TYPE__MD_SEC,
                                  true,
                                  false,
                                  true,
@@ -333,14 +333,14 @@ public class DivTypeItemProvider
          * This returns the label text for the adapted class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
+         * @generated NOT
          */
         @Override
         public String getText(Object object) {
                 String label = ((DivType)object).getLABEL1();
                 return label == null || label.length() == 0 ?
                         getString("_UI_DivType_type") :
-                        getString("_UI_DivType_type") + " " + label;
+                        label;
         }
 
         /**
