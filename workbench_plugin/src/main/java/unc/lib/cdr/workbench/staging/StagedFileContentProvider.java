@@ -94,7 +94,7 @@ public class StagedFileContentProvider implements ITreeContentProvider, IResourc
 	if (element instanceof IResource) {
 	    IResource r = (IResource) element;
 	    String[] segments = r.getProjectRelativePath().segments();
-	    if (MetsProjectNature.STAGE_FOLDER_NAME.equals(segments[0]) && segments.length == 2) {
+	    if (segments.length == 2 && MetsProjectNature.STAGE_FOLDER_NAME.equals(segments[0])) {
 		// found a staged folder, return OriginalsProjectElement
 		MetsProjectNature n;
 		try {

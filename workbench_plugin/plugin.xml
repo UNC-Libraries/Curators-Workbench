@@ -135,6 +135,11 @@
             id="cdr-workbench.commandEditAccessControl"
             name="Edit Access Control">
       </command>
+      <command
+            defaultHandler="unc.lib.cdr.workbench.commands.DeleteProjectHandler"
+            id="workbench_plugin.commandDeleteProject"
+            name="Delete Project">
+      </command>
    </extension>
    <extension
          point="org.eclipse.ui.menus">
@@ -449,6 +454,24 @@
                         ifEmpty="false">
                      <instanceof
                            value="gov.loc.mets.DivType">
+                     </instanceof>
+                  </iterate>
+               </with>
+            </visibleWhen>
+         </command>
+         <command
+               commandId="workbench_plugin.commandDeleteProject"
+               label="Delete Project"
+               style="push">
+            <visibleWhen
+                  checkEnabled="false">
+               <with
+                     variable="activeMenuSelection">
+                  <iterate
+                        ifEmpty="false"
+                        operator="or">
+                     <instanceof
+                           value="org.eclipse.core.resources.IProject">
                      </instanceof>
                   </iterate>
                </with>
