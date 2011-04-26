@@ -38,13 +38,13 @@ public class IrodsEFSFileSystem extends FileSystem {
 	/*
 	 * This method retrieves FileStore objects based on the irods scheme. iRODS
 	 * URIs look like this;
-	 * 
+	 *
 	 * irods://myUser:myPassword@myirodshost.org:1247/myDirectory/myFile
-	 * 
+	 *
 	 * If username and/or password are omitted, then store creation will result
 	 * in a prompt for these. The prompt will save username and password as a
 	 * preference under the URI.
-	 * 
+	 *
 	 * @see
 	 * org.eclipse.core.filesystem.provider.FileSystem#getStore(java.net.URI)
 	 */
@@ -61,7 +61,7 @@ public class IrodsEFSFileSystem extends FileSystem {
 	/**
 	 * For this base server URI, save zone, password, username, etc in
 	 * application preferences.
-	 * 
+	 *
 	 * @param a
 	 * @return the server base URI for which connection details are stored
 	 */
@@ -79,26 +79,22 @@ public class IrodsEFSFileSystem extends FileSystem {
 	/**
 	 * For this server URI, load zone, password, username, etc in application
 	 * preferences. Will prompt user if preferences have not been stored.
-	 * 
+	 *
 	 * @param uri
 	 */
 	protected static IRODSAccount getAccount(final URI uri) throws CoreException {
-		System.out.println("get account called");
 		IRODSAccount result = null;
 
 		final String zone = getZone(uri);
 
 		// do we have credentials stored?
 		String[] credentials = getStoredCredentials(uri);
-		System.out.println("found stored credentials: "+ credentials[0] + ":"+credentials[1]);
 
 		if (credentials[0] == null || credentials[1] == null) {
 			System.out.println("No stored credentials");
 			// are there sufficient credentials on the URI?
 			if (uri.getUserInfo() != null && uri.getUserInfo().contains(":")) {
 				// we may have username and password in URI
-				System.out.println("Found credentials in URI: "
-						+ uri.getUserInfo());
 				credentials = uri.getUserInfo().split(":");
 			}
 		}
@@ -119,16 +115,11 @@ public class IrodsEFSFileSystem extends FileSystem {
 					} catch (URISyntaxException e) {
 						throw new Error(e);
 					}
-					System.out.println("prompting for password: "
-							+ serverURI.toString());
 					LoginInputDialog d = new LoginInputDialog(s, message,
 							serverURI, promptName, zone);
 					if (Dialog.OK == d.open()) {
-						System.out.println("got dialog ok");
 						putStoredCredentials(uri, d.getUsername(),
 								d.getPassword());
-					} else {
-						System.out.println("DID NOT GET DIALOG OK");
 					}
 				}
 			});
@@ -207,7 +198,6 @@ public class IrodsEFSFileSystem extends FileSystem {
 		if (pathParts.length > 0) {
 			zone = pathParts[1];
 		}
-		System.out.println("GOT ZONE:"+zone);
 		return zone;
 	}
 }
