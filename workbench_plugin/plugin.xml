@@ -146,21 +146,6 @@
       <menuContribution
             locationURI="menu:org.eclipse.ui.main.menu">
          <menu
-               id="fileMenu"
-               label="Project">
-            <command
-                  commandId="cdr-workbench.CreateProject"
-                  icon="icons/48px-Crystal_Clear_app_kthememgr.png"
-                  label="Create Project"
-                  style="push">
-            </command>
-            <command
-                  commandId="unc.lib.cdr.pw.commands.Exit"
-                  style="push"
-                  tooltip="Exit the workbench">
-            </command>
-         </menu>
-         <menu
                id="help"
                label="Help">
             <command
@@ -491,6 +476,15 @@
                   style="push">
             </command>
          </toolbar>
+      </menuContribution>
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:file?after=additions">
+         <command
+               commandId="unc.lib.cdr.pw.commands.Exit"
+               style="push"
+               tooltip="Exit the workbench">
+         </command>
       </menuContribution>
    </extension>
    <extension
