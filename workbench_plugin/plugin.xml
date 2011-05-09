@@ -485,6 +485,10 @@
                style="push"
                tooltip="Exit the workbench">
          </command>
+         <command
+               commandId="org.eclipse.ui.file.save"
+               style="push">
+         </command>
       </menuContribution>
    </extension>
    <extension

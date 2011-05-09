@@ -34,6 +34,7 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
     private IWorkbenchAction newWizardDropDownAction;
     private IWorkbenchAction aboutAction;
     private IContributionItem newWizardMenu;
+    private IWorkbenchAction saveAction;
 
     public ApplicationActionBarAdvisor(IActionBarConfigurer configurer) {
 	super(configurer);
@@ -45,6 +46,8 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
 	register(newWizardDropDownAction);
 	newWizardMenu = ContributionItemFactory.NEW_WIZARD_SHORTLIST.create(window);
 	aboutAction = ActionFactory.ABOUT.create(window);
+	saveAction = ActionFactory.SAVE.create(window);
+	register(saveAction);
     }
 
     @Override
@@ -64,6 +67,7 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
     protected void fillCoolBar(ICoolBarManager coolBar) {
 	ToolBarManager toolbar = new ToolBarManager(SWT.FLAT);
 	toolbar.add(newWizardDropDownAction);
+	toolbar.add(saveAction);
 	coolBar.add(toolbar);
     }
 
