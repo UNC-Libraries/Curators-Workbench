@@ -503,9 +503,8 @@
       <view
             allowMultiple="false"
             class="unc.lib.cdr.workbench.views.MetsProjectNavigator"
-            icon="icons/24px-Crystal_Clear_app_ark.png"
             id="cdr-workbench.projectview"
-            name="Navigator"
+            name="Project Navigator"
             restorable="true">
       </view>
    </extension>
