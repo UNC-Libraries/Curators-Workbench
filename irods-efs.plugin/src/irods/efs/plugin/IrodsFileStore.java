@@ -202,6 +202,7 @@ public class IrodsFileStore extends FileStore {
 			info.setLastModified(dObject.getUpdatedAt().getTime());
 			info.setLength(dObject.getDataSize());
 			info.setName(dObject.getDataName());
+			info.setStringAttribute(EFS.ATTRIBUTE_LINK_TARGET, dObject.getChecksum());
 			info.setAttribute(EFS.ATTRIBUTE_ARCHIVE, false);
 			info.setAttribute(EFS.ATTRIBUTE_EXECUTABLE, false);
 			info.setAttribute(EFS.ATTRIBUTE_HIDDEN, false);
