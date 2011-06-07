@@ -192,7 +192,7 @@ public class ArrangementContentProvider extends AdapterFactoryContentProvider im
 	private void refresh() {
 		Display.getDefault().asyncExec(new Runnable() {
 			public void run() {
-				if (!viewer.getControl().isDisposed()) {
+				if (viewer != null && viewer.getControl() != null && !viewer.getControl().isDisposed()) {
 					viewer.refresh();
 				}
 			}
