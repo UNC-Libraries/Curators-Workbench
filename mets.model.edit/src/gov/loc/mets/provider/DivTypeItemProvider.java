@@ -19,6 +19,7 @@ package gov.loc.mets.provider;
 import gov.loc.mets.DivType;
 import gov.loc.mets.MetsFactory;
 import gov.loc.mets.MetsPackage;
+import gov.loc.mets.util.METSConstants;
 
 import java.util.Collection;
 import java.util.List;
@@ -53,14 +54,14 @@ public class DivTypeItemProvider
                 IItemLabelProvider,
                 IItemPropertySource {
         /**
-         * This constructs an instance from a factory and a notifier.
-         * <!-- begin-user-doc -->
+	 * This constructs an instance from a factory and a notifier.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public DivTypeItemProvider(AdapterFactory adapterFactory) {
-                super(adapterFactory);
-        }
+		super(adapterFactory);
+	}
 
         /**
          * This returns the property descriptors for the adapted class.
@@ -87,202 +88,202 @@ public class DivTypeItemProvider
         }
 
         /**
-         * This adds a property descriptor for the Md Sec feature.
-         * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Md Sec feature.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected void addMdSecPropertyDescriptor(Object object) {
-                itemPropertyDescriptors.add
-                        (createItemPropertyDescriptor
-                                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                                 getResourceLocator(),
-                                 getString("_UI_DivType_mdSec_feature"),
-                                 getString("_UI_PropertyDescriptor_description", "_UI_DivType_mdSec_feature", "_UI_DivType_type"),
-                                 MetsPackage.Literals.DIV_TYPE__MD_SEC,
-                                 true,
-                                 false,
-                                 true,
-                                 null,
-                                 null,
-                                 null));
-        }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_DivType_mdSec_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DivType_mdSec_feature", "_UI_DivType_type"),
+				 MetsPackage.Literals.DIV_TYPE__MD_SEC,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
 
         /**
-         * This adds a property descriptor for the CONTENTIDS feature.
-         * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the CONTENTIDS feature.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected void addCONTENTIDSPropertyDescriptor(Object object) {
-                itemPropertyDescriptors.add
-                        (createItemPropertyDescriptor
-                                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                                 getResourceLocator(),
-                                 getString("_UI_DivType_cONTENTIDS_feature"),
-                                 getString("_UI_PropertyDescriptor_description", "_UI_DivType_cONTENTIDS_feature", "_UI_DivType_type"),
-                                 MetsPackage.Literals.DIV_TYPE__CONTENTIDS,
-                                 true,
-                                 false,
-                                 false,
-                                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                                 null,
-                                 null));
-        }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_DivType_cONTENTIDS_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DivType_cONTENTIDS_feature", "_UI_DivType_type"),
+				 MetsPackage.Literals.DIV_TYPE__CONTENTIDS,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
         /**
-         * This adds a property descriptor for the Dmd Sec feature.
-         * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Dmd Sec feature.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected void addDmdSecPropertyDescriptor(Object object) {
-                itemPropertyDescriptors.add
-                        (createItemPropertyDescriptor
-                                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                                 getResourceLocator(),
-                                 getString("_UI_DivType_dmdSec_feature"),
-                                 getString("_UI_PropertyDescriptor_description", "_UI_DivType_dmdSec_feature", "_UI_DivType_type"),
-                                 MetsPackage.Literals.DIV_TYPE__DMD_SEC,
-                                 true,
-                                 false,
-                                 true,
-                                 null,
-                                 null,
-                                 null));
-        }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_DivType_dmdSec_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DivType_dmdSec_feature", "_UI_DivType_type"),
+				 MetsPackage.Literals.DIV_TYPE__DMD_SEC,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
 
         /**
-         * This adds a property descriptor for the ID feature.
-         * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the ID feature.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected void addIDPropertyDescriptor(Object object) {
-                itemPropertyDescriptors.add
-                        (createItemPropertyDescriptor
-                                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                                 getResourceLocator(),
-                                 getString("_UI_DivType_iD_feature"),
-                                 getString("_UI_PropertyDescriptor_description", "_UI_DivType_iD_feature", "_UI_DivType_type"),
-                                 MetsPackage.Literals.DIV_TYPE__ID,
-                                 true,
-                                 false,
-                                 false,
-                                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                                 null,
-                                 null));
-        }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_DivType_iD_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DivType_iD_feature", "_UI_DivType_type"),
+				 MetsPackage.Literals.DIV_TYPE__ID,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
         /**
-         * This adds a property descriptor for the Label feature.
-         * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Label feature.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected void addLabelPropertyDescriptor(Object object) {
-                itemPropertyDescriptors.add
-                        (createItemPropertyDescriptor
-                                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                                 getResourceLocator(),
-                                 getString("_UI_DivType_label_feature"),
-                                 getString("_UI_PropertyDescriptor_description", "_UI_DivType_label_feature", "_UI_DivType_type"),
-                                 MetsPackage.Literals.DIV_TYPE__LABEL,
-                                 true,
-                                 false,
-                                 false,
-                                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                                 null,
-                                 null));
-        }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_DivType_label_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DivType_label_feature", "_UI_DivType_type"),
+				 MetsPackage.Literals.DIV_TYPE__LABEL,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
         /**
-         * This adds a property descriptor for the LABEL1 feature.
-         * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the LABEL1 feature.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected void addLABEL1PropertyDescriptor(Object object) {
-                itemPropertyDescriptors.add
-                        (createItemPropertyDescriptor
-                                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                                 getResourceLocator(),
-                                 getString("_UI_DivType_lABEL1_feature"),
-                                 getString("_UI_PropertyDescriptor_description", "_UI_DivType_lABEL1_feature", "_UI_DivType_type"),
-                                 MetsPackage.Literals.DIV_TYPE__LABEL1,
-                                 true,
-                                 false,
-                                 false,
-                                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                                 null,
-                                 null));
-        }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_DivType_lABEL1_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DivType_lABEL1_feature", "_UI_DivType_type"),
+				 MetsPackage.Literals.DIV_TYPE__LABEL1,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
         /**
-         * This adds a property descriptor for the ORDER feature.
-         * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the ORDER feature.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected void addORDERPropertyDescriptor(Object object) {
-                itemPropertyDescriptors.add
-                        (createItemPropertyDescriptor
-                                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                                 getResourceLocator(),
-                                 getString("_UI_DivType_oRDER_feature"),
-                                 getString("_UI_PropertyDescriptor_description", "_UI_DivType_oRDER_feature", "_UI_DivType_type"),
-                                 MetsPackage.Literals.DIV_TYPE__ORDER,
-                                 true,
-                                 false,
-                                 false,
-                                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                                 null,
-                                 null));
-        }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_DivType_oRDER_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DivType_oRDER_feature", "_UI_DivType_type"),
+				 MetsPackage.Literals.DIV_TYPE__ORDER,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
         /**
-         * This adds a property descriptor for the ORDERLABEL feature.
-         * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the ORDERLABEL feature.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected void addORDERLABELPropertyDescriptor(Object object) {
-                itemPropertyDescriptors.add
-                        (createItemPropertyDescriptor
-                                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                                 getResourceLocator(),
-                                 getString("_UI_DivType_oRDERLABEL_feature"),
-                                 getString("_UI_PropertyDescriptor_description", "_UI_DivType_oRDERLABEL_feature", "_UI_DivType_type"),
-                                 MetsPackage.Literals.DIV_TYPE__ORDERLABEL,
-                                 true,
-                                 false,
-                                 false,
-                                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                                 null,
-                                 null));
-        }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_DivType_oRDERLABEL_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DivType_oRDERLABEL_feature", "_UI_DivType_type"),
+				 MetsPackage.Literals.DIV_TYPE__ORDERLABEL,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
         /**
-         * This adds a property descriptor for the TYPE feature.
-         * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the TYPE feature.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected void addTYPEPropertyDescriptor(Object object) {
-                itemPropertyDescriptors.add
-                        (createItemPropertyDescriptor
-                                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                                 getResourceLocator(),
-                                 getString("_UI_DivType_tYPE_feature"),
-                                 getString("_UI_PropertyDescriptor_description", "_UI_DivType_tYPE_feature", "_UI_DivType_type"),
-                                 MetsPackage.Literals.DIV_TYPE__TYPE,
-                                 true,
-                                 false,
-                                 false,
-                                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                                 null,
-                                 null));
-        }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_DivType_tYPE_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DivType_tYPE_feature", "_UI_DivType_type"),
+				 MetsPackage.Literals.DIV_TYPE__TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
         /**
          * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
@@ -306,28 +307,39 @@ public class DivTypeItemProvider
         }
 
 	/**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         protected EStructuralFeature getChildFeature(Object object, Object child) {
-                // Check the type of the specified child object and return the proper feature to use for
-                // adding (see {@link AddCommand}) it as a child.
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
 
-                return super.getChildFeature(object, child);
-        }
+		return super.getChildFeature(object, child);
+	}
 
         /**
-         * This returns DivType.gif.
-         * <!-- begin-user-doc -->
+	 * This returns DivType.gif.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated NOT
+	 */
         @Override
         public Object getImage(Object object) {
-                return overlayImage(object, getResourceLocator().getImage("full/obj16/DivType"));
-        }
+      	  DivType div = (DivType)object;
+      	  if(METSConstants.Div_Collection.equals(div.getTYPE())) {
+      		  return overlayImage(object, getResourceLocator().getImage("full/obj16/CollectionDivType.png"));
+      	  } else if(METSConstants.Div_Disk.equals(div.getTYPE())) {
+      		  return overlayImage(object, getResourceLocator().getImage("full/obj16/DiskDivType.png"));
+      	  } else if(METSConstants.Div_File.equals(div.getTYPE())) {
+      		  return overlayImage(object, getResourceLocator().getImage("full/obj16/FileDivType.png"));
+      	  } else if(METSConstants.Div_Folder.equals(div.getTYPE())) {
+      		  return overlayImage(object, getResourceLocator().getImage("full/obj16/FolderDivType.png"));
+      	  } else {
+      		  return overlayImage(object, getResourceLocator().getImage("full/obj16/DivType"));
+      	  }
+	}
 
         /**
          * This returns the label text for the adapted class.
@@ -344,71 +356,71 @@ public class DivTypeItemProvider
         }
 
         /**
-         * This handles model notifications by calling {@link #updateChildren} to update any cached
-         * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-         * <!-- begin-user-doc -->
+	 * This handles model notifications by calling {@link #updateChildren} to update any cached
+	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public void notifyChanged(Notification notification) {
-                updateChildren(notification);
+		updateChildren(notification);
 
-                switch (notification.getFeatureID(DivType.class)) {
-                        case MetsPackage.DIV_TYPE__CONTENTIDS:
-                        case MetsPackage.DIV_TYPE__ID:
-                        case MetsPackage.DIV_TYPE__LABEL:
-                        case MetsPackage.DIV_TYPE__LABEL1:
-                        case MetsPackage.DIV_TYPE__ORDER:
-                        case MetsPackage.DIV_TYPE__ORDERLABEL:
-                        case MetsPackage.DIV_TYPE__TYPE:
-                                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-                                return;
-                        case MetsPackage.DIV_TYPE__MPTR:
-                        case MetsPackage.DIV_TYPE__FPTR:
-                        case MetsPackage.DIV_TYPE__DIV:
-                                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-                                return;
-                }
-                super.notifyChanged(notification);
-        }
+		switch (notification.getFeatureID(DivType.class)) {
+			case MetsPackage.DIV_TYPE__CONTENTIDS:
+			case MetsPackage.DIV_TYPE__ID:
+			case MetsPackage.DIV_TYPE__LABEL:
+			case MetsPackage.DIV_TYPE__LABEL1:
+			case MetsPackage.DIV_TYPE__ORDER:
+			case MetsPackage.DIV_TYPE__ORDERLABEL:
+			case MetsPackage.DIV_TYPE__TYPE:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+			case MetsPackage.DIV_TYPE__MPTR:
+			case MetsPackage.DIV_TYPE__FPTR:
+			case MetsPackage.DIV_TYPE__DIV:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
+		}
+		super.notifyChanged(notification);
+	}
 
         /**
-         * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-         * that can be created under this object.
-         * <!-- begin-user-doc -->
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
-                super.collectNewChildDescriptors(newChildDescriptors, object);
+		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-                newChildDescriptors.add
-                        (createChildParameter
-                                (MetsPackage.Literals.DIV_TYPE__MPTR,
-                                 MetsFactory.eINSTANCE.createMptrType()));
+		newChildDescriptors.add
+			(createChildParameter
+				(MetsPackage.Literals.DIV_TYPE__MPTR,
+				 MetsFactory.eINSTANCE.createMptrType()));
 
-                newChildDescriptors.add
-                        (createChildParameter
-                                (MetsPackage.Literals.DIV_TYPE__FPTR,
-                                 MetsFactory.eINSTANCE.createFptrType()));
+		newChildDescriptors.add
+			(createChildParameter
+				(MetsPackage.Literals.DIV_TYPE__FPTR,
+				 MetsFactory.eINSTANCE.createFptrType()));
 
-                newChildDescriptors.add
-                        (createChildParameter
-                                (MetsPackage.Literals.DIV_TYPE__DIV,
-                                 MetsFactory.eINSTANCE.createDivType()));
-        }
+		newChildDescriptors.add
+			(createChildParameter
+				(MetsPackage.Literals.DIV_TYPE__DIV,
+				 MetsFactory.eINSTANCE.createDivType()));
+	}
 
         /**
-         * Return the resource locator for this item provider's resources.
-         * <!-- begin-user-doc -->
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public ResourceLocator getResourceLocator() {
-                return MetsEditPlugin.INSTANCE;
-        }
+		return MetsEditPlugin.INSTANCE;
+	}
 
 }

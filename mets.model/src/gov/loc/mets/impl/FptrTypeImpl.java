@@ -43,451 +43,451 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  */
 public class FptrTypeImpl extends EObjectImpl implements FptrType {
         /**
-         * The cached value of the '{@link #getPar() <em>Par</em>}' containment reference.
-         * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getPar() <em>Par</em>}' containment reference.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getPar()
-         * @generated
-         * @ordered
-         */
+	 * @see #getPar()
+	 * @generated
+	 * @ordered
+	 */
         protected ParType par;
 
         /**
-         * The cached value of the '{@link #getSeq() <em>Seq</em>}' containment reference.
-         * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getSeq() <em>Seq</em>}' containment reference.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getSeq()
-         * @generated
-         * @ordered
-         */
+	 * @see #getSeq()
+	 * @generated
+	 * @ordered
+	 */
         protected SeqType seq;
 
         /**
-         * The cached value of the '{@link #getArea() <em>Area</em>}' containment reference.
-         * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getArea() <em>Area</em>}' containment reference.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getArea()
-         * @generated
-         * @ordered
-         */
+	 * @see #getArea()
+	 * @generated
+	 * @ordered
+	 */
         protected AreaType area;
 
         /**
-         * The default value of the '{@link #getCONTENTIDS() <em>CONTENTIDS</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getCONTENTIDS() <em>CONTENTIDS</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getCONTENTIDS()
-         * @generated
-         * @ordered
-         */
+	 * @see #getCONTENTIDS()
+	 * @generated
+	 * @ordered
+	 */
         protected static final List<String> CONTENTIDS_EDEFAULT = null;
 
         /**
-         * The cached value of the '{@link #getCONTENTIDS() <em>CONTENTIDS</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getCONTENTIDS() <em>CONTENTIDS</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getCONTENTIDS()
-         * @generated
-         * @ordered
-         */
+	 * @see #getCONTENTIDS()
+	 * @generated
+	 * @ordered
+	 */
         protected List<String> cONTENTIDS = CONTENTIDS_EDEFAULT;
 
         /**
-         * The default value of the '{@link #getFILEID() <em>FILEID</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getFILEID() <em>FILEID</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getFILEID()
-         * @generated
-         * @ordered
-         */
+	 * @see #getFILEID()
+	 * @generated
+	 * @ordered
+	 */
         protected static final String FILEID_EDEFAULT = null;
 
         /**
-         * The cached value of the '{@link #getFILEID() <em>FILEID</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getFILEID() <em>FILEID</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getFILEID()
-         * @generated
-         * @ordered
-         */
+	 * @see #getFILEID()
+	 * @generated
+	 * @ordered
+	 */
         protected String fILEID = FILEID_EDEFAULT;
 
         /**
-         * The default value of the '{@link #getID() <em>ID</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getID() <em>ID</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getID()
-         * @generated
-         * @ordered
-         */
+	 * @see #getID()
+	 * @generated
+	 * @ordered
+	 */
         protected static final String ID_EDEFAULT = null;
 
         /**
-         * The cached value of the '{@link #getID() <em>ID</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getID() <em>ID</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getID()
-         * @generated
-         * @ordered
-         */
+	 * @see #getID()
+	 * @generated
+	 * @ordered
+	 */
         protected String iD = ID_EDEFAULT;
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected FptrTypeImpl() {
-                super();
-        }
+		super();
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         protected EClass eStaticClass() {
-                return MetsPackage.Literals.FPTR_TYPE;
-        }
+		return MetsPackage.Literals.FPTR_TYPE;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public ParType getPar() {
-                return par;
-        }
+		return par;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public NotificationChain basicSetPar(ParType newPar, NotificationChain msgs) {
-                ParType oldPar = par;
-                par = newPar;
-                if (eNotificationRequired()) {
-                        ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MetsPackage.FPTR_TYPE__PAR, oldPar, newPar);
-                        if (msgs == null) msgs = notification; else msgs.add(notification);
-                }
-                return msgs;
-        }
+		ParType oldPar = par;
+		par = newPar;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MetsPackage.FPTR_TYPE__PAR, oldPar, newPar);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public void setPar(ParType newPar) {
-                if (newPar != par) {
-                        NotificationChain msgs = null;
-                        if (par != null)
-                                msgs = ((InternalEObject)par).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MetsPackage.FPTR_TYPE__PAR, null, msgs);
-                        if (newPar != null)
-                                msgs = ((InternalEObject)newPar).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MetsPackage.FPTR_TYPE__PAR, null, msgs);
-                        msgs = basicSetPar(newPar, msgs);
-                        if (msgs != null) msgs.dispatch();
-                }
-                else if (eNotificationRequired())
-                        eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.FPTR_TYPE__PAR, newPar, newPar));
-        }
+		if (newPar != par) {
+			NotificationChain msgs = null;
+			if (par != null)
+				msgs = ((InternalEObject)par).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MetsPackage.FPTR_TYPE__PAR, null, msgs);
+			if (newPar != null)
+				msgs = ((InternalEObject)newPar).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MetsPackage.FPTR_TYPE__PAR, null, msgs);
+			msgs = basicSetPar(newPar, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.FPTR_TYPE__PAR, newPar, newPar));
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public SeqType getSeq() {
-                return seq;
-        }
+		return seq;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public NotificationChain basicSetSeq(SeqType newSeq, NotificationChain msgs) {
-                SeqType oldSeq = seq;
-                seq = newSeq;
-                if (eNotificationRequired()) {
-                        ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MetsPackage.FPTR_TYPE__SEQ, oldSeq, newSeq);
-                        if (msgs == null) msgs = notification; else msgs.add(notification);
-                }
-                return msgs;
-        }
+		SeqType oldSeq = seq;
+		seq = newSeq;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MetsPackage.FPTR_TYPE__SEQ, oldSeq, newSeq);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public void setSeq(SeqType newSeq) {
-                if (newSeq != seq) {
-                        NotificationChain msgs = null;
-                        if (seq != null)
-                                msgs = ((InternalEObject)seq).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MetsPackage.FPTR_TYPE__SEQ, null, msgs);
-                        if (newSeq != null)
-                                msgs = ((InternalEObject)newSeq).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MetsPackage.FPTR_TYPE__SEQ, null, msgs);
-                        msgs = basicSetSeq(newSeq, msgs);
-                        if (msgs != null) msgs.dispatch();
-                }
-                else if (eNotificationRequired())
-                        eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.FPTR_TYPE__SEQ, newSeq, newSeq));
-        }
+		if (newSeq != seq) {
+			NotificationChain msgs = null;
+			if (seq != null)
+				msgs = ((InternalEObject)seq).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MetsPackage.FPTR_TYPE__SEQ, null, msgs);
+			if (newSeq != null)
+				msgs = ((InternalEObject)newSeq).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MetsPackage.FPTR_TYPE__SEQ, null, msgs);
+			msgs = basicSetSeq(newSeq, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.FPTR_TYPE__SEQ, newSeq, newSeq));
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public AreaType getArea() {
-                return area;
-        }
+		return area;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public NotificationChain basicSetArea(AreaType newArea, NotificationChain msgs) {
-                AreaType oldArea = area;
-                area = newArea;
-                if (eNotificationRequired()) {
-                        ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MetsPackage.FPTR_TYPE__AREA, oldArea, newArea);
-                        if (msgs == null) msgs = notification; else msgs.add(notification);
-                }
-                return msgs;
-        }
+		AreaType oldArea = area;
+		area = newArea;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MetsPackage.FPTR_TYPE__AREA, oldArea, newArea);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public void setArea(AreaType newArea) {
-                if (newArea != area) {
-                        NotificationChain msgs = null;
-                        if (area != null)
-                                msgs = ((InternalEObject)area).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MetsPackage.FPTR_TYPE__AREA, null, msgs);
-                        if (newArea != null)
-                                msgs = ((InternalEObject)newArea).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MetsPackage.FPTR_TYPE__AREA, null, msgs);
-                        msgs = basicSetArea(newArea, msgs);
-                        if (msgs != null) msgs.dispatch();
-                }
-                else if (eNotificationRequired())
-                        eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.FPTR_TYPE__AREA, newArea, newArea));
-        }
+		if (newArea != area) {
+			NotificationChain msgs = null;
+			if (area != null)
+				msgs = ((InternalEObject)area).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MetsPackage.FPTR_TYPE__AREA, null, msgs);
+			if (newArea != null)
+				msgs = ((InternalEObject)newArea).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MetsPackage.FPTR_TYPE__AREA, null, msgs);
+			msgs = basicSetArea(newArea, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.FPTR_TYPE__AREA, newArea, newArea));
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public List<String> getCONTENTIDS() {
-                return cONTENTIDS;
-        }
+		return cONTENTIDS;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public void setCONTENTIDS(List<String> newCONTENTIDS) {
-                List<String> oldCONTENTIDS = cONTENTIDS;
-                cONTENTIDS = newCONTENTIDS;
-                if (eNotificationRequired())
-                        eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.FPTR_TYPE__CONTENTIDS, oldCONTENTIDS, cONTENTIDS));
-        }
+		List<String> oldCONTENTIDS = cONTENTIDS;
+		cONTENTIDS = newCONTENTIDS;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.FPTR_TYPE__CONTENTIDS, oldCONTENTIDS, cONTENTIDS));
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public String getFILEID() {
-                return fILEID;
-        }
+		return fILEID;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public void setFILEID(String newFILEID) {
-                String oldFILEID = fILEID;
-                fILEID = newFILEID;
-                if (eNotificationRequired())
-                        eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.FPTR_TYPE__FILEID, oldFILEID, fILEID));
-        }
+		String oldFILEID = fILEID;
+		fILEID = newFILEID;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.FPTR_TYPE__FILEID, oldFILEID, fILEID));
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public String getID() {
-                return iD;
-        }
+		return iD;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public void setID(String newID) {
-                String oldID = iD;
-                iD = newID;
-                if (eNotificationRequired())
-                        eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.FPTR_TYPE__ID, oldID, iD));
-        }
+		String oldID = iD;
+		iD = newID;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.FPTR_TYPE__ID, oldID, iD));
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-                switch (featureID) {
-                        case MetsPackage.FPTR_TYPE__PAR:
-                                return basicSetPar(null, msgs);
-                        case MetsPackage.FPTR_TYPE__SEQ:
-                                return basicSetSeq(null, msgs);
-                        case MetsPackage.FPTR_TYPE__AREA:
-                                return basicSetArea(null, msgs);
-                }
-                return super.eInverseRemove(otherEnd, featureID, msgs);
-        }
+		switch (featureID) {
+			case MetsPackage.FPTR_TYPE__PAR:
+				return basicSetPar(null, msgs);
+			case MetsPackage.FPTR_TYPE__SEQ:
+				return basicSetSeq(null, msgs);
+			case MetsPackage.FPTR_TYPE__AREA:
+				return basicSetArea(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Object eGet(int featureID, boolean resolve, boolean coreType) {
-                switch (featureID) {
-                        case MetsPackage.FPTR_TYPE__PAR:
-                                return getPar();
-                        case MetsPackage.FPTR_TYPE__SEQ:
-                                return getSeq();
-                        case MetsPackage.FPTR_TYPE__AREA:
-                                return getArea();
-                        case MetsPackage.FPTR_TYPE__CONTENTIDS:
-                                return getCONTENTIDS();
-                        case MetsPackage.FPTR_TYPE__FILEID:
-                                return getFILEID();
-                        case MetsPackage.FPTR_TYPE__ID:
-                                return getID();
-                }
-                return super.eGet(featureID, resolve, coreType);
-        }
+		switch (featureID) {
+			case MetsPackage.FPTR_TYPE__PAR:
+				return getPar();
+			case MetsPackage.FPTR_TYPE__SEQ:
+				return getSeq();
+			case MetsPackage.FPTR_TYPE__AREA:
+				return getArea();
+			case MetsPackage.FPTR_TYPE__CONTENTIDS:
+				return getCONTENTIDS();
+			case MetsPackage.FPTR_TYPE__FILEID:
+				return getFILEID();
+			case MetsPackage.FPTR_TYPE__ID:
+				return getID();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @SuppressWarnings("unchecked")
         @Override
         public void eSet(int featureID, Object newValue) {
-                switch (featureID) {
-                        case MetsPackage.FPTR_TYPE__PAR:
-                                setPar((ParType)newValue);
-                                return;
-                        case MetsPackage.FPTR_TYPE__SEQ:
-                                setSeq((SeqType)newValue);
-                                return;
-                        case MetsPackage.FPTR_TYPE__AREA:
-                                setArea((AreaType)newValue);
-                                return;
-                        case MetsPackage.FPTR_TYPE__CONTENTIDS:
-                                setCONTENTIDS((List<String>)newValue);
-                                return;
-                        case MetsPackage.FPTR_TYPE__FILEID:
-                                setFILEID((String)newValue);
-                                return;
-                        case MetsPackage.FPTR_TYPE__ID:
-                                setID((String)newValue);
-                                return;
-                }
-                super.eSet(featureID, newValue);
-        }
+		switch (featureID) {
+			case MetsPackage.FPTR_TYPE__PAR:
+				setPar((ParType)newValue);
+				return;
+			case MetsPackage.FPTR_TYPE__SEQ:
+				setSeq((SeqType)newValue);
+				return;
+			case MetsPackage.FPTR_TYPE__AREA:
+				setArea((AreaType)newValue);
+				return;
+			case MetsPackage.FPTR_TYPE__CONTENTIDS:
+				setCONTENTIDS((List<String>)newValue);
+				return;
+			case MetsPackage.FPTR_TYPE__FILEID:
+				setFILEID((String)newValue);
+				return;
+			case MetsPackage.FPTR_TYPE__ID:
+				setID((String)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public void eUnset(int featureID) {
-                switch (featureID) {
-                        case MetsPackage.FPTR_TYPE__PAR:
-                                setPar((ParType)null);
-                                return;
-                        case MetsPackage.FPTR_TYPE__SEQ:
-                                setSeq((SeqType)null);
-                                return;
-                        case MetsPackage.FPTR_TYPE__AREA:
-                                setArea((AreaType)null);
-                                return;
-                        case MetsPackage.FPTR_TYPE__CONTENTIDS:
-                                setCONTENTIDS(CONTENTIDS_EDEFAULT);
-                                return;
-                        case MetsPackage.FPTR_TYPE__FILEID:
-                                setFILEID(FILEID_EDEFAULT);
-                                return;
-                        case MetsPackage.FPTR_TYPE__ID:
-                                setID(ID_EDEFAULT);
-                                return;
-                }
-                super.eUnset(featureID);
-        }
+		switch (featureID) {
+			case MetsPackage.FPTR_TYPE__PAR:
+				setPar((ParType)null);
+				return;
+			case MetsPackage.FPTR_TYPE__SEQ:
+				setSeq((SeqType)null);
+				return;
+			case MetsPackage.FPTR_TYPE__AREA:
+				setArea((AreaType)null);
+				return;
+			case MetsPackage.FPTR_TYPE__CONTENTIDS:
+				setCONTENTIDS(CONTENTIDS_EDEFAULT);
+				return;
+			case MetsPackage.FPTR_TYPE__FILEID:
+				setFILEID(FILEID_EDEFAULT);
+				return;
+			case MetsPackage.FPTR_TYPE__ID:
+				setID(ID_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public boolean eIsSet(int featureID) {
-                switch (featureID) {
-                        case MetsPackage.FPTR_TYPE__PAR:
-                                return par != null;
-                        case MetsPackage.FPTR_TYPE__SEQ:
-                                return seq != null;
-                        case MetsPackage.FPTR_TYPE__AREA:
-                                return area != null;
-                        case MetsPackage.FPTR_TYPE__CONTENTIDS:
-                                return CONTENTIDS_EDEFAULT == null ? cONTENTIDS != null : !CONTENTIDS_EDEFAULT.equals(cONTENTIDS);
-                        case MetsPackage.FPTR_TYPE__FILEID:
-                                return FILEID_EDEFAULT == null ? fILEID != null : !FILEID_EDEFAULT.equals(fILEID);
-                        case MetsPackage.FPTR_TYPE__ID:
-                                return ID_EDEFAULT == null ? iD != null : !ID_EDEFAULT.equals(iD);
-                }
-                return super.eIsSet(featureID);
-        }
+		switch (featureID) {
+			case MetsPackage.FPTR_TYPE__PAR:
+				return par != null;
+			case MetsPackage.FPTR_TYPE__SEQ:
+				return seq != null;
+			case MetsPackage.FPTR_TYPE__AREA:
+				return area != null;
+			case MetsPackage.FPTR_TYPE__CONTENTIDS:
+				return CONTENTIDS_EDEFAULT == null ? cONTENTIDS != null : !CONTENTIDS_EDEFAULT.equals(cONTENTIDS);
+			case MetsPackage.FPTR_TYPE__FILEID:
+				return FILEID_EDEFAULT == null ? fILEID != null : !FILEID_EDEFAULT.equals(fILEID);
+			case MetsPackage.FPTR_TYPE__ID:
+				return ID_EDEFAULT == null ? iD != null : !ID_EDEFAULT.equals(iD);
+		}
+		return super.eIsSet(featureID);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public String toString() {
-                if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-                StringBuffer result = new StringBuffer(super.toString());
-                result.append(" (cONTENTIDS: ");
-                result.append(cONTENTIDS);
-                result.append(", fILEID: ");
-                result.append(fILEID);
-                result.append(", iD: ");
-                result.append(iD);
-                result.append(')');
-                return result.toString();
-        }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (cONTENTIDS: ");
+		result.append(cONTENTIDS);
+		result.append(", fILEID: ");
+		result.append(fILEID);
+		result.append(", iD: ");
+		result.append(iD);
+		result.append(')');
+		return result.toString();
+	}
 
 } //FptrTypeImpl

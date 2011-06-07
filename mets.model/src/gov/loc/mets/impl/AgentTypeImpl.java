@@ -45,506 +45,506 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
  */
 public class AgentTypeImpl extends EObjectImpl implements AgentType {
         /**
-         * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getName()
-         * @generated
-         * @ordered
-         */
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
         protected static final String NAME_EDEFAULT = null;
 
         /**
-         * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getName()
-         * @generated
-         * @ordered
-         */
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
         protected String name = NAME_EDEFAULT;
 
         /**
-         * The cached value of the '{@link #getNote() <em>Note</em>}' attribute list.
-         * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getNote() <em>Note</em>}' attribute list.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getNote()
-         * @generated
-         * @ordered
-         */
+	 * @see #getNote()
+	 * @generated
+	 * @ordered
+	 */
         protected EList<String> note;
 
         /**
-         * The default value of the '{@link #getID() <em>ID</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getID() <em>ID</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getID()
-         * @generated
-         * @ordered
-         */
+	 * @see #getID()
+	 * @generated
+	 * @ordered
+	 */
         protected static final String ID_EDEFAULT = null;
 
         /**
-         * The cached value of the '{@link #getID() <em>ID</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getID() <em>ID</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getID()
-         * @generated
-         * @ordered
-         */
+	 * @see #getID()
+	 * @generated
+	 * @ordered
+	 */
         protected String iD = ID_EDEFAULT;
 
         /**
-         * The default value of the '{@link #getOTHERROLE() <em>OTHERROLE</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getOTHERROLE() <em>OTHERROLE</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getOTHERROLE()
-         * @generated
-         * @ordered
-         */
+	 * @see #getOTHERROLE()
+	 * @generated
+	 * @ordered
+	 */
         protected static final String OTHERROLE_EDEFAULT = null;
 
         /**
-         * The cached value of the '{@link #getOTHERROLE() <em>OTHERROLE</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getOTHERROLE() <em>OTHERROLE</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getOTHERROLE()
-         * @generated
-         * @ordered
-         */
+	 * @see #getOTHERROLE()
+	 * @generated
+	 * @ordered
+	 */
         protected String oTHERROLE = OTHERROLE_EDEFAULT;
 
         /**
-         * The default value of the '{@link #getOTHERTYPE() <em>OTHERTYPE</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getOTHERTYPE() <em>OTHERTYPE</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getOTHERTYPE()
-         * @generated
-         * @ordered
-         */
+	 * @see #getOTHERTYPE()
+	 * @generated
+	 * @ordered
+	 */
         protected static final String OTHERTYPE_EDEFAULT = null;
 
         /**
-         * The cached value of the '{@link #getOTHERTYPE() <em>OTHERTYPE</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getOTHERTYPE() <em>OTHERTYPE</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getOTHERTYPE()
-         * @generated
-         * @ordered
-         */
+	 * @see #getOTHERTYPE()
+	 * @generated
+	 * @ordered
+	 */
         protected String oTHERTYPE = OTHERTYPE_EDEFAULT;
 
         /**
-         * The default value of the '{@link #getROLE() <em>ROLE</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getROLE() <em>ROLE</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getROLE()
-         * @generated
-         * @ordered
-         */
+	 * @see #getROLE()
+	 * @generated
+	 * @ordered
+	 */
         protected static final ROLEType ROLE_EDEFAULT = ROLEType.CREATOR;
 
         /**
-         * The cached value of the '{@link #getROLE() <em>ROLE</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getROLE() <em>ROLE</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getROLE()
-         * @generated
-         * @ordered
-         */
+	 * @see #getROLE()
+	 * @generated
+	 * @ordered
+	 */
         protected ROLEType rOLE = ROLE_EDEFAULT;
 
         /**
-         * This is true if the ROLE attribute has been set.
-         * <!-- begin-user-doc -->
+	 * This is true if the ROLE attribute has been set.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         * @ordered
-         */
+	 * @generated
+	 * @ordered
+	 */
         protected boolean rOLEESet;
 
         /**
-         * The default value of the '{@link #getTYPE() <em>TYPE</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getTYPE() <em>TYPE</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getTYPE()
-         * @generated
-         * @ordered
-         */
+	 * @see #getTYPE()
+	 * @generated
+	 * @ordered
+	 */
         protected static final TYPEType TYPE_EDEFAULT = TYPEType.INDIVIDUAL;
 
         /**
-         * The cached value of the '{@link #getTYPE() <em>TYPE</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getTYPE() <em>TYPE</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getTYPE()
-         * @generated
-         * @ordered
-         */
+	 * @see #getTYPE()
+	 * @generated
+	 * @ordered
+	 */
         protected TYPEType tYPE = TYPE_EDEFAULT;
 
         /**
-         * This is true if the TYPE attribute has been set.
-         * <!-- begin-user-doc -->
+	 * This is true if the TYPE attribute has been set.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         * @ordered
-         */
+	 * @generated
+	 * @ordered
+	 */
         protected boolean tYPEESet;
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected AgentTypeImpl() {
-                super();
-        }
+		super();
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         protected EClass eStaticClass() {
-                return MetsPackage.Literals.AGENT_TYPE;
-        }
+		return MetsPackage.Literals.AGENT_TYPE;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public String getName() {
-                return name;
-        }
+		return name;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public void setName(String newName) {
-                String oldName = name;
-                name = newName;
-                if (eNotificationRequired())
-                        eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.AGENT_TYPE__NAME, oldName, name));
-        }
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.AGENT_TYPE__NAME, oldName, name));
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public EList<String> getNote() {
-                if (note == null) {
-                        note = new EDataTypeEList<String>(String.class, this, MetsPackage.AGENT_TYPE__NOTE);
-                }
-                return note;
-        }
+		if (note == null) {
+			note = new EDataTypeEList<String>(String.class, this, MetsPackage.AGENT_TYPE__NOTE);
+		}
+		return note;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public String getID() {
-                return iD;
-        }
+		return iD;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public void setID(String newID) {
-                String oldID = iD;
-                iD = newID;
-                if (eNotificationRequired())
-                        eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.AGENT_TYPE__ID, oldID, iD));
-        }
+		String oldID = iD;
+		iD = newID;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.AGENT_TYPE__ID, oldID, iD));
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public String getOTHERROLE() {
-                return oTHERROLE;
-        }
+		return oTHERROLE;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public void setOTHERROLE(String newOTHERROLE) {
-                String oldOTHERROLE = oTHERROLE;
-                oTHERROLE = newOTHERROLE;
-                if (eNotificationRequired())
-                        eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.AGENT_TYPE__OTHERROLE, oldOTHERROLE, oTHERROLE));
-        }
+		String oldOTHERROLE = oTHERROLE;
+		oTHERROLE = newOTHERROLE;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.AGENT_TYPE__OTHERROLE, oldOTHERROLE, oTHERROLE));
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public String getOTHERTYPE() {
-                return oTHERTYPE;
-        }
+		return oTHERTYPE;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public void setOTHERTYPE(String newOTHERTYPE) {
-                String oldOTHERTYPE = oTHERTYPE;
-                oTHERTYPE = newOTHERTYPE;
-                if (eNotificationRequired())
-                        eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.AGENT_TYPE__OTHERTYPE, oldOTHERTYPE, oTHERTYPE));
-        }
+		String oldOTHERTYPE = oTHERTYPE;
+		oTHERTYPE = newOTHERTYPE;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.AGENT_TYPE__OTHERTYPE, oldOTHERTYPE, oTHERTYPE));
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public ROLEType getROLE() {
-                return rOLE;
-        }
+		return rOLE;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public void setROLE(ROLEType newROLE) {
-                ROLEType oldROLE = rOLE;
-                rOLE = newROLE == null ? ROLE_EDEFAULT : newROLE;
-                boolean oldROLEESet = rOLEESet;
-                rOLEESet = true;
-                if (eNotificationRequired())
-                        eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.AGENT_TYPE__ROLE, oldROLE, rOLE, !oldROLEESet));
-        }
+		ROLEType oldROLE = rOLE;
+		rOLE = newROLE == null ? ROLE_EDEFAULT : newROLE;
+		boolean oldROLEESet = rOLEESet;
+		rOLEESet = true;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.AGENT_TYPE__ROLE, oldROLE, rOLE, !oldROLEESet));
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public void unsetROLE() {
-                ROLEType oldROLE = rOLE;
-                boolean oldROLEESet = rOLEESet;
-                rOLE = ROLE_EDEFAULT;
-                rOLEESet = false;
-                if (eNotificationRequired())
-                        eNotify(new ENotificationImpl(this, Notification.UNSET, MetsPackage.AGENT_TYPE__ROLE, oldROLE, ROLE_EDEFAULT, oldROLEESet));
-        }
+		ROLEType oldROLE = rOLE;
+		boolean oldROLEESet = rOLEESet;
+		rOLE = ROLE_EDEFAULT;
+		rOLEESet = false;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, MetsPackage.AGENT_TYPE__ROLE, oldROLE, ROLE_EDEFAULT, oldROLEESet));
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public boolean isSetROLE() {
-                return rOLEESet;
-        }
+		return rOLEESet;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public TYPEType getTYPE() {
-                return tYPE;
-        }
+		return tYPE;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public void setTYPE(TYPEType newTYPE) {
-                TYPEType oldTYPE = tYPE;
-                tYPE = newTYPE == null ? TYPE_EDEFAULT : newTYPE;
-                boolean oldTYPEESet = tYPEESet;
-                tYPEESet = true;
-                if (eNotificationRequired())
-                        eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.AGENT_TYPE__TYPE, oldTYPE, tYPE, !oldTYPEESet));
-        }
+		TYPEType oldTYPE = tYPE;
+		tYPE = newTYPE == null ? TYPE_EDEFAULT : newTYPE;
+		boolean oldTYPEESet = tYPEESet;
+		tYPEESet = true;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.AGENT_TYPE__TYPE, oldTYPE, tYPE, !oldTYPEESet));
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public void unsetTYPE() {
-                TYPEType oldTYPE = tYPE;
-                boolean oldTYPEESet = tYPEESet;
-                tYPE = TYPE_EDEFAULT;
-                tYPEESet = false;
-                if (eNotificationRequired())
-                        eNotify(new ENotificationImpl(this, Notification.UNSET, MetsPackage.AGENT_TYPE__TYPE, oldTYPE, TYPE_EDEFAULT, oldTYPEESet));
-        }
+		TYPEType oldTYPE = tYPE;
+		boolean oldTYPEESet = tYPEESet;
+		tYPE = TYPE_EDEFAULT;
+		tYPEESet = false;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, MetsPackage.AGENT_TYPE__TYPE, oldTYPE, TYPE_EDEFAULT, oldTYPEESet));
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public boolean isSetTYPE() {
-                return tYPEESet;
-        }
+		return tYPEESet;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Object eGet(int featureID, boolean resolve, boolean coreType) {
-                switch (featureID) {
-                        case MetsPackage.AGENT_TYPE__NAME:
-                                return getName();
-                        case MetsPackage.AGENT_TYPE__NOTE:
-                                return getNote();
-                        case MetsPackage.AGENT_TYPE__ID:
-                                return getID();
-                        case MetsPackage.AGENT_TYPE__OTHERROLE:
-                                return getOTHERROLE();
-                        case MetsPackage.AGENT_TYPE__OTHERTYPE:
-                                return getOTHERTYPE();
-                        case MetsPackage.AGENT_TYPE__ROLE:
-                                return getROLE();
-                        case MetsPackage.AGENT_TYPE__TYPE:
-                                return getTYPE();
-                }
-                return super.eGet(featureID, resolve, coreType);
-        }
+		switch (featureID) {
+			case MetsPackage.AGENT_TYPE__NAME:
+				return getName();
+			case MetsPackage.AGENT_TYPE__NOTE:
+				return getNote();
+			case MetsPackage.AGENT_TYPE__ID:
+				return getID();
+			case MetsPackage.AGENT_TYPE__OTHERROLE:
+				return getOTHERROLE();
+			case MetsPackage.AGENT_TYPE__OTHERTYPE:
+				return getOTHERTYPE();
+			case MetsPackage.AGENT_TYPE__ROLE:
+				return getROLE();
+			case MetsPackage.AGENT_TYPE__TYPE:
+				return getTYPE();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @SuppressWarnings("unchecked")
         @Override
         public void eSet(int featureID, Object newValue) {
-                switch (featureID) {
-                        case MetsPackage.AGENT_TYPE__NAME:
-                                setName((String)newValue);
-                                return;
-                        case MetsPackage.AGENT_TYPE__NOTE:
-                                getNote().clear();
-                                getNote().addAll((Collection<? extends String>)newValue);
-                                return;
-                        case MetsPackage.AGENT_TYPE__ID:
-                                setID((String)newValue);
-                                return;
-                        case MetsPackage.AGENT_TYPE__OTHERROLE:
-                                setOTHERROLE((String)newValue);
-                                return;
-                        case MetsPackage.AGENT_TYPE__OTHERTYPE:
-                                setOTHERTYPE((String)newValue);
-                                return;
-                        case MetsPackage.AGENT_TYPE__ROLE:
-                                setROLE((ROLEType)newValue);
-                                return;
-                        case MetsPackage.AGENT_TYPE__TYPE:
-                                setTYPE((TYPEType)newValue);
-                                return;
-                }
-                super.eSet(featureID, newValue);
-        }
+		switch (featureID) {
+			case MetsPackage.AGENT_TYPE__NAME:
+				setName((String)newValue);
+				return;
+			case MetsPackage.AGENT_TYPE__NOTE:
+				getNote().clear();
+				getNote().addAll((Collection<? extends String>)newValue);
+				return;
+			case MetsPackage.AGENT_TYPE__ID:
+				setID((String)newValue);
+				return;
+			case MetsPackage.AGENT_TYPE__OTHERROLE:
+				setOTHERROLE((String)newValue);
+				return;
+			case MetsPackage.AGENT_TYPE__OTHERTYPE:
+				setOTHERTYPE((String)newValue);
+				return;
+			case MetsPackage.AGENT_TYPE__ROLE:
+				setROLE((ROLEType)newValue);
+				return;
+			case MetsPackage.AGENT_TYPE__TYPE:
+				setTYPE((TYPEType)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public void eUnset(int featureID) {
-                switch (featureID) {
-                        case MetsPackage.AGENT_TYPE__NAME:
-                                setName(NAME_EDEFAULT);
-                                return;
-                        case MetsPackage.AGENT_TYPE__NOTE:
-                                getNote().clear();
-                                return;
-                        case MetsPackage.AGENT_TYPE__ID:
-                                setID(ID_EDEFAULT);
-                                return;
-                        case MetsPackage.AGENT_TYPE__OTHERROLE:
-                                setOTHERROLE(OTHERROLE_EDEFAULT);
-                                return;
-                        case MetsPackage.AGENT_TYPE__OTHERTYPE:
-                                setOTHERTYPE(OTHERTYPE_EDEFAULT);
-                                return;
-                        case MetsPackage.AGENT_TYPE__ROLE:
-                                unsetROLE();
-                                return;
-                        case MetsPackage.AGENT_TYPE__TYPE:
-                                unsetTYPE();
-                                return;
-                }
-                super.eUnset(featureID);
-        }
+		switch (featureID) {
+			case MetsPackage.AGENT_TYPE__NAME:
+				setName(NAME_EDEFAULT);
+				return;
+			case MetsPackage.AGENT_TYPE__NOTE:
+				getNote().clear();
+				return;
+			case MetsPackage.AGENT_TYPE__ID:
+				setID(ID_EDEFAULT);
+				return;
+			case MetsPackage.AGENT_TYPE__OTHERROLE:
+				setOTHERROLE(OTHERROLE_EDEFAULT);
+				return;
+			case MetsPackage.AGENT_TYPE__OTHERTYPE:
+				setOTHERTYPE(OTHERTYPE_EDEFAULT);
+				return;
+			case MetsPackage.AGENT_TYPE__ROLE:
+				unsetROLE();
+				return;
+			case MetsPackage.AGENT_TYPE__TYPE:
+				unsetTYPE();
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public boolean eIsSet(int featureID) {
-                switch (featureID) {
-                        case MetsPackage.AGENT_TYPE__NAME:
-                                return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-                        case MetsPackage.AGENT_TYPE__NOTE:
-                                return note != null && !note.isEmpty();
-                        case MetsPackage.AGENT_TYPE__ID:
-                                return ID_EDEFAULT == null ? iD != null : !ID_EDEFAULT.equals(iD);
-                        case MetsPackage.AGENT_TYPE__OTHERROLE:
-                                return OTHERROLE_EDEFAULT == null ? oTHERROLE != null : !OTHERROLE_EDEFAULT.equals(oTHERROLE);
-                        case MetsPackage.AGENT_TYPE__OTHERTYPE:
-                                return OTHERTYPE_EDEFAULT == null ? oTHERTYPE != null : !OTHERTYPE_EDEFAULT.equals(oTHERTYPE);
-                        case MetsPackage.AGENT_TYPE__ROLE:
-                                return isSetROLE();
-                        case MetsPackage.AGENT_TYPE__TYPE:
-                                return isSetTYPE();
-                }
-                return super.eIsSet(featureID);
-        }
+		switch (featureID) {
+			case MetsPackage.AGENT_TYPE__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case MetsPackage.AGENT_TYPE__NOTE:
+				return note != null && !note.isEmpty();
+			case MetsPackage.AGENT_TYPE__ID:
+				return ID_EDEFAULT == null ? iD != null : !ID_EDEFAULT.equals(iD);
+			case MetsPackage.AGENT_TYPE__OTHERROLE:
+				return OTHERROLE_EDEFAULT == null ? oTHERROLE != null : !OTHERROLE_EDEFAULT.equals(oTHERROLE);
+			case MetsPackage.AGENT_TYPE__OTHERTYPE:
+				return OTHERTYPE_EDEFAULT == null ? oTHERTYPE != null : !OTHERTYPE_EDEFAULT.equals(oTHERTYPE);
+			case MetsPackage.AGENT_TYPE__ROLE:
+				return isSetROLE();
+			case MetsPackage.AGENT_TYPE__TYPE:
+				return isSetTYPE();
+		}
+		return super.eIsSet(featureID);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public String toString() {
-                if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-                StringBuffer result = new StringBuffer(super.toString());
-                result.append(" (name: ");
-                result.append(name);
-                result.append(", note: ");
-                result.append(note);
-                result.append(", iD: ");
-                result.append(iD);
-                result.append(", oTHERROLE: ");
-                result.append(oTHERROLE);
-                result.append(", oTHERTYPE: ");
-                result.append(oTHERTYPE);
-                result.append(", rOLE: ");
-                if (rOLEESet) result.append(rOLE); else result.append("<unset>");
-                result.append(", tYPE: ");
-                if (tYPEESet) result.append(tYPE); else result.append("<unset>");
-                result.append(')');
-                return result.toString();
-        }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (name: ");
+		result.append(name);
+		result.append(", note: ");
+		result.append(note);
+		result.append(", iD: ");
+		result.append(iD);
+		result.append(", oTHERROLE: ");
+		result.append(oTHERROLE);
+		result.append(", oTHERTYPE: ");
+		result.append(oTHERTYPE);
+		result.append(", rOLE: ");
+		if (rOLEESet) result.append(rOLE); else result.append("<unset>");
+		result.append(", tYPE: ");
+		if (tYPEESet) result.append(tYPE); else result.append("<unset>");
+		result.append(')');
+		return result.toString();
+	}
 
 } //AgentTypeImpl

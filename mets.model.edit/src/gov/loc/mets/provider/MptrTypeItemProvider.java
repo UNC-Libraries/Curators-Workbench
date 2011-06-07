@@ -53,358 +53,358 @@ public class MptrTypeItemProvider
                 IItemLabelProvider,
                 IItemPropertySource {
         /**
-         * This constructs an instance from a factory and a notifier.
-         * <!-- begin-user-doc -->
+	 * This constructs an instance from a factory and a notifier.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public MptrTypeItemProvider(AdapterFactory adapterFactory) {
-                super(adapterFactory);
-        }
+		super(adapterFactory);
+	}
 
         /**
-         * This returns the property descriptors for the adapted class.
-         * <!-- begin-user-doc -->
+	 * This returns the property descriptors for the adapted class.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-                if (itemPropertyDescriptors == null) {
-                        super.getPropertyDescriptors(object);
+		if (itemPropertyDescriptors == null) {
+			super.getPropertyDescriptors(object);
 
-                        addActuatePropertyDescriptor(object);
-                        addArcrolePropertyDescriptor(object);
-                        addCONTENTIDSPropertyDescriptor(object);
-                        addHrefPropertyDescriptor(object);
-                        addIDPropertyDescriptor(object);
-                        addLOCTYPEPropertyDescriptor(object);
-                        addOTHERLOCTYPEPropertyDescriptor(object);
-                        addRolePropertyDescriptor(object);
-                        addShowPropertyDescriptor(object);
-                        addTitlePropertyDescriptor(object);
-                        addTypePropertyDescriptor(object);
-                }
-                return itemPropertyDescriptors;
-        }
+			addActuatePropertyDescriptor(object);
+			addArcrolePropertyDescriptor(object);
+			addCONTENTIDSPropertyDescriptor(object);
+			addHrefPropertyDescriptor(object);
+			addIDPropertyDescriptor(object);
+			addLOCTYPEPropertyDescriptor(object);
+			addOTHERLOCTYPEPropertyDescriptor(object);
+			addRolePropertyDescriptor(object);
+			addShowPropertyDescriptor(object);
+			addTitlePropertyDescriptor(object);
+			addTypePropertyDescriptor(object);
+		}
+		return itemPropertyDescriptors;
+	}
 
         /**
-         * This adds a property descriptor for the Actuate feature.
-         * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Actuate feature.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected void addActuatePropertyDescriptor(Object object) {
-                itemPropertyDescriptors.add
-                        (createItemPropertyDescriptor
-                                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                                 getResourceLocator(),
-                                 getString("_UI_MptrType_actuate_feature"),
-                                 getString("_UI_PropertyDescriptor_description", "_UI_MptrType_actuate_feature", "_UI_MptrType_type"),
-                                 MetsPackage.Literals.MPTR_TYPE__ACTUATE,
-                                 true,
-                                 false,
-                                 false,
-                                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                                 null,
-                                 null));
-        }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_MptrType_actuate_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_MptrType_actuate_feature", "_UI_MptrType_type"),
+				 MetsPackage.Literals.MPTR_TYPE__ACTUATE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
         /**
-         * This adds a property descriptor for the Arcrole feature.
-         * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Arcrole feature.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected void addArcrolePropertyDescriptor(Object object) {
-                itemPropertyDescriptors.add
-                        (createItemPropertyDescriptor
-                                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                                 getResourceLocator(),
-                                 getString("_UI_MptrType_arcrole_feature"),
-                                 getString("_UI_PropertyDescriptor_description", "_UI_MptrType_arcrole_feature", "_UI_MptrType_type"),
-                                 MetsPackage.Literals.MPTR_TYPE__ARCROLE,
-                                 true,
-                                 false,
-                                 false,
-                                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                                 null,
-                                 null));
-        }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_MptrType_arcrole_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_MptrType_arcrole_feature", "_UI_MptrType_type"),
+				 MetsPackage.Literals.MPTR_TYPE__ARCROLE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
         /**
-         * This adds a property descriptor for the CONTENTIDS feature.
-         * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the CONTENTIDS feature.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected void addCONTENTIDSPropertyDescriptor(Object object) {
-                itemPropertyDescriptors.add
-                        (createItemPropertyDescriptor
-                                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                                 getResourceLocator(),
-                                 getString("_UI_MptrType_cONTENTIDS_feature"),
-                                 getString("_UI_PropertyDescriptor_description", "_UI_MptrType_cONTENTIDS_feature", "_UI_MptrType_type"),
-                                 MetsPackage.Literals.MPTR_TYPE__CONTENTIDS,
-                                 true,
-                                 false,
-                                 false,
-                                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                                 null,
-                                 null));
-        }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_MptrType_cONTENTIDS_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_MptrType_cONTENTIDS_feature", "_UI_MptrType_type"),
+				 MetsPackage.Literals.MPTR_TYPE__CONTENTIDS,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
         /**
-         * This adds a property descriptor for the Href feature.
-         * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Href feature.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected void addHrefPropertyDescriptor(Object object) {
-                itemPropertyDescriptors.add
-                        (createItemPropertyDescriptor
-                                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                                 getResourceLocator(),
-                                 getString("_UI_MptrType_href_feature"),
-                                 getString("_UI_PropertyDescriptor_description", "_UI_MptrType_href_feature", "_UI_MptrType_type"),
-                                 MetsPackage.Literals.MPTR_TYPE__HREF,
-                                 true,
-                                 false,
-                                 false,
-                                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                                 null,
-                                 null));
-        }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_MptrType_href_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_MptrType_href_feature", "_UI_MptrType_type"),
+				 MetsPackage.Literals.MPTR_TYPE__HREF,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
         /**
-         * This adds a property descriptor for the ID feature.
-         * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the ID feature.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected void addIDPropertyDescriptor(Object object) {
-                itemPropertyDescriptors.add
-                        (createItemPropertyDescriptor
-                                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                                 getResourceLocator(),
-                                 getString("_UI_MptrType_iD_feature"),
-                                 getString("_UI_PropertyDescriptor_description", "_UI_MptrType_iD_feature", "_UI_MptrType_type"),
-                                 MetsPackage.Literals.MPTR_TYPE__ID,
-                                 true,
-                                 false,
-                                 false,
-                                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                                 null,
-                                 null));
-        }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_MptrType_iD_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_MptrType_iD_feature", "_UI_MptrType_type"),
+				 MetsPackage.Literals.MPTR_TYPE__ID,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
         /**
-         * This adds a property descriptor for the LOCTYPE feature.
-         * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the LOCTYPE feature.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected void addLOCTYPEPropertyDescriptor(Object object) {
-                itemPropertyDescriptors.add
-                        (createItemPropertyDescriptor
-                                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                                 getResourceLocator(),
-                                 getString("_UI_MptrType_lOCTYPE_feature"),
-                                 getString("_UI_PropertyDescriptor_description", "_UI_MptrType_lOCTYPE_feature", "_UI_MptrType_type"),
-                                 MetsPackage.Literals.MPTR_TYPE__LOCTYPE,
-                                 true,
-                                 false,
-                                 false,
-                                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                                 null,
-                                 null));
-        }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_MptrType_lOCTYPE_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_MptrType_lOCTYPE_feature", "_UI_MptrType_type"),
+				 MetsPackage.Literals.MPTR_TYPE__LOCTYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
         /**
-         * This adds a property descriptor for the OTHERLOCTYPE feature.
-         * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the OTHERLOCTYPE feature.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected void addOTHERLOCTYPEPropertyDescriptor(Object object) {
-                itemPropertyDescriptors.add
-                        (createItemPropertyDescriptor
-                                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                                 getResourceLocator(),
-                                 getString("_UI_MptrType_oTHERLOCTYPE_feature"),
-                                 getString("_UI_PropertyDescriptor_description", "_UI_MptrType_oTHERLOCTYPE_feature", "_UI_MptrType_type"),
-                                 MetsPackage.Literals.MPTR_TYPE__OTHERLOCTYPE,
-                                 true,
-                                 false,
-                                 false,
-                                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                                 null,
-                                 null));
-        }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_MptrType_oTHERLOCTYPE_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_MptrType_oTHERLOCTYPE_feature", "_UI_MptrType_type"),
+				 MetsPackage.Literals.MPTR_TYPE__OTHERLOCTYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
         /**
-         * This adds a property descriptor for the Role feature.
-         * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Role feature.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected void addRolePropertyDescriptor(Object object) {
-                itemPropertyDescriptors.add
-                        (createItemPropertyDescriptor
-                                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                                 getResourceLocator(),
-                                 getString("_UI_MptrType_role_feature"),
-                                 getString("_UI_PropertyDescriptor_description", "_UI_MptrType_role_feature", "_UI_MptrType_type"),
-                                 MetsPackage.Literals.MPTR_TYPE__ROLE,
-                                 true,
-                                 false,
-                                 false,
-                                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                                 null,
-                                 null));
-        }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_MptrType_role_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_MptrType_role_feature", "_UI_MptrType_type"),
+				 MetsPackage.Literals.MPTR_TYPE__ROLE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
         /**
-         * This adds a property descriptor for the Show feature.
-         * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Show feature.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected void addShowPropertyDescriptor(Object object) {
-                itemPropertyDescriptors.add
-                        (createItemPropertyDescriptor
-                                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                                 getResourceLocator(),
-                                 getString("_UI_MptrType_show_feature"),
-                                 getString("_UI_PropertyDescriptor_description", "_UI_MptrType_show_feature", "_UI_MptrType_type"),
-                                 MetsPackage.Literals.MPTR_TYPE__SHOW,
-                                 true,
-                                 false,
-                                 false,
-                                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                                 null,
-                                 null));
-        }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_MptrType_show_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_MptrType_show_feature", "_UI_MptrType_type"),
+				 MetsPackage.Literals.MPTR_TYPE__SHOW,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
         /**
-         * This adds a property descriptor for the Title feature.
-         * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Title feature.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected void addTitlePropertyDescriptor(Object object) {
-                itemPropertyDescriptors.add
-                        (createItemPropertyDescriptor
-                                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                                 getResourceLocator(),
-                                 getString("_UI_MptrType_title_feature"),
-                                 getString("_UI_PropertyDescriptor_description", "_UI_MptrType_title_feature", "_UI_MptrType_type"),
-                                 MetsPackage.Literals.MPTR_TYPE__TITLE,
-                                 true,
-                                 false,
-                                 false,
-                                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                                 null,
-                                 null));
-        }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_MptrType_title_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_MptrType_title_feature", "_UI_MptrType_type"),
+				 MetsPackage.Literals.MPTR_TYPE__TITLE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
         /**
-         * This adds a property descriptor for the Type feature.
-         * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Type feature.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected void addTypePropertyDescriptor(Object object) {
-                itemPropertyDescriptors.add
-                        (createItemPropertyDescriptor
-                                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                                 getResourceLocator(),
-                                 getString("_UI_MptrType_type_feature"),
-                                 getString("_UI_PropertyDescriptor_description", "_UI_MptrType_type_feature", "_UI_MptrType_type"),
-                                 MetsPackage.Literals.MPTR_TYPE__TYPE,
-                                 true,
-                                 false,
-                                 false,
-                                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                                 null,
-                                 null));
-        }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_MptrType_type_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_MptrType_type_feature", "_UI_MptrType_type"),
+				 MetsPackage.Literals.MPTR_TYPE__TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
         /**
-         * This returns MptrType.gif.
-         * <!-- begin-user-doc -->
+	 * This returns MptrType.gif.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Object getImage(Object object) {
-                return overlayImage(object, getResourceLocator().getImage("full/obj16/MptrType"));
-        }
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/MptrType"));
+	}
 
         /**
-         * This returns the label text for the adapted class.
-         * <!-- begin-user-doc -->
+	 * This returns the label text for the adapted class.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public String getText(Object object) {
-                String label = ((MptrType)object).getID();
-                return label == null || label.length() == 0 ?
-                        getString("_UI_MptrType_type") :
-                        getString("_UI_MptrType_type") + " " + label;
-        }
+		String label = ((MptrType)object).getID();
+		return label == null || label.length() == 0 ?
+			getString("_UI_MptrType_type") :
+			getString("_UI_MptrType_type") + " " + label;
+	}
 
         /**
-         * This handles model notifications by calling {@link #updateChildren} to update any cached
-         * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-         * <!-- begin-user-doc -->
+	 * This handles model notifications by calling {@link #updateChildren} to update any cached
+	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public void notifyChanged(Notification notification) {
-                updateChildren(notification);
+		updateChildren(notification);
 
-                switch (notification.getFeatureID(MptrType.class)) {
-                        case MetsPackage.MPTR_TYPE__ACTUATE:
-                        case MetsPackage.MPTR_TYPE__ARCROLE:
-                        case MetsPackage.MPTR_TYPE__CONTENTIDS:
-                        case MetsPackage.MPTR_TYPE__HREF:
-                        case MetsPackage.MPTR_TYPE__ID:
-                        case MetsPackage.MPTR_TYPE__LOCTYPE:
-                        case MetsPackage.MPTR_TYPE__OTHERLOCTYPE:
-                        case MetsPackage.MPTR_TYPE__ROLE:
-                        case MetsPackage.MPTR_TYPE__SHOW:
-                        case MetsPackage.MPTR_TYPE__TITLE:
-                        case MetsPackage.MPTR_TYPE__TYPE:
-                                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-                                return;
-                }
-                super.notifyChanged(notification);
-        }
+		switch (notification.getFeatureID(MptrType.class)) {
+			case MetsPackage.MPTR_TYPE__ACTUATE:
+			case MetsPackage.MPTR_TYPE__ARCROLE:
+			case MetsPackage.MPTR_TYPE__CONTENTIDS:
+			case MetsPackage.MPTR_TYPE__HREF:
+			case MetsPackage.MPTR_TYPE__ID:
+			case MetsPackage.MPTR_TYPE__LOCTYPE:
+			case MetsPackage.MPTR_TYPE__OTHERLOCTYPE:
+			case MetsPackage.MPTR_TYPE__ROLE:
+			case MetsPackage.MPTR_TYPE__SHOW:
+			case MetsPackage.MPTR_TYPE__TITLE:
+			case MetsPackage.MPTR_TYPE__TYPE:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
+		super.notifyChanged(notification);
+	}
 
         /**
-         * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-         * that can be created under this object.
-         * <!-- begin-user-doc -->
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
-                super.collectNewChildDescriptors(newChildDescriptors, object);
-        }
+		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
 
         /**
-         * Return the resource locator for this item provider's resources.
-         * <!-- begin-user-doc -->
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public ResourceLocator getResourceLocator() {
-                return MetsEditPlugin.INSTANCE;
-        }
+		return MetsEditPlugin.INSTANCE;
+	}
 
 }

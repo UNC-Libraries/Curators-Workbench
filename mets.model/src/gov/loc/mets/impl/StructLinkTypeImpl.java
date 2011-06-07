@@ -46,231 +46,231 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class StructLinkTypeImpl extends EObjectImpl implements StructLinkType {
         /**
-         * The cached value of the '{@link #getGroup() <em>Group</em>}' attribute list.
-         * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getGroup() <em>Group</em>}' attribute list.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getGroup()
-         * @generated
-         * @ordered
-         */
+	 * @see #getGroup()
+	 * @generated
+	 * @ordered
+	 */
         protected FeatureMap group;
 
         /**
-         * The default value of the '{@link #getID() <em>ID</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getID() <em>ID</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getID()
-         * @generated
-         * @ordered
-         */
+	 * @see #getID()
+	 * @generated
+	 * @ordered
+	 */
         protected static final String ID_EDEFAULT = null;
 
         /**
-         * The cached value of the '{@link #getID() <em>ID</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getID() <em>ID</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getID()
-         * @generated
-         * @ordered
-         */
+	 * @see #getID()
+	 * @generated
+	 * @ordered
+	 */
         protected String iD = ID_EDEFAULT;
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected StructLinkTypeImpl() {
-                super();
-        }
+		super();
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         protected EClass eStaticClass() {
-                return MetsPackage.Literals.STRUCT_LINK_TYPE;
-        }
+		return MetsPackage.Literals.STRUCT_LINK_TYPE;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public FeatureMap getGroup() {
-                if (group == null) {
-                        group = new BasicFeatureMap(this, MetsPackage.STRUCT_LINK_TYPE__GROUP);
-                }
-                return group;
-        }
+		if (group == null) {
+			group = new BasicFeatureMap(this, MetsPackage.STRUCT_LINK_TYPE__GROUP);
+		}
+		return group;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public EList<SmLinkType> getSmLink() {
-                return getGroup().list(MetsPackage.Literals.STRUCT_LINK_TYPE__SM_LINK);
-        }
+		return getGroup().list(MetsPackage.Literals.STRUCT_LINK_TYPE__SM_LINK);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public EList<SmLinkGrpType> getSmLinkGrp() {
-                return getGroup().list(MetsPackage.Literals.STRUCT_LINK_TYPE__SM_LINK_GRP);
-        }
+		return getGroup().list(MetsPackage.Literals.STRUCT_LINK_TYPE__SM_LINK_GRP);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public String getID() {
-                return iD;
-        }
+		return iD;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public void setID(String newID) {
-                String oldID = iD;
-                iD = newID;
-                if (eNotificationRequired())
-                        eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.STRUCT_LINK_TYPE__ID, oldID, iD));
-        }
+		String oldID = iD;
+		iD = newID;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.STRUCT_LINK_TYPE__ID, oldID, iD));
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-                switch (featureID) {
-                        case MetsPackage.STRUCT_LINK_TYPE__GROUP:
-                                return ((InternalEList<?>)getGroup()).basicRemove(otherEnd, msgs);
-                        case MetsPackage.STRUCT_LINK_TYPE__SM_LINK:
-                                return ((InternalEList<?>)getSmLink()).basicRemove(otherEnd, msgs);
-                        case MetsPackage.STRUCT_LINK_TYPE__SM_LINK_GRP:
-                                return ((InternalEList<?>)getSmLinkGrp()).basicRemove(otherEnd, msgs);
-                }
-                return super.eInverseRemove(otherEnd, featureID, msgs);
-        }
+		switch (featureID) {
+			case MetsPackage.STRUCT_LINK_TYPE__GROUP:
+				return ((InternalEList<?>)getGroup()).basicRemove(otherEnd, msgs);
+			case MetsPackage.STRUCT_LINK_TYPE__SM_LINK:
+				return ((InternalEList<?>)getSmLink()).basicRemove(otherEnd, msgs);
+			case MetsPackage.STRUCT_LINK_TYPE__SM_LINK_GRP:
+				return ((InternalEList<?>)getSmLinkGrp()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Object eGet(int featureID, boolean resolve, boolean coreType) {
-                switch (featureID) {
-                        case MetsPackage.STRUCT_LINK_TYPE__GROUP:
-                                if (coreType) return getGroup();
-                                return ((FeatureMap.Internal)getGroup()).getWrapper();
-                        case MetsPackage.STRUCT_LINK_TYPE__SM_LINK:
-                                return getSmLink();
-                        case MetsPackage.STRUCT_LINK_TYPE__SM_LINK_GRP:
-                                return getSmLinkGrp();
-                        case MetsPackage.STRUCT_LINK_TYPE__ID:
-                                return getID();
-                }
-                return super.eGet(featureID, resolve, coreType);
-        }
+		switch (featureID) {
+			case MetsPackage.STRUCT_LINK_TYPE__GROUP:
+				if (coreType) return getGroup();
+				return ((FeatureMap.Internal)getGroup()).getWrapper();
+			case MetsPackage.STRUCT_LINK_TYPE__SM_LINK:
+				return getSmLink();
+			case MetsPackage.STRUCT_LINK_TYPE__SM_LINK_GRP:
+				return getSmLinkGrp();
+			case MetsPackage.STRUCT_LINK_TYPE__ID:
+				return getID();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @SuppressWarnings("unchecked")
         @Override
         public void eSet(int featureID, Object newValue) {
-                switch (featureID) {
-                        case MetsPackage.STRUCT_LINK_TYPE__GROUP:
-                                ((FeatureMap.Internal)getGroup()).set(newValue);
-                                return;
-                        case MetsPackage.STRUCT_LINK_TYPE__SM_LINK:
-                                getSmLink().clear();
-                                getSmLink().addAll((Collection<? extends SmLinkType>)newValue);
-                                return;
-                        case MetsPackage.STRUCT_LINK_TYPE__SM_LINK_GRP:
-                                getSmLinkGrp().clear();
-                                getSmLinkGrp().addAll((Collection<? extends SmLinkGrpType>)newValue);
-                                return;
-                        case MetsPackage.STRUCT_LINK_TYPE__ID:
-                                setID((String)newValue);
-                                return;
-                }
-                super.eSet(featureID, newValue);
-        }
+		switch (featureID) {
+			case MetsPackage.STRUCT_LINK_TYPE__GROUP:
+				((FeatureMap.Internal)getGroup()).set(newValue);
+				return;
+			case MetsPackage.STRUCT_LINK_TYPE__SM_LINK:
+				getSmLink().clear();
+				getSmLink().addAll((Collection<? extends SmLinkType>)newValue);
+				return;
+			case MetsPackage.STRUCT_LINK_TYPE__SM_LINK_GRP:
+				getSmLinkGrp().clear();
+				getSmLinkGrp().addAll((Collection<? extends SmLinkGrpType>)newValue);
+				return;
+			case MetsPackage.STRUCT_LINK_TYPE__ID:
+				setID((String)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public void eUnset(int featureID) {
-                switch (featureID) {
-                        case MetsPackage.STRUCT_LINK_TYPE__GROUP:
-                                getGroup().clear();
-                                return;
-                        case MetsPackage.STRUCT_LINK_TYPE__SM_LINK:
-                                getSmLink().clear();
-                                return;
-                        case MetsPackage.STRUCT_LINK_TYPE__SM_LINK_GRP:
-                                getSmLinkGrp().clear();
-                                return;
-                        case MetsPackage.STRUCT_LINK_TYPE__ID:
-                                setID(ID_EDEFAULT);
-                                return;
-                }
-                super.eUnset(featureID);
-        }
+		switch (featureID) {
+			case MetsPackage.STRUCT_LINK_TYPE__GROUP:
+				getGroup().clear();
+				return;
+			case MetsPackage.STRUCT_LINK_TYPE__SM_LINK:
+				getSmLink().clear();
+				return;
+			case MetsPackage.STRUCT_LINK_TYPE__SM_LINK_GRP:
+				getSmLinkGrp().clear();
+				return;
+			case MetsPackage.STRUCT_LINK_TYPE__ID:
+				setID(ID_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public boolean eIsSet(int featureID) {
-                switch (featureID) {
-                        case MetsPackage.STRUCT_LINK_TYPE__GROUP:
-                                return group != null && !group.isEmpty();
-                        case MetsPackage.STRUCT_LINK_TYPE__SM_LINK:
-                                return !getSmLink().isEmpty();
-                        case MetsPackage.STRUCT_LINK_TYPE__SM_LINK_GRP:
-                                return !getSmLinkGrp().isEmpty();
-                        case MetsPackage.STRUCT_LINK_TYPE__ID:
-                                return ID_EDEFAULT == null ? iD != null : !ID_EDEFAULT.equals(iD);
-                }
-                return super.eIsSet(featureID);
-        }
+		switch (featureID) {
+			case MetsPackage.STRUCT_LINK_TYPE__GROUP:
+				return group != null && !group.isEmpty();
+			case MetsPackage.STRUCT_LINK_TYPE__SM_LINK:
+				return !getSmLink().isEmpty();
+			case MetsPackage.STRUCT_LINK_TYPE__SM_LINK_GRP:
+				return !getSmLinkGrp().isEmpty();
+			case MetsPackage.STRUCT_LINK_TYPE__ID:
+				return ID_EDEFAULT == null ? iD != null : !ID_EDEFAULT.equals(iD);
+		}
+		return super.eIsSet(featureID);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public String toString() {
-                if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-                StringBuffer result = new StringBuffer(super.toString());
-                result.append(" (group: ");
-                result.append(group);
-                result.append(", iD: ");
-                result.append(iD);
-                result.append(')');
-                return result.toString();
-        }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (group: ");
+		result.append(group);
+		result.append(", iD: ");
+		result.append(iD);
+		result.append(')');
+		return result.toString();
+	}
 
 } //StructLinkTypeImpl

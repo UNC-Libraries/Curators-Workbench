@@ -59,639 +59,639 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class DivTypeImpl extends EObjectImpl implements DivType {
         /**
-         * The cached value of the '{@link #getMptr() <em>Mptr</em>}' containment reference list.
-         * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getMptr() <em>Mptr</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getMptr()
-         * @generated
-         * @ordered
-         */
+	 * @see #getMptr()
+	 * @generated
+	 * @ordered
+	 */
         protected EList<MptrType> mptr;
 
         /**
-         * The cached value of the '{@link #getFptr() <em>Fptr</em>}' containment reference list.
-         * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getFptr() <em>Fptr</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getFptr()
-         * @generated
-         * @ordered
-         */
+	 * @see #getFptr()
+	 * @generated
+	 * @ordered
+	 */
         protected EList<FptrType> fptr;
 
         /**
-         * The cached value of the '{@link #getDiv() <em>Div</em>}' containment reference list.
-         * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getDiv() <em>Div</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getDiv()
-         * @generated
-         * @ordered
-         */
+	 * @see #getDiv()
+	 * @generated
+	 * @ordered
+	 */
         protected EList<DivType> div;
 
         /**
-         * The cached value of the '{@link #getMdSec() <em>Md Sec</em>}' reference list.
-         * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getMdSec() <em>Md Sec</em>}' reference list.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getMdSec()
-         * @generated
-         * @ordered
-         */
+	 * @see #getMdSec()
+	 * @generated
+	 * @ordered
+	 */
         protected EList<MdSecType> mdSec;
 
         /**
-         * The default value of the '{@link #getCONTENTIDS() <em>CONTENTIDS</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getCONTENTIDS() <em>CONTENTIDS</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getCONTENTIDS()
-         * @generated
-         * @ordered
-         */
+	 * @see #getCONTENTIDS()
+	 * @generated
+	 * @ordered
+	 */
         protected static final List<String> CONTENTIDS_EDEFAULT = null;
 
         /**
-         * The cached value of the '{@link #getCONTENTIDS() <em>CONTENTIDS</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getCONTENTIDS() <em>CONTENTIDS</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getCONTENTIDS()
-         * @generated
-         * @ordered
-         */
+	 * @see #getCONTENTIDS()
+	 * @generated
+	 * @ordered
+	 */
         protected List<String> cONTENTIDS = CONTENTIDS_EDEFAULT;
 
         /**
-         * The cached value of the '{@link #getDmdSec() <em>Dmd Sec</em>}' reference list.
-         * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getDmdSec() <em>Dmd Sec</em>}' reference list.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getDmdSec()
-         * @generated
-         * @ordered
-         */
+	 * @see #getDmdSec()
+	 * @generated
+	 * @ordered
+	 */
         protected EList<MdSecType> dmdSec;
 
         /**
-         * The default value of the '{@link #getID() <em>ID</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getID() <em>ID</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getID()
-         * @generated
-         * @ordered
-         */
+	 * @see #getID()
+	 * @generated
+	 * @ordered
+	 */
         protected static final String ID_EDEFAULT = null;
 
         /**
-         * The cached value of the '{@link #getID() <em>ID</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getID() <em>ID</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getID()
-         * @generated
-         * @ordered
-         */
+	 * @see #getID()
+	 * @generated
+	 * @ordered
+	 */
         protected String iD = ID_EDEFAULT;
 
         /**
-         * The default value of the '{@link #getLabel() <em>Label</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getLabel() <em>Label</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getLabel()
-         * @generated
-         * @ordered
-         */
+	 * @see #getLabel()
+	 * @generated
+	 * @ordered
+	 */
         protected static final String LABEL_EDEFAULT = null;
 
         /**
-         * The cached value of the '{@link #getLabel() <em>Label</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getLabel() <em>Label</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getLabel()
-         * @generated
-         * @ordered
-         */
+	 * @see #getLabel()
+	 * @generated
+	 * @ordered
+	 */
         protected String label = LABEL_EDEFAULT;
 
         /**
-         * The default value of the '{@link #getLABEL1() <em>LABEL1</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getLABEL1() <em>LABEL1</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getLABEL1()
-         * @generated
-         * @ordered
-         */
+	 * @see #getLABEL1()
+	 * @generated
+	 * @ordered
+	 */
         protected static final String LABEL1_EDEFAULT = null;
 
         /**
-         * The cached value of the '{@link #getLABEL1() <em>LABEL1</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getLABEL1() <em>LABEL1</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getLABEL1()
-         * @generated
-         * @ordered
-         */
+	 * @see #getLABEL1()
+	 * @generated
+	 * @ordered
+	 */
         protected String lABEL1 = LABEL1_EDEFAULT;
 
         /**
-         * The default value of the '{@link #getORDER() <em>ORDER</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getORDER() <em>ORDER</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getORDER()
-         * @generated
-         * @ordered
-         */
+	 * @see #getORDER()
+	 * @generated
+	 * @ordered
+	 */
         protected static final BigInteger ORDER_EDEFAULT = null;
 
         /**
-         * The cached value of the '{@link #getORDER() <em>ORDER</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getORDER() <em>ORDER</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getORDER()
-         * @generated
-         * @ordered
-         */
+	 * @see #getORDER()
+	 * @generated
+	 * @ordered
+	 */
         protected BigInteger oRDER = ORDER_EDEFAULT;
 
         /**
-         * The default value of the '{@link #getORDERLABEL() <em>ORDERLABEL</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getORDERLABEL() <em>ORDERLABEL</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getORDERLABEL()
-         * @generated
-         * @ordered
-         */
+	 * @see #getORDERLABEL()
+	 * @generated
+	 * @ordered
+	 */
         protected static final String ORDERLABEL_EDEFAULT = null;
 
         /**
-         * The cached value of the '{@link #getORDERLABEL() <em>ORDERLABEL</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getORDERLABEL() <em>ORDERLABEL</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getORDERLABEL()
-         * @generated
-         * @ordered
-         */
+	 * @see #getORDERLABEL()
+	 * @generated
+	 * @ordered
+	 */
         protected String oRDERLABEL = ORDERLABEL_EDEFAULT;
 
         /**
-         * The default value of the '{@link #getTYPE() <em>TYPE</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getTYPE() <em>TYPE</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getTYPE()
-         * @generated
-         * @ordered
-         */
+	 * @see #getTYPE()
+	 * @generated
+	 * @ordered
+	 */
         protected static final String TYPE_EDEFAULT = null;
 
         /**
-         * The cached value of the '{@link #getTYPE() <em>TYPE</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getTYPE() <em>TYPE</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getTYPE()
-         * @generated
-         * @ordered
-         */
+	 * @see #getTYPE()
+	 * @generated
+	 * @ordered
+	 */
         protected String tYPE = TYPE_EDEFAULT;
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected DivTypeImpl() {
-                super();
-        }
+		super();
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         protected EClass eStaticClass() {
-                return MetsPackage.Literals.DIV_TYPE;
-        }
+		return MetsPackage.Literals.DIV_TYPE;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public EList<MptrType> getMptr() {
-                if (mptr == null) {
-                        mptr = new EObjectContainmentEList<MptrType>(MptrType.class, this, MetsPackage.DIV_TYPE__MPTR);
-                }
-                return mptr;
-        }
+		if (mptr == null) {
+			mptr = new EObjectContainmentEList<MptrType>(MptrType.class, this, MetsPackage.DIV_TYPE__MPTR);
+		}
+		return mptr;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public EList<FptrType> getFptr() {
-                if (fptr == null) {
-                        fptr = new EObjectContainmentEList<FptrType>(FptrType.class, this, MetsPackage.DIV_TYPE__FPTR);
-                }
-                return fptr;
-        }
+		if (fptr == null) {
+			fptr = new EObjectContainmentEList<FptrType>(FptrType.class, this, MetsPackage.DIV_TYPE__FPTR);
+		}
+		return fptr;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public EList<DivType> getDiv() {
-                if (div == null) {
-                        div = new EObjectContainmentEList<DivType>(DivType.class, this, MetsPackage.DIV_TYPE__DIV);
-                }
-                return div;
-        }
+		if (div == null) {
+			div = new EObjectContainmentEList<DivType>(DivType.class, this, MetsPackage.DIV_TYPE__DIV);
+		}
+		return div;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public EList<MdSecType> getMdSec() {
-                if (mdSec == null) {
-                        mdSec = new EObjectEList<MdSecType>(MdSecType.class, this, MetsPackage.DIV_TYPE__MD_SEC);
-                }
-                return mdSec;
-        }
+		if (mdSec == null) {
+			mdSec = new EObjectEList<MdSecType>(MdSecType.class, this, MetsPackage.DIV_TYPE__MD_SEC);
+		}
+		return mdSec;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public List<String> getCONTENTIDS() {
-                return cONTENTIDS;
-        }
+		return cONTENTIDS;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public void setCONTENTIDS(List<String> newCONTENTIDS) {
-                List<String> oldCONTENTIDS = cONTENTIDS;
-                cONTENTIDS = newCONTENTIDS;
-                if (eNotificationRequired())
-                        eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.DIV_TYPE__CONTENTIDS, oldCONTENTIDS, cONTENTIDS));
-        }
+		List<String> oldCONTENTIDS = cONTENTIDS;
+		cONTENTIDS = newCONTENTIDS;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.DIV_TYPE__CONTENTIDS, oldCONTENTIDS, cONTENTIDS));
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public EList<MdSecType> getDmdSec() {
-                if (dmdSec == null) {
-                        dmdSec = new EObjectEList<MdSecType>(MdSecType.class, this, MetsPackage.DIV_TYPE__DMD_SEC);
-                }
-                return dmdSec;
-        }
+		if (dmdSec == null) {
+			dmdSec = new EObjectEList<MdSecType>(MdSecType.class, this, MetsPackage.DIV_TYPE__DMD_SEC);
+		}
+		return dmdSec;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public String getID() {
-                return iD;
-        }
+		return iD;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public void setID(String newID) {
-                String oldID = iD;
-                iD = newID;
-                if (eNotificationRequired())
-                        eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.DIV_TYPE__ID, oldID, iD));
-        }
+		String oldID = iD;
+		iD = newID;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.DIV_TYPE__ID, oldID, iD));
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public String getLabel() {
-                return label;
-        }
+		return label;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public void setLabel(String newLabel) {
-                String oldLabel = label;
-                label = newLabel;
-                if (eNotificationRequired())
-                        eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.DIV_TYPE__LABEL, oldLabel, label));
-        }
+		String oldLabel = label;
+		label = newLabel;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.DIV_TYPE__LABEL, oldLabel, label));
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public String getLABEL1() {
-                return lABEL1;
-        }
+		return lABEL1;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public void setLABEL1(String newLABEL1) {
-                String oldLABEL1 = lABEL1;
-                lABEL1 = newLABEL1;
-                if (eNotificationRequired())
-                        eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.DIV_TYPE__LABEL1, oldLABEL1, lABEL1));
-        }
+		String oldLABEL1 = lABEL1;
+		lABEL1 = newLABEL1;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.DIV_TYPE__LABEL1, oldLABEL1, lABEL1));
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public BigInteger getORDER() {
-                return oRDER;
-        }
+		return oRDER;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public void setORDER(BigInteger newORDER) {
-                BigInteger oldORDER = oRDER;
-                oRDER = newORDER;
-                if (eNotificationRequired())
-                        eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.DIV_TYPE__ORDER, oldORDER, oRDER));
-        }
+		BigInteger oldORDER = oRDER;
+		oRDER = newORDER;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.DIV_TYPE__ORDER, oldORDER, oRDER));
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public String getORDERLABEL() {
-                return oRDERLABEL;
-        }
+		return oRDERLABEL;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public void setORDERLABEL(String newORDERLABEL) {
-                String oldORDERLABEL = oRDERLABEL;
-                oRDERLABEL = newORDERLABEL;
-                if (eNotificationRequired())
-                        eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.DIV_TYPE__ORDERLABEL, oldORDERLABEL, oRDERLABEL));
-        }
+		String oldORDERLABEL = oRDERLABEL;
+		oRDERLABEL = newORDERLABEL;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.DIV_TYPE__ORDERLABEL, oldORDERLABEL, oRDERLABEL));
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public String getTYPE() {
-                return tYPE;
-        }
+		return tYPE;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public void setTYPE(String newTYPE) {
-                String oldTYPE = tYPE;
-                tYPE = newTYPE;
-                if (eNotificationRequired())
-                        eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.DIV_TYPE__TYPE, oldTYPE, tYPE));
-        }
+		String oldTYPE = tYPE;
+		tYPE = newTYPE;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.DIV_TYPE__TYPE, oldTYPE, tYPE));
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-                switch (featureID) {
-                        case MetsPackage.DIV_TYPE__MPTR:
-                                return ((InternalEList<?>)getMptr()).basicRemove(otherEnd, msgs);
-                        case MetsPackage.DIV_TYPE__FPTR:
-                                return ((InternalEList<?>)getFptr()).basicRemove(otherEnd, msgs);
-                        case MetsPackage.DIV_TYPE__DIV:
-                                return ((InternalEList<?>)getDiv()).basicRemove(otherEnd, msgs);
-                }
-                return super.eInverseRemove(otherEnd, featureID, msgs);
-        }
+		switch (featureID) {
+			case MetsPackage.DIV_TYPE__MPTR:
+				return ((InternalEList<?>)getMptr()).basicRemove(otherEnd, msgs);
+			case MetsPackage.DIV_TYPE__FPTR:
+				return ((InternalEList<?>)getFptr()).basicRemove(otherEnd, msgs);
+			case MetsPackage.DIV_TYPE__DIV:
+				return ((InternalEList<?>)getDiv()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Object eGet(int featureID, boolean resolve, boolean coreType) {
-                switch (featureID) {
-                        case MetsPackage.DIV_TYPE__MPTR:
-                                return getMptr();
-                        case MetsPackage.DIV_TYPE__FPTR:
-                                return getFptr();
-                        case MetsPackage.DIV_TYPE__DIV:
-                                return getDiv();
-                        case MetsPackage.DIV_TYPE__MD_SEC:
-                                return getMdSec();
-                        case MetsPackage.DIV_TYPE__CONTENTIDS:
-                                return getCONTENTIDS();
-                        case MetsPackage.DIV_TYPE__DMD_SEC:
-                                return getDmdSec();
-                        case MetsPackage.DIV_TYPE__ID:
-                                return getID();
-                        case MetsPackage.DIV_TYPE__LABEL:
-                                return getLabel();
-                        case MetsPackage.DIV_TYPE__LABEL1:
-                                return getLABEL1();
-                        case MetsPackage.DIV_TYPE__ORDER:
-                                return getORDER();
-                        case MetsPackage.DIV_TYPE__ORDERLABEL:
-                                return getORDERLABEL();
-                        case MetsPackage.DIV_TYPE__TYPE:
-                                return getTYPE();
-                }
-                return super.eGet(featureID, resolve, coreType);
-        }
+		switch (featureID) {
+			case MetsPackage.DIV_TYPE__MPTR:
+				return getMptr();
+			case MetsPackage.DIV_TYPE__FPTR:
+				return getFptr();
+			case MetsPackage.DIV_TYPE__DIV:
+				return getDiv();
+			case MetsPackage.DIV_TYPE__MD_SEC:
+				return getMdSec();
+			case MetsPackage.DIV_TYPE__CONTENTIDS:
+				return getCONTENTIDS();
+			case MetsPackage.DIV_TYPE__DMD_SEC:
+				return getDmdSec();
+			case MetsPackage.DIV_TYPE__ID:
+				return getID();
+			case MetsPackage.DIV_TYPE__LABEL:
+				return getLabel();
+			case MetsPackage.DIV_TYPE__LABEL1:
+				return getLABEL1();
+			case MetsPackage.DIV_TYPE__ORDER:
+				return getORDER();
+			case MetsPackage.DIV_TYPE__ORDERLABEL:
+				return getORDERLABEL();
+			case MetsPackage.DIV_TYPE__TYPE:
+				return getTYPE();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @SuppressWarnings("unchecked")
         @Override
         public void eSet(int featureID, Object newValue) {
-                switch (featureID) {
-                        case MetsPackage.DIV_TYPE__MPTR:
-                                getMptr().clear();
-                                getMptr().addAll((Collection<? extends MptrType>)newValue);
-                                return;
-                        case MetsPackage.DIV_TYPE__FPTR:
-                                getFptr().clear();
-                                getFptr().addAll((Collection<? extends FptrType>)newValue);
-                                return;
-                        case MetsPackage.DIV_TYPE__DIV:
-                                getDiv().clear();
-                                getDiv().addAll((Collection<? extends DivType>)newValue);
-                                return;
-                        case MetsPackage.DIV_TYPE__MD_SEC:
-                                getMdSec().clear();
-                                getMdSec().addAll((Collection<? extends MdSecType>)newValue);
-                                return;
-                        case MetsPackage.DIV_TYPE__CONTENTIDS:
-                                setCONTENTIDS((List<String>)newValue);
-                                return;
-                        case MetsPackage.DIV_TYPE__DMD_SEC:
-                                getDmdSec().clear();
-                                getDmdSec().addAll((Collection<? extends MdSecType>)newValue);
-                                return;
-                        case MetsPackage.DIV_TYPE__ID:
-                                setID((String)newValue);
-                                return;
-                        case MetsPackage.DIV_TYPE__LABEL:
-                                setLabel((String)newValue);
-                                return;
-                        case MetsPackage.DIV_TYPE__LABEL1:
-                                setLABEL1((String)newValue);
-                                return;
-                        case MetsPackage.DIV_TYPE__ORDER:
-                                setORDER((BigInteger)newValue);
-                                return;
-                        case MetsPackage.DIV_TYPE__ORDERLABEL:
-                                setORDERLABEL((String)newValue);
-                                return;
-                        case MetsPackage.DIV_TYPE__TYPE:
-                                setTYPE((String)newValue);
-                                return;
-                }
-                super.eSet(featureID, newValue);
-        }
+		switch (featureID) {
+			case MetsPackage.DIV_TYPE__MPTR:
+				getMptr().clear();
+				getMptr().addAll((Collection<? extends MptrType>)newValue);
+				return;
+			case MetsPackage.DIV_TYPE__FPTR:
+				getFptr().clear();
+				getFptr().addAll((Collection<? extends FptrType>)newValue);
+				return;
+			case MetsPackage.DIV_TYPE__DIV:
+				getDiv().clear();
+				getDiv().addAll((Collection<? extends DivType>)newValue);
+				return;
+			case MetsPackage.DIV_TYPE__MD_SEC:
+				getMdSec().clear();
+				getMdSec().addAll((Collection<? extends MdSecType>)newValue);
+				return;
+			case MetsPackage.DIV_TYPE__CONTENTIDS:
+				setCONTENTIDS((List<String>)newValue);
+				return;
+			case MetsPackage.DIV_TYPE__DMD_SEC:
+				getDmdSec().clear();
+				getDmdSec().addAll((Collection<? extends MdSecType>)newValue);
+				return;
+			case MetsPackage.DIV_TYPE__ID:
+				setID((String)newValue);
+				return;
+			case MetsPackage.DIV_TYPE__LABEL:
+				setLabel((String)newValue);
+				return;
+			case MetsPackage.DIV_TYPE__LABEL1:
+				setLABEL1((String)newValue);
+				return;
+			case MetsPackage.DIV_TYPE__ORDER:
+				setORDER((BigInteger)newValue);
+				return;
+			case MetsPackage.DIV_TYPE__ORDERLABEL:
+				setORDERLABEL((String)newValue);
+				return;
+			case MetsPackage.DIV_TYPE__TYPE:
+				setTYPE((String)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public void eUnset(int featureID) {
-                switch (featureID) {
-                        case MetsPackage.DIV_TYPE__MPTR:
-                                getMptr().clear();
-                                return;
-                        case MetsPackage.DIV_TYPE__FPTR:
-                                getFptr().clear();
-                                return;
-                        case MetsPackage.DIV_TYPE__DIV:
-                                getDiv().clear();
-                                return;
-                        case MetsPackage.DIV_TYPE__MD_SEC:
-                                getMdSec().clear();
-                                return;
-                        case MetsPackage.DIV_TYPE__CONTENTIDS:
-                                setCONTENTIDS(CONTENTIDS_EDEFAULT);
-                                return;
-                        case MetsPackage.DIV_TYPE__DMD_SEC:
-                                getDmdSec().clear();
-                                return;
-                        case MetsPackage.DIV_TYPE__ID:
-                                setID(ID_EDEFAULT);
-                                return;
-                        case MetsPackage.DIV_TYPE__LABEL:
-                                setLabel(LABEL_EDEFAULT);
-                                return;
-                        case MetsPackage.DIV_TYPE__LABEL1:
-                                setLABEL1(LABEL1_EDEFAULT);
-                                return;
-                        case MetsPackage.DIV_TYPE__ORDER:
-                                setORDER(ORDER_EDEFAULT);
-                                return;
-                        case MetsPackage.DIV_TYPE__ORDERLABEL:
-                                setORDERLABEL(ORDERLABEL_EDEFAULT);
-                                return;
-                        case MetsPackage.DIV_TYPE__TYPE:
-                                setTYPE(TYPE_EDEFAULT);
-                                return;
-                }
-                super.eUnset(featureID);
-        }
+		switch (featureID) {
+			case MetsPackage.DIV_TYPE__MPTR:
+				getMptr().clear();
+				return;
+			case MetsPackage.DIV_TYPE__FPTR:
+				getFptr().clear();
+				return;
+			case MetsPackage.DIV_TYPE__DIV:
+				getDiv().clear();
+				return;
+			case MetsPackage.DIV_TYPE__MD_SEC:
+				getMdSec().clear();
+				return;
+			case MetsPackage.DIV_TYPE__CONTENTIDS:
+				setCONTENTIDS(CONTENTIDS_EDEFAULT);
+				return;
+			case MetsPackage.DIV_TYPE__DMD_SEC:
+				getDmdSec().clear();
+				return;
+			case MetsPackage.DIV_TYPE__ID:
+				setID(ID_EDEFAULT);
+				return;
+			case MetsPackage.DIV_TYPE__LABEL:
+				setLabel(LABEL_EDEFAULT);
+				return;
+			case MetsPackage.DIV_TYPE__LABEL1:
+				setLABEL1(LABEL1_EDEFAULT);
+				return;
+			case MetsPackage.DIV_TYPE__ORDER:
+				setORDER(ORDER_EDEFAULT);
+				return;
+			case MetsPackage.DIV_TYPE__ORDERLABEL:
+				setORDERLABEL(ORDERLABEL_EDEFAULT);
+				return;
+			case MetsPackage.DIV_TYPE__TYPE:
+				setTYPE(TYPE_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public boolean eIsSet(int featureID) {
-                switch (featureID) {
-                        case MetsPackage.DIV_TYPE__MPTR:
-                                return mptr != null && !mptr.isEmpty();
-                        case MetsPackage.DIV_TYPE__FPTR:
-                                return fptr != null && !fptr.isEmpty();
-                        case MetsPackage.DIV_TYPE__DIV:
-                                return div != null && !div.isEmpty();
-                        case MetsPackage.DIV_TYPE__MD_SEC:
-                                return mdSec != null && !mdSec.isEmpty();
-                        case MetsPackage.DIV_TYPE__CONTENTIDS:
-                                return CONTENTIDS_EDEFAULT == null ? cONTENTIDS != null : !CONTENTIDS_EDEFAULT.equals(cONTENTIDS);
-                        case MetsPackage.DIV_TYPE__DMD_SEC:
-                                return dmdSec != null && !dmdSec.isEmpty();
-                        case MetsPackage.DIV_TYPE__ID:
-                                return ID_EDEFAULT == null ? iD != null : !ID_EDEFAULT.equals(iD);
-                        case MetsPackage.DIV_TYPE__LABEL:
-                                return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT.equals(label);
-                        case MetsPackage.DIV_TYPE__LABEL1:
-                                return LABEL1_EDEFAULT == null ? lABEL1 != null : !LABEL1_EDEFAULT.equals(lABEL1);
-                        case MetsPackage.DIV_TYPE__ORDER:
-                                return ORDER_EDEFAULT == null ? oRDER != null : !ORDER_EDEFAULT.equals(oRDER);
-                        case MetsPackage.DIV_TYPE__ORDERLABEL:
-                                return ORDERLABEL_EDEFAULT == null ? oRDERLABEL != null : !ORDERLABEL_EDEFAULT.equals(oRDERLABEL);
-                        case MetsPackage.DIV_TYPE__TYPE:
-                                return TYPE_EDEFAULT == null ? tYPE != null : !TYPE_EDEFAULT.equals(tYPE);
-                }
-                return super.eIsSet(featureID);
-        }
+		switch (featureID) {
+			case MetsPackage.DIV_TYPE__MPTR:
+				return mptr != null && !mptr.isEmpty();
+			case MetsPackage.DIV_TYPE__FPTR:
+				return fptr != null && !fptr.isEmpty();
+			case MetsPackage.DIV_TYPE__DIV:
+				return div != null && !div.isEmpty();
+			case MetsPackage.DIV_TYPE__MD_SEC:
+				return mdSec != null && !mdSec.isEmpty();
+			case MetsPackage.DIV_TYPE__CONTENTIDS:
+				return CONTENTIDS_EDEFAULT == null ? cONTENTIDS != null : !CONTENTIDS_EDEFAULT.equals(cONTENTIDS);
+			case MetsPackage.DIV_TYPE__DMD_SEC:
+				return dmdSec != null && !dmdSec.isEmpty();
+			case MetsPackage.DIV_TYPE__ID:
+				return ID_EDEFAULT == null ? iD != null : !ID_EDEFAULT.equals(iD);
+			case MetsPackage.DIV_TYPE__LABEL:
+				return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT.equals(label);
+			case MetsPackage.DIV_TYPE__LABEL1:
+				return LABEL1_EDEFAULT == null ? lABEL1 != null : !LABEL1_EDEFAULT.equals(lABEL1);
+			case MetsPackage.DIV_TYPE__ORDER:
+				return ORDER_EDEFAULT == null ? oRDER != null : !ORDER_EDEFAULT.equals(oRDER);
+			case MetsPackage.DIV_TYPE__ORDERLABEL:
+				return ORDERLABEL_EDEFAULT == null ? oRDERLABEL != null : !ORDERLABEL_EDEFAULT.equals(oRDERLABEL);
+			case MetsPackage.DIV_TYPE__TYPE:
+				return TYPE_EDEFAULT == null ? tYPE != null : !TYPE_EDEFAULT.equals(tYPE);
+		}
+		return super.eIsSet(featureID);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public String toString() {
-                if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-                StringBuffer result = new StringBuffer(super.toString());
-                result.append(" (cONTENTIDS: ");
-                result.append(cONTENTIDS);
-                result.append(", iD: ");
-                result.append(iD);
-                result.append(", label: ");
-                result.append(label);
-                result.append(", lABEL1: ");
-                result.append(lABEL1);
-                result.append(", oRDER: ");
-                result.append(oRDER);
-                result.append(", oRDERLABEL: ");
-                result.append(oRDERLABEL);
-                result.append(", tYPE: ");
-                result.append(tYPE);
-                result.append(')');
-                return result.toString();
-        }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (cONTENTIDS: ");
+		result.append(cONTENTIDS);
+		result.append(", iD: ");
+		result.append(iD);
+		result.append(", label: ");
+		result.append(label);
+		result.append(", lABEL1: ");
+		result.append(lABEL1);
+		result.append(", oRDER: ");
+		result.append(oRDER);
+		result.append(", oRDERLABEL: ");
+		result.append(oRDERLABEL);
+		result.append(", tYPE: ");
+		result.append(tYPE);
+		result.append(')');
+		return result.toString();
+	}
 
 } //DivTypeImpl

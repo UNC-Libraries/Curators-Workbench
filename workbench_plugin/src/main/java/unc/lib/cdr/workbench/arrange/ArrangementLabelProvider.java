@@ -29,123 +29,121 @@ import org.eclipse.ui.model.WorkbenchLabelProvider;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import unc.lib.cdr.workbench.project.ICustomEObjectBucket;
 import unc.lib.cdr.workbench.views.LabelImageFactory;
 
 public class ArrangementLabelProvider extends AdapterFactoryLabelProvider {
 
-    @SuppressWarnings("unused")
-    private static final Logger LOG = LoggerFactory.getLogger(ArrangementLabelProvider.class);
+	@SuppressWarnings("unused")
+	private static final Logger LOG = LoggerFactory.getLogger(ArrangementLabelProvider.class);
 
-    private DecoratingLabelProvider provider = (DecoratingLabelProvider) WorkbenchLabelProvider
-		    .getDecoratingWorkbenchLabelProvider();
-    //private ComposedAdapterFactory metsAdapterFactory = MetsProjectNature.getAdapterFactory();
-    //private Set<ILabelProviderListener> listeners = new HashSet<ILabelProviderListener>();
+	private DecoratingLabelProvider provider = (DecoratingLabelProvider) WorkbenchLabelProvider
+			.getDecoratingWorkbenchLabelProvider();
+	// private ComposedAdapterFactory metsAdapterFactory = MetsProjectNature.getAdapterFactory();
+	// private Set<ILabelProviderListener> listeners = new HashSet<ILabelProviderListener>();
 
-    private static AdapterFactory adapterFactory;
+	private static AdapterFactory adapterFactory;
 
-    static {
-	adapterFactory = new ComposedAdapterFactory(new AdapterFactory[] {
-			new ResourceItemProviderAdapterFactory(),
-			new MetsItemProviderAdapterFactory(),
-			new ReflectiveItemProviderAdapterFactory() });
-    }
-
-    /**
-     *
-     */
-    public ArrangementLabelProvider() {
-	super(adapterFactory);
-	//metsAdapterFactory.addListener(this);
-    }
-
-//    @Override
-//    public void addListener(ILabelProviderListener listener) {
-//	this.listeners.add(listener);
-//	this.provider.addListener(listener);
-//    }
-
-//    @Override
-//    public void dispose() {
-//	super.dispose();
-//    }
-
-//    @Override
-//    public boolean isLabelProperty(Object element, String property) {
-//	return super.isLabelProperty(element, property);
-//    }
-
-//    @Override
-//    public void removeListener(ILabelProviderListener listener) {
-//	this.listeners.remove(listener);
-//	this.provider.removeListener(listener);
-//    }
-
-    /*
-     * (non-Javadoc)
-     *
-     * @see org.eclipse.jface.viewers.ILabelProvider#getImage(java.lang.Object)
-     */
-    @Override
-    public Image getImage(Object element) {
-	Image result = super.getImage(element);
-	//if (element instanceof DivType) {
-	  //  DivType d = (DivType) element;
-	  //  Object adapted = Platform.getAdapterManager().getAdapter(d, IResource.class);
-	  //  if (adapted != null) {
-	//	IResource r = (IResource) adapted;
-		result = provider.getImage(element);
-	  //  }
-	//}
-	if (result == null) {
-	    result = LabelImageFactory.getImageForObject(element);
+	static {
+		adapterFactory = new ComposedAdapterFactory(new AdapterFactory[] { new ResourceItemProviderAdapterFactory(),
+				new MetsItemProviderAdapterFactory(), new ReflectiveItemProviderAdapterFactory() });
 	}
-	return result;
-    }
 
-    /*
-     * (non-Javadoc)
+	/**
      *
-     * @see org.eclipse.jface.viewers.ILabelProvider#getText(java.lang.Object)
      */
-    @Override
-    public String getText(Object element) {
-	if (element instanceof ArrangementProjectElement) {
-	    return ((ArrangementProjectElement) element).getText();
-	} else if(element instanceof DivType) {
-	    return super.getText(element);
+	public ArrangementLabelProvider() {
+		super(adapterFactory);
+		// metsAdapterFactory.addListener(this);
 	}
-	return null;
 
-	/*if (result == null && element instanceof DivType) {
-	    DivType d = (DivType) element;
-	    result = d.getLABEL1();
-	    //Object adapted = Platform.getAdapterManager().getAdapter(d, IResource.class);
-	    //if (adapted != null) {
-		//IResource r = (IResource) adapted;
-	    //}
-	} else*/
+	// @Override
+	// public void addListener(ILabelProviderListener listener) {
+	// this.listeners.add(listener);
+	// this.provider.addListener(listener);
+	// }
 
-	//return result;
-	//return provider.getLabelDecorator().decorateText(result, element);
-    }
+	// @Override
+	// public void dispose() {
+	// super.dispose();
+	// }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see
-     * org.eclipse.emf.edit.provider.INotifyChangedListener#notifyChanged(org
-     * .eclipse.emf.common.notify.Notification)
-     */
-//    @Override
-//    public void notifyChanged(Notification notification) {
-//	// LOG.debug("notified of model change in "+notification.getNotifier());
-//	final LabelProviderChangedEvent e = new LabelProviderChangedEvent(this, notification.getNotifier());
-//	Display.getDefault().asyncExec(new Runnable() {
-//	    public void run() {
-//		for (ILabelProviderListener l : listeners) {
-//		    l.labelProviderChanged(e);
-//		}
-//	    }
-//	});
-//    }
+	// @Override
+	// public boolean isLabelProperty(Object element, String property) {
+	// return super.isLabelProperty(element, property);
+	// }
+
+	// @Override
+	// public void removeListener(ILabelProviderListener listener) {
+	// this.listeners.remove(listener);
+	// this.provider.removeListener(listener);
+	// }
+
+	/*
+	 * (non-Javadoc)
+	 *
+	 * @see org.eclipse.jface.viewers.ILabelProvider#getImage(java.lang.Object)
+	 */
+	@Override
+	public Image getImage(Object element) {
+		Image result = provider.getImage(element);
+
+		if(result == null)
+			result = super.getImage(element);
+		// if (element instanceof DivType) {
+		// DivType d = (DivType) element;
+		// Object adapted = Platform.getAdapterManager().getAdapter(d, IResource.class);
+		// if (adapted != null) {
+		// IResource r = (IResource) adapted;
+		// }
+		// }
+		if (result == null)
+			result = LabelImageFactory.getImageForObject(element);
+		return result;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 *
+	 * @see org.eclipse.jface.viewers.ILabelProvider#getText(java.lang.Object)
+	 */
+	@Override
+	public String getText(Object element) {
+		if (element instanceof ArrangementProjectElement) {
+			return ((ArrangementProjectElement) element).getText();
+		} else if (element instanceof DivType) {
+			return super.getText(element);
+		} else if (element instanceof ICustomEObjectBucket) {
+			return ((ICustomEObjectBucket) element).getText();
+		} else {
+			return super.getText(element);
+		}
+		/*
+		 * if (result == null && element instanceof DivType) { DivType d = (DivType) element; result = d.getLABEL1();
+		 * //Object adapted = Platform.getAdapterManager().getAdapter(d, IResource.class); //if (adapted != null) {
+		 * //IResource r = (IResource) adapted; //} } else
+		 */
+
+		// return result;
+		// return provider.getLabelDecorator().decorateText(result, element);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 *
+	 * @see org.eclipse.emf.edit.provider.INotifyChangedListener#notifyChanged(org
+	 * .eclipse.emf.common.notify.Notification)
+	 */
+	// @Override
+	// public void notifyChanged(Notification notification) {
+	// // LOG.debug("notified of model change in "+notification.getNotifier());
+	// final LabelProviderChangedEvent e = new LabelProviderChangedEvent(this, notification.getNotifier());
+	// Display.getDefault().asyncExec(new Runnable() {
+	// public void run() {
+	// for (ILabelProviderListener l : listeners) {
+	// l.labelProviderChanged(e);
+	// }
+	// }
+	// });
+	// }
 }

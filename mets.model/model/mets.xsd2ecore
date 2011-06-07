@@ -672,7 +672,7 @@
     <nested inputs="../../curators-workbench/etc/mets.xsd#//structLinkType;XSDComplexTypeDefinition=8/XSDParticle/XSDModelGroup/XSDParticle/smLink;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1"
         outputs="mets.ecore#//SmLinkType/arcrole"/>
     <nested inputs="../../curators-workbench/etc/mets.xsd#//structLinkType;XSDComplexTypeDefinition=8/XSDParticle/XSDModelGroup/XSDParticle/smLink;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=6"
-        outputs="mets.ecore#//SmLinkType/from"/>
+        outputs="mets.ecore#//SmLinkType/xlinkFrom"/>
     <nested inputs="../../curators-workbench/etc/mets.xsd#//structLinkType;XSDComplexTypeDefinition=8/XSDParticle/XSDModelGroup/XSDParticle/smLink;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse"
         outputs="mets.ecore#//SmLinkType/iD"/>
     <nested inputs="../../curators-workbench/etc/mets.xsd#//structLinkType;XSDComplexTypeDefinition=8/XSDParticle/XSDModelGroup/XSDParticle/smLink;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=3"
@@ -680,7 +680,7 @@
     <nested inputs="../../curators-workbench/etc/mets.xsd#//structLinkType;XSDComplexTypeDefinition=8/XSDParticle/XSDModelGroup/XSDParticle/smLink;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=2"
         outputs="mets.ecore#//SmLinkType/title"/>
     <nested inputs="../../curators-workbench/etc/mets.xsd#//structLinkType;XSDComplexTypeDefinition=8/XSDParticle/XSDModelGroup/XSDParticle/smLink;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=5"
-        outputs="mets.ecore#//SmLinkType/to"/>
+        outputs="mets.ecore#//SmLinkType/xlinkTo"/>
   </nested>
   <nested inputs="http://www.loc.gov/standards/xlink/xlink.xsd#//locatorLink;XSDAttributeGroupDefinition=2/XSDAttributeUse=1"
       outputs="mets.ecore#//SmLocatorLinkType/href"/>

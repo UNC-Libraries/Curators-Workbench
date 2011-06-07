@@ -23,163 +23,163 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum BETYPEType2 implements Enumerator {
         /**
-         * The '<em><b>BYTE</b></em>' literal object.
-         * <!-- begin-user-doc -->
+	 * The '<em><b>BYTE</b></em>' literal object.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #BYTE_VALUE
-         * @generated
-         * @ordered
-         */
+	 * @see #BYTE_VALUE
+	 * @generated
+	 * @ordered
+	 */
         BYTE(0, "BYTE", "BYTE");
 
         /**
-         * The '<em><b>BYTE</b></em>' literal value.
-         * <!-- begin-user-doc -->
+	 * The '<em><b>BYTE</b></em>' literal value.
+	 * <!-- begin-user-doc -->
          * <p>
          * If the meaning of '<em><b>BYTE</b></em>' literal object isn't clear,
          * there really should be more of a description here...
          * </p>
          * <!-- end-user-doc -->
-         * @see #BYTE
-         * @model
-         * @generated
-         * @ordered
-         */
+	 * @see #BYTE
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
         public static final int BYTE_VALUE = 0;
 
         /**
-         * An array of all the '<em><b>BETYPE Type2</b></em>' enumerators.
-         * <!-- begin-user-doc -->
+	 * An array of all the '<em><b>BETYPE Type2</b></em>' enumerators.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         private static final BETYPEType2[] VALUES_ARRAY =
                 new BETYPEType2[] {
-                        BYTE,
-                };
+			BYTE,
+		};
 
         /**
-         * A public read-only list of all the '<em><b>BETYPE Type2</b></em>' enumerators.
-         * <!-- begin-user-doc -->
+	 * A public read-only list of all the '<em><b>BETYPE Type2</b></em>' enumerators.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public static final List<BETYPEType2> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
         /**
-         * Returns the '<em><b>BETYPE Type2</b></em>' literal with the specified literal value.
-         * <!-- begin-user-doc -->
+	 * Returns the '<em><b>BETYPE Type2</b></em>' literal with the specified literal value.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public static BETYPEType2 get(String literal) {
-                for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-                        BETYPEType2 result = VALUES_ARRAY[i];
-                        if (result.toString().equals(literal)) {
-                                return result;
-                        }
-                }
-                return null;
-        }
+		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
+			BETYPEType2 result = VALUES_ARRAY[i];
+			if (result.toString().equals(literal)) {
+				return result;
+			}
+		}
+		return null;
+	}
 
         /**
-         * Returns the '<em><b>BETYPE Type2</b></em>' literal with the specified name.
-         * <!-- begin-user-doc -->
+	 * Returns the '<em><b>BETYPE Type2</b></em>' literal with the specified name.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public static BETYPEType2 getByName(String name) {
-                for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-                        BETYPEType2 result = VALUES_ARRAY[i];
-                        if (result.getName().equals(name)) {
-                                return result;
-                        }
-                }
-                return null;
-        }
+		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
+			BETYPEType2 result = VALUES_ARRAY[i];
+			if (result.getName().equals(name)) {
+				return result;
+			}
+		}
+		return null;
+	}
 
         /**
-         * Returns the '<em><b>BETYPE Type2</b></em>' literal with the specified integer value.
-         * <!-- begin-user-doc -->
+	 * Returns the '<em><b>BETYPE Type2</b></em>' literal with the specified integer value.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public static BETYPEType2 get(int value) {
-                switch (value) {
-                        case BYTE_VALUE: return BYTE;
-                }
-                return null;
-        }
+		switch (value) {
+			case BYTE_VALUE: return BYTE;
+		}
+		return null;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         private final int value;
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         private final String name;
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         private final String literal;
 
         /**
-         * Only this class can construct instances.
-         * <!-- begin-user-doc -->
+	 * Only this class can construct instances.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         private BETYPEType2(int value, String name, String literal) {
-                this.value = value;
-                this.name = name;
-                this.literal = literal;
-        }
+		this.value = value;
+		this.name = name;
+		this.literal = literal;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public int getValue() {
-          return value;
-        }
+	  return value;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public String getName() {
-          return name;
-        }
+	  return name;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public String getLiteral() {
-          return literal;
-        }
+	  return literal;
+	}
 
         /**
-         * Returns the literal value of the enumerator, which is its string representation.
-         * <!-- begin-user-doc -->
+	 * Returns the literal value of the enumerator, which is its string representation.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public String toString() {
-                return literal;
-        }
+		return literal;
+	}
         
 } //BETYPEType2

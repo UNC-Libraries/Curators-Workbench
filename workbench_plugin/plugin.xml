@@ -38,6 +38,13 @@
             properties="open,closed"
             type="org.eclipse.core.resources.IProject">
       </propertyTester>
+      <propertyTester
+            class="unc.lib.cdr.workbench.SelectionPropertyTester"
+            id="workbench_plugin.selectionTester"
+            namespace="workbench_plugin.selection"
+            properties="isDivLinkPair"
+            type="org.eclipse.jface.viewers.ISelection">
+      </propertyTester>
    </extension>
 
    <extension
@@ -140,6 +147,17 @@
             id="workbench_plugin.commandDeleteProject"
             name="Delete Project">
       </command>
+      <command
+            categoryId="workbench_plugin.categoryLink"
+            defaultHandler="unc.lib.cdr.workbench.commands.LinkSurrogateHandler"
+            id="workbench_plugin.commandLinkSurrogate"
+            name="Link with Thumbnail or Surrogate">
+      </command>
+      <category
+            description="Edit links between objects"
+            id="workbench_plugin.categoryLink"
+            name="Links">
+      </category>
    </extension>
    <extension
          point="org.eclipse.ui.menus">
@@ -459,6 +477,21 @@
                            value="org.eclipse.core.resources.IProject">
                      </instanceof>
                   </iterate>
+               </with>
+            </visibleWhen>
+         </command>
+         <command
+               commandId="workbench_plugin.commandLinkSurrogate"
+               label="Link with Thumbnail or Surrogate"
+               style="push">
+            <visibleWhen
+                  checkEnabled="false">
+               <with
+                     variable="activeMenuSelection">
+                  <test
+                        args="surrogate"
+                        property="workbench_plugin.selection.isDivLinkPair">
+                  </test>
                </with>
             </visibleWhen>
          </command>
@@ -822,6 +855,12 @@
                <instanceof
                      value="gov.loc.mets.MdSecType">
                </instanceof>
+               <instanceof
+                     value="unc.lib.cdr.workbench.project.ICustomEObjectBucket">
+               </instanceof>
+               <instanceof
+                     value="gov.loc.mets.SmLinkType">
+               </instanceof>
             </or></possibleChildren>
          <commonSorter
                class="unc.lib.cdr.workbench.arrange.ArrangementViewerSorter"
@@ -837,6 +876,9 @@
                </or>
             </parentExpression>
          </commonSorter>
+         <actionProvider
+               class="unc.lib.cdr.workbench.arrange.ArrangementActionProvider">
+         </actionProvider>
       </navigatorContent>
       <navigatorContent
             activeByDefault="true"
@@ -1074,6 +1116,14 @@
                ref="workbench_plugin.adviceBindingMappedCrossWalk">
          </advice>
       </binding>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="DEL">
+      </key>
    </extension>
 
 </plugin>

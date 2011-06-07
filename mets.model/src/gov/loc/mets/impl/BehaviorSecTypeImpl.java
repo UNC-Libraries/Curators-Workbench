@@ -47,326 +47,326 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class BehaviorSecTypeImpl extends EObjectImpl implements BehaviorSecType {
         /**
-         * The cached value of the '{@link #getBehaviorSec() <em>Behavior Sec</em>}' containment reference list.
-         * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getBehaviorSec() <em>Behavior Sec</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getBehaviorSec()
-         * @generated
-         * @ordered
-         */
+	 * @see #getBehaviorSec()
+	 * @generated
+	 * @ordered
+	 */
         protected EList<BehaviorSecType> behaviorSec;
 
         /**
-         * The cached value of the '{@link #getBehavior() <em>Behavior</em>}' containment reference list.
-         * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getBehavior() <em>Behavior</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getBehavior()
-         * @generated
-         * @ordered
-         */
+	 * @see #getBehavior()
+	 * @generated
+	 * @ordered
+	 */
         protected EList<BehaviorType> behavior;
 
         /**
-         * The default value of the '{@link #getCREATED() <em>CREATED</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getCREATED() <em>CREATED</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getCREATED()
-         * @generated
-         * @ordered
-         */
+	 * @see #getCREATED()
+	 * @generated
+	 * @ordered
+	 */
         protected static final XMLGregorianCalendar CREATED_EDEFAULT = null;
 
         /**
-         * The cached value of the '{@link #getCREATED() <em>CREATED</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getCREATED() <em>CREATED</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getCREATED()
-         * @generated
-         * @ordered
-         */
+	 * @see #getCREATED()
+	 * @generated
+	 * @ordered
+	 */
         protected XMLGregorianCalendar cREATED = CREATED_EDEFAULT;
 
         /**
-         * The default value of the '{@link #getID() <em>ID</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getID() <em>ID</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getID()
-         * @generated
-         * @ordered
-         */
+	 * @see #getID()
+	 * @generated
+	 * @ordered
+	 */
         protected static final String ID_EDEFAULT = null;
 
         /**
-         * The cached value of the '{@link #getID() <em>ID</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getID() <em>ID</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getID()
-         * @generated
-         * @ordered
-         */
+	 * @see #getID()
+	 * @generated
+	 * @ordered
+	 */
         protected String iD = ID_EDEFAULT;
 
         /**
-         * The default value of the '{@link #getLABEL() <em>LABEL</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getLABEL() <em>LABEL</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getLABEL()
-         * @generated
-         * @ordered
-         */
+	 * @see #getLABEL()
+	 * @generated
+	 * @ordered
+	 */
         protected static final String LABEL_EDEFAULT = null;
 
         /**
-         * The cached value of the '{@link #getLABEL() <em>LABEL</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getLABEL() <em>LABEL</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getLABEL()
-         * @generated
-         * @ordered
-         */
+	 * @see #getLABEL()
+	 * @generated
+	 * @ordered
+	 */
         protected String lABEL = LABEL_EDEFAULT;
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected BehaviorSecTypeImpl() {
-                super();
-        }
+		super();
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         protected EClass eStaticClass() {
-                return MetsPackage.Literals.BEHAVIOR_SEC_TYPE;
-        }
+		return MetsPackage.Literals.BEHAVIOR_SEC_TYPE;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public EList<BehaviorSecType> getBehaviorSec() {
-                if (behaviorSec == null) {
-                        behaviorSec = new EObjectContainmentEList<BehaviorSecType>(BehaviorSecType.class, this, MetsPackage.BEHAVIOR_SEC_TYPE__BEHAVIOR_SEC);
-                }
-                return behaviorSec;
-        }
+		if (behaviorSec == null) {
+			behaviorSec = new EObjectContainmentEList<BehaviorSecType>(BehaviorSecType.class, this, MetsPackage.BEHAVIOR_SEC_TYPE__BEHAVIOR_SEC);
+		}
+		return behaviorSec;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public EList<BehaviorType> getBehavior() {
-                if (behavior == null) {
-                        behavior = new EObjectContainmentEList<BehaviorType>(BehaviorType.class, this, MetsPackage.BEHAVIOR_SEC_TYPE__BEHAVIOR);
-                }
-                return behavior;
-        }
+		if (behavior == null) {
+			behavior = new EObjectContainmentEList<BehaviorType>(BehaviorType.class, this, MetsPackage.BEHAVIOR_SEC_TYPE__BEHAVIOR);
+		}
+		return behavior;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public XMLGregorianCalendar getCREATED() {
-                return cREATED;
-        }
+		return cREATED;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public void setCREATED(XMLGregorianCalendar newCREATED) {
-                XMLGregorianCalendar oldCREATED = cREATED;
-                cREATED = newCREATED;
-                if (eNotificationRequired())
-                        eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.BEHAVIOR_SEC_TYPE__CREATED, oldCREATED, cREATED));
-        }
+		XMLGregorianCalendar oldCREATED = cREATED;
+		cREATED = newCREATED;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.BEHAVIOR_SEC_TYPE__CREATED, oldCREATED, cREATED));
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public String getID() {
-                return iD;
-        }
+		return iD;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public void setID(String newID) {
-                String oldID = iD;
-                iD = newID;
-                if (eNotificationRequired())
-                        eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.BEHAVIOR_SEC_TYPE__ID, oldID, iD));
-        }
+		String oldID = iD;
+		iD = newID;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.BEHAVIOR_SEC_TYPE__ID, oldID, iD));
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public String getLABEL() {
-                return lABEL;
-        }
+		return lABEL;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public void setLABEL(String newLABEL) {
-                String oldLABEL = lABEL;
-                lABEL = newLABEL;
-                if (eNotificationRequired())
-                        eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.BEHAVIOR_SEC_TYPE__LABEL, oldLABEL, lABEL));
-        }
+		String oldLABEL = lABEL;
+		lABEL = newLABEL;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.BEHAVIOR_SEC_TYPE__LABEL, oldLABEL, lABEL));
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-                switch (featureID) {
-                        case MetsPackage.BEHAVIOR_SEC_TYPE__BEHAVIOR_SEC:
-                                return ((InternalEList<?>)getBehaviorSec()).basicRemove(otherEnd, msgs);
-                        case MetsPackage.BEHAVIOR_SEC_TYPE__BEHAVIOR:
-                                return ((InternalEList<?>)getBehavior()).basicRemove(otherEnd, msgs);
-                }
-                return super.eInverseRemove(otherEnd, featureID, msgs);
-        }
+		switch (featureID) {
+			case MetsPackage.BEHAVIOR_SEC_TYPE__BEHAVIOR_SEC:
+				return ((InternalEList<?>)getBehaviorSec()).basicRemove(otherEnd, msgs);
+			case MetsPackage.BEHAVIOR_SEC_TYPE__BEHAVIOR:
+				return ((InternalEList<?>)getBehavior()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Object eGet(int featureID, boolean resolve, boolean coreType) {
-                switch (featureID) {
-                        case MetsPackage.BEHAVIOR_SEC_TYPE__BEHAVIOR_SEC:
-                                return getBehaviorSec();
-                        case MetsPackage.BEHAVIOR_SEC_TYPE__BEHAVIOR:
-                                return getBehavior();
-                        case MetsPackage.BEHAVIOR_SEC_TYPE__CREATED:
-                                return getCREATED();
-                        case MetsPackage.BEHAVIOR_SEC_TYPE__ID:
-                                return getID();
-                        case MetsPackage.BEHAVIOR_SEC_TYPE__LABEL:
-                                return getLABEL();
-                }
-                return super.eGet(featureID, resolve, coreType);
-        }
+		switch (featureID) {
+			case MetsPackage.BEHAVIOR_SEC_TYPE__BEHAVIOR_SEC:
+				return getBehaviorSec();
+			case MetsPackage.BEHAVIOR_SEC_TYPE__BEHAVIOR:
+				return getBehavior();
+			case MetsPackage.BEHAVIOR_SEC_TYPE__CREATED:
+				return getCREATED();
+			case MetsPackage.BEHAVIOR_SEC_TYPE__ID:
+				return getID();
+			case MetsPackage.BEHAVIOR_SEC_TYPE__LABEL:
+				return getLABEL();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @SuppressWarnings("unchecked")
         @Override
         public void eSet(int featureID, Object newValue) {
-                switch (featureID) {
-                        case MetsPackage.BEHAVIOR_SEC_TYPE__BEHAVIOR_SEC:
-                                getBehaviorSec().clear();
-                                getBehaviorSec().addAll((Collection<? extends BehaviorSecType>)newValue);
-                                return;
-                        case MetsPackage.BEHAVIOR_SEC_TYPE__BEHAVIOR:
-                                getBehavior().clear();
-                                getBehavior().addAll((Collection<? extends BehaviorType>)newValue);
-                                return;
-                        case MetsPackage.BEHAVIOR_SEC_TYPE__CREATED:
-                                setCREATED((XMLGregorianCalendar)newValue);
-                                return;
-                        case MetsPackage.BEHAVIOR_SEC_TYPE__ID:
-                                setID((String)newValue);
-                                return;
-                        case MetsPackage.BEHAVIOR_SEC_TYPE__LABEL:
-                                setLABEL((String)newValue);
-                                return;
-                }
-                super.eSet(featureID, newValue);
-        }
+		switch (featureID) {
+			case MetsPackage.BEHAVIOR_SEC_TYPE__BEHAVIOR_SEC:
+				getBehaviorSec().clear();
+				getBehaviorSec().addAll((Collection<? extends BehaviorSecType>)newValue);
+				return;
+			case MetsPackage.BEHAVIOR_SEC_TYPE__BEHAVIOR:
+				getBehavior().clear();
+				getBehavior().addAll((Collection<? extends BehaviorType>)newValue);
+				return;
+			case MetsPackage.BEHAVIOR_SEC_TYPE__CREATED:
+				setCREATED((XMLGregorianCalendar)newValue);
+				return;
+			case MetsPackage.BEHAVIOR_SEC_TYPE__ID:
+				setID((String)newValue);
+				return;
+			case MetsPackage.BEHAVIOR_SEC_TYPE__LABEL:
+				setLABEL((String)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public void eUnset(int featureID) {
-                switch (featureID) {
-                        case MetsPackage.BEHAVIOR_SEC_TYPE__BEHAVIOR_SEC:
-                                getBehaviorSec().clear();
-                                return;
-                        case MetsPackage.BEHAVIOR_SEC_TYPE__BEHAVIOR:
-                                getBehavior().clear();
-                                return;
-                        case MetsPackage.BEHAVIOR_SEC_TYPE__CREATED:
-                                setCREATED(CREATED_EDEFAULT);
-                                return;
-                        case MetsPackage.BEHAVIOR_SEC_TYPE__ID:
-                                setID(ID_EDEFAULT);
-                                return;
-                        case MetsPackage.BEHAVIOR_SEC_TYPE__LABEL:
-                                setLABEL(LABEL_EDEFAULT);
-                                return;
-                }
-                super.eUnset(featureID);
-        }
+		switch (featureID) {
+			case MetsPackage.BEHAVIOR_SEC_TYPE__BEHAVIOR_SEC:
+				getBehaviorSec().clear();
+				return;
+			case MetsPackage.BEHAVIOR_SEC_TYPE__BEHAVIOR:
+				getBehavior().clear();
+				return;
+			case MetsPackage.BEHAVIOR_SEC_TYPE__CREATED:
+				setCREATED(CREATED_EDEFAULT);
+				return;
+			case MetsPackage.BEHAVIOR_SEC_TYPE__ID:
+				setID(ID_EDEFAULT);
+				return;
+			case MetsPackage.BEHAVIOR_SEC_TYPE__LABEL:
+				setLABEL(LABEL_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public boolean eIsSet(int featureID) {
-                switch (featureID) {
-                        case MetsPackage.BEHAVIOR_SEC_TYPE__BEHAVIOR_SEC:
-                                return behaviorSec != null && !behaviorSec.isEmpty();
-                        case MetsPackage.BEHAVIOR_SEC_TYPE__BEHAVIOR:
-                                return behavior != null && !behavior.isEmpty();
-                        case MetsPackage.BEHAVIOR_SEC_TYPE__CREATED:
-                                return CREATED_EDEFAULT == null ? cREATED != null : !CREATED_EDEFAULT.equals(cREATED);
-                        case MetsPackage.BEHAVIOR_SEC_TYPE__ID:
-                                return ID_EDEFAULT == null ? iD != null : !ID_EDEFAULT.equals(iD);
-                        case MetsPackage.BEHAVIOR_SEC_TYPE__LABEL:
-                                return LABEL_EDEFAULT == null ? lABEL != null : !LABEL_EDEFAULT.equals(lABEL);
-                }
-                return super.eIsSet(featureID);
-        }
+		switch (featureID) {
+			case MetsPackage.BEHAVIOR_SEC_TYPE__BEHAVIOR_SEC:
+				return behaviorSec != null && !behaviorSec.isEmpty();
+			case MetsPackage.BEHAVIOR_SEC_TYPE__BEHAVIOR:
+				return behavior != null && !behavior.isEmpty();
+			case MetsPackage.BEHAVIOR_SEC_TYPE__CREATED:
+				return CREATED_EDEFAULT == null ? cREATED != null : !CREATED_EDEFAULT.equals(cREATED);
+			case MetsPackage.BEHAVIOR_SEC_TYPE__ID:
+				return ID_EDEFAULT == null ? iD != null : !ID_EDEFAULT.equals(iD);
+			case MetsPackage.BEHAVIOR_SEC_TYPE__LABEL:
+				return LABEL_EDEFAULT == null ? lABEL != null : !LABEL_EDEFAULT.equals(lABEL);
+		}
+		return super.eIsSet(featureID);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public String toString() {
-                if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-                StringBuffer result = new StringBuffer(super.toString());
-                result.append(" (cREATED: ");
-                result.append(cREATED);
-                result.append(", iD: ");
-                result.append(iD);
-                result.append(", lABEL: ");
-                result.append(lABEL);
-                result.append(')');
-                return result.toString();
-        }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (cREATED: ");
+		result.append(cREATED);
+		result.append(", iD: ");
+		result.append(iD);
+		result.append(", lABEL: ");
+		result.append(lABEL);
+		result.append(')');
+		return result.toString();
+	}
 
 } //BehaviorSecTypeImpl

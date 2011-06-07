@@ -53,238 +53,238 @@ public class TransformFileTypeItemProvider
                 IItemLabelProvider,
                 IItemPropertySource {
         /**
-         * This constructs an instance from a factory and a notifier.
-         * <!-- begin-user-doc -->
+	 * This constructs an instance from a factory and a notifier.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public TransformFileTypeItemProvider(AdapterFactory adapterFactory) {
-                super(adapterFactory);
-        }
+		super(adapterFactory);
+	}
 
         /**
-         * This returns the property descriptors for the adapted class.
-         * <!-- begin-user-doc -->
+	 * This returns the property descriptors for the adapted class.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-                if (itemPropertyDescriptors == null) {
-                        super.getPropertyDescriptors(object);
+		if (itemPropertyDescriptors == null) {
+			super.getPropertyDescriptors(object);
 
-                        addIDPropertyDescriptor(object);
-                        addTRANSFORMALGORITHMPropertyDescriptor(object);
-                        addTRANSFORMBEHAVIORPropertyDescriptor(object);
-                        addTRANSFORMKEYPropertyDescriptor(object);
-                        addTRANSFORMORDERPropertyDescriptor(object);
-                        addTRANSFORMTYPEPropertyDescriptor(object);
-                }
-                return itemPropertyDescriptors;
-        }
+			addIDPropertyDescriptor(object);
+			addTRANSFORMALGORITHMPropertyDescriptor(object);
+			addTRANSFORMBEHAVIORPropertyDescriptor(object);
+			addTRANSFORMKEYPropertyDescriptor(object);
+			addTRANSFORMORDERPropertyDescriptor(object);
+			addTRANSFORMTYPEPropertyDescriptor(object);
+		}
+		return itemPropertyDescriptors;
+	}
 
         /**
-         * This adds a property descriptor for the ID feature.
-         * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the ID feature.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected void addIDPropertyDescriptor(Object object) {
-                itemPropertyDescriptors.add
-                        (createItemPropertyDescriptor
-                                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                                 getResourceLocator(),
-                                 getString("_UI_TransformFileType_iD_feature"),
-                                 getString("_UI_PropertyDescriptor_description", "_UI_TransformFileType_iD_feature", "_UI_TransformFileType_type"),
-                                 MetsPackage.Literals.TRANSFORM_FILE_TYPE__ID,
-                                 true,
-                                 false,
-                                 false,
-                                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                                 null,
-                                 null));
-        }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_TransformFileType_iD_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TransformFileType_iD_feature", "_UI_TransformFileType_type"),
+				 MetsPackage.Literals.TRANSFORM_FILE_TYPE__ID,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
         /**
-         * This adds a property descriptor for the TRANSFORMALGORITHM feature.
-         * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the TRANSFORMALGORITHM feature.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected void addTRANSFORMALGORITHMPropertyDescriptor(Object object) {
-                itemPropertyDescriptors.add
-                        (createItemPropertyDescriptor
-                                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                                 getResourceLocator(),
-                                 getString("_UI_TransformFileType_tRANSFORMALGORITHM_feature"),
-                                 getString("_UI_PropertyDescriptor_description", "_UI_TransformFileType_tRANSFORMALGORITHM_feature", "_UI_TransformFileType_type"),
-                                 MetsPackage.Literals.TRANSFORM_FILE_TYPE__TRANSFORMALGORITHM,
-                                 true,
-                                 false,
-                                 false,
-                                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                                 null,
-                                 null));
-        }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_TransformFileType_tRANSFORMALGORITHM_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TransformFileType_tRANSFORMALGORITHM_feature", "_UI_TransformFileType_type"),
+				 MetsPackage.Literals.TRANSFORM_FILE_TYPE__TRANSFORMALGORITHM,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
         /**
-         * This adds a property descriptor for the TRANSFORMBEHAVIOR feature.
-         * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the TRANSFORMBEHAVIOR feature.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected void addTRANSFORMBEHAVIORPropertyDescriptor(Object object) {
-                itemPropertyDescriptors.add
-                        (createItemPropertyDescriptor
-                                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                                 getResourceLocator(),
-                                 getString("_UI_TransformFileType_tRANSFORMBEHAVIOR_feature"),
-                                 getString("_UI_PropertyDescriptor_description", "_UI_TransformFileType_tRANSFORMBEHAVIOR_feature", "_UI_TransformFileType_type"),
-                                 MetsPackage.Literals.TRANSFORM_FILE_TYPE__TRANSFORMBEHAVIOR,
-                                 true,
-                                 false,
-                                 false,
-                                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                                 null,
-                                 null));
-        }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_TransformFileType_tRANSFORMBEHAVIOR_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TransformFileType_tRANSFORMBEHAVIOR_feature", "_UI_TransformFileType_type"),
+				 MetsPackage.Literals.TRANSFORM_FILE_TYPE__TRANSFORMBEHAVIOR,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
         /**
-         * This adds a property descriptor for the TRANSFORMKEY feature.
-         * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the TRANSFORMKEY feature.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected void addTRANSFORMKEYPropertyDescriptor(Object object) {
-                itemPropertyDescriptors.add
-                        (createItemPropertyDescriptor
-                                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                                 getResourceLocator(),
-                                 getString("_UI_TransformFileType_tRANSFORMKEY_feature"),
-                                 getString("_UI_PropertyDescriptor_description", "_UI_TransformFileType_tRANSFORMKEY_feature", "_UI_TransformFileType_type"),
-                                 MetsPackage.Literals.TRANSFORM_FILE_TYPE__TRANSFORMKEY,
-                                 true,
-                                 false,
-                                 false,
-                                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                                 null,
-                                 null));
-        }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_TransformFileType_tRANSFORMKEY_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TransformFileType_tRANSFORMKEY_feature", "_UI_TransformFileType_type"),
+				 MetsPackage.Literals.TRANSFORM_FILE_TYPE__TRANSFORMKEY,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
         /**
-         * This adds a property descriptor for the TRANSFORMORDER feature.
-         * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the TRANSFORMORDER feature.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected void addTRANSFORMORDERPropertyDescriptor(Object object) {
-                itemPropertyDescriptors.add
-                        (createItemPropertyDescriptor
-                                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                                 getResourceLocator(),
-                                 getString("_UI_TransformFileType_tRANSFORMORDER_feature"),
-                                 getString("_UI_PropertyDescriptor_description", "_UI_TransformFileType_tRANSFORMORDER_feature", "_UI_TransformFileType_type"),
-                                 MetsPackage.Literals.TRANSFORM_FILE_TYPE__TRANSFORMORDER,
-                                 true,
-                                 false,
-                                 false,
-                                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                                 null,
-                                 null));
-        }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_TransformFileType_tRANSFORMORDER_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TransformFileType_tRANSFORMORDER_feature", "_UI_TransformFileType_type"),
+				 MetsPackage.Literals.TRANSFORM_FILE_TYPE__TRANSFORMORDER,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
         /**
-         * This adds a property descriptor for the TRANSFORMTYPE feature.
-         * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the TRANSFORMTYPE feature.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected void addTRANSFORMTYPEPropertyDescriptor(Object object) {
-                itemPropertyDescriptors.add
-                        (createItemPropertyDescriptor
-                                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                                 getResourceLocator(),
-                                 getString("_UI_TransformFileType_tRANSFORMTYPE_feature"),
-                                 getString("_UI_PropertyDescriptor_description", "_UI_TransformFileType_tRANSFORMTYPE_feature", "_UI_TransformFileType_type"),
-                                 MetsPackage.Literals.TRANSFORM_FILE_TYPE__TRANSFORMTYPE,
-                                 true,
-                                 false,
-                                 false,
-                                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                                 null,
-                                 null));
-        }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_TransformFileType_tRANSFORMTYPE_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TransformFileType_tRANSFORMTYPE_feature", "_UI_TransformFileType_type"),
+				 MetsPackage.Literals.TRANSFORM_FILE_TYPE__TRANSFORMTYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
         /**
-         * This returns TransformFileType.gif.
-         * <!-- begin-user-doc -->
+	 * This returns TransformFileType.gif.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Object getImage(Object object) {
-                return overlayImage(object, getResourceLocator().getImage("full/obj16/TransformFileType"));
-        }
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/TransformFileType"));
+	}
 
         /**
-         * This returns the label text for the adapted class.
-         * <!-- begin-user-doc -->
+	 * This returns the label text for the adapted class.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public String getText(Object object) {
-                String label = ((TransformFileType)object).getID();
-                return label == null || label.length() == 0 ?
-                        getString("_UI_TransformFileType_type") :
-                        getString("_UI_TransformFileType_type") + " " + label;
-        }
+		String label = ((TransformFileType)object).getID();
+		return label == null || label.length() == 0 ?
+			getString("_UI_TransformFileType_type") :
+			getString("_UI_TransformFileType_type") + " " + label;
+	}
 
         /**
-         * This handles model notifications by calling {@link #updateChildren} to update any cached
-         * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-         * <!-- begin-user-doc -->
+	 * This handles model notifications by calling {@link #updateChildren} to update any cached
+	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public void notifyChanged(Notification notification) {
-                updateChildren(notification);
+		updateChildren(notification);
 
-                switch (notification.getFeatureID(TransformFileType.class)) {
-                        case MetsPackage.TRANSFORM_FILE_TYPE__ID:
-                        case MetsPackage.TRANSFORM_FILE_TYPE__TRANSFORMALGORITHM:
-                        case MetsPackage.TRANSFORM_FILE_TYPE__TRANSFORMBEHAVIOR:
-                        case MetsPackage.TRANSFORM_FILE_TYPE__TRANSFORMKEY:
-                        case MetsPackage.TRANSFORM_FILE_TYPE__TRANSFORMORDER:
-                        case MetsPackage.TRANSFORM_FILE_TYPE__TRANSFORMTYPE:
-                                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-                                return;
-                }
-                super.notifyChanged(notification);
-        }
+		switch (notification.getFeatureID(TransformFileType.class)) {
+			case MetsPackage.TRANSFORM_FILE_TYPE__ID:
+			case MetsPackage.TRANSFORM_FILE_TYPE__TRANSFORMALGORITHM:
+			case MetsPackage.TRANSFORM_FILE_TYPE__TRANSFORMBEHAVIOR:
+			case MetsPackage.TRANSFORM_FILE_TYPE__TRANSFORMKEY:
+			case MetsPackage.TRANSFORM_FILE_TYPE__TRANSFORMORDER:
+			case MetsPackage.TRANSFORM_FILE_TYPE__TRANSFORMTYPE:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
+		super.notifyChanged(notification);
+	}
 
         /**
-         * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-         * that can be created under this object.
-         * <!-- begin-user-doc -->
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
-                super.collectNewChildDescriptors(newChildDescriptors, object);
-        }
+		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
 
         /**
-         * Return the resource locator for this item provider's resources.
-         * <!-- begin-user-doc -->
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public ResourceLocator getResourceLocator() {
-                return MetsEditPlugin.INSTANCE;
-        }
+		return MetsEditPlugin.INSTANCE;
+	}
 
 }

@@ -35,133 +35,133 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class XmlDataType1Impl extends EObjectImpl implements XmlDataType1 {
         /**
-         * The cached value of the '{@link #getAny() <em>Any</em>}' attribute list.
-         * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getAny() <em>Any</em>}' attribute list.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getAny()
-         * @generated
-         * @ordered
-         */
+	 * @see #getAny()
+	 * @generated
+	 * @ordered
+	 */
         protected FeatureMap any;
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected XmlDataType1Impl() {
-                super();
-        }
+		super();
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         protected EClass eStaticClass() {
-                return MetsPackage.Literals.XML_DATA_TYPE1;
-        }
+		return MetsPackage.Literals.XML_DATA_TYPE1;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public FeatureMap getAny() {
-                if (any == null) {
-                        any = new BasicFeatureMap(this, MetsPackage.XML_DATA_TYPE1__ANY);
-                }
-                return any;
-        }
+		if (any == null) {
+			any = new BasicFeatureMap(this, MetsPackage.XML_DATA_TYPE1__ANY);
+		}
+		return any;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-                switch (featureID) {
-                        case MetsPackage.XML_DATA_TYPE1__ANY:
-                                return ((InternalEList<?>)getAny()).basicRemove(otherEnd, msgs);
-                }
-                return super.eInverseRemove(otherEnd, featureID, msgs);
-        }
+		switch (featureID) {
+			case MetsPackage.XML_DATA_TYPE1__ANY:
+				return ((InternalEList<?>)getAny()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Object eGet(int featureID, boolean resolve, boolean coreType) {
-                switch (featureID) {
-                        case MetsPackage.XML_DATA_TYPE1__ANY:
-                                if (coreType) return getAny();
-                                return ((FeatureMap.Internal)getAny()).getWrapper();
-                }
-                return super.eGet(featureID, resolve, coreType);
-        }
+		switch (featureID) {
+			case MetsPackage.XML_DATA_TYPE1__ANY:
+				if (coreType) return getAny();
+				return ((FeatureMap.Internal)getAny()).getWrapper();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public void eSet(int featureID, Object newValue) {
-                switch (featureID) {
-                        case MetsPackage.XML_DATA_TYPE1__ANY:
-                                ((FeatureMap.Internal)getAny()).set(newValue);
-                                return;
-                }
-                super.eSet(featureID, newValue);
-        }
+		switch (featureID) {
+			case MetsPackage.XML_DATA_TYPE1__ANY:
+				((FeatureMap.Internal)getAny()).set(newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public void eUnset(int featureID) {
-                switch (featureID) {
-                        case MetsPackage.XML_DATA_TYPE1__ANY:
-                                getAny().clear();
-                                return;
-                }
-                super.eUnset(featureID);
-        }
+		switch (featureID) {
+			case MetsPackage.XML_DATA_TYPE1__ANY:
+				getAny().clear();
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public boolean eIsSet(int featureID) {
-                switch (featureID) {
-                        case MetsPackage.XML_DATA_TYPE1__ANY:
-                                return any != null && !any.isEmpty();
-                }
-                return super.eIsSet(featureID);
-        }
+		switch (featureID) {
+			case MetsPackage.XML_DATA_TYPE1__ANY:
+				return any != null && !any.isEmpty();
+		}
+		return super.eIsSet(featureID);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public String toString() {
-                if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-                StringBuffer result = new StringBuffer(super.toString());
-                result.append(" (any: ");
-                result.append(any);
-                result.append(')');
-                return result.toString();
-        }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (any: ");
+		result.append(any);
+		result.append(')');
+		return result.toString();
+	}
 
 } //XmlDataType1Impl

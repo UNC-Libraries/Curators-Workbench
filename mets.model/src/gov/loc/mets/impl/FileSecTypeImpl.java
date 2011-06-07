@@ -42,185 +42,185 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class FileSecTypeImpl extends EObjectImpl implements FileSecType {
         /**
-         * The cached value of the '{@link #getFileGrp() <em>File Grp</em>}' containment reference list.
-         * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getFileGrp() <em>File Grp</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getFileGrp()
-         * @generated
-         * @ordered
-         */
+	 * @see #getFileGrp()
+	 * @generated
+	 * @ordered
+	 */
         protected EList<FileGrpType1> fileGrp;
 
         /**
-         * The default value of the '{@link #getID() <em>ID</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getID() <em>ID</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getID()
-         * @generated
-         * @ordered
-         */
+	 * @see #getID()
+	 * @generated
+	 * @ordered
+	 */
         protected static final String ID_EDEFAULT = null;
 
         /**
-         * The cached value of the '{@link #getID() <em>ID</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getID() <em>ID</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getID()
-         * @generated
-         * @ordered
-         */
+	 * @see #getID()
+	 * @generated
+	 * @ordered
+	 */
         protected String iD = ID_EDEFAULT;
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected FileSecTypeImpl() {
-                super();
-        }
+		super();
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         protected EClass eStaticClass() {
-                return MetsPackage.Literals.FILE_SEC_TYPE;
-        }
+		return MetsPackage.Literals.FILE_SEC_TYPE;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public EList<FileGrpType1> getFileGrp() {
-                if (fileGrp == null) {
-                        fileGrp = new EObjectContainmentEList<FileGrpType1>(FileGrpType1.class, this, MetsPackage.FILE_SEC_TYPE__FILE_GRP);
-                }
-                return fileGrp;
-        }
+		if (fileGrp == null) {
+			fileGrp = new EObjectContainmentEList<FileGrpType1>(FileGrpType1.class, this, MetsPackage.FILE_SEC_TYPE__FILE_GRP);
+		}
+		return fileGrp;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public String getID() {
-                return iD;
-        }
+		return iD;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public void setID(String newID) {
-                String oldID = iD;
-                iD = newID;
-                if (eNotificationRequired())
-                        eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.FILE_SEC_TYPE__ID, oldID, iD));
-        }
+		String oldID = iD;
+		iD = newID;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.FILE_SEC_TYPE__ID, oldID, iD));
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-                switch (featureID) {
-                        case MetsPackage.FILE_SEC_TYPE__FILE_GRP:
-                                return ((InternalEList<?>)getFileGrp()).basicRemove(otherEnd, msgs);
-                }
-                return super.eInverseRemove(otherEnd, featureID, msgs);
-        }
+		switch (featureID) {
+			case MetsPackage.FILE_SEC_TYPE__FILE_GRP:
+				return ((InternalEList<?>)getFileGrp()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Object eGet(int featureID, boolean resolve, boolean coreType) {
-                switch (featureID) {
-                        case MetsPackage.FILE_SEC_TYPE__FILE_GRP:
-                                return getFileGrp();
-                        case MetsPackage.FILE_SEC_TYPE__ID:
-                                return getID();
-                }
-                return super.eGet(featureID, resolve, coreType);
-        }
+		switch (featureID) {
+			case MetsPackage.FILE_SEC_TYPE__FILE_GRP:
+				return getFileGrp();
+			case MetsPackage.FILE_SEC_TYPE__ID:
+				return getID();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @SuppressWarnings("unchecked")
         @Override
         public void eSet(int featureID, Object newValue) {
-                switch (featureID) {
-                        case MetsPackage.FILE_SEC_TYPE__FILE_GRP:
-                                getFileGrp().clear();
-                                getFileGrp().addAll((Collection<? extends FileGrpType1>)newValue);
-                                return;
-                        case MetsPackage.FILE_SEC_TYPE__ID:
-                                setID((String)newValue);
-                                return;
-                }
-                super.eSet(featureID, newValue);
-        }
+		switch (featureID) {
+			case MetsPackage.FILE_SEC_TYPE__FILE_GRP:
+				getFileGrp().clear();
+				getFileGrp().addAll((Collection<? extends FileGrpType1>)newValue);
+				return;
+			case MetsPackage.FILE_SEC_TYPE__ID:
+				setID((String)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public void eUnset(int featureID) {
-                switch (featureID) {
-                        case MetsPackage.FILE_SEC_TYPE__FILE_GRP:
-                                getFileGrp().clear();
-                                return;
-                        case MetsPackage.FILE_SEC_TYPE__ID:
-                                setID(ID_EDEFAULT);
-                                return;
-                }
-                super.eUnset(featureID);
-        }
+		switch (featureID) {
+			case MetsPackage.FILE_SEC_TYPE__FILE_GRP:
+				getFileGrp().clear();
+				return;
+			case MetsPackage.FILE_SEC_TYPE__ID:
+				setID(ID_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public boolean eIsSet(int featureID) {
-                switch (featureID) {
-                        case MetsPackage.FILE_SEC_TYPE__FILE_GRP:
-                                return fileGrp != null && !fileGrp.isEmpty();
-                        case MetsPackage.FILE_SEC_TYPE__ID:
-                                return ID_EDEFAULT == null ? iD != null : !ID_EDEFAULT.equals(iD);
-                }
-                return super.eIsSet(featureID);
-        }
+		switch (featureID) {
+			case MetsPackage.FILE_SEC_TYPE__FILE_GRP:
+				return fileGrp != null && !fileGrp.isEmpty();
+			case MetsPackage.FILE_SEC_TYPE__ID:
+				return ID_EDEFAULT == null ? iD != null : !ID_EDEFAULT.equals(iD);
+		}
+		return super.eIsSet(featureID);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public String toString() {
-                if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-                StringBuffer result = new StringBuffer(super.toString());
-                result.append(" (iD: ");
-                result.append(iD);
-                result.append(')');
-                return result.toString();
-        }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (iD: ");
+		result.append(iD);
+		result.append(')');
+		return result.toString();
+	}
 
 } //FileSecTypeImpl

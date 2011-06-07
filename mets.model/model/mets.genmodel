@@ -397,11 +397,11 @@
     <genClasses ecoreClass="mets.ecore#//SmLinkType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mets.ecore#//SmLinkType/actuate"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mets.ecore#//SmLinkType/arcrole"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mets.ecore#//SmLinkType/from"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference mets.ecore#//SmLinkType/xlinkFrom"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mets.ecore#//SmLinkType/iD"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mets.ecore#//SmLinkType/show"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mets.ecore#//SmLinkType/title"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mets.ecore#//SmLinkType/to"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference mets.ecore#//SmLinkType/xlinkTo"/>
     </genClasses>
     <genClasses ecoreClass="mets.ecore#//SmLocatorLinkType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mets.ecore#//SmLocatorLinkType/href"/>

@@ -49,500 +49,500 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class SmLinkGrpTypeImpl extends EObjectImpl implements SmLinkGrpType {
         /**
-         * The cached value of the '{@link #getSmLocatorLink() <em>Sm Locator Link</em>}' containment reference list.
-         * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getSmLocatorLink() <em>Sm Locator Link</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getSmLocatorLink()
-         * @generated
-         * @ordered
-         */
+	 * @see #getSmLocatorLink()
+	 * @generated
+	 * @ordered
+	 */
         protected EList<SmLocatorLinkType> smLocatorLink;
 
         /**
-         * The cached value of the '{@link #getSmArcLink() <em>Sm Arc Link</em>}' containment reference list.
-         * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getSmArcLink() <em>Sm Arc Link</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getSmArcLink()
-         * @generated
-         * @ordered
-         */
+	 * @see #getSmArcLink()
+	 * @generated
+	 * @ordered
+	 */
         protected EList<SmArcLinkType> smArcLink;
 
         /**
-         * The default value of the '{@link #getARCLINKORDER() <em>ARCLINKORDER</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getARCLINKORDER() <em>ARCLINKORDER</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getARCLINKORDER()
-         * @generated
-         * @ordered
-         */
+	 * @see #getARCLINKORDER()
+	 * @generated
+	 * @ordered
+	 */
         protected static final ARCLINKORDERType ARCLINKORDER_EDEFAULT = ARCLINKORDERType.UNORDERED;
 
         /**
-         * The cached value of the '{@link #getARCLINKORDER() <em>ARCLINKORDER</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getARCLINKORDER() <em>ARCLINKORDER</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getARCLINKORDER()
-         * @generated
-         * @ordered
-         */
+	 * @see #getARCLINKORDER()
+	 * @generated
+	 * @ordered
+	 */
         protected ARCLINKORDERType aRCLINKORDER = ARCLINKORDER_EDEFAULT;
 
         /**
-         * This is true if the ARCLINKORDER attribute has been set.
-         * <!-- begin-user-doc -->
+	 * This is true if the ARCLINKORDER attribute has been set.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         * @ordered
-         */
+	 * @generated
+	 * @ordered
+	 */
         protected boolean aRCLINKORDERESet;
 
         /**
-         * The default value of the '{@link #getID() <em>ID</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getID() <em>ID</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getID()
-         * @generated
-         * @ordered
-         */
+	 * @see #getID()
+	 * @generated
+	 * @ordered
+	 */
         protected static final String ID_EDEFAULT = null;
 
         /**
-         * The cached value of the '{@link #getID() <em>ID</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getID() <em>ID</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getID()
-         * @generated
-         * @ordered
-         */
+	 * @see #getID()
+	 * @generated
+	 * @ordered
+	 */
         protected String iD = ID_EDEFAULT;
 
         /**
-         * The default value of the '{@link #getRole() <em>Role</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getRole() <em>Role</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getRole()
-         * @generated
-         * @ordered
-         */
+	 * @see #getRole()
+	 * @generated
+	 * @ordered
+	 */
         protected static final String ROLE_EDEFAULT = null;
 
         /**
-         * The cached value of the '{@link #getRole() <em>Role</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getRole() <em>Role</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getRole()
-         * @generated
-         * @ordered
-         */
+	 * @see #getRole()
+	 * @generated
+	 * @ordered
+	 */
         protected String role = ROLE_EDEFAULT;
 
         /**
-         * The default value of the '{@link #getTitle() <em>Title</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getTitle() <em>Title</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getTitle()
-         * @generated
-         * @ordered
-         */
+	 * @see #getTitle()
+	 * @generated
+	 * @ordered
+	 */
         protected static final String TITLE_EDEFAULT = null;
 
         /**
-         * The cached value of the '{@link #getTitle() <em>Title</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getTitle() <em>Title</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getTitle()
-         * @generated
-         * @ordered
-         */
+	 * @see #getTitle()
+	 * @generated
+	 * @ordered
+	 */
         protected String title = TITLE_EDEFAULT;
 
         /**
-         * The default value of the '{@link #getType() <em>Type</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getType()
-         * @generated
-         * @ordered
-         */
+	 * @see #getType()
+	 * @generated
+	 * @ordered
+	 */
         protected static final String TYPE_EDEFAULT = "extended";
 
         /**
-         * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getType()
-         * @generated
-         * @ordered
-         */
+	 * @see #getType()
+	 * @generated
+	 * @ordered
+	 */
         protected String type = TYPE_EDEFAULT;
 
         /**
-         * This is true if the Type attribute has been set.
-         * <!-- begin-user-doc -->
+	 * This is true if the Type attribute has been set.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         * @ordered
-         */
+	 * @generated
+	 * @ordered
+	 */
         protected boolean typeESet;
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected SmLinkGrpTypeImpl() {
-                super();
-        }
+		super();
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         protected EClass eStaticClass() {
-                return MetsPackage.Literals.SM_LINK_GRP_TYPE;
-        }
+		return MetsPackage.Literals.SM_LINK_GRP_TYPE;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public EList<SmLocatorLinkType> getSmLocatorLink() {
-                if (smLocatorLink == null) {
-                        smLocatorLink = new EObjectContainmentEList<SmLocatorLinkType>(SmLocatorLinkType.class, this, MetsPackage.SM_LINK_GRP_TYPE__SM_LOCATOR_LINK);
-                }
-                return smLocatorLink;
-        }
+		if (smLocatorLink == null) {
+			smLocatorLink = new EObjectContainmentEList<SmLocatorLinkType>(SmLocatorLinkType.class, this, MetsPackage.SM_LINK_GRP_TYPE__SM_LOCATOR_LINK);
+		}
+		return smLocatorLink;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public EList<SmArcLinkType> getSmArcLink() {
-                if (smArcLink == null) {
-                        smArcLink = new EObjectContainmentEList<SmArcLinkType>(SmArcLinkType.class, this, MetsPackage.SM_LINK_GRP_TYPE__SM_ARC_LINK);
-                }
-                return smArcLink;
-        }
+		if (smArcLink == null) {
+			smArcLink = new EObjectContainmentEList<SmArcLinkType>(SmArcLinkType.class, this, MetsPackage.SM_LINK_GRP_TYPE__SM_ARC_LINK);
+		}
+		return smArcLink;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public ARCLINKORDERType getARCLINKORDER() {
-                return aRCLINKORDER;
-        }
+		return aRCLINKORDER;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public void setARCLINKORDER(ARCLINKORDERType newARCLINKORDER) {
-                ARCLINKORDERType oldARCLINKORDER = aRCLINKORDER;
-                aRCLINKORDER = newARCLINKORDER == null ? ARCLINKORDER_EDEFAULT : newARCLINKORDER;
-                boolean oldARCLINKORDERESet = aRCLINKORDERESet;
-                aRCLINKORDERESet = true;
-                if (eNotificationRequired())
-                        eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.SM_LINK_GRP_TYPE__ARCLINKORDER, oldARCLINKORDER, aRCLINKORDER, !oldARCLINKORDERESet));
-        }
+		ARCLINKORDERType oldARCLINKORDER = aRCLINKORDER;
+		aRCLINKORDER = newARCLINKORDER == null ? ARCLINKORDER_EDEFAULT : newARCLINKORDER;
+		boolean oldARCLINKORDERESet = aRCLINKORDERESet;
+		aRCLINKORDERESet = true;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.SM_LINK_GRP_TYPE__ARCLINKORDER, oldARCLINKORDER, aRCLINKORDER, !oldARCLINKORDERESet));
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public void unsetARCLINKORDER() {
-                ARCLINKORDERType oldARCLINKORDER = aRCLINKORDER;
-                boolean oldARCLINKORDERESet = aRCLINKORDERESet;
-                aRCLINKORDER = ARCLINKORDER_EDEFAULT;
-                aRCLINKORDERESet = false;
-                if (eNotificationRequired())
-                        eNotify(new ENotificationImpl(this, Notification.UNSET, MetsPackage.SM_LINK_GRP_TYPE__ARCLINKORDER, oldARCLINKORDER, ARCLINKORDER_EDEFAULT, oldARCLINKORDERESet));
-        }
+		ARCLINKORDERType oldARCLINKORDER = aRCLINKORDER;
+		boolean oldARCLINKORDERESet = aRCLINKORDERESet;
+		aRCLINKORDER = ARCLINKORDER_EDEFAULT;
+		aRCLINKORDERESet = false;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, MetsPackage.SM_LINK_GRP_TYPE__ARCLINKORDER, oldARCLINKORDER, ARCLINKORDER_EDEFAULT, oldARCLINKORDERESet));
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public boolean isSetARCLINKORDER() {
-                return aRCLINKORDERESet;
-        }
+		return aRCLINKORDERESet;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public String getID() {
-                return iD;
-        }
+		return iD;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public void setID(String newID) {
-                String oldID = iD;
-                iD = newID;
-                if (eNotificationRequired())
-                        eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.SM_LINK_GRP_TYPE__ID, oldID, iD));
-        }
+		String oldID = iD;
+		iD = newID;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.SM_LINK_GRP_TYPE__ID, oldID, iD));
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public String getRole() {
-                return role;
-        }
+		return role;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public void setRole(String newRole) {
-                String oldRole = role;
-                role = newRole;
-                if (eNotificationRequired())
-                        eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.SM_LINK_GRP_TYPE__ROLE, oldRole, role));
-        }
+		String oldRole = role;
+		role = newRole;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.SM_LINK_GRP_TYPE__ROLE, oldRole, role));
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public String getTitle() {
-                return title;
-        }
+		return title;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public void setTitle(String newTitle) {
-                String oldTitle = title;
-                title = newTitle;
-                if (eNotificationRequired())
-                        eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.SM_LINK_GRP_TYPE__TITLE, oldTitle, title));
-        }
+		String oldTitle = title;
+		title = newTitle;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.SM_LINK_GRP_TYPE__TITLE, oldTitle, title));
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public String getType() {
-                return type;
-        }
+		return type;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public void setType(String newType) {
-                String oldType = type;
-                type = newType;
-                boolean oldTypeESet = typeESet;
-                typeESet = true;
-                if (eNotificationRequired())
-                        eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.SM_LINK_GRP_TYPE__TYPE, oldType, type, !oldTypeESet));
-        }
+		String oldType = type;
+		type = newType;
+		boolean oldTypeESet = typeESet;
+		typeESet = true;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.SM_LINK_GRP_TYPE__TYPE, oldType, type, !oldTypeESet));
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public void unsetType() {
-                String oldType = type;
-                boolean oldTypeESet = typeESet;
-                type = TYPE_EDEFAULT;
-                typeESet = false;
-                if (eNotificationRequired())
-                        eNotify(new ENotificationImpl(this, Notification.UNSET, MetsPackage.SM_LINK_GRP_TYPE__TYPE, oldType, TYPE_EDEFAULT, oldTypeESet));
-        }
+		String oldType = type;
+		boolean oldTypeESet = typeESet;
+		type = TYPE_EDEFAULT;
+		typeESet = false;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, MetsPackage.SM_LINK_GRP_TYPE__TYPE, oldType, TYPE_EDEFAULT, oldTypeESet));
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public boolean isSetType() {
-                return typeESet;
-        }
+		return typeESet;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-                switch (featureID) {
-                        case MetsPackage.SM_LINK_GRP_TYPE__SM_LOCATOR_LINK:
-                                return ((InternalEList<?>)getSmLocatorLink()).basicRemove(otherEnd, msgs);
-                        case MetsPackage.SM_LINK_GRP_TYPE__SM_ARC_LINK:
-                                return ((InternalEList<?>)getSmArcLink()).basicRemove(otherEnd, msgs);
-                }
-                return super.eInverseRemove(otherEnd, featureID, msgs);
-        }
+		switch (featureID) {
+			case MetsPackage.SM_LINK_GRP_TYPE__SM_LOCATOR_LINK:
+				return ((InternalEList<?>)getSmLocatorLink()).basicRemove(otherEnd, msgs);
+			case MetsPackage.SM_LINK_GRP_TYPE__SM_ARC_LINK:
+				return ((InternalEList<?>)getSmArcLink()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Object eGet(int featureID, boolean resolve, boolean coreType) {
-                switch (featureID) {
-                        case MetsPackage.SM_LINK_GRP_TYPE__SM_LOCATOR_LINK:
-                                return getSmLocatorLink();
-                        case MetsPackage.SM_LINK_GRP_TYPE__SM_ARC_LINK:
-                                return getSmArcLink();
-                        case MetsPackage.SM_LINK_GRP_TYPE__ARCLINKORDER:
-                                return getARCLINKORDER();
-                        case MetsPackage.SM_LINK_GRP_TYPE__ID:
-                                return getID();
-                        case MetsPackage.SM_LINK_GRP_TYPE__ROLE:
-                                return getRole();
-                        case MetsPackage.SM_LINK_GRP_TYPE__TITLE:
-                                return getTitle();
-                        case MetsPackage.SM_LINK_GRP_TYPE__TYPE:
-                                return getType();
-                }
-                return super.eGet(featureID, resolve, coreType);
-        }
+		switch (featureID) {
+			case MetsPackage.SM_LINK_GRP_TYPE__SM_LOCATOR_LINK:
+				return getSmLocatorLink();
+			case MetsPackage.SM_LINK_GRP_TYPE__SM_ARC_LINK:
+				return getSmArcLink();
+			case MetsPackage.SM_LINK_GRP_TYPE__ARCLINKORDER:
+				return getARCLINKORDER();
+			case MetsPackage.SM_LINK_GRP_TYPE__ID:
+				return getID();
+			case MetsPackage.SM_LINK_GRP_TYPE__ROLE:
+				return getRole();
+			case MetsPackage.SM_LINK_GRP_TYPE__TITLE:
+				return getTitle();
+			case MetsPackage.SM_LINK_GRP_TYPE__TYPE:
+				return getType();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @SuppressWarnings("unchecked")
         @Override
         public void eSet(int featureID, Object newValue) {
-                switch (featureID) {
-                        case MetsPackage.SM_LINK_GRP_TYPE__SM_LOCATOR_LINK:
-                                getSmLocatorLink().clear();
-                                getSmLocatorLink().addAll((Collection<? extends SmLocatorLinkType>)newValue);
-                                return;
-                        case MetsPackage.SM_LINK_GRP_TYPE__SM_ARC_LINK:
-                                getSmArcLink().clear();
-                                getSmArcLink().addAll((Collection<? extends SmArcLinkType>)newValue);
-                                return;
-                        case MetsPackage.SM_LINK_GRP_TYPE__ARCLINKORDER:
-                                setARCLINKORDER((ARCLINKORDERType)newValue);
-                                return;
-                        case MetsPackage.SM_LINK_GRP_TYPE__ID:
-                                setID((String)newValue);
-                                return;
-                        case MetsPackage.SM_LINK_GRP_TYPE__ROLE:
-                                setRole((String)newValue);
-                                return;
-                        case MetsPackage.SM_LINK_GRP_TYPE__TITLE:
-                                setTitle((String)newValue);
-                                return;
-                        case MetsPackage.SM_LINK_GRP_TYPE__TYPE:
-                                setType((String)newValue);
-                                return;
-                }
-                super.eSet(featureID, newValue);
-        }
+		switch (featureID) {
+			case MetsPackage.SM_LINK_GRP_TYPE__SM_LOCATOR_LINK:
+				getSmLocatorLink().clear();
+				getSmLocatorLink().addAll((Collection<? extends SmLocatorLinkType>)newValue);
+				return;
+			case MetsPackage.SM_LINK_GRP_TYPE__SM_ARC_LINK:
+				getSmArcLink().clear();
+				getSmArcLink().addAll((Collection<? extends SmArcLinkType>)newValue);
+				return;
+			case MetsPackage.SM_LINK_GRP_TYPE__ARCLINKORDER:
+				setARCLINKORDER((ARCLINKORDERType)newValue);
+				return;
+			case MetsPackage.SM_LINK_GRP_TYPE__ID:
+				setID((String)newValue);
+				return;
+			case MetsPackage.SM_LINK_GRP_TYPE__ROLE:
+				setRole((String)newValue);
+				return;
+			case MetsPackage.SM_LINK_GRP_TYPE__TITLE:
+				setTitle((String)newValue);
+				return;
+			case MetsPackage.SM_LINK_GRP_TYPE__TYPE:
+				setType((String)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public void eUnset(int featureID) {
-                switch (featureID) {
-                        case MetsPackage.SM_LINK_GRP_TYPE__SM_LOCATOR_LINK:
-                                getSmLocatorLink().clear();
-                                return;
-                        case MetsPackage.SM_LINK_GRP_TYPE__SM_ARC_LINK:
-                                getSmArcLink().clear();
-                                return;
-                        case MetsPackage.SM_LINK_GRP_TYPE__ARCLINKORDER:
-                                unsetARCLINKORDER();
-                                return;
-                        case MetsPackage.SM_LINK_GRP_TYPE__ID:
-                                setID(ID_EDEFAULT);
-                                return;
-                        case MetsPackage.SM_LINK_GRP_TYPE__ROLE:
-                                setRole(ROLE_EDEFAULT);
-                                return;
-                        case MetsPackage.SM_LINK_GRP_TYPE__TITLE:
-                                setTitle(TITLE_EDEFAULT);
-                                return;
-                        case MetsPackage.SM_LINK_GRP_TYPE__TYPE:
-                                unsetType();
-                                return;
-                }
-                super.eUnset(featureID);
-        }
+		switch (featureID) {
+			case MetsPackage.SM_LINK_GRP_TYPE__SM_LOCATOR_LINK:
+				getSmLocatorLink().clear();
+				return;
+			case MetsPackage.SM_LINK_GRP_TYPE__SM_ARC_LINK:
+				getSmArcLink().clear();
+				return;
+			case MetsPackage.SM_LINK_GRP_TYPE__ARCLINKORDER:
+				unsetARCLINKORDER();
+				return;
+			case MetsPackage.SM_LINK_GRP_TYPE__ID:
+				setID(ID_EDEFAULT);
+				return;
+			case MetsPackage.SM_LINK_GRP_TYPE__ROLE:
+				setRole(ROLE_EDEFAULT);
+				return;
+			case MetsPackage.SM_LINK_GRP_TYPE__TITLE:
+				setTitle(TITLE_EDEFAULT);
+				return;
+			case MetsPackage.SM_LINK_GRP_TYPE__TYPE:
+				unsetType();
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public boolean eIsSet(int featureID) {
-                switch (featureID) {
-                        case MetsPackage.SM_LINK_GRP_TYPE__SM_LOCATOR_LINK:
-                                return smLocatorLink != null && !smLocatorLink.isEmpty();
-                        case MetsPackage.SM_LINK_GRP_TYPE__SM_ARC_LINK:
-                                return smArcLink != null && !smArcLink.isEmpty();
-                        case MetsPackage.SM_LINK_GRP_TYPE__ARCLINKORDER:
-                                return isSetARCLINKORDER();
-                        case MetsPackage.SM_LINK_GRP_TYPE__ID:
-                                return ID_EDEFAULT == null ? iD != null : !ID_EDEFAULT.equals(iD);
-                        case MetsPackage.SM_LINK_GRP_TYPE__ROLE:
-                                return ROLE_EDEFAULT == null ? role != null : !ROLE_EDEFAULT.equals(role);
-                        case MetsPackage.SM_LINK_GRP_TYPE__TITLE:
-                                return TITLE_EDEFAULT == null ? title != null : !TITLE_EDEFAULT.equals(title);
-                        case MetsPackage.SM_LINK_GRP_TYPE__TYPE:
-                                return isSetType();
-                }
-                return super.eIsSet(featureID);
-        }
+		switch (featureID) {
+			case MetsPackage.SM_LINK_GRP_TYPE__SM_LOCATOR_LINK:
+				return smLocatorLink != null && !smLocatorLink.isEmpty();
+			case MetsPackage.SM_LINK_GRP_TYPE__SM_ARC_LINK:
+				return smArcLink != null && !smArcLink.isEmpty();
+			case MetsPackage.SM_LINK_GRP_TYPE__ARCLINKORDER:
+				return isSetARCLINKORDER();
+			case MetsPackage.SM_LINK_GRP_TYPE__ID:
+				return ID_EDEFAULT == null ? iD != null : !ID_EDEFAULT.equals(iD);
+			case MetsPackage.SM_LINK_GRP_TYPE__ROLE:
+				return ROLE_EDEFAULT == null ? role != null : !ROLE_EDEFAULT.equals(role);
+			case MetsPackage.SM_LINK_GRP_TYPE__TITLE:
+				return TITLE_EDEFAULT == null ? title != null : !TITLE_EDEFAULT.equals(title);
+			case MetsPackage.SM_LINK_GRP_TYPE__TYPE:
+				return isSetType();
+		}
+		return super.eIsSet(featureID);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public String toString() {
-                if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-                StringBuffer result = new StringBuffer(super.toString());
-                result.append(" (aRCLINKORDER: ");
-                if (aRCLINKORDERESet) result.append(aRCLINKORDER); else result.append("<unset>");
-                result.append(", iD: ");
-                result.append(iD);
-                result.append(", role: ");
-                result.append(role);
-                result.append(", title: ");
-                result.append(title);
-                result.append(", type: ");
-                if (typeESet) result.append(type); else result.append("<unset>");
-                result.append(')');
-                return result.toString();
-        }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (aRCLINKORDER: ");
+		if (aRCLINKORDERESet) result.append(aRCLINKORDER); else result.append("<unset>");
+		result.append(", iD: ");
+		result.append(iD);
+		result.append(", role: ");
+		result.append(role);
+		result.append(", title: ");
+		result.append(title);
+		result.append(", type: ");
+		if (typeESet) result.append(type); else result.append("<unset>");
+		result.append(')');
+		return result.toString();
+	}
 
 } //SmLinkGrpTypeImpl

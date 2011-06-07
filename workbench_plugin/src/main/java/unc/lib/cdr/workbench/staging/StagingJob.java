@@ -36,64 +36,77 @@ import unc.lib.cdr.workbench.project.MetsProjectNature;
 
 /**
  * @author Gregory Jansen
- *
+ * 
  */
 public class StagingJob extends Job {
-    List<IFile> toStage = null;
+	List<IFile> toStage = null;
 
-    /**
-     * @param name
-     */
-    public StagingJob(String name, List<IFile> toStage) {
-	super(name);
-	this.toStage = toStage;
-    }
+	/**
+	 * @param name
+	 */
+	public StagingJob(String name, List<IFile> toStage) {
+		super(name);
+		this.toStage = toStage;
+	}
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see org.eclipse.core.runtime.jobs.Job#run(org.eclipse.core.runtime.
-     * IProgressMonitor)
-     */
-    @Override
-    protected IStatus run(IProgressMonitor monitor) {
-	monitor.beginTask("Staging captured files..", toStage.size());
-	Set<IProject> projects = new HashSet<IProject>();
-	for (IFile r : toStage) {
-	    IProject p = r.getProject();
-	    if(!projects.contains(p)) {
-		projects.add(p);
-	    }
-	    try {
-		// is it still captured and not already staged?
-		IMarker[] captured = r.findMarkers(IResourceConstants.MARKER_CAPTURED, false, IResource.DEPTH_ZERO);
-		IMarker[] staged = r.findMarkers(IResourceConstants.MARKER_STAGED, false, IResource.DEPTH_ZERO);
-		if (captured.length > 0) {
-		    if (staged.length == 0) {
-			StagingUtils.stage(r, new SubProgressMonitor(monitor, 1));
-		    }
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.core.runtime.jobs.Job#run(org.eclipse.core.runtime.
+	 * IProgressMonitor)
+	 */
+	@Override
+	protected IStatus run(IProgressMonitor monitor) {
+		monitor.beginTask("Staging "+toStage.size()+" files",
+				toStage.size()*100);
+		monitor.setTaskName("Staging 1 of "+toStage.size());
+		int stageCount = 0;
+		Set<IProject> projects = new HashSet<IProject>();
+		for (IFile r : toStage) {
+			IProject p = r.getProject();
+			if (!projects.contains(p)) {
+				projects.add(p);
+			}
+			try {
+				// is it still captured and not already staged?
+				IMarker[] captured = r.findMarkers(
+						IResourceConstants.MARKER_CAPTURED, false,
+						IResource.DEPTH_ZERO);
+				IMarker[] staged = r.findMarkers(
+						IResourceConstants.MARKER_STAGED, false,
+						IResource.DEPTH_ZERO);
+				if (captured.length > 0) {
+					if (staged.length == 0) {
+						stageCount++;
+						monitor.setTaskName("Staging "+stageCount+" of "+toStage.size());
+						StagingUtils.stage(r,
+								new SubProgressMonitor(monitor, 100, SubProgressMonitor.PREPEND_MAIN_LABEL_TO_SUBTASK));
+					}
+				}
+			} catch (CoreException e) {
+				try {
+					IMarker m = r.createMarker(IMarker.PROBLEM);
+					m.setAttribute(IMarker.MESSAGE, "Failed to stage file: "
+							+ e.getLocalizedMessage());
+					m.setAttribute(IMarker.SEVERITY, IMarker.SEVERITY_ERROR);
+				} catch (CoreException e1) {
+					e1.printStackTrace();
+					return e1.getStatus();
+				}
+			}
 		}
-	    } catch (CoreException e) {
-		try {
-		    IMarker m = r.createMarker(IMarker.PROBLEM);
-		    m.setAttribute(IMarker.MESSAGE, "Failed to stage file: "+e.getLocalizedMessage());
-		    m.setAttribute(IMarker.SEVERITY, IMarker.SEVERITY_ERROR);
-		} catch (CoreException e1) {
-		    e1.printStackTrace();
-		    return e1.getStatus();
+		// refreshLocal on staging folders in relevant projects
+		for (IProject p : projects) {
+			try {
+				MetsProjectNature n = (MetsProjectNature) p
+						.getNature(MetsProjectNature.NATURE_ID);
+				n.getStageFolder().refreshLocal(IResource.DEPTH_INFINITE,
+						new NullProgressMonitor());
+			} catch (CoreException e) {
+			}
 		}
-	    }
+		monitor.done();
+		return Status.OK_STATUS;
 	}
-	// refreshLocal on staging folders in relevant projects
-	for(IProject p : projects) {
-	    try {
-		MetsProjectNature n = (MetsProjectNature)p.getNature(MetsProjectNature.NATURE_ID);
-		n.getStageFolder().refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
-	    } catch (CoreException e) {
-	    }
-	}
-	monitor.done();
-	return Status.OK_STATUS;
-    }
 
 }

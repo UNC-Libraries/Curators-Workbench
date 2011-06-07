@@ -15,34 +15,35 @@
  */
 package gov.loc.mets.util;
 
-
 /**
  * @author Gregory Jansen
  *
  */
 public class METSConstants {
-    public static final String MetsProfile_UNC_LIBRARIES = "http://localhost/profiles/unc-libraries-profile";
-    public static final String FLocat_USE_STAGE = "STAGE";
-    //public static final String ChecksumTypeMD5 = "MD5";
-    //public static final String LocType_OTHER = "OTHER";
-    public static final String LocType_EFS_SCHEME = "EFS_URI";
-    public static String MetsType_WORKBENCH = "WORKBENCH";
-    public static String StructMapType_SNAPSHOT = "SNAPSHOT";
-    public static String StructMapType_ARRANGED = "ARRANGED";
-    public static String Div_File = "File";
-    public static String Div_Folder = "Folder";
-    public static String Div_Collection = "Collection";
-    public static final String Div_Disk = "Disk";
-    public static final String Div_Bag = "Bag";
-    public static final String FILEGROUP_Objects = "OBJECTS";
-    public static final String FILEGROUP_BatchMetadata = "BATCH_METADATA";
-    public static final String FLocat_USE_ORIGINAL = "ORIGINAL";
-    public static final String MD_STATUS_CROSSWALK_LINKED = "CROSSWALK_LINKED";
-    public static final String MD_STATUS_CROSSWALK_NOT_LINKED = "CROSSWALK_NOT_LINKED";
-    public static final String MD_STATUS_USER_EDITED = "USER_EDITED";
-    public static final String MD_STATUS_CROSSWALK_USER_LINKED = "CROSSWALK_USER_LINKED";
-    //public static SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ");
-    static {
-	//dateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
-    }
+	public static final String MetsProfile_UNC_LIBRARIES = "http://localhost/profiles/unc-libraries-profile";
+	public static final String FLocat_USE_STAGE = "STAGE";
+	// public static final String ChecksumTypeMD5 = "MD5";
+	// public static final String LocType_OTHER = "OTHER";
+	public static final String LocType_EFS_SCHEME = "EFS_URI";
+	public static String MetsType_WORKBENCH = "WORKBENCH";
+	public static String StructMapType_SNAPSHOT = "SNAPSHOT";
+	public static String StructMapType_ARRANGED = "ARRANGED";
+	public static String Div_File = "File";
+	public static String Div_Folder = "Folder";
+	public static String Div_Collection = "Collection";
+	public static final String Div_Disk = "Disk";
+	public static final String Div_Bag = "Bag";
+	public static final String FILEGROUP_Objects = "OBJECTS";
+	public static final String FILEGROUP_BatchMetadata = "BATCH_METADATA";
+	public static final String FLocat_USE_ORIGINAL = "ORIGINAL";
+	public static final String MD_STATUS_CROSSWALK_LINKED = "CROSSWALK_LINKED";
+	public static final String MD_STATUS_CROSSWALK_NOT_LINKED = "CROSSWALK_NOT_LINKED";
+	public static final String MD_STATUS_USER_EDITED = "USER_EDITED";
+	public static final String MD_STATUS_CROSSWALK_USER_LINKED = "CROSSWALK_USER_LINKED";
+	public static final String LINK_HAS_SURROGATE_URI = "http://cdr.unc.edu/definitions/1.0/base-model.xml#hasSurrogate";
+	public static final String LINK_HAS_SURROGATE_LABEL = "has surrogate";
+	// public static SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ");
+	static {
+		// dateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
+	}
 }

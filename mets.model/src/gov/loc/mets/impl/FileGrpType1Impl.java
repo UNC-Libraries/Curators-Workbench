@@ -22,22 +22,22 @@ import org.eclipse.emf.ecore.EClass;
  */
 public class FileGrpType1Impl extends FileGrpTypeImpl implements FileGrpType1 {
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected FileGrpType1Impl() {
-                super();
-        }
+		super();
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         protected EClass eStaticClass() {
-                return MetsPackage.Literals.FILE_GRP_TYPE1;
-        }
+		return MetsPackage.Literals.FILE_GRP_TYPE1;
+	}
 
 } //FileGrpType1Impl

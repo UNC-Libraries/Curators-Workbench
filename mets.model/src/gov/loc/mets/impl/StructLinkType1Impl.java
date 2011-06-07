@@ -22,22 +22,22 @@ import org.eclipse.emf.ecore.EClass;
  */
 public class StructLinkType1Impl extends StructLinkTypeImpl implements StructLinkType1 {
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected StructLinkType1Impl() {
-                super();
-        }
+		super();
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         protected EClass eStaticClass() {
-                return MetsPackage.Literals.STRUCT_LINK_TYPE1;
-        }
+		return MetsPackage.Literals.STRUCT_LINK_TYPE1;
+	}
 
 } //StructLinkType1Impl

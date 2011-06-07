@@ -23,190 +23,190 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum ARCLINKORDERType implements Enumerator {
         /**
-         * The '<em><b>Ordered</b></em>' literal object.
-         * <!-- begin-user-doc -->
+	 * The '<em><b>Ordered</b></em>' literal object.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #ORDERED_VALUE
-         * @generated
-         * @ordered
-         */
+	 * @see #ORDERED_VALUE
+	 * @generated
+	 * @ordered
+	 */
         ORDERED(0, "ordered", "ordered"),
 
         /**
-         * The '<em><b>Unordered</b></em>' literal object.
-         * <!-- begin-user-doc -->
+	 * The '<em><b>Unordered</b></em>' literal object.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #UNORDERED_VALUE
-         * @generated
-         * @ordered
-         */
+	 * @see #UNORDERED_VALUE
+	 * @generated
+	 * @ordered
+	 */
         UNORDERED(1, "unordered", "unordered");
 
         /**
-         * The '<em><b>Ordered</b></em>' literal value.
-         * <!-- begin-user-doc -->
+	 * The '<em><b>Ordered</b></em>' literal value.
+	 * <!-- begin-user-doc -->
          * <p>
          * If the meaning of '<em><b>Ordered</b></em>' literal object isn't clear,
          * there really should be more of a description here...
          * </p>
          * <!-- end-user-doc -->
-         * @see #ORDERED
-         * @model name="ordered"
-         * @generated
-         * @ordered
-         */
+	 * @see #ORDERED
+	 * @model name="ordered"
+	 * @generated
+	 * @ordered
+	 */
         public static final int ORDERED_VALUE = 0;
 
         /**
-         * The '<em><b>Unordered</b></em>' literal value.
-         * <!-- begin-user-doc -->
+	 * The '<em><b>Unordered</b></em>' literal value.
+	 * <!-- begin-user-doc -->
          * <p>
          * If the meaning of '<em><b>Unordered</b></em>' literal object isn't clear,
          * there really should be more of a description here...
          * </p>
          * <!-- end-user-doc -->
-         * @see #UNORDERED
-         * @model name="unordered"
-         * @generated
-         * @ordered
-         */
+	 * @see #UNORDERED
+	 * @model name="unordered"
+	 * @generated
+	 * @ordered
+	 */
         public static final int UNORDERED_VALUE = 1;
 
         /**
-         * An array of all the '<em><b>ARCLINKORDER Type</b></em>' enumerators.
-         * <!-- begin-user-doc -->
+	 * An array of all the '<em><b>ARCLINKORDER Type</b></em>' enumerators.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         private static final ARCLINKORDERType[] VALUES_ARRAY =
                 new ARCLINKORDERType[] {
-                        ORDERED,
-                        UNORDERED,
-                };
+			ORDERED,
+			UNORDERED,
+		};
 
         /**
-         * A public read-only list of all the '<em><b>ARCLINKORDER Type</b></em>' enumerators.
-         * <!-- begin-user-doc -->
+	 * A public read-only list of all the '<em><b>ARCLINKORDER Type</b></em>' enumerators.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public static final List<ARCLINKORDERType> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
         /**
-         * Returns the '<em><b>ARCLINKORDER Type</b></em>' literal with the specified literal value.
-         * <!-- begin-user-doc -->
+	 * Returns the '<em><b>ARCLINKORDER Type</b></em>' literal with the specified literal value.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public static ARCLINKORDERType get(String literal) {
-                for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-                        ARCLINKORDERType result = VALUES_ARRAY[i];
-                        if (result.toString().equals(literal)) {
-                                return result;
-                        }
-                }
-                return null;
-        }
+		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
+			ARCLINKORDERType result = VALUES_ARRAY[i];
+			if (result.toString().equals(literal)) {
+				return result;
+			}
+		}
+		return null;
+	}
 
         /**
-         * Returns the '<em><b>ARCLINKORDER Type</b></em>' literal with the specified name.
-         * <!-- begin-user-doc -->
+	 * Returns the '<em><b>ARCLINKORDER Type</b></em>' literal with the specified name.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public static ARCLINKORDERType getByName(String name) {
-                for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-                        ARCLINKORDERType result = VALUES_ARRAY[i];
-                        if (result.getName().equals(name)) {
-                                return result;
-                        }
-                }
-                return null;
-        }
+		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
+			ARCLINKORDERType result = VALUES_ARRAY[i];
+			if (result.getName().equals(name)) {
+				return result;
+			}
+		}
+		return null;
+	}
 
         /**
-         * Returns the '<em><b>ARCLINKORDER Type</b></em>' literal with the specified integer value.
-         * <!-- begin-user-doc -->
+	 * Returns the '<em><b>ARCLINKORDER Type</b></em>' literal with the specified integer value.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public static ARCLINKORDERType get(int value) {
-                switch (value) {
-                        case ORDERED_VALUE: return ORDERED;
-                        case UNORDERED_VALUE: return UNORDERED;
-                }
-                return null;
-        }
+		switch (value) {
+			case ORDERED_VALUE: return ORDERED;
+			case UNORDERED_VALUE: return UNORDERED;
+		}
+		return null;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         private final int value;
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         private final String name;
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         private final String literal;
 
         /**
-         * Only this class can construct instances.
-         * <!-- begin-user-doc -->
+	 * Only this class can construct instances.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         private ARCLINKORDERType(int value, String name, String literal) {
-                this.value = value;
-                this.name = name;
-                this.literal = literal;
-        }
+		this.value = value;
+		this.name = name;
+		this.literal = literal;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public int getValue() {
-          return value;
-        }
+	  return value;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public String getName() {
-          return name;
-        }
+	  return name;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public String getLiteral() {
-          return literal;
-        }
+	  return literal;
+	}
 
         /**
-         * Returns the literal value of the enumerator, which is its string representation.
-         * <!-- begin-user-doc -->
+	 * Returns the literal value of the enumerator, which is its string representation.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public String toString() {
-                return literal;
-        }
+		return literal;
+	}
         
 } //ARCLINKORDERType

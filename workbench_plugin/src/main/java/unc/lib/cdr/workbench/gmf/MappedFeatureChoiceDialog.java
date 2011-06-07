@@ -16,8 +16,14 @@
 package unc.lib.cdr.workbench.gmf;
 
 import java.util.List;
+import java.util.Map.Entry;
+import java.util.TreeMap;
 
+import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.util.BasicExtendedMetaData;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.util.ExtendedMetaData;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
@@ -33,142 +39,158 @@ import org.eclipse.swt.widgets.Shell;
  *
  */
 public class MappedFeatureChoiceDialog extends Dialog {
-    private String message = "Model Mapping";
-    private List<EStructuralFeature> features;
-    private EStructuralFeature answer;
+	private String message = "Choose a Feature";
+	private List<EStructuralFeature> features;
+	private EStructuralFeature answer;
 
-    public MappedFeatureChoiceDialog(Shell parent, int style) {
-	super(parent, style);
-	setText("Model Mapping");
-	setMessage("Please enter a value:");
-    }
-
-    public MappedFeatureChoiceDialog(Shell parent) {
-	// Pass the default styles here
-	this(parent, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL);
-    }
-
-    /**
-     * Opens the dialog and returns the input
-     *
-     * @return String
-     */
-    public EStructuralFeature open() {
-      // Create the dialog window
-      Shell shell = new Shell(getParent(), getStyle());
-      shell.setText(getText());
-      createContents(shell);
-      shell.pack();
-      shell.open();
-      Display display = getParent().getDisplay();
-      while (!shell.isDisposed()) {
-        if (!display.readAndDispatch()) {
-          display.sleep();
-        }
-      }
-      // Return the entered value, or null
-      return answer;
-    }
-
-    /**
-     * Creates the dialog's contents
-     *
-     * @param shell the dialog window
-     */
-    private void createContents(final Shell shell) {
-      shell.setLayout(new GridLayout(2, true));
-
-      // Show the message
-      //Label label = new Label(shell, SWT.NONE);
-      //label.setText(message);
-      GridData data = new GridData();
-      data.horizontalSpan = 2;
-      //label.setLayoutData(data);
-
-      // Display the input combo
-      final org.eclipse.swt.widgets.List choice = new org.eclipse.swt.widgets.List(shell, SWT.BORDER | SWT.SINGLE | SWT.V_SCROLL);
-      data = new GridData(GridData.FILL_HORIZONTAL);
-      data.horizontalSpan = 2;
-      choice.setLayoutData(data);
-
-      if(this.getFeatures() != null) {
-	  for(EStructuralFeature r : this.getFeatures()) {
-	      choice.add(r.getName());
-	      choice.setData(r.getName(), r);
-	  }
-      }
-
-
-      // Create the OK button and add a handler
-      // so that pressing it will set input
-      // to the entered value
-      final Button ok = new Button(shell, SWT.PUSH);
-      ok.setText("OK");
-      data = new GridData(GridData.FILL_HORIZONTAL);
-      ok.setLayoutData(data);
-      ok.setEnabled(false);
-      ok.addSelectionListener(new SelectionAdapter() {
-        @Override
-	public void widgetSelected(SelectionEvent event) {
-          String answerTxt = choice.getItem(choice.getSelectionIndex());
-          answer = (EStructuralFeature) choice.getData(answerTxt);
-          shell.close();
-        }
-      });
-
-      choice.addSelectionListener(new SelectionAdapter() {
-	@Override
-	public void widgetSelected(SelectionEvent e) {
-	    if(choice.getSelectionIndex() >= 0) {
-		ok.setEnabled(true);
-	    } else {
-		ok.setEnabled(false);
-	    }
+	public MappedFeatureChoiceDialog(Shell parent, int style) {
+		super(parent, style);
+		setText("Choose a Feature");
+		setMessage("Select a value:");
 	}
-      });
 
-      // Create the cancel button and add a handler
-      // so that pressing it will set input to null
-      Button cancel = new Button(shell, SWT.PUSH);
-      cancel.setText("Cancel");
-      data = new GridData(GridData.FILL_HORIZONTAL);
-      cancel.setLayoutData(data);
-      cancel.addSelectionListener(new SelectionAdapter() {
-        @Override
-	public void widgetSelected(SelectionEvent event) {
-          answer = null;
-          shell.close();
-        }
-      });
+	public MappedFeatureChoiceDialog(Shell parent) {
+		// Pass the default styles here
+		this(parent, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL);
+	}
 
-      // Set the OK button as the default, so
-      // user can type input and press Enter
-      // to dismiss
-      shell.setDefaultButton(ok);
-    }
+	/**
+	 * Opens the dialog and returns the input
+	 *
+	 * @return String
+	 */
+	public EStructuralFeature open() {
+		// Create the dialog window
+		Shell shell = new Shell(getParent(), getStyle());
+		shell.setText(getText());
+		createContents(shell);
+		shell.pack();
+		shell.open();
+		Display display = getParent().getDisplay();
+		while (!shell.isDisposed()) {
+			if (!display.readAndDispatch()) {
+				display.sleep();
+			}
+		}
+		// Return the entered value, or null
+		return answer;
+	}
 
-    public String getMessage() {
-        return message;
-    }
+	/**
+	 * Creates the dialog's contents
+	 *
+	 * @param shell
+	 *           the dialog window
+	 */
+	private void createContents(final Shell shell) {
+		shell.setLayout(new GridLayout(2, true));
 
-    public void setMessage(String message) {
-        this.message = message;
-    }
+		// Show the message
+		// Label label = new Label(shell, SWT.NONE);
+		// label.setText(message);
+		GridData data = new GridData();
+		data.horizontalSpan = 2;
+		// label.setLayoutData(data);
 
-    public List<EStructuralFeature> getFeatures() {
-        return features;
-    }
+		// Display the input combo
+		final org.eclipse.swt.widgets.List choice = new org.eclipse.swt.widgets.List(shell, SWT.BORDER | SWT.SINGLE
+				| SWT.V_SCROLL);
+		data = new GridData(GridData.FILL_HORIZONTAL);
+		data.horizontalSpan = 2;
+		choice.setLayoutData(data);
 
-    public void setFeatures(List<EStructuralFeature> features) {
-        this.features = features;
-    }
+		if (this.getFeatures() != null) {
+			ExtendedMetaData emd = new BasicExtendedMetaData(EPackage.Registry.INSTANCE);
+			TreeMap<String, EStructuralFeature> featMap = new TreeMap<String, EStructuralFeature>();
+			for (EStructuralFeature r : this.getFeatures()) {
+				String name = emd.getName(r);
+				String ns = emd.getNamespace(r);
+				String key = null;
+				if(ns != null) {
+					EPackage eo = EPackage.Registry.INSTANCE.getEPackage(ns);
+					key = eo.getNsPrefix()+":"+name;
+				} else {
+					key = name;
+				}
+				featMap.put(key, r);
+			}
 
-    public EStructuralFeature getAnswer() {
-        return answer;
-    }
+			for ( Entry<String, EStructuralFeature> entry : featMap.entrySet()) {
+				choice.add(entry.getKey());
+				choice.setData(entry.getKey(), entry.getValue());
+			}
+		}
 
-    public void setAnswer(EStructuralFeature answer) {
-        this.answer = answer;
-    }
+		// Create the OK button and add a handler
+		// so that pressing it will set input
+		// to the entered value
+		final Button ok = new Button(shell, SWT.PUSH);
+		ok.setText("OK");
+		data = new GridData(GridData.FILL_HORIZONTAL);
+		ok.setLayoutData(data);
+		ok.setEnabled(false);
+		ok.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent event) {
+				String answerTxt = choice.getItem(choice.getSelectionIndex());
+				answer = (EStructuralFeature) choice.getData(answerTxt);
+				shell.close();
+			}
+		});
+
+		choice.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				if (choice.getSelectionIndex() >= 0) {
+					ok.setEnabled(true);
+				} else {
+					ok.setEnabled(false);
+				}
+			}
+		});
+
+		// Create the cancel button and add a handler
+		// so that pressing it will set input to null
+		Button cancel = new Button(shell, SWT.PUSH);
+		cancel.setText("Cancel");
+		data = new GridData(GridData.FILL_HORIZONTAL);
+		cancel.setLayoutData(data);
+		cancel.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent event) {
+				answer = null;
+				shell.close();
+			}
+		});
+
+		// Set the OK button as the default, so
+		// user can type input and press Enter
+		// to dismiss
+		shell.setDefaultButton(ok);
+	}
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
+	public List<EStructuralFeature> getFeatures() {
+		return features;
+	}
+
+	public void setFeatures(List<EStructuralFeature> features) {
+		this.features = features;
+	}
+
+	public EStructuralFeature getAnswer() {
+		return answer;
+	}
+
+	public void setAnswer(EStructuralFeature answer) {
+		this.answer = answer;
+	}
 
 }

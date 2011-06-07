@@ -945,14 +945,14 @@ TCF.
 							</xsd:documentation>
 						</xsd:annotation>
 					</xsd:attribute>
-					<xsd:attribute ref="xlink:to" use="required">
+					<xsd:attribute ref="xlink:to" use="required" ecore:name="xlinkTo" ecore:reference="DivType" ecore:opposite="smLink">
 						<xsd:annotation>
 							<xsd:documentation xml:lang="en">
 								xlink:to - the value of the label for the element in the structMap you are linking to.
 							</xsd:documentation>
 						</xsd:annotation>
 					</xsd:attribute>
-					<xsd:attribute ref="xlink:from" use="required">
+					<xsd:attribute ref="xlink:from" use="required" ecore:name="xlinkFrom" ecore:reference="DivType" ecore:opposite="smLink">
 						<xsd:annotation>
 							<xsd:documentation xml:lang="en">
 								xlink:from - the value of the label for the element in the structMap you are linking from.

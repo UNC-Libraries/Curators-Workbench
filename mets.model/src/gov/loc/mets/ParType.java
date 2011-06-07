@@ -39,81 +39,81 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  */
 public interface ParType extends EObject {
         /**
-         * Returns the value of the '<em><b>Group</b></em>' attribute list.
-         * The list contents are of type {@link org.eclipse.emf.ecore.util.FeatureMap.Entry}.
-         * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Group</b></em>' attribute list.
+	 * The list contents are of type {@link org.eclipse.emf.ecore.util.FeatureMap.Entry}.
+	 * <!-- begin-user-doc -->
          * <p>
          * If the meaning of the '<em>Group</em>' attribute list isn't clear,
          * there really should be more of a description here...
          * </p>
          * <!-- end-user-doc -->
-         * @return the value of the '<em>Group</em>' attribute list.
-         * @see gov.loc.mets.MetsPackage#getParType_Group()
-         * @model unique="false" dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="true"
-         *        extendedMetaData="kind='group' name='group:0'"
-         * @generated
-         */
+	 * @return the value of the '<em>Group</em>' attribute list.
+	 * @see gov.loc.mets.MetsPackage#getParType_Group()
+	 * @model unique="false" dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="true"
+	 *        extendedMetaData="kind='group' name='group:0'"
+	 * @generated
+	 */
         FeatureMap getGroup();
 
         /**
-         * Returns the value of the '<em><b>Area</b></em>' containment reference list.
-         * The list contents are of type {@link gov.loc.mets.AreaType}.
-         * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Area</b></em>' containment reference list.
+	 * The list contents are of type {@link gov.loc.mets.AreaType}.
+	 * <!-- begin-user-doc -->
          * <p>
          * If the meaning of the '<em>Area</em>' containment reference list isn't clear,
          * there really should be more of a description here...
          * </p>
          * <!-- end-user-doc -->
-         * @return the value of the '<em>Area</em>' containment reference list.
-         * @see gov.loc.mets.MetsPackage#getParType_Area()
-         * @model containment="true" transient="true" volatile="true" derived="true"
-         *        extendedMetaData="kind='element' name='area' namespace='##targetNamespace' group='#group:0'"
-         * @generated
-         */
+	 * @return the value of the '<em>Area</em>' containment reference list.
+	 * @see gov.loc.mets.MetsPackage#getParType_Area()
+	 * @model containment="true" transient="true" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='area' namespace='##targetNamespace' group='#group:0'"
+	 * @generated
+	 */
         EList<AreaType> getArea();
 
         /**
-         * Returns the value of the '<em><b>Seq</b></em>' containment reference list.
-         * The list contents are of type {@link gov.loc.mets.SeqType}.
-         * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Seq</b></em>' containment reference list.
+	 * The list contents are of type {@link gov.loc.mets.SeqType}.
+	 * <!-- begin-user-doc -->
          * <p>
          * If the meaning of the '<em>Seq</em>' containment reference list isn't clear,
          * there really should be more of a description here...
          * </p>
          * <!-- end-user-doc -->
-         * @return the value of the '<em>Seq</em>' containment reference list.
-         * @see gov.loc.mets.MetsPackage#getParType_Seq()
-         * @model containment="true" transient="true" volatile="true" derived="true"
-         *        extendedMetaData="kind='element' name='seq' namespace='##targetNamespace' group='#group:0'"
-         * @generated
-         */
+	 * @return the value of the '<em>Seq</em>' containment reference list.
+	 * @see gov.loc.mets.MetsPackage#getParType_Seq()
+	 * @model containment="true" transient="true" volatile="true" derived="true"
+	 *        extendedMetaData="kind='element' name='seq' namespace='##targetNamespace' group='#group:0'"
+	 * @generated
+	 */
         EList<SeqType> getSeq();
 
         /**
-         * Returns the value of the '<em><b>ID</b></em>' attribute.
-         * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * <!-- begin-model-doc -->
-         * ID (ID/O): This attribute uniquely identifies the element within the METS document, and would allow the element to be referenced unambiguously from another element or document via an IDREF or an XPTR. For more information on using ID attributes for internal and external linking see Chapter 4 of the METS Primer.
-         * 				
-         * <!-- end-model-doc -->
-         * @return the value of the '<em>ID</em>' attribute.
-         * @see #setID(String)
-         * @see gov.loc.mets.MetsPackage#getParType_ID()
-         * @model id="true" dataType="org.eclipse.emf.ecore.xml.type.ID"
-         *        extendedMetaData="kind='attribute' name='ID'"
-         * @generated
-         */
+	 * <!-- begin-model-doc -->
+	 * ID (ID/O): This attribute uniquely identifies the element within the METS document, and would allow the element to be referenced unambiguously from another element or document via an IDREF or an XPTR. For more information on using ID attributes for internal and external linking see Chapter 4 of the METS Primer.
+	 * 				
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>ID</em>' attribute.
+	 * @see #setID(String)
+	 * @see gov.loc.mets.MetsPackage#getParType_ID()
+	 * @model id="true" dataType="org.eclipse.emf.ecore.xml.type.ID"
+	 *        extendedMetaData="kind='attribute' name='ID'"
+	 * @generated
+	 */
         String getID();
 
         /**
-         * Sets the value of the '{@link gov.loc.mets.ParType#getID <em>ID</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link gov.loc.mets.ParType#getID <em>ID</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @param value the new value of the '<em>ID</em>' attribute.
-         * @see #getID()
-         * @generated
-         */
+	 * @param value the new value of the '<em>ID</em>' attribute.
+	 * @see #getID()
+	 * @generated
+	 */
         void setID(String value);
 
 } // ParType

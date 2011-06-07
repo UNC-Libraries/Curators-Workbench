@@ -82,6 +82,7 @@ public class CrosswalkModelingAssistantProvider extends ModelingAssistantProvide
 	    return types;
 	}
 	if (editPart instanceof MappedElement2EditPart) {
+		System.out.println("Found instance of MappedElement2EditPart");
 	    ArrayList<IElementType> types = new ArrayList<IElementType>(2);
 	    types.add(CrosswalkElementTypes.MappedElement_3015);
 	    types.add(CrosswalkElementTypes.MappedAttribute_3016);

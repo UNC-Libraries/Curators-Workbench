@@ -46,231 +46,231 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class ParTypeImpl extends EObjectImpl implements ParType {
         /**
-         * The cached value of the '{@link #getGroup() <em>Group</em>}' attribute list.
-         * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getGroup() <em>Group</em>}' attribute list.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getGroup()
-         * @generated
-         * @ordered
-         */
+	 * @see #getGroup()
+	 * @generated
+	 * @ordered
+	 */
         protected FeatureMap group;
 
         /**
-         * The default value of the '{@link #getID() <em>ID</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getID() <em>ID</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getID()
-         * @generated
-         * @ordered
-         */
+	 * @see #getID()
+	 * @generated
+	 * @ordered
+	 */
         protected static final String ID_EDEFAULT = null;
 
         /**
-         * The cached value of the '{@link #getID() <em>ID</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getID() <em>ID</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getID()
-         * @generated
-         * @ordered
-         */
+	 * @see #getID()
+	 * @generated
+	 * @ordered
+	 */
         protected String iD = ID_EDEFAULT;
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected ParTypeImpl() {
-                super();
-        }
+		super();
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         protected EClass eStaticClass() {
-                return MetsPackage.Literals.PAR_TYPE;
-        }
+		return MetsPackage.Literals.PAR_TYPE;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public FeatureMap getGroup() {
-                if (group == null) {
-                        group = new BasicFeatureMap(this, MetsPackage.PAR_TYPE__GROUP);
-                }
-                return group;
-        }
+		if (group == null) {
+			group = new BasicFeatureMap(this, MetsPackage.PAR_TYPE__GROUP);
+		}
+		return group;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public EList<AreaType> getArea() {
-                return getGroup().list(MetsPackage.Literals.PAR_TYPE__AREA);
-        }
+		return getGroup().list(MetsPackage.Literals.PAR_TYPE__AREA);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public EList<SeqType> getSeq() {
-                return getGroup().list(MetsPackage.Literals.PAR_TYPE__SEQ);
-        }
+		return getGroup().list(MetsPackage.Literals.PAR_TYPE__SEQ);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public String getID() {
-                return iD;
-        }
+		return iD;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public void setID(String newID) {
-                String oldID = iD;
-                iD = newID;
-                if (eNotificationRequired())
-                        eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.PAR_TYPE__ID, oldID, iD));
-        }
+		String oldID = iD;
+		iD = newID;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.PAR_TYPE__ID, oldID, iD));
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-                switch (featureID) {
-                        case MetsPackage.PAR_TYPE__GROUP:
-                                return ((InternalEList<?>)getGroup()).basicRemove(otherEnd, msgs);
-                        case MetsPackage.PAR_TYPE__AREA:
-                                return ((InternalEList<?>)getArea()).basicRemove(otherEnd, msgs);
-                        case MetsPackage.PAR_TYPE__SEQ:
-                                return ((InternalEList<?>)getSeq()).basicRemove(otherEnd, msgs);
-                }
-                return super.eInverseRemove(otherEnd, featureID, msgs);
-        }
+		switch (featureID) {
+			case MetsPackage.PAR_TYPE__GROUP:
+				return ((InternalEList<?>)getGroup()).basicRemove(otherEnd, msgs);
+			case MetsPackage.PAR_TYPE__AREA:
+				return ((InternalEList<?>)getArea()).basicRemove(otherEnd, msgs);
+			case MetsPackage.PAR_TYPE__SEQ:
+				return ((InternalEList<?>)getSeq()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Object eGet(int featureID, boolean resolve, boolean coreType) {
-                switch (featureID) {
-                        case MetsPackage.PAR_TYPE__GROUP:
-                                if (coreType) return getGroup();
-                                return ((FeatureMap.Internal)getGroup()).getWrapper();
-                        case MetsPackage.PAR_TYPE__AREA:
-                                return getArea();
-                        case MetsPackage.PAR_TYPE__SEQ:
-                                return getSeq();
-                        case MetsPackage.PAR_TYPE__ID:
-                                return getID();
-                }
-                return super.eGet(featureID, resolve, coreType);
-        }
+		switch (featureID) {
+			case MetsPackage.PAR_TYPE__GROUP:
+				if (coreType) return getGroup();
+				return ((FeatureMap.Internal)getGroup()).getWrapper();
+			case MetsPackage.PAR_TYPE__AREA:
+				return getArea();
+			case MetsPackage.PAR_TYPE__SEQ:
+				return getSeq();
+			case MetsPackage.PAR_TYPE__ID:
+				return getID();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @SuppressWarnings("unchecked")
         @Override
         public void eSet(int featureID, Object newValue) {
-                switch (featureID) {
-                        case MetsPackage.PAR_TYPE__GROUP:
-                                ((FeatureMap.Internal)getGroup()).set(newValue);
-                                return;
-                        case MetsPackage.PAR_TYPE__AREA:
-                                getArea().clear();
-                                getArea().addAll((Collection<? extends AreaType>)newValue);
-                                return;
-                        case MetsPackage.PAR_TYPE__SEQ:
-                                getSeq().clear();
-                                getSeq().addAll((Collection<? extends SeqType>)newValue);
-                                return;
-                        case MetsPackage.PAR_TYPE__ID:
-                                setID((String)newValue);
-                                return;
-                }
-                super.eSet(featureID, newValue);
-        }
+		switch (featureID) {
+			case MetsPackage.PAR_TYPE__GROUP:
+				((FeatureMap.Internal)getGroup()).set(newValue);
+				return;
+			case MetsPackage.PAR_TYPE__AREA:
+				getArea().clear();
+				getArea().addAll((Collection<? extends AreaType>)newValue);
+				return;
+			case MetsPackage.PAR_TYPE__SEQ:
+				getSeq().clear();
+				getSeq().addAll((Collection<? extends SeqType>)newValue);
+				return;
+			case MetsPackage.PAR_TYPE__ID:
+				setID((String)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public void eUnset(int featureID) {
-                switch (featureID) {
-                        case MetsPackage.PAR_TYPE__GROUP:
-                                getGroup().clear();
-                                return;
-                        case MetsPackage.PAR_TYPE__AREA:
-                                getArea().clear();
-                                return;
-                        case MetsPackage.PAR_TYPE__SEQ:
-                                getSeq().clear();
-                                return;
-                        case MetsPackage.PAR_TYPE__ID:
-                                setID(ID_EDEFAULT);
-                                return;
-                }
-                super.eUnset(featureID);
-        }
+		switch (featureID) {
+			case MetsPackage.PAR_TYPE__GROUP:
+				getGroup().clear();
+				return;
+			case MetsPackage.PAR_TYPE__AREA:
+				getArea().clear();
+				return;
+			case MetsPackage.PAR_TYPE__SEQ:
+				getSeq().clear();
+				return;
+			case MetsPackage.PAR_TYPE__ID:
+				setID(ID_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public boolean eIsSet(int featureID) {
-                switch (featureID) {
-                        case MetsPackage.PAR_TYPE__GROUP:
-                                return group != null && !group.isEmpty();
-                        case MetsPackage.PAR_TYPE__AREA:
-                                return !getArea().isEmpty();
-                        case MetsPackage.PAR_TYPE__SEQ:
-                                return !getSeq().isEmpty();
-                        case MetsPackage.PAR_TYPE__ID:
-                                return ID_EDEFAULT == null ? iD != null : !ID_EDEFAULT.equals(iD);
-                }
-                return super.eIsSet(featureID);
-        }
+		switch (featureID) {
+			case MetsPackage.PAR_TYPE__GROUP:
+				return group != null && !group.isEmpty();
+			case MetsPackage.PAR_TYPE__AREA:
+				return !getArea().isEmpty();
+			case MetsPackage.PAR_TYPE__SEQ:
+				return !getSeq().isEmpty();
+			case MetsPackage.PAR_TYPE__ID:
+				return ID_EDEFAULT == null ? iD != null : !ID_EDEFAULT.equals(iD);
+		}
+		return super.eIsSet(featureID);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public String toString() {
-                if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-                StringBuffer result = new StringBuffer(super.toString());
-                result.append(" (group: ");
-                result.append(group);
-                result.append(", iD: ");
-                result.append(iD);
-                result.append(')');
-                return result.toString();
-        }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (group: ");
+		result.append(group);
+		result.append(", iD: ");
+		result.append(iD);
+		result.append(')');
+		return result.toString();
+	}
 
 } //ParTypeImpl

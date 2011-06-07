@@ -25,30 +25,30 @@ import org.eclipse.emf.ecore.xmi.util.XMLProcessor;
 public class MetsXMLProcessor extends XMLProcessor {
 
         /**
-         * Public constructor to instantiate the helper.
-         * <!-- begin-user-doc -->
+	 * Public constructor to instantiate the helper.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public MetsXMLProcessor() {
-                super((EPackage.Registry.INSTANCE));
-                MetsPackage.eINSTANCE.eClass();
-        }
+		super((EPackage.Registry.INSTANCE));
+		MetsPackage.eINSTANCE.eClass();
+	}
         
         /**
-         * Register for "*" and "xml" file extensions the MetsResourceFactoryImpl factory.
-         * <!-- begin-user-doc -->
+	 * Register for "*" and "xml" file extensions the MetsResourceFactoryImpl factory.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         protected Map<String, Resource.Factory> getRegistrations() {
-                if (registrations == null) {
-                        super.getRegistrations();
-                        registrations.put(XML_EXTENSION, new MetsResourceFactoryImpl());
-                        registrations.put(STAR_EXTENSION, new MetsResourceFactoryImpl());
-                }
-                return registrations;
-        }
+		if (registrations == null) {
+			super.getRegistrations();
+			registrations.put(XML_EXTENSION, new MetsResourceFactoryImpl());
+			registrations.put(STAR_EXTENSION, new MetsResourceFactoryImpl());
+		}
+		return registrations;
+	}
 
 } //MetsXMLProcessor

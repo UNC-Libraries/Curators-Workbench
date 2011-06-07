@@ -48,1030 +48,1030 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  */
 public class MetsItemProviderAdapterFactory extends MetsAdapterFactory implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
         /**
-         * This keeps track of the root adapter factory that delegates to this adapter factory.
-         * <!-- begin-user-doc -->
+	 * This keeps track of the root adapter factory that delegates to this adapter factory.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected ComposedAdapterFactory parentAdapterFactory;
 
         /**
-         * This is used to implement {@link org.eclipse.emf.edit.provider.IChangeNotifier}.
-         * <!-- begin-user-doc -->
+	 * This is used to implement {@link org.eclipse.emf.edit.provider.IChangeNotifier}.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected IChangeNotifier changeNotifier = new ChangeNotifier();
 
         /**
-         * This keeps track of all the supported types checked by {@link #isFactoryForType isFactoryForType}.
-         * <!-- begin-user-doc -->
+	 * This keeps track of all the supported types checked by {@link #isFactoryForType isFactoryForType}.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected Collection<Object> supportedTypes = new ArrayList<Object>();
 
         /**
-         * This constructs an instance.
-         * <!-- begin-user-doc -->
+	 * This constructs an instance.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public MetsItemProviderAdapterFactory() {
-                supportedTypes.add(IEditingDomainItemProvider.class);
-                supportedTypes.add(IStructuredItemContentProvider.class);
-                supportedTypes.add(ITreeItemContentProvider.class);
-                supportedTypes.add(IItemLabelProvider.class);
-                supportedTypes.add(IItemPropertySource.class);
-        }
+		supportedTypes.add(IEditingDomainItemProvider.class);
+		supportedTypes.add(IStructuredItemContentProvider.class);
+		supportedTypes.add(ITreeItemContentProvider.class);
+		supportedTypes.add(IItemLabelProvider.class);
+		supportedTypes.add(IItemPropertySource.class);
+	}
 
         /**
-         * This keeps track of the one adapter used for all {@link gov.loc.mets.AgentType} instances.
-         * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link gov.loc.mets.AgentType} instances.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected AgentTypeItemProvider agentTypeItemProvider;
 
         /**
-         * This creates an adapter for a {@link gov.loc.mets.AgentType}.
-         * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link gov.loc.mets.AgentType}.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Adapter createAgentTypeAdapter() {
-                if (agentTypeItemProvider == null) {
-                        agentTypeItemProvider = new AgentTypeItemProvider(this);
-                }
+		if (agentTypeItemProvider == null) {
+			agentTypeItemProvider = new AgentTypeItemProvider(this);
+		}
 
-                return agentTypeItemProvider;
-        }
+		return agentTypeItemProvider;
+	}
 
         /**
-         * This keeps track of the one adapter used for all {@link gov.loc.mets.AltRecordIDType} instances.
-         * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link gov.loc.mets.AltRecordIDType} instances.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected AltRecordIDTypeItemProvider altRecordIDTypeItemProvider;
 
         /**
-         * This creates an adapter for a {@link gov.loc.mets.AltRecordIDType}.
-         * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link gov.loc.mets.AltRecordIDType}.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Adapter createAltRecordIDTypeAdapter() {
-                if (altRecordIDTypeItemProvider == null) {
-                        altRecordIDTypeItemProvider = new AltRecordIDTypeItemProvider(this);
-                }
+		if (altRecordIDTypeItemProvider == null) {
+			altRecordIDTypeItemProvider = new AltRecordIDTypeItemProvider(this);
+		}
 
-                return altRecordIDTypeItemProvider;
-        }
+		return altRecordIDTypeItemProvider;
+	}
 
         /**
-         * This keeps track of the one adapter used for all {@link gov.loc.mets.AmdSecType} instances.
-         * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link gov.loc.mets.AmdSecType} instances.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected AmdSecTypeItemProvider amdSecTypeItemProvider;
 
         /**
-         * This creates an adapter for a {@link gov.loc.mets.AmdSecType}.
-         * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link gov.loc.mets.AmdSecType}.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Adapter createAmdSecTypeAdapter() {
-                if (amdSecTypeItemProvider == null) {
-                        amdSecTypeItemProvider = new AmdSecTypeItemProvider(this);
-                }
+		if (amdSecTypeItemProvider == null) {
+			amdSecTypeItemProvider = new AmdSecTypeItemProvider(this);
+		}
 
-                return amdSecTypeItemProvider;
-        }
+		return amdSecTypeItemProvider;
+	}
 
         /**
-         * This keeps track of the one adapter used for all {@link gov.loc.mets.AreaType} instances.
-         * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link gov.loc.mets.AreaType} instances.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected AreaTypeItemProvider areaTypeItemProvider;
 
         /**
-         * This creates an adapter for a {@link gov.loc.mets.AreaType}.
-         * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link gov.loc.mets.AreaType}.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Adapter createAreaTypeAdapter() {
-                if (areaTypeItemProvider == null) {
-                        areaTypeItemProvider = new AreaTypeItemProvider(this);
-                }
+		if (areaTypeItemProvider == null) {
+			areaTypeItemProvider = new AreaTypeItemProvider(this);
+		}
 
-                return areaTypeItemProvider;
-        }
+		return areaTypeItemProvider;
+	}
 
         /**
-         * This keeps track of the one adapter used for all {@link gov.loc.mets.BehaviorSecType} instances.
-         * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link gov.loc.mets.BehaviorSecType} instances.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected BehaviorSecTypeItemProvider behaviorSecTypeItemProvider;
 
         /**
-         * This creates an adapter for a {@link gov.loc.mets.BehaviorSecType}.
-         * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link gov.loc.mets.BehaviorSecType}.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Adapter createBehaviorSecTypeAdapter() {
-                if (behaviorSecTypeItemProvider == null) {
-                        behaviorSecTypeItemProvider = new BehaviorSecTypeItemProvider(this);
-                }
+		if (behaviorSecTypeItemProvider == null) {
+			behaviorSecTypeItemProvider = new BehaviorSecTypeItemProvider(this);
+		}
 
-                return behaviorSecTypeItemProvider;
-        }
+		return behaviorSecTypeItemProvider;
+	}
 
         /**
-         * This keeps track of the one adapter used for all {@link gov.loc.mets.BehaviorType} instances.
-         * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link gov.loc.mets.BehaviorType} instances.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected BehaviorTypeItemProvider behaviorTypeItemProvider;
 
         /**
-         * This creates an adapter for a {@link gov.loc.mets.BehaviorType}.
-         * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link gov.loc.mets.BehaviorType}.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Adapter createBehaviorTypeAdapter() {
-                if (behaviorTypeItemProvider == null) {
-                        behaviorTypeItemProvider = new BehaviorTypeItemProvider(this);
-                }
+		if (behaviorTypeItemProvider == null) {
+			behaviorTypeItemProvider = new BehaviorTypeItemProvider(this);
+		}
 
-                return behaviorTypeItemProvider;
-        }
+		return behaviorTypeItemProvider;
+	}
 
         /**
-         * This keeps track of the one adapter used for all {@link gov.loc.mets.DivType} instances.
-         * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link gov.loc.mets.DivType} instances.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected DivTypeItemProvider divTypeItemProvider;
 
         /**
-         * This creates an adapter for a {@link gov.loc.mets.DivType}.
-         * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link gov.loc.mets.DivType}.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Adapter createDivTypeAdapter() {
-                if (divTypeItemProvider == null) {
-                        divTypeItemProvider = new DivTypeItemProvider(this);
-                }
+		if (divTypeItemProvider == null) {
+			divTypeItemProvider = new DivTypeItemProvider(this);
+		}
 
-                return divTypeItemProvider;
-        }
+		return divTypeItemProvider;
+	}
 
         /**
-         * This keeps track of the one adapter used for all {@link gov.loc.mets.DocumentRoot} instances.
-         * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link gov.loc.mets.DocumentRoot} instances.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected DocumentRootItemProvider documentRootItemProvider;
 
         /**
-         * This creates an adapter for a {@link gov.loc.mets.DocumentRoot}.
-         * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link gov.loc.mets.DocumentRoot}.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Adapter createDocumentRootAdapter() {
-                if (documentRootItemProvider == null) {
-                        documentRootItemProvider = new DocumentRootItemProvider(this);
-                }
+		if (documentRootItemProvider == null) {
+			documentRootItemProvider = new DocumentRootItemProvider(this);
+		}
 
-                return documentRootItemProvider;
-        }
+		return documentRootItemProvider;
+	}
 
         /**
-         * This keeps track of the one adapter used for all {@link gov.loc.mets.FContentType} instances.
-         * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link gov.loc.mets.FContentType} instances.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected FContentTypeItemProvider fContentTypeItemProvider;
 
         /**
-         * This creates an adapter for a {@link gov.loc.mets.FContentType}.
-         * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link gov.loc.mets.FContentType}.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Adapter createFContentTypeAdapter() {
-                if (fContentTypeItemProvider == null) {
-                        fContentTypeItemProvider = new FContentTypeItemProvider(this);
-                }
+		if (fContentTypeItemProvider == null) {
+			fContentTypeItemProvider = new FContentTypeItemProvider(this);
+		}
 
-                return fContentTypeItemProvider;
-        }
+		return fContentTypeItemProvider;
+	}
 
         /**
-         * This keeps track of the one adapter used for all {@link gov.loc.mets.FileGrpType} instances.
-         * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link gov.loc.mets.FileGrpType} instances.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected FileGrpTypeItemProvider fileGrpTypeItemProvider;
 
         /**
-         * This creates an adapter for a {@link gov.loc.mets.FileGrpType}.
-         * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link gov.loc.mets.FileGrpType}.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Adapter createFileGrpTypeAdapter() {
-                if (fileGrpTypeItemProvider == null) {
-                        fileGrpTypeItemProvider = new FileGrpTypeItemProvider(this);
-                }
+		if (fileGrpTypeItemProvider == null) {
+			fileGrpTypeItemProvider = new FileGrpTypeItemProvider(this);
+		}
 
-                return fileGrpTypeItemProvider;
-        }
+		return fileGrpTypeItemProvider;
+	}
 
         /**
-         * This keeps track of the one adapter used for all {@link gov.loc.mets.FileGrpType1} instances.
-         * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link gov.loc.mets.FileGrpType1} instances.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected FileGrpType1ItemProvider fileGrpType1ItemProvider;
 
         /**
-         * This creates an adapter for a {@link gov.loc.mets.FileGrpType1}.
-         * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link gov.loc.mets.FileGrpType1}.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Adapter createFileGrpType1Adapter() {
-                if (fileGrpType1ItemProvider == null) {
-                        fileGrpType1ItemProvider = new FileGrpType1ItemProvider(this);
-                }
+		if (fileGrpType1ItemProvider == null) {
+			fileGrpType1ItemProvider = new FileGrpType1ItemProvider(this);
+		}
 
-                return fileGrpType1ItemProvider;
-        }
+		return fileGrpType1ItemProvider;
+	}
 
         /**
-         * This keeps track of the one adapter used for all {@link gov.loc.mets.FileSecType} instances.
-         * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link gov.loc.mets.FileSecType} instances.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected FileSecTypeItemProvider fileSecTypeItemProvider;
 
         /**
-         * This creates an adapter for a {@link gov.loc.mets.FileSecType}.
-         * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link gov.loc.mets.FileSecType}.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Adapter createFileSecTypeAdapter() {
-                if (fileSecTypeItemProvider == null) {
-                        fileSecTypeItemProvider = new FileSecTypeItemProvider(this);
-                }
+		if (fileSecTypeItemProvider == null) {
+			fileSecTypeItemProvider = new FileSecTypeItemProvider(this);
+		}
 
-                return fileSecTypeItemProvider;
-        }
+		return fileSecTypeItemProvider;
+	}
 
         /**
-         * This keeps track of the one adapter used for all {@link gov.loc.mets.FileType} instances.
-         * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link gov.loc.mets.FileType} instances.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected FileTypeItemProvider fileTypeItemProvider;
 
         /**
-         * This creates an adapter for a {@link gov.loc.mets.FileType}.
-         * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link gov.loc.mets.FileType}.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Adapter createFileTypeAdapter() {
-                if (fileTypeItemProvider == null) {
-                        fileTypeItemProvider = new FileTypeItemProvider(this);
-                }
+		if (fileTypeItemProvider == null) {
+			fileTypeItemProvider = new FileTypeItemProvider(this);
+		}
 
-                return fileTypeItemProvider;
-        }
+		return fileTypeItemProvider;
+	}
 
         /**
-         * This keeps track of the one adapter used for all {@link gov.loc.mets.FLocatType} instances.
-         * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link gov.loc.mets.FLocatType} instances.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected FLocatTypeItemProvider fLocatTypeItemProvider;
 
         /**
-         * This creates an adapter for a {@link gov.loc.mets.FLocatType}.
-         * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link gov.loc.mets.FLocatType}.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Adapter createFLocatTypeAdapter() {
-                if (fLocatTypeItemProvider == null) {
-                        fLocatTypeItemProvider = new FLocatTypeItemProvider(this);
-                }
+		if (fLocatTypeItemProvider == null) {
+			fLocatTypeItemProvider = new FLocatTypeItemProvider(this);
+		}
 
-                return fLocatTypeItemProvider;
-        }
+		return fLocatTypeItemProvider;
+	}
 
         /**
-         * This keeps track of the one adapter used for all {@link gov.loc.mets.FptrType} instances.
-         * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link gov.loc.mets.FptrType} instances.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected FptrTypeItemProvider fptrTypeItemProvider;
 
         /**
-         * This creates an adapter for a {@link gov.loc.mets.FptrType}.
-         * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link gov.loc.mets.FptrType}.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Adapter createFptrTypeAdapter() {
-                if (fptrTypeItemProvider == null) {
-                        fptrTypeItemProvider = new FptrTypeItemProvider(this);
-                }
+		if (fptrTypeItemProvider == null) {
+			fptrTypeItemProvider = new FptrTypeItemProvider(this);
+		}
 
-                return fptrTypeItemProvider;
-        }
+		return fptrTypeItemProvider;
+	}
 
         /**
-         * This keeps track of the one adapter used for all {@link gov.loc.mets.MdRefType} instances.
-         * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link gov.loc.mets.MdRefType} instances.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected MdRefTypeItemProvider mdRefTypeItemProvider;
 
         /**
-         * This creates an adapter for a {@link gov.loc.mets.MdRefType}.
-         * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link gov.loc.mets.MdRefType}.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Adapter createMdRefTypeAdapter() {
-                if (mdRefTypeItemProvider == null) {
-                        mdRefTypeItemProvider = new MdRefTypeItemProvider(this);
-                }
+		if (mdRefTypeItemProvider == null) {
+			mdRefTypeItemProvider = new MdRefTypeItemProvider(this);
+		}
 
-                return mdRefTypeItemProvider;
-        }
+		return mdRefTypeItemProvider;
+	}
 
         /**
-         * This keeps track of the one adapter used for all {@link gov.loc.mets.MdSecType} instances.
-         * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link gov.loc.mets.MdSecType} instances.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected MdSecTypeItemProvider mdSecTypeItemProvider;
 
         /**
-         * This creates an adapter for a {@link gov.loc.mets.MdSecType}.
-         * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link gov.loc.mets.MdSecType}.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Adapter createMdSecTypeAdapter() {
-                if (mdSecTypeItemProvider == null) {
-                        mdSecTypeItemProvider = new MdSecTypeItemProvider(this);
-                }
+		if (mdSecTypeItemProvider == null) {
+			mdSecTypeItemProvider = new MdSecTypeItemProvider(this);
+		}
 
-                return mdSecTypeItemProvider;
-        }
+		return mdSecTypeItemProvider;
+	}
 
         /**
-         * This keeps track of the one adapter used for all {@link gov.loc.mets.MdWrapType} instances.
-         * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link gov.loc.mets.MdWrapType} instances.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected MdWrapTypeItemProvider mdWrapTypeItemProvider;
 
         /**
-         * This creates an adapter for a {@link gov.loc.mets.MdWrapType}.
-         * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link gov.loc.mets.MdWrapType}.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Adapter createMdWrapTypeAdapter() {
-                if (mdWrapTypeItemProvider == null) {
-                        mdWrapTypeItemProvider = new MdWrapTypeItemProvider(this);
-                }
+		if (mdWrapTypeItemProvider == null) {
+			mdWrapTypeItemProvider = new MdWrapTypeItemProvider(this);
+		}
 
-                return mdWrapTypeItemProvider;
-        }
+		return mdWrapTypeItemProvider;
+	}
 
         /**
-         * This keeps track of the one adapter used for all {@link gov.loc.mets.MetsDocumentIDType} instances.
-         * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link gov.loc.mets.MetsDocumentIDType} instances.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected MetsDocumentIDTypeItemProvider metsDocumentIDTypeItemProvider;
 
         /**
-         * This creates an adapter for a {@link gov.loc.mets.MetsDocumentIDType}.
-         * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link gov.loc.mets.MetsDocumentIDType}.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Adapter createMetsDocumentIDTypeAdapter() {
-                if (metsDocumentIDTypeItemProvider == null) {
-                        metsDocumentIDTypeItemProvider = new MetsDocumentIDTypeItemProvider(this);
-                }
+		if (metsDocumentIDTypeItemProvider == null) {
+			metsDocumentIDTypeItemProvider = new MetsDocumentIDTypeItemProvider(this);
+		}
 
-                return metsDocumentIDTypeItemProvider;
-        }
+		return metsDocumentIDTypeItemProvider;
+	}
 
         /**
-         * This keeps track of the one adapter used for all {@link gov.loc.mets.MetsHdrType} instances.
-         * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link gov.loc.mets.MetsHdrType} instances.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected MetsHdrTypeItemProvider metsHdrTypeItemProvider;
 
         /**
-         * This creates an adapter for a {@link gov.loc.mets.MetsHdrType}.
-         * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link gov.loc.mets.MetsHdrType}.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Adapter createMetsHdrTypeAdapter() {
-                if (metsHdrTypeItemProvider == null) {
-                        metsHdrTypeItemProvider = new MetsHdrTypeItemProvider(this);
-                }
+		if (metsHdrTypeItemProvider == null) {
+			metsHdrTypeItemProvider = new MetsHdrTypeItemProvider(this);
+		}
 
-                return metsHdrTypeItemProvider;
-        }
+		return metsHdrTypeItemProvider;
+	}
 
         /**
-         * This keeps track of the one adapter used for all {@link gov.loc.mets.MetsType} instances.
-         * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link gov.loc.mets.MetsType} instances.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected MetsTypeItemProvider metsTypeItemProvider;
 
         /**
-         * This creates an adapter for a {@link gov.loc.mets.MetsType}.
-         * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link gov.loc.mets.MetsType}.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Adapter createMetsTypeAdapter() {
-                if (metsTypeItemProvider == null) {
-                        metsTypeItemProvider = new MetsTypeItemProvider(this);
-                }
+		if (metsTypeItemProvider == null) {
+			metsTypeItemProvider = new MetsTypeItemProvider(this);
+		}
 
-                return metsTypeItemProvider;
-        }
+		return metsTypeItemProvider;
+	}
 
         /**
-         * This keeps track of the one adapter used for all {@link gov.loc.mets.MetsType1} instances.
-         * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link gov.loc.mets.MetsType1} instances.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected MetsType1ItemProvider metsType1ItemProvider;
 
         /**
-         * This creates an adapter for a {@link gov.loc.mets.MetsType1}.
-         * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link gov.loc.mets.MetsType1}.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Adapter createMetsType1Adapter() {
-                if (metsType1ItemProvider == null) {
-                        metsType1ItemProvider = new MetsType1ItemProvider(this);
-                }
+		if (metsType1ItemProvider == null) {
+			metsType1ItemProvider = new MetsType1ItemProvider(this);
+		}
 
-                return metsType1ItemProvider;
-        }
+		return metsType1ItemProvider;
+	}
 
         /**
-         * This keeps track of the one adapter used for all {@link gov.loc.mets.MptrType} instances.
-         * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link gov.loc.mets.MptrType} instances.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected MptrTypeItemProvider mptrTypeItemProvider;
 
         /**
-         * This creates an adapter for a {@link gov.loc.mets.MptrType}.
-         * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link gov.loc.mets.MptrType}.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Adapter createMptrTypeAdapter() {
-                if (mptrTypeItemProvider == null) {
-                        mptrTypeItemProvider = new MptrTypeItemProvider(this);
-                }
+		if (mptrTypeItemProvider == null) {
+			mptrTypeItemProvider = new MptrTypeItemProvider(this);
+		}
 
-                return mptrTypeItemProvider;
-        }
+		return mptrTypeItemProvider;
+	}
 
         /**
-         * This keeps track of the one adapter used for all {@link gov.loc.mets.ObjectType} instances.
-         * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link gov.loc.mets.ObjectType} instances.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected ObjectTypeItemProvider objectTypeItemProvider;
 
         /**
-         * This creates an adapter for a {@link gov.loc.mets.ObjectType}.
-         * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link gov.loc.mets.ObjectType}.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Adapter createObjectTypeAdapter() {
-                if (objectTypeItemProvider == null) {
-                        objectTypeItemProvider = new ObjectTypeItemProvider(this);
-                }
+		if (objectTypeItemProvider == null) {
+			objectTypeItemProvider = new ObjectTypeItemProvider(this);
+		}
 
-                return objectTypeItemProvider;
-        }
+		return objectTypeItemProvider;
+	}
 
         /**
-         * This keeps track of the one adapter used for all {@link gov.loc.mets.ParType} instances.
-         * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link gov.loc.mets.ParType} instances.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected ParTypeItemProvider parTypeItemProvider;
 
         /**
-         * This creates an adapter for a {@link gov.loc.mets.ParType}.
-         * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link gov.loc.mets.ParType}.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Adapter createParTypeAdapter() {
-                if (parTypeItemProvider == null) {
-                        parTypeItemProvider = new ParTypeItemProvider(this);
-                }
+		if (parTypeItemProvider == null) {
+			parTypeItemProvider = new ParTypeItemProvider(this);
+		}
 
-                return parTypeItemProvider;
-        }
+		return parTypeItemProvider;
+	}
 
         /**
-         * This keeps track of the one adapter used for all {@link gov.loc.mets.SeqType} instances.
-         * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link gov.loc.mets.SeqType} instances.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected SeqTypeItemProvider seqTypeItemProvider;
 
         /**
-         * This creates an adapter for a {@link gov.loc.mets.SeqType}.
-         * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link gov.loc.mets.SeqType}.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Adapter createSeqTypeAdapter() {
-                if (seqTypeItemProvider == null) {
-                        seqTypeItemProvider = new SeqTypeItemProvider(this);
-                }
+		if (seqTypeItemProvider == null) {
+			seqTypeItemProvider = new SeqTypeItemProvider(this);
+		}
 
-                return seqTypeItemProvider;
-        }
+		return seqTypeItemProvider;
+	}
 
         /**
-         * This keeps track of the one adapter used for all {@link gov.loc.mets.SmArcLinkType} instances.
-         * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link gov.loc.mets.SmArcLinkType} instances.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected SmArcLinkTypeItemProvider smArcLinkTypeItemProvider;
 
         /**
-         * This creates an adapter for a {@link gov.loc.mets.SmArcLinkType}.
-         * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link gov.loc.mets.SmArcLinkType}.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Adapter createSmArcLinkTypeAdapter() {
-                if (smArcLinkTypeItemProvider == null) {
-                        smArcLinkTypeItemProvider = new SmArcLinkTypeItemProvider(this);
-                }
+		if (smArcLinkTypeItemProvider == null) {
+			smArcLinkTypeItemProvider = new SmArcLinkTypeItemProvider(this);
+		}
 
-                return smArcLinkTypeItemProvider;
-        }
+		return smArcLinkTypeItemProvider;
+	}
 
         /**
-         * This keeps track of the one adapter used for all {@link gov.loc.mets.SmLinkGrpType} instances.
-         * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link gov.loc.mets.SmLinkGrpType} instances.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected SmLinkGrpTypeItemProvider smLinkGrpTypeItemProvider;
 
         /**
-         * This creates an adapter for a {@link gov.loc.mets.SmLinkGrpType}.
-         * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link gov.loc.mets.SmLinkGrpType}.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Adapter createSmLinkGrpTypeAdapter() {
-                if (smLinkGrpTypeItemProvider == null) {
-                        smLinkGrpTypeItemProvider = new SmLinkGrpTypeItemProvider(this);
-                }
+		if (smLinkGrpTypeItemProvider == null) {
+			smLinkGrpTypeItemProvider = new SmLinkGrpTypeItemProvider(this);
+		}
 
-                return smLinkGrpTypeItemProvider;
-        }
+		return smLinkGrpTypeItemProvider;
+	}
 
         /**
-         * This keeps track of the one adapter used for all {@link gov.loc.mets.SmLinkType} instances.
-         * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link gov.loc.mets.SmLinkType} instances.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected SmLinkTypeItemProvider smLinkTypeItemProvider;
 
         /**
-         * This creates an adapter for a {@link gov.loc.mets.SmLinkType}.
-         * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link gov.loc.mets.SmLinkType}.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Adapter createSmLinkTypeAdapter() {
-                if (smLinkTypeItemProvider == null) {
-                        smLinkTypeItemProvider = new SmLinkTypeItemProvider(this);
-                }
+		if (smLinkTypeItemProvider == null) {
+			smLinkTypeItemProvider = new SmLinkTypeItemProvider(this);
+		}
 
-                return smLinkTypeItemProvider;
-        }
+		return smLinkTypeItemProvider;
+	}
 
         /**
-         * This keeps track of the one adapter used for all {@link gov.loc.mets.SmLocatorLinkType} instances.
-         * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link gov.loc.mets.SmLocatorLinkType} instances.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected SmLocatorLinkTypeItemProvider smLocatorLinkTypeItemProvider;
 
         /**
-         * This creates an adapter for a {@link gov.loc.mets.SmLocatorLinkType}.
-         * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link gov.loc.mets.SmLocatorLinkType}.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Adapter createSmLocatorLinkTypeAdapter() {
-                if (smLocatorLinkTypeItemProvider == null) {
-                        smLocatorLinkTypeItemProvider = new SmLocatorLinkTypeItemProvider(this);
-                }
+		if (smLocatorLinkTypeItemProvider == null) {
+			smLocatorLinkTypeItemProvider = new SmLocatorLinkTypeItemProvider(this);
+		}
 
-                return smLocatorLinkTypeItemProvider;
-        }
+		return smLocatorLinkTypeItemProvider;
+	}
 
         /**
-         * This keeps track of the one adapter used for all {@link gov.loc.mets.StreamType} instances.
-         * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link gov.loc.mets.StreamType} instances.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected StreamTypeItemProvider streamTypeItemProvider;
 
         /**
-         * This creates an adapter for a {@link gov.loc.mets.StreamType}.
-         * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link gov.loc.mets.StreamType}.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Adapter createStreamTypeAdapter() {
-                if (streamTypeItemProvider == null) {
-                        streamTypeItemProvider = new StreamTypeItemProvider(this);
-                }
+		if (streamTypeItemProvider == null) {
+			streamTypeItemProvider = new StreamTypeItemProvider(this);
+		}
 
-                return streamTypeItemProvider;
-        }
+		return streamTypeItemProvider;
+	}
 
         /**
-         * This keeps track of the one adapter used for all {@link gov.loc.mets.StructLinkType} instances.
-         * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link gov.loc.mets.StructLinkType} instances.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected StructLinkTypeItemProvider structLinkTypeItemProvider;
 
         /**
-         * This creates an adapter for a {@link gov.loc.mets.StructLinkType}.
-         * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link gov.loc.mets.StructLinkType}.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Adapter createStructLinkTypeAdapter() {
-                if (structLinkTypeItemProvider == null) {
-                        structLinkTypeItemProvider = new StructLinkTypeItemProvider(this);
-                }
+		if (structLinkTypeItemProvider == null) {
+			structLinkTypeItemProvider = new StructLinkTypeItemProvider(this);
+		}
 
-                return structLinkTypeItemProvider;
-        }
+		return structLinkTypeItemProvider;
+	}
 
         /**
-         * This keeps track of the one adapter used for all {@link gov.loc.mets.StructLinkType1} instances.
-         * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link gov.loc.mets.StructLinkType1} instances.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected StructLinkType1ItemProvider structLinkType1ItemProvider;
 
         /**
-         * This creates an adapter for a {@link gov.loc.mets.StructLinkType1}.
-         * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link gov.loc.mets.StructLinkType1}.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Adapter createStructLinkType1Adapter() {
-                if (structLinkType1ItemProvider == null) {
-                        structLinkType1ItemProvider = new StructLinkType1ItemProvider(this);
-                }
+		if (structLinkType1ItemProvider == null) {
+			structLinkType1ItemProvider = new StructLinkType1ItemProvider(this);
+		}
 
-                return structLinkType1ItemProvider;
-        }
+		return structLinkType1ItemProvider;
+	}
 
         /**
-         * This keeps track of the one adapter used for all {@link gov.loc.mets.StructMapType} instances.
-         * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link gov.loc.mets.StructMapType} instances.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected StructMapTypeItemProvider structMapTypeItemProvider;
 
         /**
-         * This creates an adapter for a {@link gov.loc.mets.StructMapType}.
-         * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link gov.loc.mets.StructMapType}.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Adapter createStructMapTypeAdapter() {
-                if (structMapTypeItemProvider == null) {
-                        structMapTypeItemProvider = new StructMapTypeItemProvider(this);
-                }
+		if (structMapTypeItemProvider == null) {
+			structMapTypeItemProvider = new StructMapTypeItemProvider(this);
+		}
 
-                return structMapTypeItemProvider;
-        }
+		return structMapTypeItemProvider;
+	}
 
         /**
-         * This keeps track of the one adapter used for all {@link gov.loc.mets.TransformFileType} instances.
-         * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link gov.loc.mets.TransformFileType} instances.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected TransformFileTypeItemProvider transformFileTypeItemProvider;
 
         /**
-         * This creates an adapter for a {@link gov.loc.mets.TransformFileType}.
-         * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link gov.loc.mets.TransformFileType}.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Adapter createTransformFileTypeAdapter() {
-                if (transformFileTypeItemProvider == null) {
-                        transformFileTypeItemProvider = new TransformFileTypeItemProvider(this);
-                }
+		if (transformFileTypeItemProvider == null) {
+			transformFileTypeItemProvider = new TransformFileTypeItemProvider(this);
+		}
 
-                return transformFileTypeItemProvider;
-        }
+		return transformFileTypeItemProvider;
+	}
 
         /**
-         * This keeps track of the one adapter used for all {@link gov.loc.mets.XmlDataType} instances.
-         * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link gov.loc.mets.XmlDataType} instances.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected XmlDataTypeItemProvider xmlDataTypeItemProvider;
 
         /**
-         * This creates an adapter for a {@link gov.loc.mets.XmlDataType}.
-         * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link gov.loc.mets.XmlDataType}.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Adapter createXmlDataTypeAdapter() {
-                if (xmlDataTypeItemProvider == null) {
-                        xmlDataTypeItemProvider = new XmlDataTypeItemProvider(this);
-                }
+		if (xmlDataTypeItemProvider == null) {
+			xmlDataTypeItemProvider = new XmlDataTypeItemProvider(this);
+		}
 
-                return xmlDataTypeItemProvider;
-        }
+		return xmlDataTypeItemProvider;
+	}
 
         /**
-         * This keeps track of the one adapter used for all {@link gov.loc.mets.XmlDataType1} instances.
-         * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link gov.loc.mets.XmlDataType1} instances.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected XmlDataType1ItemProvider xmlDataType1ItemProvider;
 
         /**
-         * This creates an adapter for a {@link gov.loc.mets.XmlDataType1}.
-         * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link gov.loc.mets.XmlDataType1}.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Adapter createXmlDataType1Adapter() {
-                if (xmlDataType1ItemProvider == null) {
-                        xmlDataType1ItemProvider = new XmlDataType1ItemProvider(this);
-                }
+		if (xmlDataType1ItemProvider == null) {
+			xmlDataType1ItemProvider = new XmlDataType1ItemProvider(this);
+		}
 
-                return xmlDataType1ItemProvider;
-        }
+		return xmlDataType1ItemProvider;
+	}
 
         /**
-         * This returns the root adapter factory that contains this factory.
-         * <!-- begin-user-doc -->
+	 * This returns the root adapter factory that contains this factory.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public ComposeableAdapterFactory getRootAdapterFactory() {
-                return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory();
-        }
+		return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory();
+	}
 
         /**
-         * This sets the composed adapter factory that contains this factory.
-         * <!-- begin-user-doc -->
+	 * This sets the composed adapter factory that contains this factory.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory) {
-                this.parentAdapterFactory = parentAdapterFactory;
-        }
+		this.parentAdapterFactory = parentAdapterFactory;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public boolean isFactoryForType(Object type) {
-                return supportedTypes.contains(type) || super.isFactoryForType(type);
-        }
+		return supportedTypes.contains(type) || super.isFactoryForType(type);
+	}
 
         /**
-         * This implementation substitutes the factory itself as the key for the adapter.
-         * <!-- begin-user-doc -->
+	 * This implementation substitutes the factory itself as the key for the adapter.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Adapter adapt(Notifier notifier, Object type) {
-                return super.adapt(notifier, this);
-        }
+		return super.adapt(notifier, this);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Object adapt(Object object, Object type) {
-                if (isFactoryForType(type)) {
-                        Object adapter = super.adapt(object, type);
-                        if (!(type instanceof Class<?>) || (((Class<?>)type).isInstance(adapter))) {
-                                return adapter;
-                        }
-                }
+		if (isFactoryForType(type)) {
+			Object adapter = super.adapt(object, type);
+			if (!(type instanceof Class<?>) || (((Class<?>)type).isInstance(adapter))) {
+				return adapter;
+			}
+		}
 
-                return null;
-        }
+		return null;
+	}
 
         /**
-         * This adds a listener.
-         * <!-- begin-user-doc -->
+	 * This adds a listener.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public void addListener(INotifyChangedListener notifyChangedListener) {
-                changeNotifier.addListener(notifyChangedListener);
-        }
+		changeNotifier.addListener(notifyChangedListener);
+	}
 
         /**
-         * This removes a listener.
-         * <!-- begin-user-doc -->
+	 * This removes a listener.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public void removeListener(INotifyChangedListener notifyChangedListener) {
-                changeNotifier.removeListener(notifyChangedListener);
-        }
+		changeNotifier.removeListener(notifyChangedListener);
+	}
 
         /**
-         * This delegates to {@link #changeNotifier} and to {@link #parentAdapterFactory}.
-         * <!-- begin-user-doc -->
+	 * This delegates to {@link #changeNotifier} and to {@link #parentAdapterFactory}.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public void fireNotifyChanged(Notification notification) {
-                changeNotifier.fireNotifyChanged(notification);
+		changeNotifier.fireNotifyChanged(notification);
 
-                if (parentAdapterFactory != null) {
-                        parentAdapterFactory.fireNotifyChanged(notification);
-                }
-        }
+		if (parentAdapterFactory != null) {
+			parentAdapterFactory.fireNotifyChanged(notification);
+		}
+	}
 
         /**
-         * This disposes all of the item providers created by this factory. 
-         * <!-- begin-user-doc -->
+	 * This disposes all of the item providers created by this factory. 
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public void dispose() {
-                if (agentTypeItemProvider != null) agentTypeItemProvider.dispose();
-                if (altRecordIDTypeItemProvider != null) altRecordIDTypeItemProvider.dispose();
-                if (amdSecTypeItemProvider != null) amdSecTypeItemProvider.dispose();
-                if (areaTypeItemProvider != null) areaTypeItemProvider.dispose();
-                if (behaviorSecTypeItemProvider != null) behaviorSecTypeItemProvider.dispose();
-                if (behaviorTypeItemProvider != null) behaviorTypeItemProvider.dispose();
-                if (divTypeItemProvider != null) divTypeItemProvider.dispose();
-                if (documentRootItemProvider != null) documentRootItemProvider.dispose();
-                if (fContentTypeItemProvider != null) fContentTypeItemProvider.dispose();
-                if (fileGrpTypeItemProvider != null) fileGrpTypeItemProvider.dispose();
-                if (fileGrpType1ItemProvider != null) fileGrpType1ItemProvider.dispose();
-                if (fileSecTypeItemProvider != null) fileSecTypeItemProvider.dispose();
-                if (fileTypeItemProvider != null) fileTypeItemProvider.dispose();
-                if (fLocatTypeItemProvider != null) fLocatTypeItemProvider.dispose();
-                if (fptrTypeItemProvider != null) fptrTypeItemProvider.dispose();
-                if (mdRefTypeItemProvider != null) mdRefTypeItemProvider.dispose();
-                if (mdSecTypeItemProvider != null) mdSecTypeItemProvider.dispose();
-                if (mdWrapTypeItemProvider != null) mdWrapTypeItemProvider.dispose();
-                if (metsDocumentIDTypeItemProvider != null) metsDocumentIDTypeItemProvider.dispose();
-                if (metsHdrTypeItemProvider != null) metsHdrTypeItemProvider.dispose();
-                if (metsTypeItemProvider != null) metsTypeItemProvider.dispose();
-                if (metsType1ItemProvider != null) metsType1ItemProvider.dispose();
-                if (mptrTypeItemProvider != null) mptrTypeItemProvider.dispose();
-                if (objectTypeItemProvider != null) objectTypeItemProvider.dispose();
-                if (parTypeItemProvider != null) parTypeItemProvider.dispose();
-                if (seqTypeItemProvider != null) seqTypeItemProvider.dispose();
-                if (smArcLinkTypeItemProvider != null) smArcLinkTypeItemProvider.dispose();
-                if (smLinkGrpTypeItemProvider != null) smLinkGrpTypeItemProvider.dispose();
-                if (smLinkTypeItemProvider != null) smLinkTypeItemProvider.dispose();
-                if (smLocatorLinkTypeItemProvider != null) smLocatorLinkTypeItemProvider.dispose();
-                if (streamTypeItemProvider != null) streamTypeItemProvider.dispose();
-                if (structLinkTypeItemProvider != null) structLinkTypeItemProvider.dispose();
-                if (structLinkType1ItemProvider != null) structLinkType1ItemProvider.dispose();
-                if (structMapTypeItemProvider != null) structMapTypeItemProvider.dispose();
-                if (transformFileTypeItemProvider != null) transformFileTypeItemProvider.dispose();
-                if (xmlDataTypeItemProvider != null) xmlDataTypeItemProvider.dispose();
-                if (xmlDataType1ItemProvider != null) xmlDataType1ItemProvider.dispose();
-        }
+		if (agentTypeItemProvider != null) agentTypeItemProvider.dispose();
+		if (altRecordIDTypeItemProvider != null) altRecordIDTypeItemProvider.dispose();
+		if (amdSecTypeItemProvider != null) amdSecTypeItemProvider.dispose();
+		if (areaTypeItemProvider != null) areaTypeItemProvider.dispose();
+		if (behaviorSecTypeItemProvider != null) behaviorSecTypeItemProvider.dispose();
+		if (behaviorTypeItemProvider != null) behaviorTypeItemProvider.dispose();
+		if (divTypeItemProvider != null) divTypeItemProvider.dispose();
+		if (documentRootItemProvider != null) documentRootItemProvider.dispose();
+		if (fContentTypeItemProvider != null) fContentTypeItemProvider.dispose();
+		if (fileGrpTypeItemProvider != null) fileGrpTypeItemProvider.dispose();
+		if (fileGrpType1ItemProvider != null) fileGrpType1ItemProvider.dispose();
+		if (fileSecTypeItemProvider != null) fileSecTypeItemProvider.dispose();
+		if (fileTypeItemProvider != null) fileTypeItemProvider.dispose();
+		if (fLocatTypeItemProvider != null) fLocatTypeItemProvider.dispose();
+		if (fptrTypeItemProvider != null) fptrTypeItemProvider.dispose();
+		if (mdRefTypeItemProvider != null) mdRefTypeItemProvider.dispose();
+		if (mdSecTypeItemProvider != null) mdSecTypeItemProvider.dispose();
+		if (mdWrapTypeItemProvider != null) mdWrapTypeItemProvider.dispose();
+		if (metsDocumentIDTypeItemProvider != null) metsDocumentIDTypeItemProvider.dispose();
+		if (metsHdrTypeItemProvider != null) metsHdrTypeItemProvider.dispose();
+		if (metsTypeItemProvider != null) metsTypeItemProvider.dispose();
+		if (metsType1ItemProvider != null) metsType1ItemProvider.dispose();
+		if (mptrTypeItemProvider != null) mptrTypeItemProvider.dispose();
+		if (objectTypeItemProvider != null) objectTypeItemProvider.dispose();
+		if (parTypeItemProvider != null) parTypeItemProvider.dispose();
+		if (seqTypeItemProvider != null) seqTypeItemProvider.dispose();
+		if (smArcLinkTypeItemProvider != null) smArcLinkTypeItemProvider.dispose();
+		if (smLinkGrpTypeItemProvider != null) smLinkGrpTypeItemProvider.dispose();
+		if (smLinkTypeItemProvider != null) smLinkTypeItemProvider.dispose();
+		if (smLocatorLinkTypeItemProvider != null) smLocatorLinkTypeItemProvider.dispose();
+		if (streamTypeItemProvider != null) streamTypeItemProvider.dispose();
+		if (structLinkTypeItemProvider != null) structLinkTypeItemProvider.dispose();
+		if (structLinkType1ItemProvider != null) structLinkType1ItemProvider.dispose();
+		if (structMapTypeItemProvider != null) structMapTypeItemProvider.dispose();
+		if (transformFileTypeItemProvider != null) transformFileTypeItemProvider.dispose();
+		if (xmlDataTypeItemProvider != null) xmlDataTypeItemProvider.dispose();
+		if (xmlDataType1ItemProvider != null) xmlDataType1ItemProvider.dispose();
+	}
 
 }

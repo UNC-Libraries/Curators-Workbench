@@ -40,119 +40,119 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface BehaviorSecType extends EObject {
         /**
-         * Returns the value of the '<em><b>Behavior Sec</b></em>' containment reference list.
-         * The list contents are of type {@link gov.loc.mets.BehaviorSecType}.
-         * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Behavior Sec</b></em>' containment reference list.
+	 * The list contents are of type {@link gov.loc.mets.BehaviorSecType}.
+	 * <!-- begin-user-doc -->
          * <p>
          * If the meaning of the '<em>Behavior Sec</em>' containment reference list isn't clear,
          * there really should be more of a description here...
          * </p>
          * <!-- end-user-doc -->
-         * @return the value of the '<em>Behavior Sec</em>' containment reference list.
-         * @see gov.loc.mets.MetsPackage#getBehaviorSecType_BehaviorSec()
-         * @model containment="true"
-         *        extendedMetaData="kind='element' name='behaviorSec' namespace='##targetNamespace'"
-         * @generated
-         */
+	 * @return the value of the '<em>Behavior Sec</em>' containment reference list.
+	 * @see gov.loc.mets.MetsPackage#getBehaviorSecType_BehaviorSec()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='behaviorSec' namespace='##targetNamespace'"
+	 * @generated
+	 */
         EList<BehaviorSecType> getBehaviorSec();
 
         /**
-         * Returns the value of the '<em><b>Behavior</b></em>' containment reference list.
-         * The list contents are of type {@link gov.loc.mets.BehaviorType}.
-         * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Behavior</b></em>' containment reference list.
+	 * The list contents are of type {@link gov.loc.mets.BehaviorType}.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * <!-- begin-model-doc -->
-         * 
-         * 						A behavior element &lt;behavior&gt; can be used to associate executable behaviors with content in the METS document. This element has an interface definition &lt;interfaceDef&gt; element that represents an abstract definition of a set of behaviors represented by a particular behavior. A &lt;behavior&gt; element also has a behavior mechanism &lt;mechanism&gt; element, a module of executable code that implements and runs the behavior defined abstractly by the interface definition.
-         * 					
-         * <!-- end-model-doc -->
-         * @return the value of the '<em>Behavior</em>' containment reference list.
-         * @see gov.loc.mets.MetsPackage#getBehaviorSecType_Behavior()
-         * @model containment="true"
-         *        extendedMetaData="kind='element' name='behavior' namespace='##targetNamespace'"
-         * @generated
-         */
+	 * <!-- begin-model-doc -->
+	 * 
+	 * 						A behavior element &lt;behavior&gt; can be used to associate executable behaviors with content in the METS document. This element has an interface definition &lt;interfaceDef&gt; element that represents an abstract definition of a set of behaviors represented by a particular behavior. A &lt;behavior&gt; element also has a behavior mechanism &lt;mechanism&gt; element, a module of executable code that implements and runs the behavior defined abstractly by the interface definition.
+	 * 					
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Behavior</em>' containment reference list.
+	 * @see gov.loc.mets.MetsPackage#getBehaviorSecType_Behavior()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='behavior' namespace='##targetNamespace'"
+	 * @generated
+	 */
         EList<BehaviorType> getBehavior();
 
         /**
-         * Returns the value of the '<em><b>CREATED</b></em>' attribute.
-         * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>CREATED</b></em>' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * <!-- begin-model-doc -->
-         * CREATED (dateTime/O): Specifies the date and time of creation for the &lt;behaviorSec&gt;
-         * 				
-         * <!-- end-model-doc -->
-         * @return the value of the '<em>CREATED</em>' attribute.
-         * @see #setCREATED(XMLGregorianCalendar)
-         * @see gov.loc.mets.MetsPackage#getBehaviorSecType_CREATED()
-         * @model dataType="org.eclipse.emf.ecore.xml.type.DateTime"
-         *        extendedMetaData="kind='attribute' name='CREATED'"
-         * @generated
-         */
+	 * <!-- begin-model-doc -->
+	 * CREATED (dateTime/O): Specifies the date and time of creation for the &lt;behaviorSec&gt;
+	 * 				
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>CREATED</em>' attribute.
+	 * @see #setCREATED(XMLGregorianCalendar)
+	 * @see gov.loc.mets.MetsPackage#getBehaviorSecType_CREATED()
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.DateTime"
+	 *        extendedMetaData="kind='attribute' name='CREATED'"
+	 * @generated
+	 */
         XMLGregorianCalendar getCREATED();
 
         /**
-         * Sets the value of the '{@link gov.loc.mets.BehaviorSecType#getCREATED <em>CREATED</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link gov.loc.mets.BehaviorSecType#getCREATED <em>CREATED</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @param value the new value of the '<em>CREATED</em>' attribute.
-         * @see #getCREATED()
-         * @generated
-         */
+	 * @param value the new value of the '<em>CREATED</em>' attribute.
+	 * @see #getCREATED()
+	 * @generated
+	 */
         void setCREATED(XMLGregorianCalendar value);
 
         /**
-         * Returns the value of the '<em><b>ID</b></em>' attribute.
-         * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * <!-- begin-model-doc -->
-         * ID (ID/O): This attribute uniquely identifies the element within the METS document, and would allow the element to be referenced unambiguously from another element or document via an IDREF or an XPTR. For more information on using ID attributes for internal and external linking see Chapter 4 of the METS Primer.
-         * 				
-         * <!-- end-model-doc -->
-         * @return the value of the '<em>ID</em>' attribute.
-         * @see #setID(String)
-         * @see gov.loc.mets.MetsPackage#getBehaviorSecType_ID()
-         * @model id="true" dataType="org.eclipse.emf.ecore.xml.type.ID"
-         *        extendedMetaData="kind='attribute' name='ID'"
-         * @generated
-         */
+	 * <!-- begin-model-doc -->
+	 * ID (ID/O): This attribute uniquely identifies the element within the METS document, and would allow the element to be referenced unambiguously from another element or document via an IDREF or an XPTR. For more information on using ID attributes for internal and external linking see Chapter 4 of the METS Primer.
+	 * 				
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>ID</em>' attribute.
+	 * @see #setID(String)
+	 * @see gov.loc.mets.MetsPackage#getBehaviorSecType_ID()
+	 * @model id="true" dataType="org.eclipse.emf.ecore.xml.type.ID"
+	 *        extendedMetaData="kind='attribute' name='ID'"
+	 * @generated
+	 */
         String getID();
 
         /**
-         * Sets the value of the '{@link gov.loc.mets.BehaviorSecType#getID <em>ID</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link gov.loc.mets.BehaviorSecType#getID <em>ID</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @param value the new value of the '<em>ID</em>' attribute.
-         * @see #getID()
-         * @generated
-         */
+	 * @param value the new value of the '<em>ID</em>' attribute.
+	 * @see #getID()
+	 * @generated
+	 */
         void setID(String value);
 
         /**
-         * Returns the value of the '<em><b>LABEL</b></em>' attribute.
-         * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>LABEL</b></em>' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * <!-- begin-model-doc -->
-         * LABEL (string/O): A text description of the behavior section.
-         * 				
-         * <!-- end-model-doc -->
-         * @return the value of the '<em>LABEL</em>' attribute.
-         * @see #setLABEL(String)
-         * @see gov.loc.mets.MetsPackage#getBehaviorSecType_LABEL()
-         * @model dataType="org.eclipse.emf.ecore.xml.type.String"
-         *        extendedMetaData="kind='attribute' name='LABEL'"
-         * @generated
-         */
+	 * <!-- begin-model-doc -->
+	 * LABEL (string/O): A text description of the behavior section.
+	 * 				
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>LABEL</em>' attribute.
+	 * @see #setLABEL(String)
+	 * @see gov.loc.mets.MetsPackage#getBehaviorSecType_LABEL()
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
+	 *        extendedMetaData="kind='attribute' name='LABEL'"
+	 * @generated
+	 */
         String getLABEL();
 
         /**
-         * Sets the value of the '{@link gov.loc.mets.BehaviorSecType#getLABEL <em>LABEL</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link gov.loc.mets.BehaviorSecType#getLABEL <em>LABEL</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @param value the new value of the '<em>LABEL</em>' attribute.
-         * @see #getLABEL()
-         * @generated
-         */
+	 * @param value the new value of the '<em>LABEL</em>' attribute.
+	 * @see #getLABEL()
+	 * @generated
+	 */
         void setLABEL(String value);
 
 } // BehaviorSecType

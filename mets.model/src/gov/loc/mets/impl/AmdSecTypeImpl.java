@@ -45,290 +45,290 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class AmdSecTypeImpl extends EObjectImpl implements AmdSecType {
         /**
-         * The cached value of the '{@link #getTechMD() <em>Tech MD</em>}' containment reference list.
-         * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getTechMD() <em>Tech MD</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getTechMD()
-         * @generated
-         * @ordered
-         */
+	 * @see #getTechMD()
+	 * @generated
+	 * @ordered
+	 */
         protected EList<MdSecType> techMD;
 
         /**
-         * The cached value of the '{@link #getRightsMD() <em>Rights MD</em>}' containment reference list.
-         * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getRightsMD() <em>Rights MD</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getRightsMD()
-         * @generated
-         * @ordered
-         */
+	 * @see #getRightsMD()
+	 * @generated
+	 * @ordered
+	 */
         protected EList<MdSecType> rightsMD;
 
         /**
-         * The cached value of the '{@link #getSourceMD() <em>Source MD</em>}' containment reference list.
-         * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getSourceMD() <em>Source MD</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getSourceMD()
-         * @generated
-         * @ordered
-         */
+	 * @see #getSourceMD()
+	 * @generated
+	 * @ordered
+	 */
         protected EList<MdSecType> sourceMD;
 
         /**
-         * The cached value of the '{@link #getDigiprovMD() <em>Digiprov MD</em>}' containment reference list.
-         * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getDigiprovMD() <em>Digiprov MD</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getDigiprovMD()
-         * @generated
-         * @ordered
-         */
+	 * @see #getDigiprovMD()
+	 * @generated
+	 * @ordered
+	 */
         protected EList<MdSecType> digiprovMD;
 
         /**
-         * The default value of the '{@link #getID() <em>ID</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getID() <em>ID</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getID()
-         * @generated
-         * @ordered
-         */
+	 * @see #getID()
+	 * @generated
+	 * @ordered
+	 */
         protected static final String ID_EDEFAULT = null;
 
         /**
-         * The cached value of the '{@link #getID() <em>ID</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getID() <em>ID</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getID()
-         * @generated
-         * @ordered
-         */
+	 * @see #getID()
+	 * @generated
+	 * @ordered
+	 */
         protected String iD = ID_EDEFAULT;
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected AmdSecTypeImpl() {
-                super();
-        }
+		super();
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         protected EClass eStaticClass() {
-                return MetsPackage.Literals.AMD_SEC_TYPE;
-        }
+		return MetsPackage.Literals.AMD_SEC_TYPE;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public EList<MdSecType> getTechMD() {
-                if (techMD == null) {
-                        techMD = new EObjectContainmentEList<MdSecType>(MdSecType.class, this, MetsPackage.AMD_SEC_TYPE__TECH_MD);
-                }
-                return techMD;
-        }
+		if (techMD == null) {
+			techMD = new EObjectContainmentEList<MdSecType>(MdSecType.class, this, MetsPackage.AMD_SEC_TYPE__TECH_MD);
+		}
+		return techMD;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public EList<MdSecType> getRightsMD() {
-                if (rightsMD == null) {
-                        rightsMD = new EObjectContainmentEList<MdSecType>(MdSecType.class, this, MetsPackage.AMD_SEC_TYPE__RIGHTS_MD);
-                }
-                return rightsMD;
-        }
+		if (rightsMD == null) {
+			rightsMD = new EObjectContainmentEList<MdSecType>(MdSecType.class, this, MetsPackage.AMD_SEC_TYPE__RIGHTS_MD);
+		}
+		return rightsMD;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public EList<MdSecType> getSourceMD() {
-                if (sourceMD == null) {
-                        sourceMD = new EObjectContainmentEList<MdSecType>(MdSecType.class, this, MetsPackage.AMD_SEC_TYPE__SOURCE_MD);
-                }
-                return sourceMD;
-        }
+		if (sourceMD == null) {
+			sourceMD = new EObjectContainmentEList<MdSecType>(MdSecType.class, this, MetsPackage.AMD_SEC_TYPE__SOURCE_MD);
+		}
+		return sourceMD;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public EList<MdSecType> getDigiprovMD() {
-                if (digiprovMD == null) {
-                        digiprovMD = new EObjectContainmentEList<MdSecType>(MdSecType.class, this, MetsPackage.AMD_SEC_TYPE__DIGIPROV_MD);
-                }
-                return digiprovMD;
-        }
+		if (digiprovMD == null) {
+			digiprovMD = new EObjectContainmentEList<MdSecType>(MdSecType.class, this, MetsPackage.AMD_SEC_TYPE__DIGIPROV_MD);
+		}
+		return digiprovMD;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public String getID() {
-                return iD;
-        }
+		return iD;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public void setID(String newID) {
-                String oldID = iD;
-                iD = newID;
-                if (eNotificationRequired())
-                        eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.AMD_SEC_TYPE__ID, oldID, iD));
-        }
+		String oldID = iD;
+		iD = newID;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.AMD_SEC_TYPE__ID, oldID, iD));
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-                switch (featureID) {
-                        case MetsPackage.AMD_SEC_TYPE__TECH_MD:
-                                return ((InternalEList<?>)getTechMD()).basicRemove(otherEnd, msgs);
-                        case MetsPackage.AMD_SEC_TYPE__RIGHTS_MD:
-                                return ((InternalEList<?>)getRightsMD()).basicRemove(otherEnd, msgs);
-                        case MetsPackage.AMD_SEC_TYPE__SOURCE_MD:
-                                return ((InternalEList<?>)getSourceMD()).basicRemove(otherEnd, msgs);
-                        case MetsPackage.AMD_SEC_TYPE__DIGIPROV_MD:
-                                return ((InternalEList<?>)getDigiprovMD()).basicRemove(otherEnd, msgs);
-                }
-                return super.eInverseRemove(otherEnd, featureID, msgs);
-        }
+		switch (featureID) {
+			case MetsPackage.AMD_SEC_TYPE__TECH_MD:
+				return ((InternalEList<?>)getTechMD()).basicRemove(otherEnd, msgs);
+			case MetsPackage.AMD_SEC_TYPE__RIGHTS_MD:
+				return ((InternalEList<?>)getRightsMD()).basicRemove(otherEnd, msgs);
+			case MetsPackage.AMD_SEC_TYPE__SOURCE_MD:
+				return ((InternalEList<?>)getSourceMD()).basicRemove(otherEnd, msgs);
+			case MetsPackage.AMD_SEC_TYPE__DIGIPROV_MD:
+				return ((InternalEList<?>)getDigiprovMD()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Object eGet(int featureID, boolean resolve, boolean coreType) {
-                switch (featureID) {
-                        case MetsPackage.AMD_SEC_TYPE__TECH_MD:
-                                return getTechMD();
-                        case MetsPackage.AMD_SEC_TYPE__RIGHTS_MD:
-                                return getRightsMD();
-                        case MetsPackage.AMD_SEC_TYPE__SOURCE_MD:
-                                return getSourceMD();
-                        case MetsPackage.AMD_SEC_TYPE__DIGIPROV_MD:
-                                return getDigiprovMD();
-                        case MetsPackage.AMD_SEC_TYPE__ID:
-                                return getID();
-                }
-                return super.eGet(featureID, resolve, coreType);
-        }
+		switch (featureID) {
+			case MetsPackage.AMD_SEC_TYPE__TECH_MD:
+				return getTechMD();
+			case MetsPackage.AMD_SEC_TYPE__RIGHTS_MD:
+				return getRightsMD();
+			case MetsPackage.AMD_SEC_TYPE__SOURCE_MD:
+				return getSourceMD();
+			case MetsPackage.AMD_SEC_TYPE__DIGIPROV_MD:
+				return getDigiprovMD();
+			case MetsPackage.AMD_SEC_TYPE__ID:
+				return getID();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @SuppressWarnings("unchecked")
         @Override
         public void eSet(int featureID, Object newValue) {
-                switch (featureID) {
-                        case MetsPackage.AMD_SEC_TYPE__TECH_MD:
-                                getTechMD().clear();
-                                getTechMD().addAll((Collection<? extends MdSecType>)newValue);
-                                return;
-                        case MetsPackage.AMD_SEC_TYPE__RIGHTS_MD:
-                                getRightsMD().clear();
-                                getRightsMD().addAll((Collection<? extends MdSecType>)newValue);
-                                return;
-                        case MetsPackage.AMD_SEC_TYPE__SOURCE_MD:
-                                getSourceMD().clear();
-                                getSourceMD().addAll((Collection<? extends MdSecType>)newValue);
-                                return;
-                        case MetsPackage.AMD_SEC_TYPE__DIGIPROV_MD:
-                                getDigiprovMD().clear();
-                                getDigiprovMD().addAll((Collection<? extends MdSecType>)newValue);
-                                return;
-                        case MetsPackage.AMD_SEC_TYPE__ID:
-                                setID((String)newValue);
-                                return;
-                }
-                super.eSet(featureID, newValue);
-        }
+		switch (featureID) {
+			case MetsPackage.AMD_SEC_TYPE__TECH_MD:
+				getTechMD().clear();
+				getTechMD().addAll((Collection<? extends MdSecType>)newValue);
+				return;
+			case MetsPackage.AMD_SEC_TYPE__RIGHTS_MD:
+				getRightsMD().clear();
+				getRightsMD().addAll((Collection<? extends MdSecType>)newValue);
+				return;
+			case MetsPackage.AMD_SEC_TYPE__SOURCE_MD:
+				getSourceMD().clear();
+				getSourceMD().addAll((Collection<? extends MdSecType>)newValue);
+				return;
+			case MetsPackage.AMD_SEC_TYPE__DIGIPROV_MD:
+				getDigiprovMD().clear();
+				getDigiprovMD().addAll((Collection<? extends MdSecType>)newValue);
+				return;
+			case MetsPackage.AMD_SEC_TYPE__ID:
+				setID((String)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public void eUnset(int featureID) {
-                switch (featureID) {
-                        case MetsPackage.AMD_SEC_TYPE__TECH_MD:
-                                getTechMD().clear();
-                                return;
-                        case MetsPackage.AMD_SEC_TYPE__RIGHTS_MD:
-                                getRightsMD().clear();
-                                return;
-                        case MetsPackage.AMD_SEC_TYPE__SOURCE_MD:
-                                getSourceMD().clear();
-                                return;
-                        case MetsPackage.AMD_SEC_TYPE__DIGIPROV_MD:
-                                getDigiprovMD().clear();
-                                return;
-                        case MetsPackage.AMD_SEC_TYPE__ID:
-                                setID(ID_EDEFAULT);
-                                return;
-                }
-                super.eUnset(featureID);
-        }
+		switch (featureID) {
+			case MetsPackage.AMD_SEC_TYPE__TECH_MD:
+				getTechMD().clear();
+				return;
+			case MetsPackage.AMD_SEC_TYPE__RIGHTS_MD:
+				getRightsMD().clear();
+				return;
+			case MetsPackage.AMD_SEC_TYPE__SOURCE_MD:
+				getSourceMD().clear();
+				return;
+			case MetsPackage.AMD_SEC_TYPE__DIGIPROV_MD:
+				getDigiprovMD().clear();
+				return;
+			case MetsPackage.AMD_SEC_TYPE__ID:
+				setID(ID_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public boolean eIsSet(int featureID) {
-                switch (featureID) {
-                        case MetsPackage.AMD_SEC_TYPE__TECH_MD:
-                                return techMD != null && !techMD.isEmpty();
-                        case MetsPackage.AMD_SEC_TYPE__RIGHTS_MD:
-                                return rightsMD != null && !rightsMD.isEmpty();
-                        case MetsPackage.AMD_SEC_TYPE__SOURCE_MD:
-                                return sourceMD != null && !sourceMD.isEmpty();
-                        case MetsPackage.AMD_SEC_TYPE__DIGIPROV_MD:
-                                return digiprovMD != null && !digiprovMD.isEmpty();
-                        case MetsPackage.AMD_SEC_TYPE__ID:
-                                return ID_EDEFAULT == null ? iD != null : !ID_EDEFAULT.equals(iD);
-                }
-                return super.eIsSet(featureID);
-        }
+		switch (featureID) {
+			case MetsPackage.AMD_SEC_TYPE__TECH_MD:
+				return techMD != null && !techMD.isEmpty();
+			case MetsPackage.AMD_SEC_TYPE__RIGHTS_MD:
+				return rightsMD != null && !rightsMD.isEmpty();
+			case MetsPackage.AMD_SEC_TYPE__SOURCE_MD:
+				return sourceMD != null && !sourceMD.isEmpty();
+			case MetsPackage.AMD_SEC_TYPE__DIGIPROV_MD:
+				return digiprovMD != null && !digiprovMD.isEmpty();
+			case MetsPackage.AMD_SEC_TYPE__ID:
+				return ID_EDEFAULT == null ? iD != null : !ID_EDEFAULT.equals(iD);
+		}
+		return super.eIsSet(featureID);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public String toString() {
-                if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-                StringBuffer result = new StringBuffer(super.toString());
-                result.append(" (iD: ");
-                result.append(iD);
-                result.append(')');
-                return result.toString();
-        }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (iD: ");
+		result.append(iD);
+		result.append(')');
+		return result.toString();
+	}
 
 } //AmdSecTypeImpl

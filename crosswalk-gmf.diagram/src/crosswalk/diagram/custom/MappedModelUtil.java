@@ -31,60 +31,59 @@ import crosswalk.MappedElement;
  */
 public class MappedModelUtil {
 
-    /**
-     * For the given mappable parent object, looks up the possible element
-     * children
-     *
-     * @param parent
-     *            a CrossWalk or MappedElement eObject
-     * @return a list of possible child reference types
-     */
-    public static List<EStructuralFeature> getChildElementFeatures(EObject parent) {
-	//LOG.debug("model parent:" + parent);
-	EClass mappedParentType = null;
-	if (parent instanceof CrossWalk) {
-	    CrossWalk cw = (CrossWalk) parent;
-	    mappedParentType = cw.getOutputType();
-	} else if (parent instanceof MappedElement) {
-	    MappedElement pe = (MappedElement) parent;
-	    if (pe.getMappedFeature() != null) {
-		mappedParentType = (EClass) pe.getMappedFeature().getEType();
-	    }
-	} else {
-	    throw new IllegalArgumentException("Expecting a CrossWalk or MappedElement");
+	/**
+	 * For the given mappable parent object, looks up the possible element children
+	 *
+	 * @param parent
+	 *           a CrossWalk or MappedElement eObject
+	 * @return a list of possible child reference types
+	 */
+	public static List<EStructuralFeature> getChildElementFeatures(EObject parent) {
+		// LOG.debug("model parent:" + parent);
+		EClass mappedParentType = null;
+		if (parent instanceof CrossWalk) {
+			CrossWalk cw = (CrossWalk) parent;
+			mappedParentType = cw.getOutputType();
+		} else if (parent instanceof MappedElement) {
+			MappedElement pe = (MappedElement) parent;
+			if (pe.getMappedFeature() != null) {
+				mappedParentType = (EClass) pe.getMappedFeature().getEType();
+			}
+		} else {
+			throw new IllegalArgumentException("Expecting a CrossWalk or MappedElement");
+		}
+		// LOG.debug("mappedParentType:" + mappedParentType);
+		if (mappedParentType == null) {
+			throw new Error("No feature was mapped on the given parent");
+		}
+		List<EStructuralFeature> result = new ArrayList<EStructuralFeature>();
+		result.addAll(mappedParentType.getEAllReferences());
+		return result;
 	}
-	//LOG.debug("mappedParentType:" + mappedParentType);
-	if(mappedParentType == null) {
-	    throw new Error("No feature was mapped on the given parent");
-	}
-	List<EStructuralFeature> result = new ArrayList<EStructuralFeature>();
-	result.addAll(mappedParentType.getEAllReferences());
-	return result;
-    }
 
-    /**
-     * @param el
-     * @return
-     */
-    public static List<EStructuralFeature> getAttributes(EObject parent) {
-	EClass mappedParentType = null;
-	if (parent instanceof CrossWalk) {
-	    CrossWalk cw = (CrossWalk) parent;
-	    mappedParentType = cw.getOutputType();
-	} else if (parent instanceof MappedElement) {
-	    MappedElement pe = (MappedElement) parent;
-	    if (pe.getMappedFeature() != null) {
-		mappedParentType = (EClass) pe.getMappedFeature().getEType();
-	    }
-	} else {
-	    throw new IllegalArgumentException("Expecting a CrossWalk or MappedElement");
+	/**
+	 * @param el
+	 * @return
+	 */
+	public static List<EStructuralFeature> getAttributes(EObject parent) {
+		EClass mappedParentType = null;
+		if (parent instanceof CrossWalk) {
+			CrossWalk cw = (CrossWalk) parent;
+			mappedParentType = cw.getOutputType();
+		} else if (parent instanceof MappedElement) {
+			MappedElement pe = (MappedElement) parent;
+			if (pe.getMappedFeature() != null) {
+				mappedParentType = (EClass) pe.getMappedFeature().getEType();
+			}
+		} else {
+			throw new IllegalArgumentException("Expecting a CrossWalk or MappedElement");
+		}
+		if (mappedParentType == null) {
+			throw new Error("No feature was mapped on the given parent");
+		}
+		List<EStructuralFeature> result = new ArrayList<EStructuralFeature>();
+		result.addAll(mappedParentType.getEAllAttributes());
+		return result;
 	}
-	if(mappedParentType == null) {
-	    throw new Error("No feature was mapped on the given parent");
-	}
-	List<EStructuralFeature> result = new ArrayList<EStructuralFeature>();
-	result.addAll(mappedParentType.getEAllAttributes());
-	return result;
-    }
 
 }

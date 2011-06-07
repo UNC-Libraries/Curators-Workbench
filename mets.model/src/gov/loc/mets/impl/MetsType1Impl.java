@@ -22,22 +22,22 @@ import org.eclipse.emf.ecore.EClass;
  */
 public class MetsType1Impl extends MetsTypeImpl implements MetsType1 {
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected MetsType1Impl() {
-                super();
-        }
+		super();
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         protected EClass eStaticClass() {
-                return MetsPackage.Literals.METS_TYPE1;
-        }
+		return MetsPackage.Literals.METS_TYPE1;
+	}
 
 } //MetsType1Impl

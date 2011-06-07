@@ -58,697 +58,697 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class MetsTypeImpl extends EObjectImpl implements MetsType {
         /**
-         * The cached value of the '{@link #getMetsHdr() <em>Mets Hdr</em>}' containment reference.
-         * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getMetsHdr() <em>Mets Hdr</em>}' containment reference.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getMetsHdr()
-         * @generated
-         * @ordered
-         */
+	 * @see #getMetsHdr()
+	 * @generated
+	 * @ordered
+	 */
         protected MetsHdrType metsHdr;
 
         /**
-         * The cached value of the '{@link #getDmdSec() <em>Dmd Sec</em>}' containment reference list.
-         * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getDmdSec() <em>Dmd Sec</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getDmdSec()
-         * @generated
-         * @ordered
-         */
+	 * @see #getDmdSec()
+	 * @generated
+	 * @ordered
+	 */
         protected EList<MdSecType> dmdSec;
 
         /**
-         * The cached value of the '{@link #getAmdSec() <em>Amd Sec</em>}' containment reference list.
-         * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getAmdSec() <em>Amd Sec</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getAmdSec()
-         * @generated
-         * @ordered
-         */
+	 * @see #getAmdSec()
+	 * @generated
+	 * @ordered
+	 */
         protected EList<AmdSecType> amdSec;
 
         /**
-         * The cached value of the '{@link #getFileSec() <em>File Sec</em>}' containment reference.
-         * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getFileSec() <em>File Sec</em>}' containment reference.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getFileSec()
-         * @generated
-         * @ordered
-         */
+	 * @see #getFileSec()
+	 * @generated
+	 * @ordered
+	 */
         protected FileSecType fileSec;
 
         /**
-         * The cached value of the '{@link #getStructMap() <em>Struct Map</em>}' containment reference list.
-         * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getStructMap() <em>Struct Map</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getStructMap()
-         * @generated
-         * @ordered
-         */
+	 * @see #getStructMap()
+	 * @generated
+	 * @ordered
+	 */
         protected EList<StructMapType> structMap;
 
         /**
-         * The cached value of the '{@link #getStructLink() <em>Struct Link</em>}' containment reference.
-         * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getStructLink() <em>Struct Link</em>}' containment reference.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getStructLink()
-         * @generated
-         * @ordered
-         */
+	 * @see #getStructLink()
+	 * @generated
+	 * @ordered
+	 */
         protected StructLinkType1 structLink;
 
         /**
-         * The cached value of the '{@link #getBehaviorSec() <em>Behavior Sec</em>}' containment reference list.
-         * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getBehaviorSec() <em>Behavior Sec</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getBehaviorSec()
-         * @generated
-         * @ordered
-         */
+	 * @see #getBehaviorSec()
+	 * @generated
+	 * @ordered
+	 */
         protected EList<BehaviorSecType> behaviorSec;
 
         /**
-         * The default value of the '{@link #getID() <em>ID</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getID() <em>ID</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getID()
-         * @generated
-         * @ordered
-         */
+	 * @see #getID()
+	 * @generated
+	 * @ordered
+	 */
         protected static final String ID_EDEFAULT = null;
 
         /**
-         * The cached value of the '{@link #getID() <em>ID</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getID() <em>ID</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getID()
-         * @generated
-         * @ordered
-         */
+	 * @see #getID()
+	 * @generated
+	 * @ordered
+	 */
         protected String iD = ID_EDEFAULT;
 
         /**
-         * The default value of the '{@link #getLABEL() <em>LABEL</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getLABEL() <em>LABEL</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getLABEL()
-         * @generated
-         * @ordered
-         */
+	 * @see #getLABEL()
+	 * @generated
+	 * @ordered
+	 */
         protected static final String LABEL_EDEFAULT = null;
 
         /**
-         * The cached value of the '{@link #getLABEL() <em>LABEL</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getLABEL() <em>LABEL</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getLABEL()
-         * @generated
-         * @ordered
-         */
+	 * @see #getLABEL()
+	 * @generated
+	 * @ordered
+	 */
         protected String lABEL = LABEL_EDEFAULT;
 
         /**
-         * The default value of the '{@link #getOBJID() <em>OBJID</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getOBJID() <em>OBJID</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getOBJID()
-         * @generated
-         * @ordered
-         */
+	 * @see #getOBJID()
+	 * @generated
+	 * @ordered
+	 */
         protected static final String OBJID_EDEFAULT = null;
 
         /**
-         * The cached value of the '{@link #getOBJID() <em>OBJID</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getOBJID() <em>OBJID</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getOBJID()
-         * @generated
-         * @ordered
-         */
+	 * @see #getOBJID()
+	 * @generated
+	 * @ordered
+	 */
         protected String oBJID = OBJID_EDEFAULT;
 
         /**
-         * The default value of the '{@link #getPROFILE() <em>PROFILE</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getPROFILE() <em>PROFILE</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getPROFILE()
-         * @generated
-         * @ordered
-         */
+	 * @see #getPROFILE()
+	 * @generated
+	 * @ordered
+	 */
         protected static final String PROFILE_EDEFAULT = null;
 
         /**
-         * The cached value of the '{@link #getPROFILE() <em>PROFILE</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getPROFILE() <em>PROFILE</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getPROFILE()
-         * @generated
-         * @ordered
-         */
+	 * @see #getPROFILE()
+	 * @generated
+	 * @ordered
+	 */
         protected String pROFILE = PROFILE_EDEFAULT;
 
         /**
-         * The default value of the '{@link #getTYPE() <em>TYPE</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getTYPE() <em>TYPE</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getTYPE()
-         * @generated
-         * @ordered
-         */
+	 * @see #getTYPE()
+	 * @generated
+	 * @ordered
+	 */
         protected static final String TYPE_EDEFAULT = null;
 
         /**
-         * The cached value of the '{@link #getTYPE() <em>TYPE</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getTYPE() <em>TYPE</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getTYPE()
-         * @generated
-         * @ordered
-         */
+	 * @see #getTYPE()
+	 * @generated
+	 * @ordered
+	 */
         protected String tYPE = TYPE_EDEFAULT;
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected MetsTypeImpl() {
-                super();
-        }
+		super();
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         protected EClass eStaticClass() {
-                return MetsPackage.Literals.METS_TYPE;
-        }
+		return MetsPackage.Literals.METS_TYPE;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public MetsHdrType getMetsHdr() {
-                return metsHdr;
-        }
+		return metsHdr;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public NotificationChain basicSetMetsHdr(MetsHdrType newMetsHdr, NotificationChain msgs) {
-                MetsHdrType oldMetsHdr = metsHdr;
-                metsHdr = newMetsHdr;
-                if (eNotificationRequired()) {
-                        ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MetsPackage.METS_TYPE__METS_HDR, oldMetsHdr, newMetsHdr);
-                        if (msgs == null) msgs = notification; else msgs.add(notification);
-                }
-                return msgs;
-        }
+		MetsHdrType oldMetsHdr = metsHdr;
+		metsHdr = newMetsHdr;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MetsPackage.METS_TYPE__METS_HDR, oldMetsHdr, newMetsHdr);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public void setMetsHdr(MetsHdrType newMetsHdr) {
-                if (newMetsHdr != metsHdr) {
-                        NotificationChain msgs = null;
-                        if (metsHdr != null)
-                                msgs = ((InternalEObject)metsHdr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MetsPackage.METS_TYPE__METS_HDR, null, msgs);
-                        if (newMetsHdr != null)
-                                msgs = ((InternalEObject)newMetsHdr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MetsPackage.METS_TYPE__METS_HDR, null, msgs);
-                        msgs = basicSetMetsHdr(newMetsHdr, msgs);
-                        if (msgs != null) msgs.dispatch();
-                }
-                else if (eNotificationRequired())
-                        eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.METS_TYPE__METS_HDR, newMetsHdr, newMetsHdr));
-        }
+		if (newMetsHdr != metsHdr) {
+			NotificationChain msgs = null;
+			if (metsHdr != null)
+				msgs = ((InternalEObject)metsHdr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MetsPackage.METS_TYPE__METS_HDR, null, msgs);
+			if (newMetsHdr != null)
+				msgs = ((InternalEObject)newMetsHdr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MetsPackage.METS_TYPE__METS_HDR, null, msgs);
+			msgs = basicSetMetsHdr(newMetsHdr, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.METS_TYPE__METS_HDR, newMetsHdr, newMetsHdr));
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public EList<MdSecType> getDmdSec() {
-                if (dmdSec == null) {
-                        dmdSec = new EObjectContainmentEList<MdSecType>(MdSecType.class, this, MetsPackage.METS_TYPE__DMD_SEC);
-                }
-                return dmdSec;
-        }
+		if (dmdSec == null) {
+			dmdSec = new EObjectContainmentEList<MdSecType>(MdSecType.class, this, MetsPackage.METS_TYPE__DMD_SEC);
+		}
+		return dmdSec;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public EList<AmdSecType> getAmdSec() {
-                if (amdSec == null) {
-                        amdSec = new EObjectContainmentEList<AmdSecType>(AmdSecType.class, this, MetsPackage.METS_TYPE__AMD_SEC);
-                }
-                return amdSec;
-        }
+		if (amdSec == null) {
+			amdSec = new EObjectContainmentEList<AmdSecType>(AmdSecType.class, this, MetsPackage.METS_TYPE__AMD_SEC);
+		}
+		return amdSec;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public FileSecType getFileSec() {
-                return fileSec;
-        }
+		return fileSec;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public NotificationChain basicSetFileSec(FileSecType newFileSec, NotificationChain msgs) {
-                FileSecType oldFileSec = fileSec;
-                fileSec = newFileSec;
-                if (eNotificationRequired()) {
-                        ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MetsPackage.METS_TYPE__FILE_SEC, oldFileSec, newFileSec);
-                        if (msgs == null) msgs = notification; else msgs.add(notification);
-                }
-                return msgs;
-        }
+		FileSecType oldFileSec = fileSec;
+		fileSec = newFileSec;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MetsPackage.METS_TYPE__FILE_SEC, oldFileSec, newFileSec);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public void setFileSec(FileSecType newFileSec) {
-                if (newFileSec != fileSec) {
-                        NotificationChain msgs = null;
-                        if (fileSec != null)
-                                msgs = ((InternalEObject)fileSec).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MetsPackage.METS_TYPE__FILE_SEC, null, msgs);
-                        if (newFileSec != null)
-                                msgs = ((InternalEObject)newFileSec).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MetsPackage.METS_TYPE__FILE_SEC, null, msgs);
-                        msgs = basicSetFileSec(newFileSec, msgs);
-                        if (msgs != null) msgs.dispatch();
-                }
-                else if (eNotificationRequired())
-                        eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.METS_TYPE__FILE_SEC, newFileSec, newFileSec));
-        }
+		if (newFileSec != fileSec) {
+			NotificationChain msgs = null;
+			if (fileSec != null)
+				msgs = ((InternalEObject)fileSec).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MetsPackage.METS_TYPE__FILE_SEC, null, msgs);
+			if (newFileSec != null)
+				msgs = ((InternalEObject)newFileSec).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MetsPackage.METS_TYPE__FILE_SEC, null, msgs);
+			msgs = basicSetFileSec(newFileSec, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.METS_TYPE__FILE_SEC, newFileSec, newFileSec));
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public EList<StructMapType> getStructMap() {
-                if (structMap == null) {
-                        structMap = new EObjectContainmentEList<StructMapType>(StructMapType.class, this, MetsPackage.METS_TYPE__STRUCT_MAP);
-                }
-                return structMap;
-        }
+		if (structMap == null) {
+			structMap = new EObjectContainmentEList<StructMapType>(StructMapType.class, this, MetsPackage.METS_TYPE__STRUCT_MAP);
+		}
+		return structMap;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public StructLinkType1 getStructLink() {
-                return structLink;
-        }
+		return structLink;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public NotificationChain basicSetStructLink(StructLinkType1 newStructLink, NotificationChain msgs) {
-                StructLinkType1 oldStructLink = structLink;
-                structLink = newStructLink;
-                if (eNotificationRequired()) {
-                        ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MetsPackage.METS_TYPE__STRUCT_LINK, oldStructLink, newStructLink);
-                        if (msgs == null) msgs = notification; else msgs.add(notification);
-                }
-                return msgs;
-        }
+		StructLinkType1 oldStructLink = structLink;
+		structLink = newStructLink;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MetsPackage.METS_TYPE__STRUCT_LINK, oldStructLink, newStructLink);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public void setStructLink(StructLinkType1 newStructLink) {
-                if (newStructLink != structLink) {
-                        NotificationChain msgs = null;
-                        if (structLink != null)
-                                msgs = ((InternalEObject)structLink).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MetsPackage.METS_TYPE__STRUCT_LINK, null, msgs);
-                        if (newStructLink != null)
-                                msgs = ((InternalEObject)newStructLink).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MetsPackage.METS_TYPE__STRUCT_LINK, null, msgs);
-                        msgs = basicSetStructLink(newStructLink, msgs);
-                        if (msgs != null) msgs.dispatch();
-                }
-                else if (eNotificationRequired())
-                        eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.METS_TYPE__STRUCT_LINK, newStructLink, newStructLink));
-        }
+		if (newStructLink != structLink) {
+			NotificationChain msgs = null;
+			if (structLink != null)
+				msgs = ((InternalEObject)structLink).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MetsPackage.METS_TYPE__STRUCT_LINK, null, msgs);
+			if (newStructLink != null)
+				msgs = ((InternalEObject)newStructLink).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MetsPackage.METS_TYPE__STRUCT_LINK, null, msgs);
+			msgs = basicSetStructLink(newStructLink, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.METS_TYPE__STRUCT_LINK, newStructLink, newStructLink));
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public EList<BehaviorSecType> getBehaviorSec() {
-                if (behaviorSec == null) {
-                        behaviorSec = new EObjectContainmentEList<BehaviorSecType>(BehaviorSecType.class, this, MetsPackage.METS_TYPE__BEHAVIOR_SEC);
-                }
-                return behaviorSec;
-        }
+		if (behaviorSec == null) {
+			behaviorSec = new EObjectContainmentEList<BehaviorSecType>(BehaviorSecType.class, this, MetsPackage.METS_TYPE__BEHAVIOR_SEC);
+		}
+		return behaviorSec;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public String getID() {
-                return iD;
-        }
+		return iD;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public void setID(String newID) {
-                String oldID = iD;
-                iD = newID;
-                if (eNotificationRequired())
-                        eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.METS_TYPE__ID, oldID, iD));
-        }
+		String oldID = iD;
+		iD = newID;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.METS_TYPE__ID, oldID, iD));
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public String getLABEL() {
-                return lABEL;
-        }
+		return lABEL;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public void setLABEL(String newLABEL) {
-                String oldLABEL = lABEL;
-                lABEL = newLABEL;
-                if (eNotificationRequired())
-                        eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.METS_TYPE__LABEL, oldLABEL, lABEL));
-        }
+		String oldLABEL = lABEL;
+		lABEL = newLABEL;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.METS_TYPE__LABEL, oldLABEL, lABEL));
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public String getOBJID() {
-                return oBJID;
-        }
+		return oBJID;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public void setOBJID(String newOBJID) {
-                String oldOBJID = oBJID;
-                oBJID = newOBJID;
-                if (eNotificationRequired())
-                        eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.METS_TYPE__OBJID, oldOBJID, oBJID));
-        }
+		String oldOBJID = oBJID;
+		oBJID = newOBJID;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.METS_TYPE__OBJID, oldOBJID, oBJID));
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public String getPROFILE() {
-                return pROFILE;
-        }
+		return pROFILE;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public void setPROFILE(String newPROFILE) {
-                String oldPROFILE = pROFILE;
-                pROFILE = newPROFILE;
-                if (eNotificationRequired())
-                        eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.METS_TYPE__PROFILE, oldPROFILE, pROFILE));
-        }
+		String oldPROFILE = pROFILE;
+		pROFILE = newPROFILE;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.METS_TYPE__PROFILE, oldPROFILE, pROFILE));
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public String getTYPE() {
-                return tYPE;
-        }
+		return tYPE;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public void setTYPE(String newTYPE) {
-                String oldTYPE = tYPE;
-                tYPE = newTYPE;
-                if (eNotificationRequired())
-                        eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.METS_TYPE__TYPE, oldTYPE, tYPE));
-        }
+		String oldTYPE = tYPE;
+		tYPE = newTYPE;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MetsPackage.METS_TYPE__TYPE, oldTYPE, tYPE));
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-                switch (featureID) {
-                        case MetsPackage.METS_TYPE__METS_HDR:
-                                return basicSetMetsHdr(null, msgs);
-                        case MetsPackage.METS_TYPE__DMD_SEC:
-                                return ((InternalEList<?>)getDmdSec()).basicRemove(otherEnd, msgs);
-                        case MetsPackage.METS_TYPE__AMD_SEC:
-                                return ((InternalEList<?>)getAmdSec()).basicRemove(otherEnd, msgs);
-                        case MetsPackage.METS_TYPE__FILE_SEC:
-                                return basicSetFileSec(null, msgs);
-                        case MetsPackage.METS_TYPE__STRUCT_MAP:
-                                return ((InternalEList<?>)getStructMap()).basicRemove(otherEnd, msgs);
-                        case MetsPackage.METS_TYPE__STRUCT_LINK:
-                                return basicSetStructLink(null, msgs);
-                        case MetsPackage.METS_TYPE__BEHAVIOR_SEC:
-                                return ((InternalEList<?>)getBehaviorSec()).basicRemove(otherEnd, msgs);
-                }
-                return super.eInverseRemove(otherEnd, featureID, msgs);
-        }
+		switch (featureID) {
+			case MetsPackage.METS_TYPE__METS_HDR:
+				return basicSetMetsHdr(null, msgs);
+			case MetsPackage.METS_TYPE__DMD_SEC:
+				return ((InternalEList<?>)getDmdSec()).basicRemove(otherEnd, msgs);
+			case MetsPackage.METS_TYPE__AMD_SEC:
+				return ((InternalEList<?>)getAmdSec()).basicRemove(otherEnd, msgs);
+			case MetsPackage.METS_TYPE__FILE_SEC:
+				return basicSetFileSec(null, msgs);
+			case MetsPackage.METS_TYPE__STRUCT_MAP:
+				return ((InternalEList<?>)getStructMap()).basicRemove(otherEnd, msgs);
+			case MetsPackage.METS_TYPE__STRUCT_LINK:
+				return basicSetStructLink(null, msgs);
+			case MetsPackage.METS_TYPE__BEHAVIOR_SEC:
+				return ((InternalEList<?>)getBehaviorSec()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Object eGet(int featureID, boolean resolve, boolean coreType) {
-                switch (featureID) {
-                        case MetsPackage.METS_TYPE__METS_HDR:
-                                return getMetsHdr();
-                        case MetsPackage.METS_TYPE__DMD_SEC:
-                                return getDmdSec();
-                        case MetsPackage.METS_TYPE__AMD_SEC:
-                                return getAmdSec();
-                        case MetsPackage.METS_TYPE__FILE_SEC:
-                                return getFileSec();
-                        case MetsPackage.METS_TYPE__STRUCT_MAP:
-                                return getStructMap();
-                        case MetsPackage.METS_TYPE__STRUCT_LINK:
-                                return getStructLink();
-                        case MetsPackage.METS_TYPE__BEHAVIOR_SEC:
-                                return getBehaviorSec();
-                        case MetsPackage.METS_TYPE__ID:
-                                return getID();
-                        case MetsPackage.METS_TYPE__LABEL:
-                                return getLABEL();
-                        case MetsPackage.METS_TYPE__OBJID:
-                                return getOBJID();
-                        case MetsPackage.METS_TYPE__PROFILE:
-                                return getPROFILE();
-                        case MetsPackage.METS_TYPE__TYPE:
-                                return getTYPE();
-                }
-                return super.eGet(featureID, resolve, coreType);
-        }
+		switch (featureID) {
+			case MetsPackage.METS_TYPE__METS_HDR:
+				return getMetsHdr();
+			case MetsPackage.METS_TYPE__DMD_SEC:
+				return getDmdSec();
+			case MetsPackage.METS_TYPE__AMD_SEC:
+				return getAmdSec();
+			case MetsPackage.METS_TYPE__FILE_SEC:
+				return getFileSec();
+			case MetsPackage.METS_TYPE__STRUCT_MAP:
+				return getStructMap();
+			case MetsPackage.METS_TYPE__STRUCT_LINK:
+				return getStructLink();
+			case MetsPackage.METS_TYPE__BEHAVIOR_SEC:
+				return getBehaviorSec();
+			case MetsPackage.METS_TYPE__ID:
+				return getID();
+			case MetsPackage.METS_TYPE__LABEL:
+				return getLABEL();
+			case MetsPackage.METS_TYPE__OBJID:
+				return getOBJID();
+			case MetsPackage.METS_TYPE__PROFILE:
+				return getPROFILE();
+			case MetsPackage.METS_TYPE__TYPE:
+				return getTYPE();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @SuppressWarnings("unchecked")
         @Override
         public void eSet(int featureID, Object newValue) {
-                switch (featureID) {
-                        case MetsPackage.METS_TYPE__METS_HDR:
-                                setMetsHdr((MetsHdrType)newValue);
-                                return;
-                        case MetsPackage.METS_TYPE__DMD_SEC:
-                                getDmdSec().clear();
-                                getDmdSec().addAll((Collection<? extends MdSecType>)newValue);
-                                return;
-                        case MetsPackage.METS_TYPE__AMD_SEC:
-                                getAmdSec().clear();
-                                getAmdSec().addAll((Collection<? extends AmdSecType>)newValue);
-                                return;
-                        case MetsPackage.METS_TYPE__FILE_SEC:
-                                setFileSec((FileSecType)newValue);
-                                return;
-                        case MetsPackage.METS_TYPE__STRUCT_MAP:
-                                getStructMap().clear();
-                                getStructMap().addAll((Collection<? extends StructMapType>)newValue);
-                                return;
-                        case MetsPackage.METS_TYPE__STRUCT_LINK:
-                                setStructLink((StructLinkType1)newValue);
-                                return;
-                        case MetsPackage.METS_TYPE__BEHAVIOR_SEC:
-                                getBehaviorSec().clear();
-                                getBehaviorSec().addAll((Collection<? extends BehaviorSecType>)newValue);
-                                return;
-                        case MetsPackage.METS_TYPE__ID:
-                                setID((String)newValue);
-                                return;
-                        case MetsPackage.METS_TYPE__LABEL:
-                                setLABEL((String)newValue);
-                                return;
-                        case MetsPackage.METS_TYPE__OBJID:
-                                setOBJID((String)newValue);
-                                return;
-                        case MetsPackage.METS_TYPE__PROFILE:
-                                setPROFILE((String)newValue);
-                                return;
-                        case MetsPackage.METS_TYPE__TYPE:
-                                setTYPE((String)newValue);
-                                return;
-                }
-                super.eSet(featureID, newValue);
-        }
+		switch (featureID) {
+			case MetsPackage.METS_TYPE__METS_HDR:
+				setMetsHdr((MetsHdrType)newValue);
+				return;
+			case MetsPackage.METS_TYPE__DMD_SEC:
+				getDmdSec().clear();
+				getDmdSec().addAll((Collection<? extends MdSecType>)newValue);
+				return;
+			case MetsPackage.METS_TYPE__AMD_SEC:
+				getAmdSec().clear();
+				getAmdSec().addAll((Collection<? extends AmdSecType>)newValue);
+				return;
+			case MetsPackage.METS_TYPE__FILE_SEC:
+				setFileSec((FileSecType)newValue);
+				return;
+			case MetsPackage.METS_TYPE__STRUCT_MAP:
+				getStructMap().clear();
+				getStructMap().addAll((Collection<? extends StructMapType>)newValue);
+				return;
+			case MetsPackage.METS_TYPE__STRUCT_LINK:
+				setStructLink((StructLinkType1)newValue);
+				return;
+			case MetsPackage.METS_TYPE__BEHAVIOR_SEC:
+				getBehaviorSec().clear();
+				getBehaviorSec().addAll((Collection<? extends BehaviorSecType>)newValue);
+				return;
+			case MetsPackage.METS_TYPE__ID:
+				setID((String)newValue);
+				return;
+			case MetsPackage.METS_TYPE__LABEL:
+				setLABEL((String)newValue);
+				return;
+			case MetsPackage.METS_TYPE__OBJID:
+				setOBJID((String)newValue);
+				return;
+			case MetsPackage.METS_TYPE__PROFILE:
+				setPROFILE((String)newValue);
+				return;
+			case MetsPackage.METS_TYPE__TYPE:
+				setTYPE((String)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public void eUnset(int featureID) {
-                switch (featureID) {
-                        case MetsPackage.METS_TYPE__METS_HDR:
-                                setMetsHdr((MetsHdrType)null);
-                                return;
-                        case MetsPackage.METS_TYPE__DMD_SEC:
-                                getDmdSec().clear();
-                                return;
-                        case MetsPackage.METS_TYPE__AMD_SEC:
-                                getAmdSec().clear();
-                                return;
-                        case MetsPackage.METS_TYPE__FILE_SEC:
-                                setFileSec((FileSecType)null);
-                                return;
-                        case MetsPackage.METS_TYPE__STRUCT_MAP:
-                                getStructMap().clear();
-                                return;
-                        case MetsPackage.METS_TYPE__STRUCT_LINK:
-                                setStructLink((StructLinkType1)null);
-                                return;
-                        case MetsPackage.METS_TYPE__BEHAVIOR_SEC:
-                                getBehaviorSec().clear();
-                                return;
-                        case MetsPackage.METS_TYPE__ID:
-                                setID(ID_EDEFAULT);
-                                return;
-                        case MetsPackage.METS_TYPE__LABEL:
-                                setLABEL(LABEL_EDEFAULT);
-                                return;
-                        case MetsPackage.METS_TYPE__OBJID:
-                                setOBJID(OBJID_EDEFAULT);
-                                return;
-                        case MetsPackage.METS_TYPE__PROFILE:
-                                setPROFILE(PROFILE_EDEFAULT);
-                                return;
-                        case MetsPackage.METS_TYPE__TYPE:
-                                setTYPE(TYPE_EDEFAULT);
-                                return;
-                }
-                super.eUnset(featureID);
-        }
+		switch (featureID) {
+			case MetsPackage.METS_TYPE__METS_HDR:
+				setMetsHdr((MetsHdrType)null);
+				return;
+			case MetsPackage.METS_TYPE__DMD_SEC:
+				getDmdSec().clear();
+				return;
+			case MetsPackage.METS_TYPE__AMD_SEC:
+				getAmdSec().clear();
+				return;
+			case MetsPackage.METS_TYPE__FILE_SEC:
+				setFileSec((FileSecType)null);
+				return;
+			case MetsPackage.METS_TYPE__STRUCT_MAP:
+				getStructMap().clear();
+				return;
+			case MetsPackage.METS_TYPE__STRUCT_LINK:
+				setStructLink((StructLinkType1)null);
+				return;
+			case MetsPackage.METS_TYPE__BEHAVIOR_SEC:
+				getBehaviorSec().clear();
+				return;
+			case MetsPackage.METS_TYPE__ID:
+				setID(ID_EDEFAULT);
+				return;
+			case MetsPackage.METS_TYPE__LABEL:
+				setLABEL(LABEL_EDEFAULT);
+				return;
+			case MetsPackage.METS_TYPE__OBJID:
+				setOBJID(OBJID_EDEFAULT);
+				return;
+			case MetsPackage.METS_TYPE__PROFILE:
+				setPROFILE(PROFILE_EDEFAULT);
+				return;
+			case MetsPackage.METS_TYPE__TYPE:
+				setTYPE(TYPE_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public boolean eIsSet(int featureID) {
-                switch (featureID) {
-                        case MetsPackage.METS_TYPE__METS_HDR:
-                                return metsHdr != null;
-                        case MetsPackage.METS_TYPE__DMD_SEC:
-                                return dmdSec != null && !dmdSec.isEmpty();
-                        case MetsPackage.METS_TYPE__AMD_SEC:
-                                return amdSec != null && !amdSec.isEmpty();
-                        case MetsPackage.METS_TYPE__FILE_SEC:
-                                return fileSec != null;
-                        case MetsPackage.METS_TYPE__STRUCT_MAP:
-                                return structMap != null && !structMap.isEmpty();
-                        case MetsPackage.METS_TYPE__STRUCT_LINK:
-                                return structLink != null;
-                        case MetsPackage.METS_TYPE__BEHAVIOR_SEC:
-                                return behaviorSec != null && !behaviorSec.isEmpty();
-                        case MetsPackage.METS_TYPE__ID:
-                                return ID_EDEFAULT == null ? iD != null : !ID_EDEFAULT.equals(iD);
-                        case MetsPackage.METS_TYPE__LABEL:
-                                return LABEL_EDEFAULT == null ? lABEL != null : !LABEL_EDEFAULT.equals(lABEL);
-                        case MetsPackage.METS_TYPE__OBJID:
-                                return OBJID_EDEFAULT == null ? oBJID != null : !OBJID_EDEFAULT.equals(oBJID);
-                        case MetsPackage.METS_TYPE__PROFILE:
-                                return PROFILE_EDEFAULT == null ? pROFILE != null : !PROFILE_EDEFAULT.equals(pROFILE);
-                        case MetsPackage.METS_TYPE__TYPE:
-                                return TYPE_EDEFAULT == null ? tYPE != null : !TYPE_EDEFAULT.equals(tYPE);
-                }
-                return super.eIsSet(featureID);
-        }
+		switch (featureID) {
+			case MetsPackage.METS_TYPE__METS_HDR:
+				return metsHdr != null;
+			case MetsPackage.METS_TYPE__DMD_SEC:
+				return dmdSec != null && !dmdSec.isEmpty();
+			case MetsPackage.METS_TYPE__AMD_SEC:
+				return amdSec != null && !amdSec.isEmpty();
+			case MetsPackage.METS_TYPE__FILE_SEC:
+				return fileSec != null;
+			case MetsPackage.METS_TYPE__STRUCT_MAP:
+				return structMap != null && !structMap.isEmpty();
+			case MetsPackage.METS_TYPE__STRUCT_LINK:
+				return structLink != null;
+			case MetsPackage.METS_TYPE__BEHAVIOR_SEC:
+				return behaviorSec != null && !behaviorSec.isEmpty();
+			case MetsPackage.METS_TYPE__ID:
+				return ID_EDEFAULT == null ? iD != null : !ID_EDEFAULT.equals(iD);
+			case MetsPackage.METS_TYPE__LABEL:
+				return LABEL_EDEFAULT == null ? lABEL != null : !LABEL_EDEFAULT.equals(lABEL);
+			case MetsPackage.METS_TYPE__OBJID:
+				return OBJID_EDEFAULT == null ? oBJID != null : !OBJID_EDEFAULT.equals(oBJID);
+			case MetsPackage.METS_TYPE__PROFILE:
+				return PROFILE_EDEFAULT == null ? pROFILE != null : !PROFILE_EDEFAULT.equals(pROFILE);
+			case MetsPackage.METS_TYPE__TYPE:
+				return TYPE_EDEFAULT == null ? tYPE != null : !TYPE_EDEFAULT.equals(tYPE);
+		}
+		return super.eIsSet(featureID);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public String toString() {
-                if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-                StringBuffer result = new StringBuffer(super.toString());
-                result.append(" (iD: ");
-                result.append(iD);
-                result.append(", lABEL: ");
-                result.append(lABEL);
-                result.append(", oBJID: ");
-                result.append(oBJID);
-                result.append(", pROFILE: ");
-                result.append(pROFILE);
-                result.append(", tYPE: ");
-                result.append(tYPE);
-                result.append(')');
-                return result.toString();
-        }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (iD: ");
+		result.append(iD);
+		result.append(", lABEL: ");
+		result.append(lABEL);
+		result.append(", oBJID: ");
+		result.append(oBJID);
+		result.append(", pROFILE: ");
+		result.append(pROFILE);
+		result.append(", tYPE: ");
+		result.append(tYPE);
+		result.append(')');
+		return result.toString();
+	}
 
 } //MetsTypeImpl

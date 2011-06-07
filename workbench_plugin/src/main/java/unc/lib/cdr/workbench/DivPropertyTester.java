@@ -22,24 +22,24 @@ import gov.loc.mets.util.METSUtils;
 import org.eclipse.core.expressions.PropertyTester;
 
 public class DivPropertyTester extends PropertyTester {
-    public static final String IS_CONTAINER_PROPERTY = "isContainer";
-    public static final String IS_FOLDER_PROPERTY = "isFolder";
+	public static final String IS_CONTAINER_PROPERTY = "isContainer";
+	public static final String IS_FOLDER_PROPERTY = "isFolder";
 
-    public DivPropertyTester() {
-    }
+	public DivPropertyTester() {
+	}
 
-    @Override
-    public boolean test(Object receiver, String property, Object[] args, Object expectedValue) {
-	if(!(receiver instanceof DivType)) {
-	    return false;
+	@Override
+	public boolean test(Object receiver, String property, Object[] args, Object expectedValue) {
+		System.out.println("is div property test: "+receiver.toString());
+		if (receiver instanceof DivType) {
+			DivType div = (DivType) receiver;
+			if (IS_CONTAINER_PROPERTY.equals(property)) {
+				return METSUtils.isContainer(div);
+			} else if (IS_FOLDER_PROPERTY.equals(property)) {
+				return METSConstants.Div_Folder.equals(div.getTYPE());
+			}
+		}
+		return false;
 	}
-	DivType div = (DivType)receiver;
-	if(IS_CONTAINER_PROPERTY.equals(property)) {
-	    return METSUtils.isContainer(div);
-	} else if(IS_FOLDER_PROPERTY.equals(property)) {
-	    return METSConstants.Div_Folder.equals(div.getTYPE());
-	}
-	return false;
-    }
 
 }
