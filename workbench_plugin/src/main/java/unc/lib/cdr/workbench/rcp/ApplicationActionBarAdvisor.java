@@ -31,44 +31,51 @@ import org.eclipse.ui.application.IActionBarConfigurer;
 
 public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
 
-    private IWorkbenchAction newWizardDropDownAction;
-    private IWorkbenchAction aboutAction;
-    private IContributionItem newWizardMenu;
-    private IWorkbenchAction saveAction;
+	private IWorkbenchAction newWizardDropDownAction;
+	private IWorkbenchAction aboutAction;
+	private IContributionItem newWizardMenu;
+	private IWorkbenchAction saveAction;
+	private IWorkbenchAction deleteAction;
 
-    public ApplicationActionBarAdvisor(IActionBarConfigurer configurer) {
-	super(configurer);
-    }
-
-    @Override
-    protected void makeActions(IWorkbenchWindow window) {
-	newWizardDropDownAction = ActionFactory.NEW_WIZARD_DROP_DOWN.create(window);
-	register(newWizardDropDownAction);
-	newWizardMenu = ContributionItemFactory.NEW_WIZARD_SHORTLIST.create(window);
-	aboutAction = ActionFactory.ABOUT.create(window);
-	saveAction = ActionFactory.SAVE.create(window);
-	register(saveAction);
-    }
-
-    @Override
-    protected void fillMenuBar(IMenuManager menuBar) {
-	MenuManager menu = new MenuManager("File", IWorkbenchActionConstants.M_FILE);
-	{
-	    // create the New submenu, using the same id for it as the New
-	    // action
-	   MenuManager newMenu = new MenuManager("New", "new");
-	   newMenu.add(this.newWizardMenu);
-	   menu.add(newMenu);
+	public ApplicationActionBarAdvisor(IActionBarConfigurer configurer) {
+		super(configurer);
 	}
-	menuBar.add(menu);
-    }
 
-    @Override
-    protected void fillCoolBar(ICoolBarManager coolBar) {
-	ToolBarManager toolbar = new ToolBarManager(SWT.FLAT);
-	toolbar.add(newWizardDropDownAction);
-	toolbar.add(saveAction);
-	coolBar.add(toolbar);
-    }
+	@Override
+	protected void makeActions(IWorkbenchWindow window) {
+		newWizardDropDownAction = ActionFactory.NEW_WIZARD_DROP_DOWN.create(window);
+		register(newWizardDropDownAction);
+		newWizardMenu = ContributionItemFactory.NEW_WIZARD_SHORTLIST.create(window);
+		aboutAction = ActionFactory.ABOUT.create(window);
+		saveAction = ActionFactory.SAVE.create(window);
+		register(saveAction);
+		deleteAction = ActionFactory.DELETE.create(window);
+		register(deleteAction);
+	}
+
+	@Override
+	protected void fillMenuBar(IMenuManager menuBar) {
+		{
+			// create the New submenu, using the same id as the New action
+			MenuManager menu = new MenuManager("File", IWorkbenchActionConstants.M_FILE);
+			MenuManager newMenu = new MenuManager("New", "new");
+			newMenu.add(this.newWizardMenu);
+			menu.add(newMenu);
+			menuBar.add(menu);
+		}
+		{
+			MenuManager menu = new MenuManager("Edit", IWorkbenchActionConstants.M_EDIT);
+			menu.add(deleteAction);
+			menuBar.add(menu);
+		}
+	}
+
+	@Override
+	protected void fillCoolBar(ICoolBarManager coolBar) {
+		ToolBarManager toolbar = new ToolBarManager(SWT.FLAT);
+		toolbar.add(newWizardDropDownAction);
+		toolbar.add(saveAction);
+		coolBar.add(toolbar);
+	}
 
 }

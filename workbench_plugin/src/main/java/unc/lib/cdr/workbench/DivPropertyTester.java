@@ -30,7 +30,6 @@ public class DivPropertyTester extends PropertyTester {
 
 	@Override
 	public boolean test(Object receiver, String property, Object[] args, Object expectedValue) {
-		System.out.println("is div property test: "+receiver.toString());
 		if (receiver instanceof DivType) {
 			DivType div = (DivType) receiver;
 			if (IS_CONTAINER_PROPERTY.equals(property)) {

@@ -86,8 +86,7 @@ public class LinkSurrogateHandler extends AbstractHandler implements IHandler {
 			e.printStackTrace();
 			throw new ExecutionException("unable to add link", e);
 		}
-		//DivTypeItemProvider p = (DivTypeItemProvider)mpn.getAdapterFactory().adapt(subject, DivTypeItemProvider.class);
-		mpn.getAdapterFactory().fireNotifyChanged(new NotificationImpl(Notification.ADD, null, null));
+		MetsProjectNature.getAdapterFactory().fireNotifyChanged(new NotificationImpl(Notification.ADD, null, null));
 		return null;
 	}
 

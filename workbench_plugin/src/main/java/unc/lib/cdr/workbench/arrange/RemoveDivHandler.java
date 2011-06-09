@@ -15,7 +15,6 @@
  */
 package unc.lib.cdr.workbench.arrange;
 
-import gov.loc.mets.AmdSecType;
 import gov.loc.mets.DivType;
 import gov.loc.mets.FptrType;
 import gov.loc.mets.MdSecType;
@@ -140,7 +139,7 @@ public class RemoveDivHandler extends AbstractHandler {
 			}
 			if (METSConstants.MD_STATUS_CROSSWALK_USER_LINKED.equals(dmd.getSTATUS())) {
 				dmd.setSTATUS(METSConstants.MD_STATUS_CROSSWALK_NOT_LINKED);
-			} else {
+			} else if(METSConstants.MD_STATUS_USER_EDITED.equals(dmd.getSTATUS())){
 				toDelete.add(dmd);
 			}
 		}

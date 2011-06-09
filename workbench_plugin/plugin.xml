@@ -70,11 +70,6 @@
             name="Create Project">
       </command>
       <command
-            defaultHandler="unc.lib.cdr.workbench.arrange.RemoveDivHandler"
-            id="cdr-workbench.RemoveDiv"
-            name="Remove Div">
-      </command>
-      <command
             defaultHandler="unc.lib.cdr.workbench.accession.CaptureHandler"
             id="cdr-workbench.commandCaptureObject"
             name="Capture Object">
@@ -143,11 +138,6 @@
             name="Edit Access Control">
       </command>
       <command
-            defaultHandler="unc.lib.cdr.workbench.commands.DeleteProjectHandler"
-            id="workbench_plugin.commandDeleteProject"
-            name="Delete Project">
-      </command>
-      <command
             categoryId="workbench_plugin.categoryLink"
             defaultHandler="unc.lib.cdr.workbench.commands.LinkSurrogateHandler"
             id="workbench_plugin.commandLinkSurrogate"
@@ -158,6 +148,67 @@
             id="workbench_plugin.categoryLink"
             name="Links">
       </category>
+      <command
+            id="org.eclipse.ui.edit.delete"
+            name="Delete">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            commandId="org.eclipse.ui.edit.delete">
+         <activeWhen>
+            <with
+                  variable="activeMenuSelection">
+               <iterate
+                     ifEmpty="false"
+                     operator="and">
+                  <instanceof
+                        value="org.eclipse.core.resources.IProject">
+                  </instanceof>
+               </iterate>
+            </with>
+         </activeWhen>
+         <class
+               class="unc.lib.cdr.workbench.commands.DeleteProjectHandler">
+         </class>
+      </handler>
+      <handler
+            commandId="org.eclipse.ui.edit.delete">
+         <activeWhen>
+            <with
+                  variable="activeMenuSelection">
+               <iterate
+                     ifEmpty="false"
+                     operator="and">
+                  <instanceof
+                        value="gov.loc.mets.DivType">
+                  </instanceof>
+               </iterate>
+            </with>
+         </activeWhen>
+         <class
+               class="unc.lib.cdr.workbench.arrange.RemoveDivHandler">
+         </class>
+      </handler>
+      <handler
+            commandId="org.eclipse.ui.edit.delete">
+         <activeWhen>
+            <with
+                  variable="activeMenuSelection">
+               <iterate
+                     ifEmpty="false"
+                     operator="and">
+                  <instanceof
+                        value="gov.loc.mets.SmLinkType">
+                  </instanceof>
+               </iterate>
+            </with>
+         </activeWhen>
+         <class
+               class="unc.lib.cdr.workbench.arrange.RemoveSmLinkHandler">
+         </class>
+      </handler>
    </extension>
    <extension
          point="org.eclipse.ui.menus">
@@ -179,23 +230,6 @@
       <menuContribution
             allPopups="true"
             locationURI="popup:org.eclipse.ui.popup.any?after=additions">
-         <command
-               commandId="cdr-workbench.RemoveDiv"
-               label="Remove"
-               style="push">
-            <visibleWhen
-                  checkEnabled="false">
-               <with
-                     variable="activeMenuSelection">
-                  <iterate
-                        ifEmpty="false">
-                     <instanceof
-                           value="gov.loc.mets.DivType">
-                     </instanceof>
-                  </iterate>
-               </with>
-            </visibleWhen>
-         </command>
          <command
                commandId="cdr-workbench.commandCaptureObject"
                label="Capture"
@@ -463,22 +497,9 @@
             </visibleWhen>
          </command>
          <command
-               commandId="workbench_plugin.commandDeleteProject"
-               label="Delete Project"
+               commandId="org.eclipse.ui.edit.delete"
+               label="Delete"
                style="push">
-            <visibleWhen
-                  checkEnabled="false">
-               <with
-                     variable="activeMenuSelection">
-                  <iterate
-                        ifEmpty="false"
-                        operator="or">
-                     <instanceof
-                           value="org.eclipse.core.resources.IProject">
-                     </instanceof>
-                  </iterate>
-               </with>
-            </visibleWhen>
          </command>
          <command
                commandId="workbench_plugin.commandLinkSurrogate"
@@ -523,23 +544,6 @@
                style="push">
          </command>
       </menuContribution>
-   </extension>
-   <extension
-         point="org.eclipse.ui.views">
-      <view
-            allowMultiple="false"
-            class="org.eclipse.ui.views.properties.PropertySheet"
-            id="cdr-workbench.Properties"
-            name="Properties"
-            restorable="true">
-      </view>
-      <view
-            allowMultiple="false"
-            class="unc.lib.cdr.workbench.views.MetsProjectNavigator"
-            id="cdr-workbench.projectview"
-            name="Project Navigator"
-            restorable="true">
-      </view>
    </extension>
    <extension
          point="org.eclipse.ui.preferencePages">
@@ -684,15 +688,21 @@
       </perspective>
    </extension>
    <extension
-         id="unc.lib.cdr.workbench.markers.OriginalFileSet"
-         name="Original File Set"
-         point="org.eclipse.core.resources.markers">
-      <persistent
-            value="true">
-      </persistent>
-      <attribute
-            name="type">
-      </attribute>
+         point="org.eclipse.ui.views">
+      <view
+            allowMultiple="false"
+            class="org.eclipse.ui.views.properties.PropertySheet"
+            id="cdr-workbench.Properties"
+            name="Properties"
+            restorable="true">
+      </view>
+      <view
+            allowMultiple="false"
+            class="unc.lib.cdr.workbench.views.MetsProjectNavigator"
+            id="cdr-workbench.projectview"
+            name="Project Navigator"
+            restorable="true">
+      </view>
    </extension>
    <extension
          point="org.eclipse.ui.popupMenus">
@@ -703,61 +713,15 @@
       </objectContribution>
    </extension>
    <extension
-         id="unc.lib.cdr.workbench.markers.Captured"
-         name="captured"
-         point="org.eclipse.core.resources.markers">
-      <attribute
-            name="mets.Div.ID">
-      </attribute>
-      <persistent
-            value="true">
-      </persistent>
-   </extension>
-   <extension
-         id="unc.lib.cdr.workbench.markers.Staged"
-         name="staged"
+         id="unc.lib.cdr.workbench.markers.OriginalFileSet"
+         name="Original File Set"
          point="org.eclipse.core.resources.markers">
       <persistent
             value="true">
       </persistent>
       <attribute
-            name="stage.uri">
+            name="type">
       </attribute>
-      <attribute
-            name="mets.File.GroupIDAttr">
-      </attribute>
-   </extension>
-   <extension
-         id="unc.lib.cdr.workbench.builders.StageBuilder"
-         name="Stage Builder"
-         point="org.eclipse.core.resources.builders">
-      <builder
-            hasNature="false">
-         <run
-               class="unc.lib.cdr.workbench.staging.StageBuilder">
-         </run>
-      </builder>
-   </extension>
-   <extension
-         point="org.eclipse.ui.decorators">
-      <decorator
-            class="unc.lib.cdr.workbench.accession.OriginalsDecorator"
-            id="cdr-workbench.decoratorCaptured"
-            label="Captured File Decorators"
-            lightweight="true"
-            location="BOTTOM_RIGHT"
-            state="true">
-         <enablement>
-            <or>
-               <objectClass
-                     name="org.eclipse.core.resources.IResource">
-               </objectClass>
-               <objectClass
-                     name="gov.loc.mets.DivType">
-               </objectClass>
-            </or>
-         </enablement>
-      </decorator>
    </extension>
    <extension
          point="org.eclipse.ui.navigator.viewer">
@@ -788,6 +752,14 @@
             </contentExtension>
          </includes>
       </viewerContentBinding>
+      <viewerActionBinding
+            viewerId="cdr-workbench.projectview">
+         <includes>
+            <actionExtension
+                  pattern="workbench_plugin.*">
+            </actionExtension>
+         </includes>
+      </viewerActionBinding>
    </extension>
    <extension
          point="org.eclipse.ui.navigator.navigatorContent">
@@ -876,9 +848,6 @@
                </or>
             </parentExpression>
          </commonSorter>
-         <actionProvider
-               class="unc.lib.cdr.workbench.arrange.ArrangementActionProvider">
-         </actionProvider>
       </navigatorContent>
       <navigatorContent
             activeByDefault="true"
@@ -935,6 +904,63 @@
             </or>
          </triggerPoints>
       </navigatorContent>
+   </extension>
+   <extension
+         id="unc.lib.cdr.workbench.markers.Captured"
+         name="captured"
+         point="org.eclipse.core.resources.markers">
+      <attribute
+            name="mets.Div.ID">
+      </attribute>
+      <persistent
+            value="true">
+      </persistent>
+   </extension>
+   <extension
+         id="unc.lib.cdr.workbench.markers.Staged"
+         name="staged"
+         point="org.eclipse.core.resources.markers">
+      <persistent
+            value="true">
+      </persistent>
+      <attribute
+            name="stage.uri">
+      </attribute>
+      <attribute
+            name="mets.File.GroupIDAttr">
+      </attribute>
+   </extension>
+   <extension
+         id="unc.lib.cdr.workbench.builders.StageBuilder"
+         name="Stage Builder"
+         point="org.eclipse.core.resources.builders">
+      <builder
+            hasNature="false">
+         <run
+               class="unc.lib.cdr.workbench.staging.StageBuilder">
+         </run>
+      </builder>
+   </extension>
+   <extension
+         point="org.eclipse.ui.decorators">
+      <decorator
+            class="unc.lib.cdr.workbench.accession.OriginalsDecorator"
+            id="cdr-workbench.decoratorCaptured"
+            label="Captured File Decorators"
+            lightweight="true"
+            location="BOTTOM_RIGHT"
+            state="true">
+         <enablement>
+            <or>
+               <objectClass
+                     name="org.eclipse.core.resources.IResource">
+               </objectClass>
+               <objectClass
+                     name="gov.loc.mets.DivType">
+               </objectClass>
+            </or>
+         </enablement>
+      </decorator>
    </extension>
    <extension
          id="unc.lib.cdr.workbench.builders.CrosswalksBuilder"
@@ -1116,14 +1142,6 @@
                ref="workbench_plugin.adviceBindingMappedCrossWalk">
          </advice>
       </binding>
-   </extension>
-   <extension
-         point="org.eclipse.ui.bindings">
-      <key
-            contextId="org.eclipse.ui.contexts.window"
-            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
-            sequence="DEL">
-      </key>
    </extension>
 
 </plugin>

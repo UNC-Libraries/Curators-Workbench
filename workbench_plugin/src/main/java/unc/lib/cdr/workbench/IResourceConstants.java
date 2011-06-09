@@ -73,7 +73,7 @@ public class IResourceConstants {
 
     public static void setCapturedState(IResource r, String divID) {
 	try {
-	    r.setPersistentProperty(PROP_RESOURCE_CAPTURED, "true");
+	    //r.setPersistentProperty(PROP_RESOURCE_CAPTURED, "true");
 	    IMarker capture = null;
 	    IMarker[] markers = r.findMarkers(MARKER_CAPTURED, false, IResource.DEPTH_ZERO);
 	    if (markers.length > 0) {
@@ -87,7 +87,7 @@ public class IResourceConstants {
 	}
     }
 
-    public static String getCapturedDivID(IResource r) {
+    public static String getCapturedDivID(IResource r) throws CoreException {
 	String result = null;
 	try {
 	    IMarker[] markers = r.findMarkers(MARKER_CAPTURED, false, IResource.DEPTH_ZERO);
@@ -96,7 +96,8 @@ public class IResourceConstants {
 		result = (String) capture.getAttribute(MARKER_CAPTURED_DIV_ID);
 	    }
 	} catch (CoreException e) {
-	    throw new Error("huh?");
+		e.printStackTrace();
+	    throw e;
 	}
 	return result;
     }

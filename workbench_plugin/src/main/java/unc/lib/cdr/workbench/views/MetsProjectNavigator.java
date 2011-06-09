@@ -21,7 +21,6 @@ import gov.loc.mets.util.METSConstants;
 
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.jface.viewers.DoubleClickEvent;
-import org.eclipse.jface.viewers.IDoubleClickListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
@@ -42,24 +41,11 @@ import unc.lib.cdr.workbench.rcp.Activator;
 import unc.lib.cdr.workbench.xwalk.CrosswalkTreeElement;
 import crosswalk.diagram.part.CrosswalkDiagramEditor;
 
-public class MetsProjectNavigator extends CommonNavigator implements IDoubleClickListener,
-		ITabbedPropertySheetPageContributor {
+public class MetsProjectNavigator extends CommonNavigator implements ITabbedPropertySheetPageContributor {
 
 	private static final Logger LOG = LoggerFactory.getLogger(MetsProjectNavigator.class);
 
 	protected TabbedPropertySheetPage page;
-
-	//
-	// protected CommonViewer createCommonViewerObject(Composite aParent) {
-	// CommonViewer viewer = super.createCommonViewerObject(aParent);
-	// //Transfer[] transferTypes = new Transfer[] {
-	// ResourceTransfer.getInstance(), LocalSelectionTransfer.getTransfer() };
-	// //ArrangementDropListener lis = new ArrangementDropListener(viewer);
-	// //viewer.addDropSupport(DND.DROP_COPY | DND.DROP_MOVE, transferTypes,
-	// lis);
-	// //this.getNavigatorContentService().getDnDService().
-	// return viewer;
-	// }
 
 	/**
 	 * Constructs and returns an instance of {@link CommonViewer}. The ID of the Eclipse view part will be used to create
@@ -75,7 +61,6 @@ public class MetsProjectNavigator extends CommonNavigator implements IDoubleClic
 	@Override
 	protected CommonViewer createCommonViewerObject(Composite aParent) {
 		CommonViewer result = new CommonViewer(getViewSite().getId(), aParent, SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL);
-		result.addDoubleClickListener(this);
 		return result;
 	}
 
@@ -95,13 +80,8 @@ public class MetsProjectNavigator extends CommonNavigator implements IDoubleClic
 		return super.getAdapter(adapter);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see org.eclipse.jface.viewers.IDoubleClickListener#doubleClick(org.eclipse .jface.viewers.DoubleClickEvent)
-	 */
 	@Override
-	public void doubleClick(DoubleClickEvent event) {
+	protected void handleDoubleClick(DoubleClickEvent event) {
 		IStructuredSelection selection = (IStructuredSelection) event.getSelection();
 		if (!selection.isEmpty()) {
 			Object object = selection.getFirstElement();
@@ -137,7 +117,11 @@ public class MetsProjectNavigator extends CommonNavigator implements IDoubleClic
 					} catch (Exception e) {
 						LOG.error("Problem executing EditDescription command", e);
 					}
+				} else {
+					super.handleDoubleClick(event);
 				}
+			} else {
+				super.handleDoubleClick(event);
 			}
 		}
 	}
