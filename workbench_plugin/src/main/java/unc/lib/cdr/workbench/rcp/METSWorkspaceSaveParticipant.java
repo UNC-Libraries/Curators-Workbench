@@ -25,74 +25,66 @@ import unc.lib.cdr.workbench.project.MetsProjectNature;
 
 /**
  * @author Gregory Jansen
- *
+ * 
  */
 public class METSWorkspaceSaveParticipant implements ISaveParticipant {
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see
-     * org.eclipse.core.resources.ISaveParticipant#doneSaving(org.eclipse.core
-     * .resources.ISaveContext)
-     */
-    @Override
-    public void doneSaving(ISaveContext context) {
-	// TODO Auto-generated method stub
-	// resume paused operations
-    }
-
-    /*
-     * (non-Javadoc)
-     *
-     * @see
-     * org.eclipse.core.resources.ISaveParticipant#prepareToSave(org.eclipse
-     * .core.resources.ISaveContext)
-     */
-    @Override
-    public void prepareToSave(ISaveContext context) throws CoreException {
-	// TODO Auto-generated method stub
-	// stop/pause all operations
-    }
-
-    /*
-     * (non-Javadoc)
-     *
-     * @see
-     * org.eclipse.core.resources.ISaveParticipant#rollback(org.eclipse.core
-     * .resources.ISaveContext)
-     */
-    @Override
-    public void rollback(ISaveContext context) {
-	// load model from last saved state
-	for (IProject p : ResourcesPlugin.getWorkspace().getRoot().getProjects()) {
-	    // TODO implement rollback via EMF
-	    // if (p.hasNature(MetsProjectNature.NATURE_ID)) {
-	    // MetsProjectNature n = (MetsProjectNature)
-	    // p.getNature(MetsProjectNature.NATURE_ID);
-
-	    // persist workbench mets object to file
-	    // n.saveMETS(context.getSaveNumber());
-	    // }
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.core.resources.ISaveParticipant#doneSaving(org.eclipse.core .resources.ISaveContext)
+	 */
+	@Override
+	public void doneSaving(ISaveContext context) {
+		// TODO Auto-generated method stub
+		// resume paused operations
 	}
-    }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see
-     * org.eclipse.core.resources.ISaveParticipant#saving(org.eclipse.core.resources
-     * .ISaveContext)
-     */
-    @Override
-    public void saving(ISaveContext context) throws CoreException {
-	// find all projects with METS nature
-	for (IProject p : ResourcesPlugin.getWorkspace().getRoot().getProjects()) {
-	    if (p.isOpen() && p.hasNature(MetsProjectNature.NATURE_ID)) {
-		MetsProjectNature n = (MetsProjectNature) p.getNature(MetsProjectNature.NATURE_ID);
-		n.save();
-	    }
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.core.resources.ISaveParticipant#prepareToSave(org.eclipse .core.resources.ISaveContext)
+	 */
+	@Override
+	public void prepareToSave(ISaveContext context) throws CoreException {
+		// TODO Auto-generated method stub
+		// stop/pause all operations
 	}
-    }
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.core.resources.ISaveParticipant#rollback(org.eclipse.core .resources.ISaveContext)
+	 */
+	@Override
+	public void rollback(ISaveContext context) {
+		// load model from last saved state
+		for (IProject p : ResourcesPlugin.getWorkspace().getRoot().getProjects()) {
+			// TODO implement rollback via EMF
+			// if (p.hasNature(MetsProjectNature.NATURE_ID)) {
+			// MetsProjectNature n = (MetsProjectNature)
+			// p.getNature(MetsProjectNature.NATURE_ID);
+
+			// persist workbench mets object to file
+			// n.saveMETS(context.getSaveNumber());
+			// }
+		}
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.core.resources.ISaveParticipant#saving(org.eclipse.core.resources .ISaveContext)
+	 */
+	@Override
+	public void saving(ISaveContext context) throws CoreException {
+		// find all projects with METS nature
+		for (IProject p : ResourcesPlugin.getWorkspace().getRoot().getProjects()) {
+			if (p.isOpen() && p.hasNature(MetsProjectNature.NATURE_ID)) {
+				MetsProjectNature n = (MetsProjectNature) p.getNature(MetsProjectNature.NATURE_ID);
+				n.save();
+			}
+		}
+	}
 
 }

@@ -48,7 +48,7 @@ import unc.lib.cdr.workbench.project.MetsProjectNature;
 
 /**
  * @author Gregory Jansen
- *
+ * 
  */
 public class RemoveDivHandler extends AbstractHandler {
 
@@ -57,7 +57,7 @@ public class RemoveDivHandler extends AbstractHandler {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see org.eclipse.core.commands.IHandler#execute(org.eclipse.core.commands. ExecutionEvent)
 	 */
 	@Override
@@ -126,7 +126,7 @@ public class RemoveDivHandler extends AbstractHandler {
 
 	/**
 	 * Finds elements that are linked to in this DivType and adds them to the supplied list
-	 *
+	 * 
 	 * @param toDelete
 	 *           the list
 	 * @param div
@@ -139,7 +139,7 @@ public class RemoveDivHandler extends AbstractHandler {
 			}
 			if (METSConstants.MD_STATUS_CROSSWALK_USER_LINKED.equals(dmd.getSTATUS())) {
 				dmd.setSTATUS(METSConstants.MD_STATUS_CROSSWALK_NOT_LINKED);
-			} else if(METSConstants.MD_STATUS_USER_EDITED.equals(dmd.getSTATUS())){
+			} else if (METSConstants.MD_STATUS_USER_EDITED.equals(dmd.getSTATUS())) {
 				toDelete.add(dmd);
 			}
 		}

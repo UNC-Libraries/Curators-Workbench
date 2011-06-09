@@ -25,7 +25,6 @@ import java.util.Set;
 
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IMarkerDelta;
-import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IResourceChangeEvent;
 import org.eclipse.core.resources.IResourceChangeListener;
@@ -46,170 +45,168 @@ import unc.lib.cdr.workbench.rcp.Activator;
 import unc.lib.cdr.workbench.views.LabelImageFactory;
 
 public class OriginalsDecorator implements ILightweightLabelDecorator, IResourceChangeListener {
-    Set<ILabelProviderListener> listeners = new HashSet<ILabelProviderListener>();
+	Set<ILabelProviderListener> listeners = new HashSet<ILabelProviderListener>();
 
-    public OriginalsDecorator() {
-	ResourcesPlugin.getWorkspace().addResourceChangeListener(this, IResourceChangeEvent.POST_CHANGE);
-    }
-
-    @SuppressWarnings("unused")
-    private static final Logger LOG = LoggerFactory.getLogger(OriginalsDecorator.class);
-
-    @Override
-    public void addListener(ILabelProviderListener listener) {
-	this.listeners.add(listener);
-    }
-
-    @Override
-    public void dispose() {
-	this.listeners.clear();
-    }
-
-    @Override
-    public boolean isLabelProperty(Object element, String property) {
-	return true;
-    }
-
-    @Override
-    public void removeListener(ILabelProviderListener listener) {
-	this.listeners.remove(listener);
-    }
-
-    @Override
-    public void decorate(Object element, IDecoration decoration) {
-	IResource r = null;
-	boolean isDiv = false;
-	if (element instanceof IResource) {
-	    r = (IResource) element;
-	} else if (element instanceof DivType) {
-	    isDiv = true;
-	    DivType d = (DivType) element;
-	    Object adapted = Platform.getAdapterManager().getAdapter(d, IResource.class);
-	    if (adapted != null && adapted instanceof IResource) {
-		r = (IResource) adapted;
-	    }
-	    // described, crosswalked
-	    MetsProjectNature n = MetsProjectNature.getNatureForMetsObject(d);
-	    boolean userEdited = false;
-	    boolean crosswalked = false;
-	    for (MdSecType md : d.getDmdSec()) {
-		if (md != null) {
-		    String st = md.getSTATUS();
-		    if (METSConstants.MD_STATUS_CROSSWALK_LINKED.equals(st)) {
-			decoration.addOverlay(LabelImageFactory
-					.getImageDescriptorForKey(LabelImageFactory.CROSSWALKED_DECORATOR),
-					IDecoration.BOTTOM_LEFT);
-		    } else if (METSConstants.MD_STATUS_USER_EDITED.equals(st)) {
-			decoration.addOverlay(LabelImageFactory
-					.getImageDescriptorForKey(LabelImageFactory.USER_EDITED_DECORATOR),
-					IDecoration.TOP_RIGHT);
-		    } else if (METSConstants.MD_STATUS_CROSSWALK_USER_LINKED.equals(st)) {
-			decoration.addOverlay(LabelImageFactory
-					.getImageDescriptorForKey(LabelImageFactory.CROSSWALKED_DECORATOR),
-					IDecoration.BOTTOM_LEFT);
-		    }
-		}
-	    }
-	    for(MdSecType md : d.getMdSec()) { // process admin metadata overlays
-		if(md != null) {
-		    if(MetsPackage.eINSTANCE.getAmdSecType_RightsMD().equals(md.eContainingFeature())) {
-			decoration.addOverlay(LabelImageFactory
-					.getImageDescriptorForKey(LabelImageFactory.ACL_DECORATOR),
-					IDecoration.TOP_LEFT);
-		    }
-		}
-	    }
+	public OriginalsDecorator() {
+		ResourcesPlugin.getWorkspace().addResourceChangeListener(this, IResourceChangeEvent.POST_CHANGE);
 	}
 
-	// added/captured, queued/staged BR
-	try {
-	    ImageDescriptor overlay = null;
-	    if (r != null && r.getProject() != null && r.getProject().isOpen()) {
-		if (r.findMarkers(IResourceConstants.MARKER_CAPTURED, false, IResource.DEPTH_ZERO).length > 0) {
-		    boolean isFolder = (r instanceof IContainer);
-		    if (isFolder) { // captured original folder
-			decoration.addSuffix("  captured");
-		    } else {
-			if (r.findMarkers(IResourceConstants.MARKER_STAGED, false, IResource.DEPTH_ZERO).length > 0) {
+	@SuppressWarnings("unused")
+	private static final Logger LOG = LoggerFactory.getLogger(OriginalsDecorator.class);
 
-			    // captured file (original or the div)
-			    overlay = LabelImageFactory.getImageDescriptorForKey(LabelImageFactory.STAGED_DECORATOR);
-			    decoration.addSuffix("  staged");
+	@Override
+	public void addListener(ILabelProviderListener listener) {
+		this.listeners.add(listener);
+	}
+
+	@Override
+	public void dispose() {
+		this.listeners.clear();
+	}
+
+	@Override
+	public boolean isLabelProperty(Object element, String property) {
+		return true;
+	}
+
+	@Override
+	public void removeListener(ILabelProviderListener listener) {
+		this.listeners.remove(listener);
+	}
+
+	@Override
+	public void decorate(Object element, IDecoration decoration) {
+		IResource r = null;
+		boolean isDiv = false;
+		if (element instanceof IResource) {
+			r = (IResource) element;
+		} else if (element instanceof DivType) {
+			isDiv = true;
+			DivType d = (DivType) element;
+			Object adapted = Platform.getAdapterManager().getAdapter(d, IResource.class);
+			if (adapted != null && adapted instanceof IResource) {
+				r = (IResource) adapted;
+			}
+			// described, crosswalked
+			MetsProjectNature n = MetsProjectNature.getNatureForMetsObject(d);
+			boolean userEdited = false;
+			boolean crosswalked = false;
+			for (MdSecType md : d.getDmdSec()) {
+				if (md != null) {
+					String st = md.getSTATUS();
+					if (METSConstants.MD_STATUS_CROSSWALK_LINKED.equals(st)) {
+						decoration.addOverlay(
+								LabelImageFactory.getImageDescriptorForKey(LabelImageFactory.CROSSWALKED_DECORATOR),
+								IDecoration.BOTTOM_LEFT);
+					} else if (METSConstants.MD_STATUS_USER_EDITED.equals(st)) {
+						decoration.addOverlay(
+								LabelImageFactory.getImageDescriptorForKey(LabelImageFactory.USER_EDITED_DECORATOR),
+								IDecoration.TOP_RIGHT);
+					} else if (METSConstants.MD_STATUS_CROSSWALK_USER_LINKED.equals(st)) {
+						decoration.addOverlay(
+								LabelImageFactory.getImageDescriptorForKey(LabelImageFactory.CROSSWALKED_DECORATOR),
+								IDecoration.BOTTOM_LEFT);
+					}
+				}
+			}
+			for (MdSecType md : d.getMdSec()) { // process admin metadata overlays
+				if (md != null) {
+					if (MetsPackage.eINSTANCE.getAmdSecType_RightsMD().equals(md.eContainingFeature())) {
+						decoration.addOverlay(LabelImageFactory.getImageDescriptorForKey(LabelImageFactory.ACL_DECORATOR),
+								IDecoration.TOP_LEFT);
+					}
+				}
+			}
+		}
+
+		// added/captured, queued/staged BR
+		try {
+			ImageDescriptor overlay = null;
+			if (r != null && r.getProject() != null && r.getProject().isOpen()) {
+				if (r.findMarkers(IResourceConstants.MARKER_CAPTURED, false, IResource.DEPTH_ZERO).length > 0) {
+					boolean isFolder = (r instanceof IContainer);
+					if (isFolder) { // captured original folder
+						decoration.addSuffix("  captured");
+					} else {
+						if (r.findMarkers(IResourceConstants.MARKER_STAGED, false, IResource.DEPTH_ZERO).length > 0) {
+
+							// captured file (original or the div)
+							overlay = LabelImageFactory.getImageDescriptorForKey(LabelImageFactory.STAGED_DECORATOR);
+							decoration.addSuffix("  staged");
+						} else {
+							overlay = Activator.getDefault().getImageRegistry()
+									.getDescriptor(LabelImageFactory.CAPTURE_DECORATOR);
+							decoration.addSuffix("  queued");
+						}
+					}
+				}
 			} else {
-			    overlay = Activator.getDefault().getImageRegistry()
-					    .getDescriptor(LabelImageFactory.CAPTURE_DECORATOR);
-			    decoration.addSuffix("  queued");
+				if (isDiv) {
+					decoration.addSuffix("  added");
+				}
 			}
-		    }
+			if (overlay != null) {
+				decoration.addOverlay(overlay, IDecoration.BOTTOM_RIGHT);
+			}
+		} catch (CoreException ignored) {
+			ignored.printStackTrace();
 		}
-	    } else {
-		if (isDiv) {
-		    decoration.addSuffix("  added");
-		}
-	    }
-	    if (overlay != null) {
-		decoration.addOverlay(overlay, IDecoration.BOTTOM_RIGHT);
-	    }
-	} catch (CoreException ignored) {
-	    ignored.printStackTrace();
 	}
-    }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see
-     * org.eclipse.core.resources.IResourceChangeListener#resourceChanged(org
-     * .eclipse.core.resources.IResourceChangeEvent)
-     */
-    @Override
-    public void resourceChanged(IResourceChangeEvent event) {
-	Set<Object> changes = new HashSet<Object>();
-	IMarkerDelta[] captures = event.findMarkerDeltas(IResourceConstants.MARKER_CAPTURED, false);
-	IMarkerDelta[] stages = event.findMarkerDeltas(IResourceConstants.MARKER_STAGED, false);
-	for (IMarkerDelta d : captures) {
-	    if (d.getResource().getProject().isOpen()) {
-		changes.add(d.getResource());
-		try {
-		    MetsProjectNature n = (MetsProjectNature) d.getResource().getProject()
-				    .getNature(MetsProjectNature.NATURE_ID);
-		    String divID = IResourceConstants.getCapturedDivID(d.getResource());
-		    if (n != null && n.getMetsResource() != null && divID != null) {
-			Object div = n.getMetsResource().getEObject(divID);
-			if (div != null) {
-			    changes.add(div);
-			}
-		    }
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.core.resources.IResourceChangeListener#resourceChanged(org
+	 * .eclipse.core.resources.IResourceChangeEvent)
+	 */
+	@Override
+	public void resourceChanged(IResourceChangeEvent event) {
+		Set<Object> changes = new HashSet<Object>();
+		IMarkerDelta[] captures = event.findMarkerDeltas(IResourceConstants.MARKER_CAPTURED, false);
+		IMarkerDelta[] stages = event.findMarkerDeltas(IResourceConstants.MARKER_STAGED, false);
+		for (IMarkerDelta d : captures) {
+			if (d.getResource().getProject().isOpen()) {
+				changes.add(d.getResource());
+				try {
+					MetsProjectNature n = (MetsProjectNature) d.getResource().getProject()
+							.getNature(MetsProjectNature.NATURE_ID);
+					String divID = IResourceConstants.getCapturedDivID(d.getResource());
+					if (n != null && n.getMetsResource() != null && divID != null) {
+						Object div = n.getMetsResource().getEObject(divID);
+						if (div != null) {
+							changes.add(div);
+						}
+					}
 
-		} catch (CoreException e1) {
-		    e1.printStackTrace();
-		}
-	    }
-	}
-	for (IMarkerDelta d : stages) {
-	    if (d.getResource().getProject().isOpen()) {
-		changes.add(d.getResource());
-		try {
-		    MetsProjectNature n = (MetsProjectNature) d.getResource().getProject()
-				    .getNature(MetsProjectNature.NATURE_ID);
-		    String divID = IResourceConstants.getCapturedDivID(d.getResource());
-		    if (n != null && n.getMetsResource() != null && divID != null) {
-			Object div = n.getMetsResource().getEObject(divID);
-			if (div != null) {
-			    changes.add(div);
+				} catch (CoreException e1) {
+					e1.printStackTrace();
+				}
 			}
-		    }
-		} catch (CoreException e1) {
-		    e1.printStackTrace();
 		}
-	    }
+		for (IMarkerDelta d : stages) {
+			if (d.getResource().getProject().isOpen()) {
+				changes.add(d.getResource());
+				try {
+					MetsProjectNature n = (MetsProjectNature) d.getResource().getProject()
+							.getNature(MetsProjectNature.NATURE_ID);
+					String divID = IResourceConstants.getCapturedDivID(d.getResource());
+					if (n != null && n.getMetsResource() != null && divID != null) {
+						Object div = n.getMetsResource().getEObject(divID);
+						if (div != null) {
+							changes.add(div);
+						}
+					}
+				} catch (CoreException e1) {
+					e1.printStackTrace();
+				}
+			}
+		}
+		if (changes.size() > 0) {
+			LabelProviderChangedEvent e = new LabelProviderChangedEvent(this, changes.toArray());
+			for (ILabelProviderListener l : listeners) {
+				l.labelProviderChanged(e);
+			}
+		}
 	}
-	if (changes.size() > 0) {
-	    LabelProviderChangedEvent e = new LabelProviderChangedEvent(this, changes.toArray());
-	    for (ILabelProviderListener l : listeners) {
-		l.labelProviderChanged(e);
-	    }
-	}
-    }
 
 }

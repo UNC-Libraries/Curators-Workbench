@@ -25,103 +25,103 @@ import org.eclipse.ui.IPersistableElement;
 
 /**
  * @author Gregory Jansen
- *
+ * 
  */
 public class OriginalFolderEditorInput implements IEditorInput {
-    IPath platformPath = null;
+	IPath platformPath = null;
 
-    public OriginalFolderEditorInput(IFolder f) {
-	this.platformPath = f.getFullPath();
-    }
-
-    public IFolder getFolder() {
-	return ResourcesPlugin.getWorkspace().getRoot().getFolder(platformPath);
-    }
-
-    @SuppressWarnings("unchecked")
-    @Override
-    public Object getAdapter(Class adapter) {
-	return Platform.getAdapterManager().getAdapter(this, adapter);
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-	if (this == obj) {
-	    return true;
+	public OriginalFolderEditorInput(IFolder f) {
+		this.platformPath = f.getFullPath();
 	}
-	if (obj == null) {
-	    return false;
+
+	public IFolder getFolder() {
+		return ResourcesPlugin.getWorkspace().getRoot().getFolder(platformPath);
 	}
-	if (getClass() != obj.getClass()) {
-	    return false;
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public Object getAdapter(Class adapter) {
+		return Platform.getAdapterManager().getAdapter(this, adapter);
 	}
-	final OriginalFolderEditorInput other = (OriginalFolderEditorInput) obj;
-	if (this.platformPath == null) {
-	    if (other.platformPath != null) {
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (obj == null) {
+			return false;
+		}
+		if (getClass() != obj.getClass()) {
+			return false;
+		}
+		final OriginalFolderEditorInput other = (OriginalFolderEditorInput) obj;
+		if (this.platformPath == null) {
+			if (other.platformPath != null) {
+				return false;
+			}
+		} else if (!this.platformPath.equals(other.platformPath)) {
+			return false;
+		}
+		return true;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.ui.IEditorInput#exists()
+	 */
+	@Override
+	public boolean exists() {
 		return false;
-	    }
-	} else if (!this.platformPath.equals(other.platformPath)) {
-	    return false;
 	}
-	return true;
-    }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see org.eclipse.ui.IEditorInput#exists()
-     */
-    @Override
-    public boolean exists() {
-	return false;
-    }
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.ui.IEditorInput#getImageDescriptor()
+	 */
+	@Override
+	public ImageDescriptor getImageDescriptor() {
+		return null;
+	}
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see org.eclipse.ui.IEditorInput#getImageDescriptor()
-     */
-    @Override
-    public ImageDescriptor getImageDescriptor() {
-	return null;
-    }
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.ui.IEditorInput#getName()
+	 */
+	@Override
+	public String getName() {
+		return this.platformPath.lastSegment();
+	}
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see org.eclipse.ui.IEditorInput#getName()
-     */
-    @Override
-    public String getName() {
-	return this.platformPath.lastSegment();
-    }
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.ui.IEditorInput#getPersistable()
+	 */
+	@Override
+	public IPersistableElement getPersistable() {
+		return null;
+	}
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see org.eclipse.ui.IEditorInput#getPersistable()
-     */
-    @Override
-    public IPersistableElement getPersistable() {
-	return null;
-    }
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((this.platformPath == null) ? 0 : this.platformPath.hashCode());
+		return result;
+	}
 
-    @Override
-    public int hashCode() {
-	final int prime = 31;
-	int result = 1;
-	result = prime * result + ((this.platformPath == null) ? 0 : this.platformPath.hashCode());
-	return result;
-    }
-
-    /*
-     * (non-Javadoc)
-     *
-     * @see org.eclipse.ui.IEditorInput#getToolTipText()
-     */
-    @Override
-    public String getToolTipText() {
-	return "";
-    }
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.ui.IEditorInput#getToolTipText()
+	 */
+	@Override
+	public String getToolTipText() {
+		return "";
+	}
 
 }

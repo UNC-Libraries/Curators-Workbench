@@ -20,11 +20,11 @@ import org.eclipse.ui.IPerspectiveFactory;
 
 public class MetsXmlPerspective implements IPerspectiveFactory {
 
-    @Override
-    public void createInitialLayout(IPageLayout layout) {
-	// TODO Auto-generated method stub
+	@Override
+	public void createInitialLayout(IPageLayout layout) {
+		// TODO Auto-generated method stub
 
-	PerspectiveTweaks.addMyPerspectiveShortcuts(layout);
-    }
+		PerspectiveTweaks.addMyPerspectiveShortcuts(layout);
+	}
 
 }

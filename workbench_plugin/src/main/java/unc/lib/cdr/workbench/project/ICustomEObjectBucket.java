@@ -15,22 +15,21 @@
  */
 package unc.lib.cdr.workbench.project;
 
-import org.eclipse.core.resources.IProject;
 import org.eclipse.jface.resource.ImageDescriptor;
 
 /**
  * @author Gregory Jansen
- *
+ * 
  */
 public interface ICustomEObjectBucket {
 
-    public ImageDescriptor getImageDescriptor();
+	public ImageDescriptor getImageDescriptor();
 
-    public Object[] getChildren();
+	public Object[] getChildren();
 
-    public String getText();
+	public String getText();
 
-    public boolean hasChildren();
+	public boolean hasChildren();
 
-    public Object getParent();
+	public Object getParent();
 }

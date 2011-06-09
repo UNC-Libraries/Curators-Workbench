@@ -14,23 +14,23 @@ import org.slf4j.LoggerFactory;
 
 public class CloseProjectHandler extends AbstractHandler implements IHandler {
 
-    @SuppressWarnings("unused")
-    private static final Logger LOG = LoggerFactory.getLogger(CloseProjectHandler.class);
+	@SuppressWarnings("unused")
+	private static final Logger LOG = LoggerFactory.getLogger(CloseProjectHandler.class);
 
-    @Override
-    public Object execute(ExecutionEvent event) throws ExecutionException {
-	// IWorkbenchPart part = HandlerUtil.getActivePart(event);
-	IStructuredSelection sel = (IStructuredSelection) HandlerUtil.getCurrentSelectionChecked(event);
-	for (Object foo : sel.toArray()) {
-	    if (foo != null && foo instanceof IProject) {
-		IProject p = (IProject) foo;
-		try {
-		    p.close(new NullProgressMonitor());
-		} catch (CoreException e) {
-		    throw new ExecutionException("Cannot close project.", e);
+	@Override
+	public Object execute(ExecutionEvent event) throws ExecutionException {
+		// IWorkbenchPart part = HandlerUtil.getActivePart(event);
+		IStructuredSelection sel = (IStructuredSelection) HandlerUtil.getCurrentSelectionChecked(event);
+		for (Object foo : sel.toArray()) {
+			if (foo != null && foo instanceof IProject) {
+				IProject p = (IProject) foo;
+				try {
+					p.close(new NullProgressMonitor());
+				} catch (CoreException e) {
+					throw new ExecutionException("Cannot close project.", e);
+				}
+			}
 		}
-	    }
+		return null;
 	}
-	return null;
-    }
 }

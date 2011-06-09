@@ -26,82 +26,82 @@ import org.eclipse.swt.widgets.Composite;
 
 /**
  * @author Gregory Jansen
- *
+ * 
  */
 public class LocationFieldEditor extends StringButtonFieldEditor {
 
-    /**
-     * Creates a new directory field editor
-     */
-    protected LocationFieldEditor() {
-    }
-
-    /**
-     * Creates a directory field editor.
-     *
-     * @param name
-     *            the name of the preference this field editor works on
-     * @param labelText
-     *            the label text of the field editor
-     * @param parent
-     *            the parent of the field editor's control
-     */
-    public LocationFieldEditor(String name, String labelText, Composite parent) {
-	init(name, labelText);
-	setErrorMessage(JFaceResources.getString("DirectoryFieldEditor.errorMessage"));//$NON-NLS-1$
-	setChangeButtonText("Change...");//$NON-NLS-1$
-	setValidateStrategy(VALIDATE_ON_FOCUS_LOST);
-	this.createControl(parent);
-    }
-
-    /*
-     * (non-Javadoc) Method declared on StringButtonFieldEditor. Opens the
-     * directory chooser dialog and returns the selected directory.
-     */
-    @Override
-    protected String changePressed() {
-	String newUri = getLocation();
-	if (newUri == null) {
-	    return null;
+	/**
+	 * Creates a new directory field editor
+	 */
+	protected LocationFieldEditor() {
 	}
-	return newUri;
-    }
 
-    /*
-     * (non-Javadoc) Method declared on StringFieldEditor. Checks whether the
-     * text input field contains a valid directory.
-     */
-    @Override
-    protected boolean doCheckState() {
-	String uri = getTextControl().getText();
-	uri = uri.trim();
-	if (uri.length() == 0 && isEmptyStringAllowed()) {
-	    return true;
+	/**
+	 * Creates a directory field editor.
+	 * 
+	 * @param name
+	 *           the name of the preference this field editor works on
+	 * @param labelText
+	 *           the label text of the field editor
+	 * @param parent
+	 *           the parent of the field editor's control
+	 */
+	public LocationFieldEditor(String name, String labelText, Composite parent) {
+		init(name, labelText);
+		setErrorMessage(JFaceResources.getString("DirectoryFieldEditor.errorMessage"));//$NON-NLS-1$
+		setChangeButtonText("Change...");//$NON-NLS-1$
+		setValidateStrategy(VALIDATE_ON_FOCUS_LOST);
+		this.createControl(parent);
 	}
-	try {
-	    new URI(uri);
-	    return true;
-	} catch (Exception e) {
-	    return false;
-	}
-    }
 
-    /**
-     * Helper that opens the directory chooser dialog.
-     *
-     * @param startingDirectory
-     *            The directory the dialog will open in.
-     * @return File File or <code>null</code>.
-     *
-     */
-    private String getLocation() {
-	String result = null;
-	String uri = this.getStringValue();
-	// Open the wizard dialog
-	IrodsConnectionDialog dialog = new IrodsConnectionDialog(this.getShell(), uri);
-	if(dialog.open() == Dialog.OK) {
-	    result = dialog.getLocation().toString();
+	/*
+	 * (non-Javadoc) Method declared on StringButtonFieldEditor. Opens the directory chooser dialog and returns the
+	 * selected directory.
+	 */
+	@Override
+	protected String changePressed() {
+		String newUri = getLocation();
+		if (newUri == null) {
+			return null;
+		}
+		return newUri;
 	}
-	return result;
-    }
+
+	/*
+	 * (non-Javadoc) Method declared on StringFieldEditor. Checks whether the text input field contains a valid
+	 * directory.
+	 */
+	@Override
+	protected boolean doCheckState() {
+		String uri = getTextControl().getText();
+		uri = uri.trim();
+		if (uri.length() == 0 && isEmptyStringAllowed()) {
+			return true;
+		}
+		try {
+			new URI(uri);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * Helper that opens the directory chooser dialog.
+	 * 
+	 * @param startingDirectory
+	 *           The directory the dialog will open in.
+	 * @return File File or <code>null</code>.
+	 * 
+	 */
+	private String getLocation() {
+		String result = null;
+		String uri = this.getStringValue();
+		// Open the wizard dialog
+		IrodsConnectionDialog dialog = new IrodsConnectionDialog(this.getShell(), uri);
+		if (dialog.open() == Dialog.OK) {
+			result = dialog.getLocation().toString();
+		}
+		return result;
+	}
 }

@@ -23,59 +23,58 @@ import org.eclipse.ui.forms.widgets.FormToolkit;
 
 /**
  * @author Gregory Jansen
- *
+ * 
  */
 public class AccessControlFormEditor extends FormEditor {
 
-    public AccessControlFormEditor() {
-    }
-
-    @Override
-    protected FormToolkit createToolkit(Display display) {
-	// Create a toolkit that shares colors between editors.
-	return new FormToolkit(display);
-    }
-
-    /*
-     * (non-Javadoc)
-     *
-     * @see org.eclipse.ui.forms.editor.FormEditor#addPages()
-     */
-    @Override
-    protected void addPages() {
-	try {
-	    addPage(new AccessControlFormPage(this));
-	} catch (PartInitException e) {
+	public AccessControlFormEditor() {
 	}
-    }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see org.eclipse.ui.part.EditorPart#doSave(org.eclipse.core.runtime.
-     * IProgressMonitor)
-     */
-    @Override
-    public void doSave(IProgressMonitor monitor) {
-    }
+	@Override
+	protected FormToolkit createToolkit(Display display) {
+		// Create a toolkit that shares colors between editors.
+		return new FormToolkit(display);
+	}
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see org.eclipse.ui.part.EditorPart#doSaveAs()
-     */
-    @Override
-    public void doSaveAs() {
-    }
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.ui.forms.editor.FormEditor#addPages()
+	 */
+	@Override
+	protected void addPages() {
+		try {
+			addPage(new AccessControlFormPage(this));
+		} catch (PartInitException e) {
+		}
+	}
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see org.eclipse.ui.part.EditorPart#isSaveAsAllowed()
-     */
-    @Override
-    public boolean isSaveAsAllowed() {
-	return false;
-    }
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.ui.part.EditorPart#doSave(org.eclipse.core.runtime. IProgressMonitor)
+	 */
+	@Override
+	public void doSave(IProgressMonitor monitor) {
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.ui.part.EditorPart#doSaveAs()
+	 */
+	@Override
+	public void doSaveAs() {
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.ui.part.EditorPart#isSaveAsAllowed()
+	 */
+	@Override
+	public boolean isSaveAsAllowed() {
+		return false;
+	}
 
 }

@@ -12,25 +12,27 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 
 public class UserDescriptionPropertySection extends AbstractEcoreXMLPropertySection {
 
-    /* (non-Javadoc)
-     * @see unc.lib.cdr.workbench.views.AbstractEcoreXMLPropertySection#getXMLEObject()
-     */
-    @Override
-    EObject getXMLEObject() {
-	ISelection s = getInput();
-	Assert.isTrue(s instanceof IStructuredSelection);
-        Object divO = ((IStructuredSelection) s).getFirstElement();
-        Assert.isTrue(divO instanceof DivType);
-        DivType div = (DivType) divO;
-	ModsDefinition result = null;
-	try {
-	    EObject o = METSUtils.getDescription(div, METSConstants.MD_STATUS_USER_EDITED);
-	    if(o != null && o instanceof ModsDefinition) {
-		result = (ModsDefinition)o;
-	    }
-	} catch(Exception ignored) {
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see unc.lib.cdr.workbench.views.AbstractEcoreXMLPropertySection#getXMLEObject()
+	 */
+	@Override
+	EObject getXMLEObject() {
+		ISelection s = getInput();
+		Assert.isTrue(s instanceof IStructuredSelection);
+		Object divO = ((IStructuredSelection) s).getFirstElement();
+		Assert.isTrue(divO instanceof DivType);
+		DivType div = (DivType) divO;
+		ModsDefinition result = null;
+		try {
+			EObject o = METSUtils.getDescription(div, METSConstants.MD_STATUS_USER_EDITED);
+			if (o != null && o instanceof ModsDefinition) {
+				result = (ModsDefinition) o;
+			}
+		} catch (Exception ignored) {
+		}
+		return result;
 	}
-	return result;
-    }
 
 }

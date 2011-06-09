@@ -31,100 +31,100 @@ import org.eclipse.swt.widgets.Text;
 
 /**
  * @author Gregory Jansen
- *
+ * 
  */
 public class StagingLocationDialog extends TitleAreaDialog {
-    Text nameText = null;
-    Text uriText = null;
-    String name = null;
-    String uri = null;
-    String title = null;
+	Text nameText = null;
+	Text uriText = null;
+	String name = null;
+	String uri = null;
+	String title = null;
 
-    String locMsg = "You may use these variables to create a project-based location:\n"+
-	" ${PROJECT_HOME} - project folder path, for using a sub-folder\n" +
-	" ${PROJECT_NAME} - name of the project, for using a central staging location\n" +
-	" ${USER_NAME} - name of the user logged into this computer";
+	String locMsg = "You may use these variables to create a project-based location:\n"
+			+ " ${PROJECT_HOME} - project folder path, for using a sub-folder\n"
+			+ " ${PROJECT_NAME} - name of the project, for using a central staging location\n"
+			+ " ${USER_NAME} - name of the user logged into this computer";
 
-    /**
-     * @param parentShell
-     * @param title
-     */
-    protected StagingLocationDialog(Shell parentShell, String title) {
-	super(parentShell);
-	this.title = title;
-	//setMessage(locMsg);
-    }
-
-    public String getName() {
-	return this.name;
-    }
-
-    @Override
-    protected Control createDialogArea(Composite parent) {
-	Composite composite = new Composite(parent, SWT.NULL);
-	composite.setLayout(new GridLayout(2, false));
-	composite.setLayoutData(new GridData(GridData.FILL_BOTH));
-
-	Text messageLabel = new Text(parent, SWT.WRAP | SWT.READ_ONLY);
-	messageLabel.setText(locMsg); // two lines//$NON-NLS-1$
-	messageLabel.setFont(JFaceResources.getDialogFont());
-	messageLabel.setBackground(composite.getBackground());
-	GridData gd = new GridData(GridData.FILL_BOTH);
-	gd.horizontalSpan = 2;
-	messageLabel.setLayoutData(gd);
-
-	Label l1 = new Label(composite, SWT.NULL);
-	l1.setText("Name");
-	ModifyListener lis = new ModifyListener() {
-	    @Override
-	    public void modifyText(ModifyEvent e) {
-		textChanged();
-	    }
-	};
-	nameText = new Text(composite, SWT.BORDER);
-	if(name != null) {
-	    nameText.setText(name);
+	/**
+	 * @param parentShell
+	 * @param title
+	 */
+	protected StagingLocationDialog(Shell parentShell, String title) {
+		super(parentShell);
+		this.title = title;
+		// setMessage(locMsg);
 	}
-	nameText.addModifyListener(lis);
-	Label l2 = new Label(composite, SWT.NULL);
-	l2.setText("Location");
-	uriText = new Text(composite, SWT.BORDER);
-	if(uri != null) {
-	    uriText.setText(uri);
+
+	public String getName() {
+		return this.name;
 	}
-	uriText.addModifyListener(lis);
 
-	setTitle(title);
-	setMessage("Enter a name and location.");
+	@Override
+	protected Control createDialogArea(Composite parent) {
+		Composite composite = new Composite(parent, SWT.NULL);
+		composite.setLayout(new GridLayout(2, false));
+		composite.setLayoutData(new GridData(GridData.FILL_BOTH));
 
-	return composite;
-    }
+		Text messageLabel = new Text(parent, SWT.WRAP | SWT.READ_ONLY);
+		messageLabel.setText(locMsg); // two lines//$NON-NLS-1$
+		messageLabel.setFont(JFaceResources.getDialogFont());
+		messageLabel.setBackground(composite.getBackground());
+		GridData gd = new GridData(GridData.FILL_BOTH);
+		gd.horizontalSpan = 2;
+		messageLabel.setLayoutData(gd);
 
-    private void textChanged() {
-	if(nameText.getText().length() > 0 && uriText.getText().length() > 0) {
-	    this.getButton(IDialogConstants.OK_ID).setEnabled(true);
-	} else {
-	    this.getButton(IDialogConstants.OK_ID).setEnabled(false);
+		Label l1 = new Label(composite, SWT.NULL);
+		l1.setText("Name");
+		ModifyListener lis = new ModifyListener() {
+			@Override
+			public void modifyText(ModifyEvent e) {
+				textChanged();
+			}
+		};
+		nameText = new Text(composite, SWT.BORDER);
+		if (name != null) {
+			nameText.setText(name);
+		}
+		nameText.addModifyListener(lis);
+		Label l2 = new Label(composite, SWT.NULL);
+		l2.setText("Location");
+		uriText = new Text(composite, SWT.BORDER);
+		if (uri != null) {
+			uriText.setText(uri);
+		}
+		uriText.addModifyListener(lis);
+
+		setTitle(title);
+		setMessage("Enter a name and location.");
+
+		return composite;
 	}
-    }
 
-    @Override
-    protected void okPressed() {
-	this.name = nameText.getText();
-	this.uri = uriText.getText();
-	super.okPressed();
-    }
+	private void textChanged() {
+		if (nameText.getText().length() > 0 && uriText.getText().length() > 0) {
+			this.getButton(IDialogConstants.OK_ID).setEnabled(true);
+		} else {
+			this.getButton(IDialogConstants.OK_ID).setEnabled(false);
+		}
+	}
 
-    public String getUri() {
-        return uri;
-    }
+	@Override
+	protected void okPressed() {
+		this.name = nameText.getText();
+		this.uri = uriText.getText();
+		super.okPressed();
+	}
 
-    public void setUri(String uri) {
-        this.uri = uri;
-    }
+	public String getUri() {
+		return uri;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public void setUri(String uri) {
+		this.uri = uri;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 
 }

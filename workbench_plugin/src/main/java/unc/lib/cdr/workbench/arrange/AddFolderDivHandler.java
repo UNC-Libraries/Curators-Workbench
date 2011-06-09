@@ -39,63 +39,61 @@ import unc.lib.cdr.workbench.project.MetsProjectNature;
 
 public class AddFolderDivHandler extends AbstractHandler {
 
-@SuppressWarnings("unused")
-private static final Logger LOG = LoggerFactory.getLogger(AddFolderDivHandler.class);
-    /*
-     * (non-Javadoc)
-     *
-     * @see
-     * org.eclipse.core.commands.IHandler#execute(org.eclipse.core.commands.
-     * ExecutionEvent)
-     */
-    @Override
-    public Object execute(ExecutionEvent event) throws ExecutionException {
-	IStructuredSelection select = (IStructuredSelection) HandlerUtil.getCurrentSelectionChecked(event);
-	DivType within = null;
-	MetsProjectNature mpn = null;
-	Object o = select.getFirstElement();
-	LOG.debug("HEREHERE "+o.toString());
-	if (o instanceof IProject || o instanceof ArrangementProjectElement) {
-	    // get the bag div
-	    IProject p = null;
-	    if(o instanceof IProject) {
-		p = (IProject) o;
-	    } else {
-		p = ((ArrangementProjectElement)o).getProject();
-	    }
-	    try {
-		mpn = (MetsProjectNature) p.getNature(MetsProjectNature.NATURE_ID);
-		within = METSUtils.findBagDiv(mpn.getMets());
-	    } catch (CoreException e) {
-		throw new ExecutionException("Project must have a METS nature.", e);
-	    }
-	} else if (o instanceof DivType) {
-	    within = (DivType) o;
-	}
-	LOG.debug("WITHIN "+within.toString());
-	IInputValidator v = new IInputValidator() {
-	    @Override
-	    public String isValid(String newText) {
-		if (newText.trim().length() < 1) {
-		    return "Name cannot be empty or blank";
+	@SuppressWarnings("unused")
+	private static final Logger LOG = LoggerFactory.getLogger(AddFolderDivHandler.class);
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.core.commands.IHandler#execute(org.eclipse.core.commands. ExecutionEvent)
+	 */
+	@Override
+	public Object execute(ExecutionEvent event) throws ExecutionException {
+		IStructuredSelection select = (IStructuredSelection) HandlerUtil.getCurrentSelectionChecked(event);
+		DivType within = null;
+		MetsProjectNature mpn = null;
+		Object o = select.getFirstElement();
+		LOG.debug("HEREHERE " + o.toString());
+		if (o instanceof IProject || o instanceof ArrangementProjectElement) {
+			// get the bag div
+			IProject p = null;
+			if (o instanceof IProject) {
+				p = (IProject) o;
+			} else {
+				p = ((ArrangementProjectElement) o).getProject();
+			}
+			try {
+				mpn = (MetsProjectNature) p.getNature(MetsProjectNature.NATURE_ID);
+				within = METSUtils.findBagDiv(mpn.getMets());
+			} catch (CoreException e) {
+				throw new ExecutionException("Project must have a METS nature.", e);
+			}
+		} else if (o instanceof DivType) {
+			within = (DivType) o;
+		}
+		LOG.debug("WITHIN " + within.toString());
+		IInputValidator v = new IInputValidator() {
+			@Override
+			public String isValid(String newText) {
+				if (newText.trim().length() < 1) {
+					return "Name cannot be empty or blank";
+				}
+				return null;
+			}
+		};
+		InputDialog d = new InputDialog(HandlerUtil.getActiveShell(event), "Folder Name", "Enter the folder name.", "", v);
+		if (InputDialog.OK == d.open()) {
+			DivType div = MetsFactory.eINSTANCE.createDivType();
+			div.setLABEL1(d.getValue());
+			String ID = METSUtils.makeXMLUUID();
+			div.setID(ID);
+			div.setTYPE(METSConstants.Div_Folder);
+
+			EditingDomain ed = MetsProjectNature.getEditingDomain(within);
+			Command cmd = AddCommand.create(ed, within, null, div);
+			ed.getCommandStack().execute(cmd);
 		}
 		return null;
-	    }
-	};
-	InputDialog d = new InputDialog(HandlerUtil.getActiveShell(event), "Folder Name", "Enter the folder name.", "",
-			v);
-	if (InputDialog.OK == d.open()) {
-	    DivType div = MetsFactory.eINSTANCE.createDivType();
-	    div.setLABEL1(d.getValue());
-	    String ID = METSUtils.makeXMLUUID();
-	    div.setID(ID);
-	    div.setTYPE(METSConstants.Div_Folder);
-
-	    EditingDomain ed = MetsProjectNature.getEditingDomain(within);
-	    Command cmd = AddCommand.create(ed, within, null, div);
-	    ed.getCommandStack().execute(cmd);
 	}
-	return null;
-    }
 
 }

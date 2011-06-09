@@ -21,28 +21,28 @@ import unc.lib.cdr.workbench.IResourceConstants;
 
 /**
  * @author Gregory Jansen
- *
+ * 
  */
 public class CrosswalkTreeElement {
-    IFile file = null;
+	IFile file = null;
 
-    public CrosswalkTreeElement(IFile file) {
-	this.file = file;
-    }
+	public CrosswalkTreeElement(IFile file) {
+		this.file = file;
+	}
 
-    /**
-     * @return
-     */
-    public IFile getFile() {
-	return this.file;
-    }
+	/**
+	 * @return
+	 */
+	public IFile getFile() {
+		return this.file;
+	}
 
-    /**
-     * @return
-     */
-    public String getName() {
-	String fname = this.file.getName();
-	return fname.substring(0, fname.length() - IResourceConstants.CROSSWALK_EXTENSION.length() - 1);
-    }
+	/**
+	 * @return
+	 */
+	public String getName() {
+		String fname = this.file.getName();
+		return fname.substring(0, fname.length() - IResourceConstants.CROSSWALK_EXTENSION.length() - 1);
+	}
 
 }

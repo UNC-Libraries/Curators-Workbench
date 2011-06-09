@@ -30,73 +30,73 @@ import unc.lib.cdr.workbench.project.MetsProjectNature;
 
 /**
  * @author Gregory Jansen
- *
+ * 
  */
 public class CrosswalksProjectElement extends AbstractCustomProjectElement {
-    private static final String text = "Crosswalks";
-    private IFolder folder = null;
+	private static final String text = "Crosswalks";
+	private IFolder folder = null;
 
-    public CrosswalksProjectElement(MetsProjectNature nature) {
-	super(nature);
-	folder = this.getProject().getFolder("crosswalks");
-    }
-
-    /*
-     * (non-Javadoc)
-     *
-     * @see unc.lib.cdr.workbench.project.ICustomProjectElement#getImage()
-     */
-    @Override
-    public ImageDescriptor getImageDescriptor() {
-	// TODO Auto-generated method stub
-	return null;
-    }
-
-    /*
-     * (non-Javadoc)
-     *
-     * @see unc.lib.cdr.workbench.project.ICustomProjectElement#getChildren()
-     */
-    @Override
-    public Object[] getChildren() {
-	List<CrosswalkTreeElement> results = new ArrayList<CrosswalkTreeElement>();
-	try {
-	    for(IResource r : folder.members()) {
-		if(r instanceof IFile) {
-		    IFile cwfile = (IFile)r;
-		    if(IResourceConstants.CROSSWALK_EXTENSION.equals(cwfile.getFileExtension())) {
-			results.add(new CrosswalkTreeElement(cwfile));
-		    }
-		}
-	    }
-	    return results.toArray();
-	} catch (CoreException ignored) {
+	public CrosswalksProjectElement(MetsProjectNature nature) {
+		super(nature);
+		folder = this.getProject().getFolder("crosswalks");
 	}
-	return NO_CHILDREN;
-    }
 
-    public IFolder getFolder() {
-        return folder;
-    }
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see unc.lib.cdr.workbench.project.ICustomProjectElement#getImage()
+	 */
+	@Override
+	public ImageDescriptor getImageDescriptor() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see unc.lib.cdr.workbench.project.ICustomProjectElement#getText()
-     */
-    @Override
-    public String getText() {
-	return text;
-    }
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see unc.lib.cdr.workbench.project.ICustomProjectElement#getChildren()
+	 */
+	@Override
+	public Object[] getChildren() {
+		List<CrosswalkTreeElement> results = new ArrayList<CrosswalkTreeElement>();
+		try {
+			for (IResource r : folder.members()) {
+				if (r instanceof IFile) {
+					IFile cwfile = (IFile) r;
+					if (IResourceConstants.CROSSWALK_EXTENSION.equals(cwfile.getFileExtension())) {
+						results.add(new CrosswalkTreeElement(cwfile));
+					}
+				}
+			}
+			return results.toArray();
+		} catch (CoreException ignored) {
+		}
+		return NO_CHILDREN;
+	}
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see unc.lib.cdr.workbench.project.ICustomProjectElement#hasChildren()
-     */
-    @Override
-    public boolean hasChildren() {
-	return true;
-    }
+	public IFolder getFolder() {
+		return folder;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see unc.lib.cdr.workbench.project.ICustomProjectElement#getText()
+	 */
+	@Override
+	public String getText() {
+		return text;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see unc.lib.cdr.workbench.project.ICustomProjectElement#hasChildren()
+	 */
+	@Override
+	public boolean hasChildren() {
+		return true;
+	}
 
 }

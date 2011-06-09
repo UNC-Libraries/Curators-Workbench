@@ -36,104 +36,101 @@ import unc.lib.cdr.workbench.IResourceConstants;
 
 /**
  * @author Gregory Jansen
- *
+ * 
  */
 public class OriginalFolderSnapshotJob extends Job {
-    IFolder folder = null;
+	IFolder folder = null;
 
-    /**
-     * @param name
-     *            job name
-     * @param folder
-     *            IFolder to rescan
-     */
-    public OriginalFolderSnapshotJob(IFolder folder, boolean checksum) {
-	super("take snapshot of "+folder.getName());
-	this.folder = folder;
-    }
-
-    /*
-     * (non-Javadoc)
-     *
-     * @seeorg.eclipse.core.runtime.jobs.Job#run(org.eclipse.core.runtime.
-     * IProgressMonitor)
-     */
-    @Override
-    protected IStatus run(IProgressMonitor monitor) {
-	if(monitor == null) {
-	    monitor = new NullProgressMonitor();
+	/**
+	 * @param name
+	 *           job name
+	 * @param folder
+	 *           IFolder to rescan
+	 */
+	public OriginalFolderSnapshotJob(IFolder folder, boolean checksum) {
+		super("take snapshot of " + folder.getName());
+		this.folder = folder;
 	}
-	try {
-	    System.out.println("starting folder snapshot");
-	    // TODO compare with last snapshot and update markers for changes found
-	    // making "initial snapshot" vs. "taking up to date snapshot of original files"
 
-	    // test to make sure project is open
-	    IProject project = this.folder.getProject();
-	    if (!project.isOpen()) {
-		throw new CoreException(new Status(Status.ERROR, PLUGIN_ID, "The project is not open."));
-	    }
-
-	    // test to make sure top folder store is attached.
-	    URI topLocation = this.folder.getLocationURI();
-	    System.out.println("HERE: "+topLocation);
-	    IFileStore store = EFS.getStore(topLocation);
-	    if(!store.fetchInfo(EFS.NONE, monitor).exists()) {
-		return new Status(Status.ERROR, PLUGIN_ID, "The original files are not connected");
-	    }
-
-	    //fg.setVersDate(dateFormat.format(new Date(System.currentTimeMillis())));
-
-	    // recurse IFolder, capture structure and file info
-	    monitor.subTask("Refreshing linked original files..");
-	    snapshotResource(this.folder, monitor);
-	    project.getWorkspace().save(false, monitor);
-	} catch (CoreException e) {
-	    e.printStackTrace();
-	    return e.getStatus();
-	}
-	return Status.OK_STATUS;
-    }
-
-
-
-    private void snapshotResource(IResource r, IProgressMonitor monitor) throws CoreException {
-	r.refreshLocal(IResource.DEPTH_ONE, monitor);
-
-	// link and fill out the file record
-	fillInfo(r);
-
-	// recurse if a folder
-	if (r instanceof IFolder) {
-	    IFolder f = (IFolder) r;
-	    IResource[] members = null;
-	    try {
-		members = f.members();
-	    } catch (CoreException ignored) {
-		// folder no longer exists
-		// project not open
-	    }
-	    if (members != null) {
-		for (IResource child : members) {
-		    snapshotResource(child, monitor);
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @seeorg.eclipse.core.runtime.jobs.Job#run(org.eclipse.core.runtime. IProgressMonitor)
+	 */
+	@Override
+	protected IStatus run(IProgressMonitor monitor) {
+		if (monitor == null) {
+			monitor = new NullProgressMonitor();
 		}
-	    }
-	}
-    }
+		try {
+			System.out.println("starting folder snapshot");
+			// TODO compare with last snapshot and update markers for changes found
+			// making "initial snapshot" vs. "taking up to date snapshot of original files"
 
-    /**
-     * @param file
-     * @param r
-     */
-    private void fillInfo(IResource r) throws CoreException {
-	URI loc = r.getLocationURI();
-	IFileStore st = EFS.getStore(loc);
-	IFileInfo info = st.fetchInfo();
-	if(!info.isDirectory()) {
-	    r.setPersistentProperty(IResourceConstants.BYTE_SIZE, Long.toString(info.getLength()));
+			// test to make sure project is open
+			IProject project = this.folder.getProject();
+			if (!project.isOpen()) {
+				throw new CoreException(new Status(Status.ERROR, PLUGIN_ID, "The project is not open."));
+			}
+
+			// test to make sure top folder store is attached.
+			URI topLocation = this.folder.getLocationURI();
+			System.out.println("HERE: " + topLocation);
+			IFileStore store = EFS.getStore(topLocation);
+			if (!store.fetchInfo(EFS.NONE, monitor).exists()) {
+				return new Status(Status.ERROR, PLUGIN_ID, "The original files are not connected");
+			}
+
+			// fg.setVersDate(dateFormat.format(new Date(System.currentTimeMillis())));
+
+			// recurse IFolder, capture structure and file info
+			monitor.subTask("Refreshing linked original files..");
+			snapshotResource(this.folder, monitor);
+			project.getWorkspace().save(false, monitor);
+		} catch (CoreException e) {
+			e.printStackTrace();
+			return e.getStatus();
+		}
+		return Status.OK_STATUS;
 	}
-	r.setPersistentProperty(IResourceConstants.MODIFIED_TIMESTAMP, Long.toString(info.getLastModified()));
-	r.setPersistentProperty(IResourceConstants.ORIGINAL_NAME, info.getName());
-    }
+
+	private void snapshotResource(IResource r, IProgressMonitor monitor) throws CoreException {
+		r.refreshLocal(IResource.DEPTH_ONE, monitor);
+
+		// link and fill out the file record
+		fillInfo(r);
+
+		// recurse if a folder
+		if (r instanceof IFolder) {
+			IFolder f = (IFolder) r;
+			IResource[] members = null;
+			try {
+				members = f.members();
+			} catch (CoreException ignored) {
+				// folder no longer exists
+				// project not open
+			}
+			if (members != null) {
+				for (IResource child : members) {
+					snapshotResource(child, monitor);
+				}
+			}
+		}
+	}
+
+	/**
+	 * @param file
+	 * @param r
+	 */
+	private void fillInfo(IResource r) throws CoreException {
+		URI loc = r.getLocationURI();
+		IFileStore st = EFS.getStore(loc);
+		IFileInfo info = st.fetchInfo();
+		if (!info.isDirectory()) {
+			r.setPersistentProperty(IResourceConstants.BYTE_SIZE, Long.toString(info.getLength()));
+		}
+		r.setPersistentProperty(IResourceConstants.MODIFIED_TIMESTAMP, Long.toString(info.getLastModified()));
+		r.setPersistentProperty(IResourceConstants.ORIGINAL_NAME, info.getName());
+	}
 
 }

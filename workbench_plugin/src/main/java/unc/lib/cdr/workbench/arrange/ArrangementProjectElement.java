@@ -22,47 +22,56 @@ import unc.lib.cdr.workbench.project.MetsProjectNature;
 
 /**
  * @author Gregory Jansen
- *
+ * 
  */
 public class ArrangementProjectElement extends AbstractCustomProjectElement {
-    /**
-     * @param n
-     */
-    public ArrangementProjectElement(MetsProjectNature n) {
-	super(n);
-    }
-    private static final String label = "Arrangement";
+	/**
+	 * @param n
+	 */
+	public ArrangementProjectElement(MetsProjectNature n) {
+		super(n);
+	}
 
-    /* (non-Javadoc)
-     * @see unc.lib.cdr.workbench.project.ICustomProjectElement#getImage()
-     */
-    @Override
-    public ImageDescriptor getImageDescriptor() {
-	return null;
-    }
+	private static final String label = "Arrangement";
 
-    /* (non-Javadoc)
-     * @see unc.lib.cdr.workbench.project.ICustomProjectElement#getChildren()
-     */
-    @Override
-    public Object[] getChildren() {
-	return null;
-    }
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see unc.lib.cdr.workbench.project.ICustomProjectElement#getImage()
+	 */
+	@Override
+	public ImageDescriptor getImageDescriptor() {
+		return null;
+	}
 
-    /* (non-Javadoc)
-     * @see unc.lib.cdr.workbench.project.ICustomProjectElement#getText()
-     */
-    @Override
-    public String getText() {
-	return label;
-    }
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see unc.lib.cdr.workbench.project.ICustomProjectElement#getChildren()
+	 */
+	@Override
+	public Object[] getChildren() {
+		return null;
+	}
 
-    /* (non-Javadoc)
-     * @see unc.lib.cdr.workbench.project.ICustomProjectElement#hasChildren()
-     */
-    @Override
-    public boolean hasChildren() {
-	return true;
-    }
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see unc.lib.cdr.workbench.project.ICustomProjectElement#getText()
+	 */
+	@Override
+	public String getText() {
+		return label;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see unc.lib.cdr.workbench.project.ICustomProjectElement#hasChildren()
+	 */
+	@Override
+	public boolean hasChildren() {
+		return true;
+	}
 
 }

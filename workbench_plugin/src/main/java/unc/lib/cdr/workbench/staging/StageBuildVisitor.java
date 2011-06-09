@@ -24,7 +24,6 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.OperationCanceledException;
 import org.eclipse.core.runtime.SubProgressMonitor;
-import org.eclipse.ui.actions.BuildAction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -32,46 +31,44 @@ import unc.lib.cdr.workbench.IResourceConstants;
 
 /**
  * @author Gregory Jansen
- *
+ * 
  */
 public class StageBuildVisitor implements IResourceVisitor {
-    private static final Logger log = LoggerFactory.getLogger(StageBuildVisitor.class);
-    IProgressMonitor monitor = null;
-    boolean audit = false;
+	private static final Logger log = LoggerFactory.getLogger(StageBuildVisitor.class);
+	IProgressMonitor monitor = null;
+	boolean audit = false;
 
-    public StageBuildVisitor(boolean audit, IProgressMonitor monitor) {
-	log.debug("created");
-	this.monitor = monitor;
-	this.audit = audit;
-    }
-
-    /*
-     * (non-Javadoc)
-     *
-     * @see
-     * org.eclipse.core.resources.IResourceVisitor#visit(org.eclipse.core.resources
-     * .IResource)
-     */
-    @Override
-    public boolean visit(IResource r) throws CoreException {
-	if (this.monitor.isCanceled()) {
-	    throw new OperationCanceledException();
+	public StageBuildVisitor(boolean audit, IProgressMonitor monitor) {
+		log.debug("created");
+		this.monitor = monitor;
+		this.audit = audit;
 	}
-	if (r instanceof IContainer) {
-	    return true;
-	} else if (r instanceof IFile) {
-	    // is it already staged?
-	    IMarker[] captured = r.findMarkers(IResourceConstants.MARKER_CAPTURED, false, IResource.DEPTH_ZERO);
-	    IMarker[] staged = r.findMarkers(IResourceConstants.MARKER_STAGED, false, IResource.DEPTH_ZERO);
-	    if (captured.length > 0) {
-		if(staged.length == 0) {
-		    StagingUtils.stage((IFile) r, new SubProgressMonitor(monitor, 1));
-		} else {
-		    StagingUtils.audit((IFile) r, new SubProgressMonitor(monitor, 1));
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.core.resources.IResourceVisitor#visit(org.eclipse.core.resources .IResource)
+	 */
+	@Override
+	public boolean visit(IResource r) throws CoreException {
+		if (this.monitor.isCanceled()) {
+			throw new OperationCanceledException();
 		}
-	    }
+		if (r instanceof IContainer) {
+			return true;
+		} else if (r instanceof IFile) {
+			// is it already staged?
+			IMarker[] captured = r.findMarkers(IResourceConstants.MARKER_CAPTURED, false, IResource.DEPTH_ZERO);
+			IMarker[] staged = r.findMarkers(IResourceConstants.MARKER_STAGED, false, IResource.DEPTH_ZERO);
+			if (captured.length > 0) {
+				if (staged.length == 0) {
+					StagingUtils.stage((IFile) r, new SubProgressMonitor(monitor, 1));
+				} else {
+					StagingUtils.audit((IFile) r, new SubProgressMonitor(monitor, 1));
+				}
+			}
+		}
+		return false;
 	}
-	return false;
-    }
 
 }

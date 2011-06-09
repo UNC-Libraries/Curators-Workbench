@@ -5,7 +5,6 @@ import gov.loc.mets.MetsFactory;
 import gov.loc.mets.MetsPackage;
 import gov.loc.mets.SmLinkType;
 import gov.loc.mets.StructLinkType1;
-import gov.loc.mets.provider.DivTypeItemProvider;
 import gov.loc.mets.util.METSConstants;
 
 import java.util.List;
@@ -20,7 +19,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.impl.NotificationImpl;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.SetCommand;
-import org.eclipse.emf.edit.provider.ItemProvider;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.graphics.Image;

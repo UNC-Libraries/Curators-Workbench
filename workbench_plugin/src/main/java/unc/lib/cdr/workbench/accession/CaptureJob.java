@@ -43,7 +43,6 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Status;
-import org.eclipse.core.runtime.SubProgressMonitor;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.util.EList;
 import org.slf4j.Logger;
@@ -51,11 +50,10 @@ import org.slf4j.LoggerFactory;
 
 import unc.lib.cdr.workbench.IResourceConstants;
 import unc.lib.cdr.workbench.project.MetsProjectNature;
-import unc.lib.cdr.workbench.staging.StagingUtils;
 
 /**
  * @author Gregory Jansen
- *
+ * 
  */
 public class CaptureJob extends Job {
 	private static final Logger log = LoggerFactory.getLogger(CaptureJob.class);
@@ -104,7 +102,7 @@ public class CaptureJob extends Job {
 
 	/*
 	 * if parent folders have been arranged, they will stay in their places, reset arrangement is separate! (non-Javadoc)
-	 *
+	 * 
 	 * @seeorg.eclipse.core.runtime.jobs.Job#run(org.eclipse.core.runtime. IProgressMonitor)
 	 */
 	@Override

@@ -57,15 +57,13 @@ import unc.lib.cdr.workbench.rcp.Activator;
  * 
  */
 public class StagingUtils {
-	private static final Logger log = LoggerFactory
-			.getLogger(StagingUtils.class);
+	private static final Logger log = LoggerFactory.getLogger(StagingUtils.class);
 	private static final int chunkSize = 8192;
 
 	/**
 	 * @param r
 	 */
-	public static void stage(IFile f, IProgressMonitor monitor)
-			throws CoreException {
+	public static void stage(IFile f, IProgressMonitor monitor) throws CoreException {
 		if (monitor == null) {
 			monitor = new NullProgressMonitor();
 		}
@@ -83,10 +81,7 @@ public class StagingUtils {
 		} catch (CoreException e) {
 			// Cannot locate source file, set warn marker
 			IMarker m = f.createMarker(IMarker.PROBLEM);
-			m.setAttribute(
-					IMarker.MESSAGE,
-					"Failed to read captured file for staging: "
-							+ e.getLocalizedMessage());
+			m.setAttribute(IMarker.MESSAGE, "Failed to read captured file for staging: " + e.getLocalizedMessage());
 			m.setAttribute(IMarker.SEVERITY, IMarker.SEVERITY_ERROR);
 			return;
 		}
@@ -94,8 +89,7 @@ public class StagingUtils {
 		// calculate # of blocks
 		MetsProjectNature mpn;
 		try {
-			mpn = (MetsProjectNature) f.getProject().getNature(
-					MetsProjectNature.NATURE_ID);
+			mpn = (MetsProjectNature) f.getProject().getNature(MetsProjectNature.NATURE_ID);
 		} catch (CoreException e) {
 			// Unexpected error, rethrow
 			throw e;
@@ -117,28 +111,23 @@ public class StagingUtils {
 			} catch (CoreException e) {
 				// Cannot delete previous staged version, set error marker
 				IMarker m = f.createMarker(IMarker.PROBLEM);
-				m.setAttribute(
-						IMarker.MESSAGE,
-						"Failed to delete previously staged version: "
-								+ e.getLocalizedMessage());
+				m.setAttribute(IMarker.MESSAGE, "Failed to delete previously staged version: " + e.getLocalizedMessage());
 				m.setAttribute(IMarker.SEVERITY, IMarker.SEVERITY_ERROR);
 				e.printStackTrace();
 			}
 		}
 
-		FileType fileRec = METSUtils.getDataFile(mpn.getMets(), divID,
-				f.getLocationURI());
+		FileType fileRec = METSUtils.getDataFile(mpn.getMets(), divID, f.getLocationURI());
 		setupMon.done();
 
 		// stage the file
-		IProgressMonitor copyMonitor = new SubProgressMonitor(monitor, 50, SubProgressMonitor.PREPEND_MAIN_LABEL_TO_SUBTASK);
+		IProgressMonitor copyMonitor = new SubProgressMonitor(monitor, 50,
+				SubProgressMonitor.PREPEND_MAIN_LABEL_TO_SUBTASK);
 		String sourceMD5 = null;
 		try {
-			copyMonitor.beginTask(
-					"", 100);
+			copyMonitor.beginTask("", 100);
 			copyMonitor.subTask("Copying to stage");
-			sourceMD5 = copyWithMD5Digest(sourceFileStore, stageFileStore,
-					sourceFileInfo, copyMonitor);
+			sourceMD5 = copyWithMD5Digest(sourceFileStore, stageFileStore, sourceFileInfo, copyMonitor);
 			copyMonitor.done();
 		} catch (CoreException e) {
 			// Unexpected copy error, rethrow
@@ -150,7 +139,8 @@ public class StagingUtils {
 		// get the digest of the staged file
 		String stagedMD5;
 		try {
-			IProgressMonitor stagedChecksumMonitor = new SubProgressMonitor(monitor, 49, SubProgressMonitor.PREPEND_MAIN_LABEL_TO_SUBTASK);
+			IProgressMonitor stagedChecksumMonitor = new SubProgressMonitor(monitor, 49,
+					SubProgressMonitor.PREPEND_MAIN_LABEL_TO_SUBTASK);
 			// stagedChecksumMonitor.subTask("Getting digest for staged file.. ");
 			stagedMD5 = fetchMD5Digest(stageFileStore, stagedChecksumMonitor); // 1 tick
 		} catch (CoreException e) {
@@ -160,20 +150,17 @@ public class StagingUtils {
 
 		if (!sourceMD5.equals(stagedMD5)) {
 			IMarker m = f.createMarker(IMarker.PROBLEM);
-			m.setAttribute(IMarker.MESSAGE,
-					"staged file does not match original checksum");
+			m.setAttribute(IMarker.MESSAGE, "staged file does not match original checksum");
 			m.setAttribute(IMarker.SEVERITY, IMarker.SEVERITY_ERROR);
 		} else {
 			// now update markers and record File in METS
 			stageFileInfo = stageFileStore.fetchInfo();
 			// checksum, size, location type, other loc type, URI
-			METSUtils.addStagedFileLocator(mpn.getMets(), divID,
-					f.getLocationURI(), stageFileStore.toURI(),
+			METSUtils.addStagedFileLocator(mpn.getMets(), divID, f.getLocationURI(), stageFileStore.toURI(),
 					LOCTYPEType.OTHER, METSConstants.LocType_EFS_SCHEME);
 			f.findMarkers(IMarker.PROBLEM, true, IResource.DEPTH_ZERO);
 			IMarker staged = f.createMarker(IResourceConstants.MARKER_STAGED);
-			staged.setAttribute("stage.uri", stageFileStore.toURI()
-					.toASCIIString());
+			staged.setAttribute("stage.uri", stageFileStore.toURI().toASCIIString());
 		}
 		f.refreshLocal(Resource.DEPTH_ZERO, monitor);
 		monitor.done();
@@ -230,13 +217,11 @@ public class StagingUtils {
 	 * @param stageFileStore
 	 * @return
 	 */
-	public static String fetchMD5Digest(IFileStore fileStore,
-			IProgressMonitor monitor) throws CoreException {
+	public static String fetchMD5Digest(IFileStore fileStore, IProgressMonitor monitor) throws CoreException {
 		String result = null;
 		IFileInfo info = null;
 		if (fileStore instanceof IrodsFileStore) {
-			monitor.beginTask("Retrieving checksum from iRODS",
-					1);
+			monitor.beginTask("Retrieving checksum from iRODS", 1);
 			info = fileStore.fetchInfo();
 			result = info.getStringAttribute(EFS.ATTRIBUTE_LINK_TARGET);
 			monitor.done();
@@ -247,28 +232,25 @@ public class StagingUtils {
 			try {
 				messageDigest = MessageDigest.getInstance("MD5");
 			} catch (NoSuchAlgorithmException e) {
-				throw new CoreException(new Status(Status.ERROR,
-						Activator.PLUGIN_ID,
+				throw new CoreException(new Status(Status.ERROR, Activator.PLUGIN_ID,
 						"Cannot create checksum without MD5 algorithm.", e));
 			}
 			messageDigest.reset();
 			byte[] buffer = new byte[chunkSize];
 			int bytesRead = 0;
 			int totalBytesRead = 0;
-			int progressTickBytes = (int)info.getLength()/100; 
-			BufferedInputStream in = new BufferedInputStream(
-					fileStore.openInputStream(EFS.NONE, null));
+			int progressTickBytes = (int) info.getLength() / 100;
+			BufferedInputStream in = new BufferedInputStream(fileStore.openInputStream(EFS.NONE, null));
 			try {
 				while ((bytesRead = in.read(buffer, 0, chunkSize)) != -1) {
 					messageDigest.update(buffer, 0, bytesRead);
 					totalBytesRead = totalBytesRead + bytesRead;
-					if((totalBytesRead % progressTickBytes) < bytesRead) {
-						monitor.worked(1);	
+					if ((totalBytesRead % progressTickBytes) < bytesRead) {
+						monitor.worked(1);
 					}
 				}
 			} catch (IOException e) {
-				throw new CoreException(new Status(Status.ERROR,
-						Activator.PLUGIN_ID,
+				throw new CoreException(new Status(Status.ERROR, Activator.PLUGIN_ID,
 						"Cannot read file store to calculate MD5 digest.", e));
 			}
 			Hex hex = new Hex();
@@ -278,8 +260,7 @@ public class StagingUtils {
 		return result;
 	}
 
-	public static final String copyWithMD5Digest(IFileStore source,
-			IFileStore destination, IFileInfo sourceInfo,
+	public static final String copyWithMD5Digest(IFileStore source, IFileStore destination, IFileInfo sourceInfo,
 			IProgressMonitor monitor) throws CoreException {
 		// TODO honor cancellation requests during copy
 		// TODO report progress
@@ -299,33 +280,29 @@ public class StagingUtils {
 			try {
 				messageDigest = MessageDigest.getInstance("MD5");
 			} catch (NoSuchAlgorithmException e) {
-				throw new CoreException(new Status(Status.ERROR,
-						Activator.PLUGIN_ID,
+				throw new CoreException(new Status(Status.ERROR, Activator.PLUGIN_ID,
 						"Cannot compare checksums without MD5 algorithm.", e));
 			}
 			messageDigest.reset();
-			in = new BufferedInputStream(
-					source.openInputStream(EFS.NONE, null), 1024 * 64);
+			in = new BufferedInputStream(source.openInputStream(EFS.NONE, null), 1024 * 64);
 			destination.getParent().mkdir(EFS.NONE, null);
-			out = new BufferedOutputStream(destination.openOutputStream(
-					EFS.NONE, null), 1024 * 64);
+			out = new BufferedOutputStream(destination.openOutputStream(EFS.NONE, null), 1024 * 64);
 			while ((bytesRead = in.read(buffer, 0, chunkSize)) != -1) {
 				out.write(buffer, 0, bytesRead);
 				messageDigest.update(buffer, 0, bytesRead);
 				totalBytesCopied = totalBytesCopied + bytesRead;
 				if ((totalBytesCopied % progressTickBytes) < bytesRead) {
 					monitor.worked(1);
-					if(length > 0) {
-						int percent = (int) (100.0*((float)totalBytesCopied/length));
-						monitor.subTask(percent+"% ("+totalBytesCopied/1024+"/"+length/1024+"K)");
+					if (length > 0) {
+						int percent = (int) (100.0 * ((float) totalBytesCopied / length));
+						monitor.subTask(percent + "% (" + totalBytesCopied / 1024 + "/" + length / 1024 + "K)");
 					}
 				}
 			}
 			Hex hex = new Hex();
 			result = new String(hex.encode(messageDigest.digest()));
 		} catch (IOException e) {
-			throw new CoreException(new Status(Status.ERROR,
-					Activator.PLUGIN_ID, e.getLocalizedMessage(), e));
+			throw new CoreException(new Status(Status.ERROR, Activator.PLUGIN_ID, e.getLocalizedMessage(), e));
 		} finally {
 			try {
 				if (out != null) {
@@ -336,8 +313,7 @@ public class StagingUtils {
 					in.close();
 				}
 			} catch (IOException e) {
-				throw new CoreException(new Status(Status.ERROR,
-						Activator.PLUGIN_ID, e.getLocalizedMessage(), e));
+				throw new CoreException(new Status(Status.ERROR, Activator.PLUGIN_ID, e.getLocalizedMessage(), e));
 			}
 		}
 		return result;

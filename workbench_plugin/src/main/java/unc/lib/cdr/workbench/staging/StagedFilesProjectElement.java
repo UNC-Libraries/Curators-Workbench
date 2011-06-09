@@ -17,7 +17,6 @@ package unc.lib.cdr.workbench.staging;
 
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.runtime.CoreException;
-import org.eclipse.emf.validation.internal.util.Log;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,72 +27,72 @@ import unc.lib.cdr.workbench.rcp.Activator;
 
 /**
  * @author Gregory Jansen
- *
+ * 
  */
 public class StagedFilesProjectElement extends AbstractCustomProjectElement {
 
-@SuppressWarnings("unused")
-private static final Logger LOG = LoggerFactory.getLogger(StagedFilesProjectElement.class);
+	@SuppressWarnings("unused")
+	private static final Logger LOG = LoggerFactory.getLogger(StagedFilesProjectElement.class);
 
-    private static final String text = "Staged Files";
-    private IFolder folder = null;
+	private static final String text = "Staged Files";
+	private IFolder folder = null;
 
-    public StagedFilesProjectElement(MetsProjectNature nature) {
-	super(nature);
-	folder = nature.getStageFolder();
-    }
-
-    /*
-     * (non-Javadoc)
-     *
-     * @see unc.lib.cdr.workbench.project.ICustomProjectElement#getImage()
-     */
-    @Override
-    public ImageDescriptor getImageDescriptor() {
-	return null;
-    }
-
-    /*
-     * (non-Javadoc)
-     *
-     * @see unc.lib.cdr.workbench.project.ICustomProjectElement#getChildren()
-     */
-    @Override
-    public Object[] getChildren() {
-	try {
-	    if (this.getFolder() != null) {
-		return this.getFolder().members();
-	    } else {
-		LOG.debug("stage folder was null");
-	    }
-	} catch (CoreException e) {
-	    Activator.getDefault().getLog().log(e.getStatus());
+	public StagedFilesProjectElement(MetsProjectNature nature) {
+		super(nature);
+		folder = nature.getStageFolder();
 	}
-	return NO_CHILDREN;
-    }
 
-    public IFolder getFolder() {
-	return folder;
-    }
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see unc.lib.cdr.workbench.project.ICustomProjectElement#getImage()
+	 */
+	@Override
+	public ImageDescriptor getImageDescriptor() {
+		return null;
+	}
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see unc.lib.cdr.workbench.project.ICustomProjectElement#getText()
-     */
-    @Override
-    public String getText() {
-	return text;
-    }
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see unc.lib.cdr.workbench.project.ICustomProjectElement#getChildren()
+	 */
+	@Override
+	public Object[] getChildren() {
+		try {
+			if (this.getFolder() != null) {
+				return this.getFolder().members();
+			} else {
+				LOG.debug("stage folder was null");
+			}
+		} catch (CoreException e) {
+			Activator.getDefault().getLog().log(e.getStatus());
+		}
+		return NO_CHILDREN;
+	}
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see unc.lib.cdr.workbench.project.ICustomProjectElement#hasChildren()
-     */
-    @Override
-    public boolean hasChildren() {
-	return true;
-    }
+	public IFolder getFolder() {
+		return folder;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see unc.lib.cdr.workbench.project.ICustomProjectElement#getText()
+	 */
+	@Override
+	public String getText() {
+		return text;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see unc.lib.cdr.workbench.project.ICustomProjectElement#hasChildren()
+	 */
+	@Override
+	public boolean hasChildren() {
+		return true;
+	}
 
 }

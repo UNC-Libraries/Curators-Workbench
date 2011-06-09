@@ -42,124 +42,124 @@ import unc.lib.cdr.workbench.IResourceConstants;
 
 public class CaptureHandler extends AbstractHandler {
 
-@SuppressWarnings("unused")
-private static final Logger LOG = LoggerFactory.getLogger(CaptureHandler.class);
+	@SuppressWarnings("unused")
+	private static final Logger LOG = LoggerFactory.getLogger(CaptureHandler.class);
 
-    /*
-     * if parent folders have been arranged, they will stay in their places,
-     * reset arrangement is separate!
-     *
-     * @see
-     * org.eclipse.core.commands.IHandler#execute(org.eclipse.core.commands.
-     * ExecutionEvent)
-     */
-    @Override
-    public Object execute(ExecutionEvent event) throws ExecutionException {
-	List<IResource> toCapture = new ArrayList<IResource>();
-	boolean audit = true;
-	ISelectionProvider sp = HandlerUtil.getActiveSite(event).getSelectionProvider();
-	IStructuredSelection s = (IStructuredSelection) sp.getSelection();
-	toCapture.addAll(s.toList());
-	// expand to include folder contents, unless a subset was selected
-	try {
-	    addFolderContents(toCapture);
-	} catch(CoreException e) {
-	    throw new ExecutionException("Cannot access the captured tree of files.", e);
-	}
-
-	// ask about verification
-	Set<IResource> previouslyCaptured = null;
-	try {
-	    previouslyCaptured = findPreviouslyCaptured(toCapture);
-	} catch (CoreException e) {
-	    throw new Error(e);
-	}
-	if (previouslyCaptured.size() > 0) {
-	    String msg = "Do you want to update the " + previouslyCaptured.size()
-			    + " previously captured files and folders?";
-	    String[] dialogButtonLabels = { "No", "Yes" };
-	    MessageDialog md = new MessageDialog(HandlerUtil.getActiveShell(event), "Update?", null, msg,
-			    MessageDialog.QUESTION, dialogButtonLabels, 0);
-	    if (md.open() != 1) {
-		// remove previously captured stuff from set..
-		toCapture.removeAll(previouslyCaptured);
-	    } else {
-		//String msg2 = "Do you want to check previously staged files?";
-		//MessageDialog md2 = new MessageDialog(HandlerUtil.getActiveShell(event), "Check staged files?", null, msg2,
-		//		MessageDialog.QUESTION, dialogButtonLabels, 0);
-		//if(md2.open() == 1) {
-		    //audit = true;
-		//} else {
-		    //audit = false;
-		//}
-	    }
-	}
-	CaptureJob job = new CaptureJob("Capturing " + Integer.toString(toCapture.size()) + " items...", toCapture, audit);
-	IWorkbenchPart part = HandlerUtil.getActivePart(event);
-	if(part != null) {
-	    IWorkbenchSiteProgressService siteService =
-		      (IWorkbenchSiteProgressService)part.getSite().getAdapter(IWorkbenchSiteProgressService.class);
-	    Shell shell = HandlerUtil.getActiveShell(event);
-	    siteService.showInDialog(shell, job);
-	    siteService.schedule(job);
-	} else {
-	    job.schedule();
-	}
-	return null;
-    }
-
-    /**
-     * @param toCapture
-     * @throws CoreException
-     */
-    private void addFolderContents(List<IResource> toCapture) throws CoreException {
-	Set<IResource> additions = new HashSet<IResource>();
-	// for each Folder, if no contents are selected individually, add all contents
-	foldercheck: for(IResource r : toCapture) {
-	    if(r instanceof IFolder) {
-		IFolder f = (IFolder)r;
-		IPath p = f.getFullPath();
-		for(IResource check : toCapture) {
-		    if(!f.equals(check) && p.isPrefixOf(check.getFullPath())) {
-			LOG.debug(f.getName()+" found selected children, breaking here..");
-			break foldercheck;
-		    }
+	/*
+	 * if parent folders have been arranged, they will stay in their places, reset arrangement is separate!
+	 * 
+	 * @see org.eclipse.core.commands.IHandler#execute(org.eclipse.core.commands. ExecutionEvent)
+	 */
+	@Override
+	public Object execute(ExecutionEvent event) throws ExecutionException {
+		List<IResource> toCapture = new ArrayList<IResource>();
+		boolean audit = true;
+		ISelectionProvider sp = HandlerUtil.getActiveSite(event).getSelectionProvider();
+		IStructuredSelection s = (IStructuredSelection) sp.getSelection();
+		toCapture.addAll(s.toList());
+		// expand to include folder contents, unless a subset was selected
+		try {
+			addFolderContents(toCapture);
+		} catch (CoreException e) {
+			throw new ExecutionException("Cannot access the captured tree of files.", e);
 		}
-		// no children were selected, so add them all
-		addMembersRecursive(additions, f);
-	    }
-	}
-	toCapture.addAll(additions);
-    }
 
-    /**
-     * @param additions the set to add members to
-     * @param f the folder
-     */
-    private void addMembersRecursive(Set<IResource> additions, IFolder f) throws CoreException {
-	for(IResource r : f.members()) {
-	    additions.add(r);
-	    if(r instanceof IFolder) {
-		IFolder cf = (IFolder)r;
-		addMembersRecursive(additions, cf);
-	    }
+		// ask about verification
+		Set<IResource> previouslyCaptured = null;
+		try {
+			previouslyCaptured = findPreviouslyCaptured(toCapture);
+		} catch (CoreException e) {
+			throw new Error(e);
+		}
+		if (previouslyCaptured.size() > 0) {
+			String msg = "Do you want to update the " + previouslyCaptured.size()
+					+ " previously captured files and folders?";
+			String[] dialogButtonLabels = { "No", "Yes" };
+			MessageDialog md = new MessageDialog(HandlerUtil.getActiveShell(event), "Update?", null, msg,
+					MessageDialog.QUESTION, dialogButtonLabels, 0);
+			if (md.open() != 1) {
+				// remove previously captured stuff from set..
+				toCapture.removeAll(previouslyCaptured);
+			} else {
+				// String msg2 = "Do you want to check previously staged files?";
+				// MessageDialog md2 = new MessageDialog(HandlerUtil.getActiveShell(event), "Check staged files?", null,
+				// msg2,
+				// MessageDialog.QUESTION, dialogButtonLabels, 0);
+				// if(md2.open() == 1) {
+				// audit = true;
+				// } else {
+				// audit = false;
+				// }
+			}
+		}
+		CaptureJob job = new CaptureJob("Capturing " + Integer.toString(toCapture.size()) + " items...", toCapture, audit);
+		IWorkbenchPart part = HandlerUtil.getActivePart(event);
+		if (part != null) {
+			IWorkbenchSiteProgressService siteService = (IWorkbenchSiteProgressService) part.getSite().getAdapter(
+					IWorkbenchSiteProgressService.class);
+			Shell shell = HandlerUtil.getActiveShell(event);
+			siteService.showInDialog(shell, job);
+			siteService.schedule(job);
+		} else {
+			job.schedule();
+		}
+		return null;
 	}
-    }
 
-    /**
-     * @param toCapture
-     * @return
-     */
-    private Set<IResource> findPreviouslyCaptured(List<IResource> toCapture) throws CoreException {
-	Set<IResource> result = new HashSet<IResource>();
-	for (Object o : toCapture) {
-	    IResource r = (IResource) o;
-	    IMarker[] ms = r.findMarkers(IResourceConstants.MARKER_CAPTURED, false, IResource.DEPTH_ZERO);
-	    if (ms.length > 0) {
-		result.add(r);
-	    }
+	/**
+	 * @param toCapture
+	 * @throws CoreException
+	 */
+	private void addFolderContents(List<IResource> toCapture) throws CoreException {
+		Set<IResource> additions = new HashSet<IResource>();
+		// for each Folder, if no contents are selected individually, add all contents
+		foldercheck: for (IResource r : toCapture) {
+			if (r instanceof IFolder) {
+				IFolder f = (IFolder) r;
+				IPath p = f.getFullPath();
+				for (IResource check : toCapture) {
+					if (!f.equals(check) && p.isPrefixOf(check.getFullPath())) {
+						LOG.debug(f.getName() + " found selected children, breaking here..");
+						break foldercheck;
+					}
+				}
+				// no children were selected, so add them all
+				addMembersRecursive(additions, f);
+			}
+		}
+		toCapture.addAll(additions);
 	}
-	return result;
-    }
+
+	/**
+	 * @param additions
+	 *           the set to add members to
+	 * @param f
+	 *           the folder
+	 */
+	private void addMembersRecursive(Set<IResource> additions, IFolder f) throws CoreException {
+		for (IResource r : f.members()) {
+			additions.add(r);
+			if (r instanceof IFolder) {
+				IFolder cf = (IFolder) r;
+				addMembersRecursive(additions, cf);
+			}
+		}
+	}
+
+	/**
+	 * @param toCapture
+	 * @return
+	 */
+	private Set<IResource> findPreviouslyCaptured(List<IResource> toCapture) throws CoreException {
+		Set<IResource> result = new HashSet<IResource>();
+		for (Object o : toCapture) {
+			IResource r = (IResource) o;
+			IMarker[] ms = r.findMarkers(IResourceConstants.MARKER_CAPTURED, false, IResource.DEPTH_ZERO);
+			if (ms.length > 0) {
+				result.add(r);
+			}
+		}
+		return result;
+	}
 
 }

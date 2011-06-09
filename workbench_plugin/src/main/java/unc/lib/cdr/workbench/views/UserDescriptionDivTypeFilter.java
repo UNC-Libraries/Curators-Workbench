@@ -10,21 +10,21 @@ import org.slf4j.LoggerFactory;
 
 public class UserDescriptionDivTypeFilter implements IFilter {
 
-    @SuppressWarnings("unused")
-    private static final Logger LOG = LoggerFactory.getLogger(UserDescriptionDivTypeFilter.class);
+	@SuppressWarnings("unused")
+	private static final Logger LOG = LoggerFactory.getLogger(UserDescriptionDivTypeFilter.class);
 
-    @Override
-    public boolean select(Object toTest) {
-	if (toTest instanceof DivType) {
-	    DivType d = (DivType) toTest;
-	    for (MdSecType md : d.getDmdSec()) {
-		if (METSConstants.MD_STATUS_USER_EDITED.equals(md.getSTATUS())) {
-		    // LOG.debug("found a user description");
-		    return true;
+	@Override
+	public boolean select(Object toTest) {
+		if (toTest instanceof DivType) {
+			DivType d = (DivType) toTest;
+			for (MdSecType md : d.getDmdSec()) {
+				if (METSConstants.MD_STATUS_USER_EDITED.equals(md.getSTATUS())) {
+					// LOG.debug("found a user description");
+					return true;
+				}
+			}
 		}
-	    }
+		return false;
 	}
-	return false;
-    }
 
 }

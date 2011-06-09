@@ -34,27 +34,27 @@ import unc.lib.cdr.workbench.xwalk.CrosswalkTreeElement;
 
 public class OpenCrosswalkHandler extends AbstractHandler {
 
-@SuppressWarnings("unused")
-private static final Logger LOG = LoggerFactory.getLogger(OpenCrosswalkHandler.class);
+	@SuppressWarnings("unused")
+	private static final Logger LOG = LoggerFactory.getLogger(OpenCrosswalkHandler.class);
 
-    @Override
-    public Object execute(ExecutionEvent event) throws ExecutionException {
-	LOG.debug("crosswalk edit handler called");
-	IStructuredSelection s = (IStructuredSelection)HandlerUtil.getCurrentSelection(event);
-	Object o = s.getFirstElement();
-	if(o instanceof CrosswalkTreeElement) {
-	    IFile f = ((CrosswalkTreeElement)o).getFile();
-	    IEditorInput editorInput = new FileEditorInput(f);
-	    IWorkbenchWindow window=PlatformUI.getWorkbench().getActiveWorkbenchWindow();
-	    IWorkbenchPage page = window.getActivePage();
-	    try {
-		page.openEditor(editorInput, "crosswalk.diagram.part.CrosswalkDiagramEditorID");
-	    } catch (PartInitException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	    }
+	@Override
+	public Object execute(ExecutionEvent event) throws ExecutionException {
+		LOG.debug("crosswalk edit handler called");
+		IStructuredSelection s = (IStructuredSelection) HandlerUtil.getCurrentSelection(event);
+		Object o = s.getFirstElement();
+		if (o instanceof CrosswalkTreeElement) {
+			IFile f = ((CrosswalkTreeElement) o).getFile();
+			IEditorInput editorInput = new FileEditorInput(f);
+			IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
+			IWorkbenchPage page = window.getActivePage();
+			try {
+				page.openEditor(editorInput, "crosswalk.diagram.part.CrosswalkDiagramEditorID");
+			} catch (PartInitException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return null;
 	}
-	return null;
-    }
 
 }

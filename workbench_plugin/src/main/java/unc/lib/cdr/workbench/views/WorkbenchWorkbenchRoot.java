@@ -17,7 +17,7 @@ package unc.lib.cdr.workbench.views;
 
 /**
  * @author Gregory Jansen
- *
+ * 
  */
 public class WorkbenchWorkbenchRoot {
 

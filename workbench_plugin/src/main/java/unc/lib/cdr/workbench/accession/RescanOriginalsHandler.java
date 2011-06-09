@@ -27,22 +27,22 @@ import org.eclipse.ui.handlers.HandlerUtil;
 
 public class RescanOriginalsHandler extends AbstractHandler {
 
-    @Override
-    public Object execute(ExecutionEvent event) throws ExecutionException {
-	IStructuredSelection select = (IStructuredSelection) HandlerUtil.getCurrentSelectionChecked(event);
-	Object sel = select.getFirstElement();
-	IResource target = null;
-	if (sel instanceof OriginalFoldersProjectElement) {
-	    target = ((OriginalFoldersProjectElement) sel).getProject();
-	} else if (sel instanceof IResource) {
-	    target = (IResource) sel;
+	@Override
+	public Object execute(ExecutionEvent event) throws ExecutionException {
+		IStructuredSelection select = (IStructuredSelection) HandlerUtil.getCurrentSelectionChecked(event);
+		Object sel = select.getFirstElement();
+		IResource target = null;
+		if (sel instanceof OriginalFoldersProjectElement) {
+			target = ((OriginalFoldersProjectElement) sel).getProject();
+		} else if (sel instanceof IResource) {
+			target = (IResource) sel;
+		}
+		try {
+			target.refreshLocal(IFolder.DEPTH_INFINITE, new NullProgressMonitor());
+		} catch (CoreException e) {
+			throw new ExecutionException("Cannot refresh originals.", e);
+		}
+		return null;
 	}
-	try {
-	    target.refreshLocal(IFolder.DEPTH_INFINITE, new NullProgressMonitor());
-	} catch (CoreException e) {
-	    throw new ExecutionException("Cannot refresh originals.", e);
-	}
-	return null;
-    }
 
 }

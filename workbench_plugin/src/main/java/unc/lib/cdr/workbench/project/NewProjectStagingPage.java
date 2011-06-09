@@ -39,156 +39,154 @@ import unc.lib.cdr.workbench.rcp.Activator;
 
 /**
  * @author Gregory Jansen
- *
+ * 
  */
 public class NewProjectStagingPage extends WizardPage {
-    WizardNewProjectCreationPage mainPage = null;
-    Table stageTable = null;
+	WizardNewProjectCreationPage mainPage = null;
+	Table stageTable = null;
 
-    Text rawStageText = null;
-    Text stageText = null;
-    Button autoStageButton = null;
-    boolean autoStage = true;
-    String stagingLocationTemplate = null;
+	Text rawStageText = null;
+	Text stageText = null;
+	Button autoStageButton = null;
+	boolean autoStage = true;
+	String stagingLocationTemplate = null;
 
-    // boolean
+	// boolean
 
-    /**
-     * @param pageName
-     */
-    protected NewProjectStagingPage(String pageName) {
-	super(pageName);
-    }
-
-    /*
-     * (non-Javadoc)
-     *
-     * @see
-     * org.eclipse.jface.dialogs.IDialogPage#createControl(org.eclipse.swt.widgets
-     * .Composite)
-     */
-    @Override
-    public void createControl(Composite parent) {
-	Composite composite = new Composite(parent, SWT.NULL);
-	composite.setLayout(new GridLayout(2, false));
-	composite.setLayoutData(new GridData(GridData.FILL_BOTH));
-
-	// combo box - pick a staging location for captured files (drop down
-	// options from variables)
-	stageTable = new Table(composite, SWT.BORDER | SWT.SINGLE);
-	GridData cgd = new GridData();
-	cgd.horizontalSpan = 2;
-	stageTable.setLayoutData(cgd);
-	stageTable.setLinesVisible(true);
-	stageTable.setHeaderVisible(true);
-	TableColumn cName = new TableColumn(stageTable, SWT.NULL);
-	cName.setText("Name");
-	TableColumn cUri = new TableColumn(stageTable, SWT.NULL);
-	cUri.setText("Location");
-	for (String[] pair : Activator.getDefault().getStagingLocationsPreference()) {
-	    TableItem item = new TableItem(stageTable, SWT.NULL);
-	    item.setText(pair);
+	/**
+	 * @param pageName
+	 */
+	protected NewProjectStagingPage(String pageName) {
+		super(pageName);
 	}
-	cName.pack();
-	// cUri.pack();
-	stageTable.addSelectionListener(new SelectionListener() {
-	    @Override
-	    public void widgetSelected(SelectionEvent e) {
-		stageSelectionChanged();
-	    }
 
-	    @Override
-	    public void widgetDefaultSelected(SelectionEvent e) {
-		stageSelectionChanged();
-	    }
-	});
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.jface.dialogs.IDialogPage#createControl(org.eclipse.swt.widgets .Composite)
+	 */
+	@Override
+	public void createControl(Composite parent) {
+		Composite composite = new Composite(parent, SWT.NULL);
+		composite.setLayout(new GridLayout(2, false));
+		composite.setLayoutData(new GridData(GridData.FILL_BOTH));
 
-	Label txtLabel = new Label(composite, SWT.NULL);
-	txtLabel.setText("Template");
-	rawStageText = new Text(composite, SWT.NULL);
-	rawStageText.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
+		// combo box - pick a staging location for captured files (drop down
+		// options from variables)
+		stageTable = new Table(composite, SWT.BORDER | SWT.SINGLE);
+		GridData cgd = new GridData();
+		cgd.horizontalSpan = 2;
+		stageTable.setLayoutData(cgd);
+		stageTable.setLinesVisible(true);
+		stageTable.setHeaderVisible(true);
+		TableColumn cName = new TableColumn(stageTable, SWT.NULL);
+		cName.setText("Name");
+		TableColumn cUri = new TableColumn(stageTable, SWT.NULL);
+		cUri.setText("Location");
+		for (String[] pair : Activator.getDefault().getStagingLocationsPreference()) {
+			TableItem item = new TableItem(stageTable, SWT.NULL);
+			item.setText(pair);
+		}
+		cName.pack();
+		// cUri.pack();
+		stageTable.addSelectionListener(new SelectionListener() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				stageSelectionChanged();
+			}
 
-	Label txt2Label = new Label(composite, SWT.NULL);
-	txt2Label.setText("Location");
-	stageText = new Text(composite, SWT.NULL);
-	stageText.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
+			@Override
+			public void widgetDefaultSelected(SelectionEvent e) {
+				stageSelectionChanged();
+			}
+		});
 
-	// checkbox - automatically stage captured files?
-	autoStageButton = new Button(composite, SWT.CHECK | SWT.RIGHT);
-	autoStageButton.setText("Automatically stage captured files");
-	autoStageButton.setSelection(true);
-	GridData buttonData = new GridData();
-	buttonData.horizontalSpan = 2;
-	autoStageButton.setLayoutData(buttonData);
-	autoStageButton.addSelectionListener(new SelectionAdapter() {
-	    @Override
-	    public void widgetSelected(SelectionEvent e) {
-		autoStage = autoStageButton.getSelection();
-	    }
-	});
+		Label txtLabel = new Label(composite, SWT.NULL);
+		txtLabel.setText("Template");
+		rawStageText = new Text(composite, SWT.NULL);
+		rawStageText.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
 
-	this.setControl(composite);
-    }
+		Label txt2Label = new Label(composite, SWT.NULL);
+		txt2Label.setText("Location");
+		stageText = new Text(composite, SWT.NULL);
+		stageText.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
 
-    private void stageSelectionChanged() {
-	if (stageTable.getSelectionIndex() != -1) {
-	    this.stagingLocationTemplate = stageTable.getSelection()[0].getText(1);
+		// checkbox - automatically stage captured files?
+		autoStageButton = new Button(composite, SWT.CHECK | SWT.RIGHT);
+		autoStageButton.setText("Automatically stage captured files");
+		autoStageButton.setSelection(true);
+		GridData buttonData = new GridData();
+		buttonData.horizontalSpan = 2;
+		autoStageButton.setLayoutData(buttonData);
+		autoStageButton.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				autoStage = autoStageButton.getSelection();
+			}
+		});
+
+		this.setControl(composite);
 	}
-	URI projectLocation = null;
-	if (!mainPage.useDefaults()) {
-	    projectLocation = mainPage.getLocationURI();
-	} else {
-	    projectLocation = URIUtil.toURI(mainPage.getLocationPath().append(mainPage.getProjectName()));
+
+	private void stageSelectionChanged() {
+		if (stageTable.getSelectionIndex() != -1) {
+			this.stagingLocationTemplate = stageTable.getSelection()[0].getText(1);
+		}
+		URI projectLocation = null;
+		if (!mainPage.useDefaults()) {
+			projectLocation = mainPage.getLocationURI();
+		} else {
+			projectLocation = URIUtil.toURI(mainPage.getLocationPath().append(mainPage.getProjectName()));
+		}
+		URI location = computeStageLocation(projectLocation, mainPage.getProjectName());
+		rawStageText.setText(stagingLocationTemplate);
+		stageText.setText(location.toString());
+		this.setPageComplete(this.stagingLocationTemplate != null);
 	}
-	URI location = computeStageLocation(projectLocation, mainPage.getProjectName());
-	rawStageText.setText(stagingLocationTemplate);
-	stageText.setText(location.toString());
-	this.setPageComplete(this.stagingLocationTemplate != null);
-    }
 
-    /**
-     * @param projectLocation
-     *            Project Location URI
-     * @param projectName
-     *            Project Name
-     * @return staging URI
-     */
-    URI computeStageLocation(URI projectLocation, String projectName) {
-	System.out.println("computeStageLocation: projectLocation="+projectLocation);
-	System.out.println("computeStageLocation: projectName="+projectName);
-	try {
-	    projectName = new URI("file", projectName, null).toString();
-	    projectName = projectName.substring(projectName.indexOf(":")+1);
-	    System.out.println("computeStageLocation: projectNameEncoded="+projectName);
-	} catch(URISyntaxException e) {
-	    throw new Error(e);
+	/**
+	 * @param projectLocation
+	 *           Project Location URI
+	 * @param projectName
+	 *           Project Name
+	 * @return staging URI
+	 */
+	URI computeStageLocation(URI projectLocation, String projectName) {
+		System.out.println("computeStageLocation: projectLocation=" + projectLocation);
+		System.out.println("computeStageLocation: projectName=" + projectName);
+		try {
+			projectName = new URI("file", projectName, null).toString();
+			projectName = projectName.substring(projectName.indexOf(":") + 1);
+			System.out.println("computeStageLocation: projectNameEncoded=" + projectName);
+		} catch (URISyntaxException e) {
+			throw new Error(e);
+		}
+		URI result;
+		String userName = System.getProperty("user.name");
+		String stageLocation = null;
+		stageLocation = stagingLocationTemplate.replaceAll("\\$\\{PROJECT_NAME\\}", projectName);
+		stageLocation = stageLocation.replaceAll("\\$\\{PROJECT_LOC\\}", projectLocation.toString());
+		stageLocation = stageLocation.replaceAll("\\$\\{USER_NAME\\}", userName);
+		System.out.println("stageLocation str before new URI call: " + stageLocation);
+		try {
+			result = new URI(stageLocation);
+		} catch (URISyntaxException e) {
+			throw new Error(e);
+		}
+		return result;
 	}
-	URI result;
-	String userName = System.getProperty("user.name");
-	String stageLocation = null;
-	stageLocation = stagingLocationTemplate.replaceAll("\\$\\{PROJECT_NAME\\}", projectName);
-	stageLocation = stageLocation.replaceAll("\\$\\{PROJECT_LOC\\}", projectLocation.toString());
-	stageLocation = stageLocation.replaceAll("\\$\\{USER_NAME\\}", userName);
-	System.out.println("stageLocation str before new URI call: "+stageLocation);
-	try {
-	    result = new URI(stageLocation);
-	} catch(URISyntaxException e) {
-	    throw new Error(e);
+
+	public void setMainPage(WizardNewProjectCreationPage mainPage) {
+		this.mainPage = mainPage;
 	}
-	return result;
-    }
 
-    public void setMainPage(WizardNewProjectCreationPage mainPage) {
-	this.mainPage = mainPage;
-    }
+	@Override
+	public boolean isPageComplete() {
+		return (this.stagingLocationTemplate != null);
+	}
 
-    @Override
-    public boolean isPageComplete() {
-	return (this.stagingLocationTemplate != null);
-    }
-
-    public boolean isAutoStage() {
-	return autoStage;
-    }
+	public boolean isAutoStage() {
+		return autoStage;
+	}
 
 }

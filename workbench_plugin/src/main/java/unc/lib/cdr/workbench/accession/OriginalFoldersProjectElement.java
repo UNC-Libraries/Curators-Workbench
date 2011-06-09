@@ -17,8 +17,6 @@ package unc.lib.cdr.workbench.accession;
 
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.runtime.CoreException;
-import org.eclipse.jface.resource.ImageDescriptor;
-import org.eclipse.ui.model.IWorkbenchAdapter;
 
 import unc.lib.cdr.workbench.project.AbstractCustomProjectElement;
 import unc.lib.cdr.workbench.project.ICustomProjectElement;
@@ -26,41 +24,43 @@ import unc.lib.cdr.workbench.project.MetsProjectNature;
 
 /**
  * @author Gregory Jansen
- *
+ * 
  */
 public class OriginalFoldersProjectElement extends AbstractCustomProjectElement implements ICustomProjectElement {
-    private static final String label = "Original Folders";
-    private IFolder folder = null;
+	private static final String label = "Original Folders";
+	private IFolder folder = null;
 
-    /**
-     * @param n
-     */
-    public OriginalFoldersProjectElement(MetsProjectNature n) {
-	super(n);
-	this.folder = n.getOriginalsFolder();
-    }
-
-    @Override
-    public Object[] getChildren() {
-	try {
-	    return folder.members();
-	} catch (CoreException e) {
-	    e.printStackTrace();
-	    throw new Error("Unexpected", e);
+	/**
+	 * @param n
+	 */
+	public OriginalFoldersProjectElement(MetsProjectNature n) {
+		super(n);
+		this.folder = n.getOriginalsFolder();
 	}
-    }
 
-    @Override
-    public boolean hasChildren() {
-	return true;
-    }
+	@Override
+	public Object[] getChildren() {
+		try {
+			return folder.members();
+		} catch (CoreException e) {
+			e.printStackTrace();
+			throw new Error("Unexpected", e);
+		}
+	}
 
-    /* (non-Javadoc)
-     * @see unc.lib.cdr.workbench.project.ICustomProjectElement#getText()
-     */
-    @Override
-    public String getText() {
-	return label;
-    }
+	@Override
+	public boolean hasChildren() {
+		return true;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see unc.lib.cdr.workbench.project.ICustomProjectElement#getText()
+	 */
+	@Override
+	public String getText() {
+		return label;
+	}
 
 }

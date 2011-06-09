@@ -19,16 +19,17 @@ import org.eclipse.ui.IPageLayout;
 
 /**
  * A place to keep settings common to normal workbench perspectives.
+ * 
  * @author Gregory Jansen
- *
+ * 
  */
 public class PerspectiveTweaks {
 
-    public static void addMyPerspectiveShortcuts(IPageLayout layout) {
-	//layout.addPerspectiveShortcut("cdr-workbench.AccessionPerspective");
-	//layout.addPerspectiveShortcut("cdr-workbench.ArrangementPerspective");
-	//layout.addPerspectiveShortcut("cdr-workbench.BatchMetadataPerspective");
-	//layout.addPerspectiveShortcut("cdr-workbench.MetsPerspective");
-    }
+	public static void addMyPerspectiveShortcuts(IPageLayout layout) {
+		// layout.addPerspectiveShortcut("cdr-workbench.AccessionPerspective");
+		// layout.addPerspectiveShortcut("cdr-workbench.ArrangementPerspective");
+		// layout.addPerspectiveShortcut("cdr-workbench.BatchMetadataPerspective");
+		// layout.addPerspectiveShortcut("cdr-workbench.MetsPerspective");
+	}
 
 }

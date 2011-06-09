@@ -33,140 +33,132 @@ import org.slf4j.LoggerFactory;
 import unc.lib.cdr.workbench.views.LabelImageFactory;
 
 public class ArrangementTableLabelProvider implements ITableLabelProvider {
-    @SuppressWarnings("unused")
-    private static final Logger log = LoggerFactory.getLogger(ArrangementTableLabelProvider.class);
-    public static final String[] headers = { "Name", "Status" };
-    public static final int[] bounds = { 400, 80 };
-    public static final int COL_NAME = 0;
-    public static final int COL_STATUS = 1;
-    private DecoratingLabelProvider provider = (DecoratingLabelProvider) WorkbenchLabelProvider
-		    .getDecoratingWorkbenchLabelProvider();
-    private ILabelDecorator decorator = provider.getLabelDecorator();
+	@SuppressWarnings("unused")
+	private static final Logger log = LoggerFactory.getLogger(ArrangementTableLabelProvider.class);
+	public static final String[] headers = { "Name", "Status" };
+	public static final int[] bounds = { 400, 80 };
+	public static final int COL_NAME = 0;
+	public static final int COL_STATUS = 1;
+	private DecoratingLabelProvider provider = (DecoratingLabelProvider) WorkbenchLabelProvider
+			.getDecoratingWorkbenchLabelProvider();
+	private ILabelDecorator decorator = provider.getLabelDecorator();
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see
-     * org.eclipse.jface.viewers.ITableLabelProvider#getColumnImage(java.lang
-     * .Object, int)
-     */
-    @Override
-    public Image getColumnImage(Object element, int columnIndex) {
-	Image result = null;
-	if (COL_NAME == columnIndex) {
-	    // TODO add adapters from DivType to corresponding IResources
-	    if (element instanceof DivType) {
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.jface.viewers.ITableLabelProvider#getColumnImage(java.lang .Object, int)
+	 */
+	@Override
+	public Image getColumnImage(Object element, int columnIndex) {
+		Image result = null;
+		if (COL_NAME == columnIndex) {
+			// TODO add adapters from DivType to corresponding IResources
+			if (element instanceof DivType) {
+				DivType d = (DivType) element;
+				Object adapted = Platform.getAdapterManager().getAdapter(d, IResource.class);
+				if (adapted != null) {
+					IResource r = (IResource) adapted;
+					result = provider.getImage(r);
+				}
+			} else if (element instanceof IProject) {
+				return null;
+			}
+			if (result == null) {
+				result = LabelImageFactory.getImageForObject(element);
+			}
+			if (decorator != null) {
+				if (decorator instanceof LabelDecorator) {
+					LabelDecorator ld2 = (LabelDecorator) decorator;
+					Image decorated = ld2.decorateImage(result, element, provider.getDecorationContext());
+					if (decorated != null) {
+						return decorated;
+					}
+				} else {
+					Image decorated = decorator.decorateImage(result, element);
+					if (decorated != null) {
+						return decorated;
+					}
+				}
+			}
+		}
+		return result;
+	}
+
+	@Override
+	public String getColumnText(Object element, int columnIndex) {
+		if (element instanceof IProject) {
+			IProject p = (IProject) element;
+			switch (columnIndex) {
+				case (COL_NAME):
+					return provider.getText(element);
+					// return p.getName();
+				case (COL_STATUS):
+					if (p.isOpen()) {
+						return "open";
+					} else {
+						return "closed";
+					}
+			}
+		}
+		// it is a DivType
 		DivType d = (DivType) element;
-		Object adapted = Platform.getAdapterManager().getAdapter(d, IResource.class);
-		if(adapted != null) {
-		    IResource r = (IResource)adapted;
-		    result = provider.getImage(r);
+		switch (columnIndex) {
+			case (COL_NAME):
+				// return provider.getText(element);
+				return d.getLabel();
+			default:
+				return "n/a";
 		}
-	    } else if(element instanceof IProject) {
-		return null;
-	    }
-	    if (result == null) {
-		result = LabelImageFactory.getImageForObject(element);
-	    }
-	    if (decorator != null) {
-		if (decorator instanceof LabelDecorator) {
-		    LabelDecorator ld2 = (LabelDecorator) decorator;
-		    Image decorated = ld2.decorateImage(result, element, provider.getDecorationContext());
-		    if (decorated != null) {
-			return decorated;
-		    }
-		} else {
-		    Image decorated = decorator.decorateImage(result, element);
-		    if (decorated != null) {
-			return decorated;
-		    }
-		}
-	    }
 	}
-	return result;
-    }
 
-    @Override
-    public String getColumnText(Object element, int columnIndex) {
-	if (element instanceof IProject) {
-	    IProject p = (IProject) element;
-	    switch (columnIndex) {
-	    case (COL_NAME):
-		return provider.getText(element);
-		// return p.getName();
-	    case (COL_STATUS):
-		if (p.isOpen()) {
-		    return "open";
-		} else {
-		    return "closed";
-		}
-	    }
+	@Override
+	public void addListener(ILabelProviderListener listener) {
+		this.provider.addListener(listener);
 	}
-	// it is a DivType
-	DivType d = (DivType) element;
-	switch (columnIndex) {
-	case (COL_NAME):
-	    // return provider.getText(element);
-	    return d.getLabel();
-	default:
-	    return "n/a";
+
+	@Override
+	public void dispose() {
 	}
-    }
 
-    @Override
-    public void addListener(ILabelProviderListener listener) {
-	this.provider.addListener(listener);
-    }
+	@Override
+	public boolean isLabelProperty(Object element, String property) {
+		return this.provider.isLabelProperty(element, property);
+	}
 
-    @Override
-    public void dispose() {
-    }
+	@Override
+	public void removeListener(ILabelProviderListener listener) {
+		this.provider.removeListener(listener);
+	}
 
-    @Override
-    public boolean isLabelProperty(Object element, String property) {
-	return this.provider.isLabelProperty(element, property);
-    }
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.jface.viewers.ILabelDecorator#decorateImage(org.eclipse.swt .graphics.Image, java.lang.Object)
+	 */
+	// @Override
+	// public Image decorateImage(Image image, Object element) {
+	// log.debug("decorating Image for Div");
+	// return decorator.decorateImage(image, element);
+	// }
 
-    @Override
-    public void removeListener(ILabelProviderListener listener) {
-	this.provider.removeListener(listener);
-    }
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.jface.viewers.ILabelDecorator#decorateText(java.lang.String, java.lang.Object)
+	 */
+	// @Override
+	// public String decorateText(String text, Object element) {
+	// return decorator.decorateText(text, element);
+	// }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see
-     * org.eclipse.jface.viewers.ILabelDecorator#decorateImage(org.eclipse.swt
-     * .graphics.Image, java.lang.Object)
-     */
-    // @Override
-    // public Image decorateImage(Image image, Object element) {
-    // log.debug("decorating Image for Div");
-    // return decorator.decorateImage(image, element);
-    // }
-
-    /*
-     * (non-Javadoc)
-     *
-     * @see
-     * org.eclipse.jface.viewers.ILabelDecorator#decorateText(java.lang.String,
-     * java.lang.Object)
-     */
-    // @Override
-    // public String decorateText(String text, Object element) {
-    // return decorator.decorateText(text, element);
-    // }
-
-    /*
-     * (non-Javadoc)
-     *
-     * @see
-     * org.eclipse.jface.viewers.IDelayedLabelDecorator#prepareDecoration(java
-     * .lang.Object, java.lang.String)
-     */
-    // @Override
-    // public boolean prepareDecoration(Object element, String originalText) {
-    // return decorator.prepareDecoration(element, originalText);
-    // }
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.jface.viewers.IDelayedLabelDecorator#prepareDecoration(java .lang.Object, java.lang.String)
+	 */
+	// @Override
+	// public boolean prepareDecoration(Object element, String originalText) {
+	// return decorator.prepareDecoration(element, originalText);
+	// }
 
 }

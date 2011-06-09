@@ -48,72 +48,72 @@ import unc.lib.cdr.workbench.project.MetsProjectNature;
 
 public class EditAccessControlsCommand extends AbstractHandler implements IHandler {
 
-    private static final Logger LOG = LoggerFactory.getLogger(EditAccessControlsCommand.class);
+	private static final Logger LOG = LoggerFactory.getLogger(EditAccessControlsCommand.class);
 
-    @Override
-    public Object execute(ExecutionEvent event) throws ExecutionException {
-	IStructuredSelection s = (IStructuredSelection) HandlerUtil.getCurrentSelectionChecked(event);
-	DivType d = (DivType) s.getFirstElement();
-	LOG.debug(String.valueOf(d));
-	MetsProjectNature n = MetsProjectNature.getNatureForMetsObject(d);
+	@Override
+	public Object execute(ExecutionEvent event) throws ExecutionException {
+		IStructuredSelection s = (IStructuredSelection) HandlerUtil.getCurrentSelectionChecked(event);
+		DivType d = (DivType) s.getFirstElement();
+		LOG.debug(String.valueOf(d));
+		MetsProjectNature n = MetsProjectNature.getNatureForMetsObject(d);
 
-	MdSecType rightsSec = null;
-	for (MdSecType md : d.getMdSec()) {
-	    if (METSConstants.MD_STATUS_USER_EDITED.equals(md.getSTATUS())) {
-		if (MetsPackage.eINSTANCE.getAmdSecType_RightsMD().equals(md.eContainingFeature())) {
-		    rightsSec = md;
-		    break;
+		MdSecType rightsSec = null;
+		for (MdSecType md : d.getMdSec()) {
+			if (METSConstants.MD_STATUS_USER_EDITED.equals(md.getSTATUS())) {
+				if (MetsPackage.eINSTANCE.getAmdSecType_RightsMD().equals(md.eContainingFeature())) {
+					rightsSec = md;
+					break;
+				}
+			}
 		}
-	    }
-	}
 
-	if (rightsSec == null) {
-	    AmdSecType amdSec = MetsFactory.eINSTANCE.createAmdSecType();
-	    n.getMets().getAmdSec().add(amdSec);
+		if (rightsSec == null) {
+			AmdSecType amdSec = MetsFactory.eINSTANCE.createAmdSecType();
+			n.getMets().getAmdSec().add(amdSec);
 
-	    rightsSec = MetsFactory.eINSTANCE.createMdSecType();
-	    rightsSec.setSTATUS(METSConstants.MD_STATUS_USER_EDITED);
-	    rightsSec.setCREATED(new XMLCalendar(new java.util.Date(System.currentTimeMillis()), XMLCalendar.DATETIME));
-	    rightsSec.setID(METSUtils.makeXMLUUID());
-	    amdSec.getRightsMD().add(rightsSec);
-	    // link div to rightsMD
-	    d.getMdSec().add(rightsSec);
-	}
+			rightsSec = MetsFactory.eINSTANCE.createMdSecType();
+			rightsSec.setSTATUS(METSConstants.MD_STATUS_USER_EDITED);
+			rightsSec.setCREATED(new XMLCalendar(new java.util.Date(System.currentTimeMillis()), XMLCalendar.DATETIME));
+			rightsSec.setID(METSUtils.makeXMLUUID());
+			amdSec.getRightsMD().add(rightsSec);
+			// link div to rightsMD
+			d.getMdSec().add(rightsSec);
+		}
 
-	AccessControlType acl = null;
-	try {
-	    Object o = rightsSec.getMdWrap().getXmlData().getAny().getValue(0);
-	    if (o != null && o instanceof AccessControlType) {
-		acl = (AccessControlType) o;
-	    }
-	} catch (NullPointerException e) {
-	}
+		AccessControlType acl = null;
+		try {
+			Object o = rightsSec.getMdWrap().getXmlData().getAny().getValue(0);
+			if (o != null && o instanceof AccessControlType) {
+				acl = (AccessControlType) o;
+			}
+		} catch (NullPointerException e) {
+		}
 
-	if (acl == null) {
-	    XmlDataType1 xml = MetsFactory.eINSTANCE.createXmlDataType1();
-	    acl = AclFactory.eINSTANCE.createAccessControlType();
-	    // acl.setID(METSUtils.makeXMLUUID());
-	    xml.getAny().add(AclPackage.eINSTANCE.getDocumentRoot_AccessControl(), acl);
-	    MdWrapType wrap = MetsFactory.eINSTANCE.createMdWrapType();
-	    wrap.setMDTYPE(MDTYPEType.OTHER);
-	    wrap.setXmlData(xml);
-	    rightsSec.setMdWrap(wrap);
+		if (acl == null) {
+			XmlDataType1 xml = MetsFactory.eINSTANCE.createXmlDataType1();
+			acl = AclFactory.eINSTANCE.createAccessControlType();
+			// acl.setID(METSUtils.makeXMLUUID());
+			xml.getAny().add(AclPackage.eINSTANCE.getDocumentRoot_AccessControl(), acl);
+			MdWrapType wrap = MetsFactory.eINSTANCE.createMdWrapType();
+			wrap.setMDTYPE(MDTYPEType.OTHER);
+			wrap.setXmlData(xml);
+			rightsSec.setMdWrap(wrap);
+		}
+		try {
+			n.save();
+		} catch (CoreException e) {
+			throw new ExecutionException("There were unexpected problems opening the MODS Editor", e);
+		}
+		ACLEditorInput input = new ACLEditorInput("Access Controls for '" + d.getLABEL1() + "'", acl);
+		IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
+		IWorkbenchPage page = window.getActivePage();
+		try {
+			page.openEditor(input, "workbench_plugin.accessControlEditor");
+		} catch (PartInitException e) {
+			throw new ExecutionException("There were unexpected problems opening the ACL Editor", e);
+		}
+		// open Editor
+		return null;
 	}
-	try {
-	    n.save();
-	} catch (CoreException e) {
-	    throw new ExecutionException("There were unexpected problems opening the MODS Editor", e);
-	}
-	ACLEditorInput input = new ACLEditorInput("Access Controls for '" + d.getLABEL1() + "'", acl);
-	IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
-	IWorkbenchPage page = window.getActivePage();
-	try {
-	    page.openEditor(input, "workbench_plugin.accessControlEditor");
-	} catch (PartInitException e) {
-	    throw new ExecutionException("There were unexpected problems opening the ACL Editor", e);
-	}
-	// open Editor
-	return null;
-    }
 
 }

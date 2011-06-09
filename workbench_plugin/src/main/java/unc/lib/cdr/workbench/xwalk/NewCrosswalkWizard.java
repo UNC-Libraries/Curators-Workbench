@@ -12,50 +12,50 @@ import crosswalk.diagram.part.Messages;
 
 public class NewCrosswalkWizard extends Wizard implements INewWizard {
 
-    private IWorkbench workbench;
+	private IWorkbench workbench;
 
-    protected IStructuredSelection selection;
+	protected IStructuredSelection selection;
 
-    protected CrosswalkCreationWizardPage diagramModelFilePage;
+	protected CrosswalkCreationWizardPage diagramModelFilePage;
 
-    protected Resource diagram;
+	protected Resource diagram;
 
-    private boolean openNewlyCreatedDiagramEditor = true;
+	private boolean openNewlyCreatedDiagramEditor = true;
 
-    public IWorkbench getWorkbench() {
-	return workbench;
-    }
+	public IWorkbench getWorkbench() {
+		return workbench;
+	}
 
-    public IStructuredSelection getSelection() {
-	return selection;
-    }
+	public IStructuredSelection getSelection() {
+		return selection;
+	}
 
-    public final Resource getDiagram() {
-	return diagram;
-    }
+	public final Resource getDiagram() {
+		return diagram;
+	}
 
-    public final boolean isOpenNewlyCreatedDiagramEditor() {
-	return openNewlyCreatedDiagramEditor;
-    }
+	public final boolean isOpenNewlyCreatedDiagramEditor() {
+		return openNewlyCreatedDiagramEditor;
+	}
 
-    public NewCrosswalkWizard() {
-	// TODO Auto-generated constructor stub
-    }
+	public NewCrosswalkWizard() {
+		// TODO Auto-generated constructor stub
+	}
 
-    @Override
-    public void init(IWorkbench workbench, IStructuredSelection selection) {
-	this.workbench = workbench;
-	this.selection = selection;
-	setWindowTitle(Messages.CrosswalkCreationWizardTitle);
-	setDefaultPageImageDescriptor(CrosswalkDiagramEditorPlugin
-			.getBundledImageDescriptor("icons/wizban/NewCrosswalkWizard.gif")); //$NON-NLS-1$
-	setNeedsProgressMonitor(true);
-    }
+	@Override
+	public void init(IWorkbench workbench, IStructuredSelection selection) {
+		this.workbench = workbench;
+		this.selection = selection;
+		setWindowTitle(Messages.CrosswalkCreationWizardTitle);
+		setDefaultPageImageDescriptor(CrosswalkDiagramEditorPlugin
+				.getBundledImageDescriptor("icons/wizban/NewCrosswalkWizard.gif")); //$NON-NLS-1$
+		setNeedsProgressMonitor(true);
+	}
 
-    @Override
-    public boolean performFinish() {
-	// TODO Auto-generated method stub
-	return false;
-    }
+	@Override
+	public boolean performFinish() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 
 }

@@ -52,14 +52,12 @@ public class StagingJob extends Job {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see org.eclipse.core.runtime.jobs.Job#run(org.eclipse.core.runtime.
-	 * IProgressMonitor)
+	 * @see org.eclipse.core.runtime.jobs.Job#run(org.eclipse.core.runtime. IProgressMonitor)
 	 */
 	@Override
 	protected IStatus run(IProgressMonitor monitor) {
-		monitor.beginTask("Staging "+toStage.size()+" files",
-				toStage.size()*100);
-		monitor.setTaskName("Staging 1 of "+toStage.size());
+		monitor.beginTask("Staging " + toStage.size() + " files", toStage.size() * 100);
+		monitor.setTaskName("Staging 1 of " + toStage.size());
 		int stageCount = 0;
 		Set<IProject> projects = new HashSet<IProject>();
 		for (IFile r : toStage) {
@@ -69,25 +67,20 @@ public class StagingJob extends Job {
 			}
 			try {
 				// is it still captured and not already staged?
-				IMarker[] captured = r.findMarkers(
-						IResourceConstants.MARKER_CAPTURED, false,
-						IResource.DEPTH_ZERO);
-				IMarker[] staged = r.findMarkers(
-						IResourceConstants.MARKER_STAGED, false,
-						IResource.DEPTH_ZERO);
+				IMarker[] captured = r.findMarkers(IResourceConstants.MARKER_CAPTURED, false, IResource.DEPTH_ZERO);
+				IMarker[] staged = r.findMarkers(IResourceConstants.MARKER_STAGED, false, IResource.DEPTH_ZERO);
 				if (captured.length > 0) {
 					if (staged.length == 0) {
 						stageCount++;
-						monitor.setTaskName("Staging "+stageCount+" of "+toStage.size());
-						StagingUtils.stage(r,
-								new SubProgressMonitor(monitor, 100, SubProgressMonitor.PREPEND_MAIN_LABEL_TO_SUBTASK));
+						monitor.setTaskName("Staging " + stageCount + " of " + toStage.size());
+						StagingUtils.stage(r, new SubProgressMonitor(monitor, 100,
+								SubProgressMonitor.PREPEND_MAIN_LABEL_TO_SUBTASK));
 					}
 				}
 			} catch (CoreException e) {
 				try {
 					IMarker m = r.createMarker(IMarker.PROBLEM);
-					m.setAttribute(IMarker.MESSAGE, "Failed to stage file: "
-							+ e.getLocalizedMessage());
+					m.setAttribute(IMarker.MESSAGE, "Failed to stage file: " + e.getLocalizedMessage());
 					m.setAttribute(IMarker.SEVERITY, IMarker.SEVERITY_ERROR);
 				} catch (CoreException e1) {
 					e1.printStackTrace();
@@ -98,10 +91,8 @@ public class StagingJob extends Job {
 		// refreshLocal on staging folders in relevant projects
 		for (IProject p : projects) {
 			try {
-				MetsProjectNature n = (MetsProjectNature) p
-						.getNature(MetsProjectNature.NATURE_ID);
-				n.getStageFolder().refreshLocal(IResource.DEPTH_INFINITE,
-						new NullProgressMonitor());
+				MetsProjectNature n = (MetsProjectNature) p.getNature(MetsProjectNature.NATURE_ID);
+				n.getStageFolder().refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
 			} catch (CoreException e) {
 			}
 		}

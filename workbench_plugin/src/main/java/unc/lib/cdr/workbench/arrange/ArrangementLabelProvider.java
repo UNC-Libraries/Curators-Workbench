@@ -81,14 +81,14 @@ public class ArrangementLabelProvider extends AdapterFactoryLabelProvider {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see org.eclipse.jface.viewers.ILabelProvider#getImage(java.lang.Object)
 	 */
 	@Override
 	public Image getImage(Object element) {
 		Image result = provider.getImage(element);
 
-		if(result == null)
+		if (result == null)
 			result = super.getImage(element);
 		// if (element instanceof DivType) {
 		// DivType d = (DivType) element;
@@ -104,7 +104,7 @@ public class ArrangementLabelProvider extends AdapterFactoryLabelProvider {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see org.eclipse.jface.viewers.ILabelProvider#getText(java.lang.Object)
 	 */
 	@Override
@@ -130,7 +130,7 @@ public class ArrangementLabelProvider extends AdapterFactoryLabelProvider {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see org.eclipse.emf.edit.provider.INotifyChangedListener#notifyChanged(org
 	 * .eclipse.emf.common.notify.Notification)
 	 */

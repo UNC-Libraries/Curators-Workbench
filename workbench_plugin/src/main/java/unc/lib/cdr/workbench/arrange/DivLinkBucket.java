@@ -15,15 +15,13 @@
  */
 package unc.lib.cdr.workbench.arrange;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import gov.loc.mets.DivType;
 import gov.loc.mets.MetsType;
 import gov.loc.mets.SmLinkType;
-import gov.loc.mets.provider.SmLinkTypeItemProvider;
 
-import org.eclipse.core.resources.IProject;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.eclipse.jface.resource.ImageDescriptor;
 
 import unc.lib.cdr.workbench.project.ICustomEObjectBucket;
@@ -31,7 +29,7 @@ import unc.lib.cdr.workbench.project.MetsProjectNature;
 
 /**
  * @author Gregory Jansen
- *
+ * 
  */
 public class DivLinkBucket implements ICustomEObjectBucket {
 	private static final String label = "links";
@@ -41,7 +39,9 @@ public class DivLinkBucket implements ICustomEObjectBucket {
 		this.div = div;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see unc.lib.cdr.workbench.project.ICustomEObjectBucket#getImageDescriptor()
 	 */
 	@Override
@@ -50,7 +50,9 @@ public class DivLinkBucket implements ICustomEObjectBucket {
 		return null;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see unc.lib.cdr.workbench.project.ICustomEObjectBucket#getChildren()
 	 */
 	@Override
@@ -58,8 +60,8 @@ public class DivLinkBucket implements ICustomEObjectBucket {
 		List<Object> results = new ArrayList<Object>();
 		MetsProjectNature mpn = MetsProjectNature.getNatureForMetsObject(div);
 		MetsType mets = mpn.getMets();
-		if(mets.getStructLink() != null && mets.getStructLink().getSmLink() != null) {
-			for(SmLinkType l : mets.getStructLink().getSmLink()) {
+		if (mets.getStructLink() != null && mets.getStructLink().getSmLink() != null) {
+			for (SmLinkType l : mets.getStructLink().getSmLink()) {
 				if (div.equals(l.getXlinkFrom())) {
 					results.add(l);
 				}
@@ -68,7 +70,9 @@ public class DivLinkBucket implements ICustomEObjectBucket {
 		return results.toArray();
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see unc.lib.cdr.workbench.project.ICustomEObjectBucket#getText()
 	 */
 	@Override
@@ -76,7 +80,9 @@ public class DivLinkBucket implements ICustomEObjectBucket {
 		return label;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see unc.lib.cdr.workbench.project.ICustomEObjectBucket#hasChildren()
 	 */
 	@Override
@@ -84,7 +90,9 @@ public class DivLinkBucket implements ICustomEObjectBucket {
 		return true;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see unc.lib.cdr.workbench.project.ICustomEObjectBucket#getParent()
 	 */
 	@Override

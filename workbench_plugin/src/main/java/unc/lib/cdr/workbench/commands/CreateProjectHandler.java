@@ -26,13 +26,12 @@ import unc.lib.cdr.workbench.project.NewSipProjectWizard;
 
 public class CreateProjectHandler extends AbstractHandler implements IHandler {
 
-    @Override
-    public Object execute(ExecutionEvent event) throws ExecutionException {
-	NewSipProjectWizard wiz = new NewSipProjectWizard();
-	WizardDialog dialog = new WizardDialog(HandlerUtil
-			.getActiveShell(event), wiz);
-	dialog.open();
-	return null;
-    }
+	@Override
+	public Object execute(ExecutionEvent event) throws ExecutionException {
+		NewSipProjectWizard wiz = new NewSipProjectWizard();
+		WizardDialog dialog = new WizardDialog(HandlerUtil.getActiveShell(event), wiz);
+		dialog.open();
+		return null;
+	}
 
 }

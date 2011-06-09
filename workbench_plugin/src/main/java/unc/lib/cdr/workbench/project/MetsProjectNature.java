@@ -78,7 +78,7 @@ import unc.lib.cdr.workbench.xwalk.CrosswalksProjectElement;
 public class MetsProjectNature implements IProjectNature {
 	/**
 	 * @author Gregory Jansen
-	 *
+	 * 
 	 */
 	public class ProjectCloseListener implements IResourceChangeListener {
 
@@ -90,7 +90,7 @@ public class MetsProjectNature implements IProjectNature {
 
 		/*
 		 * (non-Javadoc)
-		 *
+		 * 
 		 * @see org.eclipse.core.resources.IResourceChangeListener#resourceChanged
 		 * (org.eclipse.core.resources.IResourceChangeEvent)
 		 */
@@ -408,7 +408,7 @@ public class MetsProjectNature implements IProjectNature {
 
 	/**
 	 * Finds the original file or folder object for a given div or null.
-	 *
+	 * 
 	 * @param div
 	 * @return the IResource of the original
 	 */

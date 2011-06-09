@@ -27,74 +27,74 @@ import org.eclipse.core.runtime.NullProgressMonitor;
 
 /**
  * @author Gregory Jansen
- *
+ * 
  */
 public class MetsProjectNatureSupport {
 
-    /**
-     * For this marvelous project we need to: - create the default Eclipse
-     * project - add the custom project nature - create the folder structure
-     *
-     * @param projectName
-     * @param location
-     * @param natureId
-     * @return
-     */
-    public static IProject createProject(String projectName, URI location) {
-	Assert.isNotNull(projectName);
-	Assert.isTrue(projectName.trim().length() > 0);
-	NullProgressMonitor npm = new NullProgressMonitor();
-	IProject project = createBaseProject(projectName, location);
-	try {
-	    if (!project.isOpen()) {
-		project.open(npm);
-	    }
-	    addNature(project);
-	} catch (CoreException e) {
-	    e.printStackTrace();
-	    project = null;
-	}
-	return project;
-    }
-
-    /**
-     * Just do the basics: create a basic project.
-     *
-     * @param location
-     * @param projectName
-     */
-    private static IProject createBaseProject(String projectName, URI location) {
-	// it is acceptable to use the ResourcesPlugin class
-	IProject newProject = ResourcesPlugin.getWorkspace().getRoot().getProject(projectName);
-	if (!newProject.exists()) {
-	    URI projectLocation = location;
-	    IProjectDescription desc = newProject.getWorkspace().newProjectDescription(newProject.getName());
-	    if (location != null && ResourcesPlugin.getWorkspace().getRoot().getLocationURI().equals(location)) {
-		projectLocation = null;
-	    }
-	    desc.setLocationURI(projectLocation);
-	    try {
-		newProject.create(desc, null);
-	    } catch (CoreException e) {
-		e.printStackTrace();
-	    }
+	/**
+	 * For this marvelous project we need to: - create the default Eclipse project - add the custom project nature -
+	 * create the folder structure
+	 * 
+	 * @param projectName
+	 * @param location
+	 * @param natureId
+	 * @return
+	 */
+	public static IProject createProject(String projectName, URI location) {
+		Assert.isNotNull(projectName);
+		Assert.isTrue(projectName.trim().length() > 0);
+		NullProgressMonitor npm = new NullProgressMonitor();
+		IProject project = createBaseProject(projectName, location);
+		try {
+			if (!project.isOpen()) {
+				project.open(npm);
+			}
+			addNature(project);
+		} catch (CoreException e) {
+			e.printStackTrace();
+			project = null;
+		}
+		return project;
 	}
 
-	return newProject;
-    }
+	/**
+	 * Just do the basics: create a basic project.
+	 * 
+	 * @param location
+	 * @param projectName
+	 */
+	private static IProject createBaseProject(String projectName, URI location) {
+		// it is acceptable to use the ResourcesPlugin class
+		IProject newProject = ResourcesPlugin.getWorkspace().getRoot().getProject(projectName);
+		if (!newProject.exists()) {
+			URI projectLocation = location;
+			IProjectDescription desc = newProject.getWorkspace().newProjectDescription(newProject.getName());
+			if (location != null && ResourcesPlugin.getWorkspace().getRoot().getLocationURI().equals(location)) {
+				projectLocation = null;
+			}
+			desc.setLocationURI(projectLocation);
+			try {
+				newProject.create(desc, null);
+			} catch (CoreException e) {
+				e.printStackTrace();
+			}
+		}
 
-    private static void addNature(IProject project) throws CoreException {
-	if (!project.hasNature(MetsProjectNature.NATURE_ID)) {
-	    // add the nature to description
-	    IProjectDescription description = project.getDescription();
-	    String[] prevNatures = description.getNatureIds();
-	    String[] newNatures = new String[prevNatures.length + 1];
-	    System.arraycopy(prevNatures, 0, newNatures, 0, prevNatures.length);
-	    newNatures[prevNatures.length] = MetsProjectNature.NATURE_ID;
-	    description.setNatureIds(newNatures);
-	    IProgressMonitor monitor = null;
-	    project.setDescription(description, monitor);
+		return newProject;
 	}
-    }
+
+	private static void addNature(IProject project) throws CoreException {
+		if (!project.hasNature(MetsProjectNature.NATURE_ID)) {
+			// add the nature to description
+			IProjectDescription description = project.getDescription();
+			String[] prevNatures = description.getNatureIds();
+			String[] newNatures = new String[prevNatures.length + 1];
+			System.arraycopy(prevNatures, 0, newNatures, 0, prevNatures.length);
+			newNatures[prevNatures.length] = MetsProjectNature.NATURE_ID;
+			description.setNatureIds(newNatures);
+			IProgressMonitor monitor = null;
+			project.setDescription(description, monitor);
+		}
+	}
 
 }

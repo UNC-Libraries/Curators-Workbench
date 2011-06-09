@@ -38,7 +38,7 @@ import unc.lib.cdr.workbench.xwalk.CrosswalksProjectElement;
 
 /**
  * @author Gregory Jansen
- *
+ * 
  */
 public class LabelImageFactory {
 	public static String iconPath = "icons/";

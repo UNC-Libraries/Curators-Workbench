@@ -8,19 +8,19 @@ import org.eclipse.jface.viewers.IFilter;
 
 public class CrosswalkedDescriptionDivTypeFilter implements IFilter {
 
-    @Override
-    public boolean select(Object toTest) {
-	if (toTest instanceof DivType) {
-	    DivType d = (DivType) toTest;
-	    for (MdSecType md : d.getDmdSec()) {
-		if (METSConstants.MD_STATUS_CROSSWALK_LINKED.equals(md.getSTATUS())) {
-		    return true;
-		} else if (METSConstants.MD_STATUS_CROSSWALK_USER_LINKED.equals(md.getSTATUS())) {
-		    return true;
+	@Override
+	public boolean select(Object toTest) {
+		if (toTest instanceof DivType) {
+			DivType d = (DivType) toTest;
+			for (MdSecType md : d.getDmdSec()) {
+				if (METSConstants.MD_STATUS_CROSSWALK_LINKED.equals(md.getSTATUS())) {
+					return true;
+				} else if (METSConstants.MD_STATUS_CROSSWALK_USER_LINKED.equals(md.getSTATUS())) {
+					return true;
+				}
+			}
 		}
-	    }
+		return false;
 	}
-	return false;
-    }
 
 }

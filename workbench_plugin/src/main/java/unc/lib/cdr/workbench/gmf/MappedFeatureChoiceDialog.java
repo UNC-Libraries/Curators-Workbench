@@ -22,7 +22,6 @@ import java.util.TreeMap;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.util.BasicExtendedMetaData;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.ExtendedMetaData;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
@@ -36,7 +35,7 @@ import org.eclipse.swt.widgets.Shell;
 
 /**
  * @author Gregory Jansen
- *
+ * 
  */
 public class MappedFeatureChoiceDialog extends Dialog {
 	private String message = "Choose a Feature";
@@ -56,7 +55,7 @@ public class MappedFeatureChoiceDialog extends Dialog {
 
 	/**
 	 * Opens the dialog and returns the input
-	 *
+	 * 
 	 * @return String
 	 */
 	public EStructuralFeature open() {
@@ -78,7 +77,7 @@ public class MappedFeatureChoiceDialog extends Dialog {
 
 	/**
 	 * Creates the dialog's contents
-	 *
+	 * 
 	 * @param shell
 	 *           the dialog window
 	 */
@@ -106,16 +105,16 @@ public class MappedFeatureChoiceDialog extends Dialog {
 				String name = emd.getName(r);
 				String ns = emd.getNamespace(r);
 				String key = null;
-				if(ns != null) {
+				if (ns != null) {
 					EPackage eo = EPackage.Registry.INSTANCE.getEPackage(ns);
-					key = eo.getNsPrefix()+":"+name;
+					key = eo.getNsPrefix() + ":" + name;
 				} else {
 					key = name;
 				}
 				featMap.put(key, r);
 			}
 
-			for ( Entry<String, EStructuralFeature> entry : featMap.entrySet()) {
+			for (Entry<String, EStructuralFeature> entry : featMap.entrySet()) {
 				choice.add(entry.getKey());
 				choice.setData(entry.getKey(), entry.getValue());
 			}

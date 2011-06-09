@@ -57,7 +57,7 @@ public class ArrangementContentProvider extends AdapterFactoryContentProvider im
 
 	/*
 	 * Returns the Original File Sets for a project and descendents. (non-Javadoc)
-	 *
+	 * 
 	 * @see org.eclipse.jface.viewers.ITreeContentProvider#getChildren(java.lang. Object)
 	 */
 	@Override
@@ -87,10 +87,10 @@ public class ArrangementContentProvider extends AdapterFactoryContentProvider im
 				// log.debug("Cannot find tree item provider for bag div");
 				// }
 			} else if (parent instanceof DivType) {
-				DivType div = (DivType)parent;
+				DivType div = (DivType) parent;
 				MetsType mets = MetsProjectNature.getNatureForMetsObject(div).getMets();
-				if(mets.getStructLink() != null && mets.getStructLink().getSmLink() != null) {
-					for(SmLinkType l : mets.getStructLink().getSmLink()) {
+				if (mets.getStructLink() != null && mets.getStructLink().getSmLink() != null) {
+					for (SmLinkType l : mets.getStructLink().getSmLink()) {
 						if (div.equals(l.getXlinkFrom())) {
 							results.add(l);
 						}
@@ -99,10 +99,10 @@ public class ArrangementContentProvider extends AdapterFactoryContentProvider im
 				for (Object o : super.getChildren(parent)) {
 					results.add(o);
 				}
-			} else if(parent instanceof ICustomEObjectBucket) {
-				ICustomEObjectBucket bucket = (ICustomEObjectBucket)parent;
+			} else if (parent instanceof ICustomEObjectBucket) {
+				ICustomEObjectBucket bucket = (ICustomEObjectBucket) parent;
 				return bucket.getChildren();
-			}	else {
+			} else {
 				for (Object o : super.getChildren(parent)) {
 					results.add(o);
 				}
@@ -123,8 +123,8 @@ public class ArrangementContentProvider extends AdapterFactoryContentProvider im
 	public Object getParent(Object element) {
 		if (element instanceof ArrangementProjectElement) {
 			return ((ArrangementProjectElement) element).getParent();
-		} else if(element instanceof ICustomEObjectBucket) {
-			return ((ICustomEObjectBucket)element).getParent();
+		} else if (element instanceof ICustomEObjectBucket) {
+			return ((ICustomEObjectBucket) element).getParent();
 		} else {
 			return super.getParent(element);
 		}
@@ -143,7 +143,7 @@ public class ArrangementContentProvider extends AdapterFactoryContentProvider im
 			return true;
 		} else if (element instanceof ArrangementProjectElement) {
 			return true;
-		} else if(element instanceof ICustomEObjectBucket) {
+		} else if (element instanceof ICustomEObjectBucket) {
 			return true;
 		} else {
 			return super.hasChildren(element);
@@ -180,7 +180,7 @@ public class ArrangementContentProvider extends AdapterFactoryContentProvider im
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see org.eclipse.core.resources.IResourceChangeListener#resourceChanged(org
 	 * .eclipse.core.resources.IResourceChangeEvent)
 	 */
@@ -201,7 +201,7 @@ public class ArrangementContentProvider extends AdapterFactoryContentProvider im
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see org.eclipse.emf.edit.provider.INotifyChangedListener#notifyChanged(org
 	 * .eclipse.emf.common.notify.Notification)
 	 */

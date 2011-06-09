@@ -26,74 +26,74 @@ import unc.lib.cdr.workbench.project.MetsProjectNature;
 
 public class OriginalFingerprintSection extends AbstractPropertySection {
 
-    @SuppressWarnings("unused")
-    private static final Logger LOG = LoggerFactory.getLogger(OriginalFingerprintSection.class);
+	@SuppressWarnings("unused")
+	private static final Logger LOG = LoggerFactory.getLogger(OriginalFingerprintSection.class);
 
-    private DivType div = null;
-    Text checksumText = null;
-    Text checksumTypeText = null;
+	private DivType div = null;
+	Text checksumText = null;
+	Text checksumTypeText = null;
 
-    /**
-     * @see org.eclipse.ui.views.properties.tabbed.ISection#setInput(org.eclipse.ui.IWorkbenchPart,
-     *      org.eclipse.jface.viewers.ISelection)
-     */
-    @Override
-    public void setInput(IWorkbenchPart part, ISelection s) {
-	super.setInput(part, s);
-	Assert.isTrue(s instanceof IStructuredSelection);
-	Object divO = ((IStructuredSelection) s).getFirstElement();
-	Assert.isTrue(divO instanceof DivType);
-	this.div = (DivType) divO;
-    }
-
-    @Override
-    public void createControls(Composite parent, TabbedPropertySheetPage aTabbedPropertySheetPage) {
-	super.createControls(parent, aTabbedPropertySheetPage);
-	Composite composite = getWidgetFactory().createFlatFormComposite(parent);
-	FormData data;
-
-	CLabel l1 = getWidgetFactory().createCLabel(composite, "Checksum");
-	data = new FormData();
-	data.left = new FormAttachment(0, ITabbedPropertyConstants.HSPACE);
-	data.top = new FormAttachment(0, ITabbedPropertyConstants.VSPACE);
-	l1.setLayoutData(data);
-
-	data = new FormData();
-	data.left = new FormAttachment(l1, ITabbedPropertyConstants.HSPACE);
-	checksumText = getWidgetFactory().createText(composite, "", SWT.READ_ONLY);
-	checksumText.setLayoutData(data);
-
-	CLabel l2 = getWidgetFactory().createCLabel(composite, "Type");
-	data = new FormData();
-	data.left = new FormAttachment(checksumText, ITabbedPropertyConstants.HSPACE);
-	l2.setLayoutData(data);
-	checksumTypeText = getWidgetFactory().createText(composite, "", SWT.READ_ONLY);
-	data = new FormData();
-	data.left = new FormAttachment(l2, ITabbedPropertyConstants.HSPACE);
-	checksumTypeText.setLayoutData(data);
-    }
-
-    @Override
-    public void refresh() {
-	// LOG.debug("div: "+div);
-	MetsType mets = MetsProjectNature.getNatureForMetsObject(div).getMets();
-	FileGrpType grp = METSUtils.getObjectFileGroup(mets, div.getID());
-	FileType file = grp.getFile().get(0);
-	if (file.getCHECKSUM() != null) {
-	    checksumText.setText(file.getCHECKSUM());
-	    checksumTypeText.setText(file.getCHECKSUMTYPE().getName());
-	} else {
-	    checksumText.setText("");
-	    checksumTypeText.setText("");
+	/**
+	 * @see org.eclipse.ui.views.properties.tabbed.ISection#setInput(org.eclipse.ui.IWorkbenchPart,
+	 *      org.eclipse.jface.viewers.ISelection)
+	 */
+	@Override
+	public void setInput(IWorkbenchPart part, ISelection s) {
+		super.setInput(part, s);
+		Assert.isTrue(s instanceof IStructuredSelection);
+		Object divO = ((IStructuredSelection) s).getFirstElement();
+		Assert.isTrue(divO instanceof DivType);
+		this.div = (DivType) divO;
 	}
-    }
 
-    /**
-     * @see org.eclipse.ui.views.properties.tabbed.ISection#shouldUseExtraSpace()
-     */
-    @Override
-    public boolean shouldUseExtraSpace() {
-	return false;
-    }
+	@Override
+	public void createControls(Composite parent, TabbedPropertySheetPage aTabbedPropertySheetPage) {
+		super.createControls(parent, aTabbedPropertySheetPage);
+		Composite composite = getWidgetFactory().createFlatFormComposite(parent);
+		FormData data;
+
+		CLabel l1 = getWidgetFactory().createCLabel(composite, "Checksum");
+		data = new FormData();
+		data.left = new FormAttachment(0, ITabbedPropertyConstants.HSPACE);
+		data.top = new FormAttachment(0, ITabbedPropertyConstants.VSPACE);
+		l1.setLayoutData(data);
+
+		data = new FormData();
+		data.left = new FormAttachment(l1, ITabbedPropertyConstants.HSPACE);
+		checksumText = getWidgetFactory().createText(composite, "", SWT.READ_ONLY);
+		checksumText.setLayoutData(data);
+
+		CLabel l2 = getWidgetFactory().createCLabel(composite, "Type");
+		data = new FormData();
+		data.left = new FormAttachment(checksumText, ITabbedPropertyConstants.HSPACE);
+		l2.setLayoutData(data);
+		checksumTypeText = getWidgetFactory().createText(composite, "", SWT.READ_ONLY);
+		data = new FormData();
+		data.left = new FormAttachment(l2, ITabbedPropertyConstants.HSPACE);
+		checksumTypeText.setLayoutData(data);
+	}
+
+	@Override
+	public void refresh() {
+		// LOG.debug("div: "+div);
+		MetsType mets = MetsProjectNature.getNatureForMetsObject(div).getMets();
+		FileGrpType grp = METSUtils.getObjectFileGroup(mets, div.getID());
+		FileType file = grp.getFile().get(0);
+		if (file.getCHECKSUM() != null) {
+			checksumText.setText(file.getCHECKSUM());
+			checksumTypeText.setText(file.getCHECKSUMTYPE().getName());
+		} else {
+			checksumText.setText("");
+			checksumTypeText.setText("");
+		}
+	}
+
+	/**
+	 * @see org.eclipse.ui.views.properties.tabbed.ISection#shouldUseExtraSpace()
+	 */
+	@Override
+	public boolean shouldUseExtraSpace() {
+		return false;
+	}
 
 }

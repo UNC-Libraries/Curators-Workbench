@@ -24,81 +24,76 @@ import unc.lib.cdr.workbench.project.ICustomProjectElement;
 
 /**
  * @author Gregory Jansen
- *
+ * 
  */
 public class MetsProjectLabelProvider implements ILabelProvider {
-    private LabelImageFactory imageFactory = new LabelImageFactory();
+	private LabelImageFactory imageFactory = new LabelImageFactory();
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see
-     * org.eclipse.jface.viewers.IBaseLabelProvider#addListener(org.eclipse.
-     * jface.viewers.ILabelProviderListener)
-     */
-    @Override
-    public void addListener(ILabelProviderListener listener) {
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.jface.viewers.IBaseLabelProvider#addListener(org.eclipse. jface.viewers.ILabelProviderListener)
+	 */
+	@Override
+	public void addListener(ILabelProviderListener listener) {
 
-    }
-
-    /*
-     * (non-Javadoc)
-     *
-     * @see org.eclipse.jface.viewers.IBaseLabelProvider#dispose()
-     */
-    @Override
-    public void dispose() {
-    }
-
-    /*
-     * (non-Javadoc)
-     *
-     * @see
-     * org.eclipse.jface.viewers.IBaseLabelProvider#isLabelProperty(java.lang
-     * .Object, java.lang.String)
-     */
-    @Override
-    public boolean isLabelProperty(Object element, String property) {
-	return false;
-    }
-
-    /*
-     * (non-Javadoc)
-     *
-     * @see
-     * org.eclipse.jface.viewers.IBaseLabelProvider#removeListener(org.eclipse
-     * .jface.viewers.ILabelProviderListener)
-     */
-    @Override
-    public void removeListener(ILabelProviderListener listener) {
-    }
-
-    /*
-     * (non-Javadoc)
-     *
-     * @see org.eclipse.jface.viewers.ILabelProvider#getImage(java.lang.Object)
-     */
-    @Override
-    public Image getImage(Object element) {
-	return imageFactory.getImageForObject(element);
-    }
-
-    /*
-     * (non-Javadoc)
-     *
-     * @see org.eclipse.jface.viewers.ILabelProvider#getText(java.lang.Object)
-     */
-    @Override
-    public String getText(Object element) {
-	StringBuilder b = new StringBuilder();
-	if (element instanceof IProject) {
-	    IProject proj = (IProject) element;
-	    return proj.getName();
-	} else if (element instanceof ICustomProjectElement) {
-	    ICustomProjectElement e = (ICustomProjectElement) element;
-	    return e.getText();
-	} else {
-	    return element.toString();
 	}
-    }
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.jface.viewers.IBaseLabelProvider#dispose()
+	 */
+	@Override
+	public void dispose() {
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.jface.viewers.IBaseLabelProvider#isLabelProperty(java.lang .Object, java.lang.String)
+	 */
+	@Override
+	public boolean isLabelProperty(Object element, String property) {
+		return false;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.jface.viewers.IBaseLabelProvider#removeListener(org.eclipse
+	 * .jface.viewers.ILabelProviderListener)
+	 */
+	@Override
+	public void removeListener(ILabelProviderListener listener) {
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.jface.viewers.ILabelProvider#getImage(java.lang.Object)
+	 */
+	@Override
+	public Image getImage(Object element) {
+		return imageFactory.getImageForObject(element);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.jface.viewers.ILabelProvider#getText(java.lang.Object)
+	 */
+	@Override
+	public String getText(Object element) {
+		StringBuilder b = new StringBuilder();
+		if (element instanceof IProject) {
+			IProject proj = (IProject) element;
+			return proj.getName();
+		} else if (element instanceof ICustomProjectElement) {
+			ICustomProjectElement e = (ICustomProjectElement) element;
+			return e.getText();
+		} else {
+			return element.toString();
+		}
+	}
 }

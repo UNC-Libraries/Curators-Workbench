@@ -16,13 +16,11 @@
 package unc.lib.cdr.workbench.project;
 
 import java.net.URI;
-import java.net.URISyntaxException;
 
 import org.eclipse.core.filesystem.EFS;
 import org.eclipse.core.filesystem.IFileStore;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
-import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -32,52 +30,52 @@ import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.dialogs.WizardNewProjectCreationPage;
 
 public class NewSipProjectWizard extends Wizard implements INewWizard {
-    private WizardNewProjectCreationPage _pageOne;
-    private NewProjectStagingPage _pageTwo;
-    IWorkbench workbench = null;
+	private WizardNewProjectCreationPage _pageOne;
+	private NewProjectStagingPage _pageTwo;
+	IWorkbench workbench = null;
 
-    public NewSipProjectWizard() {
-    }
-
-    @Override
-    public boolean performFinish() {
-	String name = _pageOne.getProjectName();
-	URI location = null;
-	if(!_pageOne.useDefaults()) {
-	    location = _pageOne.getLocationURI();
+	public NewSipProjectWizard() {
 	}
-	IProject prog = MetsProjectNatureSupport.createProject(name, location);
-	try {
-	    URI stageURI = _pageTwo.computeStageLocation(prog.getLocationURI(), prog.getName());
-	    IFolder stage = prog.getFolder(MetsProjectNature.STAGE_FOLDER_NAME);
-	    IFileStore stageStore = EFS.getStore(stageURI);
-	    stageStore.mkdir(EFS.NONE, new NullProgressMonitor());
-	    // TODO if linking fails, then throw an error!!
-	    System.out.println("staging URI passed to EFS.getStore: "+stageURI.toString());
-	    stage.createLink(stageURI, IFolder.ALLOW_MISSING_LOCAL, new NullProgressMonitor());
-	} catch (CoreException e) {
-	    e.printStackTrace();
+
+	@Override
+	public boolean performFinish() {
+		String name = _pageOne.getProjectName();
+		URI location = null;
+		if (!_pageOne.useDefaults()) {
+			location = _pageOne.getLocationURI();
+		}
+		IProject prog = MetsProjectNatureSupport.createProject(name, location);
+		try {
+			URI stageURI = _pageTwo.computeStageLocation(prog.getLocationURI(), prog.getName());
+			IFolder stage = prog.getFolder(MetsProjectNature.STAGE_FOLDER_NAME);
+			IFileStore stageStore = EFS.getStore(stageURI);
+			stageStore.mkdir(EFS.NONE, new NullProgressMonitor());
+			// TODO if linking fails, then throw an error!!
+			System.out.println("staging URI passed to EFS.getStore: " + stageURI.toString());
+			stage.createLink(stageURI, IFolder.ALLOW_MISSING_LOCAL, new NullProgressMonitor());
+		} catch (CoreException e) {
+			e.printStackTrace();
+		}
+		return true;
 	}
-	return true;
-    }
 
-    @Override
-    public void addPages() {
-	super.addPages();
-	    _pageOne = new WizardNewProjectCreationPage("New Project Wizard");
-	    _pageOne.setTitle("Project Name");
-	    _pageOne.setDescription("Give your project a descriptive name.");
-	    _pageTwo = new NewProjectStagingPage("Staging");
-	    _pageTwo.setTitle("Staging Location");
-	    _pageTwo.setDescription("Choose a staging location for captured files.");
-	    _pageTwo.setMainPage(_pageOne);
-	    addPage(_pageOne);
-	    addPage(_pageTwo);
-    }
+	@Override
+	public void addPages() {
+		super.addPages();
+		_pageOne = new WizardNewProjectCreationPage("New Project Wizard");
+		_pageOne.setTitle("Project Name");
+		_pageOne.setDescription("Give your project a descriptive name.");
+		_pageTwo = new NewProjectStagingPage("Staging");
+		_pageTwo.setTitle("Staging Location");
+		_pageTwo.setDescription("Choose a staging location for captured files.");
+		_pageTwo.setMainPage(_pageOne);
+		addPage(_pageOne);
+		addPage(_pageTwo);
+	}
 
-    @Override
-    public void init(IWorkbench workbench, IStructuredSelection selection) {
-	this.workbench = workbench;
-    }
+	@Override
+	public void init(IWorkbench workbench, IStructuredSelection selection) {
+		this.workbench = workbench;
+	}
 
 }

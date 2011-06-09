@@ -25,57 +25,51 @@ import org.slf4j.LoggerFactory;
 
 /**
  * @author Gregory Jansen
- *
+ * 
  */
 public class ArrangementDragSourceListener implements DragSourceListener {
-    TreeViewer viewer = null;
+	TreeViewer viewer = null;
 
-    public ArrangementDragSourceListener(TreeViewer viewer) {
-	super();
-	this.viewer = viewer;
-    }
-
-    private static final Logger LOG = LoggerFactory.getLogger(ArrangementDragSourceListener.class);
-
-    /*
-     * (non-Javadoc)
-     *
-     * @see
-     * org.eclipse.swt.dnd.DragSourceListener#dragStart(org.eclipse.swt.dnd.
-     * DragSourceEvent)
-     */
-    @Override
-    public void dragStart(DragSourceEvent event) {
-    }
-
-    /*
-     * (non-Javadoc)
-     *
-     * @see
-     * org.eclipse.swt.dnd.DragSourceListener#dragSetData(org.eclipse.swt.dnd
-     * .DragSourceEvent)
-     */
-    @Override
-    public void dragSetData(DragSourceEvent event) {
-	ITreeSelection selection = (ITreeSelection) viewer.getSelection();
-	LocalSelectionTransfer transfer = LocalSelectionTransfer.getTransfer();
-	if (transfer.isSupportedType(event.dataType)) {
-	    transfer.setSelection(selection);
-	    event.data = selection;
+	public ArrangementDragSourceListener(TreeViewer viewer) {
+		super();
+		this.viewer = viewer;
 	}
-	LOG.debug("drag event data has been set: " + event.data);
 
-    }
+	private static final Logger LOG = LoggerFactory.getLogger(ArrangementDragSourceListener.class);
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see
-     * org.eclipse.swt.dnd.DragSourceListener#dragFinished(org.eclipse.swt.dnd
-     * .DragSourceEvent)
-     */
-    @Override
-    public void dragFinished(DragSourceEvent event) {
-    }
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.swt.dnd.DragSourceListener#dragStart(org.eclipse.swt.dnd. DragSourceEvent)
+	 */
+	@Override
+	public void dragStart(DragSourceEvent event) {
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.swt.dnd.DragSourceListener#dragSetData(org.eclipse.swt.dnd .DragSourceEvent)
+	 */
+	@Override
+	public void dragSetData(DragSourceEvent event) {
+		ITreeSelection selection = (ITreeSelection) viewer.getSelection();
+		LocalSelectionTransfer transfer = LocalSelectionTransfer.getTransfer();
+		if (transfer.isSupportedType(event.dataType)) {
+			transfer.setSelection(selection);
+			event.data = selection;
+		}
+		LOG.debug("drag event data has been set: " + event.data);
+
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.swt.dnd.DragSourceListener#dragFinished(org.eclipse.swt.dnd .DragSourceEvent)
+	 */
+	@Override
+	public void dragFinished(DragSourceEvent event) {
+	}
 
 }

@@ -20,21 +20,21 @@ import org.eclipse.jface.resource.ImageDescriptor;
 
 /**
  * @author Gregory Jansen
- *
+ * 
  */
 public interface ICustomProjectElement {
 
-    public ImageDescriptor getImageDescriptor();
+	public ImageDescriptor getImageDescriptor();
 
-    public Object[] getChildren();
+	public Object[] getChildren();
 
-    public String getText();
+	public String getText();
 
-    public boolean hasChildren();
+	public boolean hasChildren();
 
-    public MetsProjectNature getProjectNature();
+	public MetsProjectNature getProjectNature();
 
-    public IProject getProject();
+	public IProject getProject();
 
-    public Object getParent();
+	public Object getParent();
 }

@@ -35,152 +35,142 @@ import unc.lib.cdr.workbench.project.MetsProjectNature;
 
 /**
  * @author Gregory Jansen
- *
+ * 
  */
 public class OriginalsContentProvider implements ITreeContentProvider, IResourceChangeListener {
-    private static final Logger log = LoggerFactory.getLogger(OriginalsContentProvider.class);
-    Viewer viewer = null;
+	private static final Logger log = LoggerFactory.getLogger(OriginalsContentProvider.class);
+	Viewer viewer = null;
 
-    /**
+	/**
      *
      */
-    public OriginalsContentProvider() {
-	ResourcesPlugin.getWorkspace().addResourceChangeListener(this, IResourceChangeEvent.POST_CHANGE);
-    }
-
-    /*
-     * (non-Javadoc)
-     *
-     * @see
-     * org.eclipse.jface.viewers.ITreeContentProvider#getChildren(java.lang.
-     * Object)
-     */
-    @Override
-    public Object[] getChildren(Object parent) {
-	// log.debug("getChildren:"+parent.toString());
-	List<Object> results = new ArrayList<Object>();
-	try {
-	    if (parent instanceof IProject) {
-		IProject p = (IProject) parent;
-		if (p.isOpen()) {
-		    MetsProjectNature n = (MetsProjectNature) p.getNature(MetsProjectNature.NATURE_ID);
-		    results.add(n.getOriginalsElement());
-		}
-	    } else if (parent instanceof OriginalFoldersProjectElement) {
-		OriginalFoldersProjectElement e = (OriginalFoldersProjectElement) parent;
-		return e.getChildren();
-	    } else if (parent instanceof IContainer) {
-		IContainer f = (IContainer) parent;
-		for (IResource r : f.members()) {
-		    results.add(r);
-		}
-	    }
-	} catch (CoreException e) {
-	    throw new Error(e);
+	public OriginalsContentProvider() {
+		ResourcesPlugin.getWorkspace().addResourceChangeListener(this, IResourceChangeEvent.POST_CHANGE);
 	}
-	return results.toArray();
-    }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see
-     * org.eclipse.jface.viewers.ITreeContentProvider#getParent(java.lang.Object
-     * )
-     */
-    @Override
-    public Object getParent(Object element) {
-	Object result = null;
-	if (element instanceof IResource) {
-	    IResource r = (IResource) element;
-	    String[] segments = r.getProjectRelativePath().segments();
-	    if (segments.length == 2) {
-		// found an originals folder, return OriginalsProjectElement
-		MetsProjectNature n;
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.jface.viewers.ITreeContentProvider#getChildren(java.lang. Object)
+	 */
+	@Override
+	public Object[] getChildren(Object parent) {
+		// log.debug("getChildren:"+parent.toString());
+		List<Object> results = new ArrayList<Object>();
 		try {
-		    n = (MetsProjectNature) r.getProject().getNature(MetsProjectNature.NATURE_ID);
+			if (parent instanceof IProject) {
+				IProject p = (IProject) parent;
+				if (p.isOpen()) {
+					MetsProjectNature n = (MetsProjectNature) p.getNature(MetsProjectNature.NATURE_ID);
+					results.add(n.getOriginalsElement());
+				}
+			} else if (parent instanceof OriginalFoldersProjectElement) {
+				OriginalFoldersProjectElement e = (OriginalFoldersProjectElement) parent;
+				return e.getChildren();
+			} else if (parent instanceof IContainer) {
+				IContainer f = (IContainer) parent;
+				for (IResource r : f.members()) {
+					results.add(r);
+				}
+			}
 		} catch (CoreException e) {
-		    throw new Error("Unexpected");
+			throw new Error(e);
 		}
-		return n.getOriginalsElement();
-	    } else {
-		// should be a resource within an originals folder, use
-		// getParent()
-		return r.getParent();
-	    }
-	} else {
-	    return result;
+		return results.toArray();
 	}
-    }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see
-     * org.eclipse.jface.viewers.ITreeContentProvider#hasChildren(java.lang.
-     * Object)
-     */
-    @Override
-    public boolean hasChildren(Object element) {
-	if (element instanceof IContainer) {
-	    return true;
-	} else if (element instanceof OriginalFoldersProjectElement) {
-	    return ((OriginalFoldersProjectElement) element).hasChildren();
-	} else {
-	    return false;
-	}
-    }
-
-    /*
-     * (non-Javadoc)
-     *
-     * @see
-     * org.eclipse.jface.viewers.IStructuredContentProvider#getElements(java
-     * .lang.Object)
-     */
-    @Override
-    public Object[] getElements(Object inputElement) {
-	return this.getChildren(inputElement);
-    }
-
-    /*
-     * (non-Javadoc)
-     *
-     * @see org.eclipse.jface.viewers.IContentProvider#dispose()
-     */
-    @Override
-    public void dispose() {
-	ResourcesPlugin.getWorkspace().removeResourceChangeListener(this);
-    }
-
-    /*
-     * (non-Javadoc)
-     *
-     * @see
-     * org.eclipse.jface.viewers.IContentProvider#inputChanged(org.eclipse.jface
-     * .viewers.Viewer, java.lang.Object, java.lang.Object)
-     */
-    @Override
-    public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
-	this.viewer = viewer;
-    }
-
-    /*
-     * (non-Javadoc)
-     *
-     * @see
-     * org.eclipse.core.resources.IResourceChangeListener#resourceChanged(org
-     * .eclipse.core.resources.IResourceChangeEvent)
-     */
-    @Override
-    public void resourceChanged(IResourceChangeEvent event) {
-	Display.getDefault().asyncExec(new Runnable() {
-	    public void run() {
-		if (!viewer.getControl().isDisposed()) {
-		    viewer.refresh();
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.jface.viewers.ITreeContentProvider#getParent(java.lang.Object )
+	 */
+	@Override
+	public Object getParent(Object element) {
+		Object result = null;
+		if (element instanceof IResource) {
+			IResource r = (IResource) element;
+			String[] segments = r.getProjectRelativePath().segments();
+			if (segments.length == 2) {
+				// found an originals folder, return OriginalsProjectElement
+				MetsProjectNature n;
+				try {
+					n = (MetsProjectNature) r.getProject().getNature(MetsProjectNature.NATURE_ID);
+				} catch (CoreException e) {
+					throw new Error("Unexpected");
+				}
+				return n.getOriginalsElement();
+			} else {
+				// should be a resource within an originals folder, use
+				// getParent()
+				return r.getParent();
+			}
+		} else {
+			return result;
 		}
-	    }
-	});
-    }
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.jface.viewers.ITreeContentProvider#hasChildren(java.lang. Object)
+	 */
+	@Override
+	public boolean hasChildren(Object element) {
+		if (element instanceof IContainer) {
+			return true;
+		} else if (element instanceof OriginalFoldersProjectElement) {
+			return ((OriginalFoldersProjectElement) element).hasChildren();
+		} else {
+			return false;
+		}
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.jface.viewers.IStructuredContentProvider#getElements(java .lang.Object)
+	 */
+	@Override
+	public Object[] getElements(Object inputElement) {
+		return this.getChildren(inputElement);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.jface.viewers.IContentProvider#dispose()
+	 */
+	@Override
+	public void dispose() {
+		ResourcesPlugin.getWorkspace().removeResourceChangeListener(this);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.jface.viewers.IContentProvider#inputChanged(org.eclipse.jface .viewers.Viewer, java.lang.Object,
+	 * java.lang.Object)
+	 */
+	@Override
+	public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
+		this.viewer = viewer;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.core.resources.IResourceChangeListener#resourceChanged(org
+	 * .eclipse.core.resources.IResourceChangeEvent)
+	 */
+	@Override
+	public void resourceChanged(IResourceChangeEvent event) {
+		Display.getDefault().asyncExec(new Runnable() {
+			public void run() {
+				if (!viewer.getControl().isDisposed()) {
+					viewer.refresh();
+				}
+			}
+		});
+	}
 
 }
