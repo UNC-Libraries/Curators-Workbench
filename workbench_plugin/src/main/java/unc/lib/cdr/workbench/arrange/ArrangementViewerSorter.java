@@ -16,6 +16,7 @@
 package unc.lib.cdr.workbench.arrange;
 
 import gov.loc.mets.DivType;
+import gov.loc.mets.SmLinkType;
 
 import java.text.Collator;
 
@@ -35,6 +36,18 @@ public class ArrangementViewerSorter extends ViewerSorter {
 
 	@Override
 	public int compare(Viewer viewer, Object e1, Object e2) {
+		if(e1 instanceof SmLinkType) {
+			if(e2 instanceof SmLinkType) {
+				String pred1 = ((SmLinkType)e1).getArcrole();
+				String pred2 = ((SmLinkType)e2).getArcrole();
+				return this.getComparator().compare(pred1, pred2);
+			} else {
+				return -1;
+			}
+		}
+		if(e2 instanceof SmLinkType) {
+			return 1;
+		}
 		if (e1 instanceof DivType && e2 instanceof DivType) {
 			DivType d1 = (DivType) e1;
 			EObject parent = d1.eContainer();

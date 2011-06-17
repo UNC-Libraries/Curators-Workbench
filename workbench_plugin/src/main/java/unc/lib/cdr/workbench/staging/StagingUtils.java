@@ -54,7 +54,7 @@ import unc.lib.cdr.workbench.rcp.Activator;
 
 /**
  * @author Gregory Jansen
- * 
+ *
  */
 public class StagingUtils {
 	private static final Logger log = LoggerFactory.getLogger(StagingUtils.class);
@@ -291,11 +291,13 @@ public class StagingUtils {
 				out.write(buffer, 0, bytesRead);
 				messageDigest.update(buffer, 0, bytesRead);
 				totalBytesCopied = totalBytesCopied + bytesRead;
-				if ((totalBytesCopied % progressTickBytes) < bytesRead) {
-					monitor.worked(1);
-					if (length > 0) {
-						int percent = (int) (100.0 * ((float) totalBytesCopied / length));
-						monitor.subTask(percent + "% (" + totalBytesCopied / 1024 + "/" + length / 1024 + "K)");
+				if (totalBytesCopied > 0) {
+					if ((totalBytesCopied % progressTickBytes) < bytesRead) {
+						monitor.worked(1);
+						if (length > 0) {
+							int percent = (int) (100.0 * ((float) totalBytesCopied / length));
+							monitor.subTask(percent + "% (" + totalBytesCopied / 1024 + "/" + length / 1024 + "K)");
+						}
 					}
 				}
 			}

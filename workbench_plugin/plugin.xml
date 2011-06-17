@@ -627,6 +627,15 @@
                showTitle="true"
                visible="true">
          </view>
+         <view
+               id="org.eclipse.ui.views.ProblemView"
+               minimized="false"
+               moveable="true"
+               relationship="stack"
+               relative="cdr-workbench.Properties"
+               showTitle="true"
+               visible="true">
+         </view>
       </perspectiveExtension>
       <perspectiveExtension
             targetID="cdr-workbench.ArrangementPerspective">
@@ -961,6 +970,21 @@
             </or>
          </enablement>
       </decorator>
+      <decorator
+            class="unc.lib.cdr.workbench.views.MdSecTypeDecorator"
+            id="workbench_plugin.decoratorMdSecType"
+            label="Metadata Section Decoration"
+            lightweight="true"
+            location="BOTTOM_RIGHT"
+            state="true">
+         <enablement>
+            <or>
+               <objectClass
+                     name="gov.loc.mets.MdSecType">
+               </objectClass>
+            </or>
+         </enablement>
+      </decorator>
    </extension>
    <extension
          id="unc.lib.cdr.workbench.builders.CrosswalksBuilder"
@@ -1047,6 +1071,12 @@
                id="workbench_plugin.propertyTabOriginalProperties"
                label="Original Properties">
          </propertyTab>
+         <propertyTab
+               afterTab="workbench_plugin.propertyTabCrosswalkedDescription"
+               category="description"
+               id="workbench_plugin.propertyTabMdSecContent"
+               label="Metadata Content">
+         </propertyTab>
       </propertyTabs>
    </extension>
    <extension
@@ -1100,6 +1130,15 @@
                tab="workbench_plugin.propertyTabOriginalProperties">
             <input
                   type="org.eclipse.core.resources.IResource">
+            </input>
+         </propertySection>
+         <propertySection
+               class="unc.lib.cdr.workbench.views.MdSecTypePropertySection"
+               enablesFor="1"
+               id="workbench_plugin.propertySectionMdSecContent"
+               tab="workbench_plugin.propertyTabMdSecContent">
+            <input
+                  type="gov.loc.mets.MdSecType">
             </input>
          </propertySection>
       </propertySections>

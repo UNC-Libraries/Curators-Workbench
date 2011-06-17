@@ -20,6 +20,8 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Combo;
@@ -37,7 +39,7 @@ import edu.unc.lib.schemas.acl.GrantType;
 
 /**
  * @author Gregory Jansen
- * 
+ *
  */
 public class GrantTypeDetailsPage implements IDetailsPage {
 	private IManagedForm mform;
@@ -52,7 +54,7 @@ public class GrantTypeDetailsPage implements IDetailsPage {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.eclipse.ui.forms.IFormPart#initialize(org.eclipse.ui.forms.IManagedForm )
 	 */
 	@Override
@@ -62,7 +64,7 @@ public class GrantTypeDetailsPage implements IDetailsPage {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.eclipse.ui.forms.IFormPart#dispose()
 	 */
 	@Override
@@ -72,7 +74,7 @@ public class GrantTypeDetailsPage implements IDetailsPage {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.eclipse.ui.forms.IFormPart#isDirty()
 	 */
 	@Override
@@ -82,7 +84,7 @@ public class GrantTypeDetailsPage implements IDetailsPage {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.eclipse.ui.forms.IFormPart#commit(boolean)
 	 */
 	@Override
@@ -97,7 +99,7 @@ public class GrantTypeDetailsPage implements IDetailsPage {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.eclipse.ui.forms.IFormPart#setFormInput(java.lang.Object)
 	 */
 	@Override
@@ -108,7 +110,7 @@ public class GrantTypeDetailsPage implements IDetailsPage {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.eclipse.ui.forms.IFormPart#setFocus()
 	 */
 	@Override
@@ -118,7 +120,7 @@ public class GrantTypeDetailsPage implements IDetailsPage {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.eclipse.ui.forms.IFormPart#isStale()
 	 */
 	@Override
@@ -128,7 +130,7 @@ public class GrantTypeDetailsPage implements IDetailsPage {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.eclipse.ui.forms.IFormPart#refresh()
 	 */
 	@Override
@@ -138,7 +140,7 @@ public class GrantTypeDetailsPage implements IDetailsPage {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.eclipse.ui.forms.IPartSelectionListener#selectionChanged(org.eclipse .ui.forms.IFormPart,
 	 * org.eclipse.jface.viewers.ISelection)
 	 */
@@ -165,9 +167,12 @@ public class GrantTypeDetailsPage implements IDetailsPage {
 				this.groupText.setText("");
 			}
 			if (this.input.getRole() != null) {
-				this.roleCombo.setText(this.input.getRole());
-			} else {
-				this.roleCombo.setText("");
+				for(int i = 0; i < this.roleCombo.getItems().length; i++) {
+					if(this.input.getRole().equals(this.roleCombo.getItem(i))) {
+						this.roleCombo.select(i);
+						break;
+					}
+				}
 			}
 		}
 		isDirty = false;
@@ -175,7 +180,7 @@ public class GrantTypeDetailsPage implements IDetailsPage {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.eclipse.ui.forms.IDetailsPage#createContents(org.eclipse.swt.widgets .Composite)
 	 */
 	@Override
@@ -209,11 +214,12 @@ public class GrantTypeDetailsPage implements IDetailsPage {
 		roleCombo = new Combo(client, SWT.SINGLE | SWT.BORDER | SWT.READ_ONLY);
 		//toolkit.createText(client, "", SWT.SINGLE | SWT.BORDER); //$NON-NLS-1$
 		roleCombo.setItems(new String[] { "patron", "curator" });
-		roleCombo.addModifyListener(new ModifyListener() {
-			public void modifyText(ModifyEvent e) {
+		roleCombo.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
 				isDirty = true;
-				// if (input != null)
-				// input.setRole(roleText.getText());
+				mform.dirtyStateChanged();
+				//commit(false);
 			}
 		});
 
@@ -228,8 +234,8 @@ public class GrantTypeDetailsPage implements IDetailsPage {
 		groupText.addModifyListener(new ModifyListener() {
 			public void modifyText(ModifyEvent e) {
 				isDirty = true;
-				// if (input != null)
-				// input.setGroup(groupText.getText());
+				mform.dirtyStateChanged();
+				//commit(false);
 			}
 		});
 		groupText.setLayoutData(gd);

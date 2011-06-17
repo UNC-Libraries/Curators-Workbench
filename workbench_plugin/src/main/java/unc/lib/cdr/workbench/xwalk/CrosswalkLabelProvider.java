@@ -56,9 +56,6 @@ public class CrosswalkLabelProvider implements ILabelProvider {
 		} else if (element instanceof CrosswalkTreeElement) {
 			CrosswalkTreeElement t = (CrosswalkTreeElement) element;
 			element = t.getFile();
-		} else if (element instanceof MdSecType) {
-			MdSecType dmd = (MdSecType) element;
-			return LabelImageFactory.getImageForObject(dmd);
 		}
 		return provider.getImage(element);
 	}
@@ -70,17 +67,6 @@ public class CrosswalkLabelProvider implements ILabelProvider {
 		} else if (element instanceof CrosswalkTreeElement) {
 			CrosswalkTreeElement t = (CrosswalkTreeElement) element;
 			return t.getName();
-		} else if (element instanceof MdSecType) {
-			MdSecType dmd = (MdSecType) element;
-			StringBuilder sb = new StringBuilder(dmd.getMdWrap().getLABEL());
-			if (METSConstants.MD_STATUS_CROSSWALK_LINKED.equals(dmd.getSTATUS())) {
-				sb.append(" - matched");
-			} else if (METSConstants.MD_STATUS_CROSSWALK_NOT_LINKED.equals(dmd.getSTATUS())) {
-				sb.append(" - unmatched");
-			} else if (METSConstants.MD_STATUS_CROSSWALK_USER_LINKED.equals(dmd.getSTATUS())) {
-				sb.append(" - user matched");
-			}
-			return sb.toString();
 		} else {
 			return provider.getText(element);
 		}
