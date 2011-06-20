@@ -15,6 +15,8 @@
  */
 package crosswalk.diagram.part;
 
+import java.io.File;
+
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IResource;
@@ -83,13 +85,11 @@ public class DelimitedFileDelimitersWizardPage extends WizardPage implements IWi
 		fieldL.setText("Field Delimiter");
 		fieldDelimiterCombo = new Combo(top, SWT.DROP_DOWN);
 		fieldDelimiterCombo.setItems(new String[] { ",", ";", "TAB", "SPACE" });
-		fieldDelimiterCombo.select(0);
 
 		Label textL = new Label(top, SWT.None);
 		textL.setText("Text Delimiter");
 		textDelimiterCombo = new Combo(top, SWT.DROP_DOWN);
 		textDelimiterCombo.setItems(new String[] { "NONE", "\"", "'" });
-		textDelimiterCombo.select(0);
 
 		isHeaderRowButton = new Button(top, SWT.CHECK);
 		isHeaderRowButton.setSelection(false);
@@ -109,8 +109,6 @@ public class DelimitedFileDelimitersWizardPage extends WizardPage implements IWi
 			headerRowCombo.add(String.valueOf(i + 1), i);
 			dataRowCombo.add(String.valueOf(i + 1), i);
 		}
-		headerRowCombo.select(0);
-		dataRowCombo.select(1);
 
 		Label lsample = new Label(top, SWT.None);
 		lsample.setText("Data Preview");
@@ -137,6 +135,13 @@ public class DelimitedFileDelimitersWizardPage extends WizardPage implements IWi
 				update();
 			}
 		});
+
+		// setup initial selections
+		fieldDelimiterCombo.select(0);
+		textDelimiterCombo.select(1);
+		headerRowCombo.select(0);
+		dataRowCombo.select(1);
+
 		headerRowCombo.addModifyListener(sa);
 		dataRowCombo.addModifyListener(sa);
 		fieldDelimiterCombo.addModifyListener(sa);
@@ -222,6 +227,16 @@ public class DelimitedFileDelimitersWizardPage extends WizardPage implements IWi
 	 * @return
 	 */
 	private boolean validForm() {
+		if(filePage.filePath != null) {
+			File f = new File(filePage.filePath);
+			if(!f.exists()) {
+				setErrorMessage("File selected on previous page does not exist: "+filePage.filePath);
+				return false;
+			}
+		} else {
+			setErrorMessage("No file was selected on previous page.");
+			return false;
+		}
 		if (fieldDelimiterCombo.getSelectionIndex() == -1 && fieldDelimiterCombo.getText().length() == 0) {
 			setErrorMessage("A field delimiter must be specified");
 			return false;
@@ -299,6 +314,14 @@ public class DelimitedFileDelimitersWizardPage extends WizardPage implements IWi
 		} catch (Exception ignored) {
 		}
 		return result;
+	}
+
+	@Override
+	public void setVisible(boolean visible) {
+		super.setVisible(visible);
+		if(visible == true) {
+			this.update();
+		}
 	}
 
 }

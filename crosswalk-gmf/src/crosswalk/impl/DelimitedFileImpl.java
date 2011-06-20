@@ -490,7 +490,12 @@ public class DelimitedFileImpl extends EObjectImpl implements DelimitedFile {
 			try {
 				// TODO use this for wiz default: f.getCharset(true)
 				BufferedReader br = new BufferedReader(new InputStreamReader(f.getContents(true), this.getTextEncoding()));
-				reader = new CSVReader(br, this.getFieldDelimiter(), this.getTextDelimiter());
+
+				if(this.isSetTextDelimiter()) {
+					reader = new CSVReader(br, this.getFieldDelimiter(), this.getTextDelimiter());
+				} else {
+					reader = new CSVReader(br, this.getFieldDelimiter());
+				}
 				this.lines = reader.readAll();
 			} catch (IOException e) {
 				throw new DataException(e);
