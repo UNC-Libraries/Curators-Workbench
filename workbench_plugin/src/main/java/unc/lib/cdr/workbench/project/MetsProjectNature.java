@@ -69,10 +69,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.w3._1999.xlink.provider.XlinkItemProviderAdapterFactory;
 
-import unc.lib.cdr.workbench.accession.OriginalFoldersProjectElement;
 import unc.lib.cdr.workbench.arrange.ArrangementProjectElement;
+import unc.lib.cdr.workbench.capture.OriginalFoldersProjectElement;
 import unc.lib.cdr.workbench.rcp.Activator;
-import unc.lib.cdr.workbench.staging.StagedFilesProjectElement;
+import unc.lib.cdr.workbench.stage.StagedFilesProjectElement;
 import unc.lib.cdr.workbench.xwalk.CrosswalksProjectElement;
 
 public class MetsProjectNature implements IProjectNature {

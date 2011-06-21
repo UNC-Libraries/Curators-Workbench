@@ -1,4 +1,4 @@
-package unc.lib.cdr.workbench.accession;
+package unc.lib.cdr.workbench.capture;
 
 import org.eclipse.core.expressions.PropertyTester;
 import org.eclipse.core.resources.IResource;

@@ -13,55 +13,59 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package unc.lib.cdr.workbench.staging;
+package unc.lib.cdr.workbench.stage;
 
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.IMarkerDelta;
+import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IResource;
-import org.eclipse.core.resources.IResourceDelta;
-import org.eclipse.core.resources.IResourceDeltaVisitor;
+import org.eclipse.core.resources.IResourceVisitor;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.OperationCanceledException;
+import org.eclipse.core.runtime.SubProgressMonitor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import unc.lib.cdr.workbench.IResourceConstants;
 
 /**
  * @author Gregory Jansen
  * 
  */
-public class StageBuildDeltaVisitor implements IResourceDeltaVisitor {
-	private static final Logger log = LoggerFactory.getLogger(StageBuildDeltaVisitor.class);
+public class StageBuildVisitor implements IResourceVisitor {
+	private static final Logger log = LoggerFactory.getLogger(StageBuildVisitor.class);
 	IProgressMonitor monitor = null;
+	boolean audit = false;
 
-	public StageBuildDeltaVisitor(IProgressMonitor monitor) {
+	public StageBuildVisitor(boolean audit, IProgressMonitor monitor) {
 		log.debug("created");
 		this.monitor = monitor;
+		this.audit = audit;
 	}
 
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see org.eclipse.core.resources.IResourceDeltaVisitor#visit(org.eclipse.core .resources.IResourceDelta)
+	 * @see org.eclipse.core.resources.IResourceVisitor#visit(org.eclipse.core.resources .IResource)
 	 */
 	@Override
-	public boolean visit(IResourceDelta delta) throws CoreException {
+	public boolean visit(IResource r) throws CoreException {
 		if (this.monitor.isCanceled()) {
 			throw new OperationCanceledException();
 		}
-		IResource r = delta.getResource();
 		if (r instanceof IContainer) {
 			return true;
 		} else if (r instanceof IFile) {
-			IMarkerDelta[] md = delta.getMarkerDeltas();
-			for (IMarkerDelta d : md) {
-				// TODO implement staging and audit code for delta..
-				// if (IResourceConstants.MARKER_TO_STAGE.equals(d.getType())) {
-				// if (IResourceDelta.REMOVED != d.getKind()) {
-				// StagingUtils.stage((IFile) r, new SubProgressMonitor(monitor, 1));
-				// }
-				// }
+			// is it already staged?
+			IMarker[] captured = r.findMarkers(IResourceConstants.MARKER_CAPTURED, false, IResource.DEPTH_ZERO);
+			IMarker[] staged = r.findMarkers(IResourceConstants.MARKER_STAGED, false, IResource.DEPTH_ZERO);
+			if (captured.length > 0) {
+				if (staged.length == 0) {
+					StagingUtils.stage((IFile) r, new SubProgressMonitor(monitor, 1));
+				} else {
+					StagingUtils.audit((IFile) r, new SubProgressMonitor(monitor, 1));
+				}
 			}
 		}
 		return false;

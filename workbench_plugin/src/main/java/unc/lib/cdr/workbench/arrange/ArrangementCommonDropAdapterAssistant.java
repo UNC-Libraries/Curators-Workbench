@@ -44,7 +44,7 @@ import org.eclipse.ui.navigator.CommonDropAdapterAssistant;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import unc.lib.cdr.workbench.accession.CaptureJob;
+import unc.lib.cdr.workbench.capture.CaptureJob;
 import unc.lib.cdr.workbench.project.MetsProjectNature;
 
 public class ArrangementCommonDropAdapterAssistant extends CommonDropAdapterAssistant {

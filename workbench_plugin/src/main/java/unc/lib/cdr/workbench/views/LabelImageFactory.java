@@ -28,12 +28,12 @@ import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Display;
 
-import unc.lib.cdr.workbench.accession.OriginalFoldersProjectElement;
 import unc.lib.cdr.workbench.arrange.ArrangementProjectElement;
 import unc.lib.cdr.workbench.arrange.DivLinkBucket;
+import unc.lib.cdr.workbench.capture.OriginalFoldersProjectElement;
 import unc.lib.cdr.workbench.project.ICustomProjectElement;
 import unc.lib.cdr.workbench.rcp.Activator;
-import unc.lib.cdr.workbench.staging.StagedFilesProjectElement;
+import unc.lib.cdr.workbench.stage.StagedFilesProjectElement;
 import unc.lib.cdr.workbench.xwalk.CrosswalksProjectElement;
 
 /**

@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package unc.lib.cdr.workbench.accession;
+package unc.lib.cdr.workbench.capture;
 
 import gov.loc.mets.DivType;
 import gov.loc.mets.MdSecType;

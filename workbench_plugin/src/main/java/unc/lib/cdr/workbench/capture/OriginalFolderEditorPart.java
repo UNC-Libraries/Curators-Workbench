@@ -13,10 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package unc.lib.cdr.workbench.accession;
+package unc.lib.cdr.workbench.capture;
 
-import static unc.lib.cdr.workbench.accession.OriginalsTableLabelProvider.bounds;
-import static unc.lib.cdr.workbench.accession.OriginalsTableLabelProvider.headers;
+import static unc.lib.cdr.workbench.capture.OriginalsTableLabelProvider.bounds;
+import static unc.lib.cdr.workbench.capture.OriginalsTableLabelProvider.headers;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;

@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package unc.lib.cdr.workbench.staging;
+package unc.lib.cdr.workbench.stage;
 
 import gov.loc.mets.CHECKSUMTYPEType;
 import gov.loc.mets.FileType;

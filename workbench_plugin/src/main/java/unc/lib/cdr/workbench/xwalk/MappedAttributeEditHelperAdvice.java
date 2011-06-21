@@ -1,4 +1,4 @@
-package unc.lib.cdr.workbench.gmf;
+package unc.lib.cdr.workbench.xwalk;
 
 import org.eclipse.gmf.runtime.common.core.command.ICommand;
 import org.eclipse.gmf.runtime.emf.type.core.edithelper.IEditHelperAdvice;

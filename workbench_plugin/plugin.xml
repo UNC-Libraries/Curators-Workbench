@@ -4,7 +4,7 @@
    <extension
          point="org.eclipse.core.expressions.propertyTesters">
       <propertyTester
-            class="unc.lib.cdr.workbench.accession.OriginalsPropertyTester"
+            class="unc.lib.cdr.workbench.capture.OriginalsPropertyTester"
             id="cdr-workbench.propertyTesterOriginals"
             namespace="cdr-workbench"
             properties="staged,captured"
@@ -25,14 +25,14 @@
             type="gov.loc.mets.DivType">
       </propertyTester>
       <propertyTester
-            class="unc.lib.cdr.workbench.accession.PropertyTesterTopFolderName"
+            class="unc.lib.cdr.workbench.capture.PropertyTesterTopFolderName"
             id="workbench_plugin.testTopFolderName"
             namespace="workbench_plugin.testTopFolderName"
             properties="folderName"
             type="org.eclipse.core.resources.IResource">
       </propertyTester>
       <propertyTester
-            class="unc.lib.cdr.workbench.tester.ProjectPropertyTester"
+            class="unc.lib.cdr.workbench.project.ProjectPropertyTester"
             id="workbench_plugin.projectPropertyTester"
             namespace="workbench_plugin.projectPropertyTester"
             properties="open,closed"
@@ -70,12 +70,12 @@
             name="Create Project">
       </command>
       <command
-            defaultHandler="unc.lib.cdr.workbench.accession.CaptureHandler"
+            defaultHandler="unc.lib.cdr.workbench.capture.CaptureHandler"
             id="cdr-workbench.commandCaptureObject"
             name="Capture Object">
       </command>
       <command
-            defaultHandler="unc.lib.cdr.workbench.accession.LinkOriginalsHandler"
+            defaultHandler="unc.lib.cdr.workbench.capture.LinkOriginalsHandler"
             id="cdr-workbench.commandLinkOriginals"
             name="Link to Originals">
       </command>
@@ -111,7 +111,7 @@
             name="Export CDR Submission">
       </command>
       <command
-            defaultHandler="unc.lib.cdr.workbench.accession.RescanOriginalsHandler"
+            defaultHandler="unc.lib.cdr.workbench.capture.RescanOriginalsHandler"
             description="Scan for changes to original files and folders"
             id="cdr-workbench.commandRescanOriginals"
             name="Refresh">
@@ -273,7 +273,7 @@
                               value="org.eclipse.core.resources.IProject">
                         </instanceof>
                         <instanceof
-                              value="unc.lib.cdr.workbench.accession.OriginalFoldersProjectElement">
+                              value="unc.lib.cdr.workbench.capture.OriginalFoldersProjectElement">
                         </instanceof>
                      </or>
                   </iterate>
@@ -416,7 +416,7 @@
                               value="org.eclipse.core.resources.IProject">
                         </instanceof>
                         <instanceof
-                              value="unc.lib.cdr.workbench.accession.OriginalFoldersProjectElement">
+                              value="unc.lib.cdr.workbench.capture.OriginalFoldersProjectElement">
                         </instanceof>
                         <instanceof
                               value="org.eclipse.core.resources.IResource">
@@ -860,7 +860,7 @@
       </navigatorContent>
       <navigatorContent
             activeByDefault="true"
-            contentProvider="unc.lib.cdr.workbench.accession.OriginalsContentProvider"
+            contentProvider="unc.lib.cdr.workbench.capture.OriginalsContentProvider"
             id="cdr-workbench.originalsContent"
             labelProvider="org.eclipse.ui.model.WorkbenchLabelProvider"
             name="Original Folders">
@@ -901,7 +901,7 @@
       </navigatorContent>
       <navigatorContent
             activeByDefault="true"
-            contentProvider="unc.lib.cdr.workbench.staging.StagedFileContentProvider"
+            contentProvider="unc.lib.cdr.workbench.stage.StagedFileContentProvider"
             id="workbench_plugin.stagedFileContent"
             labelProvider="org.eclipse.ui.model.WorkbenchLabelProvider"
             name="Staged Files">
@@ -946,14 +946,14 @@
       <builder
             hasNature="false">
          <run
-               class="unc.lib.cdr.workbench.staging.StageBuilder">
+               class="unc.lib.cdr.workbench.stage.StageBuilder">
          </run>
       </builder>
    </extension>
    <extension
          point="org.eclipse.ui.decorators">
       <decorator
-            class="unc.lib.cdr.workbench.accession.OriginalsDecorator"
+            class="unc.lib.cdr.workbench.capture.OriginalsDecorator"
             id="cdr-workbench.decoratorCaptured"
             label="Captured File Decorators"
             lightweight="true"
@@ -999,7 +999,7 @@
    <extension
          point="org.eclipse.ui.editors">
       <editor
-            class="unc.lib.cdr.workbench.accession.OriginalFolderEditorPart"
+            class="unc.lib.cdr.workbench.capture.OriginalFolderEditorPart"
             default="false"
             icon="icons/24px-Crystal_Clear_filesystem_folder_grey.png"
             id="cdr-workbench.editorOriginalFolder"
@@ -1148,19 +1148,19 @@
       <metamodel
             nsURI="http://lib.unc.edu/schemas/crosswalk">
          <adviceBinding
-               class="unc.lib.cdr.workbench.gmf.MappedElementEditHelperAdvice"
+               class="unc.lib.cdr.workbench.xwalk.MappedElementEditHelperAdvice"
                id="workbench_plugin.adviceBindingMappedElement"
                inheritance="all"
                typeId="crosswalk-gmf.diagram.MappedElement_2016">
          </adviceBinding>
          <adviceBinding
-               class="unc.lib.cdr.workbench.gmf.MappedAttributeEditHelperAdvice"
+               class="unc.lib.cdr.workbench.xwalk.MappedAttributeEditHelperAdvice"
                id="workbench_plugin.adviceBindingMappedAttribute"
                inheritance="all"
                typeId="crosswalk-gmf.diagram.MappedAttribute_3016">
          </adviceBinding>
          <adviceBinding
-               class="unc.lib.cdr.workbench.gmf.MappedElementEditHelperAdvice"
+               class="unc.lib.cdr.workbench.xwalk.MappedElementEditHelperAdvice"
                id="workbench_plugin.adviceBindingMappedCrossWalk"
                inheritance="all"
                typeId="crosswalk-gmf.diagram.CrossWalk_1000">

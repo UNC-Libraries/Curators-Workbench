@@ -24,14 +24,13 @@ import unc.lib.cdr.workbench.project.ICustomProjectElement;
 
 /**
  * @author Gregory Jansen
- * 
+ *
  */
 public class MetsProjectLabelProvider implements ILabelProvider {
-	private LabelImageFactory imageFactory = new LabelImageFactory();
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.eclipse.jface.viewers.IBaseLabelProvider#addListener(org.eclipse. jface.viewers.ILabelProviderListener)
 	 */
 	@Override
@@ -41,7 +40,7 @@ public class MetsProjectLabelProvider implements ILabelProvider {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.eclipse.jface.viewers.IBaseLabelProvider#dispose()
 	 */
 	@Override
@@ -50,7 +49,7 @@ public class MetsProjectLabelProvider implements ILabelProvider {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.eclipse.jface.viewers.IBaseLabelProvider#isLabelProperty(java.lang .Object, java.lang.String)
 	 */
 	@Override
@@ -60,7 +59,7 @@ public class MetsProjectLabelProvider implements ILabelProvider {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.eclipse.jface.viewers.IBaseLabelProvider#removeListener(org.eclipse
 	 * .jface.viewers.ILabelProviderListener)
 	 */
@@ -70,22 +69,21 @@ public class MetsProjectLabelProvider implements ILabelProvider {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.eclipse.jface.viewers.ILabelProvider#getImage(java.lang.Object)
 	 */
 	@Override
 	public Image getImage(Object element) {
-		return imageFactory.getImageForObject(element);
+		return LabelImageFactory.getImageForObject(element);
 	}
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.eclipse.jface.viewers.ILabelProvider#getText(java.lang.Object)
 	 */
 	@Override
 	public String getText(Object element) {
-		StringBuilder b = new StringBuilder();
 		if (element instanceof IProject) {
 			IProject proj = (IProject) element;
 			return proj.getName();

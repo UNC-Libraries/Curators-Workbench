@@ -20,7 +20,6 @@ import unc.lib.cdr.workbench.project.MetsProjectNature;
 
 public class PropertySheetPropertySection extends AbstractPropertySection {
 
-	@SuppressWarnings("unused")
 	private static final Logger LOG = LoggerFactory.getLogger(PropertySheetPropertySection.class);
 
 	/**

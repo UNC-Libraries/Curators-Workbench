@@ -1,4 +1,4 @@
-package unc.lib.cdr.workbench.tester;
+package unc.lib.cdr.workbench.project;
 
 import org.eclipse.core.expressions.PropertyTester;
 import org.eclipse.core.resources.IProject;

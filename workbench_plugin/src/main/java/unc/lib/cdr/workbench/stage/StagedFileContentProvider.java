@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package unc.lib.cdr.workbench.accession;
+package unc.lib.cdr.workbench.stage;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,14 +37,14 @@ import unc.lib.cdr.workbench.project.MetsProjectNature;
  * @author Gregory Jansen
  * 
  */
-public class OriginalsContentProvider implements ITreeContentProvider, IResourceChangeListener {
-	private static final Logger log = LoggerFactory.getLogger(OriginalsContentProvider.class);
+public class StagedFileContentProvider implements ITreeContentProvider, IResourceChangeListener {
+	private static final Logger log = LoggerFactory.getLogger(StagedFileContentProvider.class);
 	Viewer viewer = null;
 
 	/**
      *
      */
-	public OriginalsContentProvider() {
+	public StagedFileContentProvider() {
 		ResourcesPlugin.getWorkspace().addResourceChangeListener(this, IResourceChangeEvent.POST_CHANGE);
 	}
 
@@ -62,10 +62,10 @@ public class OriginalsContentProvider implements ITreeContentProvider, IResource
 				IProject p = (IProject) parent;
 				if (p.isOpen()) {
 					MetsProjectNature n = (MetsProjectNature) p.getNature(MetsProjectNature.NATURE_ID);
-					results.add(n.getOriginalsElement());
+					results.add(n.getStagedFilesElement());
 				}
-			} else if (parent instanceof OriginalFoldersProjectElement) {
-				OriginalFoldersProjectElement e = (OriginalFoldersProjectElement) parent;
+			} else if (parent instanceof StagedFilesProjectElement) {
+				StagedFilesProjectElement e = (StagedFilesProjectElement) parent;
 				return e.getChildren();
 			} else if (parent instanceof IContainer) {
 				IContainer f = (IContainer) parent;
@@ -90,15 +90,15 @@ public class OriginalsContentProvider implements ITreeContentProvider, IResource
 		if (element instanceof IResource) {
 			IResource r = (IResource) element;
 			String[] segments = r.getProjectRelativePath().segments();
-			if (segments.length == 2) {
-				// found an originals folder, return OriginalsProjectElement
+			if (segments.length == 2 && MetsProjectNature.STAGE_FOLDER_NAME.equals(segments[0])) {
+				// found a staged folder, return OriginalsProjectElement
 				MetsProjectNature n;
 				try {
 					n = (MetsProjectNature) r.getProject().getNature(MetsProjectNature.NATURE_ID);
 				} catch (CoreException e) {
 					throw new Error("Unexpected");
 				}
-				return n.getOriginalsElement();
+				return n.getStagedFilesElement();
 			} else {
 				// should be a resource within an originals folder, use
 				// getParent()
@@ -118,8 +118,8 @@ public class OriginalsContentProvider implements ITreeContentProvider, IResource
 	public boolean hasChildren(Object element) {
 		if (element instanceof IContainer) {
 			return true;
-		} else if (element instanceof OriginalFoldersProjectElement) {
-			return ((OriginalFoldersProjectElement) element).hasChildren();
+		} else if (element instanceof StagedFilesProjectElement) {
+			return ((StagedFilesProjectElement) element).hasChildren();
 		} else {
 			return false;
 		}

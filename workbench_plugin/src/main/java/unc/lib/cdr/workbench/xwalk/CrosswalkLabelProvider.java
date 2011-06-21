@@ -15,9 +15,6 @@
  */
 package unc.lib.cdr.workbench.xwalk;
 
-import gov.loc.mets.MdSecType;
-import gov.loc.mets.util.METSConstants;
-
 import org.eclipse.jface.viewers.DecoratingLabelProvider;
 import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.ILabelProviderListener;

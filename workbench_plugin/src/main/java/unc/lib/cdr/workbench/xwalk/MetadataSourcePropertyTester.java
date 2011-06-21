@@ -26,7 +26,6 @@ import org.slf4j.LoggerFactory;
 
 public class MetadataSourcePropertyTester extends PropertyTester {
 
-	@SuppressWarnings("unused")
 	private static final Logger LOG = LoggerFactory.getLogger(MetadataSourcePropertyTester.class);
 
 	public MetadataSourcePropertyTester() {
@@ -36,7 +35,6 @@ public class MetadataSourcePropertyTester extends PropertyTester {
 	@Override
 	public boolean test(Object receiver, String property, Object[] args, Object expectedValue) {
 		LOG.debug("property tester called: " + receiver + " " + property + " " + expectedValue);
-		boolean result = false;
 		if (receiver instanceof IFile && "isTabularMetadataSource".equals(property)) {
 			LOG.debug("here 1");
 			IContentType actualContentType = null;

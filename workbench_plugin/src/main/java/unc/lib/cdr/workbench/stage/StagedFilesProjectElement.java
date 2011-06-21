@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package unc.lib.cdr.workbench.staging;
+package unc.lib.cdr.workbench.stage;
 
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.runtime.CoreException;

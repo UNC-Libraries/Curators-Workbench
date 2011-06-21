@@ -35,8 +35,8 @@ import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import unc.lib.cdr.workbench.accession.OriginalFolderEditorInput;
-import unc.lib.cdr.workbench.accession.OriginalFolderEditorPart;
+import unc.lib.cdr.workbench.capture.OriginalFolderEditorInput;
+import unc.lib.cdr.workbench.capture.OriginalFolderEditorPart;
 import unc.lib.cdr.workbench.rcp.Activator;
 import unc.lib.cdr.workbench.xwalk.CrosswalkTreeElement;
 import crosswalk.diagram.part.CrosswalkDiagramEditor;
@@ -50,9 +50,9 @@ public class MetsProjectNavigator extends CommonNavigator implements ITabbedProp
 	/**
 	 * Constructs and returns an instance of {@link CommonViewer}. The ID of the Eclipse view part will be used to create
 	 * the viewer.
-	 * 
+	 *
 	 * Override this method if you want a subclass of the CommonViewer
-	 * 
+	 *
 	 * @param aParent
 	 *           A composite parent to contain the CommonViewer
 	 * @return An instance of CommonViewer
@@ -74,7 +74,7 @@ public class MetsProjectNavigator extends CommonNavigator implements ITabbedProp
 	}
 
 	@Override
-	public Object getAdapter(Class adapter) {
+	public Object getAdapter(@SuppressWarnings("rawtypes") Class adapter) {
 		if (adapter == IPropertySheetPage.class)
 			return new TabbedPropertySheetPage(this);
 		return super.getAdapter(adapter);

@@ -1,4 +1,4 @@
-package unc.lib.cdr.workbench.gmf;
+package unc.lib.cdr.workbench.xwalk;
 
 import java.util.HashMap;
 import java.util.List;
