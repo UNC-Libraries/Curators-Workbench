@@ -50,7 +50,7 @@ import unc.lib.cdr.workbench.project.MetsProjectNature;
 
 /**
  * @author Gregory Jansen
- * 
+ *
  */
 public class ArrangementDropListener extends ViewerDropAdapter {
 	private static final Logger LOG = LoggerFactory.getLogger(ArrangementDropListener.class);
@@ -78,7 +78,7 @@ public class ArrangementDropListener extends ViewerDropAdapter {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.eclipse.jface.viewers.ViewerDropAdapter#performDrop(java.lang.Object)
 	 */
 	@Override
@@ -276,8 +276,7 @@ public class ArrangementDropListener extends ViewerDropAdapter {
 						}
 					case ViewerDropAdapter.LOCATION_ON:
 						// drop at top level, last
-						job = new CaptureJob("Capturing dragged resources at top of arrangement", items, bag, insertBefore,
-								false);
+						job = new CaptureJob("Capturing dragged resources at top of arrangement", items, bag, insertBefore);
 						break;
 				}
 			} catch (CoreException e) {
@@ -292,7 +291,7 @@ public class ArrangementDropListener extends ViewerDropAdapter {
 					case ViewerDropAdapter.LOCATION_BEFORE:
 						// drop before this div
 						job = new CaptureJob("Capturing dragged resources at specified location", items,
-								(DivType) d.eContainer(), d, false);
+								(DivType) d.eContainer(), d);
 						break;
 					case ViewerDropAdapter.LOCATION_AFTER:
 						// drop after this div
@@ -303,11 +302,11 @@ public class ArrangementDropListener extends ViewerDropAdapter {
 							insertBefore = parent.getDiv().get(idx + 1);
 						}
 						job = new CaptureJob("Capturing dragged resources at specified location", items,
-								(DivType) d.eContainer(), insertBefore, false);
+								(DivType) d.eContainer(), insertBefore);
 						break;
 					case ViewerDropAdapter.LOCATION_ON:
 						// drop in this div, last
-						job = new CaptureJob("Capturing dragged resources at specified location", items, d, null, false);
+						job = new CaptureJob("Capturing dragged resources at specified location", items, d, null);
 						break;
 				}
 			} else {
@@ -316,7 +315,7 @@ public class ArrangementDropListener extends ViewerDropAdapter {
 					case ViewerDropAdapter.LOCATION_BEFORE:
 						// drop before this div
 						job = new CaptureJob("Capturing dragged resources at specified location", items,
-								(DivType) d.eContainer(), d, false);
+								(DivType) d.eContainer(), d);
 						break;
 					case ViewerDropAdapter.LOCATION_AFTER:
 						// drop after this div
@@ -327,7 +326,7 @@ public class ArrangementDropListener extends ViewerDropAdapter {
 							insertBefore = parent.getDiv().get(idx + 1);
 						}
 						job = new CaptureJob("Capturing dragged resources at specified location", items,
-								(DivType) d.eContainer(), insertBefore, false);
+								(DivType) d.eContainer(), insertBefore);
 						break;
 				}
 			}
@@ -342,7 +341,7 @@ public class ArrangementDropListener extends ViewerDropAdapter {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.eclipse.jface.viewers.ViewerDropAdapter#validateDrop(java.lang.Object , int,
 	 * org.eclipse.swt.dnd.TransferData)
 	 */

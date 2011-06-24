@@ -293,8 +293,7 @@ public class ArrangementCommonDropAdapterAssistant extends CommonDropAdapterAssi
 					}
 				case ViewerDropAdapter.LOCATION_ON:
 					// drop at top level, last
-					job = new CaptureJob("Capturing dragged resources at top of arrangement", items, bag, insertBefore,
-							false);
+					job = new CaptureJob("Capturing dragged resources at top of arrangement", items, bag, insertBefore);
 					break;
 			}
 		} else if (getCommonDropAdapter().getCurrentTarget() instanceof DivType) {
@@ -306,7 +305,7 @@ public class ArrangementCommonDropAdapterAssistant extends CommonDropAdapterAssi
 					case ViewerDropAdapter.LOCATION_BEFORE:
 						// drop before this div
 						job = new CaptureJob("Capturing dragged resources at specified location", items,
-								(DivType) d.eContainer(), d, false);
+								(DivType) d.eContainer(), d);
 						break;
 					case ViewerDropAdapter.LOCATION_AFTER:
 						// drop after this div
@@ -317,11 +316,11 @@ public class ArrangementCommonDropAdapterAssistant extends CommonDropAdapterAssi
 							insertBefore = parent.getDiv().get(idx + 1);
 						}
 						job = new CaptureJob("Capturing dragged resources at specified location", items,
-								(DivType) d.eContainer(), insertBefore, false);
+								(DivType) d.eContainer(), insertBefore);
 						break;
 					case ViewerDropAdapter.LOCATION_ON:
 						// drop in this div, last
-						job = new CaptureJob("Capturing dragged resources at specified location", items, d, null, false);
+						job = new CaptureJob("Capturing dragged resources at specified location", items, d, null);
 						break;
 				}
 			} else {
@@ -330,7 +329,7 @@ public class ArrangementCommonDropAdapterAssistant extends CommonDropAdapterAssi
 					case ViewerDropAdapter.LOCATION_BEFORE:
 						// drop before this div
 						job = new CaptureJob("Capturing dragged resources at specified location", items,
-								(DivType) d.eContainer(), d, false);
+								(DivType) d.eContainer(), d);
 						break;
 					case ViewerDropAdapter.LOCATION_AFTER:
 						// drop after this div
@@ -341,7 +340,7 @@ public class ArrangementCommonDropAdapterAssistant extends CommonDropAdapterAssi
 							insertBefore = parent.getDiv().get(idx + 1);
 						}
 						job = new CaptureJob("Capturing dragged resources at specified location", items,
-								(DivType) d.eContainer(), insertBefore, false);
+								(DivType) d.eContainer(), insertBefore);
 						break;
 				}
 			}

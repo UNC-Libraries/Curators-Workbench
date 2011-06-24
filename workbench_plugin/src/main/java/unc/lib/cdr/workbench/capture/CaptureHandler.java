@@ -28,7 +28,6 @@ import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
-import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ISelectionProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.widgets.Shell;
@@ -47,52 +46,17 @@ public class CaptureHandler extends AbstractHandler {
 
 	/*
 	 * if parent folders have been arranged, they will stay in their places, reset arrangement is separate!
-	 * 
+	 *
 	 * @see org.eclipse.core.commands.IHandler#execute(org.eclipse.core.commands. ExecutionEvent)
 	 */
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		List<IResource> toCapture = new ArrayList<IResource>();
-		boolean audit = true;
 		ISelectionProvider sp = HandlerUtil.getActiveSite(event).getSelectionProvider();
 		IStructuredSelection s = (IStructuredSelection) sp.getSelection();
 		toCapture.addAll(s.toList());
-		// expand to include folder contents, unless a subset was selected
-		try {
-			addFolderContents(toCapture);
-		} catch (CoreException e) {
-			throw new ExecutionException("Cannot access the captured tree of files.", e);
-		}
 
-		// ask about verification
-		Set<IResource> previouslyCaptured = null;
-		try {
-			previouslyCaptured = findPreviouslyCaptured(toCapture);
-		} catch (CoreException e) {
-			throw new Error(e);
-		}
-		if (previouslyCaptured.size() > 0) {
-			String msg = "Do you want to update the " + previouslyCaptured.size()
-					+ " previously captured files and folders?";
-			String[] dialogButtonLabels = { "No", "Yes" };
-			MessageDialog md = new MessageDialog(HandlerUtil.getActiveShell(event), "Update?", null, msg,
-					MessageDialog.QUESTION, dialogButtonLabels, 0);
-			if (md.open() != 1) {
-				// remove previously captured stuff from set..
-				toCapture.removeAll(previouslyCaptured);
-			} else {
-				// String msg2 = "Do you want to check previously staged files?";
-				// MessageDialog md2 = new MessageDialog(HandlerUtil.getActiveShell(event), "Check staged files?", null,
-				// msg2,
-				// MessageDialog.QUESTION, dialogButtonLabels, 0);
-				// if(md2.open() == 1) {
-				// audit = true;
-				// } else {
-				// audit = false;
-				// }
-			}
-		}
-		CaptureJob job = new CaptureJob("Capturing " + Integer.toString(toCapture.size()) + " items...", toCapture, audit);
+		CaptureJob job = new CaptureJob("Capturing " + Integer.toString(toCapture.size()) + " items...", toCapture);
 		IWorkbenchPart part = HandlerUtil.getActivePart(event);
 		if (part != null) {
 			IWorkbenchSiteProgressService siteService = (IWorkbenchSiteProgressService) part.getSite().getAdapter(
