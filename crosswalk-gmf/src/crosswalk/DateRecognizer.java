@@ -15,6 +15,8 @@
  */
 package crosswalk;
 
+import org.eclipse.emf.common.util.EList;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -24,7 +26,7 @@ package crosswalk;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link crosswalk.DateRecognizer#getFormat <em>Format</em>}</li>
+ *   <li>{@link crosswalk.DateRecognizer#getFormats <em>Formats</em>}</li>
  * </ul>
  * </p>
  *
@@ -35,29 +37,18 @@ package crosswalk;
 public interface DateRecognizer extends WalkWidget, Output, Input {
 
         /**
-         * Returns the value of the '<em><b>Format</b></em>' attribute.
-         * The default value is <code>"yy-MM-dd"</code>.
-         * <!-- begin-user-doc -->
-         * <p>
-         * If the meaning of the '<em>Format</em>' attribute isn't clear,
-         * there really should be more of a description here...
-         * </p>
-         * <!-- end-user-doc -->
-         * @return the value of the '<em>Format</em>' attribute.
-         * @see #setFormat(String)
-         * @see crosswalk.CrosswalkPackage#getDateRecognizer_Format()
-         * @model default="yy-MM-dd" required="true"
-         * @generated
-         */
-        String getFormat();
-
-        /**
-         * Sets the value of the '{@link crosswalk.DateRecognizer#getFormat <em>Format</em>}' attribute.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @param value the new value of the '<em>Format</em>' attribute.
-         * @see #getFormat()
-         * @generated
-         */
-        void setFormat(String value);
+	 * Returns the value of the '<em><b>Formats</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.String}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Formats</em>' attribute list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Formats</em>' attribute list.
+	 * @see crosswalk.CrosswalkPackage#getDateRecognizer_Formats()
+	 * @model default="yy-MM-dd" required="true"
+	 * @generated
+	 */
+	EList<String> getFormats();
 } // DateRecognizer

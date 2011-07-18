@@ -12,24 +12,24 @@ import crosswalk.diagram.providers.CrosswalkElementTypes;
  */
 public class MappedElementChildElementsCompartment2ItemSemanticEditPolicy extends CrosswalkBaseItemSemanticEditPolicy {
 
-    /**
-     * @generated
-     */
-    public MappedElementChildElementsCompartment2ItemSemanticEditPolicy() {
-	super(CrosswalkElementTypes.MappedElement_3015);
-    }
+	/**
+	 * @generated
+	 */
+	public MappedElementChildElementsCompartment2ItemSemanticEditPolicy() {
+		super(CrosswalkElementTypes.MappedElement_3015);
+	}
 
-    /**
-     * @generated
-     */
-    protected Command getCreateCommand(CreateElementRequest req) {
-	if (CrosswalkElementTypes.MappedElement_3015 == req.getElementType()) {
-	    return getGEFWrapper(new MappedElement2CreateCommand(req));
+	/**
+	 * @generated
+	 */
+	protected Command getCreateCommand(CreateElementRequest req) {
+		if (CrosswalkElementTypes.MappedElement_3015 == req.getElementType()) {
+			return getGEFWrapper(new MappedElement2CreateCommand(req));
+		}
+		if (CrosswalkElementTypes.MappedAttribute_3016 == req.getElementType()) {
+			return getGEFWrapper(new MappedAttributeCreateCommand(req));
+		}
+		return super.getCreateCommand(req);
 	}
-	if (CrosswalkElementTypes.MappedAttribute_3016 == req.getElementType()) {
-	    return getGEFWrapper(new MappedAttributeCreateCommand(req));
-	}
-	return super.getCreateCommand(req);
-    }
 
 }

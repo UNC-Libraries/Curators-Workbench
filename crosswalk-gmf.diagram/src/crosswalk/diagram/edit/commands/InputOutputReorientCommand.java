@@ -18,133 +18,133 @@ import crosswalk.diagram.edit.policies.CrosswalkBaseItemSemanticEditPolicy;
  */
 public class InputOutputReorientCommand extends EditElementCommand {
 
-    /**
-     * @generated
-     */
-    private final int reorientDirection;
+	/**
+	 * @generated
+	 */
+	private final int reorientDirection;
 
-    /**
-     * @generated
-     */
-    private final EObject referenceOwner;
+	/**
+	 * @generated
+	 */
+	private final EObject referenceOwner;
 
-    /**
-     * @generated
-     */
-    private final EObject oldEnd;
+	/**
+	 * @generated
+	 */
+	private final EObject oldEnd;
 
-    /**
-     * @generated
-     */
-    private final EObject newEnd;
+	/**
+	 * @generated
+	 */
+	private final EObject newEnd;
 
-    /**
-     * @generated
-     */
-    public InputOutputReorientCommand(ReorientReferenceRelationshipRequest request) {
-	super(request.getLabel(), null, request);
-	reorientDirection = request.getDirection();
-	referenceOwner = request.getReferenceOwner();
-	oldEnd = request.getOldRelationshipEnd();
-	newEnd = request.getNewRelationshipEnd();
-    }
-
-    /**
-     * @generated
-     */
-    public boolean canExecute() {
-	if (false == referenceOwner instanceof Input) {
-	    return false;
+	/**
+	 * @generated
+	 */
+	public InputOutputReorientCommand(ReorientReferenceRelationshipRequest request) {
+		super(request.getLabel(), null, request);
+		reorientDirection = request.getDirection();
+		referenceOwner = request.getReferenceOwner();
+		oldEnd = request.getOldRelationshipEnd();
+		newEnd = request.getNewRelationshipEnd();
 	}
-	if (reorientDirection == ReorientRelationshipRequest.REORIENT_SOURCE) {
-	    return canReorientSource();
+
+	/**
+	 * @generated
+	 */
+	public boolean canExecute() {
+		if (false == referenceOwner instanceof Input) {
+			return false;
+		}
+		if (reorientDirection == ReorientRelationshipRequest.REORIENT_SOURCE) {
+			return canReorientSource();
+		}
+		if (reorientDirection == ReorientRelationshipRequest.REORIENT_TARGET) {
+			return canReorientTarget();
+		}
+		return false;
 	}
-	if (reorientDirection == ReorientRelationshipRequest.REORIENT_TARGET) {
-	    return canReorientTarget();
+
+	/**
+	 * @generated
+	 */
+	protected boolean canReorientSource() {
+		if (!(oldEnd instanceof Output && newEnd instanceof Input)) {
+			return false;
+		}
+		return CrosswalkBaseItemSemanticEditPolicy.getLinkConstraints().canExistInputOutput_4003(getNewSource(),
+				getOldTarget());
 	}
-	return false;
-    }
 
-    /**
-     * @generated
-     */
-    protected boolean canReorientSource() {
-	if (!(oldEnd instanceof Output && newEnd instanceof Input)) {
-	    return false;
+	/**
+	 * @generated
+	 */
+	protected boolean canReorientTarget() {
+		if (!(oldEnd instanceof Output && newEnd instanceof Output)) {
+			return false;
+		}
+		return CrosswalkBaseItemSemanticEditPolicy.getLinkConstraints().canExistInputOutput_4003(getOldSource(),
+				getNewTarget());
 	}
-	return CrosswalkBaseItemSemanticEditPolicy.getLinkConstraints().canExistInputOutput_4003(getNewSource(),
-			getOldTarget());
-    }
 
-    /**
-     * @generated
-     */
-    protected boolean canReorientTarget() {
-	if (!(oldEnd instanceof Output && newEnd instanceof Output)) {
-	    return false;
+	/**
+	 * @generated
+	 */
+	protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
+		if (!canExecute()) {
+			throw new ExecutionException("Invalid arguments in reorient link command"); //$NON-NLS-1$
+		}
+		if (reorientDirection == ReorientRelationshipRequest.REORIENT_SOURCE) {
+			return reorientSource();
+		}
+		if (reorientDirection == ReorientRelationshipRequest.REORIENT_TARGET) {
+			return reorientTarget();
+		}
+		throw new IllegalStateException();
 	}
-	return CrosswalkBaseItemSemanticEditPolicy.getLinkConstraints().canExistInputOutput_4003(getOldSource(),
-			getNewTarget());
-    }
 
-    /**
-     * @generated
-     */
-    protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
-	if (!canExecute()) {
-	    throw new ExecutionException("Invalid arguments in reorient link command"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	protected CommandResult reorientSource() throws ExecutionException {
+		getOldSource().setOutput(null);
+		getNewSource().setOutput(getOldTarget());
+		return CommandResult.newOKCommandResult(referenceOwner);
 	}
-	if (reorientDirection == ReorientRelationshipRequest.REORIENT_SOURCE) {
-	    return reorientSource();
+
+	/**
+	 * @generated
+	 */
+	protected CommandResult reorientTarget() throws ExecutionException {
+		getOldSource().setOutput(getNewTarget());
+		return CommandResult.newOKCommandResult(referenceOwner);
 	}
-	if (reorientDirection == ReorientRelationshipRequest.REORIENT_TARGET) {
-	    return reorientTarget();
+
+	/**
+	 * @generated
+	 */
+	protected Input getOldSource() {
+		return (Input) referenceOwner;
 	}
-	throw new IllegalStateException();
-    }
 
-    /**
-     * @generated
-     */
-    protected CommandResult reorientSource() throws ExecutionException {
-	getOldSource().setOutput(null);
-	getNewSource().setOutput(getOldTarget());
-	return CommandResult.newOKCommandResult(referenceOwner);
-    }
+	/**
+	 * @generated
+	 */
+	protected Input getNewSource() {
+		return (Input) newEnd;
+	}
 
-    /**
-     * @generated
-     */
-    protected CommandResult reorientTarget() throws ExecutionException {
-	getOldSource().setOutput(getNewTarget());
-	return CommandResult.newOKCommandResult(referenceOwner);
-    }
+	/**
+	 * @generated
+	 */
+	protected Output getOldTarget() {
+		return (Output) oldEnd;
+	}
 
-    /**
-     * @generated
-     */
-    protected Input getOldSource() {
-	return (Input) referenceOwner;
-    }
-
-    /**
-     * @generated
-     */
-    protected Input getNewSource() {
-	return (Input) newEnd;
-    }
-
-    /**
-     * @generated
-     */
-    protected Output getOldTarget() {
-	return (Output) oldEnd;
-    }
-
-    /**
-     * @generated
-     */
-    protected Output getNewTarget() {
-	return (Output) newEnd;
-    }
+	/**
+	 * @generated
+	 */
+	protected Output getNewTarget() {
+		return (Output) newEnd;
+	}
 }

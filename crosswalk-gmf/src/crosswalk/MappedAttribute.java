@@ -30,135 +30,135 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  */
 public interface MappedAttribute extends OutputElement, Input {
         /**
-         * Returns the value of the '<em><b>Mapped Feature</b></em>' reference.
-         * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Mapped Feature</b></em>' reference.
+	 * <!-- begin-user-doc -->
          * <p>
          * If the meaning of the '<em>Mapped Feature</em>' reference isn't clear,
          * there really should be more of a description here...
          * </p>
          * <!-- end-user-doc -->
-         * @return the value of the '<em>Mapped Feature</em>' reference.
-         * @see #setMappedFeature(EAttribute)
-         * @see crosswalk.CrosswalkPackage#getMappedAttribute_MappedFeature()
-         * @model required="true"
-         * @generated
-         */
+	 * @return the value of the '<em>Mapped Feature</em>' reference.
+	 * @see #setMappedFeature(EAttribute)
+	 * @see crosswalk.CrosswalkPackage#getMappedAttribute_MappedFeature()
+	 * @model required="true"
+	 * @generated
+	 */
         EAttribute getMappedFeature();
 
         /**
-         * Sets the value of the '{@link crosswalk.MappedAttribute#getMappedFeature <em>Mapped Feature</em>}' reference.
-         * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link crosswalk.MappedAttribute#getMappedFeature <em>Mapped Feature</em>}' reference.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @param value the new value of the '<em>Mapped Feature</em>' reference.
-         * @see #getMappedFeature()
-         * @generated
-         */
+	 * @param value the new value of the '<em>Mapped Feature</em>' reference.
+	 * @see #getMappedFeature()
+	 * @generated
+	 */
         void setMappedFeature(EAttribute value);
 
         /**
-         * Returns the value of the '<em><b>Conversion Strategy</b></em>' containment reference.
-         * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Conversion Strategy</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
          * <p>
          * If the meaning of the '<em>Conversion Strategy</em>' reference isn't clear,
          * there really should be more of a description here...
          * </p>
          * <!-- end-user-doc -->
-         * @return the value of the '<em>Conversion Strategy</em>' containment reference.
-         * @see #isSetConversionStrategy()
-         * @see #unsetConversionStrategy()
-         * @see #setConversionStrategy(ConversionStrategy)
-         * @see crosswalk.CrosswalkPackage#getMappedAttribute_ConversionStrategy()
-         * @model containment="true" unsettable="true"
-         * @generated
-         */
+	 * @return the value of the '<em>Conversion Strategy</em>' containment reference.
+	 * @see #isSetConversionStrategy()
+	 * @see #unsetConversionStrategy()
+	 * @see #setConversionStrategy(ConversionStrategy)
+	 * @see crosswalk.CrosswalkPackage#getMappedAttribute_ConversionStrategy()
+	 * @model containment="true" unsettable="true"
+	 * @generated
+	 */
         ConversionStrategy getConversionStrategy();
 
         /**
-         * Sets the value of the '{@link crosswalk.MappedAttribute#getConversionStrategy <em>Conversion Strategy</em>}' containment reference.
-         * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link crosswalk.MappedAttribute#getConversionStrategy <em>Conversion Strategy</em>}' containment reference.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @param value the new value of the '<em>Conversion Strategy</em>' containment reference.
-         * @see #isSetConversionStrategy()
-         * @see #unsetConversionStrategy()
-         * @see #getConversionStrategy()
-         * @generated
-         */
+	 * @param value the new value of the '<em>Conversion Strategy</em>' containment reference.
+	 * @see #isSetConversionStrategy()
+	 * @see #unsetConversionStrategy()
+	 * @see #getConversionStrategy()
+	 * @generated
+	 */
         void setConversionStrategy(ConversionStrategy value);
 
         /**
-         * Unsets the value of the '{@link crosswalk.MappedAttribute#getConversionStrategy <em>Conversion Strategy</em>}' containment reference.
-         * <!-- begin-user-doc -->
+	 * Unsets the value of the '{@link crosswalk.MappedAttribute#getConversionStrategy <em>Conversion Strategy</em>}' containment reference.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #isSetConversionStrategy()
-         * @see #getConversionStrategy()
-         * @see #setConversionStrategy(ConversionStrategy)
-         * @generated
-         */
+	 * @see #isSetConversionStrategy()
+	 * @see #getConversionStrategy()
+	 * @see #setConversionStrategy(ConversionStrategy)
+	 * @generated
+	 */
         void unsetConversionStrategy();
 
         /**
-         * Returns whether the value of the '{@link crosswalk.MappedAttribute#getConversionStrategy <em>Conversion Strategy</em>}' containment reference is set.
-         * <!-- begin-user-doc -->
+	 * Returns whether the value of the '{@link crosswalk.MappedAttribute#getConversionStrategy <em>Conversion Strategy</em>}' containment reference is set.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @return whether the value of the '<em>Conversion Strategy</em>' containment reference is set.
-         * @see #unsetConversionStrategy()
-         * @see #getConversionStrategy()
-         * @see #setConversionStrategy(ConversionStrategy)
-         * @generated
-         */
+	 * @return whether the value of the '<em>Conversion Strategy</em>' containment reference is set.
+	 * @see #unsetConversionStrategy()
+	 * @see #getConversionStrategy()
+	 * @see #setConversionStrategy(ConversionStrategy)
+	 * @generated
+	 */
         boolean isSetConversionStrategy();
 
         /**
-         * Returns the value of the '<em><b>Default Value</b></em>' attribute.
-         * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Default Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
          * <p>
          * If the meaning of the '<em>Default Value</em>' attribute isn't clear,
          * there really should be more of a description here...
          * </p>
          * <!-- end-user-doc -->
-         * @return the value of the '<em>Default Value</em>' attribute.
-         * @see #isSetDefaultValue()
-         * @see #unsetDefaultValue()
-         * @see #setDefaultValue(String)
-         * @see crosswalk.CrosswalkPackage#getMappedAttribute_DefaultValue()
-         * @model unsettable="true"
-         * @generated
-         */
+	 * @return the value of the '<em>Default Value</em>' attribute.
+	 * @see #isSetDefaultValue()
+	 * @see #unsetDefaultValue()
+	 * @see #setDefaultValue(String)
+	 * @see crosswalk.CrosswalkPackage#getMappedAttribute_DefaultValue()
+	 * @model unsettable="true"
+	 * @generated
+	 */
         String getDefaultValue();
 
         /**
-         * Sets the value of the '{@link crosswalk.MappedAttribute#getDefaultValue <em>Default Value</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link crosswalk.MappedAttribute#getDefaultValue <em>Default Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @param value the new value of the '<em>Default Value</em>' attribute.
-         * @see #isSetDefaultValue()
-         * @see #unsetDefaultValue()
-         * @see #getDefaultValue()
-         * @generated
-         */
+	 * @param value the new value of the '<em>Default Value</em>' attribute.
+	 * @see #isSetDefaultValue()
+	 * @see #unsetDefaultValue()
+	 * @see #getDefaultValue()
+	 * @generated
+	 */
         void setDefaultValue(String value);
 
         /**
-         * Unsets the value of the '{@link crosswalk.MappedAttribute#getDefaultValue <em>Default Value</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * Unsets the value of the '{@link crosswalk.MappedAttribute#getDefaultValue <em>Default Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #isSetDefaultValue()
-         * @see #getDefaultValue()
-         * @see #setDefaultValue(String)
-         * @generated
-         */
+	 * @see #isSetDefaultValue()
+	 * @see #getDefaultValue()
+	 * @see #setDefaultValue(String)
+	 * @generated
+	 */
         void unsetDefaultValue();
 
         /**
-         * Returns whether the value of the '{@link crosswalk.MappedAttribute#getDefaultValue <em>Default Value</em>}' attribute is set.
-         * <!-- begin-user-doc -->
+	 * Returns whether the value of the '{@link crosswalk.MappedAttribute#getDefaultValue <em>Default Value</em>}' attribute is set.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @return whether the value of the '<em>Default Value</em>' attribute is set.
-         * @see #unsetDefaultValue()
-         * @see #getDefaultValue()
-         * @see #setDefaultValue(String)
-         * @generated
-         */
+	 * @return whether the value of the '<em>Default Value</em>' attribute is set.
+	 * @see #unsetDefaultValue()
+	 * @see #getDefaultValue()
+	 * @see #setDefaultValue(String)
+	 * @generated
+	 */
         boolean isSetDefaultValue();
 
 } // MappedAttribute

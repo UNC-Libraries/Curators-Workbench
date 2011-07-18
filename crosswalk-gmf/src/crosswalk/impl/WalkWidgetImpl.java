@@ -45,165 +45,165 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  */
 public abstract class WalkWidgetImpl extends EObjectImpl implements WalkWidget {
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected WalkWidgetImpl() {
-                super();
-        }
+		super();
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         protected EClass eStaticClass() {
-                return CrosswalkPackage.Literals.WALK_WIDGET;
-        }
+		return CrosswalkPackage.Literals.WALK_WIDGET;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public CrossWalk getWalk() {
-                if (eContainerFeatureID() != CrosswalkPackage.WALK_WIDGET__WALK) return null;
-                return (CrossWalk)eContainer();
-        }
+		if (eContainerFeatureID() != CrosswalkPackage.WALK_WIDGET__WALK) return null;
+		return (CrossWalk)eContainer();
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public NotificationChain basicSetWalk(CrossWalk newWalk, NotificationChain msgs) {
-                msgs = eBasicSetContainer((InternalEObject)newWalk, CrosswalkPackage.WALK_WIDGET__WALK, msgs);
-                return msgs;
-        }
+		msgs = eBasicSetContainer((InternalEObject)newWalk, CrosswalkPackage.WALK_WIDGET__WALK, msgs);
+		return msgs;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public void setWalk(CrossWalk newWalk) {
-                if (newWalk != eInternalContainer() || (eContainerFeatureID() != CrosswalkPackage.WALK_WIDGET__WALK && newWalk != null)) {
-                        if (EcoreUtil.isAncestor(this, newWalk))
-                                throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
-                        NotificationChain msgs = null;
-                        if (eInternalContainer() != null)
-                                msgs = eBasicRemoveFromContainer(msgs);
-                        if (newWalk != null)
-                                msgs = ((InternalEObject)newWalk).eInverseAdd(this, CrosswalkPackage.CROSS_WALK__WIDGETS, CrossWalk.class, msgs);
-                        msgs = basicSetWalk(newWalk, msgs);
-                        if (msgs != null) msgs.dispatch();
-                }
-                else if (eNotificationRequired())
-                        eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.WALK_WIDGET__WALK, newWalk, newWalk));
-        }
+		if (newWalk != eInternalContainer() || (eContainerFeatureID() != CrosswalkPackage.WALK_WIDGET__WALK && newWalk != null)) {
+			if (EcoreUtil.isAncestor(this, newWalk))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newWalk != null)
+				msgs = ((InternalEObject)newWalk).eInverseAdd(this, CrosswalkPackage.CROSS_WALK__WIDGETS, CrossWalk.class, msgs);
+			msgs = basicSetWalk(newWalk, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.WALK_WIDGET__WALK, newWalk, newWalk));
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-                switch (featureID) {
-                        case CrosswalkPackage.WALK_WIDGET__WALK:
-                                if (eInternalContainer() != null)
-                                        msgs = eBasicRemoveFromContainer(msgs);
-                                return basicSetWalk((CrossWalk)otherEnd, msgs);
-                }
-                return super.eInverseAdd(otherEnd, featureID, msgs);
-        }
+		switch (featureID) {
+			case CrosswalkPackage.WALK_WIDGET__WALK:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetWalk((CrossWalk)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-                switch (featureID) {
-                        case CrosswalkPackage.WALK_WIDGET__WALK:
-                                return basicSetWalk(null, msgs);
-                }
-                return super.eInverseRemove(otherEnd, featureID, msgs);
-        }
+		switch (featureID) {
+			case CrosswalkPackage.WALK_WIDGET__WALK:
+				return basicSetWalk(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-                switch (eContainerFeatureID()) {
-                        case CrosswalkPackage.WALK_WIDGET__WALK:
-                                return eInternalContainer().eInverseRemove(this, CrosswalkPackage.CROSS_WALK__WIDGETS, CrossWalk.class, msgs);
-                }
-                return super.eBasicRemoveFromContainerFeature(msgs);
-        }
+		switch (eContainerFeatureID()) {
+			case CrosswalkPackage.WALK_WIDGET__WALK:
+				return eInternalContainer().eInverseRemove(this, CrosswalkPackage.CROSS_WALK__WIDGETS, CrossWalk.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Object eGet(int featureID, boolean resolve, boolean coreType) {
-                switch (featureID) {
-                        case CrosswalkPackage.WALK_WIDGET__WALK:
-                                return getWalk();
-                }
-                return super.eGet(featureID, resolve, coreType);
-        }
+		switch (featureID) {
+			case CrosswalkPackage.WALK_WIDGET__WALK:
+				return getWalk();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public void eSet(int featureID, Object newValue) {
-                switch (featureID) {
-                        case CrosswalkPackage.WALK_WIDGET__WALK:
-                                setWalk((CrossWalk)newValue);
-                                return;
-                }
-                super.eSet(featureID, newValue);
-        }
+		switch (featureID) {
+			case CrosswalkPackage.WALK_WIDGET__WALK:
+				setWalk((CrossWalk)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public void eUnset(int featureID) {
-                switch (featureID) {
-                        case CrosswalkPackage.WALK_WIDGET__WALK:
-                                setWalk((CrossWalk)null);
-                                return;
-                }
-                super.eUnset(featureID);
-        }
+		switch (featureID) {
+			case CrosswalkPackage.WALK_WIDGET__WALK:
+				setWalk((CrossWalk)null);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public boolean eIsSet(int featureID) {
-                switch (featureID) {
-                        case CrosswalkPackage.WALK_WIDGET__WALK:
-                                return getWalk() != null;
-                }
-                return super.eIsSet(featureID);
-        }
+		switch (featureID) {
+			case CrosswalkPackage.WALK_WIDGET__WALK:
+				return getWalk() != null;
+		}
+		return super.eIsSet(featureID);
+	}
 
 } //WalkWidgetImpl

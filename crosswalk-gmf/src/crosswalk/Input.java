@@ -36,64 +36,64 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Input extends EObject {
         /**
-         * Returns the value of the '<em><b>Output</b></em>' reference.
-         * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Output</b></em>' reference.
+	 * <!-- begin-user-doc -->
          * <p>
          * If the meaning of the '<em>Output</em>' reference isn't clear,
          * there really should be more of a description here...
          * </p>
          * <!-- end-user-doc -->
-         * @return the value of the '<em>Output</em>' reference.
-         * @see #isSetOutput()
-         * @see #unsetOutput()
-         * @see #setOutput(Output)
-         * @see crosswalk.CrosswalkPackage#getInput_Output()
-         * @model unsettable="true"
-         * @generated
-         */
+	 * @return the value of the '<em>Output</em>' reference.
+	 * @see #isSetOutput()
+	 * @see #unsetOutput()
+	 * @see #setOutput(Output)
+	 * @see crosswalk.CrosswalkPackage#getInput_Output()
+	 * @model unsettable="true"
+	 * @generated
+	 */
         Output getOutput();
 
         /**
-         * Sets the value of the '{@link crosswalk.Input#getOutput <em>Output</em>}' reference.
-         * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link crosswalk.Input#getOutput <em>Output</em>}' reference.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @param value the new value of the '<em>Output</em>' reference.
-         * @see #isSetOutput()
-         * @see #unsetOutput()
-         * @see #getOutput()
-         * @generated
-         */
+	 * @param value the new value of the '<em>Output</em>' reference.
+	 * @see #isSetOutput()
+	 * @see #unsetOutput()
+	 * @see #getOutput()
+	 * @generated
+	 */
         void setOutput(Output value);
 
         /**
-         * Unsets the value of the '{@link crosswalk.Input#getOutput <em>Output</em>}' reference.
-         * <!-- begin-user-doc -->
+	 * Unsets the value of the '{@link crosswalk.Input#getOutput <em>Output</em>}' reference.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #isSetOutput()
-         * @see #getOutput()
-         * @see #setOutput(Output)
-         * @generated
-         */
+	 * @see #isSetOutput()
+	 * @see #getOutput()
+	 * @see #setOutput(Output)
+	 * @generated
+	 */
         void unsetOutput();
 
         /**
-         * Returns whether the value of the '{@link crosswalk.Input#getOutput <em>Output</em>}' reference is set.
-         * <!-- begin-user-doc -->
+	 * Returns whether the value of the '{@link crosswalk.Input#getOutput <em>Output</em>}' reference is set.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @return whether the value of the '<em>Output</em>' reference is set.
-         * @see #unsetOutput()
-         * @see #getOutput()
-         * @see #setOutput(Output)
-         * @generated
-         */
+	 * @return whether the value of the '<em>Output</em>' reference is set.
+	 * @see #unsetOutput()
+	 * @see #getOutput()
+	 * @see #setOutput(Output)
+	 * @generated
+	 */
         boolean isSetOutput();
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @model kind="operation"
-         * @generated
-         */
+	 * @model kind="operation"
+	 * @generated
+	 */
         EDataType getInputEDataType();
 
 } // Input

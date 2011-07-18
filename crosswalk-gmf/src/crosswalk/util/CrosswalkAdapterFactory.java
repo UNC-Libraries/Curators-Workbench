@@ -34,406 +34,406 @@ import org.eclipse.emf.ecore.EObject;
  */
 public class CrosswalkAdapterFactory extends AdapterFactoryImpl {
         /**
-         * The cached model package.
-         * <!-- begin-user-doc -->
+	 * The cached model package.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected static CrosswalkPackage modelPackage;
 
         /**
-         * Creates an instance of the adapter factory.
-         * <!-- begin-user-doc -->
+	 * Creates an instance of the adapter factory.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public CrosswalkAdapterFactory() {
-                if (modelPackage == null) {
-                        modelPackage = CrosswalkPackage.eINSTANCE;
-                }
-        }
+		if (modelPackage == null) {
+			modelPackage = CrosswalkPackage.eINSTANCE;
+		}
+	}
 
         /**
-         * Returns whether this factory is applicable for the type of the object.
-         * <!-- begin-user-doc -->
+	 * Returns whether this factory is applicable for the type of the object.
+	 * <!-- begin-user-doc -->
          * This implementation returns <code>true</code> if the object is either the model's package or is an instance object of the model.
          * <!-- end-user-doc -->
-         * @return whether this factory is applicable for the type of the object.
-         * @generated
-         */
+	 * @return whether this factory is applicable for the type of the object.
+	 * @generated
+	 */
         @Override
         public boolean isFactoryForType(Object object) {
-                if (object == modelPackage) {
-                        return true;
-                }
-                if (object instanceof EObject) {
-                        return ((EObject)object).eClass().getEPackage() == modelPackage;
-                }
-                return false;
-        }
+		if (object == modelPackage) {
+			return true;
+		}
+		if (object instanceof EObject) {
+			return ((EObject)object).eClass().getEPackage() == modelPackage;
+		}
+		return false;
+	}
 
         /**
-         * The switch that delegates to the <code>createXXX</code> methods.
-         * <!-- begin-user-doc -->
+	 * The switch that delegates to the <code>createXXX</code> methods.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected CrosswalkSwitch<Adapter> modelSwitch =
                 new CrosswalkSwitch<Adapter>() {
-                        @Override
-                        public Adapter caseTabbedDataField(TabbedDataField object) {
-                                return createTabbedDataFieldAdapter();
-                        }
-                        @Override
-                        public Adapter caseTrimWhitespace(TrimWhitespace object) {
-                                return createTrimWhitespaceAdapter();
-                        }
-                        @Override
-                        public Adapter caseCrossWalk(CrossWalk object) {
-                                return createCrossWalkAdapter();
-                        }
-                        @Override
-                        public Adapter caseOutputElement(OutputElement object) {
-                                return createOutputElementAdapter();
-                        }
-                        @Override
-                        public Adapter caseWalkWidget(WalkWidget object) {
-                                return createWalkWidgetAdapter();
-                        }
-                        @Override
-                        public Adapter caseDataSource(DataSource object) {
-                                return createDataSourceAdapter();
-                        }
-                        @Override
-                        public Adapter caseDataField(DataField object) {
-                                return createDataFieldAdapter();
-                        }
-                        @Override
-                        public Adapter caseOutput(Output object) {
-                                return createOutputAdapter();
-                        }
-                        @Override
-                        public Adapter caseInput(Input object) {
-                                return createInputAdapter();
-                        }
-                        @Override
-                        public Adapter caseRecordMatcherStrategy(RecordMatcherStrategy object) {
-                                return createRecordMatcherStrategyAdapter();
-                        }
-                        @Override
-                        public Adapter caseOriginalNameRecordMatcher(OriginalNameRecordMatcher object) {
-                                return createOriginalNameRecordMatcherAdapter();
-                        }
-                        @Override
-                        public Adapter caseDateRecognizer(DateRecognizer object) {
-                                return createDateRecognizerAdapter();
-                        }
-                        @Override
-                        public Adapter caseText(Text object) {
-                                return createTextAdapter();
-                        }
-                        @Override
-                        public Adapter caseDelimitedFile(DelimitedFile object) {
-                                return createDelimitedFileAdapter();
-                        }
-                        @Override
-                        public Adapter caseMappedElement(MappedElement object) {
-                                return createMappedElementAdapter();
-                        }
-                        @Override
-                        public Adapter caseMappedAttribute(MappedAttribute object) {
-                                return createMappedAttributeAdapter();
-                        }
-                        @Override
-                        public Adapter caseConversionStrategy(ConversionStrategy object) {
-                                return createConversionStrategyAdapter();
-                        }
-                        @Override
-                        public Adapter caseDateToISO8601StringConversion(DateToISO8601StringConversion object) {
-                                return createDateToISO8601StringConversionAdapter();
-                        }
-                        @Override
-                        public Adapter defaultCase(EObject object) {
-                                return createEObjectAdapter();
-                        }
-                };
+			@Override
+			public Adapter caseTabbedDataField(TabbedDataField object) {
+				return createTabbedDataFieldAdapter();
+			}
+			@Override
+			public Adapter caseTrimWhitespace(TrimWhitespace object) {
+				return createTrimWhitespaceAdapter();
+			}
+			@Override
+			public Adapter caseCrossWalk(CrossWalk object) {
+				return createCrossWalkAdapter();
+			}
+			@Override
+			public Adapter caseOutputElement(OutputElement object) {
+				return createOutputElementAdapter();
+			}
+			@Override
+			public Adapter caseWalkWidget(WalkWidget object) {
+				return createWalkWidgetAdapter();
+			}
+			@Override
+			public Adapter caseDataSource(DataSource object) {
+				return createDataSourceAdapter();
+			}
+			@Override
+			public Adapter caseDataField(DataField object) {
+				return createDataFieldAdapter();
+			}
+			@Override
+			public Adapter caseOutput(Output object) {
+				return createOutputAdapter();
+			}
+			@Override
+			public Adapter caseInput(Input object) {
+				return createInputAdapter();
+			}
+			@Override
+			public Adapter caseRecordMatcherStrategy(RecordMatcherStrategy object) {
+				return createRecordMatcherStrategyAdapter();
+			}
+			@Override
+			public Adapter caseOriginalNameRecordMatcher(OriginalNameRecordMatcher object) {
+				return createOriginalNameRecordMatcherAdapter();
+			}
+			@Override
+			public Adapter caseDateRecognizer(DateRecognizer object) {
+				return createDateRecognizerAdapter();
+			}
+			@Override
+			public Adapter caseText(Text object) {
+				return createTextAdapter();
+			}
+			@Override
+			public Adapter caseDelimitedFile(DelimitedFile object) {
+				return createDelimitedFileAdapter();
+			}
+			@Override
+			public Adapter caseMappedElement(MappedElement object) {
+				return createMappedElementAdapter();
+			}
+			@Override
+			public Adapter caseMappedAttribute(MappedAttribute object) {
+				return createMappedAttributeAdapter();
+			}
+			@Override
+			public Adapter caseConversionStrategy(ConversionStrategy object) {
+				return createConversionStrategyAdapter();
+			}
+			@Override
+			public Adapter caseDateToISO8601StringConversion(DateToISO8601StringConversion object) {
+				return createDateToISO8601StringConversionAdapter();
+			}
+			@Override
+			public Adapter defaultCase(EObject object) {
+				return createEObjectAdapter();
+			}
+		};
 
         /**
-         * Creates an adapter for the <code>target</code>.
-         * <!-- begin-user-doc -->
+	 * Creates an adapter for the <code>target</code>.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @param target the object to adapt.
-         * @return the adapter for the <code>target</code>.
-         * @generated
-         */
+	 * @param target the object to adapt.
+	 * @return the adapter for the <code>target</code>.
+	 * @generated
+	 */
         @Override
         public Adapter createAdapter(Notifier target) {
-                return modelSwitch.doSwitch((EObject)target);
-        }
+		return modelSwitch.doSwitch((EObject)target);
+	}
 
 
         /**
-         * Creates a new adapter for an object of class '{@link crosswalk.TabbedDataField <em>Tabbed Data Field</em>}'.
-         * <!-- begin-user-doc -->
+	 * Creates a new adapter for an object of class '{@link crosswalk.TabbedDataField <em>Tabbed Data Field</em>}'.
+	 * <!-- begin-user-doc -->
          * This default implementation returns null so that we can easily ignore cases;
          * it's useful to ignore a case when inheritance will catch all the cases anyway.
          * <!-- end-user-doc -->
-         * @return the new adapter.
-         * @see crosswalk.TabbedDataField
-         * @generated
-         */
+	 * @return the new adapter.
+	 * @see crosswalk.TabbedDataField
+	 * @generated
+	 */
         public Adapter createTabbedDataFieldAdapter() {
-                return null;
-        }
+		return null;
+	}
 
         /**
-         * Creates a new adapter for an object of class '{@link crosswalk.TrimWhitespace <em>Trim Whitespace</em>}'.
-         * <!-- begin-user-doc -->
+	 * Creates a new adapter for an object of class '{@link crosswalk.TrimWhitespace <em>Trim Whitespace</em>}'.
+	 * <!-- begin-user-doc -->
          * This default implementation returns null so that we can easily ignore cases;
          * it's useful to ignore a case when inheritance will catch all the cases anyway.
          * <!-- end-user-doc -->
-         * @return the new adapter.
-         * @see crosswalk.TrimWhitespace
-         * @generated
-         */
+	 * @return the new adapter.
+	 * @see crosswalk.TrimWhitespace
+	 * @generated
+	 */
         public Adapter createTrimWhitespaceAdapter() {
-                return null;
-        }
+		return null;
+	}
 
         /**
-         * Creates a new adapter for an object of class '{@link crosswalk.CrossWalk <em>Cross Walk</em>}'.
-         * <!-- begin-user-doc -->
+	 * Creates a new adapter for an object of class '{@link crosswalk.CrossWalk <em>Cross Walk</em>}'.
+	 * <!-- begin-user-doc -->
          * This default implementation returns null so that we can easily ignore cases;
          * it's useful to ignore a case when inheritance will catch all the cases anyway.
          * <!-- end-user-doc -->
-         * @return the new adapter.
-         * @see crosswalk.CrossWalk
-         * @generated
-         */
+	 * @return the new adapter.
+	 * @see crosswalk.CrossWalk
+	 * @generated
+	 */
         public Adapter createCrossWalkAdapter() {
-                return null;
-        }
+		return null;
+	}
 
         /**
-         * Creates a new adapter for an object of class '{@link crosswalk.OutputElement <em>Output Element</em>}'.
-         * <!-- begin-user-doc -->
+	 * Creates a new adapter for an object of class '{@link crosswalk.OutputElement <em>Output Element</em>}'.
+	 * <!-- begin-user-doc -->
          * This default implementation returns null so that we can easily ignore cases;
          * it's useful to ignore a case when inheritance will catch all the cases anyway.
          * <!-- end-user-doc -->
-         * @return the new adapter.
-         * @see crosswalk.OutputElement
-         * @generated
-         */
+	 * @return the new adapter.
+	 * @see crosswalk.OutputElement
+	 * @generated
+	 */
         public Adapter createOutputElementAdapter() {
-                return null;
-        }
+		return null;
+	}
 
         /**
-         * Creates a new adapter for an object of class '{@link crosswalk.WalkWidget <em>Walk Widget</em>}'.
-         * <!-- begin-user-doc -->
+	 * Creates a new adapter for an object of class '{@link crosswalk.WalkWidget <em>Walk Widget</em>}'.
+	 * <!-- begin-user-doc -->
          * This default implementation returns null so that we can easily ignore cases;
          * it's useful to ignore a case when inheritance will catch all the cases anyway.
          * <!-- end-user-doc -->
-         * @return the new adapter.
-         * @see crosswalk.WalkWidget
-         * @generated
-         */
+	 * @return the new adapter.
+	 * @see crosswalk.WalkWidget
+	 * @generated
+	 */
         public Adapter createWalkWidgetAdapter() {
-                return null;
-        }
+		return null;
+	}
 
         /**
-         * Creates a new adapter for an object of class '{@link crosswalk.DataSource <em>Data Source</em>}'.
-         * <!-- begin-user-doc -->
+	 * Creates a new adapter for an object of class '{@link crosswalk.DataSource <em>Data Source</em>}'.
+	 * <!-- begin-user-doc -->
          * This default implementation returns null so that we can easily ignore cases;
          * it's useful to ignore a case when inheritance will catch all the cases anyway.
          * <!-- end-user-doc -->
-         * @return the new adapter.
-         * @see crosswalk.DataSource
-         * @generated
-         */
+	 * @return the new adapter.
+	 * @see crosswalk.DataSource
+	 * @generated
+	 */
         public Adapter createDataSourceAdapter() {
-                return null;
-        }
+		return null;
+	}
 
         /**
-         * Creates a new adapter for an object of class '{@link crosswalk.DataField <em>Data Field</em>}'.
-         * <!-- begin-user-doc -->
+	 * Creates a new adapter for an object of class '{@link crosswalk.DataField <em>Data Field</em>}'.
+	 * <!-- begin-user-doc -->
          * This default implementation returns null so that we can easily ignore cases;
          * it's useful to ignore a case when inheritance will catch all the cases anyway.
          * <!-- end-user-doc -->
-         * @return the new adapter.
-         * @see crosswalk.DataField
-         * @generated
-         */
+	 * @return the new adapter.
+	 * @see crosswalk.DataField
+	 * @generated
+	 */
         public Adapter createDataFieldAdapter() {
-                return null;
-        }
+		return null;
+	}
 
         /**
-         * Creates a new adapter for an object of class '{@link crosswalk.Output <em>Output</em>}'.
-         * <!-- begin-user-doc -->
+	 * Creates a new adapter for an object of class '{@link crosswalk.Output <em>Output</em>}'.
+	 * <!-- begin-user-doc -->
          * This default implementation returns null so that we can easily ignore cases;
          * it's useful to ignore a case when inheritance will catch all the cases anyway.
          * <!-- end-user-doc -->
-         * @return the new adapter.
-         * @see crosswalk.Output
-         * @generated
-         */
+	 * @return the new adapter.
+	 * @see crosswalk.Output
+	 * @generated
+	 */
         public Adapter createOutputAdapter() {
-                return null;
-        }
+		return null;
+	}
 
         /**
-         * Creates a new adapter for an object of class '{@link crosswalk.Input <em>Input</em>}'.
-         * <!-- begin-user-doc -->
+	 * Creates a new adapter for an object of class '{@link crosswalk.Input <em>Input</em>}'.
+	 * <!-- begin-user-doc -->
          * This default implementation returns null so that we can easily ignore cases;
          * it's useful to ignore a case when inheritance will catch all the cases anyway.
          * <!-- end-user-doc -->
-         * @return the new adapter.
-         * @see crosswalk.Input
-         * @generated
-         */
+	 * @return the new adapter.
+	 * @see crosswalk.Input
+	 * @generated
+	 */
         public Adapter createInputAdapter() {
-                return null;
-        }
+		return null;
+	}
 
         /**
-         * Creates a new adapter for an object of class '{@link crosswalk.RecordMatcherStrategy <em>Record Matcher Strategy</em>}'.
-         * <!-- begin-user-doc -->
+	 * Creates a new adapter for an object of class '{@link crosswalk.RecordMatcherStrategy <em>Record Matcher Strategy</em>}'.
+	 * <!-- begin-user-doc -->
          * This default implementation returns null so that we can easily ignore cases;
          * it's useful to ignore a case when inheritance will catch all the cases anyway.
          * <!-- end-user-doc -->
-         * @return the new adapter.
-         * @see crosswalk.RecordMatcherStrategy
-         * @generated
-         */
+	 * @return the new adapter.
+	 * @see crosswalk.RecordMatcherStrategy
+	 * @generated
+	 */
         public Adapter createRecordMatcherStrategyAdapter() {
-                return null;
-        }
+		return null;
+	}
 
         /**
-         * Creates a new adapter for an object of class '{@link crosswalk.OriginalNameRecordMatcher <em>Original Name Record Matcher</em>}'.
-         * <!-- begin-user-doc -->
+	 * Creates a new adapter for an object of class '{@link crosswalk.OriginalNameRecordMatcher <em>Original Name Record Matcher</em>}'.
+	 * <!-- begin-user-doc -->
          * This default implementation returns null so that we can easily ignore cases;
          * it's useful to ignore a case when inheritance will catch all the cases anyway.
          * <!-- end-user-doc -->
-         * @return the new adapter.
-         * @see crosswalk.OriginalNameRecordMatcher
-         * @generated
-         */
+	 * @return the new adapter.
+	 * @see crosswalk.OriginalNameRecordMatcher
+	 * @generated
+	 */
         public Adapter createOriginalNameRecordMatcherAdapter() {
-                return null;
-        }
+		return null;
+	}
 
         /**
-         * Creates a new adapter for an object of class '{@link crosswalk.DateRecognizer <em>Date Recognizer</em>}'.
-         * <!-- begin-user-doc -->
+	 * Creates a new adapter for an object of class '{@link crosswalk.DateRecognizer <em>Date Recognizer</em>}'.
+	 * <!-- begin-user-doc -->
          * This default implementation returns null so that we can easily ignore cases;
          * it's useful to ignore a case when inheritance will catch all the cases anyway.
          * <!-- end-user-doc -->
-         * @return the new adapter.
-         * @see crosswalk.DateRecognizer
-         * @generated
-         */
+	 * @return the new adapter.
+	 * @see crosswalk.DateRecognizer
+	 * @generated
+	 */
         public Adapter createDateRecognizerAdapter() {
-                return null;
-        }
+		return null;
+	}
 
         /**
-         * Creates a new adapter for an object of class '{@link crosswalk.Text <em>Text</em>}'.
-         * <!-- begin-user-doc -->
+	 * Creates a new adapter for an object of class '{@link crosswalk.Text <em>Text</em>}'.
+	 * <!-- begin-user-doc -->
          * This default implementation returns null so that we can easily ignore cases;
          * it's useful to ignore a case when inheritance will catch all the cases anyway.
          * <!-- end-user-doc -->
-         * @return the new adapter.
-         * @see crosswalk.Text
-         * @generated
-         */
+	 * @return the new adapter.
+	 * @see crosswalk.Text
+	 * @generated
+	 */
         public Adapter createTextAdapter() {
-                return null;
-        }
+		return null;
+	}
 
         /**
-         * Creates a new adapter for an object of class '{@link crosswalk.DelimitedFile <em>Delimited File</em>}'.
-         * <!-- begin-user-doc -->
+	 * Creates a new adapter for an object of class '{@link crosswalk.DelimitedFile <em>Delimited File</em>}'.
+	 * <!-- begin-user-doc -->
          * This default implementation returns null so that we can easily ignore cases;
          * it's useful to ignore a case when inheritance will catch all the cases anyway.
          * <!-- end-user-doc -->
-         * @return the new adapter.
-         * @see crosswalk.DelimitedFile
-         * @generated
-         */
+	 * @return the new adapter.
+	 * @see crosswalk.DelimitedFile
+	 * @generated
+	 */
         public Adapter createDelimitedFileAdapter() {
-                return null;
-        }
+		return null;
+	}
 
         /**
-         * Creates a new adapter for an object of class '{@link crosswalk.MappedElement <em>Mapped Element</em>}'.
-         * <!-- begin-user-doc -->
+	 * Creates a new adapter for an object of class '{@link crosswalk.MappedElement <em>Mapped Element</em>}'.
+	 * <!-- begin-user-doc -->
          * This default implementation returns null so that we can easily ignore cases;
          * it's useful to ignore a case when inheritance will catch all the cases anyway.
          * <!-- end-user-doc -->
-         * @return the new adapter.
-         * @see crosswalk.MappedElement
-         * @generated
-         */
+	 * @return the new adapter.
+	 * @see crosswalk.MappedElement
+	 * @generated
+	 */
         public Adapter createMappedElementAdapter() {
-                return null;
-        }
+		return null;
+	}
 
         /**
-         * Creates a new adapter for an object of class '{@link crosswalk.MappedAttribute <em>Mapped Attribute</em>}'.
-         * <!-- begin-user-doc -->
+	 * Creates a new adapter for an object of class '{@link crosswalk.MappedAttribute <em>Mapped Attribute</em>}'.
+	 * <!-- begin-user-doc -->
          * This default implementation returns null so that we can easily ignore cases;
          * it's useful to ignore a case when inheritance will catch all the cases anyway.
          * <!-- end-user-doc -->
-         * @return the new adapter.
-         * @see crosswalk.MappedAttribute
-         * @generated
-         */
+	 * @return the new adapter.
+	 * @see crosswalk.MappedAttribute
+	 * @generated
+	 */
         public Adapter createMappedAttributeAdapter() {
-                return null;
-        }
+		return null;
+	}
 
         /**
-         * Creates a new adapter for an object of class '{@link crosswalk.ConversionStrategy <em>Conversion Strategy</em>}'.
-         * <!-- begin-user-doc -->
+	 * Creates a new adapter for an object of class '{@link crosswalk.ConversionStrategy <em>Conversion Strategy</em>}'.
+	 * <!-- begin-user-doc -->
          * This default implementation returns null so that we can easily ignore cases;
          * it's useful to ignore a case when inheritance will catch all the cases anyway.
          * <!-- end-user-doc -->
-         * @return the new adapter.
-         * @see crosswalk.ConversionStrategy
-         * @generated
-         */
+	 * @return the new adapter.
+	 * @see crosswalk.ConversionStrategy
+	 * @generated
+	 */
         public Adapter createConversionStrategyAdapter() {
-                return null;
-        }
+		return null;
+	}
 
         /**
-         * Creates a new adapter for an object of class '{@link crosswalk.DateToISO8601StringConversion <em>Date To ISO8601 String Conversion</em>}'.
-         * <!-- begin-user-doc -->
+	 * Creates a new adapter for an object of class '{@link crosswalk.DateToISO8601StringConversion <em>Date To ISO8601 String Conversion</em>}'.
+	 * <!-- begin-user-doc -->
          * This default implementation returns null so that we can easily ignore cases;
          * it's useful to ignore a case when inheritance will catch all the cases anyway.
          * <!-- end-user-doc -->
-         * @return the new adapter.
-         * @see crosswalk.DateToISO8601StringConversion
-         * @generated
-         */
+	 * @return the new adapter.
+	 * @see crosswalk.DateToISO8601StringConversion
+	 * @generated
+	 */
         public Adapter createDateToISO8601StringConversionAdapter() {
-                return null;
-        }
+		return null;
+	}
 
         /**
-         * Creates a new adapter for the default case.
-         * <!-- begin-user-doc -->
+	 * Creates a new adapter for the default case.
+	 * <!-- begin-user-doc -->
          * This default implementation returns null.
          * <!-- end-user-doc -->
-         * @return the new adapter.
-         * @generated
-         */
+	 * @return the new adapter.
+	 * @generated
+	 */
         public Adapter createEObjectAdapter() {
-                return null;
-        }
+		return null;
+	}
 
 } //CrosswalkAdapterFactory

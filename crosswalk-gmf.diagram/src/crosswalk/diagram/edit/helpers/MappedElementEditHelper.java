@@ -12,13 +12,13 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
  */
 public class MappedElementEditHelper extends CrosswalkBaseEditHelper {
 
-    @Override
-    protected ICommand getCreateCommand(CreateElementRequest req) {
-	return null;
-    }
+	@Override
+	protected ICommand getCreateCommand(CreateElementRequest req) {
+		return null;
+	}
 
-    @Override
-    protected ICommand getConfigureCommand(ConfigureRequest req) {
-	return null;
-    }
+	@Override
+	protected ICommand getConfigureCommand(ConfigureRequest req) {
+		return null;
+	}
 }

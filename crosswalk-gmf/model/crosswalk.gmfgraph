@@ -260,6 +260,7 @@
   <labels
       name="WidgetLabel"
       figure="WidgetFigure"
+      resizeConstraint="NONE"
       elementIcon="false"
       accessor="//@figures.0/@descriptors.5/@accessors.0"/>
 </gmfgraph:Canvas>

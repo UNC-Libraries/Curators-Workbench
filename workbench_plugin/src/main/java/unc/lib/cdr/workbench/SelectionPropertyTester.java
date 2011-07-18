@@ -4,7 +4,9 @@ import gov.loc.mets.DivType;
 import gov.loc.mets.util.METSConstants;
 
 import org.eclipse.core.expressions.PropertyTester;
+import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 
@@ -12,6 +14,7 @@ import unc.lib.cdr.workbench.project.MetsProjectNature;
 
 public class SelectionPropertyTester extends PropertyTester {
 	public static final String IS_DIV_LINK_PAIR = "isDivLinkPair";
+	public static final String SIBLING_IRESOURCES = "siblingIResources";
 
 	public SelectionPropertyTester() {
 		// TODO Auto-generated constructor stub
@@ -58,6 +61,29 @@ public class SelectionPropertyTester extends PropertyTester {
 							return firstFile ^ secondFile;
 						}
 						return true;
+					}
+				}
+			}
+		} else if(SIBLING_IRESOURCES.equals(property)) {
+			System.out.println("checking siblings");
+			if (receiver instanceof ISelection) {
+				ISelection s = (ISelection) receiver;
+				if (s instanceof IStructuredSelection) {
+					IStructuredSelection struct = (IStructuredSelection) s;
+					if(struct.size() > 0) {
+						if(struct.getFirstElement() instanceof IResource) {
+							IContainer c = ((IResource)struct.getFirstElement()).getParent();
+							for(Object r : struct.toArray()) {
+								if(!(r instanceof IResource)) {
+									return false;
+								}
+								if(!(c.equals(((IResource)r).getParent()))) {
+									System.out.println("not the same parent");
+									return false;
+								}
+							}
+							return true;
+						}
 					}
 				}
 			}

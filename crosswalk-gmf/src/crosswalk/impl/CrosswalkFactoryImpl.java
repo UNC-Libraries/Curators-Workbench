@@ -55,181 +55,181 @@ public class CrosswalkFactoryImpl extends EFactoryImpl implements CrosswalkFacto
     private static MappedElementFeatureSetupAdapter mappedElementFeatureSetupAdapter =  new MappedElementFeatureSetupAdapter();
 
     /**
-         * Creates the default factory implementation.
-         * <!-- begin-user-doc --> <!--
+	 * Creates the default factory implementation.
+	 * <!-- begin-user-doc --> <!--
      * end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
     public static CrosswalkFactory init() {
-                try {
-                        CrosswalkFactory theCrosswalkFactory = (CrosswalkFactory)EPackage.Registry.INSTANCE.getEFactory("http://lib.unc.edu/schemas/crosswalk"); 
-                        if (theCrosswalkFactory != null) {
-                                return theCrosswalkFactory;
-                        }
-                }
-                catch (Exception exception) {
-                        EcorePlugin.INSTANCE.log(exception);
-                }
-                return new CrosswalkFactoryImpl();
-        }
+		try {
+			CrosswalkFactory theCrosswalkFactory = (CrosswalkFactory)EPackage.Registry.INSTANCE.getEFactory("http://lib.unc.edu/schemas/crosswalk"); 
+			if (theCrosswalkFactory != null) {
+				return theCrosswalkFactory;
+			}
+		}
+		catch (Exception exception) {
+			EcorePlugin.INSTANCE.log(exception);
+		}
+		return new CrosswalkFactoryImpl();
+	}
 
     /**
-         * Creates an instance of the factory.
-         * <!-- begin-user-doc --> <!--
+	 * Creates an instance of the factory.
+	 * <!-- begin-user-doc --> <!--
      * end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
     public CrosswalkFactoryImpl() {
-                super();
-        }
+		super();
+	}
 
     /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * @generated
-         */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
     @Override
     public EObject create(EClass eClass) {
-                switch (eClass.getClassifierID()) {
-                        case CrosswalkPackage.TABBED_DATA_FIELD: return createTabbedDataField();
-                        case CrosswalkPackage.TRIM_WHITESPACE: return createTrimWhitespace();
-                        case CrosswalkPackage.CROSS_WALK: return createCrossWalk();
-                        case CrosswalkPackage.DATA_FIELD: return createDataField();
-                        case CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER: return createOriginalNameRecordMatcher();
-                        case CrosswalkPackage.DATE_RECOGNIZER: return createDateRecognizer();
-                        case CrosswalkPackage.TEXT: return createText();
-                        case CrosswalkPackage.DELIMITED_FILE: return createDelimitedFile();
-                        case CrosswalkPackage.MAPPED_ELEMENT: return createMappedElement();
-                        case CrosswalkPackage.MAPPED_ATTRIBUTE: return createMappedAttribute();
-                        case CrosswalkPackage.DATE_TO_ISO8601_STRING_CONVERSION: return createDateToISO8601StringConversion();
-                        default:
-                                throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
-                }
-        }
+		switch (eClass.getClassifierID()) {
+			case CrosswalkPackage.TABBED_DATA_FIELD: return createTabbedDataField();
+			case CrosswalkPackage.TRIM_WHITESPACE: return createTrimWhitespace();
+			case CrosswalkPackage.CROSS_WALK: return createCrossWalk();
+			case CrosswalkPackage.DATA_FIELD: return createDataField();
+			case CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER: return createOriginalNameRecordMatcher();
+			case CrosswalkPackage.DATE_RECOGNIZER: return createDateRecognizer();
+			case CrosswalkPackage.TEXT: return createText();
+			case CrosswalkPackage.DELIMITED_FILE: return createDelimitedFile();
+			case CrosswalkPackage.MAPPED_ELEMENT: return createMappedElement();
+			case CrosswalkPackage.MAPPED_ATTRIBUTE: return createMappedAttribute();
+			case CrosswalkPackage.DATE_TO_ISO8601_STRING_CONVERSION: return createDateToISO8601StringConversion();
+			default:
+				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+		}
+	}
 
     /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * @generated
-         */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
     @Override
     public Object createFromString(EDataType eDataType, String initialValue) {
-                switch (eDataType.getClassifierID()) {
-                        case CrosswalkPackage.DATA_EXCEPTION:
-                                return createDataExceptionFromString(eDataType, initialValue);
-                        case CrosswalkPackage.IPROJECT:
-                                return createIProjectFromString(eDataType, initialValue);
-                        case CrosswalkPackage.IFILE:
-                                return createIFileFromString(eDataType, initialValue);
-                        case CrosswalkPackage.RECORD_MATCHES:
-                                return createRecordMatchesFromString(eDataType, initialValue);
-                        case CrosswalkPackage.IFOLDER:
-                                return createIFolderFromString(eDataType, initialValue);
-                        case CrosswalkPackage.RECORD_OUT_OF_RANGE_EXCEPTION:
-                                return createRecordOutOfRangeExceptionFromString(eDataType, initialValue);
-                        default:
-                                throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
-                }
-        }
+		switch (eDataType.getClassifierID()) {
+			case CrosswalkPackage.DATA_EXCEPTION:
+				return createDataExceptionFromString(eDataType, initialValue);
+			case CrosswalkPackage.IPROJECT:
+				return createIProjectFromString(eDataType, initialValue);
+			case CrosswalkPackage.IFILE:
+				return createIFileFromString(eDataType, initialValue);
+			case CrosswalkPackage.RECORD_MATCHES:
+				return createRecordMatchesFromString(eDataType, initialValue);
+			case CrosswalkPackage.IFOLDER:
+				return createIFolderFromString(eDataType, initialValue);
+			case CrosswalkPackage.RECORD_OUT_OF_RANGE_EXCEPTION:
+				return createRecordOutOfRangeExceptionFromString(eDataType, initialValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		}
+	}
 
     /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * @generated
-         */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
     @Override
     public String convertToString(EDataType eDataType, Object instanceValue) {
-                switch (eDataType.getClassifierID()) {
-                        case CrosswalkPackage.DATA_EXCEPTION:
-                                return convertDataExceptionToString(eDataType, instanceValue);
-                        case CrosswalkPackage.IPROJECT:
-                                return convertIProjectToString(eDataType, instanceValue);
-                        case CrosswalkPackage.IFILE:
-                                return convertIFileToString(eDataType, instanceValue);
-                        case CrosswalkPackage.RECORD_MATCHES:
-                                return convertRecordMatchesToString(eDataType, instanceValue);
-                        case CrosswalkPackage.IFOLDER:
-                                return convertIFolderToString(eDataType, instanceValue);
-                        case CrosswalkPackage.RECORD_OUT_OF_RANGE_EXCEPTION:
-                                return convertRecordOutOfRangeExceptionToString(eDataType, instanceValue);
-                        default:
-                                throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
-                }
-        }
+		switch (eDataType.getClassifierID()) {
+			case CrosswalkPackage.DATA_EXCEPTION:
+				return convertDataExceptionToString(eDataType, instanceValue);
+			case CrosswalkPackage.IPROJECT:
+				return convertIProjectToString(eDataType, instanceValue);
+			case CrosswalkPackage.IFILE:
+				return convertIFileToString(eDataType, instanceValue);
+			case CrosswalkPackage.RECORD_MATCHES:
+				return convertRecordMatchesToString(eDataType, instanceValue);
+			case CrosswalkPackage.IFOLDER:
+				return convertIFolderToString(eDataType, instanceValue);
+			case CrosswalkPackage.RECORD_OUT_OF_RANGE_EXCEPTION:
+				return convertRecordOutOfRangeExceptionToString(eDataType, instanceValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		}
+	}
 
     /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * @generated
-         */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
     public TabbedDataField createTabbedDataField() {
-                TabbedDataFieldImpl tabbedDataField = new TabbedDataFieldImpl();
-                return tabbedDataField;
-        }
+		TabbedDataFieldImpl tabbedDataField = new TabbedDataFieldImpl();
+		return tabbedDataField;
+	}
 
     /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * @generated
-         */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
     public TrimWhitespace createTrimWhitespace() {
-                TrimWhitespaceImpl trimWhitespace = new TrimWhitespaceImpl();
-                return trimWhitespace;
-        }
+		TrimWhitespaceImpl trimWhitespace = new TrimWhitespaceImpl();
+		return trimWhitespace;
+	}
 
     /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * @generated
-         */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
     public CrossWalk createCrossWalk() {
-                CrossWalkImpl crossWalk = new CrossWalkImpl();
-                return crossWalk;
-        }
+		CrossWalkImpl crossWalk = new CrossWalkImpl();
+		return crossWalk;
+	}
 
     /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public DataField createDataField() {
-                DataFieldImpl dataField = new DataFieldImpl();
-                return dataField;
-        }
+		DataFieldImpl dataField = new DataFieldImpl();
+		return dataField;
+	}
 
 /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public OriginalNameRecordMatcher createOriginalNameRecordMatcher() {
-                OriginalNameRecordMatcherImpl originalNameRecordMatcher = new OriginalNameRecordMatcherImpl();
-                return originalNameRecordMatcher;
-        }
+		OriginalNameRecordMatcherImpl originalNameRecordMatcher = new OriginalNameRecordMatcherImpl();
+		return originalNameRecordMatcher;
+	}
 
 /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public DateRecognizer createDateRecognizer() {
-                DateRecognizerImpl dateRecognizer = new DateRecognizerImpl();
-                return dateRecognizer;
-        }
+		DateRecognizerImpl dateRecognizer = new DateRecognizerImpl();
+		return dateRecognizer;
+	}
 
 /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public Text createText() {
-                TextImpl text = new TextImpl();
-                return text;
-        }
+		TextImpl text = new TextImpl();
+		return text;
+	}
 
 /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public DelimitedFile createDelimitedFile() {
-                DelimitedFileImpl delimitedFile = new DelimitedFileImpl();
-                return delimitedFile;
-        }
+		DelimitedFileImpl delimitedFile = new DelimitedFileImpl();
+		return delimitedFile;
+	}
 
 /**
          * <!-- begin-user-doc -->
@@ -243,56 +243,56 @@ public class CrosswalkFactoryImpl extends EFactoryImpl implements CrosswalkFacto
         }
 
 /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public MappedAttribute createMappedAttribute() {
-                MappedAttributeImpl mappedAttribute = new MappedAttributeImpl();
-                return mappedAttribute;
-        }
+		MappedAttributeImpl mappedAttribute = new MappedAttributeImpl();
+		return mappedAttribute;
+	}
 
 /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public DateToISO8601StringConversion createDateToISO8601StringConversion() {
-                DateToISO8601StringConversionImpl dateToISO8601StringConversion = new DateToISO8601StringConversionImpl();
-                return dateToISO8601StringConversion;
-        }
+		DateToISO8601StringConversionImpl dateToISO8601StringConversion = new DateToISO8601StringConversionImpl();
+		return dateToISO8601StringConversion;
+	}
 
 /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * @generated
-         */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
     public DataException createDataExceptionFromString(EDataType eDataType, String initialValue) {
-                return (DataException)super.createFromString(eDataType, initialValue);
-        }
+		return (DataException)super.createFromString(eDataType, initialValue);
+	}
 
     /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * @generated
-         */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
     public String convertDataExceptionToString(EDataType eDataType, Object instanceValue) {
-                return super.convertToString(eDataType, instanceValue);
-        }
+		return super.convertToString(eDataType, instanceValue);
+	}
 
     /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * @generated
-         */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
     public IProject createIProjectFromString(EDataType eDataType, String initialValue) {
-                return (IProject)super.createFromString(eDataType, initialValue);
-        }
+		return (IProject)super.createFromString(eDataType, initialValue);
+	}
 
     /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * @generated
-         */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
     public String convertIProjectToString(EDataType eDataType, Object instanceValue) {
-                return super.convertToString(eDataType, instanceValue);
-        }
+		return super.convertToString(eDataType, instanceValue);
+	}
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -336,76 +336,76 @@ public class CrosswalkFactoryImpl extends EFactoryImpl implements CrosswalkFacto
     }
 
     /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @SuppressWarnings("unchecked")
         public RecordMatches createRecordMatchesFromString(EDataType eDataType, String initialValue) {
-                return (RecordMatches)super.createFromString(eDataType, initialValue);
-        }
+		return (RecordMatches)super.createFromString(eDataType, initialValue);
+	}
 
 /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public String convertRecordMatchesToString(EDataType eDataType, Object instanceValue) {
-                return super.convertToString(eDataType, instanceValue);
-        }
+		return super.convertToString(eDataType, instanceValue);
+	}
 
 /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public IFolder createIFolderFromString(EDataType eDataType, String initialValue) {
-                return (IFolder)super.createFromString(eDataType, initialValue);
-        }
+		return (IFolder)super.createFromString(eDataType, initialValue);
+	}
 
 /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public String convertIFolderToString(EDataType eDataType, Object instanceValue) {
-                return super.convertToString(eDataType, instanceValue);
-        }
+		return super.convertToString(eDataType, instanceValue);
+	}
 
 /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public RecordOutOfRangeException createRecordOutOfRangeExceptionFromString(EDataType eDataType, String initialValue) {
-                return (RecordOutOfRangeException)super.createFromString(eDataType, initialValue);
-        }
+		return (RecordOutOfRangeException)super.createFromString(eDataType, initialValue);
+	}
 
 /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public String convertRecordOutOfRangeExceptionToString(EDataType eDataType, Object instanceValue) {
-                return super.convertToString(eDataType, instanceValue);
-        }
+		return super.convertToString(eDataType, instanceValue);
+	}
 
 /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * @generated
-         */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
     public CrosswalkPackage getCrosswalkPackage() {
-                return (CrosswalkPackage)getEPackage();
-        }
+		return (CrosswalkPackage)getEPackage();
+	}
 
     /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * @deprecated
-         * @generated
-         */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @deprecated
+	 * @generated
+	 */
     @Deprecated
     public static CrosswalkPackage getPackage() {
-                return CrosswalkPackage.eINSTANCE;
-        }
+		return CrosswalkPackage.eINSTANCE;
+	}
 
 }

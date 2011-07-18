@@ -79,998 +79,998 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
     }
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         private EClass tabbedDataFieldEClass = null;
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         private EClass trimWhitespaceEClass = null;
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         private EClass crossWalkEClass = null;
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         private EClass outputElementEClass = null;
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         private EClass walkWidgetEClass = null;
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         private EClass dataSourceEClass = null;
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         private EClass dataFieldEClass = null;
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         private EClass outputEClass = null;
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         private EClass inputEClass = null;
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         private EClass recordMatcherStrategyEClass = null;
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         private EClass originalNameRecordMatcherEClass = null;
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         private EClass dateRecognizerEClass = null;
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         private EClass textEClass = null;
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         private EClass delimitedFileEClass = null;
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         private EClass mappedElementEClass = null;
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         private EClass mappedAttributeEClass = null;
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         private EClass conversionStrategyEClass = null;
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         private EClass dateToISO8601StringConversionEClass = null;
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         private EDataType dataExceptionEDataType = null;
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         private EDataType iProjectEDataType = null;
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         private EDataType iFileEDataType = null;
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         private EDataType recordMatchesEDataType = null;
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         private EDataType iFolderEDataType = null;
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         private EDataType recordOutOfRangeExceptionEDataType = null;
 
         /**
-         * Creates an instance of the model <b>Package</b>, registered with
-         * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
-         * package URI value.
-         * <p>Note: the correct way to create the package is via the static
-         * factory method {@link #init init()}, which also performs
-         * initialization of the package, or returns the registered package,
-         * if one already exists.
-         * <!-- begin-user-doc -->
+	 * Creates an instance of the model <b>Package</b>, registered with
+	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
+	 * package URI value.
+	 * <p>Note: the correct way to create the package is via the static
+	 * factory method {@link #init init()}, which also performs
+	 * initialization of the package, or returns the registered package,
+	 * if one already exists.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see org.eclipse.emf.ecore.EPackage.Registry
-         * @see crosswalk.CrosswalkPackage#eNS_URI
-         * @see #init()
-         * @generated
-         */
+	 * @see org.eclipse.emf.ecore.EPackage.Registry
+	 * @see crosswalk.CrosswalkPackage#eNS_URI
+	 * @see #init()
+	 * @generated
+	 */
         private CrosswalkPackageImpl() {
-                super(eNS_URI, CrosswalkFactory.eINSTANCE);
-        }
+		super(eNS_URI, CrosswalkFactory.eINSTANCE);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         private static boolean isInited = false;
 
         /**
-         * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-         * 
-         * <p>This method is used to initialize {@link CrosswalkPackage#eINSTANCE} when that field is accessed.
-         * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
-         * <!-- begin-user-doc -->
+	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
+	 * 
+	 * <p>This method is used to initialize {@link CrosswalkPackage#eINSTANCE} when that field is accessed.
+	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #eNS_URI
-         * @see #createPackageContents()
-         * @see #initializePackageContents()
-         * @generated
-         */
+	 * @see #eNS_URI
+	 * @see #createPackageContents()
+	 * @see #initializePackageContents()
+	 * @generated
+	 */
         public static CrosswalkPackage init() {
-                if (isInited) return (CrosswalkPackage)EPackage.Registry.INSTANCE.getEPackage(CrosswalkPackage.eNS_URI);
+		if (isInited) return (CrosswalkPackage)EPackage.Registry.INSTANCE.getEPackage(CrosswalkPackage.eNS_URI);
 
-                // Obtain or create and register package
-                CrosswalkPackageImpl theCrosswalkPackage = (CrosswalkPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof CrosswalkPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new CrosswalkPackageImpl());
+		// Obtain or create and register package
+		CrosswalkPackageImpl theCrosswalkPackage = (CrosswalkPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof CrosswalkPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new CrosswalkPackageImpl());
 
-                isInited = true;
+		isInited = true;
 
-                // Create package meta-data objects
-                theCrosswalkPackage.createPackageContents();
+		// Create package meta-data objects
+		theCrosswalkPackage.createPackageContents();
 
-                // Initialize created meta-data
-                theCrosswalkPackage.initializePackageContents();
+		// Initialize created meta-data
+		theCrosswalkPackage.initializePackageContents();
 
-                // Mark meta-data to indicate it can't be changed
-                theCrosswalkPackage.freeze();
+		// Mark meta-data to indicate it can't be changed
+		theCrosswalkPackage.freeze();
 
   
-                // Update the registry and return the package
-                EPackage.Registry.INSTANCE.put(CrosswalkPackage.eNS_URI, theCrosswalkPackage);
-                return theCrosswalkPackage;
-        }
+		// Update the registry and return the package
+		EPackage.Registry.INSTANCE.put(CrosswalkPackage.eNS_URI, theCrosswalkPackage);
+		return theCrosswalkPackage;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public EClass getTabbedDataField() {
-                return tabbedDataFieldEClass;
-        }
+		return tabbedDataFieldEClass;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public EAttribute getTabbedDataField_ColumnNumber() {
-                return (EAttribute)tabbedDataFieldEClass.getEStructuralFeatures().get(0);
-        }
+		return (EAttribute)tabbedDataFieldEClass.getEStructuralFeatures().get(0);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public EClass getTrimWhitespace() {
-                return trimWhitespaceEClass;
-        }
+		return trimWhitespaceEClass;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public EClass getCrossWalk() {
-                return crossWalkEClass;
-        }
+		return crossWalkEClass;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public EReference getCrossWalk_DataSource() {
-                return (EReference)crossWalkEClass.getEStructuralFeatures().get(0);
-        }
+		return (EReference)crossWalkEClass.getEStructuralFeatures().get(0);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public EReference getCrossWalk_Widgets() {
-                return (EReference)crossWalkEClass.getEStructuralFeatures().get(1);
-        }
+		return (EReference)crossWalkEClass.getEStructuralFeatures().get(1);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public EReference getCrossWalk_Elements() {
-                return (EReference)crossWalkEClass.getEStructuralFeatures().get(2);
-        }
+		return (EReference)crossWalkEClass.getEStructuralFeatures().get(2);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public EReference getCrossWalk_OutputType() {
-                return (EReference)crossWalkEClass.getEStructuralFeatures().get(3);
-        }
+		return (EReference)crossWalkEClass.getEStructuralFeatures().get(3);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public EClass getOutputElement() {
-                return outputElementEClass;
-        }
+		return outputElementEClass;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public EReference getOutputElement_Walk() {
-                return (EReference)outputElementEClass.getEStructuralFeatures().get(0);
-        }
+		return (EReference)outputElementEClass.getEStructuralFeatures().get(0);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public EClass getWalkWidget() {
-                return walkWidgetEClass;
-        }
+		return walkWidgetEClass;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public EReference getWalkWidget_Walk() {
-                return (EReference)walkWidgetEClass.getEStructuralFeatures().get(0);
-        }
+		return (EReference)walkWidgetEClass.getEStructuralFeatures().get(0);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public EClass getDataSource() {
-                return dataSourceEClass;
-        }
+		return dataSourceEClass;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public EReference getDataSource_Walk() {
-                return (EReference)dataSourceEClass.getEStructuralFeatures().get(0);
-        }
+		return (EReference)dataSourceEClass.getEStructuralFeatures().get(0);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public EReference getDataSource_Fields() {
-                return (EReference)dataSourceEClass.getEStructuralFeatures().get(1);
-        }
+		return (EReference)dataSourceEClass.getEStructuralFeatures().get(1);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public EClass getDataField() {
-                return dataFieldEClass;
-        }
+		return dataFieldEClass;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public EReference getDataField_Source() {
-                return (EReference)dataFieldEClass.getEStructuralFeatures().get(0);
-        }
+		return (EReference)dataFieldEClass.getEStructuralFeatures().get(0);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public EAttribute getDataField_Label() {
-                return (EAttribute)dataFieldEClass.getEStructuralFeatures().get(1);
-        }
+		return (EAttribute)dataFieldEClass.getEStructuralFeatures().get(1);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public EClass getOutput() {
-                return outputEClass;
-        }
+		return outputEClass;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public EClass getInput() {
-                return inputEClass;
-        }
+		return inputEClass;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public EReference getInput_Output() {
-                return (EReference)inputEClass.getEStructuralFeatures().get(0);
-        }
+		return (EReference)inputEClass.getEStructuralFeatures().get(0);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public EClass getRecordMatcherStrategy() {
-                return recordMatcherStrategyEClass;
-        }
+		return recordMatcherStrategyEClass;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public EClass getOriginalNameRecordMatcher() {
-                return originalNameRecordMatcherEClass;
-        }
+		return originalNameRecordMatcherEClass;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public EAttribute getOriginalNameRecordMatcher_CaseSensitive() {
-                return (EAttribute)originalNameRecordMatcherEClass.getEStructuralFeatures().get(0);
-        }
+		return (EAttribute)originalNameRecordMatcherEClass.getEStructuralFeatures().get(0);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public EAttribute getOriginalNameRecordMatcher_IncludeFileExtension() {
-                return (EAttribute)originalNameRecordMatcherEClass.getEStructuralFeatures().get(1);
-        }
+		return (EAttribute)originalNameRecordMatcherEClass.getEStructuralFeatures().get(1);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public EAttribute getOriginalNameRecordMatcher_BaseFolder() {
-                return (EAttribute)originalNameRecordMatcherEClass.getEStructuralFeatures().get(2);
-        }
+		return (EAttribute)originalNameRecordMatcherEClass.getEStructuralFeatures().get(2);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public EClass getDateRecognizer() {
-                return dateRecognizerEClass;
-        }
+		return dateRecognizerEClass;
+	}
 
         /**
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        public EAttribute getDateRecognizer_Format() {
-                return (EAttribute)dateRecognizerEClass.getEStructuralFeatures().get(0);
-        }
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDateRecognizer_Formats() {
+		return (EAttribute)dateRecognizerEClass.getEStructuralFeatures().get(0);
+	}
 
-        /**
-         * <!-- begin-user-doc -->
+								/**
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public EClass getText() {
-                return textEClass;
-        }
+		return textEClass;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public EAttribute getText_Value() {
-                return (EAttribute)textEClass.getEStructuralFeatures().get(0);
-        }
+		return (EAttribute)textEClass.getEStructuralFeatures().get(0);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public EClass getDelimitedFile() {
-                return delimitedFileEClass;
-        }
+		return delimitedFileEClass;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public EAttribute getDelimitedFile_SourceFile() {
-                return (EAttribute)delimitedFileEClass.getEStructuralFeatures().get(0);
-        }
+		return (EAttribute)delimitedFileEClass.getEStructuralFeatures().get(0);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public EAttribute getDelimitedFile_DataRow() {
-                return (EAttribute)delimitedFileEClass.getEStructuralFeatures().get(1);
-        }
+		return (EAttribute)delimitedFileEClass.getEStructuralFeatures().get(1);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public EAttribute getDelimitedFile_HeaderRow() {
-                return (EAttribute)delimitedFileEClass.getEStructuralFeatures().get(2);
-        }
+		return (EAttribute)delimitedFileEClass.getEStructuralFeatures().get(2);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public EAttribute getDelimitedFile_TextEncoding() {
-                return (EAttribute)delimitedFileEClass.getEStructuralFeatures().get(3);
-        }
+		return (EAttribute)delimitedFileEClass.getEStructuralFeatures().get(3);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public EAttribute getDelimitedFile_FieldDelimiter() {
-                return (EAttribute)delimitedFileEClass.getEStructuralFeatures().get(4);
-        }
+		return (EAttribute)delimitedFileEClass.getEStructuralFeatures().get(4);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public EAttribute getDelimitedFile_TextDelimiter() {
-                return (EAttribute)delimitedFileEClass.getEStructuralFeatures().get(5);
-        }
+		return (EAttribute)delimitedFileEClass.getEStructuralFeatures().get(5);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public EClass getMappedElement() {
-                return mappedElementEClass;
-        }
+		return mappedElementEClass;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public EReference getMappedElement_ChildElements() {
-                return (EReference)mappedElementEClass.getEStructuralFeatures().get(0);
-        }
+		return (EReference)mappedElementEClass.getEStructuralFeatures().get(0);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public EReference getMappedElement_Attributes() {
-                return (EReference)mappedElementEClass.getEStructuralFeatures().get(1);
-        }
+		return (EReference)mappedElementEClass.getEStructuralFeatures().get(1);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public EReference getMappedElement_MappedFeature() {
-                return (EReference)mappedElementEClass.getEStructuralFeatures().get(2);
-        }
+		return (EReference)mappedElementEClass.getEStructuralFeatures().get(2);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public EReference getMappedElement_Parent() {
-                return (EReference)mappedElementEClass.getEStructuralFeatures().get(3);
-        }
+		return (EReference)mappedElementEClass.getEStructuralFeatures().get(3);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public EClass getMappedAttribute() {
-                return mappedAttributeEClass;
-        }
+		return mappedAttributeEClass;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public EReference getMappedAttribute_MappedFeature() {
-                return (EReference)mappedAttributeEClass.getEStructuralFeatures().get(0);
-        }
+		return (EReference)mappedAttributeEClass.getEStructuralFeatures().get(0);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public EReference getMappedAttribute_ConversionStrategy() {
-                return (EReference)mappedAttributeEClass.getEStructuralFeatures().get(1);
-        }
+		return (EReference)mappedAttributeEClass.getEStructuralFeatures().get(1);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public EAttribute getMappedAttribute_DefaultValue() {
-                return (EAttribute)mappedAttributeEClass.getEStructuralFeatures().get(2);
-        }
+		return (EAttribute)mappedAttributeEClass.getEStructuralFeatures().get(2);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public EClass getConversionStrategy() {
-                return conversionStrategyEClass;
-        }
+		return conversionStrategyEClass;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public EClass getDateToISO8601StringConversion() {
-                return dateToISO8601StringConversionEClass;
-        }
+		return dateToISO8601StringConversionEClass;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public EDataType getDataException() {
-                return dataExceptionEDataType;
-        }
+		return dataExceptionEDataType;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public EDataType getIProject() {
-                return iProjectEDataType;
-        }
+		return iProjectEDataType;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public EDataType getIFile() {
-                return iFileEDataType;
-        }
+		return iFileEDataType;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public EDataType getRecordMatches() {
-                return recordMatchesEDataType;
-        }
+		return recordMatchesEDataType;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public EDataType getIFolder() {
-                return iFolderEDataType;
-        }
+		return iFolderEDataType;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public EDataType getRecordOutOfRangeException() {
-                return recordOutOfRangeExceptionEDataType;
-        }
+		return recordOutOfRangeExceptionEDataType;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public CrosswalkFactory getCrosswalkFactory() {
-                return (CrosswalkFactory)getEFactoryInstance();
-        }
+		return (CrosswalkFactory)getEFactoryInstance();
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         private boolean isCreated = false;
 
         /**
-         * Creates the meta-model objects for the package.  This method is
-         * guarded to have no affect on any invocation but its first.
-         * <!-- begin-user-doc -->
+	 * Creates the meta-model objects for the package.  This method is
+	 * guarded to have no affect on any invocation but its first.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public void createPackageContents() {
-                if (isCreated) return;
-                isCreated = true;
+		if (isCreated) return;
+		isCreated = true;
 
-                // Create classes and their features
-                tabbedDataFieldEClass = createEClass(TABBED_DATA_FIELD);
-                createEAttribute(tabbedDataFieldEClass, TABBED_DATA_FIELD__COLUMN_NUMBER);
+		// Create classes and their features
+		tabbedDataFieldEClass = createEClass(TABBED_DATA_FIELD);
+		createEAttribute(tabbedDataFieldEClass, TABBED_DATA_FIELD__COLUMN_NUMBER);
 
-                trimWhitespaceEClass = createEClass(TRIM_WHITESPACE);
+		trimWhitespaceEClass = createEClass(TRIM_WHITESPACE);
 
-                crossWalkEClass = createEClass(CROSS_WALK);
-                createEReference(crossWalkEClass, CROSS_WALK__DATA_SOURCE);
-                createEReference(crossWalkEClass, CROSS_WALK__WIDGETS);
-                createEReference(crossWalkEClass, CROSS_WALK__ELEMENTS);
-                createEReference(crossWalkEClass, CROSS_WALK__OUTPUT_TYPE);
+		crossWalkEClass = createEClass(CROSS_WALK);
+		createEReference(crossWalkEClass, CROSS_WALK__DATA_SOURCE);
+		createEReference(crossWalkEClass, CROSS_WALK__WIDGETS);
+		createEReference(crossWalkEClass, CROSS_WALK__ELEMENTS);
+		createEReference(crossWalkEClass, CROSS_WALK__OUTPUT_TYPE);
 
-                outputElementEClass = createEClass(OUTPUT_ELEMENT);
-                createEReference(outputElementEClass, OUTPUT_ELEMENT__WALK);
+		outputElementEClass = createEClass(OUTPUT_ELEMENT);
+		createEReference(outputElementEClass, OUTPUT_ELEMENT__WALK);
 
-                walkWidgetEClass = createEClass(WALK_WIDGET);
-                createEReference(walkWidgetEClass, WALK_WIDGET__WALK);
+		walkWidgetEClass = createEClass(WALK_WIDGET);
+		createEReference(walkWidgetEClass, WALK_WIDGET__WALK);
 
-                dataSourceEClass = createEClass(DATA_SOURCE);
-                createEReference(dataSourceEClass, DATA_SOURCE__WALK);
-                createEReference(dataSourceEClass, DATA_SOURCE__FIELDS);
+		dataSourceEClass = createEClass(DATA_SOURCE);
+		createEReference(dataSourceEClass, DATA_SOURCE__WALK);
+		createEReference(dataSourceEClass, DATA_SOURCE__FIELDS);
 
-                dataFieldEClass = createEClass(DATA_FIELD);
-                createEReference(dataFieldEClass, DATA_FIELD__SOURCE);
-                createEAttribute(dataFieldEClass, DATA_FIELD__LABEL);
+		dataFieldEClass = createEClass(DATA_FIELD);
+		createEReference(dataFieldEClass, DATA_FIELD__SOURCE);
+		createEAttribute(dataFieldEClass, DATA_FIELD__LABEL);
 
-                outputEClass = createEClass(OUTPUT);
+		outputEClass = createEClass(OUTPUT);
 
-                inputEClass = createEClass(INPUT);
-                createEReference(inputEClass, INPUT__OUTPUT);
+		inputEClass = createEClass(INPUT);
+		createEReference(inputEClass, INPUT__OUTPUT);
 
-                recordMatcherStrategyEClass = createEClass(RECORD_MATCHER_STRATEGY);
+		recordMatcherStrategyEClass = createEClass(RECORD_MATCHER_STRATEGY);
 
-                originalNameRecordMatcherEClass = createEClass(ORIGINAL_NAME_RECORD_MATCHER);
-                createEAttribute(originalNameRecordMatcherEClass, ORIGINAL_NAME_RECORD_MATCHER__CASE_SENSITIVE);
-                createEAttribute(originalNameRecordMatcherEClass, ORIGINAL_NAME_RECORD_MATCHER__INCLUDE_FILE_EXTENSION);
-                createEAttribute(originalNameRecordMatcherEClass, ORIGINAL_NAME_RECORD_MATCHER__BASE_FOLDER);
+		originalNameRecordMatcherEClass = createEClass(ORIGINAL_NAME_RECORD_MATCHER);
+		createEAttribute(originalNameRecordMatcherEClass, ORIGINAL_NAME_RECORD_MATCHER__CASE_SENSITIVE);
+		createEAttribute(originalNameRecordMatcherEClass, ORIGINAL_NAME_RECORD_MATCHER__INCLUDE_FILE_EXTENSION);
+		createEAttribute(originalNameRecordMatcherEClass, ORIGINAL_NAME_RECORD_MATCHER__BASE_FOLDER);
 
-                dateRecognizerEClass = createEClass(DATE_RECOGNIZER);
-                createEAttribute(dateRecognizerEClass, DATE_RECOGNIZER__FORMAT);
+		dateRecognizerEClass = createEClass(DATE_RECOGNIZER);
+		createEAttribute(dateRecognizerEClass, DATE_RECOGNIZER__FORMATS);
 
-                textEClass = createEClass(TEXT);
-                createEAttribute(textEClass, TEXT__VALUE);
+		textEClass = createEClass(TEXT);
+		createEAttribute(textEClass, TEXT__VALUE);
 
-                delimitedFileEClass = createEClass(DELIMITED_FILE);
-                createEAttribute(delimitedFileEClass, DELIMITED_FILE__SOURCE_FILE);
-                createEAttribute(delimitedFileEClass, DELIMITED_FILE__DATA_ROW);
-                createEAttribute(delimitedFileEClass, DELIMITED_FILE__HEADER_ROW);
-                createEAttribute(delimitedFileEClass, DELIMITED_FILE__TEXT_ENCODING);
-                createEAttribute(delimitedFileEClass, DELIMITED_FILE__FIELD_DELIMITER);
-                createEAttribute(delimitedFileEClass, DELIMITED_FILE__TEXT_DELIMITER);
+		delimitedFileEClass = createEClass(DELIMITED_FILE);
+		createEAttribute(delimitedFileEClass, DELIMITED_FILE__SOURCE_FILE);
+		createEAttribute(delimitedFileEClass, DELIMITED_FILE__DATA_ROW);
+		createEAttribute(delimitedFileEClass, DELIMITED_FILE__HEADER_ROW);
+		createEAttribute(delimitedFileEClass, DELIMITED_FILE__TEXT_ENCODING);
+		createEAttribute(delimitedFileEClass, DELIMITED_FILE__FIELD_DELIMITER);
+		createEAttribute(delimitedFileEClass, DELIMITED_FILE__TEXT_DELIMITER);
 
-                mappedElementEClass = createEClass(MAPPED_ELEMENT);
-                createEReference(mappedElementEClass, MAPPED_ELEMENT__CHILD_ELEMENTS);
-                createEReference(mappedElementEClass, MAPPED_ELEMENT__ATTRIBUTES);
-                createEReference(mappedElementEClass, MAPPED_ELEMENT__MAPPED_FEATURE);
-                createEReference(mappedElementEClass, MAPPED_ELEMENT__PARENT);
+		mappedElementEClass = createEClass(MAPPED_ELEMENT);
+		createEReference(mappedElementEClass, MAPPED_ELEMENT__CHILD_ELEMENTS);
+		createEReference(mappedElementEClass, MAPPED_ELEMENT__ATTRIBUTES);
+		createEReference(mappedElementEClass, MAPPED_ELEMENT__MAPPED_FEATURE);
+		createEReference(mappedElementEClass, MAPPED_ELEMENT__PARENT);
 
-                mappedAttributeEClass = createEClass(MAPPED_ATTRIBUTE);
-                createEReference(mappedAttributeEClass, MAPPED_ATTRIBUTE__MAPPED_FEATURE);
-                createEReference(mappedAttributeEClass, MAPPED_ATTRIBUTE__CONVERSION_STRATEGY);
-                createEAttribute(mappedAttributeEClass, MAPPED_ATTRIBUTE__DEFAULT_VALUE);
+		mappedAttributeEClass = createEClass(MAPPED_ATTRIBUTE);
+		createEReference(mappedAttributeEClass, MAPPED_ATTRIBUTE__MAPPED_FEATURE);
+		createEReference(mappedAttributeEClass, MAPPED_ATTRIBUTE__CONVERSION_STRATEGY);
+		createEAttribute(mappedAttributeEClass, MAPPED_ATTRIBUTE__DEFAULT_VALUE);
 
-                conversionStrategyEClass = createEClass(CONVERSION_STRATEGY);
+		conversionStrategyEClass = createEClass(CONVERSION_STRATEGY);
 
-                dateToISO8601StringConversionEClass = createEClass(DATE_TO_ISO8601_STRING_CONVERSION);
+		dateToISO8601StringConversionEClass = createEClass(DATE_TO_ISO8601_STRING_CONVERSION);
 
-                // Create data types
-                dataExceptionEDataType = createEDataType(DATA_EXCEPTION);
-                iProjectEDataType = createEDataType(IPROJECT);
-                iFileEDataType = createEDataType(IFILE);
-                recordMatchesEDataType = createEDataType(RECORD_MATCHES);
-                iFolderEDataType = createEDataType(IFOLDER);
-                recordOutOfRangeExceptionEDataType = createEDataType(RECORD_OUT_OF_RANGE_EXCEPTION);
-        }
+		// Create data types
+		dataExceptionEDataType = createEDataType(DATA_EXCEPTION);
+		iProjectEDataType = createEDataType(IPROJECT);
+		iFileEDataType = createEDataType(IFILE);
+		recordMatchesEDataType = createEDataType(RECORD_MATCHES);
+		iFolderEDataType = createEDataType(IFOLDER);
+		recordOutOfRangeExceptionEDataType = createEDataType(RECORD_OUT_OF_RANGE_EXCEPTION);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         private boolean isInitialized = false;
 
         /**
-         * Complete the initialization of the package and its meta-model.  This
-         * method is guarded to have no affect on any invocation but its first.
-         * <!-- begin-user-doc -->
+	 * Complete the initialization of the package and its meta-model.  This
+	 * method is guarded to have no affect on any invocation but its first.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public void initializePackageContents() {
-                if (isInitialized) return;
-                isInitialized = true;
+		if (isInitialized) return;
+		isInitialized = true;
 
-                // Initialize package
-                setName(eNAME);
-                setNsPrefix(eNS_PREFIX);
-                setNsURI(eNS_URI);
+		// Initialize package
+		setName(eNAME);
+		setNsPrefix(eNS_PREFIX);
+		setNsURI(eNS_URI);
 
-                // Create type parameters
+		// Create type parameters
 
-                // Set bounds for type parameters
+		// Set bounds for type parameters
 
-                // Add supertypes to classes
-                tabbedDataFieldEClass.getESuperTypes().add(this.getDataField());
-                trimWhitespaceEClass.getESuperTypes().add(this.getWalkWidget());
-                trimWhitespaceEClass.getESuperTypes().add(this.getOutput());
-                trimWhitespaceEClass.getESuperTypes().add(this.getInput());
-                dataFieldEClass.getESuperTypes().add(this.getOutput());
-                recordMatcherStrategyEClass.getESuperTypes().add(this.getWalkWidget());
-                originalNameRecordMatcherEClass.getESuperTypes().add(this.getRecordMatcherStrategy());
-                originalNameRecordMatcherEClass.getESuperTypes().add(this.getInput());
-                dateRecognizerEClass.getESuperTypes().add(this.getWalkWidget());
-                dateRecognizerEClass.getESuperTypes().add(this.getOutput());
-                dateRecognizerEClass.getESuperTypes().add(this.getInput());
-                textEClass.getESuperTypes().add(this.getOutput());
-                textEClass.getESuperTypes().add(this.getWalkWidget());
-                delimitedFileEClass.getESuperTypes().add(this.getDataSource());
-                mappedElementEClass.getESuperTypes().add(this.getOutputElement());
-                mappedAttributeEClass.getESuperTypes().add(this.getOutputElement());
-                mappedAttributeEClass.getESuperTypes().add(this.getInput());
-                dateToISO8601StringConversionEClass.getESuperTypes().add(this.getConversionStrategy());
+		// Add supertypes to classes
+		tabbedDataFieldEClass.getESuperTypes().add(this.getDataField());
+		trimWhitespaceEClass.getESuperTypes().add(this.getWalkWidget());
+		trimWhitespaceEClass.getESuperTypes().add(this.getOutput());
+		trimWhitespaceEClass.getESuperTypes().add(this.getInput());
+		dataFieldEClass.getESuperTypes().add(this.getOutput());
+		recordMatcherStrategyEClass.getESuperTypes().add(this.getWalkWidget());
+		originalNameRecordMatcherEClass.getESuperTypes().add(this.getRecordMatcherStrategy());
+		originalNameRecordMatcherEClass.getESuperTypes().add(this.getInput());
+		dateRecognizerEClass.getESuperTypes().add(this.getWalkWidget());
+		dateRecognizerEClass.getESuperTypes().add(this.getOutput());
+		dateRecognizerEClass.getESuperTypes().add(this.getInput());
+		textEClass.getESuperTypes().add(this.getOutput());
+		textEClass.getESuperTypes().add(this.getWalkWidget());
+		delimitedFileEClass.getESuperTypes().add(this.getDataSource());
+		mappedElementEClass.getESuperTypes().add(this.getOutputElement());
+		mappedAttributeEClass.getESuperTypes().add(this.getOutputElement());
+		mappedAttributeEClass.getESuperTypes().add(this.getInput());
+		dateToISO8601StringConversionEClass.getESuperTypes().add(this.getConversionStrategy());
 
-                // Initialize classes and features; add operations and parameters
-                initEClass(tabbedDataFieldEClass, TabbedDataField.class, "TabbedDataField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-                initEAttribute(getTabbedDataField_ColumnNumber(), ecorePackage.getEInt(), "ColumnNumber", "1", 1, 1, TabbedDataField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		// Initialize classes and features; add operations and parameters
+		initEClass(tabbedDataFieldEClass, TabbedDataField.class, "TabbedDataField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTabbedDataField_ColumnNumber(), ecorePackage.getEInt(), "ColumnNumber", "1", 1, 1, TabbedDataField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-                initEClass(trimWhitespaceEClass, TrimWhitespace.class, "TrimWhitespace", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(trimWhitespaceEClass, TrimWhitespace.class, "TrimWhitespace", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-                initEClass(crossWalkEClass, CrossWalk.class, "CrossWalk", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-                initEReference(getCrossWalk_DataSource(), this.getDataSource(), this.getDataSource_Walk(), "DataSource", null, 1, 1, CrossWalk.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-                initEReference(getCrossWalk_Widgets(), this.getWalkWidget(), this.getWalkWidget_Walk(), "Widgets", null, 0, -1, CrossWalk.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-                initEReference(getCrossWalk_Elements(), this.getOutputElement(), this.getOutputElement_Walk(), "Elements", null, 1, -1, CrossWalk.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-                initEReference(getCrossWalk_OutputType(), ecorePackage.getEClass(), null, "outputType", null, 1, 1, CrossWalk.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(crossWalkEClass, CrossWalk.class, "CrossWalk", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getCrossWalk_DataSource(), this.getDataSource(), this.getDataSource_Walk(), "DataSource", null, 1, 1, CrossWalk.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCrossWalk_Widgets(), this.getWalkWidget(), this.getWalkWidget_Walk(), "Widgets", null, 0, -1, CrossWalk.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getCrossWalk_Elements(), this.getOutputElement(), this.getOutputElement_Walk(), "Elements", null, 1, -1, CrossWalk.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCrossWalk_OutputType(), ecorePackage.getEClass(), null, "outputType", null, 1, 1, CrossWalk.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-                EOperation op = addEOperation(crossWalkEClass, this.getIProject(), "getProject", 1, 1, IS_UNIQUE, IS_ORDERED);
-                addEException(op, this.getDataException());
+		EOperation op = addEOperation(crossWalkEClass, this.getIProject(), "getProject", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getDataException());
 
-                initEClass(outputElementEClass, OutputElement.class, "OutputElement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-                initEReference(getOutputElement_Walk(), this.getCrossWalk(), this.getCrossWalk_Elements(), "Walk", null, 0, 1, OutputElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(outputElementEClass, OutputElement.class, "OutputElement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getOutputElement_Walk(), this.getCrossWalk(), this.getCrossWalk_Elements(), "Walk", null, 0, 1, OutputElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-                op = addEOperation(outputElementEClass, null, "updateRecord", 1, 1, IS_UNIQUE, IS_ORDERED);
-                addEParameter(op, ecorePackage.getEObject(), "record", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(outputElementEClass, null, "updateRecord", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEObject(), "record", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-                initEClass(walkWidgetEClass, WalkWidget.class, "WalkWidget", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-                initEReference(getWalkWidget_Walk(), this.getCrossWalk(), this.getCrossWalk_Widgets(), "Walk", null, 1, 1, WalkWidget.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(walkWidgetEClass, WalkWidget.class, "WalkWidget", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getWalkWidget_Walk(), this.getCrossWalk(), this.getCrossWalk_Widgets(), "Walk", null, 1, 1, WalkWidget.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-                initEClass(dataSourceEClass, DataSource.class, "DataSource", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-                initEReference(getDataSource_Walk(), this.getCrossWalk(), this.getCrossWalk_DataSource(), "Walk", null, 1, 1, DataSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-                initEReference(getDataSource_Fields(), this.getDataField(), this.getDataField_Source(), "fields", null, 0, -1, DataSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(dataSourceEClass, DataSource.class, "DataSource", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDataSource_Walk(), this.getCrossWalk(), this.getCrossWalk_DataSource(), "Walk", null, 1, 1, DataSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDataSource_Fields(), this.getDataField(), this.getDataField_Source(), "fields", null, 0, -1, DataSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-                op = addEOperation(dataSourceEClass, null, "GoToExample", 0, 1, IS_UNIQUE, IS_ORDERED);
-                addEException(op, this.getDataException());
-                addEException(op, this.getRecordOutOfRangeException());
+		op = addEOperation(dataSourceEClass, null, "GoToExample", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getDataException());
+		addEException(op, this.getRecordOutOfRangeException());
 
-                op = addEOperation(dataSourceEClass, null, "NextRecord", 1, 1, IS_UNIQUE, IS_ORDERED);
-                addEException(op, this.getDataException());
-                addEException(op, this.getRecordOutOfRangeException());
+		op = addEOperation(dataSourceEClass, null, "NextRecord", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getDataException());
+		addEException(op, this.getRecordOutOfRangeException());
 
-                op = addEOperation(dataSourceEClass, null, "Reset", 1, 1, IS_UNIQUE, IS_ORDERED);
-                addEException(op, this.getDataException());
+		op = addEOperation(dataSourceEClass, null, "Reset", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getDataException());
 
-                addEOperation(dataSourceEClass, ecorePackage.getEString(), "getRecordID", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEOperation(dataSourceEClass, ecorePackage.getEString(), "getRecordID", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-                addEOperation(dataSourceEClass, ecorePackage.getEString(), "getName", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEOperation(dataSourceEClass, ecorePackage.getEString(), "getName", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-                op = addEOperation(dataSourceEClass, ecorePackage.getEString(), "getFieldValue", 0, 1, IS_UNIQUE, IS_ORDERED);
-                addEParameter(op, this.getDataField(), "field", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(dataSourceEClass, ecorePackage.getEString(), "getFieldValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getDataField(), "field", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-                op = addEOperation(dataSourceEClass, null, "initializeDataFields", 1, 1, IS_UNIQUE, IS_ORDERED);
-                addEException(op, this.getDataException());
+		op = addEOperation(dataSourceEClass, null, "initializeDataFields", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getDataException());
 
-                initEClass(dataFieldEClass, DataField.class, "DataField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-                initEReference(getDataField_Source(), this.getDataSource(), this.getDataSource_Fields(), "source", null, 0, 1, DataField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-                initEAttribute(getDataField_Label(), ecorePackage.getEString(), "label", null, 0, 1, DataField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(dataFieldEClass, DataField.class, "DataField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDataField_Source(), this.getDataSource(), this.getDataSource_Fields(), "source", null, 0, 1, DataField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDataField_Label(), ecorePackage.getEString(), "label", null, 0, 1, DataField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-                initEClass(outputEClass, Output.class, "Output", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(outputEClass, Output.class, "Output", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-                op = addEOperation(outputEClass, ecorePackage.getEJavaObject(), "getResult", 1, 1, IS_UNIQUE, IS_ORDERED);
-                addEException(op, this.getDataException());
+		op = addEOperation(outputEClass, ecorePackage.getEJavaObject(), "getResult", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getDataException());
 
-                addEOperation(outputEClass, ecorePackage.getEDataType(), "getOutputEDataType", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEOperation(outputEClass, ecorePackage.getEDataType(), "getOutputEDataType", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-                initEClass(inputEClass, Input.class, "Input", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-                initEReference(getInput_Output(), this.getOutput(), null, "Output", null, 0, 1, Input.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(inputEClass, Input.class, "Input", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getInput_Output(), this.getOutput(), null, "Output", null, 0, 1, Input.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-                addEOperation(inputEClass, ecorePackage.getEDataType(), "getInputEDataType", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEOperation(inputEClass, ecorePackage.getEDataType(), "getInputEDataType", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-                initEClass(recordMatcherStrategyEClass, RecordMatcherStrategy.class, "RecordMatcherStrategy", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(recordMatcherStrategyEClass, RecordMatcherStrategy.class, "RecordMatcherStrategy", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-                addEOperation(recordMatcherStrategyEClass, this.getRecordMatches(), "getMatches", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEOperation(recordMatcherStrategyEClass, this.getRecordMatches(), "getMatches", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-                op = addEOperation(recordMatcherStrategyEClass, null, "run", 1, 1, IS_UNIQUE, IS_ORDERED);
-                addEException(op, this.getDataException());
+		op = addEOperation(recordMatcherStrategyEClass, null, "run", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getDataException());
 
-                initEClass(originalNameRecordMatcherEClass, OriginalNameRecordMatcher.class, "OriginalNameRecordMatcher", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-                initEAttribute(getOriginalNameRecordMatcher_CaseSensitive(), ecorePackage.getEBoolean(), "caseSensitive", "false", 1, 1, OriginalNameRecordMatcher.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-                initEAttribute(getOriginalNameRecordMatcher_IncludeFileExtension(), ecorePackage.getEBoolean(), "includeFileExtension", "false", 1, 1, OriginalNameRecordMatcher.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-                initEAttribute(getOriginalNameRecordMatcher_BaseFolder(), this.getIFolder(), "baseFolder", null, 0, 1, OriginalNameRecordMatcher.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(originalNameRecordMatcherEClass, OriginalNameRecordMatcher.class, "OriginalNameRecordMatcher", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getOriginalNameRecordMatcher_CaseSensitive(), ecorePackage.getEBoolean(), "caseSensitive", "false", 1, 1, OriginalNameRecordMatcher.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOriginalNameRecordMatcher_IncludeFileExtension(), ecorePackage.getEBoolean(), "includeFileExtension", "false", 1, 1, OriginalNameRecordMatcher.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOriginalNameRecordMatcher_BaseFolder(), this.getIFolder(), "baseFolder", null, 0, 1, OriginalNameRecordMatcher.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-                initEClass(dateRecognizerEClass, DateRecognizer.class, "DateRecognizer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-                initEAttribute(getDateRecognizer_Format(), ecorePackage.getEString(), "Format", "yy-MM-dd", 1, 1, DateRecognizer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(dateRecognizerEClass, DateRecognizer.class, "DateRecognizer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDateRecognizer_Formats(), ecorePackage.getEString(), "Formats", "yy-MM-dd", 1, -1, DateRecognizer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-                initEClass(textEClass, Text.class, "Text", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-                initEAttribute(getText_Value(), ecorePackage.getEString(), "Value", null, 0, 1, Text.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(textEClass, Text.class, "Text", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getText_Value(), ecorePackage.getEString(), "Value", null, 0, 1, Text.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-                initEClass(delimitedFileEClass, DelimitedFile.class, "DelimitedFile", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-                initEAttribute(getDelimitedFile_SourceFile(), this.getIFile(), "SourceFile", null, 1, 1, DelimitedFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-                initEAttribute(getDelimitedFile_DataRow(), ecorePackage.getEInt(), "dataRow", "1", 1, 1, DelimitedFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-                initEAttribute(getDelimitedFile_HeaderRow(), ecorePackage.getEInt(), "headerRow", null, 0, 1, DelimitedFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-                initEAttribute(getDelimitedFile_TextEncoding(), ecorePackage.getEString(), "textEncoding", "utf-8", 1, 1, DelimitedFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-                initEAttribute(getDelimitedFile_FieldDelimiter(), ecorePackage.getEChar(), "fieldDelimiter", ",", 1, 1, DelimitedFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-                initEAttribute(getDelimitedFile_TextDelimiter(), ecorePackage.getEChar(), "textDelimiter", "\"", 0, 1, DelimitedFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(delimitedFileEClass, DelimitedFile.class, "DelimitedFile", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDelimitedFile_SourceFile(), this.getIFile(), "SourceFile", null, 1, 1, DelimitedFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDelimitedFile_DataRow(), ecorePackage.getEInt(), "dataRow", "1", 1, 1, DelimitedFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDelimitedFile_HeaderRow(), ecorePackage.getEInt(), "headerRow", null, 0, 1, DelimitedFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDelimitedFile_TextEncoding(), ecorePackage.getEString(), "textEncoding", "utf-8", 1, 1, DelimitedFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDelimitedFile_FieldDelimiter(), ecorePackage.getEChar(), "fieldDelimiter", ",", 1, 1, DelimitedFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDelimitedFile_TextDelimiter(), ecorePackage.getEChar(), "textDelimiter", "\"", 0, 1, DelimitedFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-                op = addEOperation(delimitedFileEClass, null, "GoToRecord", 0, 1, IS_UNIQUE, IS_ORDERED);
-                addEParameter(op, ecorePackage.getEInt(), "RowNumber", 1, 1, IS_UNIQUE, IS_ORDERED);
-                addEException(op, this.getDataException());
-                addEException(op, this.getRecordOutOfRangeException());
+		op = addEOperation(delimitedFileEClass, null, "GoToRecord", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEInt(), "RowNumber", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getDataException());
+		addEException(op, this.getRecordOutOfRangeException());
 
-                initEClass(mappedElementEClass, MappedElement.class, "MappedElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-                initEReference(getMappedElement_ChildElements(), this.getMappedElement(), this.getMappedElement_Parent(), "childElements", null, 0, -1, MappedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-                initEReference(getMappedElement_Attributes(), this.getMappedAttribute(), null, "attributes", null, 0, -1, MappedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-                initEReference(getMappedElement_MappedFeature(), ecorePackage.getEReference(), null, "mappedFeature", null, 1, 1, MappedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-                initEReference(getMappedElement_Parent(), this.getMappedElement(), this.getMappedElement_ChildElements(), "parent", null, 0, 1, MappedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(mappedElementEClass, MappedElement.class, "MappedElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getMappedElement_ChildElements(), this.getMappedElement(), this.getMappedElement_Parent(), "childElements", null, 0, -1, MappedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMappedElement_Attributes(), this.getMappedAttribute(), null, "attributes", null, 0, -1, MappedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMappedElement_MappedFeature(), ecorePackage.getEReference(), null, "mappedFeature", null, 1, 1, MappedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMappedElement_Parent(), this.getMappedElement(), this.getMappedElement_ChildElements(), "parent", null, 0, 1, MappedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-                initEClass(mappedAttributeEClass, MappedAttribute.class, "MappedAttribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-                initEReference(getMappedAttribute_MappedFeature(), ecorePackage.getEAttribute(), null, "mappedFeature", null, 1, 1, MappedAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-                initEReference(getMappedAttribute_ConversionStrategy(), this.getConversionStrategy(), null, "conversionStrategy", null, 0, 1, MappedAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-                initEAttribute(getMappedAttribute_DefaultValue(), ecorePackage.getEString(), "defaultValue", null, 0, 1, MappedAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(mappedAttributeEClass, MappedAttribute.class, "MappedAttribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getMappedAttribute_MappedFeature(), ecorePackage.getEAttribute(), null, "mappedFeature", null, 1, 1, MappedAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMappedAttribute_ConversionStrategy(), this.getConversionStrategy(), null, "conversionStrategy", null, 0, 1, MappedAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMappedAttribute_DefaultValue(), ecorePackage.getEString(), "defaultValue", null, 0, 1, MappedAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-                initEClass(conversionStrategyEClass, ConversionStrategy.class, "ConversionStrategy", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(conversionStrategyEClass, ConversionStrategy.class, "ConversionStrategy", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-                op = addEOperation(conversionStrategyEClass, ecorePackage.getEJavaObject(), "convert", 1, 1, IS_UNIQUE, IS_ORDERED);
-                addEParameter(op, ecorePackage.getEJavaObject(), "input", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(conversionStrategyEClass, ecorePackage.getEJavaObject(), "convert", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEJavaObject(), "input", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-                addEOperation(conversionStrategyEClass, ecorePackage.getEDataType(), "getInputDataType", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEOperation(conversionStrategyEClass, ecorePackage.getEDataType(), "getInputDataType", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-                addEOperation(conversionStrategyEClass, ecorePackage.getEDataType(), "getOutputDataType", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEOperation(conversionStrategyEClass, ecorePackage.getEDataType(), "getOutputDataType", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-                initEClass(dateToISO8601StringConversionEClass, DateToISO8601StringConversion.class, "DateToISO8601StringConversion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(dateToISO8601StringConversionEClass, DateToISO8601StringConversion.class, "DateToISO8601StringConversion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-                // Initialize data types
-                initEDataType(dataExceptionEDataType, DataException.class, "DataException", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-                initEDataType(iProjectEDataType, IProject.class, "IProject", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-                initEDataType(iFileEDataType, IFile.class, "IFile", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-                initEDataType(recordMatchesEDataType, RecordMatches.class, "RecordMatches", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-                initEDataType(iFolderEDataType, IFolder.class, "IFolder", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-                initEDataType(recordOutOfRangeExceptionEDataType, RecordOutOfRangeException.class, "RecordOutOfRangeException", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		// Initialize data types
+		initEDataType(dataExceptionEDataType, DataException.class, "DataException", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(iProjectEDataType, IProject.class, "IProject", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(iFileEDataType, IFile.class, "IFile", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(recordMatchesEDataType, RecordMatches.class, "RecordMatches", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(iFolderEDataType, IFolder.class, "IFolder", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(recordOutOfRangeExceptionEDataType, RecordOutOfRangeException.class, "RecordOutOfRangeException", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
-                // Create resource
-                createResource(eNS_URI);
-        }
+		// Create resource
+		createResource(eNS_URI);
+	}
 
 } //CrosswalkPackageImpl

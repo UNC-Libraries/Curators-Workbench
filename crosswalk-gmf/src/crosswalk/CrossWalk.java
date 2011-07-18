@@ -42,105 +42,105 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface CrossWalk extends EObject {
         /**
-         * Returns the value of the '<em><b>Data Source</b></em>' containment reference.
-         * It is bidirectional and its opposite is '{@link crosswalk.DataSource#getWalk <em>Walk</em>}'.
-         * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Data Source</b></em>' containment reference.
+	 * It is bidirectional and its opposite is '{@link crosswalk.DataSource#getWalk <em>Walk</em>}'.
+	 * <!-- begin-user-doc -->
          * <p>
          * If the meaning of the '<em>Data Source</em>' containment reference isn't clear,
          * there really should be more of a description here...
          * </p>
          * <!-- end-user-doc -->
-         * @return the value of the '<em>Data Source</em>' containment reference.
-         * @see #setDataSource(DataSource)
-         * @see crosswalk.CrosswalkPackage#getCrossWalk_DataSource()
-         * @see crosswalk.DataSource#getWalk
-         * @model opposite="Walk" containment="true" required="true"
-         * @generated
-         */
+	 * @return the value of the '<em>Data Source</em>' containment reference.
+	 * @see #setDataSource(DataSource)
+	 * @see crosswalk.CrosswalkPackage#getCrossWalk_DataSource()
+	 * @see crosswalk.DataSource#getWalk
+	 * @model opposite="Walk" containment="true" required="true"
+	 * @generated
+	 */
         DataSource getDataSource();
 
         /**
-         * Sets the value of the '{@link crosswalk.CrossWalk#getDataSource <em>Data Source</em>}' containment reference.
-         * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link crosswalk.CrossWalk#getDataSource <em>Data Source</em>}' containment reference.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @param value the new value of the '<em>Data Source</em>' containment reference.
-         * @see #getDataSource()
-         * @generated
-         */
+	 * @param value the new value of the '<em>Data Source</em>' containment reference.
+	 * @see #getDataSource()
+	 * @generated
+	 */
         void setDataSource(DataSource value);
 
         /**
-         * Returns the value of the '<em><b>Widgets</b></em>' containment reference list.
-         * The list contents are of type {@link crosswalk.WalkWidget}.
-         * It is bidirectional and its opposite is '{@link crosswalk.WalkWidget#getWalk <em>Walk</em>}'.
-         * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Widgets</b></em>' containment reference list.
+	 * The list contents are of type {@link crosswalk.WalkWidget}.
+	 * It is bidirectional and its opposite is '{@link crosswalk.WalkWidget#getWalk <em>Walk</em>}'.
+	 * <!-- begin-user-doc -->
          * <p>
          * If the meaning of the '<em>Widgets</em>' containment reference list isn't clear,
          * there really should be more of a description here...
          * </p>
          * <!-- end-user-doc -->
-         * @return the value of the '<em>Widgets</em>' containment reference list.
-         * @see crosswalk.CrosswalkPackage#getCrossWalk_Widgets()
-         * @see crosswalk.WalkWidget#getWalk
-         * @model opposite="Walk" containment="true" ordered="false"
-         * @generated
-         */
+	 * @return the value of the '<em>Widgets</em>' containment reference list.
+	 * @see crosswalk.CrosswalkPackage#getCrossWalk_Widgets()
+	 * @see crosswalk.WalkWidget#getWalk
+	 * @model opposite="Walk" containment="true" ordered="false"
+	 * @generated
+	 */
         EList<WalkWidget> getWidgets();
 
         /**
-         * Returns the value of the '<em><b>Elements</b></em>' containment reference list.
-         * The list contents are of type {@link crosswalk.OutputElement}.
-         * It is bidirectional and its opposite is '{@link crosswalk.OutputElement#getWalk <em>Walk</em>}'.
-         * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Elements</b></em>' containment reference list.
+	 * The list contents are of type {@link crosswalk.OutputElement}.
+	 * It is bidirectional and its opposite is '{@link crosswalk.OutputElement#getWalk <em>Walk</em>}'.
+	 * <!-- begin-user-doc -->
          * <p>
          * If the meaning of the '<em>Elements</em>' containment reference list isn't clear,
          * there really should be more of a description here...
          * </p>
          * <!-- end-user-doc -->
-         * @return the value of the '<em>Elements</em>' containment reference list.
-         * @see crosswalk.CrosswalkPackage#getCrossWalk_Elements()
-         * @see crosswalk.OutputElement#getWalk
-         * @model opposite="Walk" containment="true" required="true"
-         * @generated
-         */
+	 * @return the value of the '<em>Elements</em>' containment reference list.
+	 * @see crosswalk.CrosswalkPackage#getCrossWalk_Elements()
+	 * @see crosswalk.OutputElement#getWalk
+	 * @model opposite="Walk" containment="true" required="true"
+	 * @generated
+	 */
         EList<OutputElement> getElements();
 
         /**
-         * Returns the value of the '<em><b>Output Type</b></em>' reference.
-         * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Output Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
          * <p>
          * If the meaning of the '<em>Output Type</em>' reference isn't clear,
          * there really should be more of a description here...
          * </p>
          * <!-- end-user-doc -->
-         * @return the value of the '<em>Output Type</em>' reference.
-         * @see #setOutputType(EClass)
-         * @see crosswalk.CrosswalkPackage#getCrossWalk_OutputType()
-         * @model required="true"
-         * @generated
-         */
+	 * @return the value of the '<em>Output Type</em>' reference.
+	 * @see #setOutputType(EClass)
+	 * @see crosswalk.CrosswalkPackage#getCrossWalk_OutputType()
+	 * @model required="true"
+	 * @generated
+	 */
         EClass getOutputType();
 
         /**
-         * Sets the value of the '{@link crosswalk.CrossWalk#getOutputType <em>Output Type</em>}' reference.
-         * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link crosswalk.CrossWalk#getOutputType <em>Output Type</em>}' reference.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @param value the new value of the '<em>Output Type</em>' reference.
-         * @see #getOutputType()
-         * @generated
-         */
+	 * @param value the new value of the '<em>Output Type</em>' reference.
+	 * @see #getOutputType()
+	 * @generated
+	 */
         void setOutputType(EClass value);
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <p>
          * If the meaning of the '<em>Project</em>' attribute isn't clear,
          * there really should be more of a description here...
          * </p>
          * <!-- end-user-doc -->
-         * @model kind="operation" dataType="crosswalk.IProject" required="true" exceptions="crosswalk.DataException"
-         * @generated
-         */
+	 * @model kind="operation" dataType="crosswalk.IProject" required="true" exceptions="crosswalk.DataException"
+	 * @generated
+	 */
         IProject getProject() throws DataException;
 
         String getRecordID(int recordNumber);

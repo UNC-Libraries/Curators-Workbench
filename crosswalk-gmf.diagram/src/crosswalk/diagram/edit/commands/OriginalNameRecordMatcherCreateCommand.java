@@ -36,64 +36,64 @@ import crosswalk.OriginalNameRecordMatcher;
  */
 public class OriginalNameRecordMatcherCreateCommand extends EditElementCommand {
 
-    /**
-     * @generated
-     */
-    public OriginalNameRecordMatcherCreateCommand(CreateElementRequest req) {
-	super(req.getLabel(), null, req);
-    }
-
-    /**
-     * FIXME: replace with setElementToEdit()
-     * @generated
-     */
-    @Override
-    protected EObject getElementToEdit() {
-	EObject container = ((CreateElementRequest) getRequest()).getContainer();
-	if (container instanceof View) {
-	    container = ((View) container).getElement();
+	/**
+	 * @generated
+	 */
+	public OriginalNameRecordMatcherCreateCommand(CreateElementRequest req) {
+		super(req.getLabel(), null, req);
 	}
-	return container;
-    }
 
-    /**
-     * @generated
-     */
-    @Override
-    public boolean canExecute() {
-	return true;
-
-    }
-
-    /**
-     * @generated
-     */
-    @Override
-    protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
-	OriginalNameRecordMatcher newElement = CrosswalkFactory.eINSTANCE.createOriginalNameRecordMatcher();
-
-	CrossWalk owner = (CrossWalk) getElementToEdit();
-	owner.getWidgets().add(newElement);
-
-	doConfigure(newElement, monitor, info);
-
-	((CreateElementRequest) getRequest()).setNewElement(newElement);
-	return CommandResult.newOKCommandResult(newElement);
-    }
-
-    /**
-     * @generated
-     */
-    protected void doConfigure(OriginalNameRecordMatcher newElement, IProgressMonitor monitor, IAdaptable info)
-		    throws ExecutionException {
-	IElementType elementType = ((CreateElementRequest) getRequest()).getElementType();
-	ConfigureRequest configureRequest = new ConfigureRequest(getEditingDomain(), newElement, elementType);
-	configureRequest.setClientContext(((CreateElementRequest) getRequest()).getClientContext());
-	configureRequest.addParameters(getRequest().getParameters());
-	ICommand configureCommand = elementType.getEditCommand(configureRequest);
-	if (configureCommand != null && configureCommand.canExecute()) {
-	    configureCommand.execute(monitor, info);
+	/**
+	 * FIXME: replace with setElementToEdit()
+	 * @generated
+	 */
+	@Override
+	protected EObject getElementToEdit() {
+		EObject container = ((CreateElementRequest) getRequest()).getContainer();
+		if (container instanceof View) {
+			container = ((View) container).getElement();
+		}
+		return container;
 	}
-    }
+
+	/**
+	 * @generated
+	 */
+	@Override
+	public boolean canExecute() {
+		return true;
+
+	}
+
+	/**
+	 * @generated
+	 */
+	@Override
+	protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
+		OriginalNameRecordMatcher newElement = CrosswalkFactory.eINSTANCE.createOriginalNameRecordMatcher();
+
+		CrossWalk owner = (CrossWalk) getElementToEdit();
+		owner.getWidgets().add(newElement);
+
+		doConfigure(newElement, monitor, info);
+
+		((CreateElementRequest) getRequest()).setNewElement(newElement);
+		return CommandResult.newOKCommandResult(newElement);
+	}
+
+	/**
+	 * @generated
+	 */
+	protected void doConfigure(OriginalNameRecordMatcher newElement, IProgressMonitor monitor, IAdaptable info)
+			throws ExecutionException {
+		IElementType elementType = ((CreateElementRequest) getRequest()).getElementType();
+		ConfigureRequest configureRequest = new ConfigureRequest(getEditingDomain(), newElement, elementType);
+		configureRequest.setClientContext(((CreateElementRequest) getRequest()).getClientContext());
+		configureRequest.addParameters(getRequest().getParameters());
+		ICommand configureCommand = elementType.getEditCommand(configureRequest);
+		if (configureCommand != null && configureCommand.canExecute()) {
+			configureCommand.execute(monitor, info);
+		}
+	}
 
 }

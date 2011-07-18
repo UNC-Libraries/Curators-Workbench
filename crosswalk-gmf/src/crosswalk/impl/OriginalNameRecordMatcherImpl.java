@@ -62,80 +62,80 @@ import crosswalk.RecordOutOfRangeException;
  */
 public class OriginalNameRecordMatcherImpl extends WalkWidgetImpl implements OriginalNameRecordMatcher {
     /**
-         * The cached value of the '{@link #getOutput() <em>Output</em>}' reference.
-         * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getOutput() <em>Output</em>}' reference.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getOutput()
-         * @generated
-         * @ordered
-         */
+	 * @see #getOutput()
+	 * @generated
+	 * @ordered
+	 */
         protected Output output;
 
         /**
-         * This is true if the Output reference has been set.
-         * <!-- begin-user-doc -->
+	 * This is true if the Output reference has been set.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         * @ordered
-         */
+	 * @generated
+	 * @ordered
+	 */
         protected boolean outputESet;
 
 /**
-         * The default value of the '{@link #isCaseSensitive() <em>Case Sensitive</em>}' attribute.
-         * <!-- begin-user-doc --> <!--
+	 * The default value of the '{@link #isCaseSensitive() <em>Case Sensitive</em>}' attribute.
+	 * <!-- begin-user-doc --> <!--
      * end-user-doc -->
-         * @see #isCaseSensitive()
-         * @generated
-         * @ordered
-         */
+	 * @see #isCaseSensitive()
+	 * @generated
+	 * @ordered
+	 */
     protected static final boolean CASE_SENSITIVE_EDEFAULT = false;
 
     /**
-         * The cached value of the '{@link #isCaseSensitive() <em>Case Sensitive</em>}' attribute.
-         * <!-- begin-user-doc --> <!--
+	 * The cached value of the '{@link #isCaseSensitive() <em>Case Sensitive</em>}' attribute.
+	 * <!-- begin-user-doc --> <!--
      * end-user-doc -->
-         * @see #isCaseSensitive()
-         * @generated
-         * @ordered
-         */
+	 * @see #isCaseSensitive()
+	 * @generated
+	 * @ordered
+	 */
     protected boolean caseSensitive = CASE_SENSITIVE_EDEFAULT;
 
     /**
-         * The default value of the '{@link #isIncludeFileExtension() <em>Include File Extension</em>}' attribute.
-         * <!-- begin-user-doc --> <!--
+	 * The default value of the '{@link #isIncludeFileExtension() <em>Include File Extension</em>}' attribute.
+	 * <!-- begin-user-doc --> <!--
      * end-user-doc -->
-         * @see #isIncludeFileExtension()
-         * @generated
-         * @ordered
-         */
+	 * @see #isIncludeFileExtension()
+	 * @generated
+	 * @ordered
+	 */
     protected static final boolean INCLUDE_FILE_EXTENSION_EDEFAULT = false;
 
     /**
-         * The cached value of the '{@link #isIncludeFileExtension() <em>Include File Extension</em>}' attribute.
-         * <!-- begin-user-doc --> <!--
+	 * The cached value of the '{@link #isIncludeFileExtension() <em>Include File Extension</em>}' attribute.
+	 * <!-- begin-user-doc --> <!--
      * end-user-doc -->
-         * @see #isIncludeFileExtension()
-         * @generated
-         * @ordered
-         */
+	 * @see #isIncludeFileExtension()
+	 * @generated
+	 * @ordered
+	 */
     protected boolean includeFileExtension = INCLUDE_FILE_EXTENSION_EDEFAULT;
 
     /**
-         * The default value of the '{@link #getBaseFolder() <em>Base Folder</em>}' attribute.
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * @see #getBaseFolder()
-         * @generated
-         * @ordered
-         */
+	 * The default value of the '{@link #getBaseFolder() <em>Base Folder</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @see #getBaseFolder()
+	 * @generated
+	 * @ordered
+	 */
     protected static final IFolder BASE_FOLDER_EDEFAULT = null;
 
     /**
-         * The cached value of the '{@link #getBaseFolder() <em>Base Folder</em>}' attribute.
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * @see #getBaseFolder()
-         * @generated
-         * @ordered
-         */
+	 * The cached value of the '{@link #getBaseFolder() <em>Base Folder</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @see #getBaseFolder()
+	 * @generated
+	 * @ordered
+	 */
     protected IFolder baseFolder = BASE_FOLDER_EDEFAULT;
 
     /**
@@ -148,164 +148,164 @@ public class OriginalNameRecordMatcherImpl extends WalkWidgetImpl implements Ori
     protected boolean baseFolderESet;
 
     /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * @generated
-         */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
     protected OriginalNameRecordMatcherImpl() {
-                super();
-        }
+		super();
+	}
 
     /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * @generated
-         */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
     @Override
     protected EClass eStaticClass() {
-                return CrosswalkPackage.Literals.ORIGINAL_NAME_RECORD_MATCHER;
-        }
+		return CrosswalkPackage.Literals.ORIGINAL_NAME_RECORD_MATCHER;
+	}
 
     /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public Output getOutput() {
-                if (output != null && output.eIsProxy()) {
-                        InternalEObject oldOutput = (InternalEObject)output;
-                        output = (Output)eResolveProxy(oldOutput);
-                        if (output != oldOutput) {
-                                if (eNotificationRequired())
-                                        eNotify(new ENotificationImpl(this, Notification.RESOLVE, CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__OUTPUT, oldOutput, output));
-                        }
-                }
-                return output;
-        }
+		if (output != null && output.eIsProxy()) {
+			InternalEObject oldOutput = (InternalEObject)output;
+			output = (Output)eResolveProxy(oldOutput);
+			if (output != oldOutput) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__OUTPUT, oldOutput, output));
+			}
+		}
+		return output;
+	}
 
 /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public Output basicGetOutput() {
-                return output;
-        }
+		return output;
+	}
 
 /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public void setOutput(Output newOutput) {
-                Output oldOutput = output;
-                output = newOutput;
-                boolean oldOutputESet = outputESet;
-                outputESet = true;
-                if (eNotificationRequired())
-                        eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__OUTPUT, oldOutput, output, !oldOutputESet));
-        }
+		Output oldOutput = output;
+		output = newOutput;
+		boolean oldOutputESet = outputESet;
+		outputESet = true;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__OUTPUT, oldOutput, output, !oldOutputESet));
+	}
 
 /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public void unsetOutput() {
-                Output oldOutput = output;
-                boolean oldOutputESet = outputESet;
-                output = null;
-                outputESet = false;
-                if (eNotificationRequired())
-                        eNotify(new ENotificationImpl(this, Notification.UNSET, CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__OUTPUT, oldOutput, null, oldOutputESet));
-        }
+		Output oldOutput = output;
+		boolean oldOutputESet = outputESet;
+		output = null;
+		outputESet = false;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__OUTPUT, oldOutput, null, oldOutputESet));
+	}
 
 /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public boolean isSetOutput() {
-                return outputESet;
-        }
+		return outputESet;
+	}
 
 /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * @generated
-         */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
     public boolean isCaseSensitive() {
-                return caseSensitive;
-        }
+		return caseSensitive;
+	}
 
     /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * @generated
-         */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
     public void setCaseSensitive(boolean newCaseSensitive) {
-                boolean oldCaseSensitive = caseSensitive;
-                caseSensitive = newCaseSensitive;
-                if (eNotificationRequired())
-                        eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__CASE_SENSITIVE, oldCaseSensitive, caseSensitive));
-        }
+		boolean oldCaseSensitive = caseSensitive;
+		caseSensitive = newCaseSensitive;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__CASE_SENSITIVE, oldCaseSensitive, caseSensitive));
+	}
 
     /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * @generated
-         */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
     public boolean isIncludeFileExtension() {
-                return includeFileExtension;
-        }
+		return includeFileExtension;
+	}
 
     /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * @generated
-         */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
     public void setIncludeFileExtension(boolean newIncludeFileExtension) {
-                boolean oldIncludeFileExtension = includeFileExtension;
-                includeFileExtension = newIncludeFileExtension;
-                if (eNotificationRequired())
-                        eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__INCLUDE_FILE_EXTENSION, oldIncludeFileExtension, includeFileExtension));
-        }
+		boolean oldIncludeFileExtension = includeFileExtension;
+		includeFileExtension = newIncludeFileExtension;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__INCLUDE_FILE_EXTENSION, oldIncludeFileExtension, includeFileExtension));
+	}
 
     /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * @generated
-         */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
     public IFolder getBaseFolder() {
-                return baseFolder;
-        }
+		return baseFolder;
+	}
 
     /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * @generated
-         */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
     public void setBaseFolder(IFolder newBaseFolder) {
-                IFolder oldBaseFolder = baseFolder;
-                baseFolder = newBaseFolder;
-                boolean oldBaseFolderESet = baseFolderESet;
-                baseFolderESet = true;
-                if (eNotificationRequired())
-                        eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__BASE_FOLDER, oldBaseFolder, baseFolder, !oldBaseFolderESet));
-        }
+		IFolder oldBaseFolder = baseFolder;
+		baseFolder = newBaseFolder;
+		boolean oldBaseFolderESet = baseFolderESet;
+		baseFolderESet = true;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__BASE_FOLDER, oldBaseFolder, baseFolder, !oldBaseFolderESet));
+	}
 
     /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * @generated
-         */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
     public void unsetBaseFolder() {
-                IFolder oldBaseFolder = baseFolder;
-                boolean oldBaseFolderESet = baseFolderESet;
-                baseFolder = BASE_FOLDER_EDEFAULT;
-                baseFolderESet = false;
-                if (eNotificationRequired())
-                        eNotify(new ENotificationImpl(this, Notification.UNSET, CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__BASE_FOLDER, oldBaseFolder, BASE_FOLDER_EDEFAULT, oldBaseFolderESet));
-        }
+		IFolder oldBaseFolder = baseFolder;
+		boolean oldBaseFolderESet = baseFolderESet;
+		baseFolder = BASE_FOLDER_EDEFAULT;
+		baseFolderESet = false;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__BASE_FOLDER, oldBaseFolder, BASE_FOLDER_EDEFAULT, oldBaseFolderESet));
+	}
 
     /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * @generated
-         */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
     public boolean isSetBaseFolder() {
-                return baseFolderESet;
-        }
+		return baseFolderESet;
+	}
 
     /**
          * <!-- begin-user-doc -->
@@ -478,139 +478,139 @@ public class OriginalNameRecordMatcherImpl extends WalkWidgetImpl implements Ori
     }
 
     /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * @generated
-         */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
-                switch (featureID) {
-                        case CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__OUTPUT:
-                                if (resolve) return getOutput();
-                                return basicGetOutput();
-                        case CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__CASE_SENSITIVE:
-                                return isCaseSensitive();
-                        case CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__INCLUDE_FILE_EXTENSION:
-                                return isIncludeFileExtension();
-                        case CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__BASE_FOLDER:
-                                return getBaseFolder();
-                }
-                return super.eGet(featureID, resolve, coreType);
-        }
+		switch (featureID) {
+			case CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__OUTPUT:
+				if (resolve) return getOutput();
+				return basicGetOutput();
+			case CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__CASE_SENSITIVE:
+				return isCaseSensitive();
+			case CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__INCLUDE_FILE_EXTENSION:
+				return isIncludeFileExtension();
+			case CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__BASE_FOLDER:
+				return getBaseFolder();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
     /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * @generated
-         */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
     @Override
     public void eSet(int featureID, Object newValue) {
-                switch (featureID) {
-                        case CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__OUTPUT:
-                                setOutput((Output)newValue);
-                                return;
-                        case CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__CASE_SENSITIVE:
-                                setCaseSensitive((Boolean)newValue);
-                                return;
-                        case CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__INCLUDE_FILE_EXTENSION:
-                                setIncludeFileExtension((Boolean)newValue);
-                                return;
-                        case CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__BASE_FOLDER:
-                                setBaseFolder((IFolder)newValue);
-                                return;
-                }
-                super.eSet(featureID, newValue);
-        }
+		switch (featureID) {
+			case CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__OUTPUT:
+				setOutput((Output)newValue);
+				return;
+			case CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__CASE_SENSITIVE:
+				setCaseSensitive((Boolean)newValue);
+				return;
+			case CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__INCLUDE_FILE_EXTENSION:
+				setIncludeFileExtension((Boolean)newValue);
+				return;
+			case CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__BASE_FOLDER:
+				setBaseFolder((IFolder)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
     /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * @generated
-         */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
     @Override
     public void eUnset(int featureID) {
-                switch (featureID) {
-                        case CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__OUTPUT:
-                                unsetOutput();
-                                return;
-                        case CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__CASE_SENSITIVE:
-                                setCaseSensitive(CASE_SENSITIVE_EDEFAULT);
-                                return;
-                        case CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__INCLUDE_FILE_EXTENSION:
-                                setIncludeFileExtension(INCLUDE_FILE_EXTENSION_EDEFAULT);
-                                return;
-                        case CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__BASE_FOLDER:
-                                unsetBaseFolder();
-                                return;
-                }
-                super.eUnset(featureID);
-        }
+		switch (featureID) {
+			case CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__OUTPUT:
+				unsetOutput();
+				return;
+			case CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__CASE_SENSITIVE:
+				setCaseSensitive(CASE_SENSITIVE_EDEFAULT);
+				return;
+			case CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__INCLUDE_FILE_EXTENSION:
+				setIncludeFileExtension(INCLUDE_FILE_EXTENSION_EDEFAULT);
+				return;
+			case CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__BASE_FOLDER:
+				unsetBaseFolder();
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
     /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * @generated
-         */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
     @Override
     public boolean eIsSet(int featureID) {
-                switch (featureID) {
-                        case CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__OUTPUT:
-                                return isSetOutput();
-                        case CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__CASE_SENSITIVE:
-                                return caseSensitive != CASE_SENSITIVE_EDEFAULT;
-                        case CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__INCLUDE_FILE_EXTENSION:
-                                return includeFileExtension != INCLUDE_FILE_EXTENSION_EDEFAULT;
-                        case CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__BASE_FOLDER:
-                                return isSetBaseFolder();
-                }
-                return super.eIsSet(featureID);
-        }
+		switch (featureID) {
+			case CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__OUTPUT:
+				return isSetOutput();
+			case CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__CASE_SENSITIVE:
+				return caseSensitive != CASE_SENSITIVE_EDEFAULT;
+			case CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__INCLUDE_FILE_EXTENSION:
+				return includeFileExtension != INCLUDE_FILE_EXTENSION_EDEFAULT;
+			case CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__BASE_FOLDER:
+				return isSetBaseFolder();
+		}
+		return super.eIsSet(featureID);
+	}
 
     /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-                if (baseClass == Input.class) {
-                        switch (derivedFeatureID) {
-                                case CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__OUTPUT: return CrosswalkPackage.INPUT__OUTPUT;
-                                default: return -1;
-                        }
-                }
-                return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
-        }
+		if (baseClass == Input.class) {
+			switch (derivedFeatureID) {
+				case CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__OUTPUT: return CrosswalkPackage.INPUT__OUTPUT;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
 
 /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-                if (baseClass == Input.class) {
-                        switch (baseFeatureID) {
-                                case CrosswalkPackage.INPUT__OUTPUT: return CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__OUTPUT;
-                                default: return -1;
-                        }
-                }
-                return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
-        }
+		if (baseClass == Input.class) {
+			switch (baseFeatureID) {
+				case CrosswalkPackage.INPUT__OUTPUT: return CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__OUTPUT;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
 
 /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * @generated
-         */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
     @Override
     public String toString() {
-                if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-                StringBuffer result = new StringBuffer(super.toString());
-                result.append(" (caseSensitive: ");
-                result.append(caseSensitive);
-                result.append(", includeFileExtension: ");
-                result.append(includeFileExtension);
-                result.append(", baseFolder: ");
-                if (baseFolderESet) result.append(baseFolder); else result.append("<unset>");
-                result.append(')');
-                return result.toString();
-        }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (caseSensitive: ");
+		result.append(caseSensitive);
+		result.append(", includeFileExtension: ");
+		result.append(includeFileExtension);
+		result.append(", baseFolder: ");
+		if (baseFolderESet) result.append(baseFolder); else result.append("<unset>");
+		result.append(')');
+		return result.toString();
+	}
 
 } // OriginalNameRecordMatcherImpl

@@ -80,8 +80,9 @@
   <eClassifiers xsi:type="ecore:EDataType" name="IFolder" instanceClassName="org.eclipse.core.resources.IFolder"/>
   <eClassifiers xsi:type="ecore:EDataType" name="RecordOutOfRangeException" instanceClassName="crosswalk.RecordOutOfRangeException"/>
   <eClassifiers xsi:type="ecore:EClass" name="DateRecognizer" eSuperTypes="#//WalkWidget #//Output #//Input">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Format" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="yy-MM-dd"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Formats" lowerBound="1"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="yy-MM-dd"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Text" eSuperTypes="#//Output #//WalkWidget">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

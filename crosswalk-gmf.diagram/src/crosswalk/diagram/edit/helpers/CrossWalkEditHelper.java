@@ -25,9 +25,9 @@ import org.eclipse.emf.ecore.EReference;
  */
 public class CrossWalkEditHelper extends CrosswalkBaseEditHelper {
 
-    @Override
-    public List getContainedValues(EObject eContainer, EReference feature) {
-	// TODO Auto-generated method stub
-	return super.getContainedValues(eContainer, feature);
-    }
+	@Override
+	public List getContainedValues(EObject eContainer, EReference feature) {
+		// TODO Auto-generated method stub
+		return super.getContainedValues(eContainer, feature);
+	}
 }

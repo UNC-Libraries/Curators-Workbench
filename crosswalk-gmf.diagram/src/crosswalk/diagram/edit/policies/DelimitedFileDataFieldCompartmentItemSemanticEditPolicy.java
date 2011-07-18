@@ -14,21 +14,21 @@ import crosswalk.diagram.providers.CrosswalkElementTypes;
  */
 public class DelimitedFileDataFieldCompartmentItemSemanticEditPolicy extends CrosswalkBaseItemSemanticEditPolicy {
 
-    /**
-     * @generated
-     */
-    public DelimitedFileDataFieldCompartmentItemSemanticEditPolicy() {
-	super(CrosswalkElementTypes.DelimitedFile_2001);
-    }
-
-    /**
-     * @generated
-     */
-    protected Command getCreateCommand(CreateElementRequest req) {
-	if (CrosswalkElementTypes.TabbedDataField_3001 == req.getElementType()) {
-	    return getGEFWrapper(new TabbedDataFieldCreateCommand(req));
+	/**
+	 * @generated
+	 */
+	public DelimitedFileDataFieldCompartmentItemSemanticEditPolicy() {
+		super(CrosswalkElementTypes.DelimitedFile_2001);
 	}
-	return super.getCreateCommand(req);
-    }
+
+	/**
+	 * @generated
+	 */
+	protected Command getCreateCommand(CreateElementRequest req) {
+		if (CrosswalkElementTypes.TabbedDataField_3001 == req.getElementType()) {
+			return getGEFWrapper(new TabbedDataFieldCreateCommand(req));
+		}
+		return super.getCreateCommand(req);
+	}
 
 }

@@ -80,7 +80,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="crosswalk.gmftool#//@palette/@tools.0/@tools.2"/>
+          href="crosswalk.gmftool#//@palette/@tools.0/@tools.3"/>
       <diagramNode
           href="crosswalk.gmfgraph#GenericWidgetNode"/>
     </ownedChild>
@@ -98,11 +98,11 @@
             href="crosswalk.gmfgraph#WidgetLabel"/>
         <viewExpression
             body="&quot;Date Recognizer&quot;"
-            language="literal"/>
+            language="java"/>
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="crosswalk.gmftool#//@palette/@tools.0/@tools.3"/>
+          href="crosswalk.gmftool#//@palette/@tools.0/@tools.4"/>
       <diagramNode
           href="crosswalk.gmfgraph#GenericWidgetNode"/>
     </ownedChild>
@@ -124,7 +124,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="crosswalk.gmftool#//@palette/@tools.0/@tools.4"/>
+          href="crosswalk.gmftool#//@palette/@tools.0/@tools.5"/>
       <diagramNode
           href="crosswalk.gmfgraph#GenericWidgetNode"/>
     </ownedChild>
@@ -146,7 +146,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="crosswalk.gmftool#//@palette/@tools.0/@tools.5"/>
+          href="crosswalk.gmftool#//@palette/@tools.0/@tools.6"/>
       <diagramNode
           href="crosswalk.gmfgraph#GenericWidgetNode"/>
     </ownedChild>
@@ -208,6 +208,9 @@
     </ownedChild>
   </nodes>
   <links>
+    <tool
+        xsi:type="gmftool:CreationTool"
+        href="crosswalk.gmftool#//@palette/@tools.0/@tools.2"/>
     <diagramLink
         href="crosswalk.gmfgraph#InputConnection"/>
     <linkMetaFeature

@@ -28,19 +28,19 @@ package crosswalk;
  */
 public interface RecordMatcherStrategy extends WalkWidget {
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @model kind="operation" dataType="crosswalk.RecordMatches" required="true"
-         * @generated
-         */
+	 * @model kind="operation" dataType="crosswalk.RecordMatches" required="true"
+	 * @generated
+	 */
         RecordMatches getMatches();
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @model exceptions="crosswalk.DataException"
-         * @generated
-         */
+	 * @model exceptions="crosswalk.DataException"
+	 * @generated
+	 */
         void run() throws DataException;
 
 } // RecordMatcherStrategy

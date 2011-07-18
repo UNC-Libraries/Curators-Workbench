@@ -27,119 +27,119 @@ import org.eclipse.emf.ecore.EFactory;
  */
 public interface CrosswalkFactory extends EFactory {
         /**
-         * The singleton instance of the factory.
-         * <!-- begin-user-doc -->
+	 * The singleton instance of the factory.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         CrosswalkFactory eINSTANCE = crosswalk.impl.CrosswalkFactoryImpl.init();
 
         /**
-         * Returns a new object of class '<em>Tabbed Data Field</em>'.
-         * <!-- begin-user-doc -->
+	 * Returns a new object of class '<em>Tabbed Data Field</em>'.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @return a new object of class '<em>Tabbed Data Field</em>'.
-         * @generated
-         */
+	 * @return a new object of class '<em>Tabbed Data Field</em>'.
+	 * @generated
+	 */
         TabbedDataField createTabbedDataField();
 
         /**
-         * Returns a new object of class '<em>Trim Whitespace</em>'.
-         * <!-- begin-user-doc -->
+	 * Returns a new object of class '<em>Trim Whitespace</em>'.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @return a new object of class '<em>Trim Whitespace</em>'.
-         * @generated
-         */
+	 * @return a new object of class '<em>Trim Whitespace</em>'.
+	 * @generated
+	 */
         TrimWhitespace createTrimWhitespace();
 
         /**
-         * Returns a new object of class '<em>Cross Walk</em>'.
-         * <!-- begin-user-doc -->
+	 * Returns a new object of class '<em>Cross Walk</em>'.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @return a new object of class '<em>Cross Walk</em>'.
-         * @generated
-         */
+	 * @return a new object of class '<em>Cross Walk</em>'.
+	 * @generated
+	 */
         CrossWalk createCrossWalk();
 
         /**
-         * Returns a new object of class '<em>Data Field</em>'.
-         * <!-- begin-user-doc -->
+	 * Returns a new object of class '<em>Data Field</em>'.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @return a new object of class '<em>Data Field</em>'.
-         * @generated
-         */
+	 * @return a new object of class '<em>Data Field</em>'.
+	 * @generated
+	 */
         DataField createDataField();
 
         /**
-         * Returns a new object of class '<em>Original Name Record Matcher</em>'.
-         * <!-- begin-user-doc -->
+	 * Returns a new object of class '<em>Original Name Record Matcher</em>'.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @return a new object of class '<em>Original Name Record Matcher</em>'.
-         * @generated
-         */
+	 * @return a new object of class '<em>Original Name Record Matcher</em>'.
+	 * @generated
+	 */
         OriginalNameRecordMatcher createOriginalNameRecordMatcher();
 
         /**
-         * Returns a new object of class '<em>Date Recognizer</em>'.
-         * <!-- begin-user-doc -->
+	 * Returns a new object of class '<em>Date Recognizer</em>'.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @return a new object of class '<em>Date Recognizer</em>'.
-         * @generated
-         */
+	 * @return a new object of class '<em>Date Recognizer</em>'.
+	 * @generated
+	 */
         DateRecognizer createDateRecognizer();
 
         /**
-         * Returns a new object of class '<em>Text</em>'.
-         * <!-- begin-user-doc -->
+	 * Returns a new object of class '<em>Text</em>'.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @return a new object of class '<em>Text</em>'.
-         * @generated
-         */
+	 * @return a new object of class '<em>Text</em>'.
+	 * @generated
+	 */
         Text createText();
 
         /**
-         * Returns a new object of class '<em>Delimited File</em>'.
-         * <!-- begin-user-doc -->
+	 * Returns a new object of class '<em>Delimited File</em>'.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @return a new object of class '<em>Delimited File</em>'.
-         * @generated
-         */
+	 * @return a new object of class '<em>Delimited File</em>'.
+	 * @generated
+	 */
         DelimitedFile createDelimitedFile();
 
         /**
-         * Returns a new object of class '<em>Mapped Element</em>'.
-         * <!-- begin-user-doc -->
+	 * Returns a new object of class '<em>Mapped Element</em>'.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @return a new object of class '<em>Mapped Element</em>'.
-         * @generated
-         */
+	 * @return a new object of class '<em>Mapped Element</em>'.
+	 * @generated
+	 */
         MappedElement createMappedElement();
 
         /**
-         * Returns a new object of class '<em>Mapped Attribute</em>'.
-         * <!-- begin-user-doc -->
+	 * Returns a new object of class '<em>Mapped Attribute</em>'.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @return a new object of class '<em>Mapped Attribute</em>'.
-         * @generated
-         */
+	 * @return a new object of class '<em>Mapped Attribute</em>'.
+	 * @generated
+	 */
         MappedAttribute createMappedAttribute();
 
         /**
-         * Returns a new object of class '<em>Date To ISO8601 String Conversion</em>'.
-         * <!-- begin-user-doc -->
+	 * Returns a new object of class '<em>Date To ISO8601 String Conversion</em>'.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @return a new object of class '<em>Date To ISO8601 String Conversion</em>'.
-         * @generated
-         */
+	 * @return a new object of class '<em>Date To ISO8601 String Conversion</em>'.
+	 * @generated
+	 */
         DateToISO8601StringConversion createDateToISO8601StringConversion();
 
         /**
-         * Returns the package supported by this factory.
-         * <!-- begin-user-doc -->
+	 * Returns the package supported by this factory.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @return the package supported by this factory.
-         * @generated
-         */
+	 * @return the package supported by this factory.
+	 * @generated
+	 */
         CrosswalkPackage getCrosswalkPackage();
 
 } //CrosswalkFactory

@@ -24,10 +24,10 @@ import crosswalk.diagram.part.CrosswalkDiagramEditorPlugin;
  */
 public class DiagramAppearancePreferencePage extends AppearancePreferencePage {
 
-    /**
-     * @generated
-     */
-    public DiagramAppearancePreferencePage() {
-	setPreferenceStore(CrosswalkDiagramEditorPlugin.getInstance().getPreferenceStore());
-    }
+	/**
+	 * @generated
+	 */
+	public DiagramAppearancePreferencePage() {
+		setPreferenceStore(CrosswalkDiagramEditorPlugin.getInstance().getPreferenceStore());
+	}
 }

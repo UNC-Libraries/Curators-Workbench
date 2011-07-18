@@ -35,9 +35,9 @@ import crosswalk.MappedAttribute;
 import crosswalk.impl.MappedAttributeImpl;
 
 /**
- * This is the item provider adapter for a {@link crosswalk.MappedAttribute} object. <!-- begin-user-doc --> <!--
+ * This is the item provider adapter for a {@link crosswalk.MappedAttribute} object.
+ * <!-- begin-user-doc --> <!--
  * end-user-doc -->
- *
  * @generated
  */
 public class MappedAttributeItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
@@ -45,8 +45,8 @@ public class MappedAttributeItemProvider extends ItemProviderAdapter implements 
 	Map<EAttribute, IItemPropertyDescriptor> foreignAttributeDescriptors = new HashMap<EAttribute, IItemPropertyDescriptor>();
 
 	/**
-	 * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * This constructs an instance from a factory and a notifier.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public MappedAttributeItemProvider(AdapterFactory adapterFactory) {
@@ -85,38 +85,50 @@ public class MappedAttributeItemProvider extends ItemProviderAdapter implements 
 	}
 
 	/**
-	 * This adds a property descriptor for the Conversion Strategy feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * This adds a property descriptor for the Conversion Strategy feature.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected void addConversionStrategyPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_MappedAttribute_conversionStrategy_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_MappedAttribute_conversionStrategy_feature",
-						"_UI_MappedAttribute_type"), CrosswalkPackage.Literals.MAPPED_ATTRIBUTE__CONVERSION_STRATEGY, true,
-				false, true, null, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_MappedAttribute_conversionStrategy_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_MappedAttribute_conversionStrategy_feature", "_UI_MappedAttribute_type"),
+				 CrosswalkPackage.Literals.MAPPED_ATTRIBUTE__CONVERSION_STRATEGY,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Default Value feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * This adds a property descriptor for the Default Value feature.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected void addDefaultValuePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_MappedAttribute_defaultValue_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_MappedAttribute_defaultValue_feature",
-						"_UI_MappedAttribute_type"), CrosswalkPackage.Literals.MAPPED_ATTRIBUTE__DEFAULT_VALUE, true, false,
-				false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_MappedAttribute_defaultValue_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_MappedAttribute_defaultValue_feature", "_UI_MappedAttribute_type"),
+				 CrosswalkPackage.Literals.MAPPED_ATTRIBUTE__DEFAULT_VALUE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
-	 * This returns MappedAttribute.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * This returns MappedAttribute.gif.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -224,15 +236,16 @@ public class MappedAttributeItemProvider extends ItemProviderAdapter implements 
 	}
 
 	/**
-	 * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * This returns the label text for the adapted class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((MappedAttribute) object).getDefaultValue();
-		return label == null || label.length() == 0 ? getString("_UI_MappedAttribute_type")
-				: getString("_UI_MappedAttribute_type") + " " + label;
+		String label = ((MappedAttribute)object).getDefaultValue();
+		return label == null || label.length() == 0 ?
+			getString("_UI_MappedAttribute_type") :
+			getString("_UI_MappedAttribute_type") + " " + label;
 	}
 
 	/**
@@ -255,9 +268,9 @@ public class MappedAttributeItemProvider extends ItemProviderAdapter implements 
 	}
 
 	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that can be created under
-	 * this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -266,8 +279,8 @@ public class MappedAttributeItemProvider extends ItemProviderAdapter implements 
 	}
 
 	/**
-	 * Return the resource locator for this item provider's resources. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override

@@ -43,103 +43,103 @@ import crosswalk.TrimWhitespace;
  */
 public class TrimWhitespaceImpl extends WalkWidgetImpl implements TrimWhitespace {
         /**
-         * The cached value of the '{@link #getOutput() <em>Output</em>}' reference.
-         * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getOutput() <em>Output</em>}' reference.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getOutput()
-         * @generated
-         * @ordered
-         */
+	 * @see #getOutput()
+	 * @generated
+	 * @ordered
+	 */
         protected Output output;
         /**
-         * This is true if the Output reference has been set.
-         * <!-- begin-user-doc -->
+	 * This is true if the Output reference has been set.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         * @ordered
-         */
+	 * @generated
+	 * @ordered
+	 */
         protected boolean outputESet;
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected TrimWhitespaceImpl() {
-                super();
-        }
+		super();
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         protected EClass eStaticClass() {
-                return CrosswalkPackage.Literals.TRIM_WHITESPACE;
-        }
+		return CrosswalkPackage.Literals.TRIM_WHITESPACE;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public Output getOutput() {
-                if (output != null && output.eIsProxy()) {
-                        InternalEObject oldOutput = (InternalEObject)output;
-                        output = (Output)eResolveProxy(oldOutput);
-                        if (output != oldOutput) {
-                                if (eNotificationRequired())
-                                        eNotify(new ENotificationImpl(this, Notification.RESOLVE, CrosswalkPackage.TRIM_WHITESPACE__OUTPUT, oldOutput, output));
-                        }
-                }
-                return output;
-        }
+		if (output != null && output.eIsProxy()) {
+			InternalEObject oldOutput = (InternalEObject)output;
+			output = (Output)eResolveProxy(oldOutput);
+			if (output != oldOutput) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CrosswalkPackage.TRIM_WHITESPACE__OUTPUT, oldOutput, output));
+			}
+		}
+		return output;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public Output basicGetOutput() {
-                return output;
-        }
+		return output;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public void setOutput(Output newOutput) {
-                Output oldOutput = output;
-                output = newOutput;
-                boolean oldOutputESet = outputESet;
-                outputESet = true;
-                if (eNotificationRequired())
-                        eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.TRIM_WHITESPACE__OUTPUT, oldOutput, output, !oldOutputESet));
-        }
+		Output oldOutput = output;
+		output = newOutput;
+		boolean oldOutputESet = outputESet;
+		outputESet = true;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.TRIM_WHITESPACE__OUTPUT, oldOutput, output, !oldOutputESet));
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public void unsetOutput() {
-                Output oldOutput = output;
-                boolean oldOutputESet = outputESet;
-                output = null;
-                outputESet = false;
-                if (eNotificationRequired())
-                        eNotify(new ENotificationImpl(this, Notification.UNSET, CrosswalkPackage.TRIM_WHITESPACE__OUTPUT, oldOutput, null, oldOutputESet));
-        }
+		Output oldOutput = output;
+		boolean oldOutputESet = outputESet;
+		output = null;
+		outputESet = false;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CrosswalkPackage.TRIM_WHITESPACE__OUTPUT, oldOutput, null, oldOutputESet));
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public boolean isSetOutput() {
-                return outputESet;
-        }
+		return outputESet;
+	}
 
         /**
          * <!-- begin-user-doc -->
@@ -177,105 +177,105 @@ public class TrimWhitespaceImpl extends WalkWidgetImpl implements TrimWhitespace
         }
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Object eGet(int featureID, boolean resolve, boolean coreType) {
-                switch (featureID) {
-                        case CrosswalkPackage.TRIM_WHITESPACE__OUTPUT:
-                                if (resolve) return getOutput();
-                                return basicGetOutput();
-                }
-                return super.eGet(featureID, resolve, coreType);
-        }
+		switch (featureID) {
+			case CrosswalkPackage.TRIM_WHITESPACE__OUTPUT:
+				if (resolve) return getOutput();
+				return basicGetOutput();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @SuppressWarnings("unchecked")
         @Override
         public void eSet(int featureID, Object newValue) {
-                switch (featureID) {
-                        case CrosswalkPackage.TRIM_WHITESPACE__OUTPUT:
-                                setOutput((Output)newValue);
-                                return;
-                }
-                super.eSet(featureID, newValue);
-        }
+		switch (featureID) {
+			case CrosswalkPackage.TRIM_WHITESPACE__OUTPUT:
+				setOutput((Output)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public void eUnset(int featureID) {
-                switch (featureID) {
-                        case CrosswalkPackage.TRIM_WHITESPACE__OUTPUT:
-                                unsetOutput();
-                                return;
-                }
-                super.eUnset(featureID);
-        }
+		switch (featureID) {
+			case CrosswalkPackage.TRIM_WHITESPACE__OUTPUT:
+				unsetOutput();
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public boolean eIsSet(int featureID) {
-                switch (featureID) {
-                        case CrosswalkPackage.TRIM_WHITESPACE__OUTPUT:
-                                return isSetOutput();
-                }
-                return super.eIsSet(featureID);
-        }
+		switch (featureID) {
+			case CrosswalkPackage.TRIM_WHITESPACE__OUTPUT:
+				return isSetOutput();
+		}
+		return super.eIsSet(featureID);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-                if (baseClass == Output.class) {
-                        switch (derivedFeatureID) {
-                                default: return -1;
-                        }
-                }
-                if (baseClass == Input.class) {
-                        switch (derivedFeatureID) {
-                                case CrosswalkPackage.TRIM_WHITESPACE__OUTPUT: return CrosswalkPackage.INPUT__OUTPUT;
-                                default: return -1;
-                        }
-                }
-                return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
-        }
+		if (baseClass == Output.class) {
+			switch (derivedFeatureID) {
+				default: return -1;
+			}
+		}
+		if (baseClass == Input.class) {
+			switch (derivedFeatureID) {
+				case CrosswalkPackage.TRIM_WHITESPACE__OUTPUT: return CrosswalkPackage.INPUT__OUTPUT;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-                if (baseClass == Output.class) {
-                        switch (baseFeatureID) {
-                                default: return -1;
-                        }
-                }
-                if (baseClass == Input.class) {
-                        switch (baseFeatureID) {
-                                case CrosswalkPackage.INPUT__OUTPUT: return CrosswalkPackage.TRIM_WHITESPACE__OUTPUT;
-                                default: return -1;
-                        }
-                }
-                return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
-        }
+		if (baseClass == Output.class) {
+			switch (baseFeatureID) {
+				default: return -1;
+			}
+		}
+		if (baseClass == Input.class) {
+			switch (baseFeatureID) {
+				case CrosswalkPackage.INPUT__OUTPUT: return CrosswalkPackage.TRIM_WHITESPACE__OUTPUT;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
 
 } //TrimWhitespaceImpl

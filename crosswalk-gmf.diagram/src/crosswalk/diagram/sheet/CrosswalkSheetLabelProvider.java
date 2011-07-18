@@ -32,63 +32,63 @@ import crosswalk.diagram.providers.CrosswalkElementTypes;
  */
 public class CrosswalkSheetLabelProvider extends BaseLabelProvider implements ILabelProvider {
 
-    /**
-     * @generated
-     */
-    public String getText(Object element) {
-	element = unwrap(element);
-	if (element instanceof CrosswalkNavigatorGroup) {
-	    return ((CrosswalkNavigatorGroup) element).getGroupName();
+	/**
+	 * @generated
+	 */
+	public String getText(Object element) {
+		element = unwrap(element);
+		if (element instanceof CrosswalkNavigatorGroup) {
+			return ((CrosswalkNavigatorGroup) element).getGroupName();
+		}
+		IElementType etype = getElementType(getView(element));
+		return etype == null ? "" : etype.getDisplayName();
 	}
-	IElementType etype = getElementType(getView(element));
-	return etype == null ? "" : etype.getDisplayName();
-    }
 
-    /**
-     * @generated
-     */
-    public Image getImage(Object element) {
-	IElementType etype = getElementType(getView(unwrap(element)));
-	return etype == null ? null : CrosswalkElementTypes.getImage(etype);
-    }
+	/**
+	 * @generated
+	 */
+	public Image getImage(Object element) {
+		IElementType etype = getElementType(getView(unwrap(element)));
+		return etype == null ? null : CrosswalkElementTypes.getImage(etype);
+	}
 
-    /**
-     * @generated
-     */
-    private Object unwrap(Object element) {
-	if (element instanceof IStructuredSelection) {
-	    return ((IStructuredSelection) element).getFirstElement();
+	/**
+	 * @generated
+	 */
+	private Object unwrap(Object element) {
+		if (element instanceof IStructuredSelection) {
+			return ((IStructuredSelection) element).getFirstElement();
+		}
+		return element;
 	}
-	return element;
-    }
 
-    /**
-     * @generated
-     */
-    private View getView(Object element) {
-	if (element instanceof View) {
-	    return (View) element;
+	/**
+	 * @generated
+	 */
+	private View getView(Object element) {
+		if (element instanceof View) {
+			return (View) element;
+		}
+		if (element instanceof IAdaptable) {
+			return (View) ((IAdaptable) element).getAdapter(View.class);
+		}
+		return null;
 	}
-	if (element instanceof IAdaptable) {
-	    return (View) ((IAdaptable) element).getAdapter(View.class);
-	}
-	return null;
-    }
 
-    /**
-     * @generated
-     */
-    private IElementType getElementType(View view) {
-	// For intermediate views climb up the containment hierarchy to find the one associated with an element type.
-	while (view != null) {
-	    int vid = CrosswalkVisualIDRegistry.getVisualID(view);
-	    IElementType etype = CrosswalkElementTypes.getElementType(vid);
-	    if (etype != null) {
-		return etype;
-	    }
-	    view = view.eContainer() instanceof View ? (View) view.eContainer() : null;
+	/**
+	 * @generated
+	 */
+	private IElementType getElementType(View view) {
+		// For intermediate views climb up the containment hierarchy to find the one associated with an element type.
+		while (view != null) {
+			int vid = CrosswalkVisualIDRegistry.getVisualID(view);
+			IElementType etype = CrosswalkElementTypes.getElementType(vid);
+			if (etype != null) {
+				return etype;
+			}
+			view = view.eContainer() instanceof View ? (View) view.eContainer() : null;
+		}
+		return null;
 	}
-	return null;
-    }
 
 }

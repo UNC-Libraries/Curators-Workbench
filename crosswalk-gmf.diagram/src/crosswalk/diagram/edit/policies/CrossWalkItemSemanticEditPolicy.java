@@ -35,60 +35,60 @@ import crosswalk.diagram.providers.CrosswalkElementTypes;
  */
 public class CrossWalkItemSemanticEditPolicy extends CrosswalkBaseItemSemanticEditPolicy {
 
-    /**
-     * @generated
-     */
-    public CrossWalkItemSemanticEditPolicy() {
-	super(CrosswalkElementTypes.CrossWalk_1000);
-    }
-
-    /**
-     * @generated
-     */
-    @Override
-    protected Command getCreateCommand(CreateElementRequest req) {
-	if (CrosswalkElementTypes.DelimitedFile_2001 == req.getElementType()) {
-	    return getGEFWrapper(new DelimitedFileCreateCommand(req));
+	/**
+	 * @generated
+	 */
+	public CrossWalkItemSemanticEditPolicy() {
+		super(CrosswalkElementTypes.CrossWalk_1000);
 	}
-	if (CrosswalkElementTypes.OriginalNameRecordMatcher_2010 == req.getElementType()) {
-	    return getGEFWrapper(new OriginalNameRecordMatcherCreateCommand(req));
-	}
-	if (CrosswalkElementTypes.DateRecognizer_2013 == req.getElementType()) {
-	    return getGEFWrapper(new DateRecognizerCreateCommand(req));
-	}
-	if (CrosswalkElementTypes.Text_2014 == req.getElementType()) {
-	    return getGEFWrapper(new TextCreateCommand(req));
-	}
-	if (CrosswalkElementTypes.TrimWhitespace_2015 == req.getElementType()) {
-	    return getGEFWrapper(new TrimWhitespaceCreateCommand(req));
-	}
-	if (CrosswalkElementTypes.MappedElement_2016 == req.getElementType()) {
-	    return getGEFWrapper(new MappedElementCreateCommand(req));
-	}
-	return super.getCreateCommand(req);
-    }
-
-    /**
-     * @generated
-     */
-    @Override
-    protected Command getDuplicateCommand(DuplicateElementsRequest req) {
-	TransactionalEditingDomain editingDomain = ((IGraphicalEditPart) getHost()).getEditingDomain();
-	return getGEFWrapper(new DuplicateAnythingCommand(editingDomain, req));
-    }
-
-    /**
-     * @generated
-     */
-    private static class DuplicateAnythingCommand extends DuplicateEObjectsCommand {
 
 	/**
 	 * @generated
 	 */
-	public DuplicateAnythingCommand(TransactionalEditingDomain editingDomain, DuplicateElementsRequest req) {
-	    super(editingDomain, req.getLabel(), req.getElementsToBeDuplicated(), req.getAllDuplicatedElementsMap());
+	@Override
+	protected Command getCreateCommand(CreateElementRequest req) {
+		if (CrosswalkElementTypes.DelimitedFile_2001 == req.getElementType()) {
+			return getGEFWrapper(new DelimitedFileCreateCommand(req));
+		}
+		if (CrosswalkElementTypes.OriginalNameRecordMatcher_2010 == req.getElementType()) {
+			return getGEFWrapper(new OriginalNameRecordMatcherCreateCommand(req));
+		}
+		if (CrosswalkElementTypes.DateRecognizer_2013 == req.getElementType()) {
+			return getGEFWrapper(new DateRecognizerCreateCommand(req));
+		}
+		if (CrosswalkElementTypes.Text_2014 == req.getElementType()) {
+			return getGEFWrapper(new TextCreateCommand(req));
+		}
+		if (CrosswalkElementTypes.TrimWhitespace_2015 == req.getElementType()) {
+			return getGEFWrapper(new TrimWhitespaceCreateCommand(req));
+		}
+		if (CrosswalkElementTypes.MappedElement_2016 == req.getElementType()) {
+			return getGEFWrapper(new MappedElementCreateCommand(req));
+		}
+		return super.getCreateCommand(req);
 	}
 
-    }
+	/**
+	 * @generated
+	 */
+	@Override
+	protected Command getDuplicateCommand(DuplicateElementsRequest req) {
+		TransactionalEditingDomain editingDomain = ((IGraphicalEditPart) getHost()).getEditingDomain();
+		return getGEFWrapper(new DuplicateAnythingCommand(editingDomain, req));
+	}
+
+	/**
+	 * @generated
+	 */
+	private static class DuplicateAnythingCommand extends DuplicateEObjectsCommand {
+
+		/**
+		 * @generated
+		 */
+		public DuplicateAnythingCommand(TransactionalEditingDomain editingDomain, DuplicateElementsRequest req) {
+			super(editingDomain, req.getLabel(), req.getElementsToBeDuplicated(), req.getAllDuplicatedElementsMap());
+		}
+
+	}
 
 }

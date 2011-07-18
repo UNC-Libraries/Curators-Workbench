@@ -15,24 +15,24 @@ import crosswalk.diagram.providers.CrosswalkElementTypes;
  */
 public class MappedElementChildElementsCompartmentItemSemanticEditPolicy extends CrosswalkBaseItemSemanticEditPolicy {
 
-    /**
-     * @generated
-     */
-    public MappedElementChildElementsCompartmentItemSemanticEditPolicy() {
-	super(CrosswalkElementTypes.MappedElement_2016);
-    }
+	/**
+	 * @generated
+	 */
+	public MappedElementChildElementsCompartmentItemSemanticEditPolicy() {
+		super(CrosswalkElementTypes.MappedElement_2016);
+	}
 
-    /**
-     * @generated
-     */
-    protected Command getCreateCommand(CreateElementRequest req) {
-	if (CrosswalkElementTypes.MappedElement_3015 == req.getElementType()) {
-	    return getGEFWrapper(new MappedElement2CreateCommand(req));
+	/**
+	 * @generated
+	 */
+	protected Command getCreateCommand(CreateElementRequest req) {
+		if (CrosswalkElementTypes.MappedElement_3015 == req.getElementType()) {
+			return getGEFWrapper(new MappedElement2CreateCommand(req));
+		}
+		if (CrosswalkElementTypes.MappedAttribute_3016 == req.getElementType()) {
+			return getGEFWrapper(new MappedAttributeCreateCommand(req));
+		}
+		return super.getCreateCommand(req);
 	}
-	if (CrosswalkElementTypes.MappedAttribute_3016 == req.getElementType()) {
-	    return getGEFWrapper(new MappedAttributeCreateCommand(req));
-	}
-	return super.getCreateCommand(req);
-    }
 
 }

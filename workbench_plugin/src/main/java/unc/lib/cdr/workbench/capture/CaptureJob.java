@@ -155,9 +155,9 @@ public class CaptureJob extends Job {
 			// if (auditPreviouslyStaged) {
 			// params.put("audit", Boolean.TRUE);
 			// }
-			log.debug("calling incremental build");
-			project.build(IncrementalProjectBuilder.FULL_BUILD, MetsProjectNature.STAGING_BUILDER_ID, params,
-					new NullProgressMonitor());
+			//log.debug("calling incremental build");
+			//project.build(IncrementalProjectBuilder.FULL_BUILD, MetsProjectNature.STAGING_BUILDER_ID, params,
+			//		new NullProgressMonitor());
 			monitor.done();
 			return Status.OK_STATUS;
 		} catch (CoreException e) {

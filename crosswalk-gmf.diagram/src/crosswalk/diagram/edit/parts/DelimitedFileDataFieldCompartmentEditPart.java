@@ -21,58 +21,58 @@ import crosswalk.diagram.part.Messages;
  */
 public class DelimitedFileDataFieldCompartmentEditPart extends ListCompartmentEditPart {
 
-    /**
-     * @generated
-     */
-    public static final int VISUAL_ID = 7001;
+	/**
+	 * @generated
+	 */
+	public static final int VISUAL_ID = 7001;
 
-    /**
-     * @generated
-     */
-    public DelimitedFileDataFieldCompartmentEditPart(View view) {
-	super(view);
-    }
+	/**
+	 * @generated
+	 */
+	public DelimitedFileDataFieldCompartmentEditPart(View view) {
+		super(view);
+	}
 
-    /**
-     * @generated
-     */
-    protected boolean hasModelChildrenChanged(Notification evt) {
-	return false;
-    }
+	/**
+	 * @generated
+	 */
+	protected boolean hasModelChildrenChanged(Notification evt) {
+		return false;
+	}
 
-    /**
-     * @generated
-     */
-    public String getCompartmentName() {
-	return Messages.DelimitedFileDataFieldCompartmentEditPart_title;
-    }
+	/**
+	 * @generated
+	 */
+	public String getCompartmentName() {
+		return Messages.DelimitedFileDataFieldCompartmentEditPart_title;
+	}
 
-    /**
-     * @generated
-     */
-    public IFigure createFigure() {
-	ResizableCompartmentFigure result = (ResizableCompartmentFigure) super.createFigure();
-	result.setTitleVisibility(false);
-	return result;
-    }
+	/**
+	 * @generated
+	 */
+	public IFigure createFigure() {
+		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super.createFigure();
+		result.setTitleVisibility(false);
+		return result;
+	}
 
-    /**
-     * @generated
-     */
-    protected void createDefaultEditPolicies() {
-	super.createDefaultEditPolicies();
-	installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new DelimitedFileDataFieldCompartmentItemSemanticEditPolicy());
-	installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicy());
-	installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new DragDropEditPolicy());
-	installEditPolicy(EditPolicyRoles.CANONICAL_ROLE, new DelimitedFileDataFieldCompartmentCanonicalEditPolicy());
-    }
+	/**
+	 * @generated
+	 */
+	protected void createDefaultEditPolicies() {
+		super.createDefaultEditPolicies();
+		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new DelimitedFileDataFieldCompartmentItemSemanticEditPolicy());
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicy());
+		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new DragDropEditPolicy());
+		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE, new DelimitedFileDataFieldCompartmentCanonicalEditPolicy());
+	}
 
-    /**
-     * @generated
-     */
-    protected void setRatio(Double ratio) {
-	// nothing to do -- parent layout does not accept Double constraints as ratio
-	// super.setRatio(ratio); 
-    }
+	/**
+	 * @generated
+	 */
+	protected void setRatio(Double ratio) {
+		// nothing to do -- parent layout does not accept Double constraints as ratio
+		// super.setRatio(ratio); 
+	}
 
 }

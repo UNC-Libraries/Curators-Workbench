@@ -37,480 +37,480 @@ import org.eclipse.emf.ecore.EObject;
  */
 public class CrosswalkSwitch<T> {
         /**
-         * The cached model package
-         * <!-- begin-user-doc -->
+	 * The cached model package
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected static CrosswalkPackage modelPackage;
 
         /**
-         * Creates an instance of the switch.
-         * <!-- begin-user-doc -->
+	 * Creates an instance of the switch.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public CrosswalkSwitch() {
-                if (modelPackage == null) {
-                        modelPackage = CrosswalkPackage.eINSTANCE;
-                }
-        }
+		if (modelPackage == null) {
+			modelPackage = CrosswalkPackage.eINSTANCE;
+		}
+	}
 
         /**
-         * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
-         * <!-- begin-user-doc -->
+	 * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @return the first non-null result returned by a <code>caseXXX</code> call.
-         * @generated
-         */
+	 * @return the first non-null result returned by a <code>caseXXX</code> call.
+	 * @generated
+	 */
         public T doSwitch(EObject theEObject) {
-                return doSwitch(theEObject.eClass(), theEObject);
-        }
+		return doSwitch(theEObject.eClass(), theEObject);
+	}
 
         /**
-         * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
-         * <!-- begin-user-doc -->
+	 * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @return the first non-null result returned by a <code>caseXXX</code> call.
-         * @generated
-         */
+	 * @return the first non-null result returned by a <code>caseXXX</code> call.
+	 * @generated
+	 */
         protected T doSwitch(EClass theEClass, EObject theEObject) {
-                if (theEClass.eContainer() == modelPackage) {
-                        return doSwitch(theEClass.getClassifierID(), theEObject);
-                }
-                else {
-                        List<EClass> eSuperTypes = theEClass.getESuperTypes();
-                        return
-                                eSuperTypes.isEmpty() ?
-                                        defaultCase(theEObject) :
-                                        doSwitch(eSuperTypes.get(0), theEObject);
-                }
-        }
+		if (theEClass.eContainer() == modelPackage) {
+			return doSwitch(theEClass.getClassifierID(), theEObject);
+		}
+		else {
+			List<EClass> eSuperTypes = theEClass.getESuperTypes();
+			return
+				eSuperTypes.isEmpty() ?
+					defaultCase(theEObject) :
+					doSwitch(eSuperTypes.get(0), theEObject);
+		}
+	}
 
         /**
-         * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
-         * <!-- begin-user-doc -->
+	 * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @return the first non-null result returned by a <code>caseXXX</code> call.
-         * @generated
-         */
+	 * @return the first non-null result returned by a <code>caseXXX</code> call.
+	 * @generated
+	 */
         protected T doSwitch(int classifierID, EObject theEObject) {
-                switch (classifierID) {
-                        case CrosswalkPackage.TABBED_DATA_FIELD: {
-                                TabbedDataField tabbedDataField = (TabbedDataField)theEObject;
-                                T result = caseTabbedDataField(tabbedDataField);
-                                if (result == null) result = caseDataField(tabbedDataField);
-                                if (result == null) result = caseOutput(tabbedDataField);
-                                if (result == null) result = defaultCase(theEObject);
-                                return result;
-                        }
-                        case CrosswalkPackage.TRIM_WHITESPACE: {
-                                TrimWhitespace trimWhitespace = (TrimWhitespace)theEObject;
-                                T result = caseTrimWhitespace(trimWhitespace);
-                                if (result == null) result = caseWalkWidget(trimWhitespace);
-                                if (result == null) result = caseOutput(trimWhitespace);
-                                if (result == null) result = caseInput(trimWhitespace);
-                                if (result == null) result = defaultCase(theEObject);
-                                return result;
-                        }
-                        case CrosswalkPackage.CROSS_WALK: {
-                                CrossWalk crossWalk = (CrossWalk)theEObject;
-                                T result = caseCrossWalk(crossWalk);
-                                if (result == null) result = defaultCase(theEObject);
-                                return result;
-                        }
-                        case CrosswalkPackage.OUTPUT_ELEMENT: {
-                                OutputElement outputElement = (OutputElement)theEObject;
-                                T result = caseOutputElement(outputElement);
-                                if (result == null) result = defaultCase(theEObject);
-                                return result;
-                        }
-                        case CrosswalkPackage.WALK_WIDGET: {
-                                WalkWidget walkWidget = (WalkWidget)theEObject;
-                                T result = caseWalkWidget(walkWidget);
-                                if (result == null) result = defaultCase(theEObject);
-                                return result;
-                        }
-                        case CrosswalkPackage.DATA_SOURCE: {
-                                DataSource dataSource = (DataSource)theEObject;
-                                T result = caseDataSource(dataSource);
-                                if (result == null) result = defaultCase(theEObject);
-                                return result;
-                        }
-                        case CrosswalkPackage.DATA_FIELD: {
-                                DataField dataField = (DataField)theEObject;
-                                T result = caseDataField(dataField);
-                                if (result == null) result = caseOutput(dataField);
-                                if (result == null) result = defaultCase(theEObject);
-                                return result;
-                        }
-                        case CrosswalkPackage.OUTPUT: {
-                                Output output = (Output)theEObject;
-                                T result = caseOutput(output);
-                                if (result == null) result = defaultCase(theEObject);
-                                return result;
-                        }
-                        case CrosswalkPackage.INPUT: {
-                                Input input = (Input)theEObject;
-                                T result = caseInput(input);
-                                if (result == null) result = defaultCase(theEObject);
-                                return result;
-                        }
-                        case CrosswalkPackage.RECORD_MATCHER_STRATEGY: {
-                                RecordMatcherStrategy recordMatcherStrategy = (RecordMatcherStrategy)theEObject;
-                                T result = caseRecordMatcherStrategy(recordMatcherStrategy);
-                                if (result == null) result = caseWalkWidget(recordMatcherStrategy);
-                                if (result == null) result = defaultCase(theEObject);
-                                return result;
-                        }
-                        case CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER: {
-                                OriginalNameRecordMatcher originalNameRecordMatcher = (OriginalNameRecordMatcher)theEObject;
-                                T result = caseOriginalNameRecordMatcher(originalNameRecordMatcher);
-                                if (result == null) result = caseRecordMatcherStrategy(originalNameRecordMatcher);
-                                if (result == null) result = caseInput(originalNameRecordMatcher);
-                                if (result == null) result = caseWalkWidget(originalNameRecordMatcher);
-                                if (result == null) result = defaultCase(theEObject);
-                                return result;
-                        }
-                        case CrosswalkPackage.DATE_RECOGNIZER: {
-                                DateRecognizer dateRecognizer = (DateRecognizer)theEObject;
-                                T result = caseDateRecognizer(dateRecognizer);
-                                if (result == null) result = caseWalkWidget(dateRecognizer);
-                                if (result == null) result = caseOutput(dateRecognizer);
-                                if (result == null) result = caseInput(dateRecognizer);
-                                if (result == null) result = defaultCase(theEObject);
-                                return result;
-                        }
-                        case CrosswalkPackage.TEXT: {
-                                Text text = (Text)theEObject;
-                                T result = caseText(text);
-                                if (result == null) result = caseOutput(text);
-                                if (result == null) result = caseWalkWidget(text);
-                                if (result == null) result = defaultCase(theEObject);
-                                return result;
-                        }
-                        case CrosswalkPackage.DELIMITED_FILE: {
-                                DelimitedFile delimitedFile = (DelimitedFile)theEObject;
-                                T result = caseDelimitedFile(delimitedFile);
-                                if (result == null) result = caseDataSource(delimitedFile);
-                                if (result == null) result = defaultCase(theEObject);
-                                return result;
-                        }
-                        case CrosswalkPackage.MAPPED_ELEMENT: {
-                                MappedElement mappedElement = (MappedElement)theEObject;
-                                T result = caseMappedElement(mappedElement);
-                                if (result == null) result = caseOutputElement(mappedElement);
-                                if (result == null) result = defaultCase(theEObject);
-                                return result;
-                        }
-                        case CrosswalkPackage.MAPPED_ATTRIBUTE: {
-                                MappedAttribute mappedAttribute = (MappedAttribute)theEObject;
-                                T result = caseMappedAttribute(mappedAttribute);
-                                if (result == null) result = caseOutputElement(mappedAttribute);
-                                if (result == null) result = caseInput(mappedAttribute);
-                                if (result == null) result = defaultCase(theEObject);
-                                return result;
-                        }
-                        case CrosswalkPackage.CONVERSION_STRATEGY: {
-                                ConversionStrategy conversionStrategy = (ConversionStrategy)theEObject;
-                                T result = caseConversionStrategy(conversionStrategy);
-                                if (result == null) result = defaultCase(theEObject);
-                                return result;
-                        }
-                        case CrosswalkPackage.DATE_TO_ISO8601_STRING_CONVERSION: {
-                                DateToISO8601StringConversion dateToISO8601StringConversion = (DateToISO8601StringConversion)theEObject;
-                                T result = caseDateToISO8601StringConversion(dateToISO8601StringConversion);
-                                if (result == null) result = caseConversionStrategy(dateToISO8601StringConversion);
-                                if (result == null) result = defaultCase(theEObject);
-                                return result;
-                        }
-                        default: return defaultCase(theEObject);
-                }
-        }
+		switch (classifierID) {
+			case CrosswalkPackage.TABBED_DATA_FIELD: {
+				TabbedDataField tabbedDataField = (TabbedDataField)theEObject;
+				T result = caseTabbedDataField(tabbedDataField);
+				if (result == null) result = caseDataField(tabbedDataField);
+				if (result == null) result = caseOutput(tabbedDataField);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CrosswalkPackage.TRIM_WHITESPACE: {
+				TrimWhitespace trimWhitespace = (TrimWhitespace)theEObject;
+				T result = caseTrimWhitespace(trimWhitespace);
+				if (result == null) result = caseWalkWidget(trimWhitespace);
+				if (result == null) result = caseOutput(trimWhitespace);
+				if (result == null) result = caseInput(trimWhitespace);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CrosswalkPackage.CROSS_WALK: {
+				CrossWalk crossWalk = (CrossWalk)theEObject;
+				T result = caseCrossWalk(crossWalk);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CrosswalkPackage.OUTPUT_ELEMENT: {
+				OutputElement outputElement = (OutputElement)theEObject;
+				T result = caseOutputElement(outputElement);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CrosswalkPackage.WALK_WIDGET: {
+				WalkWidget walkWidget = (WalkWidget)theEObject;
+				T result = caseWalkWidget(walkWidget);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CrosswalkPackage.DATA_SOURCE: {
+				DataSource dataSource = (DataSource)theEObject;
+				T result = caseDataSource(dataSource);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CrosswalkPackage.DATA_FIELD: {
+				DataField dataField = (DataField)theEObject;
+				T result = caseDataField(dataField);
+				if (result == null) result = caseOutput(dataField);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CrosswalkPackage.OUTPUT: {
+				Output output = (Output)theEObject;
+				T result = caseOutput(output);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CrosswalkPackage.INPUT: {
+				Input input = (Input)theEObject;
+				T result = caseInput(input);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CrosswalkPackage.RECORD_MATCHER_STRATEGY: {
+				RecordMatcherStrategy recordMatcherStrategy = (RecordMatcherStrategy)theEObject;
+				T result = caseRecordMatcherStrategy(recordMatcherStrategy);
+				if (result == null) result = caseWalkWidget(recordMatcherStrategy);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER: {
+				OriginalNameRecordMatcher originalNameRecordMatcher = (OriginalNameRecordMatcher)theEObject;
+				T result = caseOriginalNameRecordMatcher(originalNameRecordMatcher);
+				if (result == null) result = caseRecordMatcherStrategy(originalNameRecordMatcher);
+				if (result == null) result = caseInput(originalNameRecordMatcher);
+				if (result == null) result = caseWalkWidget(originalNameRecordMatcher);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CrosswalkPackage.DATE_RECOGNIZER: {
+				DateRecognizer dateRecognizer = (DateRecognizer)theEObject;
+				T result = caseDateRecognizer(dateRecognizer);
+				if (result == null) result = caseWalkWidget(dateRecognizer);
+				if (result == null) result = caseOutput(dateRecognizer);
+				if (result == null) result = caseInput(dateRecognizer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CrosswalkPackage.TEXT: {
+				Text text = (Text)theEObject;
+				T result = caseText(text);
+				if (result == null) result = caseOutput(text);
+				if (result == null) result = caseWalkWidget(text);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CrosswalkPackage.DELIMITED_FILE: {
+				DelimitedFile delimitedFile = (DelimitedFile)theEObject;
+				T result = caseDelimitedFile(delimitedFile);
+				if (result == null) result = caseDataSource(delimitedFile);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CrosswalkPackage.MAPPED_ELEMENT: {
+				MappedElement mappedElement = (MappedElement)theEObject;
+				T result = caseMappedElement(mappedElement);
+				if (result == null) result = caseOutputElement(mappedElement);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CrosswalkPackage.MAPPED_ATTRIBUTE: {
+				MappedAttribute mappedAttribute = (MappedAttribute)theEObject;
+				T result = caseMappedAttribute(mappedAttribute);
+				if (result == null) result = caseOutputElement(mappedAttribute);
+				if (result == null) result = caseInput(mappedAttribute);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CrosswalkPackage.CONVERSION_STRATEGY: {
+				ConversionStrategy conversionStrategy = (ConversionStrategy)theEObject;
+				T result = caseConversionStrategy(conversionStrategy);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CrosswalkPackage.DATE_TO_ISO8601_STRING_CONVERSION: {
+				DateToISO8601StringConversion dateToISO8601StringConversion = (DateToISO8601StringConversion)theEObject;
+				T result = caseDateToISO8601StringConversion(dateToISO8601StringConversion);
+				if (result == null) result = caseConversionStrategy(dateToISO8601StringConversion);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			default: return defaultCase(theEObject);
+		}
+	}
 
         /**
-         * Returns the result of interpreting the object as an instance of '<em>Tabbed Data Field</em>'.
-         * <!-- begin-user-doc -->
+	 * Returns the result of interpreting the object as an instance of '<em>Tabbed Data Field</em>'.
+	 * <!-- begin-user-doc -->
          * This implementation returns null;
          * returning a non-null result will terminate the switch.
          * <!-- end-user-doc -->
-         * @param object the target of the switch.
-         * @return the result of interpreting the object as an instance of '<em>Tabbed Data Field</em>'.
-         * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-         * @generated
-         */
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Tabbed Data Field</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
         public T caseTabbedDataField(TabbedDataField object) {
-                return null;
-        }
+		return null;
+	}
 
         /**
-         * Returns the result of interpreting the object as an instance of '<em>Trim Whitespace</em>'.
-         * <!-- begin-user-doc -->
+	 * Returns the result of interpreting the object as an instance of '<em>Trim Whitespace</em>'.
+	 * <!-- begin-user-doc -->
          * This implementation returns null;
          * returning a non-null result will terminate the switch.
          * <!-- end-user-doc -->
-         * @param object the target of the switch.
-         * @return the result of interpreting the object as an instance of '<em>Trim Whitespace</em>'.
-         * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-         * @generated
-         */
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Trim Whitespace</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
         public T caseTrimWhitespace(TrimWhitespace object) {
-                return null;
-        }
+		return null;
+	}
 
         /**
-         * Returns the result of interpreting the object as an instance of '<em>Cross Walk</em>'.
-         * <!-- begin-user-doc -->
+	 * Returns the result of interpreting the object as an instance of '<em>Cross Walk</em>'.
+	 * <!-- begin-user-doc -->
          * This implementation returns null;
          * returning a non-null result will terminate the switch.
          * <!-- end-user-doc -->
-         * @param object the target of the switch.
-         * @return the result of interpreting the object as an instance of '<em>Cross Walk</em>'.
-         * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-         * @generated
-         */
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Cross Walk</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
         public T caseCrossWalk(CrossWalk object) {
-                return null;
-        }
+		return null;
+	}
 
         /**
-         * Returns the result of interpreting the object as an instance of '<em>Output Element</em>'.
-         * <!-- begin-user-doc -->
+	 * Returns the result of interpreting the object as an instance of '<em>Output Element</em>'.
+	 * <!-- begin-user-doc -->
          * This implementation returns null;
          * returning a non-null result will terminate the switch.
          * <!-- end-user-doc -->
-         * @param object the target of the switch.
-         * @return the result of interpreting the object as an instance of '<em>Output Element</em>'.
-         * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-         * @generated
-         */
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Output Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
         public T caseOutputElement(OutputElement object) {
-                return null;
-        }
+		return null;
+	}
 
         /**
-         * Returns the result of interpreting the object as an instance of '<em>Walk Widget</em>'.
-         * <!-- begin-user-doc -->
+	 * Returns the result of interpreting the object as an instance of '<em>Walk Widget</em>'.
+	 * <!-- begin-user-doc -->
          * This implementation returns null;
          * returning a non-null result will terminate the switch.
          * <!-- end-user-doc -->
-         * @param object the target of the switch.
-         * @return the result of interpreting the object as an instance of '<em>Walk Widget</em>'.
-         * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-         * @generated
-         */
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Walk Widget</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
         public T caseWalkWidget(WalkWidget object) {
-                return null;
-        }
+		return null;
+	}
 
         /**
-         * Returns the result of interpreting the object as an instance of '<em>Data Source</em>'.
-         * <!-- begin-user-doc -->
+	 * Returns the result of interpreting the object as an instance of '<em>Data Source</em>'.
+	 * <!-- begin-user-doc -->
          * This implementation returns null;
          * returning a non-null result will terminate the switch.
          * <!-- end-user-doc -->
-         * @param object the target of the switch.
-         * @return the result of interpreting the object as an instance of '<em>Data Source</em>'.
-         * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-         * @generated
-         */
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Data Source</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
         public T caseDataSource(DataSource object) {
-                return null;
-        }
+		return null;
+	}
 
         /**
-         * Returns the result of interpreting the object as an instance of '<em>Data Field</em>'.
-         * <!-- begin-user-doc -->
+	 * Returns the result of interpreting the object as an instance of '<em>Data Field</em>'.
+	 * <!-- begin-user-doc -->
          * This implementation returns null;
          * returning a non-null result will terminate the switch.
          * <!-- end-user-doc -->
-         * @param object the target of the switch.
-         * @return the result of interpreting the object as an instance of '<em>Data Field</em>'.
-         * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-         * @generated
-         */
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Data Field</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
         public T caseDataField(DataField object) {
-                return null;
-        }
+		return null;
+	}
 
         /**
-         * Returns the result of interpreting the object as an instance of '<em>Output</em>'.
-         * <!-- begin-user-doc -->
+	 * Returns the result of interpreting the object as an instance of '<em>Output</em>'.
+	 * <!-- begin-user-doc -->
          * This implementation returns null;
          * returning a non-null result will terminate the switch.
          * <!-- end-user-doc -->
-         * @param object the target of the switch.
-         * @return the result of interpreting the object as an instance of '<em>Output</em>'.
-         * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-         * @generated
-         */
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Output</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
         public T caseOutput(Output object) {
-                return null;
-        }
+		return null;
+	}
 
         /**
-         * Returns the result of interpreting the object as an instance of '<em>Input</em>'.
-         * <!-- begin-user-doc -->
+	 * Returns the result of interpreting the object as an instance of '<em>Input</em>'.
+	 * <!-- begin-user-doc -->
          * This implementation returns null;
          * returning a non-null result will terminate the switch.
          * <!-- end-user-doc -->
-         * @param object the target of the switch.
-         * @return the result of interpreting the object as an instance of '<em>Input</em>'.
-         * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-         * @generated
-         */
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Input</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
         public T caseInput(Input object) {
-                return null;
-        }
+		return null;
+	}
 
         /**
-         * Returns the result of interpreting the object as an instance of '<em>Record Matcher Strategy</em>'.
-         * <!-- begin-user-doc -->
+	 * Returns the result of interpreting the object as an instance of '<em>Record Matcher Strategy</em>'.
+	 * <!-- begin-user-doc -->
          * This implementation returns null;
          * returning a non-null result will terminate the switch.
          * <!-- end-user-doc -->
-         * @param object the target of the switch.
-         * @return the result of interpreting the object as an instance of '<em>Record Matcher Strategy</em>'.
-         * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-         * @generated
-         */
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Record Matcher Strategy</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
         public T caseRecordMatcherStrategy(RecordMatcherStrategy object) {
-                return null;
-        }
+		return null;
+	}
 
         /**
-         * Returns the result of interpreting the object as an instance of '<em>Original Name Record Matcher</em>'.
-         * <!-- begin-user-doc -->
+	 * Returns the result of interpreting the object as an instance of '<em>Original Name Record Matcher</em>'.
+	 * <!-- begin-user-doc -->
          * This implementation returns null;
          * returning a non-null result will terminate the switch.
          * <!-- end-user-doc -->
-         * @param object the target of the switch.
-         * @return the result of interpreting the object as an instance of '<em>Original Name Record Matcher</em>'.
-         * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-         * @generated
-         */
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Original Name Record Matcher</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
         public T caseOriginalNameRecordMatcher(OriginalNameRecordMatcher object) {
-                return null;
-        }
+		return null;
+	}
 
         /**
-         * Returns the result of interpreting the object as an instance of '<em>Date Recognizer</em>'.
-         * <!-- begin-user-doc -->
+	 * Returns the result of interpreting the object as an instance of '<em>Date Recognizer</em>'.
+	 * <!-- begin-user-doc -->
          * This implementation returns null;
          * returning a non-null result will terminate the switch.
          * <!-- end-user-doc -->
-         * @param object the target of the switch.
-         * @return the result of interpreting the object as an instance of '<em>Date Recognizer</em>'.
-         * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-         * @generated
-         */
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Date Recognizer</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
         public T caseDateRecognizer(DateRecognizer object) {
-                return null;
-        }
+		return null;
+	}
 
         /**
-         * Returns the result of interpreting the object as an instance of '<em>Text</em>'.
-         * <!-- begin-user-doc -->
+	 * Returns the result of interpreting the object as an instance of '<em>Text</em>'.
+	 * <!-- begin-user-doc -->
          * This implementation returns null;
          * returning a non-null result will terminate the switch.
          * <!-- end-user-doc -->
-         * @param object the target of the switch.
-         * @return the result of interpreting the object as an instance of '<em>Text</em>'.
-         * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-         * @generated
-         */
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Text</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
         public T caseText(Text object) {
-                return null;
-        }
+		return null;
+	}
 
         /**
-         * Returns the result of interpreting the object as an instance of '<em>Delimited File</em>'.
-         * <!-- begin-user-doc -->
+	 * Returns the result of interpreting the object as an instance of '<em>Delimited File</em>'.
+	 * <!-- begin-user-doc -->
          * This implementation returns null;
          * returning a non-null result will terminate the switch.
          * <!-- end-user-doc -->
-         * @param object the target of the switch.
-         * @return the result of interpreting the object as an instance of '<em>Delimited File</em>'.
-         * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-         * @generated
-         */
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Delimited File</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
         public T caseDelimitedFile(DelimitedFile object) {
-                return null;
-        }
+		return null;
+	}
 
         /**
-         * Returns the result of interpreting the object as an instance of '<em>Mapped Element</em>'.
-         * <!-- begin-user-doc -->
+	 * Returns the result of interpreting the object as an instance of '<em>Mapped Element</em>'.
+	 * <!-- begin-user-doc -->
          * This implementation returns null;
          * returning a non-null result will terminate the switch.
          * <!-- end-user-doc -->
-         * @param object the target of the switch.
-         * @return the result of interpreting the object as an instance of '<em>Mapped Element</em>'.
-         * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-         * @generated
-         */
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Mapped Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
         public T caseMappedElement(MappedElement object) {
-                return null;
-        }
+		return null;
+	}
 
         /**
-         * Returns the result of interpreting the object as an instance of '<em>Mapped Attribute</em>'.
-         * <!-- begin-user-doc -->
+	 * Returns the result of interpreting the object as an instance of '<em>Mapped Attribute</em>'.
+	 * <!-- begin-user-doc -->
          * This implementation returns null;
          * returning a non-null result will terminate the switch.
          * <!-- end-user-doc -->
-         * @param object the target of the switch.
-         * @return the result of interpreting the object as an instance of '<em>Mapped Attribute</em>'.
-         * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-         * @generated
-         */
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Mapped Attribute</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
         public T caseMappedAttribute(MappedAttribute object) {
-                return null;
-        }
+		return null;
+	}
 
         /**
-         * Returns the result of interpreting the object as an instance of '<em>Conversion Strategy</em>'.
-         * <!-- begin-user-doc -->
+	 * Returns the result of interpreting the object as an instance of '<em>Conversion Strategy</em>'.
+	 * <!-- begin-user-doc -->
          * This implementation returns null;
          * returning a non-null result will terminate the switch.
          * <!-- end-user-doc -->
-         * @param object the target of the switch.
-         * @return the result of interpreting the object as an instance of '<em>Conversion Strategy</em>'.
-         * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-         * @generated
-         */
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Conversion Strategy</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
         public T caseConversionStrategy(ConversionStrategy object) {
-                return null;
-        }
+		return null;
+	}
 
         /**
-         * Returns the result of interpreting the object as an instance of '<em>Date To ISO8601 String Conversion</em>'.
-         * <!-- begin-user-doc -->
+	 * Returns the result of interpreting the object as an instance of '<em>Date To ISO8601 String Conversion</em>'.
+	 * <!-- begin-user-doc -->
          * This implementation returns null;
          * returning a non-null result will terminate the switch.
          * <!-- end-user-doc -->
-         * @param object the target of the switch.
-         * @return the result of interpreting the object as an instance of '<em>Date To ISO8601 String Conversion</em>'.
-         * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-         * @generated
-         */
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Date To ISO8601 String Conversion</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
         public T caseDateToISO8601StringConversion(DateToISO8601StringConversion object) {
-                return null;
-        }
+		return null;
+	}
 
         /**
-         * Returns the result of interpreting the object as an instance of '<em>EObject</em>'.
-         * <!-- begin-user-doc -->
+	 * Returns the result of interpreting the object as an instance of '<em>EObject</em>'.
+	 * <!-- begin-user-doc -->
          * This implementation returns null;
          * returning a non-null result will terminate the switch, but this is the last case anyway.
          * <!-- end-user-doc -->
-         * @param object the target of the switch.
-         * @return the result of interpreting the object as an instance of '<em>EObject</em>'.
-         * @see #doSwitch(org.eclipse.emf.ecore.EObject)
-         * @generated
-         */
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>EObject</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject)
+	 * @generated
+	 */
         public T defaultCase(EObject object) {
-                return null;
-        }
+		return null;
+	}
 
 } //CrosswalkSwitch

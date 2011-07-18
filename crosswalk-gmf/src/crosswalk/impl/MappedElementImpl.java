@@ -48,183 +48,183 @@ import crosswalk.MappedElement;
 public class MappedElementImpl extends EObjectImpl implements MappedElement {
 
     /**
-         * The cached value of the '{@link #getChildElements() <em>Child Elements</em>}' containment reference list.
-         * <!-- begin-user-doc
+	 * The cached value of the '{@link #getChildElements() <em>Child Elements</em>}' containment reference list.
+	 * <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-         * @see #getChildElements()
-         * @generated
-         * @ordered
-         */
+	 * @see #getChildElements()
+	 * @generated
+	 * @ordered
+	 */
     protected EList<MappedElement> childElements;
 
     /**
-         * The cached value of the '{@link #getAttributes() <em>Attributes</em>}' containment reference list.
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * @see #getAttributes()
-         * @generated
-         * @ordered
-         */
+	 * The cached value of the '{@link #getAttributes() <em>Attributes</em>}' containment reference list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @see #getAttributes()
+	 * @generated
+	 * @ordered
+	 */
     protected EList<MappedAttribute> attributes;
 
     /**
-         * The cached value of the '{@link #getMappedFeature() <em>Mapped Feature</em>}' reference.
-         * <!-- begin-user-doc --> <!--
+	 * The cached value of the '{@link #getMappedFeature() <em>Mapped Feature</em>}' reference.
+	 * <!-- begin-user-doc --> <!--
      * end-user-doc -->
-         * @see #getMappedFeature()
-         * @generated
-         * @ordered
-         */
+	 * @see #getMappedFeature()
+	 * @generated
+	 * @ordered
+	 */
     protected EReference mappedFeature;
 
     /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * @generated
-         */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
     protected MappedElementImpl() {
-                super();
-        }
+		super();
+	}
 
     /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * @generated
-         */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
     @Override
     protected EClass eStaticClass() {
-                return CrosswalkPackage.Literals.MAPPED_ELEMENT;
-        }
+		return CrosswalkPackage.Literals.MAPPED_ELEMENT;
+	}
 
     /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * @generated
-         */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
     public CrossWalk getWalk() {
-                if (eContainerFeatureID() != CrosswalkPackage.MAPPED_ELEMENT__WALK) return null;
-                return (CrossWalk)eContainer();
-        }
+		if (eContainerFeatureID() != CrosswalkPackage.MAPPED_ELEMENT__WALK) return null;
+		return (CrossWalk)eContainer();
+	}
 
     /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * @generated
-         */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
     public NotificationChain basicSetWalk(CrossWalk newWalk, NotificationChain msgs) {
-                msgs = eBasicSetContainer((InternalEObject)newWalk, CrosswalkPackage.MAPPED_ELEMENT__WALK, msgs);
-                return msgs;
-        }
+		msgs = eBasicSetContainer((InternalEObject)newWalk, CrosswalkPackage.MAPPED_ELEMENT__WALK, msgs);
+		return msgs;
+	}
 
     /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * @generated
-         */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
     public void setWalk(CrossWalk newWalk) {
-                if (newWalk != eInternalContainer() || (eContainerFeatureID() != CrosswalkPackage.MAPPED_ELEMENT__WALK && newWalk != null)) {
-                        if (EcoreUtil.isAncestor(this, newWalk))
-                                throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
-                        NotificationChain msgs = null;
-                        if (eInternalContainer() != null)
-                                msgs = eBasicRemoveFromContainer(msgs);
-                        if (newWalk != null)
-                                msgs = ((InternalEObject)newWalk).eInverseAdd(this, CrosswalkPackage.CROSS_WALK__ELEMENTS, CrossWalk.class, msgs);
-                        msgs = basicSetWalk(newWalk, msgs);
-                        if (msgs != null) msgs.dispatch();
-                }
-                else if (eNotificationRequired())
-                        eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.MAPPED_ELEMENT__WALK, newWalk, newWalk));
-        }
+		if (newWalk != eInternalContainer() || (eContainerFeatureID() != CrosswalkPackage.MAPPED_ELEMENT__WALK && newWalk != null)) {
+			if (EcoreUtil.isAncestor(this, newWalk))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newWalk != null)
+				msgs = ((InternalEObject)newWalk).eInverseAdd(this, CrosswalkPackage.CROSS_WALK__ELEMENTS, CrossWalk.class, msgs);
+			msgs = basicSetWalk(newWalk, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.MAPPED_ELEMENT__WALK, newWalk, newWalk));
+	}
 
     /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * @generated
-         */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
     public EList<MappedElement> getChildElements() {
-                if (childElements == null) {
-                        childElements = new EObjectContainmentWithInverseEList<MappedElement>(MappedElement.class, this, CrosswalkPackage.MAPPED_ELEMENT__CHILD_ELEMENTS, CrosswalkPackage.MAPPED_ELEMENT__PARENT);
-                }
-                return childElements;
-        }
+		if (childElements == null) {
+			childElements = new EObjectContainmentWithInverseEList<MappedElement>(MappedElement.class, this, CrosswalkPackage.MAPPED_ELEMENT__CHILD_ELEMENTS, CrosswalkPackage.MAPPED_ELEMENT__PARENT);
+		}
+		return childElements;
+	}
 
     /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * @generated
-         */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
     public EList<MappedAttribute> getAttributes() {
-                if (attributes == null) {
-                        attributes = new EObjectContainmentEList<MappedAttribute>(MappedAttribute.class, this, CrosswalkPackage.MAPPED_ELEMENT__ATTRIBUTES);
-                }
-                return attributes;
-        }
+		if (attributes == null) {
+			attributes = new EObjectContainmentEList<MappedAttribute>(MappedAttribute.class, this, CrosswalkPackage.MAPPED_ELEMENT__ATTRIBUTES);
+		}
+		return attributes;
+	}
 
     /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * @generated
-         */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
     public EReference getMappedFeature() {
-                if (mappedFeature != null && mappedFeature.eIsProxy()) {
-                        InternalEObject oldMappedFeature = (InternalEObject)mappedFeature;
-                        mappedFeature = (EReference)eResolveProxy(oldMappedFeature);
-                        if (mappedFeature != oldMappedFeature) {
-                                if (eNotificationRequired())
-                                        eNotify(new ENotificationImpl(this, Notification.RESOLVE, CrosswalkPackage.MAPPED_ELEMENT__MAPPED_FEATURE, oldMappedFeature, mappedFeature));
-                        }
-                }
-                return mappedFeature;
-        }
+		if (mappedFeature != null && mappedFeature.eIsProxy()) {
+			InternalEObject oldMappedFeature = (InternalEObject)mappedFeature;
+			mappedFeature = (EReference)eResolveProxy(oldMappedFeature);
+			if (mappedFeature != oldMappedFeature) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CrosswalkPackage.MAPPED_ELEMENT__MAPPED_FEATURE, oldMappedFeature, mappedFeature));
+			}
+		}
+		return mappedFeature;
+	}
 
     /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * @generated
-         */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
     public EReference basicGetMappedFeature() {
-                return mappedFeature;
-        }
+		return mappedFeature;
+	}
 
     /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * @generated
-         */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
     public void setMappedFeature(EReference newMappedFeature) {
-                EReference oldMappedFeature = mappedFeature;
-                mappedFeature = newMappedFeature;
-                if (eNotificationRequired())
-                        eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.MAPPED_ELEMENT__MAPPED_FEATURE, oldMappedFeature, mappedFeature));
-        }
+		EReference oldMappedFeature = mappedFeature;
+		mappedFeature = newMappedFeature;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.MAPPED_ELEMENT__MAPPED_FEATURE, oldMappedFeature, mappedFeature));
+	}
 
     /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * @generated
-         */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
     public MappedElement getParent() {
-                if (eContainerFeatureID() != CrosswalkPackage.MAPPED_ELEMENT__PARENT) return null;
-                return (MappedElement)eContainer();
-        }
+		if (eContainerFeatureID() != CrosswalkPackage.MAPPED_ELEMENT__PARENT) return null;
+		return (MappedElement)eContainer();
+	}
 
     /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * @generated
-         */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
     public NotificationChain basicSetParent(MappedElement newParent, NotificationChain msgs) {
-                msgs = eBasicSetContainer((InternalEObject)newParent, CrosswalkPackage.MAPPED_ELEMENT__PARENT, msgs);
-                return msgs;
-        }
+		msgs = eBasicSetContainer((InternalEObject)newParent, CrosswalkPackage.MAPPED_ELEMENT__PARENT, msgs);
+		return msgs;
+	}
 
     /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * @generated
-         */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
     public void setParent(MappedElement newParent) {
-                if (newParent != eInternalContainer() || (eContainerFeatureID() != CrosswalkPackage.MAPPED_ELEMENT__PARENT && newParent != null)) {
-                        if (EcoreUtil.isAncestor(this, newParent))
-                                throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
-                        NotificationChain msgs = null;
-                        if (eInternalContainer() != null)
-                                msgs = eBasicRemoveFromContainer(msgs);
-                        if (newParent != null)
-                                msgs = ((InternalEObject)newParent).eInverseAdd(this, CrosswalkPackage.MAPPED_ELEMENT__CHILD_ELEMENTS, MappedElement.class, msgs);
-                        msgs = basicSetParent(newParent, msgs);
-                        if (msgs != null) msgs.dispatch();
-                }
-                else if (eNotificationRequired())
-                        eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.MAPPED_ELEMENT__PARENT, newParent, newParent));
-        }
+		if (newParent != eInternalContainer() || (eContainerFeatureID() != CrosswalkPackage.MAPPED_ELEMENT__PARENT && newParent != null)) {
+			if (EcoreUtil.isAncestor(this, newParent))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newParent != null)
+				msgs = ((InternalEObject)newParent).eInverseAdd(this, CrosswalkPackage.MAPPED_ELEMENT__CHILD_ELEMENTS, MappedElement.class, msgs);
+			msgs = basicSetParent(newParent, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.MAPPED_ELEMENT__PARENT, newParent, newParent));
+	}
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -302,157 +302,157 @@ public class MappedElementImpl extends EObjectImpl implements MappedElement {
     }
 
     /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * @generated
-         */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
     @SuppressWarnings("unchecked")
     @Override
     public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-                switch (featureID) {
-                        case CrosswalkPackage.MAPPED_ELEMENT__WALK:
-                                if (eInternalContainer() != null)
-                                        msgs = eBasicRemoveFromContainer(msgs);
-                                return basicSetWalk((CrossWalk)otherEnd, msgs);
-                        case CrosswalkPackage.MAPPED_ELEMENT__CHILD_ELEMENTS:
-                                return ((InternalEList<InternalEObject>)(InternalEList<?>)getChildElements()).basicAdd(otherEnd, msgs);
-                        case CrosswalkPackage.MAPPED_ELEMENT__PARENT:
-                                if (eInternalContainer() != null)
-                                        msgs = eBasicRemoveFromContainer(msgs);
-                                return basicSetParent((MappedElement)otherEnd, msgs);
-                }
-                return super.eInverseAdd(otherEnd, featureID, msgs);
-        }
+		switch (featureID) {
+			case CrosswalkPackage.MAPPED_ELEMENT__WALK:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetWalk((CrossWalk)otherEnd, msgs);
+			case CrosswalkPackage.MAPPED_ELEMENT__CHILD_ELEMENTS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getChildElements()).basicAdd(otherEnd, msgs);
+			case CrosswalkPackage.MAPPED_ELEMENT__PARENT:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetParent((MappedElement)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
 
     /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * @generated
-         */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
     @Override
     public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-                switch (featureID) {
-                        case CrosswalkPackage.MAPPED_ELEMENT__WALK:
-                                return basicSetWalk(null, msgs);
-                        case CrosswalkPackage.MAPPED_ELEMENT__CHILD_ELEMENTS:
-                                return ((InternalEList<?>)getChildElements()).basicRemove(otherEnd, msgs);
-                        case CrosswalkPackage.MAPPED_ELEMENT__ATTRIBUTES:
-                                return ((InternalEList<?>)getAttributes()).basicRemove(otherEnd, msgs);
-                        case CrosswalkPackage.MAPPED_ELEMENT__PARENT:
-                                return basicSetParent(null, msgs);
-                }
-                return super.eInverseRemove(otherEnd, featureID, msgs);
-        }
+		switch (featureID) {
+			case CrosswalkPackage.MAPPED_ELEMENT__WALK:
+				return basicSetWalk(null, msgs);
+			case CrosswalkPackage.MAPPED_ELEMENT__CHILD_ELEMENTS:
+				return ((InternalEList<?>)getChildElements()).basicRemove(otherEnd, msgs);
+			case CrosswalkPackage.MAPPED_ELEMENT__ATTRIBUTES:
+				return ((InternalEList<?>)getAttributes()).basicRemove(otherEnd, msgs);
+			case CrosswalkPackage.MAPPED_ELEMENT__PARENT:
+				return basicSetParent(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
     /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * @generated
-         */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-                switch (eContainerFeatureID()) {
-                        case CrosswalkPackage.MAPPED_ELEMENT__WALK:
-                                return eInternalContainer().eInverseRemove(this, CrosswalkPackage.CROSS_WALK__ELEMENTS, CrossWalk.class, msgs);
-                        case CrosswalkPackage.MAPPED_ELEMENT__PARENT:
-                                return eInternalContainer().eInverseRemove(this, CrosswalkPackage.MAPPED_ELEMENT__CHILD_ELEMENTS, MappedElement.class, msgs);
-                }
-                return super.eBasicRemoveFromContainerFeature(msgs);
-        }
+		switch (eContainerFeatureID()) {
+			case CrosswalkPackage.MAPPED_ELEMENT__WALK:
+				return eInternalContainer().eInverseRemove(this, CrosswalkPackage.CROSS_WALK__ELEMENTS, CrossWalk.class, msgs);
+			case CrosswalkPackage.MAPPED_ELEMENT__PARENT:
+				return eInternalContainer().eInverseRemove(this, CrosswalkPackage.MAPPED_ELEMENT__CHILD_ELEMENTS, MappedElement.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
+	}
 
     /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * @generated
-         */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
-                switch (featureID) {
-                        case CrosswalkPackage.MAPPED_ELEMENT__WALK:
-                                return getWalk();
-                        case CrosswalkPackage.MAPPED_ELEMENT__CHILD_ELEMENTS:
-                                return getChildElements();
-                        case CrosswalkPackage.MAPPED_ELEMENT__ATTRIBUTES:
-                                return getAttributes();
-                        case CrosswalkPackage.MAPPED_ELEMENT__MAPPED_FEATURE:
-                                if (resolve) return getMappedFeature();
-                                return basicGetMappedFeature();
-                        case CrosswalkPackage.MAPPED_ELEMENT__PARENT:
-                                return getParent();
-                }
-                return super.eGet(featureID, resolve, coreType);
-        }
+		switch (featureID) {
+			case CrosswalkPackage.MAPPED_ELEMENT__WALK:
+				return getWalk();
+			case CrosswalkPackage.MAPPED_ELEMENT__CHILD_ELEMENTS:
+				return getChildElements();
+			case CrosswalkPackage.MAPPED_ELEMENT__ATTRIBUTES:
+				return getAttributes();
+			case CrosswalkPackage.MAPPED_ELEMENT__MAPPED_FEATURE:
+				if (resolve) return getMappedFeature();
+				return basicGetMappedFeature();
+			case CrosswalkPackage.MAPPED_ELEMENT__PARENT:
+				return getParent();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
     /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * @generated
-         */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
     @SuppressWarnings("unchecked")
     @Override
     public void eSet(int featureID, Object newValue) {
-                switch (featureID) {
-                        case CrosswalkPackage.MAPPED_ELEMENT__WALK:
-                                setWalk((CrossWalk)newValue);
-                                return;
-                        case CrosswalkPackage.MAPPED_ELEMENT__CHILD_ELEMENTS:
-                                getChildElements().clear();
-                                getChildElements().addAll((Collection<? extends MappedElement>)newValue);
-                                return;
-                        case CrosswalkPackage.MAPPED_ELEMENT__ATTRIBUTES:
-                                getAttributes().clear();
-                                getAttributes().addAll((Collection<? extends MappedAttribute>)newValue);
-                                return;
-                        case CrosswalkPackage.MAPPED_ELEMENT__MAPPED_FEATURE:
-                                setMappedFeature((EReference)newValue);
-                                return;
-                        case CrosswalkPackage.MAPPED_ELEMENT__PARENT:
-                                setParent((MappedElement)newValue);
-                                return;
-                }
-                super.eSet(featureID, newValue);
-        }
+		switch (featureID) {
+			case CrosswalkPackage.MAPPED_ELEMENT__WALK:
+				setWalk((CrossWalk)newValue);
+				return;
+			case CrosswalkPackage.MAPPED_ELEMENT__CHILD_ELEMENTS:
+				getChildElements().clear();
+				getChildElements().addAll((Collection<? extends MappedElement>)newValue);
+				return;
+			case CrosswalkPackage.MAPPED_ELEMENT__ATTRIBUTES:
+				getAttributes().clear();
+				getAttributes().addAll((Collection<? extends MappedAttribute>)newValue);
+				return;
+			case CrosswalkPackage.MAPPED_ELEMENT__MAPPED_FEATURE:
+				setMappedFeature((EReference)newValue);
+				return;
+			case CrosswalkPackage.MAPPED_ELEMENT__PARENT:
+				setParent((MappedElement)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
     /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * @generated
-         */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
     @Override
     public void eUnset(int featureID) {
-                switch (featureID) {
-                        case CrosswalkPackage.MAPPED_ELEMENT__WALK:
-                                setWalk((CrossWalk)null);
-                                return;
-                        case CrosswalkPackage.MAPPED_ELEMENT__CHILD_ELEMENTS:
-                                getChildElements().clear();
-                                return;
-                        case CrosswalkPackage.MAPPED_ELEMENT__ATTRIBUTES:
-                                getAttributes().clear();
-                                return;
-                        case CrosswalkPackage.MAPPED_ELEMENT__MAPPED_FEATURE:
-                                setMappedFeature((EReference)null);
-                                return;
-                        case CrosswalkPackage.MAPPED_ELEMENT__PARENT:
-                                setParent((MappedElement)null);
-                                return;
-                }
-                super.eUnset(featureID);
-        }
+		switch (featureID) {
+			case CrosswalkPackage.MAPPED_ELEMENT__WALK:
+				setWalk((CrossWalk)null);
+				return;
+			case CrosswalkPackage.MAPPED_ELEMENT__CHILD_ELEMENTS:
+				getChildElements().clear();
+				return;
+			case CrosswalkPackage.MAPPED_ELEMENT__ATTRIBUTES:
+				getAttributes().clear();
+				return;
+			case CrosswalkPackage.MAPPED_ELEMENT__MAPPED_FEATURE:
+				setMappedFeature((EReference)null);
+				return;
+			case CrosswalkPackage.MAPPED_ELEMENT__PARENT:
+				setParent((MappedElement)null);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
     /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * @generated
-         */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
     @Override
     public boolean eIsSet(int featureID) {
-                switch (featureID) {
-                        case CrosswalkPackage.MAPPED_ELEMENT__WALK:
-                                return getWalk() != null;
-                        case CrosswalkPackage.MAPPED_ELEMENT__CHILD_ELEMENTS:
-                                return childElements != null && !childElements.isEmpty();
-                        case CrosswalkPackage.MAPPED_ELEMENT__ATTRIBUTES:
-                                return attributes != null && !attributes.isEmpty();
-                        case CrosswalkPackage.MAPPED_ELEMENT__MAPPED_FEATURE:
-                                return mappedFeature != null;
-                        case CrosswalkPackage.MAPPED_ELEMENT__PARENT:
-                                return getParent() != null;
-                }
-                return super.eIsSet(featureID);
-        }
+		switch (featureID) {
+			case CrosswalkPackage.MAPPED_ELEMENT__WALK:
+				return getWalk() != null;
+			case CrosswalkPackage.MAPPED_ELEMENT__CHILD_ELEMENTS:
+				return childElements != null && !childElements.isEmpty();
+			case CrosswalkPackage.MAPPED_ELEMENT__ATTRIBUTES:
+				return attributes != null && !attributes.isEmpty();
+			case CrosswalkPackage.MAPPED_ELEMENT__MAPPED_FEATURE:
+				return mappedFeature != null;
+			case CrosswalkPackage.MAPPED_ELEMENT__PARENT:
+				return getParent() != null;
+		}
+		return super.eIsSet(featureID);
+	}
 
 } // MappedElementImpl

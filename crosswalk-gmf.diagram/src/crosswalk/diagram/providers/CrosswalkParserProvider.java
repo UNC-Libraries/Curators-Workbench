@@ -53,266 +53,266 @@ import crosswalk.diagram.part.CrosswalkVisualIDRegistry;
  */
 public class CrosswalkParserProvider extends AbstractProvider implements IParserProvider {
 
-    /**
-     * @generated
-     */
-    private IParser delimitedFileSourceFile_5003Parser;
+	/**
+	 * @generated
+	 */
+	private IParser delimitedFileSourceFile_5003Parser;
 
-    /**
-     * @generated
-     */
-    private IParser getDelimitedFileSourceFile_5003Parser() {
-	if (delimitedFileSourceFile_5003Parser == null) {
-	    EAttribute[] features = new EAttribute[] { CrosswalkPackage.eINSTANCE.getDelimitedFile_SourceFile() };
-	    MessageFormatParser parser = new MessageFormatParser(features);
-	    parser.setViewPattern("{0}"); //$NON-NLS-1$
-	    parser.setEditorPattern("{0}"); //$NON-NLS-1$
-	    parser.setEditPattern("{0}"); //$NON-NLS-1$
-	    delimitedFileSourceFile_5003Parser = parser;
+	/**
+	 * @generated
+	 */
+	private IParser getDelimitedFileSourceFile_5003Parser() {
+		if (delimitedFileSourceFile_5003Parser == null) {
+			EAttribute[] features = new EAttribute[] { CrosswalkPackage.eINSTANCE.getDelimitedFile_SourceFile() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			parser.setViewPattern("{0}"); //$NON-NLS-1$
+			parser.setEditorPattern("{0}"); //$NON-NLS-1$
+			parser.setEditPattern("{0}"); //$NON-NLS-1$
+			delimitedFileSourceFile_5003Parser = parser;
+		}
+		return delimitedFileSourceFile_5003Parser;
 	}
-	return delimitedFileSourceFile_5003Parser;
-    }
 
-    /**
-     * @generated
-     */
-    private OriginalNameRecordMatcherLabelExpressionLabelParser originalNameRecordMatcherLabel_5021Parser;
+	/**
+	 * @generated
+	 */
+	private OriginalNameRecordMatcherLabelExpressionLabelParser originalNameRecordMatcherLabel_5021Parser;
 
-    /**
-     * @generated
-     */
-    private IParser getOriginalNameRecordMatcherLabel_5021Parser() {
-	if (originalNameRecordMatcherLabel_5021Parser == null) {
-	    originalNameRecordMatcherLabel_5021Parser = new OriginalNameRecordMatcherLabelExpressionLabelParser();
+	/**
+	 * @generated
+	 */
+	private IParser getOriginalNameRecordMatcherLabel_5021Parser() {
+		if (originalNameRecordMatcherLabel_5021Parser == null) {
+			originalNameRecordMatcherLabel_5021Parser = new OriginalNameRecordMatcherLabelExpressionLabelParser();
+		}
+		return originalNameRecordMatcherLabel_5021Parser;
 	}
-	return originalNameRecordMatcherLabel_5021Parser;
-    }
 
-    /**
-     * @generated
-     */
-    private DateRecognizerLabelExpressionLabelParser dateRecognizerLabel_5027Parser;
+	/**
+	 * @generated
+	 */
+	private DateRecognizerLabelExpressionLabelParser dateRecognizerLabel_5027Parser;
 
-    /**
-     * @generated
-     */
-    private IParser getDateRecognizerLabel_5027Parser() {
-	if (dateRecognizerLabel_5027Parser == null) {
-	    dateRecognizerLabel_5027Parser = new DateRecognizerLabelExpressionLabelParser();
+	/**
+	 * @generated
+	 */
+	private IParser getDateRecognizerLabel_5027Parser() {
+		if (dateRecognizerLabel_5027Parser == null) {
+			dateRecognizerLabel_5027Parser = new DateRecognizerLabelExpressionLabelParser();
+		}
+		return dateRecognizerLabel_5027Parser;
 	}
-	return dateRecognizerLabel_5027Parser;
-    }
 
-    /**
-     * @generated
-     */
-    private IParser textValue_5028Parser;
+	/**
+	 * @generated
+	 */
+	private IParser textValue_5028Parser;
 
-    /**
-     * @generated
-     */
-    private IParser getTextValue_5028Parser() {
-	if (textValue_5028Parser == null) {
-	    EAttribute[] features = new EAttribute[] { CrosswalkPackage.eINSTANCE.getText_Value() };
-	    EAttribute[] editableFeatures = new EAttribute[] { CrosswalkPackage.eINSTANCE.getText_Value() };
-	    MessageFormatParser parser = new MessageFormatParser(features, editableFeatures);
-	    textValue_5028Parser = parser;
+	/**
+	 * @generated
+	 */
+	private IParser getTextValue_5028Parser() {
+		if (textValue_5028Parser == null) {
+			EAttribute[] features = new EAttribute[] { CrosswalkPackage.eINSTANCE.getText_Value() };
+			EAttribute[] editableFeatures = new EAttribute[] { CrosswalkPackage.eINSTANCE.getText_Value() };
+			MessageFormatParser parser = new MessageFormatParser(features, editableFeatures);
+			textValue_5028Parser = parser;
+		}
+		return textValue_5028Parser;
 	}
-	return textValue_5028Parser;
-    }
 
-    /**
-     * @generated
-     */
-    private TrimWhitespaceLabelExpressionLabelParser trimWhitespaceLabel_5030Parser;
+	/**
+	 * @generated
+	 */
+	private TrimWhitespaceLabelExpressionLabelParser trimWhitespaceLabel_5030Parser;
 
-    /**
-     * @generated
-     */
-    private IParser getTrimWhitespaceLabel_5030Parser() {
-	if (trimWhitespaceLabel_5030Parser == null) {
-	    trimWhitespaceLabel_5030Parser = new TrimWhitespaceLabelExpressionLabelParser();
+	/**
+	 * @generated
+	 */
+	private IParser getTrimWhitespaceLabel_5030Parser() {
+		if (trimWhitespaceLabel_5030Parser == null) {
+			trimWhitespaceLabel_5030Parser = new TrimWhitespaceLabelExpressionLabelParser();
+		}
+		return trimWhitespaceLabel_5030Parser;
 	}
-	return trimWhitespaceLabel_5030Parser;
-    }
 
-    /**
-     * @generated
-     */
-    private MappedElementLabelExpressionLabelParser mappedElementLabel_5034Parser;
+	/**
+	 * @generated
+	 */
+	private MappedElementLabelExpressionLabelParser mappedElementLabel_5034Parser;
 
-    /**
-     * @generated
-     */
-    private IParser getMappedElementLabel_5034Parser() {
-	if (mappedElementLabel_5034Parser == null) {
-	    mappedElementLabel_5034Parser = new MappedElementLabelExpressionLabelParser();
+	/**
+	 * @generated
+	 */
+	private IParser getMappedElementLabel_5034Parser() {
+		if (mappedElementLabel_5034Parser == null) {
+			mappedElementLabel_5034Parser = new MappedElementLabelExpressionLabelParser();
+		}
+		return mappedElementLabel_5034Parser;
 	}
-	return mappedElementLabel_5034Parser;
-    }
 
-    /**
-     * @generated
-     */
-    private TabbedDataFieldLabelExpressionLabelParser tabbedDataFieldLabel_5001Parser;
+	/**
+	 * @generated
+	 */
+	private TabbedDataFieldLabelExpressionLabelParser tabbedDataFieldLabel_5001Parser;
 
-    /**
-     * @generated
-     */
-    private IParser getTabbedDataFieldLabel_5001Parser() {
-	if (tabbedDataFieldLabel_5001Parser == null) {
-	    tabbedDataFieldLabel_5001Parser = new TabbedDataFieldLabelExpressionLabelParser();
+	/**
+	 * @generated
+	 */
+	private IParser getTabbedDataFieldLabel_5001Parser() {
+		if (tabbedDataFieldLabel_5001Parser == null) {
+			tabbedDataFieldLabel_5001Parser = new TabbedDataFieldLabelExpressionLabelParser();
+		}
+		return tabbedDataFieldLabel_5001Parser;
 	}
-	return tabbedDataFieldLabel_5001Parser;
-    }
 
-    /**
-     * @generated
-     */
-    private IParser tabbedDataFieldLabelColumnNumber_5002Parser;
+	/**
+	 * @generated
+	 */
+	private IParser tabbedDataFieldLabelColumnNumber_5002Parser;
 
-    /**
-     * @generated
-     */
-    private IParser getTabbedDataFieldLabelColumnNumber_5002Parser() {
-	if (tabbedDataFieldLabelColumnNumber_5002Parser == null) {
-	    EAttribute[] features = new EAttribute[] { CrosswalkPackage.eINSTANCE.getDataField_Label(),
-			    CrosswalkPackage.eINSTANCE.getTabbedDataField_ColumnNumber() };
-	    EAttribute[] editableFeatures = new EAttribute[] { CrosswalkPackage.eINSTANCE.getDataField_Label() };
-	    MessageFormatParser parser = new MessageFormatParser(features, editableFeatures);
-	    parser.setViewPattern("Tab {1}: {0}"); //$NON-NLS-1$
-	    parser.setEditorPattern("{0}"); //$NON-NLS-1$
-	    parser.setEditPattern("Tab {1}: {0}"); //$NON-NLS-1$
-	    tabbedDataFieldLabelColumnNumber_5002Parser = parser;
+	/**
+	 * @generated
+	 */
+	private IParser getTabbedDataFieldLabelColumnNumber_5002Parser() {
+		if (tabbedDataFieldLabelColumnNumber_5002Parser == null) {
+			EAttribute[] features = new EAttribute[] { CrosswalkPackage.eINSTANCE.getDataField_Label(),
+					CrosswalkPackage.eINSTANCE.getTabbedDataField_ColumnNumber() };
+			EAttribute[] editableFeatures = new EAttribute[] { CrosswalkPackage.eINSTANCE.getDataField_Label() };
+			MessageFormatParser parser = new MessageFormatParser(features, editableFeatures);
+			parser.setViewPattern("Tab {1}: {0}"); //$NON-NLS-1$
+			parser.setEditorPattern("{0}"); //$NON-NLS-1$
+			parser.setEditPattern("Tab {1}: {0}"); //$NON-NLS-1$
+			tabbedDataFieldLabelColumnNumber_5002Parser = parser;
+		}
+		return tabbedDataFieldLabelColumnNumber_5002Parser;
 	}
-	return tabbedDataFieldLabelColumnNumber_5002Parser;
-    }
 
-    /**
-     * @generated
-     */
-    private MappedElementLabelExpressionLabelParser mappedElementLabel_5031Parser;
+	/**
+	 * @generated
+	 */
+	private MappedElementLabelExpressionLabelParser mappedElementLabel_5031Parser;
 
-    /**
-     * @generated
-     */
-    private IParser getMappedElementLabel_5031Parser() {
-	if (mappedElementLabel_5031Parser == null) {
-	    mappedElementLabel_5031Parser = new MappedElementLabelExpressionLabelParser();
+	/**
+	 * @generated
+	 */
+	private IParser getMappedElementLabel_5031Parser() {
+		if (mappedElementLabel_5031Parser == null) {
+			mappedElementLabel_5031Parser = new MappedElementLabelExpressionLabelParser();
+		}
+		return mappedElementLabel_5031Parser;
 	}
-	return mappedElementLabel_5031Parser;
-    }
 
-    /**
-     * @generated
-     */
-    private MappedAttributeLabelExpressionLabelParser mappedAttributeLabel_5032Parser;
+	/**
+	 * @generated
+	 */
+	private MappedAttributeLabelExpressionLabelParser mappedAttributeLabel_5032Parser;
 
-    /**
-     * @generated
-     */
-    private IParser getMappedAttributeLabel_5032Parser() {
-	if (mappedAttributeLabel_5032Parser == null) {
-	    mappedAttributeLabel_5032Parser = new MappedAttributeLabelExpressionLabelParser();
+	/**
+	 * @generated
+	 */
+	private IParser getMappedAttributeLabel_5032Parser() {
+		if (mappedAttributeLabel_5032Parser == null) {
+			mappedAttributeLabel_5032Parser = new MappedAttributeLabelExpressionLabelParser();
+		}
+		return mappedAttributeLabel_5032Parser;
 	}
-	return mappedAttributeLabel_5032Parser;
-    }
 
-    /**
-     * @generated
-     */
-    protected IParser getParser(int visualID) {
-	switch (visualID) {
-	case DelimitedFileSourceFileEditPart.VISUAL_ID:
-	    return getDelimitedFileSourceFile_5003Parser();
-	case WrappingLabel9EditPart.VISUAL_ID:
-	    return getOriginalNameRecordMatcherLabel_5021Parser();
-	case WrappingLabel12EditPart.VISUAL_ID:
-	    return getDateRecognizerLabel_5027Parser();
-	case TextValueEditPart.VISUAL_ID:
-	    return getTextValue_5028Parser();
-	case WrappingLabel13EditPart.VISUAL_ID:
-	    return getTrimWhitespaceLabel_5030Parser();
-	case WrappingLabel14EditPart.VISUAL_ID:
-	    return getMappedElementLabel_5034Parser();
-	case WrappingLabel15EditPart.VISUAL_ID:
-	    return getTabbedDataFieldLabel_5001Parser();
-	case TabbedDataFieldLabelColumnNumberEditPart.VISUAL_ID:
-	    return getTabbedDataFieldLabelColumnNumber_5002Parser();
-	case WrappingLabel16EditPart.VISUAL_ID:
-	    return getMappedElementLabel_5031Parser();
-	case MappedAttributeNameEditPart.VISUAL_ID:
-	    return getMappedAttributeLabel_5032Parser();
+	/**
+	 * @generated
+	 */
+	protected IParser getParser(int visualID) {
+		switch (visualID) {
+			case DelimitedFileSourceFileEditPart.VISUAL_ID:
+				return getDelimitedFileSourceFile_5003Parser();
+			case WrappingLabel9EditPart.VISUAL_ID:
+				return getOriginalNameRecordMatcherLabel_5021Parser();
+			case WrappingLabel12EditPart.VISUAL_ID:
+				return getDateRecognizerLabel_5027Parser();
+			case TextValueEditPart.VISUAL_ID:
+				return getTextValue_5028Parser();
+			case WrappingLabel13EditPart.VISUAL_ID:
+				return getTrimWhitespaceLabel_5030Parser();
+			case WrappingLabel14EditPart.VISUAL_ID:
+				return getMappedElementLabel_5034Parser();
+			case WrappingLabel15EditPart.VISUAL_ID:
+				return getTabbedDataFieldLabel_5001Parser();
+			case TabbedDataFieldLabelColumnNumberEditPart.VISUAL_ID:
+				return getTabbedDataFieldLabelColumnNumber_5002Parser();
+			case WrappingLabel16EditPart.VISUAL_ID:
+				return getMappedElementLabel_5031Parser();
+			case MappedAttributeNameEditPart.VISUAL_ID:
+				return getMappedAttributeLabel_5032Parser();
+		}
+		return null;
 	}
-	return null;
-    }
 
-    /**
-     * Utility method that consults ParserService
-     * @generated
-     */
-    public static IParser getParser(IElementType type, EObject object, String parserHint) {
-	return ParserService.getInstance().getParser(new HintAdapter(type, object, parserHint));
-    }
-
-    /**
-     * @generated
-     */
-    public IParser getParser(IAdaptable hint) {
-	String vid = (String) hint.getAdapter(String.class);
-	if (vid != null) {
-	    return getParser(CrosswalkVisualIDRegistry.getVisualID(vid));
+	/**
+	 * Utility method that consults ParserService
+	 * @generated
+	 */
+	public static IParser getParser(IElementType type, EObject object, String parserHint) {
+		return ParserService.getInstance().getParser(new HintAdapter(type, object, parserHint));
 	}
-	View view = (View) hint.getAdapter(View.class);
-	if (view != null) {
-	    return getParser(CrosswalkVisualIDRegistry.getVisualID(view));
-	}
-	return null;
-    }
 
-    /**
-     * @generated
-     */
-    public boolean provides(IOperation operation) {
-	if (operation instanceof GetParserOperation) {
-	    IAdaptable hint = ((GetParserOperation) operation).getHint();
-	    if (CrosswalkElementTypes.getElement(hint) == null) {
+	/**
+	 * @generated
+	 */
+	public IParser getParser(IAdaptable hint) {
+		String vid = (String) hint.getAdapter(String.class);
+		if (vid != null) {
+			return getParser(CrosswalkVisualIDRegistry.getVisualID(vid));
+		}
+		View view = (View) hint.getAdapter(View.class);
+		if (view != null) {
+			return getParser(CrosswalkVisualIDRegistry.getVisualID(view));
+		}
+		return null;
+	}
+
+	/**
+	 * @generated
+	 */
+	public boolean provides(IOperation operation) {
+		if (operation instanceof GetParserOperation) {
+			IAdaptable hint = ((GetParserOperation) operation).getHint();
+			if (CrosswalkElementTypes.getElement(hint) == null) {
+				return false;
+			}
+			return getParser(hint) != null;
+		}
 		return false;
-	    }
-	    return getParser(hint) != null;
-	}
-	return false;
-    }
-
-    /**
-     * @generated
-     */
-    private static class HintAdapter extends ParserHintAdapter {
-
-	/**
-	 * @generated
-	 */
-	private final IElementType elementType;
-
-	/**
-	 * @generated
-	 */
-	public HintAdapter(IElementType type, EObject object, String parserHint) {
-	    super(object, parserHint);
-	    assert type != null;
-	    elementType = type;
 	}
 
 	/**
 	 * @generated
 	 */
-	@Override
-	public Object getAdapter(Class adapter) {
-	    if (IElementType.class.equals(adapter)) {
-		return elementType;
-	    }
-	    return super.getAdapter(adapter);
+	private static class HintAdapter extends ParserHintAdapter {
+
+		/**
+		 * @generated
+		 */
+		private final IElementType elementType;
+
+		/**
+		 * @generated
+		 */
+		public HintAdapter(IElementType type, EObject object, String parserHint) {
+			super(object, parserHint);
+			assert type != null;
+			elementType = type;
+		}
+
+		/**
+		 * @generated
+		 */
+		@Override
+		public Object getAdapter(Class adapter) {
+			if (IElementType.class.equals(adapter)) {
+				return elementType;
+			}
+			return super.getAdapter(adapter);
+		}
 	}
-    }
 
 }

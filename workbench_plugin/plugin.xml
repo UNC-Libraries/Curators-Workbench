@@ -42,7 +42,7 @@
             class="unc.lib.cdr.workbench.SelectionPropertyTester"
             id="workbench_plugin.selectionTester"
             namespace="workbench_plugin.selection"
-            properties="isDivLinkPair"
+            properties="isDivLinkPair,siblingIResources"
             type="org.eclipse.jface.viewers.ISelection">
       </propertyTester>
    </extension>
@@ -238,23 +238,28 @@
                   checkEnabled="false">
                <with
                      variable="activeMenuSelection">
-                  <iterate
-                        ifEmpty="false">
-                     <and>
-                        <test
-                              property="workbench_plugin.testTopFolderName.folderName"
-                              value="originals">
-                        </test>
-                        <or>
-                           <instanceof
-                                 value="org.eclipse.core.resources.IFolder">
-                           </instanceof>
-                           <instanceof
-                                 value="org.eclipse.core.resources.IFile">
-                           </instanceof>
-                        </or>
-                     </and>
-                  </iterate>
+                  <and>
+                     <test
+                           property="workbench_plugin.selection.siblingIResources">
+                     </test>
+                     <iterate
+                           ifEmpty="false">
+                        <and>
+                           <test
+                                 property="workbench_plugin.testTopFolderName.folderName"
+                                 value="originals">
+                           </test>
+                           <or>
+                              <instanceof
+                                    value="org.eclipse.core.resources.IFolder">
+                              </instanceof>
+                              <instanceof
+                                    value="org.eclipse.core.resources.IFile">
+                              </instanceof>
+                           </or>
+                        </and>
+                     </iterate>
+                  </and>
                </with>
             </visibleWhen>
          </command>
@@ -561,6 +566,9 @@
                class="unc.lib.cdr.workbench.project.MetsProjectNature">
          </run>
       </runtime>
+      <builder
+            id="unc.lib.cdr.workbench.builders.StageBuilder">
+      </builder>
    </extension>
    <extension
          point="org.eclipse.ui.newWizards">
@@ -719,6 +727,20 @@
             adaptable="false"
             id="cdr-workbench.objectContributionDiv"
             objectClass="gov.loc.mets.DivType">
+      </objectContribution>
+      <objectContribution
+            adaptable="true"
+            id="workbench_plugin.projectAutoStageAction"
+            nameFilter="*"
+            objectClass="org.eclipse.core.resources.IProject">
+         <action
+               class="unc.lib.cdr.workbench.commands.AutoStageAction"
+               enablesFor="1"
+               id="workbench_plugin.actionAutoStageAction"
+               label="Stage Captured Files"
+               menubarPath="additions"
+               style="toggle">
+         </action>
       </objectContribution>
    </extension>
    <extension
@@ -941,10 +963,12 @@
    </extension>
    <extension
          id="unc.lib.cdr.workbench.builders.StageBuilder"
-         name="Stage Builder"
+         name="Staging Builder"
          point="org.eclipse.core.resources.builders">
       <builder
-            hasNature="false">
+            callOnEmptyDelta="true"
+            hasNature="true"
+            isConfigurable="true">
          <run
                class="unc.lib.cdr.workbench.stage.StageBuilder">
          </run>

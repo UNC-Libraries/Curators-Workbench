@@ -21,19 +21,19 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Output extends EObject {
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @model kind="operation" required="true" exceptions="crosswalk.DataException"
-         * @generated
-         */
+	 * @model kind="operation" required="true" exceptions="crosswalk.DataException"
+	 * @generated
+	 */
         Object getResult() throws DataException;
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @model kind="operation"
-         * @generated
-         */
+	 * @model kind="operation"
+	 * @generated
+	 */
         EDataType getOutputEDataType();
 
 } // Output

@@ -17,79 +17,79 @@ import crosswalk.diagram.edit.policies.CrosswalkBaseItemSemanticEditPolicy;
  */
 public class InputOutputCreateCommand extends EditElementCommand {
 
-    /**
-     * @generated
-     */
-    private final EObject source;
+	/**
+	 * @generated
+	 */
+	private final EObject source;
 
-    /**
-     * @generated
-     */
-    private final EObject target;
+	/**
+	 * @generated
+	 */
+	private final EObject target;
 
-    /**
-     * @generated
-     */
-    public InputOutputCreateCommand(CreateRelationshipRequest request, EObject source, EObject target) {
-	super(request.getLabel(), null, request);
-	this.source = source;
-	this.target = target;
-    }
-
-    /**
-     * @generated
-     */
-    public boolean canExecute() {
-	if (source == null && target == null) {
-	    return false;
-	}
-	if (source != null && false == source instanceof Input) {
-	    return false;
-	}
-	if (target != null && false == target instanceof Output) {
-	    return false;
-	}
-	if (getSource() == null) {
-	    return true; // link creation is in progress; source is not defined yet
-	}
-	// target may be null here but it's possible to check constraint
-	return CrosswalkBaseItemSemanticEditPolicy.getLinkConstraints().canCreateInputOutput_4003(getSource(),
-			getTarget());
-    }
-
-    /**
-     * @generated
-     */
-    protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
-	if (!canExecute()) {
-	    throw new ExecutionException("Invalid arguments in create link command"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public InputOutputCreateCommand(CreateRelationshipRequest request, EObject source, EObject target) {
+		super(request.getLabel(), null, request);
+		this.source = source;
+		this.target = target;
 	}
 
-	if (getSource() != null && getTarget() != null) {
-	    getSource().setOutput(getTarget());
+	/**
+	 * @generated
+	 */
+	public boolean canExecute() {
+		if (source == null && target == null) {
+			return false;
+		}
+		if (source != null && false == source instanceof Input) {
+			return false;
+		}
+		if (target != null && false == target instanceof Output) {
+			return false;
+		}
+		if (getSource() == null) {
+			return true; // link creation is in progress; source is not defined yet
+		}
+		// target may be null here but it's possible to check constraint
+		return CrosswalkBaseItemSemanticEditPolicy.getLinkConstraints().canCreateInputOutput_4003(getSource(),
+				getTarget());
 	}
-	return CommandResult.newOKCommandResult();
 
-    }
+	/**
+	 * @generated
+	 */
+	protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
+		if (!canExecute()) {
+			throw new ExecutionException("Invalid arguments in create link command"); //$NON-NLS-1$
+		}
 
-    /**
-     * @generated
-     */
-    protected void setElementToEdit(EObject element) {
-	throw new UnsupportedOperationException();
-    }
+		if (getSource() != null && getTarget() != null) {
+			getSource().setOutput(getTarget());
+		}
+		return CommandResult.newOKCommandResult();
 
-    /**
-     * @generated
-     */
-    protected Input getSource() {
-	return (Input) source;
-    }
+	}
 
-    /**
-     * @generated
-     */
-    protected Output getTarget() {
-	return (Output) target;
-    }
+	/**
+	 * @generated
+	 */
+	protected void setElementToEdit(EObject element) {
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * @generated
+	 */
+	protected Input getSource() {
+		return (Input) source;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected Output getTarget() {
+		return (Output) target;
+	}
 }

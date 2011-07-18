@@ -42,112 +42,112 @@ import crosswalk.TabbedDataField;
  * @generated
  */
 public class TabbedDataFieldLabelExpressionLabelParser implements IParser {
-    /**
-     * @generated
-     */
-    public TabbedDataFieldLabelExpressionLabelParser() {
-    }
-
-    /**
-     * @generated
-     */
-    public String getEditString(IAdaptable element, int flags) {
-	return getPrintString(element, flags);
-    }
-
-    /**
-     * @generated
-     */
-    public IParserEditStatus isValidEditString(IAdaptable element, String editString) {
-	return ParserEditStatus.EDITABLE_STATUS;
-    }
-
-    /**
-     * @generated
-     */
-    public ICommand getParseCommand(IAdaptable element, final String newString, int flags) {
-	final EObject target = (EObject) element.getAdapter(EObject.class);
-	if (!validateValues(target, newString)) {
-	    return UnexecutableCommand.INSTANCE;
+	/**
+	 * @generated
+	 */
+	public TabbedDataFieldLabelExpressionLabelParser() {
 	}
-	TransactionalEditingDomain editingDomain = TransactionUtil.getEditingDomain(target);
-	if (editingDomain == null) {
-	    return UnexecutableCommand.INSTANCE;
+
+	/**
+	 * @generated
+	 */
+	public String getEditString(IAdaptable element, int flags) {
+		return getPrintString(element, flags);
 	}
-	IFile affectedFile = WorkspaceSynchronizer.getFile(target.eResource());
-	return new AbstractTransactionalCommand(editingDomain,
-			"Set Values", affectedFile == null ? null : Collections.singletonList(affectedFile)) { //$NON-NLS-1$ 
-	    protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info)
-			    throws ExecutionException {
-		return new CommandResult(updateValues(target, newString));
-	    }
-	};
-    }
 
-    /**
-     * @generated
-     */
-    public String getPrintString(IAdaptable element, int flags) {
-	return evaluatePrintExpression((EObject) element.getAdapter(EObject.class));
-    }
+	/**
+	 * @generated
+	 */
+	public IParserEditStatus isValidEditString(IAdaptable element, String editString) {
+		return ParserEditStatus.EDITABLE_STATUS;
+	}
 
-    /**
-     * @generated
-     */
-    public boolean isAffectingEvent(Object event, int flags) {
-	// XXX Any event is recognized as important, unless there's a way to extract this information from expression itself.
-	// TODO analyze expressions (e.g. using OCL parser) to find out structural features in use  
-	return true;
-    }
-
-    /**
-     * @generated
-     */
-    public IContentAssistProcessor getCompletionProcessor(IAdaptable element) {
-	return null;
-    }
-
-    /**
-     * @generated
-     */
-    private boolean validateValues(EObject target, String newString) {
-	// TODO implement as needed
-	return true;
-    }
-
-    /**
-     * @generated
-     */
-    private IStatus updateValues(EObject target, String newString) throws ExecutionException {
-	// TODO implement this method
-	// DO NOT FORGET to remove @generated tag or mark method @generated NOT
-	throw new ExecutionException("Please implement parsing and value modification");
-    }
-
-    /**
-     * @generated NOT
-     */
-    private String evaluatePrintExpression(EObject self) {
-	if (self instanceof TabbedDataField) {
-	    TabbedDataField tdf = (TabbedDataField) self;
-	    try {
-		Object r = tdf.getResult();
-		if (r == null) {
-		    return "";
-		} else if (r instanceof String) {
-		    String str = (String) r;
-		    if (str.length() > 50) {
-			str = str.substring(0, 50);
-		    }
-		    return str;
-		} else {
-		    return r.toString();
+	/**
+	 * @generated
+	 */
+	public ICommand getParseCommand(IAdaptable element, final String newString, int flags) {
+		final EObject target = (EObject) element.getAdapter(EObject.class);
+		if (!validateValues(target, newString)) {
+			return UnexecutableCommand.INSTANCE;
 		}
-	    } catch (DataException e) {
-		return e.getLocalizedMessage();
-	    }
+		TransactionalEditingDomain editingDomain = TransactionUtil.getEditingDomain(target);
+		if (editingDomain == null) {
+			return UnexecutableCommand.INSTANCE;
+		}
+		IFile affectedFile = WorkspaceSynchronizer.getFile(target.eResource());
+		return new AbstractTransactionalCommand(editingDomain,
+				"Set Values", affectedFile == null ? null : Collections.singletonList(affectedFile)) { //$NON-NLS-1$ 
+			protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info)
+					throws ExecutionException {
+				return new CommandResult(updateValues(target, newString));
+			}
+		};
 	}
-	return "not tabbed data field";
-    }
+
+	/**
+	 * @generated
+	 */
+	public String getPrintString(IAdaptable element, int flags) {
+		return evaluatePrintExpression((EObject) element.getAdapter(EObject.class));
+	}
+
+	/**
+	 * @generated
+	 */
+	public boolean isAffectingEvent(Object event, int flags) {
+		// XXX Any event is recognized as important, unless there's a way to extract this information from expression itself.
+		// TODO analyze expressions (e.g. using OCL parser) to find out structural features in use  
+		return true;
+	}
+
+	/**
+	 * @generated
+	 */
+	public IContentAssistProcessor getCompletionProcessor(IAdaptable element) {
+		return null;
+	}
+
+	/**
+	 * @generated
+	 */
+	private boolean validateValues(EObject target, String newString) {
+		// TODO implement as needed
+		return true;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IStatus updateValues(EObject target, String newString) throws ExecutionException {
+		// TODO implement this method
+		// DO NOT FORGET to remove @generated tag or mark method @generated NOT
+		throw new ExecutionException("Please implement parsing and value modification");
+	}
+
+	/**
+	 * @generated NOT
+	 */
+	private String evaluatePrintExpression(EObject self) {
+		if (self instanceof TabbedDataField) {
+			TabbedDataField tdf = (TabbedDataField) self;
+			try {
+				Object r = tdf.getResult();
+				if (r == null) {
+					return "";
+				} else if (r instanceof String) {
+					String str = (String) r;
+					if (str.length() > 50) {
+						str = str.substring(0, 50);
+					}
+					return str;
+				} else {
+					return r.toString();
+				}
+			} catch (DataException e) {
+				return e.getLocalizedMessage();
+			}
+		}
+		return "not tabbed data field";
+	}
 
 }

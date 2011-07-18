@@ -26,24 +26,24 @@ import org.eclipse.ui.PartInitException;
  */
 public class CrosswalkMatchingStrategy implements IEditorMatchingStrategy {
 
-    /**
-     * @generated
-     */
-    public boolean matches(IEditorReference editorRef, IEditorInput input) {
-	IEditorInput editorInput;
-	try {
-	    editorInput = editorRef.getEditorInput();
-	} catch (PartInitException e) {
-	    return false;
-	}
+	/**
+	 * @generated
+	 */
+	public boolean matches(IEditorReference editorRef, IEditorInput input) {
+		IEditorInput editorInput;
+		try {
+			editorInput = editorRef.getEditorInput();
+		} catch (PartInitException e) {
+			return false;
+		}
 
-	if (editorInput.equals(input)) {
-	    return true;
+		if (editorInput.equals(input)) {
+			return true;
+		}
+		if (editorInput instanceof URIEditorInput && input instanceof URIEditorInput) {
+			return ((URIEditorInput) editorInput).getURI().equals(((URIEditorInput) input).getURI());
+		}
+		return false;
 	}
-	if (editorInput instanceof URIEditorInput && input instanceof URIEditorInput) {
-	    return ((URIEditorInput) editorInput).getURI().equals(((URIEditorInput) input).getURI());
-	}
-	return false;
-    }
 
 }

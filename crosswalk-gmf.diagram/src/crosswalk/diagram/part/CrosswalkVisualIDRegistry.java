@@ -56,282 +56,282 @@ import crosswalk.diagram.edit.parts.WrappingLabel9EditPart;
  */
 public class CrosswalkVisualIDRegistry {
 
-    /**
-     * @generated
-     */
-    private static final String DEBUG_KEY = "crosswalk-gmf.diagram/debug/visualID"; //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	private static final String DEBUG_KEY = "crosswalk-gmf.diagram/debug/visualID"; //$NON-NLS-1$
 
-    /**
-     * @generated
-     */
-    public static int getVisualID(View view) {
-	if (view instanceof Diagram) {
-	    if (CrossWalkEditPart.MODEL_ID.equals(view.getType())) {
-		return CrossWalkEditPart.VISUAL_ID;
-	    } else {
+	/**
+	 * @generated
+	 */
+	public static int getVisualID(View view) {
+		if (view instanceof Diagram) {
+			if (CrossWalkEditPart.MODEL_ID.equals(view.getType())) {
+				return CrossWalkEditPart.VISUAL_ID;
+			} else {
+				return -1;
+			}
+		}
+		return crosswalk.diagram.part.CrosswalkVisualIDRegistry.getVisualID(view.getType());
+	}
+
+	/**
+	 * @generated
+	 */
+	public static String getModelID(View view) {
+		View diagram = view.getDiagram();
+		while (view != diagram) {
+			EAnnotation annotation = view.getEAnnotation("Shortcut"); //$NON-NLS-1$
+			if (annotation != null) {
+				return (String) annotation.getDetails().get("modelID"); //$NON-NLS-1$
+			}
+			view = (View) view.eContainer();
+		}
+		return diagram != null ? diagram.getType() : null;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static int getVisualID(String type) {
+		try {
+			return Integer.parseInt(type);
+		} catch (NumberFormatException e) {
+			if (Boolean.TRUE.toString().equalsIgnoreCase(Platform.getDebugOption(DEBUG_KEY))) {
+				CrosswalkDiagramEditorPlugin.getInstance().logError(
+						"Unable to parse view type as a visualID number: " + type);
+			}
+		}
 		return -1;
-	    }
 	}
-	return crosswalk.diagram.part.CrosswalkVisualIDRegistry.getVisualID(view.getType());
-    }
 
-    /**
-     * @generated
-     */
-    public static String getModelID(View view) {
-	View diagram = view.getDiagram();
-	while (view != diagram) {
-	    EAnnotation annotation = view.getEAnnotation("Shortcut"); //$NON-NLS-1$
-	    if (annotation != null) {
-		return (String) annotation.getDetails().get("modelID"); //$NON-NLS-1$
-	    }
-	    view = (View) view.eContainer();
+	/**
+	 * @generated
+	 */
+	public static String getType(int visualID) {
+		return Integer.toString(visualID);
 	}
-	return diagram != null ? diagram.getType() : null;
-    }
 
-    /**
-     * @generated
-     */
-    public static int getVisualID(String type) {
-	try {
-	    return Integer.parseInt(type);
-	} catch (NumberFormatException e) {
-	    if (Boolean.TRUE.toString().equalsIgnoreCase(Platform.getDebugOption(DEBUG_KEY))) {
-		CrosswalkDiagramEditorPlugin.getInstance().logError(
-				"Unable to parse view type as a visualID number: " + type);
-	    }
-	}
-	return -1;
-    }
-
-    /**
-     * @generated
-     */
-    public static String getType(int visualID) {
-	return Integer.toString(visualID);
-    }
-
-    /**
-     * @generated
-     */
-    public static int getDiagramVisualID(EObject domainElement) {
-	if (domainElement == null) {
-	    return -1;
-	}
-	if (CrosswalkPackage.eINSTANCE.getCrossWalk().isSuperTypeOf(domainElement.eClass())
-			&& isDiagram((CrossWalk) domainElement)) {
-	    return CrossWalkEditPart.VISUAL_ID;
-	}
-	return -1;
-    }
-
-    /**
-     * @generated
-     */
-    public static int getNodeVisualID(View containerView, EObject domainElement) {
-	if (domainElement == null) {
-	    return -1;
-	}
-	String containerModelID = crosswalk.diagram.part.CrosswalkVisualIDRegistry.getModelID(containerView);
-	if (!CrossWalkEditPart.MODEL_ID.equals(containerModelID)) {
-	    return -1;
-	}
-	int containerVisualID;
-	if (CrossWalkEditPart.MODEL_ID.equals(containerModelID)) {
-	    containerVisualID = crosswalk.diagram.part.CrosswalkVisualIDRegistry.getVisualID(containerView);
-	} else {
-	    if (containerView instanceof Diagram) {
-		containerVisualID = CrossWalkEditPart.VISUAL_ID;
-	    } else {
+	/**
+	 * @generated
+	 */
+	public static int getDiagramVisualID(EObject domainElement) {
+		if (domainElement == null) {
+			return -1;
+		}
+		if (CrosswalkPackage.eINSTANCE.getCrossWalk().isSuperTypeOf(domainElement.eClass())
+				&& isDiagram((CrossWalk) domainElement)) {
+			return CrossWalkEditPart.VISUAL_ID;
+		}
 		return -1;
-	    }
 	}
-	switch (containerVisualID) {
-	case CrossWalkEditPart.VISUAL_ID:
-	    if (CrosswalkPackage.eINSTANCE.getDelimitedFile().isSuperTypeOf(domainElement.eClass())) {
-		return DelimitedFileEditPart.VISUAL_ID;
-	    }
-	    if (CrosswalkPackage.eINSTANCE.getOriginalNameRecordMatcher().isSuperTypeOf(domainElement.eClass())) {
-		return OriginalNameRecordMatcherEditPart.VISUAL_ID;
-	    }
-	    if (CrosswalkPackage.eINSTANCE.getDateRecognizer().isSuperTypeOf(domainElement.eClass())) {
-		return DateRecognizerEditPart.VISUAL_ID;
-	    }
-	    if (CrosswalkPackage.eINSTANCE.getText().isSuperTypeOf(domainElement.eClass())) {
-		return TextEditPart.VISUAL_ID;
-	    }
-	    if (CrosswalkPackage.eINSTANCE.getTrimWhitespace().isSuperTypeOf(domainElement.eClass())) {
-		return TrimWhitespaceEditPart.VISUAL_ID;
-	    }
-	    if (CrosswalkPackage.eINSTANCE.getMappedElement().isSuperTypeOf(domainElement.eClass())) {
-		return MappedElementEditPart.VISUAL_ID;
-	    }
-	    break;
-	case DelimitedFileDataFieldCompartmentEditPart.VISUAL_ID:
-	    if (CrosswalkPackage.eINSTANCE.getTabbedDataField().isSuperTypeOf(domainElement.eClass())) {
-		return TabbedDataFieldEditPart.VISUAL_ID;
-	    }
-	    break;
-	case MappedElementChildElementsCompartmentEditPart.VISUAL_ID:
-	    if (CrosswalkPackage.eINSTANCE.getMappedElement().isSuperTypeOf(domainElement.eClass())) {
-		return MappedElement2EditPart.VISUAL_ID;
-	    }
-	    if (CrosswalkPackage.eINSTANCE.getMappedAttribute().isSuperTypeOf(domainElement.eClass())) {
-		return MappedAttributeEditPart.VISUAL_ID;
-	    }
-	    break;
-	case MappedElementChildElementsCompartment2EditPart.VISUAL_ID:
-	    if (CrosswalkPackage.eINSTANCE.getMappedElement().isSuperTypeOf(domainElement.eClass())) {
-		return MappedElement2EditPart.VISUAL_ID;
-	    }
-	    if (CrosswalkPackage.eINSTANCE.getMappedAttribute().isSuperTypeOf(domainElement.eClass())) {
-		return MappedAttributeEditPart.VISUAL_ID;
-	    }
-	    break;
-	}
-	return -1;
-    }
 
-    /**
-     * @generated
-     */
-    public static boolean canCreateNode(View containerView, int nodeVisualID) {
-	String containerModelID = crosswalk.diagram.part.CrosswalkVisualIDRegistry.getModelID(containerView);
-	if (!CrossWalkEditPart.MODEL_ID.equals(containerModelID)) {
-	    return false;
+	/**
+	 * @generated
+	 */
+	public static int getNodeVisualID(View containerView, EObject domainElement) {
+		if (domainElement == null) {
+			return -1;
+		}
+		String containerModelID = crosswalk.diagram.part.CrosswalkVisualIDRegistry.getModelID(containerView);
+		if (!CrossWalkEditPart.MODEL_ID.equals(containerModelID)) {
+			return -1;
+		}
+		int containerVisualID;
+		if (CrossWalkEditPart.MODEL_ID.equals(containerModelID)) {
+			containerVisualID = crosswalk.diagram.part.CrosswalkVisualIDRegistry.getVisualID(containerView);
+		} else {
+			if (containerView instanceof Diagram) {
+				containerVisualID = CrossWalkEditPart.VISUAL_ID;
+			} else {
+				return -1;
+			}
+		}
+		switch (containerVisualID) {
+			case CrossWalkEditPart.VISUAL_ID:
+				if (CrosswalkPackage.eINSTANCE.getDelimitedFile().isSuperTypeOf(domainElement.eClass())) {
+					return DelimitedFileEditPart.VISUAL_ID;
+				}
+				if (CrosswalkPackage.eINSTANCE.getOriginalNameRecordMatcher().isSuperTypeOf(domainElement.eClass())) {
+					return OriginalNameRecordMatcherEditPart.VISUAL_ID;
+				}
+				if (CrosswalkPackage.eINSTANCE.getDateRecognizer().isSuperTypeOf(domainElement.eClass())) {
+					return DateRecognizerEditPart.VISUAL_ID;
+				}
+				if (CrosswalkPackage.eINSTANCE.getText().isSuperTypeOf(domainElement.eClass())) {
+					return TextEditPart.VISUAL_ID;
+				}
+				if (CrosswalkPackage.eINSTANCE.getTrimWhitespace().isSuperTypeOf(domainElement.eClass())) {
+					return TrimWhitespaceEditPart.VISUAL_ID;
+				}
+				if (CrosswalkPackage.eINSTANCE.getMappedElement().isSuperTypeOf(domainElement.eClass())) {
+					return MappedElementEditPart.VISUAL_ID;
+				}
+				break;
+			case DelimitedFileDataFieldCompartmentEditPart.VISUAL_ID:
+				if (CrosswalkPackage.eINSTANCE.getTabbedDataField().isSuperTypeOf(domainElement.eClass())) {
+					return TabbedDataFieldEditPart.VISUAL_ID;
+				}
+				break;
+			case MappedElementChildElementsCompartmentEditPart.VISUAL_ID:
+				if (CrosswalkPackage.eINSTANCE.getMappedElement().isSuperTypeOf(domainElement.eClass())) {
+					return MappedElement2EditPart.VISUAL_ID;
+				}
+				if (CrosswalkPackage.eINSTANCE.getMappedAttribute().isSuperTypeOf(domainElement.eClass())) {
+					return MappedAttributeEditPart.VISUAL_ID;
+				}
+				break;
+			case MappedElementChildElementsCompartment2EditPart.VISUAL_ID:
+				if (CrosswalkPackage.eINSTANCE.getMappedElement().isSuperTypeOf(domainElement.eClass())) {
+					return MappedElement2EditPart.VISUAL_ID;
+				}
+				if (CrosswalkPackage.eINSTANCE.getMappedAttribute().isSuperTypeOf(domainElement.eClass())) {
+					return MappedAttributeEditPart.VISUAL_ID;
+				}
+				break;
+		}
+		return -1;
 	}
-	int containerVisualID;
-	if (CrossWalkEditPart.MODEL_ID.equals(containerModelID)) {
-	    containerVisualID = crosswalk.diagram.part.CrosswalkVisualIDRegistry.getVisualID(containerView);
-	} else {
-	    if (containerView instanceof Diagram) {
-		containerVisualID = CrossWalkEditPart.VISUAL_ID;
-	    } else {
+
+	/**
+	 * @generated
+	 */
+	public static boolean canCreateNode(View containerView, int nodeVisualID) {
+		String containerModelID = crosswalk.diagram.part.CrosswalkVisualIDRegistry.getModelID(containerView);
+		if (!CrossWalkEditPart.MODEL_ID.equals(containerModelID)) {
+			return false;
+		}
+		int containerVisualID;
+		if (CrossWalkEditPart.MODEL_ID.equals(containerModelID)) {
+			containerVisualID = crosswalk.diagram.part.CrosswalkVisualIDRegistry.getVisualID(containerView);
+		} else {
+			if (containerView instanceof Diagram) {
+				containerVisualID = CrossWalkEditPart.VISUAL_ID;
+			} else {
+				return false;
+			}
+		}
+		switch (containerVisualID) {
+			case CrossWalkEditPart.VISUAL_ID:
+				if (DelimitedFileEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				if (OriginalNameRecordMatcherEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				if (DateRecognizerEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				if (TextEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				if (TrimWhitespaceEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				if (MappedElementEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				break;
+			case DelimitedFileEditPart.VISUAL_ID:
+				if (DelimitedFileSourceFileEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				if (DelimitedFileDataFieldCompartmentEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				break;
+			case OriginalNameRecordMatcherEditPart.VISUAL_ID:
+				if (WrappingLabel9EditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				break;
+			case DateRecognizerEditPart.VISUAL_ID:
+				if (WrappingLabel12EditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				break;
+			case TextEditPart.VISUAL_ID:
+				if (TextValueEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				break;
+			case TrimWhitespaceEditPart.VISUAL_ID:
+				if (WrappingLabel13EditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				break;
+			case MappedElementEditPart.VISUAL_ID:
+				if (WrappingLabel14EditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				if (MappedElementChildElementsCompartmentEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				break;
+			case TabbedDataFieldEditPart.VISUAL_ID:
+				if (WrappingLabel15EditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				if (TabbedDataFieldLabelColumnNumberEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				break;
+			case MappedElement2EditPart.VISUAL_ID:
+				if (WrappingLabel16EditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				if (MappedElementChildElementsCompartment2EditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				break;
+			case MappedAttributeEditPart.VISUAL_ID:
+				if (MappedAttributeNameEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				break;
+			case DelimitedFileDataFieldCompartmentEditPart.VISUAL_ID:
+				if (TabbedDataFieldEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				break;
+			case MappedElementChildElementsCompartmentEditPart.VISUAL_ID:
+				if (MappedElement2EditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				if (MappedAttributeEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				break;
+			case MappedElementChildElementsCompartment2EditPart.VISUAL_ID:
+				if (MappedElement2EditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				if (MappedAttributeEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				break;
+		}
 		return false;
-	    }
 	}
-	switch (containerVisualID) {
-	case CrossWalkEditPart.VISUAL_ID:
-	    if (DelimitedFileEditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    if (OriginalNameRecordMatcherEditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    if (DateRecognizerEditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    if (TextEditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    if (TrimWhitespaceEditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    if (MappedElementEditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    break;
-	case DelimitedFileEditPart.VISUAL_ID:
-	    if (DelimitedFileSourceFileEditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    if (DelimitedFileDataFieldCompartmentEditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    break;
-	case OriginalNameRecordMatcherEditPart.VISUAL_ID:
-	    if (WrappingLabel9EditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    break;
-	case DateRecognizerEditPart.VISUAL_ID:
-	    if (WrappingLabel12EditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    break;
-	case TextEditPart.VISUAL_ID:
-	    if (TextValueEditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    break;
-	case TrimWhitespaceEditPart.VISUAL_ID:
-	    if (WrappingLabel13EditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    break;
-	case MappedElementEditPart.VISUAL_ID:
-	    if (WrappingLabel14EditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    if (MappedElementChildElementsCompartmentEditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    break;
-	case TabbedDataFieldEditPart.VISUAL_ID:
-	    if (WrappingLabel15EditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    if (TabbedDataFieldLabelColumnNumberEditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    break;
-	case MappedElement2EditPart.VISUAL_ID:
-	    if (WrappingLabel16EditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    if (MappedElementChildElementsCompartment2EditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    break;
-	case MappedAttributeEditPart.VISUAL_ID:
-	    if (MappedAttributeNameEditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    break;
-	case DelimitedFileDataFieldCompartmentEditPart.VISUAL_ID:
-	    if (TabbedDataFieldEditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    break;
-	case MappedElementChildElementsCompartmentEditPart.VISUAL_ID:
-	    if (MappedElement2EditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    if (MappedAttributeEditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    break;
-	case MappedElementChildElementsCompartment2EditPart.VISUAL_ID:
-	    if (MappedElement2EditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    if (MappedAttributeEditPart.VISUAL_ID == nodeVisualID) {
-		return true;
-	    }
-	    break;
-	}
-	return false;
-    }
 
-    /**
-     * @generated
-     */
-    public static int getLinkWithClassVisualID(EObject domainElement) {
-	if (domainElement == null) {
-	    return -1;
+	/**
+	 * @generated
+	 */
+	public static int getLinkWithClassVisualID(EObject domainElement) {
+		if (domainElement == null) {
+			return -1;
+		}
+		return -1;
 	}
-	return -1;
-    }
 
-    /**
-     * User can change implementation of this method to handle some specific
-     * situations not covered by default logic.
-     *
-     * @generated
-     */
-    private static boolean isDiagram(CrossWalk element) {
-	return true;
-    }
+	/**
+	 * User can change implementation of this method to handle some specific
+	 * situations not covered by default logic.
+	 *
+	 * @generated
+	 */
+	private static boolean isDiagram(CrossWalk element) {
+		return true;
+	}
 
 }

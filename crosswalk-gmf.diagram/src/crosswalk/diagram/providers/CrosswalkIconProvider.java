@@ -27,20 +27,20 @@ import org.eclipse.swt.graphics.Image;
  */
 public class CrosswalkIconProvider extends AbstractProvider implements IIconProvider {
 
-    /**
-     * @generated
-     */
-    public Image getIcon(IAdaptable hint, int flags) {
-	return CrosswalkElementTypes.getImage(hint);
-    }
-
-    /**
-     * @generated
-     */
-    public boolean provides(IOperation operation) {
-	if (operation instanceof GetIconOperation) {
-	    return ((GetIconOperation) operation).execute(this) != null;
+	/**
+	 * @generated
+	 */
+	public Image getIcon(IAdaptable hint, int flags) {
+		return CrosswalkElementTypes.getImage(hint);
 	}
-	return false;
-    }
+
+	/**
+	 * @generated
+	 */
+	public boolean provides(IOperation operation) {
+		if (operation instanceof GetIconOperation) {
+			return ((GetIconOperation) operation).execute(this) != null;
+		}
+		return false;
+	}
 }

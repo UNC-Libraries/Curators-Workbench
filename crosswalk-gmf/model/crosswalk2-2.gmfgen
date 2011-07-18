@@ -482,7 +482,7 @@
             href="crosswalk.genmodel#//crosswalk/Input/Output"/>
       </modelFacet>
       <creationConstraints
-          sourceEnd="//@expressionProviders/@providers.0/@expressions.4"/>
+          sourceEnd="//@expressionProviders/@providers.0/@expressions.5"/>
     </links>
     <compartments
         visualID="7001"
@@ -779,6 +779,8 @@
       <expressions
           body="'Folder/File Name Matcher'"/>
       <expressions
+          body="&quot;Date Recognizer&quot;"/>
+      <expressions
           body="findthisstring"/>
       <expressions
           body="findthisstring"/>
@@ -788,8 +790,6 @@
     </providers>
     <providers
         xsi:type="gmfgen:GenLiteralExpressionProvider">
-      <expressions
-          body="&quot;Date Recognizer&quot;"/>
       <expressions
           body="&quot;Trim Spaces&quot;"/>
     </providers>
@@ -816,35 +816,35 @@
     <implementations
         xsi:type="gmfgen:ExpressionLabelParser"
         uses="//@diagram/@topLevelNodes.2/@labels.0/@modelFacet"
-        viewExpression="//@expressionProviders/@providers.1/@expressions.0">
+        viewExpression="//@expressionProviders/@providers.0/@expressions.2">
       <expressionContext
           href="crosswalk.genmodel#//crosswalk/DateRecognizer"/>
     </implementations>
     <implementations
         xsi:type="gmfgen:ExpressionLabelParser"
         uses="//@diagram/@topLevelNodes.4/@labels.0/@modelFacet"
-        viewExpression="//@expressionProviders/@providers.1/@expressions.1">
+        viewExpression="//@expressionProviders/@providers.1/@expressions.0">
       <expressionContext
           href="crosswalk.genmodel#//crosswalk/TrimWhitespace"/>
     </implementations>
     <implementations
         xsi:type="gmfgen:ExpressionLabelParser"
         uses="//@diagram/@childNodes.2/@labels.0/@modelFacet"
-        viewExpression="//@expressionProviders/@providers.0/@expressions.2">
+        viewExpression="//@expressionProviders/@providers.0/@expressions.3">
       <expressionContext
           href="crosswalk.genmodel#//crosswalk/MappedAttribute"/>
     </implementations>
     <implementations
         xsi:type="gmfgen:ExpressionLabelParser"
         uses="//@diagram/@childNodes.1/@labels.0/@modelFacet"
-        viewExpression="//@expressionProviders/@providers.0/@expressions.3">
+        viewExpression="//@expressionProviders/@providers.0/@expressions.4">
       <expressionContext
           href="crosswalk.genmodel#//crosswalk/MappedElement"/>
     </implementations>
     <implementations
         xsi:type="gmfgen:ExpressionLabelParser"
         uses="//@diagram/@topLevelNodes.5/@labels.0/@modelFacet"
-        viewExpression="//@expressionProviders/@providers.0/@expressions.3">
+        viewExpression="//@expressionProviders/@providers.0/@expressions.4">
       <expressionContext
           href="crosswalk.genmodel#//crosswalk/MappedElement"/>
     </implementations>

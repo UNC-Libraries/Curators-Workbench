@@ -24,20 +24,20 @@ import crosswalk.diagram.part.CrosswalkVisualIDRegistry;
  */
 public class CrosswalkNavigatorSorter extends ViewerSorter {
 
-    /**
-     * @generated
-     */
-    private static final int GROUP_CATEGORY = 7018;
+	/**
+	 * @generated
+	 */
+	private static final int GROUP_CATEGORY = 7018;
 
-    /**
-     * @generated
-     */
-    public int category(Object element) {
-	if (element instanceof CrosswalkNavigatorItem) {
-	    CrosswalkNavigatorItem item = (CrosswalkNavigatorItem) element;
-	    return CrosswalkVisualIDRegistry.getVisualID(item.getView());
+	/**
+	 * @generated
+	 */
+	public int category(Object element) {
+		if (element instanceof CrosswalkNavigatorItem) {
+			CrosswalkNavigatorItem item = (CrosswalkNavigatorItem) element;
+			return CrosswalkVisualIDRegistry.getVisualID(item.getView());
+		}
+		return GROUP_CATEGORY;
 	}
-	return GROUP_CATEGORY;
-    }
 
 }

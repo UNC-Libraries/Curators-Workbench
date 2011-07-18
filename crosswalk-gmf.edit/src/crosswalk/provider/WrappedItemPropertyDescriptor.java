@@ -165,7 +165,7 @@ public class WrappedItemPropertyDescriptor implements IItemPropertyDescriptor {
      */
     @Override
     public boolean isMultiLine(Object object) {
-	return this.isMultiLine(object);
+	return this.wrappedDescriptor.isMultiLine(object);
     }
 
     /* (non-Javadoc)

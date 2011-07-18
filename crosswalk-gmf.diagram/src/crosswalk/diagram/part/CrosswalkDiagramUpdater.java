@@ -64,509 +64,509 @@ import crosswalk.diagram.providers.CrosswalkElementTypes;
  */
 public class CrosswalkDiagramUpdater {
 
-    /**
-     * @generated
-     */
-    public static List<CrosswalkNodeDescriptor> getSemanticChildren(View view) {
-	switch (CrosswalkVisualIDRegistry.getVisualID(view)) {
-	case CrossWalkEditPart.VISUAL_ID:
-	    return getCrossWalk_1000SemanticChildren(view);
-	case DelimitedFileDataFieldCompartmentEditPart.VISUAL_ID:
-	    return getDelimitedFileDataFieldCompartment_7001SemanticChildren(view);
-	case MappedElementChildElementsCompartmentEditPart.VISUAL_ID:
-	    return getMappedElementChildElementsCompartment_7015SemanticChildren(view);
-	case MappedElementChildElementsCompartment2EditPart.VISUAL_ID:
-	    return getMappedElementChildElementsCompartment_7016SemanticChildren(view);
+	/**
+	 * @generated
+	 */
+	public static List<CrosswalkNodeDescriptor> getSemanticChildren(View view) {
+		switch (CrosswalkVisualIDRegistry.getVisualID(view)) {
+			case CrossWalkEditPart.VISUAL_ID:
+				return getCrossWalk_1000SemanticChildren(view);
+			case DelimitedFileDataFieldCompartmentEditPart.VISUAL_ID:
+				return getDelimitedFileDataFieldCompartment_7001SemanticChildren(view);
+			case MappedElementChildElementsCompartmentEditPart.VISUAL_ID:
+				return getMappedElementChildElementsCompartment_7015SemanticChildren(view);
+			case MappedElementChildElementsCompartment2EditPart.VISUAL_ID:
+				return getMappedElementChildElementsCompartment_7016SemanticChildren(view);
+		}
+		return Collections.emptyList();
 	}
-	return Collections.emptyList();
-    }
 
-    /**
-     * @generated
-     */
-    public static List<CrosswalkNodeDescriptor> getCrossWalk_1000SemanticChildren(View view) {
-	if (!view.isSetElement()) {
-	    return Collections.emptyList();
+	/**
+	 * @generated
+	 */
+	public static List<CrosswalkNodeDescriptor> getCrossWalk_1000SemanticChildren(View view) {
+		if (!view.isSetElement()) {
+			return Collections.emptyList();
+		}
+		CrossWalk modelElement = (CrossWalk) view.getElement();
+		LinkedList<CrosswalkNodeDescriptor> result = new LinkedList<CrosswalkNodeDescriptor>();
+		{
+			DataSource childElement = modelElement.getDataSource();
+			int visualID = CrosswalkVisualIDRegistry.getNodeVisualID(view, childElement);
+			if (visualID == DelimitedFileEditPart.VISUAL_ID) {
+				result.add(new CrosswalkNodeDescriptor(childElement, visualID));
+			}
+		}
+		for (Iterator<?> it = modelElement.getWidgets().iterator(); it.hasNext();) {
+			WalkWidget childElement = (WalkWidget) it.next();
+			int visualID = CrosswalkVisualIDRegistry.getNodeVisualID(view, childElement);
+			if (visualID == OriginalNameRecordMatcherEditPart.VISUAL_ID) {
+				result.add(new CrosswalkNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == DateRecognizerEditPart.VISUAL_ID) {
+				result.add(new CrosswalkNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == TextEditPart.VISUAL_ID) {
+				result.add(new CrosswalkNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == TrimWhitespaceEditPart.VISUAL_ID) {
+				result.add(new CrosswalkNodeDescriptor(childElement, visualID));
+				continue;
+			}
+		}
+		for (Iterator<?> it = modelElement.getElements().iterator(); it.hasNext();) {
+			OutputElement childElement = (OutputElement) it.next();
+			int visualID = CrosswalkVisualIDRegistry.getNodeVisualID(view, childElement);
+			if (visualID == MappedElementEditPart.VISUAL_ID) {
+				result.add(new CrosswalkNodeDescriptor(childElement, visualID));
+				continue;
+			}
+		}
+		return result;
 	}
-	CrossWalk modelElement = (CrossWalk) view.getElement();
-	LinkedList<CrosswalkNodeDescriptor> result = new LinkedList<CrosswalkNodeDescriptor>();
-	{
-	    DataSource childElement = modelElement.getDataSource();
-	    int visualID = CrosswalkVisualIDRegistry.getNodeVisualID(view, childElement);
-	    if (visualID == DelimitedFileEditPart.VISUAL_ID) {
-		result.add(new CrosswalkNodeDescriptor(childElement, visualID));
-	    }
+
+	/**
+	 * @generated
+	 */
+	public static List<CrosswalkNodeDescriptor> getDelimitedFileDataFieldCompartment_7001SemanticChildren(View view) {
+		if (false == view.eContainer() instanceof View) {
+			return Collections.emptyList();
+		}
+		View containerView = (View) view.eContainer();
+		if (!containerView.isSetElement()) {
+			return Collections.emptyList();
+		}
+		DelimitedFile modelElement = (DelimitedFile) containerView.getElement();
+		LinkedList<CrosswalkNodeDescriptor> result = new LinkedList<CrosswalkNodeDescriptor>();
+		for (Iterator<?> it = modelElement.getFields().iterator(); it.hasNext();) {
+			DataField childElement = (DataField) it.next();
+			int visualID = CrosswalkVisualIDRegistry.getNodeVisualID(view, childElement);
+			if (visualID == TabbedDataFieldEditPart.VISUAL_ID) {
+				result.add(new CrosswalkNodeDescriptor(childElement, visualID));
+				continue;
+			}
+		}
+		return result;
 	}
-	for (Iterator<?> it = modelElement.getWidgets().iterator(); it.hasNext();) {
-	    WalkWidget childElement = (WalkWidget) it.next();
-	    int visualID = CrosswalkVisualIDRegistry.getNodeVisualID(view, childElement);
-	    if (visualID == OriginalNameRecordMatcherEditPart.VISUAL_ID) {
-		result.add(new CrosswalkNodeDescriptor(childElement, visualID));
-		continue;
-	    }
-	    if (visualID == DateRecognizerEditPart.VISUAL_ID) {
-		result.add(new CrosswalkNodeDescriptor(childElement, visualID));
-		continue;
-	    }
-	    if (visualID == TextEditPart.VISUAL_ID) {
-		result.add(new CrosswalkNodeDescriptor(childElement, visualID));
-		continue;
-	    }
-	    if (visualID == TrimWhitespaceEditPart.VISUAL_ID) {
-		result.add(new CrosswalkNodeDescriptor(childElement, visualID));
-		continue;
-	    }
+
+	/**
+	 * @generated
+	 */
+	public static List<CrosswalkNodeDescriptor> getMappedElementChildElementsCompartment_7015SemanticChildren(View view) {
+		if (false == view.eContainer() instanceof View) {
+			return Collections.emptyList();
+		}
+		View containerView = (View) view.eContainer();
+		if (!containerView.isSetElement()) {
+			return Collections.emptyList();
+		}
+		MappedElement modelElement = (MappedElement) containerView.getElement();
+		LinkedList<CrosswalkNodeDescriptor> result = new LinkedList<CrosswalkNodeDescriptor>();
+		for (Iterator<?> it = modelElement.getChildElements().iterator(); it.hasNext();) {
+			MappedElement childElement = (MappedElement) it.next();
+			int visualID = CrosswalkVisualIDRegistry.getNodeVisualID(view, childElement);
+			if (visualID == MappedElement2EditPart.VISUAL_ID) {
+				result.add(new CrosswalkNodeDescriptor(childElement, visualID));
+				continue;
+			}
+		}
+		for (Iterator<?> it = modelElement.getAttributes().iterator(); it.hasNext();) {
+			MappedAttribute childElement = (MappedAttribute) it.next();
+			int visualID = CrosswalkVisualIDRegistry.getNodeVisualID(view, childElement);
+			if (visualID == MappedAttributeEditPart.VISUAL_ID) {
+				result.add(new CrosswalkNodeDescriptor(childElement, visualID));
+				continue;
+			}
+		}
+		return result;
 	}
-	for (Iterator<?> it = modelElement.getElements().iterator(); it.hasNext();) {
-	    OutputElement childElement = (OutputElement) it.next();
-	    int visualID = CrosswalkVisualIDRegistry.getNodeVisualID(view, childElement);
-	    if (visualID == MappedElementEditPart.VISUAL_ID) {
-		result.add(new CrosswalkNodeDescriptor(childElement, visualID));
-		continue;
-	    }
+
+	/**
+	 * @generated
+	 */
+	public static List<CrosswalkNodeDescriptor> getMappedElementChildElementsCompartment_7016SemanticChildren(View view) {
+		if (false == view.eContainer() instanceof View) {
+			return Collections.emptyList();
+		}
+		View containerView = (View) view.eContainer();
+		if (!containerView.isSetElement()) {
+			return Collections.emptyList();
+		}
+		MappedElement modelElement = (MappedElement) containerView.getElement();
+		LinkedList<CrosswalkNodeDescriptor> result = new LinkedList<CrosswalkNodeDescriptor>();
+		for (Iterator<?> it = modelElement.getChildElements().iterator(); it.hasNext();) {
+			MappedElement childElement = (MappedElement) it.next();
+			int visualID = CrosswalkVisualIDRegistry.getNodeVisualID(view, childElement);
+			if (visualID == MappedElement2EditPart.VISUAL_ID) {
+				result.add(new CrosswalkNodeDescriptor(childElement, visualID));
+				continue;
+			}
+		}
+		for (Iterator<?> it = modelElement.getAttributes().iterator(); it.hasNext();) {
+			MappedAttribute childElement = (MappedAttribute) it.next();
+			int visualID = CrosswalkVisualIDRegistry.getNodeVisualID(view, childElement);
+			if (visualID == MappedAttributeEditPart.VISUAL_ID) {
+				result.add(new CrosswalkNodeDescriptor(childElement, visualID));
+				continue;
+			}
+		}
+		return result;
 	}
-	return result;
-    }
 
-    /**
-     * @generated
-     */
-    public static List<CrosswalkNodeDescriptor> getDelimitedFileDataFieldCompartment_7001SemanticChildren(View view) {
-	if (false == view.eContainer() instanceof View) {
-	    return Collections.emptyList();
+	/**
+	 * @generated
+	 */
+	public static List<CrosswalkLinkDescriptor> getContainedLinks(View view) {
+		switch (CrosswalkVisualIDRegistry.getVisualID(view)) {
+			case CrossWalkEditPart.VISUAL_ID:
+				return getCrossWalk_1000ContainedLinks(view);
+			case DelimitedFileEditPart.VISUAL_ID:
+				return getDelimitedFile_2001ContainedLinks(view);
+			case OriginalNameRecordMatcherEditPart.VISUAL_ID:
+				return getOriginalNameRecordMatcher_2010ContainedLinks(view);
+			case DateRecognizerEditPart.VISUAL_ID:
+				return getDateRecognizer_2013ContainedLinks(view);
+			case TextEditPart.VISUAL_ID:
+				return getText_2014ContainedLinks(view);
+			case TrimWhitespaceEditPart.VISUAL_ID:
+				return getTrimWhitespace_2015ContainedLinks(view);
+			case MappedElementEditPart.VISUAL_ID:
+				return getMappedElement_2016ContainedLinks(view);
+			case TabbedDataFieldEditPart.VISUAL_ID:
+				return getTabbedDataField_3001ContainedLinks(view);
+			case MappedElement2EditPart.VISUAL_ID:
+				return getMappedElement_3015ContainedLinks(view);
+			case MappedAttributeEditPart.VISUAL_ID:
+				return getMappedAttribute_3016ContainedLinks(view);
+		}
+		return Collections.emptyList();
 	}
-	View containerView = (View) view.eContainer();
-	if (!containerView.isSetElement()) {
-	    return Collections.emptyList();
+
+	/**
+	 * @generated
+	 */
+	public static List<CrosswalkLinkDescriptor> getIncomingLinks(View view) {
+		switch (CrosswalkVisualIDRegistry.getVisualID(view)) {
+			case DelimitedFileEditPart.VISUAL_ID:
+				return getDelimitedFile_2001IncomingLinks(view);
+			case OriginalNameRecordMatcherEditPart.VISUAL_ID:
+				return getOriginalNameRecordMatcher_2010IncomingLinks(view);
+			case DateRecognizerEditPart.VISUAL_ID:
+				return getDateRecognizer_2013IncomingLinks(view);
+			case TextEditPart.VISUAL_ID:
+				return getText_2014IncomingLinks(view);
+			case TrimWhitespaceEditPart.VISUAL_ID:
+				return getTrimWhitespace_2015IncomingLinks(view);
+			case MappedElementEditPart.VISUAL_ID:
+				return getMappedElement_2016IncomingLinks(view);
+			case TabbedDataFieldEditPart.VISUAL_ID:
+				return getTabbedDataField_3001IncomingLinks(view);
+			case MappedElement2EditPart.VISUAL_ID:
+				return getMappedElement_3015IncomingLinks(view);
+			case MappedAttributeEditPart.VISUAL_ID:
+				return getMappedAttribute_3016IncomingLinks(view);
+		}
+		return Collections.emptyList();
 	}
-	DelimitedFile modelElement = (DelimitedFile) containerView.getElement();
-	LinkedList<CrosswalkNodeDescriptor> result = new LinkedList<CrosswalkNodeDescriptor>();
-	for (Iterator<?> it = modelElement.getFields().iterator(); it.hasNext();) {
-	    DataField childElement = (DataField) it.next();
-	    int visualID = CrosswalkVisualIDRegistry.getNodeVisualID(view, childElement);
-	    if (visualID == TabbedDataFieldEditPart.VISUAL_ID) {
-		result.add(new CrosswalkNodeDescriptor(childElement, visualID));
-		continue;
-	    }
+
+	/**
+	 * @generated
+	 */
+	public static List<CrosswalkLinkDescriptor> getOutgoingLinks(View view) {
+		switch (CrosswalkVisualIDRegistry.getVisualID(view)) {
+			case DelimitedFileEditPart.VISUAL_ID:
+				return getDelimitedFile_2001OutgoingLinks(view);
+			case OriginalNameRecordMatcherEditPart.VISUAL_ID:
+				return getOriginalNameRecordMatcher_2010OutgoingLinks(view);
+			case DateRecognizerEditPart.VISUAL_ID:
+				return getDateRecognizer_2013OutgoingLinks(view);
+			case TextEditPart.VISUAL_ID:
+				return getText_2014OutgoingLinks(view);
+			case TrimWhitespaceEditPart.VISUAL_ID:
+				return getTrimWhitespace_2015OutgoingLinks(view);
+			case MappedElementEditPart.VISUAL_ID:
+				return getMappedElement_2016OutgoingLinks(view);
+			case TabbedDataFieldEditPart.VISUAL_ID:
+				return getTabbedDataField_3001OutgoingLinks(view);
+			case MappedElement2EditPart.VISUAL_ID:
+				return getMappedElement_3015OutgoingLinks(view);
+			case MappedAttributeEditPart.VISUAL_ID:
+				return getMappedAttribute_3016OutgoingLinks(view);
+		}
+		return Collections.emptyList();
 	}
-	return result;
-    }
 
-    /**
-     * @generated
-     */
-    public static List<CrosswalkNodeDescriptor> getMappedElementChildElementsCompartment_7015SemanticChildren(View view) {
-	if (false == view.eContainer() instanceof View) {
-	    return Collections.emptyList();
+	/**
+	 * @generated
+	 */
+	public static List<CrosswalkLinkDescriptor> getCrossWalk_1000ContainedLinks(View view) {
+		return Collections.emptyList();
 	}
-	View containerView = (View) view.eContainer();
-	if (!containerView.isSetElement()) {
-	    return Collections.emptyList();
+
+	/**
+	 * @generated
+	 */
+	public static List<CrosswalkLinkDescriptor> getDelimitedFile_2001ContainedLinks(View view) {
+		return Collections.emptyList();
 	}
-	MappedElement modelElement = (MappedElement) containerView.getElement();
-	LinkedList<CrosswalkNodeDescriptor> result = new LinkedList<CrosswalkNodeDescriptor>();
-	for (Iterator<?> it = modelElement.getChildElements().iterator(); it.hasNext();) {
-	    MappedElement childElement = (MappedElement) it.next();
-	    int visualID = CrosswalkVisualIDRegistry.getNodeVisualID(view, childElement);
-	    if (visualID == MappedElement2EditPart.VISUAL_ID) {
-		result.add(new CrosswalkNodeDescriptor(childElement, visualID));
-		continue;
-	    }
+
+	/**
+	 * @generated
+	 */
+	public static List<CrosswalkLinkDescriptor> getOriginalNameRecordMatcher_2010ContainedLinks(View view) {
+		OriginalNameRecordMatcher modelElement = (OriginalNameRecordMatcher) view.getElement();
+		LinkedList<CrosswalkLinkDescriptor> result = new LinkedList<CrosswalkLinkDescriptor>();
+		result.addAll(getOutgoingFeatureModelFacetLinks_Input_Output_4003(modelElement));
+		return result;
 	}
-	for (Iterator<?> it = modelElement.getAttributes().iterator(); it.hasNext();) {
-	    MappedAttribute childElement = (MappedAttribute) it.next();
-	    int visualID = CrosswalkVisualIDRegistry.getNodeVisualID(view, childElement);
-	    if (visualID == MappedAttributeEditPart.VISUAL_ID) {
-		result.add(new CrosswalkNodeDescriptor(childElement, visualID));
-		continue;
-	    }
+
+	/**
+	 * @generated
+	 */
+	public static List<CrosswalkLinkDescriptor> getDateRecognizer_2013ContainedLinks(View view) {
+		DateRecognizer modelElement = (DateRecognizer) view.getElement();
+		LinkedList<CrosswalkLinkDescriptor> result = new LinkedList<CrosswalkLinkDescriptor>();
+		result.addAll(getOutgoingFeatureModelFacetLinks_Input_Output_4003(modelElement));
+		return result;
 	}
-	return result;
-    }
 
-    /**
-     * @generated
-     */
-    public static List<CrosswalkNodeDescriptor> getMappedElementChildElementsCompartment_7016SemanticChildren(View view) {
-	if (false == view.eContainer() instanceof View) {
-	    return Collections.emptyList();
+	/**
+	 * @generated
+	 */
+	public static List<CrosswalkLinkDescriptor> getText_2014ContainedLinks(View view) {
+		return Collections.emptyList();
 	}
-	View containerView = (View) view.eContainer();
-	if (!containerView.isSetElement()) {
-	    return Collections.emptyList();
+
+	/**
+	 * @generated
+	 */
+	public static List<CrosswalkLinkDescriptor> getTrimWhitespace_2015ContainedLinks(View view) {
+		TrimWhitespace modelElement = (TrimWhitespace) view.getElement();
+		LinkedList<CrosswalkLinkDescriptor> result = new LinkedList<CrosswalkLinkDescriptor>();
+		result.addAll(getOutgoingFeatureModelFacetLinks_Input_Output_4003(modelElement));
+		return result;
 	}
-	MappedElement modelElement = (MappedElement) containerView.getElement();
-	LinkedList<CrosswalkNodeDescriptor> result = new LinkedList<CrosswalkNodeDescriptor>();
-	for (Iterator<?> it = modelElement.getChildElements().iterator(); it.hasNext();) {
-	    MappedElement childElement = (MappedElement) it.next();
-	    int visualID = CrosswalkVisualIDRegistry.getNodeVisualID(view, childElement);
-	    if (visualID == MappedElement2EditPart.VISUAL_ID) {
-		result.add(new CrosswalkNodeDescriptor(childElement, visualID));
-		continue;
-	    }
+
+	/**
+	 * @generated
+	 */
+	public static List<CrosswalkLinkDescriptor> getMappedElement_2016ContainedLinks(View view) {
+		return Collections.emptyList();
 	}
-	for (Iterator<?> it = modelElement.getAttributes().iterator(); it.hasNext();) {
-	    MappedAttribute childElement = (MappedAttribute) it.next();
-	    int visualID = CrosswalkVisualIDRegistry.getNodeVisualID(view, childElement);
-	    if (visualID == MappedAttributeEditPart.VISUAL_ID) {
-		result.add(new CrosswalkNodeDescriptor(childElement, visualID));
-		continue;
-	    }
+
+	/**
+	 * @generated
+	 */
+	public static List<CrosswalkLinkDescriptor> getTabbedDataField_3001ContainedLinks(View view) {
+		return Collections.emptyList();
 	}
-	return result;
-    }
 
-    /**
-     * @generated
-     */
-    public static List<CrosswalkLinkDescriptor> getContainedLinks(View view) {
-	switch (CrosswalkVisualIDRegistry.getVisualID(view)) {
-	case CrossWalkEditPart.VISUAL_ID:
-	    return getCrossWalk_1000ContainedLinks(view);
-	case DelimitedFileEditPart.VISUAL_ID:
-	    return getDelimitedFile_2001ContainedLinks(view);
-	case OriginalNameRecordMatcherEditPart.VISUAL_ID:
-	    return getOriginalNameRecordMatcher_2010ContainedLinks(view);
-	case DateRecognizerEditPart.VISUAL_ID:
-	    return getDateRecognizer_2013ContainedLinks(view);
-	case TextEditPart.VISUAL_ID:
-	    return getText_2014ContainedLinks(view);
-	case TrimWhitespaceEditPart.VISUAL_ID:
-	    return getTrimWhitespace_2015ContainedLinks(view);
-	case MappedElementEditPart.VISUAL_ID:
-	    return getMappedElement_2016ContainedLinks(view);
-	case TabbedDataFieldEditPart.VISUAL_ID:
-	    return getTabbedDataField_3001ContainedLinks(view);
-	case MappedElement2EditPart.VISUAL_ID:
-	    return getMappedElement_3015ContainedLinks(view);
-	case MappedAttributeEditPart.VISUAL_ID:
-	    return getMappedAttribute_3016ContainedLinks(view);
+	/**
+	 * @generated
+	 */
+	public static List<CrosswalkLinkDescriptor> getMappedElement_3015ContainedLinks(View view) {
+		return Collections.emptyList();
 	}
-	return Collections.emptyList();
-    }
 
-    /**
-     * @generated
-     */
-    public static List<CrosswalkLinkDescriptor> getIncomingLinks(View view) {
-	switch (CrosswalkVisualIDRegistry.getVisualID(view)) {
-	case DelimitedFileEditPart.VISUAL_ID:
-	    return getDelimitedFile_2001IncomingLinks(view);
-	case OriginalNameRecordMatcherEditPart.VISUAL_ID:
-	    return getOriginalNameRecordMatcher_2010IncomingLinks(view);
-	case DateRecognizerEditPart.VISUAL_ID:
-	    return getDateRecognizer_2013IncomingLinks(view);
-	case TextEditPart.VISUAL_ID:
-	    return getText_2014IncomingLinks(view);
-	case TrimWhitespaceEditPart.VISUAL_ID:
-	    return getTrimWhitespace_2015IncomingLinks(view);
-	case MappedElementEditPart.VISUAL_ID:
-	    return getMappedElement_2016IncomingLinks(view);
-	case TabbedDataFieldEditPart.VISUAL_ID:
-	    return getTabbedDataField_3001IncomingLinks(view);
-	case MappedElement2EditPart.VISUAL_ID:
-	    return getMappedElement_3015IncomingLinks(view);
-	case MappedAttributeEditPart.VISUAL_ID:
-	    return getMappedAttribute_3016IncomingLinks(view);
+	/**
+	 * @generated
+	 */
+	public static List<CrosswalkLinkDescriptor> getMappedAttribute_3016ContainedLinks(View view) {
+		MappedAttribute modelElement = (MappedAttribute) view.getElement();
+		LinkedList<CrosswalkLinkDescriptor> result = new LinkedList<CrosswalkLinkDescriptor>();
+		result.addAll(getOutgoingFeatureModelFacetLinks_Input_Output_4003(modelElement));
+		return result;
 	}
-	return Collections.emptyList();
-    }
 
-    /**
-     * @generated
-     */
-    public static List<CrosswalkLinkDescriptor> getOutgoingLinks(View view) {
-	switch (CrosswalkVisualIDRegistry.getVisualID(view)) {
-	case DelimitedFileEditPart.VISUAL_ID:
-	    return getDelimitedFile_2001OutgoingLinks(view);
-	case OriginalNameRecordMatcherEditPart.VISUAL_ID:
-	    return getOriginalNameRecordMatcher_2010OutgoingLinks(view);
-	case DateRecognizerEditPart.VISUAL_ID:
-	    return getDateRecognizer_2013OutgoingLinks(view);
-	case TextEditPart.VISUAL_ID:
-	    return getText_2014OutgoingLinks(view);
-	case TrimWhitespaceEditPart.VISUAL_ID:
-	    return getTrimWhitespace_2015OutgoingLinks(view);
-	case MappedElementEditPart.VISUAL_ID:
-	    return getMappedElement_2016OutgoingLinks(view);
-	case TabbedDataFieldEditPart.VISUAL_ID:
-	    return getTabbedDataField_3001OutgoingLinks(view);
-	case MappedElement2EditPart.VISUAL_ID:
-	    return getMappedElement_3015OutgoingLinks(view);
-	case MappedAttributeEditPart.VISUAL_ID:
-	    return getMappedAttribute_3016OutgoingLinks(view);
+	/**
+	 * @generated
+	 */
+	public static List<CrosswalkLinkDescriptor> getDelimitedFile_2001IncomingLinks(View view) {
+		return Collections.emptyList();
 	}
-	return Collections.emptyList();
-    }
 
-    /**
-     * @generated
-     */
-    public static List<CrosswalkLinkDescriptor> getCrossWalk_1000ContainedLinks(View view) {
-	return Collections.emptyList();
-    }
-
-    /**
-     * @generated
-     */
-    public static List<CrosswalkLinkDescriptor> getDelimitedFile_2001ContainedLinks(View view) {
-	return Collections.emptyList();
-    }
-
-    /**
-     * @generated
-     */
-    public static List<CrosswalkLinkDescriptor> getOriginalNameRecordMatcher_2010ContainedLinks(View view) {
-	OriginalNameRecordMatcher modelElement = (OriginalNameRecordMatcher) view.getElement();
-	LinkedList<CrosswalkLinkDescriptor> result = new LinkedList<CrosswalkLinkDescriptor>();
-	result.addAll(getOutgoingFeatureModelFacetLinks_Input_Output_4003(modelElement));
-	return result;
-    }
-
-    /**
-     * @generated
-     */
-    public static List<CrosswalkLinkDescriptor> getDateRecognizer_2013ContainedLinks(View view) {
-	DateRecognizer modelElement = (DateRecognizer) view.getElement();
-	LinkedList<CrosswalkLinkDescriptor> result = new LinkedList<CrosswalkLinkDescriptor>();
-	result.addAll(getOutgoingFeatureModelFacetLinks_Input_Output_4003(modelElement));
-	return result;
-    }
-
-    /**
-     * @generated
-     */
-    public static List<CrosswalkLinkDescriptor> getText_2014ContainedLinks(View view) {
-	return Collections.emptyList();
-    }
-
-    /**
-     * @generated
-     */
-    public static List<CrosswalkLinkDescriptor> getTrimWhitespace_2015ContainedLinks(View view) {
-	TrimWhitespace modelElement = (TrimWhitespace) view.getElement();
-	LinkedList<CrosswalkLinkDescriptor> result = new LinkedList<CrosswalkLinkDescriptor>();
-	result.addAll(getOutgoingFeatureModelFacetLinks_Input_Output_4003(modelElement));
-	return result;
-    }
-
-    /**
-     * @generated
-     */
-    public static List<CrosswalkLinkDescriptor> getMappedElement_2016ContainedLinks(View view) {
-	return Collections.emptyList();
-    }
-
-    /**
-     * @generated
-     */
-    public static List<CrosswalkLinkDescriptor> getTabbedDataField_3001ContainedLinks(View view) {
-	return Collections.emptyList();
-    }
-
-    /**
-     * @generated
-     */
-    public static List<CrosswalkLinkDescriptor> getMappedElement_3015ContainedLinks(View view) {
-	return Collections.emptyList();
-    }
-
-    /**
-     * @generated
-     */
-    public static List<CrosswalkLinkDescriptor> getMappedAttribute_3016ContainedLinks(View view) {
-	MappedAttribute modelElement = (MappedAttribute) view.getElement();
-	LinkedList<CrosswalkLinkDescriptor> result = new LinkedList<CrosswalkLinkDescriptor>();
-	result.addAll(getOutgoingFeatureModelFacetLinks_Input_Output_4003(modelElement));
-	return result;
-    }
-
-    /**
-     * @generated
-     */
-    public static List<CrosswalkLinkDescriptor> getDelimitedFile_2001IncomingLinks(View view) {
-	return Collections.emptyList();
-    }
-
-    /**
-     * @generated
-     */
-    public static List<CrosswalkLinkDescriptor> getOriginalNameRecordMatcher_2010IncomingLinks(View view) {
-	return Collections.emptyList();
-    }
-
-    /**
-     * @generated
-     */
-    public static List<CrosswalkLinkDescriptor> getDateRecognizer_2013IncomingLinks(View view) {
-	DateRecognizer modelElement = (DateRecognizer) view.getElement();
-	Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer.find(view
-			.eResource().getResourceSet().getResources());
-	LinkedList<CrosswalkLinkDescriptor> result = new LinkedList<CrosswalkLinkDescriptor>();
-	result.addAll(getIncomingFeatureModelFacetLinks_Input_Output_4003(modelElement, crossReferences));
-	return result;
-    }
-
-    /**
-     * @generated
-     */
-    public static List<CrosswalkLinkDescriptor> getText_2014IncomingLinks(View view) {
-	Text modelElement = (Text) view.getElement();
-	Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer.find(view
-			.eResource().getResourceSet().getResources());
-	LinkedList<CrosswalkLinkDescriptor> result = new LinkedList<CrosswalkLinkDescriptor>();
-	result.addAll(getIncomingFeatureModelFacetLinks_Input_Output_4003(modelElement, crossReferences));
-	return result;
-    }
-
-    /**
-     * @generated
-     */
-    public static List<CrosswalkLinkDescriptor> getTrimWhitespace_2015IncomingLinks(View view) {
-	TrimWhitespace modelElement = (TrimWhitespace) view.getElement();
-	Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer.find(view
-			.eResource().getResourceSet().getResources());
-	LinkedList<CrosswalkLinkDescriptor> result = new LinkedList<CrosswalkLinkDescriptor>();
-	result.addAll(getIncomingFeatureModelFacetLinks_Input_Output_4003(modelElement, crossReferences));
-	return result;
-    }
-
-    /**
-     * @generated
-     */
-    public static List<CrosswalkLinkDescriptor> getMappedElement_2016IncomingLinks(View view) {
-	return Collections.emptyList();
-    }
-
-    /**
-     * @generated
-     */
-    public static List<CrosswalkLinkDescriptor> getTabbedDataField_3001IncomingLinks(View view) {
-	TabbedDataField modelElement = (TabbedDataField) view.getElement();
-	Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer.find(view
-			.eResource().getResourceSet().getResources());
-	LinkedList<CrosswalkLinkDescriptor> result = new LinkedList<CrosswalkLinkDescriptor>();
-	result.addAll(getIncomingFeatureModelFacetLinks_Input_Output_4003(modelElement, crossReferences));
-	return result;
-    }
-
-    /**
-     * @generated
-     */
-    public static List<CrosswalkLinkDescriptor> getMappedElement_3015IncomingLinks(View view) {
-	return Collections.emptyList();
-    }
-
-    /**
-     * @generated
-     */
-    public static List<CrosswalkLinkDescriptor> getMappedAttribute_3016IncomingLinks(View view) {
-	return Collections.emptyList();
-    }
-
-    /**
-     * @generated
-     */
-    public static List<CrosswalkLinkDescriptor> getDelimitedFile_2001OutgoingLinks(View view) {
-	return Collections.emptyList();
-    }
-
-    /**
-     * @generated
-     */
-    public static List<CrosswalkLinkDescriptor> getOriginalNameRecordMatcher_2010OutgoingLinks(View view) {
-	OriginalNameRecordMatcher modelElement = (OriginalNameRecordMatcher) view.getElement();
-	LinkedList<CrosswalkLinkDescriptor> result = new LinkedList<CrosswalkLinkDescriptor>();
-	result.addAll(getOutgoingFeatureModelFacetLinks_Input_Output_4003(modelElement));
-	return result;
-    }
-
-    /**
-     * @generated
-     */
-    public static List<CrosswalkLinkDescriptor> getDateRecognizer_2013OutgoingLinks(View view) {
-	DateRecognizer modelElement = (DateRecognizer) view.getElement();
-	LinkedList<CrosswalkLinkDescriptor> result = new LinkedList<CrosswalkLinkDescriptor>();
-	result.addAll(getOutgoingFeatureModelFacetLinks_Input_Output_4003(modelElement));
-	return result;
-    }
-
-    /**
-     * @generated
-     */
-    public static List<CrosswalkLinkDescriptor> getText_2014OutgoingLinks(View view) {
-	return Collections.emptyList();
-    }
-
-    /**
-     * @generated
-     */
-    public static List<CrosswalkLinkDescriptor> getTrimWhitespace_2015OutgoingLinks(View view) {
-	TrimWhitespace modelElement = (TrimWhitespace) view.getElement();
-	LinkedList<CrosswalkLinkDescriptor> result = new LinkedList<CrosswalkLinkDescriptor>();
-	result.addAll(getOutgoingFeatureModelFacetLinks_Input_Output_4003(modelElement));
-	return result;
-    }
-
-    /**
-     * @generated
-     */
-    public static List<CrosswalkLinkDescriptor> getMappedElement_2016OutgoingLinks(View view) {
-	return Collections.emptyList();
-    }
-
-    /**
-     * @generated
-     */
-    public static List<CrosswalkLinkDescriptor> getTabbedDataField_3001OutgoingLinks(View view) {
-	return Collections.emptyList();
-    }
-
-    /**
-     * @generated
-     */
-    public static List<CrosswalkLinkDescriptor> getMappedElement_3015OutgoingLinks(View view) {
-	return Collections.emptyList();
-    }
-
-    /**
-     * @generated
-     */
-    public static List<CrosswalkLinkDescriptor> getMappedAttribute_3016OutgoingLinks(View view) {
-	MappedAttribute modelElement = (MappedAttribute) view.getElement();
-	LinkedList<CrosswalkLinkDescriptor> result = new LinkedList<CrosswalkLinkDescriptor>();
-	result.addAll(getOutgoingFeatureModelFacetLinks_Input_Output_4003(modelElement));
-	return result;
-    }
-
-    /**
-     * @generated
-     */
-    private static Collection<CrosswalkLinkDescriptor> getIncomingFeatureModelFacetLinks_Input_Output_4003(
-		    Output target, Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
-	LinkedList<CrosswalkLinkDescriptor> result = new LinkedList<CrosswalkLinkDescriptor>();
-	Collection<EStructuralFeature.Setting> settings = crossReferences.get(target);
-	for (EStructuralFeature.Setting setting : settings) {
-	    if (setting.getEStructuralFeature() == CrosswalkPackage.eINSTANCE.getInput_Output()) {
-		result.add(new CrosswalkLinkDescriptor(setting.getEObject(), target,
-				CrosswalkElementTypes.InputOutput_4003, InputOutputEditPart.VISUAL_ID));
-	    }
+	/**
+	 * @generated
+	 */
+	public static List<CrosswalkLinkDescriptor> getOriginalNameRecordMatcher_2010IncomingLinks(View view) {
+		return Collections.emptyList();
 	}
-	return result;
-    }
 
-    /**
-     * @generated
-     */
-    private static Collection<CrosswalkLinkDescriptor> getOutgoingFeatureModelFacetLinks_Input_Output_4003(Input source) {
-	LinkedList<CrosswalkLinkDescriptor> result = new LinkedList<CrosswalkLinkDescriptor>();
-	Output destination = source.getOutput();
-	if (destination == null) {
-	    return result;
+	/**
+	 * @generated
+	 */
+	public static List<CrosswalkLinkDescriptor> getDateRecognizer_2013IncomingLinks(View view) {
+		DateRecognizer modelElement = (DateRecognizer) view.getElement();
+		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer.find(view
+				.eResource().getResourceSet().getResources());
+		LinkedList<CrosswalkLinkDescriptor> result = new LinkedList<CrosswalkLinkDescriptor>();
+		result.addAll(getIncomingFeatureModelFacetLinks_Input_Output_4003(modelElement, crossReferences));
+		return result;
 	}
-	result.add(new CrosswalkLinkDescriptor(source, destination, CrosswalkElementTypes.InputOutput_4003,
-			InputOutputEditPart.VISUAL_ID));
-	return result;
-    }
+
+	/**
+	 * @generated
+	 */
+	public static List<CrosswalkLinkDescriptor> getText_2014IncomingLinks(View view) {
+		Text modelElement = (Text) view.getElement();
+		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer.find(view
+				.eResource().getResourceSet().getResources());
+		LinkedList<CrosswalkLinkDescriptor> result = new LinkedList<CrosswalkLinkDescriptor>();
+		result.addAll(getIncomingFeatureModelFacetLinks_Input_Output_4003(modelElement, crossReferences));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<CrosswalkLinkDescriptor> getTrimWhitespace_2015IncomingLinks(View view) {
+		TrimWhitespace modelElement = (TrimWhitespace) view.getElement();
+		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer.find(view
+				.eResource().getResourceSet().getResources());
+		LinkedList<CrosswalkLinkDescriptor> result = new LinkedList<CrosswalkLinkDescriptor>();
+		result.addAll(getIncomingFeatureModelFacetLinks_Input_Output_4003(modelElement, crossReferences));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<CrosswalkLinkDescriptor> getMappedElement_2016IncomingLinks(View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<CrosswalkLinkDescriptor> getTabbedDataField_3001IncomingLinks(View view) {
+		TabbedDataField modelElement = (TabbedDataField) view.getElement();
+		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer.find(view
+				.eResource().getResourceSet().getResources());
+		LinkedList<CrosswalkLinkDescriptor> result = new LinkedList<CrosswalkLinkDescriptor>();
+		result.addAll(getIncomingFeatureModelFacetLinks_Input_Output_4003(modelElement, crossReferences));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<CrosswalkLinkDescriptor> getMappedElement_3015IncomingLinks(View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<CrosswalkLinkDescriptor> getMappedAttribute_3016IncomingLinks(View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<CrosswalkLinkDescriptor> getDelimitedFile_2001OutgoingLinks(View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<CrosswalkLinkDescriptor> getOriginalNameRecordMatcher_2010OutgoingLinks(View view) {
+		OriginalNameRecordMatcher modelElement = (OriginalNameRecordMatcher) view.getElement();
+		LinkedList<CrosswalkLinkDescriptor> result = new LinkedList<CrosswalkLinkDescriptor>();
+		result.addAll(getOutgoingFeatureModelFacetLinks_Input_Output_4003(modelElement));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<CrosswalkLinkDescriptor> getDateRecognizer_2013OutgoingLinks(View view) {
+		DateRecognizer modelElement = (DateRecognizer) view.getElement();
+		LinkedList<CrosswalkLinkDescriptor> result = new LinkedList<CrosswalkLinkDescriptor>();
+		result.addAll(getOutgoingFeatureModelFacetLinks_Input_Output_4003(modelElement));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<CrosswalkLinkDescriptor> getText_2014OutgoingLinks(View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<CrosswalkLinkDescriptor> getTrimWhitespace_2015OutgoingLinks(View view) {
+		TrimWhitespace modelElement = (TrimWhitespace) view.getElement();
+		LinkedList<CrosswalkLinkDescriptor> result = new LinkedList<CrosswalkLinkDescriptor>();
+		result.addAll(getOutgoingFeatureModelFacetLinks_Input_Output_4003(modelElement));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<CrosswalkLinkDescriptor> getMappedElement_2016OutgoingLinks(View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<CrosswalkLinkDescriptor> getTabbedDataField_3001OutgoingLinks(View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<CrosswalkLinkDescriptor> getMappedElement_3015OutgoingLinks(View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<CrosswalkLinkDescriptor> getMappedAttribute_3016OutgoingLinks(View view) {
+		MappedAttribute modelElement = (MappedAttribute) view.getElement();
+		LinkedList<CrosswalkLinkDescriptor> result = new LinkedList<CrosswalkLinkDescriptor>();
+		result.addAll(getOutgoingFeatureModelFacetLinks_Input_Output_4003(modelElement));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	private static Collection<CrosswalkLinkDescriptor> getIncomingFeatureModelFacetLinks_Input_Output_4003(
+			Output target, Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
+		LinkedList<CrosswalkLinkDescriptor> result = new LinkedList<CrosswalkLinkDescriptor>();
+		Collection<EStructuralFeature.Setting> settings = crossReferences.get(target);
+		for (EStructuralFeature.Setting setting : settings) {
+			if (setting.getEStructuralFeature() == CrosswalkPackage.eINSTANCE.getInput_Output()) {
+				result.add(new CrosswalkLinkDescriptor(setting.getEObject(), target,
+						CrosswalkElementTypes.InputOutput_4003, InputOutputEditPart.VISUAL_ID));
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	private static Collection<CrosswalkLinkDescriptor> getOutgoingFeatureModelFacetLinks_Input_Output_4003(Input source) {
+		LinkedList<CrosswalkLinkDescriptor> result = new LinkedList<CrosswalkLinkDescriptor>();
+		Output destination = source.getOutput();
+		if (destination == null) {
+			return result;
+		}
+		result.add(new CrosswalkLinkDescriptor(source, destination, CrosswalkElementTypes.InputOutput_4003,
+				InputOutputEditPart.VISUAL_ID));
+		return result;
+	}
 
 }

@@ -40,64 +40,64 @@ import crosswalk.diagram.edit.parts.CrossWalkEditPart;
  */
 public class CrosswalkInitDiagramFileAction implements IObjectActionDelegate {
 
-    /**
-     * @generated
-     */
-    private IWorkbenchPart targetPart;
+	/**
+	 * @generated
+	 */
+	private IWorkbenchPart targetPart;
 
-    /**
-     * @generated
-     */
-    private URI domainModelURI;
+	/**
+	 * @generated
+	 */
+	private URI domainModelURI;
 
-    /**
-     * @generated
-     */
-    public void setActivePart(IAction action, IWorkbenchPart targetPart) {
-	this.targetPart = targetPart;
-    }
-
-    /**
-     * @generated
-     */
-    public void selectionChanged(IAction action, ISelection selection) {
-	domainModelURI = null;
-	action.setEnabled(false);
-	if (selection instanceof IStructuredSelection == false || selection.isEmpty()) {
-	    return;
+	/**
+	 * @generated
+	 */
+	public void setActivePart(IAction action, IWorkbenchPart targetPart) {
+		this.targetPart = targetPart;
 	}
-	IFile file = (IFile) ((IStructuredSelection) selection).getFirstElement();
-	domainModelURI = URI.createPlatformResourceURI(file.getFullPath().toString(), true);
-	action.setEnabled(true);
-    }
 
-    /**
-     * @generated
-     */
-    private Shell getShell() {
-	return targetPart.getSite().getShell();
-    }
+	/**
+	 * @generated
+	 */
+	public void selectionChanged(IAction action, ISelection selection) {
+		domainModelURI = null;
+		action.setEnabled(false);
+		if (selection instanceof IStructuredSelection == false || selection.isEmpty()) {
+			return;
+		}
+		IFile file = (IFile) ((IStructuredSelection) selection).getFirstElement();
+		domainModelURI = URI.createPlatformResourceURI(file.getFullPath().toString(), true);
+		action.setEnabled(true);
+	}
 
-    /**
-     * @generated
-     */
-    public void run(IAction action) {
-	TransactionalEditingDomain editingDomain = GMFEditingDomainFactory.INSTANCE.createEditingDomain();
-	ResourceSet resourceSet = editingDomain.getResourceSet();
-	EObject diagramRoot = null;
-	try {
-	    Resource resource = resourceSet.getResource(domainModelURI, true);
-	    diagramRoot = (EObject) resource.getContents().get(0);
-	} catch (WrappedException ex) {
-	    CrosswalkDiagramEditorPlugin.getInstance().logError("Unable to load resource: " + domainModelURI, ex); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	private Shell getShell() {
+		return targetPart.getSite().getShell();
 	}
-	if (diagramRoot == null) {
-	    MessageDialog.openError(getShell(), Messages.InitDiagramFile_ResourceErrorDialogTitle,
-			    Messages.InitDiagramFile_ResourceErrorDialogMessage);
-	    return;
+
+	/**
+	 * @generated
+	 */
+	public void run(IAction action) {
+		TransactionalEditingDomain editingDomain = GMFEditingDomainFactory.INSTANCE.createEditingDomain();
+		ResourceSet resourceSet = editingDomain.getResourceSet();
+		EObject diagramRoot = null;
+		try {
+			Resource resource = resourceSet.getResource(domainModelURI, true);
+			diagramRoot = (EObject) resource.getContents().get(0);
+		} catch (WrappedException ex) {
+			CrosswalkDiagramEditorPlugin.getInstance().logError("Unable to load resource: " + domainModelURI, ex); //$NON-NLS-1$
+		}
+		if (diagramRoot == null) {
+			MessageDialog.openError(getShell(), Messages.InitDiagramFile_ResourceErrorDialogTitle,
+					Messages.InitDiagramFile_ResourceErrorDialogMessage);
+			return;
+		}
+		Wizard wizard = new CrosswalkNewDiagramFileWizard(domainModelURI, diagramRoot, editingDomain);
+		wizard.setWindowTitle(NLS.bind(Messages.InitDiagramFile_WizardTitle, CrossWalkEditPart.MODEL_ID));
+		CrosswalkDiagramEditorUtil.runWizard(getShell(), wizard, "InitDiagramFile"); //$NON-NLS-1$
 	}
-	Wizard wizard = new CrosswalkNewDiagramFileWizard(domainModelURI, diagramRoot, editingDomain);
-	wizard.setWindowTitle(NLS.bind(Messages.InitDiagramFile_WizardTitle, CrossWalkEditPart.MODEL_ID));
-	CrosswalkDiagramEditorUtil.runWizard(getShell(), wizard, "InitDiagramFile"); //$NON-NLS-1$
-    }
 }

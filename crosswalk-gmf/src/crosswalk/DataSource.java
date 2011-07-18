@@ -37,49 +37,49 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface DataSource extends EObject {
         /**
-         * Returns the value of the '<em><b>Walk</b></em>' container reference.
-         * It is bidirectional and its opposite is '{@link crosswalk.CrossWalk#getDataSource <em>Data Source</em>}'.
-         * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Walk</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link crosswalk.CrossWalk#getDataSource <em>Data Source</em>}'.
+	 * <!-- begin-user-doc -->
          * <p>
          * If the meaning of the '<em>Walk</em>' container reference isn't clear,
          * there really should be more of a description here...
          * </p>
          * <!-- end-user-doc -->
-         * @return the value of the '<em>Walk</em>' container reference.
-         * @see #setWalk(CrossWalk)
-         * @see crosswalk.CrosswalkPackage#getDataSource_Walk()
-         * @see crosswalk.CrossWalk#getDataSource
-         * @model opposite="DataSource" required="true" transient="false"
-         * @generated
-         */
+	 * @return the value of the '<em>Walk</em>' container reference.
+	 * @see #setWalk(CrossWalk)
+	 * @see crosswalk.CrosswalkPackage#getDataSource_Walk()
+	 * @see crosswalk.CrossWalk#getDataSource
+	 * @model opposite="DataSource" required="true" transient="false"
+	 * @generated
+	 */
         CrossWalk getWalk();
 
         /**
-         * Sets the value of the '{@link crosswalk.DataSource#getWalk <em>Walk</em>}' container reference.
-         * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link crosswalk.DataSource#getWalk <em>Walk</em>}' container reference.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @param value the new value of the '<em>Walk</em>' container reference.
-         * @see #getWalk()
-         * @generated
-         */
+	 * @param value the new value of the '<em>Walk</em>' container reference.
+	 * @see #getWalk()
+	 * @generated
+	 */
         void setWalk(CrossWalk value);
 
         /**
-         * Returns the value of the '<em><b>Fields</b></em>' containment reference list.
-         * The list contents are of type {@link crosswalk.DataField}.
-         * It is bidirectional and its opposite is '{@link crosswalk.DataField#getSource <em>Source</em>}'.
-         * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Fields</b></em>' containment reference list.
+	 * The list contents are of type {@link crosswalk.DataField}.
+	 * It is bidirectional and its opposite is '{@link crosswalk.DataField#getSource <em>Source</em>}'.
+	 * <!-- begin-user-doc -->
          * <p>
          * If the meaning of the '<em>Fields</em>' containment reference list isn't clear,
          * there really should be more of a description here...
          * </p>
          * <!-- end-user-doc -->
-         * @return the value of the '<em>Fields</em>' containment reference list.
-         * @see crosswalk.CrosswalkPackage#getDataSource_Fields()
-         * @see crosswalk.DataField#getSource
-         * @model opposite="source" containment="true"
-         * @generated
-         */
+	 * @return the value of the '<em>Fields</em>' containment reference list.
+	 * @see crosswalk.CrosswalkPackage#getDataSource_Fields()
+	 * @see crosswalk.DataField#getSource
+	 * @model opposite="source" containment="true"
+	 * @generated
+	 */
         EList<DataField> getFields();
 
         /**
@@ -117,35 +117,35 @@ public interface DataSource extends EObject {
         void Reset() throws DataException;
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @model kind="operation" required="true"
-         * @generated
-         */
+	 * @model kind="operation" required="true"
+	 * @generated
+	 */
         String getRecordID();
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @model kind="operation" required="true"
-         * @generated
-         */
+	 * @model kind="operation" required="true"
+	 * @generated
+	 */
         String getName();
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @model fieldRequired="true"
-         * @generated
-         */
+	 * @model fieldRequired="true"
+	 * @generated
+	 */
         String getFieldValue(DataField field);
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @model exceptions="crosswalk.DataException"
-         * @generated
-         */
+	 * @model exceptions="crosswalk.DataException"
+	 * @generated
+	 */
         void initializeDataFields() throws DataException;
 
 } // DataSource

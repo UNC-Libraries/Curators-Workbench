@@ -21,27 +21,27 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface ConversionStrategy extends EObject {
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @model required="true" inputRequired="true"
-         * @generated
-         */
+	 * @model required="true" inputRequired="true"
+	 * @generated
+	 */
         Object convert(Object input);
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @model kind="operation" required="true"
-         * @generated
-         */
+	 * @model kind="operation" required="true"
+	 * @generated
+	 */
         EDataType getInputDataType();
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @model kind="operation" required="true"
-         * @generated
-         */
+	 * @model kind="operation" required="true"
+	 * @generated
+	 */
         EDataType getOutputDataType();
 
 } // ConversionStrategy

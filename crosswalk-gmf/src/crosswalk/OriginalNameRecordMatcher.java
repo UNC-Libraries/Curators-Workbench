@@ -37,110 +37,110 @@ import org.eclipse.core.resources.IFolder;
  */
 public interface OriginalNameRecordMatcher extends RecordMatcherStrategy, Input {
         /**
-         * Returns the value of the '<em><b>Case Sensitive</b></em>' attribute.
-         * The default value is <code>"false"</code>.
-         * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Case Sensitive</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
+	 * <!-- begin-user-doc -->
          * <p>
          * If the meaning of the '<em>Case Sensitive</em>' attribute isn't clear,
          * there really should be more of a description here...
          * </p>
          * <!-- end-user-doc -->
-         * @return the value of the '<em>Case Sensitive</em>' attribute.
-         * @see #setCaseSensitive(boolean)
-         * @see crosswalk.CrosswalkPackage#getOriginalNameRecordMatcher_CaseSensitive()
-         * @model default="false" required="true"
-         * @generated
-         */
+	 * @return the value of the '<em>Case Sensitive</em>' attribute.
+	 * @see #setCaseSensitive(boolean)
+	 * @see crosswalk.CrosswalkPackage#getOriginalNameRecordMatcher_CaseSensitive()
+	 * @model default="false" required="true"
+	 * @generated
+	 */
         boolean isCaseSensitive();
 
         /**
-         * Sets the value of the '{@link crosswalk.OriginalNameRecordMatcher#isCaseSensitive <em>Case Sensitive</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link crosswalk.OriginalNameRecordMatcher#isCaseSensitive <em>Case Sensitive</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @param value the new value of the '<em>Case Sensitive</em>' attribute.
-         * @see #isCaseSensitive()
-         * @generated
-         */
+	 * @param value the new value of the '<em>Case Sensitive</em>' attribute.
+	 * @see #isCaseSensitive()
+	 * @generated
+	 */
         void setCaseSensitive(boolean value);
 
         /**
-         * Returns the value of the '<em><b>Include File Extension</b></em>' attribute.
-         * The default value is <code>"false"</code>.
-         * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Include File Extension</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
+	 * <!-- begin-user-doc -->
          * <p>
          * If the meaning of the '<em>Include File Extension</em>' attribute isn't clear,
          * there really should be more of a description here...
          * </p>
          * <!-- end-user-doc -->
-         * @return the value of the '<em>Include File Extension</em>' attribute.
-         * @see #setIncludeFileExtension(boolean)
-         * @see crosswalk.CrosswalkPackage#getOriginalNameRecordMatcher_IncludeFileExtension()
-         * @model default="false" required="true"
-         * @generated
-         */
+	 * @return the value of the '<em>Include File Extension</em>' attribute.
+	 * @see #setIncludeFileExtension(boolean)
+	 * @see crosswalk.CrosswalkPackage#getOriginalNameRecordMatcher_IncludeFileExtension()
+	 * @model default="false" required="true"
+	 * @generated
+	 */
         boolean isIncludeFileExtension();
 
         /**
-         * Sets the value of the '{@link crosswalk.OriginalNameRecordMatcher#isIncludeFileExtension <em>Include File Extension</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link crosswalk.OriginalNameRecordMatcher#isIncludeFileExtension <em>Include File Extension</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @param value the new value of the '<em>Include File Extension</em>' attribute.
-         * @see #isIncludeFileExtension()
-         * @generated
-         */
+	 * @param value the new value of the '<em>Include File Extension</em>' attribute.
+	 * @see #isIncludeFileExtension()
+	 * @generated
+	 */
         void setIncludeFileExtension(boolean value);
 
         /**
-         * Returns the value of the '<em><b>Base Folder</b></em>' attribute.
-         * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Base Folder</b></em>' attribute.
+	 * <!-- begin-user-doc -->
          * <p>
          * If the meaning of the '<em>Base Folder</em>' attribute isn't clear,
          * there really should be more of a description here...
          * </p>
          * <!-- end-user-doc -->
-         * @return the value of the '<em>Base Folder</em>' attribute.
-         * @see #isSetBaseFolder()
-         * @see #unsetBaseFolder()
-         * @see #setBaseFolder(IFolder)
-         * @see crosswalk.CrosswalkPackage#getOriginalNameRecordMatcher_BaseFolder()
-         * @model unsettable="true" dataType="crosswalk.IFolder"
-         * @generated
-         */
+	 * @return the value of the '<em>Base Folder</em>' attribute.
+	 * @see #isSetBaseFolder()
+	 * @see #unsetBaseFolder()
+	 * @see #setBaseFolder(IFolder)
+	 * @see crosswalk.CrosswalkPackage#getOriginalNameRecordMatcher_BaseFolder()
+	 * @model unsettable="true" dataType="crosswalk.IFolder"
+	 * @generated
+	 */
         IFolder getBaseFolder();
 
         /**
-         * Sets the value of the '{@link crosswalk.OriginalNameRecordMatcher#getBaseFolder <em>Base Folder</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link crosswalk.OriginalNameRecordMatcher#getBaseFolder <em>Base Folder</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @param value the new value of the '<em>Base Folder</em>' attribute.
-         * @see #isSetBaseFolder()
-         * @see #unsetBaseFolder()
-         * @see #getBaseFolder()
-         * @generated
-         */
+	 * @param value the new value of the '<em>Base Folder</em>' attribute.
+	 * @see #isSetBaseFolder()
+	 * @see #unsetBaseFolder()
+	 * @see #getBaseFolder()
+	 * @generated
+	 */
         void setBaseFolder(IFolder value);
 
         /**
-         * Unsets the value of the '{@link crosswalk.OriginalNameRecordMatcher#getBaseFolder <em>Base Folder</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * Unsets the value of the '{@link crosswalk.OriginalNameRecordMatcher#getBaseFolder <em>Base Folder</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #isSetBaseFolder()
-         * @see #getBaseFolder()
-         * @see #setBaseFolder(IFolder)
-         * @generated
-         */
+	 * @see #isSetBaseFolder()
+	 * @see #getBaseFolder()
+	 * @see #setBaseFolder(IFolder)
+	 * @generated
+	 */
         void unsetBaseFolder();
 
         /**
-         * Returns whether the value of the '{@link crosswalk.OriginalNameRecordMatcher#getBaseFolder <em>Base Folder</em>}' attribute is set.
-         * <!-- begin-user-doc -->
+	 * Returns whether the value of the '{@link crosswalk.OriginalNameRecordMatcher#getBaseFolder <em>Base Folder</em>}' attribute is set.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @return whether the value of the '<em>Base Folder</em>' attribute is set.
-         * @see #unsetBaseFolder()
-         * @see #getBaseFolder()
-         * @see #setBaseFolder(IFolder)
-         * @generated
-         */
+	 * @return whether the value of the '<em>Base Folder</em>' attribute is set.
+	 * @see #unsetBaseFolder()
+	 * @see #getBaseFolder()
+	 * @see #setBaseFolder(IFolder)
+	 * @generated
+	 */
         boolean isSetBaseFolder();
 
 } // OriginalNameRecordMatcher

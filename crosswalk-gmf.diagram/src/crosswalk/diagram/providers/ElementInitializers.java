@@ -22,18 +22,18 @@ import crosswalk.diagram.part.CrosswalkDiagramEditorPlugin;
  */
 public class ElementInitializers {
 
-    protected ElementInitializers() {
-	// use #getInstance to access cached instance
-    }
-
-    /**
-     * @generated
-     */
-    public static ElementInitializers getInstance() {
-	ElementInitializers cached = CrosswalkDiagramEditorPlugin.getInstance().getElementInitializers();
-	if (cached == null) {
-	    CrosswalkDiagramEditorPlugin.getInstance().setElementInitializers(cached = new ElementInitializers());
+	protected ElementInitializers() {
+		// use #getInstance to access cached instance
 	}
-	return cached;
-    }
+
+	/**
+	 * @generated
+	 */
+	public static ElementInitializers getInstance() {
+		ElementInitializers cached = CrosswalkDiagramEditorPlugin.getInstance().getElementInitializers();
+		if (cached == null) {
+			CrosswalkDiagramEditorPlugin.getInstance().setElementInitializers(cached = new ElementInitializers());
+		}
+		return cached;
+	}
 }

@@ -144,11 +144,11 @@ public class CrosswalkCreationWizard extends Wizard implements INewWizard {
 					this.project = f.getProject();
 					break;
 				} else {
-					for(Method m : o.getClass().getMethods()) {
-						if("getProject".equals(m.getName())) {
-							if(IProject.class.isAssignableFrom(m.getReturnType())) {
+					for (Method m : o.getClass().getMethods()) {
+						if ("getProject".equals(m.getName())) {
+							if (IProject.class.isAssignableFrom(m.getReturnType())) {
 								try {
-									this.project = (IProject)m.invoke(o);
+									this.project = (IProject) m.invoke(o);
 								} catch (IllegalArgumentException e) {
 									// TODO Auto-generated catch block
 									e.printStackTrace();

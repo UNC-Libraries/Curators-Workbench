@@ -67,7 +67,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//OriginalNameRecordMatcher/baseFolder"/>
     </genClasses>
     <genClasses ecoreClass="crosswalk.ecore#//DateRecognizer">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//DateRecognizer/Format"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//DateRecognizer/Formats"/>
     </genClasses>
     <genClasses ecoreClass="crosswalk.ecore#//Text">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//Text/Value"/>

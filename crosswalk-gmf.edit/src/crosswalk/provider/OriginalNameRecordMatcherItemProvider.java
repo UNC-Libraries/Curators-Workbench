@@ -49,176 +49,176 @@ public class OriginalNameRecordMatcherItemProvider
                 IItemLabelProvider,
                 IItemPropertySource {
         /**
-         * This constructs an instance from a factory and a notifier.
-         * <!-- begin-user-doc -->
+	 * This constructs an instance from a factory and a notifier.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public OriginalNameRecordMatcherItemProvider(AdapterFactory adapterFactory) {
-                super(adapterFactory);
-        }
+		super(adapterFactory);
+	}
 
         /**
-         * This returns the property descriptors for the adapted class.
-         * <!-- begin-user-doc -->
+	 * This returns the property descriptors for the adapted class.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-                if (itemPropertyDescriptors == null) {
-                        super.getPropertyDescriptors(object);
+		if (itemPropertyDescriptors == null) {
+			super.getPropertyDescriptors(object);
 
-                        addOutputPropertyDescriptor(object);
-                        addCaseSensitivePropertyDescriptor(object);
-                        addIncludeFileExtensionPropertyDescriptor(object);
-                        addBaseFolderPropertyDescriptor(object);
-                }
-                return itemPropertyDescriptors;
-        }
+			addOutputPropertyDescriptor(object);
+			addCaseSensitivePropertyDescriptor(object);
+			addIncludeFileExtensionPropertyDescriptor(object);
+			addBaseFolderPropertyDescriptor(object);
+		}
+		return itemPropertyDescriptors;
+	}
 
         /**
-         * This adds a property descriptor for the Output feature.
-         * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Output feature.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected void addOutputPropertyDescriptor(Object object) {
-                itemPropertyDescriptors.add
-                        (createItemPropertyDescriptor
-                                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                                 getResourceLocator(),
-                                 getString("_UI_Input_Output_feature"),
-                                 getString("_UI_PropertyDescriptor_description", "_UI_Input_Output_feature", "_UI_Input_type"),
-                                 CrosswalkPackage.Literals.INPUT__OUTPUT,
-                                 true,
-                                 false,
-                                 true,
-                                 null,
-                                 null,
-                                 null));
-        }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Input_Output_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Input_Output_feature", "_UI_Input_type"),
+				 CrosswalkPackage.Literals.INPUT__OUTPUT,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
 
         /**
-         * This adds a property descriptor for the Case Sensitive feature.
-         * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Case Sensitive feature.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected void addCaseSensitivePropertyDescriptor(Object object) {
-                itemPropertyDescriptors.add
-                        (createItemPropertyDescriptor
-                                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                                 getResourceLocator(),
-                                 getString("_UI_OriginalNameRecordMatcher_caseSensitive_feature"),
-                                 getString("_UI_PropertyDescriptor_description", "_UI_OriginalNameRecordMatcher_caseSensitive_feature", "_UI_OriginalNameRecordMatcher_type"),
-                                 CrosswalkPackage.Literals.ORIGINAL_NAME_RECORD_MATCHER__CASE_SENSITIVE,
-                                 true,
-                                 false,
-                                 false,
-                                 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-                                 null,
-                                 null));
-        }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_OriginalNameRecordMatcher_caseSensitive_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_OriginalNameRecordMatcher_caseSensitive_feature", "_UI_OriginalNameRecordMatcher_type"),
+				 CrosswalkPackage.Literals.ORIGINAL_NAME_RECORD_MATCHER__CASE_SENSITIVE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
         /**
-         * This adds a property descriptor for the Include File Extension feature.
-         * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Include File Extension feature.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected void addIncludeFileExtensionPropertyDescriptor(Object object) {
-                itemPropertyDescriptors.add
-                        (createItemPropertyDescriptor
-                                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                                 getResourceLocator(),
-                                 getString("_UI_OriginalNameRecordMatcher_includeFileExtension_feature"),
-                                 getString("_UI_PropertyDescriptor_description", "_UI_OriginalNameRecordMatcher_includeFileExtension_feature", "_UI_OriginalNameRecordMatcher_type"),
-                                 CrosswalkPackage.Literals.ORIGINAL_NAME_RECORD_MATCHER__INCLUDE_FILE_EXTENSION,
-                                 true,
-                                 false,
-                                 false,
-                                 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-                                 null,
-                                 null));
-        }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_OriginalNameRecordMatcher_includeFileExtension_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_OriginalNameRecordMatcher_includeFileExtension_feature", "_UI_OriginalNameRecordMatcher_type"),
+				 CrosswalkPackage.Literals.ORIGINAL_NAME_RECORD_MATCHER__INCLUDE_FILE_EXTENSION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
         /**
-         * This adds a property descriptor for the Base Folder feature.
-         * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Base Folder feature.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected void addBaseFolderPropertyDescriptor(Object object) {
-                itemPropertyDescriptors.add
-                        (createItemPropertyDescriptor
-                                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                                 getResourceLocator(),
-                                 getString("_UI_OriginalNameRecordMatcher_baseFolder_feature"),
-                                 getString("_UI_PropertyDescriptor_description", "_UI_OriginalNameRecordMatcher_baseFolder_feature", "_UI_OriginalNameRecordMatcher_type"),
-                                 CrosswalkPackage.Literals.ORIGINAL_NAME_RECORD_MATCHER__BASE_FOLDER,
-                                 true,
-                                 false,
-                                 false,
-                                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                                 null,
-                                 null));
-        }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_OriginalNameRecordMatcher_baseFolder_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_OriginalNameRecordMatcher_baseFolder_feature", "_UI_OriginalNameRecordMatcher_type"),
+				 CrosswalkPackage.Literals.ORIGINAL_NAME_RECORD_MATCHER__BASE_FOLDER,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
         /**
-         * This returns OriginalNameRecordMatcher.gif.
-         * <!-- begin-user-doc -->
+	 * This returns OriginalNameRecordMatcher.gif.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Object getImage(Object object) {
-                return overlayImage(object, getResourceLocator().getImage("full/obj16/OriginalNameRecordMatcher"));
-        }
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/OriginalNameRecordMatcher"));
+	}
 
         /**
-         * This returns the label text for the adapted class.
-         * <!-- begin-user-doc -->
+	 * This returns the label text for the adapted class.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public String getText(Object object) {
-                OriginalNameRecordMatcher originalNameRecordMatcher = (OriginalNameRecordMatcher)object;
-                return getString("_UI_OriginalNameRecordMatcher_type") + " " + originalNameRecordMatcher.isCaseSensitive();
-        }
+		OriginalNameRecordMatcher originalNameRecordMatcher = (OriginalNameRecordMatcher)object;
+		return getString("_UI_OriginalNameRecordMatcher_type") + " " + originalNameRecordMatcher.isCaseSensitive();
+	}
 
         /**
-         * This handles model notifications by calling {@link #updateChildren} to update any cached
-         * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-         * <!-- begin-user-doc -->
+	 * This handles model notifications by calling {@link #updateChildren} to update any cached
+	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public void notifyChanged(Notification notification) {
-                updateChildren(notification);
+		updateChildren(notification);
 
-                switch (notification.getFeatureID(OriginalNameRecordMatcher.class)) {
-                        case CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__CASE_SENSITIVE:
-                        case CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__INCLUDE_FILE_EXTENSION:
-                        case CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__BASE_FOLDER:
-                                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-                                return;
-                }
-                super.notifyChanged(notification);
-        }
+		switch (notification.getFeatureID(OriginalNameRecordMatcher.class)) {
+			case CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__CASE_SENSITIVE:
+			case CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__INCLUDE_FILE_EXTENSION:
+			case CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__BASE_FOLDER:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
+		super.notifyChanged(notification);
+	}
 
         /**
-         * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-         * that can be created under this object.
-         * <!-- begin-user-doc -->
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
-                super.collectNewChildDescriptors(newChildDescriptors, object);
-        }
+		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
 
 }

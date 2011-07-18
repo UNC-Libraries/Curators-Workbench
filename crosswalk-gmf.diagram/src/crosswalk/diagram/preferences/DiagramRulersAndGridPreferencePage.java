@@ -24,10 +24,10 @@ import crosswalk.diagram.part.CrosswalkDiagramEditorPlugin;
  */
 public class DiagramRulersAndGridPreferencePage extends RulerGridPreferencePage {
 
-    /**
-     * @generated
-     */
-    public DiagramRulersAndGridPreferencePage() {
-	setPreferenceStore(CrosswalkDiagramEditorPlugin.getInstance().getPreferenceStore());
-    }
+	/**
+	 * @generated
+	 */
+	public DiagramRulersAndGridPreferencePage() {
+		setPreferenceStore(CrosswalkDiagramEditorPlugin.getInstance().getPreferenceStore());
+	}
 }

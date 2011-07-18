@@ -44,17 +44,27 @@ public class NewSipProjectWizard extends Wizard implements INewWizard {
 		if (!_pageOne.useDefaults()) {
 			location = _pageOne.getLocationURI();
 		}
-		IProject prog = MetsProjectNatureSupport.createProject(name, location);
+		boolean autostage = _pageTwo.isAutoStage();
+		IProject prog = MetsProjectNatureSupport.createProject(name, location, autostage);
+		URI stageURI = _pageTwo.computeStageLocation(prog.getLocationURI(), prog.getName());
+		//System.out.println("staging URI passed to EFS.getStore: " + stageURI.toString());
+		IFolder stage = prog.getFolder(MetsProjectNature.STAGE_FOLDER_NAME);
 		try {
-			URI stageURI = _pageTwo.computeStageLocation(prog.getLocationURI(), prog.getName());
-			IFolder stage = prog.getFolder(MetsProjectNature.STAGE_FOLDER_NAME);
 			IFileStore stageStore = EFS.getStore(stageURI);
 			stageStore.mkdir(EFS.NONE, new NullProgressMonitor());
-			// TODO if linking fails, then throw an error!!
-			System.out.println("staging URI passed to EFS.getStore: " + stageURI.toString());
-			stage.createLink(stageURI, IFolder.ALLOW_MISSING_LOCAL, new NullProgressMonitor());
 		} catch (CoreException e) {
 			e.printStackTrace();
+			this._pageTwo.setErrorMessage("Cannot create staging folder: " + e.getLocalizedMessage());
+			this._pageOne.setErrorMessage("Cannot create staging folder: " + e.getLocalizedMessage());
+			return false;
+		}
+		try {
+			stage.createLink(stageURI, IFolder.ALLOW_MISSING_LOCAL, new NullProgressMonitor());
+		} catch(CoreException e) {
+			this._pageTwo.setErrorMessage("Cannot link staging folder to project: " + e.getLocalizedMessage());
+			this._pageOne.setErrorMessage("Cannot link staging folder to project: " + e.getLocalizedMessage());
+			e.printStackTrace();
+			return false;
 		}
 		return true;
 	}

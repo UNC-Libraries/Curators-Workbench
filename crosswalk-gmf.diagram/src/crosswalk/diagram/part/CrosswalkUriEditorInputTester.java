@@ -23,15 +23,15 @@ import org.eclipse.emf.common.ui.URIEditorInput;
  */
 public class CrosswalkUriEditorInputTester extends PropertyTester {
 
-    /**
-     * @generated
-     */
-    public boolean test(Object receiver, String method, Object[] args, Object expectedValue) {
-	if (false == receiver instanceof URIEditorInput) {
-	    return false;
+	/**
+	 * @generated
+	 */
+	public boolean test(Object receiver, String method, Object[] args, Object expectedValue) {
+		if (false == receiver instanceof URIEditorInput) {
+			return false;
+		}
+		URIEditorInput editorInput = (URIEditorInput) receiver;
+		return "crosswalk_diagram".equals(editorInput.getURI().fileExtension()); //$NON-NLS-1$
 	}
-	URIEditorInput editorInput = (URIEditorInput) receiver;
-	return "crosswalk_diagram".equals(editorInput.getURI().fileExtension()); //$NON-NLS-1$
-    }
 
 }

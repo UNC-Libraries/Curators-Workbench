@@ -29,83 +29,83 @@ import crosswalk.diagram.part.CrosswalkDiagramEditorPlugin;
  */
 public class CrosswalkDomainNavigatorLabelProvider implements ICommonLabelProvider {
 
-    /**
-     * @generated
-     */
-    private AdapterFactoryLabelProvider myAdapterFactoryLabelProvider = new AdapterFactoryLabelProvider(
-		    CrosswalkDiagramEditorPlugin.getInstance().getItemProvidersAdapterFactory());
+	/**
+	 * @generated
+	 */
+	private AdapterFactoryLabelProvider myAdapterFactoryLabelProvider = new AdapterFactoryLabelProvider(
+			CrosswalkDiagramEditorPlugin.getInstance().getItemProvidersAdapterFactory());
 
-    /**
-     * @generated
-     */
-    public void init(ICommonContentExtensionSite aConfig) {
-    }
-
-    /**
-     * @generated
-     */
-    public Image getImage(Object element) {
-	if (element instanceof CrosswalkDomainNavigatorItem) {
-	    return myAdapterFactoryLabelProvider.getImage(((CrosswalkDomainNavigatorItem) element).getEObject());
+	/**
+	 * @generated
+	 */
+	public void init(ICommonContentExtensionSite aConfig) {
 	}
-	return null;
-    }
 
-    /**
-     * @generated
-     */
-    public String getText(Object element) {
-	if (element instanceof CrosswalkDomainNavigatorItem) {
-	    return myAdapterFactoryLabelProvider.getText(((CrosswalkDomainNavigatorItem) element).getEObject());
+	/**
+	 * @generated
+	 */
+	public Image getImage(Object element) {
+		if (element instanceof CrosswalkDomainNavigatorItem) {
+			return myAdapterFactoryLabelProvider.getImage(((CrosswalkDomainNavigatorItem) element).getEObject());
+		}
+		return null;
 	}
-	return null;
-    }
 
-    /**
-     * @generated
-     */
-    public void addListener(ILabelProviderListener listener) {
-	myAdapterFactoryLabelProvider.addListener(listener);
-    }
+	/**
+	 * @generated
+	 */
+	public String getText(Object element) {
+		if (element instanceof CrosswalkDomainNavigatorItem) {
+			return myAdapterFactoryLabelProvider.getText(((CrosswalkDomainNavigatorItem) element).getEObject());
+		}
+		return null;
+	}
 
-    /**
-     * @generated
-     */
-    public void dispose() {
-	myAdapterFactoryLabelProvider.dispose();
-    }
+	/**
+	 * @generated
+	 */
+	public void addListener(ILabelProviderListener listener) {
+		myAdapterFactoryLabelProvider.addListener(listener);
+	}
 
-    /**
-     * @generated
-     */
-    public boolean isLabelProperty(Object element, String property) {
-	return myAdapterFactoryLabelProvider.isLabelProperty(element, property);
-    }
+	/**
+	 * @generated
+	 */
+	public void dispose() {
+		myAdapterFactoryLabelProvider.dispose();
+	}
 
-    /**
-     * @generated
-     */
-    public void removeListener(ILabelProviderListener listener) {
-	myAdapterFactoryLabelProvider.removeListener(listener);
-    }
+	/**
+	 * @generated
+	 */
+	public boolean isLabelProperty(Object element, String property) {
+		return myAdapterFactoryLabelProvider.isLabelProperty(element, property);
+	}
 
-    /**
-     * @generated
-     */
-    public void restoreState(IMemento aMemento) {
-    }
+	/**
+	 * @generated
+	 */
+	public void removeListener(ILabelProviderListener listener) {
+		myAdapterFactoryLabelProvider.removeListener(listener);
+	}
 
-    /**
-     * @generated
-     */
-    public void saveState(IMemento aMemento) {
-    }
+	/**
+	 * @generated
+	 */
+	public void restoreState(IMemento aMemento) {
+	}
 
-    /**
-     * @generated
-     */
-    public String getDescription(Object anElement) {
-	return null;
-    }
+	/**
+	 * @generated
+	 */
+	public void saveState(IMemento aMemento) {
+	}
+
+	/**
+	 * @generated
+	 */
+	public String getDescription(Object anElement) {
+		return null;
+	}
 
 }

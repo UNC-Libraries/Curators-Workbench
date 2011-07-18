@@ -78,7 +78,7 @@ import unc.lib.cdr.workbench.xwalk.CrosswalksProjectElement;
 public class MetsProjectNature implements IProjectNature {
 	/**
 	 * @author Gregory Jansen
-	 * 
+	 *
 	 */
 	public class ProjectCloseListener implements IResourceChangeListener {
 
@@ -90,7 +90,7 @@ public class MetsProjectNature implements IProjectNature {
 
 		/*
 		 * (non-Javadoc)
-		 * 
+		 *
 		 * @see org.eclipse.core.resources.IResourceChangeListener#resourceChanged
 		 * (org.eclipse.core.resources.IResourceChangeEvent)
 		 */
@@ -279,60 +279,7 @@ public class MetsProjectNature implements IProjectNature {
 		// setProject already called
 		// TODO initialize the adapterfactories
 		// load();
-		IFolder cws = this.getProject().getFolder(CROSSWALKS_FOLDER_NAME);
-		if (!cws.exists()) {
-			cws.create(false, false, new NullProgressMonitor());
-		}
 
-		IFolder os = this.getProject().getFolder(ORIGINALS_FOLDER_NAME);
-		if (!os.exists()) {
-			os.create(false, false, new NullProgressMonitor());
-		}
-		addBuilders();
-	}
-
-	/**
-     *
-     */
-	private void addBuilders() throws CoreException {
-		IProjectDescription desc = project.getDescription();
-		ICommand[] commands = desc.getBuildSpec();
-		boolean stagingfound = false;
-		boolean crosswalksfound = false;
-
-		for (int i = 0; i < commands.length; ++i) {
-			if (commands[i].getBuilderName().equals(STAGING_BUILDER_ID)) {
-				stagingfound = true;
-			} else if (commands[i].getBuilderName().equals(CROSSWALKS_BUILDER_ID)) {
-				crosswalksfound = true;
-			}
-		}
-		if (!stagingfound || !crosswalksfound) {
-			List<ICommand> builders = new ArrayList<ICommand>();
-			if (!stagingfound) {
-				// add builder to project
-				ICommand command = desc.newCommand();
-				command.setBuilderName(STAGING_BUILDER_ID);
-				command.setBuilding(IncrementalProjectBuilder.AUTO_BUILD, true);
-				command.setBuilding(IncrementalProjectBuilder.FULL_BUILD, true);
-				command.setBuilding(IncrementalProjectBuilder.INCREMENTAL_BUILD, true);
-				builders.add(command);
-			}
-			if (!crosswalksfound) {
-				// add builder to project
-				ICommand command = desc.newCommand();
-				command.setBuilderName(CROSSWALKS_BUILDER_ID);
-				command.setBuilding(IncrementalProjectBuilder.AUTO_BUILD, true);
-				command.setBuilding(IncrementalProjectBuilder.FULL_BUILD, true);
-				command.setBuilding(IncrementalProjectBuilder.INCREMENTAL_BUILD, true);
-				builders.add(command);
-			}
-			for (ICommand c : commands) {
-				builders.add(c);
-			}
-			desc.setBuildSpec(builders.toArray(commands));
-			project.setDescription(desc, null);
-		}
 	}
 
 	@Override
@@ -351,6 +298,15 @@ public class MetsProjectNature implements IProjectNature {
 		try {
 			this.project.setSessionProperty(EDITING_DOMAIN_KEY, editingDomain);
 			this.project.setSessionProperty(RESOURCE_SET_KEY, resourceSet);
+			IFolder cws = this.getProject().getFolder(CROSSWALKS_FOLDER_NAME);
+			if (!cws.exists()) {
+				cws.create(false, false, new NullProgressMonitor());
+			}
+
+			IFolder os = this.getProject().getFolder(ORIGINALS_FOLDER_NAME);
+			if (!os.exists()) {
+				os.create(false, false, new NullProgressMonitor());
+			}
 			load();
 		} catch (CoreException e) {
 			e.printStackTrace();
@@ -408,7 +364,7 @@ public class MetsProjectNature implements IProjectNature {
 
 	/**
 	 * Finds the original file or folder object for a given div or null.
-	 * 
+	 *
 	 * @param div
 	 * @return the IResource of the original
 	 */

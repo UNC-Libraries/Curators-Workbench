@@ -11,18 +11,18 @@ import crosswalk.diagram.providers.CrosswalkElementTypes;
  */
 public class InputOutputItemSemanticEditPolicy extends CrosswalkBaseItemSemanticEditPolicy {
 
-    /**
-     * @generated
-     */
-    public InputOutputItemSemanticEditPolicy() {
-	super(CrosswalkElementTypes.InputOutput_4003);
-    }
+	/**
+	 * @generated
+	 */
+	public InputOutputItemSemanticEditPolicy() {
+		super(CrosswalkElementTypes.InputOutput_4003);
+	}
 
-    /**
-     * @generated
-     */
-    protected Command getDestroyReferenceCommand(DestroyReferenceRequest req) {
-	return getGEFWrapper(new DestroyReferenceCommand(req));
-    }
+	/**
+	 * @generated
+	 */
+	protected Command getDestroyReferenceCommand(DestroyReferenceRequest req) {
+		return getGEFWrapper(new DestroyReferenceCommand(req));
+	}
 
 }

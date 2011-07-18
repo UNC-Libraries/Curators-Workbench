@@ -37,73 +37,73 @@ import crosswalk.diagram.edit.policies.CrossWalkItemSemanticEditPolicy;
  */
 public class CrossWalkEditPart extends DiagramEditPart {
 
-    /**
-     * @generated
-     */
-    public final static String MODEL_ID = "Crosswalk"; //$NON-NLS-1$
-
-    /**
-     * @generated
-     */
-    public static final int VISUAL_ID = 1000;
-
-    /**
-     * @generated
-     */
-    public CrossWalkEditPart(View view) {
-	super(view);
-    }
-
-    /**
-     * @generated NOT
-     */
-    @Override
-    protected void createDefaultEditPolicies() {
-	super.createDefaultEditPolicies();
-	installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new CrossWalkItemSemanticEditPolicy());
-	installEditPolicy(EditPolicyRoles.CANONICAL_ROLE, new CrossWalkCanonicalEditPolicy());
-	//removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.POPUPBAR_ROLE);
-    }
-
-    @Override
-    protected IFigure createFigure() {
-	IFigure fig = super.createFigure();
-	fig.setBackgroundColor(ColorConstants.lightGray);
-	fig.setOpaque(true);
-	return fig;
-    }
-
-    /**
-     * @generated
-     */
-    /* package-local */static class NodeLabelDragPolicy extends NonResizableEditPolicy {
+	/**
+	 * @generated
+	 */
+	public final static String MODEL_ID = "Crosswalk"; //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
+	public static final int VISUAL_ID = 1000;
+
+	/**
+	 * @generated
+	 */
+	public CrossWalkEditPart(View view) {
+		super(view);
+	}
+
+	/**
+	 * @generated NOT
+	 */
 	@Override
-	@SuppressWarnings("rawtypes")
-	protected List createSelectionHandles() {
-	    MoveHandle h = new MoveHandle((GraphicalEditPart) getHost());
-	    h.setBorder(null);
-	    return Collections.singletonList(h);
+	protected void createDefaultEditPolicies() {
+		super.createDefaultEditPolicies();
+		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new CrossWalkItemSemanticEditPolicy());
+		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE, new CrossWalkCanonicalEditPolicy());
+		//removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.POPUPBAR_ROLE);
+	}
+
+	@Override
+	protected IFigure createFigure() {
+		IFigure fig = super.createFigure();
+		fig.setBackgroundColor(ColorConstants.lightGray);
+		fig.setOpaque(true);
+		return fig;
 	}
 
 	/**
 	 * @generated
 	 */
-	@Override
-	public Command getCommand(Request request) {
-	    return null;
-	}
+	/* package-local */static class NodeLabelDragPolicy extends NonResizableEditPolicy {
 
-	/**
-	 * @generated
-	 */
-	@Override
-	public boolean understandsRequest(Request request) {
-	    return false;
+		/**
+		 * @generated
+		 */
+		@Override
+		@SuppressWarnings("rawtypes")
+		protected List createSelectionHandles() {
+			MoveHandle h = new MoveHandle((GraphicalEditPart) getHost());
+			h.setBorder(null);
+			return Collections.singletonList(h);
+		}
+
+		/**
+		 * @generated
+		 */
+		@Override
+		public Command getCommand(Request request) {
+			return null;
+		}
+
+		/**
+		 * @generated
+		 */
+		@Override
+		public boolean understandsRequest(Request request) {
+			return false;
+		}
 	}
-    }
 
 }

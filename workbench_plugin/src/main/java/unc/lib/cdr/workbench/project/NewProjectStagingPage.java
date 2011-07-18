@@ -39,7 +39,7 @@ import unc.lib.cdr.workbench.rcp.Activator;
 
 /**
  * @author Gregory Jansen
- * 
+ *
  */
 public class NewProjectStagingPage extends WizardPage {
 	WizardNewProjectCreationPage mainPage = null;
@@ -62,7 +62,7 @@ public class NewProjectStagingPage extends WizardPage {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.eclipse.jface.dialogs.IDialogPage#createControl(org.eclipse.swt.widgets .Composite)
 	 */
 	@Override

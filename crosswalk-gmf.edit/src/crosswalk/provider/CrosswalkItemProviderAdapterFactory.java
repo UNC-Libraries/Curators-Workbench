@@ -47,394 +47,394 @@ import crosswalk.util.CrosswalkAdapterFactory;
  */
 public class CrosswalkItemProviderAdapterFactory extends CrosswalkAdapterFactory implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
         /**
-         * This keeps track of the root adapter factory that delegates to this adapter factory.
-         * <!-- begin-user-doc -->
+	 * This keeps track of the root adapter factory that delegates to this adapter factory.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected ComposedAdapterFactory parentAdapterFactory;
 
         /**
-         * This is used to implement {@link org.eclipse.emf.edit.provider.IChangeNotifier}.
-         * <!-- begin-user-doc -->
+	 * This is used to implement {@link org.eclipse.emf.edit.provider.IChangeNotifier}.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected IChangeNotifier changeNotifier = new ChangeNotifier();
 
         /**
-         * This keeps track of all the item providers created, so that they can be {@link #dispose disposed}.
-         * <!-- begin-user-doc -->
+	 * This keeps track of all the item providers created, so that they can be {@link #dispose disposed}.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected Disposable disposable = new Disposable();
 
         /**
-         * This keeps track of all the supported types checked by {@link #isFactoryForType isFactoryForType}.
-         * <!-- begin-user-doc -->
+	 * This keeps track of all the supported types checked by {@link #isFactoryForType isFactoryForType}.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected Collection<Object> supportedTypes = new ArrayList<Object>();
 
         /**
-         * This constructs an instance.
-         * <!-- begin-user-doc -->
+	 * This constructs an instance.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public CrosswalkItemProviderAdapterFactory() {
-                supportedTypes.add(IEditingDomainItemProvider.class);
-                supportedTypes.add(IStructuredItemContentProvider.class);
-                supportedTypes.add(ITreeItemContentProvider.class);
-                supportedTypes.add(IItemLabelProvider.class);
-                supportedTypes.add(IItemPropertySource.class);
-        }
+		supportedTypes.add(IEditingDomainItemProvider.class);
+		supportedTypes.add(IStructuredItemContentProvider.class);
+		supportedTypes.add(ITreeItemContentProvider.class);
+		supportedTypes.add(IItemLabelProvider.class);
+		supportedTypes.add(IItemPropertySource.class);
+	}
 
         /**
-         * This creates an adapter for a {@link crosswalk.TabbedDataField}.
-         * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link crosswalk.TabbedDataField}.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Adapter createTabbedDataFieldAdapter() {
-                return new TabbedDataFieldItemProvider(this);
-        }
+		return new TabbedDataFieldItemProvider(this);
+	}
 
         /**
-         * This creates an adapter for a {@link crosswalk.TrimWhitespace}.
-         * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link crosswalk.TrimWhitespace}.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Adapter createTrimWhitespaceAdapter() {
-                return new TrimWhitespaceItemProvider(this);
-        }
+		return new TrimWhitespaceItemProvider(this);
+	}
 
         /**
-         * This keeps track of the one adapter used for all {@link crosswalk.CrossWalk} instances.
-         * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link crosswalk.CrossWalk} instances.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected CrossWalkItemProvider crossWalkItemProvider;
 
         /**
-         * This creates an adapter for a {@link crosswalk.CrossWalk}.
-         * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link crosswalk.CrossWalk}.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Adapter createCrossWalkAdapter() {
-                if (crossWalkItemProvider == null) {
-                        crossWalkItemProvider = new CrossWalkItemProvider(this);
-                }
+		if (crossWalkItemProvider == null) {
+			crossWalkItemProvider = new CrossWalkItemProvider(this);
+		}
 
-                return crossWalkItemProvider;
-        }
+		return crossWalkItemProvider;
+	}
 
         /**
-         * This keeps track of the one adapter used for all {@link crosswalk.DataField} instances.
-         * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link crosswalk.DataField} instances.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected DataFieldItemProvider dataFieldItemProvider;
 
         /**
-         * This creates an adapter for a {@link crosswalk.DataField}.
-         * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link crosswalk.DataField}.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Adapter createDataFieldAdapter() {
-                if (dataFieldItemProvider == null) {
-                        dataFieldItemProvider = new DataFieldItemProvider(this);
-                }
+		if (dataFieldItemProvider == null) {
+			dataFieldItemProvider = new DataFieldItemProvider(this);
+		}
 
-                return dataFieldItemProvider;
-        }
+		return dataFieldItemProvider;
+	}
 
         /**
-         * This keeps track of the one adapter used for all {@link crosswalk.OriginalNameRecordMatcher} instances.
-         * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link crosswalk.OriginalNameRecordMatcher} instances.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected OriginalNameRecordMatcherItemProvider originalNameRecordMatcherItemProvider;
 
         /**
-         * This creates an adapter for a {@link crosswalk.OriginalNameRecordMatcher}.
-         * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link crosswalk.OriginalNameRecordMatcher}.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Adapter createOriginalNameRecordMatcherAdapter() {
-                if (originalNameRecordMatcherItemProvider == null) {
-                        originalNameRecordMatcherItemProvider = new OriginalNameRecordMatcherItemProvider(this);
-                }
+		if (originalNameRecordMatcherItemProvider == null) {
+			originalNameRecordMatcherItemProvider = new OriginalNameRecordMatcherItemProvider(this);
+		}
 
-                return originalNameRecordMatcherItemProvider;
-        }
+		return originalNameRecordMatcherItemProvider;
+	}
 
         /**
-         * This keeps track of the one adapter used for all {@link crosswalk.DateRecognizer} instances.
-         * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link crosswalk.DateRecognizer} instances.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected DateRecognizerItemProvider dateRecognizerItemProvider;
 
         /**
-         * This creates an adapter for a {@link crosswalk.DateRecognizer}.
-         * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link crosswalk.DateRecognizer}.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Adapter createDateRecognizerAdapter() {
-                if (dateRecognizerItemProvider == null) {
-                        dateRecognizerItemProvider = new DateRecognizerItemProvider(this);
-                }
+		if (dateRecognizerItemProvider == null) {
+			dateRecognizerItemProvider = new DateRecognizerItemProvider(this);
+		}
 
-                return dateRecognizerItemProvider;
-        }
+		return dateRecognizerItemProvider;
+	}
 
         /**
-         * This keeps track of the one adapter used for all {@link crosswalk.Text} instances.
-         * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link crosswalk.Text} instances.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected TextItemProvider textItemProvider;
 
         /**
-         * This creates an adapter for a {@link crosswalk.Text}.
-         * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link crosswalk.Text}.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Adapter createTextAdapter() {
-                if (textItemProvider == null) {
-                        textItemProvider = new TextItemProvider(this);
-                }
+		if (textItemProvider == null) {
+			textItemProvider = new TextItemProvider(this);
+		}
 
-                return textItemProvider;
-        }
+		return textItemProvider;
+	}
 
         /**
-         * This keeps track of the one adapter used for all {@link crosswalk.DelimitedFile} instances.
-         * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link crosswalk.DelimitedFile} instances.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected DelimitedFileItemProvider delimitedFileItemProvider;
 
         /**
-         * This creates an adapter for a {@link crosswalk.DelimitedFile}.
-         * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link crosswalk.DelimitedFile}.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Adapter createDelimitedFileAdapter() {
-                if (delimitedFileItemProvider == null) {
-                        delimitedFileItemProvider = new DelimitedFileItemProvider(this);
-                }
+		if (delimitedFileItemProvider == null) {
+			delimitedFileItemProvider = new DelimitedFileItemProvider(this);
+		}
 
-                return delimitedFileItemProvider;
-        }
+		return delimitedFileItemProvider;
+	}
 
         /**
-         * This keeps track of the one adapter used for all {@link crosswalk.MappedElement} instances.
-         * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link crosswalk.MappedElement} instances.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected MappedElementItemProvider mappedElementItemProvider;
 
         /**
-         * This creates an adapter for a {@link crosswalk.MappedElement}.
-         * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link crosswalk.MappedElement}.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Adapter createMappedElementAdapter() {
-                if (mappedElementItemProvider == null) {
-                        mappedElementItemProvider = new MappedElementItemProvider(this);
-                }
+		if (mappedElementItemProvider == null) {
+			mappedElementItemProvider = new MappedElementItemProvider(this);
+		}
 
-                return mappedElementItemProvider;
-        }
+		return mappedElementItemProvider;
+	}
 
         /**
-         * This keeps track of the one adapter used for all {@link crosswalk.MappedAttribute} instances.
-         * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link crosswalk.MappedAttribute} instances.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected MappedAttributeItemProvider mappedAttributeItemProvider;
 
         /**
-         * This creates an adapter for a {@link crosswalk.MappedAttribute}.
-         * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link crosswalk.MappedAttribute}.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Adapter createMappedAttributeAdapter() {
-                if (mappedAttributeItemProvider == null) {
-                        mappedAttributeItemProvider = new MappedAttributeItemProvider(this);
-                }
+		if (mappedAttributeItemProvider == null) {
+			mappedAttributeItemProvider = new MappedAttributeItemProvider(this);
+		}
 
-                return mappedAttributeItemProvider;
-        }
+		return mappedAttributeItemProvider;
+	}
 
         /**
-         * This keeps track of the one adapter used for all {@link crosswalk.DateToISO8601StringConversion} instances.
-         * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link crosswalk.DateToISO8601StringConversion} instances.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected DateToISO8601StringConversionItemProvider dateToISO8601StringConversionItemProvider;
 
         /**
-         * This creates an adapter for a {@link crosswalk.DateToISO8601StringConversion}.
-         * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link crosswalk.DateToISO8601StringConversion}.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Adapter createDateToISO8601StringConversionAdapter() {
-                if (dateToISO8601StringConversionItemProvider == null) {
-                        dateToISO8601StringConversionItemProvider = new DateToISO8601StringConversionItemProvider(this);
-                }
+		if (dateToISO8601StringConversionItemProvider == null) {
+			dateToISO8601StringConversionItemProvider = new DateToISO8601StringConversionItemProvider(this);
+		}
 
-                return dateToISO8601StringConversionItemProvider;
-        }
+		return dateToISO8601StringConversionItemProvider;
+	}
 
         /**
-         * This returns the root adapter factory that contains this factory.
-         * <!-- begin-user-doc -->
+	 * This returns the root adapter factory that contains this factory.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public ComposeableAdapterFactory getRootAdapterFactory() {
-                return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory();
-        }
+		return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory();
+	}
 
         /**
-         * This sets the composed adapter factory that contains this factory.
-         * <!-- begin-user-doc -->
+	 * This sets the composed adapter factory that contains this factory.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory) {
-                this.parentAdapterFactory = parentAdapterFactory;
-        }
+		this.parentAdapterFactory = parentAdapterFactory;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public boolean isFactoryForType(Object type) {
-                return supportedTypes.contains(type) || super.isFactoryForType(type);
-        }
+		return supportedTypes.contains(type) || super.isFactoryForType(type);
+	}
 
         /**
-         * This implementation substitutes the factory itself as the key for the adapter.
-         * <!-- begin-user-doc -->
+	 * This implementation substitutes the factory itself as the key for the adapter.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Adapter adapt(Notifier notifier, Object type) {
-                return super.adapt(notifier, this);
-        }
+		return super.adapt(notifier, this);
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Object adapt(Object object, Object type) {
-                if (isFactoryForType(type)) {
-                        Object adapter = super.adapt(object, type);
-                        if (!(type instanceof Class<?>) || (((Class<?>)type).isInstance(adapter))) {
-                                return adapter;
-                        }
-                }
+		if (isFactoryForType(type)) {
+			Object adapter = super.adapt(object, type);
+			if (!(type instanceof Class<?>) || (((Class<?>)type).isInstance(adapter))) {
+				return adapter;
+			}
+		}
 
-                return null;
-        }
+		return null;
+	}
 
         /**
-         * Associates an adapter with a notifier via the base implementation, then records it to ensure it will be disposed.
-         * <!-- begin-user-doc -->
+	 * Associates an adapter with a notifier via the base implementation, then records it to ensure it will be disposed.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         protected void associate(Adapter adapter, Notifier target) {
-                super.associate(adapter, target);
-                if (adapter != null) {
-                        disposable.add(adapter);
-                }
-        }
+		super.associate(adapter, target);
+		if (adapter != null) {
+			disposable.add(adapter);
+		}
+	}
 
         /**
-         * This adds a listener.
-         * <!-- begin-user-doc -->
+	 * This adds a listener.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public void addListener(INotifyChangedListener notifyChangedListener) {
-                changeNotifier.addListener(notifyChangedListener);
-        }
+		changeNotifier.addListener(notifyChangedListener);
+	}
 
         /**
-         * This removes a listener.
-         * <!-- begin-user-doc -->
+	 * This removes a listener.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public void removeListener(INotifyChangedListener notifyChangedListener) {
-                changeNotifier.removeListener(notifyChangedListener);
-        }
+		changeNotifier.removeListener(notifyChangedListener);
+	}
 
         /**
-         * This delegates to {@link #changeNotifier} and to {@link #parentAdapterFactory}.
-         * <!-- begin-user-doc -->
+	 * This delegates to {@link #changeNotifier} and to {@link #parentAdapterFactory}.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public void fireNotifyChanged(Notification notification) {
-                changeNotifier.fireNotifyChanged(notification);
+		changeNotifier.fireNotifyChanged(notification);
 
-                if (parentAdapterFactory != null) {
-                        parentAdapterFactory.fireNotifyChanged(notification);
-                }
-        }
+		if (parentAdapterFactory != null) {
+			parentAdapterFactory.fireNotifyChanged(notification);
+		}
+	}
 
         /**
-         * This disposes all of the item providers created by this factory. 
-         * <!-- begin-user-doc -->
+	 * This disposes all of the item providers created by this factory. 
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public void dispose() {
-                disposable.dispose();
-        }
+		disposable.dispose();
+	}
 
 }
