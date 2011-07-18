@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link edu.unc.lib.schemas.acl.AccessControlType#getGrant <em>Grant</em>}</li>
+ *   <li>{@link edu.unc.lib.schemas.acl.AccessControlType#isDiscoverable <em>Discoverable</em>}</li>
  *   <li>{@link edu.unc.lib.schemas.acl.AccessControlType#getEmbargoUntil <em>Embargo Until</em>}</li>
  *   <li>{@link edu.unc.lib.schemas.acl.AccessControlType#isInherit <em>Inherit</em>}</li>
  * </ul>
@@ -32,129 +33,184 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface AccessControlType extends EObject {
         /**
-         * Returns the value of the '<em><b>Grant</b></em>' containment reference list.
-         * The list contents are of type {@link edu.unc.lib.schemas.acl.GrantType}.
-         * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Grant</b></em>' containment reference list.
+	 * The list contents are of type {@link edu.unc.lib.schemas.acl.GrantType}.
+	 * <!-- begin-user-doc -->
          * <p>
          * If the meaning of the '<em>Grant</em>' containment reference list isn't clear,
          * there really should be more of a description here...
          * </p>
          * <!-- end-user-doc -->
-         * @return the value of the '<em>Grant</em>' containment reference list.
-         * @see edu.unc.lib.schemas.acl.AclPackage#getAccessControlType_Grant()
-         * @model containment="true"
-         *        extendedMetaData="kind='element' name='grant' namespace='##targetNamespace'"
-         * @generated
-         */
+	 * @return the value of the '<em>Grant</em>' containment reference list.
+	 * @see edu.unc.lib.schemas.acl.AclPackage#getAccessControlType_Grant()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='grant' namespace='##targetNamespace'"
+	 * @generated
+	 */
         EList<GrantType> getGrant();
 
         /**
-         * Returns the value of the '<em><b>Embargo Until</b></em>' attribute.
-         * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Discoverable</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Discoverable</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Discoverable</em>' attribute.
+	 * @see #isSetDiscoverable()
+	 * @see #unsetDiscoverable()
+	 * @see #setDiscoverable(boolean)
+	 * @see edu.unc.lib.schemas.acl.AclPackage#getAccessControlType_Discoverable()
+	 * @model default="true" unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Boolean"
+	 *        extendedMetaData="kind='attribute' name='discoverable' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	boolean isDiscoverable();
+
+								/**
+	 * Sets the value of the '{@link edu.unc.lib.schemas.acl.AccessControlType#isDiscoverable <em>Discoverable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Discoverable</em>' attribute.
+	 * @see #isSetDiscoverable()
+	 * @see #unsetDiscoverable()
+	 * @see #isDiscoverable()
+	 * @generated
+	 */
+	void setDiscoverable(boolean value);
+
+								/**
+	 * Unsets the value of the '{@link edu.unc.lib.schemas.acl.AccessControlType#isDiscoverable <em>Discoverable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSetDiscoverable()
+	 * @see #isDiscoverable()
+	 * @see #setDiscoverable(boolean)
+	 * @generated
+	 */
+	void unsetDiscoverable();
+
+								/**
+	 * Returns whether the value of the '{@link edu.unc.lib.schemas.acl.AccessControlType#isDiscoverable <em>Discoverable</em>}' attribute is set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return whether the value of the '<em>Discoverable</em>' attribute is set.
+	 * @see #unsetDiscoverable()
+	 * @see #isDiscoverable()
+	 * @see #setDiscoverable(boolean)
+	 * @generated
+	 */
+	boolean isSetDiscoverable();
+
+								/**
+	 * Returns the value of the '<em><b>Embargo Until</b></em>' attribute.
+	 * <!-- begin-user-doc -->
          * <p>
          * If the meaning of the '<em>Embargo Until</em>' attribute isn't clear,
          * there really should be more of a description here...
          * </p>
          * <!-- end-user-doc -->
-         * @return the value of the '<em>Embargo Until</em>' attribute.
-         * @see #isSetEmbargoUntil()
-         * @see #unsetEmbargoUntil()
-         * @see #setEmbargoUntil(XMLGregorianCalendar)
-         * @see edu.unc.lib.schemas.acl.AclPackage#getAccessControlType_EmbargoUntil()
-         * @model unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Date"
-         *        extendedMetaData="kind='attribute' name='embargo-until' namespace='##targetNamespace'"
-         * @generated
-         */
+	 * @return the value of the '<em>Embargo Until</em>' attribute.
+	 * @see #isSetEmbargoUntil()
+	 * @see #unsetEmbargoUntil()
+	 * @see #setEmbargoUntil(XMLGregorianCalendar)
+	 * @see edu.unc.lib.schemas.acl.AclPackage#getAccessControlType_EmbargoUntil()
+	 * @model unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Date"
+	 *        extendedMetaData="kind='attribute' name='embargo-until' namespace='##targetNamespace'"
+	 * @generated
+	 */
         XMLGregorianCalendar getEmbargoUntil();
 
         /**
-         * Sets the value of the '{@link edu.unc.lib.schemas.acl.AccessControlType#getEmbargoUntil <em>Embargo Until</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link edu.unc.lib.schemas.acl.AccessControlType#getEmbargoUntil <em>Embargo Until</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @param value the new value of the '<em>Embargo Until</em>' attribute.
-         * @see #isSetEmbargoUntil()
-         * @see #unsetEmbargoUntil()
-         * @see #getEmbargoUntil()
-         * @generated
-         */
+	 * @param value the new value of the '<em>Embargo Until</em>' attribute.
+	 * @see #isSetEmbargoUntil()
+	 * @see #unsetEmbargoUntil()
+	 * @see #getEmbargoUntil()
+	 * @generated
+	 */
         void setEmbargoUntil(XMLGregorianCalendar value);
 
         /**
-         * Unsets the value of the '{@link edu.unc.lib.schemas.acl.AccessControlType#getEmbargoUntil <em>Embargo Until</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * Unsets the value of the '{@link edu.unc.lib.schemas.acl.AccessControlType#getEmbargoUntil <em>Embargo Until</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #isSetEmbargoUntil()
-         * @see #getEmbargoUntil()
-         * @see #setEmbargoUntil(XMLGregorianCalendar)
-         * @generated
-         */
+	 * @see #isSetEmbargoUntil()
+	 * @see #getEmbargoUntil()
+	 * @see #setEmbargoUntil(XMLGregorianCalendar)
+	 * @generated
+	 */
         void unsetEmbargoUntil();
 
         /**
-         * Returns whether the value of the '{@link edu.unc.lib.schemas.acl.AccessControlType#getEmbargoUntil <em>Embargo Until</em>}' attribute is set.
-         * <!-- begin-user-doc -->
+	 * Returns whether the value of the '{@link edu.unc.lib.schemas.acl.AccessControlType#getEmbargoUntil <em>Embargo Until</em>}' attribute is set.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @return whether the value of the '<em>Embargo Until</em>' attribute is set.
-         * @see #unsetEmbargoUntil()
-         * @see #getEmbargoUntil()
-         * @see #setEmbargoUntil(XMLGregorianCalendar)
-         * @generated
-         */
+	 * @return whether the value of the '<em>Embargo Until</em>' attribute is set.
+	 * @see #unsetEmbargoUntil()
+	 * @see #getEmbargoUntil()
+	 * @see #setEmbargoUntil(XMLGregorianCalendar)
+	 * @generated
+	 */
         boolean isSetEmbargoUntil();
 
         /**
-         * Returns the value of the '<em><b>Inherit</b></em>' attribute.
-         * The default value is <code>"true"</code>.
-         * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Inherit</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
+	 * <!-- begin-user-doc -->
          * <p>
          * If the meaning of the '<em>Inherit</em>' attribute isn't clear,
          * there really should be more of a description here...
          * </p>
          * <!-- end-user-doc -->
-         * @return the value of the '<em>Inherit</em>' attribute.
-         * @see #isSetInherit()
-         * @see #unsetInherit()
-         * @see #setInherit(boolean)
-         * @see edu.unc.lib.schemas.acl.AclPackage#getAccessControlType_Inherit()
-         * @model default="true" unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Boolean"
-         *        extendedMetaData="kind='attribute' name='inherit' namespace='##targetNamespace'"
-         * @generated
-         */
+	 * @return the value of the '<em>Inherit</em>' attribute.
+	 * @see #isSetInherit()
+	 * @see #unsetInherit()
+	 * @see #setInherit(boolean)
+	 * @see edu.unc.lib.schemas.acl.AclPackage#getAccessControlType_Inherit()
+	 * @model default="true" unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Boolean"
+	 *        extendedMetaData="kind='attribute' name='inherit' namespace='##targetNamespace'"
+	 * @generated
+	 */
         boolean isInherit();
 
         /**
-         * Sets the value of the '{@link edu.unc.lib.schemas.acl.AccessControlType#isInherit <em>Inherit</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link edu.unc.lib.schemas.acl.AccessControlType#isInherit <em>Inherit</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @param value the new value of the '<em>Inherit</em>' attribute.
-         * @see #isSetInherit()
-         * @see #unsetInherit()
-         * @see #isInherit()
-         * @generated
-         */
+	 * @param value the new value of the '<em>Inherit</em>' attribute.
+	 * @see #isSetInherit()
+	 * @see #unsetInherit()
+	 * @see #isInherit()
+	 * @generated
+	 */
         void setInherit(boolean value);
 
         /**
-         * Unsets the value of the '{@link edu.unc.lib.schemas.acl.AccessControlType#isInherit <em>Inherit</em>}' attribute.
-         * <!-- begin-user-doc -->
+	 * Unsets the value of the '{@link edu.unc.lib.schemas.acl.AccessControlType#isInherit <em>Inherit</em>}' attribute.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #isSetInherit()
-         * @see #isInherit()
-         * @see #setInherit(boolean)
-         * @generated
-         */
+	 * @see #isSetInherit()
+	 * @see #isInherit()
+	 * @see #setInherit(boolean)
+	 * @generated
+	 */
         void unsetInherit();
 
         /**
-         * Returns whether the value of the '{@link edu.unc.lib.schemas.acl.AccessControlType#isInherit <em>Inherit</em>}' attribute is set.
-         * <!-- begin-user-doc -->
+	 * Returns whether the value of the '{@link edu.unc.lib.schemas.acl.AccessControlType#isInherit <em>Inherit</em>}' attribute is set.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @return whether the value of the '<em>Inherit</em>' attribute is set.
-         * @see #unsetInherit()
-         * @see #isInherit()
-         * @see #setInherit(boolean)
-         * @generated
-         */
+	 * @return whether the value of the '<em>Inherit</em>' attribute is set.
+	 * @see #unsetInherit()
+	 * @see #isInherit()
+	 * @see #setInherit(boolean)
+	 * @generated
+	 */
         boolean isSetInherit();
 
 } // AccessControlType

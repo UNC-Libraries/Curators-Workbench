@@ -25,30 +25,30 @@ import org.eclipse.emf.ecore.xmi.util.XMLProcessor;
 public class AclXMLProcessor extends XMLProcessor {
 
         /**
-         * Public constructor to instantiate the helper.
-         * <!-- begin-user-doc -->
+	 * Public constructor to instantiate the helper.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public AclXMLProcessor() {
-                super((EPackage.Registry.INSTANCE));
-                AclPackage.eINSTANCE.eClass();
-        }
+		super((EPackage.Registry.INSTANCE));
+		AclPackage.eINSTANCE.eClass();
+	}
         
         /**
-         * Register for "*" and "xml" file extensions the AclResourceFactoryImpl factory.
-         * <!-- begin-user-doc -->
+	 * Register for "*" and "xml" file extensions the AclResourceFactoryImpl factory.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         protected Map<String, Resource.Factory> getRegistrations() {
-                if (registrations == null) {
-                        super.getRegistrations();
-                        registrations.put(XML_EXTENSION, new AclResourceFactoryImpl());
-                        registrations.put(STAR_EXTENSION, new AclResourceFactoryImpl());
-                }
-                return registrations;
-        }
+		if (registrations == null) {
+			super.getRegistrations();
+			registrations.put(XML_EXTENSION, new AclResourceFactoryImpl());
+			registrations.put(STAR_EXTENSION, new AclResourceFactoryImpl());
+		}
+		return registrations;
+	}
 
 } //AclXMLProcessor

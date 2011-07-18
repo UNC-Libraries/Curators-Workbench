@@ -24,98 +24,98 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
  */
 public class AclFactoryImpl extends EFactoryImpl implements AclFactory {
         /**
-         * Creates the default factory implementation.
-         * <!-- begin-user-doc -->
+	 * Creates the default factory implementation.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public static AclFactory init() {
-                try {
-                        AclFactory theAclFactory = (AclFactory)EPackage.Registry.INSTANCE.getEFactory("http://cdr.unc.edu/definitions/acl#"); 
-                        if (theAclFactory != null) {
-                                return theAclFactory;
-                        }
-                }
-                catch (Exception exception) {
-                        EcorePlugin.INSTANCE.log(exception);
-                }
-                return new AclFactoryImpl();
-        }
+		try {
+			AclFactory theAclFactory = (AclFactory)EPackage.Registry.INSTANCE.getEFactory("http://cdr.unc.edu/definitions/acl#"); 
+			if (theAclFactory != null) {
+				return theAclFactory;
+			}
+		}
+		catch (Exception exception) {
+			EcorePlugin.INSTANCE.log(exception);
+		}
+		return new AclFactoryImpl();
+	}
 
         /**
-         * Creates an instance of the factory.
-         * <!-- begin-user-doc -->
+	 * Creates an instance of the factory.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public AclFactoryImpl() {
-                super();
-        }
+		super();
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public EObject create(EClass eClass) {
-                switch (eClass.getClassifierID()) {
-                        case AclPackage.ACCESS_CONTROL_TYPE: return createAccessControlType();
-                        case AclPackage.DOCUMENT_ROOT: return createDocumentRoot();
-                        case AclPackage.GRANT_TYPE: return createGrantType();
-                        default:
-                                throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
-                }
-        }
+		switch (eClass.getClassifierID()) {
+			case AclPackage.ACCESS_CONTROL_TYPE: return createAccessControlType();
+			case AclPackage.DOCUMENT_ROOT: return createDocumentRoot();
+			case AclPackage.GRANT_TYPE: return createGrantType();
+			default:
+				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+		}
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public AccessControlType createAccessControlType() {
-                AccessControlTypeImpl accessControlType = new AccessControlTypeImpl();
-                return accessControlType;
-        }
+		AccessControlTypeImpl accessControlType = new AccessControlTypeImpl();
+		return accessControlType;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public DocumentRoot createDocumentRoot() {
-                DocumentRootImpl documentRoot = new DocumentRootImpl();
-                return documentRoot;
-        }
+		DocumentRootImpl documentRoot = new DocumentRootImpl();
+		return documentRoot;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public GrantType createGrantType() {
-                GrantTypeImpl grantType = new GrantTypeImpl();
-                return grantType;
-        }
+		GrantTypeImpl grantType = new GrantTypeImpl();
+		return grantType;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public AclPackage getAclPackage() {
-                return (AclPackage)getEPackage();
-        }
+		return (AclPackage)getEPackage();
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @deprecated
-         * @generated
-         */
+	 * @deprecated
+	 * @generated
+	 */
         @Deprecated
         public static AclPackage getPackage() {
-                return AclPackage.eINSTANCE;
-        }
+		return AclPackage.eINSTANCE;
+	}
 
 } //AclFactoryImpl

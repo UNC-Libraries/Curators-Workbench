@@ -9,6 +9,7 @@
       ecorePackage="acl.ecore#/">
     <genClasses ecoreClass="acl.ecore#//AccessControlType">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference acl.ecore#//AccessControlType/grant"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute acl.ecore#//AccessControlType/discoverable"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute acl.ecore#//AccessControlType/embargoUntil"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute acl.ecore#//AccessControlType/inherit"/>
     </genClasses>

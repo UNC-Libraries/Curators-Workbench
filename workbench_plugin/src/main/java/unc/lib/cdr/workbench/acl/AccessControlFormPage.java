@@ -42,12 +42,13 @@ import edu.unc.lib.schemas.acl.AccessControlType;
 
 /**
  * @author Gregory Jansen
- * 
+ *
  */
 public class AccessControlFormPage extends FormPage {
 	private ScrolledPropertiesBlock block;
 	private AccessControlType model;
 	private Button inheritFlag;
+	private Button discoverableFlag;
 	private Button embargoFlag;
 	private DateTime untilDate;
 	private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -70,6 +71,7 @@ public class AccessControlFormPage extends FormPage {
 
 		// first block
 		createInheritContent(parent, toolkit);
+		createDiscoverableContent(parent, toolkit);
 		createEmbargoContent(parent, toolkit);
 		// form.setBackgroundImage(FormArticlePlugin.getDefault().getImage(
 		// FormArticlePlugin.IMG_FORM_BG));
@@ -177,5 +179,34 @@ public class AccessControlFormPage extends FormPage {
 		// gd.heightHint
 		inheritFlag.setLayoutData(gd);
 		s1.setClient(inheritFlag);
+	}
+
+	/**
+	 * @param parent
+	 * @param toolkit
+	 */
+	private void createDiscoverableContent(Composite parent, FormToolkit toolkit) {
+		TableWrapData gd = new TableWrapData(TableWrapData.FILL_GRAB, TableWrapData.MIDDLE);
+		Section s1 = toolkit.createSection(parent, Section.DESCRIPTION | Section.TITLE_BAR);
+		s1.setText("Allow Discovery"); //$NON-NLS-1$
+		s1.setDescription("Do you want this object to be discovered by repository search and browse functions?"); //$NON-NLS-1$
+		s1.marginWidth = 10;
+		s1.marginHeight = 5;
+		System.out.println("parent layout: " + parent.getLayout());
+		System.out.println("s1 layout: " + s1.getLayout());
+		s1.setLayoutData(gd);
+		discoverableFlag = toolkit.createButton(s1, "Yes, allow discovery via search and browse.", SWT.CHECK); //$NON-NLS-1$
+		discoverableFlag.setSelection(model.isDiscoverable());
+		discoverableFlag.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				if (model != null)
+					model.setDiscoverable(discoverableFlag.getSelection());
+			}
+		});
+		gd = new TableWrapData(TableWrapData.FILL, TableWrapData.MIDDLE);
+		// gd.heightHint
+		discoverableFlag.setLayoutData(gd);
+		s1.setClient(discoverableFlag);
 	}
 }

@@ -49,181 +49,202 @@ public class AccessControlTypeItemProvider
                 IItemLabelProvider,
                 IItemPropertySource {
         /**
-         * This constructs an instance from a factory and a notifier.
-         * <!-- begin-user-doc -->
+	 * This constructs an instance from a factory and a notifier.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public AccessControlTypeItemProvider(AdapterFactory adapterFactory) {
-                super(adapterFactory);
-        }
+		super(adapterFactory);
+	}
 
         /**
-         * This returns the property descriptors for the adapted class.
-         * <!-- begin-user-doc -->
+	 * This returns the property descriptors for the adapted class.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-                if (itemPropertyDescriptors == null) {
-                        super.getPropertyDescriptors(object);
+		if (itemPropertyDescriptors == null) {
+			super.getPropertyDescriptors(object);
 
-                        addEmbargoUntilPropertyDescriptor(object);
-                        addInheritPropertyDescriptor(object);
-                }
-                return itemPropertyDescriptors;
-        }
+			addDiscoverablePropertyDescriptor(object);
+			addEmbargoUntilPropertyDescriptor(object);
+			addInheritPropertyDescriptor(object);
+		}
+		return itemPropertyDescriptors;
+	}
 
         /**
-         * This adds a property descriptor for the Embargo Until feature.
-         * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Discoverable feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDiscoverablePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_AccessControlType_discoverable_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AccessControlType_discoverable_feature", "_UI_AccessControlType_type"),
+				 AclPackage.Literals.ACCESS_CONTROL_TYPE__DISCOVERABLE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+								/**
+	 * This adds a property descriptor for the Embargo Until feature.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected void addEmbargoUntilPropertyDescriptor(Object object) {
-                itemPropertyDescriptors.add
-                        (createItemPropertyDescriptor
-                                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                                 getResourceLocator(),
-                                 getString("_UI_AccessControlType_embargoUntil_feature"),
-                                 getString("_UI_PropertyDescriptor_description", "_UI_AccessControlType_embargoUntil_feature", "_UI_AccessControlType_type"),
-                                 AclPackage.Literals.ACCESS_CONTROL_TYPE__EMBARGO_UNTIL,
-                                 true,
-                                 false,
-                                 false,
-                                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                                 null,
-                                 null));
-        }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_AccessControlType_embargoUntil_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AccessControlType_embargoUntil_feature", "_UI_AccessControlType_type"),
+				 AclPackage.Literals.ACCESS_CONTROL_TYPE__EMBARGO_UNTIL,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
         /**
-         * This adds a property descriptor for the Inherit feature.
-         * <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Inherit feature.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         protected void addInheritPropertyDescriptor(Object object) {
-                itemPropertyDescriptors.add
-                        (createItemPropertyDescriptor
-                                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                                 getResourceLocator(),
-                                 getString("_UI_AccessControlType_inherit_feature"),
-                                 getString("_UI_PropertyDescriptor_description", "_UI_AccessControlType_inherit_feature", "_UI_AccessControlType_type"),
-                                 AclPackage.Literals.ACCESS_CONTROL_TYPE__INHERIT,
-                                 true,
-                                 false,
-                                 false,
-                                 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-                                 null,
-                                 null));
-        }
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_AccessControlType_inherit_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AccessControlType_inherit_feature", "_UI_AccessControlType_type"),
+				 AclPackage.Literals.ACCESS_CONTROL_TYPE__INHERIT,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
         /**
-         * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-         * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-         * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-         * <!-- begin-user-doc -->
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-                if (childrenFeatures == null) {
-                        super.getChildrenFeatures(object);
-                        childrenFeatures.add(AclPackage.Literals.ACCESS_CONTROL_TYPE__GRANT);
-                }
-                return childrenFeatures;
-        }
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(AclPackage.Literals.ACCESS_CONTROL_TYPE__GRANT);
+		}
+		return childrenFeatures;
+	}
 
         /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         protected EStructuralFeature getChildFeature(Object object, Object child) {
-                // Check the type of the specified child object and return the proper feature to use for
-                // adding (see {@link AddCommand}) it as a child.
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
 
-                return super.getChildFeature(object, child);
-        }
+		return super.getChildFeature(object, child);
+	}
 
         /**
-         * This returns AccessControlType.gif.
-         * <!-- begin-user-doc -->
+	 * This returns AccessControlType.gif.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public Object getImage(Object object) {
-                return overlayImage(object, getResourceLocator().getImage("full/obj16/AccessControlType"));
-        }
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/AccessControlType"));
+	}
 
         /**
-         * This returns the label text for the adapted class.
-         * <!-- begin-user-doc -->
+	 * This returns the label text for the adapted class.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public String getText(Object object) {
-                XMLGregorianCalendar labelValue = ((AccessControlType)object).getEmbargoUntil();
-                String label = labelValue == null ? null : labelValue.toString();
-                return label == null || label.length() == 0 ?
-                        getString("_UI_AccessControlType_type") :
-                        getString("_UI_AccessControlType_type") + " " + label;
-        }
+		AccessControlType accessControlType = (AccessControlType)object;
+		return getString("_UI_AccessControlType_type") + " " + accessControlType.isDiscoverable();
+	}
 
         /**
-         * This handles model notifications by calling {@link #updateChildren} to update any cached
-         * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-         * <!-- begin-user-doc -->
+	 * This handles model notifications by calling {@link #updateChildren} to update any cached
+	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public void notifyChanged(Notification notification) {
-                updateChildren(notification);
+		updateChildren(notification);
 
-                switch (notification.getFeatureID(AccessControlType.class)) {
-                        case AclPackage.ACCESS_CONTROL_TYPE__EMBARGO_UNTIL:
-                        case AclPackage.ACCESS_CONTROL_TYPE__INHERIT:
-                                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-                                return;
-                        case AclPackage.ACCESS_CONTROL_TYPE__GRANT:
-                                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-                                return;
-                }
-                super.notifyChanged(notification);
-        }
+		switch (notification.getFeatureID(AccessControlType.class)) {
+			case AclPackage.ACCESS_CONTROL_TYPE__DISCOVERABLE:
+			case AclPackage.ACCESS_CONTROL_TYPE__EMBARGO_UNTIL:
+			case AclPackage.ACCESS_CONTROL_TYPE__INHERIT:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+			case AclPackage.ACCESS_CONTROL_TYPE__GRANT:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
+		}
+		super.notifyChanged(notification);
+	}
 
         /**
-         * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-         * that can be created under this object.
-         * <!-- begin-user-doc -->
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
-                super.collectNewChildDescriptors(newChildDescriptors, object);
+		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-                newChildDescriptors.add
-                        (createChildParameter
-                                (AclPackage.Literals.ACCESS_CONTROL_TYPE__GRANT,
-                                 AclFactory.eINSTANCE.createGrantType()));
-        }
+		newChildDescriptors.add
+			(createChildParameter
+				(AclPackage.Literals.ACCESS_CONTROL_TYPE__GRANT,
+				 AclFactory.eINSTANCE.createGrantType()));
+	}
 
         /**
-         * Return the resource locator for this item provider's resources.
-         * <!-- begin-user-doc -->
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         @Override
         public ResourceLocator getResourceLocator() {
-                return AclEditPlugin.INSTANCE;
-        }
+		return AclEditPlugin.INSTANCE;
+	}
 
 }

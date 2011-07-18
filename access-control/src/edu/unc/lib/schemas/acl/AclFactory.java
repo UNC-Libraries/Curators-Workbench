@@ -18,47 +18,47 @@ import org.eclipse.emf.ecore.EFactory;
  */
 public interface AclFactory extends EFactory {
         /**
-         * The singleton instance of the factory.
-         * <!-- begin-user-doc -->
+	 * The singleton instance of the factory.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         AclFactory eINSTANCE = edu.unc.lib.schemas.acl.impl.AclFactoryImpl.init();
 
         /**
-         * Returns a new object of class '<em>Access Control Type</em>'.
-         * <!-- begin-user-doc -->
+	 * Returns a new object of class '<em>Access Control Type</em>'.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @return a new object of class '<em>Access Control Type</em>'.
-         * @generated
-         */
+	 * @return a new object of class '<em>Access Control Type</em>'.
+	 * @generated
+	 */
         AccessControlType createAccessControlType();
 
         /**
-         * Returns a new object of class '<em>Document Root</em>'.
-         * <!-- begin-user-doc -->
+	 * Returns a new object of class '<em>Document Root</em>'.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @return a new object of class '<em>Document Root</em>'.
-         * @generated
-         */
+	 * @return a new object of class '<em>Document Root</em>'.
+	 * @generated
+	 */
         DocumentRoot createDocumentRoot();
 
         /**
-         * Returns a new object of class '<em>Grant Type</em>'.
-         * <!-- begin-user-doc -->
+	 * Returns a new object of class '<em>Grant Type</em>'.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @return a new object of class '<em>Grant Type</em>'.
-         * @generated
-         */
+	 * @return a new object of class '<em>Grant Type</em>'.
+	 * @generated
+	 */
         GrantType createGrantType();
 
         /**
-         * Returns the package supported by this factory.
-         * <!-- begin-user-doc -->
+	 * Returns the package supported by this factory.
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @return the package supported by this factory.
-         * @generated
-         */
+	 * @return the package supported by this factory.
+	 * @generated
+	 */
         AclPackage getAclPackage();
 
 } //AclFactory
