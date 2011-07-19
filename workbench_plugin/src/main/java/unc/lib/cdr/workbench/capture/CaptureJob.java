@@ -49,8 +49,6 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.edit.command.AddCommand;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import unc.lib.cdr.workbench.IResourceConstants;
 import unc.lib.cdr.workbench.project.MetsProjectNature;
@@ -60,7 +58,6 @@ import unc.lib.cdr.workbench.project.MetsProjectNature;
  *
  */
 public class CaptureJob extends Job {
-	private static final Logger log = LoggerFactory.getLogger(CaptureJob.class);
 	private IProject project = null;
 	private List<IResource> items;
 	private DivType topDestination = null;
@@ -156,8 +153,8 @@ public class CaptureJob extends Job {
 			// params.put("audit", Boolean.TRUE);
 			// }
 			//log.debug("calling incremental build");
-			//project.build(IncrementalProjectBuilder.FULL_BUILD, MetsProjectNature.STAGING_BUILDER_ID, params,
-			//		new NullProgressMonitor());
+			project.build(IncrementalProjectBuilder.INCREMENTAL_BUILD, MetsProjectNature.STAGING_BUILDER_ID, params,
+					new NullProgressMonitor());
 			monitor.done();
 			return Status.OK_STATUS;
 		} catch (CoreException e) {
@@ -176,7 +173,12 @@ public class CaptureJob extends Job {
 		}
 		Collections.sort(list, resourceComparator);
 		for (IResource r : list) {
-			DivType d = capture(r, sharedParent, insert);
+			DivType d = findDiv(r);
+			if(d == null) {
+				d = capture(r, sharedParent, insert);
+			} else {
+				System.out.println("previously captured: "+d);
+			}
 			if(r instanceof IContainer) {
 				List<IResource> children = new ArrayList<IResource>();
 				IContainer c = (IContainer)r;
@@ -185,6 +187,15 @@ public class CaptureJob extends Job {
 			}
 		}
 		// TODO appended in alpha order, now sort the parent folder?
+	}
+
+	private DivType findDiv(IResource r) throws CoreException {
+		DivType result = null;
+		String divID = IResourceConstants.getCapturedDivID(r);
+		if (divID != null) {
+			result = METSUtils.findDiv(m, divID);
+		}
+		return result;
 	}
 
 	/**
@@ -197,13 +208,10 @@ public class CaptureJob extends Job {
 			return this.bag;
 		}
 
-		DivType result = null;
-		String divID = IResourceConstants.getCapturedDivID(me.getParent());
-		if (divID != null) {
-			result = METSUtils.findDiv(m, divID);
-			if( result != null ) {
-				return result;
-			}
+		DivType result = findDiv(me.getParent());
+		if( result != null ) {
+			System.out.println("Found closest parent:"+result);
+			return result;
 		}
 
 		// need to create parent, but first we need it's parent
@@ -226,10 +234,15 @@ public class CaptureJob extends Job {
 			command = AddCommand.create(mpn.getEditingDomain(), parent,
 					MetsPackage.eINSTANCE.getDivType_Div(), result);
 		}
+
+		// update resource to reflect capture
+		String ID = METSUtils.makeXMLUUID();
+		IResourceConstants.setCapturedState(me, ID);
+
 		if(me instanceof IContainer) {
-			fillFolderDiv(result, (IContainer)me);
+			fillFolderDiv(result, (IContainer)me, ID);
 		} else if(me instanceof IFile){
-			fillFileDiv(result, (IFile)me);
+			fillFileDiv(result, (IFile)me, ID);
 		}
 		mpn.getCommandStack().execute(command);
 		monitor.worked(1);
@@ -240,11 +253,10 @@ public class CaptureJob extends Job {
 	 * @param folderDiv
 	 * @param c
 	 */
-	private void fillFolderDiv(DivType folderDiv, IContainer c) throws CoreException {
+	private void fillFolderDiv(DivType folderDiv, IContainer c, String ID) throws CoreException {
 		List<String> contentIds = new ArrayList<String>();
 		contentIds.add(c.getLocationURI().toASCIIString());
 		folderDiv.setCONTENTIDS(contentIds);
-		String ID = METSUtils.makeXMLUUID();
 		folderDiv.setID(ID);
 		folderDiv.setLABEL1(c.getName());
 		folderDiv.setTYPE(METSConstants.Div_Folder);
@@ -255,11 +267,10 @@ public class CaptureJob extends Job {
 	 * @param folderDiv
 	 * @param c
 	 */
-	private void fillFileDiv(DivType div, IFile c) throws CoreException {
+	private void fillFileDiv(DivType div, IFile c, String ID) throws CoreException {
 		List<String> contentIds = new ArrayList<String>();
 		contentIds.add(c.getLocationURI().toASCIIString());
 		div.setCONTENTIDS(contentIds);
-		String ID = METSUtils.makeXMLUUID();
 		div.setID(ID);
 		div.setLABEL1(c.getName());
 		div.setTYPE(METSConstants.Div_File);
@@ -275,8 +286,6 @@ public class CaptureJob extends Job {
 		long size = sourceFileInfo.getLength();
 		// String md5 = StagingUtils.fetchMD5Digest(sourceFileStore, new NullProgressMonitor());
 		METSUtils.addDataFile(m, ID, c.getLocationURI(), size, null);
-		// update resource to reflect capture
-		IResourceConstants.setCapturedState(c, ID);
 	}
 
 }

@@ -30,27 +30,24 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.jobs.Job;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import unc.lib.cdr.workbench.IResourceConstants;
 
 public class StageBuilder extends IncrementalProjectBuilder {
-	private static final Logger log = LoggerFactory.getLogger(StageBuilder.class);
 
 	public StageBuilder() {
 	}
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.eclipse.core.resources.IncrementalProjectBuilder#build(int, java.util.Map,
 	 * org.eclipse.core.runtime.IProgressMonitor)
-	 * 
+	 *
 	 * audits and repairs previously staged files when arg["verify"] == Boolean.True
 	 */
 	@Override
-	protected IProject[] build(int kind, Map args, IProgressMonitor monitor) throws CoreException {
+	protected IProject[] build(int kind, @SuppressWarnings("rawtypes") Map args, IProgressMonitor monitor) throws CoreException {
 		IProject[] result = null;
 		boolean audit = false;
 		if (args != null && Boolean.TRUE.equals(args.get("audit"))) {

@@ -58,7 +58,7 @@ public class AutoStageAction implements IObjectActionDelegate {
 		ICommand[] commands = desc.getBuildSpec();
 		for (int i = 0; i < commands.length; ++i) {
 			if (commands[i].getBuilderName().equals(MetsProjectNature.STAGING_BUILDER_ID)) {
-				System.out.println("about to toggle:"+commands[i].isBuilding(IncrementalProjectBuilder.AUTO_BUILD));
+				//System.out.println("about to toggle:"+commands[i].isBuilding(IncrementalProjectBuilder.AUTO_BUILD));
 				if(commands[i].isBuilding(IncrementalProjectBuilder.AUTO_BUILD)) {
 					commands[i].setBuilding(IncrementalProjectBuilder.AUTO_BUILD, false);
 				} else {

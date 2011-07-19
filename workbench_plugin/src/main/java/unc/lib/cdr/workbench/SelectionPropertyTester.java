@@ -65,7 +65,7 @@ public class SelectionPropertyTester extends PropertyTester {
 				}
 			}
 		} else if(SIBLING_IRESOURCES.equals(property)) {
-			System.out.println("checking siblings");
+			//System.out.println("checking siblings");
 			if (receiver instanceof ISelection) {
 				ISelection s = (ISelection) receiver;
 				if (s instanceof IStructuredSelection) {
