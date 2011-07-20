@@ -35,7 +35,6 @@ import org.apache.commons.codec.binary.Hex;
 import org.eclipse.core.filesystem.EFS;
 import org.eclipse.core.filesystem.IFileInfo;
 import org.eclipse.core.filesystem.IFileStore;
-import org.eclipse.core.internal.resources.Resource;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IResource;
@@ -73,7 +72,7 @@ public class StagingUtils {
 		IProgressMonitor setupMon = new SubProgressMonitor(monitor, 1, SubProgressMonitor.PREPEND_MAIN_LABEL_TO_SUBTASK);
 		setupMon.beginTask("Preparing to stage", 1);
 		setupMon.subTask("Preparing to stage");
-		String divID = IResourceConstants.getCapturedDivID(f);
+		String fileID = IResourceConstants.getFileID(f);
 
 		IFileStore sourceFileStore = null;
 		try {
@@ -117,7 +116,7 @@ public class StagingUtils {
 			}
 		}
 
-		FileType fileRec = METSUtils.getDataFile(mpn.getMets(), divID, f.getLocationURI());
+		FileType fileRec = (FileType)mpn.getMets().eResource().getEObject(fileID);
 		setupMon.done();
 
 		// stage the file
@@ -156,13 +155,13 @@ public class StagingUtils {
 			// now update markers and record File in METS
 			stageFileInfo = stageFileStore.fetchInfo();
 			// checksum, size, location type, other loc type, URI
-			METSUtils.addStagedFileLocator(mpn.getMets(), divID, f.getLocationURI(), stageFileStore.toURI(),
+			METSUtils.addStagedFileLocator(mpn.getMets(), fileID, f.getLocationURI(), stageFileStore.toURI(),
 					LOCTYPEType.OTHER, METSConstants.LocType_EFS_SCHEME);
-			f.findMarkers(IMarker.PROBLEM, true, IResource.DEPTH_ZERO);
+			//f.findMarkers(IMarker.PROBLEM, true, IResource.DEPTH_ZERO);
 			IMarker staged = f.createMarker(IResourceConstants.MARKER_STAGED);
-			staged.setAttribute("stage.uri", stageFileStore.toURI().toASCIIString());
+			staged.setAttribute(IResourceConstants.MARKER_STAGED_URI, stageFileStore.toURI().toASCIIString());
 		}
-		f.refreshLocal(Resource.DEPTH_ZERO, monitor);
+		f.refreshLocal(IResource.DEPTH_ZERO, monitor);
 		monitor.done();
 	}
 

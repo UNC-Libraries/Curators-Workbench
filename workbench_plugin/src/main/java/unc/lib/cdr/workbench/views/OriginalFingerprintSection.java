@@ -77,14 +77,13 @@ public class OriginalFingerprintSection extends AbstractPropertySection {
 	public void refresh() {
 		// LOG.debug("div: "+div);
 		MetsType mets = MetsProjectNature.getNatureForMetsObject(div).getMets();
-		FileGrpType grp = METSUtils.getObjectFileGroup(mets, div.getID());
-		FileType file = grp.getFile().get(0);
+		FileType file = (FileType)mets.eResource().getEObject(div.getFptr().get(0).getFILEID());
 		if (file.getCHECKSUM() != null) {
 			checksumText.setText(file.getCHECKSUM());
 			checksumTypeText.setText(file.getCHECKSUMTYPE().getName());
 		} else {
-			checksumText.setText("");
-			checksumTypeText.setText("");
+			checksumText.setText("unknown");
+			checksumTypeText.setText("n/a");
 		}
 	}
 

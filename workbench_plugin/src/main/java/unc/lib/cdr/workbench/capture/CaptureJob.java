@@ -16,7 +16,7 @@
 package unc.lib.cdr.workbench.capture;
 
 import gov.loc.mets.DivType;
-import gov.loc.mets.FileGrpType;
+import gov.loc.mets.FileType;
 import gov.loc.mets.FptrType;
 import gov.loc.mets.MetsFactory;
 import gov.loc.mets.MetsPackage;
@@ -191,9 +191,18 @@ public class CaptureJob extends Job {
 
 	private DivType findDiv(IResource r) throws CoreException {
 		DivType result = null;
-		String divID = IResourceConstants.getCapturedDivID(r);
+		String divID = IResourceConstants.getDivID(r);
 		if (divID != null) {
-			result = METSUtils.findDiv(m, divID);
+			result = (DivType)m.eResource().getEObject(divID);
+		}
+		return result;
+	}
+
+	private FileType findFile(IResource r) throws CoreException {
+		FileType result = null;
+		String fileID = IResourceConstants.getFileID(r);
+		if (fileID != null) {
+			result = (FileType)m.eResource().getEObject(fileID);
 		}
 		return result;
 	}
@@ -234,15 +243,10 @@ public class CaptureJob extends Job {
 			command = AddCommand.create(mpn.getEditingDomain(), parent,
 					MetsPackage.eINSTANCE.getDivType_Div(), result);
 		}
-
-		// update resource to reflect capture
-		String ID = METSUtils.makeXMLUUID();
-		IResourceConstants.setCapturedState(me, ID);
-
 		if(me instanceof IContainer) {
-			fillFolderDiv(result, (IContainer)me, ID);
+			fillFolderDiv(result, (IContainer)me);
 		} else if(me instanceof IFile){
-			fillFileDiv(result, (IFile)me, ID);
+			fillFileDiv(result, (IFile)me);
 		}
 		mpn.getCommandStack().execute(command);
 		monitor.worked(1);
@@ -253,39 +257,45 @@ public class CaptureJob extends Job {
 	 * @param folderDiv
 	 * @param c
 	 */
-	private void fillFolderDiv(DivType folderDiv, IContainer c, String ID) throws CoreException {
+	private void fillFolderDiv(DivType folderDiv, IContainer c) throws CoreException {
 		List<String> contentIds = new ArrayList<String>();
 		contentIds.add(c.getLocationURI().toASCIIString());
 		folderDiv.setCONTENTIDS(contentIds);
-		folderDiv.setID(ID);
+		folderDiv.setID(METSUtils.makeXMLUUID());
 		folderDiv.setLABEL1(c.getName());
 		folderDiv.setTYPE(METSConstants.Div_Folder);
-		IResourceConstants.setCapturedState(c, ID);
+		IResourceConstants.setDivID(c, folderDiv.getID());
 	}
 
 	/**
 	 * @param folderDiv
 	 * @param c
 	 */
-	private void fillFileDiv(DivType div, IFile c, String ID) throws CoreException {
+	private void fillFileDiv(DivType div, IFile c) throws CoreException {
 		List<String> contentIds = new ArrayList<String>();
 		contentIds.add(c.getLocationURI().toASCIIString());
 		div.setCONTENTIDS(contentIds);
-		div.setID(ID);
+		div.setID(METSUtils.makeXMLUUID());
 		div.setLABEL1(c.getName());
 		div.setTYPE(METSConstants.Div_File);
-
-		FileGrpType objectFileGrp = METSUtils.addObjectFileGroup(m, ID);
-		FptrType fptr = MetsFactory.eINSTANCE.createFptrType();
-		fptr.setFILEID(objectFileGrp.getID());
-		div.getFptr().add(fptr);
 
 		// calc size and checksum.
 		IFileStore sourceFileStore = EFS.getStore(c.getLocationURI());
 		IFileInfo sourceFileInfo = sourceFileStore.fetchInfo();
 		long size = sourceFileInfo.getLength();
-		// String md5 = StagingUtils.fetchMD5Digest(sourceFileStore, new NullProgressMonitor());
-		METSUtils.addDataFile(m, ID, c.getLocationURI(), size, null);
+
+		// find File section (for previously captured) or make one
+		FileType ft = findFile(c);
+		if(ft == null) {
+			ft = METSUtils.addFile(m, c.getLocationURI(), size, null);
+			IResourceConstants.setFileID(c, ft.getID());
+		}
+
+		FptrType fptr = MetsFactory.eINSTANCE.createFptrType();
+		fptr.setFILEID(ft.getID());
+		div.getFptr().add(fptr);
+
+		IResourceConstants.setDivID(c, div.getID());
 	}
 
 }

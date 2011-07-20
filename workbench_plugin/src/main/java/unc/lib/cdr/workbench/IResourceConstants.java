@@ -27,7 +27,7 @@ import unc.lib.cdr.workbench.rcp.Activator;
 
 /**
  * @author Gregory Jansen
- * 
+ *
  */
 public class IResourceConstants {
 	public static final QualifiedName MODIFIED_TIMESTAMP = new QualifiedName(MetsProjectNature.NATURE_ID,
@@ -47,16 +47,23 @@ public class IResourceConstants {
 	public static final String TYPE_CROSSWALK_ELEMENT = "crosswalkElement";
 	public static final String TYPE_ORIGINALS_ELEMENT = "originalsElement";
 	public static final String MARKER_ORIGINALFILESET = "unc.lib.cdr.workbench.markers.OriginalFileSet";
+
 	public static final String MARKER_CAPTURED = "unc.lib.cdr.workbench.markers.Captured";
 	public static final String MARKER_CAPTURED_DIV_ID = "mets.Div.ID";
+
 	public static final QualifiedName PROP_RESOURCE_CAPTURED = new QualifiedName(Activator.PLUGIN_ID, "CAPTURED");
+
 	public static final String MARKER_STAGED = "unc.lib.cdr.workbench.markers.Staged";
+	public static final String MARKER_STAGED_URI = "stage.uri";
+
+	public static final String MARKER_FILE = "unc.lib.cdr.workbench.markers.Filed";
+	private static final String MARKER_FILE_ID = "mets.File.ID";
 
 	public static final String CROSSWALK_EXTENSION = "crosswalk";
 
 	/**
 	 * Find the unique name of the file group within the project.
-	 * 
+	 *
 	 * @param resource
 	 * @return file group name
 	 */
@@ -71,9 +78,8 @@ public class IResourceConstants {
 		return result;
 	}
 
-	public static void setCapturedState(IResource r, String divID) {
+	public static void setDivID(IResource r, String divID) {
 		try {
-			// r.setPersistentProperty(PROP_RESOURCE_CAPTURED, "true");
 			IMarker capture = null;
 			IMarker[] markers = r.findMarkers(MARKER_CAPTURED, false, IResource.DEPTH_ZERO);
 			if (markers.length > 0) {
@@ -87,7 +93,7 @@ public class IResourceConstants {
 		}
 	}
 
-	public static String getCapturedDivID(IResource r) throws CoreException {
+	public static String getDivID(IResource r) {
 		String result = null;
 		try {
 			IMarker[] markers = r.findMarkers(MARKER_CAPTURED, false, IResource.DEPTH_ZERO);
@@ -95,10 +101,34 @@ public class IResourceConstants {
 				IMarker capture = markers[0];
 				result = (String) capture.getAttribute(MARKER_CAPTURED_DIV_ID);
 			}
+		} catch (CoreException ignored) {}
+		return result;
+	}
+
+	public static void setFileID(IResource r, String id) {
+		try {
+			IMarker capture = null;
+			IMarker[] markers = r.findMarkers(MARKER_FILE, false, IResource.DEPTH_ZERO);
+			if (markers.length > 0) {
+				capture = markers[0];
+			} else {
+				capture = r.createMarker(IResourceConstants.MARKER_FILE);
+			}
+			capture.setAttribute(MARKER_FILE_ID, id);
 		} catch (CoreException e) {
-			e.printStackTrace();
-			throw e;
+			throw new Error(e);
 		}
+	}
+
+	public static String getFileID(IResource r) {
+		String result = null;
+		try {
+			IMarker[] markers = r.findMarkers(MARKER_FILE, false, IResource.DEPTH_ZERO);
+			if (markers.length > 0) {
+				IMarker capture = markers[0];
+				result = (String) capture.getAttribute(MARKER_FILE_ID);
+			}
+		} catch (CoreException ignored) {}
 		return result;
 	}
 }

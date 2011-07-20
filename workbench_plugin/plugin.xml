@@ -957,8 +957,16 @@
       <attribute
             name="stage.uri">
       </attribute>
+   </extension>
+   <extension
+         id="unc.lib.cdr.workbench.markers.Filed"
+         name="filed"
+         point="org.eclipse.core.resources.markers">
+      <persistent
+            value="true">
+      </persistent>
       <attribute
-            name="mets.File.GroupIDAttr">
+            name="mets.File.ID">
       </attribute>
    </extension>
    <extension

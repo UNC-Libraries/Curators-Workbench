@@ -20,10 +20,12 @@ import gov.loc.mets.MdSecType;
 import gov.loc.mets.MetsPackage;
 import gov.loc.mets.util.METSConstants;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
-import org.eclipse.core.resources.IContainer;
+import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IMarkerDelta;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IResourceChangeEvent;
@@ -121,32 +123,45 @@ public class OriginalsDecorator implements ILightweightLabelDecorator, IResource
 
 		// added/captured, queued/staged BR
 		try {
+			List<String> labels = new ArrayList<String>();
+
 			ImageDescriptor overlay = null;
 			if (r != null && r.getProject() != null && r.getProject().isOpen()) {
+				boolean captured = false;
 				if (r.findMarkers(IResourceConstants.MARKER_CAPTURED, false, IResource.DEPTH_ZERO).length > 0) {
-					boolean isFolder = (r instanceof IContainer);
-					if (isFolder) { // captured original folder
-						decoration.addSuffix("  captured");
-					} else {
-						if (r.findMarkers(IResourceConstants.MARKER_STAGED, false, IResource.DEPTH_ZERO).length > 0) {
-
-							// captured file (original or the div)
-							overlay = LabelImageFactory.getImageDescriptorForKey(LabelImageFactory.STAGED_DECORATOR);
-							decoration.addSuffix("  staged");
-						} else {
-							overlay = Activator.getDefault().getImageRegistry()
-									.getDescriptor(LabelImageFactory.CAPTURE_DECORATOR);
-							decoration.addSuffix("  queued");
-						}
+					captured = true;
+					if(!isDiv) {
+						labels.add("captured");
 					}
+				}
+				if (r.findMarkers(IResourceConstants.MARKER_STAGED, false, IResource.DEPTH_ZERO).length > 0) {
+					// captured file (original or the div)
+					overlay = LabelImageFactory.getImageDescriptorForKey(LabelImageFactory.STAGED_DECORATOR);
+					labels.add("staged");
+				} else {
+						if(captured && r instanceof IFile) {
+							overlay = Activator.getDefault().getImageRegistry().getDescriptor(LabelImageFactory.CAPTURE_DECORATOR);
+							labels.add("queued");
+						}
 				}
 			} else {
 				if (isDiv) {
-					decoration.addSuffix("  added");
+					labels.add("added");
 				}
 			}
 			if (overlay != null) {
 				decoration.addOverlay(overlay, IDecoration.BOTTOM_RIGHT);
+			}
+			if(labels.size() > 0) {
+				//decoration.setForegroundColor(org.eclipse.swt.graphics.);
+				StringBuilder sb = new StringBuilder();
+				sb.append("  [");
+				sb.append(labels.remove(0));
+				for(String label : labels) {
+					sb.append("  ").append(label);
+				}
+				sb.append("]");
+				decoration.addSuffix(sb.toString());
 			}
 		} catch (CoreException ignored) {
 			ignored.printStackTrace();
@@ -155,7 +170,7 @@ public class OriginalsDecorator implements ILightweightLabelDecorator, IResource
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.eclipse.core.resources.IResourceChangeListener#resourceChanged(org
 	 * .eclipse.core.resources.IResourceChangeEvent)
 	 */
@@ -170,7 +185,7 @@ public class OriginalsDecorator implements ILightweightLabelDecorator, IResource
 				try {
 					MetsProjectNature n = (MetsProjectNature) d.getResource().getProject()
 							.getNature(MetsProjectNature.NATURE_ID);
-					String divID = IResourceConstants.getCapturedDivID(d.getResource());
+					String divID = IResourceConstants.getDivID(d.getResource());
 					if (n != null && n.getMetsResource() != null && divID != null) {
 						Object div = n.getMetsResource().getEObject(divID);
 						if (div != null) {
@@ -189,7 +204,7 @@ public class OriginalsDecorator implements ILightweightLabelDecorator, IResource
 				try {
 					MetsProjectNature n = (MetsProjectNature) d.getResource().getProject()
 							.getNature(MetsProjectNature.NATURE_ID);
-					String divID = IResourceConstants.getCapturedDivID(d.getResource());
+					String divID = IResourceConstants.getDivID(d.getResource());
 					if (n != null && n.getMetsResource() != null && divID != null) {
 						Object div = n.getMetsResource().getEObject(divID);
 						if (div != null) {

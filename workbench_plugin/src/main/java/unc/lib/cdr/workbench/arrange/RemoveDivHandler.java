@@ -16,9 +16,9 @@
 package unc.lib.cdr.workbench.arrange;
 
 import gov.loc.mets.DivType;
-import gov.loc.mets.FptrType;
 import gov.loc.mets.MdSecType;
 import gov.loc.mets.util.METSConstants;
+import gov.loc.mets.util.METSUtils;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -28,6 +28,7 @@ import java.util.Set;
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
+import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
@@ -48,7 +49,7 @@ import unc.lib.cdr.workbench.project.MetsProjectNature;
 
 /**
  * @author Gregory Jansen
- * 
+ *
  */
 public class RemoveDivHandler extends AbstractHandler {
 
@@ -57,7 +58,7 @@ public class RemoveDivHandler extends AbstractHandler {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.eclipse.core.commands.IHandler#execute(org.eclipse.core.commands. ExecutionEvent)
 	 */
 	@Override
@@ -68,15 +69,16 @@ public class RemoveDivHandler extends AbstractHandler {
 			if (o instanceof DivType) {
 				Set<EObject> toDelete = new HashSet<EObject>();
 				DivType d = (DivType) o;
+				IProject project = MetsProjectNature.getProjectForMetsEObject(d);
 				toDelete.add(d);
 				addLinkedElements(toDelete, d);
-				removeCaptureMarker(d);
+				removeCaptureMarker(d, project);
 				TreeIterator<EObject> iter = d.eAllContents();
 				while (iter.hasNext()) {
 					EObject i = iter.next();
 					if (i instanceof DivType) {
 						DivType desc = (DivType) i;
-						removeCaptureMarker(desc);
+						removeCaptureMarker(desc, project);
 						addLinkedElements(toDelete, desc);
 					}
 				}
@@ -96,23 +98,31 @@ public class RemoveDivHandler extends AbstractHandler {
 	/**
 	 * @param d
 	 */
-	private void removeCaptureMarker(DivType d) {
+	private void removeCaptureMarker(DivType d, IProject project) {
 		// get top folder/file
 		if (d.getCONTENTIDS() != null && d.getCONTENTIDS().size() > 0) {
 			String originalLoc = d.getCONTENTIDS().get(0);
 			try {
-				IPath loc = new Path(new URI(originalLoc).getPath());
-				LOG.debug("Trying to uncapture: " + originalLoc + "\nwith path:" + loc);
-				IResource r = ResourcesPlugin.getWorkspace().getRoot().getContainerForLocation(loc);
-				if (r == null) {
-					r = ResourcesPlugin.getWorkspace().getRoot().getFileForLocation(loc);
+				URI location = new URI(originalLoc);
+				System.out.println("Trying to uncapture: " + originalLoc + "\nwith URI:" + location);
+				IResource r = null;
+				IResource[] found = null;
+				if(METSUtils.isContainer(d)) {
+					found = ResourcesPlugin.getWorkspace().getRoot().findContainersForLocationURI(location);
+				} else {
+					found = ResourcesPlugin.getWorkspace().getRoot().findFilesForLocationURI(location);
+				}
+				for(IResource f : found) {
+					if(project.equals(f.getProject())) {
+						r = f;
+						break;
+					}
 				}
 				if (r != null) {
 					r.deleteMarkers(IResourceConstants.MARKER_CAPTURED, true, r.DEPTH_ZERO);
 				} else {
-					LOG.debug("Cannot find resource for path: " + loc);
+					LOG.debug("Did not find resource for URI: " +location);
 				}
-
 			} catch (URISyntaxException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -126,7 +136,7 @@ public class RemoveDivHandler extends AbstractHandler {
 
 	/**
 	 * Finds elements that are linked to in this DivType and adds them to the supplied list
-	 * 
+	 *
 	 * @param toDelete
 	 *           the list
 	 * @param div
@@ -146,15 +156,16 @@ public class RemoveDivHandler extends AbstractHandler {
 		for (MdSecType md : div.getMdSec()) {
 			toDelete.add(md);
 		}
-		if (div.getFptr() != null) {
-			for (FptrType f : div.getFptr()) {
-				EObject ob = div.eResource().getEObject(f.getFILEID());
-				if (ob != null) {
-					toDelete.add(ob);
-				} else {
-					LOG.debug("Cannot find FILEID: " + f.getFILEID());
-				}
-			}
-		}
+		// No longer deleting File section on delete of Div
+//		if (div.getFptr() != null) {
+//			for (FptrType f : div.getFptr()) {
+//				EObject ob = div.eResource().getEObject(f.getFILEID());
+//				if (ob != null) {
+//					toDelete.add(ob);
+//				} else {
+//					LOG.debug("Cannot find FILEID: " + f.getFILEID());
+//				}
+//			}
+//		}
 	}
 }
