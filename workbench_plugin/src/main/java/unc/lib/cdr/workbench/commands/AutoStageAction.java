@@ -1,10 +1,9 @@
 package unc.lib.cdr.workbench.commands;
 
+import java.util.Collections;
 import java.util.Iterator;
 
-import org.eclipse.core.resources.ICommand;
 import org.eclipse.core.resources.IProject;
-import org.eclipse.core.resources.IProjectDescription;
 import org.eclipse.core.resources.IncrementalProjectBuilder;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IAdaptable;
@@ -54,21 +53,14 @@ public class AutoStageAction implements IObjectActionDelegate {
 	 * @param project
 	 */
 	private void toggleStaging(IProject project) throws CoreException {
-		IProjectDescription desc = project.getDescription();
-		ICommand[] commands = desc.getBuildSpec();
-		for (int i = 0; i < commands.length; ++i) {
-			if (commands[i].getBuilderName().equals(MetsProjectNature.STAGING_BUILDER_ID)) {
-				//System.out.println("about to toggle:"+commands[i].isBuilding(IncrementalProjectBuilder.AUTO_BUILD));
-				if(commands[i].isBuilding(IncrementalProjectBuilder.AUTO_BUILD)) {
-					commands[i].setBuilding(IncrementalProjectBuilder.AUTO_BUILD, false);
-				} else {
-					commands[i].setBuilding(IncrementalProjectBuilder.AUTO_BUILD, true);
-				}
-				break;
-			}
+		MetsProjectNature mpn = (MetsProjectNature)project.getNature(MetsProjectNature.NATURE_ID);
+		boolean setting = mpn.getAutomaticStaging();
+		mpn.setAutomaticStaging(!setting);
+		System.out.println("toggled auto staging, it now says "+mpn.getAutomaticStaging());
+		if(mpn.getAutomaticStaging()) {
+			project.build(IncrementalProjectBuilder.FULL_BUILD, MetsProjectNature.STAGING_BUILDER_ID, Collections.EMPTY_MAP,
+				new NullProgressMonitor());
 		}
-		desc.setBuildSpec(commands);
-		project.setDescription(desc, new NullProgressMonitor());
 	}
 
 	/*
@@ -102,7 +94,8 @@ public class AutoStageAction implements IObjectActionDelegate {
 				}
 				if (project != null) {
 					try {
-						boolean status = getAutoStaging(project);
+						MetsProjectNature mpn = (MetsProjectNature)project.getNature(MetsProjectNature.NATURE_ID);
+						boolean status = mpn.getAutomaticStaging();
 						action.setChecked(new Boolean(status));
 					} catch (CoreException e) {
 						e.printStackTrace();
@@ -110,21 +103,6 @@ public class AutoStageAction implements IObjectActionDelegate {
 				}
 			}
 		}
-	}
-
-	/**
-	 * @param project
-	 * @return
-	 */
-	private boolean getAutoStaging(IProject project) throws CoreException {
-		IProjectDescription desc = project.getDescription();
-		ICommand[] commands = desc.getBuildSpec();
-		for (int i = 0; i < commands.length; ++i) {
-			if (commands[i].getBuilderName().equals(MetsProjectNature.STAGING_BUILDER_ID)) {
-				return commands[i].isBuilding(IncrementalProjectBuilder.AUTO_BUILD);
-			}
-		}
-		return false;
 	}
 
 }

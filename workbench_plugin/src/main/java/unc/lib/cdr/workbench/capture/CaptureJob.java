@@ -79,7 +79,8 @@ public class CaptureJob extends Job {
 	 * @param items
 	 *           List of sibling resources items to capture
 	 * @param destination
-	 *           The div within which to insert the list of siblings, if null original parents are found in arrangement or captured.
+	 *           The div within which to insert the list of siblings, if null original parents are found in arrangement
+	 *           or captured.
 	 * @param insertBefore
 	 *           If not null, captured resources will be inserted before this div
 	 */
@@ -106,7 +107,10 @@ public class CaptureJob extends Job {
 
 	public class CounterVisitor implements IResourceVisitor {
 		public int count = 0;
-		/* (non-Javadoc)
+
+		/*
+		 * (non-Javadoc)
+		 *
 		 * @see org.eclipse.core.resources.IResourceVisitor#visit(org.eclipse.core.resources.IResource)
 		 */
 		@Override
@@ -152,9 +156,14 @@ public class CaptureJob extends Job {
 			// if (auditPreviouslyStaged) {
 			// params.put("audit", Boolean.TRUE);
 			// }
-			//log.debug("calling incremental build");
-			project.build(IncrementalProjectBuilder.INCREMENTAL_BUILD, MetsProjectNature.STAGING_BUILDER_ID, params,
-					new NullProgressMonitor());
+			// log.debug("calling incremental build");
+			if (mpn.getAutomaticStaging()) {
+				System.out.println("triggering build b/c auto staging says "+mpn.getAutomaticStaging());
+				project.build(IncrementalProjectBuilder.FULL_BUILD, MetsProjectNature.STAGING_BUILDER_ID, params,
+						new NullProgressMonitor());
+			} else {
+				System.out.println("skipping build b/c auto staging says "+mpn.getAutomaticStaging());
+			}
 			monitor.done();
 			return Status.OK_STATUS;
 		} catch (CoreException e) {
@@ -164,7 +173,8 @@ public class CaptureJob extends Job {
 	}
 
 	private void captureSiblingList(List<IResource> list, DivType dest, DivType insert) throws CoreException {
-		if(list.size() == 0) return;
+		if (list.size() == 0)
+			return;
 		DivType sharedParent = null;
 		if (dest == null) {
 			sharedParent = findOrCaptureParent(list.get(0));
@@ -174,14 +184,14 @@ public class CaptureJob extends Job {
 		Collections.sort(list, resourceComparator);
 		for (IResource r : list) {
 			DivType d = findDiv(r);
-			if(d == null) {
+			if (d == null) {
 				d = capture(r, sharedParent, insert);
 			} else {
-				System.out.println("previously captured: "+d);
+				System.out.println("previously captured: " + d);
 			}
-			if(r instanceof IContainer) {
+			if (r instanceof IContainer) {
 				List<IResource> children = new ArrayList<IResource>();
-				IContainer c = (IContainer)r;
+				IContainer c = (IContainer) r;
 				Collections.addAll(children, c.members());
 				captureSiblingList(children, d, null);
 			}
@@ -193,7 +203,7 @@ public class CaptureJob extends Job {
 		DivType result = null;
 		String divID = IResourceConstants.getDivID(r);
 		if (divID != null) {
-			result = (DivType)m.eResource().getEObject(divID);
+			result = (DivType) m.eResource().getEObject(divID);
 		}
 		return result;
 	}
@@ -202,7 +212,7 @@ public class CaptureJob extends Job {
 		FileType result = null;
 		String fileID = IResourceConstants.getFileID(r);
 		if (fileID != null) {
-			result = (FileType)m.eResource().getEObject(fileID);
+			result = (FileType) m.eResource().getEObject(fileID);
 		}
 		return result;
 	}
@@ -213,40 +223,39 @@ public class CaptureJob extends Job {
 	 * @throws CoreException
 	 */
 	private DivType findOrCaptureParent(IResource me) throws CoreException {
-		if(mpn.getOriginalsFolder().equals(me.getParent())) {
+		if (mpn.getOriginalsFolder().equals(me.getParent())) {
 			return this.bag;
 		}
 
 		DivType result = findDiv(me.getParent());
-		if( result != null ) {
-			System.out.println("Found closest parent:"+result);
+		if (result != null) {
+			System.out.println("Found closest parent:" + result);
 			return result;
 		}
 
 		// need to create parent, but first we need it's parent
-		DivType parent = findOrCaptureParent( me.getParent() );
-		result = capture( me.getParent(), parent, null );
+		DivType parent = findOrCaptureParent(me.getParent());
+		result = capture(me.getParent(), parent, null);
 		// sort the parent folder?
 		return result;
 	}
 
 	DivType capture(IResource me, DivType parent, DivType insertBefore) throws CoreException {
-		monitor.subTask("Capturing "+me.getLocationURI());
+		monitor.subTask("Capturing " + me.getLocationURI());
 		DivType result = MetsFactory.eINSTANCE.createDivType();
 		// use an EMF command
 		Command command = null;
-		if(insertBefore != null && parent.getDiv().contains(insertBefore)) {
+		if (insertBefore != null && parent.getDiv().contains(insertBefore)) {
 			int index = parent.getDiv().indexOf(insertBefore);
-			command = AddCommand.create(mpn.getEditingDomain(), parent,
-					MetsPackage.eINSTANCE.getDivType_Div(), result, index);
+			command = AddCommand.create(mpn.getEditingDomain(), parent, MetsPackage.eINSTANCE.getDivType_Div(), result,
+					index);
 		} else {
-			command = AddCommand.create(mpn.getEditingDomain(), parent,
-					MetsPackage.eINSTANCE.getDivType_Div(), result);
+			command = AddCommand.create(mpn.getEditingDomain(), parent, MetsPackage.eINSTANCE.getDivType_Div(), result);
 		}
-		if(me instanceof IContainer) {
-			fillFolderDiv(result, (IContainer)me);
-		} else if(me instanceof IFile){
-			fillFileDiv(result, (IFile)me);
+		if (me instanceof IContainer) {
+			fillFolderDiv(result, (IContainer) me);
+		} else if (me instanceof IFile) {
+			fillFileDiv(result, (IFile) me);
 		}
 		mpn.getCommandStack().execute(command);
 		monitor.worked(1);
@@ -286,7 +295,7 @@ public class CaptureJob extends Job {
 
 		// find File section (for previously captured) or make one
 		FileType ft = findFile(c);
-		if(ft == null) {
+		if (ft == null) {
 			ft = METSUtils.addFile(m, c.getLocationURI(), size, null);
 			IResourceConstants.setFileID(c, ft.getID());
 		}

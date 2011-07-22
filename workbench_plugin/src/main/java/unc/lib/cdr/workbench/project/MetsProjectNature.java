@@ -28,27 +28,25 @@ import gov.loc.mods.mods.provider.MODSItemProviderAdapterFactory;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
-import org.eclipse.core.resources.ICommand;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
-import org.eclipse.core.resources.IProjectDescription;
 import org.eclipse.core.resources.IProjectNature;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IResourceChangeEvent;
 import org.eclipse.core.resources.IResourceChangeListener;
-import org.eclipse.core.resources.IncrementalProjectBuilder;
+import org.eclipse.core.resources.ProjectScope;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.QualifiedName;
 import org.eclipse.core.runtime.Status;
+import org.eclipse.core.runtime.preferences.IEclipsePreferences;
 import org.eclipse.emf.common.command.BasicCommandStack;
 import org.eclipse.emf.common.command.CommandStack;
 import org.eclipse.emf.common.util.URI;
@@ -360,6 +358,19 @@ public class MetsProjectNature implements IProjectNature {
 
 	public IFolder getStageFolder() {
 		return this.getProject().getFolder(STAGE_FOLDER_NAME);
+	}
+
+	public boolean getAutomaticStaging() {
+		boolean result = false;
+		ProjectScope[] s = {new ProjectScope(project)};
+		result = Platform.getPreferencesService().getBoolean(Activator.PLUGIN_ID, Activator.AUTOSTAGE_PREFERENCE, true, s);
+		return result;
+	}
+
+	public void setAutomaticStaging(boolean auto) {
+		ProjectScope s = new ProjectScope(project);
+		IEclipsePreferences pref = s.getNode(Activator.PLUGIN_ID);
+		pref.putBoolean(Activator.AUTOSTAGE_PREFERENCE, auto);
 	}
 
 	/**

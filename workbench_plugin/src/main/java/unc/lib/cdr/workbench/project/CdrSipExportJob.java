@@ -25,6 +25,7 @@ import gov.loc.mets.MetsFactory;
 import gov.loc.mets.MetsPackage;
 import gov.loc.mets.MetsType;
 import gov.loc.mets.MetsType1;
+import gov.loc.mets.StructLinkType;
 import gov.loc.mets.StructMapType;
 import gov.loc.mets.provider.MetsItemProviderAdapterFactory;
 import gov.loc.mets.util.METSConstants;
@@ -71,7 +72,7 @@ import unc.lib.cdr.workbench.rcp.Activator;
 
 /**
  * @author Gregory Jansen
- * 
+ *
  */
 public class CdrSipExportJob extends Job {
 	@SuppressWarnings("unused")
@@ -98,7 +99,7 @@ public class CdrSipExportJob extends Job {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.eclipse.core.runtime.jobs.Job#run(org.eclipse.core.runtime. IProgressMonitor)
 	 */
 	@Override
@@ -147,6 +148,7 @@ public class CdrSipExportJob extends Job {
 		removeExtraLinkedDescriptions(cdr);
 		removeNonStageFLocat(cdr);
 		removeNonObjectsFileGroups(cdr);
+		removeEmptyStructLink(cdr);
 		// moveObjectsFileGroupsToFileSec(cdr);
 
 		// cleanup PROFILE and TYPEs..
@@ -164,6 +166,18 @@ public class CdrSipExportJob extends Job {
 		}
 
 		return Status.OK_STATUS;
+	}
+
+	/**
+	 * @param cdr
+	 */
+	private void removeEmptyStructLink(MetsType1 cdr) {
+		if(cdr.getStructLink().eContents().size() == 0 ) {
+			Command c = RemoveCommand.create(editingDomain, cdr.getStructLink());
+			if (c.canExecute()) {
+				c.execute();
+			}
+		}
 	}
 
 	/**

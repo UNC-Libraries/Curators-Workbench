@@ -26,450 +26,502 @@ import crosswalk.MappedAttribute;
 import crosswalk.Output;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>Mapped Attribute</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object ' <em><b>Mapped Attribute</b></em>'. <!-- end-user-doc
+ * -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link crosswalk.impl.MappedAttributeImpl#getWalk <em>Walk</em>}</li>
- *   <li>{@link crosswalk.impl.MappedAttributeImpl#getOutput <em>Output</em>}</li>
- *   <li>{@link crosswalk.impl.MappedAttributeImpl#getMappedFeature <em>Mapped Feature</em>}</li>
- *   <li>{@link crosswalk.impl.MappedAttributeImpl#getConversionStrategy <em>Conversion Strategy</em>}</li>
- *   <li>{@link crosswalk.impl.MappedAttributeImpl#getDefaultValue <em>Default Value</em>}</li>
+ * <li>{@link crosswalk.impl.MappedAttributeImpl#getWalk <em>Walk</em>}</li>
+ * <li>{@link crosswalk.impl.MappedAttributeImpl#getOutput <em>Output</em>}</li>
+ * <li>{@link crosswalk.impl.MappedAttributeImpl#getMappedFeature <em>Mapped Feature</em>}</li>
+ * <li>{@link crosswalk.impl.MappedAttributeImpl#getConversionStrategy <em>Conversion Strategy</em>}</li>
+ * <li>{@link crosswalk.impl.MappedAttributeImpl#getDefaultValue <em>Default Value</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
 public class MappedAttributeImpl extends EObjectImpl implements MappedAttribute {
-    /**
-	 * The cached value of the '{@link #getOutput() <em>Output</em>}' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	/**
+	 * The cached value of the '{@link #getOutput() <em>Output</em>}' reference. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 *
 	 * @see #getOutput()
 	 * @generated
 	 * @ordered
 	 */
-    protected Output output;
+	protected Output output;
 
-    /**
-	 * This is true if the Output reference has been set.
-	 * <!-- begin-user-doc
-     * --> <!-- end-user-doc -->
+	/**
+	 * This is true if the Output reference has been set. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 * @generated
 	 * @ordered
 	 */
-    protected boolean outputESet;
+	protected boolean outputESet;
 
-    /**
-	 * The cached value of the '{@link #getMappedFeature() <em>Mapped Feature</em>}' reference.
-	 * <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+	/**
+	 * The cached value of the '{@link #getMappedFeature() <em>Mapped Feature</em>}' reference. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 *
 	 * @see #getMappedFeature()
 	 * @generated
 	 * @ordered
 	 */
-    protected EAttribute mappedFeature;
+	protected EAttribute mappedFeature;
 
-    /**
+	/**
 	 * The cached value of the '{@link #getConversionStrategy() <em>Conversion Strategy</em>}' containment reference.
-	 * <!-- begin-user-doc
-     * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 * @see #getConversionStrategy()
 	 * @generated
 	 * @ordered
 	 */
-    protected ConversionStrategy conversionStrategy;
+	protected ConversionStrategy conversionStrategy;
 
-    /**
-	 * This is true if the Conversion Strategy containment reference has been set.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	/**
+	 * This is true if the Conversion Strategy containment reference has been set. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 *
 	 * @generated
 	 * @ordered
 	 */
-    protected boolean conversionStrategyESet;
+	protected boolean conversionStrategyESet;
 
-    /**
-	 * The default value of the '{@link #getDefaultValue() <em>Default Value</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+	/**
+	 * The default value of the '{@link #getDefaultValue() <em>Default Value</em>}' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 *
 	 * @see #getDefaultValue()
 	 * @generated
 	 * @ordered
 	 */
-    protected static final String DEFAULT_VALUE_EDEFAULT = null;
+	protected static final String DEFAULT_VALUE_EDEFAULT = null;
 
-    /**
-	 * The cached value of the '{@link #getDefaultValue() <em>Default Value</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+	/**
+	 * The cached value of the '{@link #getDefaultValue() <em>Default Value</em>}' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 *
 	 * @see #getDefaultValue()
 	 * @generated
 	 * @ordered
 	 */
-    protected String defaultValue = DEFAULT_VALUE_EDEFAULT;
+	protected String defaultValue = DEFAULT_VALUE_EDEFAULT;
 
-    /**
-     * This is true if the Default Value attribute has been set. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    protected boolean defaultValueESet;
+	/**
+	 * This is true if the Default Value attribute has been set. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean defaultValueESet;
 
-    /**
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 * @generated
 	 */
-    protected MappedAttributeImpl() {
+	protected MappedAttributeImpl() {
 		super();
 	}
 
-    /**
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 * @generated
 	 */
-    @Override
-    protected EClass eStaticClass() {
+	@Override
+	protected EClass eStaticClass() {
 		return CrosswalkPackage.Literals.MAPPED_ATTRIBUTE;
 	}
 
-    /**
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 * @generated
 	 */
-    public CrossWalk getWalk() {
-		if (eContainerFeatureID() != CrosswalkPackage.MAPPED_ATTRIBUTE__WALK) return null;
-		return (CrossWalk)eContainer();
+	public CrossWalk getWalk() {
+		if (eContainerFeatureID() != CrosswalkPackage.MAPPED_ATTRIBUTE__WALK)
+			return null;
+		return (CrossWalk) eContainer();
 	}
 
-    /**
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 * @generated
 	 */
-    public NotificationChain basicSetWalk(CrossWalk newWalk, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newWalk, CrosswalkPackage.MAPPED_ATTRIBUTE__WALK, msgs);
+	public NotificationChain basicSetWalk(CrossWalk newWalk, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject) newWalk, CrosswalkPackage.MAPPED_ATTRIBUTE__WALK, msgs);
 		return msgs;
 	}
 
-    /**
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 * @generated
 	 */
-    public void setWalk(CrossWalk newWalk) {
-		if (newWalk != eInternalContainer() || (eContainerFeatureID() != CrosswalkPackage.MAPPED_ATTRIBUTE__WALK && newWalk != null)) {
+	public void setWalk(CrossWalk newWalk) {
+		if (newWalk != eInternalContainer()
+				|| (eContainerFeatureID() != CrosswalkPackage.MAPPED_ATTRIBUTE__WALK && newWalk != null)) {
 			if (EcoreUtil.isAncestor(this, newWalk))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newWalk != null)
-				msgs = ((InternalEObject)newWalk).eInverseAdd(this, CrosswalkPackage.CROSS_WALK__ELEMENTS, CrossWalk.class, msgs);
+				msgs = ((InternalEObject) newWalk).eInverseAdd(this, CrosswalkPackage.CROSS_WALK__ELEMENTS,
+						CrossWalk.class, msgs);
 			msgs = basicSetWalk(newWalk, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.MAPPED_ATTRIBUTE__WALK, newWalk, newWalk));
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.MAPPED_ATTRIBUTE__WALK, newWalk,
+					newWalk));
 	}
 
-    /**
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 * @generated
 	 */
-    public Output getOutput() {
+	public Output getOutput() {
 		if (output != null && output.eIsProxy()) {
-			InternalEObject oldOutput = (InternalEObject)output;
-			output = (Output)eResolveProxy(oldOutput);
+			InternalEObject oldOutput = (InternalEObject) output;
+			output = (Output) eResolveProxy(oldOutput);
 			if (output != oldOutput) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CrosswalkPackage.MAPPED_ATTRIBUTE__OUTPUT, oldOutput, output));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CrosswalkPackage.MAPPED_ATTRIBUTE__OUTPUT,
+							oldOutput, output));
 			}
 		}
 		return output;
 	}
 
-    /**
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 * @generated
 	 */
-    public Output basicGetOutput() {
+	public Output basicGetOutput() {
 		return output;
 	}
 
-    /**
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 * @generated
 	 */
-    public void setOutput(Output newOutput) {
+	public void setOutput(Output newOutput) {
 		Output oldOutput = output;
 		output = newOutput;
 		boolean oldOutputESet = outputESet;
 		outputESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.MAPPED_ATTRIBUTE__OUTPUT, oldOutput, output, !oldOutputESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.MAPPED_ATTRIBUTE__OUTPUT, oldOutput,
+					output, !oldOutputESet));
 	}
 
-    /**
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 * @generated
 	 */
-    public void unsetOutput() {
+	public void unsetOutput() {
 		Output oldOutput = output;
 		boolean oldOutputESet = outputESet;
 		output = null;
 		outputESet = false;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, CrosswalkPackage.MAPPED_ATTRIBUTE__OUTPUT, oldOutput, null, oldOutputESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CrosswalkPackage.MAPPED_ATTRIBUTE__OUTPUT, oldOutput,
+					null, oldOutputESet));
 	}
 
-    /**
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 * @generated
 	 */
-    public boolean isSetOutput() {
+	public boolean isSetOutput() {
 		return outputESet;
 	}
 
-    /**
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 * @generated
 	 */
-    public EAttribute getMappedFeature() {
+	public EAttribute getMappedFeature() {
 		if (mappedFeature != null && mappedFeature.eIsProxy()) {
-			InternalEObject oldMappedFeature = (InternalEObject)mappedFeature;
-			mappedFeature = (EAttribute)eResolveProxy(oldMappedFeature);
+			InternalEObject oldMappedFeature = (InternalEObject) mappedFeature;
+			mappedFeature = (EAttribute) eResolveProxy(oldMappedFeature);
 			if (mappedFeature != oldMappedFeature) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CrosswalkPackage.MAPPED_ATTRIBUTE__MAPPED_FEATURE, oldMappedFeature, mappedFeature));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+							CrosswalkPackage.MAPPED_ATTRIBUTE__MAPPED_FEATURE, oldMappedFeature, mappedFeature));
 			}
 		}
 		return mappedFeature;
 	}
 
-    /**
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 * @generated
 	 */
-    public EAttribute basicGetMappedFeature() {
+	public EAttribute basicGetMappedFeature() {
 		return mappedFeature;
 	}
 
-    /**
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 * @generated
 	 */
-    public void setMappedFeature(EAttribute newMappedFeature) {
+	public void setMappedFeature(EAttribute newMappedFeature) {
 		EAttribute oldMappedFeature = mappedFeature;
 		mappedFeature = newMappedFeature;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.MAPPED_ATTRIBUTE__MAPPED_FEATURE, oldMappedFeature, mappedFeature));
+			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.MAPPED_ATTRIBUTE__MAPPED_FEATURE,
+					oldMappedFeature, mappedFeature));
 	}
 
-    /**
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 * @generated
 	 */
-    public ConversionStrategy getConversionStrategy() {
+	public ConversionStrategy getConversionStrategy() {
 		return conversionStrategy;
 	}
 
-    /**
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 * @generated
 	 */
-    public NotificationChain basicSetConversionStrategy(ConversionStrategy newConversionStrategy, NotificationChain msgs) {
+	public NotificationChain basicSetConversionStrategy(ConversionStrategy newConversionStrategy, NotificationChain msgs) {
 		ConversionStrategy oldConversionStrategy = conversionStrategy;
 		conversionStrategy = newConversionStrategy;
 		boolean oldConversionStrategyESet = conversionStrategyESet;
 		conversionStrategyESet = true;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CrosswalkPackage.MAPPED_ATTRIBUTE__CONVERSION_STRATEGY, oldConversionStrategy, newConversionStrategy, !oldConversionStrategyESet);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					CrosswalkPackage.MAPPED_ATTRIBUTE__CONVERSION_STRATEGY, oldConversionStrategy, newConversionStrategy,
+					!oldConversionStrategyESet);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
 		}
 		return msgs;
 	}
 
-    /**
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 * @generated
 	 */
-    public void setConversionStrategy(ConversionStrategy newConversionStrategy) {
+	public void setConversionStrategy(ConversionStrategy newConversionStrategy) {
 		if (newConversionStrategy != conversionStrategy) {
 			NotificationChain msgs = null;
 			if (conversionStrategy != null)
-				msgs = ((InternalEObject)conversionStrategy).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CrosswalkPackage.MAPPED_ATTRIBUTE__CONVERSION_STRATEGY, null, msgs);
+				msgs = ((InternalEObject) conversionStrategy).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+						- CrosswalkPackage.MAPPED_ATTRIBUTE__CONVERSION_STRATEGY, null, msgs);
 			if (newConversionStrategy != null)
-				msgs = ((InternalEObject)newConversionStrategy).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CrosswalkPackage.MAPPED_ATTRIBUTE__CONVERSION_STRATEGY, null, msgs);
+				msgs = ((InternalEObject) newConversionStrategy).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+						- CrosswalkPackage.MAPPED_ATTRIBUTE__CONVERSION_STRATEGY, null, msgs);
 			msgs = basicSetConversionStrategy(newConversionStrategy, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else {
+			if (msgs != null)
+				msgs.dispatch();
+		} else {
 			boolean oldConversionStrategyESet = conversionStrategyESet;
 			conversionStrategyESet = true;
 			if (eNotificationRequired())
-				eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.MAPPED_ATTRIBUTE__CONVERSION_STRATEGY, newConversionStrategy, newConversionStrategy, !oldConversionStrategyESet));
+				eNotify(new ENotificationImpl(this, Notification.SET,
+						CrosswalkPackage.MAPPED_ATTRIBUTE__CONVERSION_STRATEGY, newConversionStrategy, newConversionStrategy,
+						!oldConversionStrategyESet));
 		}
 	}
 
-    /**
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 * @generated
 	 */
-    public NotificationChain basicUnsetConversionStrategy(NotificationChain msgs) {
+	public NotificationChain basicUnsetConversionStrategy(NotificationChain msgs) {
 		ConversionStrategy oldConversionStrategy = conversionStrategy;
 		conversionStrategy = null;
 		boolean oldConversionStrategyESet = conversionStrategyESet;
 		conversionStrategyESet = false;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.UNSET, CrosswalkPackage.MAPPED_ATTRIBUTE__CONVERSION_STRATEGY, oldConversionStrategy, null, oldConversionStrategyESet);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.UNSET,
+					CrosswalkPackage.MAPPED_ATTRIBUTE__CONVERSION_STRATEGY, oldConversionStrategy, null,
+					oldConversionStrategyESet);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
 		}
 		return msgs;
 	}
 
-    /**
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 * @generated
 	 */
-    public void unsetConversionStrategy() {
+	public void unsetConversionStrategy() {
 		if (conversionStrategy != null) {
 			NotificationChain msgs = null;
-			msgs = ((InternalEObject)conversionStrategy).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CrosswalkPackage.MAPPED_ATTRIBUTE__CONVERSION_STRATEGY, null, msgs);
+			msgs = ((InternalEObject) conversionStrategy).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+					- CrosswalkPackage.MAPPED_ATTRIBUTE__CONVERSION_STRATEGY, null, msgs);
 			msgs = basicUnsetConversionStrategy(msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else {
+			if (msgs != null)
+				msgs.dispatch();
+		} else {
 			boolean oldConversionStrategyESet = conversionStrategyESet;
 			conversionStrategyESet = false;
 			if (eNotificationRequired())
-				eNotify(new ENotificationImpl(this, Notification.UNSET, CrosswalkPackage.MAPPED_ATTRIBUTE__CONVERSION_STRATEGY, null, null, oldConversionStrategyESet));
+				eNotify(new ENotificationImpl(this, Notification.UNSET,
+						CrosswalkPackage.MAPPED_ATTRIBUTE__CONVERSION_STRATEGY, null, null, oldConversionStrategyESet));
 		}
 	}
 
-    /**
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 * @generated
 	 */
-    public boolean isSetConversionStrategy() {
+	public boolean isSetConversionStrategy() {
 		return conversionStrategyESet;
 	}
 
-    /**
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 * @generated
 	 */
-    public String getDefaultValue() {
+	public String getDefaultValue() {
 		return defaultValue;
 	}
 
-    /**
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 * @generated
 	 */
-    public void setDefaultValue(String newDefaultValue) {
+	public void setDefaultValue(String newDefaultValue) {
 		String oldDefaultValue = defaultValue;
 		defaultValue = newDefaultValue;
 		boolean oldDefaultValueESet = defaultValueESet;
 		defaultValueESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.MAPPED_ATTRIBUTE__DEFAULT_VALUE, oldDefaultValue, defaultValue, !oldDefaultValueESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.MAPPED_ATTRIBUTE__DEFAULT_VALUE,
+					oldDefaultValue, defaultValue, !oldDefaultValueESet));
 	}
 
-    /**
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 * @generated
 	 */
-    public void unsetDefaultValue() {
+	public void unsetDefaultValue() {
 		String oldDefaultValue = defaultValue;
 		boolean oldDefaultValueESet = defaultValueESet;
 		defaultValue = DEFAULT_VALUE_EDEFAULT;
 		defaultValueESet = false;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, CrosswalkPackage.MAPPED_ATTRIBUTE__DEFAULT_VALUE, oldDefaultValue, DEFAULT_VALUE_EDEFAULT, oldDefaultValueESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CrosswalkPackage.MAPPED_ATTRIBUTE__DEFAULT_VALUE,
+					oldDefaultValue, DEFAULT_VALUE_EDEFAULT, oldDefaultValueESet));
 	}
 
-    /**
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 * @generated
 	 */
-    public boolean isSetDefaultValue() {
+	public boolean isSetDefaultValue() {
 		return defaultValueESet;
 	}
 
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated NOT
-     */
-    public EDataType getInputEDataType() {
-	EDataType result = null; // null doesn't equal anything except null
-	if (this.isSetConversionStrategy()) {
-	    result = this.getConversionStrategy().getInputDataType();
-	} else if (this.getMappedFeature() != null) {
-	    result = this.getMappedFeature().getEAttributeType();
-	}
-	return result;
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated NOT
-     */
-    public void updateRecord(EObject record) {
-	EAttribute myAttribute = this.getMappedFeature();
-	System.out.println("my type: " + myAttribute.toString());
-
-	// the value to set
-	Object setting = null;
-
-	// get default
-	if (isSetDefaultValue()) {
-	    setting = EcoreUtil.createFromString(this.getMappedFeature().getEAttributeType(), getDefaultValue());
-	}
-
-	Object input = null;
-	Output gen = this.getOutput();
-	if (gen != null) {
-	    try {
-		input = gen.getResult();
-		if (input != null) {
-		    if (this.isSetConversionStrategy()) {
-			setting = this.getConversionStrategy().convert(input);
-		    } else {
-			setting = input;
-		    }
-		}
-	    } catch (DataException e) {
-		// ignored
-	    }
-	}
-	if (setting != null) {
-	    record.eSet(myAttribute, setting);
-	}
-    }
-
-    /**
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
+	 * @generated NOT
+	 */
+	public EDataType getInputEDataType() {
+		EDataType result = null; // null doesn't equal anything except null
+		if (this.isSetConversionStrategy()) {
+			result = this.getConversionStrategy().getInputDataType();
+		} else if (this.getMappedFeature() != null) {
+			result = this.getMappedFeature().getEAttributeType();
+		}
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
+	 * @generated NOT
+	 */
+	public void updateRecord(EObject record) {
+		EAttribute myAttribute = this.getMappedFeature();
+		System.out.println("my type: " + myAttribute.toString());
+
+		// the value to set
+		Object setting = null;
+
+		// get default
+		if (isSetDefaultValue()) {
+			setting = EcoreUtil.createFromString(this.getMappedFeature().getEAttributeType(), getDefaultValue());
+		}
+
+		Object input = null;
+		Output gen = this.getOutput();
+		if (gen != null) {
+			try {
+				input = gen.getResult();
+				if (input != null) {
+					if (this.isSetConversionStrategy()) {
+						setting = this.getConversionStrategy().convert(input);
+					} else {
+						setting = input;
+					}
+				}
+			} catch (DataException e) {
+				// ignored
+			}
+		}
+		if (setting != null) {
+			record.eSet(myAttribute, setting);
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 * @generated
 	 */
-    @Override
-    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case CrosswalkPackage.MAPPED_ATTRIBUTE__WALK:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetWalk((CrossWalk)otherEnd, msgs);
+				return basicSetWalk((CrossWalk) otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
-    /**
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 * @generated
 	 */
-    @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case CrosswalkPackage.MAPPED_ATTRIBUTE__WALK:
 				return basicSetWalk(null, msgs);
@@ -479,33 +531,38 @@ public class MappedAttributeImpl extends EObjectImpl implements MappedAttribute 
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
-    /**
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 * @generated
 	 */
-    @Override
-    public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
 			case CrosswalkPackage.MAPPED_ATTRIBUTE__WALK:
-				return eInternalContainer().eInverseRemove(this, CrosswalkPackage.CROSS_WALK__ELEMENTS, CrossWalk.class, msgs);
+				return eInternalContainer().eInverseRemove(this, CrosswalkPackage.CROSS_WALK__ELEMENTS, CrossWalk.class,
+						msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
-    /**
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 * @generated
 	 */
-    @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case CrosswalkPackage.MAPPED_ATTRIBUTE__WALK:
 				return getWalk();
 			case CrosswalkPackage.MAPPED_ATTRIBUTE__OUTPUT:
-				if (resolve) return getOutput();
+				if (resolve)
+					return getOutput();
 				return basicGetOutput();
 			case CrosswalkPackage.MAPPED_ATTRIBUTE__MAPPED_FEATURE:
-				if (resolve) return getMappedFeature();
+				if (resolve)
+					return getMappedFeature();
 				return basicGetMappedFeature();
 			case CrosswalkPackage.MAPPED_ATTRIBUTE__CONVERSION_STRATEGY:
 				return getConversionStrategy();
@@ -515,47 +572,49 @@ public class MappedAttributeImpl extends EObjectImpl implements MappedAttribute 
 		return super.eGet(featureID, resolve, coreType);
 	}
 
-    /**
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 * @generated
 	 */
-    @Override
-    public void eSet(int featureID, Object newValue) {
+	@Override
+	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case CrosswalkPackage.MAPPED_ATTRIBUTE__WALK:
-				setWalk((CrossWalk)newValue);
+				setWalk((CrossWalk) newValue);
 				return;
 			case CrosswalkPackage.MAPPED_ATTRIBUTE__OUTPUT:
-				setOutput((Output)newValue);
+				setOutput((Output) newValue);
 				return;
 			case CrosswalkPackage.MAPPED_ATTRIBUTE__MAPPED_FEATURE:
-				setMappedFeature((EAttribute)newValue);
+				setMappedFeature((EAttribute) newValue);
 				return;
 			case CrosswalkPackage.MAPPED_ATTRIBUTE__CONVERSION_STRATEGY:
-				setConversionStrategy((ConversionStrategy)newValue);
+				setConversionStrategy((ConversionStrategy) newValue);
 				return;
 			case CrosswalkPackage.MAPPED_ATTRIBUTE__DEFAULT_VALUE:
-				setDefaultValue((String)newValue);
+				setDefaultValue((String) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
-    /**
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 * @generated
 	 */
-    @Override
-    public void eUnset(int featureID) {
+	@Override
+	public void eUnset(int featureID) {
 		switch (featureID) {
 			case CrosswalkPackage.MAPPED_ATTRIBUTE__WALK:
-				setWalk((CrossWalk)null);
+				setWalk((CrossWalk) null);
 				return;
 			case CrosswalkPackage.MAPPED_ATTRIBUTE__OUTPUT:
 				unsetOutput();
 				return;
 			case CrosswalkPackage.MAPPED_ATTRIBUTE__MAPPED_FEATURE:
-				setMappedFeature((EAttribute)null);
+				setMappedFeature((EAttribute) null);
 				return;
 			case CrosswalkPackage.MAPPED_ATTRIBUTE__CONVERSION_STRATEGY:
 				unsetConversionStrategy();
@@ -567,12 +626,13 @@ public class MappedAttributeImpl extends EObjectImpl implements MappedAttribute 
 		super.eUnset(featureID);
 	}
 
-    /**
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 * @generated
 	 */
-    @Override
-    public boolean eIsSet(int featureID) {
+	@Override
+	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case CrosswalkPackage.MAPPED_ATTRIBUTE__WALK:
 				return getWalk() != null;
@@ -588,47 +648,58 @@ public class MappedAttributeImpl extends EObjectImpl implements MappedAttribute 
 		return super.eIsSet(featureID);
 	}
 
-    /**
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 * @generated
 	 */
-    @Override
-    public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == Input.class) {
 			switch (derivedFeatureID) {
-				case CrosswalkPackage.MAPPED_ATTRIBUTE__OUTPUT: return CrosswalkPackage.INPUT__OUTPUT;
-				default: return -1;
+				case CrosswalkPackage.MAPPED_ATTRIBUTE__OUTPUT:
+					return CrosswalkPackage.INPUT__OUTPUT;
+				default:
+					return -1;
 			}
 		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
-    /**
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 * @generated
 	 */
-    @Override
-    public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == Input.class) {
 			switch (baseFeatureID) {
-				case CrosswalkPackage.INPUT__OUTPUT: return CrosswalkPackage.MAPPED_ATTRIBUTE__OUTPUT;
-				default: return -1;
+				case CrosswalkPackage.INPUT__OUTPUT:
+					return CrosswalkPackage.MAPPED_ATTRIBUTE__OUTPUT;
+				default:
+					return -1;
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
-    /**
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 * @generated
 	 */
-    @Override
-    public String toString() {
-		if (eIsProxy()) return super.toString();
+	@Override
+	public String toString() {
+		if (eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (defaultValue: ");
-		if (defaultValueESet) result.append(defaultValue); else result.append("<unset>");
+		if (defaultValueESet)
+			result.append(defaultValue);
+		else
+			result.append("<unset>");
 		result.append(')');
 		return result.toString();
 	}

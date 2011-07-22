@@ -32,6 +32,7 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.jobs.Job;
 
 import unc.lib.cdr.workbench.IResourceConstants;
+import unc.lib.cdr.workbench.project.MetsProjectNature;
 
 public class StageBuilder extends IncrementalProjectBuilder {
 
@@ -49,6 +50,12 @@ public class StageBuilder extends IncrementalProjectBuilder {
 	@Override
 	protected IProject[] build(int kind, @SuppressWarnings("rawtypes") Map args, IProgressMonitor monitor) throws CoreException {
 		IProject[] result = null;
+		MetsProjectNature mpn = (MetsProjectNature)getProject().getNature(MetsProjectNature.NATURE_ID);
+
+		if(AUTO_BUILD == kind && !mpn.getAutomaticStaging()) {
+			System.out.println("skipping this auto build b/c auto staging says "+mpn.getAutomaticStaging());
+			return result;
+		}
 		boolean audit = false;
 		if (args != null && Boolean.TRUE.equals(args.get("audit"))) {
 			audit = true;
