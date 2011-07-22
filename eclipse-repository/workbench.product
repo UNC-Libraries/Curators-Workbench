@@ -34,14 +34,14 @@ Biff Hollingsworth
    </configIni>
 
    <launcherArgs>
-      <programArgs>-console -consoleLog</programArgs>
-      <vmArgs>-Dosgi.requiredJavaVersion=1.5 -XX:MaxPermSize=128m -Xms128m -Xmx512m -Djargon.debug=0</vmArgs>
+      <programArgs>-consoleLog -data @user.home/curators-workspace</programArgs>
+      <vmArgs>-Dosgi.requiredJavaVersion=1.5 -XX:MaxPermSize=128m -Xms128m -Xmx1024m -Djargon.debug=0</vmArgs>
    </launcherArgs>
 
    <windowImages/>
 
    <splash
-      location="curators-workbench.plugin" />
+      location="workbench_plugin" />
    <launcher name="workbench">
       <solaris/>
       <win useIco="false">
@@ -49,6 +49,8 @@ Biff Hollingsworth
       </win>
    </launcher>
 
+   <vm>
+   </vm>
 
    <license>
         <url>http://www.apache.org/licenses/LICENSE-2.0</url>
