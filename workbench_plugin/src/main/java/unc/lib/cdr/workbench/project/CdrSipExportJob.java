@@ -172,7 +172,7 @@ public class CdrSipExportJob extends Job {
 	 * @param cdr
 	 */
 	private void removeEmptyStructLink(MetsType1 cdr) {
-		if(cdr.getStructLink().eContents().size() == 0 ) {
+		if(cdr.getStructLink() != null && cdr.getStructLink().eContents().size() == 0 ) {
 			Command c = RemoveCommand.create(editingDomain, cdr.getStructLink());
 			if (c.canExecute()) {
 				c.execute();

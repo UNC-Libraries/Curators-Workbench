@@ -18,6 +18,8 @@ import org.eclipse.gmf.runtime.emf.type.core.commands.CreateElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice;
 import org.eclipse.gmf.runtime.emf.type.core.edithelper.IEditHelperAdvice;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
+import org.eclipse.jface.dialogs.Dialog;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 import org.slf4j.Logger;
@@ -63,19 +65,25 @@ public class MappedElementEditHelperAdvice extends AbstractEditHelperAdvice impl
 						message = "Pick an attribute";
 					}
 					Shell shell = PlatformUI.getWorkbench().getDisplay().getActiveShell();
-					MappedFeatureChoiceDialog dialog = new MappedFeatureChoiceDialog(shell);
-					dialog.setFeatures(possibleFeatures);
-					dialog.setMessage(message);
-					EStructuralFeature answer = dialog.open();
-					if (answer != null) {
-						LOG.debug("got ref selection:" + answer);
-						// set request params to deliver answer
-						Map<String, Object> params = new HashMap<String, Object>();
-						params.put(MAPPED_FEATURE_PARAM, answer);
-						request.addParameters(params);
-					} else {
-						LOG.debug("no answer given, trying to cancel..");
+					if (possibleFeatures.size() == 0) {
+						String dialogMessage = "No features of that type are possible in this element.";
+						MessageDialog.openInformation(shell, message, dialogMessage);
 						return CommandResult.newCancelledCommandResult();
+					} else {
+						MappedFeatureChoiceDialog dialog = new MappedFeatureChoiceDialog(shell);
+						dialog.setFeatures(possibleFeatures);
+						dialog.setMessage(message);
+						EStructuralFeature answer = dialog.open();
+						if (answer != null) {
+							LOG.debug("got ref selection:" + answer);
+							// set request params to deliver answer
+							Map<String, Object> params = new HashMap<String, Object>();
+							params.put(MAPPED_FEATURE_PARAM, answer);
+							request.addParameters(params);
+						} else {
+							LOG.debug("no answer given, trying to cancel..");
+							return CommandResult.newCancelledCommandResult();
+						}
 					}
 					return CommandResult.newOKCommandResult();
 				}

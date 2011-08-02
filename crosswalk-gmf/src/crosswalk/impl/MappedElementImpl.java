@@ -68,9 +68,9 @@ public class MappedElementImpl extends EObjectImpl implements MappedElement {
 	protected EList<MappedAttribute> attributes;
 
 	/**
-	 * The cached value of the '{@link #getMappedFeature() <em>Mapped Feature</em>}' reference. <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getMappedFeature() <em>Mapped Feature</em>}' reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #getMappedFeature()
 	 * @generated
 	 * @ordered
@@ -79,7 +79,6 @@ public class MappedElementImpl extends EObjectImpl implements MappedElement {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected MappedElementImpl() {
@@ -88,7 +87,6 @@ public class MappedElementImpl extends EObjectImpl implements MappedElement {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -98,87 +96,75 @@ public class MappedElementImpl extends EObjectImpl implements MappedElement {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public CrossWalk getWalk() {
-		if (eContainerFeatureID() != CrosswalkPackage.MAPPED_ELEMENT__WALK)
-			return null;
-		return (CrossWalk) eContainer();
+		if (eContainerFeatureID() != CrosswalkPackage.MAPPED_ELEMENT__WALK) return null;
+		return (CrossWalk)eContainer();
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetWalk(CrossWalk newWalk, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject) newWalk, CrosswalkPackage.MAPPED_ELEMENT__WALK, msgs);
+		msgs = eBasicSetContainer((InternalEObject)newWalk, CrosswalkPackage.MAPPED_ELEMENT__WALK, msgs);
 		return msgs;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public void setWalk(CrossWalk newWalk) {
-		if (newWalk != eInternalContainer()
-				|| (eContainerFeatureID() != CrosswalkPackage.MAPPED_ELEMENT__WALK && newWalk != null)) {
+		if (newWalk != eInternalContainer() || (eContainerFeatureID() != CrosswalkPackage.MAPPED_ELEMENT__WALK && newWalk != null)) {
 			if (EcoreUtil.isAncestor(this, newWalk))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newWalk != null)
-				msgs = ((InternalEObject) newWalk).eInverseAdd(this, CrosswalkPackage.CROSS_WALK__ELEMENTS,
-						CrossWalk.class, msgs);
+				msgs = ((InternalEObject)newWalk).eInverseAdd(this, CrosswalkPackage.CROSS_WALK__ELEMENTS, CrossWalk.class, msgs);
 			msgs = basicSetWalk(newWalk, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.MAPPED_ELEMENT__WALK, newWalk, newWalk));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public EList<MappedElement> getChildElements() {
 		if (childElements == null) {
-			childElements = new EObjectContainmentWithInverseEList<MappedElement>(MappedElement.class, this,
-					CrosswalkPackage.MAPPED_ELEMENT__CHILD_ELEMENTS, CrosswalkPackage.MAPPED_ELEMENT__PARENT);
+			childElements = new EObjectContainmentWithInverseEList<MappedElement>(MappedElement.class, this, CrosswalkPackage.MAPPED_ELEMENT__CHILD_ELEMENTS, CrosswalkPackage.MAPPED_ELEMENT__PARENT);
 		}
 		return childElements;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public EList<MappedAttribute> getAttributes() {
 		if (attributes == null) {
-			attributes = new EObjectContainmentEList<MappedAttribute>(MappedAttribute.class, this,
-					CrosswalkPackage.MAPPED_ELEMENT__ATTRIBUTES);
+			attributes = new EObjectContainmentEList<MappedAttribute>(MappedAttribute.class, this, CrosswalkPackage.MAPPED_ELEMENT__ATTRIBUTES);
 		}
 		return attributes;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public EReference getMappedFeature() {
 		if (mappedFeature != null && mappedFeature.eIsProxy()) {
-			InternalEObject oldMappedFeature = (InternalEObject) mappedFeature;
-			mappedFeature = (EReference) eResolveProxy(oldMappedFeature);
+			InternalEObject oldMappedFeature = (InternalEObject)mappedFeature;
+			mappedFeature = (EReference)eResolveProxy(oldMappedFeature);
 			if (mappedFeature != oldMappedFeature) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-							CrosswalkPackage.MAPPED_ELEMENT__MAPPED_FEATURE, oldMappedFeature, mappedFeature));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CrosswalkPackage.MAPPED_ELEMENT__MAPPED_FEATURE, oldMappedFeature, mappedFeature));
 			}
 		}
 		return mappedFeature;
@@ -186,7 +172,6 @@ public class MappedElementImpl extends EObjectImpl implements MappedElement {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public EReference basicGetMappedFeature() {
@@ -195,60 +180,51 @@ public class MappedElementImpl extends EObjectImpl implements MappedElement {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public void setMappedFeature(EReference newMappedFeature) {
 		EReference oldMappedFeature = mappedFeature;
 		mappedFeature = newMappedFeature;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.MAPPED_ELEMENT__MAPPED_FEATURE,
-					oldMappedFeature, mappedFeature));
+			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.MAPPED_ELEMENT__MAPPED_FEATURE, oldMappedFeature, mappedFeature));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public MappedElement getParent() {
-		if (eContainerFeatureID() != CrosswalkPackage.MAPPED_ELEMENT__PARENT)
-			return null;
-		return (MappedElement) eContainer();
+		if (eContainerFeatureID() != CrosswalkPackage.MAPPED_ELEMENT__PARENT) return null;
+		return (MappedElement)eContainer();
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetParent(MappedElement newParent, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject) newParent, CrosswalkPackage.MAPPED_ELEMENT__PARENT, msgs);
+		msgs = eBasicSetContainer((InternalEObject)newParent, CrosswalkPackage.MAPPED_ELEMENT__PARENT, msgs);
 		return msgs;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public void setParent(MappedElement newParent) {
-		if (newParent != eInternalContainer()
-				|| (eContainerFeatureID() != CrosswalkPackage.MAPPED_ELEMENT__PARENT && newParent != null)) {
+		if (newParent != eInternalContainer() || (eContainerFeatureID() != CrosswalkPackage.MAPPED_ELEMENT__PARENT && newParent != null)) {
 			if (EcoreUtil.isAncestor(this, newParent))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newParent != null)
-				msgs = ((InternalEObject) newParent).eInverseAdd(this, CrosswalkPackage.MAPPED_ELEMENT__CHILD_ELEMENTS,
-						MappedElement.class, msgs);
+				msgs = ((InternalEObject)newParent).eInverseAdd(this, CrosswalkPackage.MAPPED_ELEMENT__CHILD_ELEMENTS, MappedElement.class, msgs);
 			msgs = basicSetParent(newParent, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.MAPPED_ELEMENT__PARENT, newParent,
-					newParent));
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.MAPPED_ELEMENT__PARENT, newParent, newParent));
 	}
 
 	/**
@@ -342,7 +318,6 @@ public class MappedElementImpl extends EObjectImpl implements MappedElement {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -352,20 +327,19 @@ public class MappedElementImpl extends EObjectImpl implements MappedElement {
 			case CrosswalkPackage.MAPPED_ELEMENT__WALK:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetWalk((CrossWalk) otherEnd, msgs);
+				return basicSetWalk((CrossWalk)otherEnd, msgs);
 			case CrosswalkPackage.MAPPED_ELEMENT__CHILD_ELEMENTS:
-				return ((InternalEList<InternalEObject>) (InternalEList<?>) getChildElements()).basicAdd(otherEnd, msgs);
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getChildElements()).basicAdd(otherEnd, msgs);
 			case CrosswalkPackage.MAPPED_ELEMENT__PARENT:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetParent((MappedElement) otherEnd, msgs);
+				return basicSetParent((MappedElement)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -374,9 +348,9 @@ public class MappedElementImpl extends EObjectImpl implements MappedElement {
 			case CrosswalkPackage.MAPPED_ELEMENT__WALK:
 				return basicSetWalk(null, msgs);
 			case CrosswalkPackage.MAPPED_ELEMENT__CHILD_ELEMENTS:
-				return ((InternalEList<?>) getChildElements()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getChildElements()).basicRemove(otherEnd, msgs);
 			case CrosswalkPackage.MAPPED_ELEMENT__ATTRIBUTES:
-				return ((InternalEList<?>) getAttributes()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getAttributes()).basicRemove(otherEnd, msgs);
 			case CrosswalkPackage.MAPPED_ELEMENT__PARENT:
 				return basicSetParent(null, msgs);
 		}
@@ -385,25 +359,21 @@ public class MappedElementImpl extends EObjectImpl implements MappedElement {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
 			case CrosswalkPackage.MAPPED_ELEMENT__WALK:
-				return eInternalContainer().eInverseRemove(this, CrosswalkPackage.CROSS_WALK__ELEMENTS, CrossWalk.class,
-						msgs);
+				return eInternalContainer().eInverseRemove(this, CrosswalkPackage.CROSS_WALK__ELEMENTS, CrossWalk.class, msgs);
 			case CrosswalkPackage.MAPPED_ELEMENT__PARENT:
-				return eInternalContainer().eInverseRemove(this, CrosswalkPackage.MAPPED_ELEMENT__CHILD_ELEMENTS,
-						MappedElement.class, msgs);
+				return eInternalContainer().eInverseRemove(this, CrosswalkPackage.MAPPED_ELEMENT__CHILD_ELEMENTS, MappedElement.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -416,8 +386,7 @@ public class MappedElementImpl extends EObjectImpl implements MappedElement {
 			case CrosswalkPackage.MAPPED_ELEMENT__ATTRIBUTES:
 				return getAttributes();
 			case CrosswalkPackage.MAPPED_ELEMENT__MAPPED_FEATURE:
-				if (resolve)
-					return getMappedFeature();
+				if (resolve) return getMappedFeature();
 				return basicGetMappedFeature();
 			case CrosswalkPackage.MAPPED_ELEMENT__PARENT:
 				return getParent();
@@ -427,7 +396,6 @@ public class MappedElementImpl extends EObjectImpl implements MappedElement {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -435,21 +403,21 @@ public class MappedElementImpl extends EObjectImpl implements MappedElement {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case CrosswalkPackage.MAPPED_ELEMENT__WALK:
-				setWalk((CrossWalk) newValue);
+				setWalk((CrossWalk)newValue);
 				return;
 			case CrosswalkPackage.MAPPED_ELEMENT__CHILD_ELEMENTS:
 				getChildElements().clear();
-				getChildElements().addAll((Collection<? extends MappedElement>) newValue);
+				getChildElements().addAll((Collection<? extends MappedElement>)newValue);
 				return;
 			case CrosswalkPackage.MAPPED_ELEMENT__ATTRIBUTES:
 				getAttributes().clear();
-				getAttributes().addAll((Collection<? extends MappedAttribute>) newValue);
+				getAttributes().addAll((Collection<? extends MappedAttribute>)newValue);
 				return;
 			case CrosswalkPackage.MAPPED_ELEMENT__MAPPED_FEATURE:
-				setMappedFeature((EReference) newValue);
+				setMappedFeature((EReference)newValue);
 				return;
 			case CrosswalkPackage.MAPPED_ELEMENT__PARENT:
-				setParent((MappedElement) newValue);
+				setParent((MappedElement)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -457,14 +425,13 @@ public class MappedElementImpl extends EObjectImpl implements MappedElement {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case CrosswalkPackage.MAPPED_ELEMENT__WALK:
-				setWalk((CrossWalk) null);
+				setWalk((CrossWalk)null);
 				return;
 			case CrosswalkPackage.MAPPED_ELEMENT__CHILD_ELEMENTS:
 				getChildElements().clear();
@@ -473,10 +440,10 @@ public class MappedElementImpl extends EObjectImpl implements MappedElement {
 				getAttributes().clear();
 				return;
 			case CrosswalkPackage.MAPPED_ELEMENT__MAPPED_FEATURE:
-				setMappedFeature((EReference) null);
+				setMappedFeature((EReference)null);
 				return;
 			case CrosswalkPackage.MAPPED_ELEMENT__PARENT:
-				setParent((MappedElement) null);
+				setParent((MappedElement)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -484,7 +451,6 @@ public class MappedElementImpl extends EObjectImpl implements MappedElement {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override

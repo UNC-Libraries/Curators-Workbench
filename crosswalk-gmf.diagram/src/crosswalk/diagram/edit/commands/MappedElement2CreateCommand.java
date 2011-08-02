@@ -34,6 +34,7 @@ public class MappedElement2CreateCommand extends EditElementCommand {
 	 * FIXME: replace with setElementToEdit()
 	 * @generated
 	 */
+	@Override
 	protected EObject getElementToEdit() {
 		EObject container = ((CreateElementRequest) getRequest()).getContainer();
 		if (container instanceof View) {
@@ -45,14 +46,15 @@ public class MappedElement2CreateCommand extends EditElementCommand {
 	/**
 	 * @generated
 	 */
+	@Override
 	public boolean canExecute() {
 		return true;
-
 	}
 
 	/**
 	 * @generated
 	 */
+	@Override
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
 		MappedElement newElement = CrosswalkFactory.eINSTANCE.createMappedElement();
 

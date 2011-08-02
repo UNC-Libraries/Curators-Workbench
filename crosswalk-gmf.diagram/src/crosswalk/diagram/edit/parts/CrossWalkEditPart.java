@@ -27,10 +27,14 @@ import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
 import org.eclipse.gef.handles.MoveHandle;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
+import org.eclipse.gmf.runtime.diagram.ui.requests.CreateUnspecifiedTypeRequest;
+import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.notation.View;
 
+import crosswalk.diagram.custom.SpecialCreationEditPolicy;
 import crosswalk.diagram.edit.policies.CrossWalkCanonicalEditPolicy;
 import crosswalk.diagram.edit.policies.CrossWalkItemSemanticEditPolicy;
+import crosswalk.diagram.providers.CrosswalkElementTypes;
 
 /**
  * @generated
@@ -60,9 +64,11 @@ public class CrossWalkEditPart extends DiagramEditPart {
 	@Override
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new SpecialCreationEditPolicy());
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new CrossWalkItemSemanticEditPolicy());
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE, new CrossWalkCanonicalEditPolicy());
-		//removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.POPUPBAR_ROLE);
+		//removeEditPolicy(EditPolicyRoles.CREATION_ROLE);
+		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.POPUPBAR_ROLE);
 	}
 
 	@Override
@@ -104,6 +110,25 @@ public class CrossWalkEditPart extends DiagramEditPart {
 		public boolean understandsRequest(Request request) {
 			return false;
 		}
+	}
+
+	@Override
+	public Command getCommand(Request _request) {
+		// TODO Auto-generated method stub
+		if (_request instanceof CreateUnspecifiedTypeRequest) {
+			CreateUnspecifiedTypeRequest r = (CreateUnspecifiedTypeRequest) _request;
+			IElementType invalid = null;
+			for (Object o : r.getElementTypes()) {
+				IElementType e = (IElementType) o;
+				System.out.println(e);
+				if (CrosswalkElementTypes.MappedElement_3015.getId().equals(e.getId())) {
+					invalid = e;
+				}
+			}
+			// r.getElementTypes().remove(invalid);
+			System.out.println(r);
+		}
+		return super.getCommand(_request);
 	}
 
 }
