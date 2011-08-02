@@ -33,6 +33,7 @@ public class MappedElementCreateCommand extends EditElementCommand {
 
 	/**
 	 * FIXME: replace with setElementToEdit()
+	 *
 	 * @generated
 	 */
 	@Override
@@ -50,7 +51,6 @@ public class MappedElementCreateCommand extends EditElementCommand {
 	@Override
 	public boolean canExecute() {
 		return true;
-
 	}
 
 	/**
@@ -70,12 +70,11 @@ public class MappedElementCreateCommand extends EditElementCommand {
 	}
 
 	/**
-	 * @generated NOT
+	 * @generated
 	 */
 	protected void doConfigure(MappedElement newElement, IProgressMonitor monitor, IAdaptable info)
 			throws ExecutionException {
 		IElementType elementType = ((CreateElementRequest) getRequest()).getElementType();
-
 		ConfigureRequest configureRequest = new ConfigureRequest(getEditingDomain(), newElement, elementType);
 		configureRequest.setClientContext(((CreateElementRequest) getRequest()).getClientContext());
 		configureRequest.addParameters(getRequest().getParameters());

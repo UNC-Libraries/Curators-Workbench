@@ -105,25 +105,19 @@ public class DateRecognizerItemProvider
 	 * @generated
 	 */
 	protected void addFormatsPropertyDescriptor(Object object) {
-		ItemPropertyDescriptor ipd = createItemPropertyDescriptor
-		(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-		 getResourceLocator(),
-		 getString("_UI_DateRecognizer_Formats_feature"),
-		 getString("_UI_PropertyDescriptor_description", "_UI_DateRecognizer_Formats_feature", "_UI_DateRecognizer_type"),
-		 CrosswalkPackage.Literals.DATE_RECOGNIZER__FORMATS,
-		 true,
-		 false,
-		 false,
-		 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-		 null,
-		 null);
-		IItemPropertyDescriptor f = new ItemPropertyDescriptorDecorator(object, ipd) {
-			@Override
-			public Object getHelpContextIds(Object object) {
-				return "dummyHelpContextID";
-			}
-		};
-		itemPropertyDescriptors.add(f);
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_DateRecognizer_Formats_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DateRecognizer_Formats_feature", "_UI_DateRecognizer_type"),
+				 CrosswalkPackage.Literals.DATE_RECOGNIZER__FORMATS,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 								/**

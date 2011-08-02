@@ -153,11 +153,6 @@ public class MappedElementItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CrosswalkPackage.Literals.MAPPED_ELEMENT__CHILD_ELEMENTS,
-				 CrosswalkFactory.eINSTANCE.createMappedElement()));
-
-		newChildDescriptors.add
-			(createChildParameter
 				(CrosswalkPackage.Literals.MAPPED_ELEMENT__ATTRIBUTES,
 				 CrosswalkFactory.eINSTANCE.createMappedAttribute()));
 	}

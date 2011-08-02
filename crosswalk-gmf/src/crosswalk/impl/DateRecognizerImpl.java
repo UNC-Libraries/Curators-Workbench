@@ -51,25 +51,25 @@ import crosswalk.util.ImpreciseDate;
  */
 public class DateRecognizerImpl extends WalkWidgetImpl implements DateRecognizer {
 	/**
-	 * The cached value of the '{@link #getOutput() <em>Output</em>}' reference. <!-- begin-user-doc --> <!--
+	 * The cached value of the '{@link #getOutput() <em>Output</em>}' reference.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @see #getOutput()
 	 * @generated
 	 * @ordered
 	 */
 	protected Output output;
 	/**
-	 * This is true if the Output reference has been set. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * This is true if the Output reference has been set.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	protected boolean outputESet;
 	/**
-	 * The cached value of the '{@link #getFormats() <em>Formats</em>}' attribute list. <!-- begin-user-doc --> <!--
+	 * The cached value of the '{@link #getFormats() <em>Formats</em>}' attribute list.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @see #getFormats()
 	 * @generated
 	 * @ordered
@@ -82,7 +82,6 @@ public class DateRecognizerImpl extends WalkWidgetImpl implements DateRecognizer
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected DateRecognizerImpl() {
@@ -91,7 +90,6 @@ public class DateRecognizerImpl extends WalkWidgetImpl implements DateRecognizer
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -101,17 +99,15 @@ public class DateRecognizerImpl extends WalkWidgetImpl implements DateRecognizer
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public Output getOutput() {
 		if (output != null && output.eIsProxy()) {
-			InternalEObject oldOutput = (InternalEObject) output;
-			output = (Output) eResolveProxy(oldOutput);
+			InternalEObject oldOutput = (InternalEObject)output;
+			output = (Output)eResolveProxy(oldOutput);
 			if (output != oldOutput) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CrosswalkPackage.DATE_RECOGNIZER__OUTPUT,
-							oldOutput, output));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CrosswalkPackage.DATE_RECOGNIZER__OUTPUT, oldOutput, output));
 			}
 		}
 		return output;
@@ -119,7 +115,6 @@ public class DateRecognizerImpl extends WalkWidgetImpl implements DateRecognizer
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public Output basicGetOutput() {
@@ -128,7 +123,6 @@ public class DateRecognizerImpl extends WalkWidgetImpl implements DateRecognizer
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public void setOutput(Output newOutput) {
@@ -137,13 +131,11 @@ public class DateRecognizerImpl extends WalkWidgetImpl implements DateRecognizer
 		boolean oldOutputESet = outputESet;
 		outputESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.DATE_RECOGNIZER__OUTPUT, oldOutput,
-					output, !oldOutputESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.DATE_RECOGNIZER__OUTPUT, oldOutput, output, !oldOutputESet));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public void unsetOutput() {
@@ -152,13 +144,11 @@ public class DateRecognizerImpl extends WalkWidgetImpl implements DateRecognizer
 		output = null;
 		outputESet = false;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, CrosswalkPackage.DATE_RECOGNIZER__OUTPUT, oldOutput,
-					null, oldOutputESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CrosswalkPackage.DATE_RECOGNIZER__OUTPUT, oldOutput, null, oldOutputESet));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public boolean isSetOutput() {
@@ -167,7 +157,6 @@ public class DateRecognizerImpl extends WalkWidgetImpl implements DateRecognizer
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public EList<String> getFormats() {
@@ -235,15 +224,13 @@ public class DateRecognizerImpl extends WalkWidgetImpl implements DateRecognizer
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case CrosswalkPackage.DATE_RECOGNIZER__OUTPUT:
-				if (resolve)
-					return getOutput();
+				if (resolve) return getOutput();
 				return basicGetOutput();
 			case CrosswalkPackage.DATE_RECOGNIZER__FORMATS:
 				return getFormats();
@@ -253,7 +240,6 @@ public class DateRecognizerImpl extends WalkWidgetImpl implements DateRecognizer
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -261,11 +247,11 @@ public class DateRecognizerImpl extends WalkWidgetImpl implements DateRecognizer
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case CrosswalkPackage.DATE_RECOGNIZER__OUTPUT:
-				setOutput((Output) newValue);
+				setOutput((Output)newValue);
 				return;
 			case CrosswalkPackage.DATE_RECOGNIZER__FORMATS:
 				getFormats().clear();
-				getFormats().addAll((Collection<? extends String>) newValue);
+				getFormats().addAll((Collection<? extends String>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -273,7 +259,6 @@ public class DateRecognizerImpl extends WalkWidgetImpl implements DateRecognizer
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -291,7 +276,6 @@ public class DateRecognizerImpl extends WalkWidgetImpl implements DateRecognizer
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -307,23 +291,19 @@ public class DateRecognizerImpl extends WalkWidgetImpl implements DateRecognizer
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == Output.class) {
 			switch (derivedFeatureID) {
-				default:
-					return -1;
+				default: return -1;
 			}
 		}
 		if (baseClass == Input.class) {
 			switch (derivedFeatureID) {
-				case CrosswalkPackage.DATE_RECOGNIZER__OUTPUT:
-					return CrosswalkPackage.INPUT__OUTPUT;
-				default:
-					return -1;
+				case CrosswalkPackage.DATE_RECOGNIZER__OUTPUT: return CrosswalkPackage.INPUT__OUTPUT;
+				default: return -1;
 			}
 		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
@@ -331,23 +311,19 @@ public class DateRecognizerImpl extends WalkWidgetImpl implements DateRecognizer
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == Output.class) {
 			switch (baseFeatureID) {
-				default:
-					return -1;
+				default: return -1;
 			}
 		}
 		if (baseClass == Input.class) {
 			switch (baseFeatureID) {
-				case CrosswalkPackage.INPUT__OUTPUT:
-					return CrosswalkPackage.DATE_RECOGNIZER__OUTPUT;
-				default:
-					return -1;
+				case CrosswalkPackage.INPUT__OUTPUT: return CrosswalkPackage.DATE_RECOGNIZER__OUTPUT;
+				default: return -1;
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
@@ -355,13 +331,11 @@ public class DateRecognizerImpl extends WalkWidgetImpl implements DateRecognizer
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy())
-			return super.toString();
+		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (Formats: ");

@@ -14,6 +14,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ResizableCompartmentEditP
 import org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure;
 import org.eclipse.gmf.runtime.notation.View;
 
+import crosswalk.diagram.custom.SpecialCreationEditPolicy;
 import crosswalk.diagram.edit.policies.MappedElementChildElementsCompartmentCanonicalEditPolicy;
 import crosswalk.diagram.edit.policies.MappedElementChildElementsCompartmentItemSemanticEditPolicy;
 import crosswalk.diagram.part.Messages;
@@ -38,6 +39,7 @@ public class MappedElementChildElementsCompartmentEditPart extends ListCompartme
 	/**
 	 * @generated
 	 */
+	@Override
 	protected boolean hasModelChildrenChanged(Notification evt) {
 		return false;
 	}
@@ -45,6 +47,7 @@ public class MappedElementChildElementsCompartmentEditPart extends ListCompartme
 	/**
 	 * @generated
 	 */
+	@Override
 	public String getCompartmentName() {
 		return Messages.MappedElementChildElementsCompartmentEditPart_title;
 	}
@@ -52,6 +55,7 @@ public class MappedElementChildElementsCompartmentEditPart extends ListCompartme
 	/**
 	 * @generated
 	 */
+	@Override
 	public IFigure createFigure() {
 		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super.createFigure();
 		result.setTitleVisibility(false);
@@ -61,11 +65,12 @@ public class MappedElementChildElementsCompartmentEditPart extends ListCompartme
 	/**
 	 * @generated
 	 */
+	@Override
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new MappedElementChildElementsCompartmentItemSemanticEditPolicy());
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicy());
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new SpecialCreationEditPolicy());
 		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new DragDropEditPolicy());
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE, new MappedElementChildElementsCompartmentCanonicalEditPolicy());
 	}
@@ -73,9 +78,10 @@ public class MappedElementChildElementsCompartmentEditPart extends ListCompartme
 	/**
 	 * @generated
 	 */
+	@Override
 	protected void setRatio(Double ratio) {
 		// nothing to do -- parent layout does not accept Double constraints as ratio
-		// super.setRatio(ratio); 
+		// super.setRatio(ratio);
 	}
 
 }

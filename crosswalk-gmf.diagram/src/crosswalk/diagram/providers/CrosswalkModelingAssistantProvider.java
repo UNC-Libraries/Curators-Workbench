@@ -95,25 +95,25 @@ public class CrosswalkModelingAssistantProvider extends ModelingAssistantProvide
 	 */
 	@Override
 	public List getTypesForPopupBar(IAdaptable host) {
+		//System.out.println("getting types for " + host);
 		List<IElementType> types = new ArrayList<IElementType>();
 		IGraphicalEditPart editPart = (IGraphicalEditPart) host.getAdapter(IGraphicalEditPart.class);
 		EObject el = editPart.resolveSemanticElement();
+		types = getTypesForPopupBarGen(host);
 		if (editPart instanceof MappedElementEditPart || editPart instanceof MappedElement2EditPart) {
 			boolean hasChildElements = MappedModelUtil.getChildElementFeatures(el).size() > 0;
 			boolean hasChildAttributes = MappedModelUtil.getAttributes(el).size() > 0;
-			// TODO check for available references and attributes
-			if (hasChildElements) {
-				types.add(CrosswalkElementTypes.MappedElement_3015);
+			if (!hasChildElements) {
+				types.remove(CrosswalkElementTypes.MappedElement_3015);
+				types.remove(CrosswalkElementTypes.MappedElement_2016);
 			}
-			if (hasChildAttributes) {
-				types.add(CrosswalkElementTypes.MappedAttribute_3016);
+			if (!hasChildAttributes) {
+				types.remove(CrosswalkElementTypes.MappedAttribute_3016);
 			}
-		} else {
-			types = getTypesForPopupBarGen(host);
 		}
-		//	for (IElementType e : types) {
-		//	    System.out.println("popup type: " + e);
-		//	}
+		//for (IElementType e : types) {
+		//	System.out.println("popup type: " + e);
+		//}
 		return types;
 	}
 
@@ -261,7 +261,7 @@ public class CrosswalkModelingAssistantProvider extends ModelingAssistantProvide
 		if (elements.isEmpty()) {
 			return null;
 		}
-		return selectElement((EObject[]) elements.toArray(new EObject[elements.size()]));
+		return selectElement(elements.toArray(new EObject[elements.size()]));
 	}
 
 	/**

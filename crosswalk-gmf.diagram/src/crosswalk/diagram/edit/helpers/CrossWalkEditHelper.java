@@ -15,19 +15,9 @@
  */
 package crosswalk.diagram.edit.helpers;
 
-import java.util.List;
-
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EReference;
 
 /**
  * @generated
  */
 public class CrossWalkEditHelper extends CrosswalkBaseEditHelper {
-
-	@Override
-	public List getContainedValues(EObject eContainer, EReference feature) {
-		// TODO Auto-generated method stub
-		return super.getContainedValues(eContainer, feature);
-	}
 }

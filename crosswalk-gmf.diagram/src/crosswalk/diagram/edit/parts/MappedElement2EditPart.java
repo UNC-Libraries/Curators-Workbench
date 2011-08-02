@@ -24,6 +24,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.FlowLayoutEditPolicy;
+import org.eclipse.gmf.runtime.diagram.ui.requests.CreateUnspecifiedTypeRequest;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewAndElementRequest;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
@@ -33,6 +34,7 @@ import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
 
+import crosswalk.diagram.custom.SpecialCreationEditPolicy;
 import crosswalk.diagram.edit.policies.MappedElement2ItemSemanticEditPolicy;
 import crosswalk.diagram.part.CrosswalkVisualIDRegistry;
 import crosswalk.diagram.providers.CrosswalkElementTypes;
@@ -69,8 +71,8 @@ public class MappedElement2EditPart extends ShapeNodeEditPart {
 	 */
 	@Override
 	protected void createDefaultEditPolicies() {
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicy());
 		super.createDefaultEditPolicies();
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new SpecialCreationEditPolicy());
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new MappedElement2ItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
@@ -84,14 +86,17 @@ public class MappedElement2EditPart extends ShapeNodeEditPart {
 
 		FlowLayoutEditPolicy lep = new FlowLayoutEditPolicy() {
 
+			@Override
 			protected Command createAddCommand(EditPart child, EditPart after) {
 				return null;
 			}
 
+			@Override
 			protected Command createMoveChildCommand(EditPart child, EditPart after) {
 				return null;
 			}
 
+			@Override
 			protected Command getCreateCommand(CreateRequest request) {
 				return null;
 			}
@@ -123,7 +128,7 @@ public class MappedElement2EditPart extends ShapeNodeEditPart {
 		}
 		if (childEditPart instanceof MappedElementChildElementsCompartment2EditPart) {
 			IFigure pane = getPrimaryShape().getChildPane();
-			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
+			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way
 			pane.add(((MappedElementChildElementsCompartment2EditPart) childEditPart).getFigure());
 			return true;
 		}
@@ -139,7 +144,7 @@ public class MappedElement2EditPart extends ShapeNodeEditPart {
 		}
 		if (childEditPart instanceof MappedElementChildElementsCompartment2EditPart) {
 			IFigure pane = getPrimaryShape().getChildPane();
-			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
+			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way
 			pane.remove(((MappedElementChildElementsCompartment2EditPart) childEditPart).getFigure());
 			return true;
 		}
@@ -149,6 +154,7 @@ public class MappedElement2EditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
+	@Override
 	protected void addChildVisual(EditPart childEditPart, int index) {
 		if (addFixedChild(childEditPart)) {
 			return;
@@ -159,6 +165,7 @@ public class MappedElement2EditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
+	@Override
 	protected void removeChildVisual(EditPart childEditPart) {
 		if (removeFixedChild(childEditPart)) {
 			return;
@@ -169,6 +176,7 @@ public class MappedElement2EditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
+	@Override
 	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
 		if (editPart instanceof MappedElementChildElementsCompartment2EditPart) {
 			return getPrimaryShape().getChildPane();
@@ -231,6 +239,7 @@ public class MappedElement2EditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
+	@Override
 	protected void setForegroundColor(Color color) {
 		if (primaryShape != null) {
 			primaryShape.setForegroundColor(color);
@@ -240,6 +249,7 @@ public class MappedElement2EditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
+	@Override
 	protected void setBackgroundColor(Color color) {
 		if (primaryShape != null) {
 			primaryShape.setBackgroundColor(color);
@@ -277,6 +287,7 @@ public class MappedElement2EditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
+	@Override
 	public EditPart getTargetEditPart(Request request) {
 		if (request instanceof CreateViewAndElementRequest) {
 			CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request).getViewAndElementDescriptor()
