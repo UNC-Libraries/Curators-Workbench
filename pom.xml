@@ -31,7 +31,7 @@
 		<name>University Libraries, UNC Chapel Hill</name>
 		<url>http://www.unc.edu</url>
 	</organization>
-<!--	<repositories>
+	<repositories>
 		<repository>
 			<id>update36</id>
 			<url>${eclipse-repository-url}</url>
@@ -42,7 +42,7 @@
 			<layout>p2</layout>
 			<url>http://download.eclipse.org/releases/helios/</url>
 		</repository>
-	</repositories>-->
+	</repositories>
 	<modules>
 		<module>crosswalk-gmf</module>
 		<module>crosswalk-gmf.diagram</module>
