@@ -152,6 +152,11 @@
             id="org.eclipse.ui.edit.delete"
             name="Delete">
       </command>
+      <command
+            defaultHandler="unc.lib.cdr.workbench.commands.OpenSystemEditorTempCopyHandler"
+            id="cdr-workbench.commandOpenCopySystemEditor"
+            name="Open a copy in system&apos;s editor">
+      </command>
    </extension>
    <extension
          point="org.eclipse.ui.handlers">
@@ -518,6 +523,46 @@
                         args="surrogate"
                         property="workbench_plugin.selection.isDivLinkPair">
                   </test>
+               </with>
+            </visibleWhen>
+         </command>
+         <command
+               commandId="cdr-workbench.commandOpenCopySystemEditor"
+               label="Open copy in default editor"
+               style="push">
+            <visibleWhen
+                  checkEnabled="false">
+               <with
+                     variable="activeMenuSelection">
+                  <iterate
+                        ifEmpty="false">
+                     <and>
+                        <test
+                              property="workbench_plugin.testTopFolderName.folderName"
+                              value="originals">
+                        </test>
+                        <instanceof
+                              value="org.eclipse.core.resources.IFile">
+                        </instanceof>
+                     </and>
+                  </iterate>
+               </with>
+            </visibleWhen>
+         </command>
+         <command
+               commandId="cdr-workbench.commandOpenCopySystemEditor"
+               label="Open copy of original in default editor"
+               style="push">
+            <visibleWhen
+                  checkEnabled="false">
+               <with
+                     variable="activeMenuSelection">
+                  <iterate
+                        ifEmpty="false">
+                     <instanceof
+                           value="gov.loc.mets.DivType">
+                     </instanceof>
+                  </iterate>
                </with>
             </visibleWhen>
          </command>

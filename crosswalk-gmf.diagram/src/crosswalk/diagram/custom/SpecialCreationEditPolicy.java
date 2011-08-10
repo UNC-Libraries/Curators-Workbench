@@ -55,17 +55,12 @@ public class SpecialCreationEditPolicy extends CreationEditPolicy {
 					chosenRequest = (CreateViewAndElementRequest)r.getRequestForType(type);
 				}
 				if (chosenRequest != null) {
-					//chosenRequest.setLocation(r.getLocation());
-					//chosenRequest.setExtendedData(r.getExtendedData());
-					//chosenRequest.setSize(r.getSize());
-					//chosenRequest.setType(r.getType());
 					List types = new ArrayList();
 					types.add(type);
 					CreateUnspecifiedTypeRequest answerReq = new CreateUnspecifiedTypeRequest(types, chosenRequest.getViewAndElementDescriptor().getPreferencesHint() );
 					answerReq.setExtendedData(r.getExtendedData());
 					answerReq.setLocation(r.getLocation());
 					answerReq.setSize(r.getSize());
-					System.out.println("chose type: "+type);
 					return super.getCommand(answerReq);
 				}
 			}
