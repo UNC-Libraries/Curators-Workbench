@@ -19,6 +19,7 @@ import gov.loc.mets.DivType;
 import gov.loc.mets.MdSecType;
 import gov.loc.mets.util.METSConstants;
 
+import org.eclipse.core.filesystem.IFileStore;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
@@ -38,7 +39,7 @@ import unc.lib.cdr.workbench.xwalk.CrosswalksProjectElement;
 
 /**
  * @author Gregory Jansen
- * 
+ *
  */
 public class LabelImageFactory {
 	public static String iconPath = "icons/";
@@ -135,6 +136,12 @@ public class LabelImageFactory {
 			}
 		} else if (o instanceof DivLinkBucket) {
 			key = DIV_LINK_BUCKET;
+		} else if (IFileStore.class.isInstance(o)) {
+			if(((IFileStore)o).fetchInfo().isDirectory()) {
+				key = FOLDER;
+			} else {
+				key = FILE;
+			}
 		}
 		return key;
 	}

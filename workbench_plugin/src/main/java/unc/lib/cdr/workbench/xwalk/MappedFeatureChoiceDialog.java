@@ -24,6 +24,9 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.util.BasicExtendedMetaData;
 import org.eclipse.emf.ecore.util.ExtendedMetaData;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.MouseAdapter;
+import org.eclipse.swt.events.MouseEvent;
+import org.eclipse.swt.events.MouseListener;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.GridData;
@@ -35,7 +38,7 @@ import org.eclipse.swt.widgets.Shell;
 
 /**
  * @author Gregory Jansen
- * 
+ *
  */
 public class MappedFeatureChoiceDialog extends Dialog {
 	private String message = "Choose a Feature";
@@ -55,7 +58,7 @@ public class MappedFeatureChoiceDialog extends Dialog {
 
 	/**
 	 * Opens the dialog and returns the input
-	 * 
+	 *
 	 * @return String
 	 */
 	public EStructuralFeature open() {
@@ -77,7 +80,7 @@ public class MappedFeatureChoiceDialog extends Dialog {
 
 	/**
 	 * Creates the dialog's contents
-	 * 
+	 *
 	 * @param shell
 	 *           the dialog window
 	 */
@@ -146,6 +149,17 @@ public class MappedFeatureChoiceDialog extends Dialog {
 					ok.setEnabled(false);
 				}
 			}
+		});
+		choice.addMouseListener(new MouseAdapter() {
+
+			@Override
+			public void mouseDoubleClick(MouseEvent e) {
+				super.mouseDoubleClick(e);
+				String answerTxt = choice.getItem(choice.getSelectionIndex());
+				answer = (EStructuralFeature) choice.getData(answerTxt);
+				shell.close();
+			}
+
 		});
 
 		// Create the cancel button and add a handler

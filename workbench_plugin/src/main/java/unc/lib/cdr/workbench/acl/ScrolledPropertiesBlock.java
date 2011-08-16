@@ -47,7 +47,7 @@ import edu.unc.lib.schemas.acl.impl.GrantTypeImpl;
 
 /**
  * @author Gregory Jansen
- * 
+ *
  */
 public class ScrolledPropertiesBlock extends MasterDetailsBlock implements ISelectionChangedListener {
 	private FormPage page;
@@ -63,7 +63,7 @@ public class ScrolledPropertiesBlock extends MasterDetailsBlock implements ISele
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.eclipse.ui.forms.MasterDetailsBlock#createMasterPart(org.eclipse. ui.forms.IManagedForm,
 	 * org.eclipse.swt.widgets.Composite)
 	 */
@@ -71,7 +71,7 @@ public class ScrolledPropertiesBlock extends MasterDetailsBlock implements ISele
 	protected void createMasterPart(final IManagedForm managedForm, Composite parent) {
 		FormToolkit toolkit = managedForm.getToolkit();
 		Section section = toolkit.createSection(parent, Section.DESCRIPTION | Section.TITLE_BAR);
-		section.setText("Granted Roles"); //$NON-NLS-1$
+		section.setText("Roles Granted (Inheritable)"); //$NON-NLS-1$
 		section.setDescription("Add, edit or remove roles granted to groups."); //$NON-NLS-1$
 		section.marginWidth = 10;
 		section.marginHeight = 5;
@@ -147,7 +147,7 @@ public class ScrolledPropertiesBlock extends MasterDetailsBlock implements ISele
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.eclipse.ui.forms.MasterDetailsBlock#registerPages(org.eclipse.ui. forms.DetailsPart)
 	 */
 	@Override
@@ -157,7 +157,7 @@ public class ScrolledPropertiesBlock extends MasterDetailsBlock implements ISele
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.eclipse.ui.forms.MasterDetailsBlock#createToolBarActions(org.eclipse .ui.forms.IManagedForm)
 	 */
 	@Override
@@ -196,7 +196,7 @@ public class ScrolledPropertiesBlock extends MasterDetailsBlock implements ISele
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.eclipse.jface.viewers.ISelectionChangedListener#selectionChanged(
 	 * org.eclipse.jface.viewers.SelectionChangedEvent)
 	 */

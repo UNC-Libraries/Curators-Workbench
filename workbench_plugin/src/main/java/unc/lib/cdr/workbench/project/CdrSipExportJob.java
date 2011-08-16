@@ -25,7 +25,6 @@ import gov.loc.mets.MetsFactory;
 import gov.loc.mets.MetsPackage;
 import gov.loc.mets.MetsType;
 import gov.loc.mets.MetsType1;
-import gov.loc.mets.StructLinkType;
 import gov.loc.mets.StructMapType;
 import gov.loc.mets.provider.MetsItemProviderAdapterFactory;
 import gov.loc.mets.util.METSConstants;
@@ -33,15 +32,20 @@ import gov.loc.mets.util.METSUtils;
 import gov.loc.mets.util.MetsResourceFactoryImpl;
 import gov.loc.mods.mods.provider.MODSItemProviderAdapterFactory;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
+import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
@@ -58,6 +62,7 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.BasicExtendedMetaData;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.EcoreUtil.Copier;
+import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
@@ -79,6 +84,7 @@ public class CdrSipExportJob extends Job {
 	private static final Logger LOG = LoggerFactory.getLogger(CdrSipExportJob.class);
 
 	IProject p = null;
+	String filepath = null;
 	private ResourceSetImpl resourceSet;
 	private BasicCommandStack commandStack;
 	private AdapterFactoryEditingDomain editingDomain;
@@ -86,9 +92,10 @@ public class CdrSipExportJob extends Job {
 	private ComposedAdapterFactory adapterFactory;
 	private Resource metsResource;
 
-	public CdrSipExportJob(IProject p) {
+	public CdrSipExportJob(IProject p, String filepath) {
 		super("Exporting project '" + p.getName() + "' for submission to the CDR");
 		this.p = p;
+		this.filepath = filepath;
 		adapterFactory = new ComposedAdapterFactory();
 		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new MetsItemProviderAdapterFactory());
@@ -131,7 +138,12 @@ public class CdrSipExportJob extends Job {
 		extendedMetaData = new BasicExtendedMetaData(resourceSet.getPackageRegistry());
 
 		// create export destination URI
-		String uri = p.getFile("CDR_SIP_Export.xml").getLocationURI().toString();
+		File f = new File(this.filepath);
+		if(f.exists()) {
+			f.delete();
+		}
+
+		String uri = f.toURI().toString();
 		metsResource = this.resourceSet.createResource(URI.createURI(uri));
 		((ResourceImpl) this.metsResource).setIntrinsicIDToEObjectMap(new HashMap());
 
@@ -157,12 +169,22 @@ public class CdrSipExportJob extends Job {
 		map.eUnset(MetsPackage.eINSTANCE.getStructMapType_TYPE());
 
 		try {
-			this.metsResource.save(new HashMap());
+			Map<String, String> xmlOptions = new HashMap<String, String>();
+			xmlOptions.put(XMLResource.OPTION_ENCODING, "utf-8");
+			this.metsResource.save(xmlOptions);
 			LOG.debug("mets export saved to: " + uri);
 		} catch (IOException e1) {
 			LOG.error("Problem creating METS", e1);
 			Status s = new Status(Status.ERROR, Activator.PLUGIN_ID, "Cannot save METS", e1);
 			return s;
+		}
+
+		for(IFile file : ResourcesPlugin.getWorkspace().getRoot().findFilesForLocationURI(f.toURI())) {
+			try {
+				file.refreshLocal(IResource.DEPTH_ZERO, new NullProgressMonitor());
+			} catch (CoreException e) {
+				e.printStackTrace();
+			}
 		}
 
 		return Status.OK_STATUS;

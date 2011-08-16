@@ -16,14 +16,18 @@
 package unc.lib.cdr.workbench.capture;
 
 import java.net.URI;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.SubProgressMonitor;
 import org.eclipse.core.runtime.jobs.Job;
@@ -33,28 +37,27 @@ import unc.lib.cdr.workbench.project.MetsProjectNature;
 
 /**
  * @author Gregory Jansen
- * 
+ *
  */
 public class OriginalsLinkJob extends Job {
-	URI location = null;
+	List<URI> locations = null;
 	String name = null;
 	IProject project = null;
-	IFolder folder = null;
+	List<IFolder> folders = new ArrayList<IFolder>();
 
-	OriginalsLinkJob(URI location, String name, IProject project) {
-		super("creating link \"" + name + "\" (" + location + ")");
-		this.location = location;
-		this.name = name;
+	OriginalsLinkJob(List<URI> locations, IProject project) {
+		super("creating link to " + locations.size() + " location(s)");
+		this.locations = locations;
 		this.project = project;
 	}
 
-	public IFolder getLinkFolder() {
-		return this.folder;
+	public List<IFolder> getLinkFolders() {
+		return this.folders;
 	}
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @seeorg.eclipse.core.runtime.jobs.Job#run(org.eclipse.core.runtime. IProgressMonitor)
 	 */
 	@Override
@@ -64,15 +67,27 @@ public class OriginalsLinkJob extends Job {
 		}
 		IStatus result = null;
 		System.out.println("starting folder link");
-		monitor.beginTask("Adding original folder link ...", 100);
+		monitor.beginTask("Linking to original folders ...", this.locations.size());
 		IFolder originalsFolder = this.project.getFolder(MetsProjectNature.ORIGINALS_FOLDER_NAME);
-		this.folder = originalsFolder.getFolder(name);
+
 		try {
-			monitor.subTask("Creating link");
-			folder.createLink(location, IFolder.ALLOW_MISSING_LOCAL | IFolder.BACKGROUND_REFRESH, new SubProgressMonitor(
-					monitor, 10));
-			IMarker marker = folder.createMarker(IResourceConstants.MARKER_ORIGINALFILESET);
-			marker.setAttribute("type", this.location.getScheme());
+			for (URI location : locations) {
+				IPath path = new Path(location.getPath());
+				IFolder folder = originalsFolder.getFolder(path.lastSegment());
+				if (folder.exists() && folder.getLocationURI().equals(location)) {
+					// already linked to this original folder, continue
+					continue;
+				}
+				for(int suffix = 1; folder.exists(); suffix++) {
+					folder = originalsFolder.getFolder(path.lastSegment()+"_"+suffix);
+				}
+				monitor.subTask("Linking " + location);
+				folder.createLink(location, IFolder.ALLOW_MISSING_LOCAL | IFolder.BACKGROUND_REFRESH,
+						new SubProgressMonitor(monitor, 1));
+				IMarker marker = folder.createMarker(IResourceConstants.MARKER_ORIGINALFILESET);
+				marker.setAttribute("type", location.getScheme());
+				this.folders.add(folder);
+			}
 			project.getWorkspace().save(false, monitor);
 			monitor.done();
 			return Status.OK_STATUS;

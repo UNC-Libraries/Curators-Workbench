@@ -15,72 +15,76 @@
  */
 package unc.lib.cdr.workbench.capture;
 
-import irods.efs.plugin.PickLocationPage;
-
 import java.net.URI;
+import java.util.List;
 
 import org.eclipse.core.resources.IProject;
-import org.eclipse.jface.wizard.IWizardPage;
+import org.eclipse.jface.dialogs.IDialogSettings;
+import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
+import org.eclipse.ui.IImportWizard;
+import org.eclipse.ui.IWorkbench;
+import org.eclipse.ui.internal.WorkbenchPlugin;
 
 /**
  * @author Gregory Jansen
- * 
+ *
  */
-public class LinkOriginalsWizard extends Wizard {
-	@Override
-	public IWizardPage getNextPage(IWizardPage page) {
-		if (_pageOne.equals(page)) {
-			_pageTwo.initializeName();
-		}
-		return super.getNextPage(page);
-	}
-
-	PickLocationPage _pageOne;
-	OriginalsInfoPage _pageTwo;
+public class LinkOriginalsWizard extends Wizard implements IImportWizard {
+	IWorkbench workbench;
+	IStructuredSelection selection;
+	PickOriginalLocationsPage _pageOne;
 	IProject project;
-	String name;
-	String description;
 
 	// String media;
 
-	public LinkOriginalsWizard(IProject project) {
-		this.project = project;
+	public LinkOriginalsWizard() {
+		this.setWindowTitle("Import");
+		IDialogSettings workbenchSettings = WorkbenchPlugin.getDefault().getDialogSettings();
+      IDialogSettings section = workbenchSettings
+              .getSection("LinkOriginalsImportWizard");//$NON-NLS-1$
+      if (section == null) {
+			section = workbenchSettings.addNewSection("LinkOriginalsImportWizard");//$NON-NLS-1$
+		}
+      setDialogSettings(section);
+	}
+
+	/* (non-Javadoc)
+	 * @see org.eclipse.ui.IWorkbenchWizard#init(org.eclipse.ui.IWorkbench, org.eclipse.jface.viewers.IStructuredSelection)
+	 */
+	@Override
+	public void init(IWorkbench workbench, IStructuredSelection selection) {
+		this.workbench = workbench;
+		this.selection = selection;
+		this.project = (IProject)this.selection.getFirstElement();
 	}
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.eclipse.jface.wizard.IWizard#addPages()
 	 */
 	@Override
 	public void addPages() {
 		super.addPages();
 		// first page: pick original file location
-		_pageOne = new PickLocationPage("Add an Original File Location");
-		_pageOne.setTitle("File Location");
-		_pageOne.setDescription("Add a new file location to your workbench project.");
+		_pageOne = new PickOriginalLocationsPage("Link to Original File Locations", selection);
 		addPage(_pageOne);
-
-		// second page: name and describe the file set
-		_pageTwo = new OriginalsInfoPage(project);
-		addPage(_pageTwo);
-		// FINISH
 	}
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.eclipse.jface.wizard.IWizard#canFinish()
 	 */
 	@Override
 	public boolean canFinish() {
-		return _pageTwo.isPageComplete() && _pageOne.validatePage();
+		return _pageOne.isPageComplete();
 	}
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.eclipse.jface.wizard.IWizard#performCancel()
 	 */
 	@Override
@@ -90,43 +94,16 @@ public class LinkOriginalsWizard extends Wizard {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.eclipse.jface.wizard.IWizard#performFinish()
 	 */
 	@Override
 	public boolean performFinish() {
-		saveInput();
-		return true;
+		return this._pageOne.finish();
 	}
 
-	/**
-     *
-     */
-	private void saveInput() {
-		this.name = this._pageTwo.getNameText().getText();
-		this.description = this._pageTwo.getDescriptionText().getText();
-		// String[] m = this._pageTwo.getMediaList().getSelection();
-		// if(m.length > 0) {
-		// this.media = m[0];
-		// } else {
-		// this.media = null;
-		// }
+	public List<URI> getSelectedLocations() {
+		return null;
 	}
-
-	public URI getSelectedLocation() {
-		return this._pageOne.getSelectedLocation();
-	}
-
-	public String getName() {
-		return this.name;
-	}
-
-	public String getDescription() {
-		return this.description;
-	}
-
-	// public String getMediaType() {
-	// return this.media;
-	// }
 
 }

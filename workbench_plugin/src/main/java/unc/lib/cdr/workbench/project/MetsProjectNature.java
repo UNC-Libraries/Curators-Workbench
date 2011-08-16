@@ -58,6 +58,7 @@ import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.BasicExtendedMetaData;
 import org.eclipse.emf.ecore.util.ExtendedMetaData;
+import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
@@ -223,7 +224,9 @@ public class MetsProjectNature implements IProjectNature {
 	public void save() throws CoreException {
 		try {
 			if (this.getProject().isOpen() && this.getMetsResource() != null) {
-				this.getMetsResource().save(new HashMap());
+				Map<String, String> xmlOptions = new HashMap<String, String>();
+				xmlOptions.put(XMLResource.OPTION_ENCODING, "utf-8");
+				this.getMetsResource().save(xmlOptions);
 			}
 			log.debug("saved mets");
 		} catch (IOException e) {
@@ -235,6 +238,7 @@ public class MetsProjectNature implements IProjectNature {
 	public void load() throws CoreException {
 		IFile f = project.getFile(MetsProjectNature.METS_PATH);
 		Map xmlOptions = new HashMap();
+		xmlOptions.put(XMLResource.OPTION_ENCODING, "utf-9");
 		String uri = f.getLocationURI().toString();
 		try {
 			log.debug("METS attempting to load existing file");

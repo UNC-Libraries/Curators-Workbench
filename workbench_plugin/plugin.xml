@@ -77,7 +77,7 @@
       <command
             defaultHandler="unc.lib.cdr.workbench.capture.LinkOriginalsHandler"
             id="cdr-workbench.commandLinkOriginals"
-            name="Link to Originals">
+            name="Link to Original Locations">
       </command>
       <command
             defaultHandler="unc.lib.cdr.workbench.xwalk.ImportMetadataSourceHandler"
@@ -103,12 +103,6 @@
             defaultHandler="unc.lib.cdr.workbench.describe.EditDescriptionCommand"
             id="cdr-workbench.commandEditDescription"
             name="Edit Description (MODS)">
-      </command>
-      <command
-            defaultHandler="unc.lib.cdr.workbench.commands.ExportCDRSIPHandler"
-            description="Export CDR Submission"
-            id="cdr-workbench.commandExportCDRSubmission"
-            name="Export CDR Submission">
       </command>
       <command
             defaultHandler="unc.lib.cdr.workbench.capture.RescanOriginalsHandler"
@@ -236,6 +230,131 @@
             allPopups="true"
             locationURI="popup:org.eclipse.ui.popup.any?after=additions">
          <command
+               commandId="cdr-workbench.commandLinkOriginals"
+               label="Link Originals"
+               style="push">
+            <visibleWhen
+                  checkEnabled="false">
+               <with
+                     variable="activeMenuSelection">
+                  <iterate
+                        ifEmpty="false">
+                     <or>
+                        <instanceof
+                              value="unc.lib.cdr.workbench.capture.OriginalFoldersProjectElement">
+                        </instanceof>
+                        <and>
+                           <instanceof
+                                 value="org.eclipse.core.resources.IProject">
+                           </instanceof>
+                           <test
+                                 property="workbench_plugin.projectPropertyTester.open">
+                           </test>
+                        </and>
+                     </or>
+                  </iterate>
+                  <count
+                        value="1">
+                  </count>
+               </with>
+            </visibleWhen>
+         </command>
+         <command
+               commandId="cdr-workbench.commandImportTabularMetadata"
+               label="Add Crosswalk"
+               mnemonic="C"
+               style="push">
+            <visibleWhen
+                  checkEnabled="false">
+               <with
+                     variable="activeMenuSelection">
+                  <iterate
+                        ifEmpty="false">
+                     <or>
+                        <instanceof
+                              value="unc.lib.cdr.workbench.xwalk.CrosswalksProjectElement">
+                        </instanceof>
+                        <and>
+                           <instanceof
+                                 value="org.eclipse.core.resources.IProject">
+                           </instanceof>
+                           <test
+                                 property="workbench_plugin.projectPropertyTester.open">
+                           </test>
+                        </and>
+                     </or>
+                  </iterate>
+                  <count
+                        value="1">
+                  </count>
+               </with>
+            </visibleWhen>
+         </command>
+         <command
+               commandId="cdr-workbench.commandExportCDRSubmission"
+               label="Export CDR Submission"
+               style="push">
+         </command>
+         <command
+               commandId="cdr-workbench.commandOpenCopySystemEditor"
+               label="Open copy in default editor"
+               style="push">
+            <visibleWhen
+                  checkEnabled="false">
+               <with
+                     variable="activeMenuSelection">
+                  <iterate
+                        ifEmpty="false">
+                     <and>
+                        <test
+                              property="workbench_plugin.testTopFolderName.folderName"
+                              value="originals">
+                        </test>
+                        <instanceof
+                              value="org.eclipse.core.resources.IFile">
+                        </instanceof>
+                     </and>
+                  </iterate>
+               </with>
+            </visibleWhen>
+         </command>
+         <command
+               commandId="cdr-workbench.commandRescanOriginals"
+               label="Refresh"
+               style="push">
+            <visibleWhen
+                  checkEnabled="false">
+               <with
+                     variable="activeMenuSelection">
+                  <iterate
+                        ifEmpty="false">
+                     <or>
+                        <instanceof
+                              value="unc.lib.cdr.workbench.capture.OriginalFoldersProjectElement">
+                        </instanceof>
+                        <and>
+                           <instanceof
+                                 value="org.eclipse.core.resources.IResource">
+                           </instanceof>
+                           <not>
+                              <instanceof
+                                    value="org.eclipse.core.resources.IProject">
+                              </instanceof>
+                           </not></and>
+                        <and>
+                           <instanceof
+                                 value="org.eclipse.core.resources.IProject">
+                           </instanceof>
+                           <test
+                                 property="workbench_plugin.projectPropertyTester.open">
+                           </test>
+                        </and>
+                     </or>
+                  </iterate>
+               </with>
+            </visibleWhen>
+         </command>
+         <command
                commandId="cdr-workbench.commandCaptureObject"
                label="Capture"
                style="push">
@@ -269,8 +388,8 @@
             </visibleWhen>
          </command>
          <command
-               commandId="cdr-workbench.commandLinkOriginals"
-               label="Link to Original Folders"
+               commandId="cdr-workbench.commandOpenCopySystemEditor"
+               label="Open copy of original in default editor"
                style="push">
             <visibleWhen
                   checkEnabled="false">
@@ -278,44 +397,24 @@
                      variable="activeMenuSelection">
                   <iterate
                         ifEmpty="false">
-                     <or>
+                     <and>
                         <instanceof
-                              value="org.eclipse.core.resources.IProject">
+                              value="gov.loc.mets.DivType">
                         </instanceof>
-                        <instanceof
-                              value="unc.lib.cdr.workbench.capture.OriginalFoldersProjectElement">
-                        </instanceof>
-                     </or>
+                        <not>
+                           <test
+                                 property="cdr-workbench.isFolder">
+                           </test>
+                        </not>
+                     </and>
                   </iterate>
                </with>
             </visibleWhen>
          </command>
-         <command
-               commandId="cdr-workbench.commandImportTabularMetadata"
-               label="Crosswalk Batch Metadata"
-               mnemonic="T"
-               style="push">
-            <visibleWhen
-                  checkEnabled="false">
-               <and>
-                  <with
-                        variable="activeMenuSelection">
-                     <count
-                           value="1">
-                     </count>
-                  </with>
-                  <with
-                        variable="activeMenuSelection">
-                     <iterate
-                           operator="or">
-                        <instanceof
-                              value="org.eclipse.core.resources.IFile">
-                        </instanceof>
-                     </iterate>
-                  </with>
-               </and>
-            </visibleWhen>
-         </command>
+         <separator
+               name="workbench_plugin.separator1"
+               visible="true">
+         </separator>
          <command
                commandId="cdr-workbench.AddFolderDiv"
                label="Add Folder"
@@ -337,6 +436,9 @@
                      </test>
                </or>
                   </iterate>
+                  <count
+                        value="1">
+                  </count>
                </with>
             </visibleWhen>
          </command>
@@ -354,85 +456,9 @@
                            value="gov.loc.mets.DivType">
                      </instanceof>
                   </iterate>
-               </with>
-            </visibleWhen>
-         </command>
-         <command
-               commandId="cdr-workbench.commandOpenCrosswalk"
-               label="Edit Crosswalk"
-               style="push">
-            <visibleWhen
-                  checkEnabled="true">
-               <with
-                     variable="activeMenuSelection">
-                  <iterate
-                        ifEmpty="false">
-                     <instanceof
-                           value="unc.lib.cdr.workbench.xwalk.CrosswalkTreeElement">
-                     </instanceof>
-                  </iterate>
-               </with>
-            </visibleWhen>
-         </command>
-         <command
-               commandId="cdr-workbench.commandEditDescription"
-               label="Edit Description"
-               style="push">
-            <visibleWhen
-                  checkEnabled="true">
-               <with
-                     variable="activeMenuSelection">
-                  <iterate
-                        ifEmpty="false">
-                     <instanceof
-                           value="gov.loc.mets.DivType">
-                     </instanceof>
-                  </iterate>
-               </with>
-            </visibleWhen>
-         </command>
-         <command
-               commandId="cdr-workbench.commandExportCDRSubmission"
-               label="Export CDR Submission"
-               style="push"
-               tooltip="Export a METS manifest for CDR ingest.">
-            <visibleWhen
-                  checkEnabled="false">
-               <or>
-                  <with
-                        variable="activeMenuSelection">
-                     <iterate
-                           ifEmpty="false">
-                        <instanceof
-                              value="org.eclipse.core.resources.IProject">
-                        </instanceof>
-                     </iterate>
-                  </with>
-               </or>
-            </visibleWhen>
-         </command>
-         <command
-               commandId="cdr-workbench.commandRescanOriginals"
-               label="Refresh"
-               style="push">
-            <visibleWhen
-                  checkEnabled="false">
-               <with
-                     variable="activeMenuSelection">
-                  <iterate
-                        ifEmpty="false">
-                     <or>
-                        <instanceof
-                              value="org.eclipse.core.resources.IProject">
-                        </instanceof>
-                        <instanceof
-                              value="unc.lib.cdr.workbench.capture.OriginalFoldersProjectElement">
-                        </instanceof>
-                        <instanceof
-                              value="org.eclipse.core.resources.IResource">
-                        </instanceof>
-                     </or>
-                  </iterate>
+                  <count
+                        value="1">
+                  </count>
                </with>
             </visibleWhen>
          </command>
@@ -473,19 +499,27 @@
             </visibleWhen>
          </command>
          <command
-               commandId="workbench_plugin.commandConvertToCollection"
-               label="Convert to Collection"
+               commandId="org.eclipse.ui.edit.delete"
+               label="Delete"
+               style="push">
+         </command>
+         <command
+               commandId="cdr-workbench.commandEditDescription"
+               label="Edit Description"
                style="push">
             <visibleWhen
-                  checkEnabled="false">
+                  checkEnabled="true">
                <with
                      variable="activeMenuSelection">
                   <iterate
                         ifEmpty="false">
-                     <test
-                           property="cdr-workbench.isFolder">
-                     </test>
+                     <instanceof
+                           value="gov.loc.mets.DivType">
+                     </instanceof>
                   </iterate>
+                  <count
+                        value="1">
+                  </count>
                </with>
             </visibleWhen>
          </command>
@@ -503,13 +537,31 @@
                            value="gov.loc.mets.DivType">
                      </instanceof>
                   </iterate>
+                  <count
+                        value="1">
+                  </count>
                </with>
             </visibleWhen>
          </command>
          <command
-               commandId="org.eclipse.ui.edit.delete"
-               label="Delete"
+               commandId="workbench_plugin.commandConvertToCollection"
+               label="Convert to Collection"
                style="push">
+            <visibleWhen
+                  checkEnabled="false">
+               <with
+                     variable="activeMenuSelection">
+                  <iterate
+                        ifEmpty="false">
+                     <test
+                           property="cdr-workbench.isFolder">
+                     </test>
+                  </iterate>
+                  <count
+                        value="1">
+                  </count>
+               </with>
+            </visibleWhen>
          </command>
          <command
                commandId="workbench_plugin.commandLinkSurrogate"
@@ -522,46 +574,88 @@
                   <test
                         args="surrogate"
                         property="workbench_plugin.selection.isDivLinkPair">
-                  </test>
+  								</test>
                </with>
             </visibleWhen>
          </command>
          <command
-               commandId="cdr-workbench.commandOpenCopySystemEditor"
-               label="Open copy in default editor"
+               commandId="cdr-workbench.commandOpenCrosswalk"
+               label="Edit Crosswalk"
                style="push">
             <visibleWhen
-                  checkEnabled="false">
-               <with
-                     variable="activeMenuSelection">
-                  <iterate
-                        ifEmpty="false">
-                     <and>
-                        <test
-                              property="workbench_plugin.testTopFolderName.folderName"
-                              value="originals">
-                        </test>
-                        <instanceof
-                              value="org.eclipse.core.resources.IFile">
-                        </instanceof>
-                     </and>
-                  </iterate>
-               </with>
-            </visibleWhen>
-         </command>
-         <command
-               commandId="cdr-workbench.commandOpenCopySystemEditor"
-               label="Open copy of original in default editor"
-               style="push">
-            <visibleWhen
-                  checkEnabled="false">
+                  checkEnabled="true">
                <with
                      variable="activeMenuSelection">
                   <iterate
                         ifEmpty="false">
                      <instanceof
-                           value="gov.loc.mets.DivType">
+                           value="unc.lib.cdr.workbench.xwalk.CrosswalkTreeElement">
                      </instanceof>
+                  </iterate>
+               </with>
+            </visibleWhen>
+         </command>
+         <separator
+               name="workbench_plugin.separator3"
+               visible="true">
+         </separator>
+         <command
+               commandId="org.eclipse.ui.file.import"
+               label="Import.."
+               mnemonic="I"
+               style="push">
+            <visibleWhen
+                  checkEnabled="false">
+               <with
+                     variable="activeMenuSelection">
+                  <count
+                        value="1">
+                  </count>
+                  <iterate
+                        ifEmpty="false">
+                     <or>
+                        <instanceof
+                              value="unc.lib.cdr.workbench.capture.OriginalFoldersProjectElement">
+                        </instanceof>
+                        <and>
+                           <instanceof
+                                 value="org.eclipse.core.resources.IProject">
+                           </instanceof>
+                           <test
+                                 property="workbench_plugin.projectPropertyTester.open">
+                           </test>
+                        </and>
+                     </or>
+                  </iterate>
+               </with>
+            </visibleWhen>
+         </command>
+         <command
+               commandId="org.eclipse.ui.file.export"
+               label="Export.."
+               mnemonic="o"
+               style="push">
+            <visibleWhen
+                  checkEnabled="false">
+               <with
+                     variable="activeMenuSelection">
+                  <count
+                        value="1">
+                  </count>
+                  <iterate>
+                     <or>
+                        <instanceof
+                              value="unc.lib.cdr.workbench.arrange.ArrangementProjectElement">
+                        </instanceof>
+                        <and>
+                           <instanceof
+                                 value="org.eclipse.core.resources.IProject">
+                           </instanceof>
+                           <test
+                                 property="workbench_plugin.projectPropertyTester.open">
+                           </test>
+                        </and>
+                     </or>
                   </iterate>
                </with>
             </visibleWhen>
@@ -576,7 +670,8 @@
                   commandId="cdr-workbench.commandImportTabularMetadata"
                   disabledIcon="icons/crosswalk_add_disabled.gif"
                   icon="icons/crosswalk_add.gif"
-                  label="Create a Metadata Crosswalk"
+                  label="New Crosswalk"
+                  mode="FORCE_TEXT"
                   style="push">
             </command>
          </toolbar>
@@ -600,7 +695,7 @@
       <page
             class="unc.lib.cdr.workbench.preferences.StagingPreferencePage"
             id="cdr_producer.preferences.PreferencePage"
-            name="Staging Configuration">
+            name="Staging">
       </page>
    </extension>
    <extension
@@ -637,6 +732,33 @@
       <primaryWizard
             id="crosswalk.diagram.part.CrosswalkCreationWizardID">
       </primaryWizard>
+   </extension>
+   <extension
+         point="org.eclipse.ui.importWizards">
+      <wizard
+            category="org.eclipse.ui.Basic"
+            class="unc.lib.cdr.workbench.capture.LinkOriginalsWizard"
+            icon="icons/24px-Crystal_Clear_app_harddrive.png"
+            id="workbench_plugin.wizardImportOriginals"
+            name="Original Files and Folders">
+      </wizard>
+   </extension>
+   <extension
+         point="org.eclipse.ui.exportWizards">
+      <wizard
+            category="org.eclipse.ui.Basic/workbench_plugin.categorySIP"
+            class="unc.lib.cdr.workbench.project.CdrSipExportWizard"
+            icon="icons/24px-Crystal_Clear_app_kthememgr.png"
+            id="workbench_plugin.wizardExportCdrSip"
+            name="Carolina Digital Repository Submission (METS)">
+            <selection
+                  class="org.eclipse.core.resources.IProject">
+            </selection>
+      </wizard>
+      <category
+            id="workbench_plugin.categorySIP"
+            name="Submission Package">
+      </category>
    </extension>
    <extension
          point="org.eclipse.core.runtime.adapters">
@@ -967,7 +1089,7 @@
          </possibleChildren>
       </navigatorContent>
       <navigatorContent
-            activeByDefault="true"
+            activeByDefault="false"
             contentProvider="unc.lib.cdr.workbench.stage.StagedFileContentProvider"
             id="workbench_plugin.stagedFileContent"
             labelProvider="org.eclipse.ui.model.WorkbenchLabelProvider"
@@ -1015,19 +1137,6 @@
       </attribute>
    </extension>
    <extension
-         id="unc.lib.cdr.workbench.builders.StageBuilder"
-         name="Staging Builder"
-         point="org.eclipse.core.resources.builders">
-      <builder
-            callOnEmptyDelta="true"
-            hasNature="true"
-            isConfigurable="true">
-         <run
-               class="unc.lib.cdr.workbench.stage.StageBuilder">
-         </run>
-      </builder>
-   </extension>
-   <extension
          point="org.eclipse.ui.decorators">
       <decorator
             class="unc.lib.cdr.workbench.capture.OriginalsDecorator"
@@ -1055,13 +1164,24 @@
             location="BOTTOM_RIGHT"
             state="true">
          <enablement>
-            <or>
                <objectClass
                      name="gov.loc.mets.MdSecType">
                </objectClass>
-            </or>
          </enablement>
       </decorator>
+   </extension>
+   <extension
+         id="unc.lib.cdr.workbench.builders.StageBuilder"
+         name="Staging Builder"
+         point="org.eclipse.core.resources.builders">
+      <builder
+            callOnEmptyDelta="true"
+            hasNature="true"
+            isConfigurable="true">
+         <run
+               class="unc.lib.cdr.workbench.stage.StageBuilder">
+         </run>
+      </builder>
    </extension>
    <extension
          id="unc.lib.cdr.workbench.builders.CrosswalksBuilder"
@@ -1087,6 +1207,11 @@
             default="false"
             id="workbench_plugin.accessControlEditor"
             name="Access Control Editor">
+      </editor>
+      <editor
+            default="false"
+            id="workbench_plugin.editor1"
+            name="name">
       </editor>
    </extension>
    <extension
@@ -1258,6 +1383,21 @@
                ref="workbench_plugin.adviceBindingMappedCrossWalk">
          </advice>
       </binding>
+   </extension>
+   <extension
+         point="org.eclipse.ui.activities">
+      <activity
+            id="workbench_plugin.activityIDEMenus"
+            name="IDE Menus">
+      </activity>
+      <activityPatternBinding
+            activityId="workbench_plugin.activityIDEMenus"
+            pattern="org.eclipse.team.ui.*">
+      </activityPatternBinding>
+      <activityPatternBinding
+            activityId="workbench_plugin.activityIDEMenus"
+            pattern="org.eclipse.compare.*">
+      </activityPatternBinding>
    </extension>
 
 </plugin>

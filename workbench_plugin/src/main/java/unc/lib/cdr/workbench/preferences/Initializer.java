@@ -36,6 +36,9 @@ public class Initializer extends AbstractPreferenceInitializer {
 		// add the relative to project folder option (using dynamic path variable for PROJECT_PATH)
 		locs.add(new String[] { "stage folder in project location", "${PROJECT_LOC}/stage" });
 
+		locs.add(new String[] { "CDR PROD iRODS",
+		"irods://${USER_NAME}@cdr-vault.libint.unc.edu:3333/cdrZone/home/${USER_NAME}/staging/${PROJECT_NAME}" });
+
 		// add example iRODS path (using dynamic path variable for project name)
 		locs.add(new String[] { "CDR DEV iRODS",
 				"irods://${USER_NAME}@cdr-dev-vault.libint.unc.edu:5555/cdrTestZone/home/${USER_NAME}/staging/${PROJECT_NAME}" });
