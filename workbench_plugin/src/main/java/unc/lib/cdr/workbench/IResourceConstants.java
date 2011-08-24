@@ -47,6 +47,7 @@ public class IResourceConstants {
 	public static final String TYPE_CROSSWALK_ELEMENT = "crosswalkElement";
 	public static final String TYPE_ORIGINALS_ELEMENT = "originalsElement";
 	public static final String MARKER_ORIGINALFILESET = "unc.lib.cdr.workbench.markers.OriginalFileSet";
+	public static final String MARKER_ORIGINALFILESET_PRESTAGEDBASE_ATT = "prestagedBase";
 
 	public static final String MARKER_CAPTURED = "unc.lib.cdr.workbench.markers.Captured";
 	public static final String MARKER_CAPTURED_DIV_ID = "mets.Div.ID";

@@ -35,11 +35,8 @@ public class LinkOriginalsHandler extends AbstractHandler {
 		LinkOriginalsWizard wiz = new LinkOriginalsWizard();
 		wiz.init(HandlerUtil.getActiveWorkbenchWindow(event).getWorkbench(), select);
 		WizardDialog dialog = new WizardDialog(HandlerUtil.getActiveShell(event), wiz);
-		if (WizardDialog.OK == dialog.open()) {
-			return null;
-		} else {
-			throw new ExecutionException("only runs on projects and originals element");
-		}
+		dialog.open();
+		return null;
 	}
 
 }

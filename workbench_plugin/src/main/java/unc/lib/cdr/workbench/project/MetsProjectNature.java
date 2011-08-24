@@ -238,7 +238,7 @@ public class MetsProjectNature implements IProjectNature {
 	public void load() throws CoreException {
 		IFile f = project.getFile(MetsProjectNature.METS_PATH);
 		Map xmlOptions = new HashMap();
-		xmlOptions.put(XMLResource.OPTION_ENCODING, "utf-9");
+		xmlOptions.put(XMLResource.OPTION_ENCODING, "utf-8");
 		String uri = f.getLocationURI().toString();
 		try {
 			log.debug("METS attempting to load existing file");

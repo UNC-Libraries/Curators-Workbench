@@ -34,7 +34,6 @@ public class LinkOriginalsWizard extends Wizard implements IImportWizard {
 	IWorkbench workbench;
 	IStructuredSelection selection;
 	PickOriginalLocationsPage _pageOne;
-	IProject project;
 
 	// String media;
 
@@ -56,7 +55,6 @@ public class LinkOriginalsWizard extends Wizard implements IImportWizard {
 	public void init(IWorkbench workbench, IStructuredSelection selection) {
 		this.workbench = workbench;
 		this.selection = selection;
-		this.project = (IProject)this.selection.getFirstElement();
 	}
 
 	/*

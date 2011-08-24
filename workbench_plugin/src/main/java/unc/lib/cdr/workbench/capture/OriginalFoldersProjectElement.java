@@ -24,10 +24,10 @@ import unc.lib.cdr.workbench.project.MetsProjectNature;
 
 /**
  * @author Gregory Jansen
- * 
+ *
  */
 public class OriginalFoldersProjectElement extends AbstractCustomProjectElement implements ICustomProjectElement {
-	private static final String label = "Original Folders";
+	private static final String label = "Originals";
 	private IFolder folder = null;
 
 	/**
@@ -55,7 +55,7 @@ public class OriginalFoldersProjectElement extends AbstractCustomProjectElement 
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see unc.lib.cdr.workbench.project.ICustomProjectElement#getText()
 	 */
 	@Override

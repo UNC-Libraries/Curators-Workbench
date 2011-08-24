@@ -28,6 +28,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.URI;
+import java.net.URISyntaxException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -41,9 +42,12 @@ import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.SubProgressMonitor;
+import org.eclipse.core.runtime.URIUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -116,7 +120,7 @@ public class StagingUtils {
 			}
 		}
 
-		FileType fileRec = (FileType)mpn.getMets().eResource().getEObject(fileID);
+		FileType fileRec = (FileType) mpn.getMets().eResource().getEObject(fileID);
 		setupMon.done();
 
 		// stage the file
@@ -157,7 +161,7 @@ public class StagingUtils {
 			// checksum, size, location type, other loc type, URI
 			METSUtils.addStagedFileLocator(mpn.getMets(), fileID, f.getLocationURI(), stageFileStore.toURI(),
 					LOCTYPEType.OTHER, METSConstants.LocType_EFS_SCHEME);
-			//f.findMarkers(IMarker.PROBLEM, true, IResource.DEPTH_ZERO);
+			// f.findMarkers(IMarker.PROBLEM, true, IResource.DEPTH_ZERO);
 			IMarker staged = f.createMarker(IResourceConstants.MARKER_STAGED);
 			staged.setAttribute(IResourceConstants.MARKER_STAGED_URI, stageFileStore.toURI().toASCIIString());
 		}
@@ -294,10 +298,10 @@ public class StagingUtils {
 				if (totalBytesCopied > 0 && progressTickBytes > 0) {
 					if ((totalBytesCopied % progressTickBytes) < bytesRead) {
 						monitor.worked(1);
-						//if (length > 0) {
-						//	int percent = (int) (100.0 * ((float) totalBytesCopied / length));
-						//	monitor.subTask(percent + "% (" + totalBytesCopied / 1024 + "/" + length / 1024 + "K)");
-						//}
+						// if (length > 0) {
+						// int percent = (int) (100.0 * ((float) totalBytesCopied / length));
+						// monitor.subTask(percent + "% (" + totalBytesCopied / 1024 + "/" + length / 1024 + "K)");
+						// }
 					}
 				}
 			}
@@ -330,5 +334,147 @@ public class StagingUtils {
 		// create staged file store and fetch MD5
 		// compare manifest checksum with the one fetched..
 		// if okay then quit, else stage it..
+	}
+
+	/**
+	 * @param r
+	 * @param topOriginal
+	 * @param prestageBase
+	 * @param subProgressMonitor
+	 * @throws CoreException
+	 */
+	public static void prestage(IFile f, IResource topOriginal, URI prestageBase, IProgressMonitor monitor)
+			throws CoreException {
+		if (monitor == null) {
+			monitor = new NullProgressMonitor();
+		}
+		monitor.beginTask(f.getLocation().toString(), 100);
+		monitor.subTask(f.getLocation().toString());
+
+		IProgressMonitor setupMon = new SubProgressMonitor(monitor, 1, SubProgressMonitor.PREPEND_MAIN_LABEL_TO_SUBTASK);
+		setupMon.beginTask("Preparing to checksum pre-staged file", 1);
+		setupMon.subTask("Preparing to checksum pre-staged file");
+		String fileID = IResourceConstants.getFileID(f);
+
+		IFileStore sourceFileStore = null;
+		try {
+			sourceFileStore = EFS.getStore(f.getLocationURI());
+		} catch (CoreException e) {
+			// Cannot locate source file, set warn marker
+			IMarker m = f.createMarker(IMarker.PROBLEM);
+			m.setAttribute(IMarker.MESSAGE, "Failed to read captured file for pre-staging: " + e.getLocalizedMessage());
+			m.setAttribute(IMarker.SEVERITY, IMarker.SEVERITY_ERROR);
+			return;
+		}
+		IFileInfo sourceFileInfo = sourceFileStore.fetchInfo();
+		// calculate # of blocks
+		MetsProjectNature mpn;
+		try {
+			mpn = (MetsProjectNature) f.getProject().getNature(MetsProjectNature.NATURE_ID);
+		} catch (CoreException e) {
+			// Unexpected error, rethrow
+			throw e;
+		}
+
+		URI prestagedFileURI;
+		try {
+			prestagedFileURI = getPrestageLocation(f, topOriginal, prestageBase);
+		} catch (URISyntaxException e) {
+			e.printStackTrace();
+			throw new CoreException(new Status(IStatus.ERROR, Activator.PLUGIN_ID, "Cannot compute prestaged file URI: "+e.getMessage()));
+		}
+
+		FileType fileRec = (FileType) mpn.getMets().eResource().getEObject(fileID);
+		setupMon.done();
+
+		// checksum the file
+		IProgressMonitor checksumMonitor = new SubProgressMonitor(monitor, 50,
+				SubProgressMonitor.PREPEND_MAIN_LABEL_TO_SUBTASK);
+		String sourceMD5 = null;
+		checksumMonitor.beginTask("", 100);
+		checksumMonitor.subTask("Computing checksum of pre-staged file");
+		sourceMD5 = checksumWithMD5Digest(sourceFileStore, sourceFileInfo, checksumMonitor);
+		checksumMonitor.done();
+		fileRec.setCHECKSUMTYPE(CHECKSUMTYPEType.MD5);
+		fileRec.setCHECKSUM(sourceMD5);
+		// now update markers and record File in METS
+		// checksum, size, location type, other loc type, URI
+		METSUtils.addStagedFileLocator(mpn.getMets(), fileID, f.getLocationURI(), prestagedFileURI, LOCTYPEType.OTHER,
+				METSConstants.LocType_EFS_SCHEME);
+		// f.findMarkers(IMarker.PROBLEM, true, IResource.DEPTH_ZERO);
+		IMarker staged = f.createMarker(IResourceConstants.MARKER_STAGED);
+		staged.setAttribute(IResourceConstants.MARKER_STAGED_URI, prestagedFileURI.toASCIIString());
+		f.refreshLocal(IResource.DEPTH_ZERO, monitor);
+		monitor.done();
+	}
+
+	/**
+	 * @param sourceFileStore
+	 * @param sourceFileInfo
+	 * @param checksumMonitor
+	 * @return
+	 * @throws CoreException
+	 */
+	private static String checksumWithMD5Digest(IFileStore source, IFileInfo sourceInfo, IProgressMonitor monitor) throws CoreException {
+			// TODO honor cancellation requests during copy
+			// TODO report progress
+			log.debug("source: " + source);
+			String result = null;
+			byte[] buffer = new byte[chunkSize];
+			int length = (int) sourceInfo.getLength();
+			int progressTickBytes = length / 100;
+			int bytesRead = 0;
+			int totalBytesCopied = 0;
+			InputStream in = null;
+			try {
+				MessageDigest messageDigest;
+				try {
+					messageDigest = MessageDigest.getInstance("MD5");
+				} catch (NoSuchAlgorithmException e) {
+					throw new CoreException(new Status(Status.ERROR, Activator.PLUGIN_ID,
+							"Cannot compare checksums without MD5 algorithm.", e));
+				}
+				messageDigest.reset();
+				in = new BufferedInputStream(source.openInputStream(EFS.NONE, null), 1024 * 64);
+				while ((bytesRead = in.read(buffer, 0, chunkSize)) != -1) {
+					messageDigest.update(buffer, 0, bytesRead);
+					totalBytesCopied = totalBytesCopied + bytesRead;
+					if (totalBytesCopied > 0 && progressTickBytes > 0) {
+						if ((totalBytesCopied % progressTickBytes) < bytesRead) {
+							monitor.worked(1);
+							// if (length > 0) {
+							// int percent = (int) (100.0 * ((float) totalBytesCopied / length));
+							// monitor.subTask(percent + "% (" + totalBytesCopied / 1024 + "/" + length / 1024 + "K)");
+							// }
+						}
+					}
+				}
+				Hex hex = new Hex();
+				result = new String(hex.encode(messageDigest.digest()));
+			} catch (IOException e) {
+				throw new CoreException(new Status(Status.ERROR, Activator.PLUGIN_ID, e.getLocalizedMessage(), e));
+			} finally {
+				try {
+					if (in != null) {
+						in.close();
+					}
+				} catch (IOException e) {
+					throw new CoreException(new Status(Status.ERROR, Activator.PLUGIN_ID, e.getLocalizedMessage(), e));
+				}
+			}
+			return result;
+	}
+
+	/**
+	 * @param f
+	 * @param topOriginal
+	 * @param prestageBase
+	 * @return
+	 * @throws URISyntaxException
+	 */
+	private static URI getPrestageLocation(IFile f, IResource topOriginal, URI prestageBase) throws URISyntaxException {
+		IPath path = f.getProjectRelativePath().makeRelativeTo(topOriginal.getParent().getProjectRelativePath());
+		URI test = URIUtil.fromString(path.toString());
+		return new URI(prestageBase.toString()+ test.getRawPath() );
 	}
 }

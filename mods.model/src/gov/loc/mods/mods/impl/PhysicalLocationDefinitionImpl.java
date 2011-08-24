@@ -31,23 +31,23 @@ import org.eclipse.emf.ecore.EClass;
  */
 public class PhysicalLocationDefinitionImpl extends StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlinkImpl implements
 		PhysicalLocationDefinition {
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected PhysicalLocationDefinitionImpl() {
-	super();
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PhysicalLocationDefinitionImpl() {
+		super();
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    protected EClass eStaticClass() {
-	return MODSPackage.eINSTANCE.getPhysicalLocationDefinition();
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return MODSPackage.eINSTANCE.getPhysicalLocationDefinition();
+	}
 
 } //PhysicalLocationDefinitionImpl

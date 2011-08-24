@@ -468,7 +468,7 @@
     <genClasses ecoreClass="mods.ecore#//NoteBaseDefinition">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mods.ecore#//NoteBaseDefinition/iD"/>
     </genClasses>
-    <genClasses ecoreClass="mods.ecore#//NoteDefinition">
+    <genClasses ecoreClass="mods.ecore#//NoteDefinition" labelFeature="#//mods/XsString/value">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mods.ecore#//NoteDefinition/altRepGroup"/>
     </genClasses>
     <genClasses ecoreClass="mods.ecore#//OriginInfoDefinition">

@@ -47,120 +47,120 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * @generated
  */
 public class HoldingSimpleDefinitionImpl extends EObjectImpl implements HoldingSimpleDefinition {
-    /**
-     * The cached value of the '{@link #getCopyInformation() <em>Copy Information</em>}' containment reference list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getCopyInformation()
-     * @generated
-     * @ordered
-     */
-    protected EList<CopyInformationDefinition> copyInformation;
+	/**
+	 * The cached value of the '{@link #getCopyInformation() <em>Copy Information</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCopyInformation()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<CopyInformationDefinition> copyInformation;
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected HoldingSimpleDefinitionImpl() {
-	super();
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    protected EClass eStaticClass() {
-	return MODSPackage.eINSTANCE.getHoldingSimpleDefinition();
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EList<CopyInformationDefinition> getCopyInformation() {
-	if (copyInformation == null) {
-	    copyInformation = new EObjectContainmentEList<CopyInformationDefinition>(CopyInformationDefinition.class,
-			    this, MODSPackage.HOLDING_SIMPLE_DEFINITION__COPY_INFORMATION);
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected HoldingSimpleDefinitionImpl() {
+		super();
 	}
-	return copyInformation;
-    }
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-	switch (featureID) {
-	case MODSPackage.HOLDING_SIMPLE_DEFINITION__COPY_INFORMATION:
-	    return ((InternalEList<?>) getCopyInformation()).basicRemove(otherEnd, msgs);
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return MODSPackage.eINSTANCE.getHoldingSimpleDefinition();
 	}
-	return super.eInverseRemove(otherEnd, featureID, msgs);
-    }
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
-	switch (featureID) {
-	case MODSPackage.HOLDING_SIMPLE_DEFINITION__COPY_INFORMATION:
-	    return getCopyInformation();
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<CopyInformationDefinition> getCopyInformation() {
+		if (copyInformation == null) {
+			copyInformation = new EObjectContainmentEList<CopyInformationDefinition>(CopyInformationDefinition.class,
+					this, MODSPackage.HOLDING_SIMPLE_DEFINITION__COPY_INFORMATION);
+		}
+		return copyInformation;
 	}
-	return super.eGet(featureID, resolve, coreType);
-    }
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @SuppressWarnings("unchecked")
-    @Override
-    public void eSet(int featureID, Object newValue) {
-	switch (featureID) {
-	case MODSPackage.HOLDING_SIMPLE_DEFINITION__COPY_INFORMATION:
-	    getCopyInformation().clear();
-	    getCopyInformation().addAll((Collection<? extends CopyInformationDefinition>) newValue);
-	    return;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case MODSPackage.HOLDING_SIMPLE_DEFINITION__COPY_INFORMATION:
+				return ((InternalEList<?>) getCopyInformation()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
-	super.eSet(featureID, newValue);
-    }
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void eUnset(int featureID) {
-	switch (featureID) {
-	case MODSPackage.HOLDING_SIMPLE_DEFINITION__COPY_INFORMATION:
-	    getCopyInformation().clear();
-	    return;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+			case MODSPackage.HOLDING_SIMPLE_DEFINITION__COPY_INFORMATION:
+				return getCopyInformation();
+		}
+		return super.eGet(featureID, resolve, coreType);
 	}
-	super.eUnset(featureID);
-    }
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public boolean eIsSet(int featureID) {
-	switch (featureID) {
-	case MODSPackage.HOLDING_SIMPLE_DEFINITION__COPY_INFORMATION:
-	    return copyInformation != null && !copyInformation.isEmpty();
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+			case MODSPackage.HOLDING_SIMPLE_DEFINITION__COPY_INFORMATION:
+				getCopyInformation().clear();
+				getCopyInformation().addAll((Collection<? extends CopyInformationDefinition>) newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
 	}
-	return super.eIsSet(featureID);
-    }
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+			case MODSPackage.HOLDING_SIMPLE_DEFINITION__COPY_INFORMATION:
+				getCopyInformation().clear();
+				return;
+		}
+		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+			case MODSPackage.HOLDING_SIMPLE_DEFINITION__COPY_INFORMATION:
+				return copyInformation != null && !copyInformation.isEmpty();
+		}
+		return super.eIsSet(featureID);
+	}
 
 } //HoldingSimpleDefinitionImpl

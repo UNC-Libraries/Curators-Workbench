@@ -15,6 +15,9 @@
  */
 package unc.lib.cdr.workbench.capture;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+
 import org.eclipse.core.filesystem.EFS;
 import org.eclipse.core.filesystem.IFileStore;
 import org.eclipse.core.runtime.CoreException;
@@ -142,11 +145,11 @@ public class FileStoreProvider implements ITreeContentProvider, ILabelProvider {
 	 */
 	@Override
 	public String getText(Object element) {
+		String result = null;
 		if(IFileStore.class.isInstance(element)) {
-			return ((IFileStore)element).getName();
-		} else {
-			return null;
+				result = ((IFileStore)element).getName();
 		}
+		return result;
 	}
 
 }

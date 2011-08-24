@@ -39,180 +39,179 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * @generated
  */
 public class EnumerationAndChronologyDefinitionImpl extends XsStringImpl implements EnumerationAndChronologyDefinition {
-    /**
-     * The default value of the '{@link #getUnitType() <em>Unit Type</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getUnitType()
-     * @generated
-     * @ordered
-     */
-    protected static final EnumerationAndChronologyUnitTypeAttributeDefinition UNIT_TYPE_EDEFAULT = EnumerationAndChronologyUnitTypeAttributeDefinition._1;
+	/**
+	 * The default value of the '{@link #getUnitType() <em>Unit Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUnitType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final EnumerationAndChronologyUnitTypeAttributeDefinition UNIT_TYPE_EDEFAULT = EnumerationAndChronologyUnitTypeAttributeDefinition._1;
 
-    /**
-     * The cached value of the '{@link #getUnitType() <em>Unit Type</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getUnitType()
-     * @generated
-     * @ordered
-     */
-    protected EnumerationAndChronologyUnitTypeAttributeDefinition unitType = UNIT_TYPE_EDEFAULT;
+	/**
+	 * The cached value of the '{@link #getUnitType() <em>Unit Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUnitType()
+	 * @generated
+	 * @ordered
+	 */
+	protected EnumerationAndChronologyUnitTypeAttributeDefinition unitType = UNIT_TYPE_EDEFAULT;
 
-    /**
-     * This is true if the Unit Type attribute has been set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    protected boolean unitTypeESet;
+	/**
+	 * This is true if the Unit Type attribute has been set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean unitTypeESet;
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected EnumerationAndChronologyDefinitionImpl() {
-	super();
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    protected EClass eStaticClass() {
-	return MODSPackage.eINSTANCE.getEnumerationAndChronologyDefinition();
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EnumerationAndChronologyUnitTypeAttributeDefinition getUnitType() {
-	return unitType;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setUnitType(EnumerationAndChronologyUnitTypeAttributeDefinition newUnitType) {
-	EnumerationAndChronologyUnitTypeAttributeDefinition oldUnitType = unitType;
-	unitType = newUnitType == null ? UNIT_TYPE_EDEFAULT : newUnitType;
-	boolean oldUnitTypeESet = unitTypeESet;
-	unitTypeESet = true;
-	if (eNotificationRequired())
-	    eNotify(new ENotificationImpl(this, Notification.SET,
-			    MODSPackage.ENUMERATION_AND_CHRONOLOGY_DEFINITION__UNIT_TYPE, oldUnitType, unitType,
-			    !oldUnitTypeESet));
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void unsetUnitType() {
-	EnumerationAndChronologyUnitTypeAttributeDefinition oldUnitType = unitType;
-	boolean oldUnitTypeESet = unitTypeESet;
-	unitType = UNIT_TYPE_EDEFAULT;
-	unitTypeESet = false;
-	if (eNotificationRequired())
-	    eNotify(new ENotificationImpl(this, Notification.UNSET,
-			    MODSPackage.ENUMERATION_AND_CHRONOLOGY_DEFINITION__UNIT_TYPE, oldUnitType,
-			    UNIT_TYPE_EDEFAULT, oldUnitTypeESet));
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public boolean isSetUnitType() {
-	return unitTypeESet;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
-	switch (featureID) {
-	case MODSPackage.ENUMERATION_AND_CHRONOLOGY_DEFINITION__UNIT_TYPE:
-	    return getUnitType();
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EnumerationAndChronologyDefinitionImpl() {
+		super();
 	}
-	return super.eGet(featureID, resolve, coreType);
-    }
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void eSet(int featureID, Object newValue) {
-	switch (featureID) {
-	case MODSPackage.ENUMERATION_AND_CHRONOLOGY_DEFINITION__UNIT_TYPE:
-	    setUnitType((EnumerationAndChronologyUnitTypeAttributeDefinition) newValue);
-	    return;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return MODSPackage.eINSTANCE.getEnumerationAndChronologyDefinition();
 	}
-	super.eSet(featureID, newValue);
-    }
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void eUnset(int featureID) {
-	switch (featureID) {
-	case MODSPackage.ENUMERATION_AND_CHRONOLOGY_DEFINITION__UNIT_TYPE:
-	    unsetUnitType();
-	    return;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EnumerationAndChronologyUnitTypeAttributeDefinition getUnitType() {
+		return unitType;
 	}
-	super.eUnset(featureID);
-    }
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public boolean eIsSet(int featureID) {
-	switch (featureID) {
-	case MODSPackage.ENUMERATION_AND_CHRONOLOGY_DEFINITION__UNIT_TYPE:
-	    return isSetUnitType();
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setUnitType(EnumerationAndChronologyUnitTypeAttributeDefinition newUnitType) {
+		EnumerationAndChronologyUnitTypeAttributeDefinition oldUnitType = unitType;
+		unitType = newUnitType == null ? UNIT_TYPE_EDEFAULT : newUnitType;
+		boolean oldUnitTypeESet = unitTypeESet;
+		unitTypeESet = true;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.ENUMERATION_AND_CHRONOLOGY_DEFINITION__UNIT_TYPE, oldUnitType, unitType, !oldUnitTypeESet));
 	}
-	return super.eIsSet(featureID);
-    }
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public String toString() {
-	if (eIsProxy())
-	    return super.toString();
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void unsetUnitType() {
+		EnumerationAndChronologyUnitTypeAttributeDefinition oldUnitType = unitType;
+		boolean oldUnitTypeESet = unitTypeESet;
+		unitType = UNIT_TYPE_EDEFAULT;
+		unitTypeESet = false;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET,
+					MODSPackage.ENUMERATION_AND_CHRONOLOGY_DEFINITION__UNIT_TYPE, oldUnitType, UNIT_TYPE_EDEFAULT,
+					oldUnitTypeESet));
+	}
 
-	StringBuffer result = new StringBuffer(super.toString());
-	result.append(" (unitType: ");
-	if (unitTypeESet)
-	    result.append(unitType);
-	else
-	    result.append("<unset>");
-	result.append(')');
-	return result.toString();
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSetUnitType() {
+		return unitTypeESet;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+			case MODSPackage.ENUMERATION_AND_CHRONOLOGY_DEFINITION__UNIT_TYPE:
+				return getUnitType();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+			case MODSPackage.ENUMERATION_AND_CHRONOLOGY_DEFINITION__UNIT_TYPE:
+				setUnitType((EnumerationAndChronologyUnitTypeAttributeDefinition) newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+			case MODSPackage.ENUMERATION_AND_CHRONOLOGY_DEFINITION__UNIT_TYPE:
+				unsetUnitType();
+				return;
+		}
+		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+			case MODSPackage.ENUMERATION_AND_CHRONOLOGY_DEFINITION__UNIT_TYPE:
+				return isSetUnitType();
+		}
+		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy())
+			return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (unitType: ");
+		if (unitTypeESet)
+			result.append(unitType);
+		else
+			result.append("<unset>");
+		result.append(')');
+		return result.toString();
+	}
 
 } //EnumerationAndChronologyDefinitionImpl

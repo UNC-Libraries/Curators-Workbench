@@ -39,178 +39,178 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * @generated
  */
 public class StringPlusSuppliedImpl extends XsStringImpl implements StringPlusSupplied {
-    /**
-     * The default value of the '{@link #getSupplied() <em>Supplied</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getSupplied()
-     * @generated
-     * @ordered
-     */
-    protected static final YesDefinition SUPPLIED_EDEFAULT = YesDefinition.YES;
+	/**
+	 * The default value of the '{@link #getSupplied() <em>Supplied</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSupplied()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final YesDefinition SUPPLIED_EDEFAULT = YesDefinition.YES;
 
-    /**
-     * The cached value of the '{@link #getSupplied() <em>Supplied</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getSupplied()
-     * @generated
-     * @ordered
-     */
-    protected YesDefinition supplied = SUPPLIED_EDEFAULT;
+	/**
+	 * The cached value of the '{@link #getSupplied() <em>Supplied</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSupplied()
+	 * @generated
+	 * @ordered
+	 */
+	protected YesDefinition supplied = SUPPLIED_EDEFAULT;
 
-    /**
-     * This is true if the Supplied attribute has been set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    protected boolean suppliedESet;
+	/**
+	 * This is true if the Supplied attribute has been set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean suppliedESet;
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected StringPlusSuppliedImpl() {
-	super();
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    protected EClass eStaticClass() {
-	return MODSPackage.eINSTANCE.getStringPlusSupplied();
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public YesDefinition getSupplied() {
-	return supplied;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setSupplied(YesDefinition newSupplied) {
-	YesDefinition oldSupplied = supplied;
-	supplied = newSupplied == null ? SUPPLIED_EDEFAULT : newSupplied;
-	boolean oldSuppliedESet = suppliedESet;
-	suppliedESet = true;
-	if (eNotificationRequired())
-	    eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.STRING_PLUS_SUPPLIED__SUPPLIED,
-			    oldSupplied, supplied, !oldSuppliedESet));
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void unsetSupplied() {
-	YesDefinition oldSupplied = supplied;
-	boolean oldSuppliedESet = suppliedESet;
-	supplied = SUPPLIED_EDEFAULT;
-	suppliedESet = false;
-	if (eNotificationRequired())
-	    eNotify(new ENotificationImpl(this, Notification.UNSET, MODSPackage.STRING_PLUS_SUPPLIED__SUPPLIED,
-			    oldSupplied, SUPPLIED_EDEFAULT, oldSuppliedESet));
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public boolean isSetSupplied() {
-	return suppliedESet;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
-	switch (featureID) {
-	case MODSPackage.STRING_PLUS_SUPPLIED__SUPPLIED:
-	    return getSupplied();
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected StringPlusSuppliedImpl() {
+		super();
 	}
-	return super.eGet(featureID, resolve, coreType);
-    }
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void eSet(int featureID, Object newValue) {
-	switch (featureID) {
-	case MODSPackage.STRING_PLUS_SUPPLIED__SUPPLIED:
-	    setSupplied((YesDefinition) newValue);
-	    return;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return MODSPackage.eINSTANCE.getStringPlusSupplied();
 	}
-	super.eSet(featureID, newValue);
-    }
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void eUnset(int featureID) {
-	switch (featureID) {
-	case MODSPackage.STRING_PLUS_SUPPLIED__SUPPLIED:
-	    unsetSupplied();
-	    return;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YesDefinition getSupplied() {
+		return supplied;
 	}
-	super.eUnset(featureID);
-    }
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public boolean eIsSet(int featureID) {
-	switch (featureID) {
-	case MODSPackage.STRING_PLUS_SUPPLIED__SUPPLIED:
-	    return isSetSupplied();
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSupplied(YesDefinition newSupplied) {
+		YesDefinition oldSupplied = supplied;
+		supplied = newSupplied == null ? SUPPLIED_EDEFAULT : newSupplied;
+		boolean oldSuppliedESet = suppliedESet;
+		suppliedESet = true;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.STRING_PLUS_SUPPLIED__SUPPLIED, oldSupplied,
+					supplied, !oldSuppliedESet));
 	}
-	return super.eIsSet(featureID);
-    }
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public String toString() {
-	if (eIsProxy())
-	    return super.toString();
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void unsetSupplied() {
+		YesDefinition oldSupplied = supplied;
+		boolean oldSuppliedESet = suppliedESet;
+		supplied = SUPPLIED_EDEFAULT;
+		suppliedESet = false;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, MODSPackage.STRING_PLUS_SUPPLIED__SUPPLIED,
+					oldSupplied, SUPPLIED_EDEFAULT, oldSuppliedESet));
+	}
 
-	StringBuffer result = new StringBuffer(super.toString());
-	result.append(" (supplied: ");
-	if (suppliedESet)
-	    result.append(supplied);
-	else
-	    result.append("<unset>");
-	result.append(')');
-	return result.toString();
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSetSupplied() {
+		return suppliedESet;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+			case MODSPackage.STRING_PLUS_SUPPLIED__SUPPLIED:
+				return getSupplied();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+			case MODSPackage.STRING_PLUS_SUPPLIED__SUPPLIED:
+				setSupplied((YesDefinition) newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+			case MODSPackage.STRING_PLUS_SUPPLIED__SUPPLIED:
+				unsetSupplied();
+				return;
+		}
+		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+			case MODSPackage.STRING_PLUS_SUPPLIED__SUPPLIED:
+				return isSetSupplied();
+		}
+		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy())
+			return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (supplied: ");
+		if (suppliedESet)
+			result.append(supplied);
+		else
+			result.append("<unset>");
+		result.append(')');
+		return result.toString();
+	}
 
 } //StringPlusSuppliedImpl

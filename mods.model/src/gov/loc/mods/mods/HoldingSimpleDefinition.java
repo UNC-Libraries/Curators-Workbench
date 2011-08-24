@@ -36,21 +36,21 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface HoldingSimpleDefinition extends EObject {
-    /**
-     * Returns the value of the '<em><b>Copy Information</b></em>' containment reference list.
-     * The list contents are of type {@link gov.loc.mods.mods.CopyInformationDefinition}.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Copy Information</em>' containment reference list isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Copy Information</em>' containment reference list.
-     * @see gov.loc.mods.mods.MODSPackage#getHoldingSimpleDefinition_CopyInformation()
-     * @model containment="true" required="true"
-     *        extendedMetaData="kind='element' name='copyInformation' namespace='##targetNamespace'"
-     * @generated
-     */
-    EList<CopyInformationDefinition> getCopyInformation();
+	/**
+	 * Returns the value of the '<em><b>Copy Information</b></em>' containment reference list.
+	 * The list contents are of type {@link gov.loc.mods.mods.CopyInformationDefinition}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Copy Information</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Copy Information</em>' containment reference list.
+	 * @see gov.loc.mods.mods.MODSPackage#getHoldingSimpleDefinition_CopyInformation()
+	 * @model containment="true" required="true"
+	 *        extendedMetaData="kind='element' name='copyInformation' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<CopyInformationDefinition> getCopyInformation();
 
 } // HoldingSimpleDefinition

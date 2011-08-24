@@ -36,21 +36,21 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface ModsCollectionDefinition extends EObject {
-    /**
-     * Returns the value of the '<em><b>Mods</b></em>' containment reference list.
-     * The list contents are of type {@link gov.loc.mods.mods.ModsDefinition}.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Mods</em>' containment reference list isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Mods</em>' containment reference list.
-     * @see gov.loc.mods.mods.MODSPackage#getModsCollectionDefinition_Mods()
-     * @model containment="true" required="true"
-     *        extendedMetaData="kind='element' name='mods' namespace='##targetNamespace'"
-     * @generated
-     */
-    EList<ModsDefinition> getMods();
+	/**
+	 * Returns the value of the '<em><b>Mods</b></em>' containment reference list.
+	 * The list contents are of type {@link gov.loc.mods.mods.ModsDefinition}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Mods</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Mods</em>' containment reference list.
+	 * @see gov.loc.mods.mods.MODSPackage#getModsCollectionDefinition_Mods()
+	 * @model containment="true" required="true"
+	 *        extendedMetaData="kind='element' name='mods' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<ModsDefinition> getMods();
 
 } // ModsCollectionDefinition

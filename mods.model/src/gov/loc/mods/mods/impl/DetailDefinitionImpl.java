@@ -57,309 +57,309 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * @generated
  */
 public class DetailDefinitionImpl extends EObjectImpl implements DetailDefinition {
-    /**
-     * The cached value of the '{@link #getGroup() <em>Group</em>}' attribute list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getGroup()
-     * @generated
-     * @ordered
-     */
-    protected FeatureMap group;
+	/**
+	 * The cached value of the '{@link #getGroup() <em>Group</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getGroup()
+	 * @generated
+	 * @ordered
+	 */
+	protected FeatureMap group;
 
-    /**
-     * The default value of the '{@link #getLevel() <em>Level</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getLevel()
-     * @generated
-     * @ordered
-     */
-    protected static final BigInteger LEVEL_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getLevel() <em>Level</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLevel()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final BigInteger LEVEL_EDEFAULT = null;
 
-    /**
-     * The cached value of the '{@link #getLevel() <em>Level</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getLevel()
-     * @generated
-     * @ordered
-     */
-    protected BigInteger level = LEVEL_EDEFAULT;
+	/**
+	 * The cached value of the '{@link #getLevel() <em>Level</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLevel()
+	 * @generated
+	 * @ordered
+	 */
+	protected BigInteger level = LEVEL_EDEFAULT;
 
-    /**
-     * The default value of the '{@link #getType() <em>Type</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getType()
-     * @generated
-     * @ordered
-     */
-    protected static final String TYPE_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String TYPE_EDEFAULT = null;
 
-    /**
-     * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getType()
-     * @generated
-     * @ordered
-     */
-    protected String type = TYPE_EDEFAULT;
+	/**
+	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getType()
+	 * @generated
+	 * @ordered
+	 */
+	protected String type = TYPE_EDEFAULT;
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected DetailDefinitionImpl() {
-	super();
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    protected EClass eStaticClass() {
-	return MODSPackage.eINSTANCE.getDetailDefinition();
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public FeatureMap getGroup() {
-	if (group == null) {
-	    group = new BasicFeatureMap(this, MODSPackage.DETAIL_DEFINITION__GROUP);
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DetailDefinitionImpl() {
+		super();
 	}
-	return group;
-    }
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EList<XsString> getNumber() {
-	return getGroup().list(MODSPackage.eINSTANCE.getDetailDefinition_Number());
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EList<XsString> getCaption() {
-	return getGroup().list(MODSPackage.eINSTANCE.getDetailDefinition_Caption());
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EList<XsString> getTitle() {
-	return getGroup().list(MODSPackage.eINSTANCE.getDetailDefinition_Title());
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public BigInteger getLevel() {
-	return level;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setLevel(BigInteger newLevel) {
-	BigInteger oldLevel = level;
-	level = newLevel;
-	if (eNotificationRequired())
-	    eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.DETAIL_DEFINITION__LEVEL, oldLevel, level));
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String getType() {
-	return type;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setType(String newType) {
-	String oldType = type;
-	type = newType;
-	if (eNotificationRequired())
-	    eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.DETAIL_DEFINITION__TYPE, oldType, type));
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-	switch (featureID) {
-	case MODSPackage.DETAIL_DEFINITION__GROUP:
-	    return ((InternalEList<?>) getGroup()).basicRemove(otherEnd, msgs);
-	case MODSPackage.DETAIL_DEFINITION__NUMBER:
-	    return ((InternalEList<?>) getNumber()).basicRemove(otherEnd, msgs);
-	case MODSPackage.DETAIL_DEFINITION__CAPTION:
-	    return ((InternalEList<?>) getCaption()).basicRemove(otherEnd, msgs);
-	case MODSPackage.DETAIL_DEFINITION__TITLE:
-	    return ((InternalEList<?>) getTitle()).basicRemove(otherEnd, msgs);
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return MODSPackage.eINSTANCE.getDetailDefinition();
 	}
-	return super.eInverseRemove(otherEnd, featureID, msgs);
-    }
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
-	switch (featureID) {
-	case MODSPackage.DETAIL_DEFINITION__GROUP:
-	    if (coreType)
-		return getGroup();
-	    return ((FeatureMap.Internal) getGroup()).getWrapper();
-	case MODSPackage.DETAIL_DEFINITION__NUMBER:
-	    return getNumber();
-	case MODSPackage.DETAIL_DEFINITION__CAPTION:
-	    return getCaption();
-	case MODSPackage.DETAIL_DEFINITION__TITLE:
-	    return getTitle();
-	case MODSPackage.DETAIL_DEFINITION__LEVEL:
-	    return getLevel();
-	case MODSPackage.DETAIL_DEFINITION__TYPE:
-	    return getType();
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FeatureMap getGroup() {
+		if (group == null) {
+			group = new BasicFeatureMap(this, MODSPackage.DETAIL_DEFINITION__GROUP);
+		}
+		return group;
 	}
-	return super.eGet(featureID, resolve, coreType);
-    }
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @SuppressWarnings("unchecked")
-    @Override
-    public void eSet(int featureID, Object newValue) {
-	switch (featureID) {
-	case MODSPackage.DETAIL_DEFINITION__GROUP:
-	    ((FeatureMap.Internal) getGroup()).set(newValue);
-	    return;
-	case MODSPackage.DETAIL_DEFINITION__NUMBER:
-	    getNumber().clear();
-	    getNumber().addAll((Collection<? extends XsString>) newValue);
-	    return;
-	case MODSPackage.DETAIL_DEFINITION__CAPTION:
-	    getCaption().clear();
-	    getCaption().addAll((Collection<? extends XsString>) newValue);
-	    return;
-	case MODSPackage.DETAIL_DEFINITION__TITLE:
-	    getTitle().clear();
-	    getTitle().addAll((Collection<? extends XsString>) newValue);
-	    return;
-	case MODSPackage.DETAIL_DEFINITION__LEVEL:
-	    setLevel((BigInteger) newValue);
-	    return;
-	case MODSPackage.DETAIL_DEFINITION__TYPE:
-	    setType((String) newValue);
-	    return;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<XsString> getNumber() {
+		return getGroup().list(MODSPackage.eINSTANCE.getDetailDefinition_Number());
 	}
-	super.eSet(featureID, newValue);
-    }
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void eUnset(int featureID) {
-	switch (featureID) {
-	case MODSPackage.DETAIL_DEFINITION__GROUP:
-	    getGroup().clear();
-	    return;
-	case MODSPackage.DETAIL_DEFINITION__NUMBER:
-	    getNumber().clear();
-	    return;
-	case MODSPackage.DETAIL_DEFINITION__CAPTION:
-	    getCaption().clear();
-	    return;
-	case MODSPackage.DETAIL_DEFINITION__TITLE:
-	    getTitle().clear();
-	    return;
-	case MODSPackage.DETAIL_DEFINITION__LEVEL:
-	    setLevel(LEVEL_EDEFAULT);
-	    return;
-	case MODSPackage.DETAIL_DEFINITION__TYPE:
-	    setType(TYPE_EDEFAULT);
-	    return;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<XsString> getCaption() {
+		return getGroup().list(MODSPackage.eINSTANCE.getDetailDefinition_Caption());
 	}
-	super.eUnset(featureID);
-    }
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public boolean eIsSet(int featureID) {
-	switch (featureID) {
-	case MODSPackage.DETAIL_DEFINITION__GROUP:
-	    return group != null && !group.isEmpty();
-	case MODSPackage.DETAIL_DEFINITION__NUMBER:
-	    return !getNumber().isEmpty();
-	case MODSPackage.DETAIL_DEFINITION__CAPTION:
-	    return !getCaption().isEmpty();
-	case MODSPackage.DETAIL_DEFINITION__TITLE:
-	    return !getTitle().isEmpty();
-	case MODSPackage.DETAIL_DEFINITION__LEVEL:
-	    return LEVEL_EDEFAULT == null ? level != null : !LEVEL_EDEFAULT.equals(level);
-	case MODSPackage.DETAIL_DEFINITION__TYPE:
-	    return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<XsString> getTitle() {
+		return getGroup().list(MODSPackage.eINSTANCE.getDetailDefinition_Title());
 	}
-	return super.eIsSet(featureID);
-    }
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public String toString() {
-	if (eIsProxy())
-	    return super.toString();
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BigInteger getLevel() {
+		return level;
+	}
 
-	StringBuffer result = new StringBuffer(super.toString());
-	result.append(" (group: ");
-	result.append(group);
-	result.append(", level: ");
-	result.append(level);
-	result.append(", type: ");
-	result.append(type);
-	result.append(')');
-	return result.toString();
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLevel(BigInteger newLevel) {
+		BigInteger oldLevel = level;
+		level = newLevel;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.DETAIL_DEFINITION__LEVEL, oldLevel, level));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getType() {
+		return type;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setType(String newType) {
+		String oldType = type;
+		type = newType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.DETAIL_DEFINITION__TYPE, oldType, type));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case MODSPackage.DETAIL_DEFINITION__GROUP:
+				return ((InternalEList<?>) getGroup()).basicRemove(otherEnd, msgs);
+			case MODSPackage.DETAIL_DEFINITION__NUMBER:
+				return ((InternalEList<?>) getNumber()).basicRemove(otherEnd, msgs);
+			case MODSPackage.DETAIL_DEFINITION__CAPTION:
+				return ((InternalEList<?>) getCaption()).basicRemove(otherEnd, msgs);
+			case MODSPackage.DETAIL_DEFINITION__TITLE:
+				return ((InternalEList<?>) getTitle()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+			case MODSPackage.DETAIL_DEFINITION__GROUP:
+				if (coreType)
+					return getGroup();
+				return ((FeatureMap.Internal) getGroup()).getWrapper();
+			case MODSPackage.DETAIL_DEFINITION__NUMBER:
+				return getNumber();
+			case MODSPackage.DETAIL_DEFINITION__CAPTION:
+				return getCaption();
+			case MODSPackage.DETAIL_DEFINITION__TITLE:
+				return getTitle();
+			case MODSPackage.DETAIL_DEFINITION__LEVEL:
+				return getLevel();
+			case MODSPackage.DETAIL_DEFINITION__TYPE:
+				return getType();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+			case MODSPackage.DETAIL_DEFINITION__GROUP:
+				((FeatureMap.Internal) getGroup()).set(newValue);
+				return;
+			case MODSPackage.DETAIL_DEFINITION__NUMBER:
+				getNumber().clear();
+				getNumber().addAll((Collection<? extends XsString>) newValue);
+				return;
+			case MODSPackage.DETAIL_DEFINITION__CAPTION:
+				getCaption().clear();
+				getCaption().addAll((Collection<? extends XsString>) newValue);
+				return;
+			case MODSPackage.DETAIL_DEFINITION__TITLE:
+				getTitle().clear();
+				getTitle().addAll((Collection<? extends XsString>) newValue);
+				return;
+			case MODSPackage.DETAIL_DEFINITION__LEVEL:
+				setLevel((BigInteger) newValue);
+				return;
+			case MODSPackage.DETAIL_DEFINITION__TYPE:
+				setType((String) newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+			case MODSPackage.DETAIL_DEFINITION__GROUP:
+				getGroup().clear();
+				return;
+			case MODSPackage.DETAIL_DEFINITION__NUMBER:
+				getNumber().clear();
+				return;
+			case MODSPackage.DETAIL_DEFINITION__CAPTION:
+				getCaption().clear();
+				return;
+			case MODSPackage.DETAIL_DEFINITION__TITLE:
+				getTitle().clear();
+				return;
+			case MODSPackage.DETAIL_DEFINITION__LEVEL:
+				setLevel(LEVEL_EDEFAULT);
+				return;
+			case MODSPackage.DETAIL_DEFINITION__TYPE:
+				setType(TYPE_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+			case MODSPackage.DETAIL_DEFINITION__GROUP:
+				return group != null && !group.isEmpty();
+			case MODSPackage.DETAIL_DEFINITION__NUMBER:
+				return !getNumber().isEmpty();
+			case MODSPackage.DETAIL_DEFINITION__CAPTION:
+				return !getCaption().isEmpty();
+			case MODSPackage.DETAIL_DEFINITION__TITLE:
+				return !getTitle().isEmpty();
+			case MODSPackage.DETAIL_DEFINITION__LEVEL:
+				return LEVEL_EDEFAULT == null ? level != null : !LEVEL_EDEFAULT.equals(level);
+			case MODSPackage.DETAIL_DEFINITION__TYPE:
+				return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
+		}
+		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy())
+			return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (group: ");
+		result.append(group);
+		result.append(", level: ");
+		result.append(level);
+		result.append(", type: ");
+		result.append(type);
+		result.append(')');
+		return result.toString();
+	}
 
 } //DetailDefinitionImpl

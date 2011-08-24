@@ -3,6 +3,8 @@
  */
 package crosswalk.diagram.edit.parts;
 
+import java.util.Comparator;
+
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.gef.EditPolicy;
@@ -12,6 +14,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ResizableCompartmentEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure;
+import org.eclipse.gmf.runtime.notation.SortingDirection;
 import org.eclipse.gmf.runtime.notation.View;
 
 import crosswalk.diagram.custom.SpecialCreationEditPolicy;
@@ -63,16 +66,26 @@ public class MappedElementChildElementsCompartmentEditPart extends ListCompartme
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
+		installEditPolicy(EditPolicyRoles.SORT_FILTER_ROLE, new ElementSortFilterCompartmentItemsEditPolicy());
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new MappedElementChildElementsCompartmentItemSemanticEditPolicy());
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new SpecialCreationEditPolicy());
 		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new DragDropEditPolicy());
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE, new MappedElementChildElementsCompartmentCanonicalEditPolicy());
+	}
+
+	@Override
+	protected Comparator getComparator(String name, SortingDirection direction) {
+		if(ElementSortFilterCompartmentItemsEditPolicy.SORT_KEY_NODE_TYPE.equals(name)) {
+			return ElementSortFilterCompartmentItemsEditPolicy.COMPARATOR_NODE_TYPE;
+		} else {
+			return super.getComparator(name, direction);
+		}
 	}
 
 	/**

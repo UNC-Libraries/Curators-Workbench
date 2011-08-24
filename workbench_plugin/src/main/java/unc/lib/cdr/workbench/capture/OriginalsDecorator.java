@@ -26,6 +26,7 @@ import java.util.List;
 import java.util.Set;
 
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IMarkerDelta;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IResourceChangeEvent;
@@ -132,6 +133,15 @@ public class OriginalsDecorator implements ILightweightLabelDecorator, IResource
 					captured = true;
 					if(!isDiv) {
 						labels.add("captured");
+					}
+				}
+				if(!isDiv && r.getParent().equals(r.getProject().getFolder(MetsProjectNature.ORIGINALS_FOLDER_NAME))) {
+					IMarker[] m = r.findMarkers(IResourceConstants.MARKER_ORIGINALFILESET, false, IResource.DEPTH_ZERO);
+					if(m.length > 0) {
+						Object base = m[0].getAttribute("prestagedBase");
+						if(base != null) {
+							labels.add("prestaged => "+base);
+						}
 					}
 				}
 				if (r.findMarkers(IResourceConstants.MARKER_STAGED, false, IResource.DEPTH_ZERO).length > 0) {

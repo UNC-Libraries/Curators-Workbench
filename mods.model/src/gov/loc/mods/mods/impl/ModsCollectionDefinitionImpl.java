@@ -47,120 +47,120 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * @generated
  */
 public class ModsCollectionDefinitionImpl extends EObjectImpl implements ModsCollectionDefinition {
-    /**
-     * The cached value of the '{@link #getMods() <em>Mods</em>}' containment reference list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getMods()
-     * @generated
-     * @ordered
-     */
-    protected EList<ModsDefinition> mods;
+	/**
+	 * The cached value of the '{@link #getMods() <em>Mods</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMods()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ModsDefinition> mods;
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected ModsCollectionDefinitionImpl() {
-	super();
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    protected EClass eStaticClass() {
-	return MODSPackage.eINSTANCE.getModsCollectionDefinition();
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EList<ModsDefinition> getMods() {
-	if (mods == null) {
-	    mods = new EObjectContainmentEList<ModsDefinition>(ModsDefinition.class, this,
-			    MODSPackage.MODS_COLLECTION_DEFINITION__MODS);
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ModsCollectionDefinitionImpl() {
+		super();
 	}
-	return mods;
-    }
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-	switch (featureID) {
-	case MODSPackage.MODS_COLLECTION_DEFINITION__MODS:
-	    return ((InternalEList<?>) getMods()).basicRemove(otherEnd, msgs);
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return MODSPackage.eINSTANCE.getModsCollectionDefinition();
 	}
-	return super.eInverseRemove(otherEnd, featureID, msgs);
-    }
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
-	switch (featureID) {
-	case MODSPackage.MODS_COLLECTION_DEFINITION__MODS:
-	    return getMods();
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<ModsDefinition> getMods() {
+		if (mods == null) {
+			mods = new EObjectContainmentEList<ModsDefinition>(ModsDefinition.class, this,
+					MODSPackage.MODS_COLLECTION_DEFINITION__MODS);
+		}
+		return mods;
 	}
-	return super.eGet(featureID, resolve, coreType);
-    }
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @SuppressWarnings("unchecked")
-    @Override
-    public void eSet(int featureID, Object newValue) {
-	switch (featureID) {
-	case MODSPackage.MODS_COLLECTION_DEFINITION__MODS:
-	    getMods().clear();
-	    getMods().addAll((Collection<? extends ModsDefinition>) newValue);
-	    return;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case MODSPackage.MODS_COLLECTION_DEFINITION__MODS:
+				return ((InternalEList<?>) getMods()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
-	super.eSet(featureID, newValue);
-    }
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void eUnset(int featureID) {
-	switch (featureID) {
-	case MODSPackage.MODS_COLLECTION_DEFINITION__MODS:
-	    getMods().clear();
-	    return;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+			case MODSPackage.MODS_COLLECTION_DEFINITION__MODS:
+				return getMods();
+		}
+		return super.eGet(featureID, resolve, coreType);
 	}
-	super.eUnset(featureID);
-    }
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public boolean eIsSet(int featureID) {
-	switch (featureID) {
-	case MODSPackage.MODS_COLLECTION_DEFINITION__MODS:
-	    return mods != null && !mods.isEmpty();
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+			case MODSPackage.MODS_COLLECTION_DEFINITION__MODS:
+				getMods().clear();
+				getMods().addAll((Collection<? extends ModsDefinition>) newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
 	}
-	return super.eIsSet(featureID);
-    }
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+			case MODSPackage.MODS_COLLECTION_DEFINITION__MODS:
+				getMods().clear();
+				return;
+		}
+		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+			case MODSPackage.MODS_COLLECTION_DEFINITION__MODS:
+				return mods != null && !mods.isEmpty();
+		}
+		return super.eIsSet(featureID);
+	}
 
 } //ModsCollectionDefinitionImpl

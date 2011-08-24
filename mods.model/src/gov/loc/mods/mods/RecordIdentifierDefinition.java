@@ -32,31 +32,31 @@ package gov.loc.mods.mods;
  * @generated
  */
 public interface RecordIdentifierDefinition extends XsString {
-    /**
-     * Returns the value of the '<em><b>Source</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Source</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Source</em>' attribute.
-     * @see #setSource(String)
-     * @see gov.loc.mods.mods.MODSPackage#getRecordIdentifierDefinition_Source()
-     * @model dataType="org.eclipse.emf.ecore.xml.type.String"
-     *        extendedMetaData="kind='attribute' name='source'"
-     * @generated
-     */
-    String getSource();
+	/**
+	 * Returns the value of the '<em><b>Source</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Source</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Source</em>' attribute.
+	 * @see #setSource(String)
+	 * @see gov.loc.mods.mods.MODSPackage#getRecordIdentifierDefinition_Source()
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
+	 *        extendedMetaData="kind='attribute' name='source'"
+	 * @generated
+	 */
+	String getSource();
 
-    /**
-     * Sets the value of the '{@link gov.loc.mods.mods.RecordIdentifierDefinition#getSource <em>Source</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Source</em>' attribute.
-     * @see #getSource()
-     * @generated
-     */
-    void setSource(String value);
+	/**
+	 * Sets the value of the '{@link gov.loc.mods.mods.RecordIdentifierDefinition#getSource <em>Source</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Source</em>' attribute.
+	 * @see #getSource()
+	 * @generated
+	 */
+	void setSource(String value);
 
 } // RecordIdentifierDefinition

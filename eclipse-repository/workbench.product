@@ -41,7 +41,8 @@ Biff Hollingsworth
    <windowImages/>
 
    <splash
-      location="workbench_plugin" />
+      location="workbench_plugin"
+      startupProgressRect="5,275,445,15" />
    <launcher name="workbench">
       <solaris/>
       <win useIco="false">

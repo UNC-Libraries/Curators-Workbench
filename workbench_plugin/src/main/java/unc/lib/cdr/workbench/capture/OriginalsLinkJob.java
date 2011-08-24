@@ -16,12 +16,17 @@
 package unc.lib.cdr.workbench.capture;
 
 import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.core.filesystem.EFS;
+import org.eclipse.core.filesystem.IFileStore;
+import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -30,6 +35,7 @@ import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.SubProgressMonitor;
+import org.eclipse.core.runtime.URIUtil;
 import org.eclipse.core.runtime.jobs.Job;
 
 import unc.lib.cdr.workbench.IResourceConstants;
@@ -40,19 +46,25 @@ import unc.lib.cdr.workbench.project.MetsProjectNature;
  *
  */
 public class OriginalsLinkJob extends Job {
+	URI baselocation = null;
 	List<URI> locations = null;
 	String name = null;
 	IProject project = null;
-	List<IFolder> folders = new ArrayList<IFolder>();
+	List<IResource> links = new ArrayList<IResource>();
+	private boolean prestaged;
+	private URI prestagedBase;
 
-	OriginalsLinkJob(List<URI> locations, IProject project) {
+	OriginalsLinkJob(URI baselocation, List<URI> locations, IProject project, boolean prestaged, URI prestagedBase) {
 		super("creating link to " + locations.size() + " location(s)");
+		this.baselocation = baselocation;
 		this.locations = locations;
 		this.project = project;
+		this.prestaged = prestaged;
+		this.prestagedBase = prestagedBase;
 	}
 
-	public List<IFolder> getLinkFolders() {
-		return this.folders;
+	public List<IResource> getLinks() {
+		return this.links;
 	}
 
 	/*
@@ -66,27 +78,59 @@ public class OriginalsLinkJob extends Job {
 			monitor = new NullProgressMonitor();
 		}
 		IStatus result = null;
-		System.out.println("starting folder link");
-		monitor.beginTask("Linking to original folders ...", this.locations.size());
+		System.out.println("starting link");
+		monitor.beginTask("Linking to originals ...", this.locations.size());
 		IFolder originalsFolder = this.project.getFolder(MetsProjectNature.ORIGINALS_FOLDER_NAME);
 
 		try {
 			for (URI location : locations) {
+				IFileStore fs = EFS.getStore(location);
+				boolean isDir = fs.fetchInfo().isDirectory();
+
 				IPath path = new Path(location.getPath());
-				IFolder folder = originalsFolder.getFolder(path.lastSegment());
-				if (folder.exists() && folder.getLocationURI().equals(location)) {
+				IResource link = null;
+				if (isDir) {
+					link = originalsFolder.getFolder(path.lastSegment());
+				} else {
+					link = originalsFolder.getFile(path.lastSegment());
+				}
+				if (link.exists() && link.getLocationURI().equals(location)) {
 					// already linked to this original folder, continue
 					continue;
 				}
-				for(int suffix = 1; folder.exists(); suffix++) {
-					folder = originalsFolder.getFolder(path.lastSegment()+"_"+suffix);
+				for (int suffix = 1; link.exists(); suffix++) {
+					if (isDir) {
+						link = originalsFolder.getFolder(path.lastSegment() + "_" + suffix);
+					} else {
+						link = originalsFolder.getFile(path.lastSegment() + "_" + suffix);
+					}
 				}
 				monitor.subTask("Linking " + location);
-				folder.createLink(location, IFolder.ALLOW_MISSING_LOCAL | IFolder.BACKGROUND_REFRESH,
-						new SubProgressMonitor(monitor, 1));
-				IMarker marker = folder.createMarker(IResourceConstants.MARKER_ORIGINALFILESET);
+				if (isDir) {
+					((IFolder) link).createLink(location, IFolder.ALLOW_MISSING_LOCAL | IFolder.BACKGROUND_REFRESH,
+							new SubProgressMonitor(monitor, 1));
+				} else {
+					((IFile) link).createLink(location, IFolder.ALLOW_MISSING_LOCAL | IFolder.BACKGROUND_REFRESH,
+							new SubProgressMonitor(monitor, 1));
+				}
+				IMarker marker = link.createMarker(IResourceConstants.MARKER_ORIGINALFILESET);
 				marker.setAttribute("type", location.getScheme());
-				this.folders.add(folder);
+				if (this.prestaged && this.prestagedBase != null && this.baselocation != null) {
+					// calculate staging base for each original location
+					IPath basePath = new Path(this.baselocation.getPath()); // base path for all locations
+					IPath subPath = new Path(location.getPath()).makeRelativeTo(basePath.removeLastSegments(1))
+							.removeLastSegments(1);
+					String myprestagestr = prestagedBase.toString();
+					if (subPath.segmentCount() > 0) {
+						URI myprestage = prestagedBase;
+						for (String s : subPath.segments()) {
+							myprestage = URIUtil.append(myprestage, s);
+						}
+						myprestagestr = myprestage.toString()+"/";
+					}
+					marker.setAttribute(IResourceConstants.MARKER_ORIGINALFILESET_PRESTAGEDBASE_ATT, myprestagestr);
+				}
+				this.links.add(link);
 			}
 			project.getWorkspace().save(false, monitor);
 			monitor.done();

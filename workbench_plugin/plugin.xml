@@ -920,6 +920,9 @@
       <attribute
             name="type">
       </attribute>
+      <attribute
+            name="prestagedBase">
+      </attribute>
    </extension>
    <extension
          point="org.eclipse.ui.navigator.viewer">

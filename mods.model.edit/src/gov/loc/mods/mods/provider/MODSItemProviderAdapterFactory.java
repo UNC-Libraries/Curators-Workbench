@@ -47,1570 +47,1570 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  */
 public class MODSItemProviderAdapterFactory extends MODSAdapterFactory implements ComposeableAdapterFactory,
 		IChangeNotifier, IDisposable {
-    /**
-     * This keeps track of the root adapter factory that delegates to this adapter factory.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected ComposedAdapterFactory parentAdapterFactory;
+	/**
+	 * This keeps track of the root adapter factory that delegates to this adapter factory.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ComposedAdapterFactory parentAdapterFactory;
 
-    /**
-     * This is used to implement {@link org.eclipse.emf.edit.provider.IChangeNotifier}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected IChangeNotifier changeNotifier = new ChangeNotifier();
+	/**
+	 * This is used to implement {@link org.eclipse.emf.edit.provider.IChangeNotifier}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected IChangeNotifier changeNotifier = new ChangeNotifier();
 
-    /**
-     * This keeps track of all the supported types checked by {@link #isFactoryForType isFactoryForType}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected Collection<Object> supportedTypes = new ArrayList<Object>();
+	/**
+	 * This keeps track of all the supported types checked by {@link #isFactoryForType isFactoryForType}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected Collection<Object> supportedTypes = new ArrayList<Object>();
 
-    /**
-     * This constructs an instance.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public MODSItemProviderAdapterFactory() {
-	supportedTypes.add(IEditingDomainItemProvider.class);
-	supportedTypes.add(IStructuredItemContentProvider.class);
-	supportedTypes.add(ITreeItemContentProvider.class);
-	supportedTypes.add(IItemLabelProvider.class);
-	supportedTypes.add(IItemPropertySource.class);
-    }
-
-    /**
-     * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.AbstractDefinition} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected AbstractDefinitionItemProvider abstractDefinitionItemProvider;
-
-    /**
-     * This creates an adapter for a {@link gov.loc.mods.mods.AbstractDefinition}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createAbstractDefinitionAdapter() {
-	if (abstractDefinitionItemProvider == null) {
-	    abstractDefinitionItemProvider = new AbstractDefinitionItemProvider(this);
+	/**
+	 * This constructs an instance.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MODSItemProviderAdapterFactory() {
+		supportedTypes.add(IEditingDomainItemProvider.class);
+		supportedTypes.add(IStructuredItemContentProvider.class);
+		supportedTypes.add(ITreeItemContentProvider.class);
+		supportedTypes.add(IItemLabelProvider.class);
+		supportedTypes.add(IItemPropertySource.class);
 	}
 
-	return abstractDefinitionItemProvider;
-    }
+	/**
+	 * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.AbstractDefinition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AbstractDefinitionItemProvider abstractDefinitionItemProvider;
 
-    /**
-     * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.AccessConditionDefinition} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected AccessConditionDefinitionItemProvider accessConditionDefinitionItemProvider;
+	/**
+	 * This creates an adapter for a {@link gov.loc.mods.mods.AbstractDefinition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAbstractDefinitionAdapter() {
+		if (abstractDefinitionItemProvider == null) {
+			abstractDefinitionItemProvider = new AbstractDefinitionItemProvider(this);
+		}
 
-    /**
-     * This creates an adapter for a {@link gov.loc.mods.mods.AccessConditionDefinition}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createAccessConditionDefinitionAdapter() {
-	if (accessConditionDefinitionItemProvider == null) {
-	    accessConditionDefinitionItemProvider = new AccessConditionDefinitionItemProvider(this);
+		return abstractDefinitionItemProvider;
 	}
 
-	return accessConditionDefinitionItemProvider;
-    }
+	/**
+	 * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.AccessConditionDefinition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AccessConditionDefinitionItemProvider accessConditionDefinitionItemProvider;
 
-    /**
-     * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.CartographicsDefinition} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected CartographicsDefinitionItemProvider cartographicsDefinitionItemProvider;
+	/**
+	 * This creates an adapter for a {@link gov.loc.mods.mods.AccessConditionDefinition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAccessConditionDefinitionAdapter() {
+		if (accessConditionDefinitionItemProvider == null) {
+			accessConditionDefinitionItemProvider = new AccessConditionDefinitionItemProvider(this);
+		}
 
-    /**
-     * This creates an adapter for a {@link gov.loc.mods.mods.CartographicsDefinition}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createCartographicsDefinitionAdapter() {
-	if (cartographicsDefinitionItemProvider == null) {
-	    cartographicsDefinitionItemProvider = new CartographicsDefinitionItemProvider(this);
+		return accessConditionDefinitionItemProvider;
 	}
 
-	return cartographicsDefinitionItemProvider;
-    }
+	/**
+	 * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.CartographicsDefinition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CartographicsDefinitionItemProvider cartographicsDefinitionItemProvider;
 
-    /**
-     * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.ClassificationDefinition} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected ClassificationDefinitionItemProvider classificationDefinitionItemProvider;
+	/**
+	 * This creates an adapter for a {@link gov.loc.mods.mods.CartographicsDefinition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCartographicsDefinitionAdapter() {
+		if (cartographicsDefinitionItemProvider == null) {
+			cartographicsDefinitionItemProvider = new CartographicsDefinitionItemProvider(this);
+		}
 
-    /**
-     * This creates an adapter for a {@link gov.loc.mods.mods.ClassificationDefinition}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createClassificationDefinitionAdapter() {
-	if (classificationDefinitionItemProvider == null) {
-	    classificationDefinitionItemProvider = new ClassificationDefinitionItemProvider(this);
+		return cartographicsDefinitionItemProvider;
 	}
 
-	return classificationDefinitionItemProvider;
-    }
+	/**
+	 * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.ClassificationDefinition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ClassificationDefinitionItemProvider classificationDefinitionItemProvider;
 
-    /**
-     * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.CopyInformationDefinition} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected CopyInformationDefinitionItemProvider copyInformationDefinitionItemProvider;
+	/**
+	 * This creates an adapter for a {@link gov.loc.mods.mods.ClassificationDefinition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createClassificationDefinitionAdapter() {
+		if (classificationDefinitionItemProvider == null) {
+			classificationDefinitionItemProvider = new ClassificationDefinitionItemProvider(this);
+		}
 
-    /**
-     * This creates an adapter for a {@link gov.loc.mods.mods.CopyInformationDefinition}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createCopyInformationDefinitionAdapter() {
-	if (copyInformationDefinitionItemProvider == null) {
-	    copyInformationDefinitionItemProvider = new CopyInformationDefinitionItemProvider(this);
+		return classificationDefinitionItemProvider;
 	}
 
-	return copyInformationDefinitionItemProvider;
-    }
+	/**
+	 * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.CopyInformationDefinition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CopyInformationDefinitionItemProvider copyInformationDefinitionItemProvider;
 
-    /**
-     * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.DateBaseDefinition} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected DateBaseDefinitionItemProvider dateBaseDefinitionItemProvider;
+	/**
+	 * This creates an adapter for a {@link gov.loc.mods.mods.CopyInformationDefinition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCopyInformationDefinitionAdapter() {
+		if (copyInformationDefinitionItemProvider == null) {
+			copyInformationDefinitionItemProvider = new CopyInformationDefinitionItemProvider(this);
+		}
 
-    /**
-     * This creates an adapter for a {@link gov.loc.mods.mods.DateBaseDefinition}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createDateBaseDefinitionAdapter() {
-	if (dateBaseDefinitionItemProvider == null) {
-	    dateBaseDefinitionItemProvider = new DateBaseDefinitionItemProvider(this);
+		return copyInformationDefinitionItemProvider;
 	}
 
-	return dateBaseDefinitionItemProvider;
-    }
+	/**
+	 * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.DateBaseDefinition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DateBaseDefinitionItemProvider dateBaseDefinitionItemProvider;
 
-    /**
-     * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.DateDefinition} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected DateDefinitionItemProvider dateDefinitionItemProvider;
+	/**
+	 * This creates an adapter for a {@link gov.loc.mods.mods.DateBaseDefinition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDateBaseDefinitionAdapter() {
+		if (dateBaseDefinitionItemProvider == null) {
+			dateBaseDefinitionItemProvider = new DateBaseDefinitionItemProvider(this);
+		}
 
-    /**
-     * This creates an adapter for a {@link gov.loc.mods.mods.DateDefinition}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createDateDefinitionAdapter() {
-	if (dateDefinitionItemProvider == null) {
-	    dateDefinitionItemProvider = new DateDefinitionItemProvider(this);
+		return dateBaseDefinitionItemProvider;
 	}
 
-	return dateDefinitionItemProvider;
-    }
+	/**
+	 * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.DateDefinition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DateDefinitionItemProvider dateDefinitionItemProvider;
 
-    /**
-     * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.DateOtherDefinition} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected DateOtherDefinitionItemProvider dateOtherDefinitionItemProvider;
+	/**
+	 * This creates an adapter for a {@link gov.loc.mods.mods.DateDefinition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDateDefinitionAdapter() {
+		if (dateDefinitionItemProvider == null) {
+			dateDefinitionItemProvider = new DateDefinitionItemProvider(this);
+		}
 
-    /**
-     * This creates an adapter for a {@link gov.loc.mods.mods.DateOtherDefinition}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createDateOtherDefinitionAdapter() {
-	if (dateOtherDefinitionItemProvider == null) {
-	    dateOtherDefinitionItemProvider = new DateOtherDefinitionItemProvider(this);
+		return dateDefinitionItemProvider;
 	}
 
-	return dateOtherDefinitionItemProvider;
-    }
+	/**
+	 * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.DateOtherDefinition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DateOtherDefinitionItemProvider dateOtherDefinitionItemProvider;
 
-    /**
-     * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.DetailDefinition} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected DetailDefinitionItemProvider detailDefinitionItemProvider;
+	/**
+	 * This creates an adapter for a {@link gov.loc.mods.mods.DateOtherDefinition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDateOtherDefinitionAdapter() {
+		if (dateOtherDefinitionItemProvider == null) {
+			dateOtherDefinitionItemProvider = new DateOtherDefinitionItemProvider(this);
+		}
 
-    /**
-     * This creates an adapter for a {@link gov.loc.mods.mods.DetailDefinition}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createDetailDefinitionAdapter() {
-	if (detailDefinitionItemProvider == null) {
-	    detailDefinitionItemProvider = new DetailDefinitionItemProvider(this);
+		return dateOtherDefinitionItemProvider;
 	}
 
-	return detailDefinitionItemProvider;
-    }
+	/**
+	 * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.DetailDefinition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DetailDefinitionItemProvider detailDefinitionItemProvider;
 
-    /**
-     * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.DocumentRoot} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected DocumentRootItemProvider documentRootItemProvider;
+	/**
+	 * This creates an adapter for a {@link gov.loc.mods.mods.DetailDefinition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDetailDefinitionAdapter() {
+		if (detailDefinitionItemProvider == null) {
+			detailDefinitionItemProvider = new DetailDefinitionItemProvider(this);
+		}
 
-    /**
-     * This creates an adapter for a {@link gov.loc.mods.mods.DocumentRoot}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createDocumentRootAdapter() {
-	if (documentRootItemProvider == null) {
-	    documentRootItemProvider = new DocumentRootItemProvider(this);
+		return detailDefinitionItemProvider;
 	}
 
-	return documentRootItemProvider;
-    }
+	/**
+	 * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.DocumentRoot} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DocumentRootItemProvider documentRootItemProvider;
 
-    /**
-     * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.EnumerationAndChronologyDefinition} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected EnumerationAndChronologyDefinitionItemProvider enumerationAndChronologyDefinitionItemProvider;
+	/**
+	 * This creates an adapter for a {@link gov.loc.mods.mods.DocumentRoot}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDocumentRootAdapter() {
+		if (documentRootItemProvider == null) {
+			documentRootItemProvider = new DocumentRootItemProvider(this);
+		}
 
-    /**
-     * This creates an adapter for a {@link gov.loc.mods.mods.EnumerationAndChronologyDefinition}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createEnumerationAndChronologyDefinitionAdapter() {
-	if (enumerationAndChronologyDefinitionItemProvider == null) {
-	    enumerationAndChronologyDefinitionItemProvider = new EnumerationAndChronologyDefinitionItemProvider(this);
+		return documentRootItemProvider;
 	}
 
-	return enumerationAndChronologyDefinitionItemProvider;
-    }
+	/**
+	 * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.EnumerationAndChronologyDefinition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EnumerationAndChronologyDefinitionItemProvider enumerationAndChronologyDefinitionItemProvider;
 
-    /**
-     * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.ExtensionDefinition} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected ExtensionDefinitionItemProvider extensionDefinitionItemProvider;
+	/**
+	 * This creates an adapter for a {@link gov.loc.mods.mods.EnumerationAndChronologyDefinition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createEnumerationAndChronologyDefinitionAdapter() {
+		if (enumerationAndChronologyDefinitionItemProvider == null) {
+			enumerationAndChronologyDefinitionItemProvider = new EnumerationAndChronologyDefinitionItemProvider(this);
+		}
 
-    /**
-     * This creates an adapter for a {@link gov.loc.mods.mods.ExtensionDefinition}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createExtensionDefinitionAdapter() {
-	if (extensionDefinitionItemProvider == null) {
-	    extensionDefinitionItemProvider = new ExtensionDefinitionItemProvider(this);
+		return enumerationAndChronologyDefinitionItemProvider;
 	}
 
-	return extensionDefinitionItemProvider;
-    }
+	/**
+	 * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.ExtensionDefinition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ExtensionDefinitionItemProvider extensionDefinitionItemProvider;
 
-    /**
-     * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.ExtentDefinition} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected ExtentDefinitionItemProvider extentDefinitionItemProvider;
+	/**
+	 * This creates an adapter for a {@link gov.loc.mods.mods.ExtensionDefinition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createExtensionDefinitionAdapter() {
+		if (extensionDefinitionItemProvider == null) {
+			extensionDefinitionItemProvider = new ExtensionDefinitionItemProvider(this);
+		}
 
-    /**
-     * This creates an adapter for a {@link gov.loc.mods.mods.ExtentDefinition}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createExtentDefinitionAdapter() {
-	if (extentDefinitionItemProvider == null) {
-	    extentDefinitionItemProvider = new ExtentDefinitionItemProvider(this);
+		return extensionDefinitionItemProvider;
 	}
 
-	return extentDefinitionItemProvider;
-    }
+	/**
+	 * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.ExtentDefinition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ExtentDefinitionItemProvider extentDefinitionItemProvider;
 
-    /**
-     * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.GenreDefinition} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected GenreDefinitionItemProvider genreDefinitionItemProvider;
+	/**
+	 * This creates an adapter for a {@link gov.loc.mods.mods.ExtentDefinition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createExtentDefinitionAdapter() {
+		if (extentDefinitionItemProvider == null) {
+			extentDefinitionItemProvider = new ExtentDefinitionItemProvider(this);
+		}
 
-    /**
-     * This creates an adapter for a {@link gov.loc.mods.mods.GenreDefinition}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createGenreDefinitionAdapter() {
-	if (genreDefinitionItemProvider == null) {
-	    genreDefinitionItemProvider = new GenreDefinitionItemProvider(this);
+		return extentDefinitionItemProvider;
 	}
 
-	return genreDefinitionItemProvider;
-    }
+	/**
+	 * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.GenreDefinition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected GenreDefinitionItemProvider genreDefinitionItemProvider;
 
-    /**
-     * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.GeographicCodeDefinition} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected GeographicCodeDefinitionItemProvider geographicCodeDefinitionItemProvider;
+	/**
+	 * This creates an adapter for a {@link gov.loc.mods.mods.GenreDefinition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createGenreDefinitionAdapter() {
+		if (genreDefinitionItemProvider == null) {
+			genreDefinitionItemProvider = new GenreDefinitionItemProvider(this);
+		}
 
-    /**
-     * This creates an adapter for a {@link gov.loc.mods.mods.GeographicCodeDefinition}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createGeographicCodeDefinitionAdapter() {
-	if (geographicCodeDefinitionItemProvider == null) {
-	    geographicCodeDefinitionItemProvider = new GeographicCodeDefinitionItemProvider(this);
+		return genreDefinitionItemProvider;
 	}
 
-	return geographicCodeDefinitionItemProvider;
-    }
+	/**
+	 * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.GeographicCodeDefinition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected GeographicCodeDefinitionItemProvider geographicCodeDefinitionItemProvider;
 
-    /**
-     * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.HierarchicalGeographicDefinition} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected HierarchicalGeographicDefinitionItemProvider hierarchicalGeographicDefinitionItemProvider;
+	/**
+	 * This creates an adapter for a {@link gov.loc.mods.mods.GeographicCodeDefinition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createGeographicCodeDefinitionAdapter() {
+		if (geographicCodeDefinitionItemProvider == null) {
+			geographicCodeDefinitionItemProvider = new GeographicCodeDefinitionItemProvider(this);
+		}
 
-    /**
-     * This creates an adapter for a {@link gov.loc.mods.mods.HierarchicalGeographicDefinition}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createHierarchicalGeographicDefinitionAdapter() {
-	if (hierarchicalGeographicDefinitionItemProvider == null) {
-	    hierarchicalGeographicDefinitionItemProvider = new HierarchicalGeographicDefinitionItemProvider(this);
+		return geographicCodeDefinitionItemProvider;
 	}
 
-	return hierarchicalGeographicDefinitionItemProvider;
-    }
+	/**
+	 * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.HierarchicalGeographicDefinition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected HierarchicalGeographicDefinitionItemProvider hierarchicalGeographicDefinitionItemProvider;
 
-    /**
-     * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.HoldingSimpleDefinition} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected HoldingSimpleDefinitionItemProvider holdingSimpleDefinitionItemProvider;
+	/**
+	 * This creates an adapter for a {@link gov.loc.mods.mods.HierarchicalGeographicDefinition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createHierarchicalGeographicDefinitionAdapter() {
+		if (hierarchicalGeographicDefinitionItemProvider == null) {
+			hierarchicalGeographicDefinitionItemProvider = new HierarchicalGeographicDefinitionItemProvider(this);
+		}
 
-    /**
-     * This creates an adapter for a {@link gov.loc.mods.mods.HoldingSimpleDefinition}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createHoldingSimpleDefinitionAdapter() {
-	if (holdingSimpleDefinitionItemProvider == null) {
-	    holdingSimpleDefinitionItemProvider = new HoldingSimpleDefinitionItemProvider(this);
+		return hierarchicalGeographicDefinitionItemProvider;
 	}
 
-	return holdingSimpleDefinitionItemProvider;
-    }
+	/**
+	 * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.HoldingSimpleDefinition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected HoldingSimpleDefinitionItemProvider holdingSimpleDefinitionItemProvider;
 
-    /**
-     * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.IdentifierDefinition} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected IdentifierDefinitionItemProvider identifierDefinitionItemProvider;
+	/**
+	 * This creates an adapter for a {@link gov.loc.mods.mods.HoldingSimpleDefinition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createHoldingSimpleDefinitionAdapter() {
+		if (holdingSimpleDefinitionItemProvider == null) {
+			holdingSimpleDefinitionItemProvider = new HoldingSimpleDefinitionItemProvider(this);
+		}
 
-    /**
-     * This creates an adapter for a {@link gov.loc.mods.mods.IdentifierDefinition}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createIdentifierDefinitionAdapter() {
-	if (identifierDefinitionItemProvider == null) {
-	    identifierDefinitionItemProvider = new IdentifierDefinitionItemProvider(this);
+		return holdingSimpleDefinitionItemProvider;
 	}
 
-	return identifierDefinitionItemProvider;
-    }
+	/**
+	 * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.IdentifierDefinition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected IdentifierDefinitionItemProvider identifierDefinitionItemProvider;
 
-    /**
-     * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.LanguageDefinition} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected LanguageDefinitionItemProvider languageDefinitionItemProvider;
+	/**
+	 * This creates an adapter for a {@link gov.loc.mods.mods.IdentifierDefinition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createIdentifierDefinitionAdapter() {
+		if (identifierDefinitionItemProvider == null) {
+			identifierDefinitionItemProvider = new IdentifierDefinitionItemProvider(this);
+		}
 
-    /**
-     * This creates an adapter for a {@link gov.loc.mods.mods.LanguageDefinition}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createLanguageDefinitionAdapter() {
-	if (languageDefinitionItemProvider == null) {
-	    languageDefinitionItemProvider = new LanguageDefinitionItemProvider(this);
+		return identifierDefinitionItemProvider;
 	}
 
-	return languageDefinitionItemProvider;
-    }
+	/**
+	 * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.LanguageDefinition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected LanguageDefinitionItemProvider languageDefinitionItemProvider;
 
-    /**
-     * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.LanguageTermDefinition} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected LanguageTermDefinitionItemProvider languageTermDefinitionItemProvider;
+	/**
+	 * This creates an adapter for a {@link gov.loc.mods.mods.LanguageDefinition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createLanguageDefinitionAdapter() {
+		if (languageDefinitionItemProvider == null) {
+			languageDefinitionItemProvider = new LanguageDefinitionItemProvider(this);
+		}
 
-    /**
-     * This creates an adapter for a {@link gov.loc.mods.mods.LanguageTermDefinition}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createLanguageTermDefinitionAdapter() {
-	if (languageTermDefinitionItemProvider == null) {
-	    languageTermDefinitionItemProvider = new LanguageTermDefinitionItemProvider(this);
+		return languageDefinitionItemProvider;
 	}
 
-	return languageTermDefinitionItemProvider;
-    }
+	/**
+	 * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.LanguageTermDefinition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected LanguageTermDefinitionItemProvider languageTermDefinitionItemProvider;
 
-    /**
-     * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.LocationDefinition} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected LocationDefinitionItemProvider locationDefinitionItemProvider;
+	/**
+	 * This creates an adapter for a {@link gov.loc.mods.mods.LanguageTermDefinition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createLanguageTermDefinitionAdapter() {
+		if (languageTermDefinitionItemProvider == null) {
+			languageTermDefinitionItemProvider = new LanguageTermDefinitionItemProvider(this);
+		}
 
-    /**
-     * This creates an adapter for a {@link gov.loc.mods.mods.LocationDefinition}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createLocationDefinitionAdapter() {
-	if (locationDefinitionItemProvider == null) {
-	    locationDefinitionItemProvider = new LocationDefinitionItemProvider(this);
+		return languageTermDefinitionItemProvider;
 	}
 
-	return locationDefinitionItemProvider;
-    }
+	/**
+	 * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.LocationDefinition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected LocationDefinitionItemProvider locationDefinitionItemProvider;
 
-    /**
-     * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.ModsCollectionDefinition} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected ModsCollectionDefinitionItemProvider modsCollectionDefinitionItemProvider;
+	/**
+	 * This creates an adapter for a {@link gov.loc.mods.mods.LocationDefinition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createLocationDefinitionAdapter() {
+		if (locationDefinitionItemProvider == null) {
+			locationDefinitionItemProvider = new LocationDefinitionItemProvider(this);
+		}
 
-    /**
-     * This creates an adapter for a {@link gov.loc.mods.mods.ModsCollectionDefinition}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createModsCollectionDefinitionAdapter() {
-	if (modsCollectionDefinitionItemProvider == null) {
-	    modsCollectionDefinitionItemProvider = new ModsCollectionDefinitionItemProvider(this);
+		return locationDefinitionItemProvider;
 	}
 
-	return modsCollectionDefinitionItemProvider;
-    }
+	/**
+	 * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.ModsCollectionDefinition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ModsCollectionDefinitionItemProvider modsCollectionDefinitionItemProvider;
 
-    /**
-     * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.ModsDefinition} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected ModsDefinitionItemProvider modsDefinitionItemProvider;
+	/**
+	 * This creates an adapter for a {@link gov.loc.mods.mods.ModsCollectionDefinition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createModsCollectionDefinitionAdapter() {
+		if (modsCollectionDefinitionItemProvider == null) {
+			modsCollectionDefinitionItemProvider = new ModsCollectionDefinitionItemProvider(this);
+		}
 
-    /**
-     * This creates an adapter for a {@link gov.loc.mods.mods.ModsDefinition}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createModsDefinitionAdapter() {
-	if (modsDefinitionItemProvider == null) {
-	    modsDefinitionItemProvider = new ModsDefinitionItemProvider(this);
+		return modsCollectionDefinitionItemProvider;
 	}
 
-	return modsDefinitionItemProvider;
-    }
+	/**
+	 * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.ModsDefinition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ModsDefinitionItemProvider modsDefinitionItemProvider;
 
-    /**
-     * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.NameBaseDefinition} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected NameBaseDefinitionItemProvider nameBaseDefinitionItemProvider;
+	/**
+	 * This creates an adapter for a {@link gov.loc.mods.mods.ModsDefinition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createModsDefinitionAdapter() {
+		if (modsDefinitionItemProvider == null) {
+			modsDefinitionItemProvider = new ModsDefinitionItemProvider(this);
+		}
 
-    /**
-     * This creates an adapter for a {@link gov.loc.mods.mods.NameBaseDefinition}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createNameBaseDefinitionAdapter() {
-	if (nameBaseDefinitionItemProvider == null) {
-	    nameBaseDefinitionItemProvider = new NameBaseDefinitionItemProvider(this);
+		return modsDefinitionItemProvider;
 	}
 
-	return nameBaseDefinitionItemProvider;
-    }
+	/**
+	 * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.NameBaseDefinition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected NameBaseDefinitionItemProvider nameBaseDefinitionItemProvider;
 
-    /**
-     * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.NameDefinition} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected NameDefinitionItemProvider nameDefinitionItemProvider;
+	/**
+	 * This creates an adapter for a {@link gov.loc.mods.mods.NameBaseDefinition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createNameBaseDefinitionAdapter() {
+		if (nameBaseDefinitionItemProvider == null) {
+			nameBaseDefinitionItemProvider = new NameBaseDefinitionItemProvider(this);
+		}
 
-    /**
-     * This creates an adapter for a {@link gov.loc.mods.mods.NameDefinition}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createNameDefinitionAdapter() {
-	if (nameDefinitionItemProvider == null) {
-	    nameDefinitionItemProvider = new NameDefinitionItemProvider(this);
+		return nameBaseDefinitionItemProvider;
 	}
 
-	return nameDefinitionItemProvider;
-    }
+	/**
+	 * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.NameDefinition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected NameDefinitionItemProvider nameDefinitionItemProvider;
 
-    /**
-     * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.NamePartDefinition} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected NamePartDefinitionItemProvider namePartDefinitionItemProvider;
+	/**
+	 * This creates an adapter for a {@link gov.loc.mods.mods.NameDefinition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createNameDefinitionAdapter() {
+		if (nameDefinitionItemProvider == null) {
+			nameDefinitionItemProvider = new NameDefinitionItemProvider(this);
+		}
 
-    /**
-     * This creates an adapter for a {@link gov.loc.mods.mods.NamePartDefinition}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createNamePartDefinitionAdapter() {
-	if (namePartDefinitionItemProvider == null) {
-	    namePartDefinitionItemProvider = new NamePartDefinitionItemProvider(this);
+		return nameDefinitionItemProvider;
 	}
 
-	return namePartDefinitionItemProvider;
-    }
+	/**
+	 * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.NamePartDefinition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected NamePartDefinitionItemProvider namePartDefinitionItemProvider;
 
-    /**
-     * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.NoteBaseDefinition} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected NoteBaseDefinitionItemProvider noteBaseDefinitionItemProvider;
+	/**
+	 * This creates an adapter for a {@link gov.loc.mods.mods.NamePartDefinition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createNamePartDefinitionAdapter() {
+		if (namePartDefinitionItemProvider == null) {
+			namePartDefinitionItemProvider = new NamePartDefinitionItemProvider(this);
+		}
 
-    /**
-     * This creates an adapter for a {@link gov.loc.mods.mods.NoteBaseDefinition}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createNoteBaseDefinitionAdapter() {
-	if (noteBaseDefinitionItemProvider == null) {
-	    noteBaseDefinitionItemProvider = new NoteBaseDefinitionItemProvider(this);
+		return namePartDefinitionItemProvider;
 	}
 
-	return noteBaseDefinitionItemProvider;
-    }
+	/**
+	 * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.NoteBaseDefinition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected NoteBaseDefinitionItemProvider noteBaseDefinitionItemProvider;
 
-    /**
-     * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.NoteDefinition} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected NoteDefinitionItemProvider noteDefinitionItemProvider;
+	/**
+	 * This creates an adapter for a {@link gov.loc.mods.mods.NoteBaseDefinition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createNoteBaseDefinitionAdapter() {
+		if (noteBaseDefinitionItemProvider == null) {
+			noteBaseDefinitionItemProvider = new NoteBaseDefinitionItemProvider(this);
+		}
 
-    /**
-     * This creates an adapter for a {@link gov.loc.mods.mods.NoteDefinition}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createNoteDefinitionAdapter() {
-	if (noteDefinitionItemProvider == null) {
-	    noteDefinitionItemProvider = new NoteDefinitionItemProvider(this);
+		return noteBaseDefinitionItemProvider;
 	}
 
-	return noteDefinitionItemProvider;
-    }
+	/**
+	 * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.NoteDefinition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected NoteDefinitionItemProvider noteDefinitionItemProvider;
 
-    /**
-     * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.OriginInfoDefinition} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected OriginInfoDefinitionItemProvider originInfoDefinitionItemProvider;
+	/**
+	 * This creates an adapter for a {@link gov.loc.mods.mods.NoteDefinition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createNoteDefinitionAdapter() {
+		if (noteDefinitionItemProvider == null) {
+			noteDefinitionItemProvider = new NoteDefinitionItemProvider(this);
+		}
 
-    /**
-     * This creates an adapter for a {@link gov.loc.mods.mods.OriginInfoDefinition}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createOriginInfoDefinitionAdapter() {
-	if (originInfoDefinitionItemProvider == null) {
-	    originInfoDefinitionItemProvider = new OriginInfoDefinitionItemProvider(this);
+		return noteDefinitionItemProvider;
 	}
 
-	return originInfoDefinitionItemProvider;
-    }
+	/**
+	 * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.OriginInfoDefinition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected OriginInfoDefinitionItemProvider originInfoDefinitionItemProvider;
 
-    /**
-     * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.PartDefinition} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected PartDefinitionItemProvider partDefinitionItemProvider;
+	/**
+	 * This creates an adapter for a {@link gov.loc.mods.mods.OriginInfoDefinition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createOriginInfoDefinitionAdapter() {
+		if (originInfoDefinitionItemProvider == null) {
+			originInfoDefinitionItemProvider = new OriginInfoDefinitionItemProvider(this);
+		}
 
-    /**
-     * This creates an adapter for a {@link gov.loc.mods.mods.PartDefinition}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createPartDefinitionAdapter() {
-	if (partDefinitionItemProvider == null) {
-	    partDefinitionItemProvider = new PartDefinitionItemProvider(this);
+		return originInfoDefinitionItemProvider;
 	}
 
-	return partDefinitionItemProvider;
-    }
+	/**
+	 * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.PartDefinition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PartDefinitionItemProvider partDefinitionItemProvider;
 
-    /**
-     * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.PhysicalDescriptionDefinition} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected PhysicalDescriptionDefinitionItemProvider physicalDescriptionDefinitionItemProvider;
+	/**
+	 * This creates an adapter for a {@link gov.loc.mods.mods.PartDefinition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPartDefinitionAdapter() {
+		if (partDefinitionItemProvider == null) {
+			partDefinitionItemProvider = new PartDefinitionItemProvider(this);
+		}
 
-    /**
-     * This creates an adapter for a {@link gov.loc.mods.mods.PhysicalDescriptionDefinition}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createPhysicalDescriptionDefinitionAdapter() {
-	if (physicalDescriptionDefinitionItemProvider == null) {
-	    physicalDescriptionDefinitionItemProvider = new PhysicalDescriptionDefinitionItemProvider(this);
+		return partDefinitionItemProvider;
 	}
 
-	return physicalDescriptionDefinitionItemProvider;
-    }
+	/**
+	 * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.PhysicalDescriptionDefinition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PhysicalDescriptionDefinitionItemProvider physicalDescriptionDefinitionItemProvider;
 
-    /**
-     * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.PhysicalLocationDefinition} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected PhysicalLocationDefinitionItemProvider physicalLocationDefinitionItemProvider;
+	/**
+	 * This creates an adapter for a {@link gov.loc.mods.mods.PhysicalDescriptionDefinition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPhysicalDescriptionDefinitionAdapter() {
+		if (physicalDescriptionDefinitionItemProvider == null) {
+			physicalDescriptionDefinitionItemProvider = new PhysicalDescriptionDefinitionItemProvider(this);
+		}
 
-    /**
-     * This creates an adapter for a {@link gov.loc.mods.mods.PhysicalLocationDefinition}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createPhysicalLocationDefinitionAdapter() {
-	if (physicalLocationDefinitionItemProvider == null) {
-	    physicalLocationDefinitionItemProvider = new PhysicalLocationDefinitionItemProvider(this);
+		return physicalDescriptionDefinitionItemProvider;
 	}
 
-	return physicalLocationDefinitionItemProvider;
-    }
+	/**
+	 * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.PhysicalLocationDefinition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PhysicalLocationDefinitionItemProvider physicalLocationDefinitionItemProvider;
 
-    /**
-     * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.PlaceDefinition} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected PlaceDefinitionItemProvider placeDefinitionItemProvider;
+	/**
+	 * This creates an adapter for a {@link gov.loc.mods.mods.PhysicalLocationDefinition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPhysicalLocationDefinitionAdapter() {
+		if (physicalLocationDefinitionItemProvider == null) {
+			physicalLocationDefinitionItemProvider = new PhysicalLocationDefinitionItemProvider(this);
+		}
 
-    /**
-     * This creates an adapter for a {@link gov.loc.mods.mods.PlaceDefinition}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createPlaceDefinitionAdapter() {
-	if (placeDefinitionItemProvider == null) {
-	    placeDefinitionItemProvider = new PlaceDefinitionItemProvider(this);
+		return physicalLocationDefinitionItemProvider;
 	}
 
-	return placeDefinitionItemProvider;
-    }
+	/**
+	 * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.PlaceDefinition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PlaceDefinitionItemProvider placeDefinitionItemProvider;
 
-    /**
-     * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.PlaceTermDefinition} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected PlaceTermDefinitionItemProvider placeTermDefinitionItemProvider;
+	/**
+	 * This creates an adapter for a {@link gov.loc.mods.mods.PlaceDefinition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPlaceDefinitionAdapter() {
+		if (placeDefinitionItemProvider == null) {
+			placeDefinitionItemProvider = new PlaceDefinitionItemProvider(this);
+		}
 
-    /**
-     * This creates an adapter for a {@link gov.loc.mods.mods.PlaceTermDefinition}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createPlaceTermDefinitionAdapter() {
-	if (placeTermDefinitionItemProvider == null) {
-	    placeTermDefinitionItemProvider = new PlaceTermDefinitionItemProvider(this);
+		return placeDefinitionItemProvider;
 	}
 
-	return placeTermDefinitionItemProvider;
-    }
+	/**
+	 * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.PlaceTermDefinition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PlaceTermDefinitionItemProvider placeTermDefinitionItemProvider;
 
-    /**
-     * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.RecordIdentifierDefinition} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected RecordIdentifierDefinitionItemProvider recordIdentifierDefinitionItemProvider;
+	/**
+	 * This creates an adapter for a {@link gov.loc.mods.mods.PlaceTermDefinition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPlaceTermDefinitionAdapter() {
+		if (placeTermDefinitionItemProvider == null) {
+			placeTermDefinitionItemProvider = new PlaceTermDefinitionItemProvider(this);
+		}
 
-    /**
-     * This creates an adapter for a {@link gov.loc.mods.mods.RecordIdentifierDefinition}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createRecordIdentifierDefinitionAdapter() {
-	if (recordIdentifierDefinitionItemProvider == null) {
-	    recordIdentifierDefinitionItemProvider = new RecordIdentifierDefinitionItemProvider(this);
+		return placeTermDefinitionItemProvider;
 	}
 
-	return recordIdentifierDefinitionItemProvider;
-    }
+	/**
+	 * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.RecordIdentifierDefinition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RecordIdentifierDefinitionItemProvider recordIdentifierDefinitionItemProvider;
 
-    /**
-     * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.RecordInfoDefinition} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected RecordInfoDefinitionItemProvider recordInfoDefinitionItemProvider;
+	/**
+	 * This creates an adapter for a {@link gov.loc.mods.mods.RecordIdentifierDefinition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRecordIdentifierDefinitionAdapter() {
+		if (recordIdentifierDefinitionItemProvider == null) {
+			recordIdentifierDefinitionItemProvider = new RecordIdentifierDefinitionItemProvider(this);
+		}
 
-    /**
-     * This creates an adapter for a {@link gov.loc.mods.mods.RecordInfoDefinition}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createRecordInfoDefinitionAdapter() {
-	if (recordInfoDefinitionItemProvider == null) {
-	    recordInfoDefinitionItemProvider = new RecordInfoDefinitionItemProvider(this);
+		return recordIdentifierDefinitionItemProvider;
 	}
 
-	return recordInfoDefinitionItemProvider;
-    }
+	/**
+	 * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.RecordInfoDefinition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RecordInfoDefinitionItemProvider recordInfoDefinitionItemProvider;
 
-    /**
-     * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.RelatedItemDefinition} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected RelatedItemDefinitionItemProvider relatedItemDefinitionItemProvider;
+	/**
+	 * This creates an adapter for a {@link gov.loc.mods.mods.RecordInfoDefinition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRecordInfoDefinitionAdapter() {
+		if (recordInfoDefinitionItemProvider == null) {
+			recordInfoDefinitionItemProvider = new RecordInfoDefinitionItemProvider(this);
+		}
 
-    /**
-     * This creates an adapter for a {@link gov.loc.mods.mods.RelatedItemDefinition}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createRelatedItemDefinitionAdapter() {
-	if (relatedItemDefinitionItemProvider == null) {
-	    relatedItemDefinitionItemProvider = new RelatedItemDefinitionItemProvider(this);
+		return recordInfoDefinitionItemProvider;
 	}
 
-	return relatedItemDefinitionItemProvider;
-    }
+	/**
+	 * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.RelatedItemDefinition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RelatedItemDefinitionItemProvider relatedItemDefinitionItemProvider;
 
-    /**
-     * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.RoleDefinition} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected RoleDefinitionItemProvider roleDefinitionItemProvider;
+	/**
+	 * This creates an adapter for a {@link gov.loc.mods.mods.RelatedItemDefinition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRelatedItemDefinitionAdapter() {
+		if (relatedItemDefinitionItemProvider == null) {
+			relatedItemDefinitionItemProvider = new RelatedItemDefinitionItemProvider(this);
+		}
 
-    /**
-     * This creates an adapter for a {@link gov.loc.mods.mods.RoleDefinition}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createRoleDefinitionAdapter() {
-	if (roleDefinitionItemProvider == null) {
-	    roleDefinitionItemProvider = new RoleDefinitionItemProvider(this);
+		return relatedItemDefinitionItemProvider;
 	}
 
-	return roleDefinitionItemProvider;
-    }
+	/**
+	 * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.RoleDefinition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RoleDefinitionItemProvider roleDefinitionItemProvider;
 
-    /**
-     * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.RoleTermDefinition} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected RoleTermDefinitionItemProvider roleTermDefinitionItemProvider;
+	/**
+	 * This creates an adapter for a {@link gov.loc.mods.mods.RoleDefinition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRoleDefinitionAdapter() {
+		if (roleDefinitionItemProvider == null) {
+			roleDefinitionItemProvider = new RoleDefinitionItemProvider(this);
+		}
 
-    /**
-     * This creates an adapter for a {@link gov.loc.mods.mods.RoleTermDefinition}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createRoleTermDefinitionAdapter() {
-	if (roleTermDefinitionItemProvider == null) {
-	    roleTermDefinitionItemProvider = new RoleTermDefinitionItemProvider(this);
+		return roleDefinitionItemProvider;
 	}
 
-	return roleTermDefinitionItemProvider;
-    }
+	/**
+	 * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.RoleTermDefinition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RoleTermDefinitionItemProvider roleTermDefinitionItemProvider;
 
-    /**
-     * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.ScriptTermDefinition} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected ScriptTermDefinitionItemProvider scriptTermDefinitionItemProvider;
+	/**
+	 * This creates an adapter for a {@link gov.loc.mods.mods.RoleTermDefinition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRoleTermDefinitionAdapter() {
+		if (roleTermDefinitionItemProvider == null) {
+			roleTermDefinitionItemProvider = new RoleTermDefinitionItemProvider(this);
+		}
 
-    /**
-     * This creates an adapter for a {@link gov.loc.mods.mods.ScriptTermDefinition}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createScriptTermDefinitionAdapter() {
-	if (scriptTermDefinitionItemProvider == null) {
-	    scriptTermDefinitionItemProvider = new ScriptTermDefinitionItemProvider(this);
+		return roleTermDefinitionItemProvider;
 	}
 
-	return scriptTermDefinitionItemProvider;
-    }
+	/**
+	 * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.ScriptTermDefinition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ScriptTermDefinitionItemProvider scriptTermDefinitionItemProvider;
 
-    /**
-     * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.StringPlusAuthority} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected StringPlusAuthorityItemProvider stringPlusAuthorityItemProvider;
+	/**
+	 * This creates an adapter for a {@link gov.loc.mods.mods.ScriptTermDefinition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createScriptTermDefinitionAdapter() {
+		if (scriptTermDefinitionItemProvider == null) {
+			scriptTermDefinitionItemProvider = new ScriptTermDefinitionItemProvider(this);
+		}
 
-    /**
-     * This creates an adapter for a {@link gov.loc.mods.mods.StringPlusAuthority}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createStringPlusAuthorityAdapter() {
-	if (stringPlusAuthorityItemProvider == null) {
-	    stringPlusAuthorityItemProvider = new StringPlusAuthorityItemProvider(this);
+		return scriptTermDefinitionItemProvider;
 	}
 
-	return stringPlusAuthorityItemProvider;
-    }
+	/**
+	 * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.StringPlusAuthority} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected StringPlusAuthorityItemProvider stringPlusAuthorityItemProvider;
 
-    /**
-     * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.StringPlusAuthorityPlusType} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected StringPlusAuthorityPlusTypeItemProvider stringPlusAuthorityPlusTypeItemProvider;
+	/**
+	 * This creates an adapter for a {@link gov.loc.mods.mods.StringPlusAuthority}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createStringPlusAuthorityAdapter() {
+		if (stringPlusAuthorityItemProvider == null) {
+			stringPlusAuthorityItemProvider = new StringPlusAuthorityItemProvider(this);
+		}
 
-    /**
-     * This creates an adapter for a {@link gov.loc.mods.mods.StringPlusAuthorityPlusType}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createStringPlusAuthorityPlusTypeAdapter() {
-	if (stringPlusAuthorityPlusTypeItemProvider == null) {
-	    stringPlusAuthorityPlusTypeItemProvider = new StringPlusAuthorityPlusTypeItemProvider(this);
+		return stringPlusAuthorityItemProvider;
 	}
 
-	return stringPlusAuthorityPlusTypeItemProvider;
-    }
+	/**
+	 * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.StringPlusAuthorityPlusType} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected StringPlusAuthorityPlusTypeItemProvider stringPlusAuthorityPlusTypeItemProvider;
 
-    /**
-     * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.StringPlusAuthorityPlusTypePlusDisplayLabel} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected StringPlusAuthorityPlusTypePlusDisplayLabelItemProvider stringPlusAuthorityPlusTypePlusDisplayLabelItemProvider;
+	/**
+	 * This creates an adapter for a {@link gov.loc.mods.mods.StringPlusAuthorityPlusType}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createStringPlusAuthorityPlusTypeAdapter() {
+		if (stringPlusAuthorityPlusTypeItemProvider == null) {
+			stringPlusAuthorityPlusTypeItemProvider = new StringPlusAuthorityPlusTypeItemProvider(this);
+		}
 
-    /**
-     * This creates an adapter for a {@link gov.loc.mods.mods.StringPlusAuthorityPlusTypePlusDisplayLabel}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createStringPlusAuthorityPlusTypePlusDisplayLabelAdapter() {
-	if (stringPlusAuthorityPlusTypePlusDisplayLabelItemProvider == null) {
-	    stringPlusAuthorityPlusTypePlusDisplayLabelItemProvider = new StringPlusAuthorityPlusTypePlusDisplayLabelItemProvider(
-			    this);
+		return stringPlusAuthorityPlusTypeItemProvider;
 	}
 
-	return stringPlusAuthorityPlusTypePlusDisplayLabelItemProvider;
-    }
+	/**
+	 * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.StringPlusAuthorityPlusTypePlusDisplayLabel} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected StringPlusAuthorityPlusTypePlusDisplayLabelItemProvider stringPlusAuthorityPlusTypePlusDisplayLabelItemProvider;
 
-    /**
-     * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlinkItemProvider stringPlusAuthorityPlusTypePlusDisplayLabelPlusXlinkItemProvider;
+	/**
+	 * This creates an adapter for a {@link gov.loc.mods.mods.StringPlusAuthorityPlusTypePlusDisplayLabel}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createStringPlusAuthorityPlusTypePlusDisplayLabelAdapter() {
+		if (stringPlusAuthorityPlusTypePlusDisplayLabelItemProvider == null) {
+			stringPlusAuthorityPlusTypePlusDisplayLabelItemProvider = new StringPlusAuthorityPlusTypePlusDisplayLabelItemProvider(
+					this);
+		}
 
-    /**
-     * This creates an adapter for a {@link gov.loc.mods.mods.StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlinkAdapter() {
-	if (stringPlusAuthorityPlusTypePlusDisplayLabelPlusXlinkItemProvider == null) {
-	    stringPlusAuthorityPlusTypePlusDisplayLabelPlusXlinkItemProvider = new StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlinkItemProvider(
-			    this);
+		return stringPlusAuthorityPlusTypePlusDisplayLabelItemProvider;
 	}
 
-	return stringPlusAuthorityPlusTypePlusDisplayLabelPlusXlinkItemProvider;
-    }
+	/**
+	 * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlinkItemProvider stringPlusAuthorityPlusTypePlusDisplayLabelPlusXlinkItemProvider;
 
-    /**
-     * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.StringPlusSupplied} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected StringPlusSuppliedItemProvider stringPlusSuppliedItemProvider;
+	/**
+	 * This creates an adapter for a {@link gov.loc.mods.mods.StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlinkAdapter() {
+		if (stringPlusAuthorityPlusTypePlusDisplayLabelPlusXlinkItemProvider == null) {
+			stringPlusAuthorityPlusTypePlusDisplayLabelPlusXlinkItemProvider = new StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlinkItemProvider(
+					this);
+		}
 
-    /**
-     * This creates an adapter for a {@link gov.loc.mods.mods.StringPlusSupplied}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createStringPlusSuppliedAdapter() {
-	if (stringPlusSuppliedItemProvider == null) {
-	    stringPlusSuppliedItemProvider = new StringPlusSuppliedItemProvider(this);
+		return stringPlusAuthorityPlusTypePlusDisplayLabelPlusXlinkItemProvider;
 	}
 
-	return stringPlusSuppliedItemProvider;
-    }
+	/**
+	 * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.StringPlusSupplied} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected StringPlusSuppliedItemProvider stringPlusSuppliedItemProvider;
 
-    /**
-     * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.SubjectDefinition} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected SubjectDefinitionItemProvider subjectDefinitionItemProvider;
+	/**
+	 * This creates an adapter for a {@link gov.loc.mods.mods.StringPlusSupplied}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createStringPlusSuppliedAdapter() {
+		if (stringPlusSuppliedItemProvider == null) {
+			stringPlusSuppliedItemProvider = new StringPlusSuppliedItemProvider(this);
+		}
 
-    /**
-     * This creates an adapter for a {@link gov.loc.mods.mods.SubjectDefinition}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createSubjectDefinitionAdapter() {
-	if (subjectDefinitionItemProvider == null) {
-	    subjectDefinitionItemProvider = new SubjectDefinitionItemProvider(this);
+		return stringPlusSuppliedItemProvider;
 	}
 
-	return subjectDefinitionItemProvider;
-    }
+	/**
+	 * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.SubjectDefinition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SubjectDefinitionItemProvider subjectDefinitionItemProvider;
 
-    /**
-     * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.SubjectNameDefinition} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected SubjectNameDefinitionItemProvider subjectNameDefinitionItemProvider;
+	/**
+	 * This creates an adapter for a {@link gov.loc.mods.mods.SubjectDefinition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSubjectDefinitionAdapter() {
+		if (subjectDefinitionItemProvider == null) {
+			subjectDefinitionItemProvider = new SubjectDefinitionItemProvider(this);
+		}
 
-    /**
-     * This creates an adapter for a {@link gov.loc.mods.mods.SubjectNameDefinition}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createSubjectNameDefinitionAdapter() {
-	if (subjectNameDefinitionItemProvider == null) {
-	    subjectNameDefinitionItemProvider = new SubjectNameDefinitionItemProvider(this);
+		return subjectDefinitionItemProvider;
 	}
 
-	return subjectNameDefinitionItemProvider;
-    }
+	/**
+	 * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.SubjectNameDefinition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SubjectNameDefinitionItemProvider subjectNameDefinitionItemProvider;
 
-    /**
-     * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.SubjectTitleInfoDefinition} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected SubjectTitleInfoDefinitionItemProvider subjectTitleInfoDefinitionItemProvider;
+	/**
+	 * This creates an adapter for a {@link gov.loc.mods.mods.SubjectNameDefinition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSubjectNameDefinitionAdapter() {
+		if (subjectNameDefinitionItemProvider == null) {
+			subjectNameDefinitionItemProvider = new SubjectNameDefinitionItemProvider(this);
+		}
 
-    /**
-     * This creates an adapter for a {@link gov.loc.mods.mods.SubjectTitleInfoDefinition}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createSubjectTitleInfoDefinitionAdapter() {
-	if (subjectTitleInfoDefinitionItemProvider == null) {
-	    subjectTitleInfoDefinitionItemProvider = new SubjectTitleInfoDefinitionItemProvider(this);
+		return subjectNameDefinitionItemProvider;
 	}
 
-	return subjectTitleInfoDefinitionItemProvider;
-    }
+	/**
+	 * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.SubjectTitleInfoDefinition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SubjectTitleInfoDefinitionItemProvider subjectTitleInfoDefinitionItemProvider;
 
-    /**
-     * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.TableOfContentsDefinition} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected TableOfContentsDefinitionItemProvider tableOfContentsDefinitionItemProvider;
+	/**
+	 * This creates an adapter for a {@link gov.loc.mods.mods.SubjectTitleInfoDefinition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSubjectTitleInfoDefinitionAdapter() {
+		if (subjectTitleInfoDefinitionItemProvider == null) {
+			subjectTitleInfoDefinitionItemProvider = new SubjectTitleInfoDefinitionItemProvider(this);
+		}
 
-    /**
-     * This creates an adapter for a {@link gov.loc.mods.mods.TableOfContentsDefinition}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createTableOfContentsDefinitionAdapter() {
-	if (tableOfContentsDefinitionItemProvider == null) {
-	    tableOfContentsDefinitionItemProvider = new TableOfContentsDefinitionItemProvider(this);
+		return subjectTitleInfoDefinitionItemProvider;
 	}
 
-	return tableOfContentsDefinitionItemProvider;
-    }
+	/**
+	 * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.TableOfContentsDefinition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TableOfContentsDefinitionItemProvider tableOfContentsDefinitionItemProvider;
 
-    /**
-     * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.TargetAudienceDefinition} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected TargetAudienceDefinitionItemProvider targetAudienceDefinitionItemProvider;
+	/**
+	 * This creates an adapter for a {@link gov.loc.mods.mods.TableOfContentsDefinition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTableOfContentsDefinitionAdapter() {
+		if (tableOfContentsDefinitionItemProvider == null) {
+			tableOfContentsDefinitionItemProvider = new TableOfContentsDefinitionItemProvider(this);
+		}
 
-    /**
-     * This creates an adapter for a {@link gov.loc.mods.mods.TargetAudienceDefinition}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createTargetAudienceDefinitionAdapter() {
-	if (targetAudienceDefinitionItemProvider == null) {
-	    targetAudienceDefinitionItemProvider = new TargetAudienceDefinitionItemProvider(this);
+		return tableOfContentsDefinitionItemProvider;
 	}
 
-	return targetAudienceDefinitionItemProvider;
-    }
+	/**
+	 * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.TargetAudienceDefinition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TargetAudienceDefinitionItemProvider targetAudienceDefinitionItemProvider;
 
-    /**
-     * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.TemporalDefinition} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected TemporalDefinitionItemProvider temporalDefinitionItemProvider;
+	/**
+	 * This creates an adapter for a {@link gov.loc.mods.mods.TargetAudienceDefinition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTargetAudienceDefinitionAdapter() {
+		if (targetAudienceDefinitionItemProvider == null) {
+			targetAudienceDefinitionItemProvider = new TargetAudienceDefinitionItemProvider(this);
+		}
 
-    /**
-     * This creates an adapter for a {@link gov.loc.mods.mods.TemporalDefinition}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createTemporalDefinitionAdapter() {
-	if (temporalDefinitionItemProvider == null) {
-	    temporalDefinitionItemProvider = new TemporalDefinitionItemProvider(this);
+		return targetAudienceDefinitionItemProvider;
 	}
 
-	return temporalDefinitionItemProvider;
-    }
+	/**
+	 * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.TemporalDefinition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TemporalDefinitionItemProvider temporalDefinitionItemProvider;
 
-    /**
-     * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.TitleInfoBaseDefinition} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected TitleInfoBaseDefinitionItemProvider titleInfoBaseDefinitionItemProvider;
+	/**
+	 * This creates an adapter for a {@link gov.loc.mods.mods.TemporalDefinition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTemporalDefinitionAdapter() {
+		if (temporalDefinitionItemProvider == null) {
+			temporalDefinitionItemProvider = new TemporalDefinitionItemProvider(this);
+		}
 
-    /**
-     * This creates an adapter for a {@link gov.loc.mods.mods.TitleInfoBaseDefinition}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createTitleInfoBaseDefinitionAdapter() {
-	if (titleInfoBaseDefinitionItemProvider == null) {
-	    titleInfoBaseDefinitionItemProvider = new TitleInfoBaseDefinitionItemProvider(this);
+		return temporalDefinitionItemProvider;
 	}
 
-	return titleInfoBaseDefinitionItemProvider;
-    }
+	/**
+	 * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.TitleInfoBaseDefinition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TitleInfoBaseDefinitionItemProvider titleInfoBaseDefinitionItemProvider;
 
-    /**
-     * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.TitleInfoDefinition} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected TitleInfoDefinitionItemProvider titleInfoDefinitionItemProvider;
+	/**
+	 * This creates an adapter for a {@link gov.loc.mods.mods.TitleInfoBaseDefinition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTitleInfoBaseDefinitionAdapter() {
+		if (titleInfoBaseDefinitionItemProvider == null) {
+			titleInfoBaseDefinitionItemProvider = new TitleInfoBaseDefinitionItemProvider(this);
+		}
 
-    /**
-     * This creates an adapter for a {@link gov.loc.mods.mods.TitleInfoDefinition}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createTitleInfoDefinitionAdapter() {
-	if (titleInfoDefinitionItemProvider == null) {
-	    titleInfoDefinitionItemProvider = new TitleInfoDefinitionItemProvider(this);
+		return titleInfoBaseDefinitionItemProvider;
 	}
 
-	return titleInfoDefinitionItemProvider;
-    }
+	/**
+	 * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.TitleInfoDefinition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TitleInfoDefinitionItemProvider titleInfoDefinitionItemProvider;
 
-    /**
-     * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.TypeOfResourceDefinition} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected TypeOfResourceDefinitionItemProvider typeOfResourceDefinitionItemProvider;
+	/**
+	 * This creates an adapter for a {@link gov.loc.mods.mods.TitleInfoDefinition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTitleInfoDefinitionAdapter() {
+		if (titleInfoDefinitionItemProvider == null) {
+			titleInfoDefinitionItemProvider = new TitleInfoDefinitionItemProvider(this);
+		}
 
-    /**
-     * This creates an adapter for a {@link gov.loc.mods.mods.TypeOfResourceDefinition}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createTypeOfResourceDefinitionAdapter() {
-	if (typeOfResourceDefinitionItemProvider == null) {
-	    typeOfResourceDefinitionItemProvider = new TypeOfResourceDefinitionItemProvider(this);
+		return titleInfoDefinitionItemProvider;
 	}
 
-	return typeOfResourceDefinitionItemProvider;
-    }
+	/**
+	 * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.TypeOfResourceDefinition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TypeOfResourceDefinitionItemProvider typeOfResourceDefinitionItemProvider;
 
-    /**
-     * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.UnstructuredTextDefinition} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected UnstructuredTextDefinitionItemProvider unstructuredTextDefinitionItemProvider;
+	/**
+	 * This creates an adapter for a {@link gov.loc.mods.mods.TypeOfResourceDefinition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTypeOfResourceDefinitionAdapter() {
+		if (typeOfResourceDefinitionItemProvider == null) {
+			typeOfResourceDefinitionItemProvider = new TypeOfResourceDefinitionItemProvider(this);
+		}
 
-    /**
-     * This creates an adapter for a {@link gov.loc.mods.mods.UnstructuredTextDefinition}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createUnstructuredTextDefinitionAdapter() {
-	if (unstructuredTextDefinitionItemProvider == null) {
-	    unstructuredTextDefinitionItemProvider = new UnstructuredTextDefinitionItemProvider(this);
+		return typeOfResourceDefinitionItemProvider;
 	}
 
-	return unstructuredTextDefinitionItemProvider;
-    }
+	/**
+	 * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.UnstructuredTextDefinition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected UnstructuredTextDefinitionItemProvider unstructuredTextDefinitionItemProvider;
 
-    /**
-     * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.UrlDefinition} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected UrlDefinitionItemProvider urlDefinitionItemProvider;
+	/**
+	 * This creates an adapter for a {@link gov.loc.mods.mods.UnstructuredTextDefinition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createUnstructuredTextDefinitionAdapter() {
+		if (unstructuredTextDefinitionItemProvider == null) {
+			unstructuredTextDefinitionItemProvider = new UnstructuredTextDefinitionItemProvider(this);
+		}
 
-    /**
-     * This creates an adapter for a {@link gov.loc.mods.mods.UrlDefinition}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createUrlDefinitionAdapter() {
-	if (urlDefinitionItemProvider == null) {
-	    urlDefinitionItemProvider = new UrlDefinitionItemProvider(this);
+		return unstructuredTextDefinitionItemProvider;
 	}
 
-	return urlDefinitionItemProvider;
-    }
+	/**
+	 * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.UrlDefinition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected UrlDefinitionItemProvider urlDefinitionItemProvider;
 
-    /**
-     * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.XsString} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected XsStringItemProvider xsStringItemProvider;
+	/**
+	 * This creates an adapter for a {@link gov.loc.mods.mods.UrlDefinition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createUrlDefinitionAdapter() {
+		if (urlDefinitionItemProvider == null) {
+			urlDefinitionItemProvider = new UrlDefinitionItemProvider(this);
+		}
 
-    /**
-     * This creates an adapter for a {@link gov.loc.mods.mods.XsString}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createXsStringAdapter() {
-	if (xsStringItemProvider == null) {
-	    xsStringItemProvider = new XsStringItemProvider(this);
+		return urlDefinitionItemProvider;
 	}
 
-	return xsStringItemProvider;
-    }
+	/**
+	 * This keeps track of the one adapter used for all {@link gov.loc.mods.mods.XsString} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected XsStringItemProvider xsStringItemProvider;
 
-    /**
-     * This returns the root adapter factory that contains this factory.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public ComposeableAdapterFactory getRootAdapterFactory() {
-	return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory();
-    }
+	/**
+	 * This creates an adapter for a {@link gov.loc.mods.mods.XsString}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createXsStringAdapter() {
+		if (xsStringItemProvider == null) {
+			xsStringItemProvider = new XsStringItemProvider(this);
+		}
 
-    /**
-     * This sets the composed adapter factory that contains this factory.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory) {
-	this.parentAdapterFactory = parentAdapterFactory;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public boolean isFactoryForType(Object type) {
-	return supportedTypes.contains(type) || super.isFactoryForType(type);
-    }
-
-    /**
-     * This implementation substitutes the factory itself as the key for the adapter.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter adapt(Notifier notifier, Object type) {
-	return super.adapt(notifier, this);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Object adapt(Object object, Object type) {
-	if (isFactoryForType(type)) {
-	    Object adapter = super.adapt(object, type);
-	    if (!(type instanceof Class<?>) || (((Class<?>) type).isInstance(adapter))) {
-		return adapter;
-	    }
+		return xsStringItemProvider;
 	}
 
-	return null;
-    }
-
-    /**
-     * This adds a listener.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void addListener(INotifyChangedListener notifyChangedListener) {
-	changeNotifier.addListener(notifyChangedListener);
-    }
-
-    /**
-     * This removes a listener.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void removeListener(INotifyChangedListener notifyChangedListener) {
-	changeNotifier.removeListener(notifyChangedListener);
-    }
-
-    /**
-     * This delegates to {@link #changeNotifier} and to {@link #parentAdapterFactory}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void fireNotifyChanged(Notification notification) {
-	changeNotifier.fireNotifyChanged(notification);
-
-	if (parentAdapterFactory != null) {
-	    parentAdapterFactory.fireNotifyChanged(notification);
+	/**
+	 * This returns the root adapter factory that contains this factory.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ComposeableAdapterFactory getRootAdapterFactory() {
+		return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory();
 	}
-    }
 
-    /**
-     * This disposes all of the item providers created by this factory. 
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void dispose() {
-	if (abstractDefinitionItemProvider != null)
-	    abstractDefinitionItemProvider.dispose();
-	if (accessConditionDefinitionItemProvider != null)
-	    accessConditionDefinitionItemProvider.dispose();
-	if (cartographicsDefinitionItemProvider != null)
-	    cartographicsDefinitionItemProvider.dispose();
-	if (classificationDefinitionItemProvider != null)
-	    classificationDefinitionItemProvider.dispose();
-	if (copyInformationDefinitionItemProvider != null)
-	    copyInformationDefinitionItemProvider.dispose();
-	if (dateBaseDefinitionItemProvider != null)
-	    dateBaseDefinitionItemProvider.dispose();
-	if (dateDefinitionItemProvider != null)
-	    dateDefinitionItemProvider.dispose();
-	if (dateOtherDefinitionItemProvider != null)
-	    dateOtherDefinitionItemProvider.dispose();
-	if (detailDefinitionItemProvider != null)
-	    detailDefinitionItemProvider.dispose();
-	if (documentRootItemProvider != null)
-	    documentRootItemProvider.dispose();
-	if (enumerationAndChronologyDefinitionItemProvider != null)
-	    enumerationAndChronologyDefinitionItemProvider.dispose();
-	if (extensionDefinitionItemProvider != null)
-	    extensionDefinitionItemProvider.dispose();
-	if (extentDefinitionItemProvider != null)
-	    extentDefinitionItemProvider.dispose();
-	if (genreDefinitionItemProvider != null)
-	    genreDefinitionItemProvider.dispose();
-	if (geographicCodeDefinitionItemProvider != null)
-	    geographicCodeDefinitionItemProvider.dispose();
-	if (hierarchicalGeographicDefinitionItemProvider != null)
-	    hierarchicalGeographicDefinitionItemProvider.dispose();
-	if (holdingSimpleDefinitionItemProvider != null)
-	    holdingSimpleDefinitionItemProvider.dispose();
-	if (identifierDefinitionItemProvider != null)
-	    identifierDefinitionItemProvider.dispose();
-	if (languageDefinitionItemProvider != null)
-	    languageDefinitionItemProvider.dispose();
-	if (languageTermDefinitionItemProvider != null)
-	    languageTermDefinitionItemProvider.dispose();
-	if (locationDefinitionItemProvider != null)
-	    locationDefinitionItemProvider.dispose();
-	if (modsCollectionDefinitionItemProvider != null)
-	    modsCollectionDefinitionItemProvider.dispose();
-	if (modsDefinitionItemProvider != null)
-	    modsDefinitionItemProvider.dispose();
-	if (nameBaseDefinitionItemProvider != null)
-	    nameBaseDefinitionItemProvider.dispose();
-	if (nameDefinitionItemProvider != null)
-	    nameDefinitionItemProvider.dispose();
-	if (namePartDefinitionItemProvider != null)
-	    namePartDefinitionItemProvider.dispose();
-	if (noteBaseDefinitionItemProvider != null)
-	    noteBaseDefinitionItemProvider.dispose();
-	if (noteDefinitionItemProvider != null)
-	    noteDefinitionItemProvider.dispose();
-	if (originInfoDefinitionItemProvider != null)
-	    originInfoDefinitionItemProvider.dispose();
-	if (partDefinitionItemProvider != null)
-	    partDefinitionItemProvider.dispose();
-	if (physicalDescriptionDefinitionItemProvider != null)
-	    physicalDescriptionDefinitionItemProvider.dispose();
-	if (physicalLocationDefinitionItemProvider != null)
-	    physicalLocationDefinitionItemProvider.dispose();
-	if (placeDefinitionItemProvider != null)
-	    placeDefinitionItemProvider.dispose();
-	if (placeTermDefinitionItemProvider != null)
-	    placeTermDefinitionItemProvider.dispose();
-	if (recordIdentifierDefinitionItemProvider != null)
-	    recordIdentifierDefinitionItemProvider.dispose();
-	if (recordInfoDefinitionItemProvider != null)
-	    recordInfoDefinitionItemProvider.dispose();
-	if (relatedItemDefinitionItemProvider != null)
-	    relatedItemDefinitionItemProvider.dispose();
-	if (roleDefinitionItemProvider != null)
-	    roleDefinitionItemProvider.dispose();
-	if (roleTermDefinitionItemProvider != null)
-	    roleTermDefinitionItemProvider.dispose();
-	if (scriptTermDefinitionItemProvider != null)
-	    scriptTermDefinitionItemProvider.dispose();
-	if (stringPlusAuthorityItemProvider != null)
-	    stringPlusAuthorityItemProvider.dispose();
-	if (stringPlusAuthorityPlusTypeItemProvider != null)
-	    stringPlusAuthorityPlusTypeItemProvider.dispose();
-	if (stringPlusAuthorityPlusTypePlusDisplayLabelItemProvider != null)
-	    stringPlusAuthorityPlusTypePlusDisplayLabelItemProvider.dispose();
-	if (stringPlusAuthorityPlusTypePlusDisplayLabelPlusXlinkItemProvider != null)
-	    stringPlusAuthorityPlusTypePlusDisplayLabelPlusXlinkItemProvider.dispose();
-	if (stringPlusSuppliedItemProvider != null)
-	    stringPlusSuppliedItemProvider.dispose();
-	if (subjectDefinitionItemProvider != null)
-	    subjectDefinitionItemProvider.dispose();
-	if (subjectNameDefinitionItemProvider != null)
-	    subjectNameDefinitionItemProvider.dispose();
-	if (subjectTitleInfoDefinitionItemProvider != null)
-	    subjectTitleInfoDefinitionItemProvider.dispose();
-	if (tableOfContentsDefinitionItemProvider != null)
-	    tableOfContentsDefinitionItemProvider.dispose();
-	if (targetAudienceDefinitionItemProvider != null)
-	    targetAudienceDefinitionItemProvider.dispose();
-	if (temporalDefinitionItemProvider != null)
-	    temporalDefinitionItemProvider.dispose();
-	if (titleInfoBaseDefinitionItemProvider != null)
-	    titleInfoBaseDefinitionItemProvider.dispose();
-	if (titleInfoDefinitionItemProvider != null)
-	    titleInfoDefinitionItemProvider.dispose();
-	if (typeOfResourceDefinitionItemProvider != null)
-	    typeOfResourceDefinitionItemProvider.dispose();
-	if (unstructuredTextDefinitionItemProvider != null)
-	    unstructuredTextDefinitionItemProvider.dispose();
-	if (urlDefinitionItemProvider != null)
-	    urlDefinitionItemProvider.dispose();
-	if (xsStringItemProvider != null)
-	    xsStringItemProvider.dispose();
-    }
+	/**
+	 * This sets the composed adapter factory that contains this factory.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory) {
+		this.parentAdapterFactory = parentAdapterFactory;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean isFactoryForType(Object type) {
+		return supportedTypes.contains(type) || super.isFactoryForType(type);
+	}
+
+	/**
+	 * This implementation substitutes the factory itself as the key for the adapter.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter adapt(Notifier notifier, Object type) {
+		return super.adapt(notifier, this);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object adapt(Object object, Object type) {
+		if (isFactoryForType(type)) {
+			Object adapter = super.adapt(object, type);
+			if (!(type instanceof Class<?>) || (((Class<?>) type).isInstance(adapter))) {
+				return adapter;
+			}
+		}
+
+		return null;
+	}
+
+	/**
+	 * This adds a listener.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void addListener(INotifyChangedListener notifyChangedListener) {
+		changeNotifier.addListener(notifyChangedListener);
+	}
+
+	/**
+	 * This removes a listener.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void removeListener(INotifyChangedListener notifyChangedListener) {
+		changeNotifier.removeListener(notifyChangedListener);
+	}
+
+	/**
+	 * This delegates to {@link #changeNotifier} and to {@link #parentAdapterFactory}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void fireNotifyChanged(Notification notification) {
+		changeNotifier.fireNotifyChanged(notification);
+
+		if (parentAdapterFactory != null) {
+			parentAdapterFactory.fireNotifyChanged(notification);
+		}
+	}
+
+	/**
+	 * This disposes all of the item providers created by this factory. 
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void dispose() {
+		if (abstractDefinitionItemProvider != null)
+			abstractDefinitionItemProvider.dispose();
+		if (accessConditionDefinitionItemProvider != null)
+			accessConditionDefinitionItemProvider.dispose();
+		if (cartographicsDefinitionItemProvider != null)
+			cartographicsDefinitionItemProvider.dispose();
+		if (classificationDefinitionItemProvider != null)
+			classificationDefinitionItemProvider.dispose();
+		if (copyInformationDefinitionItemProvider != null)
+			copyInformationDefinitionItemProvider.dispose();
+		if (dateBaseDefinitionItemProvider != null)
+			dateBaseDefinitionItemProvider.dispose();
+		if (dateDefinitionItemProvider != null)
+			dateDefinitionItemProvider.dispose();
+		if (dateOtherDefinitionItemProvider != null)
+			dateOtherDefinitionItemProvider.dispose();
+		if (detailDefinitionItemProvider != null)
+			detailDefinitionItemProvider.dispose();
+		if (documentRootItemProvider != null)
+			documentRootItemProvider.dispose();
+		if (enumerationAndChronologyDefinitionItemProvider != null)
+			enumerationAndChronologyDefinitionItemProvider.dispose();
+		if (extensionDefinitionItemProvider != null)
+			extensionDefinitionItemProvider.dispose();
+		if (extentDefinitionItemProvider != null)
+			extentDefinitionItemProvider.dispose();
+		if (genreDefinitionItemProvider != null)
+			genreDefinitionItemProvider.dispose();
+		if (geographicCodeDefinitionItemProvider != null)
+			geographicCodeDefinitionItemProvider.dispose();
+		if (hierarchicalGeographicDefinitionItemProvider != null)
+			hierarchicalGeographicDefinitionItemProvider.dispose();
+		if (holdingSimpleDefinitionItemProvider != null)
+			holdingSimpleDefinitionItemProvider.dispose();
+		if (identifierDefinitionItemProvider != null)
+			identifierDefinitionItemProvider.dispose();
+		if (languageDefinitionItemProvider != null)
+			languageDefinitionItemProvider.dispose();
+		if (languageTermDefinitionItemProvider != null)
+			languageTermDefinitionItemProvider.dispose();
+		if (locationDefinitionItemProvider != null)
+			locationDefinitionItemProvider.dispose();
+		if (modsCollectionDefinitionItemProvider != null)
+			modsCollectionDefinitionItemProvider.dispose();
+		if (modsDefinitionItemProvider != null)
+			modsDefinitionItemProvider.dispose();
+		if (nameBaseDefinitionItemProvider != null)
+			nameBaseDefinitionItemProvider.dispose();
+		if (nameDefinitionItemProvider != null)
+			nameDefinitionItemProvider.dispose();
+		if (namePartDefinitionItemProvider != null)
+			namePartDefinitionItemProvider.dispose();
+		if (noteBaseDefinitionItemProvider != null)
+			noteBaseDefinitionItemProvider.dispose();
+		if (noteDefinitionItemProvider != null)
+			noteDefinitionItemProvider.dispose();
+		if (originInfoDefinitionItemProvider != null)
+			originInfoDefinitionItemProvider.dispose();
+		if (partDefinitionItemProvider != null)
+			partDefinitionItemProvider.dispose();
+		if (physicalDescriptionDefinitionItemProvider != null)
+			physicalDescriptionDefinitionItemProvider.dispose();
+		if (physicalLocationDefinitionItemProvider != null)
+			physicalLocationDefinitionItemProvider.dispose();
+		if (placeDefinitionItemProvider != null)
+			placeDefinitionItemProvider.dispose();
+		if (placeTermDefinitionItemProvider != null)
+			placeTermDefinitionItemProvider.dispose();
+		if (recordIdentifierDefinitionItemProvider != null)
+			recordIdentifierDefinitionItemProvider.dispose();
+		if (recordInfoDefinitionItemProvider != null)
+			recordInfoDefinitionItemProvider.dispose();
+		if (relatedItemDefinitionItemProvider != null)
+			relatedItemDefinitionItemProvider.dispose();
+		if (roleDefinitionItemProvider != null)
+			roleDefinitionItemProvider.dispose();
+		if (roleTermDefinitionItemProvider != null)
+			roleTermDefinitionItemProvider.dispose();
+		if (scriptTermDefinitionItemProvider != null)
+			scriptTermDefinitionItemProvider.dispose();
+		if (stringPlusAuthorityItemProvider != null)
+			stringPlusAuthorityItemProvider.dispose();
+		if (stringPlusAuthorityPlusTypeItemProvider != null)
+			stringPlusAuthorityPlusTypeItemProvider.dispose();
+		if (stringPlusAuthorityPlusTypePlusDisplayLabelItemProvider != null)
+			stringPlusAuthorityPlusTypePlusDisplayLabelItemProvider.dispose();
+		if (stringPlusAuthorityPlusTypePlusDisplayLabelPlusXlinkItemProvider != null)
+			stringPlusAuthorityPlusTypePlusDisplayLabelPlusXlinkItemProvider.dispose();
+		if (stringPlusSuppliedItemProvider != null)
+			stringPlusSuppliedItemProvider.dispose();
+		if (subjectDefinitionItemProvider != null)
+			subjectDefinitionItemProvider.dispose();
+		if (subjectNameDefinitionItemProvider != null)
+			subjectNameDefinitionItemProvider.dispose();
+		if (subjectTitleInfoDefinitionItemProvider != null)
+			subjectTitleInfoDefinitionItemProvider.dispose();
+		if (tableOfContentsDefinitionItemProvider != null)
+			tableOfContentsDefinitionItemProvider.dispose();
+		if (targetAudienceDefinitionItemProvider != null)
+			targetAudienceDefinitionItemProvider.dispose();
+		if (temporalDefinitionItemProvider != null)
+			temporalDefinitionItemProvider.dispose();
+		if (titleInfoBaseDefinitionItemProvider != null)
+			titleInfoBaseDefinitionItemProvider.dispose();
+		if (titleInfoDefinitionItemProvider != null)
+			titleInfoDefinitionItemProvider.dispose();
+		if (typeOfResourceDefinitionItemProvider != null)
+			typeOfResourceDefinitionItemProvider.dispose();
+		if (unstructuredTextDefinitionItemProvider != null)
+			unstructuredTextDefinitionItemProvider.dispose();
+		if (urlDefinitionItemProvider != null)
+			urlDefinitionItemProvider.dispose();
+		if (xsStringItemProvider != null)
+			xsStringItemProvider.dispose();
+	}
 
 }

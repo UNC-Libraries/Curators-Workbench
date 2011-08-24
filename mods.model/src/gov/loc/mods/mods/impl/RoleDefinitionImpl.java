@@ -49,159 +49,159 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * @generated
  */
 public class RoleDefinitionImpl extends EObjectImpl implements RoleDefinition {
-    /**
-     * The cached value of the '{@link #getGroup() <em>Group</em>}' attribute list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getGroup()
-     * @generated
-     * @ordered
-     */
-    protected FeatureMap group;
+	/**
+	 * The cached value of the '{@link #getGroup() <em>Group</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getGroup()
+	 * @generated
+	 * @ordered
+	 */
+	protected FeatureMap group;
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected RoleDefinitionImpl() {
-	super();
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    protected EClass eStaticClass() {
-	return MODSPackage.eINSTANCE.getRoleDefinition();
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public FeatureMap getGroup() {
-	if (group == null) {
-	    group = new BasicFeatureMap(this, MODSPackage.ROLE_DEFINITION__GROUP);
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RoleDefinitionImpl() {
+		super();
 	}
-	return group;
-    }
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EList<RoleTermDefinition> getRoleTerm() {
-	return getGroup().list(MODSPackage.eINSTANCE.getRoleDefinition_RoleTerm());
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-	switch (featureID) {
-	case MODSPackage.ROLE_DEFINITION__GROUP:
-	    return ((InternalEList<?>) getGroup()).basicRemove(otherEnd, msgs);
-	case MODSPackage.ROLE_DEFINITION__ROLE_TERM:
-	    return ((InternalEList<?>) getRoleTerm()).basicRemove(otherEnd, msgs);
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return MODSPackage.eINSTANCE.getRoleDefinition();
 	}
-	return super.eInverseRemove(otherEnd, featureID, msgs);
-    }
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
-	switch (featureID) {
-	case MODSPackage.ROLE_DEFINITION__GROUP:
-	    if (coreType)
-		return getGroup();
-	    return ((FeatureMap.Internal) getGroup()).getWrapper();
-	case MODSPackage.ROLE_DEFINITION__ROLE_TERM:
-	    return getRoleTerm();
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FeatureMap getGroup() {
+		if (group == null) {
+			group = new BasicFeatureMap(this, MODSPackage.ROLE_DEFINITION__GROUP);
+		}
+		return group;
 	}
-	return super.eGet(featureID, resolve, coreType);
-    }
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @SuppressWarnings("unchecked")
-    @Override
-    public void eSet(int featureID, Object newValue) {
-	switch (featureID) {
-	case MODSPackage.ROLE_DEFINITION__GROUP:
-	    ((FeatureMap.Internal) getGroup()).set(newValue);
-	    return;
-	case MODSPackage.ROLE_DEFINITION__ROLE_TERM:
-	    getRoleTerm().clear();
-	    getRoleTerm().addAll((Collection<? extends RoleTermDefinition>) newValue);
-	    return;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<RoleTermDefinition> getRoleTerm() {
+		return getGroup().list(MODSPackage.eINSTANCE.getRoleDefinition_RoleTerm());
 	}
-	super.eSet(featureID, newValue);
-    }
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void eUnset(int featureID) {
-	switch (featureID) {
-	case MODSPackage.ROLE_DEFINITION__GROUP:
-	    getGroup().clear();
-	    return;
-	case MODSPackage.ROLE_DEFINITION__ROLE_TERM:
-	    getRoleTerm().clear();
-	    return;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case MODSPackage.ROLE_DEFINITION__GROUP:
+				return ((InternalEList<?>) getGroup()).basicRemove(otherEnd, msgs);
+			case MODSPackage.ROLE_DEFINITION__ROLE_TERM:
+				return ((InternalEList<?>) getRoleTerm()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
-	super.eUnset(featureID);
-    }
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public boolean eIsSet(int featureID) {
-	switch (featureID) {
-	case MODSPackage.ROLE_DEFINITION__GROUP:
-	    return group != null && !group.isEmpty();
-	case MODSPackage.ROLE_DEFINITION__ROLE_TERM:
-	    return !getRoleTerm().isEmpty();
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+			case MODSPackage.ROLE_DEFINITION__GROUP:
+				if (coreType)
+					return getGroup();
+				return ((FeatureMap.Internal) getGroup()).getWrapper();
+			case MODSPackage.ROLE_DEFINITION__ROLE_TERM:
+				return getRoleTerm();
+		}
+		return super.eGet(featureID, resolve, coreType);
 	}
-	return super.eIsSet(featureID);
-    }
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public String toString() {
-	if (eIsProxy())
-	    return super.toString();
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+			case MODSPackage.ROLE_DEFINITION__GROUP:
+				((FeatureMap.Internal) getGroup()).set(newValue);
+				return;
+			case MODSPackage.ROLE_DEFINITION__ROLE_TERM:
+				getRoleTerm().clear();
+				getRoleTerm().addAll((Collection<? extends RoleTermDefinition>) newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
-	StringBuffer result = new StringBuffer(super.toString());
-	result.append(" (group: ");
-	result.append(group);
-	result.append(')');
-	return result.toString();
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+			case MODSPackage.ROLE_DEFINITION__GROUP:
+				getGroup().clear();
+				return;
+			case MODSPackage.ROLE_DEFINITION__ROLE_TERM:
+				getRoleTerm().clear();
+				return;
+		}
+		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+			case MODSPackage.ROLE_DEFINITION__GROUP:
+				return group != null && !group.isEmpty();
+			case MODSPackage.ROLE_DEFINITION__ROLE_TERM:
+				return !getRoleTerm().isEmpty();
+		}
+		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy())
+			return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (group: ");
+		result.append(group);
+		result.append(')');
+		return result.toString();
+	}
 
 } //RoleDefinitionImpl

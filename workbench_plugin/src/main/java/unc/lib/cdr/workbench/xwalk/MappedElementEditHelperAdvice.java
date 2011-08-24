@@ -51,7 +51,7 @@ public class MappedElementEditHelperAdvice extends AbstractEditHelperAdvice impl
 				@Override
 				protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info)
 						throws ExecutionException {
-					LOG.debug("Executing Before Create Command!");
+					//LOG.debug("Executing Before Create Command!");
 					EObject parent = request.getContainer();
 					EClass classToCreate = request.getElementType().getEClass();
 					// switch between create element and create attribute
@@ -75,13 +75,13 @@ public class MappedElementEditHelperAdvice extends AbstractEditHelperAdvice impl
 						dialog.setMessage(message);
 						EStructuralFeature answer = dialog.open();
 						if (answer != null) {
-							LOG.debug("got ref selection:" + answer);
+							//LOG.debug("got ref selection:" + answer);
 							// set request params to deliver answer
 							Map<String, Object> params = new HashMap<String, Object>();
 							params.put(MAPPED_FEATURE_PARAM, answer);
 							request.addParameters(params);
 						} else {
-							LOG.debug("no answer given, trying to cancel..");
+							//LOG.debug("no answer given, trying to cancel..");
 							return CommandResult.newCancelledCommandResult();
 						}
 					}
@@ -107,7 +107,7 @@ public class MappedElementEditHelperAdvice extends AbstractEditHelperAdvice impl
 					@Override
 					protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info)
 							throws ExecutionException {
-						LOG.debug("Executing MappedElement ConfigureCommand!");
+						//LOG.debug("Executing MappedElement ConfigureCommand!");
 
 						EStructuralFeature feature = (EStructuralFeature) request.getParameters().get(MAPPED_FEATURE_PARAM);
 						Object o = request.getNewElement();
