@@ -124,6 +124,7 @@ public class MetsProjectNature implements IProjectNature {
 	public static final String STAGING_BUILDER_ID = "unc.lib.cdr.workbench.builders.StageBuilder";
 	public static final String CROSSWALKS_BUILDER_ID = "unc.lib.cdr.workbench.builders.CrosswalksBuilder";
 	public static final Path METS_PATH = new Path("workbench-mets.xml");
+	private static final QualifiedName STAGING_BASE_URI_KEY = new QualifiedName(NATURE_ID, "cdr_producer.stagingBaseURI");
 	private static ComposedAdapterFactory adapterFactory = null;
 
 	private IProject project = null;
@@ -401,6 +402,39 @@ public class MetsProjectNature implements IProjectNature {
 			}
 		}
 		return null;
+	}
+
+	/**
+	 * @param prog
+	 * @return
+	 */
+	public static MetsProjectNature get(IProject prog) {
+		MetsProjectNature result = null;
+		try {
+			result = (MetsProjectNature)prog.getNature(NATURE_ID);
+		} catch(CoreException e) {}
+		return result;
+	}
+
+	/**
+	 * @param stageURI
+	 */
+	public void setStagingBase(java.net.URI stageURI) {
+		try {
+			this.getProject().setPersistentProperty(STAGING_BASE_URI_KEY, stageURI.toString());
+		} catch(CoreException e) {
+			throw new Error("Cannot set staging base for project.", e);
+		}
+	}
+
+	public java.net.URI getStagingBase() {
+		try {
+			String s = this.getProject().getPersistentProperty(STAGING_BASE_URI_KEY);
+			return new java.net.URI(s);
+		} catch(Exception e) {
+			throw new Error("unexpected", e);
+		}
+
 	}
 
 }

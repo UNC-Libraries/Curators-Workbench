@@ -1,10 +1,10 @@
 package unc.lib.cdr.workbench.views;
 
 import gov.loc.mets.DivType;
-import gov.loc.mets.FileGrpType;
+import gov.loc.mets.FLocatType;
 import gov.loc.mets.FileType;
 import gov.loc.mets.MetsType;
-import gov.loc.mets.util.METSUtils;
+import gov.loc.mets.util.METSConstants;
 
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.jface.viewers.ISelection;
@@ -32,6 +32,7 @@ public class OriginalFingerprintSection extends AbstractPropertySection {
 	private DivType div = null;
 	Text checksumText = null;
 	Text checksumTypeText = null;
+	Text stagedLocationText = null;
 
 	/**
 	 * @see org.eclipse.ui.views.properties.tabbed.ISection#setInput(org.eclipse.ui.IWorkbenchPart,
@@ -60,17 +61,32 @@ public class OriginalFingerprintSection extends AbstractPropertySection {
 
 		data = new FormData();
 		data.left = new FormAttachment(l1, ITabbedPropertyConstants.HSPACE);
+		data.top = new FormAttachment(0, ITabbedPropertyConstants.VSPACE);
 		checksumText = getWidgetFactory().createText(composite, "", SWT.READ_ONLY);
 		checksumText.setLayoutData(data);
 
 		CLabel l2 = getWidgetFactory().createCLabel(composite, "Type");
 		data = new FormData();
 		data.left = new FormAttachment(checksumText, ITabbedPropertyConstants.HSPACE);
+		data.top = new FormAttachment(0, ITabbedPropertyConstants.VSPACE);
 		l2.setLayoutData(data);
 		checksumTypeText = getWidgetFactory().createText(composite, "", SWT.READ_ONLY);
 		data = new FormData();
 		data.left = new FormAttachment(l2, ITabbedPropertyConstants.HSPACE);
+		data.top = new FormAttachment(0, ITabbedPropertyConstants.VSPACE);
 		checksumTypeText.setLayoutData(data);
+
+		CLabel sl = getWidgetFactory().createCLabel(composite, "Staged Location");
+		data = new FormData();
+		data.left = new FormAttachment(0, ITabbedPropertyConstants.HSPACE);
+		data.top = new FormAttachment(l1, ITabbedPropertyConstants.VSPACE);
+		sl.setLayoutData(data);
+
+		data = new FormData();
+		data.left = new FormAttachment(sl, ITabbedPropertyConstants.HSPACE);
+		data.top = new FormAttachment(l2, ITabbedPropertyConstants.VSPACE);
+		stagedLocationText = getWidgetFactory().createText(composite, "", SWT.READ_ONLY);
+		stagedLocationText.setLayoutData(data);
 	}
 
 	@Override
@@ -84,6 +100,17 @@ public class OriginalFingerprintSection extends AbstractPropertySection {
 		} else {
 			checksumText.setText("unknown");
 			checksumTypeText.setText("n/a");
+		}
+		FLocatType l = null;
+		for(FLocatType test : file.getFLocat()) {
+			if(METSConstants.FLocat_USE_STAGE.equals(test.getUSE())) {
+				l = test;
+			}
+		}
+		if(l != null) {
+			stagedLocationText.setText(l.getHref());
+		} else {
+			stagedLocationText.setText("");
 		}
 	}
 

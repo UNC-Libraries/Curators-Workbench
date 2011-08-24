@@ -172,8 +172,9 @@ public class StagingUtils {
 	 */
 	public static IFileStore getStageLocation(IFile f) throws CoreException {
 		// get the file store for staging this file
+		MetsProjectNature mpn = MetsProjectNature.get(f.getProject());
+		URI stageRoot = mpn.getStagingBase();
 		IFileStore stageFileStore = null;
-		URI stageRoot = f.getProject().getFolder(".stage").getRawLocationURI();
 		IFileStore stageRootFileStore = EFS.getStore(stageRoot);
 		IPath stagePath = f.getProjectRelativePath().removeFirstSegments(1);
 		stageFileStore = stageRootFileStore.getFileStore(stagePath);

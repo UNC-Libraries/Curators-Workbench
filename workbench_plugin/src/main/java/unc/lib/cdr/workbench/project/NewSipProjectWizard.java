@@ -47,25 +47,28 @@ public class NewSipProjectWizard extends Wizard implements INewWizard {
 		boolean autostage = _pageTwo.isAutoStage();
 		IProject prog = MetsProjectNatureSupport.createProject(name, location, autostage);
 		URI stageURI = _pageTwo.computeStageLocation(prog.getLocationURI(), prog.getName());
+		MetsProjectNature n = MetsProjectNature.get(prog);
+		n.setStagingBase(stageURI);
+
 		//System.out.println("staging URI passed to EFS.getStore: " + stageURI.toString());
-		IFolder stage = prog.getFolder(MetsProjectNature.STAGE_FOLDER_NAME);
-		try {
-			IFileStore stageStore = EFS.getStore(stageURI);
-			stageStore.mkdir(EFS.NONE, new NullProgressMonitor());
-		} catch (CoreException e) {
-			e.printStackTrace();
-			this._pageTwo.setErrorMessage("Cannot create staging folder: " + e.getLocalizedMessage());
-			this._pageOne.setErrorMessage("Cannot create staging folder: " + e.getLocalizedMessage());
-			return false;
-		}
-		try {
-			stage.createLink(stageURI, IFolder.ALLOW_MISSING_LOCAL, new NullProgressMonitor());
-		} catch(CoreException e) {
-			this._pageTwo.setErrorMessage("Cannot link staging folder to project: " + e.getLocalizedMessage());
-			this._pageOne.setErrorMessage("Cannot link staging folder to project: " + e.getLocalizedMessage());
-			e.printStackTrace();
-			return false;
-		}
+//		IFolder stage = prog.getFolder(MetsProjectNature.STAGE_FOLDER_NAME);
+//		try {
+//			IFileStore stageStore = EFS.getStore(stageURI);
+//			stageStore.mkdir(EFS.NONE, new NullProgressMonitor());
+//		} catch (CoreException e) {
+//			e.printStackTrace();
+//			this._pageTwo.setErrorMessage("Cannot create staging folder: " + e.getLocalizedMessage());
+//			this._pageOne.setErrorMessage("Cannot create staging folder: " + e.getLocalizedMessage());
+//			return false;
+//		}
+//		try {
+//			stage.createLink(stageURI, IFolder.ALLOW_MISSING_LOCAL, new NullProgressMonitor());
+//		} catch(CoreException e) {
+//			this._pageTwo.setErrorMessage("Cannot link staging folder to project: " + e.getLocalizedMessage());
+//			this._pageOne.setErrorMessage("Cannot link staging folder to project: " + e.getLocalizedMessage());
+//			e.printStackTrace();
+//			return false;
+//		}
 		return true;
 	}
 
