@@ -298,10 +298,10 @@ public class StagingUtils {
 				if (totalBytesCopied > 0 && progressTickBytes > 0) {
 					if ((totalBytesCopied % progressTickBytes) < bytesRead) {
 						monitor.worked(1);
-						// if (length > 0) {
-						// int percent = (int) (100.0 * ((float) totalBytesCopied / length));
-						// monitor.subTask(percent + "% (" + totalBytesCopied / 1024 + "/" + length / 1024 + "K)");
-						// }
+						//if (length > 0) {
+						//	int percent = (int) (100.0 * ((float) totalBytesCopied / length));
+						//	monitor.subTask(percent + "% (" + totalBytesCopied / 1024 + "/" + length / 1024 + "K)");
+						//}
 					}
 				}
 			}

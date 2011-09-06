@@ -75,13 +75,11 @@ public class MappedElementEditHelperAdvice extends AbstractEditHelperAdvice impl
 						dialog.setMessage(message);
 						EStructuralFeature answer = dialog.open();
 						if (answer != null) {
-							//LOG.debug("got ref selection:" + answer);
 							// set request params to deliver answer
 							Map<String, Object> params = new HashMap<String, Object>();
 							params.put(MAPPED_FEATURE_PARAM, answer);
 							request.addParameters(params);
 						} else {
-							//LOG.debug("no answer given, trying to cancel..");
 							return CommandResult.newCancelledCommandResult();
 						}
 					}
