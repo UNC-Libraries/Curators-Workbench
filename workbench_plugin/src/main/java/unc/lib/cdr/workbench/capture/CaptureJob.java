@@ -157,12 +157,12 @@ public class CaptureJob extends Job {
 			// params.put("audit", Boolean.TRUE);
 			// }
 			// log.debug("calling incremental build");
-			if (mpn.getAutomaticStaging()) {
-				System.out.println("triggering build b/c auto staging says "+mpn.getAutomaticStaging());
+			if (mpn.getAutomaticStaging(project)) {
+				System.out.println("triggering build b/c auto staging says "+mpn.getAutomaticStaging(project));
 				project.build(IncrementalProjectBuilder.FULL_BUILD, MetsProjectNature.STAGING_BUILDER_ID, params,
 						new NullProgressMonitor());
 			} else {
-				System.out.println("skipping build b/c auto staging says "+mpn.getAutomaticStaging());
+				System.out.println("skipping build b/c auto staging says "+mpn.getAutomaticStaging(project));
 			}
 			monitor.done();
 			return Status.OK_STATUS;

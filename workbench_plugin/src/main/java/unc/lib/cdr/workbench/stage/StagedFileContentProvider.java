@@ -18,13 +18,14 @@ package unc.lib.cdr.workbench.stage;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.eclipse.core.resources.IContainer;
+import org.eclipse.core.filesystem.EFS;
+import org.eclipse.core.filesystem.IFileStore;
 import org.eclipse.core.resources.IProject;
-import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IResourceChangeEvent;
 import org.eclipse.core.resources.IResourceChangeListener;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.swt.widgets.Display;
@@ -35,7 +36,7 @@ import unc.lib.cdr.workbench.project.MetsProjectNature;
 
 /**
  * @author Gregory Jansen
- * 
+ *
  */
 public class StagedFileContentProvider implements ITreeContentProvider, IResourceChangeListener {
 	private static final Logger log = LoggerFactory.getLogger(StagedFileContentProvider.class);
@@ -50,7 +51,7 @@ public class StagedFileContentProvider implements ITreeContentProvider, IResourc
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.eclipse.jface.viewers.ITreeContentProvider#getChildren(java.lang. Object)
 	 */
 	@Override
@@ -67,9 +68,9 @@ public class StagedFileContentProvider implements ITreeContentProvider, IResourc
 			} else if (parent instanceof StagedFilesProjectElement) {
 				StagedFilesProjectElement e = (StagedFilesProjectElement) parent;
 				return e.getChildren();
-			} else if (parent instanceof IContainer) {
-				IContainer f = (IContainer) parent;
-				for (IResource r : f.members()) {
+			} else if (parent instanceof IFileStore) {
+				IFileStore f = (IFileStore) parent;
+				for (IFileStore r : f.childStores(EFS.NONE, new NullProgressMonitor())) {
 					results.add(r);
 				}
 			}
@@ -81,43 +82,28 @@ public class StagedFileContentProvider implements ITreeContentProvider, IResourc
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.eclipse.jface.viewers.ITreeContentProvider#getParent(java.lang.Object )
 	 */
 	@Override
 	public Object getParent(Object element) {
 		Object result = null;
-		if (element instanceof IResource) {
-			IResource r = (IResource) element;
-			String[] segments = r.getProjectRelativePath().segments();
-			if (segments.length == 2 && MetsProjectNature.STAGE_FOLDER_NAME.equals(segments[0])) {
-				// found a staged folder, return OriginalsProjectElement
-				MetsProjectNature n;
-				try {
-					n = (MetsProjectNature) r.getProject().getNature(MetsProjectNature.NATURE_ID);
-				} catch (CoreException e) {
-					throw new Error("Unexpected");
-				}
-				return n.getStagedFilesElement();
-			} else {
-				// should be a resource within an originals folder, use
-				// getParent()
-				return r.getParent();
-			}
-		} else {
-			return result;
+		if (element instanceof IFileStore) {
+			result = ((IFileStore)element).getParent();
 		}
+		return result;
 	}
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.eclipse.jface.viewers.ITreeContentProvider#hasChildren(java.lang. Object)
 	 */
 	@Override
 	public boolean hasChildren(Object element) {
-		if (element instanceof IContainer) {
-			return true;
+		if (element instanceof IFileStore) {
+			IFileStore fs = (IFileStore)element;
+			return fs.fetchInfo().isDirectory();
 		} else if (element instanceof StagedFilesProjectElement) {
 			return ((StagedFilesProjectElement) element).hasChildren();
 		} else {
@@ -127,7 +113,7 @@ public class StagedFileContentProvider implements ITreeContentProvider, IResourc
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.eclipse.jface.viewers.IStructuredContentProvider#getElements(java .lang.Object)
 	 */
 	@Override
@@ -137,7 +123,7 @@ public class StagedFileContentProvider implements ITreeContentProvider, IResourc
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.eclipse.jface.viewers.IContentProvider#dispose()
 	 */
 	@Override
@@ -147,7 +133,7 @@ public class StagedFileContentProvider implements ITreeContentProvider, IResourc
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.eclipse.jface.viewers.IContentProvider#inputChanged(org.eclipse.jface .viewers.Viewer, java.lang.Object,
 	 * java.lang.Object)
 	 */
@@ -158,7 +144,7 @@ public class StagedFileContentProvider implements ITreeContentProvider, IResourc
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.eclipse.core.resources.IResourceChangeListener#resourceChanged(org
 	 * .eclipse.core.resources.IResourceChangeEvent)
 	 */

@@ -123,7 +123,7 @@ public class StagingJob extends Job {
 		for (IProject p : projects) {
 			try {
 				MetsProjectNature n = (MetsProjectNature) p.getNature(MetsProjectNature.NATURE_ID);
-				n.getStageFolder().refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
+				//n.getStageFolder().refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
 			} catch (CoreException e) {
 			}
 		}

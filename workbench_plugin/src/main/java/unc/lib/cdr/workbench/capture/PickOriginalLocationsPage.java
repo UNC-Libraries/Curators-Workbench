@@ -84,7 +84,7 @@ public class PickOriginalLocationsPage extends WizardPage implements Listener {
 
 	// A boolean to indicate if the user has typed anything
 	private boolean locationChanged = false;
-	private boolean prestagedChanged = false;
+	//private boolean prestagedChanged = false;
 
 	// widgets
 	private Combo locationField;
@@ -99,7 +99,7 @@ public class PickOriginalLocationsPage extends WizardPage implements Listener {
 
 	private IProject project;
 
-	private String prestagedLocation;
+	// private String prestagedLocation;
 	private String[] previousPrestages;
 
 	/**
@@ -117,7 +117,8 @@ public class PickOriginalLocationsPage extends WizardPage implements Listener {
 	 *
 	 */
 	private void loadPreviousPrestages() {
-		org.osgi.service.prefs.Preferences preferences = new ConfigurationScope().getNode(Activator.PLUGIN_ID).node(PRESTAGE_PREFERENCE_NODE_ID);
+		org.osgi.service.prefs.Preferences preferences = new ConfigurationScope().getNode(Activator.PLUGIN_ID).node(
+				PRESTAGE_PREFERENCE_NODE_ID);
 		String[] keys = new String[] {};
 		try {
 			keys = preferences.childrenNames();
@@ -125,7 +126,7 @@ public class PickOriginalLocationsPage extends WizardPage implements Listener {
 			e.printStackTrace();
 		}
 		final HashMap<String, Integer> counts = new HashMap<String, Integer>();
-		for(String k : keys) {
+		for (String k : keys) {
 			int c = preferences.node(k).getInt("count", 0);
 			String uri = preferences.node(k).get("uri", "default");
 			counts.put(uri, Integer.valueOf(c));
@@ -142,11 +143,12 @@ public class PickOriginalLocationsPage extends WizardPage implements Listener {
 
 	private void saveToPreviousPrestages(String uri) {
 		String loc = Integer.toString(uri.hashCode());
-		org.osgi.service.prefs.Preferences allLocations = new ConfigurationScope().getNode(Activator.PLUGIN_ID).node(PRESTAGE_PREFERENCE_NODE_ID);
+		org.osgi.service.prefs.Preferences allLocations = new ConfigurationScope().getNode(Activator.PLUGIN_ID).node(
+				PRESTAGE_PREFERENCE_NODE_ID);
 		int c = 1;
 		try {
-			if(allLocations.nodeExists(loc)) {
-				c = c+allLocations.node(loc).getInt("count", 1);
+			if (allLocations.nodeExists(loc)) {
+				c = c + allLocations.node(loc).getInt("count", 1);
 			}
 		} catch (BackingStoreException e1) {
 			e1.printStackTrace();
@@ -312,12 +314,12 @@ public class PickOriginalLocationsPage extends WizardPage implements Listener {
 
 		Label lab = new Label(optionsGroup, SWT.WRAP);
 		GridData labdata = new GridData();
-		//labdata.verticalSpan = 2;
+		// labdata.verticalSpan = 2;
 		labdata.horizontalAlignment = GridData.FILL;
 		labdata.horizontalSpan = 3;
 		lab.setLayoutData(labdata);
 		lab.setText("Use this option to avoid copying files already staged at a known URI.\nChecksums will still be computed locally upon capture.");
-		//lab.setBounds(10, 10, 100, 100);
+		// lab.setBounds(10, 10, 100, 100);
 
 		this.preStagedButton = new Button(optionsGroup, SWT.CHECK);
 		GridData data = new GridData(GridData.HORIZONTAL_ALIGN_BEGINNING);
@@ -333,39 +335,35 @@ public class PickOriginalLocationsPage extends WizardPage implements Listener {
 		GridData data2 = new GridData();
 		data2.grabExcessHorizontalSpace = true;
 		data2.horizontalAlignment = GridData.FILL;
-		System.out.println(previousPrestages.length+" prestaging selections");
+		System.out.println(previousPrestages.length + " prestaging selections");
 		this.preStagedCombo.setItems(previousPrestages);
 		this.preStagedCombo.setLayoutData(data2);
 		new AutoCompleteField(this.preStagedCombo, new ComboContentAdapter(), this.previousPrestages);
 
-
 		preStagedCombo.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				updateFromPrestagedLocation();
+				updateWidgets();
 			}
 		});
 		preStagedCombo.addKeyListener(new KeyListener() {
 			public void keyPressed(KeyEvent e) {
 				// If there has been a key pressed then mark as dirty
-				prestagedChanged = true;
 				if (e.character == SWT.CR) {
-					prestagedChanged = false;
-					updateFromPrestagedLocation();
+					updateWidgets();
 				}
 			}
+
 			public void keyReleased(KeyEvent e) {
 			}
 		});
 		preStagedCombo.addFocusListener(new FocusListener() {
 			public void focusGained(FocusEvent e) {
 			}
+
 			public void focusLost(FocusEvent e) {
 				// Clear the flag to prevent constant update
-				if (prestagedChanged) {
-					prestagedChanged = false;
-					updateFromPrestagedLocation();
-				}
+				updateWidgets();
 			}
 		});
 
@@ -596,11 +594,11 @@ public class PickOriginalLocationsPage extends WizardPage implements Listener {
 		} else {
 			this.locationField.setText("");
 		}
-		if (prestagedLocation != null) {
-			this.preStagedCombo.setText(prestagedLocation);
-		} else {
-			this.preStagedCombo.setText("");
-		}
+		// if (prestagedLocation != null) {
+		// this.preStagedCombo.setText(prestagedLocation);
+		// } else {
+		// this.preStagedCombo.setText("");
+		// }
 		try {
 			updateFileTree();
 		} catch (Exception e) {
@@ -642,10 +640,10 @@ public class PickOriginalLocationsPage extends WizardPage implements Listener {
 		updateWidgets();
 	}
 
-	private void updateFromPrestagedLocation() {
-		this.prestagedLocation = this.preStagedCombo.getText();
-		updateWidgets();
-	}
+	// private void updateFromPrestagedLocation() {
+	// this.prestagedLocation = this.preStagedCombo.getText();
+	// updateWidgets();
+	// }
 
 	/**
 	 * @return
@@ -654,20 +652,20 @@ public class PickOriginalLocationsPage extends WizardPage implements Listener {
 		List<URI> selected = getSelectedLocations();
 		URI prestageBase = null;
 		try {
-			if (this.prestagedLocation != null) {
-				prestageBase = new URI(this.prestagedLocation);
+			if (this.preStagedButton.getSelection()) {
+				if (this.preStagedCombo.getText() != null && this.preStagedCombo.getText().trim().length() > 0) {
+					prestageBase = new URI(this.preStagedCombo.getText());
+					this.saveToPreviousPrestages(prestageBase.toString());
+				}
 			}
 		} catch (URISyntaxException e) {
 			e.printStackTrace();
 			return false;
 		}
-		Job linkJob = new OriginalsLinkJob(this.location, selected, getProject(), this.preStagedButton.getSelection(), prestageBase);
+		Job linkJob = new OriginalsLinkJob(this.location, selected, getProject(), this.preStagedButton.getSelection(),
+				prestageBase);
 		// linkJob.addJobChangeListener(this);
 		linkJob.schedule();
-
-		if(this.preStagedButton.getSelection()) {
-			this.saveToPreviousPrestages(prestageBase.toString());
-		}
 		// SNAPSHOT MAY NOT BE NEEDED ANY MORE and takes time
 		// for (IFolder folder : linkJob.getLinkFolders()) {
 		// Job snapshotJob = new OriginalFolderSnapshotJob(folder, false);

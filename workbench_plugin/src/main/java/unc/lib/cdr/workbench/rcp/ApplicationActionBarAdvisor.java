@@ -19,6 +19,7 @@ import org.eclipse.jface.action.IContributionItem;
 import org.eclipse.jface.action.ICoolBarManager;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.MenuManager;
+import org.eclipse.jface.action.Separator;
 import org.eclipse.jface.action.ToolBarManager;
 import org.eclipse.swt.SWT;
 import org.eclipse.ui.IWorkbenchActionConstants;
@@ -33,6 +34,11 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
 
 	private IWorkbenchAction newWizardDropDownAction;
 	private IWorkbenchAction aboutAction;
+	private IWorkbenchAction introAction;
+	private IWorkbenchAction showHelpAction;
+	private IWorkbenchAction searchHelpAction;
+	private IWorkbenchAction showDynamicHelpAction;
+
 	private IContributionItem newWizardMenu;
 	private IWorkbenchAction saveAction;
 	private IWorkbenchAction deleteAction;
@@ -43,14 +49,26 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
 
 	@Override
 	protected void makeActions(IWorkbenchWindow window) {
+		// user assistance
+		introAction = ActionFactory.INTRO.create(window);
+		register(introAction);
+		aboutAction = ActionFactory.ABOUT.create(window);
+		showHelpAction = ActionFactory.HELP_CONTENTS.create(window);
+		register(showHelpAction);
+		searchHelpAction = ActionFactory.HELP_SEARCH.create(window);
+		register(searchHelpAction);
+		showDynamicHelpAction = ActionFactory.DYNAMIC_HELP.create(window);
+		register(showDynamicHelpAction);
+
+		// standard actions
 		newWizardDropDownAction = ActionFactory.NEW_WIZARD_DROP_DOWN.create(window);
 		register(newWizardDropDownAction);
-		newWizardMenu = ContributionItemFactory.NEW_WIZARD_SHORTLIST.create(window);
-		aboutAction = ActionFactory.ABOUT.create(window);
 		saveAction = ActionFactory.SAVE.create(window);
 		register(saveAction);
 		deleteAction = ActionFactory.DELETE.create(window);
 		register(deleteAction);
+
+		newWizardMenu = ContributionItemFactory.NEW_WIZARD_SHORTLIST.create(window);
 	}
 
 	@Override
@@ -68,6 +86,16 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
 			menu.add(deleteAction);
 			menuBar.add(menu);
 		}
+		{
+			MenuManager menu = new MenuManager("&Help", IWorkbenchActionConstants.M_HELP);
+			menu.add(showHelpAction);
+			menu.add(searchHelpAction);
+			menu.add(showDynamicHelpAction);
+			menu.add(new Separator());
+			menuBar.add(menu);
+		}
+
+
 	}
 
 	@Override

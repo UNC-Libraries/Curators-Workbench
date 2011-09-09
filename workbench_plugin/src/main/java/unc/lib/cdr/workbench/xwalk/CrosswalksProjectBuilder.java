@@ -119,10 +119,12 @@ public class CrosswalksProjectBuilder extends IncrementalProjectBuilder {
 		try {
 			if (p.isOpen() && p.hasNature(MetsProjectNature.NATURE_ID)) {
 				MetsProjectNature n = (MetsProjectNature) p.getNature(MetsProjectNature.NATURE_ID);
-				for (IResource r : n.getCrosswalksElement().getFolder().members()) {
-					if (r.exists() && r instanceof IFile
-							&& IResourceConstants.CROSSWALK_EXTENSION.equals(r.getFileExtension())) {
-						runCrosswalk(n, (IFile) r);
+				if (n.getCrosswalksElement().getFolder().exists()) {
+					for (IResource r : n.getCrosswalksElement().getFolder().members()) {
+						if (r.exists() && r instanceof IFile
+								&& IResourceConstants.CROSSWALK_EXTENSION.equals(r.getFileExtension())) {
+							runCrosswalk(n, (IFile) r);
+						}
 					}
 				}
 			}

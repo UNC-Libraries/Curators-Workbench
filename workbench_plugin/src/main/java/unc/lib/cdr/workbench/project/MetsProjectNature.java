@@ -28,16 +28,23 @@ import gov.loc.mods.mods.provider.MODSItemProviderAdapterFactory;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+import org.eclipse.core.filesystem.EFS;
+import org.eclipse.core.filesystem.IFileStore;
+import org.eclipse.core.resources.ICommand;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IProjectDescription;
 import org.eclipse.core.resources.IProjectNature;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IResourceChangeEvent;
 import org.eclipse.core.resources.IResourceChangeListener;
+import org.eclipse.core.resources.IncrementalProjectBuilder;
 import org.eclipse.core.resources.ProjectScope;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
@@ -115,13 +122,14 @@ public class MetsProjectNature implements IProjectNature {
 
 	public static final String ORIGINALS_FOLDER_NAME = "originals";
 	private static final String CROSSWALKS_FOLDER_NAME = "crosswalks";
-	public static final String STAGE_FOLDER_NAME = ".stage";
+	// public static final String STAGE_FOLDER_NAME = ".stage";
 
 	private static final Logger log = LoggerFactory.getLogger(MetsProjectNature.class);
 	public static final String NATURE_ID = "cdr_producer.projectNature";
 	// public static final QualifiedName METS_KEY = new QualifiedName(NATURE_ID, "cdr_producer.metsKey");
 	public static final QualifiedName EDITING_DOMAIN_KEY = new QualifiedName(NATURE_ID, "cdr_producer.editingDomain");
 	public static final QualifiedName RESOURCE_SET_KEY = new QualifiedName(NATURE_ID, "cdr_producer.resourceSet");
+	public static final QualifiedName INITIAL_AUTOSTAGE_KEY = new QualifiedName(NATURE_ID, "cdr_producer.init_autostage");
 	public static final String STAGING_BUILDER_ID = "unc.lib.cdr.workbench.builders.StageBuilder";
 	public static final String CROSSWALKS_BUILDER_ID = "unc.lib.cdr.workbench.builders.CrosswalksBuilder";
 	public static final Path METS_PATH = new Path("workbench-mets.xml");
@@ -279,10 +287,28 @@ public class MetsProjectNature implements IProjectNature {
 
 	@Override
 	public void configure() throws CoreException {
-		// setProject already called
-		// TODO initialize the adapterfactories
-		// load();
+		System.err.println("IN CONFIGURE!!");
+		try {
+			IFolder cws = this.getProject().getFolder(CROSSWALKS_FOLDER_NAME);
+			if (!cws.exists()) {
+				System.err.println("READY TO MAKE CROSSWALK FOLDER!!");
+				cws.create(IResource.FORCE, true, new NullProgressMonitor());
+			}
 
+			IFolder os = this.getProject().getFolder(ORIGINALS_FOLDER_NAME);
+			if (!os.exists()) {
+				os.create(IResource.FORCE, true, new NullProgressMonitor());
+			}
+			// set up builders
+			IProjectDescription desc = this.getProject().getDescription();
+			boolean autostage = getAutomaticStaging(getProject());
+			setupBuildSpec(desc, autostage);
+			this.project.setDescription(desc, new NullProgressMonitor());
+			//this.project.setSessionProperty(EDITING_DOMAIN_KEY, editingDomain);
+			//this.project.setSessionProperty(RESOURCE_SET_KEY, resourceSet);
+		} catch (CoreException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
@@ -299,19 +325,9 @@ public class MetsProjectNature implements IProjectNature {
 	public void setProject(IProject project) {
 		this.project = project;
 		try {
-			this.project.setSessionProperty(EDITING_DOMAIN_KEY, editingDomain);
-			this.project.setSessionProperty(RESOURCE_SET_KEY, resourceSet);
-			IFolder cws = this.getProject().getFolder(CROSSWALKS_FOLDER_NAME);
-			if (!cws.exists()) {
-				cws.create(false, false, new NullProgressMonitor());
-			}
-
-			IFolder os = this.getProject().getFolder(ORIGINALS_FOLDER_NAME);
-			if (!os.exists()) {
-				os.create(false, false, new NullProgressMonitor());
-			}
 			load();
 		} catch (CoreException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -361,18 +377,14 @@ public class MetsProjectNature implements IProjectNature {
 		return this.getProject().getFolder(ORIGINALS_FOLDER_NAME);
 	}
 
-	public IFolder getStageFolder() {
-		return this.getProject().getFolder(STAGE_FOLDER_NAME);
-	}
-
-	public boolean getAutomaticStaging() {
+	public static boolean getAutomaticStaging(IProject project) {
 		boolean result = false;
 		ProjectScope[] s = {new ProjectScope(project)};
 		result = Platform.getPreferencesService().getBoolean(Activator.PLUGIN_ID, Activator.AUTOSTAGE_PREFERENCE, true, s);
 		return result;
 	}
 
-	public void setAutomaticStaging(boolean auto) {
+	public static void setAutomaticStaging(boolean auto, IProject project) {
 		ProjectScope s = new ProjectScope(project);
 		IEclipsePreferences pref = s.getNode(Activator.PLUGIN_ID);
 		pref.putBoolean(Activator.AUTOSTAGE_PREFERENCE, auto);
@@ -423,9 +435,9 @@ public class MetsProjectNature implements IProjectNature {
 	/**
 	 * @param stageURI
 	 */
-	public void setStagingBase(java.net.URI stageURI) {
+	public static void setStagingBase(java.net.URI stageURI, IProject project) {
 		try {
-			this.getProject().setPersistentProperty(STAGING_BASE_URI_KEY, stageURI.toString());
+			project.setPersistentProperty(STAGING_BASE_URI_KEY, stageURI.toString());
 		} catch(CoreException e) {
 			throw new Error("Cannot set staging base for project.", e);
 		}
@@ -439,6 +451,42 @@ public class MetsProjectNature implements IProjectNature {
 			throw new Error("unexpected", e);
 		}
 
+	}
+
+	/**
+	 * @return
+	 */
+	public IFileStore getStageFileStore() {
+		try {
+			return EFS.getStore(getStagingBase());
+		} catch (CoreException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	public static void setupBuildSpec(IProjectDescription desc, boolean autostage) {
+		System.err.println("setting autostage to: "+ autostage);
+
+		// create staging builder
+		ICommand stagingCommand = desc.newCommand();
+		stagingCommand.setBuilderName(MetsProjectNature.STAGING_BUILDER_ID);
+		stagingCommand.setBuilding(IncrementalProjectBuilder.AUTO_BUILD, autostage);
+		stagingCommand.setBuilding(IncrementalProjectBuilder.FULL_BUILD, true);
+		stagingCommand.setBuilding(IncrementalProjectBuilder.INCREMENTAL_BUILD, true);
+
+		// create crosswalks builder
+		ICommand crosswalksCommand = desc.newCommand();
+		crosswalksCommand.setBuilderName(MetsProjectNature.CROSSWALKS_BUILDER_ID);
+		crosswalksCommand.setBuilding(IncrementalProjectBuilder.AUTO_BUILD, true);
+		crosswalksCommand.setBuilding(IncrementalProjectBuilder.FULL_BUILD, true);
+		crosswalksCommand.setBuilding(IncrementalProjectBuilder.INCREMENTAL_BUILD, true);
+
+		// add builders to project description
+		List<ICommand> builders = new ArrayList<ICommand>();
+		builders.add(stagingCommand);
+		builders.add(crosswalksCommand);
+		desc.setBuildSpec(builders.toArray(new ICommand[2]));
 	}
 
 }

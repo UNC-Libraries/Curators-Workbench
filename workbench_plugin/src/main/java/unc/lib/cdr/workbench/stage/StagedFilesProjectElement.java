@@ -15,8 +15,10 @@
  */
 package unc.lib.cdr.workbench.stage;
 
-import org.eclipse.core.resources.IFolder;
+import org.eclipse.core.filesystem.EFS;
+import org.eclipse.core.filesystem.IFileStore;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,7 +29,7 @@ import unc.lib.cdr.workbench.rcp.Activator;
 
 /**
  * @author Gregory Jansen
- * 
+ *
  */
 public class StagedFilesProjectElement extends AbstractCustomProjectElement {
 
@@ -35,16 +37,16 @@ public class StagedFilesProjectElement extends AbstractCustomProjectElement {
 	private static final Logger LOG = LoggerFactory.getLogger(StagedFilesProjectElement.class);
 
 	private static final String text = "Staged Files";
-	private IFolder folder = null;
+	private IFileStore folder = null;
 
 	public StagedFilesProjectElement(MetsProjectNature nature) {
 		super(nature);
-		folder = nature.getStageFolder();
+		folder = nature.getStageFileStore();
 	}
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see unc.lib.cdr.workbench.project.ICustomProjectElement#getImage()
 	 */
 	@Override
@@ -54,14 +56,14 @@ public class StagedFilesProjectElement extends AbstractCustomProjectElement {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see unc.lib.cdr.workbench.project.ICustomProjectElement#getChildren()
 	 */
 	@Override
 	public Object[] getChildren() {
 		try {
 			if (this.getFolder() != null) {
-				return this.getFolder().members();
+				return this.getFolder().childStores(EFS.NONE, new NullProgressMonitor());
 			} else {
 				LOG.debug("stage folder was null");
 			}
@@ -71,13 +73,13 @@ public class StagedFilesProjectElement extends AbstractCustomProjectElement {
 		return NO_CHILDREN;
 	}
 
-	public IFolder getFolder() {
+	public IFileStore getFolder() {
 		return folder;
 	}
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see unc.lib.cdr.workbench.project.ICustomProjectElement#getText()
 	 */
 	@Override
@@ -87,7 +89,7 @@ public class StagedFilesProjectElement extends AbstractCustomProjectElement {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see unc.lib.cdr.workbench.project.ICustomProjectElement#hasChildren()
 	 */
 	@Override

@@ -44,33 +44,31 @@ public class MetsProjectNatureSupport {
 	 * @param natureId
 	 * @return
 	 */
-	public static IProject createProject(String projectName, URI location, boolean autostage) {
+	public static IProject createProject(String projectName, URI location, boolean autostage) throws CoreException {
 		Assert.isNotNull(projectName);
 		Assert.isTrue(projectName.trim().length() > 0);
 		NullProgressMonitor npm = new NullProgressMonitor();
 		IProject newProject = ResourcesPlugin.getWorkspace().getRoot().getProject(projectName);
+		IProjectDescription desc = null;
 		if (!newProject.exists()) {
 			URI projectLocation = location;
-			IProjectDescription desc = newProject.getWorkspace().newProjectDescription(newProject.getName());
-			setProjectDescription(desc, autostage);
+			desc = newProject.getWorkspace().newProjectDescription(newProject.getName());
 			if (location != null && ResourcesPlugin.getWorkspace().getRoot().getLocationURI().equals(location)) {
 				projectLocation = null;
 			}
 			desc.setLocationURI(projectLocation);
-			try {
-				newProject.create(desc, null);
-			} catch (CoreException e) {
-				e.printStackTrace();
-			}
+			newProject.create(desc, null);
 		}
-		try {
-			if (!newProject.isOpen()) {
-				newProject.open(npm);
-			}
-		} catch (CoreException e) {
-			e.printStackTrace();
-			newProject = null;
+		if (!newProject.isOpen()) {
+			newProject.open(npm);
 		}
+		// set initial autostage property
+		MetsProjectNature.setAutomaticStaging(autostage, newProject);
+
+		// add custom nature
+		desc = newProject.getWorkspace().newProjectDescription(newProject.getName());
+		setupProjectDescription(desc, autostage);
+		newProject.setDescription(desc, null);
 		return newProject;
 	}
 
@@ -80,33 +78,13 @@ public class MetsProjectNatureSupport {
 	 * @param location
 	 * @param projectName
 	 */
-	private static void setProjectDescription(IProjectDescription desc, boolean autostage) {
+	private static void setupProjectDescription(IProjectDescription desc, boolean autostage) {
 		// add the nature to description
 		String[] prevNatures = desc.getNatureIds();
 		String[] newNatures = new String[prevNatures.length + 1];
 		System.arraycopy(prevNatures, 0, newNatures, 0, prevNatures.length);
 		newNatures[prevNatures.length] = MetsProjectNature.NATURE_ID;
 		desc.setNatureIds(newNatures);
-
-		// create staging builder
-		ICommand stagingCommand = desc.newCommand();
-		stagingCommand.setBuilderName(MetsProjectNature.STAGING_BUILDER_ID);
-		stagingCommand.setBuilding(IncrementalProjectBuilder.AUTO_BUILD, autostage);
-		stagingCommand.setBuilding(IncrementalProjectBuilder.FULL_BUILD, true);
-		stagingCommand.setBuilding(IncrementalProjectBuilder.INCREMENTAL_BUILD, true);
-
-		// create crosswalks builder
-		ICommand crosswalksCommand = desc.newCommand();
-		crosswalksCommand.setBuilderName(MetsProjectNature.CROSSWALKS_BUILDER_ID);
-		crosswalksCommand.setBuilding(IncrementalProjectBuilder.AUTO_BUILD, true);
-		crosswalksCommand.setBuilding(IncrementalProjectBuilder.FULL_BUILD, true);
-		crosswalksCommand.setBuilding(IncrementalProjectBuilder.INCREMENTAL_BUILD, true);
-
-		// add builders to project description
-		List<ICommand> builders = new ArrayList<ICommand>();
-		builders.add(stagingCommand);
-		builders.add(crosswalksCommand);
-		desc.setBuildSpec(builders.toArray(new ICommand[2]));
 	}
 
 }

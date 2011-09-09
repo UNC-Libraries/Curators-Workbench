@@ -212,21 +212,6 @@
    <extension
          point="org.eclipse.ui.menus">
       <menuContribution
-            locationURI="menu:org.eclipse.ui.main.menu">
-         <menu
-               id="help"
-               label="Help">
-            <command
-                  commandId="org.eclipse.ui.window.preferences"
-                  style="push">
-            </command>
-            <command
-                  commandId="org.eclipse.ui.help.aboutAction"
-                  style="push">
-            </command>
-         </menu>
-      </menuContribution>
-      <menuContribution
             allPopups="true"
             locationURI="popup:org.eclipse.ui.popup.any?after=additions">
          <command
@@ -291,8 +276,8 @@
             </visibleWhen>
          </command>
          <command
-               commandId="cdr-workbench.commandExportCDRSubmission"
-               label="Export CDR Submission"
+               commandId="org.eclipse.ui.file.export"
+               label="Export.."
                style="push">
          </command>
          <command
@@ -689,6 +674,22 @@
                style="push">
          </command>
       </menuContribution>
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:help?after=additions">
+         <command
+               commandId="org.eclipse.ui.help.quickStartAction"
+               style="push">
+         </command>
+         <command
+               commandId="org.eclipse.ui.window.preferences"
+               style="push">
+         </command>
+         <command
+               commandId="org.eclipse.ui.help.aboutAction"
+               style="push">
+         </command>
+      </menuContribution>
    </extension>
    <extension
          point="org.eclipse.ui.preferencePages">
@@ -696,6 +697,15 @@
             class="unc.lib.cdr.workbench.preferences.StagingPreferencePage"
             id="cdr_producer.preferences.PreferencePage"
             name="Staging">
+      </page>
+      <page
+            category="org.eclipse.ui.preferencePages.Workbench"
+            class="org.eclipse.ui.intro.universal.ExtensionFactory:welcomeCustomization"
+            id="workbench_plugin.introCustomization"
+            name="Workbench Welcome">
+         <keywordReference
+               id="org.eclipse.ui.ide.appearance">
+         </keywordReference>
       </page>
    </extension>
    <extension
@@ -1235,6 +1245,18 @@
                name="aboutText"
                value="Curator&apos;s Workbench&#x0A;&#x0A;Gregory N. Jansen, design and development&#x0A;count0@email.unc.edu&#x0A;University Libraries&#x0A;UNC Chapel Hill">
          </property>
+         <property
+               name="introTitle"
+               value="Wecome to the Curator&apos;s Workbench">
+         </property>
+         <property
+               name="introBrandingImage"
+               value="product:intro.png">
+         </property>
+         <property
+               name="introBrandingImageText"
+               value="Curator&apos;s Workbench Logo Image">
+         </property>
       </product>
    </extension>
    <extension
@@ -1401,6 +1423,32 @@
             activityId="workbench_plugin.activityIDEMenus"
             pattern="org.eclipse.compare.*">
       </activityPatternBinding>
+   </extension>
+   <extension
+         point="org.eclipse.ui.intro">
+      <introProductBinding
+            introId="org.eclipse.ui.intro.universal"
+            productId="workbench_plugin.eclipse-repository">
+      </introProductBinding>
+   </extension>
+   <extension
+         point="org.eclipse.ui.intro.configExtension">
+      <configExtension
+            configId="org.eclipse.ui.intro.universalConfig"
+            content="intro/overview.xml">
+      </configExtension>
+      <configExtension
+            configId="org.eclipse.ui.intro.universalConfig"
+            content="intro/whatsnew.xml">
+      </configExtension>
+      <configExtension
+            configId="org.eclipse.ui.intro.universalConfig"
+            content="intro/githubReleases.xml">
+      </configExtension>
+      <configExtension
+            configId="org.eclipse.ui.intro.universalConfig"
+            content="intro/webresources.xml">
+      </configExtension>
    </extension>
 
 </plugin>

@@ -52,8 +52,8 @@ public class StageBuilder extends IncrementalProjectBuilder {
 		IProject[] result = null;
 		MetsProjectNature mpn = (MetsProjectNature)getProject().getNature(MetsProjectNature.NATURE_ID);
 
-		if(AUTO_BUILD == kind && !mpn.getAutomaticStaging()) {
-			System.out.println("skipping this auto build b/c auto staging says "+mpn.getAutomaticStaging());
+		if(AUTO_BUILD == kind && !mpn.getAutomaticStaging(getProject())) {
+			System.out.println("skipping this auto build b/c auto staging says "+mpn.getAutomaticStaging(getProject()));
 			return result;
 		}
 		boolean audit = false;

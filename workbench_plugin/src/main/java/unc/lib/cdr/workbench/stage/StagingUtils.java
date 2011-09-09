@@ -232,6 +232,9 @@ public class StagingUtils {
 		} else {
 			monitor.beginTask("Retreiving staged file and calculating checksum", 100);
 			info = fileStore.fetchInfo();
+			if(info.getLength() == 0) {
+				return "d41d8cd98f00b204e9800998ecf8427e";
+			}
 			MessageDigest messageDigest;
 			try {
 				messageDigest = MessageDigest.getInstance("MD5");
@@ -244,6 +247,9 @@ public class StagingUtils {
 			int bytesRead = 0;
 			int totalBytesRead = 0;
 			int progressTickBytes = (int) info.getLength() / 100;
+			if(progressTickBytes == 0) {
+				progressTickBytes = 1; // prevents divide by zero on files less than 100 bytes
+			}
 			BufferedInputStream in = new BufferedInputStream(fileStore.openInputStream(EFS.NONE, null));
 			try {
 				while ((bytesRead = in.read(buffer, 0, chunkSize)) != -1) {

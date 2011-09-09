@@ -54,10 +54,10 @@ public class AutoStageAction implements IObjectActionDelegate {
 	 */
 	private void toggleStaging(IProject project) throws CoreException {
 		MetsProjectNature mpn = (MetsProjectNature)project.getNature(MetsProjectNature.NATURE_ID);
-		boolean setting = mpn.getAutomaticStaging();
-		mpn.setAutomaticStaging(!setting);
-		System.out.println("toggled auto staging, it now says "+mpn.getAutomaticStaging());
-		if(mpn.getAutomaticStaging()) {
+		boolean setting = mpn.getAutomaticStaging(project);
+		mpn.setAutomaticStaging(!setting, project);
+		System.out.println("toggled auto staging, it now says "+mpn.getAutomaticStaging(project));
+		if(mpn.getAutomaticStaging(project)) {
 			project.build(IncrementalProjectBuilder.FULL_BUILD, MetsProjectNature.STAGING_BUILDER_ID, Collections.EMPTY_MAP,
 				new NullProgressMonitor());
 		}
@@ -95,7 +95,7 @@ public class AutoStageAction implements IObjectActionDelegate {
 				if (project != null) {
 					try {
 						MetsProjectNature mpn = (MetsProjectNature)project.getNature(MetsProjectNature.NATURE_ID);
-						boolean status = mpn.getAutomaticStaging();
+						boolean status = mpn.getAutomaticStaging(project);
 						action.setChecked(new Boolean(status));
 					} catch (CoreException e) {
 						e.printStackTrace();

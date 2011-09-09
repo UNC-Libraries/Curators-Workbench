@@ -48,6 +48,7 @@
 		<module>crosswalk-gmf.diagram</module>
 		<module>crosswalk-gmf.edit</module>
 		<module>crosswalk-gmf.editor</module>
+		<module>workbench_help</module>
 		<module>workbench_feature</module>
 		<module>workbench_plugin</module>
 		<module>eclipse-repository</module>
