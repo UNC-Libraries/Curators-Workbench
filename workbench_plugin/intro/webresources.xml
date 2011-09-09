@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<introContent>
+	<extensionContent
+		id="workbench-webresources"
+		name="Web Resources"
+		path="webresources/@"
+	>
+		<group
+			label="Guides &amp; How-To Information"
+			id="how-to-group"
+			style-id="content-group"
+		>
+			<text
+				style-id="group-description"
+			>These are links to more resources related to the Curator's Workbench.</text>
+			<link
+				label="Carolina Digital Repository Blog"
+				url="http://www.lib.unc.edu/blogs/cdr/"
+				style-id="content-link"
+			>				<text>The best source for news about the UNC Chapel Hill repository.</text>
+			</link>
+			<link
+				label="The Carolina Digital Repository"
+				url="http://cdr.lib.unc.edu/"
+				style-id="content-link"
+			>
+				<text>The repository at UNC Chapel Hill.</text>
+			</link>
+			<link
+				label="Curator's Workbench GitHub™ Project"
+				url="http://cdr.lib.unc.edu/"
+				style-id="content-link"
+			>
+				<text>The GitHub software project site, including code, upcoming milestones and issue tracking.</text>
+			</link>
+			<link
+				label="Software Downloads"
+				url="http://www.lib.unc.edu/software/"
+				style-id="content-link"
+			>
+				<text>Download the workbench from our software download page.</text>
+			</link>
+			<link
+				label="Apache 2 Software License"
+				url="http://www.apache.org/licenses/LICENSE-2.0"
+				style-id="content-link"
+			>
+				<text>This is the open source license under which the Curator's Workbench is distributed.</text>
+			</link>
+			<link
+				label="Users Group on Google Groups™"
+				url="http://groups.google.com/group/curators-workbench-users"
+				style-id="content-link"
+			>
+				<text>A discussion forum for users of the workbench.</text>
+			</link>
+			<link
+				label="Basic User's Guide (PDF)"
+				url="http://www.lib.unc.edu/software/workbench/basic_user_guide.pdf"
+				style-id="content-link"
+			>
+				<text>This document covers the core concepts and tasks.</text>
+			</link>
+			<link
+				label="Workbench Screencast"
+				url="http://www.youtube.com/watch?v=qXtFrWDgS84"
+				style-id="content-link"
+			>
+				<text>Watch a screencast of the workbench in action.</text>
+			</link>
+			<link
+				label="Prezi™ Presentation"
+				url="http://prezi.com/iib3pqk-kyd-/curators-workbench/"
+				style-id="content-link"
+			>
+				<text>This is a Prezi(tm) presentation that provides some context for the Curator’s Workbench.</text>
+			</link>
+			<link
+				label="Curator’s Workbench Poster"
+				url="http://www.lib.unc.edu/blogs/cdr/index.php/2010/12/01/poster-curators-workbench/"
+				style-id="content-link"
+			>
+				<text>A Curator’s Workbench Poster, prepared for the 2010 International Digital Curation Conference.</text>
+			</link>
+		</group>
+	</extensionContent>
+</introContent>

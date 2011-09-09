@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Curator's Workbench Help
+Bundle-SymbolicName: workbench_help; singleton:=true
+Bundle-Version: 0.0.1.qualifier
+Bundle-Vendor: UNC Chapel Hill
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

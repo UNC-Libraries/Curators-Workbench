@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<introContent>
+	<extensionContent
+		id="githubReleases"
+		name="Releases on GitHub"
+		path="whatsnew/@"
+	>
+		<group
+			label="Releases on GitHub"
+			id="githubReleases-group"
+			style-id="content-group"
+		>
+			<text
+				style-id="group-description"
+			>These links takes you to lists of the issues resolved in each release, on GitHub. You can always see what features
+				are under development on the project GitHub site.</text>
+			<link
+				label="Issues Closed in Release 3"
+				url="https://github.com/UNC-Libraries/Curators-Workbench/issues?&amp;state=closed&amp;milestone=4"
+				id="github-milestone"
+				style-id="content-link"
+			>
+				<text>This is the current release. It adds support for pre-staged originals and addressed some usability concerns
+					raised by production use. You can also now use the context menu to "open a temporary copy" of any original or
+					arranged item in your system's default editor.</text>
+			</link>
+			<link
+				label="Issues Closed in Release 2"
+				url="https://github.com/UNC-Libraries/Curators-Workbench/issues?&amp;state=closed&amp;milestone=2"
+				id="github-milestone"
+				style-id="content-link"
+			>
+				<text>Release 2 revamped crosswalk definitions to allow greater flexibility and addressed many production issues for
+					the Carolina Digital Repository. It added access control settings to the Arranged objects and allowed linking of
+					folders to their surrogate images.</text>
+			</link>
+			<link
+				label="Issues Closed Outside of a Release"
+				url="https://github.com/UNC-Libraries/Curators-Workbench/issues?&amp;state=closed&amp;milestone=none"
+				id="github-milestone"
+				style-id="content-link"
+			>
+				<text>These issues were resolved prior to Release 2 or outside of the normal release cycle.</text>
+			</link>
+		</group>
+	</extensionContent>
+</introContent>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<introContent>
+	<extensionContent
+		id="workbench-releasenotes"
+		name="What's New in the Workbench"
+		path="whatsnew/@"
+	>
+		<group
+			label="Overview of Release 3"
+			id="releasenotes-group"
+			style-id="content-group"
+		>
+			<text
+				style-id="group-description"
+			>This release included several enhancements to usability and new support for "pre-staged" originals:</text>
+			<group
+				label="Pre-Staged Originals"
+				id="prestage-group"
+				style-id="content-group"
+			>
+				<text
+					style-id="group-description"
+				>In normal work flow the workbench carefully copies captured files to a staging location. The "Pre-Staged Originals"
+					feature lets you assert that a set of Originals are already staged, and where. In the Link Originals Wizard you may
+					indicate the location in which the originals are already staged. This feature allows you to prepare materials that
+					are already in a safe staging location without creating redundant copies. Staged locations are now listed in the
+					Properties view for files in the Arrangement.</text>
+			</group>
+			<group
+				label="Improved Originals Wizard"
+				id="originals-group"
+				style-id="content-group"
+			>
+				<text
+					style-id="group-description"
+				>We had a request that we support linking to multiple original folders within the same interface. This request, plus
+					the need for the pre-staging option, led to a rework of the whole "Link Originals" wizard. The new dialog lets you
+					pick a top folder, then browse within it to choose which sub-folder or files to link. Pre-stage locations are
+					entered relative to the top folder.</text>
+			</group>
+			<group
+				label='Interface "Paper Cuts"'
+				id="papercuts-group"
+				style-id="content-group"
+			>
+				<text
+					style-id="group-description"
+				>A number of minor user interface glitches have been addressed, including:
+				&lt;li&gt;Starting writing integrated help, including this screen!&lt;/li&gt;
+				&lt;li&gt;SIP Export let's you choose the file name and location.&lt;/li&gt;
+				&lt;li&gt;In Crosswalk editor, double-click to select new element or attribute type.&lt;/li&gt;
+				&lt;li&gt;In Crosswalk editor, date matchers come with a default set of date patterns.&lt;/li&gt;
+				&lt;li&gt;In Navigator, reordered and regrouped pop-up menus to reflect common work flow.&lt;/li&gt;
+				&lt;li&gt;In Navigator, removed irrelevant pop-up menus inherited from Eclipse platform.&lt;/li&gt;
+				</text>
+			</group>
+		</group>
+	</extensionContent>
+</introContent>

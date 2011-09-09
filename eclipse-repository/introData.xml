@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<extensions>
+   <page id="overview">
+      <group path="page-content/bottom-left" default="true">
+      </group>
+      <group path="page-content/bottom-right" default="true">
+      </group>
+      <group path="page-content/top-left">
+         <extension id="overview" importance="high"/>
+      </group>
+      <group path="page-content/top-right">
+         <extension id="concepts" importance="high"/>
+      </group>
+   </page>
+   <page id="whatsnew">
+      <group path="page-content/bottom-left" default="true">
+      </group>
+      <group path="page-content/bottom-right" default="true">
+      </group>
+      <group path="page-content/top-left">
+         <extension id="workbench-releasenotes" importance="high"/>
+      </group>
+      <group path="page-content/top-right">
+         <extension id="githubReleases" importance="callout"/>
+      </group>
+   </page>
+      <page id="webresources">
+      <group path="page-content/bottom-left" default="true">
+      </group>
+      <group path="page-content/bottom-right" default="true">
+      </group>
+      <group path="page-content/top-left">
+         <extension id="workbench-webresources" importance="high"/>
+      </group>
+      <group path="page-content/top-right">
+      </group>
+   </page>
+</extensions>

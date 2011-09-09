@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<introContent>
+		<extensionContent
+				id="overview"
+				name="Overview"
+				path="overview/@"
+		>
+				<group>
+						<text>
+								<p>The Curator’s Workbench is a collection preparation and work flow tool for digital materials. It is designed
+										to acquire and process file structures efficiently while giving archivists and other curators control over
+										their work. The workbench can assist with accession, arrangement, description and staging of digital objects
+										and is commonly used to prepare batch submissions to a repository.</p>
+								<p>The workbench provides information and controls to help you make informed decisions. The main workbench
+										window is divided into three parts.</p>
+								<p>The Project Navigator area is on the left side of the workbench. It displays all the projects in your
+										workspace and their contents. Each project is divided into three sections, which are Originals, the
+										Arrangement and Crosswalks.</p>
+						</text>
+				</group>
+		</extensionContent>
+		<extensionContent
+				id="concepts"
+				name="Concepts"
+				path="overview/@"
+		>
+				<group>
+						<text><b>Crosswalk</b> - In the context of the Curator's Workbench, a crosswalk allows you to define mappings between
+								tabular metadata (supplied metadata) records and MODS records for your projects.</text>
+				</group>
+		</extensionContent>
+</introContent>
