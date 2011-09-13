@@ -8,8 +8,8 @@
 	<packaging>pom</packaging>
 	<inceptionYear>2010</inceptionYear>
 	<properties>
-		<tycho-version>0.11.0-SNAPSHOT</tycho-version>
-		<tycho-groupid>org.sonatype.tycho</tycho-groupid>
+		<tycho-version>0.13.0-SNAPSHOT</tycho-version>
+		<tycho-groupid>org.eclipse.tycho</tycho-groupid>
 		<eclipse-repository-url>http://download.eclipse.org/eclipse/updates/3.6</eclipse-repository-url>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

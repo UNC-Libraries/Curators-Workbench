@@ -19,12 +19,8 @@ Require-Bundle: org.eclipse.core.expressions;bundle-version="3.4.200",
  access-control;bundle-version="0.0.1",
  access-control.edit;bundle-version="0.0.1",
  org.eclipse.ui.intro;bundle-version="3.4.0",
- org.eclipse.ui.intro.universal;bundle-version="3.2.402",
  workbench_help;bundle-version="0.0.1",
- org.eclipse.help.appserver;bundle-version="3.1.400",
- org.eclipse.help.base;bundle-version="3.5.3",
- org.eclipse.help.ui;bundle-version="3.5.3",
- org.eclipse.help.webapp;bundle-version="3.5.3"
+ org.eclipse.help.appserver;bundle-version="3.1.400"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
 Bundle-ClassPath: .,
