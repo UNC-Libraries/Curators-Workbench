@@ -80,6 +80,7 @@
 				<version>${tycho-version}</version>
 				<configuration>
 					<resolver>p2</resolver>
+					<ignoreTychoRepositories>true</ignoreTychoRepositories>
 					<target>
 						<artifact>
 							<groupId>curators.workbench</groupId>
@@ -88,7 +89,6 @@
 							<classifier>helios</classifier>
 						</artifact>
 					</target>
-					<ignoreTychoRepositories>true</ignoreTychoRepositories>
 					<!--<pomDependencies>consider</pomDependencies>-->
 					<environments>
 						<environment>
@@ -138,7 +138,7 @@
 				</configuration>
 			</plugin>-->
 			<plugin>
-				<groupId>org.sonatype.tycho</groupId>
+				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>maven-osgi-compiler-plugin</artifactId>
 				<version>${tycho-version}</version>
 				<configuration>
