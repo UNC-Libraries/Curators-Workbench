@@ -50,8 +50,12 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
 	@Override
 	protected void makeActions(IWorkbenchWindow window) {
 		// user assistance
-		introAction = ActionFactory.INTRO.create(window);
-		register(introAction);
+		try {
+			introAction = ActionFactory.INTRO.create(window);
+			register(introAction);
+		} catch (NullPointerException e) {
+			e.printStackTrace();
+		}
 		aboutAction = ActionFactory.ABOUT.create(window);
 		showHelpAction = ActionFactory.HELP_CONTENTS.create(window);
 		register(showHelpAction);
@@ -94,7 +98,6 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
 			menu.add(new Separator());
 			menuBar.add(menu);
 		}
-
 
 	}
 
