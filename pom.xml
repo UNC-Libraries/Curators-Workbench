@@ -8,7 +8,7 @@
 	<packaging>pom</packaging>
 	<inceptionYear>2010</inceptionYear>
 	<properties>
-		<tycho-version>0.13.0-SNAPSHOT</tycho-version>
+		<tycho-version>0.12.0</tycho-version>
 		<tycho-groupid>org.eclipse.tycho</tycho-groupid>
 		<eclipse-repository-url>http://download.eclipse.org/eclipse/updates/3.6</eclipse-repository-url>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -74,6 +74,12 @@
 				<version>${tycho-version}</version>
 				<extensions>true</extensions>
 			</plugin>
+			<plugin>
+        <groupId>${tycho-groupid}</groupId>
+        <artifactId>tycho-maven-plugin</artifactId>
+        <version>${tycho-version}</version>
+        <extensions>true</extensions>
+      </plugin>
 			<plugin>
 				<groupId>${tycho-groupid}</groupId>
 				<artifactId>target-platform-configuration</artifactId>
