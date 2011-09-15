@@ -23,9 +23,12 @@ import java.net.URISyntaxException;
 
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IAdapterFactory;
+
+import unc.lib.cdr.workbench.project.MetsProjectNature;
 
 public class DivAdapterFactory implements IAdapterFactory {
 	@SuppressWarnings("rawtypes")
@@ -39,19 +42,24 @@ public class DivAdapterFactory implements IAdapterFactory {
 			if (adaptableObject instanceof DivType) {
 				// make a DivType into a IResource.
 				DivType d = (DivType) adaptableObject;
+				IProject project = MetsProjectNature.getProjectForMetsEObject(d);
 				if (d.getCONTENTIDS() != null && d.getCONTENTIDS().size() > 0) {
 					URI loc;
 					try {
 						loc = new URI(d.getCONTENTIDS().get(0));
 						if (METSConstants.Div_File.equals(d.getTYPE())) {
 							IFile[] files = ResourcesPlugin.getWorkspace().getRoot().findFilesForLocationURI(loc);
-							if (files.length > 0) {
-								result = files[0];
+							for(IFile f : files) {
+								if(project.equals(f.getProject())) {
+									result = f;
+								}
 							}
 						} else {
 							IContainer[] cs = ResourcesPlugin.getWorkspace().getRoot().findContainersForLocationURI(loc);
-							if (cs.length > 0) {
-								result = cs[0];
+							for(IContainer f : cs) {
+								if(project.equals(f.getProject())) {
+									result = f;
+								}
 							}
 						}
 					} catch (URISyntaxException e) {

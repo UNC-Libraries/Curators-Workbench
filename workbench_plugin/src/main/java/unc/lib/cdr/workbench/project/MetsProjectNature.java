@@ -82,43 +82,6 @@ import unc.lib.cdr.workbench.stage.StagedFilesProjectElement;
 import unc.lib.cdr.workbench.xwalk.CrosswalksProjectElement;
 
 public class MetsProjectNature implements IProjectNature {
-	/**
-	 * @author Gregory Jansen
-	 *
-	 */
-	public class ProjectCloseListener implements IResourceChangeListener {
-
-		private IProject myproject = null;
-
-		ProjectCloseListener(IProject project) {
-			this.myproject = project;
-		}
-
-		/*
-		 * (non-Javadoc)
-		 *
-		 * @see org.eclipse.core.resources.IResourceChangeListener#resourceChanged
-		 * (org.eclipse.core.resources.IResourceChangeEvent)
-		 */
-		@Override
-		public void resourceChanged(IResourceChangeEvent event) {
-			IResource res = event.getResource();
-			if (myproject.equals(res) && IResourceChangeEvent.PRE_CLOSE == event.getType()) {
-				log.debug("detected my project PRE_CLOSE event.");
-				// save the METS before closing..
-				try {
-					MetsProjectNature n = (MetsProjectNature) myproject.getNature(NATURE_ID);
-					n.save();
-				} catch (CoreException e) {
-					e.printStackTrace();
-				} finally {
-					ResourcesPlugin.getWorkspace().removeResourceChangeListener(this);
-				}
-
-			}
-		}
-
-	}
 
 	public static final String ORIGINALS_FOLDER_NAME = "originals";
 	private static final String CROSSWALKS_FOLDER_NAME = "crosswalks";
@@ -126,31 +89,19 @@ public class MetsProjectNature implements IProjectNature {
 
 	private static final Logger log = LoggerFactory.getLogger(MetsProjectNature.class);
 	public static final String NATURE_ID = "cdr_producer.projectNature";
-	// public static final QualifiedName METS_KEY = new QualifiedName(NATURE_ID, "cdr_producer.metsKey");
-	public static final QualifiedName EDITING_DOMAIN_KEY = new QualifiedName(NATURE_ID, "cdr_producer.editingDomain");
-	public static final QualifiedName RESOURCE_SET_KEY = new QualifiedName(NATURE_ID, "cdr_producer.resourceSet");
+	public static final QualifiedName EMF_SESSION_KEY = new QualifiedName(NATURE_ID, "cdr_producer.projectEMFSession");
 	public static final QualifiedName INITIAL_AUTOSTAGE_KEY = new QualifiedName(NATURE_ID, "cdr_producer.init_autostage");
 	public static final String STAGING_BUILDER_ID = "unc.lib.cdr.workbench.builders.StageBuilder";
 	public static final String CROSSWALKS_BUILDER_ID = "unc.lib.cdr.workbench.builders.CrosswalksBuilder";
-	public static final Path METS_PATH = new Path("workbench-mets.xml");
 	private static final QualifiedName STAGING_BASE_URI_KEY = new QualifiedName(NATURE_ID, "cdr_producer.stagingBaseURI");
-	private static ComposedAdapterFactory adapterFactory = null;
 
 	private IProject project = null;
-	private ResourceSet resourceSet = null;
-	private CommandStack commandStack = null;
-	private EditingDomain editingDomain = null;
-	private Resource metsResource = null;
-	private ExtendedMetaData extendedMetaData = null;
+
 	private ICustomProjectElement[] elements = null;
 	private CrosswalksProjectElement crosswalksElement = null;
 	private ArrangementProjectElement arrangementElement = null;
 	private OriginalFoldersProjectElement originalsElement = null;
 	private StagedFilesProjectElement stagedFilesElement = null;
-
-	public ExtendedMetaData getExtendedMetaData() {
-		return extendedMetaData;
-	}
 
 	public StagedFilesProjectElement getStagedFilesElement() {
 		if (stagedFilesElement == null) {
@@ -180,29 +131,7 @@ public class MetsProjectNature implements IProjectNature {
 		return arrangementElement;
 	}
 
-	static {
-		adapterFactory = new ComposedAdapterFactory();
-		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new MetsItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new XlinkItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new MODSItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new AclItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
-	}
-
 	public MetsProjectNature() {
-		this.resourceSet = new ResourceSetImpl();
-		// Register the appropriate resource factory to handle all file
-		// extensions.
-		this.resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap()
-				.put(Resource.Factory.Registry.DEFAULT_EXTENSION, new MetsResourceFactoryImpl());
-		// Register the package to ensure it is available during loading.
-		this.resourceSet.getPackageRegistry().put(MetsPackage.eNS_URI, MetsPackage.eINSTANCE);
-		// Create the command stack that will notify this editor as commands are
-		// executed.
-		commandStack = new BasicCommandStack();
-		editingDomain = new AdapterFactoryEditingDomain(adapterFactory, commandStack, resourceSet);
-		extendedMetaData = new BasicExtendedMetaData(resourceSet.getPackageRegistry());
 	}
 
 	public ICustomProjectElement[] getProjectElements() {
@@ -214,74 +143,46 @@ public class MetsProjectNature implements IProjectNature {
 	}
 
 	public Resource getMetsResource() {
-		return metsResource;
+		return getEMFSession().getMetsResource();
 	}
 
 	public static ComposedAdapterFactory getAdapterFactory() {
-		return adapterFactory;
+		return ProjectEMFSession.getAdapterFactory();
 	}
 
 	public CommandStack getCommandStack() {
-		return commandStack;
+		return getEMFSession().getCommandStack();
 	}
 
 	public EditingDomain getEditingDomain() {
-		return editingDomain;
+		return getEMFSession().getEditingDomain();
 	}
 
 	public void save() throws CoreException {
-		try {
-			if (this.getProject().isOpen() && this.getMetsResource() != null) {
-				Map<String, String> xmlOptions = new HashMap<String, String>();
-				xmlOptions.put(XMLResource.OPTION_ENCODING, "utf-8");
-				this.getMetsResource().save(xmlOptions);
+		if (this.getProject().isOpen()) {
+			if (this.getEMFSession() != null) {
+				this.getEMFSession().save();
 			}
-			log.debug("saved mets");
-		} catch (IOException e) {
-			Status s = new Status(Status.ERROR, Activator.PLUGIN_ID, "Cannot save METS", e);
-			throw new CoreException(s);
 		}
 	}
 
-	public void load() throws CoreException {
-		IFile f = project.getFile(MetsProjectNature.METS_PATH);
-		Map xmlOptions = new HashMap();
-		xmlOptions.put(XMLResource.OPTION_ENCODING, "utf-8");
-		String uri = f.getLocationURI().toString();
+	/**
+	 * @return
+	 */
+	private ProjectEMFSession getEMFSession() {
+		ProjectEMFSession result = null;
 		try {
-			log.debug("METS attempting to load existing file");
-			this.metsResource = this.resourceSet.getResource(URI.createURI(uri), true);
-			((ResourceImpl) this.metsResource).setIntrinsicIDToEObjectMap(new HashMap());
-			this.metsResource.load(xmlOptions);
-			log.debug("METS loaded from existing file");
-		} catch (Exception e) {
-			log.debug("METS being created.");
-			this.metsResource = this.resourceSet.createResource(URI.createURI(uri));
-			((ResourceImpl) this.metsResource).setIntrinsicIDToEObjectMap(new HashMap());
-			DocumentRoot r = METSUtils.createInitialMetsDocument(project.getName() + " Workbench Manifest");
-			this.metsResource.getContents().add(r);
-			log.debug("METS created: " + this.metsResource.getContents());
-			try {
-				this.metsResource.save(xmlOptions);
-				// this.metsResource.load(xmlOptions);
-				log.debug("METS saved for the first time");
-			} catch (IOException e1) {
-				log.error("Problem creating METS", e1);
-				Status s = new Status(Status.ERROR, Activator.PLUGIN_ID, "Cannot save METS", e1);
-				throw new CoreException(s);
+			if (this.getProject().getSessionProperty(EMF_SESSION_KEY) != null) {
+				result = (ProjectEMFSession) this.getProject().getSessionProperty(EMF_SESSION_KEY);
 			}
-		} finally {
-			IResourceChangeListener listener = new MetsProjectNature.ProjectCloseListener(project);
-			// TODO listen for changes to the project name and update METS
-			ResourcesPlugin.getWorkspace().addResourceChangeListener(listener, IResourceChangeEvent.PRE_CLOSE);
+		} catch (CoreException e) {
+
 		}
-		for (Diagnostic d : this.metsResource.getErrors()) {
-			log.debug(d.toString());
-		}
+		return result;
 	}
 
 	public MetsType1 getMets() {
-		DocumentRoot r = (DocumentRoot) this.metsResource.getContents().get(0);
+		DocumentRoot r = (DocumentRoot) this.getEMFSession().getMetsResource().getContents().get(0);
 		return r.getMets();
 	}
 
@@ -304,8 +205,8 @@ public class MetsProjectNature implements IProjectNature {
 			boolean autostage = getAutomaticStaging(getProject());
 			setupBuildSpec(desc, autostage);
 			this.project.setDescription(desc, new NullProgressMonitor());
-			//this.project.setSessionProperty(EDITING_DOMAIN_KEY, editingDomain);
-			//this.project.setSessionProperty(RESOURCE_SET_KEY, resourceSet);
+			// this.project.setSessionProperty(EDITING_DOMAIN_KEY, editingDomain);
+			// this.project.setSessionProperty(RESOURCE_SET_KEY, resourceSet);
 		} catch (CoreException e) {
 			e.printStackTrace();
 		}
@@ -314,6 +215,10 @@ public class MetsProjectNature implements IProjectNature {
 	@Override
 	public void deconfigure() throws CoreException {
 		save();
+		if(this.getEMFSession() != null) {
+			this.project.getSessionProperties().remove(EMF_SESSION_KEY);
+		}
+
 	}
 
 	@Override
@@ -324,17 +229,19 @@ public class MetsProjectNature implements IProjectNature {
 	@Override
 	public void setProject(IProject project) {
 		this.project = project;
-		try {
-			load();
-		} catch (CoreException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		if (this.getEMFSession() == null) {
+			try {
+				ProjectEMFSession session = new ProjectEMFSession(project);
+				project.setSessionProperty(EMF_SESSION_KEY, session);
+			} catch (CoreException e) {
+				log.error("Problem setting up EMF session", e);
+			}
 		}
 	}
 
 	public static IProject getProjectForMetsEObject(EObject object) {
 		IProject result = null;
-		if (object.eResource() != null) {
+		if (object.eResource() != null && object.eResource().getURI() != null) {
 			java.net.URI u;
 			try {
 				u = new java.net.URI(object.eResource().getURI().toString());
@@ -379,8 +286,9 @@ public class MetsProjectNature implements IProjectNature {
 
 	public static boolean getAutomaticStaging(IProject project) {
 		boolean result = false;
-		ProjectScope[] s = {new ProjectScope(project)};
-		result = Platform.getPreferencesService().getBoolean(Activator.PLUGIN_ID, Activator.AUTOSTAGE_PREFERENCE, true, s);
+		ProjectScope[] s = { new ProjectScope(project) };
+		result = Platform.getPreferencesService()
+				.getBoolean(Activator.PLUGIN_ID, Activator.AUTOSTAGE_PREFERENCE, true, s);
 		return result;
 	}
 
@@ -427,8 +335,9 @@ public class MetsProjectNature implements IProjectNature {
 	public static MetsProjectNature get(IProject prog) {
 		MetsProjectNature result = null;
 		try {
-			result = (MetsProjectNature)prog.getNature(NATURE_ID);
-		} catch(CoreException e) {}
+			result = (MetsProjectNature) prog.getNature(NATURE_ID);
+		} catch (CoreException e) {
+		}
 		return result;
 	}
 
@@ -438,7 +347,7 @@ public class MetsProjectNature implements IProjectNature {
 	public static void setStagingBase(java.net.URI stageURI, IProject project) {
 		try {
 			project.setPersistentProperty(STAGING_BASE_URI_KEY, stageURI.toString());
-		} catch(CoreException e) {
+		} catch (CoreException e) {
 			throw new Error("Cannot set staging base for project.", e);
 		}
 	}
@@ -447,7 +356,7 @@ public class MetsProjectNature implements IProjectNature {
 		try {
 			String s = this.getProject().getPersistentProperty(STAGING_BASE_URI_KEY);
 			return new java.net.URI(s);
-		} catch(Exception e) {
+		} catch (Exception e) {
 			throw new Error("unexpected", e);
 		}
 
@@ -466,7 +375,7 @@ public class MetsProjectNature implements IProjectNature {
 	}
 
 	public static void setupBuildSpec(IProjectDescription desc, boolean autostage) {
-		System.err.println("setting autostage to: "+ autostage);
+		System.err.println("setting autostage to: " + autostage);
 
 		// create staging builder
 		ICommand stagingCommand = desc.newCommand();

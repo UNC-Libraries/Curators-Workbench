@@ -38,7 +38,7 @@ public class AutoStageAction implements IObjectActionDelegate {
 				} else if (element instanceof IAdaptable) {
 					project = (IProject) ((IAdaptable) element).getAdapter(IProject.class);
 				}
-				if (project != null) {
+				if (project != null && project.isOpen()) {
 					try {
 						toggleStaging(project);
 					} catch (CoreException e) {
@@ -92,7 +92,7 @@ public class AutoStageAction implements IObjectActionDelegate {
 				} else if (element instanceof IAdaptable) {
 					project = (IProject) ((IAdaptable) element).getAdapter(IProject.class);
 				}
-				if (project != null) {
+				if (project != null && project.isOpen()) {
 					try {
 						MetsProjectNature mpn = (MetsProjectNature)project.getNature(MetsProjectNature.NATURE_ID);
 						boolean status = mpn.getAutomaticStaging(project);

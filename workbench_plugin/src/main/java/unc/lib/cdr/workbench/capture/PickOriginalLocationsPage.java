@@ -508,8 +508,10 @@ public class PickOriginalLocationsPage extends WizardPage implements Listener {
 		DirectoryDialog dialog = new DirectoryDialog(getShell(), SWT.SHEET);
 		dialog.setMessage("Select the location");
 		String locationstr = dialog.open();
-		File f = new File(locationstr);
-		this.location = f.toURI();
+		if(locationstr != null && locationstr.trim().length() > 0) {
+			File f = new File(locationstr);
+			this.location = f.toURI();
+		}
 	}
 
 	/*

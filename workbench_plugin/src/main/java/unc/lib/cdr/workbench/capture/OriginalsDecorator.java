@@ -202,7 +202,6 @@ public class OriginalsDecorator implements ILightweightLabelDecorator, IResource
 							changes.add(div);
 						}
 					}
-
 				} catch (CoreException e1) {
 					e1.printStackTrace();
 				}
