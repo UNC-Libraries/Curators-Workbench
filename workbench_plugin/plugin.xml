@@ -276,11 +276,6 @@
             </visibleWhen>
          </command>
          <command
-               commandId="org.eclipse.ui.file.export"
-               label="Export.."
-               style="push">
-         </command>
-         <command
                commandId="cdr-workbench.commandOpenCopySystemEditor"
                label="Open copy in default editor"
                style="push">
@@ -917,6 +912,12 @@
                label="Stage Captured Files"
                menubarPath="additions"
                style="toggle">
+            <enablement>
+               <objectState
+                     name="open"
+                     value="true">
+               </objectState>
+            </enablement>
          </action>
       </objectContribution>
    </extension>
