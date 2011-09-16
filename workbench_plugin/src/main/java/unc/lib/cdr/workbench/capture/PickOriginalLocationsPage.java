@@ -224,7 +224,7 @@ public class PickOriginalLocationsPage extends WizardPage implements Listener {
 		fileTreeViewer.getTree().setLayoutData(gd);
 		fileTreeViewer.setContentProvider(provider);
 		fileTreeViewer.setLabelProvider(provider);
-		fileTreeViewer.setAutoExpandLevel(1);
+		fileTreeViewer.setAutoExpandLevel(2);
 		fileTreeViewer.setInput(FileStoreProvider.EMPTY_ROOT); // pass a non-null that will be ignored
 
 		fileTreeViewer.setComparator(new ViewerComparator() {

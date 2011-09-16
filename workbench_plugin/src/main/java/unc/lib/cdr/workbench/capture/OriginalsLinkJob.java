@@ -87,22 +87,32 @@ public class OriginalsLinkJob extends Job {
 				IFileStore fs = EFS.getStore(location);
 				boolean isDir = fs.fetchInfo().isDirectory();
 
+				String linkName = null;
 				IPath path = new Path(location.getPath());
+				if (path != null && path.segments().length > 0 && path.lastSegment().trim().length() > 0) {
+					linkName = path.lastSegment();
+				} else if (path.getDevice() != null) {
+					linkName = path.getDevice().replaceAll(":", "");
+				} else {
+					linkName = "ROOT";
+				}
 				IResource link = null;
 				if (isDir) {
-					link = originalsFolder.getFolder(path.lastSegment());
+					link = originalsFolder.getFolder(linkName);
 				} else {
-					link = originalsFolder.getFile(path.lastSegment());
+					link = originalsFolder.getFile(linkName);
 				}
 				if (link.exists() && link.getLocationURI().equals(location)) {
 					// already linked to this original folder, continue
 					continue;
 				}
-				for (int suffix = 1; link.exists(); suffix++) {
-					if (isDir) {
-						link = originalsFolder.getFolder(path.lastSegment() + "_" + suffix);
-					} else {
-						link = originalsFolder.getFile(path.lastSegment() + "_" + suffix);
+				if (link.exists()) {
+					for (int suffix = 1; link.exists(); suffix++) {
+						if (isDir) {
+							link = originalsFolder.getFolder(linkName + "_" + suffix);
+						} else {
+							link = originalsFolder.getFile(linkName + "_" + suffix);
+						}
 					}
 				}
 				monitor.subTask("Linking " + location);
@@ -126,7 +136,7 @@ public class OriginalsLinkJob extends Job {
 						for (String s : subPath.segments()) {
 							myprestage = URIUtil.append(myprestage, s);
 						}
-						myprestagestr = myprestage.toString()+"/";
+						myprestagestr = myprestage.toString() + "/";
 					}
 					marker.setAttribute(IResourceConstants.MARKER_ORIGINALFILESET_PRESTAGEDBASE_ATT, myprestagestr);
 				}
