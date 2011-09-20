@@ -15,23 +15,15 @@
  */
 package unc.lib.cdr.workbench.project;
 
-import edu.unc.lib.schemas.acl.provider.AclItemProviderAdapterFactory;
 import gov.loc.mets.DivType;
 import gov.loc.mets.DocumentRoot;
-import gov.loc.mets.MetsPackage;
 import gov.loc.mets.MetsType1;
-import gov.loc.mets.provider.MetsItemProviderAdapterFactory;
 import gov.loc.mets.util.METSConstants;
 import gov.loc.mets.util.METSUtils;
-import gov.loc.mets.util.MetsResourceFactoryImpl;
-import gov.loc.mods.mods.provider.MODSItemProviderAdapterFactory;
 
-import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.eclipse.core.filesystem.EFS;
 import org.eclipse.core.filesystem.IFileStore;
@@ -42,38 +34,21 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IProjectDescription;
 import org.eclipse.core.resources.IProjectNature;
 import org.eclipse.core.resources.IResource;
-import org.eclipse.core.resources.IResourceChangeEvent;
-import org.eclipse.core.resources.IResourceChangeListener;
 import org.eclipse.core.resources.IncrementalProjectBuilder;
 import org.eclipse.core.resources.ProjectScope;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
-import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.QualifiedName;
-import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.preferences.IEclipsePreferences;
-import org.eclipse.emf.common.command.BasicCommandStack;
 import org.eclipse.emf.common.command.CommandStack;
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.Resource.Diagnostic;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.emf.ecore.util.BasicExtendedMetaData;
-import org.eclipse.emf.ecore.util.ExtendedMetaData;
-import org.eclipse.emf.ecore.xmi.XMLResource;
-import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
-import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
-import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.w3._1999.xlink.provider.XlinkItemProviderAdapterFactory;
 
 import unc.lib.cdr.workbench.arrange.ArrangementProjectElement;
 import unc.lib.cdr.workbench.capture.OriginalFoldersProjectElement;
@@ -90,6 +65,8 @@ public class MetsProjectNature implements IProjectNature {
 	private static final Logger log = LoggerFactory.getLogger(MetsProjectNature.class);
 	public static final String NATURE_ID = "cdr_producer.projectNature";
 	public static final QualifiedName EMF_SESSION_KEY = new QualifiedName(NATURE_ID, "cdr_producer.projectEMFSession");
+	public static final QualifiedName EDITING_DOMAIN_KEY = new QualifiedName(NATURE_ID,
+   "cdr_producer.editingDomain");
 	public static final QualifiedName INITIAL_AUTOSTAGE_KEY = new QualifiedName(NATURE_ID, "cdr_producer.init_autostage");
 	public static final String STAGING_BUILDER_ID = "unc.lib.cdr.workbench.builders.StageBuilder";
 	public static final String CROSSWALKS_BUILDER_ID = "unc.lib.cdr.workbench.builders.CrosswalksBuilder";
@@ -233,6 +210,7 @@ public class MetsProjectNature implements IProjectNature {
 			try {
 				ProjectEMFSession session = new ProjectEMFSession(project);
 				project.setSessionProperty(EMF_SESSION_KEY, session);
+				project.setSessionProperty(EDITING_DOMAIN_KEY, session.getEditingDomain());
 			} catch (CoreException e) {
 				log.error("Problem setting up EMF session", e);
 			}
