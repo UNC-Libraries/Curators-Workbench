@@ -1,32 +1,149 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <introContent>
-		<extensionContent
-				id="overview"
-				name="Overview"
-				path="overview/@"
+	<extensionContent
+		id="overview-workbench-id"
+		name="Workbench Overview"
+		path="overview/@"
+	>
+		<group
+			label="Overview"
+			id="overview-workbench-group"
+			style-id="content-group"
 		>
-				<group>
-						<text>
-								<p>The Curator’s Workbench is a collection preparation and work flow tool for digital materials. It is designed
-										to acquire and process file structures efficiently while giving archivists and other curators control over
-										their work. The workbench can assist with accession, arrangement, description and staging of digital objects
-										and is commonly used to prepare batch submissions to a repository.</p>
-								<p>The workbench provides information and controls to help you make informed decisions. The main workbench
-										window is divided into three parts.</p>
-								<p>The Project Navigator area is on the left side of the workbench. It displays all the projects in your
-										workspace and their contents. Each project is divided into three sections, which are Originals, the
-										Arrangement and Crosswalks.</p>
-						</text>
-				</group>
-		</extensionContent>
-		<extensionContent
-				id="concepts"
-				name="Concepts"
-				path="overview/@"
+			<text
+				style-id="group-description"
+			>The Curator’s Workbench is a collection preparation and work flow tool for digital materials. It is designed to
+				acquire and process file structures efficiently while giving archivists and other curators control over their work.
+				The workbench can assist with accession, arrangement, description and staging of digital objects and is commonly
+				used to prepare batch submissions to a repository. The workbench provides information and controls to help you
+				select and arrange. It handles routine accessioning tasks for you, such as staging files, generating checksums and
+				building a manifest file. The main workbench window is divided into three parts. The Project Navigator area is on
+				the left side of the workbench. It displays all the projects in your workspace and their contents. Each project is
+				divided into three sections, which are Originals, the Arrangement and Crosswalks.</text>
+		</group>
+	</extensionContent>
+	<extensionContent
+		id="standards-workbench"
+		name="Standards"
+		path="overview/@"
+	>
+		<group
+			label="Design &amp; Standards"
+			id="standards-group"
+			style-id="content-group"
 		>
-				<group>
-						<text><b>Crosswalk</b> - In the context of the Curator's Workbench, a crosswalk allows you to define mappings between
-								tabular metadata (supplied metadata) records and MODS records for your projects.</text>
-				</group>
-		</extensionContent>
+			<link
+				style-id="content-link"
+				label="Metadata Encoding and Transmission Standard (METS)"
+				url="http://www.loc.gov/standards/mets/"
+				id="java"
+			>
+				<text>Each project in the workbench has a corresponding METS XML document within the project folder. This METS
+					document is the manifest in which the workbench records all the information about captured materials and
+					descriptive records. You will not normally need to edit this file, but you may find it interesting to view.</text>
+			</link>
+			<link
+				style-id="content-link"
+				label="Metadata Object Description Schema (MODS)"
+				url="http://www.loc.gov/standards/mods/"
+				id="java"
+			>
+				<text>The workbench supports schema-driven editing of MODS records for all captured objects. It also includes a
+					unique crosswalk feature that can help you migrate tabular metadata to MODS records and match these records with
+					captured files or folders.</text>
+			</link>
+			<link
+				style-id="content-link"
+				label="Extending the Workbench"
+				id="java"
+			>
+				<text>The workbench was originally created to facilitate repository ingest at UNC Chapel Hill and was designed with
+					that repository in mind. Others will have different systems in mind and different metadata needs. If you have
+					questions about extending the software, please get in touch with us. The workbench itself is an extension of the
+					Eclipse software platform and was designed with future extensions in mind.</text>
+			</link>
+		</group>
+	</extensionContent>
+	<extensionContent
+		id="concepts-workbench"
+		name="Concepts"
+		path="overview/@"
+	>
+		<group
+			label="Concepts"
+			id="concepts-group"
+			style-id="content-group"
+		>
+			<link
+				style-id="content-link"
+				label="Projects"
+				id="java"
+			>
+				<text>Materials in the workbench are divided into projects within a work space. You may choose to use one or many
+					projects to capture a collection. Each project is represented in a METS manifest file that contains an arrangement
+					of the captured material. While you may work on many projects at once, inactive may be closed to improve workbench
+					performance.</text>
+			</link>
+			<link
+				style-id="content-link"
+				label="Originals"
+				url="http://org.eclipse.ui.intro/showHelpTopic?id=/workbench_help/html/toc.html"
+				id="java"
+			>
+				<text>Originals are the incoming source of data. This is data that the workbench will allow you to inspect and
+					capture. The workbench will not provide any means to delete or alter originals.</text>
+			</link>
+			<link
+				style-id="content-link"
+				label="Capture"
+				url="http://org.eclipse.ui.intro/showHelpTopic?id=/org.eclipse.jdt.doc.user/gettingStarted/intro/overview.htm"
+				id="java"
+			>
+				<text>Capture makes an original part of your manifest, including it in the arrangement and recording the original
+					location of the file or folder.</text>
+			</link>
+			<link
+				style-id="content-link"
+				label="Staging"
+				url="http://org.eclipse.ui.intro/showHelpTopic?id=/org.eclipse.jdt.doc.user/gettingStarted/intro/overview.htm"
+				id="java"
+			>
+				<text>When you capture a file, the workbench can copy it to a staging location. Checksums are calculated before and
+					after each file is copied and are verified. The checksum and staged location are added to the workbench manifest.
+					You may also specify a pre-staged location for a set of originals. When pre-staged files are captured, the staged
+					location for the manifest is inferred and the file is checksummed, but not copied.</text>
+			</link>
+			<link
+				style-id="content-link"
+				label="Arrangement"
+				url="http://org.eclipse.ui.intro/showHelpTopic?id=/org.eclipse.jdt.doc.user/gettingStarted/intro/overview.htm"
+				id="java"
+			>
+				<text>An arrangement is the logical hierarchy within which captured folders and files are organized and described.
+					When files are first captured their arrangement reflects the original file system. You may choose to modify the
+					arrangement to organize materials differently.</text>
+			</link>
+			<link
+				style-id="content-link"
+				label="Crosswalks"
+				url="http://org.eclipse.ui.intro/showHelpTopic?id=/org.eclipse.jdt.doc.user/gettingStarted/intro/overview.htm"
+				id="java"
+			>
+				<text>A crosswalk allows you to define custom mappings between tabular metadata records (such as spreadsheets) and
+					descriptive records. Crosswalk mappings are created through a schema-driven visual editor. Crosswalked records are
+					regenerated each time the crosswalk mappings are saved.</text>
+			</link>
+			<link
+				style-id="content-link"
+				label="Project Export"
+				url="http://org.eclipse.ui.intro/showHelpTopic?id=/org.eclipse.jdt.doc.user/gettingStarted/intro/overview.htm"
+				id="java"
+			>
+				<text>When you are satisfied with the arrangement and description of your materials, you may want to export the
+					project. Export will save the project manifest into another format, usually a submission format for a repository.
+					Currently the workbench supports one export format, which is for submission to the Carolina Digital Repository.
+				</text>
+			</link>
+		</group>
+	</extensionContent>
 </introContent>
