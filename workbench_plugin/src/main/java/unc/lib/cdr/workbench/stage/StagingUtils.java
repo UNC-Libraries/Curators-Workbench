@@ -274,8 +274,8 @@ public class StagingUtils {
 			IProgressMonitor monitor) throws CoreException {
 		// TODO honor cancellation requests during copy
 		// TODO report progress
-		log.debug("source: " + source);
-		log.debug("destination: " + destination);
+		log.info("source: " + source);
+		log.info("destination: " + destination);
 		// monitor.subTask("Copying file " + source.getName() + "...");
 		String result = null;
 		byte[] buffer = new byte[chunkSize];
@@ -424,7 +424,7 @@ public class StagingUtils {
 	private static String checksumWithMD5Digest(IFileStore source, IFileInfo sourceInfo, IProgressMonitor monitor) throws CoreException {
 			// TODO honor cancellation requests during copy
 			// TODO report progress
-			log.debug("source: " + source);
+			log.info("source: " + source);
 			String result = null;
 			byte[] buffer = new byte[chunkSize];
 			int length = (int) sourceInfo.getLength();

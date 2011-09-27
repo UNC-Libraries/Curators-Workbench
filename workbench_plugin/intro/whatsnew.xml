@@ -43,16 +43,14 @@
 				id="papercuts-group"
 				style-id="content-group"
 			>
-				<text
-					style-id="group-description"
-				>A number of minor user interface glitches have been addressed, including:
-				&lt;li&gt;Starting writing integrated help, including this screen!&lt;/li&gt;
-				&lt;li&gt;SIP Export let's you choose the file name and location.&lt;/li&gt;
-				&lt;li&gt;In Crosswalk editor, double-click to select new element or attribute type.&lt;/li&gt;
-				&lt;li&gt;In Crosswalk editor, date matchers come with a default set of date patterns.&lt;/li&gt;
-				&lt;li&gt;In Navigator, reordered and regrouped pop-up menus to reflect common work flow.&lt;/li&gt;
-				&lt;li&gt;In Navigator, removed irrelevant pop-up menus inherited from Eclipse platform.&lt;/li&gt;
-				</text>
+				<link
+					label="Paper Cuts Issue in GitHub"
+					url="https://github.com/UNC-Libraries/Curators-Workbench/issues/56"
+					style-id="content-link"
+				>
+					<text>A number of minor user interface glitches have been addressed. These fixes are documented in the paper cuts
+						issue in GitHub.</text>
+				</link>
 			</group>
 		</group>
 	</extensionContent>

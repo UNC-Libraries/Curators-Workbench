@@ -15,6 +15,8 @@
  */
 package irods.efs.plugin;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FilenameFilter;
 import java.io.InputStream;
@@ -50,11 +52,16 @@ import org.irods.jargon.core.pub.io.IRODSFileOutputStream;
 
 /**
  * @author Gregory Jansen
- * 
+ *
  */
 public class IrodsFileStore extends FileStore {
 	URI uri = null;
 	IRODSAccount __account = null;
+
+	//private static final int BUFFER_SIZE = 4194304;
+	// private static final int BUFFER_SIZE = 1048576;
+	private static final int BUFFER_SIZE = 262144;
+	// private static final int BUFFER_SIZE = 32768;
 
 	public IrodsFileStore(URI uri) throws CoreException {
 		this.uri = uri;
@@ -74,7 +81,7 @@ public class IrodsFileStore extends FileStore {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.eclipse.core.filesystem.provider.FileStore#childNames(int,
 	 * org.eclipse.core.runtime.IProgressMonitor)
 	 */
@@ -123,7 +130,7 @@ public class IrodsFileStore extends FileStore {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.eclipse.core.filesystem.provider.FileStore#fetchInfo(int,
 	 * org.eclipse.core.runtime.IProgressMonitor)inu
 	 */
@@ -246,7 +253,7 @@ public class IrodsFileStore extends FileStore {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * org.eclipse.core.filesystem.provider.FileStore#getChild(java.lang.String)
 	 */
@@ -279,7 +286,7 @@ public class IrodsFileStore extends FileStore {
 				resultStore = new IrodsFileStore(child);
 			} else {
 				resultStore = new IrodsFileStore(child, __account);
-			} 
+			}
 		} catch(CoreException e) {
 			throw new Error(e);
 		}
@@ -295,7 +302,7 @@ public class IrodsFileStore extends FileStore {
 
 		/*
 		 * (non-Javadoc)
-		 * 
+		 *
 		 * @see java.io.FilenameFilter#accept(java.io.File, java.lang.String)
 		 */
 		@Override
@@ -307,7 +314,7 @@ public class IrodsFileStore extends FileStore {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.eclipse.core.filesystem.provider.FileStore#getName()
 	 */
 	@Override
@@ -328,7 +335,7 @@ public class IrodsFileStore extends FileStore {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.eclipse.core.filesystem.provider.FileStore#getParent()
 	 */
 	@Override
@@ -373,14 +380,14 @@ public class IrodsFileStore extends FileStore {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.eclipse.core.filesystem.provider.FileStore#openInputStream(int,
 	 * org.eclipse.core.runtime.IProgressMonitor)
 	 */
 	@Override
 	public InputStream openInputStream(int options, IProgressMonitor monitor)
 			throws CoreException {
-		IRODSFileInputStream result = null;
+		InputStream result = null;
 		if (monitor == null) {
 			monitor = new NullProgressMonitor();
 		}
@@ -394,6 +401,7 @@ public class IrodsFileStore extends FileStore {
 
 			System.out.println("GOT ZONE: "+getAccount().getZone());
 			result = ff.instanceIRODSFileInputStream(file);
+			result = new BufferedInputStream(result, BUFFER_SIZE);
 			// irodsSession.closeSession();
 			monitor.worked(1);
 			monitor.done();
@@ -407,7 +415,7 @@ public class IrodsFileStore extends FileStore {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.eclipse.core.filesystem.provider.FileStore#toURI()
 	 */
 	@Override
@@ -494,9 +502,10 @@ public class IrodsFileStore extends FileStore {
 			irodsFile.close();
 			IRODSFileOutputStream irodsFileOutputStream = irodsFileFactory
 					.instanceIRODSFileOutputStream(getDecodedPath());
+			BufferedOutputStream bos = new BufferedOutputStream(irodsFileOutputStream, BUFFER_SIZE);
 			monitor.worked(1);
 			monitor.done();
-			return irodsFileOutputStream;
+			return bos;
 		} catch (JargonException e) {
 			// log.debug(account.toString() + " resc:" +
 			// account.getDefaultStorageResource() + " " + account.getUserName()

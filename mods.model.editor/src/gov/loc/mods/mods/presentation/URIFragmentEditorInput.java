@@ -175,7 +175,7 @@ public class URIFragmentEditorInput implements IEditorInput, IPersistableElement
 	@SuppressWarnings("rawtypes")
 	public Object getAdapter(Class adapter) {
 		if (EMFPlugin.IS_RESOURCES_BUNDLE_AVAILABLE) {
-			Object result = EclipseUtil.getAdatper(adapter, projectName, fragmentID);
+			Object result = EclipseUtil.getAdapter(adapter, projectName, fragmentID);
 			if (result != null) {
 				return result;
 			}
@@ -228,7 +228,7 @@ public class URIFragmentEditorInput implements IEditorInput, IPersistableElement
 	}
 
 	protected static class EclipseUtil {
-		public static Object getAdatper(Class<?> adapter, String platformURI, String fragmentID) {
+		public static Object getAdapter(Class<?> adapter, String platformURI, String fragmentID) {
 			if ((adapter == IFile.class || adapter == IResource.class)) {
 				return ResourcesPlugin.getWorkspace().getRoot().getFile(new Path(platformURI));
 			} else {
