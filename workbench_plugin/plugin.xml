@@ -647,6 +647,24 @@
          <toolbar
                id="workbench_plugin.workbenchToolbar">
             <command
+                  commandId="cdr-workbench.CreateProject"
+                  icon="icons/24px-Crystal_Clear_app_ark.png"
+                  label="New Project"
+                  mnemonic="N"
+                  mode="FORCE_TEXT"
+                  style="push"
+                  tooltip="Create a new project within this workspace.">
+            </command>
+            <command
+                  commandId="cdr-workbench.commandLinkOriginals"
+                  icon="icons/24px-Crystal_Clear_app_harddrive.png"
+                  label="Link Originals"
+                  mnemonic="O"
+                  mode="FORCE_TEXT"
+                  style="push"
+                  tooltip="Link a project to the location of a some original files.">
+            </command>
+            <command
                   commandId="cdr-workbench.commandImportTabularMetadata"
                   disabledIcon="icons/crosswalk_add_disabled.gif"
                   icon="icons/crosswalk_add.gif"
@@ -798,6 +816,7 @@
                relative="org.eclipse.ui.editorss">
          </view>
          <view
+               closeable="false"
                id="cdr-workbench.Properties"
                minimized="false"
                moveable="true"
@@ -807,7 +826,7 @@
                showTitle="true"
                visible="true">
          </view>
-         <view
+         <!--<view
                id="org.eclipse.ui.views.ProblemView"
                minimized="false"
                moveable="true"
@@ -815,7 +834,7 @@
                relative="cdr-workbench.Properties"
                showTitle="true"
                visible="true">
-         </view>
+         </view>-->
       </perspectiveExtension>
       <perspectiveExtension
             targetID="cdr-workbench.ArrangementPerspective">
@@ -1423,6 +1442,14 @@
       <activityPatternBinding
             activityId="workbench_plugin.activityIDEMenus"
             pattern="org.eclipse.compare.*">
+      </activityPatternBinding>
+      <activityPatternBinding
+            activityId="workbench_plugin.activityIDEMenus"
+            pattern="org.eclipse.ui.edit.text.*">
+      </activityPatternBinding>
+      <activityPatternBinding
+            activityId="workbench_plugin.activityIDEMenus"
+            pattern="org.eclipse.ui.navigate.*">
       </activityPatternBinding>
    </extension>
    <extension
