@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Pre-Staged Files</title>
+</head>
+
+<body>
+	<h1>Pre-Staged Files</h1>
+	<p>There are many work flow scenarios in which you do not need to
+		stage files to a new location. In these situations the normal
+		workbench staging behavior is unnecessary:
+	<ul>
+		<li>Files are already in a stable storage location but lack a
+			manifest or fixity.</li>
+		<li>Files are already readable by your repository ingest service.</li>
+	</ul>
+	In these situations, you can simply indicate that the originals are
+	"pre-staged" at a given location URI. On capture, any pre-staged files will
+	be checksummed and added to the manifest, but they will not be copied
+	to a new location.
+	</p>
+	<p>Instead of copying the files, the workbench will compute a new
+		"pre-staged" location URI for each file and put this URI into the
+		manifest. This URI is considered the staged location for the file,
+		even though the workbench did not copy it. Usually this location will
+		be the network location of the original or some kind of agreed upon
+		URI prefix.</p>
+	<p>Note: If your files are being prestaged for ingest, then your
+		pre-stage URIs should be resolvable by your repository ingest service.
+		They can be any type of URI, even forms that are unknown to the
+		workbench. In the CDR we use HTTP URIs for various pre-staged
+		storage locations. The ingest code then resolves these URIs to local
+		file paths.</p>
+</body>
+</html>

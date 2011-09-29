@@ -11,9 +11,6 @@
 			path="page-content/bottom-left"
 			default="true"
 		>
-			<extension
-				id="standards-workbench"
-				importance="high" />
 		</group>
 		<group
 			path="page-content/bottom-right"
@@ -26,6 +23,9 @@
 			<extension
 				id="overview-workbench-id"
 				importance="high" />
+			<extension
+				id="standards-workbench"
+				importance="callout" />
 		</group>
 		<group
 			path="page-content/top-right"

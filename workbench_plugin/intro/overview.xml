@@ -55,6 +55,7 @@
 			<link
 				style-id="content-link"
 				label="Extending the Workbench"
+				url="https://github.com/UNC-Libraries/Curators-Workbench"
 				id="java"
 			>
 				<text>The workbench was originally created to facilitate repository ingest at UNC Chapel Hill and was designed with
@@ -77,6 +78,7 @@
 			<link
 				style-id="content-link"
 				label="Projects"
+				url="http://org.eclipse.ui.intro/showHelpTopic?id=/workbench_help/html/concepts/projects.html"
 				id="java"
 			>
 				<text>Materials in the workbench are divided into projects within a work space. You may choose to use one or many
@@ -87,7 +89,7 @@
 			<link
 				style-id="content-link"
 				label="Originals"
-				url="http://org.eclipse.ui.intro/showHelpTopic?id=/workbench_help/html/toc.html"
+				url="http://org.eclipse.ui.intro/showHelpTopic?id=/workbench_help/html/concepts/originals.html"
 				id="java"
 			>
 				<text>Originals are the incoming source of data. This is data that the workbench will allow you to inspect and
@@ -96,7 +98,7 @@
 			<link
 				style-id="content-link"
 				label="Capture"
-				url="http://org.eclipse.ui.intro/showHelpTopic?id=/workbench_help/html/toc.html"
+				url="http://org.eclipse.ui.intro/showHelpTopic?id=/workbench_help/html/concepts/capture.html"
 				id="java"
 			>
 				<text>Capture makes an original part of your manifest, including it in the arrangement and recording the original
@@ -105,7 +107,7 @@
 			<link
 				style-id="content-link"
 				label="Staging"
-				url="http://org.eclipse.ui.intro/showHelpTopic?id=/workbench_help/html/toc.html"
+				url="http://org.eclipse.ui.intro/showHelpTopic?id=/workbench_help/html/concepts/staging.html"
 				id="java"
 			>
 				<text>When you capture a file, the workbench can copy it to a staging location. Checksums are calculated before and
@@ -116,7 +118,7 @@
 			<link
 				style-id="content-link"
 				label="Arrangement"
-				url="http://org.eclipse.ui.intro/showHelpTopic?id=/workbench_help/html/toc.html"
+				url="http://org.eclipse.ui.intro/showHelpTopic?id=/workbench_help/html/concepts/arrangement.html"
 				id="java"
 			>
 				<text>An arrangement is the logical hierarchy within which captured folders and files are organized and described.
@@ -125,8 +127,8 @@
 			</link>
 			<link
 				style-id="content-link"
-				label="Crosswalks"
-				url="http://org.eclipse.ui.intro/showHelpTopic?id=/workbench_help/html/toc.html"
+				label="Metadata Crosswalks"
+				url="http://org.eclipse.ui.intro/showHelpTopic?id=/workbench_help/html/concepts/crosswalks.html"
 				id="java"
 			>
 				<text>A crosswalk allows you to define custom mappings between tabular metadata records (such as spreadsheets) and
@@ -136,7 +138,7 @@
 			<link
 				style-id="content-link"
 				label="Project Export"
-				url="http://org.eclipse.ui.intro/showHelpTopic?id=/workbench_help/html/toc.html"
+				url="http://org.eclipse.ui.intro/showHelpTopic?id=/workbench_help/html/concepts/project_export.html"
 				id="java"
 			>
 				<text>When you are satisfied with the arrangement and description of your materials, you may want to export the

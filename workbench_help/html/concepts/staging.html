@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Staging</title>
+</head>
+<body>
+	<h1>Staging</h1>
+	<p>At the point of capturing a file, the workbench can also copy it
+		to a staging location. This location can either be local (e.g. the
+		Curator's Workbench project work space), in a secure repository (e.g.
+		an iRODS repository), or on another network location.</p>
+
+	<p>Before and after a file is copied, the workbench generates
+		checksums and verifies these against each other. These checksums,
+		along with the staging location, are added to the workbench manifest.</p>
+
+	<p>
+		You may not want files to be copied to a staging location. In this
+		event, you can specify a <a href="prestaging.html">pre-staged
+			location</a> for a set of originals. During the capturing process, your
+		specified location will be added to the manifest and checksums will be
+		generated and verified, but files will not be copied.
+	</p>
+
+</body>
+</html>

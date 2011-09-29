@@ -2,13 +2,15 @@
 <?NLS TYPE="org.eclipse.help.toc"?>
 
 <toc label="Curator&apos;s Workbench Guide" topic="html/toc.html">
-   <topic label="Getting Started">
-      <anchor id="gettingstarted"/>
-   </topic>
    <topic label="Concepts">
       <anchor id="concepts"/>
    </topic>
+   <topic label="Getting Started">
+      <anchor id="gettingstarted"/>
+   </topic>
    <topic label="Tasks">
       <anchor id="tasks"/>
+   </topic>
+   <topic href="/org.eclipse.help.base/doc/help_home.html" label="Using the Help System">
    </topic>
 </toc>

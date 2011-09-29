@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+   <head>
+      <title>Crosswalk Tabular Metadata to MODS</title>
+   </head>
+
+   <body>
+      <h1>Crosswalk Tabular Metadata to MODS</h1>
+      <p>The Workbench is designed to facilitate the staging of large
+	batches of objects with custom supplied metadata. The crosswalk tool is
+	the key to mapping user-supplied metadata fields to MODS elements. It
+	allows you to define how each MODS record is created, which elements
+	are used and where they come from in the source metadata.
+	<ol>
+		<li>To start you must have your supplied metadata in
+			tab-delimited format. This means that each record will be on a
+			separate line in a text file. The fields in each record will be in a
+			consistent order and separated by a special character, such as a comma or a TAB.</li>
+		<li>Find the "Crosswalks" section on the left-hand navigation
+			window. Right-click (ctrl-click on a Mac)</li>
+		<li>In the context menu, select "Add Crosswalk".</li>
+		<li>The Crosswalk Wizard will open. You may leave the default
+			settings on the first screen and click "Next" to continue.</li>
+		<li>Hit "Browse" and select the metadata file. Under "Character
+			Set" choose "UTF-8". Click "Next".</li>
+		<li>On this preview screen, you can test try different options
+			until you are happy with the way the Workbench will interpret your
+			metadata file. When satisfied, click "Finish".</li>
+		<li>Now the Crosswalk Editor will open, showing you the canvas on
+			which you will map metadata.</li>
+	</ol>
+	</p>
+
+	<img src="sshot4.jpg" alt="Figure 4" width="600" height="450">
+	<p>
+		<b>Figure 4. Linking to tab-delimited metadata file.</b>
+	</p>
+	
+	<p>
+		<b>To crosswalk MODS elements to your tab-delimited metadata</b>
+	<ol>
+		<li>Double-click on "XML Element" in the tools pallete on the right. A
+			separate window will open displaying the range of MODS elements.
+			Select an element (e.g. TitleInfo or Name) and click "OK".</li>
+		<li>Some elements (e.g. name) have sub-elements available. In
+			these cases, click on the element box to see a smaller pop-up. This
+			pop-up allows you to refine the element further (in the previous
+			example, "name" can be refined to "namePart", "displayForm", etc.).</li>
+		<li>Click on "Input Connector" in the right tab, drag it from
+			MODS element (e.g. title, topic, input) and drag it to the
+			corresponding column on the left in the crosswalk file. <b>NOTE:</b>
+			the arrow on your cursor will prompt you where you need to click. If
+			there is a circle with a cross through it, you cannot add an input
+			connector there. The same thing will happen to direct you where to
+			click on metadata crosswalk file on the left.</li>
+		<li>The key element that needs to be linked is the File/Folder
+			Name Matcher. This field matches up the file names in the metadata
+			file to the actual objects. Make sure to match this element to the
+			proper metadata field in the crosswalk file.</li>
+	</ol>
+	Once the connectors are linked, there will be a green line between the
+	MODS element and the crosswalked metadata. Link as many files as you
+	like. When you close the crosswalk file, it will prompt you to save the
+	file. Save it and it will be a part of the METS file that the Workbench
+	is generating.
+	</p>
+	<img src="sshot5.jpg" alt="Figure 5" width="600" height="450">
+	<p>
+		<b>Figure 5. Linking MODS elements to tab-delimited metadata
+			elements</b>
+	</p>
+   </body>
+</html>

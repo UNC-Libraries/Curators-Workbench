@@ -2,10 +2,16 @@
 <?NLS TYPE="org.eclipse.help.toc"?>
 
 <toc label="Getting Started" link_to="toc.xml#gettingstarted"> 
-	<topic label="Main Topic"  href="html/gettingstarted/maintopic.html"> 
-		<topic label="Sub Topic" href="html/gettingstarted/subtopic.html" /> 
-	</topic>
-	<topic label="Main Topic 2">
-		<topic label="Sub Topic 2" href="html/gettingstarted/subtopic2.html" />
-	</topic> 
+ <topic href="html/gettingstarted/create_project.html" label="Creating a Project">
+ </topic>
+ <topic href="html/gettingstarted/add_originals.html" label="Adding Original Folders to a Project">
+ </topic>
+ <topic href="html/gettingstarted/capturing_files.html" label="Capturing Files">
+ </topic>
+ <topic href="html/gettingstarted/edit_description.html" label="Create or Edit a Description">
+ </topic>
+ <topic href="html/gettingstarted/crosswalk_mods.html" label="Crosswalk Tabular Metadata to MODS">
+ </topic>
+ <topic href="html/gettingstarted/finish_export.html" label="Finish Up with an Export">
+ </topic>
 </toc>

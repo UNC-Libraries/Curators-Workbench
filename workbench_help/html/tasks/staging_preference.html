@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Set up a Preferred Staging Location</title>
+</head>
+
+<body>
+	<h1>Set up a Preferred Staging Location</h1>
+	<p>
+		Local staging, where files are staged within the project folder on
+		your computer, is the default for new projects. However, you can add
+		new staging locations in the <em>Staging</em> preferences section. A
+		member of your technical staff might help in configuring this
+		preference. A custom staging preference will help ensure that
+		materials are staged in stable storage, file space that is off the
+		local machine and backed up regularly.
+	</p>
+	<p>Staging preferences consist of a descriptive name and a location
+		string with a special format. The location string is really a URI that
+		indicates the location of a folder. Normal file paths start with
+		"file:", for example on Windows there is usually a folder with this
+		URI, "file:/C:/Windows". Note that the normal \ character has been
+		replaced with /. This is a convention for URIs. You may insert special
+		markers into your location URIs. These markers will be replaced with
+		names related to the project or the user. Here are the markers you can
+		use in staging URIs:
+	<ul>
+		<li>${PROJECT_HOME} - project folder path, for using a sub-folder</li>
+		<li>${PROJECT_NAME} - name of the project, for using a central
+			staging location</li>
+		<li>${USER_NAME} - name of the user logged into this computer</li>
+	</ul>
+	The replacement values will be escaped to match URI syntax. The
+	default "staging folder within project" preference provides an example of a URI string
+	with a project location marker:
+	<blockquote>${PROJECT_LOC}/stage</blockquote>
+	Another URI scheme that is supported by the workbench is iRODS. When
+	dealing with iRODS staging preferences and other network locations the
+	replacement markers are especially helpful:
+	<blockquote>irods://${USER_NAME}@my-vault.lib.edu:1247/myZone/home/${USER_NAME}/staging/${PROJECT_NAME}</blockquote>
+	<p>Go to Help > Preferences, to set Staging locations.</p>
+</body>
+</html>

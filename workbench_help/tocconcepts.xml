@@ -2,10 +2,20 @@
 <?NLS TYPE="org.eclipse.help.toc"?>
 
 <toc label="Concepts" link_to="toc.xml#concepts"> 
-	<topic label="Main Topic"  href="html/concepts/maintopic.html"> 
-		<topic label="Sub Topic" href="html/concepts/subtopic.html" /> 
+	<topic label="Projects"  href="html/concepts/projects.html"> 
 	</topic>
-	<topic label="Main Topic 2">
-		<topic label="Sub Topic 2" href="html/concepts/subtopic2.html" /> 
-	</topic> 
+	<topic href="html/concepts/originals.html" label="Originals">
+	</topic>
+ <topic href="html/concepts/capture.html" label="Capture">
+ </topic>
+ <topic href="html/concepts/staging.html" label="Staging">
+    <topic href="html/concepts/prestaging.html" label="Pre-Staged Files">
+    </topic>
+ </topic>
+ <topic href="html/concepts/arrangement.html" label="Arrangement">
+ </topic>
+ <topic href="html/concepts/crosswalks.html" label="Metadata Crosswalks">
+ </topic>
+ <topic href="html/concepts/project_export.html" label="Export">
+ </topic> 
 </toc>
