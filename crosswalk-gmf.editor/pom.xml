@@ -5,9 +5,9 @@
   <parent>
     <groupId>curators.workbench</groupId>
     <artifactId>parent</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>3.0.0.20110930-1007</version>
   </parent>
   <artifactId>crosswalk-gmf.editor</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>3.0.0.20110930-1007</version>
   <packaging>eclipse-plugin</packaging>
 </project>

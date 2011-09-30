@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: mets.model.edit;singleton:=true
-Bundle-Version: 0.0.1.qualifier
+Bundle-Version: 3.0.0.20110930-1007
 Bundle-ClassPath: .
 Bundle-Activator: gov.loc.mets.provider.MetsEditPlugin$Implementation
 Bundle-Vendor: %providerName
@@ -10,7 +10,7 @@ Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: gov.loc.mets.provider
 Require-Bundle: org.eclipse.core.runtime,
- mets.model;bundle-version="0.0.1";visibility:=reexport,
+ mets.model;visibility:=reexport,
  org.eclipse.emf.edit;visibility:=reexport,
- xlink.model.edit;bundle-version="0.0.1";visibility:=reexport
+ xlink.model.edit;visibility:=reexport
 Bundle-ActivationPolicy: lazy

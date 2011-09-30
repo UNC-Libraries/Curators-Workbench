@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: mods.model.editor;singleton:=true
-Bundle-Version: 0.0.1.qualifier
+Bundle-Version: 3.0.0.20110930-1007
 Bundle-ClassPath: .
 Bundle-Activator: gov.loc.mods.mods.presentation.ModsEditorPlugin$Implementation
 Bundle-Vendor: %providerName
@@ -14,5 +14,5 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
  org.eclipse.emf.edit.ui;visibility:=reexport,
  org.eclipse.ui.ide;visibility:=reexport,
- mods.model.edit;bundle-version="0.0.1"
+ mods.model.edit
 Bundle-ActivationPolicy: lazy

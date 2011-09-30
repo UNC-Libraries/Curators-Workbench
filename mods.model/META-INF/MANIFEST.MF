@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: mods.model;singleton:=true
-Bundle-Version: 0.0.1.qualifier
+Bundle-Version: 3.0.0.20110930-1007
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
@@ -13,4 +13,4 @@ Export-Package: gov.loc.mods.mods,
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
- xlink.model;bundle-version="0.0.1";visibility:=reexport
+ xlink.model;visibility:=reexport

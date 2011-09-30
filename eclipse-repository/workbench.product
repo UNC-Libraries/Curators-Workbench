@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="Curator&apos;s Workbench" uid="curators-workbench" id="workbench_plugin.eclipse-repository" application="workbench_plugin.application" version="0.0.1.qualifier" useFeatures="true" includeLaunchers="true">
+<product name="Curator&apos;s Workbench" uid="curators-workbench" id="workbench_plugin.eclipse-repository" application="workbench_plugin.application" version="3.0.0.20110930-1007" useFeatures="true" includeLaunchers="true">
 
    <aboutInfo>
       <image path="/workbench_plugin/about.png"/>
@@ -50,7 +50,6 @@ Biff Hollingsworth
       </win>
    </launcher>
 
-
    <vm>
    </vm>
 
@@ -77,7 +76,7 @@ limitations under the License.
    </plugins>
 
    <features>
-      <feature id="workbench_feature" version="0.0.1.qualifier"/>
+      <feature id="workbench_feature" version="3.0.0.20110930-1007"/>
    </features>
 
    <configurations>

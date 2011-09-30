@@ -1262,20 +1262,48 @@
                value="about.png">
          </property>
          <property
-               name="aboutText"
-               value="Curator&apos;s Workbench&#x0A;&#x0A;Gregory N. Jansen, design and development&#x0A;count0@email.unc.edu&#x0A;University Libraries&#x0A;UNC Chapel Hill">
-         </property>
-         <property
                name="introTitle"
                value="Wecome to the Curator&apos;s Workbench">
          </property>
-         <!--<property
+         <property
                name="introBrandingImage"
                value="product:intro.png">
-         </property>-->
+         </property>
          <property
                name="introBrandingImageText"
                value="Curator&apos;s Workbench Logo Image">
+         </property>
+         <property
+               name="aboutText"
+               value="Curator&apos;s Workbench, version 3
+
+The Curator&apos;s Workbench is a project of the Carolina Digital Repository, created by the University Libraries of UNC Chapel Hill.
+http://cdr.unc.edu
+
+This software is open source, you can participate in development on GitHub:
+http://github.com/UNC-Libraries/Curators-Workbench
+
+This project was also supported by a grant from the International Council in Archives
+http://www.ica.org
+
+Project Lead, Developer:  Gregory N. Jansen, count0@email.unc.edu
+
+Project Team:  Erin O&apos;Meara, Jill Sexton, Dave Pcolar, Steve Barr
+
+We also give special thanks to our focus group participants:
+Jackie Dean
+Barrie E. Hayes
+Michele Hayslett
+Rosalyn P. Holdzkom
+Biff Hollingsworth3.0.0">
+         </property>
+         <property
+               name="startupProgressRect"
+               value="5,275,445,15">
+         </property>
+         <property
+               name="preferenceCustomization"
+               value="plugin_customization.ini">
          </property>
       </product>
    </extension>

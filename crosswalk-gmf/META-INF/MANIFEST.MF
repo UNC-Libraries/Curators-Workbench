@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: crosswalk-gmf;singleton:=true
-Bundle-Version: 0.0.1.qualifier
+Bundle-Version: 3.0.0.20110930-1007
 Bundle-ClassPath: .,
  lib/opencsv-2.2.jar
 Bundle-Vendor: %providerName
@@ -14,5 +14,5 @@ Export-Package: crosswalk,
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.core.resources;bundle-version="3.6.0",
- mods.model;bundle-version="0.0.1",
- mets.model;bundle-version="0.0.1"
+ mods.model,
+ mets.model
