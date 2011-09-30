@@ -1269,13 +1269,13 @@
                name="introTitle"
                value="Wecome to the Curator&apos;s Workbench">
          </property>
-         <!--<property
+         <property
                name="introBrandingImage"
                value="product:intro.png">
-         </property>-->
+         </property>
          <property
                name="introBrandingImageText"
-               value="Curator&apos;s Workbench Logo Image">
+               value="Curator&apos;s Workbench Logo">
          </property>
       </product>
    </extension>
