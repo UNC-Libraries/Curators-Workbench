@@ -1258,12 +1258,8 @@
                value="Curator&apos;s Workbench">
          </property>
          <property
-               name="aboutImage"
-               value="about.png">
-         </property>
-         <property
                name="introTitle"
-               value="Wecome to the Curator&apos;s Workbench">
+               value="Wecome to the Curator&apos;s Workbench - Version 3">
          </property>
          <property
                name="introBrandingImage"
@@ -1274,36 +1270,24 @@
                value="Curator&apos;s Workbench Logo Image">
          </property>
          <property
-               name="aboutText"
-               value="Curator&apos;s Workbench, version 3
-
-The Curator&apos;s Workbench is a project of the Carolina Digital Repository, created by the University Libraries of UNC Chapel Hill.
-http://cdr.unc.edu
-
-This software is open source, you can participate in development on GitHub:
-http://github.com/UNC-Libraries/Curators-Workbench
-
-This project was also supported by a grant from the International Council in Archives
-http://www.ica.org
-
-Project Lead, Developer:  Gregory N. Jansen, count0@email.unc.edu
-
-Project Team:  Erin O&apos;Meara, Jill Sexton, Dave Pcolar, Steve Barr
-
-We also give special thanks to our focus group participants:
-Jackie Dean
-Barrie E. Hayes
-Michele Hayslett
-Rosalyn P. Holdzkom
-Biff Hollingsworth3.0.0">
-         </property>
-         <property
                name="startupProgressRect"
                value="5,275,445,15">
          </property>
          <property
                name="preferenceCustomization"
                value="plugin_customization.ini">
+         </property>
+         <property
+               name="aboutText"
+               value="Curator&apos;s Workbench&#x0A;&#x0A;Version 3.0&#x0A;(c) Copyright UNC Libraries, Eclipse contributors and others 2000, 2011.  Some rights reserved.&#x0A;&#x0A;The Curator&apos;s Workbench is a project of the Carolina Digital Repository, created by the University Libraries of UNC Chapel Hill.&#x0A;Visit http://cdr.lib.unc.edu&#x0A;&#x0A;Lead Developer:  Gregory Jansen, count0@email.unc.edu&#x0A;&#x0A;Project Team:&#x0A;Erin O&apos;Meara&#x0A;Jill Sexton&#x0A;&#x0A;Special thanks to:&#x0A;Eclipse contributors, esp. EMF/GMF&#x0A;Steve Barr&#x0A;Ben Pennel&#x0A;Jackie Dean&#x0A;Mark Diggory&#x0A;Barrie E. Hayes&#x0A;Michele Hayslett&#x0A;Rosalyn P. Holdzkom&#x0A;Biff Hollingsworth&#x0A;&#x0A;This software is open source, you can participate in development on GitHub:&#x0A;Visit http://github.com/UNC-Libraries/Curators-Workbench&#x0A;&#x0A;This project was also supported by a grant from the International Council in Archives&#x0A;Visit http://www.ica.org&#x0A;&#x0A;This product includes software developed by the&#x0A;Apache Software Foundation http://apache.org/">
+         </property>
+         <property
+               name="aboutImage"
+               value="about.png">
+         </property>
+         <property
+               name="startupMessageRect"
+               value="5,255,445,15">
          </property>
       </product>
    </extension>

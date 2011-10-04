@@ -17,11 +17,13 @@ http://github.com/UNC-Libraries/Curators-Workbench
 This project was also supported by a grant from the International Council in Archives
 http://www.ica.org
 
-Project Lead, Developer:  Gregory N. Jansen, count0@email.unc.edu
+Lead Developer:  Gregory N. Jansen, count0@email.unc.edu
 
-Project Team:  Erin O&apos;Meara, Jill Sexton, Dave Pcolar, Steve Barr
+Project Team:
+Erin O&apos;Meara
+Jill Sexton
 
-We also give special thanks to our focus group participants:
+Special thanks to:
 Jackie Dean
 Barrie E. Hayes
 Michele Hayslett
@@ -49,6 +51,8 @@ Biff Hollingsworth
          <bmp/>
       </win>
    </launcher>
+
+   <intro introId="org.eclipse.ui.intro.universal"/>
 
    <vm>
    </vm>
