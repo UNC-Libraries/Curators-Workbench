@@ -5,5 +5,5 @@ Bundle-SymbolicName: crosswalk-gmf.custom;singleton:=true
 Bundle-Version: 0.0.1.qualifier
 Bundle-Vendor: UNC Chapel Hill Libraries
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Require-Bundle: crosswalk-gmf.diagram;bundle-version="0.0.1",
- org.eclipse.gmf.runtime.emf.type.core;bundle-version="1.4.0"
+Require-Bundle: crosswalk-gmf.diagram,
+ org.eclipse.gmf.runtime.emf.type.core

@@ -8,7 +8,7 @@
 	<packaging>pom</packaging>
 	<inceptionYear>2010</inceptionYear>
 	<properties>
-		<tycho-version>0.13.0-SNAPSHOT</tycho-version>
+		<tycho-version>0.14.0</tycho-version>
 		<tycho-groupid>org.eclipse.tycho</tycho-groupid>
 		<eclipse-repository-url>http://download.eclipse.org/eclipse/updates/3.6</eclipse-repository-url>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -32,15 +32,20 @@
 		<url>http://www.unc.edu</url>
 	</organization>
 	<repositories>
-		<repository>
+		<!--repository>
 			<id>update36</id>
 			<url>${eclipse-repository-url}</url>
 			<layout>p2</layout>
-		</repository>
-		<repository>
+		</repository-->
+		<!--repository>
 			<id>helios</id>
 			<layout>p2</layout>
 			<url>http://download.eclipse.org/releases/helios/</url>
+		</repository-->
+		<repository>
+			<id>eclipse-indigo</id>
+			<layout>p2</layout>
+			<url>http://download.eclipse.org/releases/indigo</url>
 		</repository>
 	</repositories>
 	<modules>
@@ -68,18 +73,12 @@
 	</modules>
 	<build>
 		<plugins>
-<!-- 			<plugin>
+			<plugin>
 				<groupId>${tycho-groupid}</groupId>
-				<artifactId>tycho-pomgenerator-plugin</artifactId>
+				<artifactId>tycho-maven-plugin</artifactId>
 				<version>${tycho-version}</version>
 				<extensions>true</extensions>
-			</plugin> -->
-			<plugin>
-        <groupId>${tycho-groupid}</groupId>
-        <artifactId>tycho-maven-plugin</artifactId>
-        <version>${tycho-version}</version>
-        <extensions>true</extensions>
-      </plugin>
+			</plugin>
 			<plugin>
 				<groupId>${tycho-groupid}</groupId>
 				<artifactId>target-platform-configuration</artifactId>
@@ -91,8 +90,8 @@
 						<artifact>
 							<groupId>curators.workbench</groupId>
 							<artifactId>target-definition</artifactId>
-							<version>0.0.1-SNAPSHOT</version>
-							<classifier>helios</classifier>
+							<version>${project.version}</version>
+							<classifier>indigo</classifier>
 						</artifact>
 					</target>
 					<!--<pomDependencies>consider</pomDependencies>-->

@@ -1,19 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-    <feature url="features/workbench_feature_3.0.0.qualifier.jar" id="workbench_feature" version="3.0.0.qualifier">
-        <category name="workbench_category_id"/>
-    </feature>
-<!--    <feature url="features/example-feature-2_0.2.0.qualifier.jar" id="example-feature-2" version="0.2.0.qualifier">
-        <category name="install_feature2_category"/>
-    </feature>-->
-    <category-def name="workbench_category_id" label="Curator&apos;s Workbench Category">
-        <description>
-            Description of example category
-        </description>
-    </category-def>
-<!--    <category-def name="install_feature2_category" label="Install Feature2 Category">
-        <description>
-            Install Feature2 Category contains example-feature-2.
-        </description>
-    </category-def>-->
+   <feature url="features/workbench_feature_4.0.0.qualifier.jar" id="workbench_feature" version="4.0.0.qualifier">
+      <category name="workbench_category_id"/>
+   </feature>
+   <category-def name="workbench_category_id" label="Curator&apos;s Workbench Category">
+      <description>
+         Description of example category
+      </description>
+   </category-def>
 </site>

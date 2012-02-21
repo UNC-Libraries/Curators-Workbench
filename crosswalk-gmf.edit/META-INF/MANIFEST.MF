@@ -10,8 +10,8 @@ Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: crosswalk.provider
 Require-Bundle: org.eclipse.core.runtime,
- crosswalk-gmf;bundle-version="3.0.0";visibility:=reexport,
+ crosswalk-gmf;visibility:=reexport,
  org.eclipse.emf.edit;visibility:=reexport,
  org.eclipse.core.resources,
- mods.model.edit;bundle-version="3.0.0"
+ mods.model.edit
 Bundle-ActivationPolicy: lazy

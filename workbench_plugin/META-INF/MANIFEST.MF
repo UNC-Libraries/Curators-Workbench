@@ -5,17 +5,17 @@ Bundle-SymbolicName: workbench_plugin;singleton:=true
 Bundle-Version: 4.0.0.qualifier
 Bundle-Activator: unc.lib.cdr.workbench.rcp.Activator
 Bundle-Vendor: UNC Libraries
-Require-Bundle: org.eclipse.core.expressions;bundle-version="3.4.200",
- org.eclipse.core.filesystem;bundle-version="1.3.0",
- org.eclipse.ui.navigator;bundle-version="3.5.0",
- crosswalk-gmf.diagram;bundle-version="3.0.0",
- mets.model.edit;bundle-version="3.0.0",
- mods.model.editor;bundle-version="3.0.0",
- irods-efs.plugin;bundle-version="3.0.0",
+Require-Bundle: org.eclipse.core.expressions;bundle-version="3.4.300",
+ org.eclipse.core.filesystem;bundle-version="1.3.100",
+ org.eclipse.ui.navigator;bundle-version="3.5.100",
+ crosswalk-gmf.diagram,
+ mets.model.edit,
+ mods.model.editor,
+ irods-efs.plugin,
  org.apache.commons.codec;bundle-version="1.3.0",
- org.eclipse.ui.views.properties.tabbed;bundle-version="3.5.100",
+ org.eclipse.ui.views.properties.tabbed;bundle-version="3.5.200",
  org.eclipse.gmf.runtime.emf.type.core;bundle-version="1.4.0",
- access-control.edit;bundle-version="3.0.0",
+ access-control.edit,
  org.eclipse.ui.intro
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
