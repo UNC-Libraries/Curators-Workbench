@@ -13,6 +13,6 @@ Export-Package: crosswalk,
  crosswalk.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
- org.eclipse.core.resources;bundle-version="3.6.0",
- mods.model;bundle-version="3.0.0",
- mets.model;bundle-version="3.0.0"
+ org.eclipse.core.resources,
+ mods.model,
+ mets.model

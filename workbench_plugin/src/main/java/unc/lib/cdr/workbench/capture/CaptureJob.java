@@ -152,7 +152,7 @@ public class CaptureJob extends Job {
 			captureSiblingList(items, topDestination, insertBefore);
 
 			project.getWorkspace().save(true, monitor);
-			Map<String, Object> params = new HashMap<String, Object>();
+			Map<String, String> params = new HashMap<String, String>();
 			// if (auditPreviouslyStaged) {
 			// params.put("audit", Boolean.TRUE);
 			// }

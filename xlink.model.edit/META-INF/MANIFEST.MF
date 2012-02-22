@@ -9,7 +9,7 @@ Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: org.w3._1999.xlink.provider
-Require-Bundle: xlink.model;bundle-version="3.0.0";visibility:=reexport,
- org.eclipse.emf.edit;bundle-version="2.6.0";visibility:=reexport,
+Require-Bundle: xlink.model;visibility:=reexport,
+ org.eclipse.emf.edit;visibility:=reexport,
  org.eclipse.core.runtime
 Bundle-ActivationPolicy: lazy

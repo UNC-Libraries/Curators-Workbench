@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="Curator&apos;s Workbench" uid="curators-workbench" id="workbench_plugin.eclipse-repository" application="workbench_plugin.application" version="4.0.0.qualifier" useFeatures="true" includeLaunchers="true">
+<product name="Curator&apos;s Workbench" uid="curators-workbench" id="workbench_plugin.eclipse-repository" application="workbench_plugin.application" version="4.0.0" useFeatures="true" includeLaunchers="true">
 
    <aboutInfo>
       <image path="/workbench_plugin/about.png"/>
@@ -80,7 +80,7 @@ limitations under the License.
    </plugins>
 
    <features>
-      <feature id="workbench_feature" version="4.0.0.qualifier"/>
+      <feature id="workbench_feature"/>
    </features>
 
    <configurations>
