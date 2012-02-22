@@ -44,8 +44,7 @@ import org.slf4j.LoggerFactory;
 
 import unc.lib.cdr.workbench.IResourceConstants;
 import unc.lib.cdr.workbench.project.MetsProjectNature;
-import unc.lib.cdr.workbench.rcp.Activator;
-import unc.lib.cdr.workbench.views.LabelImageFactory;
+import unc.lib.cdr.workbench.views.LabelImageFactory.Icon;
 
 public class OriginalsDecorator implements ILightweightLabelDecorator, IResourceChangeListener {
 	Set<ILabelProviderListener> listeners = new HashSet<ILabelProviderListener>();
@@ -99,15 +98,15 @@ public class OriginalsDecorator implements ILightweightLabelDecorator, IResource
 					String st = md.getSTATUS();
 					if (METSConstants.MD_STATUS_CROSSWALK_LINKED.equals(st)) {
 						decoration.addOverlay(
-								LabelImageFactory.getImageDescriptorForKey(LabelImageFactory.CROSSWALKED_DECORATOR),
+								Icon.CrosswalkedDecor.getImageDescriptor(),
 								IDecoration.BOTTOM_LEFT);
 					} else if (METSConstants.MD_STATUS_USER_EDITED.equals(st)) {
 						decoration.addOverlay(
-								LabelImageFactory.getImageDescriptorForKey(LabelImageFactory.USER_EDITED_DECORATOR),
+								Icon.UserEditedDecor.getImageDescriptor(),
 								IDecoration.TOP_RIGHT);
 					} else if (METSConstants.MD_STATUS_CROSSWALK_USER_LINKED.equals(st)) {
 						decoration.addOverlay(
-								LabelImageFactory.getImageDescriptorForKey(LabelImageFactory.CROSSWALKED_DECORATOR),
+								Icon.CrosswalkedDecor.getImageDescriptor(),
 								IDecoration.BOTTOM_LEFT);
 					}
 				}
@@ -115,7 +114,7 @@ public class OriginalsDecorator implements ILightweightLabelDecorator, IResource
 			for (MdSecType md : d.getMdSec()) { // process admin metadata overlays
 				if (md != null) {
 					if (MetsPackage.eINSTANCE.getAmdSecType_RightsMD().equals(md.eContainingFeature())) {
-						decoration.addOverlay(LabelImageFactory.getImageDescriptorForKey(LabelImageFactory.ACL_DECORATOR),
+						decoration.addOverlay(Icon.ACLDecor.getImageDescriptor(),
 								IDecoration.TOP_LEFT);
 					}
 				}
@@ -146,11 +145,11 @@ public class OriginalsDecorator implements ILightweightLabelDecorator, IResource
 				}
 				if (r.findMarkers(IResourceConstants.MARKER_STAGED, false, IResource.DEPTH_ZERO).length > 0) {
 					// captured file (original or the div)
-					overlay = LabelImageFactory.getImageDescriptorForKey(LabelImageFactory.STAGED_DECORATOR);
+					overlay = Icon.StagedDecor.getImageDescriptor();
 					labels.add("staged");
 				} else {
 						if(captured && r instanceof IFile) {
-							overlay = Activator.getDefault().getImageRegistry().getDescriptor(LabelImageFactory.CAPTURE_DECORATOR);
+							overlay = Icon.CaptureDecor.getImageDescriptor();
 							labels.add("queued");
 						}
 				}

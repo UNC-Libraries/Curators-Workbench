@@ -131,4 +131,15 @@
     <eOperations name="getOutputDataType" lowerBound="1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EDataType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DateToISO8601StringConversion" eSuperTypes="#//ConversionStrategy"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ElementBox" eSuperTypes="#//OutputElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="New Element Box"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ports" upperBound="-1"
+        eType="#//IOPort" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
+        eType="#//MappedElement" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IOPort" eSuperTypes="#//Input #//Output">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
 </ecore:EPackage>

@@ -252,8 +252,11 @@ public class METSUtils {
 	 * @return
 	 */
 	public static boolean isContainer(DivType d) {
+		if(!d.getDiv().isEmpty()) {
+			return true;
+		}
 		if (METSConstants.Div_Folder.equals(d.getTYPE()) || METSConstants.Div_Collection.equals(d.getTYPE())
-				|| METSConstants.Div_Disk.equals(d.getTYPE())) {
+				|| METSConstants.Div_Disk.equals(d.getTYPE()) || METSConstants.Div_AggregateWork.equals(d.getTYPE())) {
 			return true;
 		} else {
 			return false;

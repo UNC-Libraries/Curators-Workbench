@@ -18,12 +18,17 @@ package unc.lib.cdr.workbench.rcp;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.core.commands.Command;
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ImageRegistry;
+import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.commands.ICommandService;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
+import org.eclipse.ui.progress.UIJob;
 import org.osgi.framework.BundleContext;
-
-import unc.lib.cdr.workbench.views.LabelImageFactory;
 
 /**
  * The activator class controls the plug-in life cycle
@@ -51,7 +56,7 @@ public class Activator extends AbstractUIPlugin {
 	@Override
 	protected void initializeImageRegistry(ImageRegistry reg) {
 		super.initializeImageRegistry(reg);
-		LabelImageFactory.initializeImageRegistry(reg);
+		// LabelImageFactory.initializeImageRegistry(reg);
 	}
 
 	/*
@@ -63,6 +68,21 @@ public class Activator extends AbstractUIPlugin {
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
 		plugin = this;
+
+		UIJob job = new UIJob("InitCommandsWorkaround") {
+
+			@Override
+			public IStatus runInUIThread(@SuppressWarnings("unused") IProgressMonitor monitor) {
+
+				ICommandService commandService = (ICommandService) PlatformUI.getWorkbench().getActiveWorkbenchWindow()
+						.getService(ICommandService.class);
+				Command command = commandService.getCommand("workbench_plugin.commandSetDivType");
+				command.isEnabled();
+				return new Status(IStatus.OK, PLUGIN_ID, "Init commands workaround performed succesfully");
+			}
+
+		};
+		job.schedule();
 	}
 
 	/*

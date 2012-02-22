@@ -18,6 +18,7 @@ package gov.loc.mets.provider;
 import gov.loc.mets.MetsPackage;
 import gov.loc.mets.SmLinkType;
 import gov.loc.mets.util.METSConstants;
+import gov.loc.mets.util.METSConstants.Link;
 
 import java.util.Collection;
 import java.util.List;
@@ -192,8 +193,9 @@ public class SmLinkTypeItemProvider extends ItemProviderAdapter implements IEdit
 		SmLinkType link = (SmLinkType) object;
 		StringBuilder label = new StringBuilder();
 		if (link.getArcrole() != null) {
-			if (METSConstants.LINK_HAS_SURROGATE_URI.equals(link.getArcrole())) {
-				label.append(METSConstants.LINK_HAS_SURROGATE_LABEL);
+			Link l = METSConstants.getLinkForArcRole(link.getArcrole());
+			if(l != null) {
+				label.append(l.predicateText);
 			} else {
 				label.append(link.getArcrole());
 			}

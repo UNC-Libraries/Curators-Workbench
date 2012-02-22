@@ -127,6 +127,12 @@
             name="Convert to Collection">
       </command>
       <command
+            defaultHandler="unc.lib.cdr.workbench.commands.ConvertToAggregateWorkHandler"
+            description="Make this folder into an aggregate work."
+            id="workbench_plugin.commandConvertToAggregateWork"
+            name="Convert to Aggregate Work">
+      </command>
+      <command
             defaultHandler="unc.lib.cdr.workbench.acl.EditAccessControlsCommand"
             id="cdr-workbench.commandEditAccessControl"
             name="Edit Access Control">
@@ -150,6 +156,20 @@
             defaultHandler="unc.lib.cdr.workbench.commands.OpenSystemEditorTempCopyHandler"
             id="cdr-workbench.commandOpenCopySystemEditor"
             name="Open a copy in system&apos;s editor">
+      </command>
+      <command
+            defaultHandler="unc.lib.cdr.workbench.commands.SetDivTypeHandler"
+            id="workbench_plugin.commandSetDivType"
+            name="Set Div Type">
+         <commandParameter
+               id="org.eclipse.ui.commands.radioStateParameter"
+               name="State"
+               optional="false">
+         </commandParameter>
+         <state
+               class="org.eclipse.ui.handlers.RadioState:Folder"
+               id="org.eclipse.ui.commands.radioState">
+         </state>
       </command>
    </extension>
    <extension
@@ -275,6 +295,56 @@
                </with>
             </visibleWhen>
          </command>
+         <menu
+               label="Type"
+               mnemonic="t"
+               tooltip="set the type of object">
+            <command
+                  commandId="workbench_plugin.commandSetDivType"
+                  label="Folder"
+                  mnemonic="f"
+                  style="radio">
+               <parameter
+                     name="org.eclipse.ui.commands.radioStateParameter"
+                     value="Folder">
+               </parameter>
+            </command>
+            <command
+                  commandId="workbench_plugin.commandSetDivType"
+                  label="Aggregate Work"
+                  mnemonic="a"
+                  style="radio">
+               <parameter
+                     name="org.eclipse.ui.commands.radioStateParameter"
+                     value="Aggregate Work">
+               </parameter>
+            </command>
+            <command
+                  commandId="workbench_plugin.commandSetDivType"
+                  label="Collection"
+                  mnemonic="c"
+                  style="radio">
+               <parameter
+                     name="org.eclipse.ui.commands.radioStateParameter"
+                     value="Collection">
+               </parameter>
+            </command>
+            <visibleWhen
+                  checkEnabled="false">
+               <with
+                     variable="activeMenuSelection">
+                  <iterate
+                        ifEmpty="false">
+                     <test
+                           property="cdr-workbench.isContainer">
+                     </test>
+                  </iterate>
+                  <count
+                        value="1">
+                  </count>
+               </with>
+            </visibleWhen>
+         </menu>
          <command
                commandId="cdr-workbench.commandOpenCopySystemEditor"
                label="Open copy in default editor"
@@ -369,7 +439,7 @@
          </command>
          <command
                commandId="cdr-workbench.commandOpenCopySystemEditor"
-               label="Open copy of original in default editor"
+               label="Open copy in default editor"
                style="push">
             <visibleWhen
                   checkEnabled="false">
@@ -383,7 +453,7 @@
                         </instanceof>
                         <not>
                            <test
-                                 property="cdr-workbench.isFolder">
+                                 property="cdr-workbench.isContainer">
                            </test>
                         </not>
                      </and>
@@ -516,26 +586,6 @@
                      <instanceof
                            value="gov.loc.mets.DivType">
                      </instanceof>
-                  </iterate>
-                  <count
-                        value="1">
-                  </count>
-               </with>
-            </visibleWhen>
-         </command>
-         <command
-               commandId="workbench_plugin.commandConvertToCollection"
-               label="Convert to Collection"
-               style="push">
-            <visibleWhen
-                  checkEnabled="false">
-               <with
-                     variable="activeMenuSelection">
-                  <iterate
-                        ifEmpty="false">
-                     <test
-                           property="cdr-workbench.isFolder">
-                     </test>
                   </iterate>
                   <count
                         value="1">

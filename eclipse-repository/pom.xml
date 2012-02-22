@@ -46,9 +46,34 @@
 				</configuration>
 			</plugin>
 			<plugin>
-				<artifactId>maven-antrun-plugin</artifactId>
+				<artifactId>maven-install-plugin</artifactId>
+				<groupId>org.apache.maven.plugins</groupId>
+				<version>2.3.1</version>
 				<executions>
 					<execution>
+						<id>noexecution</id>
+						<phase>none</phase>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<dependencies>
+					<dependency>
+						<groupId>org.apache.ant</groupId>
+						<artifactId>ant-jsch</artifactId>
+						<version>1.7.0</version>
+					</dependency>
+					<dependency>
+						<groupId>ant-contrib</groupId>
+						<artifactId>ant-contrib</artifactId>
+						<version>20020829</version>
+					</dependency>
+				</dependencies>
+				<executions>
+					<execution>
+						<!-- Installs the ZIPs and repository to versioned folder on web server: Should replaces snapshot versions. Fails if 
+							you try to post the same final version twice. -->
 						<id>deploy</id>
 						<phase>install</phase>
 						<goals>
@@ -56,19 +81,63 @@
 						</goals>
 						<configuration>
 							<tasks>
+								<taskdef
+									name="if"
+									classname="net.sf.antcontrib.logic.IfTask"
+									classpathref="maven.plugin.classpath" />
+								<if>
+									<contains
+										string="${project.version}"
+										substring="-SNAPSHOT" />
+									<then>
+										<sshexec
+											host="${cw.deploy.host}"
+											username="${cw.deploy.username}"
+											passphrase="${cw.deploy.passphrase}"
+											keyfile="${cw.deploy.keyfile}"
+											trust="true"
+											command="rm -rf --preserve-root ${cw.deploy.basedir}/${project.version}"
+											failonerror="false" />
+									</then>
+								</if>
+								<sshexec
+									host="${cw.deploy.host}"
+									username="${cw.deploy.username}"
+									passphrase="${cw.deploy.passphrase}"
+									keyfile="${cw.deploy.keyfile}"
+									trust="true"
+									command="mkdir ${cw.deploy.basedir}/${project.version}" />
+								<sshexec
+									host="${cw.deploy.host}"
+									username="${cw.deploy.username}"
+									passphrase="${cw.deploy.passphrase}"
+									keyfile="${cw.deploy.keyfile}"
+									trust="true"
+									command="mkdir ${cw.deploy.basedir}/${project.version}/repository" />
 								<scp
-									includeemptydirs="false"
-									todir="${cw.scp.deploy.base}/${project.version}"
-									passphrase="${cw.scp.deploy.passphrase}"
-									keyfile="${user.home}/.ssh/id_rsa"
+									todir="${cw.deploy.username}@${cw.deploy.host}:${cw.deploy.basedir}/${project.version}/repository"
+									passphrase="${cw.deploy.passphrase}"
+									keyfile="${cw.deploy.keyfile}"
 									verbose="true"
+									trust="true"
 								>
 									<fileset
-										dir="target/repository"
-									>
-										<include
-											name="**" />
-									</fileset>
+										dir="target/repository" />
+								</scp>
+								<sshexec
+									host="${cw.deploy.host}"
+									username="${cw.deploy.username}"
+									passphrase="${cw.deploy.passphrase}"
+									keyfile="${cw.deploy.keyfile}"
+									trust="true"
+									command="mkdir ${cw.deploy.basedir}/${project.version}/products" />
+								<scp
+									todir="${cw.deploy.username}@${cw.deploy.host}:${cw.deploy.basedir}/${project.version}/products"
+									passphrase="${cw.deploy.passphrase}"
+									keyfile="${cw.deploy.keyfile}"
+									verbose="true"
+									trust="true"
+								>
 									<fileset
 										dir="target/products"
 									>
