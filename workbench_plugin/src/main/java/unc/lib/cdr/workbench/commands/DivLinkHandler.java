@@ -5,79 +5,66 @@ import gov.loc.mets.MetsFactory;
 import gov.loc.mets.MetsPackage;
 import gov.loc.mets.SmLinkType;
 import gov.loc.mets.StructLinkType1;
+import gov.loc.mets.util.Link;
 import gov.loc.mets.util.METSConstants;
 
+import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.commands.IHandler;
-import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.impl.NotificationImpl;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.SetCommand;
-import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.IStructuredSelection;
-import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.handlers.HandlerUtil;
 
 import unc.lib.cdr.workbench.project.MetsProjectNature;
 
-public class LinkSurrogateHandler extends AbstractHandler implements IHandler {
+public class DivLinkHandler extends AbstractHandler implements IHandler {
 
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		IStructuredSelection select = (IStructuredSelection) HandlerUtil.getCurrentSelectionChecked(event);
 		List sel = select.toList();
-		Assert.isTrue(sel.size() == 2);
-
-		DivType thumb = null;
-		DivType subject = null;
-		if (METSConstants.Div_File.equals(((DivType) sel.get(0)).getTYPE())) {
-			thumb = (DivType) sel.get(0);
-			subject = (DivType) sel.get(1);
+		String linkUri = event.getParameter("workbench_plugin.parameterLinkURI");
+		Link link = METSConstants.getLinkForArcRole(linkUri);
+		Collection<DivType[]> links = link.tester.potentialLinks(sel);
+		DivType x = links.iterator().next()[0];
+		MetsProjectNature mpn = MetsProjectNature.getNatureForMetsObject(x);
+		CompoundCommand cmd = null;
+		if(links.size() > 1) {
+			cmd = new CompoundCommand("Added "+links.size()+" links: "+link.label);
 		} else {
-			subject = (DivType) sel.get(0);
-			thumb = (DivType) sel.get(1);
+			cmd = new CompoundCommand("Added a link: "+link.label);
 		}
-
-		// confirmation
-		String[] labels = new String[] { "Yes", "No" };
-		String msg = "Do you want to set the thumbnail or surrogate object for\n" + subject.getLABEL1() + "\n\tto\n"
-				+ thumb.getLABEL1();
-		MessageDialog dialog = new MessageDialog(HandlerUtil.getActiveShell(event), "Establish Link", (Image) null, msg,
-				MessageDialog.QUESTION, labels, 1);
-		if (1 == dialog.open()) {
-			return null;
-		}
-
-		MetsProjectNature mpn = MetsProjectNature.getNatureForMetsObject(subject);
-
-		CompoundCommand cmd = new CompoundCommand("Adding Structural Link to METS");
 
 		// check structLink
 		StructLinkType1 sl = mpn.getMets().getStructLink();
 		if (sl == null) {
-			System.out.println("Struct link is null in METS");
+			System.err.println("Struct link is null in METS");
 			sl = MetsFactory.eINSTANCE.createStructLinkType1();
 			cmd.append(new SetCommand(mpn.getEditingDomain(), mpn.getMets(), MetsPackage.eINSTANCE
 					.getMetsType_StructLink(), sl));
 		}
 
-		// create link
-		SmLinkType link = MetsFactory.eINSTANCE.createSmLinkType();
-		link.setXlinkFrom(subject);
-		link.setXlinkTo(thumb);
-		link.setArcrole(METSConstants.LINK_HAS_SURROGATE_URI);
-
-		// EList<SmLinkType> newlinks = ECollections.emptyEList();
-		// ECollections.setEList(newlinks, sl.getSmLink());
-		AddCommand setLinks = new AddCommand(mpn.getEditingDomain(), sl,
-				MetsPackage.eINSTANCE.getStructLinkType_SmLink(), link);
-		cmd.append(setLinks);
+		for(DivType[] l : links) {
+			// create link
+			SmLinkType smlink = MetsFactory.eINSTANCE.createSmLinkType();
+			smlink.setXlinkFrom(l[0]);
+			smlink.setXlinkTo(l[1]);
+			smlink.setArcrole(link.uri);
+	
+			// EList<SmLinkType> newlinks = ECollections.emptyEList();
+			// ECollections.setEList(newlinks, sl.getSmLink());
+			AddCommand setLinks = new AddCommand(mpn.getEditingDomain(), sl,
+					MetsPackage.eINSTANCE.getStructLinkType_SmLink(), smlink);
+			cmd.append(setLinks);
+		}
 		try {
 			mpn.getCommandStack().execute(cmd);
 		} catch (Exception e) {

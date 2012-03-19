@@ -17,11 +17,14 @@ package unc.lib.cdr.workbench.arrange;
 
 import gov.loc.mets.DivType;
 import gov.loc.mets.SmLinkType;
+import gov.loc.mets.util.Link;
+import gov.loc.mets.util.METSUtils;
 
 import java.text.Collator;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.jface.viewers.StructuredViewer;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.viewers.ViewerSorter;
 
@@ -52,8 +55,13 @@ public class ArrangementViewerSorter extends ViewerSorter {
 			DivType d1 = (DivType) e1;
 			EObject parent = d1.eContainer();
 			if (parent != null && parent instanceof DivType) {
-				EList<DivType> divs = ((DivType) parent).getDiv();
-				return divs.indexOf(e1) - divs.indexOf(e2);
+				boolean isAlpha = (METSUtils.findLink(parent, Link.ALPHABETICALORDER.uri, parent) != null);
+				if(isAlpha) {
+					return ((StructuredViewer)viewer).getComparator().compare(viewer, e1, e2);
+				} else {
+					EList<DivType> divs = ((DivType) parent).getDiv();
+					return divs.indexOf(e1) - divs.indexOf(e2);
+				}
 			}
 		}
 		return super.compare(viewer, e1, e2);

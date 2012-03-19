@@ -30,6 +30,7 @@ import gov.loc.mets.MetsFactory;
 import gov.loc.mets.MetsHdrType;
 import gov.loc.mets.MetsType;
 import gov.loc.mets.ROLEType;
+import gov.loc.mets.SmLinkType;
 import gov.loc.mets.StructMapType;
 import gov.loc.mets.TYPEType;
 import gov.loc.mets.impl.MetsPackageImpl;
@@ -129,6 +130,29 @@ public class METSUtils {
 			if (METSConstants.FILEGROUP_BatchMetadata.equals(g.getID())) {
 				result = g;
 				break;
+			}
+		}
+		return result;
+	}
+	
+	public static SmLinkType findLink(EObject s, String p, EObject o) {
+		SmLinkType result = null;
+		EObject testMets = s.eContainer();
+		while(!MetsType.class.isInstance(testMets)) {
+			testMets = testMets.eContainer();
+			if(testMets == null) {
+				return null;
+			}
+		}
+		MetsType mets = (MetsType)testMets;
+		for(SmLinkType l : mets.getStructLink().getSmLink()) {
+			if(l.getXlinkFrom().equals(s)) {
+				if(l.getXlinkTo().equals(o)) {
+					if(l.getArcrole().equals(p)) {
+						result = l;
+						break;
+					}
+				}
 			}
 		}
 		return result;

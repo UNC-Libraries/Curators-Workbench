@@ -40,6 +40,7 @@ import org.eclipse.core.runtime.jobs.Job;
 
 import unc.lib.cdr.workbench.IResourceConstants;
 import unc.lib.cdr.workbench.project.MetsProjectNature;
+import unc.lib.cdr.workbench.readonly.ReadOnlyWrapperFileSystem;
 
 /**
  * @author Gregory Jansen
@@ -84,11 +85,11 @@ public class OriginalsLinkJob extends Job {
 
 		try {
 			for (URI location : locations) {
-				IFileStore fs = EFS.getStore(location);
+				IFileStore fs = ReadOnlyWrapperFileSystem.wrapStore(location);
 				boolean isDir = fs.fetchInfo().isDirectory();
 
 				String linkName = null;
-				IPath path = new Path(location.getPath());
+				IPath path = new Path(fs.toURI().getPath());
 				if (path != null && path.segments().length > 0 && path.lastSegment().trim().length() > 0) {
 					linkName = path.lastSegment();
 				} else if (path.getDevice() != null) {
@@ -102,7 +103,7 @@ public class OriginalsLinkJob extends Job {
 				} else {
 					link = originalsFolder.getFile(linkName);
 				}
-				if (link.exists() && link.getLocationURI().equals(location)) {
+				if (link.exists() && link.getLocationURI().equals(fs.toURI())) {
 					// already linked to this original folder, continue
 					continue;
 				}
@@ -117,10 +118,10 @@ public class OriginalsLinkJob extends Job {
 				}
 				monitor.subTask("Linking " + location);
 				if (isDir) {
-					((IFolder) link).createLink(location, IFolder.ALLOW_MISSING_LOCAL | IFolder.BACKGROUND_REFRESH,
+					((IFolder) link).createLink(fs.toURI(), IFolder.ALLOW_MISSING_LOCAL | IFolder.BACKGROUND_REFRESH,
 							new SubProgressMonitor(monitor, 1));
 				} else {
-					((IFile) link).createLink(location, IFolder.ALLOW_MISSING_LOCAL | IFolder.BACKGROUND_REFRESH,
+					((IFile) link).createLink(fs.toURI(), IFolder.ALLOW_MISSING_LOCAL | IFolder.BACKGROUND_REFRESH,
 							new SubProgressMonitor(monitor, 1));
 				}
 				IMarker marker = link.createMarker(IResourceConstants.MARKER_ORIGINALFILESET);
@@ -128,7 +129,7 @@ public class OriginalsLinkJob extends Job {
 				if (this.prestaged && this.prestagedBase != null && this.baselocation != null) {
 					// calculate staging base for each original location
 					IPath basePath = new Path(this.baselocation.getPath()); // base path for all locations
-					IPath subPath = new Path(location.getPath()).makeRelativeTo(basePath.removeLastSegments(1))
+					IPath subPath = new Path(fs.toURI().getPath()).makeRelativeTo(basePath.removeLastSegments(1))
 							.removeLastSegments(1);
 					String myprestagestr = prestagedBase.toString();
 					if (subPath.segmentCount() > 0) {

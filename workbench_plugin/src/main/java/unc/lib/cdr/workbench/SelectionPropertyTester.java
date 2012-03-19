@@ -1,19 +1,25 @@
 package unc.lib.cdr.workbench;
 
 import gov.loc.mets.DivType;
+import gov.loc.mets.util.Link;
 import gov.loc.mets.util.METSConstants;
+
+import java.util.Collection;
 
 import org.eclipse.core.expressions.PropertyTester;
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
+import org.eclipse.core.runtime.Status;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 
 import unc.lib.cdr.workbench.project.MetsProjectNature;
+import unc.lib.cdr.workbench.rcp.Activator;
 
 public class SelectionPropertyTester extends PropertyTester {
 	public static final String IS_DIV_LINK_PAIR = "isDivLinkPair";
+	public static final String HAS_DIV_LINK_POTENTIAL = "hasDivLinkPotential";
 	public static final String SIBLING_IRESOURCES = "siblingIResources";
 
 	public SelectionPropertyTester() {
@@ -22,7 +28,31 @@ public class SelectionPropertyTester extends PropertyTester {
 
 	@Override
 	public boolean test(Object receiver, String property, Object[] args, Object expectedValue) {
-		if (IS_DIV_LINK_PAIR.equals(property)) {
+		if(HAS_DIV_LINK_POTENTIAL.equals(property)) {
+			if (receiver instanceof ISelection) {
+				ISelection s = (ISelection) receiver;
+				if (s instanceof IStructuredSelection) {
+					IStructuredSelection struct = (IStructuredSelection) s;
+					// all selected objects must be DivType
+					for(Object o : struct.toList()) {
+						if(!DivType.class.isInstance(o)) return false;
+					}
+					if(args.length > 0) { // check specific link types by uri					
+						for(Object o : args) {
+							Link l = METSConstants.getLinkForArcRole((String)o);
+							Collection<DivType[]> potentialLinks = l.tester.potentialLinks(struct.toList());
+							if(potentialLinks.size() > 0) {
+								return true;
+							}
+						}
+					} else { // check all links types
+						for(Link l : Link.values()) {
+							if(l.tester.potentialLinks(struct.toList()).size() > 0) return true;
+						}
+					}
+				}
+			}
+		} else if (IS_DIV_LINK_PAIR.equals(property)) {
 			if (receiver instanceof ISelection) {
 				ISelection s = (ISelection) receiver;
 				if (s instanceof IStructuredSelection) {

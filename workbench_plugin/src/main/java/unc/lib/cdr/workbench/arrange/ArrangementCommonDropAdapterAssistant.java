@@ -58,7 +58,7 @@ public class ArrangementCommonDropAdapterAssistant extends CommonDropAdapterAssi
 	@Override
 	public boolean isSupportedType(TransferData aTransferType) {
 		if (LocalSelectionTransfer.getTransfer().isSupportedType(aTransferType)) {
-			LOG.debug("found local selection transfer type");
+			//LOG.debug("found local selection transfer type");
 			return true;
 		} /*
 			 * else if (ResourceTransfer.getInstance().isSupportedType(aTransferType)) {
@@ -75,9 +75,9 @@ public class ArrangementCommonDropAdapterAssistant extends CommonDropAdapterAssi
 
 	@Override
 	public IStatus validateDrop(Object target, int operation, TransferData transferType) {
-		LOG.debug("validateDrop with: " + transferType + "|" + target);
+		//LOG.debug("validateDrop with: " + transferType + "|" + target);
 		boolean foo = LocalSelectionTransfer.getTransfer().isSupportedType(transferType);
-		LOG.debug("local selection? :" + foo);
+		//LOG.debug("local selection? :" + foo);
 		IStatus result = Status.CANCEL_STATUS;
 		if (target instanceof DivType) {
 			DivType d = (DivType) target;
@@ -91,19 +91,19 @@ public class ArrangementCommonDropAdapterAssistant extends CommonDropAdapterAssi
 		} else if (target instanceof ArrangementProjectElement) {
 			result = Status.OK_STATUS;
 		}
-		LOG.debug("result:" + result.getMessage());
+		//LOG.debug("result:" + result.getMessage());
 		return result;
 	}
 
 	@Override
 	public IStatus validatePluginTransferDrop(IStructuredSelection aDragSelection, Object aDropTarget) {
-		LOG.debug("trying to validate plugin transfer drop");
+		//LOG.debug("trying to validate plugin transfer drop");
 		return super.validatePluginTransferDrop(aDragSelection, aDropTarget);
 	}
 
 	@Override
 	public IStatus handleDrop(CommonDropAdapter aDropAdapter, DropTargetEvent event, Object aTarget) {
-		LOG.debug("handle drop found transfer type:" + aDropAdapter.getCurrentTransfer());
+		//LOG.debug("handle drop found transfer type:" + aDropAdapter.getCurrentTransfer());
 		event.detail = DND.DROP_NONE;
 		/*
 		 * if (ResourceTransfer.getInstance().isSupportedType(aDropAdapter. getCurrentTransfer())) {
@@ -112,10 +112,10 @@ public class ArrangementCommonDropAdapterAssistant extends CommonDropAdapterAssi
 		 * dropResources(items); } else
 		 */
 		if (LocalSelectionTransfer.getTransfer().isSupportedType(event.currentDataType)) {
-			LOG.debug("found local selection transfer data, event data: " + event.data);
+			//LOG.debug("found local selection transfer data, event data: " + event.data);
 			// put the transfer data somewhere safe
 			IStructuredSelection select = (IStructuredSelection) LocalSelectionTransfer.getTransfer().getSelection();
-			LOG.debug("selection: " + select);
+			//LOG.debug("selection: " + select);
 			List items = select.toList();
 			if (items.size() > 0) {
 				if (items.get(0) instanceof IResource) {
@@ -136,7 +136,7 @@ public class ArrangementCommonDropAdapterAssistant extends CommonDropAdapterAssi
 	 * @return
 	 */
 	private IStatus dropMdSecs(List mdSecs) {
-		LOG.debug("dropMdSecs called");
+		//LOG.debug("dropMdSecs called");
 		if (getCommonDropAdapter().getCurrentTarget() instanceof DivType) {
 			MdSecType md = (MdSecType) mdSecs.get(0); // can only drop one
 			// record at a time
@@ -191,7 +191,7 @@ public class ArrangementCommonDropAdapterAssistant extends CommonDropAdapterAssi
 	 * @return
 	 */
 	private IStatus dropDivs(List<DivType> items) {
-		LOG.debug("dropping Divs");
+		//LOG.debug("dropping Divs");
 		Object target = getCommonDropAdapter().getCurrentTarget();
 		if (target instanceof ArrangementProjectElement) {
 			ArrangementProjectElement e = (ArrangementProjectElement) target;
@@ -273,7 +273,7 @@ public class ArrangementCommonDropAdapterAssistant extends CommonDropAdapterAssi
 	}
 
 	private IStatus dropResources(List<IResource> items) {
-		LOG.debug("dropping Resources");
+		//LOG.debug("dropping Resources");
 		CaptureJob job = null;
 		Object target = getCommonDropAdapter().getCurrentTarget();
 		if (target instanceof ArrangementProjectElement) {

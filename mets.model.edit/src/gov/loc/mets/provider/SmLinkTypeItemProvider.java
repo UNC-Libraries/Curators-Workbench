@@ -17,8 +17,8 @@ package gov.loc.mets.provider;
 
 import gov.loc.mets.MetsPackage;
 import gov.loc.mets.SmLinkType;
+import gov.loc.mets.util.Link;
 import gov.loc.mets.util.METSConstants;
-import gov.loc.mets.util.METSConstants.Link;
 
 import java.util.Collection;
 import java.util.List;

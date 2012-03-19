@@ -42,7 +42,7 @@
             class="unc.lib.cdr.workbench.SelectionPropertyTester"
             id="workbench_plugin.selectionTester"
             namespace="workbench_plugin.selection"
-            properties="isDivLinkPair,siblingIResources"
+            properties="hasDivLinkPotential,siblingIResources"
             type="org.eclipse.jface.viewers.ISelection">
       </propertyTester>
    </extension>
@@ -121,33 +121,40 @@
             name="Open Project">
       </command>
       <command
-            defaultHandler="unc.lib.cdr.workbench.commands.ConvertToCollectionHandler"
-            description="Make this folder into a collection."
-            id="workbench_plugin.commandConvertToCollection"
-            name="Convert to Collection">
-      </command>
-      <command
-            defaultHandler="unc.lib.cdr.workbench.commands.ConvertToAggregateWorkHandler"
-            description="Make this folder into an aggregate work."
-            id="workbench_plugin.commandConvertToAggregateWork"
-            name="Convert to Aggregate Work">
-      </command>
-      <command
             defaultHandler="unc.lib.cdr.workbench.acl.EditAccessControlsCommand"
             id="cdr-workbench.commandEditAccessControl"
             name="Edit Access Control">
       </command>
       <command
             categoryId="workbench_plugin.categoryLink"
-            defaultHandler="unc.lib.cdr.workbench.commands.LinkSurrogateHandler"
-            id="workbench_plugin.commandLinkSurrogate"
-            name="Link with Thumbnail or Surrogate">
+            defaultHandler="unc.lib.cdr.workbench.commands.DivLinkHandler"
+            id="workbench_plugin.commandLink"
+            name="Link">
+         <commandParameter
+               id="workbench_plugin.parameterLinkURI"
+               name="Link URI"
+               optional="true">
+            <values
+                  class="*">
+               <parameter
+                     name="workbench_plugin.parameterLinkURI"
+                     value="http://cdr.unc.edu/definitions/1.0/base-model.xml#hasSupplemental">
+               </parameter>
+               <parameter
+                     name="workbench_plugin.parameterLinkURI"
+                     value="http://cdr.unc.edu/definitions/1.0/base-model.xml#hasAlphabeticalOrder">
+               </parameter>
+               <parameter
+                     name="workbench_plugin.parameterLinkURI"
+                     value="http://cdr.unc.edu/definitions/1.0/base-model.xml#hasSurrogate">
+               </parameter>
+               <parameter
+                     name="workbench_plugin.parameterLinkURI"
+                     value="http://cdr.unc.edu/definitions/1.0/base-model.xml#defaultWebObject">
+               </parameter>
+            </values>
+         </commandParameter>
       </command>
-      <category
-            description="Edit links between objects"
-            id="workbench_plugin.categoryLink"
-            name="Links">
-      </category>
       <command
             id="org.eclipse.ui.edit.delete"
             name="Delete">
@@ -594,19 +601,84 @@
             </visibleWhen>
          </command>
          <command
-               commandId="workbench_plugin.commandLinkSurrogate"
-               label="Link with Thumbnail or Surrogate"
+               commandId="workbench_plugin.commandLink"
+               label="Link with Thumbnail (or Surrogate)"
                style="push">
             <visibleWhen
                   checkEnabled="false">
                <with
                      variable="activeMenuSelection">
                   <test
-                        args="surrogate"
-                        property="workbench_plugin.selection.isDivLinkPair">
+                        args="http://cdr.unc.edu/definitions/1.0/base-model.xml#hasSurrogate"
+                        property="workbench_plugin.selection.hasDivLinkPotential"
+                        value="true">
   								</test>
                </with>
             </visibleWhen>
+            <parameter
+                  name="workbench_plugin.parameterLinkURI"
+                  value="http://cdr.unc.edu/definitions/1.0/base-model.xml#hasSurrogate">
+            </parameter>
+         </command>
+         <command
+               commandId="workbench_plugin.commandLink"
+               label="Tag as Supplemental"
+               style="push">
+            <visibleWhen
+                  checkEnabled="false">
+               <with
+                     variable="activeMenuSelection">
+                  <test
+                        args="http://cdr.unc.edu/definitions/1.0/base-model.xml#hasSupplemental"
+                        property="workbench_plugin.selection.hasDivLinkPotential"
+                        value="true">
+                  </test>
+               </with>
+            </visibleWhen>
+            <parameter
+                  name="workbench_plugin.parameterLinkURI"
+                  value="http://cdr.unc.edu/definitions/1.0/base-model.xml#hasSupplemental">
+            </parameter>
+         </command>
+         <command
+               commandId="workbench_plugin.commandLink"
+               label="Tag as Default Access Object"
+               style="push">
+            <visibleWhen
+                  checkEnabled="false">
+               <with
+                     variable="activeMenuSelection">
+                  <test
+                        args="http://cdr.unc.edu/definitions/1.0/base-model.xml#defaultWebObject"
+                        property="workbench_plugin.selection.hasDivLinkPotential"
+                        value="true">
+                  </test>
+               </with>
+            </visibleWhen>
+            <parameter
+                  name="workbench_plugin.parameterLinkURI"
+                  value="http://cdr.unc.edu/definitions/1.0/base-model.xml#defaultWebObject">
+            </parameter>
+         </command>
+         <command
+               commandId="workbench_plugin.commandLink"
+               label="Set to Alphabetical Order"
+               style="push">
+            <visibleWhen
+                  checkEnabled="false">
+               <with
+                     variable="activeMenuSelection">
+                  <test
+                        args="http://cdr.unc.edu/definitions/1.0/base-model.xml#hasAlphabeticalOrder"
+                        property="workbench_plugin.selection.hasDivLinkPotential"
+                        value="true">
+                  </test>
+               </with>
+            </visibleWhen>
+            <parameter
+                  name="workbench_plugin.parameterLinkURI"
+                  value="http://cdr.unc.edu/definitions/1.0/base-model.xml#hasAlphabeticalOrder">
+            </parameter>
          </command>
          <command
                commandId="cdr-workbench.commandOpenCrosswalk"
@@ -1535,6 +1607,24 @@
             configId="org.eclipse.ui.intro.universalConfig"
             content="intro/webresources.xml">
       </configExtension>
+   </extension>
+   <extension
+         point="org.eclipse.core.filesystem.filesystems">
+      <filesystem
+            scheme="ro+file">
+         <run
+               class="unc.lib.cdr.workbench.readonly.ReadOnlyWrapperFileSystem">
+         </run>
+      </filesystem>
+   </extension>
+   <extension
+         point="org.eclipse.core.filesystem.filesystems">
+      <filesystem
+            scheme="ro+irods">
+         <run
+               class="unc.lib.cdr.workbench.readonly.ReadOnlyWrapperFileSystem">
+         </run>
+      </filesystem>
    </extension>
 
 </plugin>

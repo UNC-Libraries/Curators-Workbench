@@ -436,7 +436,7 @@ public class IrodsFileStore extends FileStore {
 					.getIRODSFileFactory(getAccount());
 			IRODSFile file = irodsFileFactory
 					.instanceIRODSFile(getDecodedPath());
-			file.delete();
+			file.deleteWithForceOption();
 			irodsFileSystem.close();
 			monitor.worked(1);
 			monitor.done();
@@ -497,6 +497,9 @@ public class IrodsFileStore extends FileStore {
 					.getParent());
 			if (!parent.exists()) {
 				parent.mkdirs();
+			}
+			if(irodsFile.exists()) {
+				irodsFile.deleteWithForceOption();
 			}
 			parent.close();
 			irodsFile.close();

@@ -23,16 +23,6 @@ import java.util.Map;
  *
  */
 public class METSConstants {
-	public static enum Link {
-		SURROGATE("has surrogate", "http://cdr.unc.edu/definitions/1.0/base-model.xml#hasSurrogate"),
-		SUPPLEMENTAL("has surrogate", "http://cdr.unc.edu/definitions/1.0/base-model.xml#hasSurrogate");
-		public String predicateText = null;
-		public String uri = null;
-		Link(String predicateText, String uri) {
-			this.predicateText = predicateText;
-			this.uri = uri;
-		}
-	}
 	private static Map<String, Link> linkTypesByURI = null;
 	static {
 		linkTypesByURI = new HashMap<String, Link>();
