@@ -145,6 +145,7 @@ public class METSUtils {
 			}
 		}
 		MetsType mets = (MetsType)testMets;
+		if(mets.getStructLink() == null) return null;
 		for(SmLinkType l : mets.getStructLink().getSmLink()) {
 			if(l.getXlinkFrom().equals(s)) {
 				if(l.getXlinkTo().equals(o)) {

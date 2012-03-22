@@ -16,7 +16,9 @@
 package unc.lib.cdr.workbench.arrange;
 
 import gov.loc.mets.DivType;
+import gov.loc.mets.DocumentRoot;
 import gov.loc.mets.MdSecType;
+import gov.loc.mets.SmLinkType;
 import gov.loc.mets.util.METSConstants;
 import gov.loc.mets.util.METSUtils;
 
@@ -32,9 +34,8 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.IPath;
-import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.command.RemoveCommand;
@@ -49,7 +50,7 @@ import unc.lib.cdr.workbench.project.MetsProjectNature;
 
 /**
  * @author Gregory Jansen
- *
+ * 
  */
 public class RemoveDivHandler extends AbstractHandler {
 
@@ -58,38 +59,32 @@ public class RemoveDivHandler extends AbstractHandler {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see org.eclipse.core.commands.IHandler#execute(org.eclipse.core.commands. ExecutionEvent)
 	 */
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		IStructuredSelection select = (IStructuredSelection) HandlerUtil.getCurrentSelectionChecked(event);
 		for (Object o : select.toList()) {
-			// find cascading deletes in this and children
 			if (o instanceof DivType) {
-				Set<EObject> toDelete = new HashSet<EObject>();
 				DivType d = (DivType) o;
 				IProject project = MetsProjectNature.getProjectForMetsEObject(d);
-				toDelete.add(d);
-				addLinkedElements(toDelete, d);
 				removeCaptureMarker(d, project);
-				TreeIterator<EObject> iter = d.eAllContents();
-				while (iter.hasNext()) {
-					EObject i = iter.next();
-					if (i instanceof DivType) {
-						DivType desc = (DivType) i;
-						removeCaptureMarker(desc, project);
-						addLinkedElements(toDelete, desc);
+				for(TreeIterator<EObject> iter = d.eAllContents(); iter.hasNext();) {
+					EObject eobj = iter.next();
+					if(DivType.class.isInstance(eobj)) {
+						removeCaptureMarker((DivType)eobj, project);
 					}
 				}
 				EditingDomain ed = MetsProjectNature.getEditingDomain(d);
+				Command cmd = RemoveCommand.create(ed, o);
 				try {
-					Command cmd = RemoveCommand.create(ed, toDelete);
-					ed.getCommandStack().execute(cmd);
+					if(cmd.canExecute()) {
+						ed.getCommandStack().execute(cmd);
+					}
 				} catch (NullPointerException e) {
-					// ignore, item's parent probably removed
 					e.printStackTrace();
-				}
+				}				
 			}
 		}
 		return null;
@@ -104,16 +99,15 @@ public class RemoveDivHandler extends AbstractHandler {
 			String originalLoc = d.getCONTENTIDS().get(0);
 			try {
 				URI location = new URI(originalLoc);
-				System.out.println("Trying to uncapture: " + originalLoc + "\nwith URI:" + location);
 				IResource r = null;
 				IResource[] found = null;
-				if(METSUtils.isContainer(d)) {
+				if (METSUtils.isContainer(d)) {
 					found = ResourcesPlugin.getWorkspace().getRoot().findContainersForLocationURI(location);
 				} else {
 					found = ResourcesPlugin.getWorkspace().getRoot().findFilesForLocationURI(location);
 				}
-				for(IResource f : found) {
-					if(project.equals(f.getProject())) {
+				for (IResource f : found) {
+					if (project.equals(f.getProject())) {
 						r = f;
 						break;
 					}
@@ -121,51 +115,14 @@ public class RemoveDivHandler extends AbstractHandler {
 				if (r != null) {
 					r.deleteMarkers(IResourceConstants.MARKER_CAPTURED, true, r.DEPTH_ZERO);
 				} else {
-					LOG.debug("Did not find resource for URI: " +location);
+					LOG.debug("Did not find resource for URI: " + location);
 				}
 			} catch (URISyntaxException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (CoreException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
 		// remove capture and stage markers with infinite depth
-	}
-
-	/**
-	 * Finds elements that are linked to in this DivType and adds them to the supplied list
-	 *
-	 * @param toDelete
-	 *           the list
-	 * @param div
-	 *           the DivType with potential links
-	 */
-	private void addLinkedElements(Set<EObject> toDelete, DivType div) {
-		for (MdSecType dmd : div.getDmdSec()) {
-			if (METSConstants.MD_STATUS_CROSSWALK_LINKED.equals(dmd.getSTATUS())) {
-				dmd.setSTATUS(METSConstants.MD_STATUS_CROSSWALK_NOT_LINKED);
-			}
-			if (METSConstants.MD_STATUS_CROSSWALK_USER_LINKED.equals(dmd.getSTATUS())) {
-				dmd.setSTATUS(METSConstants.MD_STATUS_CROSSWALK_NOT_LINKED);
-			} else if (METSConstants.MD_STATUS_USER_EDITED.equals(dmd.getSTATUS())) {
-				toDelete.add(dmd);
-			}
-		}
-		for (MdSecType md : div.getMdSec()) {
-			toDelete.add(md);
-		}
-		// No longer deleting File section on delete of Div
-//		if (div.getFptr() != null) {
-//			for (FptrType f : div.getFptr()) {
-//				EObject ob = div.eResource().getEObject(f.getFILEID());
-//				if (ob != null) {
-//					toDelete.add(ob);
-//				} else {
-//					LOG.debug("Cannot find FILEID: " + f.getFILEID());
-//				}
-//			}
-//		}
 	}
 }

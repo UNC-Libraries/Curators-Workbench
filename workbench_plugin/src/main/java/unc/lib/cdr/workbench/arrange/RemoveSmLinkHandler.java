@@ -25,7 +25,6 @@ public class RemoveSmLinkHandler extends AbstractHandler implements IHandler {
 			if (sSelection.size() == 1) {
 				if (sSelection.getFirstElement() instanceof SmLinkType) {
 					SmLinkType link = (SmLinkType) sSelection.getFirstElement();
-					System.out.println("about to execute on: " + link);
 					MetsProjectNature mpn = MetsProjectNature.getNatureForMetsObject(link);
 					Command c = RemoveCommand.create(mpn.getEditingDomain(), mpn.getMets().getStructLink(),
 							MetsPackage.eINSTANCE.getStructLinkType_SmLink(), link);

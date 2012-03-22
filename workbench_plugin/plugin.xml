@@ -126,7 +126,6 @@
             name="Edit Access Control">
       </command>
       <command
-            categoryId="workbench_plugin.categoryLink"
             defaultHandler="unc.lib.cdr.workbench.commands.DivLinkHandler"
             id="workbench_plugin.commandLink"
             name="Link">

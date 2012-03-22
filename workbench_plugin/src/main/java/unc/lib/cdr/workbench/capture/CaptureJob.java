@@ -23,6 +23,7 @@ import gov.loc.mets.MetsPackage;
 import gov.loc.mets.MetsType;
 import gov.loc.mets.util.METSConstants;
 import gov.loc.mets.util.METSUtils;
+import irods.efs.plugin.Activator;
 
 import java.text.Collator;
 import java.util.ArrayList;
@@ -31,6 +32,8 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import javax.swing.ProgressMonitor;
 
 import org.eclipse.core.filesystem.EFS;
 import org.eclipse.core.filesystem.IFileInfo;
@@ -48,6 +51,7 @@ import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.edit.command.AddCommand;
 
 import unc.lib.cdr.workbench.IResourceConstants;
@@ -55,7 +59,7 @@ import unc.lib.cdr.workbench.project.MetsProjectNature;
 
 /**
  * @author Gregory Jansen
- *
+ * 
  */
 public class CaptureJob extends Job {
 	private IProject project = null;
@@ -66,6 +70,8 @@ public class CaptureJob extends Job {
 	private MetsType m = null;
 	private DivType bag = null;
 	private IProgressMonitor monitor = null;
+	private CompoundCommand command = null;
+	private Map<IResource, DivType> localParentDivs = new HashMap<IResource, DivType>();
 
 	private static Comparator<IResource> resourceComparator = new Comparator<IResource>() {
 		@Override
@@ -110,7 +116,7 @@ public class CaptureJob extends Job {
 
 		/*
 		 * (non-Javadoc)
-		 *
+		 * 
 		 * @see org.eclipse.core.resources.IResourceVisitor#visit(org.eclipse.core.resources.IResource)
 		 */
 		@Override
@@ -122,7 +128,7 @@ public class CaptureJob extends Job {
 
 	/*
 	 * if parent folders have been arranged, they will stay in their places, reset arrangement is separate! (non-Javadoc)
-	 *
+	 * 
 	 * @seeorg.eclipse.core.runtime.jobs.Job#run(org.eclipse.core.runtime. IProgressMonitor)
 	 */
 	@Override
@@ -141,29 +147,58 @@ public class CaptureJob extends Job {
 			for (IResource r : items) {
 				r.accept(v);
 			}
-			monitor.beginTask("Capturing " + v.count + " resources..", v.count);
+			String commandLabel = "Capturing " + v.count + " resources..";
+			monitor.beginTask(commandLabel, v.count);
+			command = new CompoundCommand(commandLabel);
 
 			// get METS object
 			mpn = (MetsProjectNature) project.getNature(MetsProjectNature.NATURE_ID);
 			m = mpn.getMets();
 			bag = METSUtils.findBagDiv(m);
 
-			// recursion, yo
-			captureSiblingList(items, topDestination, insertBefore);
-
-			project.getWorkspace().save(true, monitor);
-			Map<String, String> params = new HashMap<String, String>();
-			// if (auditPreviouslyStaged) {
-			// params.put("audit", Boolean.TRUE);
-			// }
-			// log.debug("calling incremental build");
-			if (mpn.getAutomaticStaging(project)) {
-				System.out.println("triggering build b/c auto staging says "+mpn.getAutomaticStaging(project));
-				project.build(IncrementalProjectBuilder.FULL_BUILD, MetsProjectNature.STAGING_BUILDER_ID, params,
-						new NullProgressMonitor());
+			Map<IResource, DivType> map = captureSiblingList(items);
+			
+			if (topDestination == null) {
+				// create and add relevant parents (EMF Command for top node)
+				for(IResource r: items) {
+					if(map.containsKey(r)) {
+						makeOrLinkParent(r, map.get(r));
+					}
+				}
 			} else {
-				System.out.println("skipping build b/c auto staging says "+mpn.getAutomaticStaging(project));
+				for(IResource r : items) {
+					if(map.containsKey(r)) {
+						// use EMF command to add item to topDestination
+						emfAdd(topDestination, map.get(r));
+					}
+				}
 			}
+
+			mpn.getCommandStack().execute(command);
+			project.getWorkspace().save(true, monitor);
+			
+			if (mpn.getAutomaticStaging(project)) {
+				System.out.println("triggering build b/c auto staging says " + mpn.getAutomaticStaging(project));
+				Job buildJob = new Job("") {
+
+					@Override
+					protected IStatus run(IProgressMonitor monitor) {
+						Map<String, String> params = new HashMap<String, String>();
+						try {
+							project.build(IncrementalProjectBuilder.FULL_BUILD, MetsProjectNature.STAGING_BUILDER_ID, params,
+									monitor);
+						} catch (CoreException e) {
+							return new Status(Status.ERROR, Activator.PLUGIN_ID, "There was a problem running the staging process.", e);
+						}
+						return Status.OK_STATUS;
+					}					
+				};
+				buildJob.setPriority(Job.BUILD);
+				buildJob.schedule(1000);
+			} else {
+				System.out.println("skipping build b/c auto staging says " + mpn.getAutomaticStaging(project));
+			}
+			
 			monitor.done();
 			return Status.OK_STATUS;
 		} catch (CoreException e) {
@@ -172,31 +207,58 @@ public class CaptureJob extends Job {
 		}
 	}
 
-	private void captureSiblingList(List<IResource> list, DivType dest, DivType insert) throws CoreException {
+	/**
+	 * Recursives captures a list of resources, returning a map of the top resource nodes to their DivTypes. Resources
+	 * already captured are left in place, but their children are captured under them.
+	 * 
+	 * @param list
+	 *           the resources to capture
+	 * @param dest
+	 *           the parent to add these DivTypes to
+	 * @return a map of captured resources (at this level) to DivTypes
+	 * @throws CoreException
+	 */
+	private Map<IResource, DivType> captureSiblingList(List<IResource> list) throws CoreException {
 		if (list.size() == 0)
-			return;
-		DivType sharedParent = null;
-		if (dest == null) {
-			sharedParent = findOrCaptureParent(list.get(0));
-		} else {
-			sharedParent = dest;
-		}
+			return Collections.EMPTY_MAP;
+		Map<IResource, DivType> result = new HashMap<IResource, DivType>();
+		
 		Collections.sort(list, resourceComparator);
 		for (IResource r : list) {
+			// first find or create this Div
 			DivType d = findDiv(r);
+			boolean newDiv = false;
 			if (d == null) {
-				d = capture(r, sharedParent, insert);
+				newDiv = true;
+				d = makeDiv(r);
+				result.put(r, d);
+				// dest.getDiv().add(d);
 			} else {
 				System.out.println("previously captured: " + d);
 			}
 			if (r instanceof IContainer) {
+				// get children, and capture them
 				List<IResource> children = new ArrayList<IResource>();
 				IContainer c = (IContainer) r;
 				Collections.addAll(children, c.members());
-				captureSiblingList(children, d, null);
+				Map<IResource, DivType> map = captureSiblingList(children);
+				for (IResource childRes : children) {
+					if (map.containsKey(childRes)) { // if we created a new Div
+						if (!newDiv) {
+							emfAdd(d, map.get(childRes));
+						} else {
+							d.getDiv().add(map.get(childRes));
+						}
+					}
+				}
 			}
 		}
-		// TODO appended in alpha order, now sort the parent folder?
+		return result;
+	}
+
+	private void emfAdd(DivType d, DivType child) {
+		Command add = AddCommand.create(mpn.getEditingDomain(), d, MetsPackage.eINSTANCE.getDivType_Div(), child);
+		command.append(add);
 	}
 
 	private DivType findDiv(IResource r) throws CoreException {
@@ -218,93 +280,70 @@ public class CaptureJob extends Job {
 	}
 
 	/**
+	 * Finds and links to existing parent of resource or builds a parent and recurses. 
+	 * 
 	 * @param iResource
 	 * @return
 	 * @throws CoreException
 	 */
-	private DivType findOrCaptureParent(IResource me) throws CoreException {
-		if (mpn.getOriginalsFolder().equals(me.getParent())) {
-			return this.bag;
-		}
-
-		DivType result = findDiv(me.getParent());
-		if (result != null) {
-			System.out.println("Found closest parent:" + result);
-			return result;
-		}
-
-		// need to create parent, but first we need it's parent
-		DivType parent = findOrCaptureParent(me.getParent());
-		result = capture(me.getParent(), parent, null);
-		// sort the parent folder?
-		return result;
-	}
-
-	DivType capture(IResource me, DivType parent, DivType insertBefore) throws CoreException {
-		monitor.subTask("Capturing " + me.getLocationURI());
-		DivType result = MetsFactory.eINSTANCE.createDivType();
-		// use an EMF command
-		Command command = null;
-		if (insertBefore != null && parent.getDiv().contains(insertBefore)) {
-			int index = parent.getDiv().indexOf(insertBefore);
-			command = AddCommand.create(mpn.getEditingDomain(), parent, MetsPackage.eINSTANCE.getDivType_Div(), result,
-					index);
+	private void makeOrLinkParent(IResource resource, DivType div) throws CoreException {
+		DivType parent = null;
+		if (mpn.getOriginalsFolder().equals(resource.getParent()) || resource.getParent() == null) {
+			parent = this.bag;
 		} else {
-			command = AddCommand.create(mpn.getEditingDomain(), parent, MetsPackage.eINSTANCE.getDivType_Div(), result);
+			parent = findDiv(resource.getParent());
 		}
-		if (me instanceof IContainer) {
-			fillFolderDiv(result, (IContainer) me);
-		} else if (me instanceof IFile) {
-			fillFileDiv(result, (IFile) me);
+		if (parent != null) {
+			// attach resource div to found parent
+			emfAdd(parent, div);
+		} else { // parent is not in METS doc
+			if(localParentDivs.containsKey(resource.getParent())) {
+				// parents were already made
+				localParentDivs.get(resource.getParent()).getDiv().add(div);
+			} else {
+				// make a parent, attach the child and keep going
+				parent = makeDiv(resource.getParent());
+				localParentDivs.put(resource.getParent(), parent);
+				parent.getDiv().add(div);
+				makeOrLinkParent(resource.getParent(), parent);
+			}
 		}
-		mpn.getCommandStack().execute(command);
-		monitor.worked(1);
+	}
+
+	/**
+	 * @param folderDiv
+	 * @param c
+	 */
+	private DivType makeDiv(IResource c) throws CoreException {
+		DivType result = MetsFactory.eINSTANCE.createDivType();
+		List<String> contentIds = new ArrayList<String>();
+		contentIds.add(c.getLocationURI().toASCIIString());
+		result.setCONTENTIDS(contentIds);
+		result.setID(METSUtils.makeXMLUUID());
+		result.setLABEL1(c.getName());
+		if (c instanceof IContainer) {
+			result.setTYPE(METSConstants.Div_Folder);
+		} else if (c instanceof IFile) {
+			result.setTYPE(METSConstants.Div_File);
+
+			// calc size and checksum.
+			IFileStore sourceFileStore = EFS.getStore(c.getLocationURI());
+			IFileInfo sourceFileInfo = sourceFileStore.fetchInfo();
+			long size = sourceFileInfo.getLength();
+
+			// find File section (for previously captured) or make one
+			FileType ft = findFile(c);
+			if (ft == null) {
+				ft = METSUtils.addFile(m, c.getLocationURI(), size, null);
+				IResourceConstants.setFileID(c, ft.getID());
+			}
+
+			FptrType fptr = MetsFactory.eINSTANCE.createFptrType();
+			fptr.setFILEID(ft.getID());
+			result.getFptr().add(fptr);
+		}
+		IResourceConstants.setDivID(c, result.getID());
 		return result;
-	}
-
-	/**
-	 * @param folderDiv
-	 * @param c
-	 */
-	private void fillFolderDiv(DivType folderDiv, IContainer c) throws CoreException {
-		List<String> contentIds = new ArrayList<String>();
-		contentIds.add(c.getLocationURI().toASCIIString());
-		folderDiv.setCONTENTIDS(contentIds);
-		folderDiv.setID(METSUtils.makeXMLUUID());
-		folderDiv.setLABEL1(c.getName());
-		folderDiv.setTYPE(METSConstants.Div_Folder);
-		IResourceConstants.setDivID(c, folderDiv.getID());
-	}
-
-	/**
-	 * @param folderDiv
-	 * @param c
-	 */
-	private void fillFileDiv(DivType div, IFile c) throws CoreException {
-		List<String> contentIds = new ArrayList<String>();
-		contentIds.add(c.getLocationURI().toASCIIString());
-		div.setCONTENTIDS(contentIds);
-		div.setID(METSUtils.makeXMLUUID());
-		div.setLABEL1(c.getName());
-		div.setTYPE(METSConstants.Div_File);
-
-		// calc size and checksum.
-		IFileStore sourceFileStore = EFS.getStore(c.getLocationURI());
-		IFileInfo sourceFileInfo = sourceFileStore.fetchInfo();
-		long size = sourceFileInfo.getLength();
-
-		// find File section (for previously captured) or make one
-		FileType ft = findFile(c);
-		if (ft == null) {
-			ft = METSUtils.addFile(m, c.getLocationURI(), size, null);
-			IResourceConstants.setFileID(c, ft.getID());
-		}
-
-		FptrType fptr = MetsFactory.eINSTANCE.createFptrType();
-		fptr.setFILEID(ft.getID());
-		div.getFptr().add(fptr);
-
-		IResourceConstants.setDivID(c, div.getID());
 	}
 
 }
