@@ -38,7 +38,10 @@ import gov.loc.mets.impl.MetsPackageImpl;
 import java.net.FileNameMap;
 import java.net.URI;
 import java.net.URLConnection;
+import java.util.Collection;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
 
 import javax.activation.MimetypesFileTypeMap;
@@ -56,6 +59,10 @@ public class METSUtils {
 		MetsPackageImpl.init();
 	}
 
+	public static String makeXMLUUID(UUID rawuuid) {
+		return new StringBuilder().append("uuid_").append(rawuuid.toString()).toString();
+	}
+	
 	public static String makeXMLUUID() {
 		return new StringBuilder().append("uuid_").append(UUID.randomUUID().toString()).toString();
 	}
@@ -64,7 +71,9 @@ public class METSUtils {
 		DocumentRoot result = MetsFactory.eINSTANCE.createDocumentRoot();
 		result.setMets(MetsFactory.eINSTANCE.createMetsType1());
 		MetsType m = result.getMets();
-		m.setID(makeXMLUUID());
+		UUID uuid = UUID.randomUUID();
+		m.setID(makeXMLUUID(uuid));
+		m.setOBJID("info:fedora/uuid:"+uuid.toString());
 		m.setLABEL(label);
 		m.setPROFILE(METSConstants.MetsProfile_UNC_LIBRARIES);
 		m.setTYPE(METSConstants.MetsType_WORKBENCH);
@@ -286,5 +295,20 @@ public class METSUtils {
 		} else {
 			return false;
 		}
+	}
+
+	public static Collection<SmLinkType> getObjectLinks(DivType d) {
+		Set<SmLinkType> result = new HashSet<SmLinkType>();
+		try {
+			DocumentRoot r = (DocumentRoot)d.eResource().getContents().get(0);
+			for(SmLinkType sml : r.getMets().getStructLink().getSmLink()) {
+				if(d.equals(sml.getXlinkTo())) {
+					result.add(sml);
+				}
+			}
+		} catch(NullPointerException ignored) {
+			//ignored.printStackTrace();
+		}
+		return result;
 	}
 }

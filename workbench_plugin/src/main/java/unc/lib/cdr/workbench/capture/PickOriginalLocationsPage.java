@@ -29,6 +29,7 @@ import java.util.List;
 
 import org.eclipse.core.filesystem.EFS;
 import org.eclipse.core.filesystem.IFileStore;
+import org.eclipse.core.filesystem.provider.FileStore;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
@@ -69,7 +70,7 @@ import unc.lib.cdr.workbench.rcp.Activator;
 
 /**
  * @author Gregory Jansen
- *
+ * 
  */
 public class PickOriginalLocationsPage extends WizardPage implements Listener {
 
@@ -84,7 +85,7 @@ public class PickOriginalLocationsPage extends WizardPage implements Listener {
 
 	// A boolean to indicate if the user has typed anything
 	private boolean locationChanged = false;
-	//private boolean prestagedChanged = false;
+	// private boolean prestagedChanged = false;
 
 	// widgets
 	private Combo locationField;
@@ -176,7 +177,7 @@ public class PickOriginalLocationsPage extends WizardPage implements Listener {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see org.eclipse.jface.dialogs.IDialogPage#createControl(org.eclipse.swt.widgets .Composite)
 	 */
 	@Override
@@ -269,7 +270,7 @@ public class PickOriginalLocationsPage extends WizardPage implements Listener {
 
 	/**
 	 * Creates the import destination specification controls.
-	 *
+	 * 
 	 * @param parent
 	 *           the parent control
 	 */
@@ -508,7 +509,7 @@ public class PickOriginalLocationsPage extends WizardPage implements Listener {
 		DirectoryDialog dialog = new DirectoryDialog(getShell(), SWT.SHEET);
 		dialog.setMessage("Select the location");
 		String locationstr = dialog.open();
-		if(locationstr != null && locationstr.trim().length() > 0) {
+		if (locationstr != null && locationstr.trim().length() > 0) {
 			File f = new File(locationstr);
 			this.location = f.toURI();
 		}
@@ -516,7 +517,7 @@ public class PickOriginalLocationsPage extends WizardPage implements Listener {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see org.eclipse.swt.widgets.Listener#handleEvent(org.eclipse.swt.widgets.Event)
 	 */
 	@Override
@@ -524,12 +525,29 @@ public class PickOriginalLocationsPage extends WizardPage implements Listener {
 		Widget source = event.widget;
 		if (source == this.drivesBrowseButton) {
 			handleDrivesBrowseButtonPressed();
+			updateWidgets();
+			selectFirstCheckbox();
+			setMessage(null);
+			setPageComplete(true);
 		} else if (source == this.irodsBrowseButton) {
 			handleIrodsBrowseButtonPressed();
+			updateWidgets();
+			selectFirstCheckbox();
+			setMessage(null);
+			setPageComplete(true);
 		} else if (source == this.preStagedButton) {
 			handlePreStagedButtonPressed();
+			updateWidgets();
 		}
-		updateWidgets();
+	}
+
+	private void selectFirstCheckbox() {
+		if (this.fileTreeViewer.getInput() != null) {
+			FileStoreProvider.Root root = (FileStoreProvider.Root) this.fileTreeViewer.getInput();
+			if (root.roots != null && root.roots.length > 0) {
+				this.fileTreeViewer.setChecked(root.roots[0], true);
+			}
+		}
 	}
 
 	/**
@@ -678,7 +696,7 @@ public class PickOriginalLocationsPage extends WizardPage implements Listener {
 
 	/**
 	 * @return
-	 *
+	 * 
 	 */
 	private List<URI> getSelectedLocations() {
 		List<URI> result = new ArrayList<URI>();

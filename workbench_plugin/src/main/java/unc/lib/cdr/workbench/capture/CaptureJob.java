@@ -32,6 +32,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 import javax.swing.ProgressMonitor;
 
@@ -179,7 +180,7 @@ public class CaptureJob extends Job {
 			
 			if (mpn.getAutomaticStaging(project)) {
 				System.out.println("triggering build b/c auto staging says " + mpn.getAutomaticStaging(project));
-				Job buildJob = new Job("") {
+				Job buildJob = new Job("Staging") {
 
 					@Override
 					protected IStatus run(IProgressMonitor monitor) {
@@ -191,8 +192,9 @@ public class CaptureJob extends Job {
 							return new Status(Status.ERROR, Activator.PLUGIN_ID, "There was a problem running the staging process.", e);
 						}
 						return Status.OK_STATUS;
-					}					
+					}
 				};
+				buildJob.setUser(true);
 				buildJob.setPriority(Job.BUILD);
 				buildJob.schedule(1000);
 			} else {
@@ -316,16 +318,17 @@ public class CaptureJob extends Job {
 	 */
 	private DivType makeDiv(IResource c) throws CoreException {
 		DivType result = MetsFactory.eINSTANCE.createDivType();
+		UUID uuid = UUID.randomUUID();
 		List<String> contentIds = new ArrayList<String>();
 		contentIds.add(c.getLocationURI().toASCIIString());
+		contentIds.add("info:fedora/uuid:"+uuid.toString());
 		result.setCONTENTIDS(contentIds);
-		result.setID(METSUtils.makeXMLUUID());
+		result.setID(METSUtils.makeXMLUUID(uuid));
 		result.setLABEL1(c.getName());
 		if (c instanceof IContainer) {
 			result.setTYPE(METSConstants.Div_Folder);
 		} else if (c instanceof IFile) {
 			result.setTYPE(METSConstants.Div_File);
-
 			// calc size and checksum.
 			IFileStore sourceFileStore = EFS.getStore(c.getLocationURI());
 			IFileInfo sourceFileInfo = sourceFileStore.fetchInfo();

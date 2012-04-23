@@ -1102,6 +1102,9 @@
             <contentExtension
                   pattern="workbench_plugin.stagedFileContent">
             </contentExtension>
+            <contentExtension
+                  pattern="workbench_plugin.commonFilterMetsLinks">
+            </contentExtension>
          </includes>
       </viewerContentBinding>
       <viewerActionBinding
@@ -1256,6 +1259,17 @@
             </or>
          </triggerPoints>
       </navigatorContent>
+      <commonFilter
+            activeByDefault="false"
+            description="This filter allows you to hide the link items, which are otherwise shown immediately under the divs where the links originate."
+            id="workbench_plugin.commonFilterMetsLinks"
+            name="Hide Links on Divs (METS smLink)">
+         <filterExpression>
+            <instanceof
+                  value="gov.loc.mets.SmLinkType">
+            </instanceof>
+         </filterExpression>
+      </commonFilter>
    </extension>
    <extension
          id="unc.lib.cdr.workbench.markers.Captured"

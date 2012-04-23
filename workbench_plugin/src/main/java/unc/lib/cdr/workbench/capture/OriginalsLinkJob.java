@@ -16,11 +16,9 @@
 package unc.lib.cdr.workbench.capture;
 
 import java.net.URI;
-import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.eclipse.core.filesystem.EFS;
 import org.eclipse.core.filesystem.IFileStore;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
@@ -41,6 +39,7 @@ import org.eclipse.core.runtime.jobs.Job;
 import unc.lib.cdr.workbench.IResourceConstants;
 import unc.lib.cdr.workbench.project.MetsProjectNature;
 import unc.lib.cdr.workbench.readonly.ReadOnlyWrapperFileSystem;
+import unc.lib.cdr.workbench.readonly.VolumeUtil;
 
 /**
  * @author Gregory Jansen
@@ -82,7 +81,6 @@ public class OriginalsLinkJob extends Job {
 		System.out.println("starting link");
 		monitor.beginTask("Linking to originals ...", this.locations.size());
 		IFolder originalsFolder = this.project.getFolder(MetsProjectNature.ORIGINALS_FOLDER_NAME);
-
 		try {
 			for (URI location : locations) {
 				IFileStore fs = ReadOnlyWrapperFileSystem.wrapStore(location);
@@ -126,6 +124,8 @@ public class OriginalsLinkJob extends Job {
 				}
 				IMarker marker = link.createMarker(IResourceConstants.MARKER_ORIGINALFILESET);
 				marker.setAttribute("type", location.getScheme());
+				VolumeUtil.isVolumeRemovable(link);
+				VolumeUtil.recordVolumeFingerprint(link);
 				if (this.prestaged && this.prestagedBase != null && this.baselocation != null) {
 					// calculate staging base for each original location
 					IPath basePath = new Path(this.baselocation.getPath()); // base path for all locations

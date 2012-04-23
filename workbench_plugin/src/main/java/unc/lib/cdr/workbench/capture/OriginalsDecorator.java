@@ -18,9 +18,12 @@ package unc.lib.cdr.workbench.capture;
 import gov.loc.mets.DivType;
 import gov.loc.mets.MdSecType;
 import gov.loc.mets.MetsPackage;
+import gov.loc.mets.SmLinkType;
 import gov.loc.mets.util.METSConstants;
+import gov.loc.mets.util.METSUtils;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -80,66 +83,63 @@ public class OriginalsDecorator implements ILightweightLabelDecorator, IResource
 	public void decorate(Object element, IDecoration decoration) {
 		IResource r = null;
 		boolean isDiv = false;
-		if (element instanceof IResource) {
-			r = (IResource) element;
-		} else if (element instanceof DivType) {
-			isDiv = true;
-			DivType d = (DivType) element;
-			Object adapted = Platform.getAdapterManager().getAdapter(d, IResource.class);
-			if (adapted != null && adapted instanceof IResource) {
-				r = (IResource) adapted;
-			}
-			// described, crosswalked
-			MetsProjectNature n = MetsProjectNature.getNatureForMetsObject(d);
-			boolean userEdited = false;
-			boolean crosswalked = false;
-			for (MdSecType md : d.getDmdSec()) {
-				if (md != null) {
-					String st = md.getSTATUS();
-					if (METSConstants.MD_STATUS_CROSSWALK_LINKED.equals(st)) {
-						decoration.addOverlay(
-								Icon.CrosswalkedDecor.getImageDescriptor(),
-								IDecoration.BOTTOM_LEFT);
-					} else if (METSConstants.MD_STATUS_USER_EDITED.equals(st)) {
-						decoration.addOverlay(
-								Icon.UserEditedDecor.getImageDescriptor(),
-								IDecoration.TOP_RIGHT);
-					} else if (METSConstants.MD_STATUS_CROSSWALK_USER_LINKED.equals(st)) {
-						decoration.addOverlay(
-								Icon.CrosswalkedDecor.getImageDescriptor(),
-								IDecoration.BOTTOM_LEFT);
-					}
-				}
-			}
-			for (MdSecType md : d.getMdSec()) { // process admin metadata overlays
-				if (md != null) {
-					if (MetsPackage.eINSTANCE.getAmdSecType_RightsMD().equals(md.eContainingFeature())) {
-						decoration.addOverlay(Icon.ACLDecor.getImageDescriptor(),
-								IDecoration.TOP_LEFT);
-					}
-				}
-			}
-		}
-
 		// added/captured, queued/staged BR
 		try {
 			List<String> labels = new ArrayList<String>();
+			if (element instanceof IResource) {
+				r = (IResource) element;
+			} else if (element instanceof DivType) {
+				isDiv = true;
+				DivType d = (DivType) element;
+				Object adapted = Platform.getAdapterManager().getAdapter(d, IResource.class);
+				if (adapted != null && adapted instanceof IResource) {
+					r = (IResource) adapted;
+				}
+				// described, crosswalked
+				// MetsProjectNature n = MetsProjectNature.getNatureForMetsObject(d);
+				boolean userEdited = false;
+				boolean crosswalked = false;
+				for (MdSecType md : d.getDmdSec()) {
+					if (md != null) {
+						String st = md.getSTATUS();
+						if (METSConstants.MD_STATUS_CROSSWALK_LINKED.equals(st)) {
+							decoration.addOverlay(Icon.CrosswalkedDecor.getImageDescriptor(), IDecoration.BOTTOM_LEFT);
+						} else if (METSConstants.MD_STATUS_USER_EDITED.equals(st)) {
+							decoration.addOverlay(Icon.UserEditedDecor.getImageDescriptor(), IDecoration.TOP_RIGHT);
+						} else if (METSConstants.MD_STATUS_CROSSWALK_USER_LINKED.equals(st)) {
+							decoration.addOverlay(Icon.CrosswalkedDecor.getImageDescriptor(), IDecoration.BOTTOM_LEFT);
+						}
+					}
+				}
+				for (MdSecType md : d.getMdSec()) { // process admin metadata overlays
+					if (md != null) {
+						if (MetsPackage.eINSTANCE.getAmdSecType_RightsMD().equals(md.eContainingFeature())) {
+							decoration.addOverlay(Icon.ACLDecor.getImageDescriptor(), IDecoration.TOP_LEFT);
+						}
+					}
+				}
+				// add labels for links of which this div is the object
+				for(SmLinkType sml : METSUtils.getObjectLinks(d)) {
+					labels.add(METSConstants.getLinkForArcRole(sml.getArcrole()).label);
+				}
+				
+			}
 
 			ImageDescriptor overlay = null;
 			if (r != null && r.getProject() != null && r.getProject().isOpen()) {
 				boolean captured = false;
 				if (r.findMarkers(IResourceConstants.MARKER_CAPTURED, false, IResource.DEPTH_ZERO).length > 0) {
 					captured = true;
-					if(!isDiv) {
+					if (!isDiv) {
 						labels.add("captured");
 					}
 				}
-				if(!isDiv && r.getParent().equals(r.getProject().getFolder(MetsProjectNature.ORIGINALS_FOLDER_NAME))) {
+				if (!isDiv && r.getParent().equals(r.getProject().getFolder(MetsProjectNature.ORIGINALS_FOLDER_NAME))) {
 					IMarker[] m = r.findMarkers(IResourceConstants.MARKER_ORIGINALFILESET, false, IResource.DEPTH_ZERO);
-					if(m.length > 0) {
+					if (m.length > 0) {
 						Object base = m[0].getAttribute("prestagedBase");
-						if(base != null) {
-							labels.add("prestaged => "+base);
+						if (base != null) {
+							labels.add("prestaged => " + base);
 						}
 					}
 				}
@@ -148,10 +148,10 @@ public class OriginalsDecorator implements ILightweightLabelDecorator, IResource
 					overlay = Icon.StagedDecor.getImageDescriptor();
 					labels.add("staged");
 				} else {
-						if(captured && r instanceof IFile) {
-							overlay = Icon.CaptureDecor.getImageDescriptor();
-							labels.add("queued");
-						}
+					if (captured && r instanceof IFile) {
+						overlay = Icon.CaptureDecor.getImageDescriptor();
+						labels.add("queued");
+					}
 				}
 			} else {
 				if (isDiv) {
@@ -161,12 +161,12 @@ public class OriginalsDecorator implements ILightweightLabelDecorator, IResource
 			if (overlay != null) {
 				decoration.addOverlay(overlay, IDecoration.BOTTOM_RIGHT);
 			}
-			if(labels.size() > 0) {
-				//decoration.setForegroundColor(org.eclipse.swt.graphics.);
+			if (labels.size() > 0) {
+				// decoration.setForegroundColor(org.eclipse.swt.graphics.);
 				StringBuilder sb = new StringBuilder();
 				sb.append("  [");
 				sb.append(labels.remove(0));
-				for(String label : labels) {
+				for (String label : labels) {
 					sb.append("  ").append(label);
 				}
 				sb.append("]");
@@ -179,7 +179,7 @@ public class OriginalsDecorator implements ILightweightLabelDecorator, IResource
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see org.eclipse.core.resources.IResourceChangeListener#resourceChanged(org
 	 * .eclipse.core.resources.IResourceChangeEvent)
 	 */

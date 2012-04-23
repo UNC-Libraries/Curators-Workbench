@@ -43,6 +43,7 @@ public class DivAdapterFactory implements IAdapterFactory {
 				// make a DivType into a IResource.
 				DivType d = (DivType) adaptableObject;
 				IProject project = MetsProjectNature.getProjectForMetsEObject(d);
+				if(project == null) return result;
 				if (d.getCONTENTIDS() != null && d.getCONTENTIDS().size() > 0) {
 					URI loc;
 					try {

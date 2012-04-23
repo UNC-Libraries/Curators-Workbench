@@ -11,9 +11,9 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: crosswalk.presentation
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources;visibility:=reexport,
- crosswalk-gmf.edit;visibility:=reexport,
+ crosswalk-gmf.edit;bundle-version="0.0.0";visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
  org.eclipse.emf.edit.ui;visibility:=reexport,
  org.eclipse.ui.ide;visibility:=reexport,
- mods.model.edit
+ mods.model.edit;bundle-version="0.0.0"
 Bundle-ActivationPolicy: lazy

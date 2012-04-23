@@ -37,7 +37,7 @@ Biff Hollingsworth
 
    <launcherArgs>
       <programArgs>-consoleLog -data @user.home/curators-workspace</programArgs>
-      <vmArgs>-Dosgi.requiredJavaVersion=1.5 -XX:MaxPermSize=128m -Xms128m -Xmx1024m -Djargon.debug=0</vmArgs>
+      <vmArgs>-Dosgi.requiredJavaVersion=1.7 -XX:MaxPermSize=128m -Xms128m -Xmx1024m -Djargon.debug=0</vmArgs>
    </launcherArgs>
 
    <windowImages/>
@@ -55,6 +55,10 @@ Biff Hollingsworth
    <intro introId="org.eclipse.ui.intro.universal"/>
 
    <vm>
+      <linux include="true">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7</linux>
+      <macos include="true">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7</macos>
+      <solaris include="true">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7</solaris>
+      <windows include="true">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7</windows>
    </vm>
 
    <license>

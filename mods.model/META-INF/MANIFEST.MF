@@ -13,4 +13,4 @@ Export-Package: gov.loc.mods.mods,
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
- xlink.model;visibility:=reexport
+ xlink.model;bundle-version="0.0.0";visibility:=reexport

@@ -19,7 +19,7 @@ import unc.lib.cdr.workbench.rcp.Activator;
 
 public class ReadOnlyWrapperStore implements IFileStore {
 	private static final String protectedMessage = "Operation cancelled. This file under read only protection within the workbench.";
-	private static final String SCHEME_PREFIX = "ro+";
+	public static final String SCHEME_PREFIX = "ro+";
 	protected URI uri = null;
 	protected IFileStore wrapped = null;
 
