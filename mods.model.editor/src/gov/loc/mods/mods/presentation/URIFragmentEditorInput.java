@@ -52,7 +52,7 @@ public class URIFragmentEditorInput implements IEditorInput, IPersistableElement
 		this.fragmentID = fragmentID;
 		this.name = name;
 
-		System.out.println("constructed from parts: " + toString());
+		//System.out.println("constructed from parts: " + toString());
 	}
 
 	@Override

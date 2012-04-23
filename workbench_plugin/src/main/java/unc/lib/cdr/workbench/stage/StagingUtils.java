@@ -31,6 +31,8 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.commons.codec.binary.Hex;
 import org.eclipse.core.filesystem.EFS;
@@ -38,6 +40,7 @@ import org.eclipse.core.filesystem.IFileInfo;
 import org.eclipse.core.filesystem.IFileStore;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IMarker;
+import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
@@ -63,6 +66,23 @@ public class StagingUtils {
 	private static final Logger log = LoggerFactory.getLogger(StagingUtils.class);
 	private static final int chunkSize = 8192;
 
+	
+	public static int countUnstaged(IProject project) throws CoreException {
+		int result = 0;
+		IMarker[] captured = project.findMarkers(IResourceConstants.MARKER_CAPTURED, false, IResource.DEPTH_INFINITE);
+		List<IFile> toStage = new ArrayList<IFile>();
+		for (IMarker m : captured) {
+			if (m.getResource() instanceof IFile) {
+				IMarker[] staged = m.getResource().findMarkers(IResourceConstants.MARKER_STAGED, false,
+						IResource.DEPTH_ZERO);
+				if (staged.length <= 0) {
+					result++;
+				}
+			}
+		}
+		return result;
+	}
+	
 	/**
 	 * @param r
 	 */
