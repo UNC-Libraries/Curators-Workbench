@@ -18,6 +18,7 @@ package unc.lib.cdr.workbench.project;
 import java.io.File;
 
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.jface.wizard.IWizardPage;
 import org.eclipse.jface.wizard.WizardPage;
@@ -34,6 +35,8 @@ import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Widget;
+
+import unc.lib.cdr.workbench.stage.StagingUtils;
 
 /**
  * @author Gregory Jansen
@@ -244,6 +247,16 @@ public class PickExportFilePage extends WizardPage implements IWizardPage, Liste
 			this.setErrorMessage("You must first select an open project to export this kind of submission package.");
 			this.setPageComplete(false);
 			return;
+		}
+		try {
+			int unstaged = StagingUtils.countUnstaged(project);
+			if(unstaged > 0) {
+				this.setErrorMessage("There are still "+unstaged+" files queued for staging. All captured files must be staged prior to export.");
+				this.setPageComplete(false);
+				return;
+			}
+		} catch(CoreException e) {
+			e.printStackTrace();
 		}
 		if(getDestinationValue() == null || "".equals(getDestinationValue().trim())) {
 			this.setErrorMessage("You must select a file location for the export.");
