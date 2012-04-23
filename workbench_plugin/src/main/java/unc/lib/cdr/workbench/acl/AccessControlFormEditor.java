@@ -15,11 +15,60 @@
  */
 package unc.lib.cdr.workbench.acl;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.EventObject;
+import java.util.HashMap;
+import java.util.Map;
+
+import edu.unc.lib.schemas.acl.AccessControlType;
+import gov.loc.mods.mods.presentation.MODSEditor;
+import gov.loc.mods.mods.presentation.ModsEditorPlugin;
+import gov.loc.mods.mods.presentation.URIFragmentEditorInput;
+
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.IResourceChangeEvent;
+import org.eclipse.core.resources.IResourceChangeListener;
+import org.eclipse.core.resources.IResourceDelta;
+import org.eclipse.core.resources.IResourceDeltaVisitor;
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
+import org.eclipse.emf.common.command.BasicCommandStack;
+import org.eclipse.emf.common.command.CommandStack;
+import org.eclipse.emf.common.command.CommandStackListener;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
+import org.eclipse.emf.edit.domain.EditingDomain;
+import org.eclipse.emf.edit.provider.AdapterFactoryItemDelegator;
+import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
+import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
+import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.jface.dialogs.ProgressMonitorDialog;
+import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.swt.widgets.Display;
+import org.eclipse.ui.IEditorInput;
+import org.eclipse.ui.IEditorPart;
+import org.eclipse.ui.IEditorSite;
+import org.eclipse.ui.IPartListener;
+import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.PartInitException;
+import org.eclipse.ui.actions.WorkspaceModifyOperation;
 import org.eclipse.ui.forms.editor.FormEditor;
 import org.eclipse.ui.forms.widgets.FormToolkit;
+import org.eclipse.ui.views.contentoutline.ContentOutline;
+import org.eclipse.ui.views.properties.PropertySheet;
+
+import unc.lib.cdr.workbench.project.MetsProjectNature;
+import unc.lib.cdr.workbench.rcp.Activator;
 
 /**
  * @author Gregory Jansen
@@ -27,7 +76,61 @@ import org.eclipse.ui.forms.widgets.FormToolkit;
  */
 public class AccessControlFormEditor extends FormEditor {
 
+	protected AccessControlType model = null;
+	protected AccessControlFormPage page = null;
+	protected AdapterFactoryEditingDomain editingDomain;
+	protected ComposedAdapterFactory adapterFactory;
+	protected AdapterFactoryItemDelegator itemDelegator;
+	protected AdapterFactoryLabelProvider labelProvider;
+	
+	private CommandStackListener commandStackListener = new CommandStackListener() {
+		@Override
+		public void commandStackChanged(final EventObject event) {
+			getContainer().getDisplay().asyncExec(new Runnable() {
+				public void run() {
+					editorDirtyStateChanged();
+				}
+			});
+		}
+	};
+
+	@Override
+	public void init(IEditorSite site, IEditorInput input) throws PartInitException {
+		super.init(site, input);
+		setPartName(input.getName());
+		initializeEditingDomainAndModel();
+		//ResourcesPlugin.getWorkspace()
+		//		.addResourceChangeListener(resourceChangeListener, IResourceChangeEvent.POST_CHANGE);
+	}
+
 	public AccessControlFormEditor() {
+	}
+
+	protected void initializeEditingDomainAndModel() {
+		IProject project = null;
+		if(this.getEditorInput() instanceof URIFragmentEditorInput) {
+			URIFragmentEditorInput in = (URIFragmentEditorInput)this.getEditorInput();
+			project = ResourcesPlugin.getWorkspace().getRoot().getProject(in.getProjectName());
+			this.adapterFactory = MetsProjectNature.getAdapterFactory();
+			this.editingDomain = MetsProjectNature.get(project).getEditingDomain();
+			EObject eobj = MetsProjectNature.getModel(in);
+			this.model = (AccessControlType)eobj;
+		}
+
+		// command stack that will notify this editor as commands are executed
+		CommandStack commandStack = this.editingDomain.getCommandStack();
+
+		// Add a listener to set the editor dirty of commands have been executed
+		commandStack.addCommandStackListener(commandStackListener);
+		// These provide access to the model items, their property source and label
+		this.itemDelegator = new AdapterFactoryItemDelegator(adapterFactory);
+		this.labelProvider = new AdapterFactoryLabelProvider(adapterFactory);
+	}
+	
+	@Override
+	public void dispose() {
+		this.editingDomain.getCommandStack().removeCommandStackListener(commandStackListener);
+		super.dispose();
 	}
 
 	@Override
@@ -44,18 +147,15 @@ public class AccessControlFormEditor extends FormEditor {
 	@Override
 	protected void addPages() {
 		try {
-			addPage(new AccessControlFormPage(this));
+			this.page = new AccessControlFormPage(this);
+			addPage(this.page);
 		} catch (PartInitException e) {
 		}
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.eclipse.ui.part.EditorPart#doSave(org.eclipse.core.runtime. IProgressMonitor)
-	 */
 	@Override
-	public void doSave(IProgressMonitor monitor) {
+	public boolean isDirty() {
+		return ((BasicCommandStack) editingDomain.getCommandStack()).isSaveNeeded();
 	}
 
 	/*
@@ -76,5 +176,41 @@ public class AccessControlFormEditor extends FormEditor {
 	public boolean isSaveAsAllowed() {
 		return false;
 	}
-
+	
+	/**
+	 * This is for implementing {@link IEditorPart} and simply saves the model file. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 *
+	 * @generated
+	 */
+	@Override
+	public void doSave(IProgressMonitor progressMonitor) {
+		// Save only resources that have actually changed.
+		final Map<Object, Object> saveOptions = new HashMap<Object, Object>();
+		saveOptions.put(Resource.OPTION_SAVE_ONLY_IF_CHANGED, Resource.OPTION_SAVE_ONLY_IF_CHANGED_MEMORY_BUFFER);
+		// Do the work within an operation because this is a long running activity that modifies the workbench.
+		WorkspaceModifyOperation operation = new WorkspaceModifyOperation() {
+			// This is the method that gets invoked when the operation runs.
+			//
+			@Override
+			public void execute(IProgressMonitor monitor) {
+				// Save the resources to the file system.
+				try {
+					MetsProjectNature.getNatureForMetsObject(model).save();
+				} catch (CoreException e) {
+					e.printStackTrace();
+				}
+			}
+		};
+		try {
+			// This runs the options, and shows progress.
+			new ProgressMonitorDialog(getSite().getShell()).run(true, false, operation);
+			// Refresh the necessary state.
+			((BasicCommandStack) editingDomain.getCommandStack()).saveIsDone();
+			firePropertyChange(IEditorPart.PROP_DIRTY);
+		} catch (Exception exception) {
+			ModsEditorPlugin.INSTANCE.log(exception);
+		}
+	}
+	
 }

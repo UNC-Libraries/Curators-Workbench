@@ -81,7 +81,7 @@ public class ProjectEMFSession {
 
 	private ResourceSet resourceSet = null;
 	private CommandStack commandStack = null;
-	private EditingDomain editingDomain = null;
+	private AdapterFactoryEditingDomain editingDomain = null;
 	private Resource metsResource = null;
 	private ExtendedMetaData extendedMetaData = null;
 	private IProject project = null;
@@ -153,7 +153,7 @@ public class ProjectEMFSession {
 		return commandStack;
 	}
 
-	public EditingDomain getEditingDomain() {
+	public AdapterFactoryEditingDomain getEditingDomain() {
 		return editingDomain;
 	}
 

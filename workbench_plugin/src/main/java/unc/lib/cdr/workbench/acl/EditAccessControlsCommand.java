@@ -28,6 +28,7 @@ import gov.loc.mets.MetsPackage;
 import gov.loc.mets.XmlDataType1;
 import gov.loc.mets.util.METSConstants;
 import gov.loc.mets.util.METSUtils;
+import gov.loc.mods.mods.presentation.URIFragmentEditorInput;
 
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
@@ -35,6 +36,7 @@ import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.commands.IHandler;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.ecore.xml.type.internal.XMLCalendar;
+import org.eclipse.emf.edit.ui.util.EditUIUtil;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchWindow;
@@ -104,7 +106,8 @@ public class EditAccessControlsCommand extends AbstractHandler implements IHandl
 		} catch (CoreException e) {
 			throw new ExecutionException("There were unexpected problems opening the MODS Editor", e);
 		}
-		ACLEditorInput input = new ACLEditorInput("Access Controls for '" + d.getLABEL1() + "'", acl);
+		String uriFrag = acl.eResource().getURIFragment(acl);
+		URIFragmentEditorInput input = new URIFragmentEditorInput(n.getProject().getName(), uriFrag, "Access Controls for '" + d.getLABEL1() + "'", acl);
 		IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
 		IWorkbenchPage page = window.getActivePage();
 		try {

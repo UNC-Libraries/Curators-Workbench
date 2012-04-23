@@ -22,7 +22,10 @@ import java.util.GregorianCalendar;
 
 import javax.xml.datatype.XMLGregorianCalendar;
 
+import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.ecore.xml.type.XMLTypeFactory;
+import org.eclipse.emf.edit.command.SetCommand;
+import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
@@ -30,7 +33,6 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.DateTime;
 import org.eclipse.ui.forms.IManagedForm;
-import org.eclipse.ui.forms.editor.FormEditor;
 import org.eclipse.ui.forms.editor.FormPage;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.ScrolledForm;
@@ -38,7 +40,9 @@ import org.eclipse.ui.forms.widgets.Section;
 import org.eclipse.ui.forms.widgets.TableWrapData;
 import org.eclipse.ui.forms.widgets.TableWrapLayout;
 
+import unc.lib.cdr.workbench.project.MetsProjectNature;
 import edu.unc.lib.schemas.acl.AccessControlType;
+import edu.unc.lib.schemas.acl.AclPackage;
 
 /**
  * @author Gregory Jansen
@@ -46,17 +50,19 @@ import edu.unc.lib.schemas.acl.AccessControlType;
  */
 public class AccessControlFormPage extends FormPage {
 	private ScrolledPropertiesBlock block;
-	private AccessControlType model;
+	protected AccessControlType model;
 	private Button inheritFlag;
 	private Button discoverableFlag;
 	private Button embargoFlag;
 	private DateTime untilDate;
 	private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+	private AccessControlFormEditor acleditor = null;
 
-	public AccessControlFormPage(FormEditor editor) {
+	public AccessControlFormPage(AccessControlFormEditor editor) {
 		super(editor, "fourth", "Access Controls");
 		block = new ScrolledPropertiesBlock(this);
-		model = ((ACLEditorInput) editor.getEditorInput()).getModel();
+		model = editor.model;
+		this.acleditor = editor;
 	}
 
 	@Override
@@ -93,8 +99,6 @@ public class AccessControlFormPage extends FormPage {
 		s1.setDescription("You may embargo this object (and its contents) until a specified date."); //$NON-NLS-1$
 		s1.marginWidth = 10;
 		s1.marginHeight = 5;
-		System.out.println("parent layout: " + parent.getLayout());
-		System.out.println("s1 layout: " + s1.getLayout());
 		s1.setLayoutData(gd);
 
 		Composite client = toolkit.createComposite(s1);
@@ -114,7 +118,7 @@ public class AccessControlFormPage extends FormPage {
 		});
 		embargoFlag.setLayoutData(twd);
 		untilDate = new DateTime(client, SWT.DATE | SWT.BORDER);
-		if (model.isSetEmbargoUntil()) {
+		if (model.isSetEmbargoUntil() && model.getEmbargoUntil() != null) {
 			XMLGregorianCalendar cal = model.getEmbargoUntil();
 			untilDate.setYear(cal.getYear());
 			untilDate.setMonth(cal.getMonth() - 1);
@@ -142,12 +146,16 @@ public class AccessControlFormPage extends FormPage {
      *
      */
 	protected void updateEmbargo() {
+		Command cmd = null;
 		if (embargoFlag.getSelection()) {
 			Date dt = new Date(untilDate.getYear() - 1900, untilDate.getMonth(), untilDate.getDay());
 			XMLGregorianCalendar fromDate = XMLTypeFactory.eINSTANCE.createDate(sdf.format(dt));
-			model.setEmbargoUntil(fromDate);
+			cmd = SetCommand.create(MetsProjectNature.getEditingDomain(model), model, AclPackage.eINSTANCE.getAccessControlType_EmbargoUntil(), fromDate);
 		} else { // no embargo
-			model.unsetEmbargoUntil();
+			cmd = SetCommand.create(MetsProjectNature.getEditingDomain(model), model, AclPackage.eINSTANCE.getAccessControlType_EmbargoUntil(), null);
+		}
+		if(cmd.canExecute()) {
+			MetsProjectNature.getNatureForMetsObject(model).getCommandStack().execute(cmd);
 		}
 	}
 
@@ -162,17 +170,22 @@ public class AccessControlFormPage extends FormPage {
 		s1.setDescription("Roles may have been granted to groups above this object. Do you want those groups to retain roles inherited in this way?"); //$NON-NLS-1$
 		s1.marginWidth = 10;
 		s1.marginHeight = 5;
-		System.out.println("parent layout: " + parent.getLayout());
-		System.out.println("s1 layout: " + s1.getLayout());
 		s1.setLayoutData(gd);
 
 		inheritFlag = toolkit.createButton(s1, "Yes, groups may retain roles granted above this level.", SWT.CHECK); //$NON-NLS-1$
+		for(IItemPropertyDescriptor d : acleditor.itemDelegator.getPropertyDescriptors(model)) {
+			System.out.println(d);
+		}
 		inheritFlag.setSelection(model.isInherit());
 		inheritFlag.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				if (model != null)
-					model.setInherit(inheritFlag.getSelection());
+				if (model != null) {
+					Command cmd = SetCommand.create(MetsProjectNature.getEditingDomain(model), model, AclPackage.eINSTANCE.getAccessControlType_Inherit(), inheritFlag.getSelection());
+					if(cmd.canExecute()) {
+						MetsProjectNature.getNatureForMetsObject(model).getCommandStack().execute(cmd);
+					}
+				}
 			}
 		});
 		gd = new TableWrapData(TableWrapData.FILL, TableWrapData.MIDDLE);
@@ -192,16 +205,18 @@ public class AccessControlFormPage extends FormPage {
 		s1.setDescription("Do you want this object to be discovered by repository search and browse functions?"); //$NON-NLS-1$
 		s1.marginWidth = 10;
 		s1.marginHeight = 5;
-		System.out.println("parent layout: " + parent.getLayout());
-		System.out.println("s1 layout: " + s1.getLayout());
 		s1.setLayoutData(gd);
 		discoverableFlag = toolkit.createButton(s1, "Yes, allow discovery via search and browse.", SWT.CHECK); //$NON-NLS-1$
 		discoverableFlag.setSelection(model.isDiscoverable());
 		discoverableFlag.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				if (model != null)
-					model.setDiscoverable(discoverableFlag.getSelection());
+				if (model != null) {
+					Command cmd = SetCommand.create(MetsProjectNature.getEditingDomain(model), model, AclPackage.eINSTANCE.getAccessControlType_Discoverable(), discoverableFlag.getSelection());
+					if(cmd.canExecute()) {
+						MetsProjectNature.getNatureForMetsObject(model).getCommandStack().execute(cmd);
+					}
+				}
 			}
 		});
 		gd = new TableWrapData(TableWrapData.FILL, TableWrapData.MIDDLE);

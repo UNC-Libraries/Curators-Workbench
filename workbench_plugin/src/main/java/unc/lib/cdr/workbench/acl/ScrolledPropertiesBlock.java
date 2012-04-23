@@ -15,6 +15,10 @@
  */
 package unc.lib.cdr.workbench.acl;
 
+import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.edit.command.AddCommand;
+import org.eclipse.emf.edit.command.RemoveCommand;
+import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.ui.celleditor.AdapterFactoryTreeEditor;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
@@ -42,6 +46,7 @@ import org.eclipse.ui.forms.widgets.Section;
 
 import unc.lib.cdr.workbench.project.MetsProjectNature;
 import edu.unc.lib.schemas.acl.AclFactory;
+import edu.unc.lib.schemas.acl.AclPackage;
 import edu.unc.lib.schemas.acl.GrantType;
 import edu.unc.lib.schemas.acl.impl.GrantTypeImpl;
 
@@ -50,14 +55,14 @@ import edu.unc.lib.schemas.acl.impl.GrantTypeImpl;
  *
  */
 public class ScrolledPropertiesBlock extends MasterDetailsBlock implements ISelectionChangedListener {
-	private FormPage page;
+	private AccessControlFormPage page;
 	private TreeViewer viewer;
 	private SelectionChangedEvent selectionEvent;
 	boolean debug = false; // true for console debug output
 
 	public AdapterFactoryTreeEditor ADFTE;
 
-	public ScrolledPropertiesBlock(FormPage page) {
+	public ScrolledPropertiesBlock(AccessControlFormPage page) {
 		this.page = page;
 	}
 
@@ -101,7 +106,10 @@ public class ScrolledPropertiesBlock extends MasterDetailsBlock implements ISele
 				GrantType newGrant = AclFactory.eINSTANCE.createGrantType();
 				newGrant.setGroup("public");
 				newGrant.setRole("patron");
-				((ACLEditorInput) page.getEditorInput()).getModel().getGrant().add(newGrant);
+				Command cmd = AddCommand.create(MetsProjectNature.getEditingDomain(page.model), page.model, AclPackage.eINSTANCE.getAccessControlType_Grant(), newGrant);
+				if(cmd.canExecute()) {
+					MetsProjectNature.getNatureForMetsObject(page.model).getCommandStack().execute(cmd);
+				}
 				viewer.refresh();
 			}
 		});
@@ -117,7 +125,10 @@ public class ScrolledPropertiesBlock extends MasterDetailsBlock implements ISele
 					Object o = sel.getFirstElement();
 					if (o instanceof GrantType) {
 						GrantType g = (GrantType) o;
-						((ACLEditorInput) page.getEditorInput()).getModel().getGrant().remove(g);
+						Command cmd = RemoveCommand.create(MetsProjectNature.getEditingDomain(page.model), page.model, AclPackage.eINSTANCE.getAccessControlType_Grant(), g);
+						if(cmd.canExecute()) {
+							MetsProjectNature.getNatureForMetsObject(page.model).getCommandStack().execute(cmd);
+						}
 					}
 				}
 				viewer.refresh();
@@ -141,7 +152,7 @@ public class ScrolledPropertiesBlock extends MasterDetailsBlock implements ISele
 
 		ADFTE = new AdapterFactoryTreeEditor(viewer.getTree(), MetsProjectNature.getAdapterFactory());
 
-		viewer.setInput(((ACLEditorInput) page.getEditor().getEditorInput()).getModel());
+		viewer.setInput(page.model);
 		viewer.addSelectionChangedListener(this);
 	}
 

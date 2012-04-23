@@ -15,6 +15,8 @@
  */
 package unc.lib.cdr.workbench.acl;
 
+import org.eclipse.emf.common.command.CompoundCommand;
+import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.SWT;
@@ -35,6 +37,9 @@ import org.eclipse.ui.forms.widgets.Section;
 import org.eclipse.ui.forms.widgets.TableWrapData;
 import org.eclipse.ui.forms.widgets.TableWrapLayout;
 
+import unc.lib.cdr.workbench.project.MetsProjectNature;
+
+import edu.unc.lib.schemas.acl.AclPackage;
 import edu.unc.lib.schemas.acl.GrantType;
 
 /**
@@ -90,10 +95,14 @@ public class GrantTypeDetailsPage implements IDetailsPage {
 	@Override
 	public void commit(boolean onSave) {
 		if (input != null) {
-			input.setRole(roleCombo.getText());
-			input.setGroup(groupText.getText());
+			CompoundCommand cmd = new CompoundCommand();
+			cmd.append(SetCommand.create(MetsProjectNature.getEditingDomain(input), input, AclPackage.eINSTANCE.getGrantType_Role(), roleCombo.getText()));
+			cmd.append(SetCommand.create(MetsProjectNature.getEditingDomain(input), input, AclPackage.eINSTANCE.getGrantType_Group(), groupText.getText()));
+			if(cmd.canExecute()) {
+				MetsProjectNature.getNatureForMetsObject(input).getCommandStack().execute(cmd);
+			}
 		}
-		isDirty = false;
+		isDirty = true;
 		this.mform.dirtyStateChanged();
 	}
 
@@ -104,7 +113,7 @@ public class GrantTypeDetailsPage implements IDetailsPage {
 	 */
 	@Override
 	public boolean setFormInput(Object input) {
-		// System.out.println("setFormInput(): " + input);
+		System.out.println("setFormInput(): " + input);
 		return false;
 	}
 

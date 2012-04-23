@@ -20,6 +20,7 @@ import gov.loc.mets.DocumentRoot;
 import gov.loc.mets.MetsType1;
 import gov.loc.mets.util.METSConstants;
 import gov.loc.mets.util.METSUtils;
+import gov.loc.mods.mods.presentation.URIFragmentEditorInput;
 
 import java.net.URISyntaxException;
 import java.util.ArrayList;
@@ -45,6 +46,7 @@ import org.eclipse.core.runtime.preferences.IEclipsePreferences;
 import org.eclipse.emf.common.command.CommandStack;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.slf4j.Logger;
@@ -131,7 +133,7 @@ public class MetsProjectNature implements IProjectNature {
 		return getEMFSession().getCommandStack();
 	}
 
-	public EditingDomain getEditingDomain() {
+	public AdapterFactoryEditingDomain getEditingDomain() {
 		return getEMFSession().getEditingDomain();
 	}
 
@@ -374,6 +376,12 @@ public class MetsProjectNature implements IProjectNature {
 		builders.add(stagingCommand);
 		builders.add(crosswalksCommand);
 		desc.setBuildSpec(builders.toArray(new ICommand[2]));
+	}
+
+	public static EObject getModel(URIFragmentEditorInput in) {
+		IProject p = ResourcesPlugin.getWorkspace().getRoot().getProject(in.getProjectName());
+		MetsProjectNature n = MetsProjectNature.get(p);
+		return n.getEditingDomain().getResourceSet().getResources().get(0).getEObject(in.getFragmentID());
 	}
 
 }
