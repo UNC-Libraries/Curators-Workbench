@@ -40,7 +40,7 @@ public class DateRecognizerEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2013;
+	public static final int VISUAL_ID = 3004;
 
 	/**
 	 * @generated
@@ -111,8 +111,8 @@ public class DateRecognizerEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof WrappingLabel12EditPart) {
-			((WrappingLabel12EditPart) childEditPart).setLabel(getPrimaryShape().getFigureWidgetLabelFigure());
+		if (childEditPart instanceof WrappingLabel3EditPart) {
+			((WrappingLabel3EditPart) childEditPart).setLabel(getPrimaryShape().getFigureWidgetLabelFigure());
 			return true;
 		}
 		return false;
@@ -122,7 +122,7 @@ public class DateRecognizerEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof WrappingLabel12EditPart) {
+		if (childEditPart instanceof WrappingLabel3EditPart) {
 			return true;
 		}
 		return false;
@@ -255,7 +255,7 @@ public class DateRecognizerEditPart extends ShapeNodeEditPart {
 	 */
 	@Override
 	public EditPart getPrimaryChildEditPart() {
-		return getChildBySemanticHint(CrosswalkVisualIDRegistry.getType(WrappingLabel12EditPart.VISUAL_ID));
+		return getChildBySemanticHint(CrosswalkVisualIDRegistry.getType(WrappingLabel3EditPart.VISUAL_ID));
 	}
 
 	/**
@@ -263,7 +263,7 @@ public class DateRecognizerEditPart extends ShapeNodeEditPart {
 	 */
 	public List<IElementType> getMARelTypesOnSource() {
 		ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-		types.add(CrosswalkElementTypes.InputOutput_4003);
+		types.add(CrosswalkElementTypes.InputOutput_4001);
 		return types;
 	}
 
@@ -272,17 +272,29 @@ public class DateRecognizerEditPart extends ShapeNodeEditPart {
 	 */
 	public List<IElementType> getMARelTypesOnSourceAndTarget(IGraphicalEditPart targetEditPart) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
+		if (targetEditPart instanceof TabbedDataFieldEditPart) {
+			types.add(CrosswalkElementTypes.InputOutput_4001);
+		}
 		if (targetEditPart instanceof crosswalk.diagram.edit.parts.DateRecognizerEditPart) {
-			types.add(CrosswalkElementTypes.InputOutput_4003);
+			types.add(CrosswalkElementTypes.InputOutput_4001);
 		}
 		if (targetEditPart instanceof TextEditPart) {
-			types.add(CrosswalkElementTypes.InputOutput_4003);
+			types.add(CrosswalkElementTypes.InputOutput_4001);
 		}
 		if (targetEditPart instanceof TrimWhitespaceEditPart) {
-			types.add(CrosswalkElementTypes.InputOutput_4003);
+			types.add(CrosswalkElementTypes.InputOutput_4001);
 		}
-		if (targetEditPart instanceof TabbedDataFieldEditPart) {
-			types.add(CrosswalkElementTypes.InputOutput_4003);
+		if (targetEditPart instanceof DateRecognizer2EditPart) {
+			types.add(CrosswalkElementTypes.InputOutput_4001);
+		}
+		if (targetEditPart instanceof Text2EditPart) {
+			types.add(CrosswalkElementTypes.InputOutput_4001);
+		}
+		if (targetEditPart instanceof TrimWhitespace2EditPart) {
+			types.add(CrosswalkElementTypes.InputOutput_4001);
+		}
+		if (targetEditPart instanceof InputFieldEditPart) {
+			types.add(CrosswalkElementTypes.InputOutput_4001);
 		}
 		return types;
 	}
@@ -292,11 +304,15 @@ public class DateRecognizerEditPart extends ShapeNodeEditPart {
 	 */
 	public List<IElementType> getMATypesForTarget(IElementType relationshipType) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (relationshipType == CrosswalkElementTypes.InputOutput_4003) {
-			types.add(CrosswalkElementTypes.DateRecognizer_2013);
-			types.add(CrosswalkElementTypes.Text_2014);
-			types.add(CrosswalkElementTypes.TrimWhitespace_2015);
-			types.add(CrosswalkElementTypes.TabbedDataField_3001);
+		if (relationshipType == CrosswalkElementTypes.InputOutput_4001) {
+			types.add(CrosswalkElementTypes.TabbedDataField_3002);
+			types.add(CrosswalkElementTypes.DateRecognizer_3004);
+			types.add(CrosswalkElementTypes.Text_3005);
+			types.add(CrosswalkElementTypes.TrimWhitespace_3006);
+			types.add(CrosswalkElementTypes.DateRecognizer_3012);
+			types.add(CrosswalkElementTypes.Text_3013);
+			types.add(CrosswalkElementTypes.TrimWhitespace_3014);
+			types.add(CrosswalkElementTypes.InputField_3017);
 		}
 		return types;
 	}
@@ -306,7 +322,7 @@ public class DateRecognizerEditPart extends ShapeNodeEditPart {
 	 */
 	public List<IElementType> getMARelTypesOnTarget() {
 		ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-		types.add(CrosswalkElementTypes.InputOutput_4003);
+		types.add(CrosswalkElementTypes.InputOutput_4001);
 		return types;
 	}
 
@@ -315,11 +331,16 @@ public class DateRecognizerEditPart extends ShapeNodeEditPart {
 	 */
 	public List<IElementType> getMATypesForSource(IElementType relationshipType) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (relationshipType == CrosswalkElementTypes.InputOutput_4003) {
-			types.add(CrosswalkElementTypes.OriginalNameRecordMatcher_2010);
-			types.add(CrosswalkElementTypes.DateRecognizer_2013);
-			types.add(CrosswalkElementTypes.TrimWhitespace_2015);
+		if (relationshipType == CrosswalkElementTypes.InputOutput_4001) {
+			types.add(CrosswalkElementTypes.OriginalNameRecordMatcher_3003);
+			types.add(CrosswalkElementTypes.DateRecognizer_3004);
+			types.add(CrosswalkElementTypes.TrimWhitespace_3006);
+			types.add(CrosswalkElementTypes.MappedAttribute_3009);
+			types.add(CrosswalkElementTypes.OriginalNameRecordMatcher_3011);
+			types.add(CrosswalkElementTypes.DateRecognizer_3012);
+			types.add(CrosswalkElementTypes.TrimWhitespace_3014);
 			types.add(CrosswalkElementTypes.MappedAttribute_3016);
+			types.add(CrosswalkElementTypes.InputField_3017);
 		}
 		return types;
 	}

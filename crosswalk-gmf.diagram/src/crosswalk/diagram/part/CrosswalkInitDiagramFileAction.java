@@ -34,6 +34,7 @@ import org.eclipse.ui.IObjectActionDelegate;
 import org.eclipse.ui.IWorkbenchPart;
 
 import crosswalk.diagram.edit.parts.CrossWalkEditPart;
+import crosswalk.diagram.edit.parts.EditingContainerEditPart;
 
 /**
  * @generated
@@ -97,7 +98,7 @@ public class CrosswalkInitDiagramFileAction implements IObjectActionDelegate {
 			return;
 		}
 		Wizard wizard = new CrosswalkNewDiagramFileWizard(domainModelURI, diagramRoot, editingDomain);
-		wizard.setWindowTitle(NLS.bind(Messages.InitDiagramFile_WizardTitle, CrossWalkEditPart.MODEL_ID));
+		wizard.setWindowTitle(NLS.bind(Messages.InitDiagramFile_WizardTitle, EditingContainerEditPart.MODEL_ID));
 		CrosswalkDiagramEditorUtil.runWizard(getShell(), wizard, "InitDiagramFile"); //$NON-NLS-1$
 	}
 }

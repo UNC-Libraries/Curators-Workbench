@@ -16,7 +16,6 @@
 package crosswalk.impl;
 
 import gov.loc.mods.mods.DateEncodingAttributeDefinition;
-import gov.loc.mods.mods.MODSFactory;
 import gov.loc.mods.mods.MODSPackage;
 
 import org.eclipse.emf.common.notify.Notification;

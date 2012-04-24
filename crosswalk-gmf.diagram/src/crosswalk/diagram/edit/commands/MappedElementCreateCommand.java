@@ -18,6 +18,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import crosswalk.CrossWalk;
 import crosswalk.CrosswalkFactory;
 import crosswalk.MappedElement;
+import crosswalk.MappingContainer;
 
 /**
  * @generated
@@ -51,6 +52,7 @@ public class MappedElementCreateCommand extends EditElementCommand {
 	@Override
 	public boolean canExecute() {
 		return true;
+
 	}
 
 	/**
@@ -60,7 +62,7 @@ public class MappedElementCreateCommand extends EditElementCommand {
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
 		MappedElement newElement = CrosswalkFactory.eINSTANCE.createMappedElement();
 
-		CrossWalk owner = (CrossWalk) getElementToEdit();
+		MappingContainer owner = (MappingContainer) getElementToEdit();
 		owner.getElements().add(newElement);
 
 		doConfigure(newElement, monitor, info);

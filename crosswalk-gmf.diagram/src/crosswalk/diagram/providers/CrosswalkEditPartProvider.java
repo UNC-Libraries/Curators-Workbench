@@ -28,6 +28,7 @@ import org.eclipse.gmf.runtime.notation.View;
 
 import crosswalk.diagram.edit.parts.CrossWalkEditPart;
 import crosswalk.diagram.edit.parts.CrosswalkEditPartFactory;
+import crosswalk.diagram.edit.parts.EditingContainerEditPart;
 import crosswalk.diagram.part.CrosswalkVisualIDRegistry;
 
 /**
@@ -137,7 +138,7 @@ public class CrosswalkEditPartProvider extends AbstractEditPartProvider {
 	public synchronized boolean provides(IOperation operation) {
 		if (operation instanceof CreateGraphicEditPartOperation) {
 			View view = ((IEditPartOperation) operation).getView();
-			if (!CrossWalkEditPart.MODEL_ID.equals(CrosswalkVisualIDRegistry.getModelID(view))) {
+			if (!EditingContainerEditPart.MODEL_ID.equals(CrosswalkVisualIDRegistry.getModelID(view))) {
 				return false;
 			}
 			if (isAllowCaching() && getCachedPart(view) != null) {

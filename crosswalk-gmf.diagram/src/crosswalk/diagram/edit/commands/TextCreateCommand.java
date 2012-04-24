@@ -29,6 +29,7 @@ import org.eclipse.gmf.runtime.notation.View;
 
 import crosswalk.CrossWalk;
 import crosswalk.CrosswalkFactory;
+import crosswalk.MappingContainer;
 import crosswalk.Text;
 
 /**
@@ -69,7 +70,7 @@ public class TextCreateCommand extends EditElementCommand {
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
 		Text newElement = CrosswalkFactory.eINSTANCE.createText();
 
-		CrossWalk owner = (CrossWalk) getElementToEdit();
+		MappingContainer owner = (MappingContainer) getElementToEdit();
 		owner.getWidgets().add(newElement);
 
 		doConfigure(newElement, monitor, info);

@@ -9,11 +9,13 @@ import org.eclipse.draw2d.IFigure;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ListCompartmentEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeCompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ResizableCompartmentEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure;
+import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.notation.SortingDirection;
 import org.eclipse.gmf.runtime.notation.View;
 
@@ -30,7 +32,7 @@ public class MappedElementChildElementsCompartmentEditPart extends ListCompartme
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 7015;
+	public static final int VISUAL_ID = 7003;
 
 	/**
 	 * @generated
@@ -42,7 +44,6 @@ public class MappedElementChildElementsCompartmentEditPart extends ListCompartme
 	/**
 	 * @generated
 	 */
-	@Override
 	protected boolean hasModelChildrenChanged(Notification evt) {
 		return false;
 	}
@@ -79,22 +80,23 @@ public class MappedElementChildElementsCompartmentEditPart extends ListCompartme
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE, new MappedElementChildElementsCompartmentCanonicalEditPolicy());
 	}
 
-	@Override
-	protected Comparator getComparator(String name, SortingDirection direction) {
-		if(ElementSortFilterCompartmentItemsEditPolicy.SORT_KEY_NODE_TYPE.equals(name)) {
-			return ElementSortFilterCompartmentItemsEditPolicy.COMPARATOR_NODE_TYPE;
-		} else {
-			return super.getComparator(name, direction);
-		}
-	}
+	//	@Override
+	//	protected Comparator getComparator(String name, SortingDirection direction) {
+	//		if (ElementSortFilterCompartmentItemsEditPolicy.SORT_KEY_NODE_TYPE.equals(name)) {
+	//			return ElementSortFilterCompartmentItemsEditPolicy.COMPARATOR_NODE_TYPE;
+	//		} else {
+	//			return super.getComparator(name, direction);
+	//		}
+	//	}
 
 	/**
 	 * @generated
 	 */
 	@Override
 	protected void setRatio(Double ratio) {
-		// nothing to do -- parent layout does not accept Double constraints as ratio
-		// super.setRatio(ratio);
+		if (getFigure().getParent().getLayoutManager() instanceof ConstrainedToolbarLayout) {
+			super.setRatio(ratio);
+		}
 	}
 
 }

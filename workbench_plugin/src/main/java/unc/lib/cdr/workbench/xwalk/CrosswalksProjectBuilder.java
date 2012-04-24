@@ -62,6 +62,8 @@ import unc.lib.cdr.workbench.project.MetsProjectNature;
 import crosswalk.CrossWalk;
 import crosswalk.CrosswalkPackage;
 import crosswalk.DataException;
+import crosswalk.Editable;
+import crosswalk.EditingContainer;
 import crosswalk.MetsSource;
 import crosswalk.OutputElement;
 import crosswalk.RecordMatcherStrategy;
@@ -157,8 +159,11 @@ public class CrosswalksProjectBuilder extends IncrementalProjectBuilder {
 		}
 		CrossWalk cw = null;
 		for (EObject o : crosswalkResource.getContents()) {
-			if (o instanceof CrossWalk) {
-				cw = (CrossWalk) o;
+			if(o instanceof EditingContainer) {
+				Editable editable = ((EditingContainer)o).getModel();
+				if (editable instanceof CrossWalk) {
+					cw = (CrossWalk)editable;
+				}
 			}
 		}
 		if (cw == null) {

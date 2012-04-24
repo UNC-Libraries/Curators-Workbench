@@ -21,6 +21,8 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.util.Switch;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,7 +37,7 @@ import org.eclipse.emf.ecore.EObject;
  * @see crosswalk.CrosswalkPackage
  * @generated
  */
-public class CrosswalkSwitch<T> {
+public class CrosswalkSwitch<T> extends Switch<T> {
         /**
 	 * The cached model package
 	 * <!-- begin-user-doc -->
@@ -57,44 +59,27 @@ public class CrosswalkSwitch<T> {
 	}
 
         /**
-	 * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
+	 * Checks whether this is a switch for the given package.
 	 * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-	 * @return the first non-null result returned by a <code>caseXXX</code> call.
+	 * <!-- end-user-doc -->
+	 * @parameter ePackage the package in question.
+	 * @return whether this is a switch for the given package.
 	 * @generated
 	 */
-        public T doSwitch(EObject theEObject) {
-		return doSwitch(theEObject.eClass(), theEObject);
+	@Override
+	protected boolean isSwitchFor(EPackage ePackage) {
+		return ePackage == modelPackage;
 	}
 
-        /**
+								/**
 	 * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
 	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
 	 * @return the first non-null result returned by a <code>caseXXX</code> call.
 	 * @generated
 	 */
-        protected T doSwitch(EClass theEClass, EObject theEObject) {
-		if (theEClass.eContainer() == modelPackage) {
-			return doSwitch(theEClass.getClassifierID(), theEObject);
-		}
-		else {
-			List<EClass> eSuperTypes = theEClass.getESuperTypes();
-			return
-				eSuperTypes.isEmpty() ?
-					defaultCase(theEObject) :
-					doSwitch(eSuperTypes.get(0), theEObject);
-		}
-	}
-
-        /**
-	 * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
-	 * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-	 * @return the first non-null result returned by a <code>caseXXX</code> call.
-	 * @generated
-	 */
-        protected T doSwitch(int classifierID, EObject theEObject) {
+        @Override
+								protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
 			case CrosswalkPackage.TABBED_DATA_FIELD: {
 				TabbedDataField tabbedDataField = (TabbedDataField)theEObject;
@@ -116,6 +101,9 @@ public class CrosswalkSwitch<T> {
 			case CrosswalkPackage.CROSS_WALK: {
 				CrossWalk crossWalk = (CrossWalk)theEObject;
 				T result = caseCrossWalk(crossWalk);
+				if (result == null) result = caseSchemaProvider(crossWalk);
+				if (result == null) result = caseMappingContainer(crossWalk);
+				if (result == null) result = caseEditable(crossWalk);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -221,6 +209,60 @@ public class CrosswalkSwitch<T> {
 				DateToISO8601StringConversion dateToISO8601StringConversion = (DateToISO8601StringConversion)theEObject;
 				T result = caseDateToISO8601StringConversion(dateToISO8601StringConversion);
 				if (result == null) result = caseConversionStrategy(dateToISO8601StringConversion);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CrosswalkPackage.DICTIONARY: {
+				Dictionary dictionary = (Dictionary)theEObject;
+				T result = caseDictionary(dictionary);
+				if (result == null) result = caseSchemaProvider(dictionary);
+				if (result == null) result = caseEditable(dictionary);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CrosswalkPackage.METADATA_BLOCK: {
+				MetadataBlock metadataBlock = (MetadataBlock)theEObject;
+				T result = caseMetadataBlock(metadataBlock);
+				if (result == null) result = caseOutputElement(metadataBlock);
+				if (result == null) result = caseMappingContainer(metadataBlock);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CrosswalkPackage.VOCABULARY: {
+				Vocabulary vocabulary = (Vocabulary)theEObject;
+				T result = caseVocabulary(vocabulary);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CrosswalkPackage.INPUT_FIELD: {
+				InputField inputField = (InputField)theEObject;
+				T result = caseInputField(inputField);
+				if (result == null) result = caseOutput(inputField);
+				if (result == null) result = caseInput(inputField);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CrosswalkPackage.SCHEMA_PROVIDER: {
+				SchemaProvider schemaProvider = (SchemaProvider)theEObject;
+				T result = caseSchemaProvider(schemaProvider);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CrosswalkPackage.MAPPING_CONTAINER: {
+				MappingContainer mappingContainer = (MappingContainer)theEObject;
+				T result = caseMappingContainer(mappingContainer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CrosswalkPackage.EDITING_CONTAINER: {
+				EditingContainer editingContainer = (EditingContainer)theEObject;
+				T result = caseEditingContainer(editingContainer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CrosswalkPackage.EDITABLE: {
+				Editable editable = (Editable)theEObject;
+				T result = caseEditable(editable);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -499,6 +541,126 @@ public class CrosswalkSwitch<T> {
 	}
 
         /**
+	 * Returns the result of interpreting the object as an instance of '<em>Dictionary</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Dictionary</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDictionary(Dictionary object) {
+		return null;
+	}
+
+								/**
+	 * Returns the result of interpreting the object as an instance of '<em>Metadata Block</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Metadata Block</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMetadataBlock(MetadataBlock object) {
+		return null;
+	}
+
+								/**
+	 * Returns the result of interpreting the object as an instance of '<em>Vocabulary</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Vocabulary</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseVocabulary(Vocabulary object) {
+		return null;
+	}
+
+								/**
+	 * Returns the result of interpreting the object as an instance of '<em>Input Field</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Input Field</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseInputField(InputField object) {
+		return null;
+	}
+
+								/**
+	 * Returns the result of interpreting the object as an instance of '<em>Schema Provider</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Schema Provider</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSchemaProvider(SchemaProvider object) {
+		return null;
+	}
+
+								/**
+	 * Returns the result of interpreting the object as an instance of '<em>Mapping Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Mapping Container</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMappingContainer(MappingContainer object) {
+		return null;
+	}
+
+								/**
+	 * Returns the result of interpreting the object as an instance of '<em>Editing Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Editing Container</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEditingContainer(EditingContainer object) {
+		return null;
+	}
+
+								/**
+	 * Returns the result of interpreting the object as an instance of '<em>Editable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Editable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEditable(Editable object) {
+		return null;
+	}
+
+								/**
 	 * Returns the result of interpreting the object as an instance of '<em>EObject</em>'.
 	 * <!-- begin-user-doc -->
          * This implementation returns null;
@@ -509,7 +671,8 @@ public class CrosswalkSwitch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject)
 	 * @generated
 	 */
-        public T defaultCase(EObject object) {
+        @Override
+								public T defaultCase(EObject object) {
 		return null;
 	}
 

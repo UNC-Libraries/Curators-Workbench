@@ -83,6 +83,10 @@ copyright 2010 University of North Carolina at Chapel Hill
             <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart">
                <GlobalActionId actionId="save"/>
             </ElementType>
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="save">
+               </GlobalActionId>
+            </ElementType>        
          </ViewId>
       </GlobalActionHandlerProvider>
       <GlobalActionHandlerProvider
@@ -145,6 +149,11 @@ copyright 2010 University of North Carolina at Chapel Hill
             name="%prefpage.crosswalk-gmf.diagram.rulersAndGrid"
             category="crosswalk-gmf.diagram.general"
             class="crosswalk.diagram.preferences.DiagramRulersAndGridPreferencePage">
+      </page>
+      <page
+            class="crosswalk.diagram.custom.DictionaryPreferencePage"
+            id="crosswalk-gmf.diagram.pageDictionaryLocations"
+            name="Dictionary Locations">
       </page>
    </extension>
 
@@ -216,8 +225,8 @@ copyright 2010 University of North Carolina at Chapel Hill
       <viewProvider class="crosswalk.diagram.providers.CrosswalkViewProvider">
          <Priority name="Lowest"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Crosswalk"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2001,2010,2013,2014,2015,2016,3001,3015,3016"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="4003"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2001,2002,3001,3002,3003,3004,3005,3006,3007,3008,3009,3018,3011,3012,3013,3014,3015,3016,3017,3010"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="4001"/>
       </viewProvider>
    </extension>
 
@@ -229,16 +238,16 @@ copyright 2010 University of North Carolina at Chapel Hill
             <method name="getType()" value="Crosswalk"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-nodes">
-            <method name="getType()" value="2001,2010,2013,2014,2015,2016,3001,3015,3016"/>
+            <method name="getType()" value="2001,2002,3001,3002,3003,3004,3005,3006,3007,3008,3009,3018,3011,3012,3013,3014,3015,3016,3017,3010"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
-            <method name="getType()" value="4003"/>
+            <method name="getType()" value="4001"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
-            <method name="getType()" value="5003,5021,5027,5028,5030,5034,5001,5002,5031,5032"/>
+            <method name="getType()" value="5003,5001,5002,5004,5005,5006,5007,5010,5009,5008,5019,5011,5012,5013,5014,5016,5015,5017,5018"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-compartments">
-            <method name="getType()" value="7001,7015,7016"/>
+            <method name="getType()" value="7001,7002,7003,7004,7009,7010,7008,7005,7006,7007"/>
          </object>
          <context views="generated-diagram,generated-nodes,generated-links,generated-labels,generated-compartments"/>
       </editpartProvider>
@@ -248,14 +257,10 @@ copyright 2010 University of North Carolina at Chapel Hill
       <?gmfgen generated="true"?>
       <modelingAssistantProvider class="crosswalk.diagram.providers.CrosswalkModelingAssistantProvider">
          <Priority name="Lowest"/>
-         <object class="crosswalk.diagram.edit.parts.CrossWalkEditPart" id="CrossWalk_1000"/>
-         <object class="crosswalk.diagram.edit.parts.DelimitedFileEditPart" id="DelimitedFile_2001"/>
-         <object class="crosswalk.diagram.edit.parts.OriginalNameRecordMatcherEditPart" id="OriginalNameRecordMatcher_2010"/>
-         <object class="crosswalk.diagram.edit.parts.DateRecognizerEditPart" id="DateRecognizer_2013"/>
-         <object class="crosswalk.diagram.edit.parts.TextEditPart" id="Text_2014"/>
-         <object class="crosswalk.diagram.edit.parts.TrimWhitespaceEditPart" id="TrimWhitespace_2015"/>
-         <object class="crosswalk.diagram.edit.parts.MappedElementEditPart" id="MappedElement_2016"/>
-         <context elements="CrossWalk_1000,DelimitedFile_2001,OriginalNameRecordMatcher_2010,DateRecognizer_2013,Text_2014,TrimWhitespace_2015,MappedElement_2016"/>
+         <object class="crosswalk.diagram.edit.parts.EditingContainerEditPart" id="EditingContainer_1000"/>
+         <object class="crosswalk.diagram.edit.parts.CrossWalkEditPart" id="CrossWalk_2001"/>
+         <object class="crosswalk.diagram.edit.parts.DictionaryEditPart" id="Dictionary_2002"/>
+         <context elements="EditingContainer_1000,CrossWalk_2001,Dictionary_2002"/>
       </modelingAssistantProvider>
    </extension>
 
@@ -277,110 +282,213 @@ copyright 2010 University of North Carolina at Chapel Hill
       <?gmfgen generated="true"?>
       <metamodel nsURI="http://lib.unc.edu/schemas/crosswalk">
          <metamodelType
-               id="crosswalk-gmf.diagram.CrossWalk_1000"
-               name="%metatype.name.CrossWalk_1000"
+               id="crosswalk-gmf.diagram.EditingContainer_1000"
+               name="%metatype.name.EditingContainer_1000"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="CrossWalk"
-               edithelper="crosswalk.diagram.edit.helpers.CrossWalkEditHelper">
+               eclass="EditingContainer"
+               edithelper="crosswalk.diagram.edit.helpers.EditingContainerEditHelper">
             <param name="semanticHint" value="1000"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://lib.unc.edu/schemas/crosswalk">
          <metamodelType
-               id="crosswalk-gmf.diagram.DelimitedFile_2001"
-               name="%metatype.name.DelimitedFile_2001"
+               id="crosswalk-gmf.diagram.CrossWalk_2001"
+               name="%metatype.name.CrossWalk_2001"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="DelimitedFile"
-               edithelper="crosswalk.diagram.edit.helpers.DelimitedFileEditHelper">
+               eclass="CrossWalk"
+               edithelper="crosswalk.diagram.edit.helpers.CrossWalkEditHelper">
             <param name="semanticHint" value="2001"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://lib.unc.edu/schemas/crosswalk">
          <metamodelType
-               id="crosswalk-gmf.diagram.OriginalNameRecordMatcher_2010"
-               name="%metatype.name.OriginalNameRecordMatcher_2010"
+               id="crosswalk-gmf.diagram.Dictionary_2002"
+               name="%metatype.name.Dictionary_2002"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="OriginalNameRecordMatcher"
-               edithelper="crosswalk.diagram.edit.helpers.OriginalNameRecordMatcherEditHelper">
-            <param name="semanticHint" value="2010"/>
+               eclass="Dictionary"
+               edithelper="crosswalk.diagram.edit.helpers.DictionaryEditHelper">
+            <param name="semanticHint" value="2002"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://lib.unc.edu/schemas/crosswalk">
          <metamodelType
-               id="crosswalk-gmf.diagram.DateRecognizer_2013"
-               name="%metatype.name.DateRecognizer_2013"
+               id="crosswalk-gmf.diagram.DelimitedFile_3001"
+               name="%metatype.name.DelimitedFile_3001"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="DateRecognizer"
-               edithelper="crosswalk.diagram.edit.helpers.DateRecognizerEditHelper">
-            <param name="semanticHint" value="2013"/>
+               eclass="DelimitedFile"
+               edithelper="crosswalk.diagram.edit.helpers.DelimitedFileEditHelper">
+            <param name="semanticHint" value="3001"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://lib.unc.edu/schemas/crosswalk">
          <metamodelType
-               id="crosswalk-gmf.diagram.Text_2014"
-               name="%metatype.name.Text_2014"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="Text"
-               edithelper="crosswalk.diagram.edit.helpers.TextEditHelper">
-            <param name="semanticHint" value="2014"/>
-         </metamodelType>
-      </metamodel>
-      <metamodel nsURI="http://lib.unc.edu/schemas/crosswalk">
-         <metamodelType
-               id="crosswalk-gmf.diagram.TrimWhitespace_2015"
-               name="%metatype.name.TrimWhitespace_2015"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="TrimWhitespace"
-               edithelper="crosswalk.diagram.edit.helpers.TrimWhitespaceEditHelper">
-            <param name="semanticHint" value="2015"/>
-         </metamodelType>
-      </metamodel>
-      <metamodel nsURI="http://lib.unc.edu/schemas/crosswalk">
-         <metamodelType
-               id="crosswalk-gmf.diagram.MappedElement_2016"
-               name="%metatype.name.MappedElement_2016"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="MappedElement"
-               edithelper="crosswalk.diagram.edit.helpers.MappedElementEditHelper">
-            <param name="semanticHint" value="2016"/>
-         </metamodelType>
-      </metamodel>
-      <metamodel nsURI="http://lib.unc.edu/schemas/crosswalk">
-         <metamodelType
-               id="crosswalk-gmf.diagram.TabbedDataField_3001"
-               name="%metatype.name.TabbedDataField_3001"
+               id="crosswalk-gmf.diagram.TabbedDataField_3002"
+               name="%metatype.name.TabbedDataField_3002"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="TabbedDataField"
                edithelper="crosswalk.diagram.edit.helpers.TabbedDataFieldEditHelper">
-            <param name="semanticHint" value="3001"/>
+            <param name="semanticHint" value="3002"/>
          </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://lib.unc.edu/schemas/crosswalk">
+         <metamodelType
+               id="crosswalk-gmf.diagram.OriginalNameRecordMatcher_3003"
+               name="%metatype.name.OriginalNameRecordMatcher_3003"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="OriginalNameRecordMatcher"
+               edithelper="crosswalk.diagram.edit.helpers.OriginalNameRecordMatcherEditHelper">
+            <param name="semanticHint" value="3003"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://lib.unc.edu/schemas/crosswalk">
+         <metamodelType
+               id="crosswalk-gmf.diagram.DateRecognizer_3004"
+               name="%metatype.name.DateRecognizer_3004"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="DateRecognizer"
+               edithelper="crosswalk.diagram.edit.helpers.DateRecognizerEditHelper">
+            <param name="semanticHint" value="3004"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://lib.unc.edu/schemas/crosswalk">
+         <metamodelType
+               id="crosswalk-gmf.diagram.Text_3005"
+               name="%metatype.name.Text_3005"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Text"
+               edithelper="crosswalk.diagram.edit.helpers.TextEditHelper">
+            <param name="semanticHint" value="3005"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://lib.unc.edu/schemas/crosswalk">
+         <metamodelType
+               id="crosswalk-gmf.diagram.TrimWhitespace_3006"
+               name="%metatype.name.TrimWhitespace_3006"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="TrimWhitespace"
+               edithelper="crosswalk.diagram.edit.helpers.TrimWhitespaceEditHelper">
+            <param name="semanticHint" value="3006"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://lib.unc.edu/schemas/crosswalk">
+         <metamodelType
+               id="crosswalk-gmf.diagram.MappedElement_3007"
+               name="%metatype.name.MappedElement_3007"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="MappedElement"
+               edithelper="crosswalk.diagram.edit.helpers.MappedElementEditHelper">
+            <param name="semanticHint" value="3007"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://lib.unc.edu/schemas/crosswalk">
+         <specializationType
+               id="crosswalk-gmf.diagram.MappedElement_3008"
+               name="%metatype.name.MappedElement_3008"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="crosswalk-gmf.diagram.MappedElement_3007"/>
+            <param name="semanticHint" value="3008"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://lib.unc.edu/schemas/crosswalk">
+         <metamodelType
+               id="crosswalk-gmf.diagram.MappedAttribute_3009"
+               name="%metatype.name.MappedAttribute_3009"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="MappedAttribute"
+               edithelper="crosswalk.diagram.edit.helpers.MappedAttributeEditHelper">
+            <param name="semanticHint" value="3009"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://lib.unc.edu/schemas/crosswalk">
+         <metamodelType
+               id="crosswalk-gmf.diagram.MetadataBlock_3018"
+               name="%metatype.name.MetadataBlock_3018"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="MetadataBlock"
+               edithelper="crosswalk.diagram.edit.helpers.MetadataBlockEditHelper">
+            <param name="semanticHint" value="3018"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://lib.unc.edu/schemas/crosswalk">
+         <specializationType
+               id="crosswalk-gmf.diagram.OriginalNameRecordMatcher_3011"
+               name="%metatype.name.OriginalNameRecordMatcher_3011"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="crosswalk-gmf.diagram.OriginalNameRecordMatcher_3003"/>
+            <param name="semanticHint" value="3011"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://lib.unc.edu/schemas/crosswalk">
+         <specializationType
+               id="crosswalk-gmf.diagram.DateRecognizer_3012"
+               name="%metatype.name.DateRecognizer_3012"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="crosswalk-gmf.diagram.DateRecognizer_3004"/>
+            <param name="semanticHint" value="3012"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://lib.unc.edu/schemas/crosswalk">
+         <specializationType
+               id="crosswalk-gmf.diagram.Text_3013"
+               name="%metatype.name.Text_3013"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="crosswalk-gmf.diagram.Text_3005"/>
+            <param name="semanticHint" value="3013"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://lib.unc.edu/schemas/crosswalk">
+         <specializationType
+               id="crosswalk-gmf.diagram.TrimWhitespace_3014"
+               name="%metatype.name.TrimWhitespace_3014"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="crosswalk-gmf.diagram.TrimWhitespace_3006"/>
+            <param name="semanticHint" value="3014"/>
+         </specializationType>
       </metamodel>
       <metamodel nsURI="http://lib.unc.edu/schemas/crosswalk">
          <specializationType
                id="crosswalk-gmf.diagram.MappedElement_3015"
                name="%metatype.name.MappedElement_3015"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
-            <specializes id="crosswalk-gmf.diagram.MappedElement_2016"/>
+            <specializes id="crosswalk-gmf.diagram.MappedElement_3007"/>
             <param name="semanticHint" value="3015"/>
          </specializationType>
       </metamodel>
       <metamodel nsURI="http://lib.unc.edu/schemas/crosswalk">
-         <metamodelType
+         <specializationType
                id="crosswalk-gmf.diagram.MappedAttribute_3016"
                name="%metatype.name.MappedAttribute_3016"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="MappedAttribute"
-               edithelper="crosswalk.diagram.edit.helpers.MappedAttributeEditHelper">
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="crosswalk-gmf.diagram.MappedAttribute_3009"/>
             <param name="semanticHint" value="3016"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://lib.unc.edu/schemas/crosswalk">
+         <metamodelType
+               id="crosswalk-gmf.diagram.InputField_3017"
+               name="%metatype.name.InputField_3017"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="InputField"
+               edithelper="crosswalk.diagram.edit.helpers.InputFieldEditHelper">
+            <param name="semanticHint" value="3017"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://lib.unc.edu/schemas/crosswalk">
          <specializationType
-               id="crosswalk-gmf.diagram.InputOutput_4003"
-               name="%metatype.name.InputOutput_4003"
+               id="crosswalk-gmf.diagram.MetadataBlock_3010"
+               name="%metatype.name.MetadataBlock_3010"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="crosswalk-gmf.diagram.MetadataBlock_3018"/>
+            <param name="semanticHint" value="3010"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://lib.unc.edu/schemas/crosswalk">
+         <specializationType
+               id="crosswalk-gmf.diagram.InputOutput_4001"
+               name="%metatype.name.InputOutput_4001"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
             <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
-            <param name="semanticHint" value="4003"/>
+            <param name="semanticHint" value="4001"/>
          </specializationType>
       </metamodel>
    </extension>
@@ -395,17 +503,28 @@ copyright 2010 University of North Carolina at Chapel Hill
          </enablement>
       </clientContext> 
       <binding context="crosswalk-gmf.diagram.TypeContext">
-         <elementType ref="crosswalk-gmf.diagram.CrossWalk_1000"/>
-         <elementType ref="crosswalk-gmf.diagram.DelimitedFile_2001"/>
-         <elementType ref="crosswalk-gmf.diagram.OriginalNameRecordMatcher_2010"/>
-         <elementType ref="crosswalk-gmf.diagram.DateRecognizer_2013"/>
-         <elementType ref="crosswalk-gmf.diagram.Text_2014"/>
-         <elementType ref="crosswalk-gmf.diagram.TrimWhitespace_2015"/>
-         <elementType ref="crosswalk-gmf.diagram.MappedElement_2016"/>
-         <elementType ref="crosswalk-gmf.diagram.TabbedDataField_3001"/>
+         <elementType ref="crosswalk-gmf.diagram.EditingContainer_1000"/>
+         <elementType ref="crosswalk-gmf.diagram.CrossWalk_2001"/>
+         <elementType ref="crosswalk-gmf.diagram.Dictionary_2002"/>
+         <elementType ref="crosswalk-gmf.diagram.DelimitedFile_3001"/>
+         <elementType ref="crosswalk-gmf.diagram.TabbedDataField_3002"/>
+         <elementType ref="crosswalk-gmf.diagram.OriginalNameRecordMatcher_3003"/>
+         <elementType ref="crosswalk-gmf.diagram.DateRecognizer_3004"/>
+         <elementType ref="crosswalk-gmf.diagram.Text_3005"/>
+         <elementType ref="crosswalk-gmf.diagram.TrimWhitespace_3006"/>
+         <elementType ref="crosswalk-gmf.diagram.MappedElement_3007"/>
+         <elementType ref="crosswalk-gmf.diagram.MappedElement_3008"/>
+         <elementType ref="crosswalk-gmf.diagram.MappedAttribute_3009"/>
+         <elementType ref="crosswalk-gmf.diagram.MetadataBlock_3018"/>
+         <elementType ref="crosswalk-gmf.diagram.OriginalNameRecordMatcher_3011"/>
+         <elementType ref="crosswalk-gmf.diagram.DateRecognizer_3012"/>
+         <elementType ref="crosswalk-gmf.diagram.Text_3013"/>
+         <elementType ref="crosswalk-gmf.diagram.TrimWhitespace_3014"/>
          <elementType ref="crosswalk-gmf.diagram.MappedElement_3015"/>
          <elementType ref="crosswalk-gmf.diagram.MappedAttribute_3016"/>
-         <elementType ref="crosswalk-gmf.diagram.InputOutput_4003"/>
+         <elementType ref="crosswalk-gmf.diagram.InputField_3017"/>
+         <elementType ref="crosswalk-gmf.diagram.MetadataBlock_3010"/>
+         <elementType ref="crosswalk-gmf.diagram.InputOutput_4001"/>
          <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
       </binding>
    </extension>
@@ -553,7 +672,7 @@ copyright 2010 University of North Carolina at Chapel Hill
                <and>
                   <with variable="activePartId"><equals value="crosswalk.diagram.part.CrosswalkDiagramEditorID"/></with>
                   <with variable="selection"><iterate ifEmpty="false"> 
-                     <instanceof value="crosswalk.diagram.edit.parts.CrossWalkEditPart"/>
+                     <instanceof value="crosswalk.diagram.edit.parts.EditingContainerEditPart"/>
                   </iterate></with>
                </and>
             </visibleWhen>

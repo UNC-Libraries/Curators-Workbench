@@ -15,7 +15,7 @@ public class InputOutputItemSemanticEditPolicy extends CrosswalkBaseItemSemantic
 	 * @generated
 	 */
 	public InputOutputItemSemanticEditPolicy() {
-		super(CrosswalkElementTypes.InputOutput_4003);
+		super(CrosswalkElementTypes.InputOutput_4001);
 	}
 
 	/**

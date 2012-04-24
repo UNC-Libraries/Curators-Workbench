@@ -32,16 +32,28 @@ import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.swt.graphics.Image;
 
 import crosswalk.CrosswalkPackage;
+import crosswalk.diagram.edit.parts.CrossWalk2EditPart;
 import crosswalk.diagram.edit.parts.CrossWalkEditPart;
+import crosswalk.diagram.edit.parts.DateRecognizer2EditPart;
 import crosswalk.diagram.edit.parts.DateRecognizerEditPart;
 import crosswalk.diagram.edit.parts.DelimitedFileEditPart;
+import crosswalk.diagram.edit.parts.DictionaryEditPart;
+import crosswalk.diagram.edit.parts.EditingContainerEditPart;
+import crosswalk.diagram.edit.parts.InputFieldEditPart;
 import crosswalk.diagram.edit.parts.InputOutputEditPart;
+import crosswalk.diagram.edit.parts.MappedAttribute2EditPart;
 import crosswalk.diagram.edit.parts.MappedAttributeEditPart;
 import crosswalk.diagram.edit.parts.MappedElement2EditPart;
+import crosswalk.diagram.edit.parts.MappedElement3EditPart;
 import crosswalk.diagram.edit.parts.MappedElementEditPart;
+import crosswalk.diagram.edit.parts.MetadataBlock2EditPart;
+import crosswalk.diagram.edit.parts.MetadataBlockEditPart;
+import crosswalk.diagram.edit.parts.OriginalNameRecordMatcher2EditPart;
 import crosswalk.diagram.edit.parts.OriginalNameRecordMatcherEditPart;
 import crosswalk.diagram.edit.parts.TabbedDataFieldEditPart;
+import crosswalk.diagram.edit.parts.Text2EditPart;
 import crosswalk.diagram.edit.parts.TextEditPart;
+import crosswalk.diagram.edit.parts.TrimWhitespace2EditPart;
 import crosswalk.diagram.edit.parts.TrimWhitespaceEditPart;
 import crosswalk.diagram.part.CrosswalkDiagramEditorPlugin;
 
@@ -74,41 +86,92 @@ public class CrosswalkElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType CrossWalk_1000 = getElementType("crosswalk-gmf.diagram.CrossWalk_1000"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType DelimitedFile_2001 = getElementType("crosswalk-gmf.diagram.DelimitedFile_2001"); //$NON-NLS-1$
+	public static final IElementType EditingContainer_1000 = getElementType("crosswalk-gmf.diagram.EditingContainer_1000"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType OriginalNameRecordMatcher_2010 = getElementType("crosswalk-gmf.diagram.OriginalNameRecordMatcher_2010"); //$NON-NLS-1$
+	public static final IElementType CrossWalk_2001 = getElementType("crosswalk-gmf.diagram.CrossWalk_2001"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType DateRecognizer_2013 = getElementType("crosswalk-gmf.diagram.DateRecognizer_2013"); //$NON-NLS-1$
+	public static final IElementType Dictionary_2002 = getElementType("crosswalk-gmf.diagram.Dictionary_2002"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType Text_2014 = getElementType("crosswalk-gmf.diagram.Text_2014"); //$NON-NLS-1$
+	public static final IElementType DelimitedFile_3001 = getElementType("crosswalk-gmf.diagram.DelimitedFile_3001"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType TrimWhitespace_2015 = getElementType("crosswalk-gmf.diagram.TrimWhitespace_2015"); //$NON-NLS-1$
+	public static final IElementType TabbedDataField_3002 = getElementType("crosswalk-gmf.diagram.TabbedDataField_3002"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType MappedElement_2016 = getElementType("crosswalk-gmf.diagram.MappedElement_2016"); //$NON-NLS-1$
+	public static final IElementType OriginalNameRecordMatcher_3003 = getElementType("crosswalk-gmf.diagram.OriginalNameRecordMatcher_3003"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType TabbedDataField_3001 = getElementType("crosswalk-gmf.diagram.TabbedDataField_3001"); //$NON-NLS-1$
+	public static final IElementType DateRecognizer_3004 = getElementType("crosswalk-gmf.diagram.DateRecognizer_3004"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType Text_3005 = getElementType("crosswalk-gmf.diagram.Text_3005"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType TrimWhitespace_3006 = getElementType("crosswalk-gmf.diagram.TrimWhitespace_3006"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType MappedElement_3007 = getElementType("crosswalk-gmf.diagram.MappedElement_3007"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType MappedElement_3008 = getElementType("crosswalk-gmf.diagram.MappedElement_3008"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType MappedAttribute_3009 = getElementType("crosswalk-gmf.diagram.MappedAttribute_3009"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType MetadataBlock_3018 = getElementType("crosswalk-gmf.diagram.MetadataBlock_3018"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType MetadataBlock_3010 = getElementType("crosswalk-gmf.diagram.MetadataBlock_3010"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType OriginalNameRecordMatcher_3011 = getElementType("crosswalk-gmf.diagram.OriginalNameRecordMatcher_3011"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType DateRecognizer_3012 = getElementType("crosswalk-gmf.diagram.DateRecognizer_3012"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType Text_3013 = getElementType("crosswalk-gmf.diagram.Text_3013"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType TrimWhitespace_3014 = getElementType("crosswalk-gmf.diagram.TrimWhitespace_3014"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -123,7 +186,12 @@ public class CrosswalkElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType InputOutput_4003 = getElementType("crosswalk-gmf.diagram.InputOutput_4003"); //$NON-NLS-1$
+	public static final IElementType InputField_3017 = getElementType("crosswalk-gmf.diagram.InputField_3017"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType InputOutput_4001 = getElementType("crosswalk-gmf.diagram.InputOutput_4001"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -232,27 +300,49 @@ public class CrosswalkElementTypes {
 		if (elements == null) {
 			elements = new IdentityHashMap<IElementType, ENamedElement>();
 
-			elements.put(CrossWalk_1000, CrosswalkPackage.eINSTANCE.getCrossWalk());
+			elements.put(EditingContainer_1000, CrosswalkPackage.eINSTANCE.getEditingContainer());
 
-			elements.put(DelimitedFile_2001, CrosswalkPackage.eINSTANCE.getDelimitedFile());
+			elements.put(CrossWalk_2001, CrosswalkPackage.eINSTANCE.getCrossWalk());
 
-			elements.put(OriginalNameRecordMatcher_2010, CrosswalkPackage.eINSTANCE.getOriginalNameRecordMatcher());
+			elements.put(Dictionary_2002, CrosswalkPackage.eINSTANCE.getDictionary());
 
-			elements.put(DateRecognizer_2013, CrosswalkPackage.eINSTANCE.getDateRecognizer());
+			elements.put(DelimitedFile_3001, CrosswalkPackage.eINSTANCE.getDelimitedFile());
 
-			elements.put(Text_2014, CrosswalkPackage.eINSTANCE.getText());
+			elements.put(TabbedDataField_3002, CrosswalkPackage.eINSTANCE.getTabbedDataField());
 
-			elements.put(TrimWhitespace_2015, CrosswalkPackage.eINSTANCE.getTrimWhitespace());
+			elements.put(OriginalNameRecordMatcher_3003, CrosswalkPackage.eINSTANCE.getOriginalNameRecordMatcher());
 
-			elements.put(MappedElement_2016, CrosswalkPackage.eINSTANCE.getMappedElement());
+			elements.put(DateRecognizer_3004, CrosswalkPackage.eINSTANCE.getDateRecognizer());
 
-			elements.put(TabbedDataField_3001, CrosswalkPackage.eINSTANCE.getTabbedDataField());
+			elements.put(Text_3005, CrosswalkPackage.eINSTANCE.getText());
+
+			elements.put(TrimWhitespace_3006, CrosswalkPackage.eINSTANCE.getTrimWhitespace());
+
+			elements.put(MappedElement_3007, CrosswalkPackage.eINSTANCE.getMappedElement());
+
+			elements.put(MappedElement_3008, CrosswalkPackage.eINSTANCE.getMappedElement());
+
+			elements.put(MappedAttribute_3009, CrosswalkPackage.eINSTANCE.getMappedAttribute());
+
+			elements.put(MetadataBlock_3018, CrosswalkPackage.eINSTANCE.getMetadataBlock());
+
+			elements.put(OriginalNameRecordMatcher_3011, CrosswalkPackage.eINSTANCE.getOriginalNameRecordMatcher());
+
+			elements.put(DateRecognizer_3012, CrosswalkPackage.eINSTANCE.getDateRecognizer());
+
+			elements.put(Text_3013, CrosswalkPackage.eINSTANCE.getText());
+
+			elements.put(TrimWhitespace_3014, CrosswalkPackage.eINSTANCE.getTrimWhitespace());
 
 			elements.put(MappedElement_3015, CrosswalkPackage.eINSTANCE.getMappedElement());
 
 			elements.put(MappedAttribute_3016, CrosswalkPackage.eINSTANCE.getMappedAttribute());
 
-			elements.put(InputOutput_4003, CrosswalkPackage.eINSTANCE.getInput_Output());
+			elements.put(InputField_3017, CrosswalkPackage.eINSTANCE.getInputField());
+
+			elements.put(MetadataBlock_3010, CrosswalkPackage.eINSTANCE.getMetadataBlock());
+
+			elements.put(InputOutput_4001, CrosswalkPackage.eINSTANCE.getInput_Output());
 		}
 		return (ENamedElement) elements.get(type);
 	}
@@ -270,17 +360,28 @@ public class CrosswalkElementTypes {
 	public static boolean isKnownElementType(IElementType elementType) {
 		if (KNOWN_ELEMENT_TYPES == null) {
 			KNOWN_ELEMENT_TYPES = new HashSet<IElementType>();
-			KNOWN_ELEMENT_TYPES.add(CrossWalk_1000);
-			KNOWN_ELEMENT_TYPES.add(DelimitedFile_2001);
-			KNOWN_ELEMENT_TYPES.add(OriginalNameRecordMatcher_2010);
-			KNOWN_ELEMENT_TYPES.add(DateRecognizer_2013);
-			KNOWN_ELEMENT_TYPES.add(Text_2014);
-			KNOWN_ELEMENT_TYPES.add(TrimWhitespace_2015);
-			KNOWN_ELEMENT_TYPES.add(MappedElement_2016);
-			KNOWN_ELEMENT_TYPES.add(TabbedDataField_3001);
+			KNOWN_ELEMENT_TYPES.add(EditingContainer_1000);
+			KNOWN_ELEMENT_TYPES.add(CrossWalk_2001);
+			KNOWN_ELEMENT_TYPES.add(Dictionary_2002);
+			KNOWN_ELEMENT_TYPES.add(DelimitedFile_3001);
+			KNOWN_ELEMENT_TYPES.add(TabbedDataField_3002);
+			KNOWN_ELEMENT_TYPES.add(OriginalNameRecordMatcher_3003);
+			KNOWN_ELEMENT_TYPES.add(DateRecognizer_3004);
+			KNOWN_ELEMENT_TYPES.add(Text_3005);
+			KNOWN_ELEMENT_TYPES.add(TrimWhitespace_3006);
+			KNOWN_ELEMENT_TYPES.add(MappedElement_3007);
+			KNOWN_ELEMENT_TYPES.add(MappedElement_3008);
+			KNOWN_ELEMENT_TYPES.add(MappedAttribute_3009);
+			KNOWN_ELEMENT_TYPES.add(MetadataBlock_3018);
+			KNOWN_ELEMENT_TYPES.add(OriginalNameRecordMatcher_3011);
+			KNOWN_ELEMENT_TYPES.add(DateRecognizer_3012);
+			KNOWN_ELEMENT_TYPES.add(Text_3013);
+			KNOWN_ELEMENT_TYPES.add(TrimWhitespace_3014);
 			KNOWN_ELEMENT_TYPES.add(MappedElement_3015);
 			KNOWN_ELEMENT_TYPES.add(MappedAttribute_3016);
-			KNOWN_ELEMENT_TYPES.add(InputOutput_4003);
+			KNOWN_ELEMENT_TYPES.add(InputField_3017);
+			KNOWN_ELEMENT_TYPES.add(MetadataBlock_3010);
+			KNOWN_ELEMENT_TYPES.add(InputOutput_4001);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
 	}
@@ -290,28 +391,50 @@ public class CrosswalkElementTypes {
 	 */
 	public static IElementType getElementType(int visualID) {
 		switch (visualID) {
+			case EditingContainerEditPart.VISUAL_ID:
+				return EditingContainer_1000;
 			case CrossWalkEditPart.VISUAL_ID:
-				return CrossWalk_1000;
+				return CrossWalk_2001;
+			case DictionaryEditPart.VISUAL_ID:
+				return Dictionary_2002;
 			case DelimitedFileEditPart.VISUAL_ID:
-				return DelimitedFile_2001;
-			case OriginalNameRecordMatcherEditPart.VISUAL_ID:
-				return OriginalNameRecordMatcher_2010;
-			case DateRecognizerEditPart.VISUAL_ID:
-				return DateRecognizer_2013;
-			case TextEditPart.VISUAL_ID:
-				return Text_2014;
-			case TrimWhitespaceEditPart.VISUAL_ID:
-				return TrimWhitespace_2015;
-			case MappedElementEditPart.VISUAL_ID:
-				return MappedElement_2016;
+				return DelimitedFile_3001;
 			case TabbedDataFieldEditPart.VISUAL_ID:
-				return TabbedDataField_3001;
+				return TabbedDataField_3002;
+			case OriginalNameRecordMatcherEditPart.VISUAL_ID:
+				return OriginalNameRecordMatcher_3003;
+			case DateRecognizerEditPart.VISUAL_ID:
+				return DateRecognizer_3004;
+			case TextEditPart.VISUAL_ID:
+				return Text_3005;
+			case TrimWhitespaceEditPart.VISUAL_ID:
+				return TrimWhitespace_3006;
+			case MappedElementEditPart.VISUAL_ID:
+				return MappedElement_3007;
 			case MappedElement2EditPart.VISUAL_ID:
-				return MappedElement_3015;
+				return MappedElement_3008;
 			case MappedAttributeEditPart.VISUAL_ID:
+				return MappedAttribute_3009;
+			case MetadataBlock2EditPart.VISUAL_ID:
+				return MetadataBlock_3018;
+			case OriginalNameRecordMatcher2EditPart.VISUAL_ID:
+				return OriginalNameRecordMatcher_3011;
+			case DateRecognizer2EditPart.VISUAL_ID:
+				return DateRecognizer_3012;
+			case Text2EditPart.VISUAL_ID:
+				return Text_3013;
+			case TrimWhitespace2EditPart.VISUAL_ID:
+				return TrimWhitespace_3014;
+			case MappedElement3EditPart.VISUAL_ID:
+				return MappedElement_3015;
+			case MappedAttribute2EditPart.VISUAL_ID:
 				return MappedAttribute_3016;
+			case InputFieldEditPart.VISUAL_ID:
+				return InputField_3017;
+			case MetadataBlockEditPart.VISUAL_ID:
+				return MetadataBlock_3010;
 			case InputOutputEditPart.VISUAL_ID:
-				return InputOutput_4003;
+				return InputOutput_4001;
 		}
 		return null;
 	}

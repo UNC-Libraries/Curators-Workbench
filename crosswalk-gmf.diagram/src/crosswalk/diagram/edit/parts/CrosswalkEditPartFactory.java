@@ -44,8 +44,14 @@ public class CrosswalkEditPartFactory implements EditPartFactory {
 			View view = (View) model;
 			switch (CrosswalkVisualIDRegistry.getVisualID(view)) {
 
+				case EditingContainerEditPart.VISUAL_ID:
+					return new EditingContainerEditPart(view);
+
 				case CrossWalkEditPart.VISUAL_ID:
 					return new CrossWalkEditPart(view);
+
+				case DictionaryEditPart.VISUAL_ID:
+					return new DictionaryEditPart(view);
 
 				case DelimitedFileEditPart.VISUAL_ID:
 					return new DelimitedFileEditPart(view);
@@ -53,17 +59,26 @@ public class CrosswalkEditPartFactory implements EditPartFactory {
 				case DelimitedFileSourceFileEditPart.VISUAL_ID:
 					return new DelimitedFileSourceFileEditPart(view);
 
+				case TabbedDataFieldEditPart.VISUAL_ID:
+					return new TabbedDataFieldEditPart(view);
+
+				case WrappingLabelEditPart.VISUAL_ID:
+					return new WrappingLabelEditPart(view);
+
+				case TabbedDataFieldLabelColumnNumberEditPart.VISUAL_ID:
+					return new TabbedDataFieldLabelColumnNumberEditPart(view);
+
 				case OriginalNameRecordMatcherEditPart.VISUAL_ID:
 					return new OriginalNameRecordMatcherEditPart(view);
 
-				case WrappingLabel9EditPart.VISUAL_ID:
-					return new WrappingLabel9EditPart(view);
+				case WrappingLabel2EditPart.VISUAL_ID:
+					return new WrappingLabel2EditPart(view);
 
 				case DateRecognizerEditPart.VISUAL_ID:
 					return new DateRecognizerEditPart(view);
 
-				case WrappingLabel12EditPart.VISUAL_ID:
-					return new WrappingLabel12EditPart(view);
+				case WrappingLabel3EditPart.VISUAL_ID:
+					return new WrappingLabel3EditPart(view);
 
 				case TextEditPart.VISUAL_ID:
 					return new TextEditPart(view);
@@ -74,35 +89,83 @@ public class CrosswalkEditPartFactory implements EditPartFactory {
 				case TrimWhitespaceEditPart.VISUAL_ID:
 					return new TrimWhitespaceEditPart(view);
 
-				case WrappingLabel13EditPart.VISUAL_ID:
-					return new WrappingLabel13EditPart(view);
+				case WrappingLabel4EditPart.VISUAL_ID:
+					return new WrappingLabel4EditPart(view);
 
 				case MappedElementEditPart.VISUAL_ID:
 					return new MappedElementEditPart(view);
 
-				case WrappingLabel14EditPart.VISUAL_ID:
-					return new WrappingLabel14EditPart(view);
-
-				case TabbedDataFieldEditPart.VISUAL_ID:
-					return new TabbedDataFieldEditPart(view);
-
-				case WrappingLabel15EditPart.VISUAL_ID:
-					return new WrappingLabel15EditPart(view);
-
-				case TabbedDataFieldLabelColumnNumberEditPart.VISUAL_ID:
-					return new TabbedDataFieldLabelColumnNumberEditPart(view);
+				case WrappingLabel5EditPart.VISUAL_ID:
+					return new WrappingLabel5EditPart(view);
 
 				case MappedElement2EditPart.VISUAL_ID:
 					return new MappedElement2EditPart(view);
 
-				case WrappingLabel16EditPart.VISUAL_ID:
-					return new WrappingLabel16EditPart(view);
+				case WrappingLabel6EditPart.VISUAL_ID:
+					return new WrappingLabel6EditPart(view);
 
 				case MappedAttributeEditPart.VISUAL_ID:
 					return new MappedAttributeEditPart(view);
 
-				case MappedAttributeNameEditPart.VISUAL_ID:
-					return new MappedAttributeNameEditPart(view);
+				case WrappingLabel7EditPart.VISUAL_ID:
+					return new WrappingLabel7EditPart(view);
+
+				case MetadataBlock2EditPart.VISUAL_ID:
+					return new MetadataBlock2EditPart(view);
+
+				case MetadataBlockName2EditPart.VISUAL_ID:
+					return new MetadataBlockName2EditPart(view);
+
+				case OriginalNameRecordMatcher2EditPart.VISUAL_ID:
+					return new OriginalNameRecordMatcher2EditPart(view);
+
+				case WrappingLabel8EditPart.VISUAL_ID:
+					return new WrappingLabel8EditPart(view);
+
+				case DateRecognizer2EditPart.VISUAL_ID:
+					return new DateRecognizer2EditPart(view);
+
+				case WrappingLabel9EditPart.VISUAL_ID:
+					return new WrappingLabel9EditPart(view);
+
+				case Text2EditPart.VISUAL_ID:
+					return new Text2EditPart(view);
+
+				case TextValue2EditPart.VISUAL_ID:
+					return new TextValue2EditPart(view);
+
+				case TrimWhitespace2EditPart.VISUAL_ID:
+					return new TrimWhitespace2EditPart(view);
+
+				case WrappingLabel10EditPart.VISUAL_ID:
+					return new WrappingLabel10EditPart(view);
+
+				case MappedElement3EditPart.VISUAL_ID:
+					return new MappedElement3EditPart(view);
+
+				case WrappingLabel11EditPart.VISUAL_ID:
+					return new WrappingLabel11EditPart(view);
+
+				case MappedAttribute2EditPart.VISUAL_ID:
+					return new MappedAttribute2EditPart(view);
+
+				case WrappingLabel12EditPart.VISUAL_ID:
+					return new WrappingLabel12EditPart(view);
+
+				case InputFieldEditPart.VISUAL_ID:
+					return new InputFieldEditPart(view);
+
+				case InputFieldLabelEditPart.VISUAL_ID:
+					return new InputFieldLabelEditPart(view);
+
+				case MetadataBlockEditPart.VISUAL_ID:
+					return new MetadataBlockEditPart(view);
+
+				case MetadataBlockNameEditPart.VISUAL_ID:
+					return new MetadataBlockNameEditPart(view);
+
+				case CrossWalkModelBoxCompartmentEditPart.VISUAL_ID:
+					return new CrossWalkModelBoxCompartmentEditPart(view);
 
 				case DelimitedFileDataFieldCompartmentEditPart.VISUAL_ID:
 					return new DelimitedFileDataFieldCompartmentEditPart(view);
@@ -112,6 +175,24 @@ public class CrosswalkEditPartFactory implements EditPartFactory {
 
 				case MappedElementChildElementsCompartment2EditPart.VISUAL_ID:
 					return new MappedElementChildElementsCompartment2EditPart(view);
+
+				case MetadataBlockMetadataBlockInputFieldsCompartment2EditPart.VISUAL_ID:
+					return new MetadataBlockMetadataBlockInputFieldsCompartment2EditPart(view);
+
+				case MetadataBlockMetadataBlockMappingCompartment2EditPart.VISUAL_ID:
+					return new MetadataBlockMetadataBlockMappingCompartment2EditPart(view);
+
+				case MappedElementChildElementsCompartment3EditPart.VISUAL_ID:
+					return new MappedElementChildElementsCompartment3EditPart(view);
+
+				case DictionaryModelBoxCompartmentEditPart.VISUAL_ID:
+					return new DictionaryModelBoxCompartmentEditPart(view);
+
+				case MetadataBlockMetadataBlockInputFieldsCompartmentEditPart.VISUAL_ID:
+					return new MetadataBlockMetadataBlockInputFieldsCompartmentEditPart(view);
+
+				case MetadataBlockMetadataBlockMappingCompartmentEditPart.VISUAL_ID:
+					return new MetadataBlockMetadataBlockMappingCompartmentEditPart(view);
 
 				case InputOutputEditPart.VISUAL_ID:
 					return new InputOutputEditPart(view);

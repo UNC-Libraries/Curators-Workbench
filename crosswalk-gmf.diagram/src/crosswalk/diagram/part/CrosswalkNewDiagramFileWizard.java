@@ -44,6 +44,7 @@ import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
 
 import crosswalk.diagram.edit.parts.CrossWalkEditPart;
+import crosswalk.diagram.edit.parts.EditingContainerEditPart;
 
 /**
  * @generated
@@ -78,7 +79,7 @@ public class CrosswalkNewDiagramFileWizard extends Wizard {
 				StructuredSelection.EMPTY);
 		myFileCreationPage.setTitle(Messages.CrosswalkNewDiagramFileWizard_CreationPageTitle);
 		myFileCreationPage.setDescription(NLS.bind(Messages.CrosswalkNewDiagramFileWizard_CreationPageDescription,
-				CrossWalkEditPart.MODEL_ID));
+				EditingContainerEditPart.MODEL_ID));
 		IPath filePath;
 		String fileName = URI.decode(domainModelURI.trimFileExtension().lastSegment());
 		if (domainModelURI.isPlatformResource()) {
@@ -129,11 +130,11 @@ public class CrosswalkNewDiagramFileWizard extends Wizard {
 					throws ExecutionException {
 				int diagramVID = CrosswalkVisualIDRegistry.getDiagramVisualID(diagramRootElementSelectionPage
 						.getModelElement());
-				if (diagramVID != CrossWalkEditPart.VISUAL_ID) {
+				if (diagramVID != EditingContainerEditPart.VISUAL_ID) {
 					return CommandResult.newErrorCommandResult(Messages.CrosswalkNewDiagramFileWizard_IncorrectRootError);
 				}
 				Diagram diagram = ViewService.createDiagram(diagramRootElementSelectionPage.getModelElement(),
-						CrossWalkEditPart.MODEL_ID, CrosswalkDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT);
+						EditingContainerEditPart.MODEL_ID, CrosswalkDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT);
 				diagramResource.getContents().add(diagram);
 				return CommandResult.newOKCommandResult();
 			}
@@ -180,8 +181,8 @@ public class CrosswalkNewDiagramFileWizard extends Wizard {
 				return false;
 			}
 			boolean result = ViewService.getInstance().provides(
-					new CreateDiagramViewOperation(new EObjectAdapter(selectedModelElement), CrossWalkEditPart.MODEL_ID,
-							CrosswalkDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT));
+					new CreateDiagramViewOperation(new EObjectAdapter(selectedModelElement),
+							EditingContainerEditPart.MODEL_ID, CrosswalkDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT));
 			setErrorMessage(result ? null
 					: Messages.CrosswalkNewDiagramFileWizard_RootSelectionPageInvalidSelectionMessage);
 			return result;

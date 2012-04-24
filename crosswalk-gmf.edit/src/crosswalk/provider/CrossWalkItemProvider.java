@@ -44,7 +44,7 @@ import crosswalk.CrosswalkPackage;
  * @generated
  */
 public class CrossWalkItemProvider
-        extends ItemProviderAdapter
+        extends SchemaProviderItemProvider
         implements
                 IEditingDomainItemProvider,
                 IStructuredItemContentProvider,
@@ -72,31 +72,8 @@ public class CrossWalkItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addOutputTypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-        /**
-	 * This adds a property descriptor for the Output Type feature.
-	 * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-	 * @generated
-	 */
-        protected void addOutputTypePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_CrossWalk_outputType_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CrossWalk_outputType_feature", "_UI_CrossWalk_type"),
-				 CrosswalkPackage.Literals.CROSS_WALK__OUTPUT_TYPE,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
 	}
 
         /**
@@ -111,9 +88,9 @@ public class CrossWalkItemProvider
         public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
+			childrenFeatures.add(CrosswalkPackage.Literals.MAPPING_CONTAINER__WIDGETS);
+			childrenFeatures.add(CrosswalkPackage.Literals.MAPPING_CONTAINER__ELEMENTS);
 			childrenFeatures.add(CrosswalkPackage.Literals.CROSS_WALK__DATA_SOURCE);
-			childrenFeatures.add(CrosswalkPackage.Literals.CROSS_WALK__WIDGETS);
-			childrenFeatures.add(CrosswalkPackage.Literals.CROSS_WALK__ELEMENTS);
 		}
 		return childrenFeatures;
 	}
@@ -165,9 +142,9 @@ public class CrossWalkItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(CrossWalk.class)) {
-			case CrosswalkPackage.CROSS_WALK__DATA_SOURCE:
 			case CrosswalkPackage.CROSS_WALK__WIDGETS:
 			case CrosswalkPackage.CROSS_WALK__ELEMENTS:
+			case CrosswalkPackage.CROSS_WALK__DATA_SOURCE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -187,49 +164,43 @@ public class CrossWalkItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CrosswalkPackage.Literals.CROSS_WALK__DATA_SOURCE,
-				 CrosswalkFactory.eINSTANCE.createDelimitedFile()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CrosswalkPackage.Literals.CROSS_WALK__WIDGETS,
+				(CrosswalkPackage.Literals.MAPPING_CONTAINER__WIDGETS,
 				 CrosswalkFactory.eINSTANCE.createTrimWhitespace()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CrosswalkPackage.Literals.CROSS_WALK__WIDGETS,
+				(CrosswalkPackage.Literals.MAPPING_CONTAINER__WIDGETS,
 				 CrosswalkFactory.eINSTANCE.createOriginalNameRecordMatcher()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CrosswalkPackage.Literals.CROSS_WALK__WIDGETS,
+				(CrosswalkPackage.Literals.MAPPING_CONTAINER__WIDGETS,
 				 CrosswalkFactory.eINSTANCE.createDateRecognizer()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CrosswalkPackage.Literals.CROSS_WALK__WIDGETS,
+				(CrosswalkPackage.Literals.MAPPING_CONTAINER__WIDGETS,
 				 CrosswalkFactory.eINSTANCE.createText()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CrosswalkPackage.Literals.CROSS_WALK__ELEMENTS,
+				(CrosswalkPackage.Literals.MAPPING_CONTAINER__ELEMENTS,
 				 CrosswalkFactory.eINSTANCE.createMappedElement()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CrosswalkPackage.Literals.CROSS_WALK__ELEMENTS,
+				(CrosswalkPackage.Literals.MAPPING_CONTAINER__ELEMENTS,
 				 CrosswalkFactory.eINSTANCE.createMappedAttribute()));
-	}
 
-        /**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-	 * @generated
-	 */
-        @Override
-        public ResourceLocator getResourceLocator() {
-		return CrosswalkEditPlugin.INSTANCE;
+		newChildDescriptors.add
+			(createChildParameter
+				(CrosswalkPackage.Literals.MAPPING_CONTAINER__ELEMENTS,
+				 CrosswalkFactory.eINSTANCE.createMetadataBlock()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CrosswalkPackage.Literals.CROSS_WALK__DATA_SOURCE,
+				 CrosswalkFactory.eINSTANCE.createDelimitedFile()));
 	}
 
 }

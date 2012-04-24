@@ -45,7 +45,7 @@ public class TabbedDataFieldItemSemanticEditPolicy extends CrosswalkBaseItemSema
 	 * @generated
 	 */
 	public TabbedDataFieldItemSemanticEditPolicy() {
-		super(CrosswalkElementTypes.TabbedDataField_3001);
+		super(CrosswalkElementTypes.TabbedDataField_3002);
 	}
 
 	/**
@@ -92,7 +92,7 @@ public class TabbedDataFieldItemSemanticEditPolicy extends CrosswalkBaseItemSema
 	 * @generated
 	 */
 	protected Command getStartCreateRelationshipCommand(CreateRelationshipRequest req) {
-		if (CrosswalkElementTypes.InputOutput_4003 == req.getElementType()) {
+		if (CrosswalkElementTypes.InputOutput_4001 == req.getElementType()) {
 			return null;
 		}
 		return null;
@@ -102,7 +102,7 @@ public class TabbedDataFieldItemSemanticEditPolicy extends CrosswalkBaseItemSema
 	 * @generated
 	 */
 	protected Command getCompleteCreateRelationshipCommand(CreateRelationshipRequest req) {
-		if (CrosswalkElementTypes.InputOutput_4003 == req.getElementType()) {
+		if (CrosswalkElementTypes.InputOutput_4001 == req.getElementType()) {
 			return getGEFWrapper(new InputOutputCreateCommand(req, req.getSource(), req.getTarget()));
 		}
 		return null;

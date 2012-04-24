@@ -55,7 +55,7 @@ public class OriginalNameRecordMatcherEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2010;
+	public static final int VISUAL_ID = 3003;
 
 	/**
 	 * @generated
@@ -125,8 +125,8 @@ public class OriginalNameRecordMatcherEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof WrappingLabel9EditPart) {
-			((WrappingLabel9EditPart) childEditPart).setLabel(getPrimaryShape().getFigureWidgetLabelFigure());
+		if (childEditPart instanceof WrappingLabel2EditPart) {
+			((WrappingLabel2EditPart) childEditPart).setLabel(getPrimaryShape().getFigureWidgetLabelFigure());
 			return true;
 		}
 		return false;
@@ -136,7 +136,7 @@ public class OriginalNameRecordMatcherEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof WrappingLabel9EditPart) {
+		if (childEditPart instanceof WrappingLabel2EditPart) {
 			return true;
 		}
 		return false;
@@ -259,7 +259,7 @@ public class OriginalNameRecordMatcherEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	public EditPart getPrimaryChildEditPart() {
-		return getChildBySemanticHint(CrosswalkVisualIDRegistry.getType(WrappingLabel9EditPart.VISUAL_ID));
+		return getChildBySemanticHint(CrosswalkVisualIDRegistry.getType(WrappingLabel2EditPart.VISUAL_ID));
 	}
 
 	/**
@@ -267,7 +267,7 @@ public class OriginalNameRecordMatcherEditPart extends ShapeNodeEditPart {
 	 */
 	public List<IElementType> getMARelTypesOnSource() {
 		ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-		types.add(CrosswalkElementTypes.InputOutput_4003);
+		types.add(CrosswalkElementTypes.InputOutput_4001);
 		return types;
 	}
 
@@ -276,17 +276,29 @@ public class OriginalNameRecordMatcherEditPart extends ShapeNodeEditPart {
 	 */
 	public List<IElementType> getMARelTypesOnSourceAndTarget(IGraphicalEditPart targetEditPart) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
+		if (targetEditPart instanceof TabbedDataFieldEditPart) {
+			types.add(CrosswalkElementTypes.InputOutput_4001);
+		}
 		if (targetEditPart instanceof DateRecognizerEditPart) {
-			types.add(CrosswalkElementTypes.InputOutput_4003);
+			types.add(CrosswalkElementTypes.InputOutput_4001);
 		}
 		if (targetEditPart instanceof TextEditPart) {
-			types.add(CrosswalkElementTypes.InputOutput_4003);
+			types.add(CrosswalkElementTypes.InputOutput_4001);
 		}
 		if (targetEditPart instanceof TrimWhitespaceEditPart) {
-			types.add(CrosswalkElementTypes.InputOutput_4003);
+			types.add(CrosswalkElementTypes.InputOutput_4001);
 		}
-		if (targetEditPart instanceof TabbedDataFieldEditPart) {
-			types.add(CrosswalkElementTypes.InputOutput_4003);
+		if (targetEditPart instanceof DateRecognizer2EditPart) {
+			types.add(CrosswalkElementTypes.InputOutput_4001);
+		}
+		if (targetEditPart instanceof Text2EditPart) {
+			types.add(CrosswalkElementTypes.InputOutput_4001);
+		}
+		if (targetEditPart instanceof TrimWhitespace2EditPart) {
+			types.add(CrosswalkElementTypes.InputOutput_4001);
+		}
+		if (targetEditPart instanceof InputFieldEditPart) {
+			types.add(CrosswalkElementTypes.InputOutput_4001);
 		}
 		return types;
 	}
@@ -296,11 +308,15 @@ public class OriginalNameRecordMatcherEditPart extends ShapeNodeEditPart {
 	 */
 	public List<IElementType> getMATypesForTarget(IElementType relationshipType) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (relationshipType == CrosswalkElementTypes.InputOutput_4003) {
-			types.add(CrosswalkElementTypes.DateRecognizer_2013);
-			types.add(CrosswalkElementTypes.Text_2014);
-			types.add(CrosswalkElementTypes.TrimWhitespace_2015);
-			types.add(CrosswalkElementTypes.TabbedDataField_3001);
+		if (relationshipType == CrosswalkElementTypes.InputOutput_4001) {
+			types.add(CrosswalkElementTypes.TabbedDataField_3002);
+			types.add(CrosswalkElementTypes.DateRecognizer_3004);
+			types.add(CrosswalkElementTypes.Text_3005);
+			types.add(CrosswalkElementTypes.TrimWhitespace_3006);
+			types.add(CrosswalkElementTypes.DateRecognizer_3012);
+			types.add(CrosswalkElementTypes.Text_3013);
+			types.add(CrosswalkElementTypes.TrimWhitespace_3014);
+			types.add(CrosswalkElementTypes.InputField_3017);
 		}
 		return types;
 	}

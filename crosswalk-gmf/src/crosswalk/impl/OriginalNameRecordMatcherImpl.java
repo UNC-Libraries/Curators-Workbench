@@ -36,6 +36,7 @@ import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import crosswalk.CrossWalk;
 import crosswalk.CrosswalkPackage;
 import crosswalk.DataException;
 import crosswalk.DataSource;
@@ -333,7 +334,13 @@ public class OriginalNameRecordMatcherImpl extends WalkWidgetImpl implements Ori
      * @generated NOT
      */
     public void run() throws DataException {
-	MetsType mets = this.getWalk().getMetsSource().getMets();
+   	 CrossWalk crosswalk = null;
+   	 if(this.getWalk() instanceof CrossWalk) {
+   		 crosswalk = (CrossWalk)this.getWalk();
+   	 } else {
+   		 return;
+   	 }
+	MetsType mets = crosswalk.getMetsSource().getMets();
 
 	System.out.println("Running the original name record matcher.");
 	Map<DivType, String> matches = new HashMap<DivType, String>();
@@ -347,7 +354,7 @@ public class OriginalNameRecordMatcherImpl extends WalkWidgetImpl implements Ori
 	    throw new DataException("There was a problem creating crosswalk match patterns for resources", e);
 	}
 
-	DataSource ds = this.getWalk().getDataSource();
+	DataSource ds = crosswalk.getDataSource();
 	ds.Reset();
 	try {
 	    processRecord(ds, recordPatterns);

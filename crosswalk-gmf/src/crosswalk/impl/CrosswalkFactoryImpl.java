@@ -36,15 +36,21 @@ import crosswalk.CrosswalkPackage;
 import crosswalk.DataException;
 import crosswalk.DataField;
 import crosswalk.DateRecognizer;
+import crosswalk.DateToISO8601StringConversion;
 import crosswalk.DelimitedFile;
+import crosswalk.Dictionary;
+import crosswalk.EditingContainer;
+import crosswalk.InputField;
 import crosswalk.MappedAttribute;
 import crosswalk.MappedElement;
+import crosswalk.MetadataBlock;
 import crosswalk.OriginalNameRecordMatcher;
 import crosswalk.RecordMatches;
 import crosswalk.RecordOutOfRangeException;
 import crosswalk.TabbedDataField;
 import crosswalk.Text;
 import crosswalk.TrimWhitespace;
+import crosswalk.Vocabulary;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!--
@@ -101,6 +107,11 @@ public class CrosswalkFactoryImpl extends EFactoryImpl implements CrosswalkFacto
 			case CrosswalkPackage.MAPPED_ELEMENT: return createMappedElement();
 			case CrosswalkPackage.MAPPED_ATTRIBUTE: return createMappedAttribute();
 			case CrosswalkPackage.DATE_TO_ISO8601_STRING_CONVERSION: return createDateToISO8601StringConversion();
+			case CrosswalkPackage.DICTIONARY: return createDictionary();
+			case CrosswalkPackage.METADATA_BLOCK: return createMetadataBlock();
+			case CrosswalkPackage.VOCABULARY: return createVocabulary();
+			case CrosswalkPackage.INPUT_FIELD: return createInputField();
+			case CrosswalkPackage.EDITING_CONTAINER: return createEditingContainer();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -260,6 +271,56 @@ public class CrosswalkFactoryImpl extends EFactoryImpl implements CrosswalkFacto
         public DateToISO8601StringConversion createDateToISO8601StringConversion() {
 		DateToISO8601StringConversionImpl dateToISO8601StringConversion = new DateToISO8601StringConversionImpl();
 		return dateToISO8601StringConversion;
+	}
+
+/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Dictionary createDictionary() {
+		DictionaryImpl dictionary = new DictionaryImpl();
+		return dictionary;
+	}
+
+/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MetadataBlock createMetadataBlock() {
+		MetadataBlockImpl metadataBlock = new MetadataBlockImpl();
+		return metadataBlock;
+	}
+
+/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Vocabulary createVocabulary() {
+		VocabularyImpl vocabulary = new VocabularyImpl();
+		return vocabulary;
+	}
+
+/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public InputField createInputField() {
+		InputFieldImpl inputField = new InputFieldImpl();
+		return inputField;
+	}
+
+/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EditingContainer createEditingContainer() {
+		EditingContainerImpl editingContainer = new EditingContainerImpl();
+		return editingContainer;
 	}
 
 /**

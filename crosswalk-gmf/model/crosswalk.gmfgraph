@@ -2,7 +2,7 @@
 <gmfgraph:Canvas xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:gmfgraph="http://www.eclipse.org/gmf/2006/GraphicalDefinition" name="crosswalk">
+    xmlns:gmfgraph="http://www.eclipse.org/gmf/2006/GraphicalDefinition" name="mappingCanvas">
   <figures
       name="Default">
     <descriptors
@@ -38,10 +38,7 @@
             vertical="true"
             forceSingleLine="true"/>
         <insets
-            top="10"
-            left="10"
-            bottom="10"
-            right="10"/>
+            top="5"/>
         <children
             xsi:type="gmfgraph:Label"
             name=""
@@ -137,10 +134,7 @@
           cornerWidth="20"
           cornerHeight="20">
         <layout
-            xsi:type="gmfgraph:FlowLayout"
-            vertical="true"
-            majorAlignment="CENTER"
-            minorAlignment="CENTER"/>
+            xsi:type="gmfgraph:GridLayout"/>
         <insets
             top="5"
             left="5"
@@ -149,16 +143,29 @@
         <children
             xsi:type="gmfgraph:Label"
             name="Label"
-            text="Unknown MODS Element"/>
+            text="Unknown MODS Element">
+          <layoutData
+              xsi:type="gmfgraph:GridLayoutData"
+              verticalAlignment="BEGINNING"
+              horizontalAlignment="BEGINNING"
+              horizontalIndent="5"/>
+        </children>
         <children
             xsi:type="gmfgraph:Rectangle"
             name="ChildPane"
             outline="false">
+          <layoutData
+              xsi:type="gmfgraph:GridLayoutData"
+              grabExcessHorizontalSpace="true"
+              grabExcessVerticalSpace="true"
+              verticalAlignment="FILL"
+              horizontalAlignment="FILL"
+              horizontalIndent="10"/>
           <layout
               xsi:type="gmfgraph:FlowLayout"
               vertical="true"
               forceSingleLine="true"
-              majorAlignment="END"
+              majorAlignment="FILL"
               minorAlignment="FILL"
               majorSpacing="3"
               minorSpacing="3"/>
@@ -196,6 +203,131 @@
       <accessors
           figure="//@figures.0/@descriptors.5/@actualFigure/@children.0"/>
     </descriptors>
+    <descriptors
+        name="MetadataBlockFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Rectangle"
+          name=""
+          lineWidth="3">
+        <layout
+            xsi:type="gmfgraph:GridLayout"
+            numColumns="2"
+            equalWidth="false"/>
+        <insets
+            top="5"
+            bottom="5"
+            right="5"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="MetadataBlockLabelFigure"
+            text="Unknown Widget">
+          <layoutData
+              xsi:type="gmfgraph:GridLayoutData"
+              grabExcessHorizontalSpace="true"
+              verticalAlignment="BEGINNING"
+              horizontalSpan="2"/>
+          <foregroundColor
+              xsi:type="gmfgraph:ConstantColor"
+              value="darkGray"/>
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              height="12"
+              style="BOLD"/>
+        </children>
+        <children
+            xsi:type="gmfgraph:Rectangle"
+            name="MetadataBlockInputFieldsPane"
+            outline="false">
+          <layoutData
+              xsi:type="gmfgraph:GridLayoutData"
+              verticalAlignment="FILL"
+              horizontalAlignment="FILL"
+              horizontalIndent="-10"/>
+        </children>
+        <children
+            xsi:type="gmfgraph:Rectangle"
+            name="MetadataBlockMapping">
+          <layoutData
+              xsi:type="gmfgraph:GridLayoutData"
+              grabExcessHorizontalSpace="true"
+              grabExcessVerticalSpace="true"
+              verticalAlignment="FILL"
+              horizontalAlignment="FILL"/>
+          <layout
+              xsi:type="gmfgraph:FlowLayout"
+              vertical="true"
+              forceSingleLine="true"
+              majorAlignment="END"
+              minorAlignment="FILL"
+              majorSpacing="0"
+              minorSpacing="0"/>
+        </children>
+      </actualFigure>
+      <accessors
+          figure="//@figures.0/@descriptors.6/@actualFigure/@children.0"/>
+      <accessors
+          figure="//@figures.0/@descriptors.6/@actualFigure/@children.1"/>
+      <accessors
+          figure="//@figures.0/@descriptors.6/@actualFigure/@children.2"/>
+    </descriptors>
+    <descriptors
+        name="InputFieldFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Rectangle"
+          name=""
+          outline="false"
+          fill="false">
+        <layout
+            xsi:type="gmfgraph:FlowLayout"
+            forceSingleLine="true"
+            minorSpacing="1"/>
+        <children
+            xsi:type="gmfgraph:Ellipse"
+            name="InputFieldEllipsis">
+          <backgroundColor
+              xsi:type="gmfgraph:ConstantColor"
+              value="red"/>
+          <maximumSize
+              dx="10"
+              dy="10"/>
+          <preferredSize
+              dx="10"
+              dy="10"/>
+        </children>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="InputFieldLabel"
+            text="input"/>
+      </actualFigure>
+      <accessors
+          figure="//@figures.0/@descriptors.7/@actualFigure/@children.1"/>
+      <accessors
+          figure="//@figures.0/@descriptors.7/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
+        name="EditableModelFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Rectangle"
+          name="">
+        <layout
+            xsi:type="gmfgraph:GridLayout"/>
+        <preferredSize
+            dx="1000"
+            dy="1000"/>
+        <children
+            xsi:type="gmfgraph:Rectangle"
+            name="ModelBox">
+          <layoutData
+              xsi:type="gmfgraph:GridLayoutData"
+              grabExcessHorizontalSpace="true"
+              grabExcessVerticalSpace="true"
+              verticalAlignment="FILL"
+              horizontalAlignment="FILL"/>
+        </children>
+      </actualFigure>
+      <accessors
+          figure="//@figures.0/@descriptors.8/@actualFigure/@children.0"/>
+    </descriptors>
   </figures>
   <nodes
       name="DataSource"
@@ -221,6 +353,16 @@
   <nodes
       name="GenericWidgetNode"
       figure="WidgetFigure"/>
+  <nodes
+      name="MetadataBlockNode"
+      figure="MetadataBlockFigure"/>
+  <nodes
+      name="InputFieldNode"
+      figure="InputFieldFigure"/>
+  <nodes
+      name="EditableModel"
+      figure="EditableModelFigure"
+      contentPane="//@figures.0/@descriptors.8/@accessors.0"/>
   <connections
       name="InputConnection"
       figure="InputConnectionFigure"/>
@@ -232,11 +374,29 @@
       name="ChildElementsCompartment"
       figure="MappedElementFigure"
       accessor="//@figures.0/@descriptors.4/@accessors.0"/>
+  <compartments
+      name="MetadataBlockMappingCompartment"
+      figure="MetadataBlockFigure"
+      needsTitle="true"
+      accessor="//@figures.0/@descriptors.6/@accessors.2"/>
+  <compartments
+      name="MetadataBlockInputFieldsCompartment"
+      figure="MetadataBlockFigure"
+      collapsible="true"
+      needsTitle="true"
+      accessor="//@figures.0/@descriptors.6/@accessors.1"/>
+  <compartments
+      name="ModelBoxCompartment"
+      figure="EditableModelFigure"
+      accessor="//@figures.0/@descriptors.8/@accessors.0"/>
   <labels
       name="DataSourceName"
       figure="DataSourceFigure"
       elementIcon="false"
       accessor="//@figures.0/@descriptors.1/@accessors.0"/>
+  <labels
+      name="ModelLabel"
+      figure="EditableModelFigure"/>
   <labels
       name="DataFieldLabel"
       figure="DataFieldFigure"
@@ -252,6 +412,16 @@
       figure="MappedElementFigure"
       elementIcon="false"
       accessor="//@figures.0/@descriptors.4/@accessors.1"/>
+  <labels
+      name="MetadataBlockLabel"
+      figure="MetadataBlockFigure"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.6/@accessors.0"/>
+  <labels
+      name="InputFieldLabel"
+      figure="InputFieldFigure"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.7/@accessors.0"/>
   <labels
       name="XMLAttributeLabel"
       figure="MappedAttributeFigure"

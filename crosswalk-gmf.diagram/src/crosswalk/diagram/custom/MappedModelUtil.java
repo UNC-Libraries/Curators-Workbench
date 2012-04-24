@@ -27,6 +27,8 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import crosswalk.CrossWalk;
 import crosswalk.MappedAttribute;
 import crosswalk.MappedElement;
+import crosswalk.MappingContainer;
+import crosswalk.SchemaProvider;
 
 /**
  * @author Gregory Jansen
@@ -45,10 +47,18 @@ public class MappedModelUtil {
 		// LOG.debug("model parent:" + parent);
 		EClass mappedParentType = null;
 		List<MappedElement> elementsMappedAlready = new ArrayList<MappedElement>();
-		if (parent instanceof CrossWalk) {
-			CrossWalk cw = (CrossWalk) parent;
-			elementsMappedAlready.addAll((Collection<? extends MappedElement>) cw.getElements());
-			mappedParentType = cw.getOutputType();
+		if (parent instanceof MappingContainer) {
+			MappingContainer mapContainer = (MappingContainer) parent;
+			elementsMappedAlready.addAll((Collection<? extends MappedElement>) mapContainer.getElements());
+			if(parent instanceof SchemaProvider) {
+				mappedParentType = ((SchemaProvider)parent).getOutputType();
+			} else {
+				for(EObject next = parent.eContainer(); next != null; next = next.eContainer()) {
+					if(next instanceof SchemaProvider) {
+						mappedParentType = ((SchemaProvider)next).getOutputType();
+					}
+				}
+			}
 		} else if (parent instanceof MappedElement) {
 			MappedElement pe = (MappedElement) parent;
 			elementsMappedAlready.addAll(pe.getChildElements());
@@ -68,7 +78,7 @@ public class MappedModelUtil {
 		for(EStructuralFeature a : mappedParentType.getEAllReferences().toArray(new EStructuralFeature[0])) {
 			int count = 0;
 			for(MappedElement m : elementsMappedAlready) {
-				if(m.getMappedFeature().equals(a)) count++;
+				if(m.getMappedFeature() != null && m.getMappedFeature().equals(a)) count++;
 			}
 			if(a.getUpperBound() < 0 || count < a.getUpperBound()) {
 				result.add(a);

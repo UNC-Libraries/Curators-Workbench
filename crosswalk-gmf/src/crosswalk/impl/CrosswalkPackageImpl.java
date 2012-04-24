@@ -15,7 +15,6 @@
  */
 package crosswalk.impl;
 
-import crosswalk.ConversionStrategy;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,11 +25,13 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EDataType;
+import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import crosswalk.ConversionStrategy;
 import crosswalk.CrossWalk;
 import crosswalk.CrosswalkFactory;
 import crosswalk.CrosswalkPackage;
@@ -40,18 +41,26 @@ import crosswalk.DataSource;
 import crosswalk.DateRecognizer;
 import crosswalk.DateToISO8601StringConversion;
 import crosswalk.DelimitedFile;
+import crosswalk.Dictionary;
+import crosswalk.Editable;
+import crosswalk.EditingContainer;
 import crosswalk.Input;
+import crosswalk.InputField;
 import crosswalk.MappedAttribute;
 import crosswalk.MappedElement;
+import crosswalk.MappingContainer;
+import crosswalk.MetadataBlock;
 import crosswalk.OriginalNameRecordMatcher;
 import crosswalk.Output;
 import crosswalk.OutputElement;
 import crosswalk.RecordMatcherStrategy;
 import crosswalk.RecordMatches;
 import crosswalk.RecordOutOfRangeException;
+import crosswalk.SchemaProvider;
 import crosswalk.TabbedDataField;
 import crosswalk.Text;
 import crosswalk.TrimWhitespace;
+import crosswalk.Vocabulary;
 import crosswalk.WalkWidget;
 
 /**
@@ -206,6 +215,62 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 
         /**
 	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dictionaryEClass = null;
+
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass metadataBlockEClass = null;
+
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass vocabularyEClass = null;
+
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass inputFieldEClass = null;
+
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass schemaProviderEClass = null;
+
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass mappingContainerEClass = null;
+
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass editingContainerEClass = null;
+
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass editableEClass = null;
+
+								/**
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -350,33 +415,6 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 	 */
         public EReference getCrossWalk_DataSource() {
 		return (EReference)crossWalkEClass.getEStructuralFeatures().get(0);
-	}
-
-        /**
-	 * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-	 * @generated
-	 */
-        public EReference getCrossWalk_Widgets() {
-		return (EReference)crossWalkEClass.getEStructuralFeatures().get(1);
-	}
-
-        /**
-	 * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-	 * @generated
-	 */
-        public EReference getCrossWalk_Elements() {
-		return (EReference)crossWalkEClass.getEStructuralFeatures().get(2);
-	}
-
-        /**
-	 * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-	 * @generated
-	 */
-        public EReference getCrossWalk_OutputType() {
-		return (EReference)crossWalkEClass.getEStructuralFeatures().get(3);
 	}
 
         /**
@@ -723,6 +761,15 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 
         /**
 	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMappedAttribute_Required() {
+		return (EAttribute)mappedAttributeEClass.getEStructuralFeatures().get(3);
+	}
+
+								/**
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -740,6 +787,186 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 	}
 
         /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDictionary() {
+		return dictionaryEClass;
+	}
+
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDictionary_Name() {
+		return (EAttribute)dictionaryEClass.getEStructuralFeatures().get(0);
+	}
+
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDictionary_Blocks() {
+		return (EReference)dictionaryEClass.getEStructuralFeatures().get(1);
+	}
+
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDictionary_Vocabularies() {
+		return (EReference)dictionaryEClass.getEStructuralFeatures().get(2);
+	}
+
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getMetadataBlock() {
+		return metadataBlockEClass;
+	}
+
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMetadataBlock_Name() {
+		return (EAttribute)metadataBlockEClass.getEStructuralFeatures().get(0);
+	}
+
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMetadataBlock_Description() {
+		return (EAttribute)metadataBlockEClass.getEStructuralFeatures().get(1);
+	}
+
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMetadataBlock_Ports() {
+		return (EReference)metadataBlockEClass.getEStructuralFeatures().get(2);
+	}
+
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getVocabulary() {
+		return vocabularyEClass;
+	}
+
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getInputField() {
+		return inputFieldEClass;
+	}
+
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getInputField_Label() {
+		return (EAttribute)inputFieldEClass.getEStructuralFeatures().get(0);
+	}
+
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getInputField_Usage() {
+		return (EAttribute)inputFieldEClass.getEStructuralFeatures().get(1);
+	}
+
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSchemaProvider() {
+		return schemaProviderEClass;
+	}
+
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSchemaProvider_OutputType() {
+		return (EReference)schemaProviderEClass.getEStructuralFeatures().get(0);
+	}
+
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getMappingContainer() {
+		return mappingContainerEClass;
+	}
+
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMappingContainer_Widgets() {
+		return (EReference)mappingContainerEClass.getEStructuralFeatures().get(0);
+	}
+
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMappingContainer_Elements() {
+		return (EReference)mappingContainerEClass.getEStructuralFeatures().get(1);
+	}
+
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getEditingContainer() {
+		return editingContainerEClass;
+	}
+
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEditingContainer_Model() {
+		return (EReference)editingContainerEClass.getEStructuralFeatures().get(0);
+	}
+
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getEditable() {
+		return editableEClass;
+	}
+
+								/**
 	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
 	 * @generated
@@ -828,9 +1055,6 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 
 		crossWalkEClass = createEClass(CROSS_WALK);
 		createEReference(crossWalkEClass, CROSS_WALK__DATA_SOURCE);
-		createEReference(crossWalkEClass, CROSS_WALK__WIDGETS);
-		createEReference(crossWalkEClass, CROSS_WALK__ELEMENTS);
-		createEReference(crossWalkEClass, CROSS_WALK__OUTPUT_TYPE);
 
 		outputElementEClass = createEClass(OUTPUT_ELEMENT);
 		createEReference(outputElementEClass, OUTPUT_ELEMENT__WALK);
@@ -882,10 +1106,39 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 		createEReference(mappedAttributeEClass, MAPPED_ATTRIBUTE__MAPPED_FEATURE);
 		createEReference(mappedAttributeEClass, MAPPED_ATTRIBUTE__CONVERSION_STRATEGY);
 		createEAttribute(mappedAttributeEClass, MAPPED_ATTRIBUTE__DEFAULT_VALUE);
+		createEAttribute(mappedAttributeEClass, MAPPED_ATTRIBUTE__REQUIRED);
 
 		conversionStrategyEClass = createEClass(CONVERSION_STRATEGY);
 
 		dateToISO8601StringConversionEClass = createEClass(DATE_TO_ISO8601_STRING_CONVERSION);
+
+		dictionaryEClass = createEClass(DICTIONARY);
+		createEAttribute(dictionaryEClass, DICTIONARY__NAME);
+		createEReference(dictionaryEClass, DICTIONARY__BLOCKS);
+		createEReference(dictionaryEClass, DICTIONARY__VOCABULARIES);
+
+		metadataBlockEClass = createEClass(METADATA_BLOCK);
+		createEAttribute(metadataBlockEClass, METADATA_BLOCK__NAME);
+		createEAttribute(metadataBlockEClass, METADATA_BLOCK__DESCRIPTION);
+		createEReference(metadataBlockEClass, METADATA_BLOCK__PORTS);
+
+		vocabularyEClass = createEClass(VOCABULARY);
+
+		inputFieldEClass = createEClass(INPUT_FIELD);
+		createEAttribute(inputFieldEClass, INPUT_FIELD__LABEL);
+		createEAttribute(inputFieldEClass, INPUT_FIELD__USAGE);
+
+		schemaProviderEClass = createEClass(SCHEMA_PROVIDER);
+		createEReference(schemaProviderEClass, SCHEMA_PROVIDER__OUTPUT_TYPE);
+
+		mappingContainerEClass = createEClass(MAPPING_CONTAINER);
+		createEReference(mappingContainerEClass, MAPPING_CONTAINER__WIDGETS);
+		createEReference(mappingContainerEClass, MAPPING_CONTAINER__ELEMENTS);
+
+		editingContainerEClass = createEClass(EDITING_CONTAINER);
+		createEReference(editingContainerEClass, EDITING_CONTAINER__MODEL);
+
+		editableEClass = createEClass(EDITABLE);
 
 		// Create data types
 		dataExceptionEDataType = createEDataType(DATA_EXCEPTION);
@@ -928,6 +1181,9 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 		trimWhitespaceEClass.getESuperTypes().add(this.getWalkWidget());
 		trimWhitespaceEClass.getESuperTypes().add(this.getOutput());
 		trimWhitespaceEClass.getESuperTypes().add(this.getInput());
+		crossWalkEClass.getESuperTypes().add(this.getSchemaProvider());
+		crossWalkEClass.getESuperTypes().add(this.getMappingContainer());
+		crossWalkEClass.getESuperTypes().add(this.getEditable());
 		dataFieldEClass.getESuperTypes().add(this.getOutput());
 		recordMatcherStrategyEClass.getESuperTypes().add(this.getWalkWidget());
 		originalNameRecordMatcherEClass.getESuperTypes().add(this.getRecordMatcherStrategy());
@@ -942,6 +1198,12 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 		mappedAttributeEClass.getESuperTypes().add(this.getOutputElement());
 		mappedAttributeEClass.getESuperTypes().add(this.getInput());
 		dateToISO8601StringConversionEClass.getESuperTypes().add(this.getConversionStrategy());
+		dictionaryEClass.getESuperTypes().add(this.getSchemaProvider());
+		dictionaryEClass.getESuperTypes().add(this.getEditable());
+		metadataBlockEClass.getESuperTypes().add(this.getOutputElement());
+		metadataBlockEClass.getESuperTypes().add(this.getMappingContainer());
+		inputFieldEClass.getESuperTypes().add(this.getOutput());
+		inputFieldEClass.getESuperTypes().add(this.getInput());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(tabbedDataFieldEClass, TabbedDataField.class, "TabbedDataField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -951,21 +1213,18 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 
 		initEClass(crossWalkEClass, CrossWalk.class, "CrossWalk", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getCrossWalk_DataSource(), this.getDataSource(), this.getDataSource_Walk(), "DataSource", null, 1, 1, CrossWalk.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCrossWalk_Widgets(), this.getWalkWidget(), this.getWalkWidget_Walk(), "Widgets", null, 0, -1, CrossWalk.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getCrossWalk_Elements(), this.getOutputElement(), this.getOutputElement_Walk(), "Elements", null, 1, -1, CrossWalk.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCrossWalk_OutputType(), ecorePackage.getEClass(), null, "outputType", null, 1, 1, CrossWalk.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		EOperation op = addEOperation(crossWalkEClass, this.getIProject(), "getProject", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getDataException());
 
 		initEClass(outputElementEClass, OutputElement.class, "OutputElement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getOutputElement_Walk(), this.getCrossWalk(), this.getCrossWalk_Elements(), "Walk", null, 0, 1, OutputElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOutputElement_Walk(), this.getSchemaProvider(), null, "Walk", null, 0, 1, OutputElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = addEOperation(outputElementEClass, null, "updateRecord", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEObject(), "record", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(walkWidgetEClass, WalkWidget.class, "WalkWidget", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getWalkWidget_Walk(), this.getCrossWalk(), this.getCrossWalk_Widgets(), "Walk", null, 1, 1, WalkWidget.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getWalkWidget_Walk(), this.getSchemaProvider(), null, "Walk", null, 1, 1, WalkWidget.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dataSourceEClass, DataSource.class, "DataSource", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDataSource_Walk(), this.getCrossWalk(), this.getCrossWalk_DataSource(), "Walk", null, 1, 1, DataSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1049,6 +1308,7 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 		initEReference(getMappedAttribute_MappedFeature(), ecorePackage.getEAttribute(), null, "mappedFeature", null, 1, 1, MappedAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMappedAttribute_ConversionStrategy(), this.getConversionStrategy(), null, "conversionStrategy", null, 0, 1, MappedAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMappedAttribute_DefaultValue(), ecorePackage.getEString(), "defaultValue", null, 0, 1, MappedAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMappedAttribute_Required(), ecorePackage.getEBoolean(), "required", "false", 1, 1, MappedAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(conversionStrategyEClass, ConversionStrategy.class, "ConversionStrategy", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1060,6 +1320,52 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 		addEOperation(conversionStrategyEClass, ecorePackage.getEDataType(), "getOutputDataType", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(dateToISO8601StringConversionEClass, DateToISO8601StringConversion.class, "DateToISO8601StringConversion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(dictionaryEClass, Dictionary.class, "Dictionary", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDictionary_Name(), ecorePackage.getEString(), "name", null, 1, 1, Dictionary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDictionary_Blocks(), this.getMetadataBlock(), null, "blocks", null, 0, -1, Dictionary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDictionary_Vocabularies(), this.getVocabulary(), null, "vocabularies", null, 0, -1, Dictionary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(metadataBlockEClass, MetadataBlock.class, "MetadataBlock", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getMetadataBlock_Name(), ecorePackage.getEString(), "name", null, 1, 1, MetadataBlock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMetadataBlock_Description(), ecorePackage.getEString(), "description", null, 0, 1, MetadataBlock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMetadataBlock_Ports(), this.getInputField(), null, "ports", null, 0, -1, MetadataBlock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(vocabularyEClass, Vocabulary.class, "Vocabulary", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		op = addEOperation(vocabularyEClass, null, "getTerms", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "broaderTerm", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EGenericType g1 = createEGenericType(ecorePackage.getEMap());
+		EGenericType g2 = createEGenericType();
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType();
+		g1.getETypeArguments().add(g2);
+		initEOperation(op, g1);
+
+		op = addEOperation(vocabularyEClass, null, "getCompletions", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "prefix", 1, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType();
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType();
+		g1.getETypeArguments().add(g2);
+		initEOperation(op, g1);
+
+		initEClass(inputFieldEClass, InputField.class, "InputField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getInputField_Label(), ecorePackage.getEString(), "label", null, 1, 1, InputField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getInputField_Usage(), ecorePackage.getEString(), "usage", null, 0, 1, InputField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(schemaProviderEClass, SchemaProvider.class, "SchemaProvider", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSchemaProvider_OutputType(), ecorePackage.getEClass(), null, "outputType", null, 1, 1, SchemaProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(mappingContainerEClass, MappingContainer.class, "MappingContainer", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getMappingContainer_Widgets(), this.getWalkWidget(), null, "widgets", null, 0, -1, MappingContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getMappingContainer_Elements(), this.getOutputElement(), null, "elements", null, 0, -1, MappingContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(editingContainerEClass, EditingContainer.class, "EditingContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getEditingContainer_Model(), this.getEditable(), null, "model", null, 1, 1, EditingContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(editableEClass, Editable.class, "Editable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize data types
 		initEDataType(dataExceptionEDataType, DataException.class, "DataException", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

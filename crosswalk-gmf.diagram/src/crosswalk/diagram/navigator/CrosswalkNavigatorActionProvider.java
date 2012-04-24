@@ -38,6 +38,7 @@ import org.eclipse.ui.navigator.ICommonViewerWorkbenchSite;
 import org.eclipse.ui.part.FileEditorInput;
 
 import crosswalk.diagram.edit.parts.CrossWalkEditPart;
+import crosswalk.diagram.edit.parts.EditingContainerEditPart;
 import crosswalk.diagram.part.CrosswalkDiagramEditor;
 import crosswalk.diagram.part.CrosswalkDiagramEditorPlugin;
 import crosswalk.diagram.part.CrosswalkVisualIDRegistry;
@@ -135,7 +136,7 @@ public class CrosswalkNavigatorActionProvider extends CommonActionProvider {
 				}
 				if (selectedElement instanceof Diagram) {
 					Diagram diagram = (Diagram) selectedElement;
-					if (CrossWalkEditPart.MODEL_ID.equals(CrosswalkVisualIDRegistry.getModelID(diagram))) {
+					if (EditingContainerEditPart.MODEL_ID.equals(CrosswalkVisualIDRegistry.getModelID(diagram))) {
 						myDiagram = diagram;
 					}
 				}

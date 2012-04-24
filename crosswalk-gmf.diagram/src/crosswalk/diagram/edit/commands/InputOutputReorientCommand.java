@@ -72,7 +72,7 @@ public class InputOutputReorientCommand extends EditElementCommand {
 		if (!(oldEnd instanceof Output && newEnd instanceof Input)) {
 			return false;
 		}
-		return CrosswalkBaseItemSemanticEditPolicy.getLinkConstraints().canExistInputOutput_4003(getNewSource(),
+		return CrosswalkBaseItemSemanticEditPolicy.getLinkConstraints().canExistInputOutput_4001(getNewSource(),
 				getOldTarget());
 	}
 
@@ -83,7 +83,7 @@ public class InputOutputReorientCommand extends EditElementCommand {
 		if (!(oldEnd instanceof Output && newEnd instanceof Output)) {
 			return false;
 		}
-		return CrosswalkBaseItemSemanticEditPolicy.getLinkConstraints().canExistInputOutput_4003(getOldSource(),
+		return CrosswalkBaseItemSemanticEditPolicy.getLinkConstraints().canExistInputOutput_4001(getOldSource(),
 				getNewTarget());
 	}
 

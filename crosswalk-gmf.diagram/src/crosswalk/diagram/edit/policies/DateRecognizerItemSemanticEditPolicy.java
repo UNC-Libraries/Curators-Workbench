@@ -30,7 +30,7 @@ public class DateRecognizerItemSemanticEditPolicy extends CrosswalkBaseItemSeman
 	 * @generated
 	 */
 	public DateRecognizerItemSemanticEditPolicy() {
-		super(CrosswalkElementTypes.DateRecognizer_2013);
+		super(CrosswalkElementTypes.DateRecognizer_3004);
 	}
 
 	/**
@@ -85,7 +85,7 @@ public class DateRecognizerItemSemanticEditPolicy extends CrosswalkBaseItemSeman
 	 * @generated
 	 */
 	protected Command getStartCreateRelationshipCommand(CreateRelationshipRequest req) {
-		if (CrosswalkElementTypes.InputOutput_4003 == req.getElementType()) {
+		if (CrosswalkElementTypes.InputOutput_4001 == req.getElementType()) {
 			return getGEFWrapper(new InputOutputCreateCommand(req, req.getSource(), req.getTarget()));
 		}
 		return null;
@@ -95,7 +95,7 @@ public class DateRecognizerItemSemanticEditPolicy extends CrosswalkBaseItemSeman
 	 * @generated
 	 */
 	protected Command getCompleteCreateRelationshipCommand(CreateRelationshipRequest req) {
-		if (CrosswalkElementTypes.InputOutput_4003 == req.getElementType()) {
+		if (CrosswalkElementTypes.InputOutput_4001 == req.getElementType()) {
 			return getGEFWrapper(new InputOutputCreateCommand(req, req.getSource(), req.getTarget()));
 		}
 		return null;

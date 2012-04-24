@@ -7,7 +7,7 @@
       title="crosswalkPalette">
     <tools
         xsi:type="gmftool:ToolGroup"
-        title="Data Inputs">
+        title="Metadata Mapping">
       <tools
           xsi:type="gmftool:CreationTool"
           title="XML Element"
@@ -41,6 +41,19 @@
         <largeIcon
             xsi:type="gmftool:DefaultImage"/>
       </tools>
+    </tools>
+    <tools
+        xsi:type="gmftool:ToolGroup"
+        title="Dictionary"
+        collapsible="true">
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Metadata Block"
+          description="Add a metadata block to the dictionary"/>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Input Field"
+          description="Add an input field to a metadata block"/>
     </tools>
   </palette>
 </gmftool:ToolRegistry>

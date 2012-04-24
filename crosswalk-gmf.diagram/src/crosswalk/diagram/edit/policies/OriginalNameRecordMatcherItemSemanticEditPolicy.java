@@ -30,7 +30,7 @@ public class OriginalNameRecordMatcherItemSemanticEditPolicy extends CrosswalkBa
 	 * @generated
 	 */
 	public OriginalNameRecordMatcherItemSemanticEditPolicy() {
-		super(CrosswalkElementTypes.OriginalNameRecordMatcher_2010);
+		super(CrosswalkElementTypes.OriginalNameRecordMatcher_3003);
 	}
 
 	/**
@@ -75,7 +75,7 @@ public class OriginalNameRecordMatcherItemSemanticEditPolicy extends CrosswalkBa
 	 * @generated
 	 */
 	protected Command getStartCreateRelationshipCommand(CreateRelationshipRequest req) {
-		if (CrosswalkElementTypes.InputOutput_4003 == req.getElementType()) {
+		if (CrosswalkElementTypes.InputOutput_4001 == req.getElementType()) {
 			return getGEFWrapper(new InputOutputCreateCommand(req, req.getSource(), req.getTarget()));
 		}
 		return null;
@@ -85,7 +85,7 @@ public class OriginalNameRecordMatcherItemSemanticEditPolicy extends CrosswalkBa
 	 * @generated
 	 */
 	protected Command getCompleteCreateRelationshipCommand(CreateRelationshipRequest req) {
-		if (CrosswalkElementTypes.InputOutput_4003 == req.getElementType()) {
+		if (CrosswalkElementTypes.InputOutput_4001 == req.getElementType()) {
 			return null;
 		}
 		return null;

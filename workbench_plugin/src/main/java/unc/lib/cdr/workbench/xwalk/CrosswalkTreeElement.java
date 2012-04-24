@@ -17,8 +17,6 @@ package unc.lib.cdr.workbench.xwalk;
 
 import org.eclipse.core.resources.IFile;
 
-import unc.lib.cdr.workbench.IResourceConstants;
-
 /**
  * @author Gregory Jansen
  * 
@@ -41,8 +39,7 @@ public class CrosswalkTreeElement {
 	 * @return
 	 */
 	public String getName() {
-		String fname = this.file.getName();
-		return fname.substring(0, fname.length() - IResourceConstants.CROSSWALK_EXTENSION.length() - 1);
+		return this.file.getName();
 	}
 
 }

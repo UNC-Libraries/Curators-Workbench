@@ -322,6 +322,121 @@ public class CrosswalkItemProviderAdapterFactory extends CrosswalkAdapterFactory
 	}
 
         /**
+	 * This keeps track of the one adapter used for all {@link crosswalk.Dictionary} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DictionaryItemProvider dictionaryItemProvider;
+
+								/**
+	 * This creates an adapter for a {@link crosswalk.Dictionary}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDictionaryAdapter() {
+		if (dictionaryItemProvider == null) {
+			dictionaryItemProvider = new DictionaryItemProvider(this);
+		}
+
+		return dictionaryItemProvider;
+	}
+
+								/**
+	 * This keeps track of the one adapter used for all {@link crosswalk.MetadataBlock} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MetadataBlockItemProvider metadataBlockItemProvider;
+
+								/**
+	 * This creates an adapter for a {@link crosswalk.MetadataBlock}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMetadataBlockAdapter() {
+		if (metadataBlockItemProvider == null) {
+			metadataBlockItemProvider = new MetadataBlockItemProvider(this);
+		}
+
+		return metadataBlockItemProvider;
+	}
+
+								/**
+	 * This keeps track of the one adapter used for all {@link crosswalk.Vocabulary} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected VocabularyItemProvider vocabularyItemProvider;
+
+								/**
+	 * This creates an adapter for a {@link crosswalk.Vocabulary}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createVocabularyAdapter() {
+		if (vocabularyItemProvider == null) {
+			vocabularyItemProvider = new VocabularyItemProvider(this);
+		}
+
+		return vocabularyItemProvider;
+	}
+
+								/**
+	 * This keeps track of the one adapter used for all {@link crosswalk.InputField} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected InputFieldItemProvider inputFieldItemProvider;
+
+								/**
+	 * This creates an adapter for a {@link crosswalk.InputField}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createInputFieldAdapter() {
+		if (inputFieldItemProvider == null) {
+			inputFieldItemProvider = new InputFieldItemProvider(this);
+		}
+
+		return inputFieldItemProvider;
+	}
+
+								/**
+	 * This keeps track of the one adapter used for all {@link crosswalk.EditingContainer} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EditingContainerItemProvider editingContainerItemProvider;
+
+								/**
+	 * This creates an adapter for a {@link crosswalk.EditingContainer}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createEditingContainerAdapter() {
+		if (editingContainerItemProvider == null) {
+			editingContainerItemProvider = new EditingContainerItemProvider(this);
+		}
+
+		return editingContainerItemProvider;
+	}
+
+								/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->

@@ -70,7 +70,10 @@ import crosswalk.CrossWalk;
 import crosswalk.CrosswalkFactory;
 import crosswalk.DataException;
 import crosswalk.DataSource;
+import crosswalk.Dictionary;
+import crosswalk.EditingContainer;
 import crosswalk.diagram.edit.parts.CrossWalkEditPart;
+import crosswalk.diagram.edit.parts.EditingContainerEditPart;
 
 /**
  * @generated
@@ -173,10 +176,10 @@ public class CrosswalkDiagramEditorUtil {
 				Messages.CrosswalkDiagramEditorUtil_CreateDiagramCommandLabel, Collections.EMPTY_LIST) {
 			protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info)
 					throws ExecutionException {
-				CrossWalk model = createInitialModel();
+				EditingContainer model = createInitialModel();
 				attachModelToResource(model, modelResource);
 
-				Diagram diagram = ViewService.createDiagram(model, CrossWalkEditPart.MODEL_ID,
+				Diagram diagram = ViewService.createDiagram(model, EditingContainerEditPart.MODEL_ID,
 						CrosswalkDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT);
 				if (diagram != null) {
 					diagramResource.getContents().add(diagram);
@@ -211,8 +214,18 @@ public class CrosswalkDiagramEditorUtil {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static CrossWalk createInitialModel() {
-		return CrosswalkFactory.eINSTANCE.createCrossWalk();
+	private static EditingContainer createInitialModel() {
+		return CrosswalkFactory.eINSTANCE.createEditingContainer();
+	}
+
+	/**
+	 * Store model element in the resource.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private static void attachModelToResource(EditingContainer model, Resource resource) {
+		resource.getContents().add(model);
 	}
 
 	/**
@@ -230,10 +243,12 @@ public class CrosswalkDiagramEditorUtil {
 			@Override
 			protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info)
 					throws ExecutionException {
-				CrossWalk model = createInitialModel(source);
+				EditingContainer model = createInitialModel();
+				CrossWalk cw = createCrosswalkModel(source);
+				model.setModel(cw);
 				attachModelToResource(model, diagramResource);
 
-				Diagram diagram = ViewService.createDiagram(model, CrossWalkEditPart.MODEL_ID,
+				Diagram diagram = ViewService.createDiagram(model, EditingContainerEditPart.MODEL_ID,
 						CrosswalkDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT);
 				if (diagram != null) {
 					diagramResource.getContents().add(diagram);
@@ -268,7 +283,7 @@ public class CrosswalkDiagramEditorUtil {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	private static CrossWalk createInitialModel(DataSource source) throws ExecutionException {
+	private static CrossWalk createCrosswalkModel(DataSource source) throws ExecutionException {
 		CrossWalk result = CrosswalkFactory.eINSTANCE.createCrossWalk();
 		result.setOutputType(MODSPackage.eINSTANCE.getModsDefinition());
 		if (source != null) {
@@ -280,16 +295,6 @@ public class CrosswalkDiagramEditorUtil {
 			}
 		}
 		return result;
-	}
-
-	/**
-	 * Store model element in the resource.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private static void attachModelToResource(CrossWalk model, Resource resource) {
-		resource.getContents().add(model);
 	}
 
 	/**
@@ -454,5 +459,50 @@ public class CrosswalkDiagramEditorUtil {
 			return complete;
 		}
 	} //LazyElement2ViewMap
+
+	/**
+	 * @generated NOT
+	 */
+	public static Resource createDictionaryDiagram(URI diagramURI, IProgressMonitor progressMonitor) {
+		TransactionalEditingDomain editingDomain = GMFEditingDomainFactory.INSTANCE.createEditingDomain();
+		progressMonitor.beginTask(Messages.CrosswalkDiagramEditorUtil_CreateDiagramProgressTask, 3);
+		final Resource diagramResource = editingDomain.getResourceSet().createResource(diagramURI);
+		final String diagramName = diagramURI.lastSegment();
+		AbstractTransactionalCommand command = new AbstractTransactionalCommand(editingDomain,
+				Messages.CrosswalkDiagramEditorUtil_CreateDiagramCommandLabel, Collections.EMPTY_LIST) {
+			protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info)
+					throws ExecutionException {
+				EditingContainer model = createInitialModel();
+				Dictionary dict = CrosswalkFactory.eINSTANCE.createDictionary();
+				dict.setOutputType(MODSPackage.eINSTANCE.getModsDefinition());
+				model.setModel(dict);
+				attachModelToResource(model, diagramResource);
+
+				Diagram diagram = ViewService.createDiagram(model, EditingContainerEditPart.MODEL_ID,
+						CrosswalkDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT);
+				if (diagram != null) {
+					diagramResource.getContents().add(diagram);
+					diagram.setName(diagramName);
+					diagram.setElement(model);
+				}
+
+				try {
+					diagramResource.save(crosswalk.diagram.part.CrosswalkDiagramEditorUtil.getSaveOptions());
+				} catch (IOException e) {
+
+					CrosswalkDiagramEditorPlugin.getInstance().logError("Unable to store model and diagram resources", e); //$NON-NLS-1$
+				}
+				return CommandResult.newOKCommandResult();
+			}
+		};
+		try {
+			OperationHistoryFactory.getOperationHistory().execute(command, new SubProgressMonitor(progressMonitor, 1),
+					null);
+		} catch (ExecutionException e) {
+			CrosswalkDiagramEditorPlugin.getInstance().logError("Unable to create model and diagram", e); //$NON-NLS-1$
+		}
+		setCharset(WorkspaceSynchronizer.getFile(diagramResource));
+		return diagramResource;
+	}
 
 }

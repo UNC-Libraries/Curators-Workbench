@@ -18,9 +18,6 @@
     <genClasses provider="Stateful" ecoreClass="crosswalk.ecore#//TrimWhitespace"/>
     <genClasses ecoreClass="crosswalk.ecore#//CrossWalk">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference crosswalk.ecore#//CrossWalk/DataSource"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference crosswalk.ecore#//CrossWalk/Widgets"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference crosswalk.ecore#//CrossWalk/Elements"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference crosswalk.ecore#//CrossWalk/outputType"/>
       <genOperations ecoreOperation="crosswalk.ecore#//CrossWalk/getProject"/>
     </genClasses>
     <genClasses provider="Stateful" image="false" ecoreClass="crosswalk.ecore#//OutputElement">
@@ -96,6 +93,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference crosswalk.ecore#//MappedAttribute/conversionStrategy"/>
       <genFeatures createChild="false" propertyCategory="" propertyDescription=""
           ecoreFeature="ecore:EAttribute crosswalk.ecore#//MappedAttribute/defaultValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//MappedAttribute/required"/>
     </genClasses>
     <genClasses image="false" ecoreClass="crosswalk.ecore#//ConversionStrategy">
       <genOperations ecoreOperation="crosswalk.ecore#//ConversionStrategy/convert">
@@ -105,5 +103,38 @@
       <genOperations ecoreOperation="crosswalk.ecore#//ConversionStrategy/getOutputDataType"/>
     </genClasses>
     <genClasses ecoreClass="crosswalk.ecore#//DateToISO8601StringConversion"/>
+    <genClasses ecoreClass="crosswalk.ecore#//Dictionary">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//Dictionary/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference crosswalk.ecore#//Dictionary/blocks"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference crosswalk.ecore#//Dictionary/vocabularies"/>
+    </genClasses>
+    <genClasses ecoreClass="crosswalk.ecore#//MetadataBlock">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//MetadataBlock/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//MetadataBlock/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference crosswalk.ecore#//MetadataBlock/ports"/>
+    </genClasses>
+    <genClasses ecoreClass="crosswalk.ecore#//Vocabulary">
+      <genOperations ecoreOperation="crosswalk.ecore#//Vocabulary/getTerms">
+        <genParameters ecoreParameter="crosswalk.ecore#//Vocabulary/getTerms/broaderTerm"/>
+      </genOperations>
+      <genOperations ecoreOperation="crosswalk.ecore#//Vocabulary/getCompletions">
+        <genParameters ecoreParameter="crosswalk.ecore#//Vocabulary/getCompletions/prefix"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="crosswalk.ecore#//InputField">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//InputField/label"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//InputField/usage"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="crosswalk.ecore#//SchemaProvider">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference crosswalk.ecore#//SchemaProvider/outputType"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="crosswalk.ecore#//MappingContainer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference crosswalk.ecore#//MappingContainer/widgets"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference crosswalk.ecore#//MappingContainer/elements"/>
+    </genClasses>
+    <genClasses ecoreClass="crosswalk.ecore#//EditingContainer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference crosswalk.ecore#//EditingContainer/model"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="crosswalk.ecore#//Editable"/>
   </genPackages>
 </genmodel:GenModel>

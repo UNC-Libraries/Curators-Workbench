@@ -94,7 +94,7 @@ public class MappedAttributeNameEditPart extends CompartmentEditPart implements 
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicy.SELECTION_FEEDBACK_ROLE, new CrosswalkTextSelectionEditPolicy());
 		installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE, new LabelDirectEditPolicy());
-		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE, new CrossWalkEditPart.NodeLabelDragPolicy());
+		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE, new EditingContainerEditPart.NodeLabelDragPolicy());
 	}
 
 	/**

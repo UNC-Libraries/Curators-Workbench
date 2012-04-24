@@ -20,7 +20,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import crosswalk.CrosswalkPackage;
-import crosswalk.DataException;
 import crosswalk.TabbedDataField;
 
 /**

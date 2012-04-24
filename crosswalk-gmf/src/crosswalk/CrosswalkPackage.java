@@ -236,7 +236,7 @@ public interface CrosswalkPackage extends EPackage {
         int TABBED_DATA_FIELD_FEATURE_COUNT = DATA_FIELD_FEATURE_COUNT + 1;
 
         /**
-	 * The feature id for the '<em><b>Walk</b></em>' container reference.
+	 * The feature id for the '<em><b>Walk</b></em>' reference.
 	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
 	 * @generated
@@ -254,7 +254,7 @@ public interface CrosswalkPackage extends EPackage {
         int WALK_WIDGET_FEATURE_COUNT = 1;
 
         /**
-	 * The feature id for the '<em><b>Walk</b></em>' container reference.
+	 * The feature id for the '<em><b>Walk</b></em>' reference.
 	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
 	 * @generated
@@ -281,40 +281,68 @@ public interface CrosswalkPackage extends EPackage {
         int TRIM_WHITESPACE_FEATURE_COUNT = WALK_WIDGET_FEATURE_COUNT + 1;
 
         /**
-	 * The feature id for the '<em><b>Data Source</b></em>' containment reference.
+	 * The meta object id for the '{@link crosswalk.impl.SchemaProviderImpl <em>Schema Provider</em>}' class.
 	 * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see crosswalk.impl.SchemaProviderImpl
+	 * @see crosswalk.impl.CrosswalkPackageImpl#getSchemaProvider()
+	 * @generated
+	 */
+	int SCHEMA_PROVIDER = 22;
+
+								/**
+	 * The feature id for the '<em><b>Output Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-        int CROSS_WALK__DATA_SOURCE = 0;
+	int SCHEMA_PROVIDER__OUTPUT_TYPE = 0;
 
-        /**
-	 * The feature id for the '<em><b>Widgets</b></em>' containment reference list.
+								/**
+	 * The number of structural features of the '<em>Schema Provider</em>' class.
 	 * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-        int CROSS_WALK__WIDGETS = 1;
+	int SCHEMA_PROVIDER_FEATURE_COUNT = 1;
 
-        /**
-	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-        int CROSS_WALK__ELEMENTS = 2;
-
-        /**
+								/**
 	 * The feature id for the '<em><b>Output Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-        int CROSS_WALK__OUTPUT_TYPE = 3;
+        int CROSS_WALK__OUTPUT_TYPE = SCHEMA_PROVIDER__OUTPUT_TYPE;
+
+								/**
+	 * The feature id for the '<em><b>Widgets</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+        int CROSS_WALK__WIDGETS = SCHEMA_PROVIDER_FEATURE_COUNT + 0;
+
+								/**
+	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+        int CROSS_WALK__ELEMENTS = SCHEMA_PROVIDER_FEATURE_COUNT + 1;
+
+								/**
+	 * The feature id for the '<em><b>Data Source</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+        int CROSS_WALK__DATA_SOURCE = SCHEMA_PROVIDER_FEATURE_COUNT + 2;
 
         /**
 	 * The number of structural features of the '<em>Cross Walk</em>' class.
@@ -323,10 +351,10 @@ public interface CrosswalkPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-        int CROSS_WALK_FEATURE_COUNT = 4;
+        int CROSS_WALK_FEATURE_COUNT = SCHEMA_PROVIDER_FEATURE_COUNT + 3;
 
         /**
-	 * The feature id for the '<em><b>Walk</b></em>' container reference.
+	 * The feature id for the '<em><b>Walk</b></em>' reference.
 	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
 	 * @generated
@@ -399,7 +427,7 @@ public interface CrosswalkPackage extends EPackage {
         int RECORD_MATCHER_STRATEGY = 9;
 
         /**
-	 * The feature id for the '<em><b>Walk</b></em>' container reference.
+	 * The feature id for the '<em><b>Walk</b></em>' reference.
 	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
 	 * @generated
@@ -427,7 +455,7 @@ public interface CrosswalkPackage extends EPackage {
         int ORIGINAL_NAME_RECORD_MATCHER = 10;
 
         /**
-	 * The feature id for the '<em><b>Walk</b></em>' container reference.
+	 * The feature id for the '<em><b>Walk</b></em>' reference.
 	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
 	 * @generated
@@ -491,7 +519,7 @@ public interface CrosswalkPackage extends EPackage {
         int DATE_RECOGNIZER = 11;
 
         /**
-	 * The feature id for the '<em><b>Walk</b></em>' container reference.
+	 * The feature id for the '<em><b>Walk</b></em>' reference.
 	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
 	 * @generated
@@ -537,7 +565,7 @@ public interface CrosswalkPackage extends EPackage {
         int TEXT = 12;
 
         /**
-	 * The feature id for the '<em><b>Walk</b></em>' container reference.
+	 * The feature id for the '<em><b>Walk</b></em>' reference.
 	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
 	 * @generated
@@ -665,7 +693,7 @@ public interface CrosswalkPackage extends EPackage {
         int MAPPED_ELEMENT = 14;
 
         /**
-	 * The feature id for the '<em><b>Walk</b></em>' container reference.
+	 * The feature id for the '<em><b>Walk</b></em>' reference.
 	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
 	 * @generated
@@ -729,7 +757,7 @@ public interface CrosswalkPackage extends EPackage {
         int MAPPED_ATTRIBUTE = 15;
 
         /**
-	 * The feature id for the '<em><b>Walk</b></em>' container reference.
+	 * The feature id for the '<em><b>Walk</b></em>' reference.
 	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
 	 * @generated
@@ -774,13 +802,22 @@ public interface CrosswalkPackage extends EPackage {
         int MAPPED_ATTRIBUTE__DEFAULT_VALUE = OUTPUT_ELEMENT_FEATURE_COUNT + 3;
 
         /**
+	 * The feature id for the '<em><b>Required</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAPPED_ATTRIBUTE__REQUIRED = OUTPUT_ELEMENT_FEATURE_COUNT + 4;
+
+								/**
 	 * The number of structural features of the '<em>Mapped Attribute</em>' class.
 	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-        int MAPPED_ATTRIBUTE_FEATURE_COUNT = OUTPUT_ELEMENT_FEATURE_COUNT + 4;
+        int MAPPED_ATTRIBUTE_FEATURE_COUNT = OUTPUT_ELEMENT_FEATURE_COUNT + 5;
 
         /**
 	 * The meta object id for the '{@link crosswalk.ConversionStrategy <em>Conversion Strategy</em>}' class.
@@ -821,6 +858,283 @@ public interface CrosswalkPackage extends EPackage {
         int DATE_TO_ISO8601_STRING_CONVERSION_FEATURE_COUNT = CONVERSION_STRATEGY_FEATURE_COUNT + 0;
 
         /**
+	 * The meta object id for the '{@link crosswalk.impl.DictionaryImpl <em>Dictionary</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see crosswalk.impl.DictionaryImpl
+	 * @see crosswalk.impl.CrosswalkPackageImpl#getDictionary()
+	 * @generated
+	 */
+	int DICTIONARY = 18;
+
+								/**
+	 * The feature id for the '<em><b>Output Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DICTIONARY__OUTPUT_TYPE = SCHEMA_PROVIDER__OUTPUT_TYPE;
+
+								/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DICTIONARY__NAME = SCHEMA_PROVIDER_FEATURE_COUNT + 0;
+
+								/**
+	 * The feature id for the '<em><b>Blocks</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DICTIONARY__BLOCKS = SCHEMA_PROVIDER_FEATURE_COUNT + 1;
+
+								/**
+	 * The feature id for the '<em><b>Vocabularies</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DICTIONARY__VOCABULARIES = SCHEMA_PROVIDER_FEATURE_COUNT + 2;
+
+								/**
+	 * The number of structural features of the '<em>Dictionary</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DICTIONARY_FEATURE_COUNT = SCHEMA_PROVIDER_FEATURE_COUNT + 3;
+
+								/**
+	 * The meta object id for the '{@link crosswalk.impl.MetadataBlockImpl <em>Metadata Block</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see crosswalk.impl.MetadataBlockImpl
+	 * @see crosswalk.impl.CrosswalkPackageImpl#getMetadataBlock()
+	 * @generated
+	 */
+	int METADATA_BLOCK = 19;
+
+								/**
+	 * The feature id for the '<em><b>Walk</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METADATA_BLOCK__WALK = OUTPUT_ELEMENT__WALK;
+
+								/**
+	 * The feature id for the '<em><b>Widgets</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METADATA_BLOCK__WIDGETS = OUTPUT_ELEMENT_FEATURE_COUNT + 0;
+
+								/**
+	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METADATA_BLOCK__ELEMENTS = OUTPUT_ELEMENT_FEATURE_COUNT + 1;
+
+								/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METADATA_BLOCK__NAME = OUTPUT_ELEMENT_FEATURE_COUNT + 2;
+
+								/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METADATA_BLOCK__DESCRIPTION = OUTPUT_ELEMENT_FEATURE_COUNT + 3;
+
+								/**
+	 * The feature id for the '<em><b>Ports</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METADATA_BLOCK__PORTS = OUTPUT_ELEMENT_FEATURE_COUNT + 4;
+
+								/**
+	 * The number of structural features of the '<em>Metadata Block</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METADATA_BLOCK_FEATURE_COUNT = OUTPUT_ELEMENT_FEATURE_COUNT + 5;
+
+								/**
+	 * The meta object id for the '{@link crosswalk.impl.VocabularyImpl <em>Vocabulary</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see crosswalk.impl.VocabularyImpl
+	 * @see crosswalk.impl.CrosswalkPackageImpl#getVocabulary()
+	 * @generated
+	 */
+	int VOCABULARY = 20;
+
+								/**
+	 * The number of structural features of the '<em>Vocabulary</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VOCABULARY_FEATURE_COUNT = 0;
+
+								/**
+	 * The meta object id for the '{@link crosswalk.impl.InputFieldImpl <em>Input Field</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see crosswalk.impl.InputFieldImpl
+	 * @see crosswalk.impl.CrosswalkPackageImpl#getInputField()
+	 * @generated
+	 */
+	int INPUT_FIELD = 21;
+
+								/**
+	 * The feature id for the '<em><b>Output</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_FIELD__OUTPUT = OUTPUT_FEATURE_COUNT + 0;
+
+								/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_FIELD__LABEL = OUTPUT_FEATURE_COUNT + 1;
+
+								/**
+	 * The feature id for the '<em><b>Usage</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_FIELD__USAGE = OUTPUT_FEATURE_COUNT + 2;
+
+								/**
+	 * The number of structural features of the '<em>Input Field</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_FIELD_FEATURE_COUNT = OUTPUT_FEATURE_COUNT + 3;
+
+								/**
+	 * The meta object id for the '{@link crosswalk.MappingContainer <em>Mapping Container</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see crosswalk.MappingContainer
+	 * @see crosswalk.impl.CrosswalkPackageImpl#getMappingContainer()
+	 * @generated
+	 */
+	int MAPPING_CONTAINER = 23;
+
+								/**
+	 * The feature id for the '<em><b>Widgets</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAPPING_CONTAINER__WIDGETS = 0;
+
+								/**
+	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAPPING_CONTAINER__ELEMENTS = 1;
+
+								/**
+	 * The number of structural features of the '<em>Mapping Container</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAPPING_CONTAINER_FEATURE_COUNT = 2;
+
+								/**
+	 * The meta object id for the '{@link crosswalk.impl.EditingContainerImpl <em>Editing Container</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see crosswalk.impl.EditingContainerImpl
+	 * @see crosswalk.impl.CrosswalkPackageImpl#getEditingContainer()
+	 * @generated
+	 */
+	int EDITING_CONTAINER = 24;
+
+								/**
+	 * The feature id for the '<em><b>Model</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EDITING_CONTAINER__MODEL = 0;
+
+								/**
+	 * The number of structural features of the '<em>Editing Container</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EDITING_CONTAINER_FEATURE_COUNT = 1;
+
+								/**
+	 * The meta object id for the '{@link crosswalk.Editable <em>Editable</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see crosswalk.Editable
+	 * @see crosswalk.impl.CrosswalkPackageImpl#getEditable()
+	 * @generated
+	 */
+	int EDITABLE = 25;
+
+								/**
+	 * The number of structural features of the '<em>Editable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EDITABLE_FEATURE_COUNT = 0;
+
+								/**
 	 * The meta object id for the '<em>Data Exception</em>' data type.
 	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -828,7 +1142,7 @@ public interface CrosswalkPackage extends EPackage {
 	 * @see crosswalk.impl.CrosswalkPackageImpl#getDataException()
 	 * @generated
 	 */
-        int DATA_EXCEPTION = 18;
+        int DATA_EXCEPTION = 26;
 
         /**
 	 * The meta object id for the '<em>IProject</em>' data type.
@@ -838,7 +1152,7 @@ public interface CrosswalkPackage extends EPackage {
 	 * @see crosswalk.impl.CrosswalkPackageImpl#getIProject()
 	 * @generated
 	 */
-        int IPROJECT = 19;
+        int IPROJECT = 27;
 
         /**
 	 * The meta object id for the '<em>IFile</em>' data type.
@@ -848,7 +1162,7 @@ public interface CrosswalkPackage extends EPackage {
 	 * @see crosswalk.impl.CrosswalkPackageImpl#getIFile()
 	 * @generated
 	 */
-        int IFILE = 20;
+        int IFILE = 28;
 
         /**
 	 * The meta object id for the '<em>Record Matches</em>' data type.
@@ -858,7 +1172,7 @@ public interface CrosswalkPackage extends EPackage {
 	 * @see crosswalk.impl.CrosswalkPackageImpl#getRecordMatches()
 	 * @generated
 	 */
-        int RECORD_MATCHES = 21;
+        int RECORD_MATCHES = 29;
 
         /**
 	 * The meta object id for the '<em>IFolder</em>' data type.
@@ -868,7 +1182,7 @@ public interface CrosswalkPackage extends EPackage {
 	 * @see crosswalk.impl.CrosswalkPackageImpl#getIFolder()
 	 * @generated
 	 */
-        int IFOLDER = 22;
+        int IFOLDER = 30;
 
         /**
 	 * The meta object id for the '<em>Record Out Of Range Exception</em>' data type.
@@ -878,7 +1192,7 @@ public interface CrosswalkPackage extends EPackage {
 	 * @see crosswalk.impl.CrosswalkPackageImpl#getRecordOutOfRangeException()
 	 * @generated
 	 */
-        int RECORD_OUT_OF_RANGE_EXCEPTION = 23;
+        int RECORD_OUT_OF_RANGE_EXCEPTION = 31;
 
         /**
 	 * Returns the meta object for class '{@link crosswalk.TabbedDataField <em>Tabbed Data Field</em>}'.
@@ -933,39 +1247,6 @@ public interface CrosswalkPackage extends EPackage {
         EReference getCrossWalk_DataSource();
 
         /**
-	 * Returns the meta object for the containment reference list '{@link crosswalk.CrossWalk#getWidgets <em>Widgets</em>}'.
-	 * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Widgets</em>'.
-	 * @see crosswalk.CrossWalk#getWidgets()
-	 * @see #getCrossWalk()
-	 * @generated
-	 */
-        EReference getCrossWalk_Widgets();
-
-        /**
-	 * Returns the meta object for the containment reference list '{@link crosswalk.CrossWalk#getElements <em>Elements</em>}'.
-	 * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Elements</em>'.
-	 * @see crosswalk.CrossWalk#getElements()
-	 * @see #getCrossWalk()
-	 * @generated
-	 */
-        EReference getCrossWalk_Elements();
-
-        /**
-	 * Returns the meta object for the reference '{@link crosswalk.CrossWalk#getOutputType <em>Output Type</em>}'.
-	 * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Output Type</em>'.
-	 * @see crosswalk.CrossWalk#getOutputType()
-	 * @see #getCrossWalk()
-	 * @generated
-	 */
-        EReference getCrossWalk_OutputType();
-
-        /**
 	 * Returns the meta object for class '{@link crosswalk.OutputElement <em>Output Element</em>}'.
 	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -976,10 +1257,10 @@ public interface CrosswalkPackage extends EPackage {
         EClass getOutputElement();
 
         /**
-	 * Returns the meta object for the container reference '{@link crosswalk.OutputElement#getWalk <em>Walk</em>}'.
+	 * Returns the meta object for the reference '{@link crosswalk.OutputElement#getWalk <em>Walk</em>}'.
 	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Walk</em>'.
+	 * @return the meta object for the reference '<em>Walk</em>'.
 	 * @see crosswalk.OutputElement#getWalk()
 	 * @see #getOutputElement()
 	 * @generated
@@ -997,10 +1278,10 @@ public interface CrosswalkPackage extends EPackage {
         EClass getWalkWidget();
 
         /**
-	 * Returns the meta object for the container reference '{@link crosswalk.WalkWidget#getWalk <em>Walk</em>}'.
+	 * Returns the meta object for the reference '{@link crosswalk.WalkWidget#getWalk <em>Walk</em>}'.
 	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Walk</em>'.
+	 * @return the meta object for the reference '<em>Walk</em>'.
 	 * @see crosswalk.WalkWidget#getWalk()
 	 * @see #getWalkWidget()
 	 * @generated
@@ -1371,6 +1652,17 @@ public interface CrosswalkPackage extends EPackage {
         EAttribute getMappedAttribute_DefaultValue();
 
         /**
+	 * Returns the meta object for the attribute '{@link crosswalk.MappedAttribute#isRequired <em>Required</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Required</em>'.
+	 * @see crosswalk.MappedAttribute#isRequired()
+	 * @see #getMappedAttribute()
+	 * @generated
+	 */
+	EAttribute getMappedAttribute_Required();
+
+								/**
 	 * Returns the meta object for class '{@link crosswalk.ConversionStrategy <em>Conversion Strategy</em>}'.
 	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -1391,6 +1683,218 @@ public interface CrosswalkPackage extends EPackage {
         EClass getDateToISO8601StringConversion();
 
         /**
+	 * Returns the meta object for class '{@link crosswalk.Dictionary <em>Dictionary</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Dictionary</em>'.
+	 * @see crosswalk.Dictionary
+	 * @generated
+	 */
+	EClass getDictionary();
+
+								/**
+	 * Returns the meta object for the attribute '{@link crosswalk.Dictionary#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see crosswalk.Dictionary#getName()
+	 * @see #getDictionary()
+	 * @generated
+	 */
+	EAttribute getDictionary_Name();
+
+								/**
+	 * Returns the meta object for the containment reference list '{@link crosswalk.Dictionary#getBlocks <em>Blocks</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Blocks</em>'.
+	 * @see crosswalk.Dictionary#getBlocks()
+	 * @see #getDictionary()
+	 * @generated
+	 */
+	EReference getDictionary_Blocks();
+
+								/**
+	 * Returns the meta object for the containment reference list '{@link crosswalk.Dictionary#getVocabularies <em>Vocabularies</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Vocabularies</em>'.
+	 * @see crosswalk.Dictionary#getVocabularies()
+	 * @see #getDictionary()
+	 * @generated
+	 */
+	EReference getDictionary_Vocabularies();
+
+								/**
+	 * Returns the meta object for class '{@link crosswalk.MetadataBlock <em>Metadata Block</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Metadata Block</em>'.
+	 * @see crosswalk.MetadataBlock
+	 * @generated
+	 */
+	EClass getMetadataBlock();
+
+								/**
+	 * Returns the meta object for the attribute '{@link crosswalk.MetadataBlock#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see crosswalk.MetadataBlock#getName()
+	 * @see #getMetadataBlock()
+	 * @generated
+	 */
+	EAttribute getMetadataBlock_Name();
+
+								/**
+	 * Returns the meta object for the attribute '{@link crosswalk.MetadataBlock#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see crosswalk.MetadataBlock#getDescription()
+	 * @see #getMetadataBlock()
+	 * @generated
+	 */
+	EAttribute getMetadataBlock_Description();
+
+								/**
+	 * Returns the meta object for the containment reference list '{@link crosswalk.MetadataBlock#getPorts <em>Ports</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Ports</em>'.
+	 * @see crosswalk.MetadataBlock#getPorts()
+	 * @see #getMetadataBlock()
+	 * @generated
+	 */
+	EReference getMetadataBlock_Ports();
+
+								/**
+	 * Returns the meta object for class '{@link crosswalk.Vocabulary <em>Vocabulary</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Vocabulary</em>'.
+	 * @see crosswalk.Vocabulary
+	 * @generated
+	 */
+	EClass getVocabulary();
+
+								/**
+	 * Returns the meta object for class '{@link crosswalk.InputField <em>Input Field</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Input Field</em>'.
+	 * @see crosswalk.InputField
+	 * @generated
+	 */
+	EClass getInputField();
+
+								/**
+	 * Returns the meta object for the attribute '{@link crosswalk.InputField#getLabel <em>Label</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Label</em>'.
+	 * @see crosswalk.InputField#getLabel()
+	 * @see #getInputField()
+	 * @generated
+	 */
+	EAttribute getInputField_Label();
+
+								/**
+	 * Returns the meta object for the attribute '{@link crosswalk.InputField#getUsage <em>Usage</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Usage</em>'.
+	 * @see crosswalk.InputField#getUsage()
+	 * @see #getInputField()
+	 * @generated
+	 */
+	EAttribute getInputField_Usage();
+
+								/**
+	 * Returns the meta object for class '{@link crosswalk.SchemaProvider <em>Schema Provider</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Schema Provider</em>'.
+	 * @see crosswalk.SchemaProvider
+	 * @generated
+	 */
+	EClass getSchemaProvider();
+
+								/**
+	 * Returns the meta object for the reference '{@link crosswalk.SchemaProvider#getOutputType <em>Output Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Output Type</em>'.
+	 * @see crosswalk.SchemaProvider#getOutputType()
+	 * @see #getSchemaProvider()
+	 * @generated
+	 */
+	EReference getSchemaProvider_OutputType();
+
+								/**
+	 * Returns the meta object for class '{@link crosswalk.MappingContainer <em>Mapping Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Mapping Container</em>'.
+	 * @see crosswalk.MappingContainer
+	 * @generated
+	 */
+	EClass getMappingContainer();
+
+								/**
+	 * Returns the meta object for the containment reference list '{@link crosswalk.MappingContainer#getWidgets <em>Widgets</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Widgets</em>'.
+	 * @see crosswalk.MappingContainer#getWidgets()
+	 * @see #getMappingContainer()
+	 * @generated
+	 */
+	EReference getMappingContainer_Widgets();
+
+								/**
+	 * Returns the meta object for the containment reference list '{@link crosswalk.MappingContainer#getElements <em>Elements</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Elements</em>'.
+	 * @see crosswalk.MappingContainer#getElements()
+	 * @see #getMappingContainer()
+	 * @generated
+	 */
+	EReference getMappingContainer_Elements();
+
+								/**
+	 * Returns the meta object for class '{@link crosswalk.EditingContainer <em>Editing Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Editing Container</em>'.
+	 * @see crosswalk.EditingContainer
+	 * @generated
+	 */
+	EClass getEditingContainer();
+
+								/**
+	 * Returns the meta object for the containment reference '{@link crosswalk.EditingContainer#getModel <em>Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Model</em>'.
+	 * @see crosswalk.EditingContainer#getModel()
+	 * @see #getEditingContainer()
+	 * @generated
+	 */
+	EReference getEditingContainer_Model();
+
+								/**
+	 * Returns the meta object for class '{@link crosswalk.Editable <em>Editable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Editable</em>'.
+	 * @see crosswalk.Editable
+	 * @generated
+	 */
+	EClass getEditable();
+
+								/**
 	 * Returns the meta object for data type '{@link crosswalk.DataException <em>Data Exception</em>}'.
 	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -1525,30 +2029,6 @@ public interface CrosswalkPackage extends EPackage {
                 EReference CROSS_WALK__DATA_SOURCE = eINSTANCE.getCrossWalk_DataSource();
 
                 /**
-		 * The meta object literal for the '<em><b>Widgets</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-                 * <!-- end-user-doc -->
-		 * @generated
-		 */
-                EReference CROSS_WALK__WIDGETS = eINSTANCE.getCrossWalk_Widgets();
-
-                /**
-		 * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-                 * <!-- end-user-doc -->
-		 * @generated
-		 */
-                EReference CROSS_WALK__ELEMENTS = eINSTANCE.getCrossWalk_Elements();
-
-                /**
-		 * The meta object literal for the '<em><b>Output Type</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-                 * <!-- end-user-doc -->
-		 * @generated
-		 */
-                EReference CROSS_WALK__OUTPUT_TYPE = eINSTANCE.getCrossWalk_OutputType();
-
-                /**
 		 * The meta object literal for the '{@link crosswalk.OutputElement <em>Output Element</em>}' class.
 		 * <!-- begin-user-doc -->
                  * <!-- end-user-doc -->
@@ -1559,7 +2039,7 @@ public interface CrosswalkPackage extends EPackage {
                 EClass OUTPUT_ELEMENT = eINSTANCE.getOutputElement();
 
                 /**
-		 * The meta object literal for the '<em><b>Walk</b></em>' container reference feature.
+		 * The meta object literal for the '<em><b>Walk</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
                  * <!-- end-user-doc -->
 		 * @generated
@@ -1577,7 +2057,7 @@ public interface CrosswalkPackage extends EPackage {
                 EClass WALK_WIDGET = eINSTANCE.getWalkWidget();
 
                 /**
-		 * The meta object literal for the '<em><b>Walk</b></em>' container reference feature.
+		 * The meta object literal for the '<em><b>Walk</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
                  * <!-- end-user-doc -->
 		 * @generated
@@ -1879,6 +2359,14 @@ public interface CrosswalkPackage extends EPackage {
                 EAttribute MAPPED_ATTRIBUTE__DEFAULT_VALUE = eINSTANCE.getMappedAttribute_DefaultValue();
 
                 /**
+		 * The meta object literal for the '<em><b>Required</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MAPPED_ATTRIBUTE__REQUIRED = eINSTANCE.getMappedAttribute_Required();
+
+																/**
 		 * The meta object literal for the '{@link crosswalk.ConversionStrategy <em>Conversion Strategy</em>}' class.
 		 * <!-- begin-user-doc -->
                  * <!-- end-user-doc -->
@@ -1899,6 +2387,182 @@ public interface CrosswalkPackage extends EPackage {
                 EClass DATE_TO_ISO8601_STRING_CONVERSION = eINSTANCE.getDateToISO8601StringConversion();
 
                 /**
+		 * The meta object literal for the '{@link crosswalk.impl.DictionaryImpl <em>Dictionary</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see crosswalk.impl.DictionaryImpl
+		 * @see crosswalk.impl.CrosswalkPackageImpl#getDictionary()
+		 * @generated
+		 */
+		EClass DICTIONARY = eINSTANCE.getDictionary();
+
+																/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DICTIONARY__NAME = eINSTANCE.getDictionary_Name();
+
+																/**
+		 * The meta object literal for the '<em><b>Blocks</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DICTIONARY__BLOCKS = eINSTANCE.getDictionary_Blocks();
+
+																/**
+		 * The meta object literal for the '<em><b>Vocabularies</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DICTIONARY__VOCABULARIES = eINSTANCE.getDictionary_Vocabularies();
+
+																/**
+		 * The meta object literal for the '{@link crosswalk.impl.MetadataBlockImpl <em>Metadata Block</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see crosswalk.impl.MetadataBlockImpl
+		 * @see crosswalk.impl.CrosswalkPackageImpl#getMetadataBlock()
+		 * @generated
+		 */
+		EClass METADATA_BLOCK = eINSTANCE.getMetadataBlock();
+
+																/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute METADATA_BLOCK__NAME = eINSTANCE.getMetadataBlock_Name();
+
+																/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute METADATA_BLOCK__DESCRIPTION = eINSTANCE.getMetadataBlock_Description();
+
+																/**
+		 * The meta object literal for the '<em><b>Ports</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference METADATA_BLOCK__PORTS = eINSTANCE.getMetadataBlock_Ports();
+
+																/**
+		 * The meta object literal for the '{@link crosswalk.impl.VocabularyImpl <em>Vocabulary</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see crosswalk.impl.VocabularyImpl
+		 * @see crosswalk.impl.CrosswalkPackageImpl#getVocabulary()
+		 * @generated
+		 */
+		EClass VOCABULARY = eINSTANCE.getVocabulary();
+
+																/**
+		 * The meta object literal for the '{@link crosswalk.impl.InputFieldImpl <em>Input Field</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see crosswalk.impl.InputFieldImpl
+		 * @see crosswalk.impl.CrosswalkPackageImpl#getInputField()
+		 * @generated
+		 */
+		EClass INPUT_FIELD = eINSTANCE.getInputField();
+
+																/**
+		 * The meta object literal for the '<em><b>Label</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute INPUT_FIELD__LABEL = eINSTANCE.getInputField_Label();
+
+																/**
+		 * The meta object literal for the '<em><b>Usage</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute INPUT_FIELD__USAGE = eINSTANCE.getInputField_Usage();
+
+																/**
+		 * The meta object literal for the '{@link crosswalk.impl.SchemaProviderImpl <em>Schema Provider</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see crosswalk.impl.SchemaProviderImpl
+		 * @see crosswalk.impl.CrosswalkPackageImpl#getSchemaProvider()
+		 * @generated
+		 */
+		EClass SCHEMA_PROVIDER = eINSTANCE.getSchemaProvider();
+
+																/**
+		 * The meta object literal for the '<em><b>Output Type</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SCHEMA_PROVIDER__OUTPUT_TYPE = eINSTANCE.getSchemaProvider_OutputType();
+
+																/**
+		 * The meta object literal for the '{@link crosswalk.MappingContainer <em>Mapping Container</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see crosswalk.MappingContainer
+		 * @see crosswalk.impl.CrosswalkPackageImpl#getMappingContainer()
+		 * @generated
+		 */
+		EClass MAPPING_CONTAINER = eINSTANCE.getMappingContainer();
+
+																/**
+		 * The meta object literal for the '<em><b>Widgets</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MAPPING_CONTAINER__WIDGETS = eINSTANCE.getMappingContainer_Widgets();
+
+																/**
+		 * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MAPPING_CONTAINER__ELEMENTS = eINSTANCE.getMappingContainer_Elements();
+
+																/**
+		 * The meta object literal for the '{@link crosswalk.impl.EditingContainerImpl <em>Editing Container</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see crosswalk.impl.EditingContainerImpl
+		 * @see crosswalk.impl.CrosswalkPackageImpl#getEditingContainer()
+		 * @generated
+		 */
+		EClass EDITING_CONTAINER = eINSTANCE.getEditingContainer();
+
+																/**
+		 * The meta object literal for the '<em><b>Model</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EDITING_CONTAINER__MODEL = eINSTANCE.getEditingContainer_Model();
+
+																/**
+		 * The meta object literal for the '{@link crosswalk.Editable <em>Editable</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see crosswalk.Editable
+		 * @see crosswalk.impl.CrosswalkPackageImpl#getEditable()
+		 * @generated
+		 */
+		EClass EDITABLE = eINSTANCE.getEditable();
+
+																/**
 		 * The meta object literal for the '<em>Data Exception</em>' data type.
 		 * <!-- begin-user-doc -->
                  * <!-- end-user-doc -->

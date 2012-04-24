@@ -127,6 +127,28 @@ public class MappedAttributeItemProvider extends ItemProviderAdapter implements 
 	}
 
 	/**
+	 * This adds a property descriptor for the Required feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRequiredPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_MappedAttribute_required_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_MappedAttribute_required_feature", "_UI_MappedAttribute_type"),
+				 CrosswalkPackage.Literals.MAPPED_ATTRIBUTE__REQUIRED,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns MappedAttribute.gif.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
@@ -261,6 +283,7 @@ public class MappedAttributeItemProvider extends ItemProviderAdapter implements 
 
 		switch (notification.getFeatureID(MappedAttribute.class)) {
 			case CrosswalkPackage.MAPPED_ATTRIBUTE__DEFAULT_VALUE:
+			case CrosswalkPackage.MAPPED_ATTRIBUTE__REQUIRED:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

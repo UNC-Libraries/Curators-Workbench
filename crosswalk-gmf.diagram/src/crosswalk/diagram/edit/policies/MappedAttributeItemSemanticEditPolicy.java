@@ -33,7 +33,7 @@ public class MappedAttributeItemSemanticEditPolicy extends CrosswalkBaseItemSema
 	 * @generated
 	 */
 	public MappedAttributeItemSemanticEditPolicy() {
-		super(CrosswalkElementTypes.MappedAttribute_3016);
+		super(CrosswalkElementTypes.MappedAttribute_3009);
 	}
 
 	/**
@@ -78,7 +78,7 @@ public class MappedAttributeItemSemanticEditPolicy extends CrosswalkBaseItemSema
 	 * @generated
 	 */
 	protected Command getStartCreateRelationshipCommand(CreateRelationshipRequest req) {
-		if (CrosswalkElementTypes.InputOutput_4003 == req.getElementType()) {
+		if (CrosswalkElementTypes.InputOutput_4001 == req.getElementType()) {
 			return getGEFWrapper(new InputOutputCreateCommand(req, req.getSource(), req.getTarget()));
 		}
 		return null;
@@ -88,7 +88,7 @@ public class MappedAttributeItemSemanticEditPolicy extends CrosswalkBaseItemSema
 	 * @generated
 	 */
 	protected Command getCompleteCreateRelationshipCommand(CreateRelationshipRequest req) {
-		if (CrosswalkElementTypes.InputOutput_4003 == req.getElementType()) {
+		if (CrosswalkElementTypes.InputOutput_4001 == req.getElementType()) {
 			return null;
 		}
 		return null;

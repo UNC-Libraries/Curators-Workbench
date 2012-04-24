@@ -18,7 +18,6 @@ import org.eclipse.gmf.runtime.emf.type.core.commands.CreateElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice;
 import org.eclipse.gmf.runtime.emf.type.core.edithelper.IEditHelperAdvice;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
-import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
@@ -29,6 +28,7 @@ import crosswalk.CrossWalk;
 import crosswalk.CrosswalkPackage;
 import crosswalk.MappedAttribute;
 import crosswalk.MappedElement;
+import crosswalk.MetadataBlock;
 import crosswalk.diagram.custom.MappedModelUtil;
 
 public class MappedElementEditHelperAdvice extends AbstractEditHelperAdvice implements IEditHelperAdvice {
@@ -98,7 +98,7 @@ public class MappedElementEditHelperAdvice extends AbstractEditHelperAdvice impl
 		if (CrosswalkPackage.eINSTANCE.getMappedElement().equals(classToCreate)
 				|| CrosswalkPackage.eINSTANCE.getMappedAttribute().equals(classToCreate)) {
 			EObject container = request.getContainer();
-			if (container instanceof MappedElement || container instanceof CrossWalk) {
+			if (container instanceof MappedElement || container instanceof CrossWalk || container instanceof MetadataBlock) {
 				// LOG.debug("create element request: " + request.getLabel());
 				result = new CreateElementCommand(request) {
 

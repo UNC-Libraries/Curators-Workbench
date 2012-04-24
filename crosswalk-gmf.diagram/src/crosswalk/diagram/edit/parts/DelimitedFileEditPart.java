@@ -42,7 +42,7 @@ public class DelimitedFileEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2001;
+	public static final int VISUAL_ID = 3001;
 
 	/**
 	 * @generated
@@ -270,7 +270,7 @@ public class DelimitedFileEditPart extends ShapeNodeEditPart {
 			CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request).getViewAndElementDescriptor()
 					.getCreateElementRequestAdapter();
 			IElementType type = (IElementType) adapter.getAdapter(IElementType.class);
-			if (type == CrosswalkElementTypes.TabbedDataField_3001) {
+			if (type == CrosswalkElementTypes.TabbedDataField_3002) {
 				return getChildBySemanticHint(CrosswalkVisualIDRegistry
 						.getType(DelimitedFileDataFieldCompartmentEditPart.VISUAL_ID));
 			}

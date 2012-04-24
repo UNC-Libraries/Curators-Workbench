@@ -16,17 +16,17 @@ public class MappedElementChildElementsCompartment2ItemSemanticEditPolicy extend
 	 * @generated
 	 */
 	public MappedElementChildElementsCompartment2ItemSemanticEditPolicy() {
-		super(CrosswalkElementTypes.MappedElement_3015);
+		super(CrosswalkElementTypes.MappedElement_3008);
 	}
 
 	/**
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (CrosswalkElementTypes.MappedElement_3015 == req.getElementType()) {
+		if (CrosswalkElementTypes.MappedElement_3008 == req.getElementType()) {
 			return getGEFWrapper(new MappedElement2CreateCommand(req));
 		}
-		if (CrosswalkElementTypes.MappedAttribute_3016 == req.getElementType()) {
+		if (CrosswalkElementTypes.MappedAttribute_3009 == req.getElementType()) {
 			return getGEFWrapper(new MappedAttributeCreateCommand(req));
 		}
 		return super.getCreateCommand(req);

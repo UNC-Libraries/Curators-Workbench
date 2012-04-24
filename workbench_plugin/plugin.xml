@@ -85,6 +85,11 @@
             name="Crosswalk Batch Metadata">
       </command>
       <command
+            defaultHandler="unc.lib.cdr.workbench.xwalk.AddDictionaryHandler"
+            id="cdr-workbench.commandAddDictionary"
+            name="Add Dictionary">
+      </command>
+      <command
             defaultHandler="unc.lib.cdr.workbench.arrange.AddFolderDivHandler"
             id="cdr-workbench.AddFolderDiv"
             name="New Folder">
@@ -761,6 +766,37 @@
                </with>
             </visibleWhen>
          </command>
+         <command
+               commandId="cdr-workbench.commandAddDictionary"
+               label="Add Dictionary"
+               mnemonic="D"
+               style="push">
+            <visibleWhen
+                  checkEnabled="false">
+               <with
+                     variable="activeMenuSelection">
+                  <iterate
+                        ifEmpty="false">
+                     <or>
+                        <instanceof
+                              value="unc.lib.cdr.workbench.xwalk.CrosswalksProjectElement">
+                        </instanceof>
+                        <and>
+                           <instanceof
+                                 value="org.eclipse.core.resources.IProject">
+                           </instanceof>
+                           <test
+                                 property="workbench_plugin.projectPropertyTester.open">
+                           </test>
+                        </and>
+                     </or>
+                  </iterate>
+                  <count
+                        value="1">
+                  </count>
+               </with>
+            </visibleWhen>
+         </command>
       </menuContribution>
       <menuContribution
             allPopups="false"
@@ -875,6 +911,9 @@
       </primaryWizard>
       <primaryWizard
             id="crosswalk.diagram.part.CrosswalkCreationWizardID">
+      </primaryWizard>
+      <primaryWizard
+            id="dictionary.diagram.part.CrosswalkCreationWizardID">
       </primaryWizard>
    </extension>
    <extension
@@ -1538,12 +1577,6 @@
       <metamodel
             nsURI="http://lib.unc.edu/schemas/crosswalk">
          <adviceBinding
-               class="unc.lib.cdr.workbench.xwalk.MappedElementEditHelperAdvice"
-               id="workbench_plugin.adviceBindingMappedElement"
-               inheritance="all"
-               typeId="crosswalk-gmf.diagram.MappedElement_2016">
-         </adviceBinding>
-         <adviceBinding
                class="unc.lib.cdr.workbench.xwalk.MappedAttributeEditHelperAdvice"
                id="workbench_plugin.adviceBindingMappedAttribute"
                inheritance="all"
@@ -1553,8 +1586,32 @@
                class="unc.lib.cdr.workbench.xwalk.MappedElementEditHelperAdvice"
                id="workbench_plugin.adviceBindingMappedCrossWalk"
                inheritance="all"
-               typeId="crosswalk-gmf.diagram.CrossWalk_1000">
+               typeId="crosswalk-gmf.diagram.CrossWalk_2001">
          </adviceBinding>
+         <adviceBinding
+               class="unc.lib.cdr.workbench.xwalk.MappedElementEditHelperAdvice"
+               id="workbench_plugin.adviceBindingMappedMetadataBlock"
+               inheritance="all"
+               typeId="crosswalk-gmf.diagram.MetadataBlock_3010">
+         </adviceBinding>
+         <adviceBinding
+               class="unc.lib.cdr.workbench.xwalk.MappedElementEditHelperAdvice"
+               id="workbench_plugin.adviceBindingMappedElement"
+               inheritance="all"
+               typeId="crosswalk-gmf.diagram.MappedElement_3007">
+         </adviceBinding>
+         <adviceBinding
+               class="unc.lib.cdr.workbench.xwalk.MappedElementEditHelperAdvice"
+               id="workbench_plugin.adviceBindingMappedMetadataBlock"
+               inheritance="all"
+               typeId="crosswalk-gmf.diagram.MetadataBlock_3018">
+         </adviceBinding>
+         <adviceBinding
+               class="unc.lib.cdr.workbench.xwalk.TemplateElementEditHelperAdvice"
+               id="workbench_plugin.adviceBindingMetadataBlockTemplateElement"
+               inheritance="none"
+               typeId="crosswalk-gmf.diagram.CrossWalk_2001">
+         </adviceBinding>nding>
       </metamodel>
    </extension>
    <extension
@@ -1562,13 +1619,7 @@
       <binding
             context="crosswalk-gmf.diagram.TypeContext">
          <advice
-               ref="workbench_plugin.adviceBindingMappedElement">
-         </advice>
-         <advice
-               ref="workbench_plugin.adviceBindingMappedAttribute">
-         </advice>
-         <advice
-               ref="workbench_plugin.adviceBindingMappedCrossWalk">
+               pattern="workbench_plugin.*">
          </advice>
       </binding>
    </extension>

@@ -35,31 +35,29 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface WalkWidget extends EObject {
         /**
-	 * Returns the value of the '<em><b>Walk</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link crosswalk.CrossWalk#getWidgets <em>Widgets</em>}'.
+	 * Returns the value of the '<em><b>Walk</b></em>' reference.
 	 * <!-- begin-user-doc -->
          * <p>
          * If the meaning of the '<em>Walk</em>' container reference isn't clear,
          * there really should be more of a description here...
          * </p>
          * <!-- end-user-doc -->
-	 * @return the value of the '<em>Walk</em>' container reference.
-	 * @see #setWalk(CrossWalk)
+	 * @return the value of the '<em>Walk</em>' reference.
+	 * @see #setWalk(SchemaProvider)
 	 * @see crosswalk.CrosswalkPackage#getWalkWidget_Walk()
-	 * @see crosswalk.CrossWalk#getWidgets
-	 * @model opposite="Widgets" required="true" transient="false"
+	 * @model required="true"
 	 * @generated
 	 */
-        CrossWalk getWalk();
+        SchemaProvider getWalk();
 
         /**
-	 * Sets the value of the '{@link crosswalk.WalkWidget#getWalk <em>Walk</em>}' container reference.
+	 * Sets the value of the '{@link crosswalk.WalkWidget#getWalk <em>Walk</em>}' reference.
 	 * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Walk</em>' container reference.
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Walk</em>' reference.
 	 * @see #getWalk()
 	 * @generated
 	 */
-        void setWalk(CrossWalk value);
+	void setWalk(SchemaProvider value);
 
 } // WalkWidget

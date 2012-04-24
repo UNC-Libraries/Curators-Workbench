@@ -153,6 +153,38 @@ public class CrosswalkAdapterFactory extends AdapterFactoryImpl {
 				return createDateToISO8601StringConversionAdapter();
 			}
 			@Override
+			public Adapter caseDictionary(Dictionary object) {
+				return createDictionaryAdapter();
+			}
+			@Override
+			public Adapter caseMetadataBlock(MetadataBlock object) {
+				return createMetadataBlockAdapter();
+			}
+			@Override
+			public Adapter caseVocabulary(Vocabulary object) {
+				return createVocabularyAdapter();
+			}
+			@Override
+			public Adapter caseInputField(InputField object) {
+				return createInputFieldAdapter();
+			}
+			@Override
+			public Adapter caseSchemaProvider(SchemaProvider object) {
+				return createSchemaProviderAdapter();
+			}
+			@Override
+			public Adapter caseMappingContainer(MappingContainer object) {
+				return createMappingContainerAdapter();
+			}
+			@Override
+			public Adapter caseEditingContainer(EditingContainer object) {
+				return createEditingContainerAdapter();
+			}
+			@Override
+			public Adapter caseEditable(Editable object) {
+				return createEditableAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -425,6 +457,118 @@ public class CrosswalkAdapterFactory extends AdapterFactoryImpl {
 	}
 
         /**
+	 * Creates a new adapter for an object of class '{@link crosswalk.Dictionary <em>Dictionary</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see crosswalk.Dictionary
+	 * @generated
+	 */
+	public Adapter createDictionaryAdapter() {
+		return null;
+	}
+
+								/**
+	 * Creates a new adapter for an object of class '{@link crosswalk.MetadataBlock <em>Metadata Block</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see crosswalk.MetadataBlock
+	 * @generated
+	 */
+	public Adapter createMetadataBlockAdapter() {
+		return null;
+	}
+
+								/**
+	 * Creates a new adapter for an object of class '{@link crosswalk.Vocabulary <em>Vocabulary</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see crosswalk.Vocabulary
+	 * @generated
+	 */
+	public Adapter createVocabularyAdapter() {
+		return null;
+	}
+
+								/**
+	 * Creates a new adapter for an object of class '{@link crosswalk.InputField <em>Input Field</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see crosswalk.InputField
+	 * @generated
+	 */
+	public Adapter createInputFieldAdapter() {
+		return null;
+	}
+
+								/**
+	 * Creates a new adapter for an object of class '{@link crosswalk.SchemaProvider <em>Schema Provider</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see crosswalk.SchemaProvider
+	 * @generated
+	 */
+	public Adapter createSchemaProviderAdapter() {
+		return null;
+	}
+
+								/**
+	 * Creates a new adapter for an object of class '{@link crosswalk.MappingContainer <em>Mapping Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see crosswalk.MappingContainer
+	 * @generated
+	 */
+	public Adapter createMappingContainerAdapter() {
+		return null;
+	}
+
+								/**
+	 * Creates a new adapter for an object of class '{@link crosswalk.EditingContainer <em>Editing Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see crosswalk.EditingContainer
+	 * @generated
+	 */
+	public Adapter createEditingContainerAdapter() {
+		return null;
+	}
+
+								/**
+	 * Creates a new adapter for an object of class '{@link crosswalk.Editable <em>Editable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see crosswalk.Editable
+	 * @generated
+	 */
+	public Adapter createEditableAdapter() {
+		return null;
+	}
+
+								/**
 	 * Creates a new adapter for the default case.
 	 * <!-- begin-user-doc -->
          * This default implementation returns null.

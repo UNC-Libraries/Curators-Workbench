@@ -28,16 +28,18 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import crosswalk.CrossWalk;
 import crosswalk.CrosswalkPackage;
 import crosswalk.DataException;
 import crosswalk.DataSource;
-import crosswalk.MetsSource;
+import crosswalk.Editable;
+import crosswalk.MappedElement;
+import crosswalk.MappingContainer;
 import crosswalk.OutputElement;
+import crosswalk.MetsSource;
 import crosswalk.WalkWidget;
 
 /**
@@ -47,26 +49,15 @@ import crosswalk.WalkWidget;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link crosswalk.impl.CrossWalkImpl#getDataSource <em>Data Source</em>}</li>
  *   <li>{@link crosswalk.impl.CrossWalkImpl#getWidgets <em>Widgets</em>}</li>
  *   <li>{@link crosswalk.impl.CrossWalkImpl#getElements <em>Elements</em>}</li>
- *   <li>{@link crosswalk.impl.CrossWalkImpl#getOutputType <em>Output Type</em>}</li>
+ *   <li>{@link crosswalk.impl.CrossWalkImpl#getDataSource <em>Data Source</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class CrossWalkImpl extends EObjectImpl implements CrossWalk {
-        /**
-	 * The cached value of the '{@link #getDataSource() <em>Data Source</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-	 * @see #getDataSource()
-	 * @generated
-	 * @ordered
-	 */
-        protected DataSource dataSource;
-
+public class CrossWalkImpl extends SchemaProviderImpl implements CrossWalk {
         /**
 	 * The cached value of the '{@link #getWidgets() <em>Widgets</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -87,15 +78,15 @@ public class CrossWalkImpl extends EObjectImpl implements CrossWalk {
 	 */
         protected EList<OutputElement> elements;
 
-        /**
-	 * The cached value of the '{@link #getOutputType() <em>Output Type</em>}' reference.
+								/**
+	 * The cached value of the '{@link #getDataSource() <em>Data Source</em>}' containment reference.
 	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-	 * @see #getOutputType()
+	 * @see #getDataSource()
 	 * @generated
 	 * @ordered
 	 */
-        protected EClass outputType;
+        protected DataSource dataSource;
 
         /**
 	 * <!-- begin-user-doc -->
@@ -166,7 +157,7 @@ public class CrossWalkImpl extends EObjectImpl implements CrossWalk {
 	 */
         public EList<WalkWidget> getWidgets() {
 		if (widgets == null) {
-			widgets = new EObjectContainmentWithInverseEList<WalkWidget>(WalkWidget.class, this, CrosswalkPackage.CROSS_WALK__WIDGETS, CrosswalkPackage.WALK_WIDGET__WALK);
+			widgets = new EObjectContainmentEList<WalkWidget>(WalkWidget.class, this, CrosswalkPackage.CROSS_WALK__WIDGETS);
 		}
 		return widgets;
 	}
@@ -178,47 +169,9 @@ public class CrossWalkImpl extends EObjectImpl implements CrossWalk {
 	 */
         public EList<OutputElement> getElements() {
 		if (elements == null) {
-			elements = new EObjectContainmentWithInverseEList<OutputElement>(OutputElement.class, this, CrosswalkPackage.CROSS_WALK__ELEMENTS, CrosswalkPackage.OUTPUT_ELEMENT__WALK);
+			elements = new EObjectContainmentEList<OutputElement>(OutputElement.class, this, CrosswalkPackage.CROSS_WALK__ELEMENTS);
 		}
 		return elements;
-	}
-
-        /**
-	 * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-	 * @generated
-	 */
-        public EClass getOutputType() {
-		if (outputType != null && outputType.eIsProxy()) {
-			InternalEObject oldOutputType = (InternalEObject)outputType;
-			outputType = (EClass)eResolveProxy(oldOutputType);
-			if (outputType != oldOutputType) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CrosswalkPackage.CROSS_WALK__OUTPUT_TYPE, oldOutputType, outputType));
-			}
-		}
-		return outputType;
-	}
-
-        /**
-	 * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-	 * @generated
-	 */
-        public EClass basicGetOutputType() {
-		return outputType;
-	}
-
-        /**
-	 * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-	 * @generated
-	 */
-        public void setOutputType(EClass newOutputType) {
-		EClass oldOutputType = outputType;
-		outputType = newOutputType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.CROSS_WALK__OUTPUT_TYPE, oldOutputType, outputType));
 	}
 
         /**
@@ -245,10 +198,6 @@ public class CrossWalkImpl extends EObjectImpl implements CrossWalk {
 				if (dataSource != null)
 					msgs = ((InternalEObject)dataSource).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CrosswalkPackage.CROSS_WALK__DATA_SOURCE, null, msgs);
 				return basicSetDataSource((DataSource)otherEnd, msgs);
-			case CrosswalkPackage.CROSS_WALK__WIDGETS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getWidgets()).basicAdd(otherEnd, msgs);
-			case CrosswalkPackage.CROSS_WALK__ELEMENTS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getElements()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -261,12 +210,12 @@ public class CrossWalkImpl extends EObjectImpl implements CrossWalk {
         @Override
         public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case CrosswalkPackage.CROSS_WALK__DATA_SOURCE:
-				return basicSetDataSource(null, msgs);
 			case CrosswalkPackage.CROSS_WALK__WIDGETS:
 				return ((InternalEList<?>)getWidgets()).basicRemove(otherEnd, msgs);
 			case CrosswalkPackage.CROSS_WALK__ELEMENTS:
 				return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
+			case CrosswalkPackage.CROSS_WALK__DATA_SOURCE:
+				return basicSetDataSource(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -279,15 +228,12 @@ public class CrossWalkImpl extends EObjectImpl implements CrossWalk {
         @Override
         public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CrosswalkPackage.CROSS_WALK__DATA_SOURCE:
-				return getDataSource();
 			case CrosswalkPackage.CROSS_WALK__WIDGETS:
 				return getWidgets();
 			case CrosswalkPackage.CROSS_WALK__ELEMENTS:
 				return getElements();
-			case CrosswalkPackage.CROSS_WALK__OUTPUT_TYPE:
-				if (resolve) return getOutputType();
-				return basicGetOutputType();
+			case CrosswalkPackage.CROSS_WALK__DATA_SOURCE:
+				return getDataSource();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -301,9 +247,6 @@ public class CrossWalkImpl extends EObjectImpl implements CrossWalk {
         @Override
         public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CrosswalkPackage.CROSS_WALK__DATA_SOURCE:
-				setDataSource((DataSource)newValue);
-				return;
 			case CrosswalkPackage.CROSS_WALK__WIDGETS:
 				getWidgets().clear();
 				getWidgets().addAll((Collection<? extends WalkWidget>)newValue);
@@ -312,8 +255,8 @@ public class CrossWalkImpl extends EObjectImpl implements CrossWalk {
 				getElements().clear();
 				getElements().addAll((Collection<? extends OutputElement>)newValue);
 				return;
-			case CrosswalkPackage.CROSS_WALK__OUTPUT_TYPE:
-				setOutputType((EClass)newValue);
+			case CrosswalkPackage.CROSS_WALK__DATA_SOURCE:
+				setDataSource((DataSource)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -327,17 +270,14 @@ public class CrossWalkImpl extends EObjectImpl implements CrossWalk {
         @Override
         public void eUnset(int featureID) {
 		switch (featureID) {
-			case CrosswalkPackage.CROSS_WALK__DATA_SOURCE:
-				setDataSource((DataSource)null);
-				return;
 			case CrosswalkPackage.CROSS_WALK__WIDGETS:
 				getWidgets().clear();
 				return;
 			case CrosswalkPackage.CROSS_WALK__ELEMENTS:
 				getElements().clear();
 				return;
-			case CrosswalkPackage.CROSS_WALK__OUTPUT_TYPE:
-				setOutputType((EClass)null);
+			case CrosswalkPackage.CROSS_WALK__DATA_SOURCE:
+				setDataSource((DataSource)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -351,16 +291,58 @@ public class CrossWalkImpl extends EObjectImpl implements CrossWalk {
         @Override
         public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CrosswalkPackage.CROSS_WALK__DATA_SOURCE:
-				return dataSource != null;
 			case CrosswalkPackage.CROSS_WALK__WIDGETS:
 				return widgets != null && !widgets.isEmpty();
 			case CrosswalkPackage.CROSS_WALK__ELEMENTS:
 				return elements != null && !elements.isEmpty();
-			case CrosswalkPackage.CROSS_WALK__OUTPUT_TYPE:
-				return outputType != null;
+			case CrosswalkPackage.CROSS_WALK__DATA_SOURCE:
+				return dataSource != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == MappingContainer.class) {
+			switch (derivedFeatureID) {
+				case CrosswalkPackage.CROSS_WALK__WIDGETS: return CrosswalkPackage.MAPPING_CONTAINER__WIDGETS;
+				case CrosswalkPackage.CROSS_WALK__ELEMENTS: return CrosswalkPackage.MAPPING_CONTAINER__ELEMENTS;
+				default: return -1;
+			}
+		}
+		if (baseClass == Editable.class) {
+			switch (derivedFeatureID) {
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == MappingContainer.class) {
+			switch (baseFeatureID) {
+				case CrosswalkPackage.MAPPING_CONTAINER__WIDGETS: return CrosswalkPackage.CROSS_WALK__WIDGETS;
+				case CrosswalkPackage.MAPPING_CONTAINER__ELEMENTS: return CrosswalkPackage.CROSS_WALK__ELEMENTS;
+				default: return -1;
+			}
+		}
+		if (baseClass == Editable.class) {
+			switch (baseFeatureID) {
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 	/* (non-Javadoc)

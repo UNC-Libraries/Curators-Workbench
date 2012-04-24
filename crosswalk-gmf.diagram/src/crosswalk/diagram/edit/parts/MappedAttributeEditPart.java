@@ -5,6 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import org.eclipse.draw2d.ColorConstants;
+import org.eclipse.draw2d.ConnectionAnchor;
 import org.eclipse.draw2d.Ellipse;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.RectangleFigure;
@@ -15,6 +16,7 @@ import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
+import org.eclipse.gef.Request;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ITextAwareEditPart;
@@ -26,6 +28,7 @@ import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
+import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
 
@@ -44,7 +47,7 @@ public class MappedAttributeEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3016;
+	public static final int VISUAL_ID = 3009;
 
 	/**
 	 * @generated
@@ -73,6 +76,14 @@ public class MappedAttributeEditPart extends ShapeNodeEditPart {
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
+	}
+
+	@Override
+	protected void handleNotificationEvent(Notification notification) {
+		if (notification.getNotifier() instanceof MappedAttribute) {
+			getPrimaryShape().updateFace();
+		}
+		super.handleNotificationEvent(notification);
 	}
 
 	/**
@@ -112,8 +123,8 @@ public class MappedAttributeEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof MappedAttributeNameEditPart) {
-			((MappedAttributeNameEditPart) childEditPart).setLabel(getPrimaryShape().getFigureAttributeLabel());
+		if (childEditPart instanceof WrappingLabel7EditPart) {
+			((WrappingLabel7EditPart) childEditPart).setLabel(getPrimaryShape().getFigureAttributeLabel());
 			return true;
 		}
 		return false;
@@ -123,7 +134,7 @@ public class MappedAttributeEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof MappedAttributeNameEditPart) {
+		if (childEditPart instanceof WrappingLabel7EditPart) {
 			return true;
 		}
 		return false;
@@ -202,6 +213,11 @@ public class MappedAttributeEditPart extends ShapeNodeEditPart {
 		return nodeShape; // use nodeShape itself as contentPane
 	}
 
+	@Override
+	public ConnectionAnchor getSourceConnectionAnchor(Request request) {
+		return getNodeFigure().getSourceConnectionAnchorAt(getPrimaryShape().getFigureStringInputEllipsis().getLocation());
+	}
+	
 	/**
 	 * @generated
 	 */
@@ -258,7 +274,7 @@ public class MappedAttributeEditPart extends ShapeNodeEditPart {
 	 */
 	@Override
 	public EditPart getPrimaryChildEditPart() {
-		return getChildBySemanticHint(CrosswalkVisualIDRegistry.getType(MappedAttributeNameEditPart.VISUAL_ID));
+		return getChildBySemanticHint(CrosswalkVisualIDRegistry.getType(WrappingLabel7EditPart.VISUAL_ID));
 	}
 
 	/**
@@ -266,7 +282,7 @@ public class MappedAttributeEditPart extends ShapeNodeEditPart {
 	 */
 	public List<IElementType> getMARelTypesOnSource() {
 		ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-		types.add(CrosswalkElementTypes.InputOutput_4003);
+		types.add(CrosswalkElementTypes.InputOutput_4001);
 		return types;
 	}
 
@@ -275,17 +291,29 @@ public class MappedAttributeEditPart extends ShapeNodeEditPart {
 	 */
 	public List<IElementType> getMARelTypesOnSourceAndTarget(IGraphicalEditPart targetEditPart) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
+		if (targetEditPart instanceof TabbedDataFieldEditPart) {
+			types.add(CrosswalkElementTypes.InputOutput_4001);
+		}
 		if (targetEditPart instanceof DateRecognizerEditPart) {
-			types.add(CrosswalkElementTypes.InputOutput_4003);
+			types.add(CrosswalkElementTypes.InputOutput_4001);
 		}
 		if (targetEditPart instanceof TextEditPart) {
-			types.add(CrosswalkElementTypes.InputOutput_4003);
+			types.add(CrosswalkElementTypes.InputOutput_4001);
 		}
 		if (targetEditPart instanceof TrimWhitespaceEditPart) {
-			types.add(CrosswalkElementTypes.InputOutput_4003);
+			types.add(CrosswalkElementTypes.InputOutput_4001);
 		}
-		if (targetEditPart instanceof TabbedDataFieldEditPart) {
-			types.add(CrosswalkElementTypes.InputOutput_4003);
+		if (targetEditPart instanceof DateRecognizer2EditPart) {
+			types.add(CrosswalkElementTypes.InputOutput_4001);
+		}
+		if (targetEditPart instanceof Text2EditPart) {
+			types.add(CrosswalkElementTypes.InputOutput_4001);
+		}
+		if (targetEditPart instanceof TrimWhitespace2EditPart) {
+			types.add(CrosswalkElementTypes.InputOutput_4001);
+		}
+		if (targetEditPart instanceof InputFieldEditPart) {
+			types.add(CrosswalkElementTypes.InputOutput_4001);
 		}
 		return types;
 	}
@@ -295,11 +323,15 @@ public class MappedAttributeEditPart extends ShapeNodeEditPart {
 	 */
 	public List<IElementType> getMATypesForTarget(IElementType relationshipType) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (relationshipType == CrosswalkElementTypes.InputOutput_4003) {
-			types.add(CrosswalkElementTypes.DateRecognizer_2013);
-			types.add(CrosswalkElementTypes.Text_2014);
-			types.add(CrosswalkElementTypes.TrimWhitespace_2015);
-			types.add(CrosswalkElementTypes.TabbedDataField_3001);
+		if (relationshipType == CrosswalkElementTypes.InputOutput_4001) {
+			types.add(CrosswalkElementTypes.TabbedDataField_3002);
+			types.add(CrosswalkElementTypes.DateRecognizer_3004);
+			types.add(CrosswalkElementTypes.Text_3005);
+			types.add(CrosswalkElementTypes.TrimWhitespace_3006);
+			types.add(CrosswalkElementTypes.DateRecognizer_3012);
+			types.add(CrosswalkElementTypes.Text_3013);
+			types.add(CrosswalkElementTypes.TrimWhitespace_3014);
+			types.add(CrosswalkElementTypes.InputField_3017);
 		}
 		return types;
 	}
@@ -320,7 +352,7 @@ public class MappedAttributeEditPart extends ShapeNodeEditPart {
 		private Ellipse fFigureStringInputEllipsis;
 
 		/**
-		 * @generated
+		 * @generated NOT
 		 */
 		public MappedAttributeFigure() {
 
@@ -336,6 +368,20 @@ public class MappedAttributeEditPart extends ShapeNodeEditPart {
 			this.setFill(false);
 			this.setOutline(false);
 			createContents();
+			updateFace();
+		}
+
+		private void updateFace() {
+			MappedAttribute att = (MappedAttribute) ((Node) MappedAttributeEditPart.this.getModel()).getElement();
+			Color c = ColorConstants.red;
+			if (att.getOutput() != null) {
+				c = ColorConstants.darkGreen;
+			} else if (att.getDefaultValue() != null) {
+				c = ColorConstants.lightGreen;
+			} else if (!att.isRequired()) {
+				c = ColorConstants.yellow;
+			}
+			fFigureStringInputEllipsis.setBackgroundColor(c);
 		}
 
 		/**

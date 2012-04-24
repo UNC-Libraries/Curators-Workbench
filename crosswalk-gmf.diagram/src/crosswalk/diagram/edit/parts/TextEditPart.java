@@ -55,7 +55,7 @@ public class TextEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2014;
+	public static final int VISUAL_ID = 3005;
 
 	/**
 	 * @generated
@@ -267,7 +267,7 @@ public class TextEditPart extends ShapeNodeEditPart {
 	 */
 	public List<IElementType> getMARelTypesOnTarget() {
 		ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-		types.add(CrosswalkElementTypes.InputOutput_4003);
+		types.add(CrosswalkElementTypes.InputOutput_4001);
 		return types;
 	}
 
@@ -276,11 +276,16 @@ public class TextEditPart extends ShapeNodeEditPart {
 	 */
 	public List<IElementType> getMATypesForSource(IElementType relationshipType) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (relationshipType == CrosswalkElementTypes.InputOutput_4003) {
-			types.add(CrosswalkElementTypes.OriginalNameRecordMatcher_2010);
-			types.add(CrosswalkElementTypes.DateRecognizer_2013);
-			types.add(CrosswalkElementTypes.TrimWhitespace_2015);
+		if (relationshipType == CrosswalkElementTypes.InputOutput_4001) {
+			types.add(CrosswalkElementTypes.OriginalNameRecordMatcher_3003);
+			types.add(CrosswalkElementTypes.DateRecognizer_3004);
+			types.add(CrosswalkElementTypes.TrimWhitespace_3006);
+			types.add(CrosswalkElementTypes.MappedAttribute_3009);
+			types.add(CrosswalkElementTypes.OriginalNameRecordMatcher_3011);
+			types.add(CrosswalkElementTypes.DateRecognizer_3012);
+			types.add(CrosswalkElementTypes.TrimWhitespace_3014);
 			types.add(CrosswalkElementTypes.MappedAttribute_3016);
+			types.add(CrosswalkElementTypes.InputField_3017);
 		}
 		return types;
 	}

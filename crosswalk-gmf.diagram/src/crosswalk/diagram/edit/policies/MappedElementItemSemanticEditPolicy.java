@@ -34,7 +34,7 @@ public class MappedElementItemSemanticEditPolicy extends CrosswalkBaseItemSemant
 	 * @generated
 	 */
 	public MappedElementItemSemanticEditPolicy() {
-		super(CrosswalkElementTypes.MappedElement_2016);
+		super(CrosswalkElementTypes.MappedElement_3007);
 	}
 
 	/**

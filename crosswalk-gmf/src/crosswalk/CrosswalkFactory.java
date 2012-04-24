@@ -134,6 +134,51 @@ public interface CrosswalkFactory extends EFactory {
         DateToISO8601StringConversion createDateToISO8601StringConversion();
 
         /**
+	 * Returns a new object of class '<em>Dictionary</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Dictionary</em>'.
+	 * @generated
+	 */
+	Dictionary createDictionary();
+
+								/**
+	 * Returns a new object of class '<em>Metadata Block</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Metadata Block</em>'.
+	 * @generated
+	 */
+	MetadataBlock createMetadataBlock();
+
+								/**
+	 * Returns a new object of class '<em>Vocabulary</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Vocabulary</em>'.
+	 * @generated
+	 */
+	Vocabulary createVocabulary();
+
+								/**
+	 * Returns a new object of class '<em>Input Field</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Input Field</em>'.
+	 * @generated
+	 */
+	InputField createInputField();
+
+								/**
+	 * Returns a new object of class '<em>Editing Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Editing Container</em>'.
+	 * @generated
+	 */
+	EditingContainer createEditingContainer();
+
+								/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->

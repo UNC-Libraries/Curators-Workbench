@@ -33,7 +33,7 @@ import unc.lib.cdr.workbench.project.MetsProjectNature;
  * 
  */
 public class CrosswalksProjectElement extends AbstractCustomProjectElement {
-	private static final String text = "Crosswalks";
+	private static final String text = "Description";
 	private IFolder folder = null;
 
 	public CrosswalksProjectElement(MetsProjectNature nature) {
@@ -59,12 +59,14 @@ public class CrosswalksProjectElement extends AbstractCustomProjectElement {
 	 */
 	@Override
 	public Object[] getChildren() {
-		List<CrosswalkTreeElement> results = new ArrayList<CrosswalkTreeElement>();
+		List<Object> results = new ArrayList<Object>();
 		try {
 			for (IResource r : folder.members()) {
 				if (r instanceof IFile) {
 					IFile cwfile = (IFile) r;
 					if (IResourceConstants.CROSSWALK_EXTENSION.equals(cwfile.getFileExtension())) {
+						results.add(new CrosswalkTreeElement(cwfile));
+					} else {
 						results.add(new CrosswalkTreeElement(cwfile));
 					}
 				}

@@ -29,6 +29,7 @@ import org.eclipse.gmf.runtime.notation.View;
 
 import crosswalk.CrossWalk;
 import crosswalk.CrosswalkFactory;
+import crosswalk.MappingContainer;
 import crosswalk.TrimWhitespace;
 
 /**
@@ -72,7 +73,7 @@ public class TrimWhitespaceCreateCommand extends EditElementCommand {
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
 		TrimWhitespace newElement = CrosswalkFactory.eINSTANCE.createTrimWhitespace();
 
-		CrossWalk owner = (CrossWalk) getElementToEdit();
+		MappingContainer owner = (MappingContainer) getElementToEdit();
 		owner.getWidgets().add(newElement);
 
 		doConfigure(newElement, monitor, info);

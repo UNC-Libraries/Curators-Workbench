@@ -20,10 +20,12 @@ import java.util.LinkedList;
 import java.util.List;
 
 import org.eclipse.draw2d.ColorConstants;
+import org.eclipse.draw2d.ConnectionAnchor;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
+import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
@@ -54,7 +56,7 @@ public class TabbedDataFieldEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3001;
+	public static final int VISUAL_ID = 3002;
 
 	/**
 	 * @generated
@@ -71,6 +73,11 @@ public class TabbedDataFieldEditPart extends ShapeNodeEditPart {
 	 */
 	public TabbedDataFieldEditPart(View view) {
 		super(view);
+	}
+
+	@Override
+	public ConnectionAnchor getTargetConnectionAnchor(Request request) {
+		return getNodeFigure().getSourceConnectionAnchorAt(getPrimaryShape().getBounds().getRight());
 	}
 
 	/**
@@ -128,8 +135,8 @@ public class TabbedDataFieldEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof WrappingLabel15EditPart) {
-			((WrappingLabel15EditPart) childEditPart).setLabel(getPrimaryShape().getFigureDataFieldValueLabelFigure());
+		if (childEditPart instanceof WrappingLabelEditPart) {
+			((WrappingLabelEditPart) childEditPart).setLabel(getPrimaryShape().getFigureDataFieldValueLabelFigure());
 			return true;
 		}
 		if (childEditPart instanceof TabbedDataFieldLabelColumnNumberEditPart) {
@@ -144,7 +151,7 @@ public class TabbedDataFieldEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof WrappingLabel15EditPart) {
+		if (childEditPart instanceof WrappingLabelEditPart) {
 			return true;
 		}
 		if (childEditPart instanceof TabbedDataFieldLabelColumnNumberEditPart) {
@@ -280,7 +287,7 @@ public class TabbedDataFieldEditPart extends ShapeNodeEditPart {
 	 */
 	@Override
 	public EditPart getPrimaryChildEditPart() {
-		return getChildBySemanticHint(CrosswalkVisualIDRegistry.getType(WrappingLabel15EditPart.VISUAL_ID));
+		return getChildBySemanticHint(CrosswalkVisualIDRegistry.getType(WrappingLabelEditPart.VISUAL_ID));
 	}
 
 	/**
@@ -288,7 +295,7 @@ public class TabbedDataFieldEditPart extends ShapeNodeEditPart {
 	 */
 	public List<IElementType> getMARelTypesOnTarget() {
 		ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-		types.add(CrosswalkElementTypes.InputOutput_4003);
+		types.add(CrosswalkElementTypes.InputOutput_4001);
 		return types;
 	}
 
@@ -297,11 +304,16 @@ public class TabbedDataFieldEditPart extends ShapeNodeEditPart {
 	 */
 	public List<IElementType> getMATypesForSource(IElementType relationshipType) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (relationshipType == CrosswalkElementTypes.InputOutput_4003) {
-			types.add(CrosswalkElementTypes.OriginalNameRecordMatcher_2010);
-			types.add(CrosswalkElementTypes.DateRecognizer_2013);
-			types.add(CrosswalkElementTypes.TrimWhitespace_2015);
+		if (relationshipType == CrosswalkElementTypes.InputOutput_4001) {
+			types.add(CrosswalkElementTypes.OriginalNameRecordMatcher_3003);
+			types.add(CrosswalkElementTypes.DateRecognizer_3004);
+			types.add(CrosswalkElementTypes.TrimWhitespace_3006);
+			types.add(CrosswalkElementTypes.MappedAttribute_3009);
+			types.add(CrosswalkElementTypes.OriginalNameRecordMatcher_3011);
+			types.add(CrosswalkElementTypes.DateRecognizer_3012);
+			types.add(CrosswalkElementTypes.TrimWhitespace_3014);
 			types.add(CrosswalkElementTypes.MappedAttribute_3016);
+			types.add(CrosswalkElementTypes.InputField_3017);
 		}
 		return types;
 	}

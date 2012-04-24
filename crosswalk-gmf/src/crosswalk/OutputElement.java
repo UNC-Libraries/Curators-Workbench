@@ -35,34 +35,32 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface OutputElement extends EObject {
         /**
-	 * Returns the value of the '<em><b>Walk</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link crosswalk.CrossWalk#getElements <em>Elements</em>}'.
+	 * Returns the value of the '<em><b>Walk</b></em>' reference.
 	 * <!-- begin-user-doc -->
          * <p>
          * If the meaning of the '<em>Walk</em>' container reference isn't clear,
          * there really should be more of a description here...
          * </p>
          * <!-- end-user-doc -->
-	 * @return the value of the '<em>Walk</em>' container reference.
-	 * @see #setWalk(CrossWalk)
+	 * @return the value of the '<em>Walk</em>' reference.
+	 * @see #setWalk(SchemaProvider)
 	 * @see crosswalk.CrosswalkPackage#getOutputElement_Walk()
-	 * @see crosswalk.CrossWalk#getElements
-	 * @model opposite="Elements" transient="false"
+	 * @model
 	 * @generated
 	 */
-        CrossWalk getWalk();
+        SchemaProvider getWalk();
 
         /**
-	 * Sets the value of the '{@link crosswalk.OutputElement#getWalk <em>Walk</em>}' container reference.
+	 * Sets the value of the '{@link crosswalk.OutputElement#getWalk <em>Walk</em>}' reference.
 	 * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Walk</em>' container reference.
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Walk</em>' reference.
 	 * @see #getWalk()
 	 * @generated
 	 */
-        void setWalk(CrossWalk value);
+	void setWalk(SchemaProvider value);
 
-        /**
+								/**
 	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
 	 * @model recordRequired="true"

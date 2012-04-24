@@ -4,6 +4,8 @@
 package crosswalk.diagram.edit.parts;
 
 import org.eclipse.draw2d.FlowLayout;
+import org.eclipse.draw2d.GridData;
+import org.eclipse.draw2d.GridLayout;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.MarginBorder;
 import org.eclipse.draw2d.RectangleFigure;
@@ -17,6 +19,7 @@ import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
+import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
 import org.eclipse.gef.requests.CreateRequest;
 import org.eclipse.gmf.runtime.diagram.core.edithelpers.CreateElementRequestAdapter;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
@@ -47,7 +50,7 @@ public class MappedElement2EditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3015;
+	public static final int VISUAL_ID = 3008;
 
 	/**
 	 * @generated
@@ -71,8 +74,8 @@ public class MappedElement2EditPart extends ShapeNodeEditPart {
 	 */
 	@Override
 	protected void createDefaultEditPolicies() {
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicy());
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new SpecialCreationEditPolicy());
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new MappedElement2ItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
@@ -83,20 +86,20 @@ public class MappedElement2EditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected LayoutEditPolicy createLayoutEditPolicy() {
+		org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
 
-		FlowLayoutEditPolicy lep = new FlowLayoutEditPolicy() {
+			protected EditPolicy createChildEditPolicy(EditPart child) {
+				EditPolicy result = child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
+				if (result == null) {
+					result = new NonResizableEditPolicy();
+				}
+				return result;
+			}
 
-			@Override
-			protected Command createAddCommand(EditPart child, EditPart after) {
+			protected Command getMoveChildrenCommand(Request request) {
 				return null;
 			}
 
-			@Override
-			protected Command createMoveChildCommand(EditPart child, EditPart after) {
-				return null;
-			}
-
-			@Override
 			protected Command getCreateCommand(CreateRequest request) {
 				return null;
 			}
@@ -122,13 +125,13 @@ public class MappedElement2EditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof WrappingLabel16EditPart) {
-			((WrappingLabel16EditPart) childEditPart).setLabel(getPrimaryShape().getLabel());
+		if (childEditPart instanceof WrappingLabel6EditPart) {
+			((WrappingLabel6EditPart) childEditPart).setLabel(getPrimaryShape().getLabel());
 			return true;
 		}
 		if (childEditPart instanceof MappedElementChildElementsCompartment2EditPart) {
 			IFigure pane = getPrimaryShape().getChildPane();
-			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way
+			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
 			pane.add(((MappedElementChildElementsCompartment2EditPart) childEditPart).getFigure());
 			return true;
 		}
@@ -139,12 +142,12 @@ public class MappedElement2EditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof WrappingLabel16EditPart) {
+		if (childEditPart instanceof WrappingLabel6EditPart) {
 			return true;
 		}
 		if (childEditPart instanceof MappedElementChildElementsCompartment2EditPart) {
 			IFigure pane = getPrimaryShape().getChildPane();
-			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way
+			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
 			pane.remove(((MappedElementChildElementsCompartment2EditPart) childEditPart).getFigure());
 			return true;
 		}
@@ -281,23 +284,22 @@ public class MappedElement2EditPart extends ShapeNodeEditPart {
 	 */
 	@Override
 	public EditPart getPrimaryChildEditPart() {
-		return getChildBySemanticHint(CrosswalkVisualIDRegistry.getType(WrappingLabel16EditPart.VISUAL_ID));
+		return getChildBySemanticHint(CrosswalkVisualIDRegistry.getType(WrappingLabel6EditPart.VISUAL_ID));
 	}
 
 	/**
 	 * @generated
 	 */
-	@Override
 	public EditPart getTargetEditPart(Request request) {
 		if (request instanceof CreateViewAndElementRequest) {
 			CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request).getViewAndElementDescriptor()
 					.getCreateElementRequestAdapter();
 			IElementType type = (IElementType) adapter.getAdapter(IElementType.class);
-			if (type == CrosswalkElementTypes.MappedElement_3015) {
+			if (type == CrosswalkElementTypes.MappedElement_3008) {
 				return getChildBySemanticHint(CrosswalkVisualIDRegistry
 						.getType(MappedElementChildElementsCompartment2EditPart.VISUAL_ID));
 			}
-			if (type == CrosswalkElementTypes.MappedAttribute_3016) {
+			if (type == CrosswalkElementTypes.MappedAttribute_3009) {
 				return getChildBySemanticHint(CrosswalkVisualIDRegistry
 						.getType(MappedElementChildElementsCompartment2EditPart.VISUAL_ID));
 			}
@@ -324,15 +326,9 @@ public class MappedElement2EditPart extends ShapeNodeEditPart {
 		 */
 		public MappedElementFigure() {
 
-			FlowLayout layoutThis = new FlowLayout();
-			layoutThis.setStretchMinorAxis(false);
-			layoutThis.setMinorAlignment(FlowLayout.ALIGN_CENTER);
-
-			layoutThis.setMajorAlignment(FlowLayout.ALIGN_CENTER);
-			layoutThis.setMajorSpacing(5);
-			layoutThis.setMinorSpacing(5);
-			layoutThis.setHorizontal(false);
-
+			GridLayout layoutThis = new GridLayout();
+			layoutThis.numColumns = 1;
+			layoutThis.makeColumnsEqualWidth = true;
 			this.setLayoutManager(layoutThis);
 
 			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(20), getMapMode().DPtoLP(20)));
@@ -350,12 +346,28 @@ public class MappedElement2EditPart extends ShapeNodeEditPart {
 			fLabel = new WrappingLabel();
 			fLabel.setText("Unknown MODS Element");
 
-			this.add(fLabel);
+			GridData constraintFLabel = new GridData();
+			constraintFLabel.verticalAlignment = GridData.BEGINNING;
+			constraintFLabel.horizontalAlignment = GridData.BEGINNING;
+			constraintFLabel.horizontalIndent = 5;
+			constraintFLabel.horizontalSpan = 1;
+			constraintFLabel.verticalSpan = 1;
+			constraintFLabel.grabExcessHorizontalSpace = false;
+			constraintFLabel.grabExcessVerticalSpace = false;
+			this.add(fLabel, constraintFLabel);
 
 			fChildPane = new RectangleFigure();
 			fChildPane.setOutline(false);
 
-			this.add(fChildPane);
+			GridData constraintFChildPane = new GridData();
+			constraintFChildPane.verticalAlignment = GridData.FILL;
+			constraintFChildPane.horizontalAlignment = GridData.FILL;
+			constraintFChildPane.horizontalIndent = 10;
+			constraintFChildPane.horizontalSpan = 1;
+			constraintFChildPane.verticalSpan = 1;
+			constraintFChildPane.grabExcessHorizontalSpace = true;
+			constraintFChildPane.grabExcessVerticalSpace = true;
+			this.add(fChildPane, constraintFChildPane);
 
 			ToolbarLayout layoutFChildPane = new ToolbarLayout();
 			layoutFChildPane.setStretchMinorAxis(false);

@@ -11,6 +11,7 @@ import java.util.Set;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.gef.EditPart;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gmf.runtime.diagram.core.util.ViewUtil;
 import org.eclipse.gmf.runtime.diagram.ui.commands.DeferredLayoutCommand;
@@ -42,6 +43,18 @@ public class MappedElementChildElementsCompartment2CanonicalEditPolicy extends C
 	/**
 	 * @generated
 	 */
+	protected void refreshOnActivate() {
+		// Need to activate editpart children before invoking the canonical refresh for EditParts to add event listeners
+		List<?> c = getHost().getChildren();
+		for (int i = 0; i < c.size(); i++) {
+			((EditPart) c.get(i)).activate();
+		}
+		super.refreshOnActivate();
+	}
+
+	/**
+	 * @generated
+	 */
 	protected Set getFeaturesToSynchronize() {
 		if (myFeaturesToSynchronize == null) {
 			myFeaturesToSynchronize = new HashSet<EStructuralFeature>();
@@ -59,7 +72,7 @@ public class MappedElementChildElementsCompartment2CanonicalEditPolicy extends C
 		View viewObject = (View) getHost().getModel();
 		LinkedList<EObject> result = new LinkedList<EObject>();
 		List<CrosswalkNodeDescriptor> childDescriptors = CrosswalkDiagramUpdater
-				.getMappedElementChildElementsCompartment_7016SemanticChildren(viewObject);
+				.getMappedElementChildElementsCompartment_7004SemanticChildren(viewObject);
 		for (CrosswalkNodeDescriptor d : childDescriptors) {
 			result.add(d.getModelElement());
 		}
@@ -90,7 +103,7 @@ public class MappedElementChildElementsCompartment2CanonicalEditPolicy extends C
 		}
 		LinkedList<IAdaptable> createdViews = new LinkedList<IAdaptable>();
 		List<CrosswalkNodeDescriptor> childDescriptors = CrosswalkDiagramUpdater
-				.getMappedElementChildElementsCompartment_7016SemanticChildren((View) getHost().getModel());
+				.getMappedElementChildElementsCompartment_7004SemanticChildren((View) getHost().getModel());
 		LinkedList<View> orphaned = new LinkedList<View>();
 		// we care to check only views we recognize as ours
 		LinkedList<View> knownViewChildren = new LinkedList<View>();

@@ -18,14 +18,14 @@ public class DelimitedFileDataFieldCompartmentItemSemanticEditPolicy extends Cro
 	 * @generated
 	 */
 	public DelimitedFileDataFieldCompartmentItemSemanticEditPolicy() {
-		super(CrosswalkElementTypes.DelimitedFile_2001);
+		super(CrosswalkElementTypes.DelimitedFile_3001);
 	}
 
 	/**
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (CrosswalkElementTypes.TabbedDataField_3001 == req.getElementType()) {
+		if (CrosswalkElementTypes.TabbedDataField_3002 == req.getElementType()) {
 			return getGEFWrapper(new TabbedDataFieldCreateCommand(req));
 		}
 		return super.getCreateCommand(req);

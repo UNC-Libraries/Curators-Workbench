@@ -103,7 +103,7 @@ public class TabbedDataFieldLabelColumnNumberEditPart extends CompartmentEditPar
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicy.SELECTION_FEEDBACK_ROLE, new CrosswalkTextSelectionEditPolicy());
 		installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE, new LabelDirectEditPolicy());
-		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE, new CrossWalkEditPart.NodeLabelDragPolicy());
+		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE, new EditingContainerEditPart.NodeLabelDragPolicy());
 	}
 
 	/**
@@ -289,7 +289,7 @@ public class TabbedDataFieldLabelColumnNumberEditPart extends CompartmentEditPar
 	 */
 	public IParser getParser() {
 		if (parser == null) {
-			parser = CrosswalkParserProvider.getParser(CrosswalkElementTypes.TabbedDataField_3001, getParserElement(),
+			parser = CrosswalkParserProvider.getParser(CrosswalkElementTypes.TabbedDataField_3002, getParserElement(),
 					CrosswalkVisualIDRegistry
 							.getType(crosswalk.diagram.edit.parts.TabbedDataFieldLabelColumnNumberEditPart.VISUAL_ID));
 		}

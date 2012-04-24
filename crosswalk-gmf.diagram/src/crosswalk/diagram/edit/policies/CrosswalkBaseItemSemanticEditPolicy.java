@@ -328,20 +328,20 @@ public class CrosswalkBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		/**
 		 * @generated
 		 */
-		public boolean canCreateInputOutput_4003(Input source, Output target) {
+		public boolean canCreateInputOutput_4001(Input source, Output target) {
 			if (source != null) {
 				if (source.getOutput() != null) {
 					return false;
 				}
 			}
 
-			return canExistInputOutput_4003(source, target);
+			return canExistInputOutput_4001(source, target);
 		}
 
 		/**
 		 * @generated NOT
 		 */
-		public boolean canExistInputOutput_4003(Input source, Output target) {
+		public boolean canExistInputOutput_4001(Input source, Output target) {
 			boolean result = false;
 			try {
 				if (target == null) {
@@ -357,6 +357,7 @@ public class CrosswalkBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 			}
 			return result;
 		}
+
 	}
 
 }

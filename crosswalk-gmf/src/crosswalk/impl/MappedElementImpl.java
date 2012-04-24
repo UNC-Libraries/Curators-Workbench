@@ -24,10 +24,10 @@ import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import crosswalk.CrossWalk;
 import crosswalk.CrosswalkPackage;
 import crosswalk.MappedAttribute;
 import crosswalk.MappedElement;
+import crosswalk.SchemaProvider;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object ' <em><b>Mapped Element</b></em>'. <!-- end-user-doc
@@ -46,6 +46,16 @@ import crosswalk.MappedElement;
  * @generated
  */
 public class MappedElementImpl extends EObjectImpl implements MappedElement {
+
+	/**
+	 * The cached value of the '{@link #getWalk() <em>Walk</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getWalk()
+	 * @generated
+	 * @ordered
+	 */
+	protected SchemaProvider walk;
 
 	/**
 	 * The cached value of the '{@link #getChildElements() <em>Child Elements</em>}' containment reference list. <!--
@@ -98,38 +108,37 @@ public class MappedElementImpl extends EObjectImpl implements MappedElement {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CrossWalk getWalk() {
-		if (eContainerFeatureID() != CrosswalkPackage.MAPPED_ELEMENT__WALK) return null;
-		return (CrossWalk)eContainer();
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetWalk(CrossWalk newWalk, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newWalk, CrosswalkPackage.MAPPED_ELEMENT__WALK, msgs);
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setWalk(CrossWalk newWalk) {
-		if (newWalk != eInternalContainer() || (eContainerFeatureID() != CrosswalkPackage.MAPPED_ELEMENT__WALK && newWalk != null)) {
-			if (EcoreUtil.isAncestor(this, newWalk))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
-			NotificationChain msgs = null;
-			if (eInternalContainer() != null)
-				msgs = eBasicRemoveFromContainer(msgs);
-			if (newWalk != null)
-				msgs = ((InternalEObject)newWalk).eInverseAdd(this, CrosswalkPackage.CROSS_WALK__ELEMENTS, CrossWalk.class, msgs);
-			msgs = basicSetWalk(newWalk, msgs);
-			if (msgs != null) msgs.dispatch();
+	public SchemaProvider getWalk() {
+		if (walk != null && walk.eIsProxy()) {
+			InternalEObject oldWalk = (InternalEObject)walk;
+			walk = (SchemaProvider)eResolveProxy(oldWalk);
+			if (walk != oldWalk) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CrosswalkPackage.MAPPED_ELEMENT__WALK, oldWalk, walk));
+			}
 		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.MAPPED_ELEMENT__WALK, newWalk, newWalk));
+		return walk;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SchemaProvider basicGetWalk() {
+		return walk;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setWalk(SchemaProvider newWalk) {
+		SchemaProvider oldWalk = walk;
+		walk = newWalk;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.MAPPED_ELEMENT__WALK, oldWalk, walk));
 	}
 
 	/**
@@ -324,10 +333,6 @@ public class MappedElementImpl extends EObjectImpl implements MappedElement {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case CrosswalkPackage.MAPPED_ELEMENT__WALK:
-				if (eInternalContainer() != null)
-					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetWalk((CrossWalk)otherEnd, msgs);
 			case CrosswalkPackage.MAPPED_ELEMENT__CHILD_ELEMENTS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getChildElements()).basicAdd(otherEnd, msgs);
 			case CrosswalkPackage.MAPPED_ELEMENT__PARENT:
@@ -345,8 +350,6 @@ public class MappedElementImpl extends EObjectImpl implements MappedElement {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case CrosswalkPackage.MAPPED_ELEMENT__WALK:
-				return basicSetWalk(null, msgs);
 			case CrosswalkPackage.MAPPED_ELEMENT__CHILD_ELEMENTS:
 				return ((InternalEList<?>)getChildElements()).basicRemove(otherEnd, msgs);
 			case CrosswalkPackage.MAPPED_ELEMENT__ATTRIBUTES:
@@ -364,8 +367,6 @@ public class MappedElementImpl extends EObjectImpl implements MappedElement {
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
-			case CrosswalkPackage.MAPPED_ELEMENT__WALK:
-				return eInternalContainer().eInverseRemove(this, CrosswalkPackage.CROSS_WALK__ELEMENTS, CrossWalk.class, msgs);
 			case CrosswalkPackage.MAPPED_ELEMENT__PARENT:
 				return eInternalContainer().eInverseRemove(this, CrosswalkPackage.MAPPED_ELEMENT__CHILD_ELEMENTS, MappedElement.class, msgs);
 		}
@@ -380,7 +381,8 @@ public class MappedElementImpl extends EObjectImpl implements MappedElement {
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case CrosswalkPackage.MAPPED_ELEMENT__WALK:
-				return getWalk();
+				if (resolve) return getWalk();
+				return basicGetWalk();
 			case CrosswalkPackage.MAPPED_ELEMENT__CHILD_ELEMENTS:
 				return getChildElements();
 			case CrosswalkPackage.MAPPED_ELEMENT__ATTRIBUTES:
@@ -403,7 +405,7 @@ public class MappedElementImpl extends EObjectImpl implements MappedElement {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case CrosswalkPackage.MAPPED_ELEMENT__WALK:
-				setWalk((CrossWalk)newValue);
+				setWalk((SchemaProvider)newValue);
 				return;
 			case CrosswalkPackage.MAPPED_ELEMENT__CHILD_ELEMENTS:
 				getChildElements().clear();
@@ -431,7 +433,7 @@ public class MappedElementImpl extends EObjectImpl implements MappedElement {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case CrosswalkPackage.MAPPED_ELEMENT__WALK:
-				setWalk((CrossWalk)null);
+				setWalk((SchemaProvider)null);
 				return;
 			case CrosswalkPackage.MAPPED_ELEMENT__CHILD_ELEMENTS:
 				getChildElements().clear();
@@ -457,7 +459,7 @@ public class MappedElementImpl extends EObjectImpl implements MappedElement {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case CrosswalkPackage.MAPPED_ELEMENT__WALK:
-				return getWalk() != null;
+				return walk != null;
 			case CrosswalkPackage.MAPPED_ELEMENT__CHILD_ELEMENTS:
 				return childElements != null && !childElements.isEmpty();
 			case CrosswalkPackage.MAPPED_ELEMENT__ATTRIBUTES:

@@ -6,7 +6,6 @@
  */
 package crosswalk.impl;
 
-import crosswalk.ConversionStrategy;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EAttribute;
@@ -18,12 +17,13 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
-import crosswalk.CrossWalk;
+import crosswalk.ConversionStrategy;
 import crosswalk.CrosswalkPackage;
 import crosswalk.DataException;
 import crosswalk.Input;
 import crosswalk.MappedAttribute;
 import crosswalk.Output;
+import crosswalk.SchemaProvider;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object ' <em><b>Mapped Attribute</b></em>'. <!-- end-user-doc
@@ -42,6 +42,16 @@ import crosswalk.Output;
  * @generated
  */
 public class MappedAttributeImpl extends EObjectImpl implements MappedAttribute {
+	/**
+	 * The cached value of the '{@link #getWalk() <em>Walk</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getWalk()
+	 * @generated
+	 * @ordered
+	 */
+	protected SchemaProvider walk;
+
 	/**
 	 * The cached value of the '{@link #getOutput() <em>Output</em>}' reference.
 	 * <!-- begin-user-doc --> <!--
@@ -117,6 +127,26 @@ public class MappedAttributeImpl extends EObjectImpl implements MappedAttribute 
 	protected boolean defaultValueESet;
 
 	/**
+	 * The default value of the '{@link #isRequired() <em>Required</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isRequired()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean REQUIRED_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isRequired() <em>Required</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isRequired()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean required = REQUIRED_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -137,38 +167,37 @@ public class MappedAttributeImpl extends EObjectImpl implements MappedAttribute 
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CrossWalk getWalk() {
-		if (eContainerFeatureID() != CrosswalkPackage.MAPPED_ATTRIBUTE__WALK) return null;
-		return (CrossWalk)eContainer();
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetWalk(CrossWalk newWalk, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newWalk, CrosswalkPackage.MAPPED_ATTRIBUTE__WALK, msgs);
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setWalk(CrossWalk newWalk) {
-		if (newWalk != eInternalContainer() || (eContainerFeatureID() != CrosswalkPackage.MAPPED_ATTRIBUTE__WALK && newWalk != null)) {
-			if (EcoreUtil.isAncestor(this, newWalk))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
-			NotificationChain msgs = null;
-			if (eInternalContainer() != null)
-				msgs = eBasicRemoveFromContainer(msgs);
-			if (newWalk != null)
-				msgs = ((InternalEObject)newWalk).eInverseAdd(this, CrosswalkPackage.CROSS_WALK__ELEMENTS, CrossWalk.class, msgs);
-			msgs = basicSetWalk(newWalk, msgs);
-			if (msgs != null) msgs.dispatch();
+	public SchemaProvider getWalk() {
+		if (walk != null && walk.eIsProxy()) {
+			InternalEObject oldWalk = (InternalEObject)walk;
+			walk = (SchemaProvider)eResolveProxy(oldWalk);
+			if (walk != oldWalk) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CrosswalkPackage.MAPPED_ATTRIBUTE__WALK, oldWalk, walk));
+			}
 		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.MAPPED_ATTRIBUTE__WALK, newWalk, newWalk));
+		return walk;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SchemaProvider basicGetWalk() {
+		return walk;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setWalk(SchemaProvider newWalk) {
+		SchemaProvider oldWalk = walk;
+		walk = newWalk;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.MAPPED_ATTRIBUTE__WALK, oldWalk, walk));
 	}
 
 	/**
@@ -396,6 +425,27 @@ public class MappedAttributeImpl extends EObjectImpl implements MappedAttribute 
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isRequired() {
+		return required;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRequired(boolean newRequired) {
+		boolean oldRequired = required;
+		required = newRequired;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.MAPPED_ATTRIBUTE__REQUIRED, oldRequired, required));
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated NOT
@@ -453,25 +503,8 @@ public class MappedAttributeImpl extends EObjectImpl implements MappedAttribute 
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case CrosswalkPackage.MAPPED_ATTRIBUTE__WALK:
-				if (eInternalContainer() != null)
-					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetWalk((CrossWalk)otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case CrosswalkPackage.MAPPED_ATTRIBUTE__WALK:
-				return basicSetWalk(null, msgs);
 			case CrosswalkPackage.MAPPED_ATTRIBUTE__CONVERSION_STRATEGY:
 				return basicUnsetConversionStrategy(msgs);
 		}
@@ -483,23 +516,11 @@ public class MappedAttributeImpl extends EObjectImpl implements MappedAttribute 
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID()) {
-			case CrosswalkPackage.MAPPED_ATTRIBUTE__WALK:
-				return eInternalContainer().eInverseRemove(this, CrosswalkPackage.CROSS_WALK__ELEMENTS, CrossWalk.class, msgs);
-		}
-		return super.eBasicRemoveFromContainerFeature(msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case CrosswalkPackage.MAPPED_ATTRIBUTE__WALK:
-				return getWalk();
+				if (resolve) return getWalk();
+				return basicGetWalk();
 			case CrosswalkPackage.MAPPED_ATTRIBUTE__OUTPUT:
 				if (resolve) return getOutput();
 				return basicGetOutput();
@@ -510,6 +531,8 @@ public class MappedAttributeImpl extends EObjectImpl implements MappedAttribute 
 				return getConversionStrategy();
 			case CrosswalkPackage.MAPPED_ATTRIBUTE__DEFAULT_VALUE:
 				return getDefaultValue();
+			case CrosswalkPackage.MAPPED_ATTRIBUTE__REQUIRED:
+				return isRequired();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -522,7 +545,7 @@ public class MappedAttributeImpl extends EObjectImpl implements MappedAttribute 
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case CrosswalkPackage.MAPPED_ATTRIBUTE__WALK:
-				setWalk((CrossWalk)newValue);
+				setWalk((SchemaProvider)newValue);
 				return;
 			case CrosswalkPackage.MAPPED_ATTRIBUTE__OUTPUT:
 				setOutput((Output)newValue);
@@ -536,6 +559,9 @@ public class MappedAttributeImpl extends EObjectImpl implements MappedAttribute 
 			case CrosswalkPackage.MAPPED_ATTRIBUTE__DEFAULT_VALUE:
 				setDefaultValue((String)newValue);
 				return;
+			case CrosswalkPackage.MAPPED_ATTRIBUTE__REQUIRED:
+				setRequired((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -548,7 +574,7 @@ public class MappedAttributeImpl extends EObjectImpl implements MappedAttribute 
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case CrosswalkPackage.MAPPED_ATTRIBUTE__WALK:
-				setWalk((CrossWalk)null);
+				setWalk((SchemaProvider)null);
 				return;
 			case CrosswalkPackage.MAPPED_ATTRIBUTE__OUTPUT:
 				unsetOutput();
@@ -562,6 +588,9 @@ public class MappedAttributeImpl extends EObjectImpl implements MappedAttribute 
 			case CrosswalkPackage.MAPPED_ATTRIBUTE__DEFAULT_VALUE:
 				unsetDefaultValue();
 				return;
+			case CrosswalkPackage.MAPPED_ATTRIBUTE__REQUIRED:
+				setRequired(REQUIRED_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -574,7 +603,7 @@ public class MappedAttributeImpl extends EObjectImpl implements MappedAttribute 
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case CrosswalkPackage.MAPPED_ATTRIBUTE__WALK:
-				return getWalk() != null;
+				return walk != null;
 			case CrosswalkPackage.MAPPED_ATTRIBUTE__OUTPUT:
 				return isSetOutput();
 			case CrosswalkPackage.MAPPED_ATTRIBUTE__MAPPED_FEATURE:
@@ -583,6 +612,8 @@ public class MappedAttributeImpl extends EObjectImpl implements MappedAttribute 
 				return isSetConversionStrategy();
 			case CrosswalkPackage.MAPPED_ATTRIBUTE__DEFAULT_VALUE:
 				return isSetDefaultValue();
+			case CrosswalkPackage.MAPPED_ATTRIBUTE__REQUIRED:
+				return required != REQUIRED_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -628,6 +659,8 @@ public class MappedAttributeImpl extends EObjectImpl implements MappedAttribute 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (defaultValue: ");
 		if (defaultValueESet) result.append(defaultValue); else result.append("<unset>");
+		result.append(", required: ");
+		result.append(required);
 		result.append(')');
 		return result.toString();
 	}

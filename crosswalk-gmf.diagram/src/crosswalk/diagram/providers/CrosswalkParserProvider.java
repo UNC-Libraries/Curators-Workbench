@@ -30,19 +30,32 @@ import org.eclipse.gmf.runtime.notation.View;
 
 import crosswalk.CrosswalkPackage;
 import crosswalk.diagram.edit.parts.DelimitedFileSourceFileEditPart;
+import crosswalk.diagram.edit.parts.InputFieldLabelEditPart;
 import crosswalk.diagram.edit.parts.MappedAttributeNameEditPart;
+import crosswalk.diagram.edit.parts.MetadataBlockName2EditPart;
+import crosswalk.diagram.edit.parts.MetadataBlockNameEditPart;
 import crosswalk.diagram.edit.parts.TabbedDataFieldLabelColumnNumberEditPart;
+import crosswalk.diagram.edit.parts.TextValue2EditPart;
 import crosswalk.diagram.edit.parts.TextValueEditPart;
+import crosswalk.diagram.edit.parts.WrappingLabel10EditPart;
+import crosswalk.diagram.edit.parts.WrappingLabel11EditPart;
 import crosswalk.diagram.edit.parts.WrappingLabel12EditPart;
-import crosswalk.diagram.edit.parts.WrappingLabel13EditPart;
-import crosswalk.diagram.edit.parts.WrappingLabel14EditPart;
 import crosswalk.diagram.edit.parts.WrappingLabel15EditPart;
 import crosswalk.diagram.edit.parts.WrappingLabel16EditPart;
+import crosswalk.diagram.edit.parts.WrappingLabel2EditPart;
+import crosswalk.diagram.edit.parts.WrappingLabel3EditPart;
+import crosswalk.diagram.edit.parts.WrappingLabel4EditPart;
+import crosswalk.diagram.edit.parts.WrappingLabel5EditPart;
+import crosswalk.diagram.edit.parts.WrappingLabel6EditPart;
+import crosswalk.diagram.edit.parts.WrappingLabel7EditPart;
+import crosswalk.diagram.edit.parts.WrappingLabel8EditPart;
 import crosswalk.diagram.edit.parts.WrappingLabel9EditPart;
+import crosswalk.diagram.edit.parts.WrappingLabelEditPart;
 import crosswalk.diagram.parsers.DateRecognizerLabelExpressionLabelParser;
 import crosswalk.diagram.parsers.MappedAttributeLabelExpressionLabelParser;
 import crosswalk.diagram.parsers.MappedElementLabelExpressionLabelParser;
 import crosswalk.diagram.parsers.MessageFormatParser;
+import crosswalk.diagram.parsers.NativeParser;
 import crosswalk.diagram.parsers.OriginalNameRecordMatcherLabelExpressionLabelParser;
 import crosswalk.diagram.parsers.TabbedDataFieldLabelExpressionLabelParser;
 import crosswalk.diagram.parsers.TrimWhitespaceLabelExpressionLabelParser;
@@ -71,84 +84,6 @@ public class CrosswalkParserProvider extends AbstractProvider implements IParser
 			delimitedFileSourceFile_5003Parser = parser;
 		}
 		return delimitedFileSourceFile_5003Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private OriginalNameRecordMatcherLabelExpressionLabelParser originalNameRecordMatcherLabel_5021Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getOriginalNameRecordMatcherLabel_5021Parser() {
-		if (originalNameRecordMatcherLabel_5021Parser == null) {
-			originalNameRecordMatcherLabel_5021Parser = new OriginalNameRecordMatcherLabelExpressionLabelParser();
-		}
-		return originalNameRecordMatcherLabel_5021Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private DateRecognizerLabelExpressionLabelParser dateRecognizerLabel_5027Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getDateRecognizerLabel_5027Parser() {
-		if (dateRecognizerLabel_5027Parser == null) {
-			dateRecognizerLabel_5027Parser = new DateRecognizerLabelExpressionLabelParser();
-		}
-		return dateRecognizerLabel_5027Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser textValue_5028Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getTextValue_5028Parser() {
-		if (textValue_5028Parser == null) {
-			EAttribute[] features = new EAttribute[] { CrosswalkPackage.eINSTANCE.getText_Value() };
-			EAttribute[] editableFeatures = new EAttribute[] { CrosswalkPackage.eINSTANCE.getText_Value() };
-			MessageFormatParser parser = new MessageFormatParser(features, editableFeatures);
-			textValue_5028Parser = parser;
-		}
-		return textValue_5028Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private TrimWhitespaceLabelExpressionLabelParser trimWhitespaceLabel_5030Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getTrimWhitespaceLabel_5030Parser() {
-		if (trimWhitespaceLabel_5030Parser == null) {
-			trimWhitespaceLabel_5030Parser = new TrimWhitespaceLabelExpressionLabelParser();
-		}
-		return trimWhitespaceLabel_5030Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private MappedElementLabelExpressionLabelParser mappedElementLabel_5034Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getMappedElementLabel_5034Parser() {
-		if (mappedElementLabel_5034Parser == null) {
-			mappedElementLabel_5034Parser = new MappedElementLabelExpressionLabelParser();
-		}
-		return mappedElementLabel_5034Parser;
 	}
 
 	/**
@@ -191,31 +126,256 @@ public class CrosswalkParserProvider extends AbstractProvider implements IParser
 	/**
 	 * @generated
 	 */
-	private MappedElementLabelExpressionLabelParser mappedElementLabel_5031Parser;
+	private OriginalNameRecordMatcherLabelExpressionLabelParser originalNameRecordMatcherLabel_5004Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getMappedElementLabel_5031Parser() {
-		if (mappedElementLabel_5031Parser == null) {
-			mappedElementLabel_5031Parser = new MappedElementLabelExpressionLabelParser();
+	private IParser getOriginalNameRecordMatcherLabel_5004Parser() {
+		if (originalNameRecordMatcherLabel_5004Parser == null) {
+			originalNameRecordMatcherLabel_5004Parser = new OriginalNameRecordMatcherLabelExpressionLabelParser();
 		}
-		return mappedElementLabel_5031Parser;
+		return originalNameRecordMatcherLabel_5004Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private MappedAttributeLabelExpressionLabelParser mappedAttributeLabel_5032Parser;
+	private DateRecognizerLabelExpressionLabelParser dateRecognizerLabel_5005Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getMappedAttributeLabel_5032Parser() {
-		if (mappedAttributeLabel_5032Parser == null) {
-			mappedAttributeLabel_5032Parser = new MappedAttributeLabelExpressionLabelParser();
+	private IParser getDateRecognizerLabel_5005Parser() {
+		if (dateRecognizerLabel_5005Parser == null) {
+			dateRecognizerLabel_5005Parser = new DateRecognizerLabelExpressionLabelParser();
 		}
-		return mappedAttributeLabel_5032Parser;
+		return dateRecognizerLabel_5005Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser textValue_5006Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getTextValue_5006Parser() {
+		if (textValue_5006Parser == null) {
+			EAttribute[] features = new EAttribute[] { CrosswalkPackage.eINSTANCE.getText_Value() };
+			EAttribute[] editableFeatures = new EAttribute[] { CrosswalkPackage.eINSTANCE.getText_Value() };
+			MessageFormatParser parser = new MessageFormatParser(features, editableFeatures);
+			textValue_5006Parser = parser;
+		}
+		return textValue_5006Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private TrimWhitespaceLabelExpressionLabelParser trimWhitespaceLabel_5007Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getTrimWhitespaceLabel_5007Parser() {
+		if (trimWhitespaceLabel_5007Parser == null) {
+			trimWhitespaceLabel_5007Parser = new TrimWhitespaceLabelExpressionLabelParser();
+		}
+		return trimWhitespaceLabel_5007Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private MappedElementLabelExpressionLabelParser mappedElementLabel_5010Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getMappedElementLabel_5010Parser() {
+		if (mappedElementLabel_5010Parser == null) {
+			mappedElementLabel_5010Parser = new MappedElementLabelExpressionLabelParser();
+		}
+		return mappedElementLabel_5010Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private MappedElementLabelExpressionLabelParser mappedElementLabel_5009Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getMappedElementLabel_5009Parser() {
+		if (mappedElementLabel_5009Parser == null) {
+			mappedElementLabel_5009Parser = new MappedElementLabelExpressionLabelParser();
+		}
+		return mappedElementLabel_5009Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private MappedAttributeLabelExpressionLabelParser mappedAttributeLabel_5008Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getMappedAttributeLabel_5008Parser() {
+		if (mappedAttributeLabel_5008Parser == null) {
+			mappedAttributeLabel_5008Parser = new MappedAttributeLabelExpressionLabelParser();
+		}
+		return mappedAttributeLabel_5008Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser metadataBlockName_5019Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getMetadataBlockName_5019Parser() {
+		if (metadataBlockName_5019Parser == null) {
+			EAttribute[] features = new EAttribute[] { CrosswalkPackage.eINSTANCE.getMetadataBlock_Name() };
+			EAttribute[] editableFeatures = new EAttribute[] { CrosswalkPackage.eINSTANCE.getMetadataBlock_Name() };
+			NativeParser parser = new NativeParser(features, editableFeatures);
+			metadataBlockName_5019Parser = parser;
+		}
+		return metadataBlockName_5019Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser metadataBlockName_5018Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getMetadataBlockName_5018Parser() {
+		if (metadataBlockName_5018Parser == null) {
+			EAttribute[] features = new EAttribute[] { CrosswalkPackage.eINSTANCE.getMetadataBlock_Name() };
+			EAttribute[] editableFeatures = new EAttribute[] { CrosswalkPackage.eINSTANCE.getMetadataBlock_Name() };
+			NativeParser parser = new NativeParser(features, editableFeatures);
+			metadataBlockName_5018Parser = parser;
+		}
+		return metadataBlockName_5018Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private OriginalNameRecordMatcherLabelExpressionLabelParser originalNameRecordMatcherLabel_5011Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getOriginalNameRecordMatcherLabel_5011Parser() {
+		if (originalNameRecordMatcherLabel_5011Parser == null) {
+			originalNameRecordMatcherLabel_5011Parser = new OriginalNameRecordMatcherLabelExpressionLabelParser();
+		}
+		return originalNameRecordMatcherLabel_5011Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private DateRecognizerLabelExpressionLabelParser dateRecognizerLabel_5012Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getDateRecognizerLabel_5012Parser() {
+		if (dateRecognizerLabel_5012Parser == null) {
+			dateRecognizerLabel_5012Parser = new DateRecognizerLabelExpressionLabelParser();
+		}
+		return dateRecognizerLabel_5012Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser textValue_5013Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getTextValue_5013Parser() {
+		if (textValue_5013Parser == null) {
+			EAttribute[] features = new EAttribute[] { CrosswalkPackage.eINSTANCE.getText_Value() };
+			EAttribute[] editableFeatures = new EAttribute[] { CrosswalkPackage.eINSTANCE.getText_Value() };
+			MessageFormatParser parser = new MessageFormatParser(features, editableFeatures);
+			textValue_5013Parser = parser;
+		}
+		return textValue_5013Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private TrimWhitespaceLabelExpressionLabelParser trimWhitespaceLabel_5014Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getTrimWhitespaceLabel_5014Parser() {
+		if (trimWhitespaceLabel_5014Parser == null) {
+			trimWhitespaceLabel_5014Parser = new TrimWhitespaceLabelExpressionLabelParser();
+		}
+		return trimWhitespaceLabel_5014Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private MappedElementLabelExpressionLabelParser mappedElementLabel_5016Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getMappedElementLabel_5016Parser() {
+		if (mappedElementLabel_5016Parser == null) {
+			mappedElementLabel_5016Parser = new MappedElementLabelExpressionLabelParser();
+		}
+		return mappedElementLabel_5016Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private MappedAttributeLabelExpressionLabelParser mappedAttributeLabel_5015Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getMappedAttributeLabel_5015Parser() {
+		if (mappedAttributeLabel_5015Parser == null) {
+			mappedAttributeLabel_5015Parser = new MappedAttributeLabelExpressionLabelParser();
+		}
+		return mappedAttributeLabel_5015Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser inputFieldLabel_5017Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getInputFieldLabel_5017Parser() {
+		if (inputFieldLabel_5017Parser == null) {
+			EAttribute[] features = new EAttribute[] { CrosswalkPackage.eINSTANCE.getInputField_Label() };
+			EAttribute[] editableFeatures = new EAttribute[] { CrosswalkPackage.eINSTANCE.getInputField_Label() };
+			NativeParser parser = new NativeParser(features, editableFeatures);
+			inputFieldLabel_5017Parser = parser;
+		}
+		return inputFieldLabel_5017Parser;
 	}
 
 	/**
@@ -225,24 +385,42 @@ public class CrosswalkParserProvider extends AbstractProvider implements IParser
 		switch (visualID) {
 			case DelimitedFileSourceFileEditPart.VISUAL_ID:
 				return getDelimitedFileSourceFile_5003Parser();
-			case WrappingLabel9EditPart.VISUAL_ID:
-				return getOriginalNameRecordMatcherLabel_5021Parser();
-			case WrappingLabel12EditPart.VISUAL_ID:
-				return getDateRecognizerLabel_5027Parser();
-			case TextValueEditPart.VISUAL_ID:
-				return getTextValue_5028Parser();
-			case WrappingLabel13EditPart.VISUAL_ID:
-				return getTrimWhitespaceLabel_5030Parser();
-			case WrappingLabel14EditPart.VISUAL_ID:
-				return getMappedElementLabel_5034Parser();
-			case WrappingLabel15EditPart.VISUAL_ID:
+			case WrappingLabelEditPart.VISUAL_ID:
 				return getTabbedDataFieldLabel_5001Parser();
 			case TabbedDataFieldLabelColumnNumberEditPart.VISUAL_ID:
 				return getTabbedDataFieldLabelColumnNumber_5002Parser();
-			case WrappingLabel16EditPart.VISUAL_ID:
-				return getMappedElementLabel_5031Parser();
-			case MappedAttributeNameEditPart.VISUAL_ID:
-				return getMappedAttributeLabel_5032Parser();
+			case WrappingLabel2EditPart.VISUAL_ID:
+				return getOriginalNameRecordMatcherLabel_5004Parser();
+			case WrappingLabel3EditPart.VISUAL_ID:
+				return getDateRecognizerLabel_5005Parser();
+			case TextValueEditPart.VISUAL_ID:
+				return getTextValue_5006Parser();
+			case WrappingLabel4EditPart.VISUAL_ID:
+				return getTrimWhitespaceLabel_5007Parser();
+			case WrappingLabel5EditPart.VISUAL_ID:
+				return getMappedElementLabel_5010Parser();
+			case WrappingLabel6EditPart.VISUAL_ID:
+				return getMappedElementLabel_5009Parser();
+			case WrappingLabel7EditPart.VISUAL_ID:
+				return getMappedAttributeLabel_5008Parser();
+			case MetadataBlockName2EditPart.VISUAL_ID:
+				return getMetadataBlockName_5019Parser();
+			case WrappingLabel8EditPart.VISUAL_ID:
+				return getOriginalNameRecordMatcherLabel_5011Parser();
+			case WrappingLabel9EditPart.VISUAL_ID:
+				return getDateRecognizerLabel_5012Parser();
+			case TextValue2EditPart.VISUAL_ID:
+				return getTextValue_5013Parser();
+			case WrappingLabel10EditPart.VISUAL_ID:
+				return getTrimWhitespaceLabel_5014Parser();
+			case WrappingLabel11EditPart.VISUAL_ID:
+				return getMappedElementLabel_5016Parser();
+			case WrappingLabel12EditPart.VISUAL_ID:
+				return getMappedAttributeLabel_5015Parser();
+			case InputFieldLabelEditPart.VISUAL_ID:
+				return getInputFieldLabel_5017Parser();
+			case MetadataBlockNameEditPart.VISUAL_ID:
+				return getMetadataBlockName_5018Parser();
 		}
 		return null;
 	}

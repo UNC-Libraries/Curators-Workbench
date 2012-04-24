@@ -30,7 +30,7 @@ public class TrimWhitespaceItemSemanticEditPolicy extends CrosswalkBaseItemSeman
 	 * @generated
 	 */
 	public TrimWhitespaceItemSemanticEditPolicy() {
-		super(CrosswalkElementTypes.TrimWhitespace_2015);
+		super(CrosswalkElementTypes.TrimWhitespace_3006);
 	}
 
 	/**
@@ -85,7 +85,7 @@ public class TrimWhitespaceItemSemanticEditPolicy extends CrosswalkBaseItemSeman
 	 * @generated
 	 */
 	protected Command getStartCreateRelationshipCommand(CreateRelationshipRequest req) {
-		if (CrosswalkElementTypes.InputOutput_4003 == req.getElementType()) {
+		if (CrosswalkElementTypes.InputOutput_4001 == req.getElementType()) {
 			return getGEFWrapper(new InputOutputCreateCommand(req, req.getSource(), req.getTarget()));
 		}
 		return null;
@@ -95,7 +95,7 @@ public class TrimWhitespaceItemSemanticEditPolicy extends CrosswalkBaseItemSeman
 	 * @generated
 	 */
 	protected Command getCompleteCreateRelationshipCommand(CreateRelationshipRequest req) {
-		if (CrosswalkElementTypes.InputOutput_4003 == req.getElementType()) {
+		if (CrosswalkElementTypes.InputOutput_4001 == req.getElementType()) {
 			return getGEFWrapper(new InputOutputCreateCommand(req, req.getSource(), req.getTarget()));
 		}
 		return null;

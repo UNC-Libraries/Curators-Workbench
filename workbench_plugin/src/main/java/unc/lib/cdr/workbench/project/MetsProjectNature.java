@@ -61,7 +61,7 @@ import unc.lib.cdr.workbench.xwalk.CrosswalksProjectElement;
 public class MetsProjectNature implements IProjectNature {
 
 	public static final String ORIGINALS_FOLDER_NAME = "originals";
-	private static final String CROSSWALKS_FOLDER_NAME = "crosswalks";
+	public static final String CROSSWALKS_FOLDER_NAME = "crosswalks";
 	// public static final String STAGE_FOLDER_NAME = ".stage";
 
 	private static final Logger log = LoggerFactory.getLogger(MetsProjectNature.class);
