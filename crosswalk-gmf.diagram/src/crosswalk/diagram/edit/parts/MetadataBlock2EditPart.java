@@ -9,6 +9,7 @@ import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.ToolbarLayout;
+import org.eclipse.draw2d.XYLayout;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
@@ -21,6 +22,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
+import org.eclipse.gmf.runtime.diagram.ui.internal.figures.CollapseFigure;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewAndElementRequest;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
@@ -362,35 +364,31 @@ public class MetadataBlock2EditPart extends ShapeNodeEditPart {
 			fFigureMetadataBlockInputFieldsPane.setOutline(false);
 
 			GridData constraintFFigureMetadataBlockInputFieldsPane = new GridData();
-			constraintFFigureMetadataBlockInputFieldsPane.verticalAlignment = GridData.FILL;
+			constraintFFigureMetadataBlockInputFieldsPane.verticalAlignment = GridData.CENTER;
 			constraintFFigureMetadataBlockInputFieldsPane.horizontalAlignment = GridData.FILL;
-			constraintFFigureMetadataBlockInputFieldsPane.horizontalIndent = -10;
+			constraintFFigureMetadataBlockInputFieldsPane.horizontalIndent = 0;
 			constraintFFigureMetadataBlockInputFieldsPane.horizontalSpan = 1;
 			constraintFFigureMetadataBlockInputFieldsPane.verticalSpan = 1;
 			constraintFFigureMetadataBlockInputFieldsPane.grabExcessHorizontalSpace = false;
 			constraintFFigureMetadataBlockInputFieldsPane.grabExcessVerticalSpace = false;
 			this.add(fFigureMetadataBlockInputFieldsPane, constraintFFigureMetadataBlockInputFieldsPane);
 
+			GridLayout layoutFFigureMetadataBlockInputFieldsPane = new GridLayout();
+			layoutFFigureMetadataBlockInputFieldsPane.numColumns = 1;
+			layoutFFigureMetadataBlockInputFieldsPane.makeColumnsEqualWidth = false;
+			fFigureMetadataBlockInputFieldsPane.setLayoutManager(layoutFFigureMetadataBlockInputFieldsPane);
+
 			fFigureMetadataBlockMapping = new RectangleFigure();
 
 			GridData constraintFFigureMetadataBlockMapping = new GridData();
-			constraintFFigureMetadataBlockMapping.verticalAlignment = GridData.FILL;
-			constraintFFigureMetadataBlockMapping.horizontalAlignment = GridData.FILL;
+			constraintFFigureMetadataBlockMapping.verticalAlignment = GridData.CENTER;
+			constraintFFigureMetadataBlockMapping.horizontalAlignment = GridData.END;
 			constraintFFigureMetadataBlockMapping.horizontalIndent = 0;
 			constraintFFigureMetadataBlockMapping.horizontalSpan = 1;
 			constraintFFigureMetadataBlockMapping.verticalSpan = 1;
-			constraintFFigureMetadataBlockMapping.grabExcessHorizontalSpace = true;
-			constraintFFigureMetadataBlockMapping.grabExcessVerticalSpace = true;
+			constraintFFigureMetadataBlockMapping.grabExcessHorizontalSpace = false;
+			constraintFFigureMetadataBlockMapping.grabExcessVerticalSpace = false;
 			this.add(fFigureMetadataBlockMapping, constraintFFigureMetadataBlockMapping);
-
-			ToolbarLayout layoutFFigureMetadataBlockMapping = new ToolbarLayout();
-			layoutFFigureMetadataBlockMapping.setStretchMinorAxis(false);
-			layoutFFigureMetadataBlockMapping.setMinorAlignment(ToolbarLayout.ALIGN_CENTER);
-
-			layoutFFigureMetadataBlockMapping.setSpacing(0);
-			layoutFFigureMetadataBlockMapping.setVertical(true);
-
-			fFigureMetadataBlockMapping.setLayoutManager(layoutFFigureMetadataBlockMapping);
 
 		}
 

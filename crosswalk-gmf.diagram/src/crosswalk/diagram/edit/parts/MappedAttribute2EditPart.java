@@ -64,10 +64,11 @@ public class MappedAttribute2EditPart extends ShapeNodeEditPart {
 	public MappedAttribute2EditPart(View view) {
 		super(view);
 	}
-	
+
 	@Override
 	public ConnectionAnchor getSourceConnectionAnchor(Request request) {
-		return getNodeFigure().getSourceConnectionAnchorAt(getPrimaryShape().getFigureStringInputEllipsis().getLocation());
+		return getNodeFigure()
+				.getSourceConnectionAnchorAt(getPrimaryShape().getFigureStringInputEllipsis().getLocation());
 	}
 
 	/**
@@ -345,7 +346,6 @@ public class MappedAttribute2EditPart extends ShapeNodeEditPart {
 			this.setFill(false);
 			this.setOutline(false);
 			createContents();
-			updateFace();
 		}
 
 		/**
@@ -373,7 +373,7 @@ public class MappedAttribute2EditPart extends ShapeNodeEditPart {
 		public WrappingLabel getFigureAttributeLabel() {
 			return fFigureAttributeLabel;
 		}
-		
+
 		private void updateFace() {
 			MappedAttribute att = (MappedAttribute) ((Node) MappedAttribute2EditPart.this.getModel()).getElement();
 			Color c = ColorConstants.red;
@@ -395,7 +395,7 @@ public class MappedAttribute2EditPart extends ShapeNodeEditPart {
 		}
 
 	}
-	
+
 	@Override
 	protected void handleNotificationEvent(Notification notification) {
 		if (notification.getNotifier() instanceof MappedAttribute) {

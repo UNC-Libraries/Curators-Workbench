@@ -789,8 +789,8 @@ public class CrosswalkViewProvider extends AbstractProvider implements IViewProv
 				CrosswalkVisualIDRegistry.getType(MetadataBlockMetadataBlockInputFieldsCompartment2EditPart.VISUAL_ID),
 				true, true, true, true);
 		createCompartment(node,
-				CrosswalkVisualIDRegistry.getType(MetadataBlockMetadataBlockMappingCompartment2EditPart.VISUAL_ID), false,
-				true, false, false);
+				CrosswalkVisualIDRegistry.getType(MetadataBlockMetadataBlockMappingCompartment2EditPart.VISUAL_ID), true,
+				false, false, false);
 		return node;
 	}
 
@@ -831,8 +831,8 @@ public class CrosswalkViewProvider extends AbstractProvider implements IViewProv
 				CrosswalkVisualIDRegistry.getType(MetadataBlockMetadataBlockInputFieldsCompartmentEditPart.VISUAL_ID),
 				true, true, true, true);
 		createCompartment(node,
-				CrosswalkVisualIDRegistry.getType(MetadataBlockMetadataBlockMappingCompartmentEditPart.VISUAL_ID), false,
-				true, false, false);
+				CrosswalkVisualIDRegistry.getType(MetadataBlockMetadataBlockMappingCompartmentEditPart.VISUAL_ID), true,
+				false, false, false);
 		return node;
 	}
 

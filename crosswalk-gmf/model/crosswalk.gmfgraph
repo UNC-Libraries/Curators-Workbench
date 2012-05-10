@@ -240,27 +240,17 @@
             outline="false">
           <layoutData
               xsi:type="gmfgraph:GridLayoutData"
-              verticalAlignment="FILL"
-              horizontalAlignment="FILL"
-              horizontalIndent="-10"/>
+              horizontalAlignment="FILL"/>
+          <layout
+              xsi:type="gmfgraph:GridLayout"
+              equalWidth="false"/>
         </children>
         <children
             xsi:type="gmfgraph:Rectangle"
             name="MetadataBlockMapping">
           <layoutData
               xsi:type="gmfgraph:GridLayoutData"
-              grabExcessHorizontalSpace="true"
-              grabExcessVerticalSpace="true"
-              verticalAlignment="FILL"
-              horizontalAlignment="FILL"/>
-          <layout
-              xsi:type="gmfgraph:FlowLayout"
-              vertical="true"
-              forceSingleLine="true"
-              majorAlignment="END"
-              minorAlignment="FILL"
-              majorSpacing="0"
-              minorSpacing="0"/>
+              horizontalAlignment="END"/>
         </children>
       </actualFigure>
       <accessors
@@ -277,13 +267,19 @@
           name=""
           outline="false"
           fill="false">
+        <layoutData
+            xsi:type="gmfgraph:GridLayoutData"
+            horizontalAlignment="BEGINNING"/>
         <layout
-            xsi:type="gmfgraph:FlowLayout"
-            forceSingleLine="true"
-            minorSpacing="1"/>
+            xsi:type="gmfgraph:GridLayout"
+            numColumns="2"
+            equalWidth="false"/>
         <children
             xsi:type="gmfgraph:Ellipse"
             name="InputFieldEllipsis">
+          <layoutData
+              xsi:type="gmfgraph:GridLayoutData"
+              horizontalAlignment="BEGINNING"/>
           <backgroundColor
               xsi:type="gmfgraph:ConstantColor"
               value="red"/>
@@ -297,7 +293,12 @@
         <children
             xsi:type="gmfgraph:Label"
             name="InputFieldLabel"
-            text="input"/>
+            text="input">
+          <layoutData
+              xsi:type="gmfgraph:GridLayoutData"
+              grabExcessHorizontalSpace="true"
+              horizontalAlignment="BEGINNING"/>
+        </children>
       </actualFigure>
       <accessors
           figure="//@figures.0/@descriptors.7/@actualFigure/@children.1"/>
@@ -377,6 +378,7 @@
   <compartments
       name="MetadataBlockMappingCompartment"
       figure="MetadataBlockFigure"
+      collapsible="true"
       needsTitle="true"
       accessor="//@figures.0/@descriptors.6/@accessors.2"/>
   <compartments

@@ -7,7 +7,8 @@
       title="crosswalkPalette">
     <tools
         xsi:type="gmftool:ToolGroup"
-        title="Metadata Mapping">
+        title="Metadata Mapping"
+        collapsible="true">
       <tools
           xsi:type="gmftool:CreationTool"
           title="XML Element"
@@ -44,7 +45,7 @@
     </tools>
     <tools
         xsi:type="gmftool:ToolGroup"
-        title="Dictionary"
+        title="Dictionary Tools"
         collapsible="true">
       <tools
           xsi:type="gmftool:CreationTool"

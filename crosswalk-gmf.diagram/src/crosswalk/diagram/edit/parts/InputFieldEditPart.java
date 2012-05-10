@@ -7,7 +7,10 @@ import java.util.List;
 import org.eclipse.draw2d.ColorConstants;
 import org.eclipse.draw2d.ConnectionAnchor;
 import org.eclipse.draw2d.Ellipse;
+import org.eclipse.draw2d.GridData;
+import org.eclipse.draw2d.GridLayout;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.Label;
 import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
@@ -17,7 +20,10 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
+import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
+import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
+import org.eclipse.gef.requests.CreateRequest;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ITextAwareEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
@@ -33,7 +39,6 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
 
 import crosswalk.InputField;
-import crosswalk.MappedAttribute;
 import crosswalk.diagram.edit.policies.CrosswalkTextSelectionEditPolicy;
 import crosswalk.diagram.edit.policies.InputFieldItemSemanticEditPolicy;
 import crosswalk.diagram.part.CrosswalkVisualIDRegistry;
@@ -81,16 +86,22 @@ public class InputFieldEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected LayoutEditPolicy createLayoutEditPolicy() {
-
-		ConstrainedToolbarLayoutEditPolicy lep = new ConstrainedToolbarLayoutEditPolicy() {
+		org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
 
 			protected EditPolicy createChildEditPolicy(EditPart child) {
-				if (child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE) == null) {
-					if (child instanceof ITextAwareEditPart) {
-						return new CrosswalkTextSelectionEditPolicy();
-					}
+				EditPolicy result = child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
+				if (result == null) {
+					result = new NonResizableEditPolicy();
 				}
-				return super.createChildEditPolicy(child);
+				return result;
+			}
+
+			protected Command getMoveChildrenCommand(Request request) {
+				return null;
+			}
+
+			protected Command getCreateCommand(CreateRequest request) {
+				return null;
 			}
 		};
 		return lep;
@@ -109,13 +120,14 @@ public class InputFieldEditPart extends ShapeNodeEditPart {
 	public InputFieldFigure getPrimaryShape() {
 		return (InputFieldFigure) primaryShape;
 	}
-	
-	
 
 	@Override
 	public ConnectionAnchor getSourceConnectionAnchor(Request request) {
-		return getNodeFigure().getSourceConnectionAnchorAt(getPrimaryShape().getFigureInputFieldEllipsis().getLocation());
-		//return super.getSourceConnectionAnchor(request);
+		if(this.getPrimaryShape().isVisible()) {
+			return getNodeFigure().getSourceConnectionAnchorAt(getPrimaryShape().getFigureInputFieldEllipsis().getLocation());
+		} else {
+			return super.getSourceConnectionAnchor(request);
+		}
 	}
 
 	/**
@@ -170,7 +182,7 @@ public class InputFieldEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected NodeFigure createNodePlate() {
-		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(40, 40);
+		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(30, 60);
 		return result;
 	}
 
@@ -365,13 +377,9 @@ public class InputFieldEditPart extends ShapeNodeEditPart {
 		 */
 		public InputFieldFigure() {
 
-			ToolbarLayout layoutThis = new ToolbarLayout();
-			layoutThis.setStretchMinorAxis(false);
-			layoutThis.setMinorAlignment(ToolbarLayout.ALIGN_TOPLEFT);
-
-			layoutThis.setSpacing(5);
-			layoutThis.setVertical(false);
-
+			GridLayout layoutThis = new GridLayout();
+			layoutThis.numColumns = 2;
+			layoutThis.makeColumnsEqualWidth = false;
 			this.setLayoutManager(layoutThis);
 
 			this.setFill(false);
@@ -395,20 +403,20 @@ public class InputFieldEditPart extends ShapeNodeEditPart {
 			fFigureInputFieldLabel.setText("input");
 
 			this.add(fFigureInputFieldLabel);
-			this.updateFace();
+			updateFace();
 		}
-		
+
 		private void updateFace() {
 			InputField input = (InputField) ((Node) InputFieldEditPart.this.getModel()).getElement();
 			Color c = ColorConstants.red;
 			if (input.getOutput() != null) {
 				c = ColorConstants.darkGreen;
 			} /* TODO inspect model for default and required in mapped attribute
-			 else if (input.getDefaultValue() != null) {
+				else if (input.getDefaultValue() != null) {
 				c = ColorConstants.lightGreen;
-			} else if (!input.isRequired()) {
+				} else if (!input.isRequired()) {
 				c = ColorConstants.yellow;
-			} */
+				} */
 			fFigureInputFieldEllipsis.setBackgroundColor(c);
 		}
 
@@ -438,9 +446,12 @@ public class InputFieldEditPart extends ShapeNodeEditPart {
 
 	@Override
 	public ConnectionAnchor getTargetConnectionAnchor(Request request) {
-		return getNodeFigure().getTargetConnectionAnchorAt(getPrimaryShape().getBounds().getRight());
+		if(this.getPrimaryShape().isVisible()) {
+			return getNodeFigure().getTargetConnectionAnchorAt(
+				getPrimaryShape().getFigureInputFieldLabel().getBounds().getRight());
+		} else {
+			return super.getTargetConnectionAnchor(request);
+		}
 	}
-	
-	
-	
+
 }

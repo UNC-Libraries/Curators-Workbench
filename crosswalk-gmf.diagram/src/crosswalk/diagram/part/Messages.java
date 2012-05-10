@@ -263,7 +263,7 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String Dictionary2Group_title;
+	public static String DictionaryTools2Group_title;
 
 	/**
 	 * @generated

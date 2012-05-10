@@ -15,8 +15,12 @@
  */
 package crosswalk.diagram.part;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IStatus;
@@ -24,6 +28,12 @@ import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.notify.AdapterFactory;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
@@ -35,8 +45,10 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
+import crosswalk.Dictionary;
+import crosswalk.EditingContainer;
+import crosswalk.diagram.custom.DictionaryPreference;
 import crosswalk.diagram.edit.policies.CrosswalkBaseItemSemanticEditPolicy;
-import crosswalk.diagram.expressions.CrosswalkOCLFactory;
 import crosswalk.diagram.providers.ElementInitializers;
 import crosswalk.provider.CrosswalkItemProviderAdapterFactory;
 
@@ -79,6 +91,8 @@ public class CrosswalkDiagramEditorPlugin extends AbstractUIPlugin {
 	 * @generated
 	 */
 	private ElementInitializers initializers;
+
+	private List<Dictionary> dictionaries = null;
 
 	/**
 	 * @generated
@@ -239,6 +253,40 @@ public class CrosswalkDiagramEditorPlugin extends AbstractUIPlugin {
 	 */
 	public ElementInitializers getElementInitializers() {
 		return initializers;
+	}
+
+	public List<Dictionary> getDictionaries() {
+		if (dictionaries == null) {
+			loadDictionaries();
+		}
+		return dictionaries;
+	}
+
+	public void loadDictionaries() {
+		Map<String, String> xmlOptions = Collections.singletonMap(XMLResource.OPTION_ENCODING, "utf-8");
+		if (dictionaries != null) {
+			this.dictionaries.clear();
+		} else {
+			this.dictionaries = new ArrayList<Dictionary>();
+		}
+		ResourceSet resourceSet = new ResourceSetImpl();
+		for (URI loc : DictionaryPreference.getLocations()) {
+			String uri = loc.toString();
+			Resource metsResource = null;
+			try {
+				logInfo("METS attempting to load existing file:" + uri);
+				metsResource = resourceSet.getResource(URI.createURI(uri), true);
+				((ResourceImpl) metsResource).setIntrinsicIDToEObjectMap(new HashMap());
+				metsResource.load(xmlOptions);
+				if (metsResource.getContents().get(0) != null
+						&& metsResource.getContents().get(0) instanceof EditingContainer) {
+					EditingContainer container = (EditingContainer) metsResource.getContents().get(0);
+					dictionaries.add((Dictionary) container.getModel());
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 
 	/**

@@ -306,8 +306,8 @@ public class DelimitedFileEditPart extends ShapeNodeEditPart {
 
 			this.setLayoutManager(layoutThis);
 
-			this.setBorder(new MarginBorder(getMapMode().DPtoLP(10), getMapMode().DPtoLP(10), getMapMode().DPtoLP(10),
-					getMapMode().DPtoLP(10)));
+			this.setBorder(new MarginBorder(getMapMode().DPtoLP(5), getMapMode().DPtoLP(0), getMapMode().DPtoLP(0),
+					getMapMode().DPtoLP(0)));
 			createContents();
 		}
 

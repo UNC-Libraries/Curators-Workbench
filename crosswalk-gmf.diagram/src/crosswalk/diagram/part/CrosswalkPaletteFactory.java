@@ -35,6 +35,7 @@ import org.eclipse.gmf.runtime.diagram.ui.tools.UnspecifiedTypeCreationTool;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 
 import crosswalk.CrosswalkFactory;
+import crosswalk.Dictionary;
 import crosswalk.InputField;
 import crosswalk.MetadataBlock;
 import crosswalk.diagram.providers.CrosswalkElementTypes;
@@ -49,8 +50,8 @@ public class CrosswalkPaletteFactory {
 	 */
 	public void fillPalette(PaletteRoot paletteRoot) {
 		paletteRoot.add(createMetadataMapping1Group());
-		paletteRoot.add(createDictionary2Group());
 		paletteRoot.add(createDictionaryContentsGroup());
+		paletteRoot.add(createDictionaryTools2Group());
 	}
 
 	/**
@@ -59,7 +60,7 @@ public class CrosswalkPaletteFactory {
 	 * @generated
 	 */
 	private PaletteContainer createMetadataMapping1Group() {
-		PaletteGroup paletteContainer = new PaletteGroup(Messages.MetadataMapping1Group_title);
+		PaletteDrawer paletteContainer = new PaletteDrawer(Messages.MetadataMapping1Group_title);
 		paletteContainer.setId("createMetadataMapping1Group"); //$NON-NLS-1$
 		paletteContainer.add(createXMLElement1CreationTool());
 		paletteContainer.add(createXMLAttribute2CreationTool());
@@ -72,13 +73,12 @@ public class CrosswalkPaletteFactory {
 	}
 
 	/**
-	 * Creates "Dictionary" palette tool group
-	 * 
+	 * Creates "Dictionary Tools" palette tool group
 	 * @generated
 	 */
-	private PaletteContainer createDictionary2Group() {
-		PaletteDrawer paletteContainer = new PaletteDrawer(Messages.Dictionary2Group_title);
-		paletteContainer.setId("createDictionary2Group"); //$NON-NLS-1$
+	private PaletteContainer createDictionaryTools2Group() {
+		PaletteDrawer paletteContainer = new PaletteDrawer(Messages.DictionaryTools2Group_title);
+		paletteContainer.setId("createDictionaryTools2Group"); //$NON-NLS-1$
 		paletteContainer.add(createMetadataBlock1CreationTool());
 		paletteContainer.add(createInputField2CreationTool());
 		return paletteContainer;
@@ -88,13 +88,16 @@ public class CrosswalkPaletteFactory {
 	 * Creates custom "Dictionary" entry palette tool group
 	 */
 	private PaletteContainer createDictionaryContentsGroup() {
-		PaletteDrawer paletteContainer = new PaletteDrawer("custom "+Messages.Dictionary2Group_title);
+		PaletteDrawer paletteContainer = new PaletteDrawer("My Dictionaries");
 		paletteContainer.setId("createCustomDictionary2Group"); //$NON-NLS-1$
-		paletteContainer.add(createMetadataBlockCopyTool());
+		for (Dictionary dict : CrosswalkDiagramEditorPlugin.getInstance().getDictionaries()) {
+			for (MetadataBlock mb : dict.getBlocks()) {
+				paletteContainer.add(createMetadataBlockCopyTool(mb));
+			}
+		}
 		return paletteContainer;
 	}
 
-	
 	/**
 	 * @generated
 	 */
@@ -225,19 +228,15 @@ public class CrosswalkPaletteFactory {
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
-	
+
 	/**
-	 * @generated
+	 * @param mb2 
+	 * @generated NOT
 	 */
-	private ToolEntry createMetadataBlockCopyTool() {
-		MetadataBlock mb = CrosswalkFactory.eINSTANCE.createMetadataBlock();
-		mb.setName("my metadata block");
-		InputField in = CrosswalkFactory.eINSTANCE.createInputField();
-		in.setLabel("foooo");
-		mb.getPorts().add(in);
-		TemplateObjectToolEntry entry = new TemplateObjectToolEntry("drop "+Messages.MetadataBlock1CreationTool_title,
-				"add "+mb.getName() /* Messages.MetadataBlock1CreationTool_desc*/, mb);
-		entry.setId("dropMetadataBlockDropTool"); //$NON-NLS-1$
+	private ToolEntry createMetadataBlockCopyTool(MetadataBlock mb) {
+		;
+		TemplateObjectToolEntry entry = new TemplateObjectToolEntry(mb.getName(), mb.getDescription(), mb);
+		entry.setId(null); //$NON-NLS-1$
 		entry.setSmallIcon(CrosswalkElementTypes.getImageDescriptor(CrosswalkElementTypes.MetadataBlock_3018));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
@@ -301,17 +300,17 @@ public class CrosswalkPaletteFactory {
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	private static class TemplateObjectToolEntry extends ToolEntry {
 
 		/**
-		 * @generated
+		 * @generated NOT
 		 */
 		private final EObject object;
 
 		/**
-		 * @generated
+		 * @generated NOT
 		 */
 		private TemplateObjectToolEntry(String title, String description, EObject object) {
 			super(title, description, null, null);
@@ -319,7 +318,7 @@ public class CrosswalkPaletteFactory {
 		}
 
 		/**
-		 * @generated
+		 * @generated NOT
 		 */
 		public Tool createTool() {
 			Tool tool = new TemplateObjectCreationTool(object);
@@ -353,7 +352,8 @@ public class CrosswalkPaletteFactory {
 		 */
 		protected Request createTargetRequest() {
 			//return new TemplateObjectCreateRequest(CrosswalkElementTypes.MetadataBlock_3018, object, getPreferencesHint());
-			CreateViewRequest req = CreateViewRequestFactory.getCreateShapeRequest(CrosswalkElementTypes.MetadataBlock_3018, getPreferencesHint());
+			CreateViewRequest req = CreateViewRequestFactory.getCreateShapeRequest(
+					CrosswalkElementTypes.MetadataBlock_3018, getPreferencesHint());
 			req.getExtendedData().put("templateElement", object);
 			return req;
 			//DropObjectsRequest drop = new DropObjectsRequest();
@@ -363,7 +363,7 @@ public class CrosswalkPaletteFactory {
 
 		@Override
 		protected String getCommandName() {
-			return "drop: "+object.toString();
+			return "drop: " + object.toString();
 		}
 	}
 }

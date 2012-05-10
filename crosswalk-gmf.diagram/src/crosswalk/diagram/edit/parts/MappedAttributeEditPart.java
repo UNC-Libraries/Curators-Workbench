@@ -215,9 +215,10 @@ public class MappedAttributeEditPart extends ShapeNodeEditPart {
 
 	@Override
 	public ConnectionAnchor getSourceConnectionAnchor(Request request) {
-		return getNodeFigure().getSourceConnectionAnchorAt(getPrimaryShape().getFigureStringInputEllipsis().getLocation());
+		return getNodeFigure()
+				.getSourceConnectionAnchorAt(getPrimaryShape().getFigureStringInputEllipsis().getLocation());
 	}
-	
+
 	/**
 	 * @generated
 	 */

@@ -150,11 +150,6 @@ copyright 2010 University of North Carolina at Chapel Hill
             category="crosswalk-gmf.diagram.general"
             class="crosswalk.diagram.preferences.DiagramRulersAndGridPreferencePage">
       </page>
-      <page
-            class="crosswalk.diagram.custom.DictionaryPreferencePage"
-            id="crosswalk-gmf.diagram.pageDictionaryLocations"
-            name="Dictionary Locations">
-      </page>
    </extension>
 
    <extension point="org.eclipse.ui.views.properties.tabbed.propertyContributor" id="prop-contrib">

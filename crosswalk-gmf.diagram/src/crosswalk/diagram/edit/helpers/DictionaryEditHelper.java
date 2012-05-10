@@ -8,7 +8,7 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
  * @generated
  */
 public class DictionaryEditHelper extends CrosswalkBaseEditHelper {
-	
+
 	@Override
 	protected ICommand getDestroyElementCommand(DestroyElementRequest req) {
 		// Prevents from removing the figure
