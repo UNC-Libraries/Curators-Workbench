@@ -15,11 +15,14 @@
  */
 package unc.lib.cdr.workbench;
 
+import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
+import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.QualifiedName;
 
 import unc.lib.cdr.workbench.project.MetsProjectNature;
@@ -27,7 +30,7 @@ import unc.lib.cdr.workbench.rcp.Activator;
 
 /**
  * @author Gregory Jansen
- *
+ * 
  */
 public class IResourceConstants {
 	public static final QualifiedName MODIFIED_TIMESTAMP = new QualifiedName(MetsProjectNature.NATURE_ID,
@@ -64,7 +67,7 @@ public class IResourceConstants {
 
 	/**
 	 * Find the unique name of the file group within the project.
-	 *
+	 * 
 	 * @param resource
 	 * @return file group name
 	 */
@@ -102,7 +105,8 @@ public class IResourceConstants {
 				IMarker capture = markers[0];
 				result = (String) capture.getAttribute(MARKER_CAPTURED_DIV_ID);
 			}
-		} catch (CoreException ignored) {}
+		} catch (CoreException ignored) {
+		}
 		return result;
 	}
 
@@ -129,7 +133,20 @@ public class IResourceConstants {
 				IMarker capture = markers[0];
 				result = (String) capture.getAttribute(MARKER_FILE_ID);
 			}
-		} catch (CoreException ignored) {}
+		} catch (CoreException ignored) {
+		}
 		return result;
+	}
+
+	public static void prepareFolder(IFolder folder, IProgressMonitor monitor) throws CoreException {
+		System.out.println("preparing: "+folder);
+		if (!folder.exists()) {
+			IContainer parent = folder.getParent();
+			if(parent == null || parent instanceof IWorkspaceRoot) return;
+			if (parent instanceof IFolder) {
+				prepareFolder((IFolder) parent, monitor);
+			}
+			folder.create(false, false, monitor);
+		}
 	}
 }

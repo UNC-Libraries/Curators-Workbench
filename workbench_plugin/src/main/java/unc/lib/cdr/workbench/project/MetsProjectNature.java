@@ -67,8 +67,7 @@ public class MetsProjectNature implements IProjectNature {
 	private static final Logger log = LoggerFactory.getLogger(MetsProjectNature.class);
 	public static final String NATURE_ID = "cdr_producer.projectNature";
 	public static final QualifiedName EMF_SESSION_KEY = new QualifiedName(NATURE_ID, "cdr_producer.projectEMFSession");
-	public static final QualifiedName EDITING_DOMAIN_KEY = new QualifiedName(NATURE_ID,
-   "cdr_producer.editingDomain");
+	public static final QualifiedName EDITING_DOMAIN_KEY = new QualifiedName(NATURE_ID, "cdr_producer.editingDomain");
 	public static final QualifiedName INITIAL_AUTOSTAGE_KEY = new QualifiedName(NATURE_ID, "cdr_producer.init_autostage");
 	public static final String STAGING_BUILDER_ID = "unc.lib.cdr.workbench.builders.StageBuilder";
 	public static final String CROSSWALKS_BUILDER_ID = "unc.lib.cdr.workbench.builders.CrosswalksBuilder";
@@ -194,7 +193,7 @@ public class MetsProjectNature implements IProjectNature {
 	@Override
 	public void deconfigure() throws CoreException {
 		save();
-		if(this.getEMFSession() != null) {
+		if (this.getEMFSession() != null) {
 			this.project.getSessionProperties().remove(EMF_SESSION_KEY);
 		}
 
@@ -221,16 +220,17 @@ public class MetsProjectNature implements IProjectNature {
 
 	public static IProject getProjectForMetsEObject(EObject object) {
 		IProject result = null;
-		if (object.eResource() != null && object.eResource().getURI() != null) {
-			java.net.URI u;
-			try {
-				u = new java.net.URI(object.eResource().getURI().toString());
-			} catch (URISyntaxException e) {
-				throw new Error(e);
-			}
-			IFile[] files = ResourcesPlugin.getWorkspace().getRoot().findFilesForLocationURI(u);
-			if (files.length > 0) {
-				result = files[0].getProject();
+		Resource objectResource = object.eResource();
+		if (objectResource != null) {
+			for (IProject p : ResourcesPlugin.getWorkspace().getRoot().getProjects()) {
+				try {
+					ProjectEMFSession session = (ProjectEMFSession) p.getSessionProperty(EMF_SESSION_KEY);
+					if (objectResource.equals(session.getMetsResource())) {
+						return p;
+					}
+				} catch (CoreException ignored) {
+					ignored.printStackTrace();
+				}
 			}
 		}
 		return result;
@@ -280,7 +280,7 @@ public class MetsProjectNature implements IProjectNature {
 
 	/**
 	 * Finds the original file or folder object for a given div or null.
-	 *
+	 * 
 	 * @param div
 	 * @return the IResource of the original
 	 */

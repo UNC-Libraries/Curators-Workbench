@@ -28,12 +28,15 @@ import gov.loc.mets.util.MetsResourceFactoryImpl;
 import gov.loc.mods.mods.provider.MODSItemProviderAdapterFactory;
 
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IResourceChangeEvent;
 import org.eclipse.core.resources.IResourceChangeListener;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IPath;
+import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.command.BasicCommandStack;
@@ -52,18 +55,20 @@ import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
 import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
+import org.eclipse.ui.ide.ResourceUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.w3._1999.xlink.provider.XlinkItemProviderAdapterFactory;
 
+import unc.lib.cdr.workbench.IResourceConstants;
 import unc.lib.cdr.workbench.rcp.Activator;
 
 /**
  * @author Gregory Jansen
- *
+ * 
  */
 public class ProjectEMFSession {
-	public static final Path METS_PATH = new Path("workbench-mets.xml");
+	private static final Path METS_PATH = new Path("workbench-mets.xml");
 	private static final Logger log = LoggerFactory.getLogger(ProjectEMFSession.class);
 	private static ComposedAdapterFactory adapterFactory = null;
 	private static Map<String, String> xmlOptions = new HashMap<String, String>();
@@ -104,16 +109,24 @@ public class ProjectEMFSession {
 	}
 
 	private void load() {
-		IFile f = project.getFile(METS_PATH);
-		String uri = f.getLocationURI().toString();
+		IPath f = getMetsFile();
+		IFile old = getOldMetsFile();
+		if (!f.toFile().exists() && old.exists()) {
+			try {
+				old.move(f, true, new NullProgressMonitor());
+			} catch (CoreException e) {
+				throw new Error(e);
+			}
+		}
+		String uri = f.toFile().toURI().toString();
 		try {
-			log.debug("METS attempting to load existing file");
+			log.debug("METS attempting to load existing file:"+uri);
 			this.metsResource = this.resourceSet.getResource(URI.createURI(uri), true);
 			((ResourceImpl) this.metsResource).setIntrinsicIDToEObjectMap(new HashMap());
 			this.metsResource.load(xmlOptions);
 			log.debug("METS loaded from existing file");
 		} catch (Exception e) {
-			log.debug("METS being created.");
+			log.debug("METS being created:"+uri);
 			this.metsResource = this.resourceSet.createResource(URI.createURI(uri));
 			((ResourceImpl) this.metsResource).setIntrinsicIDToEObjectMap(new HashMap());
 			DocumentRoot r = METSUtils.createInitialMetsDocument(project.getName() + " Workbench Manifest");
@@ -137,10 +150,16 @@ public class ProjectEMFSession {
 		}
 	}
 
-	public static Path getMetsPath() {
-		return METS_PATH;
+	public IPath getMetsFile() {
+		IPath working = this.project.getWorkingLocation(Activator.PLUGIN_ID);
+		working.toFile().mkdirs();
+		return working.append(METS_PATH);
 	}
 
+	public IFile getOldMetsFile() {
+		return this.project.getFile(METS_PATH);
+	}
+	
 	public static ComposedAdapterFactory getAdapterFactory() {
 		return adapterFactory;
 	}
@@ -167,15 +186,16 @@ public class ProjectEMFSession {
 
 	/**
 	 * @author Gregory Jansen
-	 *
+	 * 
 	 */
 	public class ProjectCloseListener implements IResourceChangeListener {
 
-		ProjectCloseListener() {}
+		ProjectCloseListener() {
+		}
 
 		/*
 		 * (non-Javadoc)
-		 *
+		 * 
 		 * @see org.eclipse.core.resources.IResourceChangeListener#resourceChanged
 		 * (org.eclipse.core.resources.IResourceChangeEvent)
 		 */
@@ -186,7 +206,7 @@ public class ProjectEMFSession {
 				log.debug("Saving EMF session prior to project close.");
 				// save the METS before closing..
 				try {
-					IProject p = (IProject)res;
+					IProject p = (IProject) res;
 					ProjectEMFSession session = (ProjectEMFSession) p.getSessionProperty(MetsProjectNature.EMF_SESSION_KEY);
 					session.save();
 				} catch (CoreException e) {
