@@ -15,6 +15,7 @@
  */
 package crosswalk.diagram.part;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -29,6 +30,7 @@ import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.common.util.WrappedException;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
@@ -49,6 +51,7 @@ import crosswalk.Dictionary;
 import crosswalk.EditingContainer;
 import crosswalk.diagram.custom.DictionaryPreference;
 import crosswalk.diagram.edit.policies.CrosswalkBaseItemSemanticEditPolicy;
+import crosswalk.diagram.expressions.CrosswalkOCLFactory;
 import crosswalk.diagram.providers.ElementInitializers;
 import crosswalk.provider.CrosswalkItemProviderAdapterFactory;
 
@@ -92,6 +95,11 @@ public class CrosswalkDiagramEditorPlugin extends AbstractUIPlugin {
 	 */
 	private ElementInitializers initializers;
 
+	/**
+	 * @generated
+	 */
+	private CrosswalkOCLFactory oclFactory;
+
 	private List<Dictionary> dictionaries = null;
 
 	/**
@@ -120,6 +128,7 @@ public class CrosswalkDiagramEditorPlugin extends AbstractUIPlugin {
 		adapterFactory = null;
 		linkConstraints = null;
 		initializers = null;
+		oclFactory = null;
 		instance = null;
 		super.stop(context);
 	}
@@ -283,8 +292,11 @@ public class CrosswalkDiagramEditorPlugin extends AbstractUIPlugin {
 					EditingContainer container = (EditingContainer) metsResource.getContents().get(0);
 					dictionaries.add((Dictionary) container.getModel());
 				}
+			} catch (RuntimeException e) {
+				// TODO warn user in an alert dialog
+				logInfo("Cannot load preferred dictionary: " + loc.toString() + " (" + e.getLocalizedMessage() + ")");
 			} catch (IOException e) {
-				e.printStackTrace();
+				logInfo("Cannot load preferred dictionary: " + loc.toString() + " (" + e.getLocalizedMessage() + ")");
 			}
 		}
 	}
@@ -294,6 +306,20 @@ public class CrosswalkDiagramEditorPlugin extends AbstractUIPlugin {
 	 */
 	public void setElementInitializers(ElementInitializers i) {
 		this.initializers = i;
+	}
+
+	/**
+	 * @generated
+	 */
+	public CrosswalkOCLFactory getCrosswalkOCLFactory() {
+		return oclFactory;
+	}
+
+	/**
+	 * @generated
+	 */
+	public void setCrosswalkOCLFactory(CrosswalkOCLFactory f) {
+		this.oclFactory = f;
 	}
 
 	/**

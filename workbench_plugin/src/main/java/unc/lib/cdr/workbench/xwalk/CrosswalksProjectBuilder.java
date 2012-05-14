@@ -30,8 +30,10 @@ import gov.loc.mods.mods.MODSPackage;
 import gov.loc.mods.mods.ModsDefinition;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 import org.eclipse.core.resources.IFile;
@@ -39,6 +41,7 @@ import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IResourceDelta;
+import org.eclipse.core.resources.IResourceVisitor;
 import org.eclipse.core.resources.IncrementalProjectBuilder;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -98,9 +101,8 @@ public class CrosswalksProjectBuilder extends IncrementalProjectBuilder {
 			if (p.isOpen() && p.hasNature(MetsProjectNature.NATURE_ID)) {
 				IResourceDelta d = this.getDelta(p);
 				MetsProjectNature n = (MetsProjectNature) p.getNature(MetsProjectNature.NATURE_ID);
-				IResourceDelta cws = d.findMember(n.getCrosswalksElement().getFolder().getProjectRelativePath());
-				if (cws != null) {
-					for (IResourceDelta r : cws.getAffectedChildren()) {
+				if (d != null) {
+					for (IResourceDelta r : d.getAffectedChildren()) {
 						if (r.getResource().exists() && r.getResource() instanceof IFile
 								&& IResourceConstants.CROSSWALK_EXTENSION.equals(r.getResource().getFileExtension())) {
 							runCrosswalk(n, (IFile) r.getResource());
@@ -120,14 +122,21 @@ public class CrosswalksProjectBuilder extends IncrementalProjectBuilder {
 		IProject p = getProject();
 		try {
 			if (p.isOpen() && p.hasNature(MetsProjectNature.NATURE_ID)) {
-				MetsProjectNature n = (MetsProjectNature) p.getNature(MetsProjectNature.NATURE_ID);
-				if (n.getCrosswalksElement().getFolder().exists()) {
-					for (IResource r : n.getCrosswalksElement().getFolder().members()) {
-						if (r.exists() && r instanceof IFile
-								&& IResourceConstants.CROSSWALK_EXTENSION.equals(r.getFileExtension())) {
-							runCrosswalk(n, (IFile) r);
+				final List<IFile> crosswalks = new ArrayList<IFile>();
+				p.accept(new IResourceVisitor() {
+					@Override
+					public boolean visit(IResource resource) throws CoreException {
+						if(resource instanceof IFile && IResourceConstants.CROSSWALK_EXTENSION.equals(resource.getFileExtension())) {
+							crosswalks.add((IFile)resource);
+							return false;
+						} else {
+							return true;
 						}
 					}
+				});
+				MetsProjectNature n = (MetsProjectNature) p.getNature(MetsProjectNature.NATURE_ID);
+				for (IFile r : crosswalks) {
+					runCrosswalk(n, (IFile) r);
 				}
 			}
 		} catch (CoreException e) {

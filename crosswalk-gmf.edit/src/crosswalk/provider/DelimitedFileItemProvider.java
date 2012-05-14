@@ -29,6 +29,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import crosswalk.CrosswalkFactory;
 import crosswalk.CrosswalkPackage;
 import crosswalk.DelimitedFile;
+import java.net.URI;
 
 /**
  * This is the item provider adapter for a {@link crosswalk.DelimitedFile} object.
@@ -257,7 +258,7 @@ public class DelimitedFileItemProvider
 	 */
         @Override
         public String getText(Object object) {
-		IFile labelValue = ((DelimitedFile)object).getSourceFile();
+		URI labelValue = ((DelimitedFile)object).getSourceFile();
 		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
 			getString("_UI_DelimitedFile_type") :

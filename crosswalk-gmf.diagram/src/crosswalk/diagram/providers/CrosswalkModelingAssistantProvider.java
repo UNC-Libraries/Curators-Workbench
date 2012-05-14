@@ -44,6 +44,8 @@ import crosswalk.diagram.edit.parts.DateRecognizerEditPart;
 import crosswalk.diagram.edit.parts.DelimitedFileEditPart;
 import crosswalk.diagram.edit.parts.DictionaryModelBoxCompartmentEditPart;
 import crosswalk.diagram.edit.parts.EditingContainerEditPart;
+import crosswalk.diagram.edit.parts.FormEditPart;
+import crosswalk.diagram.edit.parts.FormModelBoxCompartmentEditPart;
 import crosswalk.diagram.edit.parts.InputFieldEditPart;
 import crosswalk.diagram.edit.parts.MappedAttribute2EditPart;
 import crosswalk.diagram.edit.parts.MappedAttributeEditPart;
@@ -54,8 +56,10 @@ import crosswalk.diagram.edit.parts.MappedElementChildElementsCompartment3EditPa
 import crosswalk.diagram.edit.parts.MappedElementChildElementsCompartmentEditPart;
 import crosswalk.diagram.edit.parts.MappedElementEditPart;
 import crosswalk.diagram.edit.parts.MetadataBlock2EditPart;
+import crosswalk.diagram.edit.parts.MetadataBlock3EditPart;
 import crosswalk.diagram.edit.parts.MetadataBlockEditPart;
 import crosswalk.diagram.edit.parts.MetadataBlockMetadataBlockMappingCompartment2EditPart;
+import crosswalk.diagram.edit.parts.MetadataBlockMetadataBlockMappingCompartment3EditPart;
 import crosswalk.diagram.edit.parts.MetadataBlockMetadataBlockMappingCompartmentEditPart;
 import crosswalk.diagram.edit.parts.OriginalNameRecordMatcher2EditPart;
 import crosswalk.diagram.edit.parts.OriginalNameRecordMatcherEditPart;
@@ -78,9 +82,16 @@ public class CrosswalkModelingAssistantProvider extends ModelingAssistantProvide
 	public List getTypesForPopupBarGen(IAdaptable host) {
 		IGraphicalEditPart editPart = (IGraphicalEditPart) host.getAdapter(IGraphicalEditPart.class);
 		if (editPart instanceof EditingContainerEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList<IElementType> types = new ArrayList<IElementType>(3);
 			types.add(CrosswalkElementTypes.CrossWalk_2001);
 			types.add(CrosswalkElementTypes.Dictionary_2002);
+			types.add(CrosswalkElementTypes.Form_2003);
+			return types;
+		}
+		if (editPart instanceof FormEditPart) {
+			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			types.add(CrosswalkElementTypes.MetadataBlock_3019);
+			types.add(CrosswalkElementTypes.Paragraph_3020);
 			return types;
 		}
 		if (editPart instanceof DelimitedFileEditPart) {
@@ -116,6 +127,11 @@ public class CrosswalkModelingAssistantProvider extends ModelingAssistantProvide
 			types.add(CrosswalkElementTypes.InputField_3017);
 			return types;
 		}
+		if (editPart instanceof MetadataBlock3EditPart) {
+			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
+			types.add(CrosswalkElementTypes.InputField_3017);
+			return types;
+		}
 		if (editPart instanceof CrossWalkModelBoxCompartmentEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(7);
 			types.add(CrosswalkElementTypes.DelimitedFile_3001);
@@ -142,6 +158,15 @@ public class CrosswalkModelingAssistantProvider extends ModelingAssistantProvide
 			return types;
 		}
 		if (editPart instanceof MetadataBlockMetadataBlockMappingCompartmentEditPart) {
+			ArrayList<IElementType> types = new ArrayList<IElementType>(5);
+			types.add(CrosswalkElementTypes.OriginalNameRecordMatcher_3011);
+			types.add(CrosswalkElementTypes.DateRecognizer_3012);
+			types.add(CrosswalkElementTypes.Text_3013);
+			types.add(CrosswalkElementTypes.TrimWhitespace_3014);
+			types.add(CrosswalkElementTypes.MappedElement_3015);
+			return types;
+		}
+		if (editPart instanceof MetadataBlockMetadataBlockMappingCompartment3EditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(5);
 			types.add(CrosswalkElementTypes.OriginalNameRecordMatcher_3011);
 			types.add(CrosswalkElementTypes.DateRecognizer_3012);

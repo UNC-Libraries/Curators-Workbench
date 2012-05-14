@@ -12,6 +12,7 @@
     <genDataTypes ecoreDataType="crosswalk.ecore#//RecordMatches"/>
     <genDataTypes ecoreDataType="crosswalk.ecore#//IFolder"/>
     <genDataTypes ecoreDataType="crosswalk.ecore#//RecordOutOfRangeException"/>
+    <genDataTypes ecoreDataType="crosswalk.ecore#//URI"/>
     <genClasses provider="Stateful" image="false" ecoreClass="crosswalk.ecore#//TabbedDataField">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//TabbedDataField/ColumnNumber"/>
     </genClasses>
@@ -136,5 +137,15 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference crosswalk.ecore#//EditingContainer/model"/>
     </genClasses>
     <genClasses image="false" ecoreClass="crosswalk.ecore#//Editable"/>
+    <genClasses ecoreClass="crosswalk.ecore#//Form">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference crosswalk.ecore#//Form/elements"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//Form/title"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//Form/description"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="crosswalk.ecore#//FormElement"/>
+    <genClasses ecoreClass="crosswalk.ecore#//Paragraph">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//Paragraph/heading"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//Paragraph/text"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

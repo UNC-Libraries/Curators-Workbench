@@ -6,6 +6,7 @@
  */
 package crosswalk;
 
+import java.net.URI;
 import org.eclipse.core.resources.IFile;
 
 import org.eclipse.emf.common.util.EList;
@@ -41,24 +42,24 @@ public interface DelimitedFile extends DataSource {
          * </p>
          * <!-- end-user-doc -->
 	 * @return the value of the '<em>Source File</em>' attribute.
-	 * @see #setSourceFile(IFile)
+	 * @see #setSourceFile(URI)
 	 * @see crosswalk.CrosswalkPackage#getDelimitedFile_SourceFile()
-	 * @model dataType="crosswalk.IFile" required="true"
+	 * @model dataType="crosswalk.URI" required="true"
 	 * @generated
 	 */
-        IFile getSourceFile();
+        URI getSourceFile();
 
         /**
 	 * Sets the value of the '{@link crosswalk.DelimitedFile#getSourceFile <em>Source File</em>}' attribute.
 	 * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Source File</em>' attribute.
 	 * @see #getSourceFile()
 	 * @generated
 	 */
-        void setSourceFile(IFile value);
+	void setSourceFile(URI value);
 
-        /**
+								/**
 	 * Returns the value of the '<em><b>Data Row</b></em>' attribute.
 	 * The default value is <code>"1"</code>.
 	 * <!-- begin-user-doc -->

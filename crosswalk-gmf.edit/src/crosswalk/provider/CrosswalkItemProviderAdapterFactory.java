@@ -437,6 +437,52 @@ public class CrosswalkItemProviderAdapterFactory extends CrosswalkAdapterFactory
 	}
 
 								/**
+	 * This keeps track of the one adapter used for all {@link crosswalk.Form} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected FormItemProvider formItemProvider;
+
+								/**
+	 * This creates an adapter for a {@link crosswalk.Form}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createFormAdapter() {
+		if (formItemProvider == null) {
+			formItemProvider = new FormItemProvider(this);
+		}
+
+		return formItemProvider;
+	}
+
+								/**
+	 * This keeps track of the one adapter used for all {@link crosswalk.Paragraph} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ParagraphItemProvider paragraphItemProvider;
+
+								/**
+	 * This creates an adapter for a {@link crosswalk.Paragraph}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createParagraphAdapter() {
+		if (paragraphItemProvider == null) {
+			paragraphItemProvider = new ParagraphItemProvider(this);
+		}
+
+		return paragraphItemProvider;
+	}
+
+								/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->

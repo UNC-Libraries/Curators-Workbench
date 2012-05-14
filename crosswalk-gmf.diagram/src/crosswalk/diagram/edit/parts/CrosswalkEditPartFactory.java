@@ -53,6 +53,15 @@ public class CrosswalkEditPartFactory implements EditPartFactory {
 				case DictionaryEditPart.VISUAL_ID:
 					return new DictionaryEditPart(view);
 
+				case FormEditPart.VISUAL_ID:
+					return new FormEditPart(view);
+
+				case FormTitleEditPart.VISUAL_ID:
+					return new FormTitleEditPart(view);
+
+				case FormDescriptionEditPart.VISUAL_ID:
+					return new FormDescriptionEditPart(view);
+
 				case DelimitedFileEditPart.VISUAL_ID:
 					return new DelimitedFileEditPart(view);
 
@@ -164,6 +173,21 @@ public class CrosswalkEditPartFactory implements EditPartFactory {
 				case MetadataBlockNameEditPart.VISUAL_ID:
 					return new MetadataBlockNameEditPart(view);
 
+				case MetadataBlock3EditPart.VISUAL_ID:
+					return new MetadataBlock3EditPart(view);
+
+				case MetadataBlockName3EditPart.VISUAL_ID:
+					return new MetadataBlockName3EditPart(view);
+
+				case ParagraphEditPart.VISUAL_ID:
+					return new ParagraphEditPart(view);
+
+				case ParagraphHeadingEditPart.VISUAL_ID:
+					return new ParagraphHeadingEditPart(view);
+
+				case ParagraphTextEditPart.VISUAL_ID:
+					return new ParagraphTextEditPart(view);
+
 				case CrossWalkModelBoxCompartmentEditPart.VISUAL_ID:
 					return new CrossWalkModelBoxCompartmentEditPart(view);
 
@@ -193,6 +217,15 @@ public class CrosswalkEditPartFactory implements EditPartFactory {
 
 				case MetadataBlockMetadataBlockMappingCompartmentEditPart.VISUAL_ID:
 					return new MetadataBlockMetadataBlockMappingCompartmentEditPart(view);
+
+				case FormModelBoxCompartmentEditPart.VISUAL_ID:
+					return new FormModelBoxCompartmentEditPart(view);
+
+				case MetadataBlockMetadataBlockInputFieldsCompartment3EditPart.VISUAL_ID:
+					return new MetadataBlockMetadataBlockInputFieldsCompartment3EditPart(view);
+
+				case MetadataBlockMetadataBlockMappingCompartment3EditPart.VISUAL_ID:
+					return new MetadataBlockMetadataBlockMappingCompartment3EditPart(view);
 
 				case InputOutputEditPart.VISUAL_ID:
 					return new InputOutputEditPart(view);

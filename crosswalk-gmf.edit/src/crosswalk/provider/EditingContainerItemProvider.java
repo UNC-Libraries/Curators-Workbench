@@ -160,6 +160,11 @@ public class EditingContainerItemProvider
 			(createChildParameter
 				(CrosswalkPackage.Literals.EDITING_CONTAINER__MODEL,
 				 CrosswalkFactory.eINSTANCE.createDictionary()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CrosswalkPackage.Literals.EDITING_CONTAINER__MODEL,
+				 CrosswalkFactory.eINSTANCE.createForm()));
 	}
 
 	/**

@@ -2,8 +2,9 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Crosswalk Customizations
 Bundle-SymbolicName: crosswalk-gmf.custom;singleton:=true
-Bundle-Version: 0.0.1.qualifier
+Bundle-Version: 4.0.0.qualifier
 Bundle-Vendor: UNC Chapel Hill Libraries
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Require-Bundle: crosswalk-gmf.diagram,
- org.eclipse.gmf.runtime.emf.type.core
+ org.eclipse.gmf.runtime.emf.type.core,
+ org.eclipse.ui;bundle-version="3.7.0"

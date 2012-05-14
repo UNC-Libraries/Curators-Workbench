@@ -84,7 +84,7 @@
       <eParameters name="RowNumber" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="SourceFile" lowerBound="1"
-        eType="#//IFile"/>
+        eType="#//URI"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataRow" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="1"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="headerRow" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
@@ -132,7 +132,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="vocabularies" upperBound="-1"
         eType="#//Vocabulary" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MetadataBlock" eSuperTypes="#//OutputElement #//MappingContainer">
+  <eClassifiers xsi:type="ecore:EClass" name="MetadataBlock" eSuperTypes="#//OutputElement #//MappingContainer #//FormElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ports" upperBound="-1"
@@ -165,12 +165,25 @@
   <eClassifiers xsi:type="ecore:EClass" name="MappingContainer" abstract="true" interface="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="widgets" ordered="false"
         upperBound="-1" eType="#//WalkWidget" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
-        eType="#//OutputElement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" ordered="false"
+        upperBound="-1" eType="#//OutputElement" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EditingContainer">
     <eStructuralFeatures xsi:type="ecore:EReference" name="model" lowerBound="1" eType="#//Editable"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Editable" abstract="true" interface="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Form" eSuperTypes="#//Editable">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
+        eType="#//FormElement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FormElement" abstract="true" interface="true"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="URI" instanceClassName="java.net.URI"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Paragraph" eSuperTypes="#//FormElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="heading" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
 </ecore:EPackage>

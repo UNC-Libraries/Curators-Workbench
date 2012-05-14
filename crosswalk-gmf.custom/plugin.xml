@@ -13,5 +13,60 @@
          </adviceBinding>
       </metamodel>
    </extension>
+   <extension
+         point="org.eclipse.ui.newWizards">
+           	  <wizard
+  	     name="Metadata Crosswalk"
+  	     icon="CrosswalkDiagramFile.gif"
+  	     category="org.eclipse.ui.Examples"
+  	     class="crosswalk.diagram.part.CrosswalkCreationWizard"
+  	     id="crosswalk.diagram.part.CrosswalkCreationWizardID">
+  	  	 <description>%newWizardDesc</description>  
+      </wizard>
+     <wizard
+           category="org.eclipse.ui.Examples"
+           class="crosswalk.diagram.part.DictionaryCreationWizard"
+           icon="dictionary.gif"
+           id="crosswalk.diagram.part.DictionaryCreationWizardID"
+           name="Metadata Dictionary">
+        <description>
+           %newWizardDesc
+        </description>
+     </wizard>
+     <wizard
+           category="org.eclipse.ui.Examples"
+           class="crosswalk.diagram.part.FormCreationWizard"
+           icon="form.gif"
+           id="crosswalk.diagram.part.FormCreationWizardID"
+           name="Metadata Form">
+        <description>
+           %newWizardDesc
+        </description>
+     </wizard>
+   </extension>
+   <extension
+         id="gmf-editor"
+         point="org.eclipse.ui.editors">
+      <editor
+            class="crosswalk.diagram.part.CrosswalkDiagramEditor"
+            contributorClass="crosswalk.diagram.part.CrosswalkDiagramActionBarContributor"
+            default="true"
+            extensions="dictionary"
+            icon="dictionary.gif"
+            id="crosswalk.diagram.part.CrosswalkDiagramEditorID"
+            matchingStrategy="crosswalk.diagram.part.CrosswalkMatchingStrategy"
+            name="Metadata Dictionary Editor">
+      </editor>
+      <editor
+            class="crosswalk.diagram.part.CrosswalkDiagramEditor"
+            contributorClass="crosswalk.diagram.part.CrosswalkDiagramActionBarContributor"
+            default="true"
+            extensions="form"
+            icon="form.gif"
+            id="crosswalk.diagram.part.CrosswalkDiagramEditorID"
+            matchingStrategy="crosswalk.diagram.part.CrosswalkMatchingStrategy"
+            name="Metadata Form Editor">
+      </editor>
+   </extension>
 
 </plugin>

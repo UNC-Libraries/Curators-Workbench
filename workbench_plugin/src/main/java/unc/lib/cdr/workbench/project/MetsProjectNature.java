@@ -22,14 +22,12 @@ import gov.loc.mets.util.METSConstants;
 import gov.loc.mets.util.METSUtils;
 import gov.loc.mods.mods.presentation.URIFragmentEditorInput;
 
-import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.core.filesystem.EFS;
 import org.eclipse.core.filesystem.IFileStore;
 import org.eclipse.core.resources.ICommand;
-import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IProjectDescription;
@@ -56,12 +54,10 @@ import unc.lib.cdr.workbench.arrange.ArrangementProjectElement;
 import unc.lib.cdr.workbench.capture.OriginalFoldersProjectElement;
 import unc.lib.cdr.workbench.rcp.Activator;
 import unc.lib.cdr.workbench.stage.StagedFilesProjectElement;
-import unc.lib.cdr.workbench.xwalk.CrosswalksProjectElement;
 
 public class MetsProjectNature implements IProjectNature {
 
-	public static final String ORIGINALS_FOLDER_NAME = "originals";
-	public static final String CROSSWALKS_FOLDER_NAME = "crosswalks";
+	public static final String ORIGINALS_FOLDER_NAME = ".originals";
 	// public static final String STAGE_FOLDER_NAME = ".stage";
 
 	private static final Logger log = LoggerFactory.getLogger(MetsProjectNature.class);
@@ -76,7 +72,6 @@ public class MetsProjectNature implements IProjectNature {
 	private IProject project = null;
 
 	private ICustomProjectElement[] elements = null;
-	private CrosswalksProjectElement crosswalksElement = null;
 	private ArrangementProjectElement arrangementElement = null;
 	private OriginalFoldersProjectElement originalsElement = null;
 	private StagedFilesProjectElement stagedFilesElement = null;
@@ -95,13 +90,6 @@ public class MetsProjectNature implements IProjectNature {
 		return originalsElement;
 	}
 
-	public CrosswalksProjectElement getCrosswalksElement() {
-		if (this.crosswalksElement == null) {
-			this.crosswalksElement = new CrosswalksProjectElement(this);
-		}
-		return crosswalksElement;
-	}
-
 	public ArrangementProjectElement getArrangementElement() {
 		if (this.arrangementElement == null) {
 			this.arrangementElement = new ArrangementProjectElement(this);
@@ -115,7 +103,7 @@ public class MetsProjectNature implements IProjectNature {
 	public ICustomProjectElement[] getProjectElements() {
 		if (this.elements == null) {
 			this.elements = new ICustomProjectElement[] { getOriginalsElement(),
-			/* getArrangementElement(), */getCrosswalksElement(), getStagedFilesElement() };
+			/* getArrangementElement(), */getStagedFilesElement() };
 		}
 		return this.elements;
 	}
@@ -168,12 +156,6 @@ public class MetsProjectNature implements IProjectNature {
 	public void configure() throws CoreException {
 		System.err.println("IN CONFIGURE!!");
 		try {
-			IFolder cws = this.getProject().getFolder(CROSSWALKS_FOLDER_NAME);
-			if (!cws.exists()) {
-				System.err.println("READY TO MAKE CROSSWALK FOLDER!!");
-				cws.create(IResource.FORCE, true, new NullProgressMonitor());
-			}
-
 			IFolder os = this.getProject().getFolder(ORIGINALS_FOLDER_NAME);
 			if (!os.exists()) {
 				os.create(IResource.FORCE, true, new NullProgressMonitor());

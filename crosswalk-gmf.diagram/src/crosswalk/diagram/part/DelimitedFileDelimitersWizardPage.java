@@ -16,6 +16,7 @@
 package crosswalk.diagram.part;
 
 import java.io.File;
+import java.net.URI;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
@@ -47,7 +48,7 @@ import crosswalk.DelimitedFile;
 
 /**
  * @author Gregory Jansen
- *
+ * 
  */
 public class DelimitedFileDelimitersWizardPage extends WizardPage implements IWizardPage {
 
@@ -70,7 +71,7 @@ public class DelimitedFileDelimitersWizardPage extends WizardPage implements IWi
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see org.eclipse.jface.dialogs.IDialogPage#createControl(org.eclipse.swt.widgets .Composite)
 	 */
 	@Override
@@ -199,20 +200,16 @@ public class DelimitedFileDelimitersWizardPage extends WizardPage implements IWi
 				source.unsetTextDelimiter();
 			}
 
-			// link file to project (a bit early for this.)
-			try {
-				IPath location = new Path(filePage.filePath);
-				IFolder originals = wiz.project.getFolder("originals");
-				IFile file = originals.getFile(location.lastSegment());
-				if (!file.exists()) {
-					System.out.println("Creating link "+ file + " to "+location);
-					file.createLink(location, IResource.NONE, null);
-				}
-				// set file
-				source.setSourceFile(file);
-			} catch (CoreException e) {
-				setMessage(e.getMessage(), DialogPage.ERROR);
-			}
+			IPath location = new Path(filePage.filePath);
+			// IFolder originals = wiz.project.getFolder(".originals");
+			// IFile file = originals.getFile(location.lastSegment());
+			URI uri = location.toFile().toURI();
+			// if (!file.exists()) {
+			// System.out.println("Creating link "+ file + " to "+location);
+			// file.createLink(location, IResource.NONE, null);
+			// }
+			// set file
+			source.setSourceFile(uri);
 
 			// set charset
 			source.setTextEncoding(filePage.charset);
@@ -227,10 +224,10 @@ public class DelimitedFileDelimitersWizardPage extends WizardPage implements IWi
 	 * @return
 	 */
 	private boolean validForm() {
-		if(filePage.filePath != null) {
+		if (filePage.filePath != null) {
 			File f = new File(filePage.filePath);
-			if(!f.exists()) {
-				setErrorMessage("File selected on previous page does not exist: "+filePage.filePath);
+			if (!f.exists()) {
+				setErrorMessage("File selected on previous page does not exist: " + filePage.filePath);
 				return false;
 			}
 		} else {
@@ -319,7 +316,7 @@ public class DelimitedFileDelimitersWizardPage extends WizardPage implements IWi
 	@Override
 	public void setVisible(boolean visible) {
 		super.setVisible(visible);
-		if(visible == true) {
+		if (visible == true) {
 			this.update();
 		}
 	}

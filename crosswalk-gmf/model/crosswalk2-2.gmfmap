@@ -21,14 +21,12 @@
           <domainMetaElement
               href="crosswalk.ecore#//DelimitedFile"/>
           <labelMappings
-              xsi:type="gmfmap:FeatureLabelMapping"
-              readOnly="true"
-              viewPattern="{0}"
-              editorPattern="">
+              xsi:type="gmfmap:ExpressionLabelMapping"
+              readOnly="true">
             <diagramLabel
                 href="crosswalk.gmfgraph#DataSourceName"/>
-            <features
-                href="crosswalk.ecore#//DelimitedFile/SourceFile"/>
+            <viewExpression
+                body="self.getName()"/>
           </labelMappings>
           <diagramNode
               href="crosswalk.gmfgraph#DataSource"/>
@@ -455,6 +453,89 @@
           children="//@nodes.1/@ownedChild/@children.0">
         <compartment
             href="crosswalk.gmfgraph#ModelBoxCompartment"/>
+      </compartments>
+    </ownedChild>
+  </nodes>
+  <nodes>
+    <containmentFeature
+        href="crosswalk.ecore#//EditingContainer/model"/>
+    <ownedChild>
+      <domainMetaElement
+          href="crosswalk.ecore#//Form"/>
+      <labelMappings
+          xsi:type="gmfmap:FeatureLabelMapping"
+          viewMethod="NATIVE"
+          editMethod="NATIVE">
+        <diagramLabel
+            href="crosswalk.gmfgraph#ModelLabel"/>
+        <features
+            href="crosswalk.ecore#//Form/title"/>
+        <editableFeatures
+            href="crosswalk.ecore#//Form/title"/>
+      </labelMappings>
+      <labelMappings
+          xsi:type="gmfmap:FeatureLabelMapping"
+          viewMethod="NATIVE"
+          editMethod="NATIVE">
+        <diagramLabel
+            href="crosswalk.gmfgraph#ModelNotesLabel"/>
+        <features
+            href="crosswalk.ecore#//Form/description"/>
+        <editableFeatures
+            href="crosswalk.ecore#//Form/description"/>
+      </labelMappings>
+      <diagramNode
+          href="crosswalk.gmfgraph#FlowEditableModelNode"/>
+      <children
+          compartment="//@nodes.2/@ownedChild/@compartments.0"
+          referencedChild="//@nodes.1/@ownedChild/@children.0/@ownedChild">
+        <containmentFeature
+            href="crosswalk.ecore#//Form/elements"/>
+        <childrenFeature
+            href="crosswalk.ecore#//Form/elements"/>
+      </children>
+      <children
+          compartment="//@nodes.2/@ownedChild/@compartments.0">
+        <containmentFeature
+            href="crosswalk.ecore#//Form/elements"/>
+        <childrenFeature
+            href="crosswalk.ecore#//Form/elements"/>
+        <ownedChild>
+          <domainMetaElement
+              href="crosswalk.ecore#//Paragraph"/>
+          <labelMappings
+              xsi:type="gmfmap:FeatureLabelMapping"
+              viewMethod="NATIVE"
+              editMethod="NATIVE">
+            <diagramLabel
+                href="crosswalk.gmfgraph#ParagraphHeading"/>
+            <features
+                href="crosswalk.ecore#//Paragraph/heading"/>
+            <editableFeatures
+                href="crosswalk.ecore#//Paragraph/heading"/>
+          </labelMappings>
+          <labelMappings
+              xsi:type="gmfmap:FeatureLabelMapping"
+              viewMethod="NATIVE"
+              editMethod="NATIVE">
+            <diagramLabel
+                href="crosswalk.gmfgraph#ParagraphText"/>
+            <features
+                href="crosswalk.ecore#//Paragraph/text"/>
+            <editableFeatures
+                href="crosswalk.ecore#//Paragraph/text"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="crosswalk.gmftool#//@palette/@tools.1/@tools.2"/>
+          <diagramNode
+              href="crosswalk.gmfgraph#ParagraphNode"/>
+        </ownedChild>
+      </children>
+      <compartments
+          children="//@nodes.2/@ownedChild/@children.0 //@nodes.2/@ownedChild/@children.1">
+        <compartment
+            href="crosswalk.gmfgraph#FlowModelBoxCompartment"/>
       </compartments>
     </ownedChild>
   </nodes>

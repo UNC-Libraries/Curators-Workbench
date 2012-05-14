@@ -19,13 +19,16 @@ import gov.loc.mets.DivType;
 import gov.loc.mets.MdSecType;
 import gov.loc.mets.util.METSConstants;
 
+import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.jface.viewers.DoubleClickEvent;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.ui.IEditorDescriptor;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.handlers.IHandlerService;
+import org.eclipse.ui.internal.Workbench;
 import org.eclipse.ui.navigator.CommonNavigator;
 import org.eclipse.ui.navigator.CommonViewer;
 import org.eclipse.ui.part.FileEditorInput;
@@ -38,8 +41,6 @@ import org.slf4j.LoggerFactory;
 import unc.lib.cdr.workbench.capture.OriginalFolderEditorInput;
 import unc.lib.cdr.workbench.capture.OriginalFolderEditorPart;
 import unc.lib.cdr.workbench.rcp.Activator;
-import unc.lib.cdr.workbench.xwalk.CrosswalkTreeElement;
-import crosswalk.diagram.part.CrosswalkDiagramEditor;
 
 public class MetsProjectNavigator extends CommonNavigator implements ITabbedPropertySheetPageContributor {
 
@@ -93,11 +94,12 @@ public class MetsProjectNavigator extends CommonNavigator implements ITabbedProp
 				} catch (PartInitException ex) {
 					Activator.getDefault().getLog().log(ex.getStatus());
 				}
-			} else if (object instanceof CrosswalkTreeElement) {
-				CrosswalkTreeElement e = (CrosswalkTreeElement) object;
-				FileEditorInput fei = new FileEditorInput(e.getFile());
+			} else if (object instanceof IFile) {
+				IFile e = (IFile) object;
+				FileEditorInput fei = new FileEditorInput(e);
+				IEditorDescriptor ed = Workbench.getInstance().getEditorRegistry().getDefaultEditor(e.getName());
 				try {
-					getSite().getPage().openEditor(fei, CrosswalkDiagramEditor.ID, true);
+					getSite().getPage().openEditor(fei, ed.getId(), true);
 				} catch (PartInitException ex) {
 					Activator.getDefault().getLog().log(ex.getStatus());
 				}

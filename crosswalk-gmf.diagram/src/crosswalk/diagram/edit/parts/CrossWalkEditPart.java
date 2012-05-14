@@ -15,6 +15,7 @@
  */
 package crosswalk.diagram.edit.parts;
 
+import org.eclipse.draw2d.ColorConstants;
 import org.eclipse.draw2d.GridData;
 import org.eclipse.draw2d.GridLayout;
 import org.eclipse.draw2d.IFigure;
@@ -286,6 +287,15 @@ public class CrossWalkEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
+		private WrappingLabel fFigureModelLabelFigure;
+		/**
+		 * @generated
+		 */
+		private WrappingLabel fFigureModelNotesFigure;
+
+		/**
+		 * @generated
+		 */
 		public EditableModelFigure() {
 
 			GridLayout layoutThis = new GridLayout();
@@ -293,6 +303,7 @@ public class CrossWalkEditPart extends ShapeNodeEditPart {
 			layoutThis.makeColumnsEqualWidth = true;
 			this.setLayoutManager(layoutThis);
 
+			this.setBackgroundColor(ColorConstants.lightGray);
 			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(1000), getMapMode().DPtoLP(1000)));
 			createContents();
 		}
@@ -301,6 +312,34 @@ public class CrossWalkEditPart extends ShapeNodeEditPart {
 		 * @generated
 		 */
 		private void createContents() {
+
+			fFigureModelLabelFigure = new WrappingLabel();
+			fFigureModelLabelFigure.setText("");
+
+			fFigureModelLabelFigure.setFont(FFIGUREMODELLABELFIGURE_FONT);
+
+			GridData constraintFFigureModelLabelFigure = new GridData();
+			constraintFFigureModelLabelFigure.verticalAlignment = GridData.CENTER;
+			constraintFFigureModelLabelFigure.horizontalAlignment = GridData.BEGINNING;
+			constraintFFigureModelLabelFigure.horizontalIndent = 5;
+			constraintFFigureModelLabelFigure.horizontalSpan = 1;
+			constraintFFigureModelLabelFigure.verticalSpan = 1;
+			constraintFFigureModelLabelFigure.grabExcessHorizontalSpace = false;
+			constraintFFigureModelLabelFigure.grabExcessVerticalSpace = false;
+			this.add(fFigureModelLabelFigure, constraintFFigureModelLabelFigure);
+
+			fFigureModelNotesFigure = new WrappingLabel();
+			fFigureModelNotesFigure.setText("");
+
+			GridData constraintFFigureModelNotesFigure = new GridData();
+			constraintFFigureModelNotesFigure.verticalAlignment = GridData.CENTER;
+			constraintFFigureModelNotesFigure.horizontalAlignment = GridData.BEGINNING;
+			constraintFFigureModelNotesFigure.horizontalIndent = 5;
+			constraintFFigureModelNotesFigure.horizontalSpan = 1;
+			constraintFFigureModelNotesFigure.verticalSpan = 1;
+			constraintFFigureModelNotesFigure.grabExcessHorizontalSpace = false;
+			constraintFFigureModelNotesFigure.grabExcessVerticalSpace = false;
+			this.add(fFigureModelNotesFigure, constraintFFigureModelNotesFigure);
 
 			fFigureModelBox = new RectangleFigure();
 
@@ -323,6 +362,26 @@ public class CrossWalkEditPart extends ShapeNodeEditPart {
 			return fFigureModelBox;
 		}
 
+		/**
+		 * @generated
+		 */
+		public WrappingLabel getFigureModelLabelFigure() {
+			return fFigureModelLabelFigure;
+		}
+
+		/**
+		 * @generated
+		 */
+		public WrappingLabel getFigureModelNotesFigure() {
+			return fFigureModelNotesFigure;
+		}
+
 	}
+
+	/**
+	 * @generated
+	 */
+	static final Font FFIGUREMODELLABELFIGURE_FONT = new Font(Display.getCurrent(), Display.getDefault().getSystemFont()
+			.getFontData()[0].getName(), 26, SWT.BOLD);
 
 }

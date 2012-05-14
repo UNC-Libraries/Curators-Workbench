@@ -72,7 +72,7 @@ import crosswalk.DataException;
 import crosswalk.DataSource;
 import crosswalk.Dictionary;
 import crosswalk.EditingContainer;
-import crosswalk.diagram.edit.parts.CrossWalkEditPart;
+import crosswalk.Form;
 import crosswalk.diagram.edit.parts.EditingContainerEditPart;
 
 /**
@@ -166,18 +166,17 @@ public class CrosswalkDiagramEditorUtil {
 	 * This method should be called within a workspace modify operation since it creates resources.
 	 * @generated
 	 */
-	public static Resource createDiagram(URI diagramURI, URI modelURI, IProgressMonitor progressMonitor) {
+	public static Resource createDiagram(URI diagramURI, IProgressMonitor progressMonitor) {
 		TransactionalEditingDomain editingDomain = GMFEditingDomainFactory.INSTANCE.createEditingDomain();
 		progressMonitor.beginTask(Messages.CrosswalkDiagramEditorUtil_CreateDiagramProgressTask, 3);
 		final Resource diagramResource = editingDomain.getResourceSet().createResource(diagramURI);
-		final Resource modelResource = editingDomain.getResourceSet().createResource(modelURI);
 		final String diagramName = diagramURI.lastSegment();
 		AbstractTransactionalCommand command = new AbstractTransactionalCommand(editingDomain,
 				Messages.CrosswalkDiagramEditorUtil_CreateDiagramCommandLabel, Collections.EMPTY_LIST) {
 			protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info)
 					throws ExecutionException {
 				EditingContainer model = createInitialModel();
-				attachModelToResource(model, modelResource);
+				attachModelToResource(model, diagramResource);
 
 				Diagram diagram = ViewService.createDiagram(model, EditingContainerEditPart.MODEL_ID,
 						CrosswalkDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT);
@@ -188,7 +187,7 @@ public class CrosswalkDiagramEditorUtil {
 				}
 
 				try {
-					modelResource.save(crosswalk.diagram.part.CrosswalkDiagramEditorUtil.getSaveOptions());
+
 					diagramResource.save(crosswalk.diagram.part.CrosswalkDiagramEditorUtil.getSaveOptions());
 				} catch (IOException e) {
 
@@ -203,7 +202,7 @@ public class CrosswalkDiagramEditorUtil {
 		} catch (ExecutionException e) {
 			CrosswalkDiagramEditorPlugin.getInstance().logError("Unable to create model and diagram", e); //$NON-NLS-1$
 		}
-		setCharset(WorkspaceSynchronizer.getFile(modelResource));
+
 		setCharset(WorkspaceSynchronizer.getFile(diagramResource));
 		return diagramResource;
 	}
@@ -498,6 +497,48 @@ public class CrosswalkDiagramEditorUtil {
 		try {
 			OperationHistoryFactory.getOperationHistory().execute(command, new SubProgressMonitor(progressMonitor, 1),
 					null);
+		} catch (ExecutionException e) {
+			CrosswalkDiagramEditorPlugin.getInstance().logError("Unable to create model and diagram", e); //$NON-NLS-1$
+		}
+		setCharset(WorkspaceSynchronizer.getFile(diagramResource));
+		return diagramResource;
+	}
+
+	public static Resource createFormDiagram(URI uri, IProgressMonitor monitor) {
+		TransactionalEditingDomain editingDomain = GMFEditingDomainFactory.INSTANCE.createEditingDomain();
+		monitor.beginTask(Messages.CrosswalkDiagramEditorUtil_CreateDiagramProgressTask, 3);
+		final Resource diagramResource = editingDomain.getResourceSet().createResource(uri);
+		final String diagramName = uri.lastSegment();
+		AbstractTransactionalCommand command = new AbstractTransactionalCommand(editingDomain,
+				Messages.CrosswalkDiagramEditorUtil_CreateDiagramCommandLabel, Collections.EMPTY_LIST) {
+			protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info)
+					throws ExecutionException {
+				EditingContainer model = createInitialModel();
+				Form form = CrosswalkFactory.eINSTANCE.createForm();
+				form.setTitle("Form Title");
+				form.setDescription("This is a description of the form. Click on this text or the title to edit.");
+				// TODO form.setOutputType(MODSPackage.eINSTANCE.getModsDefinition());
+				model.setModel(form);
+				attachModelToResource(model, diagramResource);
+
+				Diagram diagram = ViewService.createDiagram(model, EditingContainerEditPart.MODEL_ID,
+						CrosswalkDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT);
+				if (diagram != null) {
+					diagramResource.getContents().add(diagram);
+					diagram.setName(diagramName);
+					diagram.setElement(model);
+				}
+
+				try {
+					diagramResource.save(crosswalk.diagram.part.CrosswalkDiagramEditorUtil.getSaveOptions());
+				} catch (IOException e) {
+					CrosswalkDiagramEditorPlugin.getInstance().logError("Unable to store model and diagram resources", e); //$NON-NLS-1$
+				}
+				return CommandResult.newOKCommandResult();
+			}
+		};
+		try {
+			OperationHistoryFactory.getOperationHistory().execute(command, new SubProgressMonitor(monitor, 1), null);
 		} catch (ExecutionException e) {
 			CrosswalkDiagramEditorPlugin.getInstance().logError("Unable to create model and diagram", e); //$NON-NLS-1$
 		}

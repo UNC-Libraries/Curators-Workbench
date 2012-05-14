@@ -123,8 +123,9 @@ public class InputFieldEditPart extends ShapeNodeEditPart {
 
 	@Override
 	public ConnectionAnchor getSourceConnectionAnchor(Request request) {
-		if(this.getPrimaryShape().isVisible()) {
-			return getNodeFigure().getSourceConnectionAnchorAt(getPrimaryShape().getFigureInputFieldEllipsis().getLocation());
+		if (this.getPrimaryShape().isVisible()) {
+			return getNodeFigure().getSourceConnectionAnchorAt(
+					getPrimaryShape().getFigureInputFieldEllipsis().getLocation());
 		} else {
 			return super.getSourceConnectionAnchor(request);
 		}
@@ -446,9 +447,9 @@ public class InputFieldEditPart extends ShapeNodeEditPart {
 
 	@Override
 	public ConnectionAnchor getTargetConnectionAnchor(Request request) {
-		if(this.getPrimaryShape().isVisible()) {
+		if (this.getPrimaryShape().isVisible()) {
 			return getNodeFigure().getTargetConnectionAnchorAt(
-				getPrimaryShape().getFigureInputFieldLabel().getBounds().getRight());
+					getPrimaryShape().getFigureInputFieldLabel().getBounds().getRight());
 		} else {
 			return super.getTargetConnectionAnchor(request);
 		}

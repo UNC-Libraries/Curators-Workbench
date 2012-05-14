@@ -53,16 +53,6 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String CrosswalkCreationWizard_DomainModelFilePageTitle;
-
-	/**
-	 * @generated
-	 */
-	public static String CrosswalkCreationWizard_DomainModelFilePageDescription;
-
-	/**
-	 * @generated
-	 */
 	public static String CrosswalkCreationWizardOpenEditorError;
 
 	/**
@@ -263,7 +253,7 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String DictionaryTools2Group_title;
+	public static String FormandDictionary2Group_title;
 
 	/**
 	 * @generated
@@ -358,6 +348,16 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String Paragraph3CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Paragraph3CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
 	public static String CrossWalkModelBoxCompartmentEditPart_title;
 
 	/**
@@ -399,6 +399,21 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String MetadataBlockMetadataBlockMappingCompartmentEditPart_title;
+
+	/**
+	 * @generated
+	 */
+	public static String FormModelBoxCompartmentEditPart_title;
+
+	/**
+	 * @generated
+	 */
+	public static String MetadataBlockMetadataBlockInputFieldsCompartment3EditPart_title;
+
+	/**
+	 * @generated
+	 */
+	public static String MetadataBlockMetadataBlockMappingCompartment3EditPart_title;
 
 	/**
 	 * @generated

@@ -1135,6 +1135,108 @@ public interface CrosswalkPackage extends EPackage {
 	int EDITABLE_FEATURE_COUNT = 0;
 
 								/**
+	 * The meta object id for the '{@link crosswalk.impl.FormImpl <em>Form</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see crosswalk.impl.FormImpl
+	 * @see crosswalk.impl.CrosswalkPackageImpl#getForm()
+	 * @generated
+	 */
+	int FORM = 26;
+
+								/**
+	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORM__ELEMENTS = EDITABLE_FEATURE_COUNT + 0;
+
+								/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORM__TITLE = EDITABLE_FEATURE_COUNT + 1;
+
+								/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORM__DESCRIPTION = EDITABLE_FEATURE_COUNT + 2;
+
+								/**
+	 * The number of structural features of the '<em>Form</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORM_FEATURE_COUNT = EDITABLE_FEATURE_COUNT + 3;
+
+								/**
+	 * The meta object id for the '{@link crosswalk.FormElement <em>Form Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see crosswalk.FormElement
+	 * @see crosswalk.impl.CrosswalkPackageImpl#getFormElement()
+	 * @generated
+	 */
+	int FORM_ELEMENT = 27;
+
+								/**
+	 * The number of structural features of the '<em>Form Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORM_ELEMENT_FEATURE_COUNT = 0;
+
+								/**
+	 * The meta object id for the '{@link crosswalk.impl.ParagraphImpl <em>Paragraph</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see crosswalk.impl.ParagraphImpl
+	 * @see crosswalk.impl.CrosswalkPackageImpl#getParagraph()
+	 * @generated
+	 */
+	int PARAGRAPH = 28;
+
+								/**
+	 * The feature id for the '<em><b>Heading</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAGRAPH__HEADING = FORM_ELEMENT_FEATURE_COUNT + 0;
+
+								/**
+	 * The feature id for the '<em><b>Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAGRAPH__TEXT = FORM_ELEMENT_FEATURE_COUNT + 1;
+
+								/**
+	 * The number of structural features of the '<em>Paragraph</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAGRAPH_FEATURE_COUNT = FORM_ELEMENT_FEATURE_COUNT + 2;
+
+								/**
 	 * The meta object id for the '<em>Data Exception</em>' data type.
 	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -1142,7 +1244,7 @@ public interface CrosswalkPackage extends EPackage {
 	 * @see crosswalk.impl.CrosswalkPackageImpl#getDataException()
 	 * @generated
 	 */
-        int DATA_EXCEPTION = 26;
+        int DATA_EXCEPTION = 29;
 
         /**
 	 * The meta object id for the '<em>IProject</em>' data type.
@@ -1152,7 +1254,7 @@ public interface CrosswalkPackage extends EPackage {
 	 * @see crosswalk.impl.CrosswalkPackageImpl#getIProject()
 	 * @generated
 	 */
-        int IPROJECT = 27;
+        int IPROJECT = 30;
 
         /**
 	 * The meta object id for the '<em>IFile</em>' data type.
@@ -1162,7 +1264,7 @@ public interface CrosswalkPackage extends EPackage {
 	 * @see crosswalk.impl.CrosswalkPackageImpl#getIFile()
 	 * @generated
 	 */
-        int IFILE = 28;
+        int IFILE = 31;
 
         /**
 	 * The meta object id for the '<em>Record Matches</em>' data type.
@@ -1172,7 +1274,7 @@ public interface CrosswalkPackage extends EPackage {
 	 * @see crosswalk.impl.CrosswalkPackageImpl#getRecordMatches()
 	 * @generated
 	 */
-        int RECORD_MATCHES = 29;
+        int RECORD_MATCHES = 32;
 
         /**
 	 * The meta object id for the '<em>IFolder</em>' data type.
@@ -1182,7 +1284,7 @@ public interface CrosswalkPackage extends EPackage {
 	 * @see crosswalk.impl.CrosswalkPackageImpl#getIFolder()
 	 * @generated
 	 */
-        int IFOLDER = 30;
+        int IFOLDER = 33;
 
         /**
 	 * The meta object id for the '<em>Record Out Of Range Exception</em>' data type.
@@ -1192,9 +1294,19 @@ public interface CrosswalkPackage extends EPackage {
 	 * @see crosswalk.impl.CrosswalkPackageImpl#getRecordOutOfRangeException()
 	 * @generated
 	 */
-        int RECORD_OUT_OF_RANGE_EXCEPTION = 31;
+        int RECORD_OUT_OF_RANGE_EXCEPTION = 34;
 
         /**
+	 * The meta object id for the '<em>URI</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see java.net.URI
+	 * @see crosswalk.impl.CrosswalkPackageImpl#getURI()
+	 * @generated
+	 */
+	int URI = 35;
+
+								/**
 	 * Returns the meta object for class '{@link crosswalk.TabbedDataField <em>Tabbed Data Field</em>}'.
 	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -1895,6 +2007,91 @@ public interface CrosswalkPackage extends EPackage {
 	EClass getEditable();
 
 								/**
+	 * Returns the meta object for class '{@link crosswalk.Form <em>Form</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Form</em>'.
+	 * @see crosswalk.Form
+	 * @generated
+	 */
+	EClass getForm();
+
+								/**
+	 * Returns the meta object for the containment reference list '{@link crosswalk.Form#getElements <em>Elements</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Elements</em>'.
+	 * @see crosswalk.Form#getElements()
+	 * @see #getForm()
+	 * @generated
+	 */
+	EReference getForm_Elements();
+
+								/**
+	 * Returns the meta object for the attribute '{@link crosswalk.Form#getTitle <em>Title</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Title</em>'.
+	 * @see crosswalk.Form#getTitle()
+	 * @see #getForm()
+	 * @generated
+	 */
+	EAttribute getForm_Title();
+
+								/**
+	 * Returns the meta object for the attribute '{@link crosswalk.Form#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see crosswalk.Form#getDescription()
+	 * @see #getForm()
+	 * @generated
+	 */
+	EAttribute getForm_Description();
+
+								/**
+	 * Returns the meta object for class '{@link crosswalk.FormElement <em>Form Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Form Element</em>'.
+	 * @see crosswalk.FormElement
+	 * @generated
+	 */
+	EClass getFormElement();
+
+								/**
+	 * Returns the meta object for class '{@link crosswalk.Paragraph <em>Paragraph</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Paragraph</em>'.
+	 * @see crosswalk.Paragraph
+	 * @generated
+	 */
+	EClass getParagraph();
+
+								/**
+	 * Returns the meta object for the attribute '{@link crosswalk.Paragraph#getHeading <em>Heading</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Heading</em>'.
+	 * @see crosswalk.Paragraph#getHeading()
+	 * @see #getParagraph()
+	 * @generated
+	 */
+	EAttribute getParagraph_Heading();
+
+								/**
+	 * Returns the meta object for the attribute '{@link crosswalk.Paragraph#getText <em>Text</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Text</em>'.
+	 * @see crosswalk.Paragraph#getText()
+	 * @see #getParagraph()
+	 * @generated
+	 */
+	EAttribute getParagraph_Text();
+
+								/**
 	 * Returns the meta object for data type '{@link crosswalk.DataException <em>Data Exception</em>}'.
 	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -1961,6 +2158,17 @@ public interface CrosswalkPackage extends EPackage {
         EDataType getRecordOutOfRangeException();
 
         /**
+	 * Returns the meta object for data type '{@link java.net.URI <em>URI</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>URI</em>'.
+	 * @see java.net.URI
+	 * @model instanceClass="java.net.URI"
+	 * @generated
+	 */
+	EDataType getURI();
+
+								/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -2563,6 +2771,76 @@ public interface CrosswalkPackage extends EPackage {
 		EClass EDITABLE = eINSTANCE.getEditable();
 
 																/**
+		 * The meta object literal for the '{@link crosswalk.impl.FormImpl <em>Form</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see crosswalk.impl.FormImpl
+		 * @see crosswalk.impl.CrosswalkPackageImpl#getForm()
+		 * @generated
+		 */
+		EClass FORM = eINSTANCE.getForm();
+
+																/**
+		 * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FORM__ELEMENTS = eINSTANCE.getForm_Elements();
+
+																/**
+		 * The meta object literal for the '<em><b>Title</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FORM__TITLE = eINSTANCE.getForm_Title();
+
+																/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FORM__DESCRIPTION = eINSTANCE.getForm_Description();
+
+																/**
+		 * The meta object literal for the '{@link crosswalk.FormElement <em>Form Element</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see crosswalk.FormElement
+		 * @see crosswalk.impl.CrosswalkPackageImpl#getFormElement()
+		 * @generated
+		 */
+		EClass FORM_ELEMENT = eINSTANCE.getFormElement();
+
+																/**
+		 * The meta object literal for the '{@link crosswalk.impl.ParagraphImpl <em>Paragraph</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see crosswalk.impl.ParagraphImpl
+		 * @see crosswalk.impl.CrosswalkPackageImpl#getParagraph()
+		 * @generated
+		 */
+		EClass PARAGRAPH = eINSTANCE.getParagraph();
+
+																/**
+		 * The meta object literal for the '<em><b>Heading</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PARAGRAPH__HEADING = eINSTANCE.getParagraph_Heading();
+
+																/**
+		 * The meta object literal for the '<em><b>Text</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PARAGRAPH__TEXT = eINSTANCE.getParagraph_Text();
+
+																/**
 		 * The meta object literal for the '<em>Data Exception</em>' data type.
 		 * <!-- begin-user-doc -->
                  * <!-- end-user-doc -->
@@ -2621,6 +2899,16 @@ public interface CrosswalkPackage extends EPackage {
 		 * @generated
 		 */
                 EDataType RECORD_OUT_OF_RANGE_EXCEPTION = eINSTANCE.getRecordOutOfRangeException();
+
+																/**
+		 * The meta object literal for the '<em>URI</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see java.net.URI
+		 * @see crosswalk.impl.CrosswalkPackageImpl#getURI()
+		 * @generated
+		 */
+		EDataType URI = eINSTANCE.getURI();
 
         }
 

@@ -35,7 +35,6 @@ import unc.lib.cdr.workbench.capture.OriginalFoldersProjectElement;
 import unc.lib.cdr.workbench.project.ICustomProjectElement;
 import unc.lib.cdr.workbench.rcp.Activator;
 import unc.lib.cdr.workbench.stage.StagedFilesProjectElement;
-import unc.lib.cdr.workbench.xwalk.CrosswalksProjectElement;
 
 /**
  * @author Gregory Jansen
@@ -100,8 +99,6 @@ public class LabelImageFactory {
 		} else if (o instanceof ICustomProjectElement) {
 			if (o instanceof ArrangementProjectElement) {
 				result = Icon.ArrangementEl;
-			} else if (o instanceof CrosswalksProjectElement) {
-				result = Icon.CrosswalkEl;
 			} else if (o instanceof OriginalFoldersProjectElement) {
 				result = Icon.OriginalsEl;
 			} else if (o instanceof StagedFilesProjectElement) {

@@ -48,25 +48,12 @@ public class CrosswalkLabelProvider implements ILabelProvider {
 
 	@Override
 	public Image getImage(Object element) {
-		if (element instanceof CrosswalksProjectElement) {
-			return LabelImageFactory.getImageForObject(element);
-		} else if (element instanceof CrosswalkTreeElement) {
-			CrosswalkTreeElement t = (CrosswalkTreeElement) element;
-			element = t.getFile();
-		}
 		return provider.getImage(element);
 	}
 
 	@Override
 	public String getText(Object element) {
-		if (element instanceof CrosswalksProjectElement) {
-			return ((CrosswalksProjectElement) element).getText();
-		} else if (element instanceof CrosswalkTreeElement) {
-			CrosswalkTreeElement t = (CrosswalkTreeElement) element;
-			return t.getName();
-		} else {
-			return provider.getText(element);
-		}
+		return provider.getText(element);
 	}
 
 }

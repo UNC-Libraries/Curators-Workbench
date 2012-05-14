@@ -348,12 +348,31 @@ public class ArrangementDropListener extends ViewerDropAdapter {
 	@Override
 	public boolean validateDrop(Object target, int operation, TransferData transferData) {
 		LOG.debug("validateDrop with transferdata: " + transferData);
-		// if(target instanceof DivType && operation == ViewerDropAdapter.LOCATION_ON) {
-		// DivType d = (DivType)target;
-		// if(METSConstants.Div_File.equals(d.getTYPE())) {
-		// return false;
-		// }
-		// }
+		// first all dropped items must be divs or IResources from .originals folder
+		try {
+	   	 IStructuredSelection sel = (IStructuredSelection)LocalSelectionTransfer.getTransfer().getSelection();
+	   	 for(Object o : sel.toArray()) {
+	   		 if(o instanceof IResource) {
+	   			 IResource r = (IResource)o;
+	   			 if (!MetsProjectNature.ORIGINALS_FOLDER_NAME.equals(r.getProjectRelativePath().segment(0))) {
+	   				 return false;
+	   			 }
+	   		 } else if(o instanceof DivType) {
+	   			 continue;
+	   		 } else {
+	   			 return false;
+	   		 }
+	   	}
+	   } catch(ClassCastException e) {
+	   	return false;
+	   }
+		
+		if(target instanceof DivType) {
+		  DivType d = (DivType)target;
+		  if(operation == ViewerDropAdapter.LOCATION_ON && !METSConstants.Div_File.equals(d.getTYPE())) {
+		    return false;
+		  }
+		}
 		return true;
 	}
 

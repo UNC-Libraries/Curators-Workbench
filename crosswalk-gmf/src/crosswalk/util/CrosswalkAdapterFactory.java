@@ -185,6 +185,18 @@ public class CrosswalkAdapterFactory extends AdapterFactoryImpl {
 				return createEditableAdapter();
 			}
 			@Override
+			public Adapter caseForm(Form object) {
+				return createFormAdapter();
+			}
+			@Override
+			public Adapter caseFormElement(FormElement object) {
+				return createFormElementAdapter();
+			}
+			@Override
+			public Adapter caseParagraph(Paragraph object) {
+				return createParagraphAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -565,6 +577,48 @@ public class CrosswalkAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createEditableAdapter() {
+		return null;
+	}
+
+								/**
+	 * Creates a new adapter for an object of class '{@link crosswalk.Form <em>Form</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see crosswalk.Form
+	 * @generated
+	 */
+	public Adapter createFormAdapter() {
+		return null;
+	}
+
+								/**
+	 * Creates a new adapter for an object of class '{@link crosswalk.FormElement <em>Form Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see crosswalk.FormElement
+	 * @generated
+	 */
+	public Adapter createFormElementAdapter() {
+		return null;
+	}
+
+								/**
+	 * Creates a new adapter for an object of class '{@link crosswalk.Paragraph <em>Paragraph</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see crosswalk.Paragraph
+	 * @generated
+	 */
+	public Adapter createParagraphAdapter() {
 		return null;
 	}
 

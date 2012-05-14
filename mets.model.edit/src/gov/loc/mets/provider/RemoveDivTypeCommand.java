@@ -37,10 +37,10 @@ public class RemoveDivTypeCommand extends RemoveCommand implements Command {
 
 	@Override
 	public void doExecute() {
-		for(Object o : this.getCollection()) {
-			DivType d = (DivType)o;
+		for (Object o : this.getCollection()) {
+			DivType d = (DivType) o;
 			deleteMetadataSections(d);
-			deleteSmLinks(d);			
+			deleteSmLinks(d);
 			TreeIterator<EObject> iter = d.eAllContents();
 			while (iter.hasNext()) {
 				EObject i = iter.next();
@@ -53,7 +53,7 @@ public class RemoveDivTypeCommand extends RemoveCommand implements Command {
 		}
 		super.doExecute();
 	}
-	
+
 	/**
 	 * Finds elements that are linked to in this DivType and adds them to the supplied list
 	 * 
@@ -77,15 +77,17 @@ public class RemoveDivTypeCommand extends RemoveCommand implements Command {
 			EcoreUtil.delete(md);
 		}
 	}
-	
+
 	private void deleteSmLinks(DivType div) {
-		DocumentRoot root = (DocumentRoot)div.eResource().getContents().get(0);
-		for(SmLinkType l : root.getMets().getStructLink().getSmLink()) {
-			if(div.equals(l.getXlinkFrom())) {
-				EcoreUtil.delete(l);
-			}
-			if(div.equals(l.getXlinkTo())) {
-				EcoreUtil.delete(l);
+		DocumentRoot root = (DocumentRoot) div.eResource().getContents().get(0);
+		if (root.getMets().getStructLink() != null) {
+			for (SmLinkType l : root.getMets().getStructLink().getSmLink()) {
+				if (div.equals(l.getXlinkFrom())) {
+					EcoreUtil.delete(l);
+				}
+				if (div.equals(l.getXlinkTo())) {
+					EcoreUtil.delete(l);
+				}
 			}
 		}
 	}

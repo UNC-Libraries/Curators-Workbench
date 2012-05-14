@@ -44,6 +44,8 @@ import crosswalk.DelimitedFile;
 import crosswalk.Dictionary;
 import crosswalk.Editable;
 import crosswalk.EditingContainer;
+import crosswalk.Form;
+import crosswalk.FormElement;
 import crosswalk.Input;
 import crosswalk.InputField;
 import crosswalk.MappedAttribute;
@@ -53,6 +55,7 @@ import crosswalk.MetadataBlock;
 import crosswalk.OriginalNameRecordMatcher;
 import crosswalk.Output;
 import crosswalk.OutputElement;
+import crosswalk.Paragraph;
 import crosswalk.RecordMatcherStrategy;
 import crosswalk.RecordMatches;
 import crosswalk.RecordOutOfRangeException;
@@ -271,6 +274,27 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 
 								/**
 	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass formEClass = null;
+
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass formElementEClass = null;
+
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass paragraphEClass = null;
+
+								/**
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -312,6 +336,13 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
         private EDataType recordOutOfRangeExceptionEDataType = null;
 
         /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType uriEDataType = null;
+
+								/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -968,6 +999,78 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 
 								/**
 	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getForm() {
+		return formEClass;
+	}
+
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getForm_Elements() {
+		return (EReference)formEClass.getEStructuralFeatures().get(0);
+	}
+
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getForm_Title() {
+		return (EAttribute)formEClass.getEStructuralFeatures().get(1);
+	}
+
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getForm_Description() {
+		return (EAttribute)formEClass.getEStructuralFeatures().get(2);
+	}
+
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getFormElement() {
+		return formElementEClass;
+	}
+
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getParagraph() {
+		return paragraphEClass;
+	}
+
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getParagraph_Heading() {
+		return (EAttribute)paragraphEClass.getEStructuralFeatures().get(0);
+	}
+
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getParagraph_Text() {
+		return (EAttribute)paragraphEClass.getEStructuralFeatures().get(1);
+	}
+
+								/**
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -1021,6 +1124,15 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 	}
 
         /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EDataType getURI() {
+		return uriEDataType;
+	}
+
+								/**
 	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
 	 * @generated
@@ -1140,6 +1252,17 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 
 		editableEClass = createEClass(EDITABLE);
 
+		formEClass = createEClass(FORM);
+		createEReference(formEClass, FORM__ELEMENTS);
+		createEAttribute(formEClass, FORM__TITLE);
+		createEAttribute(formEClass, FORM__DESCRIPTION);
+
+		formElementEClass = createEClass(FORM_ELEMENT);
+
+		paragraphEClass = createEClass(PARAGRAPH);
+		createEAttribute(paragraphEClass, PARAGRAPH__HEADING);
+		createEAttribute(paragraphEClass, PARAGRAPH__TEXT);
+
 		// Create data types
 		dataExceptionEDataType = createEDataType(DATA_EXCEPTION);
 		iProjectEDataType = createEDataType(IPROJECT);
@@ -1147,6 +1270,7 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 		recordMatchesEDataType = createEDataType(RECORD_MATCHES);
 		iFolderEDataType = createEDataType(IFOLDER);
 		recordOutOfRangeExceptionEDataType = createEDataType(RECORD_OUT_OF_RANGE_EXCEPTION);
+		uriEDataType = createEDataType(URI);
 	}
 
         /**
@@ -1202,8 +1326,11 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 		dictionaryEClass.getESuperTypes().add(this.getEditable());
 		metadataBlockEClass.getESuperTypes().add(this.getOutputElement());
 		metadataBlockEClass.getESuperTypes().add(this.getMappingContainer());
+		metadataBlockEClass.getESuperTypes().add(this.getFormElement());
 		inputFieldEClass.getESuperTypes().add(this.getOutput());
 		inputFieldEClass.getESuperTypes().add(this.getInput());
+		formEClass.getESuperTypes().add(this.getEditable());
+		paragraphEClass.getESuperTypes().add(this.getFormElement());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(tabbedDataFieldEClass, TabbedDataField.class, "TabbedDataField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1286,7 +1413,7 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 		initEAttribute(getText_Value(), ecorePackage.getEString(), "Value", null, 0, 1, Text.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(delimitedFileEClass, DelimitedFile.class, "DelimitedFile", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDelimitedFile_SourceFile(), this.getIFile(), "SourceFile", null, 1, 1, DelimitedFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDelimitedFile_SourceFile(), this.getURI(), "SourceFile", null, 1, 1, DelimitedFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDelimitedFile_DataRow(), ecorePackage.getEInt(), "dataRow", "1", 1, 1, DelimitedFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDelimitedFile_HeaderRow(), ecorePackage.getEInt(), "headerRow", null, 0, 1, DelimitedFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDelimitedFile_TextEncoding(), ecorePackage.getEString(), "textEncoding", "utf-8", 1, 1, DelimitedFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1360,12 +1487,23 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 
 		initEClass(mappingContainerEClass, MappingContainer.class, "MappingContainer", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getMappingContainer_Widgets(), this.getWalkWidget(), null, "widgets", null, 0, -1, MappingContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getMappingContainer_Elements(), this.getOutputElement(), null, "elements", null, 0, -1, MappingContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMappingContainer_Elements(), this.getOutputElement(), null, "elements", null, 0, -1, MappingContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(editingContainerEClass, EditingContainer.class, "EditingContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getEditingContainer_Model(), this.getEditable(), null, "model", null, 1, 1, EditingContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(editableEClass, Editable.class, "Editable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(formEClass, Form.class, "Form", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getForm_Elements(), this.getFormElement(), null, "elements", null, 0, -1, Form.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getForm_Title(), ecorePackage.getEString(), "title", null, 1, 1, Form.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getForm_Description(), ecorePackage.getEString(), "description", null, 1, 1, Form.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(formElementEClass, FormElement.class, "FormElement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(paragraphEClass, Paragraph.class, "Paragraph", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getParagraph_Heading(), ecorePackage.getEString(), "heading", null, 0, 1, Paragraph.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getParagraph_Text(), ecorePackage.getEString(), "text", null, 1, 1, Paragraph.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize data types
 		initEDataType(dataExceptionEDataType, DataException.class, "DataException", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
@@ -1374,6 +1512,7 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 		initEDataType(recordMatchesEDataType, RecordMatches.class, "RecordMatches", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(iFolderEDataType, IFolder.class, "IFolder", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(recordOutOfRangeExceptionEDataType, RecordOutOfRangeException.class, "RecordOutOfRangeException", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(uriEDataType, java.net.URI.class, "URI", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

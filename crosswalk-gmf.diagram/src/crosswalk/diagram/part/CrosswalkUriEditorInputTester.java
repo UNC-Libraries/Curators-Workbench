@@ -31,7 +31,7 @@ public class CrosswalkUriEditorInputTester extends PropertyTester {
 			return false;
 		}
 		URIEditorInput editorInput = (URIEditorInput) receiver;
-		return "crosswalk_diagram".equals(editorInput.getURI().fileExtension()); //$NON-NLS-1$
+		return "crosswalk".equals(editorInput.getURI().fileExtension()); //$NON-NLS-1$
 	}
 
 }

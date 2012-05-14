@@ -70,22 +70,8 @@ public class CrosswalkContentProvider implements ITreeContentProvider, IResource
 		// log.debug("getChildren:"+parent.toString());
 		List<Object> results = new ArrayList<Object>();
 		try {
-			if (parent instanceof IProject) {
-				IProject p = (IProject) parent;
-				if (p.isOpen()) {
-					MetsProjectNature n = (MetsProjectNature) p.getNature(MetsProjectNature.NATURE_ID);
-					results.add(n.getCrosswalksElement());
-				}
-			} else if (parent instanceof CrosswalksProjectElement) {
-				CrosswalksProjectElement e = (CrosswalksProjectElement) parent;
-				return e.getChildren();
-			} else if (parent instanceof IContainer) {
-				IContainer f = (IContainer) parent;
-				for (IResource r : f.members()) {
-					results.add(r);
-				}
-			} else if (parent instanceof CrosswalkTreeElement) {
-				IFile f = ((CrosswalkTreeElement) parent).getFile();
+			if (parent instanceof IFile) {
+				IFile f = (IFile) parent;
 				IProject p = f.getProject();
 				MetsProjectNature n = (MetsProjectNature) p.getNature(MetsProjectNature.NATURE_ID);
 				for (MdSecType dmd : n.getMets().getDmdSec()) {
@@ -105,21 +91,9 @@ public class CrosswalkContentProvider implements ITreeContentProvider, IResource
 		Object result = null;
 		if (element instanceof IResource) {
 			IResource r = (IResource) element;
-			String[] segments = r.getProjectRelativePath().segments();
-			if (segments.length == 2) {
-				// found a crosswalk, return CrosswalksProjectElement
-				MetsProjectNature n;
-				try {
-					n = (MetsProjectNature) r.getProject().getNature(MetsProjectNature.NATURE_ID);
-				} catch (CoreException e) {
-					throw new Error("Unexpected");
-				}
-				return n.getCrosswalksElement();
-			} else {
-				// should be a resource within an originals folder, use
-				// getParent()
-				return r.getParent();
-			}
+			// should be a resource within an originals folder, use
+			// getParent()
+			return r.getParent();
 		} else {
 			return result;
 		}
@@ -127,11 +101,7 @@ public class CrosswalkContentProvider implements ITreeContentProvider, IResource
 
 	@Override
 	public boolean hasChildren(Object element) {
-		if (element instanceof IContainer) {
-			return true;
-		} else if (element instanceof CrosswalksProjectElement) {
-			return ((CrosswalksProjectElement) element).hasChildren();
-		} else if (element instanceof CrosswalkTreeElement) {
+		if (element instanceof IFile) {
 			return true;
 		}
 		return false;

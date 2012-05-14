@@ -36,6 +36,8 @@ import crosswalk.DelimitedFile;
 import crosswalk.Dictionary;
 import crosswalk.Editable;
 import crosswalk.EditingContainer;
+import crosswalk.Form;
+import crosswalk.FormElement;
 import crosswalk.Input;
 import crosswalk.InputField;
 import crosswalk.MappedAttribute;
@@ -58,6 +60,8 @@ import crosswalk.diagram.edit.parts.DelimitedFileEditPart;
 import crosswalk.diagram.edit.parts.DictionaryEditPart;
 import crosswalk.diagram.edit.parts.DictionaryModelBoxCompartmentEditPart;
 import crosswalk.diagram.edit.parts.EditingContainerEditPart;
+import crosswalk.diagram.edit.parts.FormEditPart;
+import crosswalk.diagram.edit.parts.FormModelBoxCompartmentEditPart;
 import crosswalk.diagram.edit.parts.InputFieldEditPart;
 import crosswalk.diagram.edit.parts.InputOutputEditPart;
 import crosswalk.diagram.edit.parts.MappedAttribute2EditPart;
@@ -69,13 +73,17 @@ import crosswalk.diagram.edit.parts.MappedElementChildElementsCompartment3EditPa
 import crosswalk.diagram.edit.parts.MappedElementChildElementsCompartmentEditPart;
 import crosswalk.diagram.edit.parts.MappedElementEditPart;
 import crosswalk.diagram.edit.parts.MetadataBlock2EditPart;
+import crosswalk.diagram.edit.parts.MetadataBlock3EditPart;
 import crosswalk.diagram.edit.parts.MetadataBlockEditPart;
 import crosswalk.diagram.edit.parts.MetadataBlockMetadataBlockInputFieldsCompartment2EditPart;
+import crosswalk.diagram.edit.parts.MetadataBlockMetadataBlockInputFieldsCompartment3EditPart;
 import crosswalk.diagram.edit.parts.MetadataBlockMetadataBlockInputFieldsCompartmentEditPart;
 import crosswalk.diagram.edit.parts.MetadataBlockMetadataBlockMappingCompartment2EditPart;
+import crosswalk.diagram.edit.parts.MetadataBlockMetadataBlockMappingCompartment3EditPart;
 import crosswalk.diagram.edit.parts.MetadataBlockMetadataBlockMappingCompartmentEditPart;
 import crosswalk.diagram.edit.parts.OriginalNameRecordMatcher2EditPart;
 import crosswalk.diagram.edit.parts.OriginalNameRecordMatcherEditPart;
+import crosswalk.diagram.edit.parts.ParagraphEditPart;
 import crosswalk.diagram.edit.parts.TabbedDataFieldEditPart;
 import crosswalk.diagram.edit.parts.Text2EditPart;
 import crosswalk.diagram.edit.parts.TextEditPart;
@@ -115,6 +123,12 @@ public class CrosswalkDiagramUpdater {
 				return getMetadataBlockMetadataBlockInputFieldsCompartment_7006SemanticChildren(view);
 			case MetadataBlockMetadataBlockMappingCompartmentEditPart.VISUAL_ID:
 				return getMetadataBlockMetadataBlockMappingCompartment_7007SemanticChildren(view);
+			case FormModelBoxCompartmentEditPart.VISUAL_ID:
+				return getFormFlowModelBoxCompartment_7011SemanticChildren(view);
+			case MetadataBlockMetadataBlockInputFieldsCompartment3EditPart.VISUAL_ID:
+				return getMetadataBlockMetadataBlockInputFieldsCompartment_7012SemanticChildren(view);
+			case MetadataBlockMetadataBlockMappingCompartment3EditPart.VISUAL_ID:
+				return getMetadataBlockMetadataBlockMappingCompartment_7013SemanticChildren(view);
 		}
 		return Collections.emptyList();
 	}
@@ -135,6 +149,9 @@ public class CrosswalkDiagramUpdater {
 				result.add(new CrosswalkNodeDescriptor(childElement, visualID));
 			}
 			if (visualID == DictionaryEditPart.VISUAL_ID) {
+				result.add(new CrosswalkNodeDescriptor(childElement, visualID));
+			}
+			if (visualID == FormEditPart.VISUAL_ID) {
 				result.add(new CrosswalkNodeDescriptor(childElement, visualID));
 			}
 		}
@@ -451,6 +468,104 @@ public class CrosswalkDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<CrosswalkNodeDescriptor> getFormFlowModelBoxCompartment_7011SemanticChildren(View view) {
+		if (false == view.eContainer() instanceof View) {
+			return Collections.emptyList();
+		}
+		View containerView = (View) view.eContainer();
+		if (!containerView.isSetElement()) {
+			return Collections.emptyList();
+		}
+		Form modelElement = (Form) containerView.getElement();
+		LinkedList<CrosswalkNodeDescriptor> result = new LinkedList<CrosswalkNodeDescriptor>();
+		for (Iterator<?> it = modelElement.getElements().iterator(); it.hasNext();) {
+			FormElement childElement = (FormElement) it.next();
+			int visualID = CrosswalkVisualIDRegistry.getNodeVisualID(view, childElement);
+			if (visualID == MetadataBlock3EditPart.VISUAL_ID) {
+				result.add(new CrosswalkNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == ParagraphEditPart.VISUAL_ID) {
+				result.add(new CrosswalkNodeDescriptor(childElement, visualID));
+				continue;
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<CrosswalkNodeDescriptor> getMetadataBlockMetadataBlockInputFieldsCompartment_7012SemanticChildren(
+			View view) {
+		if (false == view.eContainer() instanceof View) {
+			return Collections.emptyList();
+		}
+		View containerView = (View) view.eContainer();
+		if (!containerView.isSetElement()) {
+			return Collections.emptyList();
+		}
+		MetadataBlock modelElement = (MetadataBlock) containerView.getElement();
+		LinkedList<CrosswalkNodeDescriptor> result = new LinkedList<CrosswalkNodeDescriptor>();
+		for (Iterator<?> it = modelElement.getPorts().iterator(); it.hasNext();) {
+			InputField childElement = (InputField) it.next();
+			int visualID = CrosswalkVisualIDRegistry.getNodeVisualID(view, childElement);
+			if (visualID == InputFieldEditPart.VISUAL_ID) {
+				result.add(new CrosswalkNodeDescriptor(childElement, visualID));
+				continue;
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<CrosswalkNodeDescriptor> getMetadataBlockMetadataBlockMappingCompartment_7013SemanticChildren(
+			View view) {
+		if (false == view.eContainer() instanceof View) {
+			return Collections.emptyList();
+		}
+		View containerView = (View) view.eContainer();
+		if (!containerView.isSetElement()) {
+			return Collections.emptyList();
+		}
+		MetadataBlock modelElement = (MetadataBlock) containerView.getElement();
+		LinkedList<CrosswalkNodeDescriptor> result = new LinkedList<CrosswalkNodeDescriptor>();
+		for (Iterator<?> it = modelElement.getWidgets().iterator(); it.hasNext();) {
+			WalkWidget childElement = (WalkWidget) it.next();
+			int visualID = CrosswalkVisualIDRegistry.getNodeVisualID(view, childElement);
+			if (visualID == OriginalNameRecordMatcher2EditPart.VISUAL_ID) {
+				result.add(new CrosswalkNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == DateRecognizer2EditPart.VISUAL_ID) {
+				result.add(new CrosswalkNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == Text2EditPart.VISUAL_ID) {
+				result.add(new CrosswalkNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == TrimWhitespace2EditPart.VISUAL_ID) {
+				result.add(new CrosswalkNodeDescriptor(childElement, visualID));
+				continue;
+			}
+		}
+		for (Iterator<?> it = modelElement.getElements().iterator(); it.hasNext();) {
+			OutputElement childElement = (OutputElement) it.next();
+			int visualID = CrosswalkVisualIDRegistry.getNodeVisualID(view, childElement);
+			if (visualID == MappedElement3EditPart.VISUAL_ID) {
+				result.add(new CrosswalkNodeDescriptor(childElement, visualID));
+				continue;
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<CrosswalkNodeDescriptor> getMappedElementChildElementsCompartment_7008SemanticChildren(View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
@@ -491,6 +606,8 @@ public class CrosswalkDiagramUpdater {
 				return getCrossWalk_2001ContainedLinks(view);
 			case DictionaryEditPart.VISUAL_ID:
 				return getDictionary_2002ContainedLinks(view);
+			case FormEditPart.VISUAL_ID:
+				return getForm_2003ContainedLinks(view);
 			case DelimitedFileEditPart.VISUAL_ID:
 				return getDelimitedFile_3001ContainedLinks(view);
 			case TabbedDataFieldEditPart.VISUAL_ID:
@@ -527,6 +644,10 @@ public class CrosswalkDiagramUpdater {
 				return getInputField_3017ContainedLinks(view);
 			case MetadataBlockEditPart.VISUAL_ID:
 				return getMetadataBlock_3010ContainedLinks(view);
+			case MetadataBlock3EditPart.VISUAL_ID:
+				return getMetadataBlock_3019ContainedLinks(view);
+			case ParagraphEditPart.VISUAL_ID:
+				return getParagraph_3020ContainedLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -540,6 +661,8 @@ public class CrosswalkDiagramUpdater {
 				return getCrossWalk_2001IncomingLinks(view);
 			case DictionaryEditPart.VISUAL_ID:
 				return getDictionary_2002IncomingLinks(view);
+			case FormEditPart.VISUAL_ID:
+				return getForm_2003IncomingLinks(view);
 			case DelimitedFileEditPart.VISUAL_ID:
 				return getDelimitedFile_3001IncomingLinks(view);
 			case TabbedDataFieldEditPart.VISUAL_ID:
@@ -576,6 +699,10 @@ public class CrosswalkDiagramUpdater {
 				return getInputField_3017IncomingLinks(view);
 			case MetadataBlockEditPart.VISUAL_ID:
 				return getMetadataBlock_3010IncomingLinks(view);
+			case MetadataBlock3EditPart.VISUAL_ID:
+				return getMetadataBlock_3019IncomingLinks(view);
+			case ParagraphEditPart.VISUAL_ID:
+				return getParagraph_3020IncomingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -589,6 +716,8 @@ public class CrosswalkDiagramUpdater {
 				return getCrossWalk_2001OutgoingLinks(view);
 			case DictionaryEditPart.VISUAL_ID:
 				return getDictionary_2002OutgoingLinks(view);
+			case FormEditPart.VISUAL_ID:
+				return getForm_2003OutgoingLinks(view);
 			case DelimitedFileEditPart.VISUAL_ID:
 				return getDelimitedFile_3001OutgoingLinks(view);
 			case TabbedDataFieldEditPart.VISUAL_ID:
@@ -625,6 +754,10 @@ public class CrosswalkDiagramUpdater {
 				return getInputField_3017OutgoingLinks(view);
 			case MetadataBlockEditPart.VISUAL_ID:
 				return getMetadataBlock_3010OutgoingLinks(view);
+			case MetadataBlock3EditPart.VISUAL_ID:
+				return getMetadataBlock_3019OutgoingLinks(view);
+			case ParagraphEditPart.VISUAL_ID:
+				return getParagraph_3020OutgoingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -647,6 +780,13 @@ public class CrosswalkDiagramUpdater {
 	 * @generated
 	 */
 	public static List<CrosswalkLinkDescriptor> getDictionary_2002ContainedLinks(View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<CrosswalkLinkDescriptor> getForm_2003ContainedLinks(View view) {
 		return Collections.emptyList();
 	}
 
@@ -742,6 +882,20 @@ public class CrosswalkDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<CrosswalkLinkDescriptor> getMetadataBlock_3019ContainedLinks(View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<CrosswalkLinkDescriptor> getParagraph_3020ContainedLinks(View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<CrosswalkLinkDescriptor> getOriginalNameRecordMatcher_3011ContainedLinks(View view) {
 		OriginalNameRecordMatcher modelElement = (OriginalNameRecordMatcher) view.getElement();
 		LinkedList<CrosswalkLinkDescriptor> result = new LinkedList<CrosswalkLinkDescriptor>();
@@ -814,6 +968,13 @@ public class CrosswalkDiagramUpdater {
 	 * @generated
 	 */
 	public static List<CrosswalkLinkDescriptor> getDictionary_2002IncomingLinks(View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<CrosswalkLinkDescriptor> getForm_2003IncomingLinks(View view) {
 		return Collections.emptyList();
 	}
 
@@ -917,6 +1078,20 @@ public class CrosswalkDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<CrosswalkLinkDescriptor> getMetadataBlock_3019IncomingLinks(View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<CrosswalkLinkDescriptor> getParagraph_3020IncomingLinks(View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<CrosswalkLinkDescriptor> getOriginalNameRecordMatcher_3011IncomingLinks(View view) {
 		return Collections.emptyList();
 	}
@@ -994,6 +1169,13 @@ public class CrosswalkDiagramUpdater {
 	 * @generated
 	 */
 	public static List<CrosswalkLinkDescriptor> getDictionary_2002OutgoingLinks(View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<CrosswalkLinkDescriptor> getForm_2003OutgoingLinks(View view) {
 		return Collections.emptyList();
 	}
 
@@ -1083,6 +1265,20 @@ public class CrosswalkDiagramUpdater {
 	 * @generated
 	 */
 	public static List<CrosswalkLinkDescriptor> getMetadataBlock_3010OutgoingLinks(View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<CrosswalkLinkDescriptor> getMetadataBlock_3019OutgoingLinks(View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<CrosswalkLinkDescriptor> getParagraph_3020OutgoingLinks(View view) {
 		return Collections.emptyList();
 	}
 

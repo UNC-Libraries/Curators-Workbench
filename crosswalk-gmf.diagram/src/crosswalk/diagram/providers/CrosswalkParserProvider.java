@@ -30,10 +30,15 @@ import org.eclipse.gmf.runtime.notation.View;
 
 import crosswalk.CrosswalkPackage;
 import crosswalk.diagram.edit.parts.DelimitedFileSourceFileEditPart;
+import crosswalk.diagram.edit.parts.FormDescriptionEditPart;
+import crosswalk.diagram.edit.parts.FormTitleEditPart;
 import crosswalk.diagram.edit.parts.InputFieldLabelEditPart;
 import crosswalk.diagram.edit.parts.MappedAttributeNameEditPart;
 import crosswalk.diagram.edit.parts.MetadataBlockName2EditPart;
+import crosswalk.diagram.edit.parts.MetadataBlockName3EditPart;
 import crosswalk.diagram.edit.parts.MetadataBlockNameEditPart;
+import crosswalk.diagram.edit.parts.ParagraphHeadingEditPart;
+import crosswalk.diagram.edit.parts.ParagraphTextEditPart;
 import crosswalk.diagram.edit.parts.TabbedDataFieldLabelColumnNumberEditPart;
 import crosswalk.diagram.edit.parts.TextValue2EditPart;
 import crosswalk.diagram.edit.parts.TextValueEditPart;
@@ -52,6 +57,7 @@ import crosswalk.diagram.edit.parts.WrappingLabel8EditPart;
 import crosswalk.diagram.edit.parts.WrappingLabel9EditPart;
 import crosswalk.diagram.edit.parts.WrappingLabelEditPart;
 import crosswalk.diagram.parsers.DateRecognizerLabelExpressionLabelParser;
+import crosswalk.diagram.parsers.DelimitedFileLabelExpressionLabelParser;
 import crosswalk.diagram.parsers.MappedAttributeLabelExpressionLabelParser;
 import crosswalk.diagram.parsers.MappedElementLabelExpressionLabelParser;
 import crosswalk.diagram.parsers.MessageFormatParser;
@@ -69,21 +75,52 @@ public class CrosswalkParserProvider extends AbstractProvider implements IParser
 	/**
 	 * @generated
 	 */
-	private IParser delimitedFileSourceFile_5003Parser;
+	private IParser formTitle_5023Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getDelimitedFileSourceFile_5003Parser() {
-		if (delimitedFileSourceFile_5003Parser == null) {
-			EAttribute[] features = new EAttribute[] { CrosswalkPackage.eINSTANCE.getDelimitedFile_SourceFile() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			parser.setViewPattern("{0}"); //$NON-NLS-1$
-			parser.setEditorPattern("{0}"); //$NON-NLS-1$
-			parser.setEditPattern("{0}"); //$NON-NLS-1$
-			delimitedFileSourceFile_5003Parser = parser;
+	private IParser getFormTitle_5023Parser() {
+		if (formTitle_5023Parser == null) {
+			EAttribute[] features = new EAttribute[] { CrosswalkPackage.eINSTANCE.getForm_Title() };
+			EAttribute[] editableFeatures = new EAttribute[] { CrosswalkPackage.eINSTANCE.getForm_Title() };
+			NativeParser parser = new NativeParser(features, editableFeatures);
+			formTitle_5023Parser = parser;
 		}
-		return delimitedFileSourceFile_5003Parser;
+		return formTitle_5023Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser formDescription_5024Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getFormDescription_5024Parser() {
+		if (formDescription_5024Parser == null) {
+			EAttribute[] features = new EAttribute[] { CrosswalkPackage.eINSTANCE.getForm_Description() };
+			EAttribute[] editableFeatures = new EAttribute[] { CrosswalkPackage.eINSTANCE.getForm_Description() };
+			NativeParser parser = new NativeParser(features, editableFeatures);
+			formDescription_5024Parser = parser;
+		}
+		return formDescription_5024Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private DelimitedFileLabelExpressionLabelParser delimitedFileLabel_5003Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getDelimitedFileLabel_5003Parser() {
+		if (delimitedFileLabel_5003Parser == null) {
+			delimitedFileLabel_5003Parser = new DelimitedFileLabelExpressionLabelParser();
+		}
+		return delimitedFileLabel_5003Parser;
 	}
 
 	/**
@@ -270,6 +307,60 @@ public class CrosswalkParserProvider extends AbstractProvider implements IParser
 	/**
 	 * @generated
 	 */
+	private IParser metadataBlockName_5020Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getMetadataBlockName_5020Parser() {
+		if (metadataBlockName_5020Parser == null) {
+			EAttribute[] features = new EAttribute[] { CrosswalkPackage.eINSTANCE.getMetadataBlock_Name() };
+			EAttribute[] editableFeatures = new EAttribute[] { CrosswalkPackage.eINSTANCE.getMetadataBlock_Name() };
+			NativeParser parser = new NativeParser(features, editableFeatures);
+			metadataBlockName_5020Parser = parser;
+		}
+		return metadataBlockName_5020Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser paragraphHeading_5021Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getParagraphHeading_5021Parser() {
+		if (paragraphHeading_5021Parser == null) {
+			EAttribute[] features = new EAttribute[] { CrosswalkPackage.eINSTANCE.getParagraph_Heading() };
+			EAttribute[] editableFeatures = new EAttribute[] { CrosswalkPackage.eINSTANCE.getParagraph_Heading() };
+			NativeParser parser = new NativeParser(features, editableFeatures);
+			paragraphHeading_5021Parser = parser;
+		}
+		return paragraphHeading_5021Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser paragraphText_5022Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getParagraphText_5022Parser() {
+		if (paragraphText_5022Parser == null) {
+			EAttribute[] features = new EAttribute[] { CrosswalkPackage.eINSTANCE.getParagraph_Text() };
+			EAttribute[] editableFeatures = new EAttribute[] { CrosswalkPackage.eINSTANCE.getParagraph_Text() };
+			NativeParser parser = new NativeParser(features, editableFeatures);
+			paragraphText_5022Parser = parser;
+		}
+		return paragraphText_5022Parser;
+	}
+
+	/**
+	 * @generated
+	 */
 	private OriginalNameRecordMatcherLabelExpressionLabelParser originalNameRecordMatcherLabel_5011Parser;
 
 	/**
@@ -383,8 +474,12 @@ public class CrosswalkParserProvider extends AbstractProvider implements IParser
 	 */
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
+			case FormTitleEditPart.VISUAL_ID:
+				return getFormTitle_5023Parser();
+			case FormDescriptionEditPart.VISUAL_ID:
+				return getFormDescription_5024Parser();
 			case DelimitedFileSourceFileEditPart.VISUAL_ID:
-				return getDelimitedFileSourceFile_5003Parser();
+				return getDelimitedFileLabel_5003Parser();
 			case WrappingLabelEditPart.VISUAL_ID:
 				return getTabbedDataFieldLabel_5001Parser();
 			case TabbedDataFieldLabelColumnNumberEditPart.VISUAL_ID:
@@ -421,6 +516,12 @@ public class CrosswalkParserProvider extends AbstractProvider implements IParser
 				return getInputFieldLabel_5017Parser();
 			case MetadataBlockNameEditPart.VISUAL_ID:
 				return getMetadataBlockName_5018Parser();
+			case MetadataBlockName3EditPart.VISUAL_ID:
+				return getMetadataBlockName_5020Parser();
+			case ParagraphHeadingEditPart.VISUAL_ID:
+				return getParagraphHeading_5021Parser();
+			case ParagraphTextEditPart.VISUAL_ID:
+				return getParagraphText_5022Parser();
 		}
 		return null;
 	}

@@ -51,7 +51,7 @@ public class CrosswalkPaletteFactory {
 	public void fillPalette(PaletteRoot paletteRoot) {
 		paletteRoot.add(createMetadataMapping1Group());
 		paletteRoot.add(createDictionaryContentsGroup());
-		paletteRoot.add(createDictionaryTools2Group());
+		paletteRoot.add(createFormandDictionary2Group());
 	}
 
 	/**
@@ -73,14 +73,15 @@ public class CrosswalkPaletteFactory {
 	}
 
 	/**
-	 * Creates "Dictionary Tools" palette tool group
+	 * Creates "Form and Dictionary" palette tool group
 	 * @generated
 	 */
-	private PaletteContainer createDictionaryTools2Group() {
-		PaletteDrawer paletteContainer = new PaletteDrawer(Messages.DictionaryTools2Group_title);
-		paletteContainer.setId("createDictionaryTools2Group"); //$NON-NLS-1$
+	private PaletteContainer createFormandDictionary2Group() {
+		PaletteDrawer paletteContainer = new PaletteDrawer(Messages.FormandDictionary2Group_title);
+		paletteContainer.setId("createFormandDictionary2Group"); //$NON-NLS-1$
 		paletteContainer.add(createMetadataBlock1CreationTool());
 		paletteContainer.add(createInputField2CreationTool());
+		paletteContainer.add(createParagraph3CreationTool());
 		return paletteContainer;
 	}
 
@@ -206,9 +207,10 @@ public class CrosswalkPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createMetadataBlock1CreationTool() {
-		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+		ArrayList<IElementType> types = new ArrayList<IElementType>(3);
 		types.add(CrosswalkElementTypes.MetadataBlock_3018);
 		types.add(CrosswalkElementTypes.MetadataBlock_3010);
+		types.add(CrosswalkElementTypes.MetadataBlock_3019);
 		NodeToolEntry entry = new NodeToolEntry(Messages.MetadataBlock1CreationTool_title,
 				Messages.MetadataBlock1CreationTool_desc, types);
 		entry.setId("createMetadataBlock1CreationTool"); //$NON-NLS-1$
@@ -225,6 +227,18 @@ public class CrosswalkPaletteFactory {
 				Messages.InputField2CreationTool_desc, Collections.singletonList(CrosswalkElementTypes.InputField_3017));
 		entry.setId("createInputField2CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(CrosswalkElementTypes.getImageDescriptor(CrosswalkElementTypes.InputField_3017));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createParagraph3CreationTool() {
+		NodeToolEntry entry = new NodeToolEntry(Messages.Paragraph3CreationTool_title,
+				Messages.Paragraph3CreationTool_desc, Collections.singletonList(CrosswalkElementTypes.Paragraph_3020));
+		entry.setId("createParagraph3CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(CrosswalkElementTypes.getImageDescriptor(CrosswalkElementTypes.Paragraph_3020));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}

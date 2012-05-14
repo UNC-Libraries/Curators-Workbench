@@ -64,11 +64,6 @@ public class CrosswalkCreationWizard extends Wizard implements INewWizard {
 	 */
 	protected CrosswalkCreationWizardPage diagramModelFilePage;
 
-	/**
-	 * @generated
-	 */
-	protected CrosswalkCreationWizardPage domainModelFilePage;
-
 	protected IProject project;
 
 	protected CrosswalkPickDataSourceWizardPage dataSourceTypePage;
@@ -188,9 +183,8 @@ public class CrosswalkCreationWizard extends Wizard implements INewWizard {
 	}
 
 	private URI getCrosswalkFileURI() {
-		IFile f = this.project.getFolder("crosswalks").getFile(this.crosswalkName + ".crosswalk");
+		IFile f = this.project.getFile(this.crosswalkName + ".crosswalk");
 		URI result = URI.createPlatformResourceURI(f.getFullPath().toString(), true);
-		System.out.println("Crosswalk File URI: " + result);
 		return result;
 	}
 

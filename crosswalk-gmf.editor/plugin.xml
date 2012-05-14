@@ -11,26 +11,14 @@
 <plugin>
 
    <extension point="org.eclipse.ui.newWizards">
-      <category
-            id="org.eclipse.emf.ecore.Wizard.category.ID"
-            name="%_UI_Wizard_category"/>
-      <wizard
-            id="crosswalk.presentation.CrosswalkModelWizardID"
-            name="%_UI_CrosswalkModelWizard_label"
-            class="crosswalk.presentation.CrosswalkModelWizard"
-            category="org.eclipse.ui.Basic"
-            icon="icons/full/obj16/CrosswalkModelFile.gif">
-         <description>%_UI_CrosswalkModelWizard_description</description>
-         <selection class="org.eclipse.core.resources.IResource"/>
-      </wizard>
    </extension>
 
    <extension point="org.eclipse.ui.editors">
       <editor
             id="crosswalk.presentation.CrosswalkEditorID"
-            name="%_UI_CrosswalkEditor_label"
+            name="Submission Form Editor"
             icon="icons/full/obj16/CrosswalkModelFile.gif"
-            extensions="crosswalk"
+            extensions="form"
             class="crosswalk.presentation.CrosswalkEditor"
             contributorClass="crosswalk.presentation.CrosswalkActionBarContributor">
       </editor>

@@ -225,6 +225,7 @@ public class CrosswalkSwitch<T> extends Switch<T> {
 				T result = caseMetadataBlock(metadataBlock);
 				if (result == null) result = caseOutputElement(metadataBlock);
 				if (result == null) result = caseMappingContainer(metadataBlock);
+				if (result == null) result = caseFormElement(metadataBlock);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -263,6 +264,26 @@ public class CrosswalkSwitch<T> extends Switch<T> {
 			case CrosswalkPackage.EDITABLE: {
 				Editable editable = (Editable)theEObject;
 				T result = caseEditable(editable);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CrosswalkPackage.FORM: {
+				Form form = (Form)theEObject;
+				T result = caseForm(form);
+				if (result == null) result = caseEditable(form);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CrosswalkPackage.FORM_ELEMENT: {
+				FormElement formElement = (FormElement)theEObject;
+				T result = caseFormElement(formElement);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CrosswalkPackage.PARAGRAPH: {
+				Paragraph paragraph = (Paragraph)theEObject;
+				T result = caseParagraph(paragraph);
+				if (result == null) result = caseFormElement(paragraph);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -657,6 +678,51 @@ public class CrosswalkSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseEditable(Editable object) {
+		return null;
+	}
+
+								/**
+	 * Returns the result of interpreting the object as an instance of '<em>Form</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Form</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseForm(Form object) {
+		return null;
+	}
+
+								/**
+	 * Returns the result of interpreting the object as an instance of '<em>Form Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Form Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseFormElement(FormElement object) {
+		return null;
+	}
+
+								/**
+	 * Returns the result of interpreting the object as an instance of '<em>Paragraph</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Paragraph</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseParagraph(Paragraph object) {
 		return null;
 	}
 

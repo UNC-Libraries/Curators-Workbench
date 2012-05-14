@@ -7,13 +7,16 @@
 package crosswalk.impl;
 
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.MalformedURLException;
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -79,7 +82,7 @@ public class DelimitedFileImpl extends EObjectImpl implements DelimitedFile {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final IFile SOURCE_FILE_EDEFAULT = null;
+	protected static final URI SOURCE_FILE_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getSourceFile() <em>Source File</em>}' attribute.
@@ -89,7 +92,7 @@ public class DelimitedFileImpl extends EObjectImpl implements DelimitedFile {
 	 * @generated
 	 * @ordered
 	 */
-	protected IFile sourceFile = SOURCE_FILE_EDEFAULT;
+	protected URI sourceFile = SOURCE_FILE_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getDataRow() <em>Data Row</em>}' attribute.
@@ -275,16 +278,17 @@ public class DelimitedFileImpl extends EObjectImpl implements DelimitedFile {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public IFile getSourceFile() {
+	public URI getSourceFile() {
 		return sourceFile;
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSourceFile(IFile newSourceFile) {
-		IFile oldSourceFile = sourceFile;
+	public void setSourceFile(URI newSourceFile) {
+		URI oldSourceFile = sourceFile;
 		sourceFile = newSourceFile;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.DELIMITED_FILE__SOURCE_FILE, oldSourceFile, sourceFile));
@@ -453,12 +457,13 @@ public class DelimitedFileImpl extends EObjectImpl implements DelimitedFile {
 	 * @generated NOT
 	 */
 	public void Reset() throws DataException {
-		IFile f = this.getSourceFile();
+		URI uri = this.getSourceFile();
+		File f = new File(uri);
 		if (f.exists()) {
 			CSVReader reader = null;
 			try {
 				// TODO use this for wiz default: f.getCharset(true)
-				BufferedReader br = new BufferedReader(new InputStreamReader(f.getContents(true), this.getTextEncoding()));
+				BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(f), this.getTextEncoding()));
 
 				if(this.isSetTextDelimiter()) {
 					reader = new CSVReader(br, this.getFieldDelimiter(), this.getTextDelimiter());
@@ -467,8 +472,6 @@ public class DelimitedFileImpl extends EObjectImpl implements DelimitedFile {
 				}
 				this.lines = reader.readAll();
 			} catch (IOException e) {
-				throw new DataException(e);
-			} catch (CoreException e) {
 				throw new DataException(e);
 			} finally {
 				if (reader != null) {
@@ -508,7 +511,7 @@ public class DelimitedFileImpl extends EObjectImpl implements DelimitedFile {
 	 * @generated NOT
 	 */
 	public String getName() {
-		return this.getSourceFile().getName();
+		return new File(this.getSourceFile()).getName();
 	}
 
 	/**
@@ -673,7 +676,7 @@ public class DelimitedFileImpl extends EObjectImpl implements DelimitedFile {
 				getFields().addAll((Collection<? extends DataField>)newValue);
 				return;
 			case CrosswalkPackage.DELIMITED_FILE__SOURCE_FILE:
-				setSourceFile((IFile)newValue);
+				setSourceFile((URI)newValue);
 				return;
 			case CrosswalkPackage.DELIMITED_FILE__DATA_ROW:
 				setDataRow((Integer)newValue);

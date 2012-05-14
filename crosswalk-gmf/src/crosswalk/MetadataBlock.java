@@ -26,7 +26,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface MetadataBlock extends OutputElement, MappingContainer {
+public interface MetadataBlock extends OutputElement, MappingContainer, FormElement {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->

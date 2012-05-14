@@ -55,7 +55,7 @@ public interface MappingContainer extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Elements</em>' containment reference list.
 	 * @see crosswalk.CrosswalkPackage#getMappingContainer_Elements()
-	 * @model containment="true"
+	 * @model containment="true" ordered="false"
 	 * @generated
 	 */
 	EList<OutputElement> getElements();

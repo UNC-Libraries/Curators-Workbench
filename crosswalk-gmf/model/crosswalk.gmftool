@@ -45,7 +45,7 @@
     </tools>
     <tools
         xsi:type="gmftool:ToolGroup"
-        title="Dictionary Tools"
+        title="Form and Dictionary"
         collapsible="true">
       <tools
           xsi:type="gmftool:CreationTool"
@@ -55,6 +55,10 @@
           xsi:type="gmftool:CreationTool"
           title="Input Field"
           description="Add an input field to a metadata block"/>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Paragraph"
+          description="A block of text with optional header used in forms."/>
     </tools>
   </palette>
 </gmftool:ToolRegistry>

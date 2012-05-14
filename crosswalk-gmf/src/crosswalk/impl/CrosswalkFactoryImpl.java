@@ -112,6 +112,8 @@ public class CrosswalkFactoryImpl extends EFactoryImpl implements CrosswalkFacto
 			case CrosswalkPackage.VOCABULARY: return createVocabulary();
 			case CrosswalkPackage.INPUT_FIELD: return createInputField();
 			case CrosswalkPackage.EDITING_CONTAINER: return createEditingContainer();
+			case CrosswalkPackage.FORM: return createForm();
+			case CrosswalkPackage.PARAGRAPH: return createParagraph();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -136,6 +138,8 @@ public class CrosswalkFactoryImpl extends EFactoryImpl implements CrosswalkFacto
 				return createIFolderFromString(eDataType, initialValue);
 			case CrosswalkPackage.RECORD_OUT_OF_RANGE_EXCEPTION:
 				return createRecordOutOfRangeExceptionFromString(eDataType, initialValue);
+			case CrosswalkPackage.URI:
+				return createURIFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -160,6 +164,8 @@ public class CrosswalkFactoryImpl extends EFactoryImpl implements CrosswalkFacto
 				return convertIFolderToString(eDataType, instanceValue);
 			case CrosswalkPackage.RECORD_OUT_OF_RANGE_EXCEPTION:
 				return convertRecordOutOfRangeExceptionToString(eDataType, instanceValue);
+			case CrosswalkPackage.URI:
+				return convertURIToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -324,6 +330,26 @@ public class CrosswalkFactoryImpl extends EFactoryImpl implements CrosswalkFacto
 	}
 
 /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Form createForm() {
+		FormImpl form = new FormImpl();
+		return form;
+	}
+
+/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Paragraph createParagraph() {
+		ParagraphImpl paragraph = new ParagraphImpl();
+		return paragraph;
+	}
+
+/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -448,6 +474,24 @@ public class CrosswalkFactoryImpl extends EFactoryImpl implements CrosswalkFacto
 	 * @generated
 	 */
         public String convertRecordOutOfRangeExceptionToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
+	}
+
+/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public URI createURIFromString(EDataType eDataType, String initialValue) {
+		return (URI)super.createFromString(eDataType, initialValue);
+	}
+
+/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertURIToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(eDataType, instanceValue);
 	}
 

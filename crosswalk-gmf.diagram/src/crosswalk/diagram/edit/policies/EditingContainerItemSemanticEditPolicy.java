@@ -9,6 +9,7 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.DuplicateElementsRequest;
 
 import crosswalk.diagram.edit.commands.CrossWalkCreateCommand;
 import crosswalk.diagram.edit.commands.DictionaryCreateCommand;
+import crosswalk.diagram.edit.commands.FormCreateCommand;
 import crosswalk.diagram.providers.CrosswalkElementTypes;
 
 /**
@@ -32,6 +33,9 @@ public class EditingContainerItemSemanticEditPolicy extends CrosswalkBaseItemSem
 		}
 		if (CrosswalkElementTypes.Dictionary_2002 == req.getElementType()) {
 			return getGEFWrapper(new DictionaryCreateCommand(req));
+		}
+		if (CrosswalkElementTypes.Form_2003 == req.getElementType()) {
+			return getGEFWrapper(new FormCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}

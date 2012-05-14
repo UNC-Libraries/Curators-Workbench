@@ -80,16 +80,6 @@
             name="Link to Original Locations">
       </command>
       <command
-            defaultHandler="unc.lib.cdr.workbench.xwalk.ImportMetadataSourceHandler"
-            id="cdr-workbench.commandImportTabularMetadata"
-            name="Crosswalk Batch Metadata">
-      </command>
-      <command
-            defaultHandler="unc.lib.cdr.workbench.xwalk.AddDictionaryHandler"
-            id="cdr-workbench.commandAddDictionary"
-            name="Add Dictionary">
-      </command>
-      <command
             defaultHandler="unc.lib.cdr.workbench.arrange.AddFolderDivHandler"
             id="cdr-workbench.AddFolderDiv"
             name="New Folder">
@@ -98,11 +88,6 @@
             defaultHandler="unc.lib.cdr.workbench.arrange.RenameDivHandler"
             id="cdr-workbench.RenameDiv"
             name="Rename Div">
-      </command>
-      <command
-            defaultHandler="unc.lib.cdr.workbench.commands.OpenCrosswalkHandler"
-            id="cdr-workbench.commandOpenCrosswalk"
-            name="Edit Crosswalk">
       </command>
       <command
             defaultHandler="unc.lib.cdr.workbench.describe.EditDescriptionCommand"
@@ -239,6 +224,35 @@
                class="unc.lib.cdr.workbench.arrange.RemoveSmLinkHandler">
          </class>
       </handler>
+      <handler
+            commandId="org.eclipse.ui.edit.delete">
+         <activeWhen>
+            <with
+                  variable="activeMenuSelection">
+               <iterate
+                     ifEmpty="false"
+                     operator="and">
+                  <and>
+                     <or>
+                        <instanceof
+                              value="org.eclipse.core.resources.IFile">
+                        </instanceof>
+                        <instanceof
+                              value="org.eclipse.core.resources.IFolder">
+                        </instanceof>
+                     </or>
+                     <not>
+                        <test
+                              property="workbench_plugin.testTopFolderName.folderName"
+                              value=".originals">
+                        </test>
+                     </not>
+                  </and>
+               </iterate>
+            </with>
+         </activeWhen>
+         <class></class>
+      </handler>
    </extension>
    <extension
          point="org.eclipse.ui.menus">
@@ -258,37 +272,6 @@
                      <or>
                         <instanceof
                               value="unc.lib.cdr.workbench.capture.OriginalFoldersProjectElement">
-                        </instanceof>
-                        <and>
-                           <instanceof
-                                 value="org.eclipse.core.resources.IProject">
-                           </instanceof>
-                           <test
-                                 property="workbench_plugin.projectPropertyTester.open">
-                           </test>
-                        </and>
-                     </or>
-                  </iterate>
-                  <count
-                        value="1">
-                  </count>
-               </with>
-            </visibleWhen>
-         </command>
-         <command
-               commandId="cdr-workbench.commandImportTabularMetadata"
-               label="Add Crosswalk"
-               mnemonic="C"
-               style="push">
-            <visibleWhen
-                  checkEnabled="false">
-               <with
-                     variable="activeMenuSelection">
-                  <iterate
-                        ifEmpty="false">
-                     <or>
-                        <instanceof
-                              value="unc.lib.cdr.workbench.xwalk.CrosswalksProjectElement">
                         </instanceof>
                         <and>
                            <instanceof
@@ -369,7 +352,7 @@
                      <and>
                         <test
                               property="workbench_plugin.testTopFolderName.folderName"
-                              value="originals">
+                              value="&apos;.originals&apos;">
                         </test>
                         <instanceof
                               value="org.eclipse.core.resources.IFile">
@@ -432,7 +415,7 @@
                         <and>
                            <test
                                  property="workbench_plugin.testTopFolderName.folderName"
-                                 value="originals">
+                                 value=".originals">
                            </test>
                            <or>
                               <instanceof
@@ -684,23 +667,6 @@
                   value="http://cdr.unc.edu/definitions/1.0/base-model.xml#hasAlphabeticalOrder">
             </parameter>
          </command>
-         <command
-               commandId="cdr-workbench.commandOpenCrosswalk"
-               label="Edit Crosswalk"
-               style="push">
-            <visibleWhen
-                  checkEnabled="true">
-               <with
-                     variable="activeMenuSelection">
-                  <iterate
-                        ifEmpty="false">
-                     <instanceof
-                           value="unc.lib.cdr.workbench.xwalk.CrosswalkTreeElement">
-                     </instanceof>
-                  </iterate>
-               </with>
-            </visibleWhen>
-         </command>
          <separator
                name="workbench_plugin.separator3"
                visible="true">
@@ -763,37 +729,6 @@
                         </and>
                      </or>
                   </iterate>
-               </with>
-            </visibleWhen>
-         </command>
-         <command
-               commandId="cdr-workbench.commandAddDictionary"
-               label="Add Dictionary"
-               mnemonic="D"
-               style="push">
-            <visibleWhen
-                  checkEnabled="false">
-               <with
-                     variable="activeMenuSelection">
-                  <iterate
-                        ifEmpty="false">
-                     <or>
-                        <instanceof
-                              value="unc.lib.cdr.workbench.xwalk.CrosswalksProjectElement">
-                        </instanceof>
-                        <and>
-                           <instanceof
-                                 value="org.eclipse.core.resources.IProject">
-                           </instanceof>
-                           <test
-                                 property="workbench_plugin.projectPropertyTester.open">
-                           </test>
-                        </and>
-                     </or>
-                  </iterate>
-                  <count
-                        value="1">
-                  </count>
                </with>
             </visibleWhen>
          </command>
@@ -913,7 +848,10 @@
             id="crosswalk.diagram.part.CrosswalkCreationWizardID">
       </primaryWizard>
       <primaryWizard
-            id="dictionary.diagram.part.CrosswalkCreationWizardID">
+            id="crosswalk.diagram.part.DictionaryCreationWizardID">
+      </primaryWizard>
+      <primaryWizard
+            id="crosswalk.diagram.part.FormCreationWizardID">
       </primaryWizard>
    </extension>
    <extension
@@ -1144,6 +1082,15 @@
             <contentExtension
                   pattern="workbench_plugin.commonFilterMetsLinks">
             </contentExtension>
+            <contentExtension
+                  pattern="workbench_plugin.navigatorContentResources">
+            </contentExtension>
+            <contentExtension
+                  pattern="org.eclipse.ui.navigator.resources.filters.startsWithDot">
+            </contentExtension>
+            <contentExtension
+                  pattern="workbench_plugin.commonFilterWorkbenchManaged">
+            </contentExtension>
          </includes>
       </viewerContentBinding>
       <viewerActionBinding
@@ -1173,17 +1120,19 @@
          <possibleChildren>
             <or>
                <instanceof
-                     value="org.eclipse.core.resources.IProject">
+                     value="org.eclipse.core.resources.IResource">
                </instanceof>
             </or>
          </possibleChildren>
       </navigatorContent>
       <navigatorContent
             activeByDefault="true"
+            appearsBefore="workbench_plugin.navigatorContentResources"
             contentProvider="unc.lib.cdr.workbench.arrange.ArrangementContentProvider"
             id="cdr-workbench.arrangementContent"
             labelProvider="unc.lib.cdr.workbench.arrange.ArrangementLabelProvider"
-            name="Arranged Items">
+            name="Arranged Items"
+            priority="normal">
          <triggerPoints>
             <or>
                <instanceof
@@ -1245,10 +1194,12 @@
       </navigatorContent>
       <navigatorContent
             activeByDefault="true"
+            appearsBefore="cdr-workbench.arrangementContent"
             contentProvider="unc.lib.cdr.workbench.capture.OriginalsContentProvider"
             id="cdr-workbench.originalsContent"
             labelProvider="org.eclipse.ui.model.WorkbenchLabelProvider"
-            name="Original Folders">
+            name="Original Folders"
+            priority="normal">
          <triggerPoints>
             <or>
                <instanceof
@@ -1262,22 +1213,22 @@
             contentProvider="unc.lib.cdr.workbench.xwalk.CrosswalkContentProvider"
             id="cdr-workbench.crosswalksContent"
             labelProvider="unc.lib.cdr.workbench.xwalk.CrosswalkLabelProvider"
-            name="Metadata Crosswalks">
+            name="Crosswalked Records">
          <triggerPoints>
             <or>
-               <instanceof
-                     value="org.eclipse.core.resources.IProject">
-               </instanceof>
+               <and>
+                  <adapt
+                        type="org.eclipse.core.resources.IFile">
+                     <test
+                           property="org.eclipse.core.resources.name"
+                           value="*.crosswalk">
+                     </test>
+                  </adapt>
+               </and>
             </or>
          </triggerPoints>
          <possibleChildren>
             <or>
-               <instanceof
-                     value="org.eclipse.core.resources.IFile">
-               </instanceof>
-               <instanceof
-                     value="unc.lib.cdr.workbench.xwalk.CrosswalksProjectElement">
-               </instanceof>
                <instanceof
                      value="gov.loc.mets.MdSecType">
                </instanceof>
@@ -1307,6 +1258,52 @@
             <instanceof
                   value="gov.loc.mets.SmLinkType">
             </instanceof>
+         </filterExpression>
+      </commonFilter>
+      <navigatorContent
+            activeByDefault="true"
+            contentProvider="org.eclipse.ui.model.WorkbenchContentProvider"
+            id="workbench_plugin.navigatorContentResources"
+            labelProvider="org.eclipse.ui.model.WorkbenchLabelProvider"
+            name="Resources"
+            priority="high">
+         <triggerPoints>
+            <or>
+               <instanceof
+                     value="org.eclipse.core.resources.IProject">
+               </instanceof>
+            </or>
+         </triggerPoints>
+      </navigatorContent>
+      <commonFilter
+            activeByDefault="true"
+            description="These are resources that are managed by the workbench software and generally not shown."
+            id="workbench_plugin.commonFilterWorkbenchManaged"
+            name="Workbench Managed Folders">
+         <filterExpression>
+            <and>
+               <adapt
+                     type="org.eclipse.core.resources.IResource">
+                  <or>
+                     <test
+                           property="org.eclipse.core.resources.name"
+                           value=".originals">
+                     </test>
+                     <test
+                           property="org.eclipse.core.resources.name"
+                           value=".stage">
+                     </test>
+                     <test
+                           property="org.eclipse.core.resources.name"
+                           value=".project">
+                     </test>
+                     <test
+                           property="org.eclipse.core.resources.name"
+                           value=".settings">
+                     </test>
+                  </or>
+               </adapt>
+            </and>
          </filterExpression>
       </commonFilter>
    </extension>
@@ -1414,11 +1411,6 @@
             default="false"
             id="workbench_plugin.accessControlEditor"
             name="Access Control Editor">
-      </editor>
-      <editor
-            default="false"
-            id="workbench_plugin.editor1"
-            name="name">
       </editor>
    </extension>
    <extension
@@ -1576,12 +1568,6 @@
          point="org.eclipse.gmf.runtime.emf.type.core.elementTypes">
       <metamodel
             nsURI="http://lib.unc.edu/schemas/crosswalk">
-         <adviceBinding
-               class="unc.lib.cdr.workbench.xwalk.MappedAttributeEditHelperAdvice"
-               id="workbench_plugin.adviceBindingMappedAttribute"
-               inheritance="all"
-               typeId="crosswalk-gmf.diagram.MappedAttribute_3016">
-         </adviceBinding>
          <adviceBinding
                class="unc.lib.cdr.workbench.xwalk.MappedElementEditHelperAdvice"
                id="workbench_plugin.adviceBindingMappedCrossWalk"

@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import crosswalk.CrosswalkPackage;
+import crosswalk.FormElement;
 import crosswalk.InputField;
 import crosswalk.MappedElement;
 import crosswalk.MappingContainer;
@@ -418,6 +419,11 @@ public class MetadataBlockImpl extends EObjectImpl implements MetadataBlock {
 				default: return -1;
 			}
 		}
+		if (baseClass == FormElement.class) {
+			switch (derivedFeatureID) {
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -432,6 +438,11 @@ public class MetadataBlockImpl extends EObjectImpl implements MetadataBlock {
 			switch (baseFeatureID) {
 				case CrosswalkPackage.MAPPING_CONTAINER__WIDGETS: return CrosswalkPackage.METADATA_BLOCK__WIDGETS;
 				case CrosswalkPackage.MAPPING_CONTAINER__ELEMENTS: return CrosswalkPackage.METADATA_BLOCK__ELEMENTS;
+				default: return -1;
+			}
+		}
+		if (baseClass == FormElement.class) {
+			switch (baseFeatureID) {
 				default: return -1;
 			}
 		}

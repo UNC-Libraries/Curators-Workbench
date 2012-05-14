@@ -179,6 +179,24 @@ public interface CrosswalkFactory extends EFactory {
 	EditingContainer createEditingContainer();
 
 								/**
+	 * Returns a new object of class '<em>Form</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Form</em>'.
+	 * @generated
+	 */
+	Form createForm();
+
+								/**
+	 * Returns a new object of class '<em>Paragraph</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Paragraph</em>'.
+	 * @generated
+	 */
+	Paragraph createParagraph();
+
+								/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->

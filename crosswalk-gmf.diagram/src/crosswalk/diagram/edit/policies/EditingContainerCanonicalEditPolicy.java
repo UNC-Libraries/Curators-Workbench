@@ -36,6 +36,7 @@ import crosswalk.diagram.edit.parts.DateRecognizerEditPart;
 import crosswalk.diagram.edit.parts.DelimitedFileEditPart;
 import crosswalk.diagram.edit.parts.DictionaryEditPart;
 import crosswalk.diagram.edit.parts.EditingContainerEditPart;
+import crosswalk.diagram.edit.parts.FormEditPart;
 import crosswalk.diagram.edit.parts.InputFieldEditPart;
 import crosswalk.diagram.edit.parts.MappedAttribute2EditPart;
 import crosswalk.diagram.edit.parts.MappedAttributeEditPart;
@@ -43,9 +44,11 @@ import crosswalk.diagram.edit.parts.MappedElement2EditPart;
 import crosswalk.diagram.edit.parts.MappedElement3EditPart;
 import crosswalk.diagram.edit.parts.MappedElementEditPart;
 import crosswalk.diagram.edit.parts.MetadataBlock2EditPart;
+import crosswalk.diagram.edit.parts.MetadataBlock3EditPart;
 import crosswalk.diagram.edit.parts.MetadataBlockEditPart;
 import crosswalk.diagram.edit.parts.OriginalNameRecordMatcher2EditPart;
 import crosswalk.diagram.edit.parts.OriginalNameRecordMatcherEditPart;
+import crosswalk.diagram.edit.parts.ParagraphEditPart;
 import crosswalk.diagram.edit.parts.TabbedDataFieldEditPart;
 import crosswalk.diagram.edit.parts.Text2EditPart;
 import crosswalk.diagram.edit.parts.TextEditPart;
@@ -107,7 +110,8 @@ public class EditingContainerCanonicalEditPolicy extends CanonicalEditPolicy {
 	 */
 	private boolean isMyDiagramElement(View view) {
 		int visualID = CrosswalkVisualIDRegistry.getVisualID(view);
-		return visualID == CrossWalkEditPart.VISUAL_ID || visualID == DictionaryEditPart.VISUAL_ID;
+		return visualID == CrossWalkEditPart.VISUAL_ID || visualID == DictionaryEditPart.VISUAL_ID
+				|| visualID == FormEditPart.VISUAL_ID;
 	}
 
 	/**
@@ -263,6 +267,15 @@ public class EditingContainerCanonicalEditPolicy extends CanonicalEditPolicy {
 			case DictionaryEditPart.VISUAL_ID: {
 				if (!domain2NotationMap.containsKey(view.getElement())) {
 					result.addAll(CrosswalkDiagramUpdater.getDictionary_2002ContainedLinks(view));
+				}
+				if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+					domain2NotationMap.put(view.getElement(), view);
+				}
+				break;
+			}
+			case FormEditPart.VISUAL_ID: {
+				if (!domain2NotationMap.containsKey(view.getElement())) {
+					result.addAll(CrosswalkDiagramUpdater.getForm_2003ContainedLinks(view));
 				}
 				if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
 					domain2NotationMap.put(view.getElement(), view);
@@ -425,6 +438,24 @@ public class EditingContainerCanonicalEditPolicy extends CanonicalEditPolicy {
 			case MetadataBlockEditPart.VISUAL_ID: {
 				if (!domain2NotationMap.containsKey(view.getElement())) {
 					result.addAll(CrosswalkDiagramUpdater.getMetadataBlock_3010ContainedLinks(view));
+				}
+				if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+					domain2NotationMap.put(view.getElement(), view);
+				}
+				break;
+			}
+			case MetadataBlock3EditPart.VISUAL_ID: {
+				if (!domain2NotationMap.containsKey(view.getElement())) {
+					result.addAll(CrosswalkDiagramUpdater.getMetadataBlock_3019ContainedLinks(view));
+				}
+				if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+					domain2NotationMap.put(view.getElement(), view);
+				}
+				break;
+			}
+			case ParagraphEditPart.VISUAL_ID: {
+				if (!domain2NotationMap.containsKey(view.getElement())) {
+					result.addAll(CrosswalkDiagramUpdater.getParagraph_3020ContainedLinks(view));
 				}
 				if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
 					domain2NotationMap.put(view.getElement(), view);

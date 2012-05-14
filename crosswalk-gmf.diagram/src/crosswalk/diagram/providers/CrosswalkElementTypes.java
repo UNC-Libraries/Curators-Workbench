@@ -39,6 +39,7 @@ import crosswalk.diagram.edit.parts.DateRecognizerEditPart;
 import crosswalk.diagram.edit.parts.DelimitedFileEditPart;
 import crosswalk.diagram.edit.parts.DictionaryEditPart;
 import crosswalk.diagram.edit.parts.EditingContainerEditPart;
+import crosswalk.diagram.edit.parts.FormEditPart;
 import crosswalk.diagram.edit.parts.InputFieldEditPart;
 import crosswalk.diagram.edit.parts.InputOutputEditPart;
 import crosswalk.diagram.edit.parts.MappedAttribute2EditPart;
@@ -47,9 +48,11 @@ import crosswalk.diagram.edit.parts.MappedElement2EditPart;
 import crosswalk.diagram.edit.parts.MappedElement3EditPart;
 import crosswalk.diagram.edit.parts.MappedElementEditPart;
 import crosswalk.diagram.edit.parts.MetadataBlock2EditPart;
+import crosswalk.diagram.edit.parts.MetadataBlock3EditPart;
 import crosswalk.diagram.edit.parts.MetadataBlockEditPart;
 import crosswalk.diagram.edit.parts.OriginalNameRecordMatcher2EditPart;
 import crosswalk.diagram.edit.parts.OriginalNameRecordMatcherEditPart;
+import crosswalk.diagram.edit.parts.ParagraphEditPart;
 import crosswalk.diagram.edit.parts.TabbedDataFieldEditPart;
 import crosswalk.diagram.edit.parts.Text2EditPart;
 import crosswalk.diagram.edit.parts.TextEditPart;
@@ -97,6 +100,11 @@ public class CrosswalkElementTypes {
 	 * @generated
 	 */
 	public static final IElementType Dictionary_2002 = getElementType("crosswalk-gmf.diagram.Dictionary_2002"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType Form_2003 = getElementType("crosswalk-gmf.diagram.Form_2003"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -152,6 +160,16 @@ public class CrosswalkElementTypes {
 	 * @generated
 	 */
 	public static final IElementType MetadataBlock_3010 = getElementType("crosswalk-gmf.diagram.MetadataBlock_3010"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType MetadataBlock_3019 = getElementType("crosswalk-gmf.diagram.MetadataBlock_3019"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType Paragraph_3020 = getElementType("crosswalk-gmf.diagram.Paragraph_3020"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -306,6 +324,8 @@ public class CrosswalkElementTypes {
 
 			elements.put(Dictionary_2002, CrosswalkPackage.eINSTANCE.getDictionary());
 
+			elements.put(Form_2003, CrosswalkPackage.eINSTANCE.getForm());
+
 			elements.put(DelimitedFile_3001, CrosswalkPackage.eINSTANCE.getDelimitedFile());
 
 			elements.put(TabbedDataField_3002, CrosswalkPackage.eINSTANCE.getTabbedDataField());
@@ -342,6 +362,10 @@ public class CrosswalkElementTypes {
 
 			elements.put(MetadataBlock_3010, CrosswalkPackage.eINSTANCE.getMetadataBlock());
 
+			elements.put(MetadataBlock_3019, CrosswalkPackage.eINSTANCE.getMetadataBlock());
+
+			elements.put(Paragraph_3020, CrosswalkPackage.eINSTANCE.getParagraph());
+
 			elements.put(InputOutput_4001, CrosswalkPackage.eINSTANCE.getInput_Output());
 		}
 		return (ENamedElement) elements.get(type);
@@ -363,6 +387,7 @@ public class CrosswalkElementTypes {
 			KNOWN_ELEMENT_TYPES.add(EditingContainer_1000);
 			KNOWN_ELEMENT_TYPES.add(CrossWalk_2001);
 			KNOWN_ELEMENT_TYPES.add(Dictionary_2002);
+			KNOWN_ELEMENT_TYPES.add(Form_2003);
 			KNOWN_ELEMENT_TYPES.add(DelimitedFile_3001);
 			KNOWN_ELEMENT_TYPES.add(TabbedDataField_3002);
 			KNOWN_ELEMENT_TYPES.add(OriginalNameRecordMatcher_3003);
@@ -381,6 +406,8 @@ public class CrosswalkElementTypes {
 			KNOWN_ELEMENT_TYPES.add(MappedAttribute_3016);
 			KNOWN_ELEMENT_TYPES.add(InputField_3017);
 			KNOWN_ELEMENT_TYPES.add(MetadataBlock_3010);
+			KNOWN_ELEMENT_TYPES.add(MetadataBlock_3019);
+			KNOWN_ELEMENT_TYPES.add(Paragraph_3020);
 			KNOWN_ELEMENT_TYPES.add(InputOutput_4001);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
@@ -397,6 +424,8 @@ public class CrosswalkElementTypes {
 				return CrossWalk_2001;
 			case DictionaryEditPart.VISUAL_ID:
 				return Dictionary_2002;
+			case FormEditPart.VISUAL_ID:
+				return Form_2003;
 			case DelimitedFileEditPart.VISUAL_ID:
 				return DelimitedFile_3001;
 			case TabbedDataFieldEditPart.VISUAL_ID:
@@ -433,6 +462,10 @@ public class CrosswalkElementTypes {
 				return InputField_3017;
 			case MetadataBlockEditPart.VISUAL_ID:
 				return MetadataBlock_3010;
+			case MetadataBlock3EditPart.VISUAL_ID:
+				return MetadataBlock_3019;
+			case ParagraphEditPart.VISUAL_ID:
+				return Paragraph_3020;
 			case InputOutputEditPart.VISUAL_ID:
 				return InputOutput_4001;
 		}

@@ -64,8 +64,6 @@ public class DictionaryCreationWizard extends Wizard implements INewWizard {
 	 */
 	protected CrosswalkCreationWizardPage diagramModelFilePage;
 
-	protected IProject project;
-
 	/**
 	 * @generated
 	 */
@@ -119,38 +117,6 @@ public class DictionaryCreationWizard extends Wizard implements INewWizard {
 	public void init(IWorkbench workbench, IStructuredSelection selection) {
 		this.workbench = workbench;
 		this.selection = selection;
-		if (this.getSelection() != null) {
-			for (Object o : this.getSelection().toArray()) {
-				if (o instanceof IResource) {
-					this.project = ((IResource) this.getSelection().getFirstElement()).getProject();
-					break;
-				} else if (o instanceof EObject) {
-					Resource r = ((EObject) this.getSelection().getFirstElement()).eResource();
-					IFile f = ResourcesPlugin.getWorkspace().getRoot().getFile(new Path(r.getURI().toFileString()));
-					this.project = f.getProject();
-					break;
-				} else {
-					for (Method m : o.getClass().getMethods()) {
-						if ("getProject".equals(m.getName())) {
-							if (IProject.class.isAssignableFrom(m.getReturnType())) {
-								try {
-									this.project = (IProject) m.invoke(o);
-								} catch (IllegalArgumentException e) {
-									// TODO Auto-generated catch block
-									e.printStackTrace();
-								} catch (IllegalAccessException e) {
-									// TODO Auto-generated catch block
-									e.printStackTrace();
-								} catch (InvocationTargetException e) {
-									// TODO Auto-generated catch block
-									e.printStackTrace();
-								}
-							}
-						}
-					}
-				}
-			}
-		}
 		setWindowTitle(Messages.CrosswalkCreationWizardTitle);
 		setDefaultPageImageDescriptor(CrosswalkDiagramEditorPlugin
 				.getBundledImageDescriptor("icons/wizban/NewCrosswalkWizard.gif")); //$NON-NLS-1$
@@ -204,6 +170,6 @@ public class DictionaryCreationWizard extends Wizard implements INewWizard {
 
 	@Override
 	public boolean canFinish() {
-		return (this.project != null && this.diagramModelFilePage.isPageComplete());
+		return this.diagramModelFilePage.isPageComplete();
 	}
 }

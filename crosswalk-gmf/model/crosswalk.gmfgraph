@@ -312,9 +312,32 @@
           name="">
         <layout
             xsi:type="gmfgraph:GridLayout"/>
+        <backgroundColor
+            xsi:type="gmfgraph:ConstantColor"
+            value="lightGray"/>
         <preferredSize
             dx="1000"
             dy="1000"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="ModelLabelFigure">
+          <layoutData
+              xsi:type="gmfgraph:GridLayoutData"
+              horizontalAlignment="BEGINNING"
+              horizontalIndent="5"/>
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              height="26"
+              style="BOLD"/>
+        </children>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="ModelNotesFigure">
+          <layoutData
+              xsi:type="gmfgraph:GridLayoutData"
+              horizontalAlignment="BEGINNING"
+              horizontalIndent="5"/>
+        </children>
         <children
             xsi:type="gmfgraph:Rectangle"
             name="ModelBox">
@@ -327,7 +350,95 @@
         </children>
       </actualFigure>
       <accessors
+          figure="//@figures.0/@descriptors.8/@actualFigure/@children.2"/>
+      <accessors
           figure="//@figures.0/@descriptors.8/@actualFigure/@children.0"/>
+      <accessors
+          figure="//@figures.0/@descriptors.8/@actualFigure/@children.1"/>
+    </descriptors>
+    <descriptors
+        name="ParagraphFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Rectangle"
+          outline="false">
+        <layout
+            xsi:type="gmfgraph:FlowLayout"
+            vertical="true"
+            forceSingleLine="true"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="ParagraphHeadingLabel">
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              height="12"
+              style="BOLD"/>
+        </children>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="ParagraphTextLabel"
+            text=""/>
+      </actualFigure>
+      <accessors
+          figure="//@figures.0/@descriptors.9/@actualFigure/@children.0"/>
+      <accessors
+          figure="//@figures.0/@descriptors.9/@actualFigure/@children.1"/>
+    </descriptors>
+    <descriptors
+        name="FlowEditableModelFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Rectangle"
+          name="">
+        <layout
+            xsi:type="gmfgraph:GridLayout"/>
+        <backgroundColor
+            xsi:type="gmfgraph:ConstantColor"
+            value="lightGray"/>
+        <preferredSize
+            dx="1000"
+            dy="1000"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="ModelLabelFigure">
+          <layoutData
+              xsi:type="gmfgraph:GridLayoutData"
+              horizontalAlignment="BEGINNING"
+              horizontalIndent="5"/>
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              height="26"
+              style="BOLD"/>
+        </children>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="ModelNotesFigure">
+          <layoutData
+              xsi:type="gmfgraph:GridLayoutData"
+              horizontalAlignment="BEGINNING"
+              horizontalIndent="5"/>
+        </children>
+        <children
+            xsi:type="gmfgraph:Rectangle"
+            name="FlowModelBox">
+          <layoutData
+              xsi:type="gmfgraph:GridLayoutData"
+              grabExcessHorizontalSpace="true"
+              grabExcessVerticalSpace="true"
+              verticalAlignment="FILL"
+              horizontalAlignment="FILL"/>
+          <layout
+              xsi:type="gmfgraph:FlowLayout"
+              vertical="true"
+              forceSingleLine="true"
+              majorAlignment="FILL"
+              minorAlignment="FILL"/>
+        </children>
+      </actualFigure>
+      <accessors
+          figure="//@figures.0/@descriptors.10/@actualFigure/@children.2"/>
+      <accessors
+          figure="//@figures.0/@descriptors.10/@actualFigure/@children.0"/>
+      <accessors
+          figure="//@figures.0/@descriptors.10/@actualFigure/@children.1"/>
     </descriptors>
   </figures>
   <nodes
@@ -364,6 +475,13 @@
       name="EditableModel"
       figure="EditableModelFigure"
       contentPane="//@figures.0/@descriptors.8/@accessors.0"/>
+  <nodes
+      name="ParagraphNode"
+      figure="ParagraphFigure"/>
+  <nodes
+      name="FlowEditableModelNode"
+      figure="FlowEditableModelFigure"
+      contentPane="//@figures.0/@descriptors.10/@accessors.0"/>
   <connections
       name="InputConnection"
       figure="InputConnectionFigure"/>
@@ -391,14 +509,15 @@
       name="ModelBoxCompartment"
       figure="EditableModelFigure"
       accessor="//@figures.0/@descriptors.8/@accessors.0"/>
+  <compartments
+      name="FlowModelBoxCompartment"
+      figure="FlowEditableModelFigure"
+      accessor="//@figures.0/@descriptors.10/@accessors.0"/>
   <labels
       name="DataSourceName"
       figure="DataSourceFigure"
       elementIcon="false"
       accessor="//@figures.0/@descriptors.1/@accessors.0"/>
-  <labels
-      name="ModelLabel"
-      figure="EditableModelFigure"/>
   <labels
       name="DataFieldLabel"
       figure="DataFieldFigure"
@@ -435,4 +554,24 @@
       resizeConstraint="NONE"
       elementIcon="false"
       accessor="//@figures.0/@descriptors.5/@accessors.0"/>
+  <labels
+      name="ParagraphHeading"
+      figure="ParagraphFigure"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.9/@accessors.0"/>
+  <labels
+      name="ParagraphText"
+      figure="ParagraphFigure"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.9/@accessors.1"/>
+  <labels
+      name="ModelLabel"
+      figure="EditableModelFigure"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.8/@accessors.1"/>
+  <labels
+      name="ModelNotesLabel"
+      figure="EditableModelFigure"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.8/@accessors.2"/>
 </gmfgraph:Canvas>
