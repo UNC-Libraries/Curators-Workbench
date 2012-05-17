@@ -1569,34 +1569,46 @@
       <metamodel
             nsURI="http://lib.unc.edu/schemas/crosswalk">
          <adviceBinding
-               class="unc.lib.cdr.workbench.xwalk.MappedElementEditHelperAdvice"
-               id="workbench_plugin.adviceBindingMappedCrossWalk"
+               class="unc.lib.cdr.workbench.xwalk.MapElementAdvice"
+               id="workbench_plugin.adviceBindingCrossWalkMapElement"
                inheritance="all"
                typeId="crosswalk-gmf.diagram.CrossWalk_2001">
          </adviceBinding>
          <adviceBinding
-               class="unc.lib.cdr.workbench.xwalk.MappedElementEditHelperAdvice"
-               id="workbench_plugin.adviceBindingMappedMetadataBlock"
-               inheritance="all"
-               typeId="crosswalk-gmf.diagram.MetadataBlock_3010">
-         </adviceBinding>
-         <adviceBinding
-               class="unc.lib.cdr.workbench.xwalk.MappedElementEditHelperAdvice"
-               id="workbench_plugin.adviceBindingMappedElement"
+               class="unc.lib.cdr.workbench.xwalk.MapElementAdvice"
+               id="workbench_plugin.adviceBindingMappedElementMapElement"
                inheritance="all"
                typeId="crosswalk-gmf.diagram.MappedElement_3007">
          </adviceBinding>
          <adviceBinding
-               class="unc.lib.cdr.workbench.xwalk.MappedElementEditHelperAdvice"
-               id="workbench_plugin.adviceBindingMappedMetadataBlock"
+               class="unc.lib.cdr.workbench.xwalk.MapElementAdvice"
+               id="workbench_plugin.adviceBindingMetadataBlockMapElement"
                inheritance="all"
                typeId="crosswalk-gmf.diagram.MetadataBlock_3018">
          </adviceBinding>
          <adviceBinding
-               class="unc.lib.cdr.workbench.xwalk.TemplateElementEditHelperAdvice"
-               id="workbench_plugin.adviceBindingMetadataBlockTemplateElement"
+               class="unc.lib.cdr.workbench.xwalk.MapAttributeAdvice"
+               id="workbench_plugin.adviceBindingMappedElementMapAttribute"
+               inheritance="all"
+               typeId="crosswalk-gmf.diagram.MappedElement_3007">
+         </adviceBinding>
+         <adviceBinding
+               class="unc.lib.cdr.workbench.xwalk.CrosswalkMetaBlockTemplateAdvice"
+               id="workbench_plugin.adviceBindingCrosswalkMetaBlockTemplateAdvice"
                inheritance="none"
                typeId="crosswalk-gmf.diagram.CrossWalk_2001">
+         </adviceBinding>
+         <adviceBinding
+               class="unc.lib.cdr.workbench.xwalk.FormMetaBlockTemplateAdvice"
+               id="workbench_plugin.adviceBindingFormMetaBlockTemplateAdvice"
+               inheritance="none"
+               typeId="crosswalk-gmf.diagram.Form_2003">
+         </adviceBinding>
+         <adviceBinding
+               class="unc.lib.cdr.workbench.xwalk.DictionaryMetaBlockTemplateAdvice"
+               id="workbench_plugin.adviceBindingDictionaryMetaBlockTemplateAdvice"
+               inheritance="none"
+               typeId="crosswalk-gmf.diagram.Dictionary_2002">
          </adviceBinding>nding>
       </metamodel>
    </extension>

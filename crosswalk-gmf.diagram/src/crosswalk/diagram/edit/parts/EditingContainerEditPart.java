@@ -12,7 +12,6 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.notation.View;
 
-import crosswalk.diagram.custom.SpecialCreationEditPolicy;
 import crosswalk.diagram.edit.policies.EditingContainerCanonicalEditPolicy;
 import crosswalk.diagram.edit.policies.EditingContainerItemSemanticEditPolicy;
 

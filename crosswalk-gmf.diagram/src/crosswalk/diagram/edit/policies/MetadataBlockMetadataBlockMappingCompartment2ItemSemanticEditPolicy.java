@@ -5,6 +5,7 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 
 import crosswalk.diagram.edit.commands.DateRecognizer2CreateCommand;
 import crosswalk.diagram.edit.commands.MappedElement3CreateCommand;
+import crosswalk.diagram.edit.commands.MappedElementCreateCommand;
 import crosswalk.diagram.edit.commands.OriginalNameRecordMatcher2CreateCommand;
 import crosswalk.diagram.edit.commands.Text2CreateCommand;
 import crosswalk.diagram.edit.commands.TrimWhitespace2CreateCommand;
@@ -39,8 +40,8 @@ public class MetadataBlockMetadataBlockMappingCompartment2ItemSemanticEditPolicy
 		if (CrosswalkElementTypes.TrimWhitespace_3014 == req.getElementType()) {
 			return getGEFWrapper(new TrimWhitespace2CreateCommand(req));
 		}
-		if (CrosswalkElementTypes.MappedElement_3015 == req.getElementType()) {
-			return getGEFWrapper(new MappedElement3CreateCommand(req));
+		if (CrosswalkElementTypes.MappedElement_3007 == req.getElementType()) {
+			return getGEFWrapper(new MappedElementCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}

@@ -50,7 +50,6 @@ import crosswalk.TabbedDataField;
 import crosswalk.Text;
 import crosswalk.TrimWhitespace;
 import crosswalk.WalkWidget;
-import crosswalk.diagram.edit.parts.CrossWalk2EditPart;
 import crosswalk.diagram.edit.parts.CrossWalkEditPart;
 import crosswalk.diagram.edit.parts.CrossWalkModelBoxCompartmentEditPart;
 import crosswalk.diagram.edit.parts.DateRecognizer2EditPart;
@@ -64,12 +63,9 @@ import crosswalk.diagram.edit.parts.FormEditPart;
 import crosswalk.diagram.edit.parts.FormModelBoxCompartmentEditPart;
 import crosswalk.diagram.edit.parts.InputFieldEditPart;
 import crosswalk.diagram.edit.parts.InputOutputEditPart;
-import crosswalk.diagram.edit.parts.MappedAttribute2EditPart;
 import crosswalk.diagram.edit.parts.MappedAttributeEditPart;
 import crosswalk.diagram.edit.parts.MappedElement2EditPart;
-import crosswalk.diagram.edit.parts.MappedElement3EditPart;
 import crosswalk.diagram.edit.parts.MappedElementChildElementsCompartment2EditPart;
-import crosswalk.diagram.edit.parts.MappedElementChildElementsCompartment3EditPart;
 import crosswalk.diagram.edit.parts.MappedElementChildElementsCompartmentEditPart;
 import crosswalk.diagram.edit.parts.MappedElementEditPart;
 import crosswalk.diagram.edit.parts.MetadataBlock2EditPart;
@@ -115,8 +111,6 @@ public class CrosswalkDiagramUpdater {
 				return getMetadataBlockMetadataBlockInputFieldsCompartment_7009SemanticChildren(view);
 			case MetadataBlockMetadataBlockMappingCompartment2EditPart.VISUAL_ID:
 				return getMetadataBlockMetadataBlockMappingCompartment_7010SemanticChildren(view);
-			case MappedElementChildElementsCompartment3EditPart.VISUAL_ID:
-				return getMappedElementChildElementsCompartment_7008SemanticChildren(view);
 			case DictionaryModelBoxCompartmentEditPart.VISUAL_ID:
 				return getDictionaryModelBoxCompartment_7005SemanticChildren(view);
 			case MetadataBlockMetadataBlockInputFieldsCompartmentEditPart.VISUAL_ID:
@@ -363,7 +357,7 @@ public class CrosswalkDiagramUpdater {
 		for (Iterator<?> it = modelElement.getElements().iterator(); it.hasNext();) {
 			OutputElement childElement = (OutputElement) it.next();
 			int visualID = CrosswalkVisualIDRegistry.getNodeVisualID(view, childElement);
-			if (visualID == MappedElement3EditPart.VISUAL_ID) {
+			if (visualID == MappedElementEditPart.VISUAL_ID) {
 				result.add(new CrosswalkNodeDescriptor(childElement, visualID));
 				continue;
 			}
@@ -457,7 +451,7 @@ public class CrosswalkDiagramUpdater {
 		for (Iterator<?> it = modelElement.getElements().iterator(); it.hasNext();) {
 			OutputElement childElement = (OutputElement) it.next();
 			int visualID = CrosswalkVisualIDRegistry.getNodeVisualID(view, childElement);
-			if (visualID == MappedElement3EditPart.VISUAL_ID) {
+			if (visualID == MappedElementEditPart.VISUAL_ID) {
 				result.add(new CrosswalkNodeDescriptor(childElement, visualID));
 				continue;
 			}
@@ -555,39 +549,7 @@ public class CrosswalkDiagramUpdater {
 		for (Iterator<?> it = modelElement.getElements().iterator(); it.hasNext();) {
 			OutputElement childElement = (OutputElement) it.next();
 			int visualID = CrosswalkVisualIDRegistry.getNodeVisualID(view, childElement);
-			if (visualID == MappedElement3EditPart.VISUAL_ID) {
-				result.add(new CrosswalkNodeDescriptor(childElement, visualID));
-				continue;
-			}
-		}
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<CrosswalkNodeDescriptor> getMappedElementChildElementsCompartment_7008SemanticChildren(View view) {
-		if (false == view.eContainer() instanceof View) {
-			return Collections.emptyList();
-		}
-		View containerView = (View) view.eContainer();
-		if (!containerView.isSetElement()) {
-			return Collections.emptyList();
-		}
-		MappedElement modelElement = (MappedElement) containerView.getElement();
-		LinkedList<CrosswalkNodeDescriptor> result = new LinkedList<CrosswalkNodeDescriptor>();
-		for (Iterator<?> it = modelElement.getChildElements().iterator(); it.hasNext();) {
-			MappedElement childElement = (MappedElement) it.next();
-			int visualID = CrosswalkVisualIDRegistry.getNodeVisualID(view, childElement);
-			if (visualID == MappedElement2EditPart.VISUAL_ID) {
-				result.add(new CrosswalkNodeDescriptor(childElement, visualID));
-				continue;
-			}
-		}
-		for (Iterator<?> it = modelElement.getAttributes().iterator(); it.hasNext();) {
-			MappedAttribute childElement = (MappedAttribute) it.next();
-			int visualID = CrosswalkVisualIDRegistry.getNodeVisualID(view, childElement);
-			if (visualID == MappedAttribute2EditPart.VISUAL_ID) {
+			if (visualID == MappedElementEditPart.VISUAL_ID) {
 				result.add(new CrosswalkNodeDescriptor(childElement, visualID));
 				continue;
 			}
@@ -636,10 +598,6 @@ public class CrosswalkDiagramUpdater {
 				return getText_3013ContainedLinks(view);
 			case TrimWhitespace2EditPart.VISUAL_ID:
 				return getTrimWhitespace_3014ContainedLinks(view);
-			case MappedElement3EditPart.VISUAL_ID:
-				return getMappedElement_3015ContainedLinks(view);
-			case MappedAttribute2EditPart.VISUAL_ID:
-				return getMappedAttribute_3016ContainedLinks(view);
 			case InputFieldEditPart.VISUAL_ID:
 				return getInputField_3017ContainedLinks(view);
 			case MetadataBlockEditPart.VISUAL_ID:
@@ -691,10 +649,6 @@ public class CrosswalkDiagramUpdater {
 				return getText_3013IncomingLinks(view);
 			case TrimWhitespace2EditPart.VISUAL_ID:
 				return getTrimWhitespace_3014IncomingLinks(view);
-			case MappedElement3EditPart.VISUAL_ID:
-				return getMappedElement_3015IncomingLinks(view);
-			case MappedAttribute2EditPart.VISUAL_ID:
-				return getMappedAttribute_3016IncomingLinks(view);
 			case InputFieldEditPart.VISUAL_ID:
 				return getInputField_3017IncomingLinks(view);
 			case MetadataBlockEditPart.VISUAL_ID:
@@ -746,10 +700,6 @@ public class CrosswalkDiagramUpdater {
 				return getText_3013OutgoingLinks(view);
 			case TrimWhitespace2EditPart.VISUAL_ID:
 				return getTrimWhitespace_3014OutgoingLinks(view);
-			case MappedElement3EditPart.VISUAL_ID:
-				return getMappedElement_3015OutgoingLinks(view);
-			case MappedAttribute2EditPart.VISUAL_ID:
-				return getMappedAttribute_3016OutgoingLinks(view);
 			case InputFieldEditPart.VISUAL_ID:
 				return getInputField_3017OutgoingLinks(view);
 			case MetadataBlockEditPart.VISUAL_ID:
@@ -925,23 +875,6 @@ public class CrosswalkDiagramUpdater {
 	 */
 	public static List<CrosswalkLinkDescriptor> getTrimWhitespace_3014ContainedLinks(View view) {
 		TrimWhitespace modelElement = (TrimWhitespace) view.getElement();
-		LinkedList<CrosswalkLinkDescriptor> result = new LinkedList<CrosswalkLinkDescriptor>();
-		result.addAll(getOutgoingFeatureModelFacetLinks_Input_Output_4001(modelElement));
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<CrosswalkLinkDescriptor> getMappedElement_3015ContainedLinks(View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<CrosswalkLinkDescriptor> getMappedAttribute_3016ContainedLinks(View view) {
-		MappedAttribute modelElement = (MappedAttribute) view.getElement();
 		LinkedList<CrosswalkLinkDescriptor> result = new LinkedList<CrosswalkLinkDescriptor>();
 		result.addAll(getOutgoingFeatureModelFacetLinks_Input_Output_4001(modelElement));
 		return result;
@@ -1135,20 +1068,6 @@ public class CrosswalkDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<CrosswalkLinkDescriptor> getMappedElement_3015IncomingLinks(View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<CrosswalkLinkDescriptor> getMappedAttribute_3016IncomingLinks(View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
 	public static List<CrosswalkLinkDescriptor> getInputField_3017IncomingLinks(View view) {
 		InputField modelElement = (InputField) view.getElement();
 		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer.find(view
@@ -1314,23 +1233,6 @@ public class CrosswalkDiagramUpdater {
 	 */
 	public static List<CrosswalkLinkDescriptor> getTrimWhitespace_3014OutgoingLinks(View view) {
 		TrimWhitespace modelElement = (TrimWhitespace) view.getElement();
-		LinkedList<CrosswalkLinkDescriptor> result = new LinkedList<CrosswalkLinkDescriptor>();
-		result.addAll(getOutgoingFeatureModelFacetLinks_Input_Output_4001(modelElement));
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<CrosswalkLinkDescriptor> getMappedElement_3015OutgoingLinks(View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<CrosswalkLinkDescriptor> getMappedAttribute_3016OutgoingLinks(View view) {
-		MappedAttribute modelElement = (MappedAttribute) view.getElement();
 		LinkedList<CrosswalkLinkDescriptor> result = new LinkedList<CrosswalkLinkDescriptor>();
 		result.addAll(getOutgoingFeatureModelFacetLinks_Input_Output_4001(modelElement));
 		return result;

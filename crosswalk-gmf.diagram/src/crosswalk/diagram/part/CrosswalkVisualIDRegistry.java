@@ -23,7 +23,6 @@ import org.eclipse.gmf.runtime.notation.View;
 
 import crosswalk.CrosswalkPackage;
 import crosswalk.EditingContainer;
-import crosswalk.diagram.edit.parts.CrossWalk2EditPart;
 import crosswalk.diagram.edit.parts.CrossWalkEditPart;
 import crosswalk.diagram.edit.parts.CrossWalkModelBoxCompartmentEditPart;
 import crosswalk.diagram.edit.parts.DateRecognizer2EditPart;
@@ -40,13 +39,9 @@ import crosswalk.diagram.edit.parts.FormModelBoxCompartmentEditPart;
 import crosswalk.diagram.edit.parts.FormTitleEditPart;
 import crosswalk.diagram.edit.parts.InputFieldEditPart;
 import crosswalk.diagram.edit.parts.InputFieldLabelEditPart;
-import crosswalk.diagram.edit.parts.MappedAttribute2EditPart;
 import crosswalk.diagram.edit.parts.MappedAttributeEditPart;
-import crosswalk.diagram.edit.parts.MappedAttributeNameEditPart;
 import crosswalk.diagram.edit.parts.MappedElement2EditPart;
-import crosswalk.diagram.edit.parts.MappedElement3EditPart;
 import crosswalk.diagram.edit.parts.MappedElementChildElementsCompartment2EditPart;
-import crosswalk.diagram.edit.parts.MappedElementChildElementsCompartment3EditPart;
 import crosswalk.diagram.edit.parts.MappedElementChildElementsCompartmentEditPart;
 import crosswalk.diagram.edit.parts.MappedElementEditPart;
 import crosswalk.diagram.edit.parts.MetadataBlock2EditPart;
@@ -75,10 +70,6 @@ import crosswalk.diagram.edit.parts.TextValueEditPart;
 import crosswalk.diagram.edit.parts.TrimWhitespace2EditPart;
 import crosswalk.diagram.edit.parts.TrimWhitespaceEditPart;
 import crosswalk.diagram.edit.parts.WrappingLabel10EditPart;
-import crosswalk.diagram.edit.parts.WrappingLabel11EditPart;
-import crosswalk.diagram.edit.parts.WrappingLabel12EditPart;
-import crosswalk.diagram.edit.parts.WrappingLabel15EditPart;
-import crosswalk.diagram.edit.parts.WrappingLabel16EditPart;
 import crosswalk.diagram.edit.parts.WrappingLabel2EditPart;
 import crosswalk.diagram.edit.parts.WrappingLabel3EditPart;
 import crosswalk.diagram.edit.parts.WrappingLabel4EditPart;
@@ -264,15 +255,7 @@ public class CrosswalkVisualIDRegistry {
 					return TrimWhitespace2EditPart.VISUAL_ID;
 				}
 				if (CrosswalkPackage.eINSTANCE.getMappedElement().isSuperTypeOf(domainElement.eClass())) {
-					return MappedElement3EditPart.VISUAL_ID;
-				}
-				break;
-			case MappedElementChildElementsCompartment3EditPart.VISUAL_ID:
-				if (CrosswalkPackage.eINSTANCE.getMappedElement().isSuperTypeOf(domainElement.eClass())) {
-					return MappedElement2EditPart.VISUAL_ID;
-				}
-				if (CrosswalkPackage.eINSTANCE.getMappedAttribute().isSuperTypeOf(domainElement.eClass())) {
-					return MappedAttribute2EditPart.VISUAL_ID;
+					return MappedElementEditPart.VISUAL_ID;
 				}
 				break;
 			case DictionaryModelBoxCompartmentEditPart.VISUAL_ID:
@@ -299,7 +282,7 @@ public class CrosswalkVisualIDRegistry {
 					return TrimWhitespace2EditPart.VISUAL_ID;
 				}
 				if (CrosswalkPackage.eINSTANCE.getMappedElement().isSuperTypeOf(domainElement.eClass())) {
-					return MappedElement3EditPart.VISUAL_ID;
+					return MappedElementEditPart.VISUAL_ID;
 				}
 				break;
 			case FormModelBoxCompartmentEditPart.VISUAL_ID:
@@ -329,7 +312,7 @@ public class CrosswalkVisualIDRegistry {
 					return TrimWhitespace2EditPart.VISUAL_ID;
 				}
 				if (CrosswalkPackage.eINSTANCE.getMappedElement().isSuperTypeOf(domainElement.eClass())) {
-					return MappedElement3EditPart.VISUAL_ID;
+					return MappedElementEditPart.VISUAL_ID;
 				}
 				break;
 		}
@@ -475,19 +458,6 @@ public class CrosswalkVisualIDRegistry {
 					return true;
 				}
 				break;
-			case MappedElement3EditPart.VISUAL_ID:
-				if (WrappingLabel11EditPart.VISUAL_ID == nodeVisualID) {
-					return true;
-				}
-				if (MappedElementChildElementsCompartment3EditPart.VISUAL_ID == nodeVisualID) {
-					return true;
-				}
-				break;
-			case MappedAttribute2EditPart.VISUAL_ID:
-				if (WrappingLabel12EditPart.VISUAL_ID == nodeVisualID) {
-					return true;
-				}
-				break;
 			case InputFieldEditPart.VISUAL_ID:
 				if (InputFieldLabelEditPart.VISUAL_ID == nodeVisualID) {
 					return true;
@@ -585,15 +555,7 @@ public class CrosswalkVisualIDRegistry {
 				if (TrimWhitespace2EditPart.VISUAL_ID == nodeVisualID) {
 					return true;
 				}
-				if (MappedElement3EditPart.VISUAL_ID == nodeVisualID) {
-					return true;
-				}
-				break;
-			case MappedElementChildElementsCompartment3EditPart.VISUAL_ID:
-				if (MappedElement2EditPart.VISUAL_ID == nodeVisualID) {
-					return true;
-				}
-				if (MappedAttribute2EditPart.VISUAL_ID == nodeVisualID) {
+				if (MappedElementEditPart.VISUAL_ID == nodeVisualID) {
 					return true;
 				}
 				break;
@@ -620,7 +582,7 @@ public class CrosswalkVisualIDRegistry {
 				if (TrimWhitespace2EditPart.VISUAL_ID == nodeVisualID) {
 					return true;
 				}
-				if (MappedElement3EditPart.VISUAL_ID == nodeVisualID) {
+				if (MappedElementEditPart.VISUAL_ID == nodeVisualID) {
 					return true;
 				}
 				break;
@@ -650,7 +612,7 @@ public class CrosswalkVisualIDRegistry {
 				if (TrimWhitespace2EditPart.VISUAL_ID == nodeVisualID) {
 					return true;
 				}
-				if (MappedElement3EditPart.VISUAL_ID == nodeVisualID) {
+				if (MappedElementEditPart.VISUAL_ID == nodeVisualID) {
 					return true;
 				}
 				break;

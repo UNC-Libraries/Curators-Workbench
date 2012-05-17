@@ -18,7 +18,6 @@ import org.eclipse.gmf.runtime.notation.View;
 import crosswalk.diagram.edit.parts.DateRecognizer2EditPart;
 import crosswalk.diagram.edit.parts.InputFieldEditPart;
 import crosswalk.diagram.edit.parts.InputOutputEditPart;
-import crosswalk.diagram.edit.parts.MappedElement3EditPart;
 import crosswalk.diagram.edit.parts.MappedElementEditPart;
 import crosswalk.diagram.edit.parts.MetadataBlockMetadataBlockInputFieldsCompartmentEditPart;
 import crosswalk.diagram.edit.parts.MetadataBlockMetadataBlockMappingCompartmentEditPart;
@@ -189,7 +188,7 @@ public class MetadataBlockItemSemanticEditPolicy extends CrosswalkBaseItemSemant
 								// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
 								// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
 								break;
-							case MappedElement3EditPart.VISUAL_ID:
+							case MappedElementEditPart.VISUAL_ID:
 								cmd.add(new DestroyElementCommand(new DestroyElementRequest(getEditingDomain(), cnode
 										.getElement(), false))); // directlyOwned: true
 								// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 

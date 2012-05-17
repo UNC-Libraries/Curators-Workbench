@@ -33,7 +33,6 @@ import crosswalk.diagram.edit.parts.DelimitedFileSourceFileEditPart;
 import crosswalk.diagram.edit.parts.FormDescriptionEditPart;
 import crosswalk.diagram.edit.parts.FormTitleEditPart;
 import crosswalk.diagram.edit.parts.InputFieldLabelEditPart;
-import crosswalk.diagram.edit.parts.MappedAttributeNameEditPart;
 import crosswalk.diagram.edit.parts.MetadataBlockName2EditPart;
 import crosswalk.diagram.edit.parts.MetadataBlockName3EditPart;
 import crosswalk.diagram.edit.parts.MetadataBlockNameEditPart;
@@ -43,10 +42,6 @@ import crosswalk.diagram.edit.parts.TabbedDataFieldLabelColumnNumberEditPart;
 import crosswalk.diagram.edit.parts.TextValue2EditPart;
 import crosswalk.diagram.edit.parts.TextValueEditPart;
 import crosswalk.diagram.edit.parts.WrappingLabel10EditPart;
-import crosswalk.diagram.edit.parts.WrappingLabel11EditPart;
-import crosswalk.diagram.edit.parts.WrappingLabel12EditPart;
-import crosswalk.diagram.edit.parts.WrappingLabel15EditPart;
-import crosswalk.diagram.edit.parts.WrappingLabel16EditPart;
 import crosswalk.diagram.edit.parts.WrappingLabel2EditPart;
 import crosswalk.diagram.edit.parts.WrappingLabel3EditPart;
 import crosswalk.diagram.edit.parts.WrappingLabel4EditPart;
@@ -424,36 +419,6 @@ public class CrosswalkParserProvider extends AbstractProvider implements IParser
 	/**
 	 * @generated
 	 */
-	private MappedElementLabelExpressionLabelParser mappedElementLabel_5016Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getMappedElementLabel_5016Parser() {
-		if (mappedElementLabel_5016Parser == null) {
-			mappedElementLabel_5016Parser = new MappedElementLabelExpressionLabelParser();
-		}
-		return mappedElementLabel_5016Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private MappedAttributeLabelExpressionLabelParser mappedAttributeLabel_5015Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getMappedAttributeLabel_5015Parser() {
-		if (mappedAttributeLabel_5015Parser == null) {
-			mappedAttributeLabel_5015Parser = new MappedAttributeLabelExpressionLabelParser();
-		}
-		return mappedAttributeLabel_5015Parser;
-	}
-
-	/**
-	 * @generated
-	 */
 	private IParser inputFieldLabel_5017Parser;
 
 	/**
@@ -508,10 +473,6 @@ public class CrosswalkParserProvider extends AbstractProvider implements IParser
 				return getTextValue_5013Parser();
 			case WrappingLabel10EditPart.VISUAL_ID:
 				return getTrimWhitespaceLabel_5014Parser();
-			case WrappingLabel11EditPart.VISUAL_ID:
-				return getMappedElementLabel_5016Parser();
-			case WrappingLabel12EditPart.VISUAL_ID:
-				return getMappedAttributeLabel_5015Parser();
 			case InputFieldLabelEditPart.VISUAL_ID:
 				return getInputFieldLabel_5017Parser();
 			case MetadataBlockNameEditPart.VISUAL_ID:

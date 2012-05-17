@@ -149,18 +149,6 @@ public class CrosswalkEditPartFactory implements EditPartFactory {
 				case WrappingLabel10EditPart.VISUAL_ID:
 					return new WrappingLabel10EditPart(view);
 
-				case MappedElement3EditPart.VISUAL_ID:
-					return new MappedElement3EditPart(view);
-
-				case WrappingLabel11EditPart.VISUAL_ID:
-					return new WrappingLabel11EditPart(view);
-
-				case MappedAttribute2EditPart.VISUAL_ID:
-					return new MappedAttribute2EditPart(view);
-
-				case WrappingLabel12EditPart.VISUAL_ID:
-					return new WrappingLabel12EditPart(view);
-
 				case InputFieldEditPart.VISUAL_ID:
 					return new InputFieldEditPart(view);
 
@@ -205,9 +193,6 @@ public class CrosswalkEditPartFactory implements EditPartFactory {
 
 				case MetadataBlockMetadataBlockMappingCompartment2EditPart.VISUAL_ID:
 					return new MetadataBlockMetadataBlockMappingCompartment2EditPart(view);
-
-				case MappedElementChildElementsCompartment3EditPart.VISUAL_ID:
-					return new MappedElementChildElementsCompartment3EditPart(view);
 
 				case DictionaryModelBoxCompartmentEditPart.VISUAL_ID:
 					return new DictionaryModelBoxCompartmentEditPart(view);

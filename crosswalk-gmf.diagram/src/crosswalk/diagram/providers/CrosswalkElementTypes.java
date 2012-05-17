@@ -32,7 +32,6 @@ import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.swt.graphics.Image;
 
 import crosswalk.CrosswalkPackage;
-import crosswalk.diagram.edit.parts.CrossWalk2EditPart;
 import crosswalk.diagram.edit.parts.CrossWalkEditPart;
 import crosswalk.diagram.edit.parts.DateRecognizer2EditPart;
 import crosswalk.diagram.edit.parts.DateRecognizerEditPart;
@@ -42,10 +41,8 @@ import crosswalk.diagram.edit.parts.EditingContainerEditPart;
 import crosswalk.diagram.edit.parts.FormEditPart;
 import crosswalk.diagram.edit.parts.InputFieldEditPart;
 import crosswalk.diagram.edit.parts.InputOutputEditPart;
-import crosswalk.diagram.edit.parts.MappedAttribute2EditPart;
 import crosswalk.diagram.edit.parts.MappedAttributeEditPart;
 import crosswalk.diagram.edit.parts.MappedElement2EditPart;
-import crosswalk.diagram.edit.parts.MappedElement3EditPart;
 import crosswalk.diagram.edit.parts.MappedElementEditPart;
 import crosswalk.diagram.edit.parts.MetadataBlock2EditPart;
 import crosswalk.diagram.edit.parts.MetadataBlock3EditPart;
@@ -190,16 +187,6 @@ public class CrosswalkElementTypes {
 	 * @generated
 	 */
 	public static final IElementType TrimWhitespace_3014 = getElementType("crosswalk-gmf.diagram.TrimWhitespace_3014"); //$NON-NLS-1$
-
-	/**
-	 * @generated
-	 */
-	public static final IElementType MappedElement_3015 = getElementType("crosswalk-gmf.diagram.MappedElement_3015"); //$NON-NLS-1$
-
-	/**
-	 * @generated
-	 */
-	public static final IElementType MappedAttribute_3016 = getElementType("crosswalk-gmf.diagram.MappedAttribute_3016"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -354,10 +341,6 @@ public class CrosswalkElementTypes {
 
 			elements.put(TrimWhitespace_3014, CrosswalkPackage.eINSTANCE.getTrimWhitespace());
 
-			elements.put(MappedElement_3015, CrosswalkPackage.eINSTANCE.getMappedElement());
-
-			elements.put(MappedAttribute_3016, CrosswalkPackage.eINSTANCE.getMappedAttribute());
-
 			elements.put(InputField_3017, CrosswalkPackage.eINSTANCE.getInputField());
 
 			elements.put(MetadataBlock_3010, CrosswalkPackage.eINSTANCE.getMetadataBlock());
@@ -402,8 +385,6 @@ public class CrosswalkElementTypes {
 			KNOWN_ELEMENT_TYPES.add(DateRecognizer_3012);
 			KNOWN_ELEMENT_TYPES.add(Text_3013);
 			KNOWN_ELEMENT_TYPES.add(TrimWhitespace_3014);
-			KNOWN_ELEMENT_TYPES.add(MappedElement_3015);
-			KNOWN_ELEMENT_TYPES.add(MappedAttribute_3016);
 			KNOWN_ELEMENT_TYPES.add(InputField_3017);
 			KNOWN_ELEMENT_TYPES.add(MetadataBlock_3010);
 			KNOWN_ELEMENT_TYPES.add(MetadataBlock_3019);
@@ -454,10 +435,6 @@ public class CrosswalkElementTypes {
 				return Text_3013;
 			case TrimWhitespace2EditPart.VISUAL_ID:
 				return TrimWhitespace_3014;
-			case MappedElement3EditPart.VISUAL_ID:
-				return MappedElement_3015;
-			case MappedAttribute2EditPart.VISUAL_ID:
-				return MappedAttribute_3016;
 			case InputFieldEditPart.VISUAL_ID:
 				return InputField_3017;
 			case MetadataBlockEditPart.VISUAL_ID:

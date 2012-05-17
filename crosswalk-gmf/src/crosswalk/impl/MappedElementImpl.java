@@ -280,51 +280,6 @@ public class MappedElementImpl extends EObjectImpl implements MappedElement {
 		return true;
 	}
 
-	protected EAttribute getXMLTextAttributeInReferenceType() {
-		EAttribute result = null;
-		// TODO check for annotation <eAnnotations
-		// source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-		// <details key="name" value=":0"/>
-		// find the value attribute of type String with Annotation kind=simple
-		for (EAttribute a : getMappedFeature().getEReferenceType().getEAllAttributes()) {
-			if (isXMLTextValueEAttribute(a)) {
-				return a;
-			}
-		}
-		return result;
-	}
-
-	public static boolean isXMLTextValueEAttribute(EAttribute att) {
-		boolean result = false;
-		if (att != null) {
-			if ("value".equals(att.getName())) {
-				System.out.println("found an attribute named value: " + att);
-				EAnnotation note = att.getEAnnotation("http:///org/eclipse/emf/ecore/util/ExtendedMetaData");
-				if (note != null && note.getDetails() != null) {
-					System.out.println("found value attribute details: " + note.getDetails());
-					if (note.getDetails().get("name") != null && ":0".equals(note.getDetails().get("name"))) {
-						System.out.println("attribute name details match");
-						if (note.getDetails().get("kind") != null && "simple".equals(note.getDetails().get("kind"))) {
-							System.out.println("attribute kind details match");
-							return true;
-						}
-					}
-				}
-			}
-		}
-		return result;
-	}
-
-	protected MappedAttribute getXMLTextMappedAttribute() {
-		MappedAttribute result = null;
-		for (MappedAttribute ma : getAttributes()) {
-			if (isXMLTextValueEAttribute(ma.getMappedFeature())) {
-				return ma;
-			}
-		}
-		return result;
-	}
-
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated

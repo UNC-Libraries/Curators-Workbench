@@ -40,8 +40,8 @@ public class MetadataBlockMetadataBlockMappingCompartmentItemSemanticEditPolicy 
 		if (CrosswalkElementTypes.TrimWhitespace_3014 == req.getElementType()) {
 			return getGEFWrapper(new TrimWhitespace2CreateCommand(req));
 		}
-		if (CrosswalkElementTypes.MappedElement_3015 == req.getElementType()) {
-			return getGEFWrapper(new MappedElement3CreateCommand(req));
+		if (CrosswalkElementTypes.MappedElement_3007 == req.getElementType()) {
+			return getGEFWrapper(new MappedElementCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}

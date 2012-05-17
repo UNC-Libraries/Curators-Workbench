@@ -25,7 +25,6 @@ import org.eclipse.gmf.runtime.notation.View;
 
 import crosswalk.CrosswalkPackage;
 import crosswalk.diagram.edit.parts.DateRecognizer2EditPart;
-import crosswalk.diagram.edit.parts.MappedElement3EditPart;
 import crosswalk.diagram.edit.parts.MappedElementEditPart;
 import crosswalk.diagram.edit.parts.OriginalNameRecordMatcher2EditPart;
 import crosswalk.diagram.edit.parts.Text2EditPart;
@@ -100,7 +99,7 @@ public class MetadataBlockMetadataBlockMappingCompartmentCanonicalEditPolicy ext
 			case DateRecognizer2EditPart.VISUAL_ID:
 			case Text2EditPart.VISUAL_ID:
 			case TrimWhitespace2EditPart.VISUAL_ID:
-			case MappedElement3EditPart.VISUAL_ID:
+			case MappedElementEditPart.VISUAL_ID:
 				return true;
 		}
 		return false;

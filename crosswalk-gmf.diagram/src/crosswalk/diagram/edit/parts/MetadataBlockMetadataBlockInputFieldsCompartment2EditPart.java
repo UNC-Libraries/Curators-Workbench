@@ -10,7 +10,6 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ResizableCompartmentEditP
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.notation.View;
 
-import crosswalk.diagram.custom.SpecialCreationEditPolicy;
 import crosswalk.diagram.edit.policies.MetadataBlockMetadataBlockInputFieldsCompartment2CanonicalEditPolicy;
 import crosswalk.diagram.edit.policies.MetadataBlockMetadataBlockInputFieldsCompartment2ItemSemanticEditPolicy;
 import crosswalk.diagram.part.Messages;

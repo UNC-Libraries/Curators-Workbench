@@ -11,7 +11,6 @@ import org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.notation.View;
 
-import crosswalk.diagram.custom.SpecialCreationEditPolicy;
 import crosswalk.diagram.edit.policies.MetadataBlockMetadataBlockMappingCompartment2CanonicalEditPolicy;
 import crosswalk.diagram.edit.policies.MetadataBlockMetadataBlockMappingCompartment2ItemSemanticEditPolicy;
 import crosswalk.diagram.part.Messages;
@@ -50,24 +49,14 @@ public class MetadataBlockMetadataBlockMappingCompartment2EditPart extends Shape
 	}
 
 	/**
-	 * @generated NOT
+	 * @generated
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE, new ResizableCompartmentEditPolicy());
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new MetadataBlockMetadataBlockMappingCompartment2ItemSemanticEditPolicy());
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new SpecialCreationEditPolicy());
-		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new DragDropEditPolicy());
-		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
-				new MetadataBlockMetadataBlockMappingCompartment2CanonicalEditPolicy());
-	}
-
-	protected void createDefaultEditPoliciesCustom() {
-		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new MetadataBlockMetadataBlockMappingCompartment2ItemSemanticEditPolicy());
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new SpecialCreationEditPolicy());
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicy());
 		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new DragDropEditPolicy());
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
 				new MetadataBlockMetadataBlockMappingCompartment2CanonicalEditPolicy());

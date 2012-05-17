@@ -58,7 +58,6 @@ import crosswalk.Vocabulary;
  * @generated
  */
 public class CrosswalkFactoryImpl extends EFactoryImpl implements CrosswalkFactory {
-    private static MappedElementFeatureSetupAdapter mappedElementFeatureSetupAdapter =  new MappedElementFeatureSetupAdapter();
 
     /**
 	 * Creates the default factory implementation.
@@ -251,11 +250,10 @@ public class CrosswalkFactoryImpl extends EFactoryImpl implements CrosswalkFacto
 /**
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated NOT
+         * @generated
          */
         public MappedElement createMappedElement() {
                 MappedElementImpl mappedElement = new MappedElementImpl();
-                mappedElement.eAdapters().add(CrosswalkFactoryImpl.mappedElementFeatureSetupAdapter);
                 return mappedElement;
         }
 

@@ -56,7 +56,6 @@ import org.eclipse.jface.preference.PreferenceConverter;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.FontData;
 
-import crosswalk.diagram.edit.parts.CrossWalk2EditPart;
 import crosswalk.diagram.edit.parts.CrossWalkEditPart;
 import crosswalk.diagram.edit.parts.CrossWalkModelBoxCompartmentEditPart;
 import crosswalk.diagram.edit.parts.DateRecognizer2EditPart;
@@ -74,13 +73,9 @@ import crosswalk.diagram.edit.parts.FormTitleEditPart;
 import crosswalk.diagram.edit.parts.InputFieldEditPart;
 import crosswalk.diagram.edit.parts.InputFieldLabelEditPart;
 import crosswalk.diagram.edit.parts.InputOutputEditPart;
-import crosswalk.diagram.edit.parts.MappedAttribute2EditPart;
 import crosswalk.diagram.edit.parts.MappedAttributeEditPart;
-import crosswalk.diagram.edit.parts.MappedAttributeNameEditPart;
 import crosswalk.diagram.edit.parts.MappedElement2EditPart;
-import crosswalk.diagram.edit.parts.MappedElement3EditPart;
 import crosswalk.diagram.edit.parts.MappedElementChildElementsCompartment2EditPart;
-import crosswalk.diagram.edit.parts.MappedElementChildElementsCompartment3EditPart;
 import crosswalk.diagram.edit.parts.MappedElementChildElementsCompartmentEditPart;
 import crosswalk.diagram.edit.parts.MappedElementEditPart;
 import crosswalk.diagram.edit.parts.MetadataBlock2EditPart;
@@ -109,10 +104,6 @@ import crosswalk.diagram.edit.parts.TextValueEditPart;
 import crosswalk.diagram.edit.parts.TrimWhitespace2EditPart;
 import crosswalk.diagram.edit.parts.TrimWhitespaceEditPart;
 import crosswalk.diagram.edit.parts.WrappingLabel10EditPart;
-import crosswalk.diagram.edit.parts.WrappingLabel11EditPart;
-import crosswalk.diagram.edit.parts.WrappingLabel12EditPart;
-import crosswalk.diagram.edit.parts.WrappingLabel15EditPart;
-import crosswalk.diagram.edit.parts.WrappingLabel16EditPart;
 import crosswalk.diagram.edit.parts.WrappingLabel2EditPart;
 import crosswalk.diagram.edit.parts.WrappingLabel3EditPart;
 import crosswalk.diagram.edit.parts.WrappingLabel4EditPart;
@@ -224,8 +215,6 @@ public class CrosswalkViewProvider extends AbstractProvider implements IViewProv
 					case DateRecognizer2EditPart.VISUAL_ID:
 					case Text2EditPart.VISUAL_ID:
 					case TrimWhitespace2EditPart.VISUAL_ID:
-					case MappedElement3EditPart.VISUAL_ID:
-					case MappedAttribute2EditPart.VISUAL_ID:
 					case MetadataBlockEditPart.VISUAL_ID:
 					case MetadataBlock3EditPart.VISUAL_ID:
 						if (domainElement == null
@@ -246,8 +235,7 @@ public class CrosswalkViewProvider extends AbstractProvider implements IViewProv
 				|| MappedElement2EditPart.VISUAL_ID == visualID || MappedAttributeEditPart.VISUAL_ID == visualID
 				|| MetadataBlock2EditPart.VISUAL_ID == visualID || OriginalNameRecordMatcher2EditPart.VISUAL_ID == visualID
 				|| DateRecognizer2EditPart.VISUAL_ID == visualID || Text2EditPart.VISUAL_ID == visualID
-				|| TrimWhitespace2EditPart.VISUAL_ID == visualID || MappedElement3EditPart.VISUAL_ID == visualID
-				|| MappedAttribute2EditPart.VISUAL_ID == visualID || InputFieldEditPart.VISUAL_ID == visualID
+				|| TrimWhitespace2EditPart.VISUAL_ID == visualID || InputFieldEditPart.VISUAL_ID == visualID
 				|| MetadataBlockEditPart.VISUAL_ID == visualID || MetadataBlock3EditPart.VISUAL_ID == visualID
 				|| ParagraphEditPart.VISUAL_ID == visualID;
 	}
@@ -331,10 +319,6 @@ public class CrosswalkViewProvider extends AbstractProvider implements IViewProv
 				return createText_3013(domainElement, containerView, index, persisted, preferencesHint);
 			case TrimWhitespace2EditPart.VISUAL_ID:
 				return createTrimWhitespace_3014(domainElement, containerView, index, persisted, preferencesHint);
-			case MappedElement3EditPart.VISUAL_ID:
-				return createMappedElement_3015(domainElement, containerView, index, persisted, preferencesHint);
-			case MappedAttribute2EditPart.VISUAL_ID:
-				return createMappedAttribute_3016(domainElement, containerView, index, persisted, preferencesHint);
 			case InputFieldEditPart.VISUAL_ID:
 				return createInputField_3017(domainElement, containerView, index, persisted, preferencesHint);
 			case MetadataBlockEditPart.VISUAL_ID:
@@ -1114,81 +1098,6 @@ public class CrosswalkViewProvider extends AbstractProvider implements IViewProv
 		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
 		Node label5014 = createLabel(node, CrosswalkVisualIDRegistry.getType(WrappingLabel10EditPart.VISUAL_ID));
-		return node;
-	}
-
-	/**
-	 * @generated
-	 */
-	public Node createMappedElement_3015(EObject domainElement, View containerView, int index, boolean persisted,
-			PreferencesHint preferencesHint) {
-		Shape node = NotationFactory.eINSTANCE.createShape();
-		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
-		node.setType(CrosswalkVisualIDRegistry.getType(MappedElement3EditPart.VISUAL_ID));
-		ViewUtil.insertChildView(containerView, node, index, persisted);
-		node.setElement(domainElement);
-		// initializeFromPreferences 
-		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
-
-		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
-				IPreferenceConstants.PREF_LINE_COLOR);
-		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getLineStyle_LineColor(),
-				FigureUtilities.RGBToInteger(lineRGB));
-		FontStyle nodeFontStyle = (FontStyle) node.getStyle(NotationPackage.Literals.FONT_STYLE);
-		if (nodeFontStyle != null) {
-			FontData fontData = PreferenceConverter.getFontData(prefStore, IPreferenceConstants.PREF_DEFAULT_FONT);
-			nodeFontStyle.setFontName(fontData.getName());
-			nodeFontStyle.setFontHeight(fontData.getHeight());
-			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
-			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
-			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter.getColor(prefStore,
-					IPreferenceConstants.PREF_FONT_COLOR);
-			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
-		}
-		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(prefStore,
-				IPreferenceConstants.PREF_FILL_COLOR);
-		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getFillStyle_FillColor(),
-				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5016 = createLabel(node, CrosswalkVisualIDRegistry.getType(WrappingLabel11EditPart.VISUAL_ID));
-		createCompartment(node,
-				CrosswalkVisualIDRegistry.getType(MappedElementChildElementsCompartment3EditPart.VISUAL_ID), false, false,
-				true, true);
-		return node;
-	}
-
-	/**
-	 * @generated
-	 */
-	public Node createMappedAttribute_3016(EObject domainElement, View containerView, int index, boolean persisted,
-			PreferencesHint preferencesHint) {
-		Shape node = NotationFactory.eINSTANCE.createShape();
-		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
-		node.setType(CrosswalkVisualIDRegistry.getType(MappedAttribute2EditPart.VISUAL_ID));
-		ViewUtil.insertChildView(containerView, node, index, persisted);
-		node.setElement(domainElement);
-		// initializeFromPreferences 
-		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
-
-		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
-				IPreferenceConstants.PREF_LINE_COLOR);
-		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getLineStyle_LineColor(),
-				FigureUtilities.RGBToInteger(lineRGB));
-		FontStyle nodeFontStyle = (FontStyle) node.getStyle(NotationPackage.Literals.FONT_STYLE);
-		if (nodeFontStyle != null) {
-			FontData fontData = PreferenceConverter.getFontData(prefStore, IPreferenceConstants.PREF_DEFAULT_FONT);
-			nodeFontStyle.setFontName(fontData.getName());
-			nodeFontStyle.setFontHeight(fontData.getHeight());
-			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
-			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
-			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter.getColor(prefStore,
-					IPreferenceConstants.PREF_FONT_COLOR);
-			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
-		}
-		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(prefStore,
-				IPreferenceConstants.PREF_FILL_COLOR);
-		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getFillStyle_FillColor(),
-				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5015 = createLabel(node, CrosswalkVisualIDRegistry.getType(WrappingLabel12EditPart.VISUAL_ID));
 		return node;
 	}
 

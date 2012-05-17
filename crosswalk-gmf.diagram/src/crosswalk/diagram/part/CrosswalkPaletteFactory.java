@@ -27,6 +27,7 @@ import org.eclipse.gef.palette.PaletteDrawer;
 import org.eclipse.gef.palette.PaletteGroup;
 import org.eclipse.gef.palette.PaletteRoot;
 import org.eclipse.gef.palette.ToolEntry;
+import org.eclipse.gmf.runtime.diagram.ui.requests.CreateUnspecifiedTypeRequest;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewRequest;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewRequestFactory;
 import org.eclipse.gmf.runtime.diagram.ui.tools.CreationTool;
@@ -103,10 +104,9 @@ public class CrosswalkPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createXMLElement1CreationTool() {
-		ArrayList<IElementType> types = new ArrayList<IElementType>(3);
+		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
 		types.add(CrosswalkElementTypes.MappedElement_3007);
 		types.add(CrosswalkElementTypes.MappedElement_3008);
-		types.add(CrosswalkElementTypes.MappedElement_3015);
 		NodeToolEntry entry = new NodeToolEntry(Messages.XMLElement1CreationTool_title,
 				Messages.XMLElement1CreationTool_desc, types);
 		entry.setId("createXMLElement1CreationTool"); //$NON-NLS-1$
@@ -119,11 +119,9 @@ public class CrosswalkPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createXMLAttribute2CreationTool() {
-		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
-		types.add(CrosswalkElementTypes.MappedAttribute_3009);
-		types.add(CrosswalkElementTypes.MappedAttribute_3016);
 		NodeToolEntry entry = new NodeToolEntry(Messages.XMLAttribute2CreationTool_title,
-				Messages.XMLAttribute2CreationTool_desc, types);
+				Messages.XMLAttribute2CreationTool_desc,
+				Collections.singletonList(CrosswalkElementTypes.MappedAttribute_3009));
 		entry.setId("createXMLAttribute2CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(CrosswalkElementTypes.getImageDescriptor(CrosswalkElementTypes.MappedAttribute_3009));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -366,10 +364,17 @@ public class CrosswalkPaletteFactory {
 		 */
 		protected Request createTargetRequest() {
 			//return new TemplateObjectCreateRequest(CrosswalkElementTypes.MetadataBlock_3018, object, getPreferencesHint());
-			CreateViewRequest req = CreateViewRequestFactory.getCreateShapeRequest(
-					CrosswalkElementTypes.MetadataBlock_3018, getPreferencesHint());
-			req.getExtendedData().put("templateElement", object);
-			return req;
+			ArrayList<IElementType> types = new ArrayList<IElementType>(3);
+			types.add(CrosswalkElementTypes.MetadataBlock_3010);
+			types.add(CrosswalkElementTypes.MetadataBlock_3018);
+			types.add(CrosswalkElementTypes.MetadataBlock_3019);
+
+			CreateUnspecifiedTypeRequest result = new CreateUnspecifiedTypeRequest(types, getPreferencesHint());
+			result.getExtendedData().put("templateElement", object);
+			//CreateViewRequest req = CreateViewRequestFactory.getCreateShapeRequest(
+			//	CrosswalkElementTypes.MetadataBlock_3018, getPreferencesHint());
+			//req.getExtendedData().put("templateElement", object);
+			return result;
 			//DropObjectsRequest drop = new DropObjectsRequest();
 			//drop.setObjects(Collections.singletonList(EcoreUtil.copy(this.object)));
 			//return drop;
