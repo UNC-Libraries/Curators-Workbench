@@ -68,6 +68,7 @@ public class DictionaryItemProvider
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
+			addDescriptionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -86,6 +87,28 @@ public class DictionaryItemProvider
 				 getString("_UI_Dictionary_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Dictionary_name_feature", "_UI_Dictionary_type"),
 				 CrosswalkPackage.Literals.DICTIONARY__NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Description feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDescriptionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Dictionary_description_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Dictionary_description_feature", "_UI_Dictionary_type"),
+				 CrosswalkPackage.Literals.DICTIONARY__DESCRIPTION,
 				 true,
 				 false,
 				 false,
@@ -163,6 +186,7 @@ public class DictionaryItemProvider
 
 		switch (notification.getFeatureID(Dictionary.class)) {
 			case CrosswalkPackage.DICTIONARY__NAME:
+			case CrosswalkPackage.DICTIONARY__DESCRIPTION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case CrosswalkPackage.DICTIONARY__BLOCKS:

@@ -29,6 +29,7 @@ import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.widgets.Display;
 
 import crosswalk.diagram.edit.policies.DictionaryItemSemanticEditPolicy;
+import crosswalk.diagram.part.CrosswalkVisualIDRegistry;
 
 /**
  * @generated
@@ -111,6 +112,14 @@ public class DictionaryEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
+		if (childEditPart instanceof DictionaryNameEditPart) {
+			((DictionaryNameEditPart) childEditPart).setLabel(getPrimaryShape().getFigureModelLabelFigure());
+			return true;
+		}
+		if (childEditPart instanceof DictionaryDescriptionEditPart) {
+			((DictionaryDescriptionEditPart) childEditPart).setLabel(getPrimaryShape().getFigureModelNotesFigure());
+			return true;
+		}
 		if (childEditPart instanceof DictionaryModelBoxCompartmentEditPart) {
 			IFigure pane = getPrimaryShape().getFigureModelBox();
 			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
@@ -124,6 +133,12 @@ public class DictionaryEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
+		if (childEditPart instanceof DictionaryNameEditPart) {
+			return true;
+		}
+		if (childEditPart instanceof DictionaryDescriptionEditPart) {
+			return true;
+		}
 		if (childEditPart instanceof DictionaryModelBoxCompartmentEditPart) {
 			IFigure pane = getPrimaryShape().getFigureModelBox();
 			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
@@ -247,6 +262,13 @@ public class DictionaryEditPart extends ShapeNodeEditPart {
 		if (primaryShape instanceof Shape) {
 			((Shape) primaryShape).setLineStyle(style);
 		}
+	}
+
+	/**
+	 * @generated
+	 */
+	public EditPart getPrimaryChildEditPart() {
+		return getChildBySemanticHint(CrosswalkVisualIDRegistry.getType(DictionaryNameEditPart.VISUAL_ID));
 	}
 
 	/**

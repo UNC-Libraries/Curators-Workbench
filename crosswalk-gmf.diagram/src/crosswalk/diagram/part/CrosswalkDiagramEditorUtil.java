@@ -231,7 +231,7 @@ public class CrosswalkDiagramEditorUtil {
 	 * This method should be called within a workspace modify operation since it creates resources.
 	 * @generated NOT
 	 */
-	public static Resource createDiagramWithSource(URI diagramURI, IProgressMonitor progressMonitor,
+	public static Resource createCrosswalkWithSource(URI diagramURI, IProgressMonitor progressMonitor,
 			final DataSource source) {
 		TransactionalEditingDomain editingDomain = GMFEditingDomainFactory.INSTANCE.createEditingDomain();
 		progressMonitor.beginTask(Messages.CrosswalkDiagramEditorUtil_CreateDiagramProgressTask, 3);
@@ -473,6 +473,8 @@ public class CrosswalkDiagramEditorUtil {
 					throws ExecutionException {
 				EditingContainer model = createInitialModel();
 				Dictionary dict = CrosswalkFactory.eINSTANCE.createDictionary();
+				dict.setName("Dictionary Title");
+				dict.setDescription("This is the dictionary description. Click on this text or the title to edit.");
 				dict.setOutputType(MODSPackage.eINSTANCE.getModsDefinition());
 				model.setModel(dict);
 				attachModelToResource(model, diagramResource);

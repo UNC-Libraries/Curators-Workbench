@@ -63,8 +63,10 @@ import crosswalk.diagram.edit.parts.DateRecognizerEditPart;
 import crosswalk.diagram.edit.parts.DelimitedFileDataFieldCompartmentEditPart;
 import crosswalk.diagram.edit.parts.DelimitedFileEditPart;
 import crosswalk.diagram.edit.parts.DelimitedFileSourceFileEditPart;
+import crosswalk.diagram.edit.parts.DictionaryDescriptionEditPart;
 import crosswalk.diagram.edit.parts.DictionaryEditPart;
 import crosswalk.diagram.edit.parts.DictionaryModelBoxCompartmentEditPart;
+import crosswalk.diagram.edit.parts.DictionaryNameEditPart;
 import crosswalk.diagram.edit.parts.EditingContainerEditPart;
 import crosswalk.diagram.edit.parts.FormDescriptionEditPart;
 import crosswalk.diagram.edit.parts.FormEditPart;
@@ -416,6 +418,8 @@ public class CrosswalkViewProvider extends AbstractProvider implements IViewProv
 					IPreferenceConstants.PREF_FONT_COLOR);
 			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
 		}
+		Node label5025 = createLabel(node, CrosswalkVisualIDRegistry.getType(DictionaryNameEditPart.VISUAL_ID));
+		Node label5026 = createLabel(node, CrosswalkVisualIDRegistry.getType(DictionaryDescriptionEditPart.VISUAL_ID));
 		createCompartment(node, CrosswalkVisualIDRegistry.getType(DictionaryModelBoxCompartmentEditPart.VISUAL_ID),
 				false, false, false, false);
 		return node;

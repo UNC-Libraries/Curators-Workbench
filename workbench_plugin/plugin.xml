@@ -756,14 +756,6 @@
                   style="push"
                   tooltip="Link a project to the location of a some original files.">
             </command>
-            <command
-                  commandId="cdr-workbench.commandImportTabularMetadata"
-                  disabledIcon="icons/crosswalk_add_disabled.gif"
-                  icon="icons/crosswalk_add.gif"
-                  label="New Crosswalk"
-                  mode="FORCE_TEXT"
-                  style="push">
-            </command>
          </toolbar>
       </menuContribution>
       <menuContribution

@@ -12,6 +12,12 @@
   <nodeTraces
       visualID="2002"
       queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://lib.unc.edu/schemas/crosswalk' and _eClass_.name = 'Dictionary') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://lib.unc.edu/schemas/crosswalk' and _eClass_.name = 'EditingContainer') and _containmentMF_.name = 'model')">
+    <nodeLabelTraces
+        visualID="5025"
+        queryText="true"/>
+    <nodeLabelTraces
+        visualID="5026"
+        queryText="true"/>
     <compartmentTraces
         visualID="7005"
         queryText="true"/>

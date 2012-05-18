@@ -858,6 +858,15 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getDictionary_Description() {
+		return (EAttribute)dictionaryEClass.getEStructuralFeatures().get(3);
+	}
+
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getMetadataBlock() {
 		return metadataBlockEClass;
 	}
@@ -1228,6 +1237,7 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 		createEAttribute(dictionaryEClass, DICTIONARY__NAME);
 		createEReference(dictionaryEClass, DICTIONARY__BLOCKS);
 		createEReference(dictionaryEClass, DICTIONARY__VOCABULARIES);
+		createEAttribute(dictionaryEClass, DICTIONARY__DESCRIPTION);
 
 		metadataBlockEClass = createEClass(METADATA_BLOCK);
 		createEAttribute(metadataBlockEClass, METADATA_BLOCK__NAME);
@@ -1452,6 +1462,7 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 		initEAttribute(getDictionary_Name(), ecorePackage.getEString(), "name", null, 1, 1, Dictionary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDictionary_Blocks(), this.getMetadataBlock(), null, "blocks", null, 0, -1, Dictionary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDictionary_Vocabularies(), this.getVocabulary(), null, "vocabularies", null, 0, -1, Dictionary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDictionary_Description(), ecorePackage.getEString(), "description", null, 1, 1, Dictionary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(metadataBlockEClass, MetadataBlock.class, "MetadataBlock", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMetadataBlock_Name(), ecorePackage.getEString(), "name", null, 1, 1, MetadataBlock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

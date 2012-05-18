@@ -1001,6 +1001,52 @@
         <childMetaFeature
             href="crosswalk.genmodel#//crosswalk/EditingContainer/model"/>
       </modelFacet>
+      <labels
+          visualID="5025"
+          editPartClassName="DictionaryNameEditPart"
+          itemSemanticEditPolicyClassName="DictionaryNameItemSemanticEditPolicy">
+        <diagramRunTimeClass
+            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:ParentAssignedViewmap"
+            getterName="getFigureModelLabelFigure"
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
+          <attributes
+              xsi:type="gmfgen:StyleAttributes"
+              fixedFont="true"/>
+        </viewmap>
+        <modelFacet
+            xsi:type="gmfgen:FeatureLabelModelFacet"
+            parser="//@labelParsers/@implementations.12"
+            viewMethod="NATIVE"
+            editMethod="NATIVE">
+          <metaFeatures
+              href="crosswalk.genmodel#//crosswalk/Dictionary/name"/>
+          <editableMetaFeatures
+              href="crosswalk.genmodel#//crosswalk/Dictionary/name"/>
+        </modelFacet>
+      </labels>
+      <labels
+          visualID="5026"
+          editPartClassName="DictionaryDescriptionEditPart"
+          itemSemanticEditPolicyClassName="DictionaryDescriptionItemSemanticEditPolicy">
+        <diagramRunTimeClass
+            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:ParentAssignedViewmap"
+            getterName="getFigureModelNotesFigure"
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+        <modelFacet
+            xsi:type="gmfgen:FeatureLabelModelFacet"
+            parser="//@labelParsers/@implementations.12"
+            viewMethod="NATIVE"
+            editMethod="NATIVE">
+          <metaFeatures
+              href="crosswalk.genmodel#//crosswalk/Dictionary/description"/>
+          <editableMetaFeatures
+              href="crosswalk.genmodel#//crosswalk/Dictionary/description"/>
+        </modelFacet>
+      </labels>
     </topLevelNodes>
     <topLevelNodes
         visualID="2003"
@@ -1867,7 +1913,7 @@
     </implementations>
     <implementations
         xsi:type="gmfgen:PredefinedParser"
-        uses="//@diagram/@childNodes.14/@labels.0/@modelFacet //@diagram/@childNodes.9/@labels.0/@modelFacet //@diagram/@childNodes.15/@labels.0/@modelFacet //@diagram/@childNodes.16/@labels.0/@modelFacet //@diagram/@childNodes.17/@labels.0/@modelFacet //@diagram/@childNodes.17/@labels.1/@modelFacet //@diagram/@topLevelNodes.2/@labels.0/@modelFacet //@diagram/@topLevelNodes.2/@labels.1/@modelFacet"
+        uses="//@diagram/@childNodes.14/@labels.0/@modelFacet //@diagram/@childNodes.9/@labels.0/@modelFacet //@diagram/@childNodes.15/@labels.0/@modelFacet //@diagram/@topLevelNodes.1/@labels.0/@modelFacet //@diagram/@topLevelNodes.1/@labels.1/@modelFacet //@diagram/@childNodes.16/@labels.0/@modelFacet //@diagram/@childNodes.17/@labels.0/@modelFacet //@diagram/@childNodes.17/@labels.1/@modelFacet //@diagram/@topLevelNodes.2/@labels.0/@modelFacet //@diagram/@topLevelNodes.2/@labels.1/@modelFacet"
         viewMethod="NATIVE"
         editMethod="NATIVE"/>
   </labelParsers>

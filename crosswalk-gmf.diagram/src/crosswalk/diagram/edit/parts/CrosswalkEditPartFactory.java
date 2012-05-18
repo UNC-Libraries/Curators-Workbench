@@ -53,6 +53,12 @@ public class CrosswalkEditPartFactory implements EditPartFactory {
 				case DictionaryEditPart.VISUAL_ID:
 					return new DictionaryEditPart(view);
 
+				case DictionaryNameEditPart.VISUAL_ID:
+					return new DictionaryNameEditPart(view);
+
+				case DictionaryDescriptionEditPart.VISUAL_ID:
+					return new DictionaryDescriptionEditPart(view);
+
 				case FormEditPart.VISUAL_ID:
 					return new FormEditPart(view);
 

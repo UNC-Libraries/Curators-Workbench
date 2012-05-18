@@ -239,7 +239,7 @@ copyright 2010 University of North Carolina at Chapel Hill
             <method name="getType()" value="4001"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
-            <method name="getType()" value="5023,5024,5003,5001,5002,5004,5005,5006,5007,5010,5009,5008,5019,5011,5012,5013,5014,5017,5018,5020,5021,5022"/>
+            <method name="getType()" value="5025,5026,5023,5024,5003,5001,5002,5004,5005,5006,5007,5010,5009,5008,5019,5011,5012,5013,5014,5017,5018,5020,5021,5022"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-compartments">
             <method name="getType()" value="7001,7002,7003,7004,7009,7010,7005,7006,7007,7011,7012,7013"/>

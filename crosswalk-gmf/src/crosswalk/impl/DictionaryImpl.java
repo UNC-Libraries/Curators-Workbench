@@ -32,6 +32,7 @@ import crosswalk.Vocabulary;
  *   <li>{@link crosswalk.impl.DictionaryImpl#getName <em>Name</em>}</li>
  *   <li>{@link crosswalk.impl.DictionaryImpl#getBlocks <em>Blocks</em>}</li>
  *   <li>{@link crosswalk.impl.DictionaryImpl#getVocabularies <em>Vocabularies</em>}</li>
+ *   <li>{@link crosswalk.impl.DictionaryImpl#getDescription <em>Description</em>}</li>
  * </ul>
  * </p>
  *
@@ -77,6 +78,26 @@ public class DictionaryImpl extends SchemaProviderImpl implements Dictionary {
 	 * @ordered
 	 */
 	protected EList<Vocabulary> vocabularies;
+
+	/**
+	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DESCRIPTION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected String description = DESCRIPTION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -147,6 +168,27 @@ public class DictionaryImpl extends SchemaProviderImpl implements Dictionary {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getDescription() {
+		return description;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDescription(String newDescription) {
+		String oldDescription = description;
+		description = newDescription;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.DICTIONARY__DESCRIPTION, oldDescription, description));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -172,6 +214,8 @@ public class DictionaryImpl extends SchemaProviderImpl implements Dictionary {
 				return getBlocks();
 			case CrosswalkPackage.DICTIONARY__VOCABULARIES:
 				return getVocabularies();
+			case CrosswalkPackage.DICTIONARY__DESCRIPTION:
+				return getDescription();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -196,6 +240,9 @@ public class DictionaryImpl extends SchemaProviderImpl implements Dictionary {
 				getVocabularies().clear();
 				getVocabularies().addAll((Collection<? extends Vocabulary>)newValue);
 				return;
+			case CrosswalkPackage.DICTIONARY__DESCRIPTION:
+				setDescription((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -217,6 +264,9 @@ public class DictionaryImpl extends SchemaProviderImpl implements Dictionary {
 			case CrosswalkPackage.DICTIONARY__VOCABULARIES:
 				getVocabularies().clear();
 				return;
+			case CrosswalkPackage.DICTIONARY__DESCRIPTION:
+				setDescription(DESCRIPTION_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -235,6 +285,8 @@ public class DictionaryImpl extends SchemaProviderImpl implements Dictionary {
 				return blocks != null && !blocks.isEmpty();
 			case CrosswalkPackage.DICTIONARY__VOCABULARIES:
 				return vocabularies != null && !vocabularies.isEmpty();
+			case CrosswalkPackage.DICTIONARY__DESCRIPTION:
+				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -251,6 +303,8 @@ public class DictionaryImpl extends SchemaProviderImpl implements Dictionary {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");
 		result.append(name);
+		result.append(", description: ");
+		result.append(description);
 		result.append(')');
 		return result.toString();
 	}

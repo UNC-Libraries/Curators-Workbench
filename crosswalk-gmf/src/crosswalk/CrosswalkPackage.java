@@ -904,13 +904,22 @@ public interface CrosswalkPackage extends EPackage {
 	int DICTIONARY__VOCABULARIES = SCHEMA_PROVIDER_FEATURE_COUNT + 2;
 
 								/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DICTIONARY__DESCRIPTION = SCHEMA_PROVIDER_FEATURE_COUNT + 3;
+
+								/**
 	 * The number of structural features of the '<em>Dictionary</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DICTIONARY_FEATURE_COUNT = SCHEMA_PROVIDER_FEATURE_COUNT + 3;
+	int DICTIONARY_FEATURE_COUNT = SCHEMA_PROVIDER_FEATURE_COUNT + 4;
 
 								/**
 	 * The meta object id for the '{@link crosswalk.impl.MetadataBlockImpl <em>Metadata Block</em>}' class.
@@ -1838,6 +1847,17 @@ public interface CrosswalkPackage extends EPackage {
 	EReference getDictionary_Vocabularies();
 
 								/**
+	 * Returns the meta object for the attribute '{@link crosswalk.Dictionary#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see crosswalk.Dictionary#getDescription()
+	 * @see #getDictionary()
+	 * @generated
+	 */
+	EAttribute getDictionary_Description();
+
+								/**
 	 * Returns the meta object for class '{@link crosswalk.MetadataBlock <em>Metadata Block</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2627,6 +2647,14 @@ public interface CrosswalkPackage extends EPackage {
 		 * @generated
 		 */
 		EReference DICTIONARY__VOCABULARIES = eINSTANCE.getDictionary_Vocabularies();
+
+																/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DICTIONARY__DESCRIPTION = eINSTANCE.getDictionary_Description();
 
 																/**
 		 * The meta object literal for the '{@link crosswalk.impl.MetadataBlockImpl <em>Metadata Block</em>}' class.

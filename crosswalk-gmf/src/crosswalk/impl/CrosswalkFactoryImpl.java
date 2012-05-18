@@ -248,14 +248,14 @@ public class CrosswalkFactoryImpl extends EFactoryImpl implements CrosswalkFacto
 	}
 
 /**
-         * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @generated
-         */
+	 * @generated
+	 */
         public MappedElement createMappedElement() {
-                MappedElementImpl mappedElement = new MappedElementImpl();
-                return mappedElement;
-        }
+		MappedElementImpl mappedElement = new MappedElementImpl();
+		return mappedElement;
+	}
 
 /**
 	 * <!-- begin-user-doc -->

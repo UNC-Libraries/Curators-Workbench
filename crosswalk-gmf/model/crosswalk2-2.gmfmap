@@ -238,6 +238,28 @@
     <ownedChild>
       <domainMetaElement
           href="crosswalk.ecore#//Dictionary"/>
+      <labelMappings
+          xsi:type="gmfmap:FeatureLabelMapping"
+          viewMethod="NATIVE"
+          editMethod="NATIVE">
+        <diagramLabel
+            href="crosswalk.gmfgraph#ModelLabel"/>
+        <features
+            href="crosswalk.ecore#//Dictionary/name"/>
+        <editableFeatures
+            href="crosswalk.ecore#//Dictionary/name"/>
+      </labelMappings>
+      <labelMappings
+          xsi:type="gmfmap:FeatureLabelMapping"
+          viewMethod="NATIVE"
+          editMethod="NATIVE">
+        <diagramLabel
+            href="crosswalk.gmfgraph#ModelNotesLabel"/>
+        <features
+            href="crosswalk.ecore#//Dictionary/description"/>
+        <editableFeatures
+            href="crosswalk.ecore#//Dictionary/description"/>
+      </labelMappings>
       <diagramNode
           href="crosswalk.gmfgraph#EditableModel"/>
       <children

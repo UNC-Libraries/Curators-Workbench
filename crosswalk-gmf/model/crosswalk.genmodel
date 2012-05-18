@@ -108,6 +108,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//Dictionary/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference crosswalk.ecore#//Dictionary/blocks"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference crosswalk.ecore#//Dictionary/vocabularies"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//Dictionary/description"/>
     </genClasses>
     <genClasses ecoreClass="crosswalk.ecore#//MetadataBlock">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//MetadataBlock/name"/>

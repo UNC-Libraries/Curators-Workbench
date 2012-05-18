@@ -30,6 +30,8 @@ import org.eclipse.gmf.runtime.notation.View;
 
 import crosswalk.CrosswalkPackage;
 import crosswalk.diagram.edit.parts.DelimitedFileSourceFileEditPart;
+import crosswalk.diagram.edit.parts.DictionaryDescriptionEditPart;
+import crosswalk.diagram.edit.parts.DictionaryNameEditPart;
 import crosswalk.diagram.edit.parts.FormDescriptionEditPart;
 import crosswalk.diagram.edit.parts.FormTitleEditPart;
 import crosswalk.diagram.edit.parts.InputFieldLabelEditPart;
@@ -66,6 +68,42 @@ import crosswalk.diagram.part.CrosswalkVisualIDRegistry;
  * @generated
  */
 public class CrosswalkParserProvider extends AbstractProvider implements IParserProvider {
+
+	/**
+	 * @generated
+	 */
+	private IParser dictionaryName_5025Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getDictionaryName_5025Parser() {
+		if (dictionaryName_5025Parser == null) {
+			EAttribute[] features = new EAttribute[] { CrosswalkPackage.eINSTANCE.getDictionary_Name() };
+			EAttribute[] editableFeatures = new EAttribute[] { CrosswalkPackage.eINSTANCE.getDictionary_Name() };
+			NativeParser parser = new NativeParser(features, editableFeatures);
+			dictionaryName_5025Parser = parser;
+		}
+		return dictionaryName_5025Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser dictionaryDescription_5026Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getDictionaryDescription_5026Parser() {
+		if (dictionaryDescription_5026Parser == null) {
+			EAttribute[] features = new EAttribute[] { CrosswalkPackage.eINSTANCE.getDictionary_Description() };
+			EAttribute[] editableFeatures = new EAttribute[] { CrosswalkPackage.eINSTANCE.getDictionary_Description() };
+			NativeParser parser = new NativeParser(features, editableFeatures);
+			dictionaryDescription_5026Parser = parser;
+		}
+		return dictionaryDescription_5026Parser;
+	}
 
 	/**
 	 * @generated
@@ -439,6 +477,10 @@ public class CrosswalkParserProvider extends AbstractProvider implements IParser
 	 */
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
+			case DictionaryNameEditPart.VISUAL_ID:
+				return getDictionaryName_5025Parser();
+			case DictionaryDescriptionEditPart.VISUAL_ID:
+				return getDictionaryDescription_5026Parser();
 			case FormTitleEditPart.VISUAL_ID:
 				return getFormTitle_5023Parser();
 			case FormDescriptionEditPart.VISUAL_ID:

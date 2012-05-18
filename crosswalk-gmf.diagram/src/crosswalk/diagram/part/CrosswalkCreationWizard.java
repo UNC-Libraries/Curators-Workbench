@@ -199,7 +199,7 @@ public class CrosswalkCreationWizard extends Wizard implements INewWizard {
 		IRunnableWithProgress op = new WorkspaceModifyOperation(null) {
 			@Override
 			protected void execute(IProgressMonitor monitor) throws CoreException, InterruptedException {
-				diagram = CrosswalkDiagramEditorUtil.createDiagramWithSource(getCrosswalkFileURI(), monitor, dataSource);
+				diagram = CrosswalkDiagramEditorUtil.createCrosswalkWithSource(getCrosswalkFileURI(), monitor, dataSource);
 				if (isOpenNewlyCreatedDiagramEditor() && diagram != null) {
 					try {
 						CrosswalkDiagramEditorUtil.openDiagram(diagram);
