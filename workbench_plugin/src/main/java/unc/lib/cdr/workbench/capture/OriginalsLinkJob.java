@@ -35,6 +35,9 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.SubProgressMonitor;
 import org.eclipse.core.runtime.URIUtil;
 import org.eclipse.core.runtime.jobs.Job;
+import org.eclipse.ui.IWorkbench;
+import org.eclipse.ui.activities.WorkbenchActivityHelper;
+import org.eclipse.ui.internal.WorkbenchPlugin;
 
 import unc.lib.cdr.workbench.IResourceConstants;
 import unc.lib.cdr.workbench.project.MetsProjectNature;

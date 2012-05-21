@@ -4,6 +4,7 @@ import org.eclipse.draw2d.ColorConstants;
 import org.eclipse.draw2d.GridData;
 import org.eclipse.draw2d.GridLayout;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.LineBorder;
 import org.eclipse.draw2d.MarginBorder;
 import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.Shape;
@@ -362,7 +363,7 @@ public class MetadataBlock3EditPart extends ShapeNodeEditPart {
 
 			GridData constraintFFigureMetadataBlockInputFieldsPane = new GridData();
 			constraintFFigureMetadataBlockInputFieldsPane.verticalAlignment = GridData.CENTER;
-			constraintFFigureMetadataBlockInputFieldsPane.horizontalAlignment = GridData.FILL;
+			constraintFFigureMetadataBlockInputFieldsPane.horizontalAlignment = GridData.BEGINNING;
 			constraintFFigureMetadataBlockInputFieldsPane.horizontalIndent = 0;
 			constraintFFigureMetadataBlockInputFieldsPane.horizontalSpan = 1;
 			constraintFFigureMetadataBlockInputFieldsPane.verticalSpan = 1;
@@ -376,6 +377,9 @@ public class MetadataBlock3EditPart extends ShapeNodeEditPart {
 			fFigureMetadataBlockInputFieldsPane.setLayoutManager(layoutFFigureMetadataBlockInputFieldsPane);
 
 			fFigureMetadataBlockMapping = new RectangleFigure();
+			fFigureMetadataBlockMapping.setLineWidth(2);
+			fFigureMetadataBlockMapping.setBackgroundColor(ColorConstants.lightGray);
+			fFigureMetadataBlockMapping.setBorder(new LineBorder(null, getMapMode().DPtoLP(2)));
 
 			GridData constraintFFigureMetadataBlockMapping = new GridData();
 			constraintFFigureMetadataBlockMapping.verticalAlignment = GridData.CENTER;

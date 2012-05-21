@@ -223,8 +223,8 @@
             text="Unknown Widget">
           <layoutData
               xsi:type="gmfgraph:GridLayoutData"
-              grabExcessHorizontalSpace="true"
               verticalAlignment="BEGINNING"
+              horizontalAlignment="BEGINNING"
               horizontalSpan="2"/>
           <foregroundColor
               xsi:type="gmfgraph:ConstantColor"
@@ -240,17 +240,24 @@
             outline="false">
           <layoutData
               xsi:type="gmfgraph:GridLayoutData"
-              horizontalAlignment="FILL"/>
+              horizontalAlignment="BEGINNING"/>
           <layout
               xsi:type="gmfgraph:GridLayout"
               equalWidth="false"/>
         </children>
         <children
             xsi:type="gmfgraph:Rectangle"
-            name="MetadataBlockMapping">
+            name="MetadataBlockMapping"
+            lineWidth="2">
           <layoutData
               xsi:type="gmfgraph:GridLayoutData"
               horizontalAlignment="END"/>
+          <backgroundColor
+              xsi:type="gmfgraph:ConstantColor"
+              value="lightGray"/>
+          <border
+              xsi:type="gmfgraph:LineBorder"
+              width="2"/>
         </children>
       </actualFigure>
       <accessors
@@ -296,7 +303,6 @@
             text="input">
           <layoutData
               xsi:type="gmfgraph:GridLayoutData"
-              grabExcessHorizontalSpace="true"
               horizontalAlignment="BEGINNING"/>
         </children>
       </actualFigure>

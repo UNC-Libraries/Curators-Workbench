@@ -20,7 +20,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="Walk" eType="#//SchemaProvider"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="WalkWidget" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Walk" lowerBound="1" eType="#//SchemaProvider"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Walk" lowerBound="1" eType="#//MappingContainer"
+        eOpposite="#//MappingContainer/widgets"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DataSource" abstract="true" interface="true">
     <eOperations name="GoToExample" eExceptions="#//DataException #//RecordOutOfRangeException"/>
@@ -166,7 +167,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MappingContainer" abstract="true" interface="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="widgets" ordered="false"
-        upperBound="-1" eType="#//WalkWidget" containment="true"/>
+        upperBound="-1" eType="#//WalkWidget" containment="true" eOpposite="#//WalkWidget/Walk"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="elements" ordered="false"
         upperBound="-1" eType="#//OutputElement" containment="true"/>
   </eClassifiers>

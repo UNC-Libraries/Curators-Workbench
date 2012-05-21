@@ -236,7 +236,7 @@ public interface CrosswalkPackage extends EPackage {
         int TABBED_DATA_FIELD_FEATURE_COUNT = DATA_FIELD_FEATURE_COUNT + 1;
 
         /**
-	 * The feature id for the '<em><b>Walk</b></em>' reference.
+	 * The feature id for the '<em><b>Walk</b></em>' container reference.
 	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
 	 * @generated
@@ -254,7 +254,7 @@ public interface CrosswalkPackage extends EPackage {
         int WALK_WIDGET_FEATURE_COUNT = 1;
 
         /**
-	 * The feature id for the '<em><b>Walk</b></em>' reference.
+	 * The feature id for the '<em><b>Walk</b></em>' container reference.
 	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
 	 * @generated
@@ -427,7 +427,7 @@ public interface CrosswalkPackage extends EPackage {
         int RECORD_MATCHER_STRATEGY = 9;
 
         /**
-	 * The feature id for the '<em><b>Walk</b></em>' reference.
+	 * The feature id for the '<em><b>Walk</b></em>' container reference.
 	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
 	 * @generated
@@ -455,7 +455,7 @@ public interface CrosswalkPackage extends EPackage {
         int ORIGINAL_NAME_RECORD_MATCHER = 10;
 
         /**
-	 * The feature id for the '<em><b>Walk</b></em>' reference.
+	 * The feature id for the '<em><b>Walk</b></em>' container reference.
 	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
 	 * @generated
@@ -519,7 +519,7 @@ public interface CrosswalkPackage extends EPackage {
         int DATE_RECOGNIZER = 11;
 
         /**
-	 * The feature id for the '<em><b>Walk</b></em>' reference.
+	 * The feature id for the '<em><b>Walk</b></em>' container reference.
 	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
 	 * @generated
@@ -565,7 +565,7 @@ public interface CrosswalkPackage extends EPackage {
         int TEXT = 12;
 
         /**
-	 * The feature id for the '<em><b>Walk</b></em>' reference.
+	 * The feature id for the '<em><b>Walk</b></em>' container reference.
 	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
 	 * @generated
@@ -1399,10 +1399,10 @@ public interface CrosswalkPackage extends EPackage {
         EClass getWalkWidget();
 
         /**
-	 * Returns the meta object for the reference '{@link crosswalk.WalkWidget#getWalk <em>Walk</em>}'.
+	 * Returns the meta object for the container reference '{@link crosswalk.WalkWidget#getWalk <em>Walk</em>}'.
 	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Walk</em>'.
+	 * @return the meta object for the container reference '<em>Walk</em>'.
 	 * @see crosswalk.WalkWidget#getWalk()
 	 * @see #getWalkWidget()
 	 * @generated
@@ -2285,7 +2285,7 @@ public interface CrosswalkPackage extends EPackage {
                 EClass WALK_WIDGET = eINSTANCE.getWalkWidget();
 
                 /**
-		 * The meta object literal for the '<em><b>Walk</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Walk</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
                  * <!-- end-user-doc -->
 		 * @generated

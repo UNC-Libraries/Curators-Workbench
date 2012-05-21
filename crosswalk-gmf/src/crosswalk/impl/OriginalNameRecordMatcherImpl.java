@@ -47,8 +47,8 @@ import crosswalk.RecordMatches;
 import crosswalk.RecordOutOfRangeException;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>Original Name Record Matcher</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object ' <em><b>Original Name Record Matcher</b></em>'. <!--
+ * end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
@@ -62,115 +62,114 @@ import crosswalk.RecordOutOfRangeException;
  * @generated
  */
 public class OriginalNameRecordMatcherImpl extends WalkWidgetImpl implements OriginalNameRecordMatcher {
-    /**
+	/**
 	 * The cached value of the '{@link #getOutput() <em>Output</em>}' reference.
-	 * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @see #getOutput()
 	 * @generated
 	 * @ordered
 	 */
-        protected Output output;
+	protected Output output;
 
-        /**
+	/**
 	 * This is true if the Output reference has been set.
-	 * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-        protected boolean outputESet;
+	protected boolean outputESet;
 
-/**
+	/**
 	 * The default value of the '{@link #isCaseSensitive() <em>Case Sensitive</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #isCaseSensitive()
 	 * @generated
 	 * @ordered
 	 */
-    protected static final boolean CASE_SENSITIVE_EDEFAULT = false;
+	protected static final boolean CASE_SENSITIVE_EDEFAULT = false;
 
-    /**
+	/**
 	 * The cached value of the '{@link #isCaseSensitive() <em>Case Sensitive</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #isCaseSensitive()
 	 * @generated
 	 * @ordered
 	 */
-    protected boolean caseSensitive = CASE_SENSITIVE_EDEFAULT;
+	protected boolean caseSensitive = CASE_SENSITIVE_EDEFAULT;
 
-    /**
-	 * The default value of the '{@link #isIncludeFileExtension() <em>Include File Extension</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+	/**
+	 * The default value of the '{@link #isIncludeFileExtension() <em>Include File Extension</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #isIncludeFileExtension()
 	 * @generated
 	 * @ordered
 	 */
-    protected static final boolean INCLUDE_FILE_EXTENSION_EDEFAULT = false;
+	protected static final boolean INCLUDE_FILE_EXTENSION_EDEFAULT = false;
 
-    /**
-	 * The cached value of the '{@link #isIncludeFileExtension() <em>Include File Extension</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+	/**
+	 * The cached value of the '{@link #isIncludeFileExtension() <em>Include File Extension</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #isIncludeFileExtension()
 	 * @generated
 	 * @ordered
 	 */
-    protected boolean includeFileExtension = INCLUDE_FILE_EXTENSION_EDEFAULT;
+	protected boolean includeFileExtension = INCLUDE_FILE_EXTENSION_EDEFAULT;
 
-    /**
+	/**
 	 * The default value of the '{@link #getBaseFolder() <em>Base Folder</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @see #getBaseFolder()
 	 * @generated
 	 * @ordered
 	 */
-    protected static final IFolder BASE_FOLDER_EDEFAULT = null;
+	protected static final IFolder BASE_FOLDER_EDEFAULT = null;
 
-    /**
+	/**
 	 * The cached value of the '{@link #getBaseFolder() <em>Base Folder</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @see #getBaseFolder()
 	 * @generated
 	 * @ordered
 	 */
-    protected IFolder baseFolder = BASE_FOLDER_EDEFAULT;
+	protected IFolder baseFolder = BASE_FOLDER_EDEFAULT;
 
-    /**
-     * This is true if the Base Folder attribute has been set. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    protected boolean baseFolderESet;
+	/**
+	 * This is true if the Base Folder attribute has been set.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean baseFolderESet;
 
-    /**
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-    protected OriginalNameRecordMatcherImpl() {
+	protected OriginalNameRecordMatcherImpl() {
 		super();
 	}
 
-    /**
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-    @Override
-    protected EClass eStaticClass() {
+	@Override
+	protected EClass eStaticClass() {
 		return CrosswalkPackage.Literals.ORIGINAL_NAME_RECORD_MATCHER;
 	}
 
-    /**
-	 * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-        public Output getOutput() {
+	public Output getOutput() {
 		if (output != null && output.eIsProxy()) {
 			InternalEObject oldOutput = (InternalEObject)output;
 			output = (Output)eResolveProxy(oldOutput);
@@ -182,21 +181,19 @@ public class OriginalNameRecordMatcherImpl extends WalkWidgetImpl implements Ori
 		return output;
 	}
 
-/**
-	 * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-        public Output basicGetOutput() {
+	public Output basicGetOutput() {
 		return output;
 	}
 
-/**
-	 * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-        public void setOutput(Output newOutput) {
+	public void setOutput(Output newOutput) {
 		Output oldOutput = output;
 		output = newOutput;
 		boolean oldOutputESet = outputESet;
@@ -205,12 +202,11 @@ public class OriginalNameRecordMatcherImpl extends WalkWidgetImpl implements Ori
 			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__OUTPUT, oldOutput, output, !oldOutputESet));
 	}
 
-/**
-	 * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-        public void unsetOutput() {
+	public void unsetOutput() {
 		Output oldOutput = output;
 		boolean oldOutputESet = outputESet;
 		output = null;
@@ -219,66 +215,65 @@ public class OriginalNameRecordMatcherImpl extends WalkWidgetImpl implements Ori
 			eNotify(new ENotificationImpl(this, Notification.UNSET, CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__OUTPUT, oldOutput, null, oldOutputESet));
 	}
 
-/**
-	 * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-        public boolean isSetOutput() {
+	public boolean isSetOutput() {
 		return outputESet;
 	}
 
-/**
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-    public boolean isCaseSensitive() {
+	public boolean isCaseSensitive() {
 		return caseSensitive;
 	}
 
-    /**
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-    public void setCaseSensitive(boolean newCaseSensitive) {
+	public void setCaseSensitive(boolean newCaseSensitive) {
 		boolean oldCaseSensitive = caseSensitive;
 		caseSensitive = newCaseSensitive;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__CASE_SENSITIVE, oldCaseSensitive, caseSensitive));
 	}
 
-    /**
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-    public boolean isIncludeFileExtension() {
+	public boolean isIncludeFileExtension() {
 		return includeFileExtension;
 	}
 
-    /**
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-    public void setIncludeFileExtension(boolean newIncludeFileExtension) {
+	public void setIncludeFileExtension(boolean newIncludeFileExtension) {
 		boolean oldIncludeFileExtension = includeFileExtension;
 		includeFileExtension = newIncludeFileExtension;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__INCLUDE_FILE_EXTENSION, oldIncludeFileExtension, includeFileExtension));
 	}
 
-    /**
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-    public IFolder getBaseFolder() {
+	public IFolder getBaseFolder() {
 		return baseFolder;
 	}
 
-    /**
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-    public void setBaseFolder(IFolder newBaseFolder) {
+	public void setBaseFolder(IFolder newBaseFolder) {
 		IFolder oldBaseFolder = baseFolder;
 		baseFolder = newBaseFolder;
 		boolean oldBaseFolderESet = baseFolderESet;
@@ -287,11 +282,11 @@ public class OriginalNameRecordMatcherImpl extends WalkWidgetImpl implements Ori
 			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__BASE_FOLDER, oldBaseFolder, baseFolder, !oldBaseFolderESet));
 	}
 
-    /**
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-    public void unsetBaseFolder() {
+	public void unsetBaseFolder() {
 		IFolder oldBaseFolder = baseFolder;
 		boolean oldBaseFolderESet = baseFolderESet;
 		baseFolder = BASE_FOLDER_EDEFAULT;
@@ -300,196 +295,196 @@ public class OriginalNameRecordMatcherImpl extends WalkWidgetImpl implements Ori
 			eNotify(new ENotificationImpl(this, Notification.UNSET, CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__BASE_FOLDER, oldBaseFolder, BASE_FOLDER_EDEFAULT, oldBaseFolderESet));
 	}
 
-    /**
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-    public boolean isSetBaseFolder() {
+	public boolean isSetBaseFolder() {
 		return baseFolderESet;
 	}
 
-    /**
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated NOT
-         */
-        public EDataType getInputEDataType() {
-                return EcorePackage.eINSTANCE.getEString();
-        }
-
-/**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated NOT
-     */
-    public RecordMatches getMatches() {
-	return recordMatches;
-    }
-
-    private RecordMatches recordMatches = null;
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated NOT
-     */
-    public void run() throws DataException {
-   	 CrossWalk crosswalk = null;
-   	 if(this.getWalk() instanceof CrossWalk) {
-   		 crosswalk = (CrossWalk)this.getWalk();
-   	 } else {
-   		 return;
-   	 }
-	MetsType mets = crosswalk.getMetsSource().getMets();
-
-	System.out.println("Running the original name record matcher.");
-	Map<DivType, String> matches = new HashMap<DivType, String>();
-	Map<String, Set<DivType>> divPatterns = new HashMap<String, Set<DivType>>();
-	Map<String, Set<String>> recordPatterns = new HashMap<String, Set<String>>();
-
-	try {
-	    DivType bag = METSUtils.findBagDiv(mets);
-	    processMembers(bag, divPatterns);
-	} catch (CoreException e) {
-	    throw new DataException("There was a problem creating crosswalk match patterns for resources", e);
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public EDataType getInputEDataType() {
+		return EcorePackage.eINSTANCE.getEString();
 	}
 
-	DataSource ds = crosswalk.getDataSource();
-	ds.Reset();
-	try {
-	    processRecord(ds, recordPatterns);
-	    while (true) {
-		ds.NextRecord();
-		processRecord(ds, recordPatterns);
-	    }
-	} catch (RecordOutOfRangeException e) {
-	    // expected
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public RecordMatches getMatches() {
+		return recordMatches;
 	}
 
-	// find and remove resource collisions
-	Map<String, Set<DivType>> divCollisions = new HashMap<String, Set<DivType>>();
-	for (Entry<String, Set<DivType>> i : divPatterns.entrySet()) {
-	    if (i.getValue().size() > 1) {
-		divCollisions.put(i.getKey(), i.getValue());
-	    }
-	}
-	for (String k : divCollisions.keySet()) {
-	    divPatterns.remove(k);
-	}
+	private RecordMatches recordMatches = null;
 
-	// find and remove record collisions
-	Map<String, Set<String>> recordCollisions = new HashMap<String, Set<String>>();
-	for (Entry<String, Set<String>> i : recordPatterns.entrySet()) {
-	    if (i.getValue().size() > 1) {
-		recordCollisions.put(i.getKey(), i.getValue());
-	    }
-	}
-	for (String k : recordCollisions.keySet()) {
-	    recordPatterns.remove(k);
-	}
-
-	// find matches
-	for (Entry<String, Set<DivType>> i : divPatterns.entrySet()) {
-	    if (recordPatterns.containsKey(i.getKey())) {
-		DivType r = i.getValue().iterator().next();
-		String recordID = recordPatterns.get(i.getKey()).iterator().next();
-		matches.put(r, recordID);
-	    }
-	}
-
-	// set RecordMatches
-	this.recordMatches = new RecordMatches(matches, recordCollisions, divCollisions);
-    }
-
-    /**
-     * @param ds
-     * @param recordPatterns
-     */
-    private void processRecord(DataSource ds, Map<String, Set<String>> recordPatterns) {
-	String pattern = null;
-	try {
-	    pattern = (String)this.getOutput().getResult();
-	} catch (DataException e) {
-	    // expected?
-	} catch (NullPointerException e) {
-	    // expected sometimes
-	}
-	if (pattern != null) {
-	    if (!this.isCaseSensitive()) {
-		pattern = pattern.toLowerCase();
-	    }
-	    if (!this.includeFileExtension) {
-		int idx = pattern.lastIndexOf('.');
-		if (idx > 0) {
-		    pattern = pattern.substring(0, idx);
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public void run() throws DataException {
+		CrossWalk crosswalk = null;
+		if (this.getWalk() instanceof CrossWalk) {
+			crosswalk = (CrossWalk) this.getWalk();
+		} else {
+			return;
 		}
-	    }
-	    String recordID = ds.getRecordID();
-	    // System.out.println("processMember( pattern:"+pattern+", "+recordID);
-	    if (recordPatterns.containsKey(pattern)) {
-		recordPatterns.get(pattern).add(recordID);
-	    } else {
-		HashSet<String> set = new HashSet<String>();
-		set.add(recordID);
-		recordPatterns.put(pattern, set);
-	    }
-	}
-    }
+		MetsType mets = crosswalk.getMetsSource().getMets();
 
-    /**
-     * @param container
-     * @param divPatterns
-     */
-    private void processMembers(DivType container, Map<String, Set<DivType>> divPatterns) throws CoreException {
-	for (DivType div : container.getDiv()) {
-	    String pattern = getDivPattern(div);
-	    // System.out.println("processMember( pattern:"+pattern+", "+r.toString());
-	    if (divPatterns.containsKey(pattern)) {
-		divPatterns.get(pattern).add(div);
-	    } else {
-		Set<DivType> set = new HashSet<DivType>();
-		set.add(div);
-		divPatterns.put(pattern, set);
-	    }
-	    processMembers(div, divPatterns);
-	}
-    }
+		System.out.println("Running the original name record matcher.");
+		Map<DivType, String> matches = new HashMap<DivType, String>();
+		Map<String, Set<DivType>> divPatterns = new HashMap<String, Set<DivType>>();
+		Map<String, Set<String>> recordPatterns = new HashMap<String, Set<String>>();
 
-    /**
-     * @param div
-     * @return
-     */
-    private String getDivPattern(DivType div) {
-	String result = null;
-	if(div.getCONTENTIDS() == null || div.getCONTENTIDS().size() < 1) {
-	    return result;
-	}
-	String uriencoded = div.getCONTENTIDS().get(0);
-	try {
-	    result = URLDecoder.decode(uriencoded, "utf-8");
-	} catch (UnsupportedEncodingException e) {
-	    throw new Error(e);
-	}
-	result = result.substring(result.lastIndexOf("/")+1);
-	result = result.substring(result.lastIndexOf("\\")+1);
-	if (!this.isIncludeFileExtension()) {
-	    // trim extension
-	    if (result.contains(".") && !(result.startsWith("."))) {
-		result = result.substring(0, result.lastIndexOf("."));
-	    }
-	}
-	if (!this.isCaseSensitive()) {
-	    result = result.toLowerCase();
-	}
-	return result;
-    }
+		try {
+			DivType bag = METSUtils.findBagDiv(mets);
+			processMembers(bag, divPatterns);
+		} catch (CoreException e) {
+			throw new DataException("There was a problem creating crosswalk match patterns for resources", e);
+		}
 
-    /**
+		DataSource ds = crosswalk.getDataSource();
+		ds.Reset();
+		try {
+			processRecord(ds, recordPatterns);
+			while (true) {
+				ds.NextRecord();
+				processRecord(ds, recordPatterns);
+			}
+		} catch (RecordOutOfRangeException e) {
+			// expected
+		}
+
+		// find and remove resource collisions
+		Map<String, Set<DivType>> divCollisions = new HashMap<String, Set<DivType>>();
+		for (Entry<String, Set<DivType>> i : divPatterns.entrySet()) {
+			if (i.getValue().size() > 1) {
+				divCollisions.put(i.getKey(), i.getValue());
+			}
+		}
+		for (String k : divCollisions.keySet()) {
+			divPatterns.remove(k);
+		}
+
+		// find and remove record collisions
+		Map<String, Set<String>> recordCollisions = new HashMap<String, Set<String>>();
+		for (Entry<String, Set<String>> i : recordPatterns.entrySet()) {
+			if (i.getValue().size() > 1) {
+				recordCollisions.put(i.getKey(), i.getValue());
+			}
+		}
+		for (String k : recordCollisions.keySet()) {
+			recordPatterns.remove(k);
+		}
+
+		// find matches
+		for (Entry<String, Set<DivType>> i : divPatterns.entrySet()) {
+			if (recordPatterns.containsKey(i.getKey())) {
+				DivType r = i.getValue().iterator().next();
+				String recordID = recordPatterns.get(i.getKey()).iterator().next();
+				matches.put(r, recordID);
+			}
+		}
+
+		// set RecordMatches
+		this.recordMatches = new RecordMatches(matches, recordCollisions, divCollisions);
+	}
+
+	/**
+	 * @param ds
+	 * @param recordPatterns
+	 */
+	private void processRecord(DataSource ds, Map<String, Set<String>> recordPatterns) {
+		String pattern = null;
+		try {
+			pattern = (String) this.getOutput().getResult();
+		} catch (DataException e) {
+			// expected?
+		} catch (NullPointerException e) {
+			// expected sometimes
+		}
+		if (pattern != null) {
+			if (!this.isCaseSensitive()) {
+				pattern = pattern.toLowerCase();
+			}
+			if (!this.includeFileExtension) {
+				int idx = pattern.lastIndexOf('.');
+				if (idx > 0) {
+					pattern = pattern.substring(0, idx);
+				}
+			}
+			String recordID = ds.getRecordID();
+			// System.out.println("processMember( pattern:"+pattern+", "+recordID);
+			if (recordPatterns.containsKey(pattern)) {
+				recordPatterns.get(pattern).add(recordID);
+			} else {
+				HashSet<String> set = new HashSet<String>();
+				set.add(recordID);
+				recordPatterns.put(pattern, set);
+			}
+		}
+	}
+
+	/**
+	 * @param container
+	 * @param divPatterns
+	 */
+	private void processMembers(DivType container, Map<String, Set<DivType>> divPatterns) throws CoreException {
+		for (DivType div : container.getDiv()) {
+			String pattern = getDivPattern(div);
+			// System.out.println("processMember( pattern:"+pattern+", "+r.toString());
+			if (divPatterns.containsKey(pattern)) {
+				divPatterns.get(pattern).add(div);
+			} else {
+				Set<DivType> set = new HashSet<DivType>();
+				set.add(div);
+				divPatterns.put(pattern, set);
+			}
+			processMembers(div, divPatterns);
+		}
+	}
+
+	/**
+	 * @param div
+	 * @return
+	 */
+	private String getDivPattern(DivType div) {
+		String result = null;
+		if (div.getCONTENTIDS() == null || div.getCONTENTIDS().size() < 1) {
+			return result;
+		}
+		String uriencoded = div.getCONTENTIDS().get(0);
+		try {
+			result = URLDecoder.decode(uriencoded, "utf-8");
+		} catch (UnsupportedEncodingException e) {
+			throw new Error(e);
+		}
+		result = result.substring(result.lastIndexOf("/") + 1);
+		result = result.substring(result.lastIndexOf("\\") + 1);
+		if (!this.isIncludeFileExtension()) {
+			// trim extension
+			if (result.contains(".") && !(result.startsWith("."))) {
+				result = result.substring(0, result.lastIndexOf("."));
+			}
+		}
+		if (!this.isCaseSensitive()) {
+			result = result.toLowerCase();
+		}
+		return result;
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-    @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__OUTPUT:
 				if (resolve) return getOutput();
@@ -504,12 +499,12 @@ public class OriginalNameRecordMatcherImpl extends WalkWidgetImpl implements Ori
 		return super.eGet(featureID, resolve, coreType);
 	}
 
-    /**
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-    @Override
-    public void eSet(int featureID, Object newValue) {
+	@Override
+	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__OUTPUT:
 				setOutput((Output)newValue);
@@ -527,12 +522,12 @@ public class OriginalNameRecordMatcherImpl extends WalkWidgetImpl implements Ori
 		super.eSet(featureID, newValue);
 	}
 
-    /**
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-    @Override
-    public void eUnset(int featureID) {
+	@Override
+	public void eUnset(int featureID) {
 		switch (featureID) {
 			case CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__OUTPUT:
 				unsetOutput();
@@ -550,12 +545,12 @@ public class OriginalNameRecordMatcherImpl extends WalkWidgetImpl implements Ori
 		super.eUnset(featureID);
 	}
 
-    /**
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-    @Override
-    public boolean eIsSet(int featureID) {
+	@Override
+	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__OUTPUT:
 				return isSetOutput();
@@ -569,13 +564,12 @@ public class OriginalNameRecordMatcherImpl extends WalkWidgetImpl implements Ori
 		return super.eIsSet(featureID);
 	}
 
-    /**
-	 * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-        @Override
-        public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == Input.class) {
 			switch (derivedFeatureID) {
 				case CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__OUTPUT: return CrosswalkPackage.INPUT__OUTPUT;
@@ -585,13 +579,12 @@ public class OriginalNameRecordMatcherImpl extends WalkWidgetImpl implements Ori
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
-/**
-	 * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-        @Override
-        public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == Input.class) {
 			switch (baseFeatureID) {
 				case CrosswalkPackage.INPUT__OUTPUT: return CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__OUTPUT;
@@ -601,12 +594,12 @@ public class OriginalNameRecordMatcherImpl extends WalkWidgetImpl implements Ori
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
-/**
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-    @Override
-    public String toString() {
+	@Override
+	public String toString() {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());

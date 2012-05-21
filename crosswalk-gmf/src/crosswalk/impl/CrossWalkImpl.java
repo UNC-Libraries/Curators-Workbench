@@ -29,6 +29,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import crosswalk.CrossWalk;
@@ -157,7 +158,7 @@ public class CrossWalkImpl extends SchemaProviderImpl implements CrossWalk {
 	 */
         public EList<WalkWidget> getWidgets() {
 		if (widgets == null) {
-			widgets = new EObjectContainmentEList<WalkWidget>(WalkWidget.class, this, CrosswalkPackage.CROSS_WALK__WIDGETS);
+			widgets = new EObjectContainmentWithInverseEList<WalkWidget>(WalkWidget.class, this, CrosswalkPackage.CROSS_WALK__WIDGETS, CrosswalkPackage.WALK_WIDGET__WALK);
 		}
 		return widgets;
 	}
@@ -194,6 +195,8 @@ public class CrossWalkImpl extends SchemaProviderImpl implements CrossWalk {
         @Override
         public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case CrosswalkPackage.CROSS_WALK__WIDGETS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getWidgets()).basicAdd(otherEnd, msgs);
 			case CrosswalkPackage.CROSS_WALK__DATA_SOURCE:
 				if (dataSource != null)
 					msgs = ((InternalEObject)dataSource).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CrosswalkPackage.CROSS_WALK__DATA_SOURCE, null, msgs);

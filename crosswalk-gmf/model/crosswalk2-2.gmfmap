@@ -286,96 +286,22 @@
           <diagramNode
               href="crosswalk.gmfgraph#MetadataBlockNode"/>
           <children
-              compartment="//@nodes.1/@ownedChild/@children.0/@ownedChild/@compartments.1">
+              compartment="//@nodes.1/@ownedChild/@children.0/@ownedChild/@compartments.1"
+              referencedChild="//@nodes.0/@ownedChild/@children.2/@ownedChild">
             <containmentFeature
                 href="crosswalk.ecore#//MappingContainer/widgets"/>
-            <ownedChild>
-              <domainMetaElement
-                  href="crosswalk.ecore#//OriginalNameRecordMatcher"/>
-              <labelMappings
-                  xsi:type="gmfmap:ExpressionLabelMapping"
-                  readOnly="true">
-                <diagramLabel
-                    href="crosswalk.gmfgraph#WidgetLabel"/>
-                <viewExpression
-                    body="'Folder/File Name Matcher'"
-                    language="java"/>
-              </labelMappings>
-              <tool
-                  xsi:type="gmftool:CreationTool"
-                  href="crosswalk.gmftool#//@palette/@tools.0/@tools.3"/>
-              <diagramNode
-                  href="crosswalk.gmfgraph#GenericWidgetNode"/>
-            </ownedChild>
           </children>
           <children
-              compartment="//@nodes.1/@ownedChild/@children.0/@ownedChild/@compartments.1">
+              compartment="//@nodes.1/@ownedChild/@children.0/@ownedChild/@compartments.1"
+              referencedChild="//@nodes.0/@ownedChild/@children.3/@ownedChild">
             <containmentFeature
                 href="crosswalk.ecore#//MappingContainer/widgets"/>
-            <ownedChild>
-              <domainMetaElement
-                  href="crosswalk.ecore#//DateRecognizer"/>
-              <labelMappings
-                  xsi:type="gmfmap:ExpressionLabelMapping"
-                  readOnly="true">
-                <diagramLabel
-                    href="crosswalk.gmfgraph#WidgetLabel"/>
-                <viewExpression
-                    body="&quot;Date Recognizer&quot;"
-                    language="java"/>
-              </labelMappings>
-              <tool
-                  xsi:type="gmftool:CreationTool"
-                  href="crosswalk.gmftool#//@palette/@tools.0/@tools.4"/>
-              <diagramNode
-                  href="crosswalk.gmfgraph#GenericWidgetNode"/>
-            </ownedChild>
           </children>
           <children
-              compartment="//@nodes.1/@ownedChild/@children.0/@ownedChild/@compartments.1">
+              compartment="//@nodes.1/@ownedChild/@children.0/@ownedChild/@compartments.1"
+              referencedChild="//@nodes.0/@ownedChild/@children.4/@ownedChild">
             <containmentFeature
                 href="crosswalk.ecore#//MappingContainer/widgets"/>
-            <ownedChild>
-              <domainMetaElement
-                  href="crosswalk.ecore#//Text"/>
-              <labelMappings
-                  xsi:type="gmfmap:FeatureLabelMapping">
-                <diagramLabel
-                    href="crosswalk.gmfgraph#WidgetLabel"/>
-                <features
-                    href="crosswalk.ecore#//Text/Value"/>
-                <editableFeatures
-                    href="crosswalk.ecore#//Text/Value"/>
-              </labelMappings>
-              <tool
-                  xsi:type="gmftool:CreationTool"
-                  href="crosswalk.gmftool#//@palette/@tools.0/@tools.5"/>
-              <diagramNode
-                  href="crosswalk.gmfgraph#GenericWidgetNode"/>
-            </ownedChild>
-          </children>
-          <children
-              compartment="//@nodes.1/@ownedChild/@children.0/@ownedChild/@compartments.1">
-            <containmentFeature
-                href="crosswalk.ecore#//MappingContainer/widgets"/>
-            <ownedChild>
-              <domainMetaElement
-                  href="crosswalk.ecore#//TrimWhitespace"/>
-              <labelMappings
-                  xsi:type="gmfmap:ExpressionLabelMapping"
-                  readOnly="true">
-                <diagramLabel
-                    href="crosswalk.gmfgraph#WidgetLabel"/>
-                <viewExpression
-                    body="&quot;Trim Spaces&quot;"
-                    language="literal"/>
-              </labelMappings>
-              <tool
-                  xsi:type="gmftool:CreationTool"
-                  href="crosswalk.gmftool#//@palette/@tools.0/@tools.6"/>
-              <diagramNode
-                  href="crosswalk.gmfgraph#GenericWidgetNode"/>
-            </ownedChild>
           </children>
           <children
               compartment="//@nodes.1/@ownedChild/@children.0/@ownedChild/@compartments.1"
@@ -409,12 +335,12 @@
             </ownedChild>
           </children>
           <compartments
-              children="//@nodes.1/@ownedChild/@children.0/@ownedChild/@children.5">
+              children="//@nodes.1/@ownedChild/@children.0/@ownedChild/@children.4">
             <compartment
                 href="crosswalk.gmfgraph#MetadataBlockInputFieldsCompartment"/>
           </compartments>
           <compartments
-              children="//@nodes.1/@ownedChild/@children.0/@ownedChild/@children.0 //@nodes.1/@ownedChild/@children.0/@ownedChild/@children.1 //@nodes.1/@ownedChild/@children.0/@ownedChild/@children.2 //@nodes.1/@ownedChild/@children.0/@ownedChild/@children.3 //@nodes.1/@ownedChild/@children.0/@ownedChild/@children.4">
+              children="//@nodes.1/@ownedChild/@children.0/@ownedChild/@children.0 //@nodes.1/@ownedChild/@children.0/@ownedChild/@children.1 //@nodes.1/@ownedChild/@children.0/@ownedChild/@children.2 //@nodes.1/@ownedChild/@children.0/@ownedChild/@children.3">
             <compartment
                 href="crosswalk.gmfgraph#MetadataBlockMappingCompartment"/>
           </compartments>

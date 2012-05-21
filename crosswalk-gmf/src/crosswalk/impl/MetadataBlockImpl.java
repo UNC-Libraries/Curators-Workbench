@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import crosswalk.CrosswalkPackage;
@@ -258,7 +259,7 @@ public class MetadataBlockImpl extends EObjectImpl implements MetadataBlock {
 	 */
 	public EList<WalkWidget> getWidgets() {
 		if (widgets == null) {
-			widgets = new EObjectContainmentEList<WalkWidget>(WalkWidget.class, this, CrosswalkPackage.METADATA_BLOCK__WIDGETS);
+			widgets = new EObjectContainmentWithInverseEList<WalkWidget>(WalkWidget.class, this, CrosswalkPackage.METADATA_BLOCK__WIDGETS, CrosswalkPackage.WALK_WIDGET__WALK);
 		}
 		return widgets;
 	}
@@ -272,6 +273,21 @@ public class MetadataBlockImpl extends EObjectImpl implements MetadataBlock {
 		for (OutputElement e : getElements()) {
 			e.updateRecord(record);
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case CrosswalkPackage.METADATA_BLOCK__WIDGETS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getWidgets()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**

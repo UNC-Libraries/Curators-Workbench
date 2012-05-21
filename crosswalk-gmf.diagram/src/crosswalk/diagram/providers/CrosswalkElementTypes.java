@@ -33,7 +33,6 @@ import org.eclipse.swt.graphics.Image;
 
 import crosswalk.CrosswalkPackage;
 import crosswalk.diagram.edit.parts.CrossWalkEditPart;
-import crosswalk.diagram.edit.parts.DateRecognizer2EditPart;
 import crosswalk.diagram.edit.parts.DateRecognizerEditPart;
 import crosswalk.diagram.edit.parts.DelimitedFileEditPart;
 import crosswalk.diagram.edit.parts.DictionaryEditPart;
@@ -47,13 +46,10 @@ import crosswalk.diagram.edit.parts.MappedElementEditPart;
 import crosswalk.diagram.edit.parts.MetadataBlock2EditPart;
 import crosswalk.diagram.edit.parts.MetadataBlock3EditPart;
 import crosswalk.diagram.edit.parts.MetadataBlockEditPart;
-import crosswalk.diagram.edit.parts.OriginalNameRecordMatcher2EditPart;
 import crosswalk.diagram.edit.parts.OriginalNameRecordMatcherEditPart;
 import crosswalk.diagram.edit.parts.ParagraphEditPart;
 import crosswalk.diagram.edit.parts.TabbedDataFieldEditPart;
-import crosswalk.diagram.edit.parts.Text2EditPart;
 import crosswalk.diagram.edit.parts.TextEditPart;
-import crosswalk.diagram.edit.parts.TrimWhitespace2EditPart;
 import crosswalk.diagram.edit.parts.TrimWhitespaceEditPart;
 import crosswalk.diagram.part.CrosswalkDiagramEditorPlugin;
 
@@ -167,26 +163,6 @@ public class CrosswalkElementTypes {
 	 * @generated
 	 */
 	public static final IElementType Paragraph_3020 = getElementType("crosswalk-gmf.diagram.Paragraph_3020"); //$NON-NLS-1$
-
-	/**
-	 * @generated
-	 */
-	public static final IElementType OriginalNameRecordMatcher_3011 = getElementType("crosswalk-gmf.diagram.OriginalNameRecordMatcher_3011"); //$NON-NLS-1$
-
-	/**
-	 * @generated
-	 */
-	public static final IElementType DateRecognizer_3012 = getElementType("crosswalk-gmf.diagram.DateRecognizer_3012"); //$NON-NLS-1$
-
-	/**
-	 * @generated
-	 */
-	public static final IElementType Text_3013 = getElementType("crosswalk-gmf.diagram.Text_3013"); //$NON-NLS-1$
-
-	/**
-	 * @generated
-	 */
-	public static final IElementType TrimWhitespace_3014 = getElementType("crosswalk-gmf.diagram.TrimWhitespace_3014"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -333,14 +309,6 @@ public class CrosswalkElementTypes {
 
 			elements.put(MetadataBlock_3018, CrosswalkPackage.eINSTANCE.getMetadataBlock());
 
-			elements.put(OriginalNameRecordMatcher_3011, CrosswalkPackage.eINSTANCE.getOriginalNameRecordMatcher());
-
-			elements.put(DateRecognizer_3012, CrosswalkPackage.eINSTANCE.getDateRecognizer());
-
-			elements.put(Text_3013, CrosswalkPackage.eINSTANCE.getText());
-
-			elements.put(TrimWhitespace_3014, CrosswalkPackage.eINSTANCE.getTrimWhitespace());
-
 			elements.put(InputField_3017, CrosswalkPackage.eINSTANCE.getInputField());
 
 			elements.put(MetadataBlock_3010, CrosswalkPackage.eINSTANCE.getMetadataBlock());
@@ -381,10 +349,6 @@ public class CrosswalkElementTypes {
 			KNOWN_ELEMENT_TYPES.add(MappedElement_3008);
 			KNOWN_ELEMENT_TYPES.add(MappedAttribute_3009);
 			KNOWN_ELEMENT_TYPES.add(MetadataBlock_3018);
-			KNOWN_ELEMENT_TYPES.add(OriginalNameRecordMatcher_3011);
-			KNOWN_ELEMENT_TYPES.add(DateRecognizer_3012);
-			KNOWN_ELEMENT_TYPES.add(Text_3013);
-			KNOWN_ELEMENT_TYPES.add(TrimWhitespace_3014);
 			KNOWN_ELEMENT_TYPES.add(InputField_3017);
 			KNOWN_ELEMENT_TYPES.add(MetadataBlock_3010);
 			KNOWN_ELEMENT_TYPES.add(MetadataBlock_3019);
@@ -427,14 +391,6 @@ public class CrosswalkElementTypes {
 				return MappedAttribute_3009;
 			case MetadataBlock2EditPart.VISUAL_ID:
 				return MetadataBlock_3018;
-			case OriginalNameRecordMatcher2EditPart.VISUAL_ID:
-				return OriginalNameRecordMatcher_3011;
-			case DateRecognizer2EditPart.VISUAL_ID:
-				return DateRecognizer_3012;
-			case Text2EditPart.VISUAL_ID:
-				return Text_3013;
-			case TrimWhitespace2EditPart.VISUAL_ID:
-				return TrimWhitespace_3014;
 			case InputFieldEditPart.VISUAL_ID:
 				return InputField_3017;
 			case MetadataBlockEditPart.VISUAL_ID:

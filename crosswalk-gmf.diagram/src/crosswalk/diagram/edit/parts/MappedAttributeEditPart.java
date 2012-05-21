@@ -304,15 +304,6 @@ public class MappedAttributeEditPart extends ShapeNodeEditPart {
 		if (targetEditPart instanceof TrimWhitespaceEditPart) {
 			types.add(CrosswalkElementTypes.InputOutput_4001);
 		}
-		if (targetEditPart instanceof DateRecognizer2EditPart) {
-			types.add(CrosswalkElementTypes.InputOutput_4001);
-		}
-		if (targetEditPart instanceof Text2EditPart) {
-			types.add(CrosswalkElementTypes.InputOutput_4001);
-		}
-		if (targetEditPart instanceof TrimWhitespace2EditPart) {
-			types.add(CrosswalkElementTypes.InputOutput_4001);
-		}
 		if (targetEditPart instanceof InputFieldEditPart) {
 			types.add(CrosswalkElementTypes.InputOutput_4001);
 		}
@@ -329,9 +320,6 @@ public class MappedAttributeEditPart extends ShapeNodeEditPart {
 			types.add(CrosswalkElementTypes.DateRecognizer_3004);
 			types.add(CrosswalkElementTypes.Text_3005);
 			types.add(CrosswalkElementTypes.TrimWhitespace_3006);
-			types.add(CrosswalkElementTypes.DateRecognizer_3012);
-			types.add(CrosswalkElementTypes.Text_3013);
-			types.add(CrosswalkElementTypes.TrimWhitespace_3014);
 			types.add(CrosswalkElementTypes.InputField_3017);
 		}
 		return types;

@@ -38,7 +38,6 @@ import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 
 import crosswalk.diagram.custom.MappedModelUtil;
 import crosswalk.diagram.edit.parts.CrossWalkModelBoxCompartmentEditPart;
-import crosswalk.diagram.edit.parts.DateRecognizer2EditPart;
 import crosswalk.diagram.edit.parts.DateRecognizerEditPart;
 import crosswalk.diagram.edit.parts.DelimitedFileEditPart;
 import crosswalk.diagram.edit.parts.DictionaryModelBoxCompartmentEditPart;
@@ -54,12 +53,9 @@ import crosswalk.diagram.edit.parts.MetadataBlockEditPart;
 import crosswalk.diagram.edit.parts.MetadataBlockMetadataBlockMappingCompartment2EditPart;
 import crosswalk.diagram.edit.parts.MetadataBlockMetadataBlockMappingCompartment3EditPart;
 import crosswalk.diagram.edit.parts.MetadataBlockMetadataBlockMappingCompartmentEditPart;
-import crosswalk.diagram.edit.parts.OriginalNameRecordMatcher2EditPart;
 import crosswalk.diagram.edit.parts.OriginalNameRecordMatcherEditPart;
 import crosswalk.diagram.edit.parts.TabbedDataFieldEditPart;
-import crosswalk.diagram.edit.parts.Text2EditPart;
 import crosswalk.diagram.edit.parts.TextEditPart;
-import crosswalk.diagram.edit.parts.TrimWhitespace2EditPart;
 import crosswalk.diagram.edit.parts.TrimWhitespaceEditPart;
 import crosswalk.diagram.part.CrosswalkDiagramEditorPlugin;
 import crosswalk.diagram.part.Messages;
@@ -131,11 +127,10 @@ public class CrosswalkModelingAssistantProvider extends ModelingAssistantProvide
 			return types;
 		}
 		if (editPart instanceof MetadataBlockMetadataBlockMappingCompartment2EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(5);
-			types.add(CrosswalkElementTypes.OriginalNameRecordMatcher_3011);
-			types.add(CrosswalkElementTypes.DateRecognizer_3012);
-			types.add(CrosswalkElementTypes.Text_3013);
-			types.add(CrosswalkElementTypes.TrimWhitespace_3014);
+			ArrayList<IElementType> types = new ArrayList<IElementType>(4);
+			types.add(CrosswalkElementTypes.DateRecognizer_3004);
+			types.add(CrosswalkElementTypes.Text_3005);
+			types.add(CrosswalkElementTypes.TrimWhitespace_3006);
 			types.add(CrosswalkElementTypes.MappedElement_3007);
 			return types;
 		}
@@ -145,20 +140,18 @@ public class CrosswalkModelingAssistantProvider extends ModelingAssistantProvide
 			return types;
 		}
 		if (editPart instanceof MetadataBlockMetadataBlockMappingCompartmentEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(5);
-			types.add(CrosswalkElementTypes.OriginalNameRecordMatcher_3011);
-			types.add(CrosswalkElementTypes.DateRecognizer_3012);
-			types.add(CrosswalkElementTypes.Text_3013);
-			types.add(CrosswalkElementTypes.TrimWhitespace_3014);
+			ArrayList<IElementType> types = new ArrayList<IElementType>(4);
+			types.add(CrosswalkElementTypes.DateRecognizer_3004);
+			types.add(CrosswalkElementTypes.Text_3005);
+			types.add(CrosswalkElementTypes.TrimWhitespace_3006);
 			types.add(CrosswalkElementTypes.MappedElement_3007);
 			return types;
 		}
 		if (editPart instanceof MetadataBlockMetadataBlockMappingCompartment3EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(5);
-			types.add(CrosswalkElementTypes.OriginalNameRecordMatcher_3011);
-			types.add(CrosswalkElementTypes.DateRecognizer_3012);
-			types.add(CrosswalkElementTypes.Text_3013);
-			types.add(CrosswalkElementTypes.TrimWhitespace_3014);
+			ArrayList<IElementType> types = new ArrayList<IElementType>(4);
+			types.add(CrosswalkElementTypes.DateRecognizer_3004);
+			types.add(CrosswalkElementTypes.Text_3005);
+			types.add(CrosswalkElementTypes.TrimWhitespace_3006);
 			types.add(CrosswalkElementTypes.MappedElement_3007);
 			return types;
 		}
@@ -210,15 +203,6 @@ public class CrosswalkModelingAssistantProvider extends ModelingAssistantProvide
 		if (sourceEditPart instanceof MappedAttributeEditPart) {
 			return ((MappedAttributeEditPart) sourceEditPart).getMARelTypesOnSource();
 		}
-		if (sourceEditPart instanceof OriginalNameRecordMatcher2EditPart) {
-			return ((OriginalNameRecordMatcher2EditPart) sourceEditPart).getMARelTypesOnSource();
-		}
-		if (sourceEditPart instanceof DateRecognizer2EditPart) {
-			return ((DateRecognizer2EditPart) sourceEditPart).getMARelTypesOnSource();
-		}
-		if (sourceEditPart instanceof TrimWhitespace2EditPart) {
-			return ((TrimWhitespace2EditPart) sourceEditPart).getMARelTypesOnSource();
-		}
 		if (sourceEditPart instanceof InputFieldEditPart) {
 			return ((InputFieldEditPart) sourceEditPart).getMARelTypesOnSource();
 		}
@@ -242,15 +226,6 @@ public class CrosswalkModelingAssistantProvider extends ModelingAssistantProvide
 		}
 		if (targetEditPart instanceof TrimWhitespaceEditPart) {
 			return ((TrimWhitespaceEditPart) targetEditPart).getMARelTypesOnTarget();
-		}
-		if (targetEditPart instanceof DateRecognizer2EditPart) {
-			return ((DateRecognizer2EditPart) targetEditPart).getMARelTypesOnTarget();
-		}
-		if (targetEditPart instanceof Text2EditPart) {
-			return ((Text2EditPart) targetEditPart).getMARelTypesOnTarget();
-		}
-		if (targetEditPart instanceof TrimWhitespace2EditPart) {
-			return ((TrimWhitespace2EditPart) targetEditPart).getMARelTypesOnTarget();
 		}
 		if (targetEditPart instanceof InputFieldEditPart) {
 			return ((InputFieldEditPart) targetEditPart).getMARelTypesOnTarget();
@@ -277,15 +252,6 @@ public class CrosswalkModelingAssistantProvider extends ModelingAssistantProvide
 		if (sourceEditPart instanceof MappedAttributeEditPart) {
 			return ((MappedAttributeEditPart) sourceEditPart).getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
-		if (sourceEditPart instanceof OriginalNameRecordMatcher2EditPart) {
-			return ((OriginalNameRecordMatcher2EditPart) sourceEditPart).getMARelTypesOnSourceAndTarget(targetEditPart);
-		}
-		if (sourceEditPart instanceof DateRecognizer2EditPart) {
-			return ((DateRecognizer2EditPart) sourceEditPart).getMARelTypesOnSourceAndTarget(targetEditPart);
-		}
-		if (sourceEditPart instanceof TrimWhitespace2EditPart) {
-			return ((TrimWhitespace2EditPart) sourceEditPart).getMARelTypesOnSourceAndTarget(targetEditPart);
-		}
 		if (sourceEditPart instanceof InputFieldEditPart) {
 			return ((InputFieldEditPart) sourceEditPart).getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
@@ -310,15 +276,6 @@ public class CrosswalkModelingAssistantProvider extends ModelingAssistantProvide
 		if (targetEditPart instanceof TrimWhitespaceEditPart) {
 			return ((TrimWhitespaceEditPart) targetEditPart).getMATypesForSource(relationshipType);
 		}
-		if (targetEditPart instanceof DateRecognizer2EditPart) {
-			return ((DateRecognizer2EditPart) targetEditPart).getMATypesForSource(relationshipType);
-		}
-		if (targetEditPart instanceof Text2EditPart) {
-			return ((Text2EditPart) targetEditPart).getMATypesForSource(relationshipType);
-		}
-		if (targetEditPart instanceof TrimWhitespace2EditPart) {
-			return ((TrimWhitespace2EditPart) targetEditPart).getMATypesForSource(relationshipType);
-		}
 		if (targetEditPart instanceof InputFieldEditPart) {
 			return ((InputFieldEditPart) targetEditPart).getMATypesForSource(relationshipType);
 		}
@@ -342,15 +299,6 @@ public class CrosswalkModelingAssistantProvider extends ModelingAssistantProvide
 		}
 		if (sourceEditPart instanceof MappedAttributeEditPart) {
 			return ((MappedAttributeEditPart) sourceEditPart).getMATypesForTarget(relationshipType);
-		}
-		if (sourceEditPart instanceof OriginalNameRecordMatcher2EditPart) {
-			return ((OriginalNameRecordMatcher2EditPart) sourceEditPart).getMATypesForTarget(relationshipType);
-		}
-		if (sourceEditPart instanceof DateRecognizer2EditPart) {
-			return ((DateRecognizer2EditPart) sourceEditPart).getMATypesForTarget(relationshipType);
-		}
-		if (sourceEditPart instanceof TrimWhitespace2EditPart) {
-			return ((TrimWhitespace2EditPart) sourceEditPart).getMATypesForTarget(relationshipType);
 		}
 		if (sourceEditPart instanceof InputFieldEditPart) {
 			return ((InputFieldEditPart) sourceEditPart).getMATypesForTarget(relationshipType);

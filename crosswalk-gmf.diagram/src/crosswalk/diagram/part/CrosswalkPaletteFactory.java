@@ -24,20 +24,15 @@ import org.eclipse.gef.Request;
 import org.eclipse.gef.Tool;
 import org.eclipse.gef.palette.PaletteContainer;
 import org.eclipse.gef.palette.PaletteDrawer;
-import org.eclipse.gef.palette.PaletteGroup;
 import org.eclipse.gef.palette.PaletteRoot;
 import org.eclipse.gef.palette.ToolEntry;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateUnspecifiedTypeRequest;
-import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewRequest;
-import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewRequestFactory;
 import org.eclipse.gmf.runtime.diagram.ui.tools.CreationTool;
 import org.eclipse.gmf.runtime.diagram.ui.tools.UnspecifiedTypeConnectionTool;
 import org.eclipse.gmf.runtime.diagram.ui.tools.UnspecifiedTypeCreationTool;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 
-import crosswalk.CrosswalkFactory;
 import crosswalk.Dictionary;
-import crosswalk.InputField;
 import crosswalk.MetadataBlock;
 import crosswalk.diagram.providers.CrosswalkElementTypes;
 
@@ -145,11 +140,9 @@ public class CrosswalkPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createOriginalNameMatcher4CreationTool() {
-		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
-		types.add(CrosswalkElementTypes.OriginalNameRecordMatcher_3003);
-		types.add(CrosswalkElementTypes.OriginalNameRecordMatcher_3011);
 		NodeToolEntry entry = new NodeToolEntry(Messages.OriginalNameMatcher4CreationTool_title,
-				Messages.OriginalNameMatcher4CreationTool_desc, types);
+				Messages.OriginalNameMatcher4CreationTool_desc,
+				Collections.singletonList(CrosswalkElementTypes.OriginalNameRecordMatcher_3003));
 		entry.setId("createOriginalNameMatcher4CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(CrosswalkElementTypes.getImageDescriptor(CrosswalkElementTypes.OriginalNameRecordMatcher_3003));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -160,11 +153,8 @@ public class CrosswalkPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createDateMaker5CreationTool() {
-		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
-		types.add(CrosswalkElementTypes.DateRecognizer_3004);
-		types.add(CrosswalkElementTypes.DateRecognizer_3012);
 		NodeToolEntry entry = new NodeToolEntry(Messages.DateMaker5CreationTool_title,
-				Messages.DateMaker5CreationTool_desc, types);
+				Messages.DateMaker5CreationTool_desc, Collections.singletonList(CrosswalkElementTypes.DateRecognizer_3004));
 		entry.setId("createDateMaker5CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(CrosswalkElementTypes.getImageDescriptor(CrosswalkElementTypes.DateRecognizer_3004));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -175,11 +165,8 @@ public class CrosswalkPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createFixedText6CreationTool() {
-		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
-		types.add(CrosswalkElementTypes.Text_3005);
-		types.add(CrosswalkElementTypes.Text_3013);
 		NodeToolEntry entry = new NodeToolEntry(Messages.FixedText6CreationTool_title,
-				Messages.FixedText6CreationTool_desc, types);
+				Messages.FixedText6CreationTool_desc, Collections.singletonList(CrosswalkElementTypes.Text_3005));
 		entry.setId("createFixedText6CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(CrosswalkElementTypes.getImageDescriptor(CrosswalkElementTypes.Text_3005));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -190,11 +177,8 @@ public class CrosswalkPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createTrimSpaces7CreationTool() {
-		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
-		types.add(CrosswalkElementTypes.TrimWhitespace_3006);
-		types.add(CrosswalkElementTypes.TrimWhitespace_3014);
 		NodeToolEntry entry = new NodeToolEntry(Messages.TrimSpaces7CreationTool_title,
-				Messages.TrimSpaces7CreationTool_desc, types);
+				Messages.TrimSpaces7CreationTool_desc, Collections.singletonList(CrosswalkElementTypes.TrimWhitespace_3006));
 		entry.setId("createTrimSpaces7CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(CrosswalkElementTypes.getImageDescriptor(CrosswalkElementTypes.TrimWhitespace_3006));
 		entry.setLargeIcon(entry.getSmallIcon());

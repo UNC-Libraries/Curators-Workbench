@@ -51,9 +51,9 @@ public class MetsProjectNavigator extends CommonNavigator implements ITabbedProp
 	/**
 	 * Constructs and returns an instance of {@link CommonViewer}. The ID of the Eclipse view part will be used to create
 	 * the viewer.
-	 *
+	 * 
 	 * Override this method if you want a subclass of the CommonViewer
-	 *
+	 * 
 	 * @param aParent
 	 *           A composite parent to contain the CommonViewer
 	 * @return An instance of CommonViewer
@@ -98,10 +98,14 @@ public class MetsProjectNavigator extends CommonNavigator implements ITabbedProp
 				IFile e = (IFile) object;
 				FileEditorInput fei = new FileEditorInput(e);
 				IEditorDescriptor ed = Workbench.getInstance().getEditorRegistry().getDefaultEditor(e.getName());
-				try {
-					getSite().getPage().openEditor(fei, ed.getId(), true);
-				} catch (PartInitException ex) {
-					Activator.getDefault().getLog().log(ex.getStatus());
+				if (ed != null) {
+					try {
+						getSite().getPage().openEditor(fei, ed.getId(), true);
+					} catch (PartInitException ex) {
+						Activator.getDefault().getLog().log(ex.getStatus());
+					}
+				} else {
+					super.handleDoubleClick(event);
 				}
 			} else if (object instanceof DivType) {
 				DivType d = (DivType) object;

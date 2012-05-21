@@ -37,7 +37,6 @@ import org.eclipse.ui.navigator.ICommonActionExtensionSite;
 import org.eclipse.ui.navigator.ICommonViewerWorkbenchSite;
 import org.eclipse.ui.part.FileEditorInput;
 
-import crosswalk.diagram.edit.parts.CrossWalkEditPart;
 import crosswalk.diagram.edit.parts.EditingContainerEditPart;
 import crosswalk.diagram.part.CrosswalkDiagramEditor;
 import crosswalk.diagram.part.CrosswalkDiagramEditorPlugin;

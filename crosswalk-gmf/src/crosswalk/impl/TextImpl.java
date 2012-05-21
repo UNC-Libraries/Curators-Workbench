@@ -16,6 +16,7 @@
 package crosswalk.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EcorePackage;
@@ -23,8 +24,10 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import crosswalk.CrosswalkPackage;
 import crosswalk.DataException;
+import crosswalk.MappingContainer;
 import crosswalk.SchemaProvider;
 import crosswalk.Text;
 import crosswalk.WalkWidget;
@@ -45,16 +48,6 @@ import crosswalk.WalkWidget;
  */
 public class TextImpl extends EObjectImpl implements Text {
         /**
-	 * The cached value of the '{@link #getWalk() <em>Walk</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getWalk()
-	 * @generated
-	 * @ordered
-	 */
-	protected SchemaProvider walk;
-
-								/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -98,16 +91,9 @@ public class TextImpl extends EObjectImpl implements Text {
          * <!-- end-user-doc -->
 	 * @generated
 	 */
-        public SchemaProvider getWalk() {
-		if (walk != null && walk.eIsProxy()) {
-			InternalEObject oldWalk = (InternalEObject)walk;
-			walk = (SchemaProvider)eResolveProxy(oldWalk);
-			if (walk != oldWalk) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CrosswalkPackage.TEXT__WALK, oldWalk, walk));
-			}
-		}
-		return walk;
+        public MappingContainer getWalk() {
+		if (eContainerFeatureID() != CrosswalkPackage.TEXT__WALK) return null;
+		return (MappingContainer)eContainer();
 	}
 
         /**
@@ -115,8 +101,9 @@ public class TextImpl extends EObjectImpl implements Text {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SchemaProvider basicGetWalk() {
-		return walk;
+	public NotificationChain basicSetWalk(MappingContainer newWalk, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newWalk, CrosswalkPackage.TEXT__WALK, msgs);
+		return msgs;
 	}
 
 								/**
@@ -124,11 +111,20 @@ public class TextImpl extends EObjectImpl implements Text {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setWalk(SchemaProvider newWalk) {
-		SchemaProvider oldWalk = walk;
-		walk = newWalk;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.TEXT__WALK, oldWalk, walk));
+	public void setWalk(MappingContainer newWalk) {
+		if (newWalk != eInternalContainer() || (eContainerFeatureID() != CrosswalkPackage.TEXT__WALK && newWalk != null)) {
+			if (EcoreUtil.isAncestor(this, newWalk))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newWalk != null)
+				msgs = ((InternalEObject)newWalk).eInverseAdd(this, CrosswalkPackage.MAPPING_CONTAINER__WIDGETS, MappingContainer.class, msgs);
+			msgs = basicSetWalk(newWalk, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.TEXT__WALK, newWalk, newWalk));
 	}
 
 								/**
@@ -172,6 +168,50 @@ public class TextImpl extends EObjectImpl implements Text {
 
         /**
 	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case CrosswalkPackage.TEXT__WALK:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetWalk((MappingContainer)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case CrosswalkPackage.TEXT__WALK:
+				return basicSetWalk(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case CrosswalkPackage.TEXT__WALK:
+				return eInternalContainer().eInverseRemove(this, CrosswalkPackage.MAPPING_CONTAINER__WIDGETS, MappingContainer.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
+	}
+
+								/**
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -179,8 +219,7 @@ public class TextImpl extends EObjectImpl implements Text {
         public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case CrosswalkPackage.TEXT__WALK:
-				if (resolve) return getWalk();
-				return basicGetWalk();
+				return getWalk();
 			case CrosswalkPackage.TEXT__VALUE:
 				return getValue();
 		}
@@ -196,7 +235,7 @@ public class TextImpl extends EObjectImpl implements Text {
         public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case CrosswalkPackage.TEXT__WALK:
-				setWalk((SchemaProvider)newValue);
+				setWalk((MappingContainer)newValue);
 				return;
 			case CrosswalkPackage.TEXT__VALUE:
 				setValue((String)newValue);
@@ -214,7 +253,7 @@ public class TextImpl extends EObjectImpl implements Text {
         public void eUnset(int featureID) {
 		switch (featureID) {
 			case CrosswalkPackage.TEXT__WALK:
-				setWalk((SchemaProvider)null);
+				setWalk((MappingContainer)null);
 				return;
 			case CrosswalkPackage.TEXT__VALUE:
 				setValue(VALUE_EDEFAULT);
@@ -232,7 +271,7 @@ public class TextImpl extends EObjectImpl implements Text {
         public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case CrosswalkPackage.TEXT__WALK:
-				return walk != null;
+				return getWalk() != null;
 			case CrosswalkPackage.TEXT__VALUE:
 				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
 		}

@@ -64,6 +64,7 @@ import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Widget;
+import org.eclipse.ui.internal.Workbench;
 import org.osgi.service.prefs.BackingStoreException;
 
 import unc.lib.cdr.workbench.rcp.Activator;

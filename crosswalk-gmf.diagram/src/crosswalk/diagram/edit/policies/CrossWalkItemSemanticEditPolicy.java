@@ -16,32 +16,20 @@
 package crosswalk.diagram.edit.policies;
 
 import java.util.Iterator;
+
 import org.eclipse.emf.ecore.EAnnotation;
-import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gmf.runtime.common.core.command.ICompositeCommand;
 import org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.emf.commands.core.command.CompositeTransactionalCommand;
-import org.eclipse.gmf.runtime.emf.commands.core.commands.DuplicateEObjectsCommand;
 import org.eclipse.gmf.runtime.emf.type.core.commands.DestroyElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.commands.DestroyReferenceCommand;
-import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyReferenceRequest;
-import org.eclipse.gmf.runtime.emf.type.core.requests.DuplicateElementsRequest;
-
 import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
-import crosswalk.diagram.edit.commands.CrossWalkCreateCommand;
-import crosswalk.diagram.edit.commands.DateRecognizerCreateCommand;
-import crosswalk.diagram.edit.commands.DelimitedFileCreateCommand;
-import crosswalk.diagram.edit.commands.DictionaryCreateCommand;
-import crosswalk.diagram.edit.commands.MappedElementCreateCommand;
-import crosswalk.diagram.edit.commands.OriginalNameRecordMatcherCreateCommand;
-import crosswalk.diagram.edit.commands.TextCreateCommand;
-import crosswalk.diagram.edit.commands.TrimWhitespaceCreateCommand;
+
 import crosswalk.diagram.edit.parts.CrossWalkModelBoxCompartmentEditPart;
 import crosswalk.diagram.edit.parts.DateRecognizerEditPart;
 import crosswalk.diagram.edit.parts.DelimitedFileEditPart;

@@ -42,6 +42,8 @@ public class StagedFileContentProvider implements ITreeContentProvider, IResourc
 	private static final Logger log = LoggerFactory.getLogger(StagedFileContentProvider.class);
 	Viewer viewer = null;
 
+	private static Object[] EMPTY_ARRAY = new Object[] {};
+
 	/**
      *
      */
@@ -56,28 +58,28 @@ public class StagedFileContentProvider implements ITreeContentProvider, IResourc
 	 */
 	@Override
 	public Object[] getChildren(Object parent) {
-		// log.debug("getChildren:"+parent.toString());
-		List<Object> results = new ArrayList<Object>();
 		try {
 			if (parent instanceof IProject) {
 				IProject p = (IProject) parent;
 				if (p.isOpen()) {
 					MetsProjectNature n = (MetsProjectNature) p.getNature(MetsProjectNature.NATURE_ID);
-					results.add(n.getStagedFilesElement());
+					return new Object[]{n.getStagedFilesElement()};
 				}
 			} else if (parent instanceof StagedFilesProjectElement) {
 				StagedFilesProjectElement e = (StagedFilesProjectElement) parent;
 				return e.getChildren();
 			} else if (parent instanceof IFileStore) {
+				List<Object> results = new ArrayList<Object>();
 				IFileStore f = (IFileStore) parent;
 				for (IFileStore r : f.childStores(EFS.NONE, new NullProgressMonitor())) {
 					results.add(r);
 				}
+				return results.toArray();
 			}
 		} catch (CoreException e) {
 			throw new Error(e);
 		}
-		return results.toArray();
+		return EMPTY_ARRAY;
 	}
 
 	/*

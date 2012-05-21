@@ -241,17 +241,20 @@
                               value="org.eclipse.core.resources.IFolder">
                         </instanceof>
                      </or>
-                     <not>
-                        <test
-                              property="workbench_plugin.testTopFolderName.folderName"
-                              value=".originals">
-                        </test>
-                     </not>
                   </and>
                </iterate>
             </with>
          </activeWhen>
-         <class></class>
+         <class
+               class="org.eclipse.ui.internal.views.markers.DeleteHandler"></class>
+         <enabledWhen>
+            <not>
+               <test
+                     property="workbench_plugin.testTopFolderName.folderName"
+                     value=".originals">
+               </test>
+            </not>
+         </enabledWhen>
       </handler>
    </extension>
    <extension
@@ -261,7 +264,7 @@
             locationURI="popup:org.eclipse.ui.popup.any?after=additions">
          <command
                commandId="cdr-workbench.commandLinkOriginals"
-               label="Link Originals"
+               label="Link to Originals"
                style="push">
             <visibleWhen
                   checkEnabled="false">
@@ -546,6 +549,12 @@
                commandId="org.eclipse.ui.edit.delete"
                label="Delete"
                style="push">
+            <visibleWhen
+                  checkEnabled="false">
+               <instanceof
+                     value="gov.loc.mets.DivType">
+               </instanceof>
+            </visibleWhen>
          </command>
          <command
                commandId="cdr-workbench.commandEditDescription"
@@ -1018,7 +1027,7 @@
                class="unc.lib.cdr.workbench.commands.AutoStageAction"
                enablesFor="1"
                id="workbench_plugin.actionAutoStageAction"
-               label="Stage Captured Files"
+               label="Stage Files on Capture"
                menubarPath="additions"
                style="toggle">
             <enablement>
@@ -1051,6 +1060,47 @@
          <popupMenu
                allowsPlatformContributions="true"
                id="cdr-workbench.projectpopups">
+            <insertionPoint
+                  name="group.new">
+            </insertionPoint>
+            <insertionPoint
+                  name="group.open"
+                  separator="true">
+            </insertionPoint>
+            <insertionPoint
+                  name="group.openWith">
+            </insertionPoint>
+            <insertionPoint
+                  name="additions"
+                  separator="false">
+            </insertionPoint>
+            <insertionPoint
+                  name="group.edit"
+                  separator="true">
+            </insertionPoint>
+            <insertionPoint
+                  name="group.reorganize">
+            </insertionPoint>
+            <insertionPoint
+                  name="group.port"
+                  separator="true">
+            </insertionPoint>
+            <insertionPoint
+                  name="group.build"
+                  separator="true">
+            </insertionPoint>
+            <insertionPoint
+                  name="group.generate"
+                  separator="true">
+            </insertionPoint>
+            <insertionPoint
+                  name="group.search"
+                  separator="true">
+            </insertionPoint>
+            <insertionPoint
+                  name="group.properties"
+                  separator="true">
+            </insertionPoint>
          </popupMenu>
       </viewer>
       <viewerContentBinding
@@ -1060,22 +1110,19 @@
                   pattern="cdr-workbench.projectContent">
             </contentExtension>
             <contentExtension
-                  pattern="cdr-workbench.arrangementContent">
+                  pattern="cdr-workbench.originalsContent">
             </contentExtension>
             <contentExtension
-                  pattern="cdr-workbench.originalsContent">
+                  pattern="cdr-workbench.arrangementContent">
             </contentExtension>
             <contentExtension
                   pattern="cdr-workbench.crosswalksContent">
             </contentExtension>
             <contentExtension
-                  pattern="workbench_plugin.stagedFileContent">
+                  pattern="org.eclipse.ui.navigator.resourceContent">
             </contentExtension>
             <contentExtension
                   pattern="workbench_plugin.commonFilterMetsLinks">
-            </contentExtension>
-            <contentExtension
-                  pattern="workbench_plugin.navigatorContentResources">
             </contentExtension>
             <contentExtension
                   pattern="org.eclipse.ui.navigator.resources.filters.startsWithDot">
@@ -1106,6 +1153,29 @@
             <or>
                <instanceof
                      value="unc.lib.cdr.workbench.views.WorkbenchWorkbenchRoot">
+               </instanceof>
+            </or>
+         </triggerPoints>
+         <possibleChildren>
+            <or>
+               <instanceof
+                     value="org.eclipse.core.resources.IResource">
+               </instanceof>
+            </or>
+         </possibleChildren>
+      </navigatorContent>
+      <navigatorContent
+            activeByDefault="true"
+            appearsBefore="cdr-workbench.arrangementContent"
+            contentProvider="unc.lib.cdr.workbench.capture.OriginalsContentProvider"
+            id="cdr-workbench.originalsContent"
+            labelProvider="org.eclipse.ui.model.WorkbenchLabelProvider"
+            name="Original Folders"
+            priority="highest">
+         <triggerPoints>
+            <or>
+               <instanceof
+                     value="org.eclipse.core.resources.IProject">
                </instanceof>
             </or>
          </triggerPoints>
@@ -1186,22 +1256,6 @@
       </navigatorContent>
       <navigatorContent
             activeByDefault="true"
-            appearsBefore="cdr-workbench.arrangementContent"
-            contentProvider="unc.lib.cdr.workbench.capture.OriginalsContentProvider"
-            id="cdr-workbench.originalsContent"
-            labelProvider="org.eclipse.ui.model.WorkbenchLabelProvider"
-            name="Original Folders"
-            priority="normal">
-         <triggerPoints>
-            <or>
-               <instanceof
-                     value="org.eclipse.core.resources.IProject">
-               </instanceof>
-            </or>
-         </triggerPoints>
-      </navigatorContent>
-      <navigatorContent
-            activeByDefault="true"
             contentProvider="unc.lib.cdr.workbench.xwalk.CrosswalkContentProvider"
             id="cdr-workbench.crosswalksContent"
             labelProvider="unc.lib.cdr.workbench.xwalk.CrosswalkLabelProvider"
@@ -1227,20 +1281,6 @@
             </or>
          </possibleChildren>
       </navigatorContent>
-      <navigatorContent
-            activeByDefault="false"
-            contentProvider="unc.lib.cdr.workbench.stage.StagedFileContentProvider"
-            id="workbench_plugin.stagedFileContent"
-            labelProvider="org.eclipse.ui.model.WorkbenchLabelProvider"
-            name="Staged Files">
-         <triggerPoints>
-            <or>
-               <instanceof
-                     value="org.eclipse.core.resources.IProject">
-               </instanceof>
-            </or>
-         </triggerPoints>
-      </navigatorContent>
       <commonFilter
             activeByDefault="false"
             description="This filter allows you to hide the link items, which are otherwise shown immediately under the divs where the links originate."
@@ -1252,21 +1292,6 @@
             </instanceof>
          </filterExpression>
       </commonFilter>
-      <navigatorContent
-            activeByDefault="true"
-            contentProvider="org.eclipse.ui.model.WorkbenchContentProvider"
-            id="workbench_plugin.navigatorContentResources"
-            labelProvider="org.eclipse.ui.model.WorkbenchLabelProvider"
-            name="Resources"
-            priority="high">
-         <triggerPoints>
-            <or>
-               <instanceof
-                     value="org.eclipse.core.resources.IProject">
-               </instanceof>
-            </or>
-         </triggerPoints>
-      </navigatorContent>
       <commonFilter
             activeByDefault="true"
             description="These are resources that are managed by the workbench software and generally not shown."
@@ -1634,6 +1659,10 @@
       <activityPatternBinding
             activityId="workbench_plugin.activityIDEMenus"
             pattern="org.eclipse.ui.navigate.*">
+      </activityPatternBinding>
+      <activityPatternBinding
+            activityId="workbench_plugin.activityIDEMenus"
+            pattern="org.eclipse.ui.navigator.resources.actions.*">
       </activityPatternBinding>
    </extension>
    <extension

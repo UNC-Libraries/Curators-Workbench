@@ -15,15 +15,14 @@ import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 
-import crosswalk.diagram.edit.parts.DateRecognizer2EditPart;
+import crosswalk.diagram.edit.parts.DateRecognizerEditPart;
 import crosswalk.diagram.edit.parts.InputFieldEditPart;
 import crosswalk.diagram.edit.parts.InputOutputEditPart;
 import crosswalk.diagram.edit.parts.MappedElementEditPart;
 import crosswalk.diagram.edit.parts.MetadataBlockMetadataBlockInputFieldsCompartment3EditPart;
 import crosswalk.diagram.edit.parts.MetadataBlockMetadataBlockMappingCompartment3EditPart;
-import crosswalk.diagram.edit.parts.OriginalNameRecordMatcher2EditPart;
-import crosswalk.diagram.edit.parts.Text2EditPart;
-import crosswalk.diagram.edit.parts.TrimWhitespace2EditPart;
+import crosswalk.diagram.edit.parts.TextEditPart;
+import crosswalk.diagram.edit.parts.TrimWhitespaceEditPart;
 import crosswalk.diagram.part.CrosswalkVisualIDRegistry;
 import crosswalk.diagram.providers.CrosswalkElementTypes;
 
@@ -104,23 +103,7 @@ public class MetadataBlock3ItemSemanticEditPolicy extends CrosswalkBaseItemSeman
 					for (Iterator<?> cit = node.getChildren().iterator(); cit.hasNext();) {
 						Node cnode = (Node) cit.next();
 						switch (CrosswalkVisualIDRegistry.getVisualID(cnode)) {
-							case OriginalNameRecordMatcher2EditPart.VISUAL_ID:
-								for (Iterator<?> it = cnode.getSourceEdges().iterator(); it.hasNext();) {
-									Edge outgoingLink = (Edge) it.next();
-									if (CrosswalkVisualIDRegistry.getVisualID(outgoingLink) == InputOutputEditPart.VISUAL_ID) {
-										DestroyReferenceRequest r = new DestroyReferenceRequest(outgoingLink.getSource()
-												.getElement(), null, outgoingLink.getTarget().getElement(), false);
-										cmd.add(new DestroyReferenceCommand(r));
-										cmd.add(new DeleteCommand(getEditingDomain(), outgoingLink));
-										continue;
-									}
-								}
-								cmd.add(new DestroyElementCommand(new DestroyElementRequest(getEditingDomain(), cnode
-										.getElement(), false))); // directlyOwned: true
-								// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
-								// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
-								break;
-							case DateRecognizer2EditPart.VISUAL_ID:
+							case DateRecognizerEditPart.VISUAL_ID:
 								for (Iterator<?> it = cnode.getTargetEdges().iterator(); it.hasNext();) {
 									Edge incomingLink = (Edge) it.next();
 									if (CrosswalkVisualIDRegistry.getVisualID(incomingLink) == InputOutputEditPart.VISUAL_ID) {
@@ -146,7 +129,7 @@ public class MetadataBlock3ItemSemanticEditPolicy extends CrosswalkBaseItemSeman
 								// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
 								// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
 								break;
-							case Text2EditPart.VISUAL_ID:
+							case TextEditPart.VISUAL_ID:
 								for (Iterator<?> it = cnode.getTargetEdges().iterator(); it.hasNext();) {
 									Edge incomingLink = (Edge) it.next();
 									if (CrosswalkVisualIDRegistry.getVisualID(incomingLink) == InputOutputEditPart.VISUAL_ID) {
@@ -162,7 +145,7 @@ public class MetadataBlock3ItemSemanticEditPolicy extends CrosswalkBaseItemSeman
 								// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
 								// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
 								break;
-							case TrimWhitespace2EditPart.VISUAL_ID:
+							case TrimWhitespaceEditPart.VISUAL_ID:
 								for (Iterator<?> it = cnode.getTargetEdges().iterator(); it.hasNext();) {
 									Edge incomingLink = (Edge) it.next();
 									if (CrosswalkVisualIDRegistry.getVisualID(incomingLink) == InputOutputEditPart.VISUAL_ID) {

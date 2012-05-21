@@ -24,11 +24,10 @@ import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 
 import crosswalk.CrosswalkPackage;
-import crosswalk.diagram.edit.parts.DateRecognizer2EditPart;
+import crosswalk.diagram.edit.parts.DateRecognizerEditPart;
 import crosswalk.diagram.edit.parts.MappedElementEditPart;
-import crosswalk.diagram.edit.parts.OriginalNameRecordMatcher2EditPart;
-import crosswalk.diagram.edit.parts.Text2EditPart;
-import crosswalk.diagram.edit.parts.TrimWhitespace2EditPart;
+import crosswalk.diagram.edit.parts.TextEditPart;
+import crosswalk.diagram.edit.parts.TrimWhitespaceEditPart;
 import crosswalk.diagram.part.CrosswalkDiagramUpdater;
 import crosswalk.diagram.part.CrosswalkNodeDescriptor;
 import crosswalk.diagram.part.CrosswalkVisualIDRegistry;
@@ -95,10 +94,9 @@ public class MetadataBlockMetadataBlockMappingCompartmentCanonicalEditPolicy ext
 	private boolean isMyDiagramElement(View view) {
 		int visualID = CrosswalkVisualIDRegistry.getVisualID(view);
 		switch (visualID) {
-			case OriginalNameRecordMatcher2EditPart.VISUAL_ID:
-			case DateRecognizer2EditPart.VISUAL_ID:
-			case Text2EditPart.VISUAL_ID:
-			case TrimWhitespace2EditPart.VISUAL_ID:
+			case DateRecognizerEditPart.VISUAL_ID:
+			case TextEditPart.VISUAL_ID:
+			case TrimWhitespaceEditPart.VISUAL_ID:
 			case MappedElementEditPart.VISUAL_ID:
 				return true;
 		}

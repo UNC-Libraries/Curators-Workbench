@@ -26,7 +26,6 @@ import org.eclipse.gmf.runtime.diagram.ui.services.editpart.CreateGraphicEditPar
 import org.eclipse.gmf.runtime.diagram.ui.services.editpart.IEditPartOperation;
 import org.eclipse.gmf.runtime.notation.View;
 
-import crosswalk.diagram.edit.parts.CrossWalkEditPart;
 import crosswalk.diagram.edit.parts.CrosswalkEditPartFactory;
 import crosswalk.diagram.edit.parts.EditingContainerEditPart;
 import crosswalk.diagram.part.CrosswalkVisualIDRegistry;

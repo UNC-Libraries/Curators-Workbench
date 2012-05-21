@@ -15,11 +15,8 @@
  */
 package crosswalk.diagram.edit.policies;
 
-import java.util.Collections;
 import java.util.Iterator;
-import java.util.Map;
 
-import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.commands.Command;
@@ -49,11 +46,9 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientRelationshipReques
 import org.eclipse.gmf.runtime.emf.type.core.requests.SetRequest;
 import org.eclipse.gmf.runtime.notation.View;
 
-import crosswalk.CrosswalkPackage;
 import crosswalk.Input;
 import crosswalk.Output;
 import crosswalk.diagram.edit.helpers.CrosswalkBaseEditHelper;
-import crosswalk.diagram.expressions.CrosswalkOCLFactory;
 import crosswalk.diagram.part.CrosswalkDiagramEditorPlugin;
 import crosswalk.diagram.part.CrosswalkVisualIDRegistry;
 import crosswalk.diagram.providers.CrosswalkElementTypes;

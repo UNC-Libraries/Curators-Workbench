@@ -31,6 +31,7 @@ public interface MappingContainer extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Widgets</b></em>' containment reference list.
 	 * The list contents are of type {@link crosswalk.WalkWidget}.
+	 * It is bidirectional and its opposite is '{@link crosswalk.WalkWidget#getWalk <em>Walk</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Widgets</em>' containment reference list isn't clear,
@@ -39,7 +40,8 @@ public interface MappingContainer extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Widgets</em>' containment reference list.
 	 * @see crosswalk.CrosswalkPackage#getMappingContainer_Widgets()
-	 * @model containment="true" ordered="false"
+	 * @see crosswalk.WalkWidget#getWalk
+	 * @model opposite="Walk" containment="true" ordered="false"
 	 * @generated
 	 */
 	EList<WalkWidget> getWidgets();

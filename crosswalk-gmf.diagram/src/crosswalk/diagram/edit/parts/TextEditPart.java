@@ -281,9 +281,6 @@ public class TextEditPart extends ShapeNodeEditPart {
 			types.add(CrosswalkElementTypes.DateRecognizer_3004);
 			types.add(CrosswalkElementTypes.TrimWhitespace_3006);
 			types.add(CrosswalkElementTypes.MappedAttribute_3009);
-			types.add(CrosswalkElementTypes.OriginalNameRecordMatcher_3011);
-			types.add(CrosswalkElementTypes.DateRecognizer_3012);
-			types.add(CrosswalkElementTypes.TrimWhitespace_3014);
 			types.add(CrosswalkElementTypes.InputField_3017);
 		}
 		return types;
