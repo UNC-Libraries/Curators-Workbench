@@ -68,5 +68,13 @@
             name="Metadata Form Editor">
       </editor>
    </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="crosswalk.diagram.custom.DictionaryPreferencePage"
+            id="crosswalk-gmf.custom.pageDictionaries"
+            name="Dictionaries">
+      </page>
+   </extension>
 
 </plugin>

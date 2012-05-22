@@ -67,11 +67,12 @@ public class DelimitedFileItemProvider
 			super.getPropertyDescriptors(object);
 
 			addSourceFilePropertyDescriptor(object);
-			addDataRowPropertyDescriptor(object);
+			addFirstDataRowPropertyDescriptor(object);
 			addHeaderRowPropertyDescriptor(object);
 			addTextEncodingPropertyDescriptor(object);
 			addFieldDelimiterPropertyDescriptor(object);
 			addTextDelimiterPropertyDescriptor(object);
+			addLastDataRowPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -99,19 +100,19 @@ public class DelimitedFileItemProvider
 	}
 
         /**
-	 * This adds a property descriptor for the Data Row feature.
+	 * This adds a property descriptor for the First Data Row feature.
 	 * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-        protected void addDataRowPropertyDescriptor(Object object) {
+	protected void addFirstDataRowPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_DelimitedFile_dataRow_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DelimitedFile_dataRow_feature", "_UI_DelimitedFile_type"),
-				 CrosswalkPackage.Literals.DELIMITED_FILE__DATA_ROW,
+				 getString("_UI_DelimitedFile_firstDataRow_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DelimitedFile_firstDataRow_feature", "_UI_DelimitedFile_type"),
+				 CrosswalkPackage.Literals.DELIMITED_FILE__FIRST_DATA_ROW,
 				 true,
 				 false,
 				 false,
@@ -120,7 +121,7 @@ public class DelimitedFileItemProvider
 				 null));
 	}
 
-        /**
+								/**
 	 * This adds a property descriptor for the Header Row feature.
 	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -137,7 +138,7 @@ public class DelimitedFileItemProvider
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -210,6 +211,28 @@ public class DelimitedFileItemProvider
 
 
         /**
+	 * This adds a property descriptor for the Last Data Row feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addLastDataRowPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_DelimitedFile_lastDataRow_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DelimitedFile_lastDataRow_feature", "_UI_DelimitedFile_type"),
+				 CrosswalkPackage.Literals.DELIMITED_FILE__LAST_DATA_ROW,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+								/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -278,11 +301,12 @@ public class DelimitedFileItemProvider
 
 		switch (notification.getFeatureID(DelimitedFile.class)) {
 			case CrosswalkPackage.DELIMITED_FILE__SOURCE_FILE:
-			case CrosswalkPackage.DELIMITED_FILE__DATA_ROW:
+			case CrosswalkPackage.DELIMITED_FILE__FIRST_DATA_ROW:
 			case CrosswalkPackage.DELIMITED_FILE__HEADER_ROW:
 			case CrosswalkPackage.DELIMITED_FILE__TEXT_ENCODING:
 			case CrosswalkPackage.DELIMITED_FILE__FIELD_DELIMITER:
 			case CrosswalkPackage.DELIMITED_FILE__TEXT_DELIMITER:
+			case CrosswalkPackage.DELIMITED_FILE__LAST_DATA_ROW:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case CrosswalkPackage.DELIMITED_FILE__FIELDS:

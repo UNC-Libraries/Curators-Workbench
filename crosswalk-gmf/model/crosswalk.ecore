@@ -86,16 +86,18 @@
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="SourceFile" lowerBound="1"
         eType="#//URI"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataRow" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="firstDataRow" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="1"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="headerRow" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-        unsettable="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="headerRow" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="true" unsettable="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="textEncoding" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="utf-8"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="fieldDelimiter" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EChar" defaultValueLiteral=","/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="textDelimiter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EChar"
         defaultValueLiteral="&quot;" unsettable="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lastDataRow" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="1" unsettable="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MappedElement" eSuperTypes="#//OutputElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="childElements" upperBound="-1"

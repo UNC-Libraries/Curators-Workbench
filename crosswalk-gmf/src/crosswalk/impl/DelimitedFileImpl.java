@@ -55,7 +55,7 @@ import crosswalk.TabbedDataField;
  * <li>{@link crosswalk.impl.DelimitedFileImpl#getTextDelimiter <em>Text Delimiter</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class DelimitedFileImpl extends EObjectImpl implements DelimitedFile {
@@ -65,9 +65,9 @@ public class DelimitedFileImpl extends EObjectImpl implements DelimitedFile {
 	private boolean reset = false;
 
 	/**
-	 * The cached value of the '{@link #getFields() <em>Fields</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getFields() <em>Fields</em>}' containment reference list. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getFields()
 	 * @generated
 	 * @ordered
@@ -75,9 +75,9 @@ public class DelimitedFileImpl extends EObjectImpl implements DelimitedFile {
 	protected EList<DataField> fields;
 
 	/**
-	 * The default value of the '{@link #getSourceFile() <em>Source File</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The default value of the '{@link #getSourceFile() <em>Source File</em>}' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getSourceFile()
 	 * @generated
 	 * @ordered
@@ -85,9 +85,9 @@ public class DelimitedFileImpl extends EObjectImpl implements DelimitedFile {
 	protected static final URI SOURCE_FILE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getSourceFile() <em>Source File</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The cached value of the '{@link #getSourceFile() <em>Source File</em>}' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getSourceFile()
 	 * @generated
 	 * @ordered
@@ -95,57 +95,55 @@ public class DelimitedFileImpl extends EObjectImpl implements DelimitedFile {
 	protected URI sourceFile = SOURCE_FILE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getDataRow() <em>Data Row</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * @see #getDataRow()
+	 * The default value of the '{@link #getFirstDataRow() <em>First Data Row</em>}' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getFirstDataRow()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int DATA_ROW_EDEFAULT = 1;
-
+	protected static final int FIRST_DATA_ROW_EDEFAULT = 1;
 	/**
-	 * The cached value of the '{@link #getDataRow() <em>Data Row</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * @see #getDataRow()
+	 * The cached value of the '{@link #getFirstDataRow() <em>First Data Row</em>}' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getFirstDataRow()
 	 * @generated
 	 * @ordered
 	 */
-	protected int dataRow = DATA_ROW_EDEFAULT;
-
+	protected int firstDataRow = FIRST_DATA_ROW_EDEFAULT;
 	/**
-	 * The default value of the '{@link #getHeaderRow() <em>Header Row</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The default value of the '{@link #isHeaderRow() <em>Header Row</em>}' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * @see #getHeaderRow()
+	 * 
+	 * @see #isHeaderRow()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int HEADER_ROW_EDEFAULT = 0;
+	protected static final boolean HEADER_ROW_EDEFAULT = true;
 
 	/**
-	 * The cached value of the '{@link #getHeaderRow() <em>Header Row</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The cached value of the '{@link #isHeaderRow() <em>Header Row</em>}' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * @see #getHeaderRow()
+	 * 
+	 * @see #isHeaderRow()
 	 * @generated
 	 * @ordered
 	 */
-	protected int headerRow = HEADER_ROW_EDEFAULT;
+	protected boolean headerRow = HEADER_ROW_EDEFAULT;
 
 	/**
-	 * This is true if the Header Row attribute has been set.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This is true if the Header Row attribute has been set. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	protected boolean headerRowESet;
 
 	/**
-	 * The default value of the '{@link #getTextEncoding() <em>Text Encoding</em>}' attribute.
-	 * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getTextEncoding() <em>Text Encoding</em>}' attribute. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getTextEncoding()
 	 * @generated
 	 * @ordered
@@ -153,9 +151,9 @@ public class DelimitedFileImpl extends EObjectImpl implements DelimitedFile {
 	protected static final String TEXT_ENCODING_EDEFAULT = "utf-8";
 
 	/**
-	 * The cached value of the '{@link #getTextEncoding() <em>Text Encoding</em>}' attribute.
-	 * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getTextEncoding() <em>Text Encoding</em>}' attribute. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getTextEncoding()
 	 * @generated
 	 * @ordered
@@ -163,27 +161,27 @@ public class DelimitedFileImpl extends EObjectImpl implements DelimitedFile {
 	protected String textEncoding = TEXT_ENCODING_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getFieldDelimiter() <em>Field Delimiter</em>}' attribute.
-	 * <!-- begin-user-doc
+	 * The default value of the '{@link #getFieldDelimiter() <em>Field Delimiter</em>}' attribute. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @see #getFieldDelimiter()
 	 * @generated
 	 * @ordered
 	 */
 	protected static final char FIELD_DELIMITER_EDEFAULT = ',';
 	/**
-	 * The cached value of the '{@link #getFieldDelimiter() <em>Field Delimiter</em>}' attribute.
-	 * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getFieldDelimiter() <em>Field Delimiter</em>}' attribute. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getFieldDelimiter()
 	 * @generated
 	 * @ordered
 	 */
 	protected char fieldDelimiter = FIELD_DELIMITER_EDEFAULT;
 	/**
-	 * The default value of the '{@link #getTextDelimiter() <em>Text Delimiter</em>}' attribute.
-	 * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getTextDelimiter() <em>Text Delimiter</em>}' attribute. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getTextDelimiter()
 	 * @generated
 	 * @ordered
@@ -191,9 +189,9 @@ public class DelimitedFileImpl extends EObjectImpl implements DelimitedFile {
 	protected static final char TEXT_DELIMITER_EDEFAULT = '\"';
 
 	/**
-	 * The cached value of the '{@link #getTextDelimiter() <em>Text Delimiter</em>}' attribute.
-	 * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getTextDelimiter() <em>Text Delimiter</em>}' attribute. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getTextDelimiter()
 	 * @generated
 	 * @ordered
@@ -201,15 +199,43 @@ public class DelimitedFileImpl extends EObjectImpl implements DelimitedFile {
 	protected char textDelimiter = TEXT_DELIMITER_EDEFAULT;
 
 	/**
-	 * This is true if the Text Delimiter attribute has been set.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This is true if the Text Delimiter attribute has been set. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	protected boolean textDelimiterESet;
 
 	/**
+	 * The default value of the '{@link #getLastDataRow() <em>Last Data Row</em>}' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getLastDataRow()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int LAST_DATA_ROW_EDEFAULT = 1;
+	/**
+	 * The cached value of the '{@link #getLastDataRow() <em>Last Data Row</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @see #getLastDataRow()
+	 * @generated
+	 * @ordered
+	 */
+	protected int lastDataRow = LAST_DATA_ROW_EDEFAULT;
+
+	/**
+	 * This is true if the Last Data Row attribute has been set. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean lastDataRowESet;
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected DelimitedFileImpl() {
@@ -218,6 +244,7 @@ public class DelimitedFileImpl extends EObjectImpl implements DelimitedFile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -227,55 +254,64 @@ public class DelimitedFileImpl extends EObjectImpl implements DelimitedFile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public CrossWalk getWalk() {
-		if (eContainerFeatureID() != CrosswalkPackage.DELIMITED_FILE__WALK) return null;
-		return (CrossWalk)eContainer();
+		if (eContainerFeatureID() != CrosswalkPackage.DELIMITED_FILE__WALK)
+			return null;
+		return (CrossWalk) eContainer();
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetWalk(CrossWalk newWalk, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newWalk, CrosswalkPackage.DELIMITED_FILE__WALK, msgs);
+		msgs = eBasicSetContainer((InternalEObject) newWalk, CrosswalkPackage.DELIMITED_FILE__WALK, msgs);
 		return msgs;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setWalk(CrossWalk newWalk) {
-		if (newWalk != eInternalContainer() || (eContainerFeatureID() != CrosswalkPackage.DELIMITED_FILE__WALK && newWalk != null)) {
+		if (newWalk != eInternalContainer()
+				|| (eContainerFeatureID() != CrosswalkPackage.DELIMITED_FILE__WALK && newWalk != null)) {
 			if (EcoreUtil.isAncestor(this, newWalk))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newWalk != null)
-				msgs = ((InternalEObject)newWalk).eInverseAdd(this, CrosswalkPackage.CROSS_WALK__DATA_SOURCE, CrossWalk.class, msgs);
+				msgs = ((InternalEObject) newWalk).eInverseAdd(this, CrosswalkPackage.CROSS_WALK__DATA_SOURCE,
+						CrossWalk.class, msgs);
 			msgs = basicSetWalk(newWalk, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.DELIMITED_FILE__WALK, newWalk, newWalk));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<DataField> getFields() {
 		if (fields == null) {
-			fields = new EObjectContainmentWithInverseEList<DataField>(DataField.class, this, CrosswalkPackage.DELIMITED_FILE__FIELDS, CrosswalkPackage.DATA_FIELD__SOURCE);
+			fields = new EObjectContainmentWithInverseEList<DataField>(DataField.class, this,
+					CrosswalkPackage.DELIMITED_FILE__FIELDS, CrosswalkPackage.DATA_FIELD__SOURCE);
 		}
 		return fields;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public URI getSourceFile() {
@@ -283,72 +319,82 @@ public class DelimitedFileImpl extends EObjectImpl implements DelimitedFile {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setSourceFile(URI newSourceFile) {
 		URI oldSourceFile = sourceFile;
 		sourceFile = newSourceFile;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.DELIMITED_FILE__SOURCE_FILE, oldSourceFile, sourceFile));
+			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.DELIMITED_FILE__SOURCE_FILE,
+					oldSourceFile, sourceFile));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public int getDataRow() {
-		return dataRow;
+	public int getFirstDataRow() {
+		return firstDataRow;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public void setDataRow(int newDataRow) {
-		int oldDataRow = dataRow;
-		dataRow = newDataRow;
+	public void setFirstDataRow(int newFirstDataRow) {
+		int oldFirstDataRow = firstDataRow;
+		firstDataRow = newFirstDataRow;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.DELIMITED_FILE__DATA_ROW, oldDataRow, dataRow));
+			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.DELIMITED_FILE__FIRST_DATA_ROW,
+					oldFirstDataRow, firstDataRow));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public int getHeaderRow() {
+	public boolean isHeaderRow() {
 		return headerRow;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public void setHeaderRow(int newHeaderRow) {
-		int oldHeaderRow = headerRow;
+	public void setHeaderRow(boolean newHeaderRow) {
+		boolean oldHeaderRow = headerRow;
 		headerRow = newHeaderRow;
 		boolean oldHeaderRowESet = headerRowESet;
 		headerRowESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.DELIMITED_FILE__HEADER_ROW, oldHeaderRow, headerRow, !oldHeaderRowESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.DELIMITED_FILE__HEADER_ROW,
+					oldHeaderRow, headerRow, !oldHeaderRowESet));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void unsetHeaderRow() {
-		int oldHeaderRow = headerRow;
+		boolean oldHeaderRow = headerRow;
 		boolean oldHeaderRowESet = headerRowESet;
 		headerRow = HEADER_ROW_EDEFAULT;
 		headerRowESet = false;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, CrosswalkPackage.DELIMITED_FILE__HEADER_ROW, oldHeaderRow, HEADER_ROW_EDEFAULT, oldHeaderRowESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CrosswalkPackage.DELIMITED_FILE__HEADER_ROW,
+					oldHeaderRow, HEADER_ROW_EDEFAULT, oldHeaderRowESet));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean isSetHeaderRow() {
@@ -357,6 +403,7 @@ public class DelimitedFileImpl extends EObjectImpl implements DelimitedFile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getTextEncoding() {
@@ -365,17 +412,20 @@ public class DelimitedFileImpl extends EObjectImpl implements DelimitedFile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setTextEncoding(String newTextEncoding) {
 		String oldTextEncoding = textEncoding;
 		textEncoding = newTextEncoding;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.DELIMITED_FILE__TEXT_ENCODING, oldTextEncoding, textEncoding));
+			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.DELIMITED_FILE__TEXT_ENCODING,
+					oldTextEncoding, textEncoding));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public char getTextDelimiter() {
@@ -384,6 +434,7 @@ public class DelimitedFileImpl extends EObjectImpl implements DelimitedFile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setTextDelimiter(char newTextDelimiter) {
@@ -392,11 +443,13 @@ public class DelimitedFileImpl extends EObjectImpl implements DelimitedFile {
 		boolean oldTextDelimiterESet = textDelimiterESet;
 		textDelimiterESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.DELIMITED_FILE__TEXT_DELIMITER, oldTextDelimiter, textDelimiter, !oldTextDelimiterESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.DELIMITED_FILE__TEXT_DELIMITER,
+					oldTextDelimiter, textDelimiter, !oldTextDelimiterESet));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void unsetTextDelimiter() {
@@ -405,11 +458,13 @@ public class DelimitedFileImpl extends EObjectImpl implements DelimitedFile {
 		textDelimiter = TEXT_DELIMITER_EDEFAULT;
 		textDelimiterESet = false;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, CrosswalkPackage.DELIMITED_FILE__TEXT_DELIMITER, oldTextDelimiter, TEXT_DELIMITER_EDEFAULT, oldTextDelimiterESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CrosswalkPackage.DELIMITED_FILE__TEXT_DELIMITER,
+					oldTextDelimiter, TEXT_DELIMITER_EDEFAULT, oldTextDelimiterESet));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean isSetTextDelimiter() {
@@ -418,33 +473,89 @@ public class DelimitedFileImpl extends EObjectImpl implements DelimitedFile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
+	 * @generated
+	 */
+	public int getLastDataRow() {
+		return lastDataRow;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public void setLastDataRow(int newLastDataRow) {
+		int oldLastDataRow = lastDataRow;
+		lastDataRow = newLastDataRow;
+		boolean oldLastDataRowESet = lastDataRowESet;
+		lastDataRowESet = true;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.DELIMITED_FILE__LAST_DATA_ROW,
+					oldLastDataRow, lastDataRow, !oldLastDataRowESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public void unsetLastDataRow() {
+		int oldLastDataRow = lastDataRow;
+		boolean oldLastDataRowESet = lastDataRowESet;
+		lastDataRow = LAST_DATA_ROW_EDEFAULT;
+		lastDataRowESet = false;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CrosswalkPackage.DELIMITED_FILE__LAST_DATA_ROW,
+					oldLastDataRow, LAST_DATA_ROW_EDEFAULT, oldLastDataRowESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public boolean isSetLastDataRow() {
+		return lastDataRowESet;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated NOT
 	 */
 	public void GoToRecord(int RowNumber) throws DataException, RecordOutOfRangeException {
 		if (this.lines == null) {
 			throw new DataException("The data source is not ready.");
 		}
-		if (RowNumber - 1 < this.lines.size()) {
-			this.currentRowNumber = RowNumber;
-		} else {
-			throw new RecordOutOfRangeException("The record referenced " + RowNumber + " not available.  There are only "
-					+ this.lines.size() + " records, starting with 1.");
+		if (RowNumber < this.getFirstDataRow()) {
+			throw new RecordOutOfRangeException("The record referenced " + RowNumber
+					+ " comes before the first data row.  There are only " + this.lines.size() + " records, starting with "
+					+ this.getFirstDataRow());
 		}
+		if (this.isSetLastDataRow() && RowNumber > this.getLastDataRow()) {
+				throw new RecordOutOfRangeException("The record referenced " + RowNumber
+						+ " comes after the last data row.  The last data row is " + this.getLastDataRow());
+		}
+		if(RowNumber > getFirstDataRow()-1+this.lines.size()) {
+			throw new RecordOutOfRangeException("The record referenced " + RowNumber
+					+ " comes after the last data row.  The last data row is " + (getFirstDataRow()-1+this.lines.size()));
+		}
+		this.currentRowNumber = RowNumber;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated NOT
 	 */
 	public void GoToExample() throws DataException, RecordOutOfRangeException {
-		this.GoToRecord(this.getDataRow());
+		this.GoToRecord(this.getFirstDataRow());
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated NOT
 	 */
 	public void NextRecord() throws DataException, RecordOutOfRangeException {
@@ -453,7 +564,7 @@ public class DelimitedFileImpl extends EObjectImpl implements DelimitedFile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated NOT
 	 */
 	public void Reset() throws DataException {
@@ -462,16 +573,28 @@ public class DelimitedFileImpl extends EObjectImpl implements DelimitedFile {
 		if (f.exists()) {
 			CSVReader reader = null;
 			try {
-				// TODO use this for wiz default: f.getCharset(true)
-				BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(f), this.getTextEncoding()));
-
-				if(this.isSetTextDelimiter()) {
-					reader = new CSVReader(br, this.getFieldDelimiter(), this.getTextDelimiter());
-				} else {
-					reader = new CSVReader(br, this.getFieldDelimiter());
+				BufferedReader br = new BufferedReader(
+						new InputStreamReader(new FileInputStream(f), this.getTextEncoding()));
+				reader = new CSVReader(br, this.getFieldDelimiter(), this.getTextDelimiter());
+				// TODO deal with non-set last data row
+				// read up to first data row
+				for(int i = 0; i < this.getFirstDataRow()-1; i++) {
+					reader.readNext();
 				}
-				this.lines = reader.readAll();
+				for(int i = 0; !isSetLastDataRow() || i+getFirstDataRow() <= getLastDataRow(); i++) {
+					String[] next = reader.readNext();
+					if(next == null) break;
+					this.lines.add(next);
+				}
+				//if (isSetLastDataRow()) {
+				//	for (int i = getFirstDataRow(); i <= getLastDataRow(); i++) {
+				//		this.lines.add(reader.readNext());
+				//	}
+				//} else {
+				//	this.lines = reader.readAll();
+				//}
 			} catch (IOException e) {
+				e.printStackTrace();
 				throw new DataException(e);
 			} finally {
 				if (reader != null) {
@@ -483,7 +606,7 @@ public class DelimitedFileImpl extends EObjectImpl implements DelimitedFile {
 			}
 			this.reset = true;
 			try {
-				this.GoToRecord(this.getDataRow());
+				this.GoToRecord(this.getFirstDataRow());
 			} catch (RecordOutOfRangeException e) {
 				throw new DataException("The data starting row is beyond the range of records.");
 			}
@@ -492,13 +615,14 @@ public class DelimitedFileImpl extends EObjectImpl implements DelimitedFile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated NOT
 	 */
 	public String getRecordID() {
-		int zeroDigits = String.valueOf(this.lines.size()).length() - String.valueOf(this.currentRowNumber).length();
+		int zeroDigits = String.valueOf(getFirstDataRow() + this.lines.size()).length()
+				- String.valueOf(this.currentRowNumber).length();
 		StringBuilder result = new StringBuilder();
-		for(;zeroDigits > 0; zeroDigits--) {
+		for (; zeroDigits > 0; zeroDigits--) {
 			result.append("0");
 		}
 		result.append(this.currentRowNumber);
@@ -507,7 +631,7 @@ public class DelimitedFileImpl extends EObjectImpl implements DelimitedFile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated NOT
 	 */
 	public String getName() {
@@ -516,7 +640,7 @@ public class DelimitedFileImpl extends EObjectImpl implements DelimitedFile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated NOT
 	 */
 	public String getFieldValue(DataField field) {
@@ -530,7 +654,7 @@ public class DelimitedFileImpl extends EObjectImpl implements DelimitedFile {
 		try {
 			TabbedDataField tdf = (TabbedDataField) field;
 			int index = tdf.getColumnNumber() - 1;
-			return this.lines.get(currentRowNumber - 1)[index];
+			return this.lines.get(currentRowNumber - this.getFirstDataRow())[index];
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
@@ -546,7 +670,7 @@ public class DelimitedFileImpl extends EObjectImpl implements DelimitedFile {
 			}
 		}
 		try {
-			return this.lines.get(currentRowNumber - 1);
+			return this.lines.get(currentRowNumber - this.getFirstDataRow());
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
@@ -555,40 +679,49 @@ public class DelimitedFileImpl extends EObjectImpl implements DelimitedFile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated NOT
 	 */
 	public void initializeDataFields() throws DataException {
-		try {
-			this.getFields().clear();
-			this.Reset();
-			if (this.isSetHeaderRow()) {
-				this.GoToRecord(this.getHeaderRow());
-				String[] headerRow = this.getRawRowData();
-				for (int i = 0; i < headerRow.length; i++) {
-					TabbedDataField missingField = CrosswalkFactory.eINSTANCE.createTabbedDataField();
-					missingField.setColumnNumber(i + 1);
-					missingField.setLabel(headerRow[i]);
-					this.getFields().add(missingField);
-				}
-			} else {
-				this.GoToRecord(this.getDataRow());
-				String[] headerRow = this.getRawRowData();
-				for (int i = 0; i < headerRow.length; i++) {
-					TabbedDataField missingField = CrosswalkFactory.eINSTANCE.createTabbedDataField();
-					missingField.setColumnNumber(i + 1);
-					missingField.setLabel("Column " + (i + 1));
-					this.getFields().add(missingField);
+		this.getFields().clear();
+		String[] firstRow = null;
+		URI uri = this.getSourceFile();
+		File f = new File(uri);
+		if (f.exists()) {
+			CSVReader reader = null;
+			try {
+				BufferedReader br = new BufferedReader(
+						new InputStreamReader(new FileInputStream(f), this.getTextEncoding()));
+				reader = new CSVReader(br, this.getFieldDelimiter(), this.getTextDelimiter());
+				firstRow = reader.readNext();
+			} catch (IOException e) {
+				throw new DataException(e);
+			} finally {
+				if (reader != null) {
+					try {
+						reader.close();
+					} catch (IOException ignored) {
+					}
 				}
 			}
-		} catch (RecordOutOfRangeException e) {
-			e.printStackTrace();
+			for (int i = 0; i < firstRow.length; i++) {
+				TabbedDataField missingField = CrosswalkFactory.eINSTANCE.createTabbedDataField();
+				missingField.setColumnNumber(i + 1);
+				if (this.isHeaderRow()) {
+					missingField.setLabel(firstRow[i]);
+				} else {
+					missingField.setLabel("Column " + (i + 1));
+				}
+
+				this.getFields().add(missingField);
+			}
 		}
 		this.Reset();
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -598,15 +731,16 @@ public class DelimitedFileImpl extends EObjectImpl implements DelimitedFile {
 			case CrosswalkPackage.DELIMITED_FILE__WALK:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetWalk((CrossWalk)otherEnd, msgs);
+				return basicSetWalk((CrossWalk) otherEnd, msgs);
 			case CrosswalkPackage.DELIMITED_FILE__FIELDS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getFields()).basicAdd(otherEnd, msgs);
+				return ((InternalEList<InternalEObject>) (InternalEList<?>) getFields()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -615,26 +749,29 @@ public class DelimitedFileImpl extends EObjectImpl implements DelimitedFile {
 			case CrosswalkPackage.DELIMITED_FILE__WALK:
 				return basicSetWalk(null, msgs);
 			case CrosswalkPackage.DELIMITED_FILE__FIELDS:
-				return ((InternalEList<?>)getFields()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>) getFields()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
 			case CrosswalkPackage.DELIMITED_FILE__WALK:
-				return eInternalContainer().eInverseRemove(this, CrosswalkPackage.CROSS_WALK__DATA_SOURCE, CrossWalk.class, msgs);
+				return eInternalContainer().eInverseRemove(this, CrosswalkPackage.CROSS_WALK__DATA_SOURCE, CrossWalk.class,
+						msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -646,22 +783,25 @@ public class DelimitedFileImpl extends EObjectImpl implements DelimitedFile {
 				return getFields();
 			case CrosswalkPackage.DELIMITED_FILE__SOURCE_FILE:
 				return getSourceFile();
-			case CrosswalkPackage.DELIMITED_FILE__DATA_ROW:
-				return getDataRow();
+			case CrosswalkPackage.DELIMITED_FILE__FIRST_DATA_ROW:
+				return getFirstDataRow();
 			case CrosswalkPackage.DELIMITED_FILE__HEADER_ROW:
-				return getHeaderRow();
+				return isHeaderRow();
 			case CrosswalkPackage.DELIMITED_FILE__TEXT_ENCODING:
 				return getTextEncoding();
 			case CrosswalkPackage.DELIMITED_FILE__FIELD_DELIMITER:
 				return getFieldDelimiter();
 			case CrosswalkPackage.DELIMITED_FILE__TEXT_DELIMITER:
 				return getTextDelimiter();
+			case CrosswalkPackage.DELIMITED_FILE__LAST_DATA_ROW:
+				return getLastDataRow();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -669,29 +809,32 @@ public class DelimitedFileImpl extends EObjectImpl implements DelimitedFile {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case CrosswalkPackage.DELIMITED_FILE__WALK:
-				setWalk((CrossWalk)newValue);
+				setWalk((CrossWalk) newValue);
 				return;
 			case CrosswalkPackage.DELIMITED_FILE__FIELDS:
 				getFields().clear();
-				getFields().addAll((Collection<? extends DataField>)newValue);
+				getFields().addAll((Collection<? extends DataField>) newValue);
 				return;
 			case CrosswalkPackage.DELIMITED_FILE__SOURCE_FILE:
-				setSourceFile((URI)newValue);
+				setSourceFile((URI) newValue);
 				return;
-			case CrosswalkPackage.DELIMITED_FILE__DATA_ROW:
-				setDataRow((Integer)newValue);
+			case CrosswalkPackage.DELIMITED_FILE__FIRST_DATA_ROW:
+				setFirstDataRow((Integer) newValue);
 				return;
 			case CrosswalkPackage.DELIMITED_FILE__HEADER_ROW:
-				setHeaderRow((Integer)newValue);
+				setHeaderRow((Boolean) newValue);
 				return;
 			case CrosswalkPackage.DELIMITED_FILE__TEXT_ENCODING:
-				setTextEncoding((String)newValue);
+				setTextEncoding((String) newValue);
 				return;
 			case CrosswalkPackage.DELIMITED_FILE__FIELD_DELIMITER:
-				setFieldDelimiter((Character)newValue);
+				setFieldDelimiter((Character) newValue);
 				return;
 			case CrosswalkPackage.DELIMITED_FILE__TEXT_DELIMITER:
-				setTextDelimiter((Character)newValue);
+				setTextDelimiter((Character) newValue);
+				return;
+			case CrosswalkPackage.DELIMITED_FILE__LAST_DATA_ROW:
+				setLastDataRow((Integer) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -699,13 +842,14 @@ public class DelimitedFileImpl extends EObjectImpl implements DelimitedFile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case CrosswalkPackage.DELIMITED_FILE__WALK:
-				setWalk((CrossWalk)null);
+				setWalk((CrossWalk) null);
 				return;
 			case CrosswalkPackage.DELIMITED_FILE__FIELDS:
 				getFields().clear();
@@ -713,8 +857,8 @@ public class DelimitedFileImpl extends EObjectImpl implements DelimitedFile {
 			case CrosswalkPackage.DELIMITED_FILE__SOURCE_FILE:
 				setSourceFile(SOURCE_FILE_EDEFAULT);
 				return;
-			case CrosswalkPackage.DELIMITED_FILE__DATA_ROW:
-				setDataRow(DATA_ROW_EDEFAULT);
+			case CrosswalkPackage.DELIMITED_FILE__FIRST_DATA_ROW:
+				setFirstDataRow(FIRST_DATA_ROW_EDEFAULT);
 				return;
 			case CrosswalkPackage.DELIMITED_FILE__HEADER_ROW:
 				unsetHeaderRow();
@@ -728,12 +872,16 @@ public class DelimitedFileImpl extends EObjectImpl implements DelimitedFile {
 			case CrosswalkPackage.DELIMITED_FILE__TEXT_DELIMITER:
 				unsetTextDelimiter();
 				return;
+			case CrosswalkPackage.DELIMITED_FILE__LAST_DATA_ROW:
+				unsetLastDataRow();
+				return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -745,8 +893,8 @@ public class DelimitedFileImpl extends EObjectImpl implements DelimitedFile {
 				return fields != null && !fields.isEmpty();
 			case CrosswalkPackage.DELIMITED_FILE__SOURCE_FILE:
 				return SOURCE_FILE_EDEFAULT == null ? sourceFile != null : !SOURCE_FILE_EDEFAULT.equals(sourceFile);
-			case CrosswalkPackage.DELIMITED_FILE__DATA_ROW:
-				return dataRow != DATA_ROW_EDEFAULT;
+			case CrosswalkPackage.DELIMITED_FILE__FIRST_DATA_ROW:
+				return firstDataRow != FIRST_DATA_ROW_EDEFAULT;
 			case CrosswalkPackage.DELIMITED_FILE__HEADER_ROW:
 				return isSetHeaderRow();
 			case CrosswalkPackage.DELIMITED_FILE__TEXT_ENCODING:
@@ -755,37 +903,53 @@ public class DelimitedFileImpl extends EObjectImpl implements DelimitedFile {
 				return fieldDelimiter != FIELD_DELIMITER_EDEFAULT;
 			case CrosswalkPackage.DELIMITED_FILE__TEXT_DELIMITER:
 				return isSetTextDelimiter();
+			case CrosswalkPackage.DELIMITED_FILE__LAST_DATA_ROW:
+				return isSetLastDataRow();
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if (eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (SourceFile: ");
 		result.append(sourceFile);
-		result.append(", dataRow: ");
-		result.append(dataRow);
+		result.append(", firstDataRow: ");
+		result.append(firstDataRow);
 		result.append(", headerRow: ");
-		if (headerRowESet) result.append(headerRow); else result.append("<unset>");
+		if (headerRowESet)
+			result.append(headerRow);
+		else
+			result.append("<unset>");
 		result.append(", textEncoding: ");
 		result.append(textEncoding);
 		result.append(", fieldDelimiter: ");
 		result.append(fieldDelimiter);
 		result.append(", textDelimiter: ");
-		if (textDelimiterESet) result.append(textDelimiter); else result.append("<unset>");
+		if (textDelimiterESet)
+			result.append(textDelimiter);
+		else
+			result.append("<unset>");
+		result.append(", lastDataRow: ");
+		if (lastDataRowESet)
+			result.append(lastDataRow);
+		else
+			result.append("<unset>");
 		result.append(')');
 		return result.toString();
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public char getFieldDelimiter() {
@@ -794,13 +958,15 @@ public class DelimitedFileImpl extends EObjectImpl implements DelimitedFile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setFieldDelimiter(char newFieldDelimiter) {
 		char oldFieldDelimiter = fieldDelimiter;
 		fieldDelimiter = newFieldDelimiter;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.DELIMITED_FILE__FIELD_DELIMITER, oldFieldDelimiter, fieldDelimiter));
+			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.DELIMITED_FILE__FIELD_DELIMITER,
+					oldFieldDelimiter, fieldDelimiter));
 	}
 
 } // DelimitedFileImpl

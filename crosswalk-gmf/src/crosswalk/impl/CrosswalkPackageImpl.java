@@ -666,14 +666,14 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 
         /**
 	 * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-        public EAttribute getDelimitedFile_DataRow() {
+	public EAttribute getDelimitedFile_FirstDataRow() {
 		return (EAttribute)delimitedFileEClass.getEStructuralFeatures().get(1);
 	}
 
-        /**
+								/**
 	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
 	 * @generated
@@ -710,6 +710,15 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 	}
 
         /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDelimitedFile_LastDataRow() {
+		return (EAttribute)delimitedFileEClass.getEStructuralFeatures().get(6);
+	}
+
+								/**
 	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
 	 * @generated
@@ -1211,11 +1220,12 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 
 		delimitedFileEClass = createEClass(DELIMITED_FILE);
 		createEAttribute(delimitedFileEClass, DELIMITED_FILE__SOURCE_FILE);
-		createEAttribute(delimitedFileEClass, DELIMITED_FILE__DATA_ROW);
+		createEAttribute(delimitedFileEClass, DELIMITED_FILE__FIRST_DATA_ROW);
 		createEAttribute(delimitedFileEClass, DELIMITED_FILE__HEADER_ROW);
 		createEAttribute(delimitedFileEClass, DELIMITED_FILE__TEXT_ENCODING);
 		createEAttribute(delimitedFileEClass, DELIMITED_FILE__FIELD_DELIMITER);
 		createEAttribute(delimitedFileEClass, DELIMITED_FILE__TEXT_DELIMITER);
+		createEAttribute(delimitedFileEClass, DELIMITED_FILE__LAST_DATA_ROW);
 
 		mappedElementEClass = createEClass(MAPPED_ELEMENT);
 		createEReference(mappedElementEClass, MAPPED_ELEMENT__CHILD_ELEMENTS);
@@ -1424,11 +1434,12 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 
 		initEClass(delimitedFileEClass, DelimitedFile.class, "DelimitedFile", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDelimitedFile_SourceFile(), this.getURI(), "SourceFile", null, 1, 1, DelimitedFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDelimitedFile_DataRow(), ecorePackage.getEInt(), "dataRow", "1", 1, 1, DelimitedFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDelimitedFile_HeaderRow(), ecorePackage.getEInt(), "headerRow", null, 0, 1, DelimitedFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDelimitedFile_FirstDataRow(), ecorePackage.getEInt(), "firstDataRow", "1", 1, 1, DelimitedFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDelimitedFile_HeaderRow(), ecorePackage.getEBoolean(), "headerRow", "true", 0, 1, DelimitedFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDelimitedFile_TextEncoding(), ecorePackage.getEString(), "textEncoding", "utf-8", 1, 1, DelimitedFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDelimitedFile_FieldDelimiter(), ecorePackage.getEChar(), "fieldDelimiter", ",", 1, 1, DelimitedFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDelimitedFile_TextDelimiter(), ecorePackage.getEChar(), "textDelimiter", "\"", 0, 1, DelimitedFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDelimitedFile_LastDataRow(), ecorePackage.getEInt(), "lastDataRow", "1", 0, 1, DelimitedFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = addEOperation(delimitedFileEClass, null, "GoToRecord", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEInt(), "RowNumber", 1, 1, IS_UNIQUE, IS_ORDERED);

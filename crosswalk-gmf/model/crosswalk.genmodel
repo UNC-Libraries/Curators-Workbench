@@ -72,11 +72,12 @@
     </genClasses>
     <genClasses ecoreClass="crosswalk.ecore#//DelimitedFile">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//DelimitedFile/SourceFile"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//DelimitedFile/dataRow"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//DelimitedFile/firstDataRow"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//DelimitedFile/headerRow"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//DelimitedFile/textEncoding"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//DelimitedFile/fieldDelimiter"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//DelimitedFile/textDelimiter"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//DelimitedFile/lastDataRow"/>
       <genOperations ecoreOperation="crosswalk.ecore#//DelimitedFile/GoToRecord">
         <genParameters ecoreParameter="crosswalk.ecore#//DelimitedFile/GoToRecord/RowNumber"/>
       </genOperations>

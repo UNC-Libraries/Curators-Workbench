@@ -20,11 +20,12 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  *   <li>{@link crosswalk.DelimitedFile#getSourceFile <em>Source File</em>}</li>
- *   <li>{@link crosswalk.DelimitedFile#getDataRow <em>Data Row</em>}</li>
- *   <li>{@link crosswalk.DelimitedFile#getHeaderRow <em>Header Row</em>}</li>
+ *   <li>{@link crosswalk.DelimitedFile#getFirstDataRow <em>First Data Row</em>}</li>
+ *   <li>{@link crosswalk.DelimitedFile#isHeaderRow <em>Header Row</em>}</li>
  *   <li>{@link crosswalk.DelimitedFile#getTextEncoding <em>Text Encoding</em>}</li>
  *   <li>{@link crosswalk.DelimitedFile#getFieldDelimiter <em>Field Delimiter</em>}</li>
  *   <li>{@link crosswalk.DelimitedFile#getTextDelimiter <em>Text Delimiter</em>}</li>
+ *   <li>{@link crosswalk.DelimitedFile#getLastDataRow <em>Last Data Row</em>}</li>
  * </ul>
  * </p>
  *
@@ -60,81 +61,82 @@ public interface DelimitedFile extends DataSource {
 	void setSourceFile(URI value);
 
 								/**
-	 * Returns the value of the '<em><b>Data Row</b></em>' attribute.
+	 * Returns the value of the '<em><b>First Data Row</b></em>' attribute.
 	 * The default value is <code>"1"</code>.
 	 * <!-- begin-user-doc -->
-         * <p>
-         * If the meaning of the '<em>Data Row</em>' attribute isn't clear,
-         * there really should be more of a description here...
-         * </p>
-         * <!-- end-user-doc -->
-	 * @return the value of the '<em>Data Row</em>' attribute.
-	 * @see #setDataRow(int)
-	 * @see crosswalk.CrosswalkPackage#getDelimitedFile_DataRow()
+	 * <p>
+	 * If the meaning of the '<em>First Data Row</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>First Data Row</em>' attribute.
+	 * @see #setFirstDataRow(int)
+	 * @see crosswalk.CrosswalkPackage#getDelimitedFile_FirstDataRow()
 	 * @model default="1" required="true"
 	 * @generated
 	 */
-        int getDataRow();
+	int getFirstDataRow();
 
-        /**
-	 * Sets the value of the '{@link crosswalk.DelimitedFile#getDataRow <em>Data Row</em>}' attribute.
+								/**
+	 * Sets the value of the '{@link crosswalk.DelimitedFile#getFirstDataRow <em>First Data Row</em>}' attribute.
 	 * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Data Row</em>' attribute.
-	 * @see #getDataRow()
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>First Data Row</em>' attribute.
+	 * @see #getFirstDataRow()
 	 * @generated
 	 */
-        void setDataRow(int value);
+	void setFirstDataRow(int value);
 
-        /**
+								/**
 	 * Returns the value of the '<em><b>Header Row</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
 	 * <!-- begin-user-doc -->
-         * <p>
-         * If the meaning of the '<em>Header Row</em>' attribute isn't clear,
-         * there really should be more of a description here...
-         * </p>
-         * <!-- end-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Header Row</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Header Row</em>' attribute.
 	 * @see #isSetHeaderRow()
 	 * @see #unsetHeaderRow()
-	 * @see #setHeaderRow(int)
+	 * @see #setHeaderRow(boolean)
 	 * @see crosswalk.CrosswalkPackage#getDelimitedFile_HeaderRow()
-	 * @model unsettable="true"
+	 * @model default="true" unsettable="true"
 	 * @generated
 	 */
-        int getHeaderRow();
+	boolean isHeaderRow();
 
-        /**
-	 * Sets the value of the '{@link crosswalk.DelimitedFile#getHeaderRow <em>Header Row</em>}' attribute.
+								/**
+	 * Sets the value of the '{@link crosswalk.DelimitedFile#isHeaderRow <em>Header Row</em>}' attribute.
 	 * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Header Row</em>' attribute.
 	 * @see #isSetHeaderRow()
 	 * @see #unsetHeaderRow()
-	 * @see #getHeaderRow()
+	 * @see #isHeaderRow()
 	 * @generated
 	 */
-        void setHeaderRow(int value);
+	void setHeaderRow(boolean value);
 
-        /**
-	 * Unsets the value of the '{@link crosswalk.DelimitedFile#getHeaderRow <em>Header Row</em>}' attribute.
+								/**
+	 * Unsets the value of the '{@link crosswalk.DelimitedFile#isHeaderRow <em>Header Row</em>}' attribute.
 	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
 	 * @see #isSetHeaderRow()
-	 * @see #getHeaderRow()
-	 * @see #setHeaderRow(int)
+	 * @see #isHeaderRow()
+	 * @see #setHeaderRow(boolean)
 	 * @generated
 	 */
         void unsetHeaderRow();
 
         /**
-	 * Returns whether the value of the '{@link crosswalk.DelimitedFile#getHeaderRow <em>Header Row</em>}' attribute is set.
+	 * Returns whether the value of the '{@link crosswalk.DelimitedFile#isHeaderRow <em>Header Row</em>}' attribute is set.
 	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
 	 * @return whether the value of the '<em>Header Row</em>' attribute is set.
 	 * @see #unsetHeaderRow()
-	 * @see #getHeaderRow()
-	 * @see #setHeaderRow(int)
+	 * @see #isHeaderRow()
+	 * @see #setHeaderRow(boolean)
 	 * @generated
 	 */
         boolean isSetHeaderRow();
@@ -248,6 +250,60 @@ public interface DelimitedFile extends DataSource {
         boolean isSetTextDelimiter();
 
         /**
+	 * Returns the value of the '<em><b>Last Data Row</b></em>' attribute.
+	 * The default value is <code>"1"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Last Data Row</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Last Data Row</em>' attribute.
+	 * @see #isSetLastDataRow()
+	 * @see #unsetLastDataRow()
+	 * @see #setLastDataRow(int)
+	 * @see crosswalk.CrosswalkPackage#getDelimitedFile_LastDataRow()
+	 * @model default="1" unsettable="true"
+	 * @generated
+	 */
+	int getLastDataRow();
+
+								/**
+	 * Sets the value of the '{@link crosswalk.DelimitedFile#getLastDataRow <em>Last Data Row</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Last Data Row</em>' attribute.
+	 * @see #isSetLastDataRow()
+	 * @see #unsetLastDataRow()
+	 * @see #getLastDataRow()
+	 * @generated
+	 */
+	void setLastDataRow(int value);
+
+								/**
+	 * Unsets the value of the '{@link crosswalk.DelimitedFile#getLastDataRow <em>Last Data Row</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSetLastDataRow()
+	 * @see #getLastDataRow()
+	 * @see #setLastDataRow(int)
+	 * @generated
+	 */
+	void unsetLastDataRow();
+
+								/**
+	 * Returns whether the value of the '{@link crosswalk.DelimitedFile#getLastDataRow <em>Last Data Row</em>}' attribute is set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return whether the value of the '<em>Last Data Row</em>' attribute is set.
+	 * @see #unsetLastDataRow()
+	 * @see #getLastDataRow()
+	 * @see #setLastDataRow(int)
+	 * @generated
+	 */
+	boolean isSetLastDataRow();
+
+								/**
 	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
 	 * @model exceptions="crosswalk.DataException crosswalk.RecordOutOfRangeException" RowNumberRequired="true"

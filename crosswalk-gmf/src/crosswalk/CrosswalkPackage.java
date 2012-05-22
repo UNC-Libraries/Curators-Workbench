@@ -629,15 +629,15 @@ public interface CrosswalkPackage extends EPackage {
         int DELIMITED_FILE__SOURCE_FILE = DATA_SOURCE_FEATURE_COUNT + 0;
 
         /**
-	 * The feature id for the '<em><b>Data Row</b></em>' attribute.
+	 * The feature id for the '<em><b>First Data Row</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-        int DELIMITED_FILE__DATA_ROW = DATA_SOURCE_FEATURE_COUNT + 1;
+	int DELIMITED_FILE__FIRST_DATA_ROW = DATA_SOURCE_FEATURE_COUNT + 1;
 
-        /**
+								/**
 	 * The feature id for the '<em><b>Header Row</b></em>' attribute.
 	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -674,13 +674,22 @@ public interface CrosswalkPackage extends EPackage {
         int DELIMITED_FILE__TEXT_DELIMITER = DATA_SOURCE_FEATURE_COUNT + 5;
 
         /**
+	 * The feature id for the '<em><b>Last Data Row</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DELIMITED_FILE__LAST_DATA_ROW = DATA_SOURCE_FEATURE_COUNT + 6;
+
+								/**
 	 * The number of structural features of the '<em>Delimited File</em>' class.
 	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-        int DELIMITED_FILE_FEATURE_COUNT = DATA_SOURCE_FEATURE_COUNT + 6;
+        int DELIMITED_FILE_FEATURE_COUNT = DATA_SOURCE_FEATURE_COUNT + 7;
 
         /**
 	 * The meta object id for the '{@link crosswalk.impl.MappedElementImpl <em>Mapped Element</em>}' class.
@@ -1621,22 +1630,22 @@ public interface CrosswalkPackage extends EPackage {
         EAttribute getDelimitedFile_SourceFile();
 
         /**
-	 * Returns the meta object for the attribute '{@link crosswalk.DelimitedFile#getDataRow <em>Data Row</em>}'.
+	 * Returns the meta object for the attribute '{@link crosswalk.DelimitedFile#getFirstDataRow <em>First Data Row</em>}'.
 	 * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Data Row</em>'.
-	 * @see crosswalk.DelimitedFile#getDataRow()
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>First Data Row</em>'.
+	 * @see crosswalk.DelimitedFile#getFirstDataRow()
 	 * @see #getDelimitedFile()
 	 * @generated
 	 */
-        EAttribute getDelimitedFile_DataRow();
+	EAttribute getDelimitedFile_FirstDataRow();
 
-        /**
-	 * Returns the meta object for the attribute '{@link crosswalk.DelimitedFile#getHeaderRow <em>Header Row</em>}'.
+								/**
+	 * Returns the meta object for the attribute '{@link crosswalk.DelimitedFile#isHeaderRow <em>Header Row</em>}'.
 	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Header Row</em>'.
-	 * @see crosswalk.DelimitedFile#getHeaderRow()
+	 * @see crosswalk.DelimitedFile#isHeaderRow()
 	 * @see #getDelimitedFile()
 	 * @generated
 	 */
@@ -1676,6 +1685,17 @@ public interface CrosswalkPackage extends EPackage {
         EAttribute getDelimitedFile_TextDelimiter();
 
         /**
+	 * Returns the meta object for the attribute '{@link crosswalk.DelimitedFile#getLastDataRow <em>Last Data Row</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Last Data Row</em>'.
+	 * @see crosswalk.DelimitedFile#getLastDataRow()
+	 * @see #getDelimitedFile()
+	 * @generated
+	 */
+	EAttribute getDelimitedFile_LastDataRow();
+
+								/**
 	 * Returns the meta object for class '{@link crosswalk.MappedElement <em>Mapped Element</em>}'.
 	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -2471,14 +2491,14 @@ public interface CrosswalkPackage extends EPackage {
                 EAttribute DELIMITED_FILE__SOURCE_FILE = eINSTANCE.getDelimitedFile_SourceFile();
 
                 /**
-		 * The meta object literal for the '<em><b>Data Row</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>First Data Row</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
-                 * <!-- end-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-                EAttribute DELIMITED_FILE__DATA_ROW = eINSTANCE.getDelimitedFile_DataRow();
+		EAttribute DELIMITED_FILE__FIRST_DATA_ROW = eINSTANCE.getDelimitedFile_FirstDataRow();
 
-                /**
+																/**
 		 * The meta object literal for the '<em><b>Header Row</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
                  * <!-- end-user-doc -->
@@ -2511,6 +2531,14 @@ public interface CrosswalkPackage extends EPackage {
                 EAttribute DELIMITED_FILE__TEXT_DELIMITER = eINSTANCE.getDelimitedFile_TextDelimiter();
 
                 /**
+		 * The meta object literal for the '<em><b>Last Data Row</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DELIMITED_FILE__LAST_DATA_ROW = eINSTANCE.getDelimitedFile_LastDataRow();
+
+																/**
 		 * The meta object literal for the '{@link crosswalk.impl.MappedElementImpl <em>Mapped Element</em>}' class.
 		 * <!-- begin-user-doc -->
                  * <!-- end-user-doc -->

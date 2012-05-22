@@ -24,10 +24,10 @@ import org.eclipse.jface.dialogs.DialogPage;
 import org.eclipse.jface.wizard.IWizardPage;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.events.ModifyEvent;
-import org.eclipse.swt.events.ModifyListener;
-import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.FocusEvent;
+import org.eclipse.swt.events.FocusListener;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
@@ -39,8 +39,10 @@ import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
 
 import crosswalk.CrosswalkFactory;
+import crosswalk.DataField;
 import crosswalk.DataSource;
 import crosswalk.DelimitedFile;
+import crosswalk.TabbedDataField;
 
 /**
  * @author Gregory Jansen
@@ -51,8 +53,8 @@ public class DelimitedFileDelimitersWizardPage extends WizardPage implements IWi
 	protected DelimitedFileDataSourceWizardPage filePage;
 
 	Button isHeaderRowButton;
-	Combo headerRowCombo;
-	Combo dataRowCombo;
+	Combo firstDataRowCombo;
+	Combo lastDataRowCombo;
 	Combo fieldDelimiterCombo;
 	Combo textDelimiterCombo;
 
@@ -92,23 +94,22 @@ public class DelimitedFileDelimitersWizardPage extends WizardPage implements IWi
 		isHeaderRowButton.setSelection(false);
 		// isHeaderRowButton.setLayoutData(new GridData(2, 1));
 		Label isL = new Label(top, SWT.NONE);
-		isL.setText("There is a header row");
-		Label headerRowL = new Label(top, SWT.None);
-		headerRowL.setText("Header Row");
-		headerRowCombo = new Combo(top, SWT.DROP_DOWN);
-		headerRowCombo.setEnabled(false);
+		isL.setText("First row contains column headings");
 
 		Label dataRowL = new Label(top, SWT.None);
-		dataRowL.setText("Data Start Row");
-		dataRowCombo = new Combo(top, SWT.DROP_DOWN);
+		dataRowL.setText("First Data Row");
+		firstDataRowCombo = new Combo(top, SWT.DROP_DOWN);
 
 		for (int i = 0; i < 10; i++) {
-			headerRowCombo.add(String.valueOf(i + 1), i);
-			dataRowCombo.add(String.valueOf(i + 1), i);
+			firstDataRowCombo.add(String.valueOf(i + 1), i);
 		}
+		
+		Label ldataRowL = new Label(top, SWT.None);
+		ldataRowL.setText("Last Data Row");
+		lastDataRowCombo = new Combo(top, SWT.DROP_DOWN);
 
 		Label lsample = new Label(top, SWT.None);
-		lsample.setText("Data Preview");
+		lsample.setText("Preview");
 		lsample.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
 		sampleData = new Table(top, SWT.MULTI | SWT.READ_ONLY | SWT.BORDER | SWT.V_SCROLL | SWT.H_SCROLL);
 		sampleData.setItemCount(10);
@@ -118,32 +119,45 @@ public class DelimitedFileDelimitersWizardPage extends WizardPage implements IWi
 		gd.horizontalSpan = 3;
 		sampleData.setLayoutData(gd);
 
-		ModifyListener sa = new ModifyListener() {
+		SelectionListener sa = new SelectionListener() {
 			@Override
-			public void modifyText(ModifyEvent e) {
-				System.out.println(e);
+			public void widgetSelected(SelectionEvent e) {
+				update();
+			}
+
+			@Override
+			public void widgetDefaultSelected(SelectionEvent e) {
 				update();
 			}
 		};
-		isHeaderRowButton.addSelectionListener(new SelectionAdapter() {
+		
+		FocusListener fl = new FocusListener() {
 			@Override
-			public void widgetSelected(SelectionEvent e) {
-				headerRowCombo.setEnabled(isHeaderRowButton.getSelection());
+			public void focusGained(FocusEvent e) {
+			}
+			@Override
+			public void focusLost(FocusEvent e) {
 				update();
 			}
-		});
+		};
 
 		// setup initial selections
 		fieldDelimiterCombo.select(0);
 		textDelimiterCombo.select(1);
-		headerRowCombo.select(0);
-		dataRowCombo.select(1);
+		firstDataRowCombo.select(1);
+		//lastDataRowCombo.select();
+		
+		isHeaderRowButton.addSelectionListener(sa);
+		firstDataRowCombo.addSelectionListener(sa);
+		lastDataRowCombo.addSelectionListener(sa);
+		fieldDelimiterCombo.addSelectionListener(sa);
+		textDelimiterCombo.addSelectionListener(sa);
 
-		headerRowCombo.addModifyListener(sa);
-		dataRowCombo.addModifyListener(sa);
-		fieldDelimiterCombo.addModifyListener(sa);
-		textDelimiterCombo.addModifyListener(sa);
-
+		firstDataRowCombo.addFocusListener(fl);
+		lastDataRowCombo.addFocusListener(fl);
+		fieldDelimiterCombo.addFocusListener(fl);
+		textDelimiterCombo.addFocusListener(fl);
+		
 		setControl(top);
 	}
 
@@ -157,19 +171,21 @@ public class DelimitedFileDelimitersWizardPage extends WizardPage implements IWi
 
 			// set data row
 			{
-				String dataRowStr = dataRowCombo.getText();
+				String dataRowStr = firstDataRowCombo.getText();
 				if (dataRowStr != null && dataRowStr.length() > 0) {
-					source.setDataRow(Integer.parseInt(dataRowStr));
+					source.setFirstDataRow(Integer.parseInt(dataRowStr));
+				}
+			}
+			
+			{
+				String lastDataRowStr = lastDataRowCombo.getText();
+				if (lastDataRowStr != null && lastDataRowStr.length() > 0) {
+					source.setLastDataRow(Integer.parseInt(lastDataRowStr));
 				}
 			}
 
-			// set header row
-			if (isHeaderRowButton.getSelection()) {
-				String headerRowStr = headerRowCombo.getText();
-				if (headerRowStr != null && headerRowStr.length() > 0) {
-					source.setHeaderRow(Integer.parseInt(headerRowStr));
-				}
-			}
+			// is there a header row?
+			source.setHeaderRow(isHeaderRowButton.getSelection());
 
 			// set field delimiter
 			{
@@ -248,38 +264,35 @@ public class DelimitedFileDelimitersWizardPage extends WizardPage implements IWi
 		DelimitedFile ds = this.getDataSource();
 		if (ds != null) {
 			try {
-				ds.Reset();
+				ds.initializeDataFields();
 				// setup column headers, if available
-				if (ds.isSetHeaderRow()) {
-					ds.GoToRecord(ds.getHeaderRow());
-					String[] row = ds.getRawRowData();
-					if (row != null) {
-						for (int i = 0; i < row.length; i++) {
-							TableColumn col = new TableColumn(sampleData, SWT.NONE, i);
-							col.setResizable(true);
-							col.setWidth(25);
-							col.setText(row[i]);
-						}
-					}
-				} else {
-					ds.GoToRecord(ds.getDataRow());
-					String[] row = ds.getRawRowData();
-					if (row != null) {
-						for (int i = 0; i < row.length; i++) {
-							TableColumn col = new TableColumn(sampleData, SWT.NONE, i);
-							col.setResizable(true);
-							col.setWidth(25);
-							col.setText(String.valueOf(i + 1));
-						}
-					}
+				int colnum = 0;
+				{
+					TableColumn col = new TableColumn(sampleData, SWT.NONE, colnum);
+					col.setResizable(false);
+					col.setText("");
+					col.setAlignment(SWT.RIGHT);
+					colnum++;
+				}
+				for(DataField df : ds.getFields()) {
+					TabbedDataField tdf = (TabbedDataField)df;
+					TableColumn col = new TableColumn(sampleData, SWT.NONE, colnum);
+					col.setAlignment(SWT.LEFT);
+					col.setResizable(true);
+					col.setWidth(25);
+					col.setText(tdf.getLabel());
+					colnum++;
 				}
 
 				// insert items up to table item count
 				TableItem[] items = sampleData.getItems();
-				for (int i = 0; i < items.length; i++) {
-					ds.GoToRecord(ds.getDataRow() + i);
-					items[i].setText(ds.getRawRowData());
-					// do I need to insert missing columns?
+				for (int i = 0; (!ds.isSetLastDataRow() || i <= ds.getLastDataRow()-ds.getFirstDataRow()) && i < items.length; i++) {
+					ds.GoToRecord(ds.getFirstDataRow()+i);
+					String[] row = ds.getRawRowData();
+					String[] longer = new String[row.length + 1];
+				   System.arraycopy(row, 0, longer, 1, row.length);
+				   longer[0] = String.valueOf(ds.getFirstDataRow()+i);
+					items[i].setText(longer);
 				}
 
 				// pack the columns
@@ -287,6 +300,7 @@ public class DelimitedFileDelimitersWizardPage extends WizardPage implements IWi
 				for (int i = 0; i < columns.length; i++)
 					columns[i].pack();
 			} catch (Exception e) {
+				e.printStackTrace();
 				setMessage(e.getMessage(), DialogPage.ERROR);
 			}
 		}
