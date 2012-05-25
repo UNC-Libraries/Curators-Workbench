@@ -350,11 +350,11 @@ public class MetadataBlock3EditPart extends ShapeNodeEditPart {
 
 			GridData constraintFFigureMetadataBlockLabelFigure = new GridData();
 			constraintFFigureMetadataBlockLabelFigure.verticalAlignment = GridData.BEGINNING;
-			constraintFFigureMetadataBlockLabelFigure.horizontalAlignment = GridData.CENTER;
+			constraintFFigureMetadataBlockLabelFigure.horizontalAlignment = GridData.BEGINNING;
 			constraintFFigureMetadataBlockLabelFigure.horizontalIndent = 0;
 			constraintFFigureMetadataBlockLabelFigure.horizontalSpan = 2;
 			constraintFFigureMetadataBlockLabelFigure.verticalSpan = 1;
-			constraintFFigureMetadataBlockLabelFigure.grabExcessHorizontalSpace = true;
+			constraintFFigureMetadataBlockLabelFigure.grabExcessHorizontalSpace = false;
 			constraintFFigureMetadataBlockLabelFigure.grabExcessVerticalSpace = false;
 			this.add(fFigureMetadataBlockLabelFigure, constraintFFigureMetadataBlockLabelFigure);
 
@@ -379,6 +379,9 @@ public class MetadataBlock3EditPart extends ShapeNodeEditPart {
 			fFigureMetadataBlockMapping = new RectangleFigure();
 			fFigureMetadataBlockMapping.setLineWidth(2);
 			fFigureMetadataBlockMapping.setBackgroundColor(ColorConstants.lightGray);
+
+			fFigureMetadataBlockMapping.setBorder(new MarginBorder(getMapMode().DPtoLP(5), getMapMode().DPtoLP(5),
+					getMapMode().DPtoLP(5), getMapMode().DPtoLP(5)));
 			fFigureMetadataBlockMapping.setBorder(new LineBorder(null, getMapMode().DPtoLP(2)));
 
 			GridData constraintFFigureMetadataBlockMapping = new GridData();

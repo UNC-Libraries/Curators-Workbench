@@ -519,7 +519,7 @@ public class CrosswalkDiagramEditorUtil {
 				Form form = CrosswalkFactory.eINSTANCE.createForm();
 				form.setTitle("Form Title");
 				form.setDescription("This is a description of the form. Click on this text or the title to edit.");
-				// TODO form.setOutputType(MODSPackage.eINSTANCE.getModsDefinition());
+				form.setOutputType(MODSPackage.eINSTANCE.getModsDefinition());
 				model.setModel(form);
 				attachModelToResource(model, diagramResource);
 

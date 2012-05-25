@@ -271,6 +271,7 @@ public class CrosswalkSwitch<T> extends Switch<T> {
 				Form form = (Form)theEObject;
 				T result = caseForm(form);
 				if (result == null) result = caseEditable(form);
+				if (result == null) result = caseSchemaProvider(form);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

@@ -255,6 +255,11 @@
           <backgroundColor
               xsi:type="gmfgraph:ConstantColor"
               value="lightGray"/>
+          <insets
+              top="5"
+              left="5"
+              bottom="5"
+              right="5"/>
           <border
               xsi:type="gmfgraph:LineBorder"
               width="2"/>
@@ -434,9 +439,7 @@
           <layout
               xsi:type="gmfgraph:FlowLayout"
               vertical="true"
-              forceSingleLine="true"
-              majorAlignment="FILL"
-              minorAlignment="FILL"/>
+              forceSingleLine="true"/>
         </children>
       </actualFigure>
       <accessors

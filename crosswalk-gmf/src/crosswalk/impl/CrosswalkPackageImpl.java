@@ -1350,6 +1350,7 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 		inputFieldEClass.getESuperTypes().add(this.getOutput());
 		inputFieldEClass.getESuperTypes().add(this.getInput());
 		formEClass.getESuperTypes().add(this.getEditable());
+		formEClass.getESuperTypes().add(this.getSchemaProvider());
 		paragraphEClass.getESuperTypes().add(this.getFormElement());
 
 		// Initialize classes and features; add operations and parameters

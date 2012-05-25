@@ -376,7 +376,7 @@ public class FormEditPart extends ShapeNodeEditPart {
 
 			ToolbarLayout layoutFFigureFlowModelBox = new ToolbarLayout();
 			layoutFFigureFlowModelBox.setStretchMinorAxis(false);
-			layoutFFigureFlowModelBox.setMinorAlignment(ToolbarLayout.ALIGN_CENTER);
+			layoutFFigureFlowModelBox.setMinorAlignment(ToolbarLayout.ALIGN_TOPLEFT);
 
 			layoutFFigureFlowModelBox.setSpacing(5);
 			layoutFFigureFlowModelBox.setVertical(true);

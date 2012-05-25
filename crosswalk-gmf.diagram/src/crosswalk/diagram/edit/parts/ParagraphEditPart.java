@@ -279,12 +279,13 @@ public class ParagraphEditPart extends ShapeNodeEditPart {
 		}
 
 		/**
-		 * @generated
+		 * @generated NOT
 		 */
 		private void createContents() {
 
 			fFigureParagraphHeadingLabel = new WrappingLabel();
 			fFigureParagraphHeadingLabel.setText("");
+			fFigureParagraphHeadingLabel.setTextWrap(true);
 
 			fFigureParagraphHeadingLabel.setFont(FFIGUREPARAGRAPHHEADINGLABEL_FONT);
 
@@ -292,6 +293,7 @@ public class ParagraphEditPart extends ShapeNodeEditPart {
 
 			fFigureParagraphTextLabel = new WrappingLabel();
 			fFigureParagraphTextLabel.setText("");
+			fFigureParagraphTextLabel.setTextWrap(true);
 
 			this.add(fFigureParagraphTextLabel);
 

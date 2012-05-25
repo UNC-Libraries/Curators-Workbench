@@ -45,8 +45,10 @@ public class CrosswalkPaletteFactory {
 	 * @generated NOT
 	 */
 	public void fillPalette(PaletteRoot paletteRoot) {
+		for(PaletteContainer p : createDictionaryContentsGroups()) {
+			paletteRoot.add(p);
+		}
 		paletteRoot.add(createMetadataMapping1Group());
-		paletteRoot.add(createDictionaryContentsGroup());
 		paletteRoot.add(createFormandDictionary2Group());
 	}
 
@@ -84,15 +86,18 @@ public class CrosswalkPaletteFactory {
 	/**
 	 * Creates custom "Dictionary" entry palette tool group
 	 */
-	private PaletteContainer createDictionaryContentsGroup() {
-		PaletteDrawer paletteContainer = new PaletteDrawer("My Dictionaries");
-		paletteContainer.setId("createCustomDictionary2Group"); //$NON-NLS-1$
+	private List<PaletteContainer> createDictionaryContentsGroups() {
+		List<PaletteContainer> result = new ArrayList<PaletteContainer>();
 		for (Dictionary dict : CrosswalkDiagramEditorPlugin.getInstance().getDictionaries()) {
+			PaletteDrawer paletteContainer = new PaletteDrawer(dict.getName());
+			paletteContainer.setDescription(dict.getDescription());
+			paletteContainer.setId("createCustomDictionary2Group"); //$NON-NLS-1$
 			for (MetadataBlock mb : dict.getBlocks()) {
 				paletteContainer.add(createMetadataBlockCopyTool(mb));
 			}
+			result.add(paletteContainer);
 		}
-		return paletteContainer;
+		return result;
 	}
 
 	/**

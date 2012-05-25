@@ -1163,13 +1163,22 @@ public interface CrosswalkPackage extends EPackage {
 	int FORM = 26;
 
 								/**
+	 * The feature id for the '<em><b>Output Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORM__OUTPUT_TYPE = EDITABLE_FEATURE_COUNT + 0;
+
+								/**
 	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FORM__ELEMENTS = EDITABLE_FEATURE_COUNT + 0;
+	int FORM__ELEMENTS = EDITABLE_FEATURE_COUNT + 1;
 
 								/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -1178,7 +1187,7 @@ public interface CrosswalkPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FORM__TITLE = EDITABLE_FEATURE_COUNT + 1;
+	int FORM__TITLE = EDITABLE_FEATURE_COUNT + 2;
 
 								/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -1187,7 +1196,7 @@ public interface CrosswalkPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FORM__DESCRIPTION = EDITABLE_FEATURE_COUNT + 2;
+	int FORM__DESCRIPTION = EDITABLE_FEATURE_COUNT + 3;
 
 								/**
 	 * The number of structural features of the '<em>Form</em>' class.
@@ -1196,7 +1205,7 @@ public interface CrosswalkPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FORM_FEATURE_COUNT = EDITABLE_FEATURE_COUNT + 3;
+	int FORM_FEATURE_COUNT = EDITABLE_FEATURE_COUNT + 4;
 
 								/**
 	 * The meta object id for the '{@link crosswalk.FormElement <em>Form Element</em>}' class.
