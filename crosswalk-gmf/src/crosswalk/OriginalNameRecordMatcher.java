@@ -101,32 +101,32 @@ public interface OriginalNameRecordMatcher extends RecordMatcherStrategy, Input 
 	 * @return the value of the '<em>Base Folder</em>' attribute.
 	 * @see #isSetBaseFolder()
 	 * @see #unsetBaseFolder()
-	 * @see #setBaseFolder(IFolder)
+	 * @see #setBaseFolder(String)
 	 * @see crosswalk.CrosswalkPackage#getOriginalNameRecordMatcher_BaseFolder()
-	 * @model unsettable="true" dataType="crosswalk.IFolder"
+	 * @model unsettable="true"
 	 * @generated
 	 */
-        IFolder getBaseFolder();
+        String getBaseFolder();
 
         /**
 	 * Sets the value of the '{@link crosswalk.OriginalNameRecordMatcher#getBaseFolder <em>Base Folder</em>}' attribute.
 	 * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Base Folder</em>' attribute.
 	 * @see #isSetBaseFolder()
 	 * @see #unsetBaseFolder()
 	 * @see #getBaseFolder()
 	 * @generated
 	 */
-        void setBaseFolder(IFolder value);
+	void setBaseFolder(String value);
 
-        /**
+								/**
 	 * Unsets the value of the '{@link crosswalk.OriginalNameRecordMatcher#getBaseFolder <em>Base Folder</em>}' attribute.
 	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
 	 * @see #isSetBaseFolder()
 	 * @see #getBaseFolder()
-	 * @see #setBaseFolder(IFolder)
+	 * @see #setBaseFolder(String)
 	 * @generated
 	 */
         void unsetBaseFolder();
@@ -138,7 +138,7 @@ public interface OriginalNameRecordMatcher extends RecordMatcherStrategy, Input 
 	 * @return whether the value of the '<em>Base Folder</em>' attribute is set.
 	 * @see #unsetBaseFolder()
 	 * @see #getBaseFolder()
-	 * @see #setBaseFolder(IFolder)
+	 * @see #setBaseFolder(String)
 	 * @generated
 	 */
         boolean isSetBaseFolder();

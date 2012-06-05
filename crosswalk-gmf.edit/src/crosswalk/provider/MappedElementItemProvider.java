@@ -117,7 +117,11 @@ public class MappedElementItemProvider
 	 */
         @Override
         public String getText(Object object) {
-		return getString("_UI_MappedElement_type");
+		Throwable labelValue = ((MappedElement)object).getException();
+		String label = labelValue == null ? null : labelValue.toString();
+		return label == null || label.length() == 0 ?
+			getString("_UI_MappedElement_type") :
+			getString("_UI_MappedElement_type") + " " + label;
 	}
 
         /**
@@ -132,6 +136,9 @@ public class MappedElementItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(MappedElement.class)) {
+			case CrosswalkPackage.MAPPED_ELEMENT__EXCEPTION:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case CrosswalkPackage.MAPPED_ELEMENT__CHILD_ELEMENTS:
 			case CrosswalkPackage.MAPPED_ELEMENT__ATTRIBUTES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));

@@ -128,7 +128,7 @@ public class OriginalNameRecordMatcherImpl extends WalkWidgetImpl implements Ori
 	 * @generated
 	 * @ordered
 	 */
-	protected static final IFolder BASE_FOLDER_EDEFAULT = null;
+	protected static final String BASE_FOLDER_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getBaseFolder() <em>Base Folder</em>}' attribute.
@@ -138,7 +138,7 @@ public class OriginalNameRecordMatcherImpl extends WalkWidgetImpl implements Ori
 	 * @generated
 	 * @ordered
 	 */
-	protected IFolder baseFolder = BASE_FOLDER_EDEFAULT;
+	protected String baseFolder = BASE_FOLDER_EDEFAULT;
 
 	/**
 	 * This is true if the Base Folder attribute has been set.
@@ -265,16 +265,17 @@ public class OriginalNameRecordMatcherImpl extends WalkWidgetImpl implements Ori
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public IFolder getBaseFolder() {
+	public String getBaseFolder() {
 		return baseFolder;
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setBaseFolder(IFolder newBaseFolder) {
-		IFolder oldBaseFolder = baseFolder;
+	public void setBaseFolder(String newBaseFolder) {
+		String oldBaseFolder = baseFolder;
 		baseFolder = newBaseFolder;
 		boolean oldBaseFolderESet = baseFolderESet;
 		baseFolderESet = true;
@@ -287,7 +288,7 @@ public class OriginalNameRecordMatcherImpl extends WalkWidgetImpl implements Ori
 	 * @generated
 	 */
 	public void unsetBaseFolder() {
-		IFolder oldBaseFolder = baseFolder;
+		String oldBaseFolder = baseFolder;
 		boolean oldBaseFolderESet = baseFolderESet;
 		baseFolder = BASE_FOLDER_EDEFAULT;
 		baseFolderESet = false;
@@ -308,8 +309,8 @@ public class OriginalNameRecordMatcherImpl extends WalkWidgetImpl implements Ori
 	 * 
 	 * @generated NOT
 	 */
-	public EDataType getInputEDataType() {
-		return EcorePackage.eINSTANCE.getEString();
+	public Class getInputType() {
+		return java.lang.String.class;
 	}
 
 	/**
@@ -516,7 +517,7 @@ public class OriginalNameRecordMatcherImpl extends WalkWidgetImpl implements Ori
 				setIncludeFileExtension((Boolean)newValue);
 				return;
 			case CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER__BASE_FOLDER:
-				setBaseFolder((IFolder)newValue);
+				setBaseFolder((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

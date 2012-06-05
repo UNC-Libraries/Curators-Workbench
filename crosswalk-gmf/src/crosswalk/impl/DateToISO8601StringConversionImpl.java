@@ -6,6 +6,7 @@
  */
 package crosswalk.impl;
 
+import java.util.Date;
 import java.text.SimpleDateFormat;
 
 import org.eclipse.emf.ecore.EClass;
@@ -62,6 +63,9 @@ public class DateToISO8601StringConversionImpl extends EObjectImpl implements Da
          * @generated NOT
          */
         public Object convert(Object input) {
+      	  if(!Date.class.isInstance(input)) {
+      		  throw new Error("Input is not a Date: "+ input.getClass().getName()+" "+input);
+      	  }
       	  if(input instanceof ImpreciseDate) {
       		  ImpreciseDate date = (ImpreciseDate)input;
       		  System.out.println("got imprecise date with precision: "+date.getPrecision());
@@ -83,21 +87,21 @@ public class DateToISO8601StringConversionImpl extends EObjectImpl implements Da
         }
 
         /**
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated NOT
-         */
-        public EDataType getInputDataType() {
-            return EcorePackage.eINSTANCE.getEDate();
-        }
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public Class getInputType() {
+      return java.util.Date.class;
+	}
 
-        /**
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated NOT
-         */
-        public EDataType getOutputDataType() {
-                return EcorePackage.eINSTANCE.getEString();
-        }
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public Class getOutputType() {
+      return java.lang.String.class;
+	}
 
 } //DateToISO8601StringConversionImpl

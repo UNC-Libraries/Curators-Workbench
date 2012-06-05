@@ -30,18 +30,18 @@ public interface ConversionStrategy extends EObject {
 
         /**
 	 * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-	 * @model kind="operation" required="true"
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" dataType="crosswalk.Clazz" required="true"
 	 * @generated
 	 */
-        EDataType getInputDataType();
+	Class getInputType();
 
-        /**
+								/**
 	 * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-	 * @model kind="operation" required="true"
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" dataType="crosswalk.Clazz" required="true"
 	 * @generated
 	 */
-        EDataType getOutputDataType();
+	Class getOutputType();
 
 } // ConversionStrategy

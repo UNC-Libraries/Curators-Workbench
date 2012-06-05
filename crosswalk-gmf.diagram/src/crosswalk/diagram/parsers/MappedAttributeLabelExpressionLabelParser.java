@@ -7,7 +7,7 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
-import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.util.TransactionUtil;
@@ -117,12 +117,12 @@ public class MappedAttributeLabelExpressionLabelParser implements IParser {
 		MappedAttribute ma = (MappedAttribute) self;
 		if (ma.getMappedFeature() != null) {
 			sb.append(ma.getMappedFeature().getName());
-			if ("String".equals(ma.getInputEDataType().getName())) {
+			if (String.class.equals(ma.getInputType())) {
 				// do nothing for now
-			} else if (ma.getInputEDataType() instanceof EEnum) {
-				// nothing for now
+			} else if (EClassifier.class.isAssignableFrom(ma.getInputType())) {
+				// do not include in label (probably 
 			} else {
-				sb.append(" (").append(ma.getInputEDataType().getInstanceClass().getSimpleName()).append(")");
+				sb.append(" (").append(ma.getInputType().getSimpleName()).append(")");
 			}
 		} else {
 			sb.append("Error (Unmapped Attribute)");

@@ -7,9 +7,6 @@
 package crosswalk;
 
 import java.net.URI;
-import org.eclipse.core.resources.IFile;
-
-import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->

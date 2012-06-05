@@ -4,6 +4,7 @@ import org.eclipse.gmf.runtime.common.core.command.ICommand;
 import org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 
+import crosswalk.diagram.custom.ReplaceNewObjectWithTemplateCommand;
 import crosswalk.diagram.providers.CrosswalkElementTypes;
 
 public class DictionaryMetaBlockTemplateAdvice extends AbstractEditHelperAdvice {

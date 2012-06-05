@@ -39,6 +39,7 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Platform;
+import org.eclipse.core.runtime.Preferences;
 import org.eclipse.core.runtime.QualifiedName;
 import org.eclipse.core.runtime.preferences.IEclipsePreferences;
 import org.eclipse.emf.common.command.CommandStack;
@@ -47,6 +48,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
+import org.osgi.service.prefs.BackingStoreException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -64,10 +66,10 @@ public class MetsProjectNature implements IProjectNature {
 	public static final String NATURE_ID = "cdr_producer.projectNature";
 	public static final QualifiedName EMF_SESSION_KEY = new QualifiedName(NATURE_ID, "cdr_producer.projectEMFSession");
 	public static final QualifiedName EDITING_DOMAIN_KEY = new QualifiedName(NATURE_ID, "cdr_producer.editingDomain");
-	public static final QualifiedName INITIAL_AUTOSTAGE_KEY = new QualifiedName(NATURE_ID, "cdr_producer.init_autostage");
+	//public static final QualifiedName INITIAL_AUTOSTAGE_KEY = new QualifiedName(NATURE_ID, "cdr_producer.init_autostage");
 	public static final String STAGING_BUILDER_ID = "unc.lib.cdr.workbench.builders.StageBuilder";
 	public static final String CROSSWALKS_BUILDER_ID = "unc.lib.cdr.workbench.builders.CrosswalksBuilder";
-	private static final QualifiedName STAGING_BASE_URI_KEY = new QualifiedName(NATURE_ID, "cdr_producer.stagingBaseURI");
+	private static final String STAGING_BASE_URI_KEY = "cdr_producer.stagingBaseURI";
 
 	private IProject project = null;
 
@@ -205,13 +207,15 @@ public class MetsProjectNature implements IProjectNature {
 		Resource objectResource = object.eResource();
 		if (objectResource != null) {
 			for (IProject p : ResourcesPlugin.getWorkspace().getRoot().getProjects()) {
-				try {
-					ProjectEMFSession session = (ProjectEMFSession) p.getSessionProperty(EMF_SESSION_KEY);
-					if (objectResource.equals(session.getMetsResource())) {
-						return p;
+				if (p.isOpen()) {
+					try {
+						ProjectEMFSession session = (ProjectEMFSession) p.getSessionProperty(EMF_SESSION_KEY);
+						if (session != null && objectResource.equals(session.getMetsResource())) {
+							return p;
+						}
+					} catch (CoreException ignored) {
+						ignored.printStackTrace();
 					}
-				} catch (CoreException ignored) {
-					ignored.printStackTrace();
 				}
 			}
 		}
@@ -307,16 +311,19 @@ public class MetsProjectNature implements IProjectNature {
 	 * @param stageURI
 	 */
 	public static void setStagingBase(java.net.URI stageURI, IProject project) {
-		try {
-			project.setPersistentProperty(STAGING_BASE_URI_KEY, stageURI.toString());
-		} catch (CoreException e) {
-			throw new Error("Cannot set staging base for project.", e);
-		}
+			IEclipsePreferences projectNode = new ProjectScope(project).getNode(Activator.PLUGIN_ID);
+			projectNode.put(STAGING_BASE_URI_KEY, stageURI.toString());
+			try {
+				projectNode.flush();
+			} catch (BackingStoreException e) {
+				throw new Error(e);
+			}
 	}
 
 	public java.net.URI getStagingBase() {
 		try {
-			String s = this.getProject().getPersistentProperty(STAGING_BASE_URI_KEY);
+			IEclipsePreferences projectNode = new ProjectScope(project).getNode(Activator.PLUGIN_ID);
+			String s = projectNode.get(STAGING_BASE_URI_KEY, null);
 			return new java.net.URI(s);
 		} catch (Exception e) {
 			throw new Error("unexpected", e);

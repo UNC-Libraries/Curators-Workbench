@@ -341,8 +341,8 @@ public class CrosswalkBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 			try {
 				if (target == null) {
 					result = true;
-				} else if (source != null && source.getInputEDataType() != null) {
-					if (source.getInputEDataType().getInstanceClass().equals(target.getOutputEDataType().getInstanceClass())) {
+				} else if (source != null && source.getInputType() != null) {
+					if (source.getInputType().isAssignableFrom(target.getOutputType())) {
 						result = true;
 					}
 				}

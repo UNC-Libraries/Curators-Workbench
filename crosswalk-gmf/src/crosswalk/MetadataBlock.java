@@ -19,6 +19,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link crosswalk.MetadataBlock#getName <em>Name</em>}</li>
  *   <li>{@link crosswalk.MetadataBlock#getDescription <em>Description</em>}</li>
  *   <li>{@link crosswalk.MetadataBlock#getPorts <em>Ports</em>}</li>
+ *   <li>{@link crosswalk.MetadataBlock#isRequired <em>Required</em>}</li>
  * </ul>
  * </p>
  *
@@ -81,7 +82,7 @@ public interface MetadataBlock extends OutputElement, MappingContainer, FormElem
 
 	/**
 	 * Returns the value of the '<em><b>Ports</b></em>' containment reference list.
-	 * The list contents are of type {@link crosswalk.InputField}.
+	 * The list contents are of type {@link crosswalk.InputField}&lt;?>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Ports</em>' containment reference list isn't clear,
@@ -93,6 +94,33 @@ public interface MetadataBlock extends OutputElement, MappingContainer, FormElem
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<InputField> getPorts();
+	EList<InputField<?>> getPorts();
+
+	/**
+	 * Returns the value of the '<em><b>Required</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Required</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Required</em>' attribute.
+	 * @see #setRequired(boolean)
+	 * @see crosswalk.CrosswalkPackage#getMetadataBlock_Required()
+	 * @model default="false" required="true"
+	 * @generated
+	 */
+	boolean isRequired();
+
+	/**
+	 * Sets the value of the '{@link crosswalk.MetadataBlock#isRequired <em>Required</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Required</em>' attribute.
+	 * @see #isRequired()
+	 * @generated
+	 */
+	void setRequired(boolean value);
 
 } // MetadataBlock

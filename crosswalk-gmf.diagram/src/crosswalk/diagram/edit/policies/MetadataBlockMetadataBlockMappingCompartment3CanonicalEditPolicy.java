@@ -24,6 +24,8 @@ import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 
 import crosswalk.CrosswalkPackage;
+import crosswalk.diagram.edit.parts.CurrentDateEditPart;
+import crosswalk.diagram.edit.parts.CurrentUsernameEditPart;
 import crosswalk.diagram.edit.parts.DateRecognizerEditPart;
 import crosswalk.diagram.edit.parts.MappedElementEditPart;
 import crosswalk.diagram.edit.parts.TextEditPart;
@@ -98,6 +100,8 @@ public class MetadataBlockMetadataBlockMappingCompartment3CanonicalEditPolicy ex
 			case TextEditPart.VISUAL_ID:
 			case TrimWhitespaceEditPart.VISUAL_ID:
 			case MappedElementEditPart.VISUAL_ID:
+			case CurrentDateEditPart.VISUAL_ID:
+			case CurrentUsernameEditPart.VISUAL_ID:
 				return true;
 		}
 		return false;

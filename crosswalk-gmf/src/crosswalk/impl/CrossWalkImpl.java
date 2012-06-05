@@ -28,6 +28,7 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -37,10 +38,9 @@ import crosswalk.CrosswalkPackage;
 import crosswalk.DataException;
 import crosswalk.DataSource;
 import crosswalk.Editable;
-import crosswalk.MappedElement;
 import crosswalk.MappingContainer;
-import crosswalk.OutputElement;
 import crosswalk.MetsSource;
+import crosswalk.OutputElement;
 import crosswalk.WalkWidget;
 
 /**
@@ -52,13 +52,14 @@ import crosswalk.WalkWidget;
  * <ul>
  *   <li>{@link crosswalk.impl.CrossWalkImpl#getWidgets <em>Widgets</em>}</li>
  *   <li>{@link crosswalk.impl.CrossWalkImpl#getElements <em>Elements</em>}</li>
+ *   <li>{@link crosswalk.impl.CrossWalkImpl#getExceptions <em>Exceptions</em>}</li>
  *   <li>{@link crosswalk.impl.CrossWalkImpl#getDataSource <em>Data Source</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class CrossWalkImpl extends SchemaProviderImpl implements CrossWalk {
+public class CrossWalkImpl extends ContextProviderImpl implements CrossWalk {
         /**
 	 * The cached value of the '{@link #getWidgets() <em>Widgets</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -78,6 +79,16 @@ public class CrossWalkImpl extends SchemaProviderImpl implements CrossWalk {
 	 * @ordered
 	 */
         protected EList<OutputElement> elements;
+
+								/**
+	 * The cached value of the '{@link #getExceptions() <em>Exceptions</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExceptions()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Throwable> exceptions;
 
 								/**
 	 * The cached value of the '{@link #getDataSource() <em>Data Source</em>}' containment reference.
@@ -170,23 +181,24 @@ public class CrossWalkImpl extends SchemaProviderImpl implements CrossWalk {
 	 */
         public EList<OutputElement> getElements() {
 		if (elements == null) {
-			elements = new EObjectContainmentEList<OutputElement>(OutputElement.class, this, CrosswalkPackage.CROSS_WALK__ELEMENTS);
+			elements = new EObjectContainmentWithInverseEList<OutputElement>(OutputElement.class, this, CrosswalkPackage.CROSS_WALK__ELEMENTS, CrosswalkPackage.OUTPUT_ELEMENT__WALK);
 		}
 		return elements;
 	}
 
         /**
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated NOT
-         */
-        public IProject getProject() throws DataException {
-            URI uri = this.eResource().getURI();
-            IFile resc = ResourcesPlugin.getWorkspace().getRoot().getFileForLocation(new Path(uri.toFileString()));
-            return resc.getProject();
-        }
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Throwable> getExceptions() {
+		if (exceptions == null) {
+			exceptions = new EDataTypeUniqueEList<Throwable>(Throwable.class, this, CrosswalkPackage.CROSS_WALK__EXCEPTIONS);
+		}
+		return exceptions;
+	}
 
-        /**
+								/**
 	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
 	 * @generated
@@ -197,6 +209,8 @@ public class CrossWalkImpl extends SchemaProviderImpl implements CrossWalk {
 		switch (featureID) {
 			case CrosswalkPackage.CROSS_WALK__WIDGETS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getWidgets()).basicAdd(otherEnd, msgs);
+			case CrosswalkPackage.CROSS_WALK__ELEMENTS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getElements()).basicAdd(otherEnd, msgs);
 			case CrosswalkPackage.CROSS_WALK__DATA_SOURCE:
 				if (dataSource != null)
 					msgs = ((InternalEObject)dataSource).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CrosswalkPackage.CROSS_WALK__DATA_SOURCE, null, msgs);
@@ -235,6 +249,8 @@ public class CrossWalkImpl extends SchemaProviderImpl implements CrossWalk {
 				return getWidgets();
 			case CrosswalkPackage.CROSS_WALK__ELEMENTS:
 				return getElements();
+			case CrosswalkPackage.CROSS_WALK__EXCEPTIONS:
+				return getExceptions();
 			case CrosswalkPackage.CROSS_WALK__DATA_SOURCE:
 				return getDataSource();
 		}
@@ -258,6 +274,10 @@ public class CrossWalkImpl extends SchemaProviderImpl implements CrossWalk {
 				getElements().clear();
 				getElements().addAll((Collection<? extends OutputElement>)newValue);
 				return;
+			case CrosswalkPackage.CROSS_WALK__EXCEPTIONS:
+				getExceptions().clear();
+				getExceptions().addAll((Collection<? extends Throwable>)newValue);
+				return;
 			case CrosswalkPackage.CROSS_WALK__DATA_SOURCE:
 				setDataSource((DataSource)newValue);
 				return;
@@ -279,6 +299,9 @@ public class CrossWalkImpl extends SchemaProviderImpl implements CrossWalk {
 			case CrosswalkPackage.CROSS_WALK__ELEMENTS:
 				getElements().clear();
 				return;
+			case CrosswalkPackage.CROSS_WALK__EXCEPTIONS:
+				getExceptions().clear();
+				return;
 			case CrosswalkPackage.CROSS_WALK__DATA_SOURCE:
 				setDataSource((DataSource)null);
 				return;
@@ -298,6 +321,8 @@ public class CrossWalkImpl extends SchemaProviderImpl implements CrossWalk {
 				return widgets != null && !widgets.isEmpty();
 			case CrosswalkPackage.CROSS_WALK__ELEMENTS:
 				return elements != null && !elements.isEmpty();
+			case CrosswalkPackage.CROSS_WALK__EXCEPTIONS:
+				return exceptions != null && !exceptions.isEmpty();
 			case CrosswalkPackage.CROSS_WALK__DATA_SOURCE:
 				return dataSource != null;
 		}
@@ -315,6 +340,7 @@ public class CrossWalkImpl extends SchemaProviderImpl implements CrossWalk {
 			switch (derivedFeatureID) {
 				case CrosswalkPackage.CROSS_WALK__WIDGETS: return CrosswalkPackage.MAPPING_CONTAINER__WIDGETS;
 				case CrosswalkPackage.CROSS_WALK__ELEMENTS: return CrosswalkPackage.MAPPING_CONTAINER__ELEMENTS;
+				case CrosswalkPackage.CROSS_WALK__EXCEPTIONS: return CrosswalkPackage.MAPPING_CONTAINER__EXCEPTIONS;
 				default: return -1;
 			}
 		}
@@ -337,6 +363,7 @@ public class CrossWalkImpl extends SchemaProviderImpl implements CrossWalk {
 			switch (baseFeatureID) {
 				case CrosswalkPackage.MAPPING_CONTAINER__WIDGETS: return CrosswalkPackage.CROSS_WALK__WIDGETS;
 				case CrosswalkPackage.MAPPING_CONTAINER__ELEMENTS: return CrosswalkPackage.CROSS_WALK__ELEMENTS;
+				case CrosswalkPackage.MAPPING_CONTAINER__EXCEPTIONS: return CrosswalkPackage.CROSS_WALK__EXCEPTIONS;
 				default: return -1;
 			}
 		}
@@ -346,6 +373,22 @@ public class CrossWalkImpl extends SchemaProviderImpl implements CrossWalk {
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (exceptions: ");
+		result.append(exceptions);
+		result.append(')');
+		return result.toString();
 	}
 
 	/* (non-Javadoc)

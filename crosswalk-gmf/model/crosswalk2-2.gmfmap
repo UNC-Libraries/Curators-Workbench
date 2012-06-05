@@ -225,6 +225,50 @@
         <containmentFeature
             href="crosswalk.ecore#//MappingContainer/elements"/>
       </children>
+      <children>
+        <containmentFeature
+            href="crosswalk.ecore#//MappingContainer/widgets"/>
+        <ownedChild>
+          <domainMetaElement
+              href="crosswalk.ecore#//CurrentDate"/>
+          <labelMappings
+              xsi:type="gmfmap:ExpressionLabelMapping"
+              readOnly="true">
+            <diagramLabel
+                href="crosswalk.gmfgraph#WidgetLabel"/>
+            <viewExpression
+                body="&quot;Current Date&quot;"
+                language="literal"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="crosswalk.gmftool#//@palette/@tools.0/@tools.8"/>
+          <diagramNode
+              href="crosswalk.gmfgraph#GenericWidgetNode"/>
+        </ownedChild>
+      </children>
+      <children>
+        <containmentFeature
+            href="crosswalk.ecore#//MappingContainer/widgets"/>
+        <ownedChild>
+          <domainMetaElement
+              href="crosswalk.ecore#//CurrentUsername"/>
+          <labelMappings
+              xsi:type="gmfmap:ExpressionLabelMapping"
+              readOnly="true">
+            <diagramLabel
+                href="crosswalk.gmfgraph#WidgetLabel"/>
+            <viewExpression
+                body="&quot;Current Username&quot;"
+                language="literal"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="crosswalk.gmftool#//@palette/@tools.0/@tools.7"/>
+          <diagramNode
+              href="crosswalk.gmfgraph#GenericWidgetNode"/>
+        </ownedChild>
+      </children>
       <compartments
           children="//@nodes.0/@ownedChild/@children.0 //@nodes.0/@ownedChild/@children.1 //@nodes.0/@ownedChild/@children.2 //@nodes.0/@ownedChild/@children.3 //@nodes.0/@ownedChild/@children.4 //@nodes.0/@ownedChild/@children.5 //@nodes.0/@ownedChild/@children.6">
         <compartment
@@ -315,7 +359,7 @@
                 href="crosswalk.ecore#//MetadataBlock/ports"/>
             <ownedChild>
               <domainMetaElement
-                  href="crosswalk.ecore#//InputField"/>
+                  href="crosswalk.ecore#//TextInputField"/>
               <labelMappings
                   xsi:type="gmfmap:FeatureLabelMapping"
                   viewMethod="NATIVE"
@@ -334,13 +378,50 @@
                   href="crosswalk.gmfgraph#InputFieldNode"/>
             </ownedChild>
           </children>
+          <children
+              compartment="//@nodes.1/@ownedChild/@children.0/@ownedChild/@compartments.1"
+              referencedChild="//@nodes.0/@ownedChild/@children.7/@ownedChild">
+            <containmentFeature
+                href="crosswalk.ecore#//MappingContainer/widgets"/>
+          </children>
+          <children
+              compartment="//@nodes.1/@ownedChild/@children.0/@ownedChild/@compartments.1"
+              referencedChild="//@nodes.0/@ownedChild/@children.8/@ownedChild">
+            <containmentFeature
+                href="crosswalk.ecore#//MappingContainer/widgets"/>
+          </children>
+          <children
+              compartment="//@nodes.1/@ownedChild/@children.0/@ownedChild/@compartments.0">
+            <containmentFeature
+                href="crosswalk.ecore#//MetadataBlock/ports"/>
+            <ownedChild>
+              <domainMetaElement
+                  href="crosswalk.ecore#//DateInputField"/>
+              <labelMappings
+                  xsi:type="gmfmap:FeatureLabelMapping"
+                  viewMethod="NATIVE"
+                  editMethod="NATIVE">
+                <diagramLabel
+                    href="crosswalk.gmfgraph#InputFieldLabel"/>
+                <features
+                    href="crosswalk.ecore#//InputField/label"/>
+                <editableFeatures
+                    href="crosswalk.ecore#//InputField/label"/>
+              </labelMappings>
+              <tool
+                  xsi:type="gmftool:CreationTool"
+                  href="crosswalk.gmftool#//@palette/@tools.1/@tools.2"/>
+              <diagramNode
+                  href="crosswalk.gmfgraph#InputFieldNode"/>
+            </ownedChild>
+          </children>
           <compartments
-              children="//@nodes.1/@ownedChild/@children.0/@ownedChild/@children.4">
+              children="//@nodes.1/@ownedChild/@children.0/@ownedChild/@children.4 //@nodes.1/@ownedChild/@children.0/@ownedChild/@children.7">
             <compartment
                 href="crosswalk.gmfgraph#MetadataBlockInputFieldsCompartment"/>
           </compartments>
           <compartments
-              children="//@nodes.1/@ownedChild/@children.0/@ownedChild/@children.0 //@nodes.1/@ownedChild/@children.0/@ownedChild/@children.1 //@nodes.1/@ownedChild/@children.0/@ownedChild/@children.2 //@nodes.1/@ownedChild/@children.0/@ownedChild/@children.3">
+              children="//@nodes.1/@ownedChild/@children.0/@ownedChild/@children.0 //@nodes.1/@ownedChild/@children.0/@ownedChild/@children.1 //@nodes.1/@ownedChild/@children.0/@ownedChild/@children.2 //@nodes.1/@ownedChild/@children.0/@ownedChild/@children.3 //@nodes.1/@ownedChild/@children.0/@ownedChild/@children.5 //@nodes.1/@ownedChild/@children.0/@ownedChild/@children.6">
             <compartment
                 href="crosswalk.gmfgraph#MetadataBlockMappingCompartment"/>
           </compartments>
@@ -447,7 +528,7 @@
         href="crosswalk.ecore#//Input/Output"/>
     <creationConstraints>
       <sourceEnd
-          body="self.getInputEDataType().getClassifierID() = oppositeEnd.getOutputEDataType().getClassifierID()"
+          body="self.getInputType().isAssignableFrom(oppositeEnd.getOutputType)"
           language="java"/>
     </creationConstraints>
   </links>

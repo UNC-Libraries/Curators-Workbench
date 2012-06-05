@@ -288,7 +288,16 @@ public class OriginalNameRecordMatcherEditPart extends ShapeNodeEditPart {
 		if (targetEditPart instanceof TrimWhitespaceEditPart) {
 			types.add(CrosswalkElementTypes.InputOutput_4001);
 		}
-		if (targetEditPart instanceof InputFieldEditPart) {
+		if (targetEditPart instanceof TextInputFieldEditPart) {
+			types.add(CrosswalkElementTypes.InputOutput_4001);
+		}
+		if (targetEditPart instanceof CurrentDateEditPart) {
+			types.add(CrosswalkElementTypes.InputOutput_4001);
+		}
+		if (targetEditPart instanceof CurrentUsernameEditPart) {
+			types.add(CrosswalkElementTypes.InputOutput_4001);
+		}
+		if (targetEditPart instanceof DateInputFieldEditPart) {
 			types.add(CrosswalkElementTypes.InputOutput_4001);
 		}
 		return types;
@@ -304,7 +313,10 @@ public class OriginalNameRecordMatcherEditPart extends ShapeNodeEditPart {
 			types.add(CrosswalkElementTypes.DateRecognizer_3004);
 			types.add(CrosswalkElementTypes.Text_3005);
 			types.add(CrosswalkElementTypes.TrimWhitespace_3006);
-			types.add(CrosswalkElementTypes.InputField_3017);
+			types.add(CrosswalkElementTypes.TextInputField_3023);
+			types.add(CrosswalkElementTypes.CurrentDate_3021);
+			types.add(CrosswalkElementTypes.CurrentUsername_3022);
+			types.add(CrosswalkElementTypes.DateInputField_3024);
 		}
 		return types;
 	}

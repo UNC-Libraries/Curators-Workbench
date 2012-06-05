@@ -25,6 +25,10 @@ import crosswalk.CrosswalkPackage;
 import crosswalk.EditingContainer;
 import crosswalk.diagram.edit.parts.CrossWalkEditPart;
 import crosswalk.diagram.edit.parts.CrossWalkModelBoxCompartmentEditPart;
+import crosswalk.diagram.edit.parts.CurrentDateEditPart;
+import crosswalk.diagram.edit.parts.CurrentUsernameEditPart;
+import crosswalk.diagram.edit.parts.DateInputFieldEditPart;
+import crosswalk.diagram.edit.parts.DateInputFieldLabelEditPart;
 import crosswalk.diagram.edit.parts.DateRecognizerEditPart;
 import crosswalk.diagram.edit.parts.DelimitedFileDataFieldCompartmentEditPart;
 import crosswalk.diagram.edit.parts.DelimitedFileEditPart;
@@ -38,8 +42,6 @@ import crosswalk.diagram.edit.parts.FormDescriptionEditPart;
 import crosswalk.diagram.edit.parts.FormEditPart;
 import crosswalk.diagram.edit.parts.FormModelBoxCompartmentEditPart;
 import crosswalk.diagram.edit.parts.FormTitleEditPart;
-import crosswalk.diagram.edit.parts.InputFieldEditPart;
-import crosswalk.diagram.edit.parts.InputFieldLabelEditPart;
 import crosswalk.diagram.edit.parts.MappedAttributeEditPart;
 import crosswalk.diagram.edit.parts.MappedElement2EditPart;
 import crosswalk.diagram.edit.parts.MappedElementChildElementsCompartment2EditPart;
@@ -64,6 +66,8 @@ import crosswalk.diagram.edit.parts.ParagraphTextEditPart;
 import crosswalk.diagram.edit.parts.TabbedDataFieldEditPart;
 import crosswalk.diagram.edit.parts.TabbedDataFieldLabelColumnNumberEditPart;
 import crosswalk.diagram.edit.parts.TextEditPart;
+import crosswalk.diagram.edit.parts.TextInputFieldEditPart;
+import crosswalk.diagram.edit.parts.TextInputFieldLabelEditPart;
 import crosswalk.diagram.edit.parts.TextValueEditPart;
 import crosswalk.diagram.edit.parts.TrimWhitespaceEditPart;
 import crosswalk.diagram.edit.parts.WrappingLabel2EditPart;
@@ -72,6 +76,8 @@ import crosswalk.diagram.edit.parts.WrappingLabel4EditPart;
 import crosswalk.diagram.edit.parts.WrappingLabel5EditPart;
 import crosswalk.diagram.edit.parts.WrappingLabel6EditPart;
 import crosswalk.diagram.edit.parts.WrappingLabel7EditPart;
+import crosswalk.diagram.edit.parts.WrappingLabel8EditPart;
+import crosswalk.diagram.edit.parts.WrappingLabel9EditPart;
 import crosswalk.diagram.edit.parts.WrappingLabelEditPart;
 
 /**
@@ -186,6 +192,14 @@ public class CrosswalkVisualIDRegistry {
 					return FormEditPart.VISUAL_ID;
 				}
 				break;
+			case CrossWalkEditPart.VISUAL_ID:
+				if (CrosswalkPackage.eINSTANCE.getCurrentDate().isSuperTypeOf(domainElement.eClass())) {
+					return CurrentDateEditPart.VISUAL_ID;
+				}
+				if (CrosswalkPackage.eINSTANCE.getCurrentUsername().isSuperTypeOf(domainElement.eClass())) {
+					return CurrentUsernameEditPart.VISUAL_ID;
+				}
+				break;
 			case CrossWalkModelBoxCompartmentEditPart.VISUAL_ID:
 				if (CrosswalkPackage.eINSTANCE.getDelimitedFile().isSuperTypeOf(domainElement.eClass())) {
 					return DelimitedFileEditPart.VISUAL_ID;
@@ -231,8 +245,11 @@ public class CrosswalkVisualIDRegistry {
 				}
 				break;
 			case MetadataBlockMetadataBlockInputFieldsCompartment2EditPart.VISUAL_ID:
-				if (CrosswalkPackage.eINSTANCE.getInputField().isSuperTypeOf(domainElement.eClass())) {
-					return InputFieldEditPart.VISUAL_ID;
+				if (CrosswalkPackage.eINSTANCE.getTextInputField().isSuperTypeOf(domainElement.eClass())) {
+					return TextInputFieldEditPart.VISUAL_ID;
+				}
+				if (CrosswalkPackage.eINSTANCE.getDateInputField().isSuperTypeOf(domainElement.eClass())) {
+					return DateInputFieldEditPart.VISUAL_ID;
 				}
 				break;
 			case MetadataBlockMetadataBlockMappingCompartment2EditPart.VISUAL_ID:
@@ -248,6 +265,12 @@ public class CrosswalkVisualIDRegistry {
 				if (CrosswalkPackage.eINSTANCE.getMappedElement().isSuperTypeOf(domainElement.eClass())) {
 					return MappedElementEditPart.VISUAL_ID;
 				}
+				if (CrosswalkPackage.eINSTANCE.getCurrentDate().isSuperTypeOf(domainElement.eClass())) {
+					return CurrentDateEditPart.VISUAL_ID;
+				}
+				if (CrosswalkPackage.eINSTANCE.getCurrentUsername().isSuperTypeOf(domainElement.eClass())) {
+					return CurrentUsernameEditPart.VISUAL_ID;
+				}
 				break;
 			case DictionaryModelBoxCompartmentEditPart.VISUAL_ID:
 				if (CrosswalkPackage.eINSTANCE.getMetadataBlock().isSuperTypeOf(domainElement.eClass())) {
@@ -255,8 +278,11 @@ public class CrosswalkVisualIDRegistry {
 				}
 				break;
 			case MetadataBlockMetadataBlockInputFieldsCompartmentEditPart.VISUAL_ID:
-				if (CrosswalkPackage.eINSTANCE.getInputField().isSuperTypeOf(domainElement.eClass())) {
-					return InputFieldEditPart.VISUAL_ID;
+				if (CrosswalkPackage.eINSTANCE.getTextInputField().isSuperTypeOf(domainElement.eClass())) {
+					return TextInputFieldEditPart.VISUAL_ID;
+				}
+				if (CrosswalkPackage.eINSTANCE.getDateInputField().isSuperTypeOf(domainElement.eClass())) {
+					return DateInputFieldEditPart.VISUAL_ID;
 				}
 				break;
 			case MetadataBlockMetadataBlockMappingCompartmentEditPart.VISUAL_ID:
@@ -272,6 +298,12 @@ public class CrosswalkVisualIDRegistry {
 				if (CrosswalkPackage.eINSTANCE.getMappedElement().isSuperTypeOf(domainElement.eClass())) {
 					return MappedElementEditPart.VISUAL_ID;
 				}
+				if (CrosswalkPackage.eINSTANCE.getCurrentDate().isSuperTypeOf(domainElement.eClass())) {
+					return CurrentDateEditPart.VISUAL_ID;
+				}
+				if (CrosswalkPackage.eINSTANCE.getCurrentUsername().isSuperTypeOf(domainElement.eClass())) {
+					return CurrentUsernameEditPart.VISUAL_ID;
+				}
 				break;
 			case FormModelBoxCompartmentEditPart.VISUAL_ID:
 				if (CrosswalkPackage.eINSTANCE.getMetadataBlock().isSuperTypeOf(domainElement.eClass())) {
@@ -282,8 +314,11 @@ public class CrosswalkVisualIDRegistry {
 				}
 				break;
 			case MetadataBlockMetadataBlockInputFieldsCompartment3EditPart.VISUAL_ID:
-				if (CrosswalkPackage.eINSTANCE.getInputField().isSuperTypeOf(domainElement.eClass())) {
-					return InputFieldEditPart.VISUAL_ID;
+				if (CrosswalkPackage.eINSTANCE.getTextInputField().isSuperTypeOf(domainElement.eClass())) {
+					return TextInputFieldEditPart.VISUAL_ID;
+				}
+				if (CrosswalkPackage.eINSTANCE.getDateInputField().isSuperTypeOf(domainElement.eClass())) {
+					return DateInputFieldEditPart.VISUAL_ID;
 				}
 				break;
 			case MetadataBlockMetadataBlockMappingCompartment3EditPart.VISUAL_ID:
@@ -298,6 +333,12 @@ public class CrosswalkVisualIDRegistry {
 				}
 				if (CrosswalkPackage.eINSTANCE.getMappedElement().isSuperTypeOf(domainElement.eClass())) {
 					return MappedElementEditPart.VISUAL_ID;
+				}
+				if (CrosswalkPackage.eINSTANCE.getCurrentDate().isSuperTypeOf(domainElement.eClass())) {
+					return CurrentDateEditPart.VISUAL_ID;
+				}
+				if (CrosswalkPackage.eINSTANCE.getCurrentUsername().isSuperTypeOf(domainElement.eClass())) {
+					return CurrentUsernameEditPart.VISUAL_ID;
 				}
 				break;
 		}
@@ -336,6 +377,12 @@ public class CrosswalkVisualIDRegistry {
 				break;
 			case CrossWalkEditPart.VISUAL_ID:
 				if (CrossWalkModelBoxCompartmentEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				if (CurrentDateEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				if (CurrentUsernameEditPart.VISUAL_ID == nodeVisualID) {
 					return true;
 				}
 				break;
@@ -429,8 +476,23 @@ public class CrosswalkVisualIDRegistry {
 					return true;
 				}
 				break;
-			case InputFieldEditPart.VISUAL_ID:
-				if (InputFieldLabelEditPart.VISUAL_ID == nodeVisualID) {
+			case TextInputFieldEditPart.VISUAL_ID:
+				if (TextInputFieldLabelEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				break;
+			case CurrentDateEditPart.VISUAL_ID:
+				if (WrappingLabel8EditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				break;
+			case CurrentUsernameEditPart.VISUAL_ID:
+				if (WrappingLabel9EditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				break;
+			case DateInputFieldEditPart.VISUAL_ID:
+				if (DateInputFieldLabelEditPart.VISUAL_ID == nodeVisualID) {
 					return true;
 				}
 				break;
@@ -509,7 +571,10 @@ public class CrosswalkVisualIDRegistry {
 				}
 				break;
 			case MetadataBlockMetadataBlockInputFieldsCompartment2EditPart.VISUAL_ID:
-				if (InputFieldEditPart.VISUAL_ID == nodeVisualID) {
+				if (TextInputFieldEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				if (DateInputFieldEditPart.VISUAL_ID == nodeVisualID) {
 					return true;
 				}
 				break;
@@ -526,6 +591,12 @@ public class CrosswalkVisualIDRegistry {
 				if (MappedElementEditPart.VISUAL_ID == nodeVisualID) {
 					return true;
 				}
+				if (CurrentDateEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				if (CurrentUsernameEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
 				break;
 			case DictionaryModelBoxCompartmentEditPart.VISUAL_ID:
 				if (MetadataBlockEditPart.VISUAL_ID == nodeVisualID) {
@@ -533,7 +604,10 @@ public class CrosswalkVisualIDRegistry {
 				}
 				break;
 			case MetadataBlockMetadataBlockInputFieldsCompartmentEditPart.VISUAL_ID:
-				if (InputFieldEditPart.VISUAL_ID == nodeVisualID) {
+				if (TextInputFieldEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				if (DateInputFieldEditPart.VISUAL_ID == nodeVisualID) {
 					return true;
 				}
 				break;
@@ -550,6 +624,12 @@ public class CrosswalkVisualIDRegistry {
 				if (MappedElementEditPart.VISUAL_ID == nodeVisualID) {
 					return true;
 				}
+				if (CurrentDateEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				if (CurrentUsernameEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
 				break;
 			case FormModelBoxCompartmentEditPart.VISUAL_ID:
 				if (MetadataBlock3EditPart.VISUAL_ID == nodeVisualID) {
@@ -560,7 +640,10 @@ public class CrosswalkVisualIDRegistry {
 				}
 				break;
 			case MetadataBlockMetadataBlockInputFieldsCompartment3EditPart.VISUAL_ID:
-				if (InputFieldEditPart.VISUAL_ID == nodeVisualID) {
+				if (TextInputFieldEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				if (DateInputFieldEditPart.VISUAL_ID == nodeVisualID) {
 					return true;
 				}
 				break;
@@ -575,6 +658,12 @@ public class CrosswalkVisualIDRegistry {
 					return true;
 				}
 				if (MappedElementEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				if (CurrentDateEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				if (CurrentUsernameEditPart.VISUAL_ID == nodeVisualID) {
 					return true;
 				}
 				break;

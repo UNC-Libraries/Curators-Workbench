@@ -47,12 +47,12 @@ import crosswalk.diagram.providers.CrosswalkParserProvider;
 /**
  * @generated
  */
-public class InputFieldLabelEditPart extends CompartmentEditPart implements ITextAwareEditPart {
+public class DateInputFieldLabelEditPart extends CompartmentEditPart implements ITextAwareEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5017;
+	public static final int VISUAL_ID = 5030;
 
 	/**
 	 * @generated
@@ -77,7 +77,7 @@ public class InputFieldLabelEditPart extends CompartmentEditPart implements ITex
 	/**
 	 * @generated
 	 */
-	public InputFieldLabelEditPart(View view) {
+	public DateInputFieldLabelEditPart(View view) {
 		super(view);
 	}
 
@@ -274,8 +274,8 @@ public class InputFieldLabelEditPart extends CompartmentEditPart implements ITex
 	 */
 	public IParser getParser() {
 		if (parser == null) {
-			parser = CrosswalkParserProvider.getParser(CrosswalkElementTypes.InputField_3017, getParserElement(),
-					CrosswalkVisualIDRegistry.getType(crosswalk.diagram.edit.parts.InputFieldLabelEditPart.VISUAL_ID));
+			parser = CrosswalkParserProvider.getParser(CrosswalkElementTypes.DateInputField_3024, getParserElement(),
+					CrosswalkVisualIDRegistry.getType(crosswalk.diagram.edit.parts.DateInputFieldLabelEditPart.VISUAL_ID));
 		}
 		return parser;
 	}

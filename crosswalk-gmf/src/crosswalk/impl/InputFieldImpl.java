@@ -6,10 +6,11 @@
  */
 package crosswalk.impl;
 
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EDataType;
-import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
@@ -30,12 +31,14 @@ import crosswalk.Output;
  *   <li>{@link crosswalk.impl.InputFieldImpl#getOutput <em>Output</em>}</li>
  *   <li>{@link crosswalk.impl.InputFieldImpl#getLabel <em>Label</em>}</li>
  *   <li>{@link crosswalk.impl.InputFieldImpl#getUsage <em>Usage</em>}</li>
+ *   <li>{@link crosswalk.impl.InputFieldImpl#isRequired <em>Required</em>}</li>
+ *   <li>{@link crosswalk.impl.InputFieldImpl#getEnteredValue <em>Entered Value</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class InputFieldImpl extends EObjectImpl implements InputField {
+public class InputFieldImpl<F> extends EObjectImpl implements InputField<F> {
 	/**
 	 * The cached value of the '{@link #getOutput() <em>Output</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -96,12 +99,58 @@ public class InputFieldImpl extends EObjectImpl implements InputField {
 	protected String usage = USAGE_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #isRequired() <em>Required</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isRequired()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean REQUIRED_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isRequired() <em>Required</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isRequired()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean required = REQUIRED_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getEnteredValue() <em>Entered Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEnteredValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected F enteredValue;
+
+	/**
+	 * This is true if the Entered Value attribute has been set.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
+	 * @ordered
 	 */
+	protected boolean enteredValueESet;
+	
+	private Class<F> persistentClass;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@SuppressWarnings("unchecked")
 	protected InputFieldImpl() {
 		super();
+		Type t = getClass().getGenericSuperclass();
+		if(t instanceof ParameterizedType) {
+			this.persistentClass = (Class)((ParameterizedType)t).getActualTypeArguments()[0];
+		}
 	}
 
 	/**
@@ -222,10 +271,77 @@ public class InputFieldImpl extends EObjectImpl implements InputField {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isRequired() {
+		return required;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRequired(boolean newRequired) {
+		boolean oldRequired = required;
+		required = newRequired;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.INPUT_FIELD__REQUIRED, oldRequired, required));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public F getEnteredValue() {
+		return enteredValue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEnteredValue(F newEnteredValue) {
+		F oldEnteredValue = enteredValue;
+		enteredValue = newEnteredValue;
+		boolean oldEnteredValueESet = enteredValueESet;
+		enteredValueESet = true;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.INPUT_FIELD__ENTERED_VALUE, oldEnteredValue, enteredValue, !oldEnteredValueESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void unsetEnteredValue() {
+		F oldEnteredValue = enteredValue;
+		boolean oldEnteredValueESet = enteredValueESet;
+		enteredValue = null;
+		enteredValueESet = false;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CrosswalkPackage.INPUT_FIELD__ENTERED_VALUE, oldEnteredValue, null, oldEnteredValueESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSetEnteredValue() {
+		return enteredValueESet;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public EDataType getInputEDataType() {
-		return EcorePackage.eINSTANCE.getEString();
+	public Class getInputType() {
+		return this.persistentClass;
 	}
 
 	/**
@@ -236,7 +352,11 @@ public class InputFieldImpl extends EObjectImpl implements InputField {
 	public Object getResult() throws DataException {
 		Object result = null;
 		try {
-			result = this.getOutput().getResult();
+			if(this.getOutput() != null) {
+				result = this.getOutput().getResult();
+			} else {
+				result = this.getEnteredValue();
+			}
 		} catch(NullPointerException e) {}
 		return result;
 	}
@@ -246,8 +366,8 @@ public class InputFieldImpl extends EObjectImpl implements InputField {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public EDataType getOutputEDataType() {
-		return EcorePackage.eINSTANCE.getEString();
+	public Class getOutputType() {
+		return this.persistentClass;
 	}
 
 	/**
@@ -265,6 +385,10 @@ public class InputFieldImpl extends EObjectImpl implements InputField {
 				return getLabel();
 			case CrosswalkPackage.INPUT_FIELD__USAGE:
 				return getUsage();
+			case CrosswalkPackage.INPUT_FIELD__REQUIRED:
+				return isRequired();
+			case CrosswalkPackage.INPUT_FIELD__ENTERED_VALUE:
+				return getEnteredValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -272,7 +396,7 @@ public class InputFieldImpl extends EObjectImpl implements InputField {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
@@ -285,6 +409,12 @@ public class InputFieldImpl extends EObjectImpl implements InputField {
 				return;
 			case CrosswalkPackage.INPUT_FIELD__USAGE:
 				setUsage((String)newValue);
+				return;
+			case CrosswalkPackage.INPUT_FIELD__REQUIRED:
+				setRequired((Boolean)newValue);
+				return;
+			case CrosswalkPackage.INPUT_FIELD__ENTERED_VALUE:
+				setEnteredValue((F)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -307,6 +437,12 @@ public class InputFieldImpl extends EObjectImpl implements InputField {
 			case CrosswalkPackage.INPUT_FIELD__USAGE:
 				setUsage(USAGE_EDEFAULT);
 				return;
+			case CrosswalkPackage.INPUT_FIELD__REQUIRED:
+				setRequired(REQUIRED_EDEFAULT);
+				return;
+			case CrosswalkPackage.INPUT_FIELD__ENTERED_VALUE:
+				unsetEnteredValue();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -325,6 +461,10 @@ public class InputFieldImpl extends EObjectImpl implements InputField {
 				return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT.equals(label);
 			case CrosswalkPackage.INPUT_FIELD__USAGE:
 				return USAGE_EDEFAULT == null ? usage != null : !USAGE_EDEFAULT.equals(usage);
+			case CrosswalkPackage.INPUT_FIELD__REQUIRED:
+				return required != REQUIRED_EDEFAULT;
+			case CrosswalkPackage.INPUT_FIELD__ENTERED_VALUE:
+				return isSetEnteredValue();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -375,6 +515,10 @@ public class InputFieldImpl extends EObjectImpl implements InputField {
 		result.append(label);
 		result.append(", usage: ");
 		result.append(usage);
+		result.append(", required: ");
+		result.append(required);
+		result.append(", enteredValue: ");
+		if (enteredValueESet) result.append(enteredValue); else result.append("<unset>");
 		result.append(')');
 		return result.toString();
 	}

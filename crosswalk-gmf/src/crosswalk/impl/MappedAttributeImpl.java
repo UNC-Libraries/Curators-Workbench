@@ -17,13 +17,15 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
+import crosswalk.ContextProvider;
 import crosswalk.ConversionStrategy;
 import crosswalk.CrosswalkPackage;
 import crosswalk.DataException;
 import crosswalk.Input;
 import crosswalk.MappedAttribute;
+import crosswalk.MappingContainer;
 import crosswalk.Output;
-import crosswalk.SchemaProvider;
+import crosswalk.util.MappingException;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object ' <em><b>Mapped Attribute</b></em>'. <!-- end-user-doc
@@ -43,14 +45,24 @@ import crosswalk.SchemaProvider;
  */
 public class MappedAttributeImpl extends EObjectImpl implements MappedAttribute {
 	/**
-	 * The cached value of the '{@link #getWalk() <em>Walk</em>}' reference.
+	 * The default value of the '{@link #getException() <em>Exception</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getWalk()
+	 * @see #getException()
 	 * @generated
 	 * @ordered
 	 */
-	protected SchemaProvider walk;
+	protected static final Throwable EXCEPTION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getException() <em>Exception</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getException()
+	 * @generated
+	 * @ordered
+	 */
+	protected Throwable exception = EXCEPTION_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getOutput() <em>Output</em>}' reference.
@@ -167,16 +179,40 @@ public class MappedAttributeImpl extends EObjectImpl implements MappedAttribute 
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SchemaProvider getWalk() {
-		if (walk != null && walk.eIsProxy()) {
-			InternalEObject oldWalk = (InternalEObject)walk;
-			walk = (SchemaProvider)eResolveProxy(oldWalk);
-			if (walk != oldWalk) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CrosswalkPackage.MAPPED_ATTRIBUTE__WALK, oldWalk, walk));
-			}
+	public MappingContainer getWalk() {
+		if (eContainerFeatureID() != CrosswalkPackage.MAPPED_ATTRIBUTE__WALK) return null;
+		return (MappingContainer)eContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetWalk(MappingContainer newWalk, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newWalk, CrosswalkPackage.MAPPED_ATTRIBUTE__WALK, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setWalk(MappingContainer newWalk) {
+		if (newWalk != eInternalContainer() || (eContainerFeatureID() != CrosswalkPackage.MAPPED_ATTRIBUTE__WALK && newWalk != null)) {
+			if (EcoreUtil.isAncestor(this, newWalk))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newWalk != null)
+				msgs = ((InternalEObject)newWalk).eInverseAdd(this, CrosswalkPackage.MAPPING_CONTAINER__ELEMENTS, MappingContainer.class, msgs);
+			msgs = basicSetWalk(newWalk, msgs);
+			if (msgs != null) msgs.dispatch();
 		}
-		return walk;
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.MAPPED_ATTRIBUTE__WALK, newWalk, newWalk));
 	}
 
 	/**
@@ -184,8 +220,8 @@ public class MappedAttributeImpl extends EObjectImpl implements MappedAttribute 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SchemaProvider basicGetWalk() {
-		return walk;
+	public Throwable getException() {
+		return exception;
 	}
 
 	/**
@@ -193,11 +229,11 @@ public class MappedAttributeImpl extends EObjectImpl implements MappedAttribute 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setWalk(SchemaProvider newWalk) {
-		SchemaProvider oldWalk = walk;
-		walk = newWalk;
+	public void setException(Throwable newException) {
+		Throwable oldException = exception;
+		exception = newException;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.MAPPED_ATTRIBUTE__WALK, oldWalk, walk));
+			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.MAPPED_ATTRIBUTE__EXCEPTION, oldException, exception));
 	}
 
 	/**
@@ -450,12 +486,13 @@ public class MappedAttributeImpl extends EObjectImpl implements MappedAttribute 
 	 *
 	 * @generated NOT
 	 */
-	public EDataType getInputEDataType() {
-		EDataType result = null; // null doesn't equal anything except null
+	public Class getInputType() {
+		Class result = null; // null doesn't equal anything except null
 		if (this.isSetConversionStrategy()) {
-			result = this.getConversionStrategy().getInputDataType();
+			result = this.getConversionStrategy().getInputType();
 		} else if (this.getMappedFeature() != null) {
-			result = this.getMappedFeature().getEAttributeType();
+			//result = this.getMappedFeature().getEAttributeType().getInstanceClass();
+			result = java.lang.String.class;
 		}
 		return result;
 	}
@@ -485,17 +522,41 @@ public class MappedAttributeImpl extends EObjectImpl implements MappedAttribute 
 				if (input != null) {
 					if (this.isSetConversionStrategy()) {
 						setting = this.getConversionStrategy().convert(input);
+					} else if(input instanceof String){
+						setting = EcoreUtil.createFromString(this.getMappedFeature().getEAttributeType(), (String)input);
 					} else {
-						setting = input;
+						setting = EcoreUtil.createFromString(this.getMappedFeature().getEAttributeType(), input.toString());
 					}
+					if(setting == null) {
+						Throwable e = new MappingException("Cannot convert input to required data type "+this.getMappedFeature().getEAttributeType().getName()+". Input was \""+input+"\"");
+						this.getWalk().getExceptions().add(e);
+					}
+				} else {
+					// TODO warning this.getWalk().getExceptions().add(new MappingException("Input was null."));
 				}
 			} catch (DataException e) {
-				// ignored
+				// TODO warning here
 			}
 		}
 		if (setting != null) {
 			record.eSet(myAttribute, setting);
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case CrosswalkPackage.MAPPED_ATTRIBUTE__WALK:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetWalk((MappingContainer)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -505,10 +566,26 @@ public class MappedAttributeImpl extends EObjectImpl implements MappedAttribute 
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case CrosswalkPackage.MAPPED_ATTRIBUTE__WALK:
+				return basicSetWalk(null, msgs);
 			case CrosswalkPackage.MAPPED_ATTRIBUTE__CONVERSION_STRATEGY:
 				return basicUnsetConversionStrategy(msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case CrosswalkPackage.MAPPED_ATTRIBUTE__WALK:
+				return eInternalContainer().eInverseRemove(this, CrosswalkPackage.MAPPING_CONTAINER__ELEMENTS, MappingContainer.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
 	/**
@@ -519,8 +596,9 @@ public class MappedAttributeImpl extends EObjectImpl implements MappedAttribute 
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case CrosswalkPackage.MAPPED_ATTRIBUTE__WALK:
-				if (resolve) return getWalk();
-				return basicGetWalk();
+				return getWalk();
+			case CrosswalkPackage.MAPPED_ATTRIBUTE__EXCEPTION:
+				return getException();
 			case CrosswalkPackage.MAPPED_ATTRIBUTE__OUTPUT:
 				if (resolve) return getOutput();
 				return basicGetOutput();
@@ -545,7 +623,10 @@ public class MappedAttributeImpl extends EObjectImpl implements MappedAttribute 
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case CrosswalkPackage.MAPPED_ATTRIBUTE__WALK:
-				setWalk((SchemaProvider)newValue);
+				setWalk((MappingContainer)newValue);
+				return;
+			case CrosswalkPackage.MAPPED_ATTRIBUTE__EXCEPTION:
+				setException((Throwable)newValue);
 				return;
 			case CrosswalkPackage.MAPPED_ATTRIBUTE__OUTPUT:
 				setOutput((Output)newValue);
@@ -574,7 +655,10 @@ public class MappedAttributeImpl extends EObjectImpl implements MappedAttribute 
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case CrosswalkPackage.MAPPED_ATTRIBUTE__WALK:
-				setWalk((SchemaProvider)null);
+				setWalk((MappingContainer)null);
+				return;
+			case CrosswalkPackage.MAPPED_ATTRIBUTE__EXCEPTION:
+				setException(EXCEPTION_EDEFAULT);
 				return;
 			case CrosswalkPackage.MAPPED_ATTRIBUTE__OUTPUT:
 				unsetOutput();
@@ -603,7 +687,9 @@ public class MappedAttributeImpl extends EObjectImpl implements MappedAttribute 
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case CrosswalkPackage.MAPPED_ATTRIBUTE__WALK:
-				return walk != null;
+				return getWalk() != null;
+			case CrosswalkPackage.MAPPED_ATTRIBUTE__EXCEPTION:
+				return EXCEPTION_EDEFAULT == null ? exception != null : !EXCEPTION_EDEFAULT.equals(exception);
 			case CrosswalkPackage.MAPPED_ATTRIBUTE__OUTPUT:
 				return isSetOutput();
 			case CrosswalkPackage.MAPPED_ATTRIBUTE__MAPPED_FEATURE:
@@ -657,7 +743,9 @@ public class MappedAttributeImpl extends EObjectImpl implements MappedAttribute 
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (defaultValue: ");
+		result.append(" (exception: ");
+		result.append(exception);
+		result.append(", defaultValue: ");
 		if (defaultValueESet) result.append(defaultValue); else result.append("<unset>");
 		result.append(", required: ");
 		result.append(required);

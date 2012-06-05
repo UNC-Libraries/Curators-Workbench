@@ -77,28 +77,6 @@ public class DateRecognizerItemProvider
 	}
 
         /**
-	 * This adds a property descriptor for the Output feature.
-	 * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-	 * @generated
-	 */
-        protected void addOutputPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Input_Output_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Input_Output_feature", "_UI_Input_type"),
-				 CrosswalkPackage.Literals.INPUT__OUTPUT,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-        /**
 	 * This adds a property descriptor for the Formats feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

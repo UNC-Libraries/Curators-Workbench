@@ -9,8 +9,6 @@ import org.eclipse.draw2d.MarginBorder;
 import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
-import org.eclipse.draw2d.ToolbarLayout;
-import org.eclipse.draw2d.XYLayout;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
@@ -23,7 +21,6 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
-import org.eclipse.gmf.runtime.diagram.ui.internal.figures.CollapseFigure;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewAndElementRequest;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
@@ -297,7 +294,11 @@ public class MetadataBlock2EditPart extends ShapeNodeEditPart {
 			CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request).getViewAndElementDescriptor()
 					.getCreateElementRequestAdapter();
 			IElementType type = (IElementType) adapter.getAdapter(IElementType.class);
-			if (type == CrosswalkElementTypes.InputField_3017) {
+			if (type == CrosswalkElementTypes.TextInputField_3023) {
+				return getChildBySemanticHint(CrosswalkVisualIDRegistry
+						.getType(MetadataBlockMetadataBlockInputFieldsCompartment2EditPart.VISUAL_ID));
+			}
+			if (type == CrosswalkElementTypes.DateInputField_3024) {
 				return getChildBySemanticHint(CrosswalkVisualIDRegistry
 						.getType(MetadataBlockMetadataBlockInputFieldsCompartment2EditPart.VISUAL_ID));
 			}

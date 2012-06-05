@@ -264,7 +264,8 @@ public class MappedAttributeItemProvider extends ItemProviderAdapter implements 
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((MappedAttribute)object).getDefaultValue();
+		Throwable labelValue = ((MappedAttribute)object).getException();
+		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
 			getString("_UI_MappedAttribute_type") :
 			getString("_UI_MappedAttribute_type") + " " + label;
@@ -282,6 +283,7 @@ public class MappedAttributeItemProvider extends ItemProviderAdapter implements 
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(MappedAttribute.class)) {
+			case CrosswalkPackage.MAPPED_ATTRIBUTE__EXCEPTION:
 			case CrosswalkPackage.MAPPED_ATTRIBUTE__DEFAULT_VALUE:
 			case CrosswalkPackage.MAPPED_ATTRIBUTE__REQUIRED:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

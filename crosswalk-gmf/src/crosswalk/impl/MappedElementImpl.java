@@ -11,7 +11,6 @@ import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -24,10 +23,11 @@ import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import crosswalk.ContextProvider;
 import crosswalk.CrosswalkPackage;
 import crosswalk.MappedAttribute;
 import crosswalk.MappedElement;
-import crosswalk.SchemaProvider;
+import crosswalk.MappingContainer;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object ' <em><b>Mapped Element</b></em>'. <!-- end-user-doc
@@ -48,14 +48,24 @@ import crosswalk.SchemaProvider;
 public class MappedElementImpl extends EObjectImpl implements MappedElement {
 
 	/**
-	 * The cached value of the '{@link #getWalk() <em>Walk</em>}' reference.
+	 * The default value of the '{@link #getException() <em>Exception</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getWalk()
+	 * @see #getException()
 	 * @generated
 	 * @ordered
 	 */
-	protected SchemaProvider walk;
+	protected static final Throwable EXCEPTION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getException() <em>Exception</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getException()
+	 * @generated
+	 * @ordered
+	 */
+	protected Throwable exception = EXCEPTION_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getChildElements() <em>Child Elements</em>}' containment reference list. <!--
@@ -108,16 +118,40 @@ public class MappedElementImpl extends EObjectImpl implements MappedElement {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SchemaProvider getWalk() {
-		if (walk != null && walk.eIsProxy()) {
-			InternalEObject oldWalk = (InternalEObject)walk;
-			walk = (SchemaProvider)eResolveProxy(oldWalk);
-			if (walk != oldWalk) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CrosswalkPackage.MAPPED_ELEMENT__WALK, oldWalk, walk));
-			}
+	public MappingContainer getWalk() {
+		if (eContainerFeatureID() != CrosswalkPackage.MAPPED_ELEMENT__WALK) return null;
+		return (MappingContainer)eContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetWalk(MappingContainer newWalk, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newWalk, CrosswalkPackage.MAPPED_ELEMENT__WALK, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setWalk(MappingContainer newWalk) {
+		if (newWalk != eInternalContainer() || (eContainerFeatureID() != CrosswalkPackage.MAPPED_ELEMENT__WALK && newWalk != null)) {
+			if (EcoreUtil.isAncestor(this, newWalk))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newWalk != null)
+				msgs = ((InternalEObject)newWalk).eInverseAdd(this, CrosswalkPackage.MAPPING_CONTAINER__ELEMENTS, MappingContainer.class, msgs);
+			msgs = basicSetWalk(newWalk, msgs);
+			if (msgs != null) msgs.dispatch();
 		}
-		return walk;
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.MAPPED_ELEMENT__WALK, newWalk, newWalk));
 	}
 
 	/**
@@ -125,8 +159,8 @@ public class MappedElementImpl extends EObjectImpl implements MappedElement {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SchemaProvider basicGetWalk() {
-		return walk;
+	public Throwable getException() {
+		return exception;
 	}
 
 	/**
@@ -134,11 +168,11 @@ public class MappedElementImpl extends EObjectImpl implements MappedElement {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setWalk(SchemaProvider newWalk) {
-		SchemaProvider oldWalk = walk;
-		walk = newWalk;
+	public void setException(Throwable newException) {
+		Throwable oldException = exception;
+		exception = newException;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.MAPPED_ELEMENT__WALK, oldWalk, walk));
+			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.MAPPED_ELEMENT__EXCEPTION, oldException, exception));
 	}
 
 	/**
@@ -288,6 +322,10 @@ public class MappedElementImpl extends EObjectImpl implements MappedElement {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case CrosswalkPackage.MAPPED_ELEMENT__WALK:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetWalk((MappingContainer)otherEnd, msgs);
 			case CrosswalkPackage.MAPPED_ELEMENT__CHILD_ELEMENTS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getChildElements()).basicAdd(otherEnd, msgs);
 			case CrosswalkPackage.MAPPED_ELEMENT__PARENT:
@@ -305,6 +343,8 @@ public class MappedElementImpl extends EObjectImpl implements MappedElement {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case CrosswalkPackage.MAPPED_ELEMENT__WALK:
+				return basicSetWalk(null, msgs);
 			case CrosswalkPackage.MAPPED_ELEMENT__CHILD_ELEMENTS:
 				return ((InternalEList<?>)getChildElements()).basicRemove(otherEnd, msgs);
 			case CrosswalkPackage.MAPPED_ELEMENT__ATTRIBUTES:
@@ -322,6 +362,8 @@ public class MappedElementImpl extends EObjectImpl implements MappedElement {
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
+			case CrosswalkPackage.MAPPED_ELEMENT__WALK:
+				return eInternalContainer().eInverseRemove(this, CrosswalkPackage.MAPPING_CONTAINER__ELEMENTS, MappingContainer.class, msgs);
 			case CrosswalkPackage.MAPPED_ELEMENT__PARENT:
 				return eInternalContainer().eInverseRemove(this, CrosswalkPackage.MAPPED_ELEMENT__CHILD_ELEMENTS, MappedElement.class, msgs);
 		}
@@ -336,8 +378,9 @@ public class MappedElementImpl extends EObjectImpl implements MappedElement {
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case CrosswalkPackage.MAPPED_ELEMENT__WALK:
-				if (resolve) return getWalk();
-				return basicGetWalk();
+				return getWalk();
+			case CrosswalkPackage.MAPPED_ELEMENT__EXCEPTION:
+				return getException();
 			case CrosswalkPackage.MAPPED_ELEMENT__CHILD_ELEMENTS:
 				return getChildElements();
 			case CrosswalkPackage.MAPPED_ELEMENT__ATTRIBUTES:
@@ -360,7 +403,10 @@ public class MappedElementImpl extends EObjectImpl implements MappedElement {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case CrosswalkPackage.MAPPED_ELEMENT__WALK:
-				setWalk((SchemaProvider)newValue);
+				setWalk((MappingContainer)newValue);
+				return;
+			case CrosswalkPackage.MAPPED_ELEMENT__EXCEPTION:
+				setException((Throwable)newValue);
 				return;
 			case CrosswalkPackage.MAPPED_ELEMENT__CHILD_ELEMENTS:
 				getChildElements().clear();
@@ -388,7 +434,10 @@ public class MappedElementImpl extends EObjectImpl implements MappedElement {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case CrosswalkPackage.MAPPED_ELEMENT__WALK:
-				setWalk((SchemaProvider)null);
+				setWalk((MappingContainer)null);
+				return;
+			case CrosswalkPackage.MAPPED_ELEMENT__EXCEPTION:
+				setException(EXCEPTION_EDEFAULT);
 				return;
 			case CrosswalkPackage.MAPPED_ELEMENT__CHILD_ELEMENTS:
 				getChildElements().clear();
@@ -414,7 +463,9 @@ public class MappedElementImpl extends EObjectImpl implements MappedElement {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case CrosswalkPackage.MAPPED_ELEMENT__WALK:
-				return walk != null;
+				return getWalk() != null;
+			case CrosswalkPackage.MAPPED_ELEMENT__EXCEPTION:
+				return EXCEPTION_EDEFAULT == null ? exception != null : !EXCEPTION_EDEFAULT.equals(exception);
 			case CrosswalkPackage.MAPPED_ELEMENT__CHILD_ELEMENTS:
 				return childElements != null && !childElements.isEmpty();
 			case CrosswalkPackage.MAPPED_ELEMENT__ATTRIBUTES:
@@ -425,6 +476,22 @@ public class MappedElementImpl extends EObjectImpl implements MappedElement {
 				return getParent() != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (exception: ");
+		result.append(exception);
+		result.append(')');
+		return result.toString();
 	}
 
 } // MappedElementImpl

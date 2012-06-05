@@ -24,13 +24,13 @@ import crosswalk.diagram.providers.CrosswalkElementTypes;
 /**
  * @generated
  */
-public class InputFieldItemSemanticEditPolicy extends CrosswalkBaseItemSemanticEditPolicy {
+public class DateInputFieldItemSemanticEditPolicy extends CrosswalkBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
 	 */
-	public InputFieldItemSemanticEditPolicy() {
-		super(CrosswalkElementTypes.InputField_3017);
+	public DateInputFieldItemSemanticEditPolicy() {
+		super(CrosswalkElementTypes.DateInputField_3024);
 	}
 
 	/**

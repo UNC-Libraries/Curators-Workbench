@@ -67,10 +67,57 @@ public class MetadataBlockItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addOutputTypePropertyDescriptor(object);
+			addExceptionsPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
+			addRequiredPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Output Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addOutputTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ContextProvider_outputType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ContextProvider_outputType_feature", "_UI_ContextProvider_type"),
+				 CrosswalkPackage.Literals.CONTEXT_PROVIDER__OUTPUT_TYPE,
+				 false,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Exceptions feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addExceptionsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_MappingContainer_exceptions_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_MappingContainer_exceptions_feature", "_UI_MappingContainer_type"),
+				 CrosswalkPackage.Literals.MAPPING_CONTAINER__EXCEPTIONS,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -113,6 +160,28 @@ public class MetadataBlockItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Required feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRequiredPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_MetadataBlock_required_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_MetadataBlock_required_feature", "_UI_MetadataBlock_type"),
+				 CrosswalkPackage.Literals.METADATA_BLOCK__REQUIRED,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -186,8 +255,12 @@ public class MetadataBlockItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(MetadataBlock.class)) {
+			case CrosswalkPackage.METADATA_BLOCK__EXCEPTION:
+			case CrosswalkPackage.METADATA_BLOCK__CURRENT_USER:
+			case CrosswalkPackage.METADATA_BLOCK__EXCEPTIONS:
 			case CrosswalkPackage.METADATA_BLOCK__NAME:
 			case CrosswalkPackage.METADATA_BLOCK__DESCRIPTION:
+			case CrosswalkPackage.METADATA_BLOCK__REQUIRED:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case CrosswalkPackage.METADATA_BLOCK__WIDGETS:
@@ -214,6 +287,16 @@ public class MetadataBlockItemProvider
 			(createChildParameter
 				(CrosswalkPackage.Literals.MAPPING_CONTAINER__WIDGETS,
 				 CrosswalkFactory.eINSTANCE.createTrimWhitespace()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CrosswalkPackage.Literals.MAPPING_CONTAINER__WIDGETS,
+				 CrosswalkFactory.eINSTANCE.createCurrentUsername()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CrosswalkPackage.Literals.MAPPING_CONTAINER__WIDGETS,
+				 CrosswalkFactory.eINSTANCE.createCurrentDate()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -249,6 +332,16 @@ public class MetadataBlockItemProvider
 			(createChildParameter
 				(CrosswalkPackage.Literals.METADATA_BLOCK__PORTS,
 				 CrosswalkFactory.eINSTANCE.createInputField()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CrosswalkPackage.Literals.METADATA_BLOCK__PORTS,
+				 CrosswalkFactory.eINSTANCE.createTextInputField()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CrosswalkPackage.Literals.METADATA_BLOCK__PORTS,
+				 CrosswalkFactory.eINSTANCE.createDateInputField()));
 	}
 
 	/**

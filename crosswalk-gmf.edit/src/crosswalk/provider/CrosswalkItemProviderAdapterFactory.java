@@ -115,6 +115,52 @@ public class CrosswalkItemProviderAdapterFactory extends CrosswalkAdapterFactory
 	}
 
         /**
+	 * This keeps track of the one adapter used for all {@link crosswalk.CurrentUsername} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CurrentUsernameItemProvider currentUsernameItemProvider;
+
+								/**
+	 * This creates an adapter for a {@link crosswalk.CurrentUsername}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCurrentUsernameAdapter() {
+		if (currentUsernameItemProvider == null) {
+			currentUsernameItemProvider = new CurrentUsernameItemProvider(this);
+		}
+
+		return currentUsernameItemProvider;
+	}
+
+								/**
+	 * This keeps track of the one adapter used for all {@link crosswalk.CurrentDate} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CurrentDateItemProvider currentDateItemProvider;
+
+								/**
+	 * This creates an adapter for a {@link crosswalk.CurrentDate}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCurrentDateAdapter() {
+		if (currentDateItemProvider == null) {
+			currentDateItemProvider = new CurrentDateItemProvider(this);
+		}
+
+		return currentDateItemProvider;
+	}
+
+								/**
 	 * This keeps track of the one adapter used for all {@link crosswalk.CrossWalk} instances.
 	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -414,6 +460,29 @@ public class CrosswalkItemProviderAdapterFactory extends CrosswalkAdapterFactory
 	}
 
 								/**
+	 * This keeps track of the one adapter used for all {@link crosswalk.TextInputField} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TextInputFieldItemProvider textInputFieldItemProvider;
+
+								/**
+	 * This creates an adapter for a {@link crosswalk.TextInputField}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTextInputFieldAdapter() {
+		if (textInputFieldItemProvider == null) {
+			textInputFieldItemProvider = new TextInputFieldItemProvider(this);
+		}
+
+		return textInputFieldItemProvider;
+	}
+
+								/**
 	 * This keeps track of the one adapter used for all {@link crosswalk.EditingContainer} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -480,6 +549,29 @@ public class CrosswalkItemProviderAdapterFactory extends CrosswalkAdapterFactory
 		}
 
 		return paragraphItemProvider;
+	}
+
+								/**
+	 * This keeps track of the one adapter used for all {@link crosswalk.DateInputField} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DateInputFieldItemProvider dateInputFieldItemProvider;
+
+								/**
+	 * This creates an adapter for a {@link crosswalk.DateInputField}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDateInputFieldAdapter() {
+		if (dateInputFieldItemProvider == null) {
+			dateInputFieldItemProvider = new DateInputFieldItemProvider(this);
+		}
+
+		return dateInputFieldItemProvider;
 	}
 
 								/**

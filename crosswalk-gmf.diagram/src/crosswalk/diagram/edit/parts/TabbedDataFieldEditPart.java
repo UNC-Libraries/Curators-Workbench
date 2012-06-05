@@ -25,7 +25,6 @@ import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
-import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
@@ -309,7 +308,8 @@ public class TabbedDataFieldEditPart extends ShapeNodeEditPart {
 			types.add(CrosswalkElementTypes.DateRecognizer_3004);
 			types.add(CrosswalkElementTypes.TrimWhitespace_3006);
 			types.add(CrosswalkElementTypes.MappedAttribute_3009);
-			types.add(CrosswalkElementTypes.InputField_3017);
+			types.add(CrosswalkElementTypes.TextInputField_3023);
+			types.add(CrosswalkElementTypes.DateInputField_3024);
 		}
 		return types;
 	}

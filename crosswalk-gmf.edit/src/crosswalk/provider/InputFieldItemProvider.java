@@ -64,33 +64,11 @@ public class InputFieldItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addOutputPropertyDescriptor(object);
 			addLabelPropertyDescriptor(object);
 			addUsagePropertyDescriptor(object);
+			addRequiredPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Output feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addOutputPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Input_Output_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Input_Output_feature", "_UI_Input_type"),
-				 CrosswalkPackage.Literals.INPUT__OUTPUT,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**
@@ -138,6 +116,28 @@ public class InputFieldItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Required feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRequiredPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_InputField_required_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_InputField_required_feature", "_UI_InputField_type"),
+				 CrosswalkPackage.Literals.INPUT_FIELD__REQUIRED,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns InputField.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -156,7 +156,7 @@ public class InputFieldItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((InputField)object).getLabel();
+		String label = ((InputField<?>)object).getLabel();
 		return label == null || label.length() == 0 ?
 			getString("_UI_InputField_type") :
 			getString("_UI_InputField_type") + " " + label;
@@ -176,6 +176,8 @@ public class InputFieldItemProvider
 		switch (notification.getFeatureID(InputField.class)) {
 			case CrosswalkPackage.INPUT_FIELD__LABEL:
 			case CrosswalkPackage.INPUT_FIELD__USAGE:
+			case CrosswalkPackage.INPUT_FIELD__REQUIRED:
+			case CrosswalkPackage.INPUT_FIELD__ENTERED_VALUE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

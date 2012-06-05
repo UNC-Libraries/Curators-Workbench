@@ -70,7 +70,7 @@
 		<module>target-definition</module>
 		<module>access-control</module>
 		<module>access-control.edit</module>
-		<module>dictionary-gmf.diagram</module>
+		<module>crosswalk-gmf.custom</module>
 	</modules>
 	<build>
 		<plugins>
@@ -169,10 +169,44 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>2.3.2</version>
 				<configuration>
-					<source>1.7</source>
-					<target>1.7</target>
+					<source>1.6</source>
+					<target>1.6</target>
 				</configuration>
 			</plugin>
 		</plugins>
 	</build>
+	<profiles>
+		<profile>
+			<id>jdk6</id>
+			<build>
+				<plugins>
+					<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+				<executions>
+					<execution>
+						<id>default-compile</id>
+						<configuration>
+							<source>1.6</source>
+							<target>1.6</target>
+							<excludes>
+								<exclude>workbench_plugin/src/main/java/unc/lib/cdr/workbench/readonly/VolumeUtil.java</exclude>
+							</excludes>
+							<includes>
+								<include>workbench_plugin/src/main/java6/unc/lib/cdr/workbench/readonly/VolumeUtil.java</include>
+							</includes>
+						</configuration>
+						<goals><goal>compile</goal></goals>
+					</execution>
+				</executions>
+			</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 </project>

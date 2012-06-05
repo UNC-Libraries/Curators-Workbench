@@ -39,7 +39,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class DictionaryItemProvider
-	extends SchemaProviderItemProvider
+	extends ContextProviderItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,

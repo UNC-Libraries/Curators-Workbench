@@ -131,11 +131,29 @@ public class CrosswalkEditPartFactory implements EditPartFactory {
 				case MetadataBlockName2EditPart.VISUAL_ID:
 					return new MetadataBlockName2EditPart(view);
 
-				case InputFieldEditPart.VISUAL_ID:
-					return new InputFieldEditPart(view);
+				case TextInputFieldEditPart.VISUAL_ID:
+					return new TextInputFieldEditPart(view);
 
-				case InputFieldLabelEditPart.VISUAL_ID:
-					return new InputFieldLabelEditPart(view);
+				case TextInputFieldLabelEditPart.VISUAL_ID:
+					return new TextInputFieldLabelEditPart(view);
+
+				case CurrentDateEditPart.VISUAL_ID:
+					return new CurrentDateEditPart(view);
+
+				case WrappingLabel8EditPart.VISUAL_ID:
+					return new WrappingLabel8EditPart(view);
+
+				case CurrentUsernameEditPart.VISUAL_ID:
+					return new CurrentUsernameEditPart(view);
+
+				case WrappingLabel9EditPart.VISUAL_ID:
+					return new WrappingLabel9EditPart(view);
+
+				case DateInputFieldEditPart.VISUAL_ID:
+					return new DateInputFieldEditPart(view);
+
+				case DateInputFieldLabelEditPart.VISUAL_ID:
+					return new DateInputFieldLabelEditPart(view);
 
 				case MetadataBlockEditPart.VISUAL_ID:
 					return new MetadataBlockEditPart(view);

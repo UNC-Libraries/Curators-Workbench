@@ -31,12 +31,14 @@ import org.eclipse.gmf.runtime.notation.View;
 
 import crosswalk.CrosswalkPackage;
 import crosswalk.diagram.edit.parts.CrossWalkEditPart;
+import crosswalk.diagram.edit.parts.CurrentDateEditPart;
+import crosswalk.diagram.edit.parts.CurrentUsernameEditPart;
+import crosswalk.diagram.edit.parts.DateInputFieldEditPart;
 import crosswalk.diagram.edit.parts.DateRecognizerEditPart;
 import crosswalk.diagram.edit.parts.DelimitedFileEditPart;
 import crosswalk.diagram.edit.parts.DictionaryEditPart;
 import crosswalk.diagram.edit.parts.EditingContainerEditPart;
 import crosswalk.diagram.edit.parts.FormEditPart;
-import crosswalk.diagram.edit.parts.InputFieldEditPart;
 import crosswalk.diagram.edit.parts.MappedAttributeEditPart;
 import crosswalk.diagram.edit.parts.MappedElement2EditPart;
 import crosswalk.diagram.edit.parts.MappedElementEditPart;
@@ -47,6 +49,7 @@ import crosswalk.diagram.edit.parts.OriginalNameRecordMatcherEditPart;
 import crosswalk.diagram.edit.parts.ParagraphEditPart;
 import crosswalk.diagram.edit.parts.TabbedDataFieldEditPart;
 import crosswalk.diagram.edit.parts.TextEditPart;
+import crosswalk.diagram.edit.parts.TextInputFieldEditPart;
 import crosswalk.diagram.edit.parts.TrimWhitespaceEditPart;
 import crosswalk.diagram.part.CrosswalkDiagramUpdater;
 import crosswalk.diagram.part.CrosswalkLinkDescriptor;
@@ -366,9 +369,36 @@ public class EditingContainerCanonicalEditPolicy extends CanonicalEditPolicy {
 				}
 				break;
 			}
-			case InputFieldEditPart.VISUAL_ID: {
+			case TextInputFieldEditPart.VISUAL_ID: {
 				if (!domain2NotationMap.containsKey(view.getElement())) {
-					result.addAll(CrosswalkDiagramUpdater.getInputField_3017ContainedLinks(view));
+					result.addAll(CrosswalkDiagramUpdater.getTextInputField_3023ContainedLinks(view));
+				}
+				if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+					domain2NotationMap.put(view.getElement(), view);
+				}
+				break;
+			}
+			case CurrentDateEditPart.VISUAL_ID: {
+				if (!domain2NotationMap.containsKey(view.getElement())) {
+					result.addAll(CrosswalkDiagramUpdater.getCurrentDate_3021ContainedLinks(view));
+				}
+				if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+					domain2NotationMap.put(view.getElement(), view);
+				}
+				break;
+			}
+			case CurrentUsernameEditPart.VISUAL_ID: {
+				if (!domain2NotationMap.containsKey(view.getElement())) {
+					result.addAll(CrosswalkDiagramUpdater.getCurrentUsername_3022ContainedLinks(view));
+				}
+				if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+					domain2NotationMap.put(view.getElement(), view);
+				}
+				break;
+			}
+			case DateInputFieldEditPart.VISUAL_ID: {
+				if (!domain2NotationMap.containsKey(view.getElement())) {
+					result.addAll(CrosswalkDiagramUpdater.getDateInputField_3024ContainedLinks(view));
 				}
 				if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
 					domain2NotationMap.put(view.getElement(), view);

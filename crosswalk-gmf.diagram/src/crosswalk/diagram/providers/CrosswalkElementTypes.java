@@ -33,12 +33,14 @@ import org.eclipse.swt.graphics.Image;
 
 import crosswalk.CrosswalkPackage;
 import crosswalk.diagram.edit.parts.CrossWalkEditPart;
+import crosswalk.diagram.edit.parts.CurrentDateEditPart;
+import crosswalk.diagram.edit.parts.CurrentUsernameEditPart;
+import crosswalk.diagram.edit.parts.DateInputFieldEditPart;
 import crosswalk.diagram.edit.parts.DateRecognizerEditPart;
 import crosswalk.diagram.edit.parts.DelimitedFileEditPart;
 import crosswalk.diagram.edit.parts.DictionaryEditPart;
 import crosswalk.diagram.edit.parts.EditingContainerEditPart;
 import crosswalk.diagram.edit.parts.FormEditPart;
-import crosswalk.diagram.edit.parts.InputFieldEditPart;
 import crosswalk.diagram.edit.parts.InputOutputEditPart;
 import crosswalk.diagram.edit.parts.MappedAttributeEditPart;
 import crosswalk.diagram.edit.parts.MappedElement2EditPart;
@@ -50,6 +52,7 @@ import crosswalk.diagram.edit.parts.OriginalNameRecordMatcherEditPart;
 import crosswalk.diagram.edit.parts.ParagraphEditPart;
 import crosswalk.diagram.edit.parts.TabbedDataFieldEditPart;
 import crosswalk.diagram.edit.parts.TextEditPart;
+import crosswalk.diagram.edit.parts.TextInputFieldEditPart;
 import crosswalk.diagram.edit.parts.TrimWhitespaceEditPart;
 import crosswalk.diagram.part.CrosswalkDiagramEditorPlugin;
 
@@ -152,6 +155,11 @@ public class CrosswalkElementTypes {
 	/**
 	 * @generated
 	 */
+	public static final IElementType TextInputField_3023 = getElementType("crosswalk-gmf.diagram.TextInputField_3023"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
 	public static final IElementType MetadataBlock_3010 = getElementType("crosswalk-gmf.diagram.MetadataBlock_3010"); //$NON-NLS-1$
 
 	/**
@@ -167,7 +175,17 @@ public class CrosswalkElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType InputField_3017 = getElementType("crosswalk-gmf.diagram.InputField_3017"); //$NON-NLS-1$
+	public static final IElementType CurrentDate_3021 = getElementType("crosswalk-gmf.diagram.CurrentDate_3021"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType CurrentUsername_3022 = getElementType("crosswalk-gmf.diagram.CurrentUsername_3022"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType DateInputField_3024 = getElementType("crosswalk-gmf.diagram.DateInputField_3024"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -309,7 +327,13 @@ public class CrosswalkElementTypes {
 
 			elements.put(MetadataBlock_3018, CrosswalkPackage.eINSTANCE.getMetadataBlock());
 
-			elements.put(InputField_3017, CrosswalkPackage.eINSTANCE.getInputField());
+			elements.put(TextInputField_3023, CrosswalkPackage.eINSTANCE.getTextInputField());
+
+			elements.put(CurrentDate_3021, CrosswalkPackage.eINSTANCE.getCurrentDate());
+
+			elements.put(CurrentUsername_3022, CrosswalkPackage.eINSTANCE.getCurrentUsername());
+
+			elements.put(DateInputField_3024, CrosswalkPackage.eINSTANCE.getDateInputField());
 
 			elements.put(MetadataBlock_3010, CrosswalkPackage.eINSTANCE.getMetadataBlock());
 
@@ -349,7 +373,10 @@ public class CrosswalkElementTypes {
 			KNOWN_ELEMENT_TYPES.add(MappedElement_3008);
 			KNOWN_ELEMENT_TYPES.add(MappedAttribute_3009);
 			KNOWN_ELEMENT_TYPES.add(MetadataBlock_3018);
-			KNOWN_ELEMENT_TYPES.add(InputField_3017);
+			KNOWN_ELEMENT_TYPES.add(TextInputField_3023);
+			KNOWN_ELEMENT_TYPES.add(CurrentDate_3021);
+			KNOWN_ELEMENT_TYPES.add(CurrentUsername_3022);
+			KNOWN_ELEMENT_TYPES.add(DateInputField_3024);
 			KNOWN_ELEMENT_TYPES.add(MetadataBlock_3010);
 			KNOWN_ELEMENT_TYPES.add(MetadataBlock_3019);
 			KNOWN_ELEMENT_TYPES.add(Paragraph_3020);
@@ -391,8 +418,14 @@ public class CrosswalkElementTypes {
 				return MappedAttribute_3009;
 			case MetadataBlock2EditPart.VISUAL_ID:
 				return MetadataBlock_3018;
-			case InputFieldEditPart.VISUAL_ID:
-				return InputField_3017;
+			case TextInputFieldEditPart.VISUAL_ID:
+				return TextInputField_3023;
+			case CurrentDateEditPart.VISUAL_ID:
+				return CurrentDate_3021;
+			case CurrentUsernameEditPart.VISUAL_ID:
+				return CurrentUsername_3022;
+			case DateInputFieldEditPart.VISUAL_ID:
+				return DateInputField_3024;
 			case MetadataBlockEditPart.VISUAL_ID:
 				return MetadataBlock_3010;
 			case MetadataBlock3EditPart.VISUAL_ID:

@@ -151,8 +151,7 @@ public class ProjectEMFSession {
 	}
 
 	public IPath getMetsFile() {
-		IPath working = this.project.getWorkingLocation(Activator.PLUGIN_ID);
-		working.toFile().mkdirs();
+		IPath working = this.project.getLocation();
 		return working.append(METS_PATH);
 	}
 

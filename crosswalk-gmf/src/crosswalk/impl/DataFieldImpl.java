@@ -159,8 +159,8 @@ public class DataFieldImpl extends EObjectImpl implements DataField {
          * <!-- end-user-doc -->
          * @generated NOT
          */
-        public EDataType getOutputEDataType() {
-            return EcorePackage.eINSTANCE.getEString();
+        public Class getOutputType() {
+            return java.lang.String.class;
         }
 
         /**

@@ -29,18 +29,19 @@ import org.eclipse.gmf.runtime.emf.ui.services.parser.ParserHintAdapter;
 import org.eclipse.gmf.runtime.notation.View;
 
 import crosswalk.CrosswalkPackage;
+import crosswalk.diagram.edit.parts.DateInputFieldLabelEditPart;
 import crosswalk.diagram.edit.parts.DelimitedFileSourceFileEditPart;
 import crosswalk.diagram.edit.parts.DictionaryDescriptionEditPart;
 import crosswalk.diagram.edit.parts.DictionaryNameEditPart;
 import crosswalk.diagram.edit.parts.FormDescriptionEditPart;
 import crosswalk.diagram.edit.parts.FormTitleEditPart;
-import crosswalk.diagram.edit.parts.InputFieldLabelEditPart;
 import crosswalk.diagram.edit.parts.MetadataBlockName2EditPart;
 import crosswalk.diagram.edit.parts.MetadataBlockName3EditPart;
 import crosswalk.diagram.edit.parts.MetadataBlockNameEditPart;
 import crosswalk.diagram.edit.parts.ParagraphHeadingEditPart;
 import crosswalk.diagram.edit.parts.ParagraphTextEditPart;
 import crosswalk.diagram.edit.parts.TabbedDataFieldLabelColumnNumberEditPart;
+import crosswalk.diagram.edit.parts.TextInputFieldLabelEditPart;
 import crosswalk.diagram.edit.parts.TextValueEditPart;
 import crosswalk.diagram.edit.parts.WrappingLabel2EditPart;
 import crosswalk.diagram.edit.parts.WrappingLabel3EditPart;
@@ -48,7 +49,11 @@ import crosswalk.diagram.edit.parts.WrappingLabel4EditPart;
 import crosswalk.diagram.edit.parts.WrappingLabel5EditPart;
 import crosswalk.diagram.edit.parts.WrappingLabel6EditPart;
 import crosswalk.diagram.edit.parts.WrappingLabel7EditPart;
+import crosswalk.diagram.edit.parts.WrappingLabel8EditPart;
+import crosswalk.diagram.edit.parts.WrappingLabel9EditPart;
 import crosswalk.diagram.edit.parts.WrappingLabelEditPart;
+import crosswalk.diagram.parsers.CurrentDateLabelExpressionLabelParser;
+import crosswalk.diagram.parsers.CurrentUsernameLabelExpressionLabelParser;
 import crosswalk.diagram.parsers.DateRecognizerLabelExpressionLabelParser;
 import crosswalk.diagram.parsers.DelimitedFileLabelExpressionLabelParser;
 import crosswalk.diagram.parsers.MappedAttributeLabelExpressionLabelParser;
@@ -318,6 +323,24 @@ public class CrosswalkParserProvider extends AbstractProvider implements IParser
 	/**
 	 * @generated
 	 */
+	private IParser textInputFieldLabel_5029Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getTextInputFieldLabel_5029Parser() {
+		if (textInputFieldLabel_5029Parser == null) {
+			EAttribute[] features = new EAttribute[] { CrosswalkPackage.eINSTANCE.getInputField_Label() };
+			EAttribute[] editableFeatures = new EAttribute[] { CrosswalkPackage.eINSTANCE.getInputField_Label() };
+			NativeParser parser = new NativeParser(features, editableFeatures);
+			textInputFieldLabel_5029Parser = parser;
+		}
+		return textInputFieldLabel_5029Parser;
+	}
+
+	/**
+	 * @generated
+	 */
 	private IParser metadataBlockName_5018Parser;
 
 	/**
@@ -390,19 +413,49 @@ public class CrosswalkParserProvider extends AbstractProvider implements IParser
 	/**
 	 * @generated
 	 */
-	private IParser inputFieldLabel_5017Parser;
+	private CurrentDateLabelExpressionLabelParser currentDateLabel_5027Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getInputFieldLabel_5017Parser() {
-		if (inputFieldLabel_5017Parser == null) {
+	private IParser getCurrentDateLabel_5027Parser() {
+		if (currentDateLabel_5027Parser == null) {
+			currentDateLabel_5027Parser = new CurrentDateLabelExpressionLabelParser();
+		}
+		return currentDateLabel_5027Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private CurrentUsernameLabelExpressionLabelParser currentUsernameLabel_5028Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getCurrentUsernameLabel_5028Parser() {
+		if (currentUsernameLabel_5028Parser == null) {
+			currentUsernameLabel_5028Parser = new CurrentUsernameLabelExpressionLabelParser();
+		}
+		return currentUsernameLabel_5028Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser dateInputFieldLabel_5030Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getDateInputFieldLabel_5030Parser() {
+		if (dateInputFieldLabel_5030Parser == null) {
 			EAttribute[] features = new EAttribute[] { CrosswalkPackage.eINSTANCE.getInputField_Label() };
 			EAttribute[] editableFeatures = new EAttribute[] { CrosswalkPackage.eINSTANCE.getInputField_Label() };
 			NativeParser parser = new NativeParser(features, editableFeatures);
-			inputFieldLabel_5017Parser = parser;
+			dateInputFieldLabel_5030Parser = parser;
 		}
-		return inputFieldLabel_5017Parser;
+		return dateInputFieldLabel_5030Parser;
 	}
 
 	/**
@@ -440,8 +493,14 @@ public class CrosswalkParserProvider extends AbstractProvider implements IParser
 				return getMappedAttributeLabel_5008Parser();
 			case MetadataBlockName2EditPart.VISUAL_ID:
 				return getMetadataBlockName_5019Parser();
-			case InputFieldLabelEditPart.VISUAL_ID:
-				return getInputFieldLabel_5017Parser();
+			case TextInputFieldLabelEditPart.VISUAL_ID:
+				return getTextInputFieldLabel_5029Parser();
+			case WrappingLabel8EditPart.VISUAL_ID:
+				return getCurrentDateLabel_5027Parser();
+			case WrappingLabel9EditPart.VISUAL_ID:
+				return getCurrentUsernameLabel_5028Parser();
+			case DateInputFieldLabelEditPart.VISUAL_ID:
+				return getDateInputFieldLabel_5030Parser();
 			case MetadataBlockNameEditPart.VISUAL_ID:
 				return getMetadataBlockName_5018Parser();
 			case MetadataBlockName3EditPart.VISUAL_ID:

@@ -53,6 +53,24 @@ public interface CrosswalkFactory extends EFactory {
         TrimWhitespace createTrimWhitespace();
 
         /**
+	 * Returns a new object of class '<em>Current Username</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Current Username</em>'.
+	 * @generated
+	 */
+	CurrentUsername createCurrentUsername();
+
+								/**
+	 * Returns a new object of class '<em>Current Date</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Current Date</em>'.
+	 * @generated
+	 */
+	CurrentDate createCurrentDate();
+
+								/**
 	 * Returns a new object of class '<em>Cross Walk</em>'.
 	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -167,7 +185,16 @@ public interface CrosswalkFactory extends EFactory {
 	 * @return a new object of class '<em>Input Field</em>'.
 	 * @generated
 	 */
-	InputField createInputField();
+	<F> InputField<F> createInputField();
+
+								/**
+	 * Returns a new object of class '<em>Text Input Field</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Text Input Field</em>'.
+	 * @generated
+	 */
+	TextInputField createTextInputField();
 
 								/**
 	 * Returns a new object of class '<em>Editing Container</em>'.
@@ -195,6 +222,15 @@ public interface CrosswalkFactory extends EFactory {
 	 * @generated
 	 */
 	Paragraph createParagraph();
+
+								/**
+	 * Returns a new object of class '<em>Date Input Field</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Date Input Field</em>'.
+	 * @generated
+	 */
+	DateInputField createDateInputField();
 
 								/**
 	 * Returns the package supported by this factory.

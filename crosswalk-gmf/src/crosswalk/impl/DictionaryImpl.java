@@ -38,7 +38,7 @@ import crosswalk.Vocabulary;
  *
  * @generated
  */
-public class DictionaryImpl extends SchemaProviderImpl implements Dictionary {
+public class DictionaryImpl extends ContextProviderImpl implements Dictionary {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->

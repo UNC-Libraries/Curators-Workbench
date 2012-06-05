@@ -6,26 +6,24 @@
  */
 package crosswalk.impl;
 
-import crosswalk.CrosswalkPackage;
-import crosswalk.Form;
-import crosswalk.FormElement;
-
-import crosswalk.SchemaProvider;
 import java.util.Collection;
+import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
+import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
+import crosswalk.ContextProvider;
+import crosswalk.CrosswalkPackage;
+import crosswalk.Form;
+import crosswalk.FormElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,9 +33,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link crosswalk.impl.FormImpl#getOutputType <em>Output Type</em>}</li>
+ *   <li>{@link crosswalk.impl.FormImpl#getCurrentUser <em>Current User</em>}</li>
  *   <li>{@link crosswalk.impl.FormImpl#getElements <em>Elements</em>}</li>
  *   <li>{@link crosswalk.impl.FormImpl#getTitle <em>Title</em>}</li>
  *   <li>{@link crosswalk.impl.FormImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link crosswalk.impl.FormImpl#getEmailDepositNoticeTo <em>Email Deposit Notice To</em>}</li>
+ *   <li>{@link crosswalk.impl.FormImpl#getDepositContainerId <em>Deposit Container Id</em>}</li>
+ *   <li>{@link crosswalk.impl.FormImpl#getAuthorizedGroups <em>Authorized Groups</em>}</li>
  * </ul>
  * </p>
  *
@@ -53,6 +55,26 @@ public class FormImpl extends EObjectImpl implements Form {
 	 * @ordered
 	 */
 	protected EClass outputType;
+
+	/**
+	 * The default value of the '{@link #getCurrentUser() <em>Current User</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCurrentUser()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String CURRENT_USER_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getCurrentUser() <em>Current User</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCurrentUser()
+	 * @generated
+	 * @ordered
+	 */
+	protected String currentUser = CURRENT_USER_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
@@ -103,6 +125,46 @@ public class FormImpl extends EObjectImpl implements Form {
 	 * @ordered
 	 */
 	protected String description = DESCRIPTION_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getEmailDepositNoticeTo() <em>Email Deposit Notice To</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEmailDepositNoticeTo()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<String> emailDepositNoticeTo;
+
+	/**
+	 * The default value of the '{@link #getDepositContainerId() <em>Deposit Container Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDepositContainerId()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DEPOSIT_CONTAINER_ID_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getDepositContainerId() <em>Deposit Container Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDepositContainerId()
+	 * @generated
+	 * @ordered
+	 */
+	protected String depositContainerId = DEPOSIT_CONTAINER_ID_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getAuthorizedGroups() <em>Authorized Groups</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAuthorizedGroups()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<String> authorizedGroups;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -166,6 +228,27 @@ public class FormImpl extends EObjectImpl implements Form {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getCurrentUser() {
+		return currentUser;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCurrentUser(String newCurrentUser) {
+		String oldCurrentUser = currentUser;
+		currentUser = newCurrentUser;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.FORM__CURRENT_USER, oldCurrentUser, currentUser));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<FormElement> getElements() {
 		if (elements == null) {
 			elements = new EObjectContainmentEList<FormElement>(FormElement.class, this, CrosswalkPackage.FORM__ELEMENTS);
@@ -220,6 +303,51 @@ public class FormImpl extends EObjectImpl implements Form {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<String> getEmailDepositNoticeTo() {
+		if (emailDepositNoticeTo == null) {
+			emailDepositNoticeTo = new EDataTypeUniqueEList<String>(String.class, this, CrosswalkPackage.FORM__EMAIL_DEPOSIT_NOTICE_TO);
+		}
+		return emailDepositNoticeTo;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getDepositContainerId() {
+		return depositContainerId;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDepositContainerId(String newDepositContainerId) {
+		String oldDepositContainerId = depositContainerId;
+		depositContainerId = newDepositContainerId;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.FORM__DEPOSIT_CONTAINER_ID, oldDepositContainerId, depositContainerId));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<String> getAuthorizedGroups() {
+		if (authorizedGroups == null) {
+			authorizedGroups = new EDataTypeUniqueEList<String>(String.class, this, CrosswalkPackage.FORM__AUTHORIZED_GROUPS);
+		}
+		return authorizedGroups;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -240,12 +368,20 @@ public class FormImpl extends EObjectImpl implements Form {
 			case CrosswalkPackage.FORM__OUTPUT_TYPE:
 				if (resolve) return getOutputType();
 				return basicGetOutputType();
+			case CrosswalkPackage.FORM__CURRENT_USER:
+				return getCurrentUser();
 			case CrosswalkPackage.FORM__ELEMENTS:
 				return getElements();
 			case CrosswalkPackage.FORM__TITLE:
 				return getTitle();
 			case CrosswalkPackage.FORM__DESCRIPTION:
 				return getDescription();
+			case CrosswalkPackage.FORM__EMAIL_DEPOSIT_NOTICE_TO:
+				return getEmailDepositNoticeTo();
+			case CrosswalkPackage.FORM__DEPOSIT_CONTAINER_ID:
+				return getDepositContainerId();
+			case CrosswalkPackage.FORM__AUTHORIZED_GROUPS:
+				return getAuthorizedGroups();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -262,6 +398,9 @@ public class FormImpl extends EObjectImpl implements Form {
 			case CrosswalkPackage.FORM__OUTPUT_TYPE:
 				setOutputType((EClass)newValue);
 				return;
+			case CrosswalkPackage.FORM__CURRENT_USER:
+				setCurrentUser((String)newValue);
+				return;
 			case CrosswalkPackage.FORM__ELEMENTS:
 				getElements().clear();
 				getElements().addAll((Collection<? extends FormElement>)newValue);
@@ -271,6 +410,17 @@ public class FormImpl extends EObjectImpl implements Form {
 				return;
 			case CrosswalkPackage.FORM__DESCRIPTION:
 				setDescription((String)newValue);
+				return;
+			case CrosswalkPackage.FORM__EMAIL_DEPOSIT_NOTICE_TO:
+				getEmailDepositNoticeTo().clear();
+				getEmailDepositNoticeTo().addAll((Collection<? extends String>)newValue);
+				return;
+			case CrosswalkPackage.FORM__DEPOSIT_CONTAINER_ID:
+				setDepositContainerId((String)newValue);
+				return;
+			case CrosswalkPackage.FORM__AUTHORIZED_GROUPS:
+				getAuthorizedGroups().clear();
+				getAuthorizedGroups().addAll((Collection<? extends String>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -287,6 +437,9 @@ public class FormImpl extends EObjectImpl implements Form {
 			case CrosswalkPackage.FORM__OUTPUT_TYPE:
 				setOutputType((EClass)null);
 				return;
+			case CrosswalkPackage.FORM__CURRENT_USER:
+				setCurrentUser(CURRENT_USER_EDEFAULT);
+				return;
 			case CrosswalkPackage.FORM__ELEMENTS:
 				getElements().clear();
 				return;
@@ -295,6 +448,15 @@ public class FormImpl extends EObjectImpl implements Form {
 				return;
 			case CrosswalkPackage.FORM__DESCRIPTION:
 				setDescription(DESCRIPTION_EDEFAULT);
+				return;
+			case CrosswalkPackage.FORM__EMAIL_DEPOSIT_NOTICE_TO:
+				getEmailDepositNoticeTo().clear();
+				return;
+			case CrosswalkPackage.FORM__DEPOSIT_CONTAINER_ID:
+				setDepositContainerId(DEPOSIT_CONTAINER_ID_EDEFAULT);
+				return;
+			case CrosswalkPackage.FORM__AUTHORIZED_GROUPS:
+				getAuthorizedGroups().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -310,12 +472,20 @@ public class FormImpl extends EObjectImpl implements Form {
 		switch (featureID) {
 			case CrosswalkPackage.FORM__OUTPUT_TYPE:
 				return outputType != null;
+			case CrosswalkPackage.FORM__CURRENT_USER:
+				return CURRENT_USER_EDEFAULT == null ? currentUser != null : !CURRENT_USER_EDEFAULT.equals(currentUser);
 			case CrosswalkPackage.FORM__ELEMENTS:
 				return elements != null && !elements.isEmpty();
 			case CrosswalkPackage.FORM__TITLE:
 				return TITLE_EDEFAULT == null ? title != null : !TITLE_EDEFAULT.equals(title);
 			case CrosswalkPackage.FORM__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
+			case CrosswalkPackage.FORM__EMAIL_DEPOSIT_NOTICE_TO:
+				return emailDepositNoticeTo != null && !emailDepositNoticeTo.isEmpty();
+			case CrosswalkPackage.FORM__DEPOSIT_CONTAINER_ID:
+				return DEPOSIT_CONTAINER_ID_EDEFAULT == null ? depositContainerId != null : !DEPOSIT_CONTAINER_ID_EDEFAULT.equals(depositContainerId);
+			case CrosswalkPackage.FORM__AUTHORIZED_GROUPS:
+				return authorizedGroups != null && !authorizedGroups.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -327,9 +497,10 @@ public class FormImpl extends EObjectImpl implements Form {
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == SchemaProvider.class) {
+		if (baseClass == ContextProvider.class) {
 			switch (derivedFeatureID) {
-				case CrosswalkPackage.FORM__OUTPUT_TYPE: return CrosswalkPackage.SCHEMA_PROVIDER__OUTPUT_TYPE;
+				case CrosswalkPackage.FORM__OUTPUT_TYPE: return CrosswalkPackage.CONTEXT_PROVIDER__OUTPUT_TYPE;
+				case CrosswalkPackage.FORM__CURRENT_USER: return CrosswalkPackage.CONTEXT_PROVIDER__CURRENT_USER;
 				default: return -1;
 			}
 		}
@@ -343,9 +514,10 @@ public class FormImpl extends EObjectImpl implements Form {
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == SchemaProvider.class) {
+		if (baseClass == ContextProvider.class) {
 			switch (baseFeatureID) {
-				case CrosswalkPackage.SCHEMA_PROVIDER__OUTPUT_TYPE: return CrosswalkPackage.FORM__OUTPUT_TYPE;
+				case CrosswalkPackage.CONTEXT_PROVIDER__OUTPUT_TYPE: return CrosswalkPackage.FORM__OUTPUT_TYPE;
+				case CrosswalkPackage.CONTEXT_PROVIDER__CURRENT_USER: return CrosswalkPackage.FORM__CURRENT_USER;
 				default: return -1;
 			}
 		}
@@ -362,10 +534,18 @@ public class FormImpl extends EObjectImpl implements Form {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (title: ");
+		result.append(" (currentUser: ");
+		result.append(currentUser);
+		result.append(", title: ");
 		result.append(title);
 		result.append(", description: ");
 		result.append(description);
+		result.append(", emailDepositNoticeTo: ");
+		result.append(emailDepositNoticeTo);
+		result.append(", depositContainerId: ");
+		result.append(depositContainerId);
+		result.append(", authorizedGroups: ");
+		result.append(authorizedGroups);
 		result.append(')');
 		return result.toString();
 	}

@@ -146,8 +146,8 @@ public class TrimWhitespaceImpl extends WalkWidgetImpl implements TrimWhitespace
          * <!-- end-user-doc -->
          * @generated NOT
          */
-        public EDataType getInputEDataType() {
-                return EcorePackage.eINSTANCE.getEString();
+        public Class getInputType() {
+                return java.lang.String.class;
         }
 
         /**
@@ -172,8 +172,8 @@ public class TrimWhitespaceImpl extends WalkWidgetImpl implements TrimWhitespace
          * <!-- end-user-doc -->
          * @generated NOT
          */
-        public EDataType getOutputEDataType() {
-            return EcorePackage.eINSTANCE.getEString();
+        public Class getOutputType() {
+            return java.lang.String.class;
         }
 
         /**

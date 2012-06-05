@@ -198,6 +198,8 @@ public class CrosswalksProjectBuilder extends IncrementalProjectBuilder {
 				return m;
 			}
 		});
+		
+		cw.setCurrentUser(System.getProperty("user.name"));
 
 		String gROUPID = file.getName();
 

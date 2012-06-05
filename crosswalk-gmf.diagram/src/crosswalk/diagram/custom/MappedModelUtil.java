@@ -19,7 +19,6 @@ import gov.loc.mods.mods.DateEncodingAttributeDefinition;
 import gov.loc.mods.mods.MODSPackage;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EAnnotation;
@@ -28,13 +27,13 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
+import crosswalk.ContextProvider;
 import crosswalk.CrossWalk;
 import crosswalk.CrosswalkFactory;
 import crosswalk.MappedAttribute;
 import crosswalk.MappedElement;
 import crosswalk.MappingContainer;
 import crosswalk.OutputElement;
-import crosswalk.SchemaProvider;
 import crosswalk.impl.MappedElementImpl;
 
 /**
@@ -59,12 +58,12 @@ public class MappedModelUtil {
 			for(OutputElement e : mapContainer.getElements()) {
 				if(e instanceof MappedElement) elementsMappedAlready.add((MappedElement)e);
 			}
-			if (parent instanceof SchemaProvider) {
-				mappedParentType = ((SchemaProvider) parent).getOutputType();
-			} else {
-				for (EObject next = parent.eContainer(); next != null; next = next.eContainer()) {
-					if (next instanceof SchemaProvider) {
-						mappedParentType = ((SchemaProvider) next).getOutputType();
+			for (EObject next = parent.eContainer(); next != null; next = next.eContainer()) {
+				if (next instanceof ContextProvider) {
+					EClass aMappedParentType = ((ContextProvider) next).getOutputType();
+					if(aMappedParentType != null) {
+						mappedParentType = aMappedParentType;
+						break;
 					}
 				}
 			}

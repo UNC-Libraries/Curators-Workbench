@@ -32,7 +32,6 @@ import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
 
-import crosswalk.CrosswalkPackage;
 import crosswalk.MappedAttribute;
 import crosswalk.diagram.edit.policies.CrosswalkTextSelectionEditPolicy;
 import crosswalk.diagram.edit.policies.MappedAttributeItemSemanticEditPolicy;
@@ -304,7 +303,16 @@ public class MappedAttributeEditPart extends ShapeNodeEditPart {
 		if (targetEditPart instanceof TrimWhitespaceEditPart) {
 			types.add(CrosswalkElementTypes.InputOutput_4001);
 		}
-		if (targetEditPart instanceof InputFieldEditPart) {
+		if (targetEditPart instanceof TextInputFieldEditPart) {
+			types.add(CrosswalkElementTypes.InputOutput_4001);
+		}
+		if (targetEditPart instanceof CurrentDateEditPart) {
+			types.add(CrosswalkElementTypes.InputOutput_4001);
+		}
+		if (targetEditPart instanceof CurrentUsernameEditPart) {
+			types.add(CrosswalkElementTypes.InputOutput_4001);
+		}
+		if (targetEditPart instanceof DateInputFieldEditPart) {
 			types.add(CrosswalkElementTypes.InputOutput_4001);
 		}
 		return types;
@@ -320,7 +328,10 @@ public class MappedAttributeEditPart extends ShapeNodeEditPart {
 			types.add(CrosswalkElementTypes.DateRecognizer_3004);
 			types.add(CrosswalkElementTypes.Text_3005);
 			types.add(CrosswalkElementTypes.TrimWhitespace_3006);
-			types.add(CrosswalkElementTypes.InputField_3017);
+			types.add(CrosswalkElementTypes.TextInputField_3023);
+			types.add(CrosswalkElementTypes.CurrentDate_3021);
+			types.add(CrosswalkElementTypes.CurrentUsername_3022);
+			types.add(CrosswalkElementTypes.DateInputField_3024);
 		}
 		return types;
 	}

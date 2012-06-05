@@ -70,6 +70,9 @@ public class FormItemProvider
 			addOutputTypePropertyDescriptor(object);
 			addTitlePropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
+			addEmailDepositNoticeToPropertyDescriptor(object);
+			addDepositContainerIdPropertyDescriptor(object);
+			addAuthorizedGroupsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -85,10 +88,10 @@ public class FormItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SchemaProvider_outputType_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SchemaProvider_outputType_feature", "_UI_SchemaProvider_type"),
-				 CrosswalkPackage.Literals.SCHEMA_PROVIDER__OUTPUT_TYPE,
-				 true,
+				 getString("_UI_ContextProvider_outputType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ContextProvider_outputType_feature", "_UI_ContextProvider_type"),
+				 CrosswalkPackage.Literals.CONTEXT_PROVIDER__OUTPUT_TYPE,
+				 false,
 				 false,
 				 true,
 				 null,
@@ -132,6 +135,72 @@ public class FormItemProvider
 				 getString("_UI_Form_description_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Form_description_feature", "_UI_Form_type"),
 				 CrosswalkPackage.Literals.FORM__DESCRIPTION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Email Deposit Notice To feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addEmailDepositNoticeToPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Form_emailDepositNoticeTo_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Form_emailDepositNoticeTo_feature", "_UI_Form_type"),
+				 CrosswalkPackage.Literals.FORM__EMAIL_DEPOSIT_NOTICE_TO,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Deposit Container Id feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDepositContainerIdPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Form_depositContainerId_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Form_depositContainerId_feature", "_UI_Form_type"),
+				 CrosswalkPackage.Literals.FORM__DEPOSIT_CONTAINER_ID,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Authorized Groups feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAuthorizedGroupsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Form_authorizedGroups_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Form_authorizedGroups_feature", "_UI_Form_type"),
+				 CrosswalkPackage.Literals.FORM__AUTHORIZED_GROUPS,
 				 true,
 				 false,
 				 false,
@@ -189,7 +258,7 @@ public class FormItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Form)object).getTitle();
+		String label = ((Form)object).getCurrentUser();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Form_type") :
 			getString("_UI_Form_type") + " " + label;
@@ -207,8 +276,12 @@ public class FormItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Form.class)) {
+			case CrosswalkPackage.FORM__CURRENT_USER:
 			case CrosswalkPackage.FORM__TITLE:
 			case CrosswalkPackage.FORM__DESCRIPTION:
+			case CrosswalkPackage.FORM__EMAIL_DEPOSIT_NOTICE_TO:
+			case CrosswalkPackage.FORM__DEPOSIT_CONTAINER_ID:
+			case CrosswalkPackage.FORM__AUTHORIZED_GROUPS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case CrosswalkPackage.FORM__ELEMENTS:

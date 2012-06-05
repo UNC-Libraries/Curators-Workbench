@@ -16,18 +16,19 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import crosswalk.ContextProvider;
 import crosswalk.CrosswalkPackage;
 import crosswalk.FormElement;
 import crosswalk.InputField;
-import crosswalk.MappedElement;
 import crosswalk.MappingContainer;
 import crosswalk.MetadataBlock;
 import crosswalk.OutputElement;
-import crosswalk.SchemaProvider;
 import crosswalk.WalkWidget;
 
 /**
@@ -38,11 +39,16 @@ import crosswalk.WalkWidget;
  * The following features are implemented:
  * <ul>
  *   <li>{@link crosswalk.impl.MetadataBlockImpl#getWalk <em>Walk</em>}</li>
+ *   <li>{@link crosswalk.impl.MetadataBlockImpl#getException <em>Exception</em>}</li>
+ *   <li>{@link crosswalk.impl.MetadataBlockImpl#getOutputType <em>Output Type</em>}</li>
+ *   <li>{@link crosswalk.impl.MetadataBlockImpl#getCurrentUser <em>Current User</em>}</li>
  *   <li>{@link crosswalk.impl.MetadataBlockImpl#getWidgets <em>Widgets</em>}</li>
  *   <li>{@link crosswalk.impl.MetadataBlockImpl#getElements <em>Elements</em>}</li>
+ *   <li>{@link crosswalk.impl.MetadataBlockImpl#getExceptions <em>Exceptions</em>}</li>
  *   <li>{@link crosswalk.impl.MetadataBlockImpl#getName <em>Name</em>}</li>
  *   <li>{@link crosswalk.impl.MetadataBlockImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link crosswalk.impl.MetadataBlockImpl#getPorts <em>Ports</em>}</li>
+ *   <li>{@link crosswalk.impl.MetadataBlockImpl#isRequired <em>Required</em>}</li>
  * </ul>
  * </p>
  *
@@ -50,14 +56,54 @@ import crosswalk.WalkWidget;
  */
 public class MetadataBlockImpl extends EObjectImpl implements MetadataBlock {
 	/**
-	 * The cached value of the '{@link #getWalk() <em>Walk</em>}' reference.
+	 * The default value of the '{@link #getException() <em>Exception</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getWalk()
+	 * @see #getException()
 	 * @generated
 	 * @ordered
 	 */
-	protected SchemaProvider walk;
+	protected static final Throwable EXCEPTION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getException() <em>Exception</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getException()
+	 * @generated
+	 * @ordered
+	 */
+	protected Throwable exception = EXCEPTION_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getOutputType() <em>Output Type</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOutputType()
+	 * @generated
+	 * @ordered
+	 */
+	protected EClass outputType;
+
+	/**
+	 * The default value of the '{@link #getCurrentUser() <em>Current User</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCurrentUser()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String CURRENT_USER_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getCurrentUser() <em>Current User</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCurrentUser()
+	 * @generated
+	 * @ordered
+	 */
+	protected String currentUser = CURRENT_USER_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getWidgets() <em>Widgets</em>}' containment reference list.
@@ -78,6 +124,16 @@ public class MetadataBlockImpl extends EObjectImpl implements MetadataBlock {
 	 * @ordered
 	 */
 	protected EList<OutputElement> elements;
+
+	/**
+	 * The cached value of the '{@link #getExceptions() <em>Exceptions</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExceptions()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Throwable> exceptions;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -127,7 +183,27 @@ public class MetadataBlockImpl extends EObjectImpl implements MetadataBlock {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<InputField> ports;
+	protected EList<InputField<?>> ports;
+
+	/**
+	 * The default value of the '{@link #isRequired() <em>Required</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isRequired()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean REQUIRED_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isRequired() <em>Required</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isRequired()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean required = REQUIRED_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -153,16 +229,78 @@ public class MetadataBlockImpl extends EObjectImpl implements MetadataBlock {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SchemaProvider getWalk() {
-		if (walk != null && walk.eIsProxy()) {
-			InternalEObject oldWalk = (InternalEObject)walk;
-			walk = (SchemaProvider)eResolveProxy(oldWalk);
-			if (walk != oldWalk) {
+	public MappingContainer getWalk() {
+		if (eContainerFeatureID() != CrosswalkPackage.METADATA_BLOCK__WALK) return null;
+		return (MappingContainer)eContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetWalk(MappingContainer newWalk, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newWalk, CrosswalkPackage.METADATA_BLOCK__WALK, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setWalk(MappingContainer newWalk) {
+		if (newWalk != eInternalContainer() || (eContainerFeatureID() != CrosswalkPackage.METADATA_BLOCK__WALK && newWalk != null)) {
+			if (EcoreUtil.isAncestor(this, newWalk))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newWalk != null)
+				msgs = ((InternalEObject)newWalk).eInverseAdd(this, CrosswalkPackage.MAPPING_CONTAINER__ELEMENTS, MappingContainer.class, msgs);
+			msgs = basicSetWalk(newWalk, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.METADATA_BLOCK__WALK, newWalk, newWalk));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Throwable getException() {
+		return exception;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setException(Throwable newException) {
+		Throwable oldException = exception;
+		exception = newException;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.METADATA_BLOCK__EXCEPTION, oldException, exception));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getOutputType() {
+		if (outputType != null && outputType.eIsProxy()) {
+			InternalEObject oldOutputType = (InternalEObject)outputType;
+			outputType = (EClass)eResolveProxy(oldOutputType);
+			if (outputType != oldOutputType) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CrosswalkPackage.METADATA_BLOCK__WALK, oldWalk, walk));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CrosswalkPackage.METADATA_BLOCK__OUTPUT_TYPE, oldOutputType, outputType));
 			}
 		}
-		return walk;
+		return outputType;
 	}
 
 	/**
@@ -170,8 +308,8 @@ public class MetadataBlockImpl extends EObjectImpl implements MetadataBlock {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SchemaProvider basicGetWalk() {
-		return walk;
+	public EClass basicGetOutputType() {
+		return outputType;
 	}
 
 	/**
@@ -179,11 +317,32 @@ public class MetadataBlockImpl extends EObjectImpl implements MetadataBlock {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setWalk(SchemaProvider newWalk) {
-		SchemaProvider oldWalk = walk;
-		walk = newWalk;
+	public void setOutputType(EClass newOutputType) {
+		EClass oldOutputType = outputType;
+		outputType = newOutputType;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.METADATA_BLOCK__WALK, oldWalk, walk));
+			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.METADATA_BLOCK__OUTPUT_TYPE, oldOutputType, outputType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getCurrentUser() {
+		return currentUser;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCurrentUser(String newCurrentUser) {
+		String oldCurrentUser = currentUser;
+		currentUser = newCurrentUser;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.METADATA_BLOCK__CURRENT_USER, oldCurrentUser, currentUser));
 	}
 
 	/**
@@ -235,7 +394,7 @@ public class MetadataBlockImpl extends EObjectImpl implements MetadataBlock {
 	 */
 	public EList<OutputElement> getElements() {
 		if (elements == null) {
-			elements = new EObjectContainmentEList<OutputElement>(OutputElement.class, this, CrosswalkPackage.METADATA_BLOCK__ELEMENTS);
+			elements = new EObjectContainmentWithInverseEList<OutputElement>(OutputElement.class, this, CrosswalkPackage.METADATA_BLOCK__ELEMENTS, CrosswalkPackage.OUTPUT_ELEMENT__WALK);
 		}
 		return elements;
 	}
@@ -245,11 +404,44 @@ public class MetadataBlockImpl extends EObjectImpl implements MetadataBlock {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<InputField> getPorts() {
+	public EList<Throwable> getExceptions() {
+		if (exceptions == null) {
+			exceptions = new EDataTypeUniqueEList<Throwable>(Throwable.class, this, CrosswalkPackage.METADATA_BLOCK__EXCEPTIONS);
+		}
+		return exceptions;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<InputField<?>> getPorts() {
 		if (ports == null) {
-			ports = new EObjectContainmentEList<InputField>(InputField.class, this, CrosswalkPackage.METADATA_BLOCK__PORTS);
+			ports = new EObjectContainmentEList<InputField<?>>(InputField.class, this, CrosswalkPackage.METADATA_BLOCK__PORTS);
 		}
 		return ports;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isRequired() {
+		return required;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRequired(boolean newRequired) {
+		boolean oldRequired = required;
+		required = newRequired;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.METADATA_BLOCK__REQUIRED, oldRequired, required));
 	}
 
 	/**
@@ -284,8 +476,14 @@ public class MetadataBlockImpl extends EObjectImpl implements MetadataBlock {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case CrosswalkPackage.METADATA_BLOCK__WALK:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetWalk((MappingContainer)otherEnd, msgs);
 			case CrosswalkPackage.METADATA_BLOCK__WIDGETS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getWidgets()).basicAdd(otherEnd, msgs);
+			case CrosswalkPackage.METADATA_BLOCK__ELEMENTS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getElements()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -298,6 +496,8 @@ public class MetadataBlockImpl extends EObjectImpl implements MetadataBlock {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case CrosswalkPackage.METADATA_BLOCK__WALK:
+				return basicSetWalk(null, msgs);
 			case CrosswalkPackage.METADATA_BLOCK__WIDGETS:
 				return ((InternalEList<?>)getWidgets()).basicRemove(otherEnd, msgs);
 			case CrosswalkPackage.METADATA_BLOCK__ELEMENTS:
@@ -314,21 +514,45 @@ public class MetadataBlockImpl extends EObjectImpl implements MetadataBlock {
 	 * @generated
 	 */
 	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case CrosswalkPackage.METADATA_BLOCK__WALK:
+				return eInternalContainer().eInverseRemove(this, CrosswalkPackage.MAPPING_CONTAINER__ELEMENTS, MappingContainer.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case CrosswalkPackage.METADATA_BLOCK__WALK:
-				if (resolve) return getWalk();
-				return basicGetWalk();
+				return getWalk();
+			case CrosswalkPackage.METADATA_BLOCK__EXCEPTION:
+				return getException();
+			case CrosswalkPackage.METADATA_BLOCK__OUTPUT_TYPE:
+				if (resolve) return getOutputType();
+				return basicGetOutputType();
+			case CrosswalkPackage.METADATA_BLOCK__CURRENT_USER:
+				return getCurrentUser();
 			case CrosswalkPackage.METADATA_BLOCK__WIDGETS:
 				return getWidgets();
 			case CrosswalkPackage.METADATA_BLOCK__ELEMENTS:
 				return getElements();
+			case CrosswalkPackage.METADATA_BLOCK__EXCEPTIONS:
+				return getExceptions();
 			case CrosswalkPackage.METADATA_BLOCK__NAME:
 				return getName();
 			case CrosswalkPackage.METADATA_BLOCK__DESCRIPTION:
 				return getDescription();
 			case CrosswalkPackage.METADATA_BLOCK__PORTS:
 				return getPorts();
+			case CrosswalkPackage.METADATA_BLOCK__REQUIRED:
+				return isRequired();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -343,7 +567,16 @@ public class MetadataBlockImpl extends EObjectImpl implements MetadataBlock {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case CrosswalkPackage.METADATA_BLOCK__WALK:
-				setWalk((SchemaProvider)newValue);
+				setWalk((MappingContainer)newValue);
+				return;
+			case CrosswalkPackage.METADATA_BLOCK__EXCEPTION:
+				setException((Throwable)newValue);
+				return;
+			case CrosswalkPackage.METADATA_BLOCK__OUTPUT_TYPE:
+				setOutputType((EClass)newValue);
+				return;
+			case CrosswalkPackage.METADATA_BLOCK__CURRENT_USER:
+				setCurrentUser((String)newValue);
 				return;
 			case CrosswalkPackage.METADATA_BLOCK__WIDGETS:
 				getWidgets().clear();
@@ -353,6 +586,10 @@ public class MetadataBlockImpl extends EObjectImpl implements MetadataBlock {
 				getElements().clear();
 				getElements().addAll((Collection<? extends OutputElement>)newValue);
 				return;
+			case CrosswalkPackage.METADATA_BLOCK__EXCEPTIONS:
+				getExceptions().clear();
+				getExceptions().addAll((Collection<? extends Throwable>)newValue);
+				return;
 			case CrosswalkPackage.METADATA_BLOCK__NAME:
 				setName((String)newValue);
 				return;
@@ -361,7 +598,10 @@ public class MetadataBlockImpl extends EObjectImpl implements MetadataBlock {
 				return;
 			case CrosswalkPackage.METADATA_BLOCK__PORTS:
 				getPorts().clear();
-				getPorts().addAll((Collection<? extends InputField>)newValue);
+				getPorts().addAll((Collection<? extends InputField<?>>)newValue);
+				return;
+			case CrosswalkPackage.METADATA_BLOCK__REQUIRED:
+				setRequired((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -376,13 +616,25 @@ public class MetadataBlockImpl extends EObjectImpl implements MetadataBlock {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case CrosswalkPackage.METADATA_BLOCK__WALK:
-				setWalk((SchemaProvider)null);
+				setWalk((MappingContainer)null);
+				return;
+			case CrosswalkPackage.METADATA_BLOCK__EXCEPTION:
+				setException(EXCEPTION_EDEFAULT);
+				return;
+			case CrosswalkPackage.METADATA_BLOCK__OUTPUT_TYPE:
+				setOutputType((EClass)null);
+				return;
+			case CrosswalkPackage.METADATA_BLOCK__CURRENT_USER:
+				setCurrentUser(CURRENT_USER_EDEFAULT);
 				return;
 			case CrosswalkPackage.METADATA_BLOCK__WIDGETS:
 				getWidgets().clear();
 				return;
 			case CrosswalkPackage.METADATA_BLOCK__ELEMENTS:
 				getElements().clear();
+				return;
+			case CrosswalkPackage.METADATA_BLOCK__EXCEPTIONS:
+				getExceptions().clear();
 				return;
 			case CrosswalkPackage.METADATA_BLOCK__NAME:
 				setName(NAME_EDEFAULT);
@@ -392,6 +644,9 @@ public class MetadataBlockImpl extends EObjectImpl implements MetadataBlock {
 				return;
 			case CrosswalkPackage.METADATA_BLOCK__PORTS:
 				getPorts().clear();
+				return;
+			case CrosswalkPackage.METADATA_BLOCK__REQUIRED:
+				setRequired(REQUIRED_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -406,17 +661,27 @@ public class MetadataBlockImpl extends EObjectImpl implements MetadataBlock {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case CrosswalkPackage.METADATA_BLOCK__WALK:
-				return walk != null;
+				return getWalk() != null;
+			case CrosswalkPackage.METADATA_BLOCK__EXCEPTION:
+				return EXCEPTION_EDEFAULT == null ? exception != null : !EXCEPTION_EDEFAULT.equals(exception);
+			case CrosswalkPackage.METADATA_BLOCK__OUTPUT_TYPE:
+				return outputType != null;
+			case CrosswalkPackage.METADATA_BLOCK__CURRENT_USER:
+				return CURRENT_USER_EDEFAULT == null ? currentUser != null : !CURRENT_USER_EDEFAULT.equals(currentUser);
 			case CrosswalkPackage.METADATA_BLOCK__WIDGETS:
 				return widgets != null && !widgets.isEmpty();
 			case CrosswalkPackage.METADATA_BLOCK__ELEMENTS:
 				return elements != null && !elements.isEmpty();
+			case CrosswalkPackage.METADATA_BLOCK__EXCEPTIONS:
+				return exceptions != null && !exceptions.isEmpty();
 			case CrosswalkPackage.METADATA_BLOCK__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case CrosswalkPackage.METADATA_BLOCK__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
 			case CrosswalkPackage.METADATA_BLOCK__PORTS:
 				return ports != null && !ports.isEmpty();
+			case CrosswalkPackage.METADATA_BLOCK__REQUIRED:
+				return required != REQUIRED_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -428,10 +693,18 @@ public class MetadataBlockImpl extends EObjectImpl implements MetadataBlock {
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == ContextProvider.class) {
+			switch (derivedFeatureID) {
+				case CrosswalkPackage.METADATA_BLOCK__OUTPUT_TYPE: return CrosswalkPackage.CONTEXT_PROVIDER__OUTPUT_TYPE;
+				case CrosswalkPackage.METADATA_BLOCK__CURRENT_USER: return CrosswalkPackage.CONTEXT_PROVIDER__CURRENT_USER;
+				default: return -1;
+			}
+		}
 		if (baseClass == MappingContainer.class) {
 			switch (derivedFeatureID) {
 				case CrosswalkPackage.METADATA_BLOCK__WIDGETS: return CrosswalkPackage.MAPPING_CONTAINER__WIDGETS;
 				case CrosswalkPackage.METADATA_BLOCK__ELEMENTS: return CrosswalkPackage.MAPPING_CONTAINER__ELEMENTS;
+				case CrosswalkPackage.METADATA_BLOCK__EXCEPTIONS: return CrosswalkPackage.MAPPING_CONTAINER__EXCEPTIONS;
 				default: return -1;
 			}
 		}
@@ -450,10 +723,18 @@ public class MetadataBlockImpl extends EObjectImpl implements MetadataBlock {
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == ContextProvider.class) {
+			switch (baseFeatureID) {
+				case CrosswalkPackage.CONTEXT_PROVIDER__OUTPUT_TYPE: return CrosswalkPackage.METADATA_BLOCK__OUTPUT_TYPE;
+				case CrosswalkPackage.CONTEXT_PROVIDER__CURRENT_USER: return CrosswalkPackage.METADATA_BLOCK__CURRENT_USER;
+				default: return -1;
+			}
+		}
 		if (baseClass == MappingContainer.class) {
 			switch (baseFeatureID) {
 				case CrosswalkPackage.MAPPING_CONTAINER__WIDGETS: return CrosswalkPackage.METADATA_BLOCK__WIDGETS;
 				case CrosswalkPackage.MAPPING_CONTAINER__ELEMENTS: return CrosswalkPackage.METADATA_BLOCK__ELEMENTS;
+				case CrosswalkPackage.MAPPING_CONTAINER__EXCEPTIONS: return CrosswalkPackage.METADATA_BLOCK__EXCEPTIONS;
 				default: return -1;
 			}
 		}
@@ -475,10 +756,18 @@ public class MetadataBlockImpl extends EObjectImpl implements MetadataBlock {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (name: ");
+		result.append(" (exception: ");
+		result.append(exception);
+		result.append(", currentUser: ");
+		result.append(currentUser);
+		result.append(", exceptions: ");
+		result.append(exceptions);
+		result.append(", name: ");
 		result.append(name);
 		result.append(", description: ");
 		result.append(description);
+		result.append(", required: ");
+		result.append(required);
 		result.append(')');
 		return result.toString();
 	}

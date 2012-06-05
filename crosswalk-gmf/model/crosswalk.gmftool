@@ -42,6 +42,14 @@
         <largeIcon
             xsi:type="gmftool:DefaultImage"/>
       </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Current Username"
+          description="The login of the current user."/>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Current Date/Time"
+          description="The current system date and time."/>
     </tools>
     <tools
         xsi:type="gmftool:ToolGroup"
@@ -53,8 +61,12 @@
           description="Add a metadata block to the dictionary"/>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="Input Field"
-          description="Add an input field to a metadata block"/>
+          title="Text Field"
+          description="Add a text field to a metadata block"/>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Date Field"
+          description="Add a date field to a metadata block."/>
       <tools
           xsi:type="gmftool:CreationTool"
           title="Paragraph"

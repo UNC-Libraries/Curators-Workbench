@@ -98,12 +98,28 @@ public class CrosswalkSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case CrosswalkPackage.CURRENT_USERNAME: {
+				CurrentUsername currentUsername = (CurrentUsername)theEObject;
+				T result = caseCurrentUsername(currentUsername);
+				if (result == null) result = caseWalkWidget(currentUsername);
+				if (result == null) result = caseOutput(currentUsername);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CrosswalkPackage.CURRENT_DATE: {
+				CurrentDate currentDate = (CurrentDate)theEObject;
+				T result = caseCurrentDate(currentDate);
+				if (result == null) result = caseWalkWidget(currentDate);
+				if (result == null) result = caseOutput(currentDate);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case CrosswalkPackage.CROSS_WALK: {
 				CrossWalk crossWalk = (CrossWalk)theEObject;
 				T result = caseCrossWalk(crossWalk);
-				if (result == null) result = caseSchemaProvider(crossWalk);
 				if (result == null) result = caseMappingContainer(crossWalk);
 				if (result == null) result = caseEditable(crossWalk);
+				if (result == null) result = caseContextProvider(crossWalk);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -215,7 +231,7 @@ public class CrosswalkSwitch<T> extends Switch<T> {
 			case CrosswalkPackage.DICTIONARY: {
 				Dictionary dictionary = (Dictionary)theEObject;
 				T result = caseDictionary(dictionary);
-				if (result == null) result = caseSchemaProvider(dictionary);
+				if (result == null) result = caseContextProvider(dictionary);
 				if (result == null) result = caseEditable(dictionary);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -226,6 +242,7 @@ public class CrosswalkSwitch<T> extends Switch<T> {
 				if (result == null) result = caseOutputElement(metadataBlock);
 				if (result == null) result = caseMappingContainer(metadataBlock);
 				if (result == null) result = caseFormElement(metadataBlock);
+				if (result == null) result = caseContextProvider(metadataBlock);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -236,22 +253,32 @@ public class CrosswalkSwitch<T> extends Switch<T> {
 				return result;
 			}
 			case CrosswalkPackage.INPUT_FIELD: {
-				InputField inputField = (InputField)theEObject;
+				InputField<?> inputField = (InputField<?>)theEObject;
 				T result = caseInputField(inputField);
 				if (result == null) result = caseOutput(inputField);
 				if (result == null) result = caseInput(inputField);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case CrosswalkPackage.SCHEMA_PROVIDER: {
-				SchemaProvider schemaProvider = (SchemaProvider)theEObject;
-				T result = caseSchemaProvider(schemaProvider);
+			case CrosswalkPackage.TEXT_INPUT_FIELD: {
+				TextInputField textInputField = (TextInputField)theEObject;
+				T result = caseTextInputField(textInputField);
+				if (result == null) result = caseInputField(textInputField);
+				if (result == null) result = caseOutput(textInputField);
+				if (result == null) result = caseInput(textInputField);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CrosswalkPackage.CONTEXT_PROVIDER: {
+				ContextProvider contextProvider = (ContextProvider)theEObject;
+				T result = caseContextProvider(contextProvider);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case CrosswalkPackage.MAPPING_CONTAINER: {
 				MappingContainer mappingContainer = (MappingContainer)theEObject;
 				T result = caseMappingContainer(mappingContainer);
+				if (result == null) result = caseContextProvider(mappingContainer);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -271,7 +298,7 @@ public class CrosswalkSwitch<T> extends Switch<T> {
 				Form form = (Form)theEObject;
 				T result = caseForm(form);
 				if (result == null) result = caseEditable(form);
-				if (result == null) result = caseSchemaProvider(form);
+				if (result == null) result = caseContextProvider(form);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -285,6 +312,15 @@ public class CrosswalkSwitch<T> extends Switch<T> {
 				Paragraph paragraph = (Paragraph)theEObject;
 				T result = caseParagraph(paragraph);
 				if (result == null) result = caseFormElement(paragraph);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CrosswalkPackage.DATE_INPUT_FIELD: {
+				DateInputField dateInputField = (DateInputField)theEObject;
+				T result = caseDateInputField(dateInputField);
+				if (result == null) result = caseInputField(dateInputField);
+				if (result == null) result = caseOutput(dateInputField);
+				if (result == null) result = caseInput(dateInputField);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -323,6 +359,36 @@ public class CrosswalkSwitch<T> extends Switch<T> {
 	}
 
         /**
+	 * Returns the result of interpreting the object as an instance of '<em>Current Username</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Current Username</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCurrentUsername(CurrentUsername object) {
+		return null;
+	}
+
+								/**
+	 * Returns the result of interpreting the object as an instance of '<em>Current Date</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Current Date</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCurrentDate(CurrentDate object) {
+		return null;
+	}
+
+								/**
 	 * Returns the result of interpreting the object as an instance of '<em>Cross Walk</em>'.
 	 * <!-- begin-user-doc -->
          * This implementation returns null;
@@ -618,22 +684,37 @@ public class CrosswalkSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseInputField(InputField object) {
+	public <F> T caseInputField(InputField<F> object) {
 		return null;
 	}
 
 								/**
-	 * Returns the result of interpreting the object as an instance of '<em>Schema Provider</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Text Input Field</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Schema Provider</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Text Input Field</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSchemaProvider(SchemaProvider object) {
+	public T caseTextInputField(TextInputField object) {
+		return null;
+	}
+
+								/**
+	 * Returns the result of interpreting the object as an instance of '<em>Context Provider</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Context Provider</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseContextProvider(ContextProvider object) {
 		return null;
 	}
 
@@ -724,6 +805,21 @@ public class CrosswalkSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseParagraph(Paragraph object) {
+		return null;
+	}
+
+								/**
+	 * Returns the result of interpreting the object as an instance of '<em>Date Input Field</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Date Input Field</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDateInputField(DateInputField object) {
 		return null;
 	}
 

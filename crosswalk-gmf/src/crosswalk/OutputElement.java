@@ -26,6 +26,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link crosswalk.OutputElement#getWalk <em>Walk</em>}</li>
+ *   <li>{@link crosswalk.OutputElement#getException <em>Exception</em>}</li>
  * </ul>
  * </p>
  *
@@ -35,30 +36,58 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface OutputElement extends EObject {
         /**
-	 * Returns the value of the '<em><b>Walk</b></em>' reference.
+	 * Returns the value of the '<em><b>Walk</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link crosswalk.MappingContainer#getElements <em>Elements</em>}'.
 	 * <!-- begin-user-doc -->
          * <p>
          * If the meaning of the '<em>Walk</em>' container reference isn't clear,
          * there really should be more of a description here...
          * </p>
          * <!-- end-user-doc -->
-	 * @return the value of the '<em>Walk</em>' reference.
-	 * @see #setWalk(SchemaProvider)
+	 * @return the value of the '<em>Walk</em>' container reference.
+	 * @see #setWalk(MappingContainer)
 	 * @see crosswalk.CrosswalkPackage#getOutputElement_Walk()
-	 * @model
+	 * @see crosswalk.MappingContainer#getElements
+	 * @model opposite="elements" transient="false"
 	 * @generated
 	 */
-        SchemaProvider getWalk();
+        MappingContainer getWalk();
 
         /**
-	 * Sets the value of the '{@link crosswalk.OutputElement#getWalk <em>Walk</em>}' reference.
+	 * Sets the value of the '{@link crosswalk.OutputElement#getWalk <em>Walk</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Walk</em>' reference.
+	 * @param value the new value of the '<em>Walk</em>' container reference.
 	 * @see #getWalk()
 	 * @generated
 	 */
-	void setWalk(SchemaProvider value);
+	void setWalk(MappingContainer value);
+
+								/**
+	 * Returns the value of the '<em><b>Exception</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Exception</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Exception</em>' attribute.
+	 * @see #setException(Throwable)
+	 * @see crosswalk.CrosswalkPackage#getOutputElement_Exception()
+	 * @model dataType="crosswalk.Exception" transient="true"
+	 * @generated
+	 */
+	Throwable getException();
+
+								/**
+	 * Sets the value of the '{@link crosswalk.OutputElement#getException <em>Exception</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Exception</em>' attribute.
+	 * @see #getException()
+	 * @generated
+	 */
+	void setException(Throwable value);
 
 								/**
 	 * <!-- begin-user-doc -->

@@ -30,6 +30,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
@@ -44,7 +45,7 @@ import crosswalk.CrosswalkPackage;
  * @generated
  */
 public class CrossWalkItemProvider
-        extends SchemaProviderItemProvider
+        extends ContextProviderItemProvider
         implements
                 IEditingDomainItemProvider,
                 IStructuredItemContentProvider,
@@ -72,11 +73,34 @@ public class CrossWalkItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addExceptionsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
         /**
+	 * This adds a property descriptor for the Exceptions feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addExceptionsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_MappingContainer_exceptions_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_MappingContainer_exceptions_feature", "_UI_MappingContainer_type"),
+				 CrosswalkPackage.Literals.MAPPING_CONTAINER__EXCEPTIONS,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+								/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -127,7 +151,10 @@ public class CrossWalkItemProvider
 	 */
         @Override
         public String getText(Object object) {
-		return getString("_UI_CrossWalk_type");
+		String label = ((CrossWalk)object).getCurrentUser();
+		return label == null || label.length() == 0 ?
+			getString("_UI_CrossWalk_type") :
+			getString("_UI_CrossWalk_type") + " " + label;
 	}
 
         /**
@@ -142,6 +169,9 @@ public class CrossWalkItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(CrossWalk.class)) {
+			case CrosswalkPackage.CROSS_WALK__EXCEPTIONS:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case CrosswalkPackage.CROSS_WALK__WIDGETS:
 			case CrosswalkPackage.CROSS_WALK__ELEMENTS:
 			case CrosswalkPackage.CROSS_WALK__DATA_SOURCE:
@@ -166,6 +196,16 @@ public class CrossWalkItemProvider
 			(createChildParameter
 				(CrosswalkPackage.Literals.MAPPING_CONTAINER__WIDGETS,
 				 CrosswalkFactory.eINSTANCE.createTrimWhitespace()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CrosswalkPackage.Literals.MAPPING_CONTAINER__WIDGETS,
+				 CrosswalkFactory.eINSTANCE.createCurrentUsername()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CrosswalkPackage.Literals.MAPPING_CONTAINER__WIDGETS,
+				 CrosswalkFactory.eINSTANCE.createCurrentDate()));
 
 		newChildDescriptors.add
 			(createChildParameter

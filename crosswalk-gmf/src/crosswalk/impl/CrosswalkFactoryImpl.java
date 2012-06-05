@@ -20,8 +20,6 @@ import java.net.URI;
 import java.net.URISyntaxException;
 
 import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.IFolder;
-import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -33,6 +31,8 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import crosswalk.CrossWalk;
 import crosswalk.CrosswalkFactory;
 import crosswalk.CrosswalkPackage;
+import crosswalk.CurrentDate;
+import crosswalk.CurrentUsername;
 import crosswalk.DataException;
 import crosswalk.DataField;
 import crosswalk.DateRecognizer;
@@ -40,11 +40,13 @@ import crosswalk.DateToISO8601StringConversion;
 import crosswalk.DelimitedFile;
 import crosswalk.Dictionary;
 import crosswalk.EditingContainer;
+import crosswalk.Form;
 import crosswalk.InputField;
 import crosswalk.MappedAttribute;
 import crosswalk.MappedElement;
 import crosswalk.MetadataBlock;
 import crosswalk.OriginalNameRecordMatcher;
+import crosswalk.Paragraph;
 import crosswalk.RecordMatches;
 import crosswalk.RecordOutOfRangeException;
 import crosswalk.TabbedDataField;
@@ -97,6 +99,8 @@ public class CrosswalkFactoryImpl extends EFactoryImpl implements CrosswalkFacto
 		switch (eClass.getClassifierID()) {
 			case CrosswalkPackage.TABBED_DATA_FIELD: return createTabbedDataField();
 			case CrosswalkPackage.TRIM_WHITESPACE: return createTrimWhitespace();
+			case CrosswalkPackage.CURRENT_USERNAME: return createCurrentUsername();
+			case CrosswalkPackage.CURRENT_DATE: return createCurrentDate();
 			case CrosswalkPackage.CROSS_WALK: return createCrossWalk();
 			case CrosswalkPackage.DATA_FIELD: return createDataField();
 			case CrosswalkPackage.ORIGINAL_NAME_RECORD_MATCHER: return createOriginalNameRecordMatcher();
@@ -110,9 +114,11 @@ public class CrosswalkFactoryImpl extends EFactoryImpl implements CrosswalkFacto
 			case CrosswalkPackage.METADATA_BLOCK: return createMetadataBlock();
 			case CrosswalkPackage.VOCABULARY: return createVocabulary();
 			case CrosswalkPackage.INPUT_FIELD: return createInputField();
+			case CrosswalkPackage.TEXT_INPUT_FIELD: return createTextInputField();
 			case CrosswalkPackage.EDITING_CONTAINER: return createEditingContainer();
 			case CrosswalkPackage.FORM: return createForm();
 			case CrosswalkPackage.PARAGRAPH: return createParagraph();
+			case CrosswalkPackage.DATE_INPUT_FIELD: return createDateInputField();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -127,18 +133,16 @@ public class CrosswalkFactoryImpl extends EFactoryImpl implements CrosswalkFacto
 		switch (eDataType.getClassifierID()) {
 			case CrosswalkPackage.DATA_EXCEPTION:
 				return createDataExceptionFromString(eDataType, initialValue);
-			case CrosswalkPackage.IPROJECT:
-				return createIProjectFromString(eDataType, initialValue);
-			case CrosswalkPackage.IFILE:
-				return createIFileFromString(eDataType, initialValue);
 			case CrosswalkPackage.RECORD_MATCHES:
 				return createRecordMatchesFromString(eDataType, initialValue);
-			case CrosswalkPackage.IFOLDER:
-				return createIFolderFromString(eDataType, initialValue);
 			case CrosswalkPackage.RECORD_OUT_OF_RANGE_EXCEPTION:
 				return createRecordOutOfRangeExceptionFromString(eDataType, initialValue);
 			case CrosswalkPackage.URI:
 				return createURIFromString(eDataType, initialValue);
+			case CrosswalkPackage.EXCEPTION:
+				return createExceptionFromString(eDataType, initialValue);
+			case CrosswalkPackage.CLAZZ:
+				return createClazzFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -153,18 +157,16 @@ public class CrosswalkFactoryImpl extends EFactoryImpl implements CrosswalkFacto
 		switch (eDataType.getClassifierID()) {
 			case CrosswalkPackage.DATA_EXCEPTION:
 				return convertDataExceptionToString(eDataType, instanceValue);
-			case CrosswalkPackage.IPROJECT:
-				return convertIProjectToString(eDataType, instanceValue);
-			case CrosswalkPackage.IFILE:
-				return convertIFileToString(eDataType, instanceValue);
 			case CrosswalkPackage.RECORD_MATCHES:
 				return convertRecordMatchesToString(eDataType, instanceValue);
-			case CrosswalkPackage.IFOLDER:
-				return convertIFolderToString(eDataType, instanceValue);
 			case CrosswalkPackage.RECORD_OUT_OF_RANGE_EXCEPTION:
 				return convertRecordOutOfRangeExceptionToString(eDataType, instanceValue);
 			case CrosswalkPackage.URI:
 				return convertURIToString(eDataType, instanceValue);
+			case CrosswalkPackage.EXCEPTION:
+				return convertExceptionToString(eDataType, instanceValue);
+			case CrosswalkPackage.CLAZZ:
+				return convertClazzToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -189,6 +191,26 @@ public class CrosswalkFactoryImpl extends EFactoryImpl implements CrosswalkFacto
 	}
 
     /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CurrentUsername createCurrentUsername() {
+		CurrentUsernameImpl currentUsername = new CurrentUsernameImpl();
+		return currentUsername;
+	}
+
+				/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CurrentDate createCurrentDate() {
+		CurrentDateImpl currentDate = new CurrentDateImpl();
+		return currentDate;
+	}
+
+				/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -312,9 +334,19 @@ public class CrosswalkFactoryImpl extends EFactoryImpl implements CrosswalkFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public InputField createInputField() {
-		InputFieldImpl inputField = new InputFieldImpl();
+	public <F> InputField<F> createInputField() {
+		InputFieldImpl<F> inputField = new InputFieldImpl<F>();
 		return inputField;
+	}
+
+/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TextInputField createTextInputField() {
+		TextInputFieldImpl textInputField = new TextInputFieldImpl();
+		return textInputField;
 	}
 
 /**
@@ -348,6 +380,16 @@ public class CrosswalkFactoryImpl extends EFactoryImpl implements CrosswalkFacto
 	}
 
 /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DateInputField createDateInputField() {
+		DateInputFieldImpl dateInputField = new DateInputFieldImpl();
+		return dateInputField;
+	}
+
+/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -360,22 +402,6 @@ public class CrosswalkFactoryImpl extends EFactoryImpl implements CrosswalkFacto
 	 * @generated
 	 */
     public String convertDataExceptionToString(EDataType eDataType, Object instanceValue) {
-		return super.convertToString(eDataType, instanceValue);
-	}
-
-    /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-    public IProject createIProjectFromString(EDataType eDataType, String initialValue) {
-		return (IProject)super.createFromString(eDataType, initialValue);
-	}
-
-    /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-    public String convertIProjectToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(eDataType, instanceValue);
 	}
 
@@ -444,24 +470,6 @@ public class CrosswalkFactoryImpl extends EFactoryImpl implements CrosswalkFacto
          * <!-- end-user-doc -->
 	 * @generated
 	 */
-        public IFolder createIFolderFromString(EDataType eDataType, String initialValue) {
-		return (IFolder)super.createFromString(eDataType, initialValue);
-	}
-
-/**
-	 * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-	 * @generated
-	 */
-        public String convertIFolderToString(EDataType eDataType, Object instanceValue) {
-		return super.convertToString(eDataType, instanceValue);
-	}
-
-/**
-	 * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-	 * @generated
-	 */
         public RecordOutOfRangeException createRecordOutOfRangeExceptionFromString(EDataType eDataType, String initialValue) {
 		return (RecordOutOfRangeException)super.createFromString(eDataType, initialValue);
 	}
@@ -490,6 +498,42 @@ public class CrosswalkFactoryImpl extends EFactoryImpl implements CrosswalkFacto
 	 * @generated
 	 */
 	public String convertURIToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
+	}
+
+/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Throwable createExceptionFromString(EDataType eDataType, String initialValue) {
+		return (Throwable)super.createFromString(eDataType, initialValue);
+	}
+
+/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertExceptionToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
+	}
+
+/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Class createClazzFromString(EDataType eDataType, String initialValue) {
+		return (Class)super.createFromString(eDataType, initialValue);
+	}
+
+/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertClazzToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(eDataType, instanceValue);
 	}
 

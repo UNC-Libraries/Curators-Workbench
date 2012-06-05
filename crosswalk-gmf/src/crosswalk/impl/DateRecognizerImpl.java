@@ -171,8 +171,8 @@ public class DateRecognizerImpl extends WalkWidgetImpl implements DateRecognizer
 	 *
 	 * @generated NOT
 	 */
-	public EDataType getInputEDataType() {
-		return EcorePackage.eINSTANCE.getEString();
+	public Class getInputType() {
+		return java.lang.String.class;
 	}
 
 	/**
@@ -214,8 +214,8 @@ public class DateRecognizerImpl extends WalkWidgetImpl implements DateRecognizer
 	 *
 	 * @generated NOT
 	 */
-	public EDataType getOutputEDataType() {
-		return EcorePackage.eINSTANCE.getEDate();
+	public Class getOutputType() {
+		return java.util.Date.class;
 	}
 
 	private void initFormats() {

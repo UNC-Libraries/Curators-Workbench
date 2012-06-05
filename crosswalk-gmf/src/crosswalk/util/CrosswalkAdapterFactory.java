@@ -89,6 +89,14 @@ public class CrosswalkAdapterFactory extends AdapterFactoryImpl {
 				return createTrimWhitespaceAdapter();
 			}
 			@Override
+			public Adapter caseCurrentUsername(CurrentUsername object) {
+				return createCurrentUsernameAdapter();
+			}
+			@Override
+			public Adapter caseCurrentDate(CurrentDate object) {
+				return createCurrentDateAdapter();
+			}
+			@Override
 			public Adapter caseCrossWalk(CrossWalk object) {
 				return createCrossWalkAdapter();
 			}
@@ -165,12 +173,16 @@ public class CrosswalkAdapterFactory extends AdapterFactoryImpl {
 				return createVocabularyAdapter();
 			}
 			@Override
-			public Adapter caseInputField(InputField object) {
+			public <F> Adapter caseInputField(InputField<F> object) {
 				return createInputFieldAdapter();
 			}
 			@Override
-			public Adapter caseSchemaProvider(SchemaProvider object) {
-				return createSchemaProviderAdapter();
+			public Adapter caseTextInputField(TextInputField object) {
+				return createTextInputFieldAdapter();
+			}
+			@Override
+			public Adapter caseContextProvider(ContextProvider object) {
+				return createContextProviderAdapter();
 			}
 			@Override
 			public Adapter caseMappingContainer(MappingContainer object) {
@@ -195,6 +207,10 @@ public class CrosswalkAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseParagraph(Paragraph object) {
 				return createParagraphAdapter();
+			}
+			@Override
+			public Adapter caseDateInputField(DateInputField object) {
+				return createDateInputFieldAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -245,6 +261,34 @@ public class CrosswalkAdapterFactory extends AdapterFactoryImpl {
 	}
 
         /**
+	 * Creates a new adapter for an object of class '{@link crosswalk.CurrentUsername <em>Current Username</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see crosswalk.CurrentUsername
+	 * @generated
+	 */
+	public Adapter createCurrentUsernameAdapter() {
+		return null;
+	}
+
+								/**
+	 * Creates a new adapter for an object of class '{@link crosswalk.CurrentDate <em>Current Date</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see crosswalk.CurrentDate
+	 * @generated
+	 */
+	public Adapter createCurrentDateAdapter() {
+		return null;
+	}
+
+								/**
 	 * Creates a new adapter for an object of class '{@link crosswalk.CrossWalk <em>Cross Walk</em>}'.
 	 * <!-- begin-user-doc -->
          * This default implementation returns null so that we can easily ignore cases;
@@ -525,16 +569,30 @@ public class CrosswalkAdapterFactory extends AdapterFactoryImpl {
 	}
 
 								/**
-	 * Creates a new adapter for an object of class '{@link crosswalk.SchemaProvider <em>Schema Provider</em>}'.
+	 * Creates a new adapter for an object of class '{@link crosswalk.TextInputField <em>Text Input Field</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see crosswalk.SchemaProvider
+	 * @see crosswalk.TextInputField
 	 * @generated
 	 */
-	public Adapter createSchemaProviderAdapter() {
+	public Adapter createTextInputFieldAdapter() {
+		return null;
+	}
+
+								/**
+	 * Creates a new adapter for an object of class '{@link crosswalk.ContextProvider <em>Context Provider</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see crosswalk.ContextProvider
+	 * @generated
+	 */
+	public Adapter createContextProviderAdapter() {
 		return null;
 	}
 
@@ -619,6 +677,20 @@ public class CrosswalkAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createParagraphAdapter() {
+		return null;
+	}
+
+								/**
+	 * Creates a new adapter for an object of class '{@link crosswalk.DateInputField <em>Date Input Field</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see crosswalk.DateInputField
+	 * @generated
+	 */
+	public Adapter createDateInputFieldAdapter() {
 		return null;
 	}
 

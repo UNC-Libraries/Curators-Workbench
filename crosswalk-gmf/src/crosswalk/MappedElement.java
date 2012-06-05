@@ -7,9 +7,7 @@
 package crosswalk;
 
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.util.FeatureMap;
 
 /**
  * <!-- begin-user-doc -->

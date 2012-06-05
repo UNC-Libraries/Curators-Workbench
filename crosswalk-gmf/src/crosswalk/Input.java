@@ -91,9 +91,9 @@ public interface Input extends EObject {
         /**
 	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-	 * @model kind="operation"
+	 * @model kind="operation" dataType="crosswalk.Clazz"
 	 * @generated
 	 */
-        EDataType getInputEDataType();
+        Class getInputType();
 
 } // Input

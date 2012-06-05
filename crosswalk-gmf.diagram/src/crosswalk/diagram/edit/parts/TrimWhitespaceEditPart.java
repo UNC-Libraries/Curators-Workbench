@@ -273,7 +273,16 @@ public class TrimWhitespaceEditPart extends ShapeNodeEditPart {
 		if (targetEditPart instanceof crosswalk.diagram.edit.parts.TrimWhitespaceEditPart) {
 			types.add(CrosswalkElementTypes.InputOutput_4001);
 		}
-		if (targetEditPart instanceof InputFieldEditPart) {
+		if (targetEditPart instanceof TextInputFieldEditPart) {
+			types.add(CrosswalkElementTypes.InputOutput_4001);
+		}
+		if (targetEditPart instanceof CurrentDateEditPart) {
+			types.add(CrosswalkElementTypes.InputOutput_4001);
+		}
+		if (targetEditPart instanceof CurrentUsernameEditPart) {
+			types.add(CrosswalkElementTypes.InputOutput_4001);
+		}
+		if (targetEditPart instanceof DateInputFieldEditPart) {
 			types.add(CrosswalkElementTypes.InputOutput_4001);
 		}
 		return types;
@@ -289,7 +298,10 @@ public class TrimWhitespaceEditPart extends ShapeNodeEditPart {
 			types.add(CrosswalkElementTypes.DateRecognizer_3004);
 			types.add(CrosswalkElementTypes.Text_3005);
 			types.add(CrosswalkElementTypes.TrimWhitespace_3006);
-			types.add(CrosswalkElementTypes.InputField_3017);
+			types.add(CrosswalkElementTypes.TextInputField_3023);
+			types.add(CrosswalkElementTypes.CurrentDate_3021);
+			types.add(CrosswalkElementTypes.CurrentUsername_3022);
+			types.add(CrosswalkElementTypes.DateInputField_3024);
 		}
 		return types;
 	}
@@ -313,7 +325,8 @@ public class TrimWhitespaceEditPart extends ShapeNodeEditPart {
 			types.add(CrosswalkElementTypes.DateRecognizer_3004);
 			types.add(CrosswalkElementTypes.TrimWhitespace_3006);
 			types.add(CrosswalkElementTypes.MappedAttribute_3009);
-			types.add(CrosswalkElementTypes.InputField_3017);
+			types.add(CrosswalkElementTypes.TextInputField_3023);
+			types.add(CrosswalkElementTypes.DateInputField_3024);
 		}
 		return types;
 	}

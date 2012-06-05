@@ -23,12 +23,11 @@ import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import org.eclipse.emf.ecore.util.EcoreUtil;
+
 import crosswalk.CrosswalkPackage;
 import crosswalk.DataException;
 import crosswalk.MappingContainer;
-import crosswalk.SchemaProvider;
 import crosswalk.Text;
 import crosswalk.WalkWidget;
 
@@ -52,10 +51,10 @@ public class TextImpl extends EObjectImpl implements Text {
 	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
 	 * @see #getValue()
-	 * @generated
+	 * @generated NOT
 	 * @ordered
 	 */
-        protected static final String VALUE_EDEFAULT = null;
+        protected static final String VALUE_EDEFAULT = "";
 
         /**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -162,8 +161,8 @@ public class TextImpl extends EObjectImpl implements Text {
          * <!-- end-user-doc -->
          * @generated NOT
          */
-        public EDataType getOutputEDataType() {
-                return EcorePackage.eINSTANCE.getEString();
+        public Class getOutputType() {
+                return java.lang.String.class;
         }
 
         /**

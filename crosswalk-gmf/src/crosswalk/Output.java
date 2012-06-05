@@ -31,9 +31,9 @@ public interface Output extends EObject {
         /**
 	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-	 * @model kind="operation"
+	 * @model kind="operation" dataType="crosswalk.Clazz"
 	 * @generated
 	 */
-        EDataType getOutputEDataType();
+        Class getOutputType();
 
 } // Output

@@ -328,6 +328,26 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String CurrentUsername8CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String CurrentUsername8CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String CurrentDateTime9CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String CurrentDateTime9CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
 	public static String MetadataBlock1CreationTool_title;
 
 	/**
@@ -338,22 +358,32 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String InputField2CreationTool_title;
+	public static String TextField2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String InputField2CreationTool_desc;
+	public static String TextField2CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Paragraph3CreationTool_title;
+	public static String DateField3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Paragraph3CreationTool_desc;
+	public static String DateField3CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Paragraph4CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Paragraph4CreationTool_desc;
 
 	/**
 	 * @generated
@@ -438,6 +468,16 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_DateInputField_3024_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_DateInputField_3024_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_TabbedDataField_3002_incominglinks;
 
 	/**
@@ -458,12 +498,12 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_InputField_3017_incominglinks;
+	public static String NavigatorGroupName_TextInputField_3023_incominglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_InputField_3017_outgoinglinks;
+	public static String NavigatorGroupName_TextInputField_3023_outgoinglinks;
 
 	/**
 	 * @generated
@@ -483,7 +523,17 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_CurrentUsername_3022_incominglinks;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_EditingContainer_1000_links;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_CurrentDate_3021_incominglinks;
 
 	/**
 	 * @generated

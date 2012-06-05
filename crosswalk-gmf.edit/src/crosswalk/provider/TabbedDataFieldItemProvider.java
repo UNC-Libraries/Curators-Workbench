@@ -88,7 +88,7 @@ public class TabbedDataFieldItemProvider
 				 getString("_UI_TabbedDataField_ColumnNumber_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_TabbedDataField_ColumnNumber_feature", "_UI_TabbedDataField_type"),
 				 CrosswalkPackage.Literals.TABBED_DATA_FIELD__COLUMN_NUMBER,
-				 true,
+				 false,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,

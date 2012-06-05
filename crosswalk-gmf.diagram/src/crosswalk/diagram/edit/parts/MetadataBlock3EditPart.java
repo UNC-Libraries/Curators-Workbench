@@ -294,7 +294,11 @@ public class MetadataBlock3EditPart extends ShapeNodeEditPart {
 			CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request).getViewAndElementDescriptor()
 					.getCreateElementRequestAdapter();
 			IElementType type = (IElementType) adapter.getAdapter(IElementType.class);
-			if (type == CrosswalkElementTypes.InputField_3017) {
+			if (type == CrosswalkElementTypes.TextInputField_3023) {
+				return getChildBySemanticHint(CrosswalkVisualIDRegistry
+						.getType(MetadataBlockMetadataBlockInputFieldsCompartment3EditPart.VISUAL_ID));
+			}
+			if (type == CrosswalkElementTypes.DateInputField_3024) {
 				return getChildBySemanticHint(CrosswalkVisualIDRegistry
 						.getType(MetadataBlockMetadataBlockInputFieldsCompartment3EditPart.VISUAL_ID));
 			}

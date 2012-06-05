@@ -22,7 +22,8 @@ import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 
 import crosswalk.CrosswalkPackage;
-import crosswalk.diagram.edit.parts.InputFieldEditPart;
+import crosswalk.diagram.edit.parts.DateInputFieldEditPart;
+import crosswalk.diagram.edit.parts.TextInputFieldEditPart;
 import crosswalk.diagram.part.CrosswalkDiagramUpdater;
 import crosswalk.diagram.part.CrosswalkNodeDescriptor;
 import crosswalk.diagram.part.CrosswalkVisualIDRegistry;
@@ -77,7 +78,8 @@ public class MetadataBlockMetadataBlockInputFieldsCompartment3CanonicalEditPolic
 	 * @generated
 	 */
 	private boolean isMyDiagramElement(View view) {
-		return InputFieldEditPart.VISUAL_ID == CrosswalkVisualIDRegistry.getVisualID(view);
+		int visualID = CrosswalkVisualIDRegistry.getVisualID(view);
+		return visualID == TextInputFieldEditPart.VISUAL_ID || visualID == DateInputFieldEditPart.VISUAL_ID;
 	}
 
 	/**

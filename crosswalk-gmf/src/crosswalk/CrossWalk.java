@@ -16,10 +16,6 @@
 package crosswalk;
 
 import org.eclipse.core.resources.IProject;
-import org.eclipse.emf.common.util.EList;
-
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -37,7 +33,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface CrossWalk extends SchemaProvider, MappingContainer, Editable {
+public interface CrossWalk extends ContextProvider, MappingContainer, Editable {
         /**
 	 * Returns the value of the '<em><b>Data Source</b></em>' containment reference.
 	 * It is bidirectional and its opposite is '{@link crosswalk.DataSource#getWalk <em>Walk</em>}'.
@@ -65,18 +61,6 @@ public interface CrossWalk extends SchemaProvider, MappingContainer, Editable {
 	 * @generated
 	 */
         void setDataSource(DataSource value);
-
-        /**
-	 * <!-- begin-user-doc -->
-         * <p>
-         * If the meaning of the '<em>Project</em>' attribute isn't clear,
-         * there really should be more of a description here...
-         * </p>
-         * <!-- end-user-doc -->
-	 * @model kind="operation" dataType="crosswalk.IProject" required="true" exceptions="crosswalk.DataException"
-	 * @generated
-	 */
-        IProject getProject() throws DataException;
 
         String getRecordID(int recordNumber);
 

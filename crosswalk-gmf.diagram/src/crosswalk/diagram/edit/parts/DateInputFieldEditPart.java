@@ -5,18 +5,14 @@ import java.util.LinkedList;
 import java.util.List;
 
 import org.eclipse.draw2d.ColorConstants;
-import org.eclipse.draw2d.ConnectionAnchor;
 import org.eclipse.draw2d.Ellipse;
 import org.eclipse.draw2d.GridData;
 import org.eclipse.draw2d.GridLayout;
 import org.eclipse.draw2d.IFigure;
-import org.eclipse.draw2d.Label;
 import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
-import org.eclipse.draw2d.ToolbarLayout;
 import org.eclipse.draw2d.geometry.Dimension;
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
@@ -25,34 +21,29 @@ import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
 import org.eclipse.gef.requests.CreateRequest;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.ITextAwareEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ConstrainedToolbarLayoutEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
-import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
 
-import crosswalk.InputField;
-import crosswalk.diagram.edit.policies.CrosswalkTextSelectionEditPolicy;
-import crosswalk.diagram.edit.policies.InputFieldItemSemanticEditPolicy;
+import crosswalk.diagram.edit.policies.DateInputFieldItemSemanticEditPolicy;
 import crosswalk.diagram.part.CrosswalkVisualIDRegistry;
 import crosswalk.diagram.providers.CrosswalkElementTypes;
 
 /**
  * @generated
  */
-public class InputFieldEditPart extends ShapeNodeEditPart {
+public class DateInputFieldEditPart extends ShapeNodeEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3017;
+	public static final int VISUAL_ID = 3024;
 
 	/**
 	 * @generated
@@ -67,7 +58,7 @@ public class InputFieldEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public InputFieldEditPart(View view) {
+	public DateInputFieldEditPart(View view) {
 		super(view);
 	}
 
@@ -76,7 +67,7 @@ public class InputFieldEditPart extends ShapeNodeEditPart {
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new InputFieldItemSemanticEditPolicy());
+		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new DateInputFieldItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
@@ -121,22 +112,12 @@ public class InputFieldEditPart extends ShapeNodeEditPart {
 		return (InputFieldFigure) primaryShape;
 	}
 
-	@Override
-	public ConnectionAnchor getSourceConnectionAnchor(Request request) {
-		if (this.getPrimaryShape().isVisible()) {
-			return getNodeFigure().getSourceConnectionAnchorAt(
-					getPrimaryShape().getFigureInputFieldEllipsis().getLocation());
-		} else {
-			return super.getSourceConnectionAnchor(request);
-		}
-	}
-
 	/**
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof InputFieldLabelEditPart) {
-			((InputFieldLabelEditPart) childEditPart).setLabel(getPrimaryShape().getFigureInputFieldLabel());
+		if (childEditPart instanceof DateInputFieldLabelEditPart) {
+			((DateInputFieldLabelEditPart) childEditPart).setLabel(getPrimaryShape().getFigureInputFieldLabel());
 			return true;
 		}
 		return false;
@@ -146,7 +127,7 @@ public class InputFieldEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof InputFieldLabelEditPart) {
+		if (childEditPart instanceof DateInputFieldLabelEditPart) {
 			return true;
 		}
 		return false;
@@ -183,7 +164,7 @@ public class InputFieldEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected NodeFigure createNodePlate() {
-		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(30, 60);
+		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(40, 40);
 		return result;
 	}
 
@@ -269,7 +250,7 @@ public class InputFieldEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	public EditPart getPrimaryChildEditPart() {
-		return getChildBySemanticHint(CrosswalkVisualIDRegistry.getType(InputFieldLabelEditPart.VISUAL_ID));
+		return getChildBySemanticHint(CrosswalkVisualIDRegistry.getType(DateInputFieldLabelEditPart.VISUAL_ID));
 	}
 
 	/**
@@ -298,7 +279,16 @@ public class InputFieldEditPart extends ShapeNodeEditPart {
 		if (targetEditPart instanceof TrimWhitespaceEditPart) {
 			types.add(CrosswalkElementTypes.InputOutput_4001);
 		}
-		if (targetEditPart instanceof crosswalk.diagram.edit.parts.InputFieldEditPart) {
+		if (targetEditPart instanceof TextInputFieldEditPart) {
+			types.add(CrosswalkElementTypes.InputOutput_4001);
+		}
+		if (targetEditPart instanceof CurrentDateEditPart) {
+			types.add(CrosswalkElementTypes.InputOutput_4001);
+		}
+		if (targetEditPart instanceof CurrentUsernameEditPart) {
+			types.add(CrosswalkElementTypes.InputOutput_4001);
+		}
+		if (targetEditPart instanceof crosswalk.diagram.edit.parts.DateInputFieldEditPart) {
 			types.add(CrosswalkElementTypes.InputOutput_4001);
 		}
 		return types;
@@ -314,7 +304,10 @@ public class InputFieldEditPart extends ShapeNodeEditPart {
 			types.add(CrosswalkElementTypes.DateRecognizer_3004);
 			types.add(CrosswalkElementTypes.Text_3005);
 			types.add(CrosswalkElementTypes.TrimWhitespace_3006);
-			types.add(CrosswalkElementTypes.InputField_3017);
+			types.add(CrosswalkElementTypes.TextInputField_3023);
+			types.add(CrosswalkElementTypes.CurrentDate_3021);
+			types.add(CrosswalkElementTypes.CurrentUsername_3022);
+			types.add(CrosswalkElementTypes.DateInputField_3024);
 		}
 		return types;
 	}
@@ -338,7 +331,8 @@ public class InputFieldEditPart extends ShapeNodeEditPart {
 			types.add(CrosswalkElementTypes.DateRecognizer_3004);
 			types.add(CrosswalkElementTypes.TrimWhitespace_3006);
 			types.add(CrosswalkElementTypes.MappedAttribute_3009);
-			types.add(CrosswalkElementTypes.InputField_3017);
+			types.add(CrosswalkElementTypes.TextInputField_3023);
+			types.add(CrosswalkElementTypes.DateInputField_3024);
 		}
 		return types;
 	}
@@ -373,7 +367,7 @@ public class InputFieldEditPart extends ShapeNodeEditPart {
 		}
 
 		/**
-		 * @generated NOT
+		 * @generated
 		 */
 		private void createContents() {
 
@@ -382,27 +376,29 @@ public class InputFieldEditPart extends ShapeNodeEditPart {
 			fFigureInputFieldEllipsis.setPreferredSize(new Dimension(getMapMode().DPtoLP(10), getMapMode().DPtoLP(10)));
 			fFigureInputFieldEllipsis.setMaximumSize(new Dimension(getMapMode().DPtoLP(10), getMapMode().DPtoLP(10)));
 
-			this.add(fFigureInputFieldEllipsis);
+			GridData constraintFFigureInputFieldEllipsis = new GridData();
+			constraintFFigureInputFieldEllipsis.verticalAlignment = GridData.CENTER;
+			constraintFFigureInputFieldEllipsis.horizontalAlignment = GridData.BEGINNING;
+			constraintFFigureInputFieldEllipsis.horizontalIndent = 0;
+			constraintFFigureInputFieldEllipsis.horizontalSpan = 1;
+			constraintFFigureInputFieldEllipsis.verticalSpan = 1;
+			constraintFFigureInputFieldEllipsis.grabExcessHorizontalSpace = false;
+			constraintFFigureInputFieldEllipsis.grabExcessVerticalSpace = false;
+			this.add(fFigureInputFieldEllipsis, constraintFFigureInputFieldEllipsis);
 
 			fFigureInputFieldLabel = new WrappingLabel();
 			fFigureInputFieldLabel.setText("input");
 
-			this.add(fFigureInputFieldLabel);
-			updateFace();
-		}
+			GridData constraintFFigureInputFieldLabel = new GridData();
+			constraintFFigureInputFieldLabel.verticalAlignment = GridData.CENTER;
+			constraintFFigureInputFieldLabel.horizontalAlignment = GridData.BEGINNING;
+			constraintFFigureInputFieldLabel.horizontalIndent = 0;
+			constraintFFigureInputFieldLabel.horizontalSpan = 1;
+			constraintFFigureInputFieldLabel.verticalSpan = 1;
+			constraintFFigureInputFieldLabel.grabExcessHorizontalSpace = false;
+			constraintFFigureInputFieldLabel.grabExcessVerticalSpace = false;
+			this.add(fFigureInputFieldLabel, constraintFFigureInputFieldLabel);
 
-		private void updateFace() {
-			InputField input = (InputField) ((Node) InputFieldEditPart.this.getModel()).getElement();
-			Color c = ColorConstants.red;
-			if (input.getOutput() != null) {
-				c = ColorConstants.darkGreen;
-			} /* TODO inspect model for default and required in mapped attribute
-				else if (input.getDefaultValue() != null) {
-				c = ColorConstants.lightGreen;
-				} else if (!input.isRequired()) {
-				c = ColorConstants.yellow;
-				} */
-			fFigureInputFieldEllipsis.setBackgroundColor(c);
 		}
 
 		/**
@@ -419,24 +415,6 @@ public class InputFieldEditPart extends ShapeNodeEditPart {
 			return fFigureInputFieldEllipsis;
 		}
 
-	}
-
-	@Override
-	protected void handleNotificationEvent(Notification notification) {
-		if (notification.getNotifier() instanceof InputField) {
-			getPrimaryShape().updateFace();
-		}
-		super.handleNotificationEvent(notification);
-	}
-
-	@Override
-	public ConnectionAnchor getTargetConnectionAnchor(Request request) {
-		if (this.getPrimaryShape().isVisible()) {
-			return getNodeFigure().getTargetConnectionAnchorAt(
-					getPrimaryShape().getFigureInputFieldLabel().getBounds().getRight());
-		} else {
-			return super.getTargetConnectionAnchor(request);
-		}
 	}
 
 }
