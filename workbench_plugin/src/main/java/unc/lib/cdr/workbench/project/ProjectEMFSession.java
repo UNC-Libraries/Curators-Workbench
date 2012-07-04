@@ -15,10 +15,6 @@
  */
 package unc.lib.cdr.workbench.project;
 
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
-
 import edu.unc.lib.schemas.acl.provider.AclItemProviderAdapterFactory;
 import gov.loc.mets.DocumentRoot;
 import gov.loc.mets.MetsPackage;
@@ -27,40 +23,43 @@ import gov.loc.mets.util.METSUtils;
 import gov.loc.mets.util.MetsResourceFactoryImpl;
 import gov.loc.mods.mods.provider.MODSItemProviderAdapterFactory;
 
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
 import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IResourceChangeEvent;
 import org.eclipse.core.resources.IResourceChangeListener;
+import org.eclipse.core.resources.ProjectScope;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.command.BasicCommandStack;
 import org.eclipse.emf.common.command.CommandStack;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.Resource.Diagnostic;
+import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.BasicExtendedMetaData;
 import org.eclipse.emf.ecore.util.ExtendedMetaData;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
-import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
 import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
-import org.eclipse.ui.ide.ResourceUtil;
+import org.eclipse.ui.IWorkbench;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.w3._1999.xlink.provider.XlinkItemProviderAdapterFactory;
 
-import unc.lib.cdr.workbench.IResourceConstants;
 import unc.lib.cdr.workbench.rcp.Activator;
 
 /**
@@ -113,6 +112,8 @@ public class ProjectEMFSession {
 		IFile old = getOldMetsFile();
 		if (!f.toFile().exists() && old.exists()) {
 			try {
+				
+				System.out.println("moving "+old.getLocation()+" to "+f);
 				old.move(f, true, new NullProgressMonitor());
 			} catch (CoreException e) {
 				throw new Error(e);
@@ -151,8 +152,8 @@ public class ProjectEMFSession {
 	}
 
 	public IPath getMetsFile() {
-		IPath working = this.project.getLocation();
-		return working.append(METS_PATH);
+		ProjectScope scope = new ProjectScope(this.project);
+		return scope.getLocation().append(METS_PATH).makeRelativeTo(this.project.getLocation());
 	}
 
 	public IFile getOldMetsFile() {

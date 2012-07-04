@@ -1169,7 +1169,7 @@
             appearsBefore="cdr-workbench.arrangementContent"
             contentProvider="unc.lib.cdr.workbench.capture.OriginalsContentProvider"
             id="cdr-workbench.originalsContent"
-            labelProvider="org.eclipse.ui.model.WorkbenchLabelProvider"
+            labelProvider="unc.lib.cdr.workbench.capture.OriginalsLabelProvider"
             name="Original Folders"
             priority="highest">
          <triggerPoints>
@@ -1183,6 +1183,9 @@
             <or>
                <instanceof
                      value="org.eclipse.core.resources.IResource">
+               </instanceof>
+               <instanceof
+                     value="unc.lib.cdr.workbench.originals.Original">
                </instanceof>
             </or>
          </possibleChildren>
@@ -1549,7 +1552,7 @@
          <propertySection
                class="unc.lib.cdr.workbench.views.OriginalFingerprintSection"
                enablesFor="1"
-               filter="unc.lib.cdr.workbench.views.DivTypeFileFilter"
+               filter="unc.lib.cdr.workbench.views.HasStagedFileFilter"
                id="workbench_plugin.propertySectionOriginalFingerprintSection"
                tab="workbench_plugin.propertyTabOriginalProperties">
          </propertySection>
@@ -1557,18 +1560,16 @@
                afterSection="workbench_plugin.propertySectionOriginalFingerprintSection"
                class="unc.lib.cdr.workbench.views.OriginalResourcePropertySheetSection"
                enablesFor="1"
-               filter="unc.lib.cdr.workbench.views.DivTypeWithOriginalFilter"
+               filter="unc.lib.cdr.workbench.views.HasOriginalFilter"
                id="workbench_plugin.propertySectionOriginalProperties"
                tab="workbench_plugin.propertyTabOriginalProperties">
          </propertySection>
          <propertySection
                class="org.eclipse.ui.views.properties.tabbed.AdvancedPropertySection"
                enablesFor="1"
+               filter="unc.lib.cdr.workbench.views.HasOriginalFilter"
                id="workbench_plugin.propertySectionResourceProperties"
                tab="workbench_plugin.propertyTabOriginalProperties">
-            <input
-                  type="org.eclipse.core.resources.IResource">
-            </input>
          </propertySection>
          <propertySection
                class="unc.lib.cdr.workbench.views.MdSecTypePropertySection"
@@ -1578,6 +1579,13 @@
             <input
                   type="gov.loc.mets.MdSecType">
             </input>
+         </propertySection>
+         <propertySection
+               class="unc.lib.cdr.workbench.views.OriginalVolumeSection"
+               enablesFor="1"
+               filter="unc.lib.cdr.workbench.views.HasOriginalFilter"
+               id="workbench_plugin.propertySectionOriginalVolumeSection"
+               tab="workbench_plugin.propertyTabOriginalProperties">
          </propertySection>
       </propertySections>
    </extension>
@@ -1696,7 +1704,7 @@
       <filesystem
             scheme="ro+file">
          <run
-               class="unc.lib.cdr.workbench.readonly.ReadOnlyWrapperFileSystem">
+               class="unc.lib.cdr.workbench.originals.OriginalsWrapperFileSystem">
          </run>
       </filesystem>
    </extension>
@@ -1705,7 +1713,7 @@
       <filesystem
             scheme="ro+irods">
          <run
-               class="unc.lib.cdr.workbench.readonly.ReadOnlyWrapperFileSystem">
+               class="unc.lib.cdr.workbench.originals.OriginalsWrapperFileSystem">
          </run>
       </filesystem>
    </extension>

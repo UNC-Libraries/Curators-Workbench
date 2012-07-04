@@ -29,12 +29,11 @@ public class RescanOriginalsHandler extends AbstractHandler {
 
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
+		// TODO how to refresh file store originals
 		IStructuredSelection select = (IStructuredSelection) HandlerUtil.getCurrentSelectionChecked(event);
 		Object sel = select.getFirstElement();
 		IResource target = null;
-		if (sel instanceof OriginalFoldersProjectElement) {
-			target = ((OriginalFoldersProjectElement) sel).getProject();
-		} else if (sel instanceof IResource) {
+		if (sel instanceof IResource) {
 			target = (IResource) sel;
 		}
 		try {

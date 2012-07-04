@@ -1,4 +1,9 @@
-package unc.lib.cdr.workbench.readonly;
+package unc.lib.cdr.workbench.originals;
+
+import gov.loc.mets.DivType;
+import gov.loc.mets.FLocatType;
+import gov.loc.mets.FileType;
+import gov.loc.mets.util.METSConstants;
 
 import java.io.File;
 import java.io.InputStream;
@@ -10,45 +15,109 @@ import org.eclipse.core.filesystem.EFS;
 import org.eclipse.core.filesystem.IFileInfo;
 import org.eclipse.core.filesystem.IFileStore;
 import org.eclipse.core.filesystem.IFileSystem;
+import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Status;
 
+import unc.lib.cdr.workbench.project.MetsProjectNature;
 import unc.lib.cdr.workbench.rcp.Activator;
 
-public class ReadOnlyWrapperStore implements IFileStore {
+public class OriginalsWrapperStore implements IFileStore {
+	private static final String FILETYPE_PREFIX = "f_";
+	private static final String DIVTYPE_PREFIX = "d_";
 	private static final String protectedMessage = "Operation cancelled. This file under read only protection within the workbench.";
 	public static final String SCHEME_PREFIX = "ro+";
 	protected URI uri = null;
+	private IProject project = null;
 	protected IFileStore wrapped = null;
 
-	public ReadOnlyWrapperStore(URI uri) throws CoreException {
-		this.uri = uri;
-		if(!uri.getScheme().startsWith(SCHEME_PREFIX)) {
-			throw new CoreException(new Status(Status.ERROR, Activator.PLUGIN_ID, "Read only wrapper stores must start with: "+SCHEME_PREFIX+" "+uri));
-		}
-		String test = uri.getRawSchemeSpecificPart();
-		//Activator.getDefault().getLog().log(new Status(Status.INFO, Activator.PLUGIN_ID, "trying a read only wrapped store: "+uri+ " wraps "+test));
-		URI wrappedUri = null;
-		try {
-			wrappedUri = new URI(uri.getScheme().substring(3)+":"+test);
-		} catch(URISyntaxException e) {
-			throw new CoreException(new Status(Status.ERROR, Activator.PLUGIN_ID, "Cannot use read only wrapper on uri: "+uri, e));
-		}
-		this.wrapped = EFS.getStore(wrappedUri);
+	public IFileStore getWrapped() {
+		return wrapped;
 	}
 
-	public ReadOnlyWrapperStore(IFileStore iFileStore) throws CoreException {
+	protected int volumeHash = -1;
+
+	public OriginalsWrapperStore(URI uri, IProject project) throws CoreException {
+		this.project = project;
+		this.uri = uri;
+		if (!uri.getScheme().startsWith(SCHEME_PREFIX)) {
+			throw new CoreException(new Status(Status.ERROR, Activator.PLUGIN_ID,
+					"Read only wrapper stores must start with: " + SCHEME_PREFIX + " " + uri));
+		}
+		String test = uri.getRawSchemeSpecificPart();
+		URI wrappedUri = null;
+		try {
+			wrappedUri = new URI(uri.getScheme().substring(3) + ":" + test);
+		} catch (URISyntaxException e) {
+			throw new CoreException(new Status(Status.ERROR, Activator.PLUGIN_ID, "Cannot use read only wrapper on uri: "
+					+ uri, e));
+		}
+		this.wrapped = EFS.getStore(wrappedUri);
+		this.volumeHash = VolumeUtil.makeVolumeFingerprint(wrappedUri);
+	}
+
+	public OriginalsWrapperStore(IFileStore iFileStore, IProject project) throws CoreException {
 		this.wrapped = iFileStore;
+		this.project = project;
 		try {
 			URI wrappedUri = this.wrapped.toURI();
-			this.uri = new URI(SCHEME_PREFIX+wrappedUri.getScheme()+":"+wrappedUri.getRawSchemeSpecificPart());
+			this.uri = new URI(SCHEME_PREFIX + wrappedUri.getScheme() + ":" + wrappedUri.getRawSchemeSpecificPart());
 		} catch (URISyntaxException e) {
 			throw new CoreException(new Status(Status.ERROR, Activator.PLUGIN_ID, "Cannot wrap store in read only", e));
-		} catch(NullPointerException e) {
+		} catch (NullPointerException e) {
 			throw new CoreException(new Status(Status.ERROR, Activator.PLUGIN_ID, "Cannot wrap store in read only", e));
 		}
+	}
+
+	public FileType getMetsFileType() {
+		try {
+			return (FileType) MetsProjectNature.get(project).getMetsResource().getEObject(getFileID());
+		} catch (NullPointerException e) {
+			return null;
+		}
+	}
+
+	private String getFileID() {
+		return new StringBuilder().append(FILETYPE_PREFIX).append(this.hashCode()).toString();
+	}
+
+	private String getDivID() {
+		return new StringBuilder().append(DIVTYPE_PREFIX).append(this.hashCode()).toString();
+	}
+
+	public FLocatType getStagingLocatorType() {
+		try {
+			MetsProjectNature n = MetsProjectNature.get(project);
+			FileType ft = (FileType) n.getMetsResource().getEObject(getFileID());
+			for (FLocatType loc : ft.getFLocat()) {
+				if (METSConstants.FLocat_USE_STAGE.equals(loc.getUSE())) {
+					return loc;
+				}
+			}
+		} catch (NullPointerException e) {
+		}
+		return null;
+	}
+
+	public DivType getMetsDivType() {
+		try {
+			MetsProjectNature n = MetsProjectNature.get(project);
+			return (DivType) n.getMetsResource().getEObject(getDivID());
+		} catch (NullPointerException e) {
+			return null;
+		}
+	}
+
+	@Override
+	public int hashCode() {
+		return this.uri.hashCode() ^ this.volumeHash;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		return (obj instanceof OriginalsWrapperStore && obj != null && obj.hashCode() == this.hashCode());
 	}
 
 	@Override
@@ -71,9 +140,9 @@ public class ReadOnlyWrapperStore implements IFileStore {
 	public IFileStore[] childStores(int options, IProgressMonitor monitor) throws CoreException {
 		// wraps these in read only
 		IFileStore[] wrappedResult = wrapped.childStores(options, monitor);
-		IFileStore[] result = new ReadOnlyWrapperStore[wrappedResult.length];
-		for(int i = 0; i < wrappedResult.length; i++) {
-			result[i] = new ReadOnlyWrapperStore(wrappedResult[i]);
+		IFileStore[] result = new OriginalsWrapperStore[wrappedResult.length];
+		for (int i = 0; i < wrappedResult.length; i++) {
+			result[i] = new OriginalsWrapperStore(wrappedResult[i], project);
 		}
 		return result;
 	}
@@ -101,7 +170,7 @@ public class ReadOnlyWrapperStore implements IFileStore {
 	@Override
 	public IFileStore getChild(IPath path) {
 		try {
-			return new ReadOnlyWrapperStore(this.wrapped.getChild(path));
+			return new OriginalsWrapperStore(this.wrapped.getChild(path), project);
 		} catch (CoreException e) {
 			throw new Error("Unexpected exception", e);
 		}
@@ -110,7 +179,7 @@ public class ReadOnlyWrapperStore implements IFileStore {
 	@Override
 	public IFileStore getFileStore(IPath path) {
 		try {
-			return new ReadOnlyWrapperStore(this.wrapped.getFileStore(path));
+			return new OriginalsWrapperStore(this.wrapped.getFileStore(path), project);
 		} catch (CoreException e) {
 			throw new Error("Unexpected exception", e);
 		}
@@ -119,7 +188,7 @@ public class ReadOnlyWrapperStore implements IFileStore {
 	@Override
 	public IFileStore getChild(String name) {
 		try {
-			return new ReadOnlyWrapperStore(this.wrapped.getChild(name));
+			return new OriginalsWrapperStore(this.wrapped.getChild(name), project);
 		} catch (CoreException e) {
 			throw new Error("Unexpected exception", e);
 		}
@@ -129,7 +198,7 @@ public class ReadOnlyWrapperStore implements IFileStore {
 	public IFileSystem getFileSystem() {
 		try {
 			return EFS.getFileSystem(uri.getScheme());
-		} catch(CoreException e) {
+		} catch (CoreException e) {
 			Activator.getDefault().getLog().log(e.getStatus());
 			throw new Error("Unexpected error", e);
 		}
@@ -137,7 +206,7 @@ public class ReadOnlyWrapperStore implements IFileStore {
 
 	@Override
 	public String toString() {
-		return new StringBuilder().append("read only: "+wrapped.toString()).toString();
+		return new StringBuilder().append("read only: " + wrapped.toString()).toString();
 	}
 
 	@Override
@@ -149,17 +218,23 @@ public class ReadOnlyWrapperStore implements IFileStore {
 	public IFileStore getParent() {
 		try {
 			IFileStore wrappedParent = this.wrapped.getParent();
-			if(wrappedParent == null) return null;
-			return new ReadOnlyWrapperStore(this.wrapped.getParent());
+			if (wrappedParent == null)
+				return null;
+			return new OriginalsWrapperStore(this.wrapped.getParent(), project);
 		} catch (CoreException e) {
 			throw new Error("Unexpected exception", e);
 		}
 	}
 
+	public IProject getProject() {
+		return project;
+	}
+
 	@Override
 	public boolean isParentOf(IFileStore other) {
-		if(ReadOnlyWrapperFileSystem.class.isInstance(other.getFileSystem()) && ReadOnlyWrapperStore.class.isInstance(other)) {
-			ReadOnlyWrapperStore o = (ReadOnlyWrapperStore)other;
+		if (OriginalsWrapperFileSystem.class.isInstance(other.getFileSystem())
+				&& OriginalsWrapperStore.class.isInstance(other)) {
+			OriginalsWrapperStore o = (OriginalsWrapperStore) other;
 			return wrapped.isParentOf(o.wrapped);
 		}
 		return false;

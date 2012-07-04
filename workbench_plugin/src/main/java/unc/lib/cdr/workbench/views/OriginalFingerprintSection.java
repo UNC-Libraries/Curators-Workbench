@@ -22,6 +22,7 @@ import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import unc.lib.cdr.workbench.originals.OriginalsWrapperStore;
 import unc.lib.cdr.workbench.project.MetsProjectNature;
 
 public class OriginalFingerprintSection extends AbstractPropertySection {
@@ -29,7 +30,7 @@ public class OriginalFingerprintSection extends AbstractPropertySection {
 	@SuppressWarnings("unused")
 	private static final Logger LOG = LoggerFactory.getLogger(OriginalFingerprintSection.class);
 
-	private DivType div = null;
+	private FileType fileType = null;
 	Text checksumText = null;
 	Text checksumTypeText = null;
 	Text stagedLocationText = null;
@@ -42,9 +43,14 @@ public class OriginalFingerprintSection extends AbstractPropertySection {
 	public void setInput(IWorkbenchPart part, ISelection s) {
 		super.setInput(part, s);
 		Assert.isTrue(s instanceof IStructuredSelection);
-		Object divO = ((IStructuredSelection) s).getFirstElement();
-		Assert.isTrue(divO instanceof DivType);
-		this.div = (DivType) divO;
+		Object o = ((IStructuredSelection) s).getFirstElement();
+		if(o instanceof DivType) {
+			DivType div = (DivType)o;
+			fileType = (FileType)div.eResource().getEObject(div.getFptr().get(0).getFILEID());
+		} else if(o instanceof OriginalsWrapperStore) {
+			fileType = ((OriginalsWrapperStore)o).getMetsFileType();
+		}
+		Assert.isTrue(fileType != null);
 	}
 
 	@Override
@@ -91,18 +97,15 @@ public class OriginalFingerprintSection extends AbstractPropertySection {
 
 	@Override
 	public void refresh() {
-		// LOG.debug("div: "+div);
-		MetsType mets = MetsProjectNature.getNatureForMetsObject(div).getMets();
-		FileType file = (FileType)mets.eResource().getEObject(div.getFptr().get(0).getFILEID());
-		if (file.getCHECKSUM() != null) {
-			checksumText.setText(file.getCHECKSUM());
-			checksumTypeText.setText(file.getCHECKSUMTYPE().getName());
+		if (fileType.getCHECKSUM() != null) {
+			checksumText.setText(fileType.getCHECKSUM());
+			checksumTypeText.setText(fileType.getCHECKSUMTYPE().getName());
 		} else {
 			checksumText.setText("unknown");
 			checksumTypeText.setText("n/a");
 		}
 		FLocatType l = null;
-		for(FLocatType test : file.getFLocat()) {
+		for(FLocatType test : fileType.getFLocat()) {
 			if(METSConstants.FLocat_USE_STAGE.equals(test.getUSE())) {
 				l = test;
 			}

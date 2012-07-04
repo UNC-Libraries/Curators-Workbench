@@ -15,6 +15,11 @@
  */
 package unc.lib.cdr.workbench.capture;
 
+import java.io.File;
+
+import org.eclipse.core.filesystem.EFS;
+import org.eclipse.core.filesystem.IFileStore;
+import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.jface.viewers.DecoratingLabelProvider;
 import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.ILabelProviderListener;
@@ -23,7 +28,9 @@ import org.eclipse.ui.model.WorkbenchLabelProvider;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import unc.lib.cdr.workbench.originals.Original;
 import unc.lib.cdr.workbench.views.LabelImageFactory;
+import unc.lib.cdr.workbench.views.LabelImageFactory.Icon;
 
 /**
  * @author Gregory Jansen
@@ -111,8 +118,21 @@ public class OriginalsLabelProvider implements ILabelProvider/* , IDelayedLabelD
 	 */
 	@Override
 	public Image getImage(Object element) {
-		if (element instanceof OriginalFoldersProjectElement) {
-			return LabelImageFactory.getImageForObject(element);
+		if(element instanceof IFileStore) {
+			IFileStore fs = (IFileStore)element;
+			String filename = fs.getName();
+			int i = filename.lastIndexOf('.');
+			if(i >= 0) {
+				return LabelImageFactory.getImageForExtension(filename.substring(i));
+			} else {
+				if(fs.fetchInfo().isDirectory()) {
+					return LabelImageFactory.getImage(Icon.Folder);
+				} else {
+					return LabelImageFactory.getImage(Icon.File);
+				}
+			}
+		} else if(element instanceof Original) {
+			return LabelImageFactory.getImage(Icon.OriginalsEl);
 		}
 		return provider.getImage(element);
 	}
@@ -124,8 +144,12 @@ public class OriginalsLabelProvider implements ILabelProvider/* , IDelayedLabelD
 	 */
 	@Override
 	public String getText(Object element) {
-		if (element instanceof OriginalFoldersProjectElement) {
-			return ((OriginalFoldersProjectElement) element).getText();
+		if(element instanceof Original) {
+			Original o = (Original)element;
+			if(o.getName() != null) return o.getName();
+			return o.getStore().getName();
+		} else if(element instanceof IFileStore) {
+			return ((IFileStore)element).getName();
 		}
 		return provider.getText(element);
 	}

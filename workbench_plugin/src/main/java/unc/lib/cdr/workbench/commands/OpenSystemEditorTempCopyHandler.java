@@ -11,7 +11,6 @@ import org.eclipse.core.commands.IHandler;
 import org.eclipse.core.filesystem.EFS;
 import org.eclipse.core.filesystem.IFileStore;
 import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.NullProgressMonitor;
@@ -23,6 +22,7 @@ import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.handlers.HandlerUtil;
 import org.eclipse.ui.ide.IDE;
 
+import unc.lib.cdr.workbench.originals.OriginalsWrapperStore;
 import unc.lib.cdr.workbench.project.MetsProjectNature;
 
 public class OpenSystemEditorTempCopyHandler extends AbstractHandler implements IHandler {
@@ -33,17 +33,13 @@ public class OpenSystemEditorTempCopyHandler extends AbstractHandler implements 
 		if (selection instanceof IStructuredSelection) {
 			for (Iterator it = ((IStructuredSelection) selection).iterator(); it.hasNext();) {
 				Object element = it.next();
-				if (element instanceof IFile) {
-					IFile file = null;
-					file = (IFile) element;
+				if (element instanceof IFileStore) {
+					IFileStore file = (IFileStore) element;
 					openTempCopy(file, event);
 				} else if(element instanceof DivType) {
 					DivType d = (DivType)element;
-					IResource r = MetsProjectNature.getOriginal(d);
-					IFile f = r.getProject().getFile(r.getProjectRelativePath());
-					if(f != null) {
-						openTempCopy(f, event);
-					}
+					OriginalsWrapperStore r = MetsProjectNature.getOriginal(d);
+					openTempCopy(r, event);
 				}
 			}
 		}
@@ -55,8 +51,8 @@ public class OpenSystemEditorTempCopyHandler extends AbstractHandler implements 
 	 * @param event
 	 * @throws ExecutionException
 	 */
-	private void openTempCopy(IFile file, ExecutionEvent event) throws ExecutionException {
-		IPath origPath = file.getFullPath();
+	private void openTempCopy(IFileStore file, ExecutionEvent event) throws ExecutionException {
+		IPath origPath = new Path(file.toURI().getPath());
 		String tmpdir = System.getProperty("java.io.tmpdir");
 		IPath temppath = new Path(tmpdir).append(origPath.removeLastSegments(1));
 		temppath = temppath.append(
@@ -65,12 +61,9 @@ public class OpenSystemEditorTempCopyHandler extends AbstractHandler implements 
 				origPath.getFileExtension());
 		IFileStore tempStore = EFS.getLocalFileSystem().getStore(temppath);
 		if(!tempStore.fetchInfo().exists()) {
-			// copy to temp
-			IFileStore origStore;
 			try {
-				origStore = EFS.getStore(file.getRawLocationURI());
 				tempStore.getParent().mkdir(EFS.NONE, new NullProgressMonitor());
-				origStore.copy(tempStore, EFS.OVERWRITE, new NullProgressMonitor());
+				file.copy(tempStore, EFS.OVERWRITE, new NullProgressMonitor());
 			} catch (CoreException e) {
 				e.printStackTrace();
 				throw new ExecutionException("Cannot copy file to temporary location: "+e.getMessage());

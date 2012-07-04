@@ -27,60 +27,62 @@ import org.eclipse.core.resources.IResource;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.graphics.ImageData;
+import org.eclipse.swt.program.Program;
 import org.eclipse.swt.widgets.Display;
 
 import unc.lib.cdr.workbench.arrange.ArrangementProjectElement;
 import unc.lib.cdr.workbench.arrange.DivLinkBucket;
-import unc.lib.cdr.workbench.capture.OriginalFoldersProjectElement;
+import unc.lib.cdr.workbench.originals.Original;
 import unc.lib.cdr.workbench.project.ICustomProjectElement;
 import unc.lib.cdr.workbench.rcp.Activator;
 import unc.lib.cdr.workbench.stage.StagedFilesProjectElement;
 
 /**
  * @author Gregory Jansen
- *
+ * 
  */
 public class LabelImageFactory {
 	public static String iconPath = "icons/";
 	private static final int DEFAULT_ICON_SIZE = 24;
+
 	public static enum Size {
-		ORIGINAL(0,0),
-		DEFAULT_ICON(DEFAULT_ICON_SIZE, DEFAULT_ICON_SIZE);
+		ORIGINAL(0, 0), DEFAULT_ICON(DEFAULT_ICON_SIZE, DEFAULT_ICON_SIZE);
 		int width;
 		int height;
+
 		Size(int width, int height) {
 			this.width = width;
 			this.height = height;
 		}
 	}
+
 	public static enum Icon {
-		OpenProject("24px-Crystal_Clear_app_ark.png", Size.DEFAULT_ICON),
-		ClosedProject("24px-Crystal_Clear_app_kthememgr.png", Size.DEFAULT_ICON),
-		HardDisk("24px-Crystal_Clear_app_harddrive.png", Size.DEFAULT_ICON),
-		Folder("24px-Crystal_Clear_filesystem_folder_grey.png", Size.DEFAULT_ICON),
-		File("24px-Crystal_Clear_action_filenew.png", Size.DEFAULT_ICON),
-		Collection("24px-Crystal_Clear_app_file-manager.png", Size.DEFAULT_ICON),
-		AggregateWork("24px-Crystal_Clear_filesystem_folder_txt.png", Size.DEFAULT_ICON),
-		ArrangementEl("edtsrclkup_co.gif", Size.ORIGINAL),
-		CrosswalkEl("filter_tsk.gif", Size.ORIGINAL),
-		OriginalsEl("access_restriction_attrib.gif", Size.ORIGINAL),
-		StageEl("var_cntnt_prvdr.gif", Size.ORIGINAL),
-		CaptureDecor("waiting_ovr.gif", Size.ORIGINAL),
-		StagedDecor("version_controlled.gif", Size.ORIGINAL),
-		UserEditedDecor("write_obj.gif", Size.ORIGINAL),
-		CrosswalkedDecor("crosswalk_decor.gif", Size.ORIGINAL),
-		ACLDecor("key_sm.gif", Size.ORIGINAL),
-		CrosswalkedRecord("property_obj.gif", Size.ORIGINAL),
-		LinkedObject("link_obj.gif", Size.ORIGINAL);
+		OpenProject("24px-Crystal_Clear_app_ark.png", Size.DEFAULT_ICON), ClosedProject(
+				"24px-Crystal_Clear_app_kthememgr.png", Size.DEFAULT_ICON), HardDisk(
+				"24px-Crystal_Clear_app_harddrive.png", Size.DEFAULT_ICON), Folder(
+				"24px-Crystal_Clear_filesystem_folder_grey.png", Size.DEFAULT_ICON), File(
+				"24px-Crystal_Clear_action_filenew.png", Size.DEFAULT_ICON), Collection(
+				"24px-Crystal_Clear_app_file-manager.png", Size.DEFAULT_ICON), AggregateWork(
+				"24px-Crystal_Clear_filesystem_folder_txt.png", Size.DEFAULT_ICON), ArrangementEl("edtsrclkup_co.gif",
+				Size.ORIGINAL), CrosswalkEl("filter_tsk.gif", Size.ORIGINAL), OriginalsEl("access_restriction_attrib.gif",
+				Size.ORIGINAL), StageEl("var_cntnt_prvdr.gif", Size.ORIGINAL), CaptureDecor("waiting_ovr.gif",
+				Size.ORIGINAL), StagedDecor("version_controlled.gif", Size.ORIGINAL), UserEditedDecor("write_obj.gif",
+				Size.ORIGINAL), CrosswalkedDecor("crosswalk_decor.gif", Size.ORIGINAL), ACLDecor("key_sm.gif",
+				Size.ORIGINAL), CrosswalkedRecord("property_obj.gif", Size.ORIGINAL), LinkedObject("link_obj.gif",
+				Size.ORIGINAL);
 		Size size = Size.ORIGINAL;
 		String imageFile = null;
+
 		Icon(String imageFile, Size size) {
 			this.imageFile = imageFile;
 			this.size = size;
 		}
+
 		public Image getImage() {
 			return LabelImageFactory.getImage(this);
 		}
+
 		public ImageDescriptor getImageDescriptor() {
 			return LabelImageFactory.getImageDescriptor(this);
 		}
@@ -99,19 +101,19 @@ public class LabelImageFactory {
 		} else if (o instanceof ICustomProjectElement) {
 			if (o instanceof ArrangementProjectElement) {
 				result = Icon.ArrangementEl;
-			} else if (o instanceof OriginalFoldersProjectElement) {
-				result = Icon.OriginalsEl;
 			} else if (o instanceof StagedFilesProjectElement) {
 				result = Icon.StageEl;
 			}
 		} else if (o instanceof DivLinkBucket) {
 			result = Icon.LinkedObject;
 		} else if (IFileStore.class.isInstance(o)) {
-			if(((IFileStore)o).fetchInfo().isDirectory()) {
+			if (((IFileStore) o).fetchInfo().isDirectory()) {
 				result = Icon.Folder;
 			} else {
 				result = Icon.File;
 			}
+		} else if (Original.class.isInstance(o)) {
+			result = Icon.OriginalsEl;
 		}
 		return result;
 	}
@@ -123,7 +125,7 @@ public class LabelImageFactory {
 
 	public static ImageDescriptor getImageDescriptor(Icon i) {
 		ImageDescriptor result = registry.getDescriptor(i.name());
-		if(result == null) {
+		if (result == null) {
 			register(i);
 			result = registry.getDescriptor(i.name());
 		}
@@ -132,7 +134,7 @@ public class LabelImageFactory {
 
 	public static Image getImage(Icon i) {
 		Image result = registry.get(i.name());
-		if(result == null) {
+		if (result == null) {
 			register(i);
 			result = registry.get(i.name());
 		}
@@ -141,6 +143,7 @@ public class LabelImageFactory {
 
 	/**
 	 * Registers the given icon.
+	 * 
 	 * @param i
 	 */
 	private static void register(Icon i) {
@@ -149,7 +152,7 @@ public class LabelImageFactory {
 		d = Activator.imageDescriptorFromPlugin(Activator.PLUGIN_ID, iconPath + i.imageFile);
 		if (d != null) {
 			result = d.createImage();
-			if(i.size != Size.ORIGINAL) {
+			if (i.size != Size.ORIGINAL) {
 				result = new Image(Display.getDefault(), result.getImageData().scaledTo(i.size.width, i.size.height));
 			}
 			registry.put(i.name(), result);
@@ -203,5 +206,25 @@ public class LabelImageFactory {
 			result = Icon.File;
 		}
 		return result;
+	}
+
+	/**
+	 * @param o
+	 * @return
+	 */
+	public static Image getImageForExtension(String ext) {
+		Image image = registry.get(ext);
+		if (image != null)
+			return image;
+
+		Program program = Program.findProgram(ext);
+		ImageData imageData = (program == null ? null : program.getImageData());
+		if (imageData != null) {
+			image = new Image(Display.getCurrent(), imageData);
+			registry.put(ext, image);
+		} else {
+			image = getImage(Icon.File);
+		}
+		return image;
 	}
 }

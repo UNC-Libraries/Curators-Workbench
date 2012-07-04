@@ -18,11 +18,14 @@ package unc.lib.cdr.workbench.project;
 import gov.loc.mets.DivType;
 import gov.loc.mets.DocumentRoot;
 import gov.loc.mets.MetsType1;
-import gov.loc.mets.util.METSConstants;
-import gov.loc.mets.util.METSUtils;
 import gov.loc.mods.mods.presentation.URIFragmentEditorInput;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.eclipse.core.filesystem.EFS;
@@ -39,7 +42,6 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Platform;
-import org.eclipse.core.runtime.Preferences;
 import org.eclipse.core.runtime.QualifiedName;
 import org.eclipse.core.runtime.preferences.IEclipsePreferences;
 import org.eclipse.emf.common.command.CommandStack;
@@ -53,7 +55,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import unc.lib.cdr.workbench.arrange.ArrangementProjectElement;
-import unc.lib.cdr.workbench.capture.OriginalFoldersProjectElement;
+import unc.lib.cdr.workbench.originals.Original;
+import unc.lib.cdr.workbench.originals.OriginalsWrapperFileSystem;
+import unc.lib.cdr.workbench.originals.OriginalsWrapperStore;
 import unc.lib.cdr.workbench.rcp.Activator;
 import unc.lib.cdr.workbench.stage.StagedFilesProjectElement;
 
@@ -66,30 +70,25 @@ public class MetsProjectNature implements IProjectNature {
 	public static final String NATURE_ID = "cdr_producer.projectNature";
 	public static final QualifiedName EMF_SESSION_KEY = new QualifiedName(NATURE_ID, "cdr_producer.projectEMFSession");
 	public static final QualifiedName EDITING_DOMAIN_KEY = new QualifiedName(NATURE_ID, "cdr_producer.editingDomain");
-	//public static final QualifiedName INITIAL_AUTOSTAGE_KEY = new QualifiedName(NATURE_ID, "cdr_producer.init_autostage");
+	// public static final QualifiedName INITIAL_AUTOSTAGE_KEY = new QualifiedName(NATURE_ID,
+	// "cdr_producer.init_autostage");
 	public static final String STAGING_BUILDER_ID = "unc.lib.cdr.workbench.builders.StageBuilder";
 	public static final String CROSSWALKS_BUILDER_ID = "unc.lib.cdr.workbench.builders.CrosswalksBuilder";
 	private static final String STAGING_BASE_URI_KEY = "cdr_producer.stagingBaseURI";
+	private static final String ORIGINALS_KEY = "cdr_producer.originals";
 
 	private IProject project = null;
 
 	private ICustomProjectElement[] elements = null;
 	private ArrangementProjectElement arrangementElement = null;
-	private OriginalFoldersProjectElement originalsElement = null;
 	private StagedFilesProjectElement stagedFilesElement = null;
+	private ArrayList<Original> originals = null;
 
 	public StagedFilesProjectElement getStagedFilesElement() {
 		if (stagedFilesElement == null) {
 			this.stagedFilesElement = new StagedFilesProjectElement(this);
 		}
 		return stagedFilesElement;
-	}
-
-	public OriginalFoldersProjectElement getOriginalsElement() {
-		if (originalsElement == null) {
-			this.originalsElement = new OriginalFoldersProjectElement(this);
-		}
-		return originalsElement;
 	}
 
 	public ArrangementProjectElement getArrangementElement() {
@@ -104,7 +103,7 @@ public class MetsProjectNature implements IProjectNature {
 
 	public ICustomProjectElement[] getProjectElements() {
 		if (this.elements == null) {
-			this.elements = new ICustomProjectElement[] { getOriginalsElement(),
+			this.elements = new ICustomProjectElement[] { 
 			/* getArrangementElement(), */getStagedFilesElement() };
 		}
 		return this.elements;
@@ -200,6 +199,51 @@ public class MetsProjectNature implements IProjectNature {
 				log.error("Problem setting up EMF session", e);
 			}
 		}
+		this.loadOriginals();
+	}
+
+	private void loadOriginals() {
+		IEclipsePreferences projectNode = new ProjectScope(project).getNode(Activator.PLUGIN_ID);
+		byte[] s = projectNode.getByteArray(ORIGINALS_KEY, null);
+		if (s == null) {
+			this.originals = new ArrayList<Original>();
+		} else {
+			try {
+				ObjectInputStream in = new ObjectInputStream(new ByteArrayInputStream(s));
+				this.originals = (ArrayList<Original>) in.readObject();
+				log.debug("loaded originals: "+this.originals.size());
+			} catch (Exception e) {
+				throw new Error("Cannot deserialize originals for project", e);
+			}
+		}
+	}
+
+	private void saveOriginals() {
+		ByteArrayOutputStream baos = new ByteArrayOutputStream();
+		try {
+			ObjectOutputStream out = new ObjectOutputStream(baos);
+			out.writeObject(this.originals);
+		} catch (Exception e) {
+			throw new Error("Cannot serialize project originals", e);
+		}
+		IEclipsePreferences projectNode = new ProjectScope(project).getNode(Activator.PLUGIN_ID);
+		projectNode.putByteArray(ORIGINALS_KEY, baos.toByteArray());
+		log.debug("wrote originals to preferences");
+		try {
+			projectNode.flush();
+		} catch (BackingStoreException e) {
+			throw new Error(e);
+		}
+	}
+	
+	public void addOriginal(Original o) {
+		this.originals.add(o);
+		log.debug("adding original at: "+o.getBase().toString());
+		this.saveOriginals();
+	}
+	
+	public List<Original> getOriginals() {
+		return Collections.unmodifiableList(this.originals);
 	}
 
 	public static IProject getProjectForMetsEObject(EObject object) {
@@ -246,9 +290,9 @@ public class MetsProjectNature implements IProjectNature {
 		return result;
 	}
 
-	public IFolder getOriginalsFolder() {
-		return this.getProject().getFolder(ORIGINALS_FOLDER_NAME);
-	}
+	//public IFolder getOriginalsFolder() {
+		//return this.getProject().getFolder(ORIGINALS_FOLDER_NAME);
+	//}
 
 	public static boolean getAutomaticStaging(IProject project) {
 		boolean result = false;
@@ -270,23 +314,13 @@ public class MetsProjectNature implements IProjectNature {
 	 * @param div
 	 * @return the IResource of the original
 	 */
-	public static IResource getOriginal(DivType div) {
+	public static OriginalsWrapperStore getOriginal(DivType div) {
 		if (div.getCONTENTIDS().size() > 0) {
 			for (String contentid : div.getCONTENTIDS()) {
 				try {
 					java.net.URI originalLoc = new java.net.URI(contentid);
-					IResource[] rs = null;
-					if (METSUtils.isContainer(div)) {
-						rs = ResourcesPlugin.getWorkspace().getRoot().findContainersForLocationURI(originalLoc);
-					} else if (METSConstants.Div_File.equals(div.getTYPE())) {
-						rs = ResourcesPlugin.getWorkspace().getRoot().findContainersForLocationURI(originalLoc);
-					}
 					IProject project = MetsProjectNature.getProjectForMetsEObject(div);
-					for (IResource r : rs) {
-						if (project.equals(r.getProject())) {
-							return r;
-						}
-					}
+					return (OriginalsWrapperStore)OriginalsWrapperFileSystem.wrapStore(originalLoc, project);
 				} catch (Exception ignored) {
 				}
 			}
@@ -311,13 +345,13 @@ public class MetsProjectNature implements IProjectNature {
 	 * @param stageURI
 	 */
 	public static void setStagingBase(java.net.URI stageURI, IProject project) {
-			IEclipsePreferences projectNode = new ProjectScope(project).getNode(Activator.PLUGIN_ID);
-			projectNode.put(STAGING_BASE_URI_KEY, stageURI.toString());
-			try {
-				projectNode.flush();
-			} catch (BackingStoreException e) {
-				throw new Error(e);
-			}
+		IEclipsePreferences projectNode = new ProjectScope(project).getNode(Activator.PLUGIN_ID);
+		projectNode.put(STAGING_BASE_URI_KEY, stageURI.toString());
+		try {
+			projectNode.flush();
+		} catch (BackingStoreException e) {
+			throw new Error(e);
+		}
 	}
 
 	public java.net.URI getStagingBase() {

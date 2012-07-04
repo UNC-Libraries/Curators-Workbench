@@ -72,21 +72,6 @@ public class PropertySheetPropertySection extends AbstractPropertySection {
 	public void setInput(IWorkbenchPart part, ISelection selection) {
 		LOG.debug("setInput called: " + selection + selection.getClass());
 		IStructuredSelection s = (IStructuredSelection) selection;
-		// if (s.getFirstElement() instanceof DivType) {
-		// DivType d = (DivType) s.getFirstElement();
-		// MdSecType userModsSection = null;
-		// if (d.getDMDID() != null) {
-		// for (String id : d.getDMDID()) {
-		// MdSecType md = (MdSecType) d.eResource().getEObject(id);
-		// if (METSConstants.MD_STATUS_USER_EDITED.equals(md.getSTATUS())) {
-		// userModsSection = md;
-		// break;
-		// }
-		// }
-		// s = new StructuredSelection(userModsSection.getMdWrap().getXmlData().getAny().toArray()[0]);
-		// LOG.debug("overriding selection to : "+s);
-		// }
-		// }
 		super.setInput(part, s);
 		page.selectionChanged(part, s);
 	}

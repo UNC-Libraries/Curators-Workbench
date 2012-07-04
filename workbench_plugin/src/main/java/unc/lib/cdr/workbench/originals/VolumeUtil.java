@@ -1,9 +1,9 @@
-package unc.lib.cdr.workbench.readonly;
+package unc.lib.cdr.workbench.originals;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URI;
 import java.nio.file.FileStore;
-import java.nio.file.FileSystem;
 import java.nio.file.FileSystems;
 import java.nio.file.LinkOption;
 import java.nio.file.Path;
@@ -13,7 +13,6 @@ import java.nio.file.attribute.BasicFileAttributes;
 import java.util.HashSet;
 import java.util.Set;
 
-import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.QualifiedName;
@@ -29,23 +28,11 @@ public class VolumeUtil {
 		//removableFileStoreTypes.add("");
 	}
 
-	public static boolean isVolumeRemovable(IResource r) throws CoreException {
-		FileStore fs = getFileStore(r);
+	public static boolean isVolumeRemovable(URI uri) throws CoreException {
+		FileStore fs = getFileStore(uri);
 		String type = fs.type();
 		System.err.println("Is this a removable?  type="+type);
 		return removableFileStoreTypes.contains(type);
-	}
-
-	public static void recordVolumeFingerprint(IResource resource) throws CoreException {
-		long fp = makeVolumeFingerprint(resource);
-		System.err.println("recording fingerprint: "+fp);
-		resource.setPersistentProperty(VOLUME_FINGERPRINT, String.valueOf(fp));
-	}
-	
-	public static boolean isSameVolume(IResource resource) throws CoreException {
-		long fp = makeVolumeFingerprint(resource);
-		String prop = resource.getPersistentProperty(VOLUME_FINGERPRINT);
-		return (String.valueOf(fp).equals(prop));
 	}
 	
 	/**
@@ -59,10 +46,10 @@ public class VolumeUtil {
 	 * @param resource
 	 *           a resource
 	 */
-	public static long makeVolumeFingerprint(IResource resource) throws CoreException {
-		FileStore fstore = getFileStore(resource);
+	public static int makeVolumeFingerprint(URI uri) throws CoreException {
+		FileStore fstore = getFileStore(uri);
 		try {
-			Path path = getPath(resource);
+			Path path = Paths.get(uri);
 			Path volumeRoot = findTopResourceInVolume(fstore, path);
 			System.err.println("Found volume root: " + volumeRoot);
 			long oldestFileCreation = -1;
@@ -84,20 +71,14 @@ public class VolumeUtil {
 				BasicFileAttributes basic = v.readAttributes();
 				System.err.println("Found volume root file key: "+basic.fileKey());
 				System.err.println("Found volume root create time: "+basic.creationTime());
-				long result = name.hashCode() ^ basic.fileKey().hashCode() ^ basic.creationTime().toMillis() ^ oldestFileCreation;
+				int result = name.hashCode() ^ basic.fileKey().hashCode() ^ (int)basic.creationTime().toMillis() ^ (int)oldestFileCreation;
 				return result;
 			} else {
-				return name.hashCode() ^ oldestFileCreation;
+				return name.hashCode() ^ (int)oldestFileCreation;
 			}
 		} catch (IOException e) {
 			throw new CoreException(new Status(IStatus.ERROR, Activator.PLUGIN_ID, "IO Exception while making unique volume key", e));
 		}
-	}
-
-	private static Path getPath(IResource dirty) {
-		Path result = null;
-		result = Paths.get(dirty.getLocation().toOSString());
-		return result;
 	}
 
 	private static Path findTopResourceInVolume(FileStore fstore, Path path) throws IOException {
@@ -114,12 +95,11 @@ public class VolumeUtil {
 		}
 	}
 
-	public static FileStore getFileStore(IResource resource) throws CoreException {
-		Path path = getPath(resource);
+	public static FileStore getFileStore(URI uri) throws CoreException {
+		Path path = Paths.get(uri);
 		System.err.println(path.toUri());
 		try {
-			FileSystem fs = FileSystems.getDefault();
-			FileStore fstore = fs.provider().getFileStore(path);
+			FileStore fstore = path.getFileSystem().provider().getFileStore(path);
 			return fstore;
 		} catch (IOException e) {
 			throw new CoreException(new Status(IStatus.ERROR, Activator.PLUGIN_ID, "Unexpected I/O error", e));

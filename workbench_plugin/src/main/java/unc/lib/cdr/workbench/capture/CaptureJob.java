@@ -290,7 +290,7 @@ public class CaptureJob extends Job {
 	 */
 	private void makeOrLinkParent(IResource resource, DivType div) throws CoreException {
 		DivType parent = null;
-		if (mpn.getOriginalsFolder().equals(resource.getParent()) || resource.getParent() == null) {
+		if (resource.getParent() == null) {
 			parent = this.bag;
 		} else {
 			parent = findDiv(resource.getParent());
