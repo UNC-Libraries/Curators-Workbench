@@ -13,7 +13,7 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.ui.IWorkbench;
 
-public class Original implements java.io.Serializable {
+public class OriginalStub implements java.io.Serializable {
 
 	/**
 	 * 
@@ -25,10 +25,10 @@ public class Original implements java.io.Serializable {
 	private String projectName;
 	private int volumeHash;
 	private String name;
-	private transient OriginalsWrapperStore store = null;
+	private transient OriginalFileStore store = null;
 	private URI prestageBase;
 
-	public Original(URI base, IProject project, URI prestageBase, String name) {
+	public OriginalStub(URI base, IProject project, URI prestageBase, String name) {
 		this.base = base;
 		this.project = project;
 		this.projectName = project.getName();
@@ -55,7 +55,7 @@ public class Original implements java.io.Serializable {
 	
 	private void init() {
 		try {
-			this.store = (OriginalsWrapperStore) OriginalsWrapperFileSystem.wrapStore(base, this.project);
+			this.store = (OriginalFileStore) OriginalsFileSystem.wrapStore(base, this);
 			this.project = ResourcesPlugin.getWorkspace().getRoot().getProject(projectName);
 		} catch (CoreException e) {
 			throw new Error(e);
@@ -91,7 +91,7 @@ public class Original implements java.io.Serializable {
 		return volumeHash;
 	}
 
-	public OriginalsWrapperStore getStore() {
+	public OriginalFileStore getStore() {
 		if(this.store == null) init();
 		return store;
 	}

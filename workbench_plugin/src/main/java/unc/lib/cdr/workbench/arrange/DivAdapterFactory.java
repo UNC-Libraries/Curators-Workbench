@@ -16,58 +16,24 @@
 package unc.lib.cdr.workbench.arrange;
 
 import gov.loc.mets.DivType;
-import gov.loc.mets.util.METSConstants;
 
-import java.net.URI;
-import java.net.URISyntaxException;
-
-import org.eclipse.core.resources.IContainer;
-import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.IProject;
-import org.eclipse.core.resources.IResource;
-import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IAdapterFactory;
 
+import unc.lib.cdr.workbench.originals.OriginalFileStore;
 import unc.lib.cdr.workbench.project.MetsProjectNature;
 
 public class DivAdapterFactory implements IAdapterFactory {
 	@SuppressWarnings("rawtypes")
-	Class[] adapterTypes = new Class[] { IResource.class };
+	Class[] adapterTypes = new Class[] { OriginalFileStore.class };
 
 	@SuppressWarnings("rawtypes")
 	@Override
 	public Object getAdapter(Object adaptableObject, Class adapterType) {
 		Object result = null;
-		if (IResource.class.equals(adapterType)) {
+		if (OriginalFileStore.class.equals(adapterType)) {
 			if (adaptableObject instanceof DivType) {
-				// make a DivType into a IResource.
 				DivType d = (DivType) adaptableObject;
-				IProject project = MetsProjectNature.getProjectForMetsEObject(d);
-				if(project == null) return result;
-				if (d.getCONTENTIDS() != null && d.getCONTENTIDS().size() > 0) {
-					URI loc;
-					try {
-						loc = new URI(d.getCONTENTIDS().get(0));
-						if (METSConstants.Div_File.equals(d.getTYPE())) {
-							IFile[] files = ResourcesPlugin.getWorkspace().getRoot().findFilesForLocationURI(loc);
-							for(IFile f : files) {
-								if(project.equals(f.getProject())) {
-									result = f;
-								}
-							}
-						} else {
-							IContainer[] cs = ResourcesPlugin.getWorkspace().getRoot().findContainersForLocationURI(loc);
-							for(IContainer f : cs) {
-								if(project.equals(f.getProject())) {
-									result = f;
-								}
-							}
-						}
-					} catch (URISyntaxException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-				}
+				return MetsProjectNature.getOriginal(d);
 			}
 		}
 		return result;

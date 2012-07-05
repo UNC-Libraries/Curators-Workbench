@@ -17,16 +17,22 @@ package unc.lib.cdr.workbench.capture;
 
 import org.eclipse.core.expressions.PropertyTester;
 
+import unc.lib.cdr.workbench.originals.OriginalFileStore;
+
 public class OriginalsPropertyTester extends PropertyTester {
 
 	public OriginalsPropertyTester() {
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public boolean test(Object receiver, String property, Object[] args, Object expectedValue) {
-		// TODO Auto-generated method stub
-		return false;
+		OriginalFileStore r = (OriginalFileStore) receiver;
+		if (receiver instanceof OriginalFileStore && "isFile".equals(property)) {
+			return expectedValue == null ? !r.fetchInfo().isDirectory()
+					: r.fetchInfo().isDirectory() != ((Boolean) expectedValue).booleanValue();
+		} else {
+			return false;
+		}
 	}
 
 }

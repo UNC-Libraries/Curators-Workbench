@@ -28,7 +28,7 @@ import org.eclipse.ui.model.WorkbenchLabelProvider;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import unc.lib.cdr.workbench.originals.Original;
+import unc.lib.cdr.workbench.originals.OriginalStub;
 import unc.lib.cdr.workbench.views.LabelImageFactory;
 import unc.lib.cdr.workbench.views.LabelImageFactory.Icon;
 
@@ -131,7 +131,7 @@ public class OriginalsLabelProvider implements ILabelProvider/* , IDelayedLabelD
 					return LabelImageFactory.getImage(Icon.File);
 				}
 			}
-		} else if(element instanceof Original) {
+		} else if(element instanceof OriginalStub) {
 			return LabelImageFactory.getImage(Icon.OriginalsEl);
 		}
 		return provider.getImage(element);
@@ -144,8 +144,8 @@ public class OriginalsLabelProvider implements ILabelProvider/* , IDelayedLabelD
 	 */
 	@Override
 	public String getText(Object element) {
-		if(element instanceof Original) {
-			Original o = (Original)element;
+		if(element instanceof OriginalStub) {
+			OriginalStub o = (OriginalStub)element;
 			if(o.getName() != null) return o.getName();
 			return o.getStore().getName();
 		} else if(element instanceof IFileStore) {

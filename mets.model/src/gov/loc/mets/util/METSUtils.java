@@ -202,9 +202,9 @@ public class METSUtils {
 	 *           the original IFile
 	 * @return the file element
 	 */
-	public static FileType addFile(MetsType mets, URI originalData, long size, String md5) {
+	public static FileType addFile(MetsType mets, URI originalData, String xmlid, long size, String md5) {
 		FileType f = MetsFactory.eINSTANCE.createFileType();
-		f.setID(makeXMLUUID());
+		f.setID(xmlid);
 
 		if (md5 != null) {
 			f.setCHECKSUMTYPE(CHECKSUMTYPEType.MD5);

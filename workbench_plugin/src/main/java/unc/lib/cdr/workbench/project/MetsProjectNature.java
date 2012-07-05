@@ -24,6 +24,8 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -40,7 +42,9 @@ import org.eclipse.core.resources.IncrementalProjectBuilder;
 import org.eclipse.core.resources.ProjectScope;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.QualifiedName;
 import org.eclipse.core.runtime.preferences.IEclipsePreferences;
@@ -55,9 +59,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import unc.lib.cdr.workbench.arrange.ArrangementProjectElement;
-import unc.lib.cdr.workbench.originals.Original;
-import unc.lib.cdr.workbench.originals.OriginalsWrapperFileSystem;
-import unc.lib.cdr.workbench.originals.OriginalsWrapperStore;
+import unc.lib.cdr.workbench.originals.OriginalFileStore;
+import unc.lib.cdr.workbench.originals.OriginalStub;
+import unc.lib.cdr.workbench.originals.OriginalsFileSystem;
 import unc.lib.cdr.workbench.rcp.Activator;
 import unc.lib.cdr.workbench.stage.StagedFilesProjectElement;
 
@@ -68,10 +72,6 @@ public class MetsProjectNature implements IProjectNature {
 
 	private static final Logger log = LoggerFactory.getLogger(MetsProjectNature.class);
 	public static final String NATURE_ID = "cdr_producer.projectNature";
-	public static final QualifiedName EMF_SESSION_KEY = new QualifiedName(NATURE_ID, "cdr_producer.projectEMFSession");
-	public static final QualifiedName EDITING_DOMAIN_KEY = new QualifiedName(NATURE_ID, "cdr_producer.editingDomain");
-	// public static final QualifiedName INITIAL_AUTOSTAGE_KEY = new QualifiedName(NATURE_ID,
-	// "cdr_producer.init_autostage");
 	public static final String STAGING_BUILDER_ID = "unc.lib.cdr.workbench.builders.StageBuilder";
 	public static final String CROSSWALKS_BUILDER_ID = "unc.lib.cdr.workbench.builders.CrosswalksBuilder";
 	private static final String STAGING_BASE_URI_KEY = "cdr_producer.stagingBaseURI";
@@ -82,7 +82,8 @@ public class MetsProjectNature implements IProjectNature {
 	private ICustomProjectElement[] elements = null;
 	private ArrangementProjectElement arrangementElement = null;
 	private StagedFilesProjectElement stagedFilesElement = null;
-	private ArrayList<Original> originals = null;
+	private ArrayList<OriginalStub> originals = null;
+	private ProjectEMFSession emfSession;
 
 	public StagedFilesProjectElement getStagedFilesElement() {
 		if (stagedFilesElement == null) {
@@ -103,7 +104,7 @@ public class MetsProjectNature implements IProjectNature {
 
 	public ICustomProjectElement[] getProjectElements() {
 		if (this.elements == null) {
-			this.elements = new ICustomProjectElement[] { 
+			this.elements = new ICustomProjectElement[] {
 			/* getArrangementElement(), */getStagedFilesElement() };
 		}
 		return this.elements;
@@ -136,16 +137,8 @@ public class MetsProjectNature implements IProjectNature {
 	/**
 	 * @return
 	 */
-	private ProjectEMFSession getEMFSession() {
-		ProjectEMFSession result = null;
-		try {
-			if (this.getProject().getSessionProperty(EMF_SESSION_KEY) != null) {
-				result = (ProjectEMFSession) this.getProject().getSessionProperty(EMF_SESSION_KEY);
-			}
-		} catch (CoreException e) {
-
-		}
-		return result;
+	public ProjectEMFSession getEMFSession() {
+		return this.emfSession;
 	}
 
 	public MetsType1 getMets() {
@@ -176,10 +169,6 @@ public class MetsProjectNature implements IProjectNature {
 	@Override
 	public void deconfigure() throws CoreException {
 		save();
-		if (this.getEMFSession() != null) {
-			this.project.getSessionProperties().remove(EMF_SESSION_KEY);
-		}
-
 	}
 
 	@Override
@@ -190,15 +179,13 @@ public class MetsProjectNature implements IProjectNature {
 	@Override
 	public void setProject(IProject project) {
 		this.project = project;
-		if (this.getEMFSession() == null) {
-			try {
-				ProjectEMFSession session = new ProjectEMFSession(project);
-				project.setSessionProperty(EMF_SESSION_KEY, session);
-				project.setSessionProperty(EDITING_DOMAIN_KEY, session.getEditingDomain());
-			} catch (CoreException e) {
-				log.error("Problem setting up EMF session", e);
-			}
+		IEclipsePreferences projectNode = new ProjectScope(project).getNode(Activator.PLUGIN_ID);
+		try {
+			projectNode.flush();
+		} catch (BackingStoreException e) {
+			e.printStackTrace();
 		}
+		this.emfSession = new ProjectEMFSession(project);
 		this.loadOriginals();
 	}
 
@@ -206,12 +193,12 @@ public class MetsProjectNature implements IProjectNature {
 		IEclipsePreferences projectNode = new ProjectScope(project).getNode(Activator.PLUGIN_ID);
 		byte[] s = projectNode.getByteArray(ORIGINALS_KEY, null);
 		if (s == null) {
-			this.originals = new ArrayList<Original>();
+			this.originals = new ArrayList<OriginalStub>();
 		} else {
 			try {
 				ObjectInputStream in = new ObjectInputStream(new ByteArrayInputStream(s));
-				this.originals = (ArrayList<Original>) in.readObject();
-				log.debug("loaded originals: "+this.originals.size());
+				this.originals = (ArrayList<OriginalStub>) in.readObject();
+				log.debug("loaded originals: " + this.originals.size());
 			} catch (Exception e) {
 				throw new Error("Cannot deserialize originals for project", e);
 			}
@@ -228,21 +215,21 @@ public class MetsProjectNature implements IProjectNature {
 		}
 		IEclipsePreferences projectNode = new ProjectScope(project).getNode(Activator.PLUGIN_ID);
 		projectNode.putByteArray(ORIGINALS_KEY, baos.toByteArray());
-		log.debug("wrote originals to preferences");
 		try {
 			projectNode.flush();
 		} catch (BackingStoreException e) {
 			throw new Error(e);
 		}
+		log.debug("wrote originals to preferences");
 	}
-	
-	public void addOriginal(Original o) {
+
+	public void addOriginal(OriginalStub o) {
 		this.originals.add(o);
-		log.debug("adding original at: "+o.getBase().toString());
+		log.debug("adding original at: " + o.getBase().toString());
 		this.saveOriginals();
 	}
-	
-	public List<Original> getOriginals() {
+
+	public List<OriginalStub> getOriginals() {
 		return Collections.unmodifiableList(this.originals);
 	}
 
@@ -252,13 +239,12 @@ public class MetsProjectNature implements IProjectNature {
 		if (objectResource != null) {
 			for (IProject p : ResourcesPlugin.getWorkspace().getRoot().getProjects()) {
 				if (p.isOpen()) {
-					try {
-						ProjectEMFSession session = (ProjectEMFSession) p.getSessionProperty(EMF_SESSION_KEY);
-						if (session != null && objectResource.equals(session.getMetsResource())) {
+					MetsProjectNature n = MetsProjectNature.get(p);
+					if (n != null) {
+						Resource resource = n.getEMFSession().getMetsResource();
+						if (resource != null && objectResource.equals(resource)) {
 							return p;
 						}
-					} catch (CoreException ignored) {
-						ignored.printStackTrace();
 					}
 				}
 			}
@@ -290,9 +276,9 @@ public class MetsProjectNature implements IProjectNature {
 		return result;
 	}
 
-	//public IFolder getOriginalsFolder() {
-		//return this.getProject().getFolder(ORIGINALS_FOLDER_NAME);
-	//}
+	// public IFolder getOriginalsFolder() {
+	// return this.getProject().getFolder(ORIGINALS_FOLDER_NAME);
+	// }
 
 	public static boolean getAutomaticStaging(IProject project) {
 		boolean result = false;
@@ -314,16 +300,37 @@ public class MetsProjectNature implements IProjectNature {
 	 * @param div
 	 * @return the IResource of the original
 	 */
-	public static OriginalsWrapperStore getOriginal(DivType div) {
-		if (div.getCONTENTIDS().size() > 0) {
-			for (String contentid : div.getCONTENTIDS()) {
-				try {
-					java.net.URI originalLoc = new java.net.URI(contentid);
-					IProject project = MetsProjectNature.getProjectForMetsEObject(div);
-					return (OriginalsWrapperStore)OriginalsWrapperFileSystem.wrapStore(originalLoc, project);
-				} catch (Exception ignored) {
+	public static OriginalFileStore getOriginal(DivType div) {
+		try {
+			if (div.getCONTENTIDS().size() > 0) {
+				URI uri = null;
+				for (String contentid : div.getCONTENTIDS()) {
+					try {
+						uri = new URI(contentid);
+					} catch (URISyntaxException e) {
+						throw new Error(e);
+					}
+					if (!"uuid".equals(uri.getScheme()))
+						break;
+				}
+				if (uri != null) {
+					try {
+						IPath divPath = Path.fromOSString(uri.getPath());
+						MetsProjectNature n = MetsProjectNature.getNatureForMetsObject(div);
+						OriginalStub mystub = null;
+						for (OriginalStub stub : n.getOriginals()) {
+							IPath originalStubPath = Path.fromOSString(stub.getBase().getPath());
+							if (originalStubPath.isPrefixOf(divPath)) {
+								mystub = stub;
+								break;
+							}
+						}
+						return (OriginalFileStore) OriginalsFileSystem.wrapStore(uri, mystub);
+					} catch (Exception ignored) {
+					}
 				}
 			}
+		} catch (NullPointerException ignored) {
 		}
 		return null;
 	}
@@ -347,11 +354,6 @@ public class MetsProjectNature implements IProjectNature {
 	public static void setStagingBase(java.net.URI stageURI, IProject project) {
 		IEclipsePreferences projectNode = new ProjectScope(project).getNode(Activator.PLUGIN_ID);
 		projectNode.put(STAGING_BASE_URI_KEY, stageURI.toString());
-		try {
-			projectNode.flush();
-		} catch (BackingStoreException e) {
-			throw new Error(e);
-		}
 	}
 
 	public java.net.URI getStagingBase() {

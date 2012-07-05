@@ -19,6 +19,7 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.core.filesystem.EFS;
 import org.eclipse.core.filesystem.IFileStore;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
@@ -37,8 +38,8 @@ import org.eclipse.core.runtime.URIUtil;
 import org.eclipse.core.runtime.jobs.Job;
 
 import unc.lib.cdr.workbench.IResourceConstants;
-import unc.lib.cdr.workbench.originals.Original;
-import unc.lib.cdr.workbench.originals.OriginalsWrapperFileSystem;
+import unc.lib.cdr.workbench.originals.OriginalStub;
+import unc.lib.cdr.workbench.originals.OriginalsFileSystem;
 import unc.lib.cdr.workbench.originals.VolumeUtil;
 import unc.lib.cdr.workbench.project.MetsProjectNature;
 
@@ -73,25 +74,12 @@ public class OriginalsLinkJob extends Job {
 		if (monitor == null) {
 			monitor = new NullProgressMonitor();
 		}
-		IStatus result = null;
 		System.out.println("starting link");
 		monitor.beginTask("Linking to originals ...", this.locations.size());
 		MetsProjectNature n = MetsProjectNature.get(project);
 		try {
 			for (URI location : locations) {
-				IFileStore fs = OriginalsWrapperFileSystem.wrapStore(location, this.project);
-				boolean isDir = fs.fetchInfo().isDirectory();
-				String linkName = null;
-				IPath path = new Path(fs.toURI().getPath());
-				if (path != null && path.segments().length > 0 && path.lastSegment().trim().length() > 0) {
-					linkName = path.lastSegment();
-				} else if (path.getDevice() != null) {
-					linkName = path.getDevice().replaceAll(":", "");
-				} else {
-					linkName = "ROOT";
-				}
-				//VolumeUtil.isVolumeRemovable(link);
-				//VolumeUtil.recordVolumeFingerprint(link);
+				IFileStore fs = EFS.getStore(location);
 				URI myprestage = null;
 				if (this.prestaged && this.prestagedBase != null && this.baselocation != null) {
 					// calculate staging base for each original location
@@ -107,8 +95,7 @@ public class OriginalsLinkJob extends Job {
 						myprestagestr = myprestage.toString() + "/";
 					}
 				}
-				// TODO recalc prestage base URI and name?
-				Original original = new Original(location, this.project, myprestage, null);
+				OriginalStub original = new OriginalStub(location, this.project, myprestage, null);
 				n.addOriginal(original);
 			}
 			monitor.done();

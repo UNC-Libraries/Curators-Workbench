@@ -7,23 +7,19 @@ import gov.loc.mets.util.METSConstants;
 import java.util.Collection;
 
 import org.eclipse.core.expressions.PropertyTester;
-import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IProject;
-import org.eclipse.core.resources.IResource;
-import org.eclipse.core.runtime.Status;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 
+import unc.lib.cdr.workbench.originals.OriginalFileStore;
 import unc.lib.cdr.workbench.project.MetsProjectNature;
-import unc.lib.cdr.workbench.rcp.Activator;
 
 public class SelectionPropertyTester extends PropertyTester {
 	public static final String IS_DIV_LINK_PAIR = "isDivLinkPair";
 	public static final String HAS_DIV_LINK_POTENTIAL = "hasDivLinkPotential";
-	public static final String SIBLING_IRESOURCES = "siblingIResources";
+	public static final String SIBLING_ORIGINALS = "siblingOriginals";
 
 	public SelectionPropertyTester() {
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
@@ -94,20 +90,20 @@ public class SelectionPropertyTester extends PropertyTester {
 					}
 				}
 			}
-		} else if(SIBLING_IRESOURCES.equals(property)) {
+		} else if(SIBLING_ORIGINALS.equals(property)) {
 			//System.out.println("checking siblings");
 			if (receiver instanceof ISelection) {
 				ISelection s = (ISelection) receiver;
 				if (s instanceof IStructuredSelection) {
 					IStructuredSelection struct = (IStructuredSelection) s;
 					if(struct.size() > 0) {
-						if(struct.getFirstElement() instanceof IResource) {
-							IContainer c = ((IResource)struct.getFirstElement()).getParent();
+						if(struct.getFirstElement() instanceof OriginalFileStore) {
+							OriginalFileStore c = (OriginalFileStore)((OriginalFileStore)struct.getFirstElement()).getParent();
 							for(Object r : struct.toArray()) {
-								if(!(r instanceof IResource)) {
+								if(!(r instanceof OriginalFileStore)) {
 									return false;
 								}
-								if(!(c.equals(((IResource)r).getParent()))) {
+								if(!(c.equals((OriginalFileStore)((OriginalFileStore)r).getParent()))) {
 									System.out.println("not the same parent");
 									return false;
 								}

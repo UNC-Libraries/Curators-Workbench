@@ -24,13 +24,13 @@ import org.eclipse.core.runtime.Status;
 import unc.lib.cdr.workbench.project.MetsProjectNature;
 import unc.lib.cdr.workbench.rcp.Activator;
 
-public class OriginalsWrapperStore implements IFileStore {
+public class OriginalFileStore implements IFileStore {
 	private static final String FILETYPE_PREFIX = "f_";
 	private static final String DIVTYPE_PREFIX = "d_";
 	private static final String protectedMessage = "Operation cancelled. This file under read only protection within the workbench.";
 	public static final String SCHEME_PREFIX = "ro+";
 	protected URI uri = null;
-	private IProject project = null;
+	private OriginalStub stub = null;
 	protected IFileStore wrapped = null;
 
 	public IFileStore getWrapped() {
@@ -39,8 +39,8 @@ public class OriginalsWrapperStore implements IFileStore {
 
 	protected int volumeHash = -1;
 
-	public OriginalsWrapperStore(URI uri, IProject project) throws CoreException {
-		this.project = project;
+	public OriginalFileStore(URI uri, OriginalStub stub) throws CoreException {
+		this.stub = stub;
 		this.uri = uri;
 		if (!uri.getScheme().startsWith(SCHEME_PREFIX)) {
 			throw new CoreException(new Status(Status.ERROR, Activator.PLUGIN_ID,
@@ -58,9 +58,9 @@ public class OriginalsWrapperStore implements IFileStore {
 		this.volumeHash = VolumeUtil.makeVolumeFingerprint(wrappedUri);
 	}
 
-	public OriginalsWrapperStore(IFileStore iFileStore, IProject project) throws CoreException {
+	public OriginalFileStore(IFileStore iFileStore, OriginalStub stub) throws CoreException {
 		this.wrapped = iFileStore;
-		this.project = project;
+		this.stub = stub;
 		try {
 			URI wrappedUri = this.wrapped.toURI();
 			this.uri = new URI(SCHEME_PREFIX + wrappedUri.getScheme() + ":" + wrappedUri.getRawSchemeSpecificPart());
@@ -73,23 +73,23 @@ public class OriginalsWrapperStore implements IFileStore {
 
 	public FileType getMetsFileType() {
 		try {
-			return (FileType) MetsProjectNature.get(project).getMetsResource().getEObject(getFileID());
+			return (FileType) MetsProjectNature.get(stub.getProject()).getMetsResource().getEObject(getFileID());
 		} catch (NullPointerException e) {
 			return null;
 		}
 	}
 
-	private String getFileID() {
+	public String getFileID() {
 		return new StringBuilder().append(FILETYPE_PREFIX).append(this.hashCode()).toString();
 	}
 
-	private String getDivID() {
+	public String getDivID() {
 		return new StringBuilder().append(DIVTYPE_PREFIX).append(this.hashCode()).toString();
 	}
 
 	public FLocatType getStagingLocatorType() {
 		try {
-			MetsProjectNature n = MetsProjectNature.get(project);
+			MetsProjectNature n = MetsProjectNature.get(stub.getProject());
 			FileType ft = (FileType) n.getMetsResource().getEObject(getFileID());
 			for (FLocatType loc : ft.getFLocat()) {
 				if (METSConstants.FLocat_USE_STAGE.equals(loc.getUSE())) {
@@ -103,7 +103,7 @@ public class OriginalsWrapperStore implements IFileStore {
 
 	public DivType getMetsDivType() {
 		try {
-			MetsProjectNature n = MetsProjectNature.get(project);
+			MetsProjectNature n = MetsProjectNature.get(stub.getProject());
 			return (DivType) n.getMetsResource().getEObject(getDivID());
 		} catch (NullPointerException e) {
 			return null;
@@ -117,7 +117,7 @@ public class OriginalsWrapperStore implements IFileStore {
 
 	@Override
 	public boolean equals(Object obj) {
-		return (obj instanceof OriginalsWrapperStore && obj != null && obj.hashCode() == this.hashCode());
+		return (obj instanceof OriginalFileStore && obj != null && obj.hashCode() == this.hashCode());
 	}
 
 	@Override
@@ -140,9 +140,9 @@ public class OriginalsWrapperStore implements IFileStore {
 	public IFileStore[] childStores(int options, IProgressMonitor monitor) throws CoreException {
 		// wraps these in read only
 		IFileStore[] wrappedResult = wrapped.childStores(options, monitor);
-		IFileStore[] result = new OriginalsWrapperStore[wrappedResult.length];
+		IFileStore[] result = new OriginalFileStore[wrappedResult.length];
 		for (int i = 0; i < wrappedResult.length; i++) {
-			result[i] = new OriginalsWrapperStore(wrappedResult[i], project);
+			result[i] = new OriginalFileStore(wrappedResult[i], stub);
 		}
 		return result;
 	}
@@ -167,10 +167,11 @@ public class OriginalsWrapperStore implements IFileStore {
 		return wrapped.fetchInfo();
 	}
 
+	@Deprecated
 	@Override
 	public IFileStore getChild(IPath path) {
 		try {
-			return new OriginalsWrapperStore(this.wrapped.getChild(path), project);
+			return new OriginalFileStore(this.wrapped.getChild(path), stub);
 		} catch (CoreException e) {
 			throw new Error("Unexpected exception", e);
 		}
@@ -179,7 +180,7 @@ public class OriginalsWrapperStore implements IFileStore {
 	@Override
 	public IFileStore getFileStore(IPath path) {
 		try {
-			return new OriginalsWrapperStore(this.wrapped.getFileStore(path), project);
+			return new OriginalFileStore(this.wrapped.getFileStore(path), stub);
 		} catch (CoreException e) {
 			throw new Error("Unexpected exception", e);
 		}
@@ -188,7 +189,7 @@ public class OriginalsWrapperStore implements IFileStore {
 	@Override
 	public IFileStore getChild(String name) {
 		try {
-			return new OriginalsWrapperStore(this.wrapped.getChild(name), project);
+			return new OriginalFileStore(this.wrapped.getChild(name), stub);
 		} catch (CoreException e) {
 			throw new Error("Unexpected exception", e);
 		}
@@ -220,21 +221,25 @@ public class OriginalsWrapperStore implements IFileStore {
 			IFileStore wrappedParent = this.wrapped.getParent();
 			if (wrappedParent == null)
 				return null;
-			return new OriginalsWrapperStore(this.wrapped.getParent(), project);
+			return new OriginalFileStore(this.wrapped.getParent(), stub);
 		} catch (CoreException e) {
 			throw new Error("Unexpected exception", e);
 		}
 	}
 
+	public OriginalStub getOriginalStub() {
+		return stub;
+	}
+	
 	public IProject getProject() {
-		return project;
+		return stub.getProject();
 	}
 
 	@Override
 	public boolean isParentOf(IFileStore other) {
-		if (OriginalsWrapperFileSystem.class.isInstance(other.getFileSystem())
-				&& OriginalsWrapperStore.class.isInstance(other)) {
-			OriginalsWrapperStore o = (OriginalsWrapperStore) other;
+		if (OriginalsFileSystem.class.isInstance(other.getFileSystem())
+				&& OriginalFileStore.class.isInstance(other)) {
+			OriginalFileStore o = (OriginalFileStore) other;
 			return wrapped.isParentOf(o.wrapped);
 		}
 		return false;

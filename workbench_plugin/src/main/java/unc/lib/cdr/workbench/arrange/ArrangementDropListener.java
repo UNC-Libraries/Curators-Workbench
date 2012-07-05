@@ -46,6 +46,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import unc.lib.cdr.workbench.capture.CaptureJob;
+import unc.lib.cdr.workbench.originals.OriginalFileStore;
 import unc.lib.cdr.workbench.project.MetsProjectNature;
 
 /**
@@ -107,13 +108,13 @@ public class ArrangementDropListener extends ViewerDropAdapter {
 				boolean result2 = dropMdSecs(mdSecs);
 				result = result || result2;
 			}
-		} else if (data instanceof IResource[]) {
-			IResource[] res = (IResource[]) data;
-			List<IResource> items = new ArrayList<IResource>(res.length);
-			for (IResource r : res) {
+		} else if (data instanceof OriginalFileStore[]) {
+			OriginalFileStore[] res = (OriginalFileStore[]) data;
+			List<OriginalFileStore> items = new ArrayList<OriginalFileStore>(res.length);
+			for (OriginalFileStore r : res) {
 				items.add(r);
 			}
-			result = dropResources(items);
+			result = dropOriginals(items);
 		}
 		refresh();
 		return result;
@@ -255,8 +256,8 @@ public class ArrangementDropListener extends ViewerDropAdapter {
 		super.drop(event);
 	}
 
-	private boolean dropResources(List<IResource> items) {
-		LOG.debug("dropping Resources");
+	private boolean dropOriginals(List<OriginalFileStore> items) {
+		LOG.debug("dropping originals");
 		CaptureJob job = null;
 		if (this.getCurrentTarget() instanceof IProject) {
 			IProject p = (IProject) this.getCurrentTarget();

@@ -7,8 +7,8 @@
             class="unc.lib.cdr.workbench.capture.OriginalsPropertyTester"
             id="cdr-workbench.propertyTesterOriginals"
             namespace="cdr-workbench"
-            properties="staged,captured"
-            type="org.eclipse.core.resources.IResource">
+            properties="staged,captured,isFile"
+            type="unc.lib.cdr.workbench.originals.OriginalFileStore">
       </propertyTester>
       <propertyTester
             class="unc.lib.cdr.workbench.xwalk.MetadataSourcePropertyTester"
@@ -42,7 +42,7 @@
             class="unc.lib.cdr.workbench.SelectionPropertyTester"
             id="workbench_plugin.selectionTester"
             namespace="workbench_plugin.selection"
-            properties="hasDivLinkPotential,siblingIResources"
+            properties="hasDivLinkPotential,siblingOriginals"
             type="org.eclipse.jface.viewers.ISelection">
       </propertyTester>
    </extension>
@@ -247,14 +247,6 @@
          </activeWhen>
          <class
                class="org.eclipse.ui.internal.views.markers.DeleteHandler"></class>
-         <enabledWhen>
-            <not>
-               <test
-                     property="workbench_plugin.testTopFolderName.folderName"
-                     value=".originals">
-               </test>
-            </not>
-         </enabledWhen>
       </handler>
    </extension>
    <extension
@@ -353,13 +345,13 @@
                   <iterate
                         ifEmpty="false">
                      <and>
-                        <test
-                              property="workbench_plugin.testTopFolderName.folderName"
-                              value="&apos;.originals&apos;">
-                        </test>
                         <instanceof
-                              value="org.eclipse.core.resources.IFile">
+                              value="unc.lib.cdr.workbench.originals.OriginalFileStore">
                         </instanceof>
+                        <test
+                              property="cdr-workbench.isFile"
+                              value="true">
+                        </test>
                      </and>
                   </iterate>
                </with>
@@ -376,9 +368,6 @@
                   <iterate
                         ifEmpty="false">
                      <or>
-                        <instanceof
-                              value="unc.lib.cdr.workbench.capture.OriginalFoldersProjectElement">
-                        </instanceof>
                         <and>
                            <instanceof
                                  value="org.eclipse.core.resources.IResource">
@@ -411,21 +400,14 @@
                      variable="activeMenuSelection">
                   <and>
                      <test
-                           property="workbench_plugin.selection.siblingIResources">
+                           property="workbench_plugin.selection.siblingOriginals">
                      </test>
                      <iterate
                            ifEmpty="false">
                         <and>
-                           <test
-                                 property="workbench_plugin.testTopFolderName.folderName"
-                                 value=".originals">
-                           </test>
                            <or>
                               <instanceof
-                                    value="org.eclipse.core.resources.IFolder">
-                              </instanceof>
-                              <instanceof
-                                    value="org.eclipse.core.resources.IFile">
+                                    value="unc.lib.cdr.workbench.originals.OriginalFileStore">
                               </instanceof>
                            </or>
                         </and>
@@ -695,9 +677,6 @@
                   <iterate
                         ifEmpty="false">
                      <or>
-                        <instanceof
-                              value="unc.lib.cdr.workbench.capture.OriginalFoldersProjectElement">
-                        </instanceof>
                         <and>
                            <instanceof
                                  value="org.eclipse.core.resources.IProject">
@@ -888,7 +867,7 @@
             adaptableType="gov.loc.mets.DivType"
             class="unc.lib.cdr.workbench.arrange.DivAdapterFactory">
          <adapter
-               type="org.eclipse.core.resources.IResource">
+               type="unc.lib.cdr.workbench.originals.OriginalFileStore">
          </adapter>
       </factory>
    </extension>
@@ -1040,20 +1019,6 @@
       </objectContribution>
    </extension>
    <extension
-         id="unc.lib.cdr.workbench.markers.OriginalFileSet"
-         name="Original File Set"
-         point="org.eclipse.core.resources.markers">
-      <persistent
-            value="true">
-      </persistent>
-      <attribute
-            name="type">
-      </attribute>
-      <attribute
-            name="prestagedBase">
-      </attribute>
-   </extension>
-   <extension
          point="org.eclipse.ui.navigator.viewer">
       <viewer
             viewerId="cdr-workbench.projectview">
@@ -1185,7 +1150,7 @@
                      value="org.eclipse.core.resources.IResource">
                </instanceof>
                <instanceof
-                     value="unc.lib.cdr.workbench.originals.Original">
+                     value="unc.lib.cdr.workbench.originals.OriginalStub">
                </instanceof>
             </or>
          </possibleChildren>
@@ -1328,39 +1293,6 @@
       </commonFilter>
    </extension>
    <extension
-         id="unc.lib.cdr.workbench.markers.Captured"
-         name="captured"
-         point="org.eclipse.core.resources.markers">
-      <attribute
-            name="mets.Div.ID">
-      </attribute>
-      <persistent
-            value="true">
-      </persistent>
-   </extension>
-   <extension
-         id="unc.lib.cdr.workbench.markers.Staged"
-         name="staged"
-         point="org.eclipse.core.resources.markers">
-      <persistent
-            value="true">
-      </persistent>
-      <attribute
-            name="stage.uri">
-      </attribute>
-   </extension>
-   <extension
-         id="unc.lib.cdr.workbench.markers.Filed"
-         name="filed"
-         point="org.eclipse.core.resources.markers">
-      <persistent
-            value="true">
-      </persistent>
-      <attribute
-            name="mets.File.ID">
-      </attribute>
-   </extension>
-   <extension
          point="org.eclipse.ui.decorators">
       <decorator
             class="unc.lib.cdr.workbench.capture.OriginalsDecorator"
@@ -1372,7 +1304,7 @@
          <enablement>
             <or>
                <objectClass
-                     name="org.eclipse.core.resources.IResource">
+                     name="unc.lib.cdr.workbench.originals.OriginalFileStore">
                </objectClass>
                <objectClass
                      name="gov.loc.mets.DivType">
@@ -1704,7 +1636,7 @@
       <filesystem
             scheme="ro+file">
          <run
-               class="unc.lib.cdr.workbench.originals.OriginalsWrapperFileSystem">
+               class="unc.lib.cdr.workbench.originals.OriginalsFileSystem">
          </run>
       </filesystem>
    </extension>
@@ -1713,7 +1645,7 @@
       <filesystem
             scheme="ro+irods">
          <run
-               class="unc.lib.cdr.workbench.originals.OriginalsWrapperFileSystem">
+               class="unc.lib.cdr.workbench.originals.OriginalsFileSystem">
          </run>
       </filesystem>
    </extension>

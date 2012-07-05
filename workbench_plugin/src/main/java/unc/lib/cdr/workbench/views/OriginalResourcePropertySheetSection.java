@@ -22,8 +22,8 @@ import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import unc.lib.cdr.workbench.originals.Original;
-import unc.lib.cdr.workbench.originals.OriginalsWrapperStore;
+import unc.lib.cdr.workbench.originals.OriginalStub;
+import unc.lib.cdr.workbench.originals.OriginalFileStore;
 import unc.lib.cdr.workbench.project.MetsProjectNature;
 
 public class OriginalResourcePropertySheetSection extends AbstractPropertySection {
@@ -76,15 +76,15 @@ public class OriginalResourcePropertySheetSection extends AbstractPropertySectio
 	public void setInput(IWorkbenchPart part, ISelection selection) {
 		// LOG.debug("setInput called: " + selection + selection.getClass());
 		ISelection pageSelect = null;
-		OriginalsWrapperStore original = null;
+		OriginalFileStore original = null;
 		IStructuredSelection s = (IStructuredSelection) selection;
 		if (s.getFirstElement() instanceof DivType) {
 			DivType d = (DivType) s.getFirstElement();
 			original = MetsProjectNature.getOriginal(d);
-		} else if(s.getFirstElement() instanceof Original) {
-			original = ((Original)s.getFirstElement()).getStore();
-		} else if(s.getFirstElement() instanceof OriginalsWrapperStore) {
-			original = (OriginalsWrapperStore)s.getFirstElement();
+		} else if(s.getFirstElement() instanceof OriginalStub) {
+			original = ((OriginalStub)s.getFirstElement()).getStore();
+		} else if(s.getFirstElement() instanceof OriginalFileStore) {
+			original = (OriginalFileStore)s.getFirstElement();
 		}
 		pageSelect = new ListSelection(Collections.singletonList(original));
 		page.selectionChanged(part, pageSelect);

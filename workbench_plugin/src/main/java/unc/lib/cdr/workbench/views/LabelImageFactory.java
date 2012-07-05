@@ -33,7 +33,7 @@ import org.eclipse.swt.widgets.Display;
 
 import unc.lib.cdr.workbench.arrange.ArrangementProjectElement;
 import unc.lib.cdr.workbench.arrange.DivLinkBucket;
-import unc.lib.cdr.workbench.originals.Original;
+import unc.lib.cdr.workbench.originals.OriginalStub;
 import unc.lib.cdr.workbench.project.ICustomProjectElement;
 import unc.lib.cdr.workbench.rcp.Activator;
 import unc.lib.cdr.workbench.stage.StagedFilesProjectElement;
@@ -112,7 +112,7 @@ public class LabelImageFactory {
 			} else {
 				result = Icon.File;
 			}
-		} else if (Original.class.isInstance(o)) {
+		} else if (OriginalStub.class.isInstance(o)) {
 			result = Icon.OriginalsEl;
 		}
 		return result;

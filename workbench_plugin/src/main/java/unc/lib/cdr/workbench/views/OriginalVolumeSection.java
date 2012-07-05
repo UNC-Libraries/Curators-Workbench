@@ -1,5 +1,7 @@
 package unc.lib.cdr.workbench.views;
 
+import gov.loc.mets.DivType;
+
 import java.io.IOException;
 import java.nio.file.FileStore;
 import java.nio.file.Files;
@@ -27,16 +29,17 @@ import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import unc.lib.cdr.workbench.originals.Original;
-import unc.lib.cdr.workbench.originals.OriginalsWrapperStore;
+import unc.lib.cdr.workbench.originals.OriginalFileStore;
+import unc.lib.cdr.workbench.originals.OriginalStub;
 import unc.lib.cdr.workbench.originals.VolumeUtil;
+import unc.lib.cdr.workbench.project.MetsProjectNature;
 
 public class OriginalVolumeSection extends AbstractPropertySection {
 	
 	@SuppressWarnings("unused")
 	private static final Logger LOG = LoggerFactory.getLogger(OriginalVolumeSection.class);
 	
-	private OriginalsWrapperStore original = null;
+	private OriginalFileStore original = null;
 	
 	Text nameText = null;
 	Text typeText = null;
@@ -45,7 +48,6 @@ public class OriginalVolumeSection extends AbstractPropertySection {
 	Group composite = null;
 
 	public OriginalVolumeSection() {
-		// TODO Auto-generated constructor stub
 	}
 	
 	/**
@@ -57,11 +59,15 @@ public class OriginalVolumeSection extends AbstractPropertySection {
 		super.setInput(part, s);
 		Assert.isTrue(s instanceof IStructuredSelection);
 		Object fs = ((IStructuredSelection) s).getFirstElement();
-		if(fs instanceof OriginalsWrapperStore) {
-			this.original = (OriginalsWrapperStore) fs;
-		} else if(fs instanceof Original) {
-			this.original = ((Original)fs).getStore();
+		if(fs instanceof OriginalFileStore) {
+			this.original = (OriginalFileStore) fs;
+		} else if(fs instanceof OriginalStub) {
+			this.original = ((OriginalStub)fs).getStore();
+		} else if(fs instanceof DivType) {
+			DivType div = (DivType)fs;
+			this.original = MetsProjectNature.getOriginal(div);
 		}
+		Assert.isTrue(this.original != null);
 	}
 	
 	@Override

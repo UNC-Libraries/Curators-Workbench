@@ -22,7 +22,7 @@ import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.handlers.HandlerUtil;
 import org.eclipse.ui.ide.IDE;
 
-import unc.lib.cdr.workbench.originals.OriginalsWrapperStore;
+import unc.lib.cdr.workbench.originals.OriginalFileStore;
 import unc.lib.cdr.workbench.project.MetsProjectNature;
 
 public class OpenSystemEditorTempCopyHandler extends AbstractHandler implements IHandler {
@@ -38,7 +38,7 @@ public class OpenSystemEditorTempCopyHandler extends AbstractHandler implements 
 					openTempCopy(file, event);
 				} else if(element instanceof DivType) {
 					DivType d = (DivType)element;
-					OriginalsWrapperStore r = MetsProjectNature.getOriginal(d);
+					OriginalFileStore r = MetsProjectNature.getOriginal(d);
 					openTempCopy(r, event);
 				}
 			}

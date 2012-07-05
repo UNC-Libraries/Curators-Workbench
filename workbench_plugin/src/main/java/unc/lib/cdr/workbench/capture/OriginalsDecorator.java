@@ -23,15 +23,11 @@ import gov.loc.mets.util.METSConstants;
 import gov.loc.mets.util.METSUtils;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IMarkerDelta;
-import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IResourceChangeEvent;
 import org.eclipse.core.resources.IResourceChangeListener;
 import org.eclipse.core.resources.ResourcesPlugin;
@@ -46,14 +42,15 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import unc.lib.cdr.workbench.IResourceConstants;
+import unc.lib.cdr.workbench.originals.OriginalFileStore;
 import unc.lib.cdr.workbench.project.MetsProjectNature;
 import unc.lib.cdr.workbench.views.LabelImageFactory.Icon;
 
-public class OriginalsDecorator implements ILightweightLabelDecorator, IResourceChangeListener {
+public class OriginalsDecorator implements ILightweightLabelDecorator {
 	Set<ILabelProviderListener> listeners = new HashSet<ILabelProviderListener>();
 
 	public OriginalsDecorator() {
-		ResourcesPlugin.getWorkspace().addResourceChangeListener(this, IResourceChangeEvent.POST_CHANGE);
+		// TODO register as listener to capture and staging changes (less granular this time)
 	}
 
 	@SuppressWarnings("unused")
@@ -81,99 +78,94 @@ public class OriginalsDecorator implements ILightweightLabelDecorator, IResource
 
 	@Override
 	public void decorate(Object element, IDecoration decoration) {
-		IResource r = null;
+		OriginalFileStore r = null;
 		boolean isDiv = false;
 		// added/captured, queued/staged BR
-		try {
-			List<String> labels = new ArrayList<String>();
-			if (element instanceof IResource) {
-				r = (IResource) element;
-			} else if (element instanceof DivType) {
-				isDiv = true;
-				DivType d = (DivType) element;
-				Object adapted = Platform.getAdapterManager().getAdapter(d, IResource.class);
-				if (adapted != null && adapted instanceof IResource) {
-					r = (IResource) adapted;
-				}
-				// described, crosswalked
-				// MetsProjectNature n = MetsProjectNature.getNatureForMetsObject(d);
-				boolean userEdited = false;
-				boolean crosswalked = false;
-				for (MdSecType md : d.getDmdSec()) {
-					if (md != null) {
-						String st = md.getSTATUS();
-						if (METSConstants.MD_STATUS_CROSSWALK_LINKED.equals(st)) {
-							decoration.addOverlay(Icon.CrosswalkedDecor.getImageDescriptor(), IDecoration.BOTTOM_LEFT);
-						} else if (METSConstants.MD_STATUS_USER_EDITED.equals(st)) {
-							decoration.addOverlay(Icon.UserEditedDecor.getImageDescriptor(), IDecoration.TOP_RIGHT);
-						} else if (METSConstants.MD_STATUS_CROSSWALK_USER_LINKED.equals(st)) {
-							decoration.addOverlay(Icon.CrosswalkedDecor.getImageDescriptor(), IDecoration.BOTTOM_LEFT);
-						}
+		List<String> labels = new ArrayList<String>();
+		if (element instanceof OriginalFileStore) {
+			r = (OriginalFileStore) element;
+		} else if (element instanceof DivType) {
+			isDiv = true;
+			DivType d = (DivType) element;
+			Object adapted = Platform.getAdapterManager().getAdapter(d, OriginalFileStore.class);
+			if (adapted != null && adapted instanceof OriginalFileStore) {
+				r = (OriginalFileStore) adapted;
+			}
+			// described, crosswalked
+			// MetsProjectNature n = MetsProjectNature.getNatureForMetsObject(d);
+			for (MdSecType md : d.getDmdSec()) {
+				if (md != null) {
+					String st = md.getSTATUS();
+					if (METSConstants.MD_STATUS_CROSSWALK_LINKED.equals(st)) {
+						decoration.addOverlay(Icon.CrosswalkedDecor.getImageDescriptor(), IDecoration.BOTTOM_LEFT);
+					} else if (METSConstants.MD_STATUS_USER_EDITED.equals(st)) {
+						decoration.addOverlay(Icon.UserEditedDecor.getImageDescriptor(), IDecoration.TOP_RIGHT);
+					} else if (METSConstants.MD_STATUS_CROSSWALK_USER_LINKED.equals(st)) {
+						decoration.addOverlay(Icon.CrosswalkedDecor.getImageDescriptor(), IDecoration.BOTTOM_LEFT);
 					}
 				}
-				for (MdSecType md : d.getMdSec()) { // process admin metadata overlays
-					if (md != null) {
-						if (MetsPackage.eINSTANCE.getAmdSecType_RightsMD().equals(md.eContainingFeature())) {
-							decoration.addOverlay(Icon.ACLDecor.getImageDescriptor(), IDecoration.TOP_LEFT);
-						}
+			}
+			for (MdSecType md : d.getMdSec()) { // process admin metadata overlays
+				if (md != null) {
+					if (MetsPackage.eINSTANCE.getAmdSecType_RightsMD().equals(md.eContainingFeature())) {
+						decoration.addOverlay(Icon.ACLDecor.getImageDescriptor(), IDecoration.TOP_LEFT);
 					}
 				}
-				// add labels for links of which this div is the object
-				for(SmLinkType sml : METSUtils.getObjectLinks(d)) {
-					labels.add(METSConstants.getLinkForArcRole(sml.getArcrole()).label);
-				}
-				
+			}
+			// add labels for links of which this div is the object
+			for (SmLinkType sml : METSUtils.getObjectLinks(d)) {
+				labels.add(METSConstants.getLinkForArcRole(sml.getArcrole()).label);
 			}
 
-			ImageDescriptor overlay = null;
-			if (r != null && r.getProject() != null && r.getProject().isOpen()) {
-				boolean captured = false;
-				if (r.findMarkers(IResourceConstants.MARKER_CAPTURED, false, IResource.DEPTH_ZERO).length > 0) {
-					captured = true;
-					if (!isDiv) {
-						labels.add("captured");
-					}
+		}
+
+		ImageDescriptor overlay = null;
+		if (r != null && r.getProject() != null && r.getProject().isOpen()) {
+			boolean captured = false;
+			if (r.getMetsDivType() != null) {
+				captured = true;
+				if (!isDiv) {
+					labels.add("captured");
 				}
-				if (!isDiv && r.getParent().equals(r.getProject().getFolder(MetsProjectNature.ORIGINALS_FOLDER_NAME))) {
-					IMarker[] m = r.findMarkers(IResourceConstants.MARKER_ORIGINALFILESET, false, IResource.DEPTH_ZERO);
-					if (m.length > 0) {
-						Object base = m[0].getAttribute("prestagedBase");
-						if (base != null) {
-							labels.add("prestaged => " + base);
-						}
-					}
-				}
-				if (r.findMarkers(IResourceConstants.MARKER_STAGED, false, IResource.DEPTH_ZERO).length > 0) {
-					// captured file (original or the div)
-					overlay = Icon.StagedDecor.getImageDescriptor();
-					labels.add("staged");
-				} else {
-					if (captured && r instanceof IFile) {
-						overlay = Icon.CaptureDecor.getImageDescriptor();
-						labels.add("queued");
-					}
-				}
+			}
+			// TODO make a separate decorator for the Originals object
+			// if (!isDiv && r.getParent().equals(r.getProject().getFolder(MetsProjectNature.ORIGINALS_FOLDER_NAME))) {
+			// IMarker[] m = r.findMarkers(IResourceConstants.MARKER_ORIGINALFILESET, false, IResource.DEPTH_ZERO);
+			// if (m.length > 0) {
+			// Object base = m[0].getAttribute("prestagedBase");
+			// if (base != null) {
+			// labels.add("prestaged => " + base);
+			// }
+			// }
+			// }
+			if (r.getStagingLocatorType() != null) {
+				// captured file (original or the div)
+				overlay = Icon.StagedDecor.getImageDescriptor();
+				labels.add("staged");
 			} else {
-				if (isDiv) {
-					labels.add("added");
+				if (captured && !r.fetchInfo().isDirectory()) {
+					overlay = Icon.CaptureDecor.getImageDescriptor();
+					labels.add("queued");
 				}
 			}
-			if (overlay != null) {
-				decoration.addOverlay(overlay, IDecoration.BOTTOM_RIGHT);
+		} else {
+			if (isDiv) {
+				labels.add("added");
 			}
-			if (labels.size() > 0) {
-				// decoration.setForegroundColor(org.eclipse.swt.graphics.);
-				StringBuilder sb = new StringBuilder();
-				sb.append("  [");
-				sb.append(labels.remove(0));
-				for (String label : labels) {
-					sb.append("  ").append(label);
-				}
-				sb.append("]");
-				decoration.addSuffix(sb.toString());
+		}
+		if (overlay != null) {
+			decoration.addOverlay(overlay, IDecoration.BOTTOM_RIGHT);
+		}
+		if (labels.size() > 0) {
+			// decoration.setForegroundColor(org.eclipse.swt.graphics.);
+			StringBuilder sb = new StringBuilder();
+			sb.append("  [");
+			sb.append(labels.remove(0));
+			for (String label : labels) {
+				sb.append("  ").append(label);
 			}
-		} catch (CoreException ignored) {
-			ignored.printStackTrace();
+			sb.append("]");
+			decoration.addSuffix(sb.toString());
 		}
 	}
 
@@ -183,53 +175,54 @@ public class OriginalsDecorator implements ILightweightLabelDecorator, IResource
 	 * @see org.eclipse.core.resources.IResourceChangeListener#resourceChanged(org
 	 * .eclipse.core.resources.IResourceChangeEvent)
 	 */
-	@Override
-	public void resourceChanged(IResourceChangeEvent event) {
-		Set<Object> changes = new HashSet<Object>();
-		IMarkerDelta[] captures = event.findMarkerDeltas(IResourceConstants.MARKER_CAPTURED, false);
-		IMarkerDelta[] stages = event.findMarkerDeltas(IResourceConstants.MARKER_STAGED, false);
-		for (IMarkerDelta d : captures) {
-			if (d.getResource().getProject().isOpen()) {
-				changes.add(d.getResource());
-				try {
-					MetsProjectNature n = (MetsProjectNature) d.getResource().getProject()
-							.getNature(MetsProjectNature.NATURE_ID);
-					String divID = IResourceConstants.getDivID(d.getResource());
-					if (n != null && n.getMetsResource() != null && divID != null) {
-						Object div = n.getMetsResource().getEObject(divID);
-						if (div != null) {
-							changes.add(div);
-						}
-					}
-				} catch (CoreException e1) {
-					e1.printStackTrace();
-				}
-			}
-		}
-		for (IMarkerDelta d : stages) {
-			if (d.getResource().getProject().isOpen()) {
-				changes.add(d.getResource());
-				try {
-					MetsProjectNature n = (MetsProjectNature) d.getResource().getProject()
-							.getNature(MetsProjectNature.NATURE_ID);
-					String divID = IResourceConstants.getDivID(d.getResource());
-					if (n != null && n.getMetsResource() != null && divID != null) {
-						Object div = n.getMetsResource().getEObject(divID);
-						if (div != null) {
-							changes.add(div);
-						}
-					}
-				} catch (CoreException e1) {
-					e1.printStackTrace();
-				}
-			}
-		}
-		if (changes.size() > 0) {
-			LabelProviderChangedEvent e = new LabelProviderChangedEvent(this, changes.toArray());
-			for (ILabelProviderListener l : listeners) {
-				l.labelProviderChanged(e);
-			}
-		}
-	}
+//	@Override
+//	public void resourceChanged(IResourceChangeEvent event) {
+//		// TODO how to update on changes with file store objects
+//		Set<Object> changes = new HashSet<Object>();
+//		IMarkerDelta[] captures = event.findMarkerDeltas(IResourceConstants.MARKER_CAPTURED, false);
+//		IMarkerDelta[] stages = event.findMarkerDeltas(IResourceConstants.MARKER_STAGED, false);
+//		for (IMarkerDelta d : captures) {
+//			if (d.getResource().getProject().isOpen()) {
+//				changes.add(d.getResource());
+//				try {
+//					MetsProjectNature n = (MetsProjectNature) d.getResource().getProject()
+//							.getNature(MetsProjectNature.NATURE_ID);
+//					String divID = IResourceConstants.getDivID(d.getResource());
+//					if (n != null && n.getMetsResource() != null && divID != null) {
+//						Object div = n.getMetsResource().getEObject(divID);
+//						if (div != null) {
+//							changes.add(div);
+//						}
+//					}
+//				} catch (CoreException e1) {
+//					e1.printStackTrace();
+//				}
+//			}
+//		}
+//		for (IMarkerDelta d : stages) {
+//			if (d.getResource().getProject().isOpen()) {
+//				changes.add(d.getResource());
+//				try {
+//					MetsProjectNature n = (MetsProjectNature) d.getResource().getProject()
+//							.getNature(MetsProjectNature.NATURE_ID);
+//					String divID = IResourceConstants.getDivID(d.getResource());
+//					if (n != null && n.getMetsResource() != null && divID != null) {
+//						Object div = n.getMetsResource().getEObject(divID);
+//						if (div != null) {
+//							changes.add(div);
+//						}
+//					}
+//				} catch (CoreException e1) {
+//					e1.printStackTrace();
+//				}
+//			}
+//		}
+//		if (changes.size() > 0) {
+//			LabelProviderChangedEvent e = new LabelProviderChangedEvent(this, changes.toArray());
+//			for (ILabelProviderListener l : listeners) {
+//				l.labelProviderChanged(e);
+//			}
+//		}
+//	}
 
 }

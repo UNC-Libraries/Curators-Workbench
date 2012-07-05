@@ -22,7 +22,7 @@ import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import unc.lib.cdr.workbench.originals.OriginalsWrapperStore;
+import unc.lib.cdr.workbench.originals.OriginalFileStore;
 import unc.lib.cdr.workbench.project.MetsProjectNature;
 
 public class OriginalFingerprintSection extends AbstractPropertySection {
@@ -47,8 +47,8 @@ public class OriginalFingerprintSection extends AbstractPropertySection {
 		if(o instanceof DivType) {
 			DivType div = (DivType)o;
 			fileType = (FileType)div.eResource().getEObject(div.getFptr().get(0).getFILEID());
-		} else if(o instanceof OriginalsWrapperStore) {
-			fileType = ((OriginalsWrapperStore)o).getMetsFileType();
+		} else if(o instanceof OriginalFileStore) {
+			fileType = ((OriginalFileStore)o).getMetsFileType();
 		}
 		Assert.isTrue(fileType != null);
 	}

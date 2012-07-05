@@ -112,8 +112,8 @@ public class ProjectEMFSession {
 		IFile old = getOldMetsFile();
 		if (!f.toFile().exists() && old.exists()) {
 			try {
-				
-				System.out.println("moving "+old.getLocation()+" to "+f);
+
+				System.out.println("moving " + old.getLocation() + " to " + f);
 				old.move(f, true, new NullProgressMonitor());
 			} catch (CoreException e) {
 				throw new Error(e);
@@ -121,13 +121,13 @@ public class ProjectEMFSession {
 		}
 		String uri = f.toFile().toURI().toString();
 		try {
-			log.debug("METS attempting to load existing file:"+uri);
+			log.debug("METS attempting to load existing file:" + uri);
 			this.metsResource = this.resourceSet.getResource(URI.createURI(uri), true);
 			((ResourceImpl) this.metsResource).setIntrinsicIDToEObjectMap(new HashMap());
 			this.metsResource.load(xmlOptions);
 			log.debug("METS loaded from existing file");
 		} catch (Exception e) {
-			log.debug("METS being created:"+uri);
+			log.debug("METS being created:" + uri);
 			this.metsResource = this.resourceSet.createResource(URI.createURI(uri));
 			((ResourceImpl) this.metsResource).setIntrinsicIDToEObjectMap(new HashMap());
 			DocumentRoot r = METSUtils.createInitialMetsDocument(project.getName() + " Workbench Manifest");
@@ -153,13 +153,15 @@ public class ProjectEMFSession {
 
 	public IPath getMetsFile() {
 		ProjectScope scope = new ProjectScope(this.project);
-		return scope.getLocation().append(METS_PATH).makeRelativeTo(this.project.getLocation());
+		IPath metsPath = scope.getLocation().append(METS_PATH);
+		System.err.println("METS FILE PATH: "+metsPath);
+		return metsPath;
 	}
 
 	public IFile getOldMetsFile() {
 		return this.project.getFile(METS_PATH);
 	}
-	
+
 	public static ComposedAdapterFactory getAdapterFactory() {
 		return adapterFactory;
 	}
@@ -202,18 +204,11 @@ public class ProjectEMFSession {
 		@Override
 		public void resourceChanged(IResourceChangeEvent event) {
 			IResource res = event.getResource();
-			if (IProject.class.isInstance(res) && IResourceChangeEvent.PRE_CLOSE == event.getType()) {
+			if (project.equals(res) && IResourceChangeEvent.PRE_CLOSE == event.getType()) {
 				log.debug("Saving EMF session prior to project close.");
-				// save the METS before closing..
-				try {
-					IProject p = (IProject) res;
-					ProjectEMFSession session = (ProjectEMFSession) p.getSessionProperty(MetsProjectNature.EMF_SESSION_KEY);
-					session.save();
-				} catch (CoreException e) {
-					e.printStackTrace();
-				} finally {
-					ResourcesPlugin.getWorkspace().removeResourceChangeListener(this);
-				}
+				IProject p = (IProject) res;
+				MetsProjectNature.get(p).getEMFSession().save();
+				ResourcesPlugin.getWorkspace().removeResourceChangeListener(this);
 			}
 		}
 

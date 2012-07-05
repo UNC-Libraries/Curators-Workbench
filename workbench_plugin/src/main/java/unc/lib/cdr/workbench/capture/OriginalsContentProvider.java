@@ -35,7 +35,7 @@ import org.eclipse.swt.widgets.Display;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import unc.lib.cdr.workbench.originals.Original;
+import unc.lib.cdr.workbench.originals.OriginalStub;
 import unc.lib.cdr.workbench.project.MetsProjectNature;
 
 /**
@@ -68,8 +68,8 @@ public class OriginalsContentProvider implements ITreeContentProvider {
 					MetsProjectNature n = (MetsProjectNature) p.getNature(MetsProjectNature.NATURE_ID);
 					results.addAll(n.getOriginals());
 				}
-			} else if(parent instanceof Original) {
-				Original original = (Original)parent;
+			} else if(parent instanceof OriginalStub) {
+				OriginalStub original = (OriginalStub)parent;
 				results.add(original.getStore());
 			} else if (parent instanceof IFileStore) {
 				IFileStore f = (IFileStore) parent;
@@ -105,7 +105,7 @@ public class OriginalsContentProvider implements ITreeContentProvider {
 	 */
 	@Override
 	public boolean hasChildren(Object element) {
-		if(element instanceof Original) {
+		if(element instanceof OriginalStub) {
 			return true;
 		} else if(element instanceof IFileStore) {
 			IFileStore fs = (IFileStore)element;

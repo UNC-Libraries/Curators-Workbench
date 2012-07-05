@@ -45,6 +45,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import unc.lib.cdr.workbench.capture.CaptureJob;
+import unc.lib.cdr.workbench.originals.OriginalFileStore;
 import unc.lib.cdr.workbench.project.MetsProjectNature;
 
 public class ArrangementCommonDropAdapterAssistant extends CommonDropAdapterAssistant {
@@ -118,8 +119,8 @@ public class ArrangementCommonDropAdapterAssistant extends CommonDropAdapterAssi
 			//LOG.debug("selection: " + select);
 			List items = select.toList();
 			if (items.size() > 0) {
-				if (items.get(0) instanceof IResource) {
-					return dropResources(items);
+				if (items.get(0) instanceof OriginalFileStore) {
+					return dropOriginals(items);
 				} else if (items.get(0) instanceof DivType) {
 					return dropDivs(items);
 				} else if (items.get(0) instanceof MdSecType) {
@@ -272,7 +273,7 @@ public class ArrangementCommonDropAdapterAssistant extends CommonDropAdapterAssi
 		}
 	}
 
-	private IStatus dropResources(List<IResource> items) {
+	private IStatus dropOriginals(List<OriginalFileStore> items) {
 		//LOG.debug("dropping Resources");
 		CaptureJob job = null;
 		Object target = getCommonDropAdapter().getCurrentTarget();
