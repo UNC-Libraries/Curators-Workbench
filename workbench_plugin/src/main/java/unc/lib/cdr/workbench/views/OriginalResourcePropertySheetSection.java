@@ -81,8 +81,6 @@ public class OriginalResourcePropertySheetSection extends AbstractPropertySectio
 		if (s.getFirstElement() instanceof DivType) {
 			DivType d = (DivType) s.getFirstElement();
 			original = MetsProjectNature.getOriginal(d);
-		} else if(s.getFirstElement() instanceof OriginalStub) {
-			original = ((OriginalStub)s.getFirstElement()).getStore();
 		} else if(s.getFirstElement() instanceof OriginalFileStore) {
 			original = (OriginalFileStore)s.getFirstElement();
 		}

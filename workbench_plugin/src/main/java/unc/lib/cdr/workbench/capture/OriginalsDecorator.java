@@ -22,28 +22,22 @@ import gov.loc.mets.SmLinkType;
 import gov.loc.mets.util.METSConstants;
 import gov.loc.mets.util.METSUtils;
 
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.eclipse.core.resources.IMarkerDelta;
-import org.eclipse.core.resources.IResourceChangeEvent;
-import org.eclipse.core.resources.IResourceChangeListener;
-import org.eclipse.core.resources.ResourcesPlugin;
-import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.IDecoration;
 import org.eclipse.jface.viewers.ILabelProviderListener;
 import org.eclipse.jface.viewers.ILightweightLabelDecorator;
-import org.eclipse.jface.viewers.LabelProviderChangedEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import unc.lib.cdr.workbench.IResourceConstants;
 import unc.lib.cdr.workbench.originals.OriginalFileStore;
-import unc.lib.cdr.workbench.project.MetsProjectNature;
+import unc.lib.cdr.workbench.originals.OriginalStub;
 import unc.lib.cdr.workbench.views.LabelImageFactory.Icon;
 
 public class OriginalsDecorator implements ILightweightLabelDecorator {
@@ -78,12 +72,24 @@ public class OriginalsDecorator implements ILightweightLabelDecorator {
 
 	@Override
 	public void decorate(Object element, IDecoration decoration) {
+		if (element instanceof OriginalStub) {
+			decorateOriginalStub((OriginalStub) element, decoration);
+			return;
+		}
 		OriginalFileStore r = null;
 		boolean isDiv = false;
 		// added/captured, queued/staged BR
 		List<String> labels = new ArrayList<String>();
 		if (element instanceof OriginalFileStore) {
 			r = (OriginalFileStore) element;
+			// add prefix of "../" to these when not under volume root
+			if (r.getWrapped().getParent() != null) {
+				if (r.getOriginalStub().getStores().contains(r)) {
+					if (!r.getOriginalStub().getVolumeRootStore().getWrapped().equals(r.getWrapped().getParent())) {
+						decoration.addPrefix(".../");
+					}
+				}
+			}
 		} else if (element instanceof DivType) {
 			isDiv = true;
 			DivType d = (DivType) element;
@@ -128,16 +134,10 @@ public class OriginalsDecorator implements ILightweightLabelDecorator {
 					labels.add("captured");
 				}
 			}
-			// TODO make a separate decorator for the Originals object
-			// if (!isDiv && r.getParent().equals(r.getProject().getFolder(MetsProjectNature.ORIGINALS_FOLDER_NAME))) {
-			// IMarker[] m = r.findMarkers(IResourceConstants.MARKER_ORIGINALFILESET, false, IResource.DEPTH_ZERO);
-			// if (m.length > 0) {
-			// Object base = m[0].getAttribute("prestagedBase");
-			// if (base != null) {
-			// labels.add("prestaged => " + base);
-			// }
-			// }
-			// }
+			URI prestage = r.getOriginalStub().getPrestageBase(r.getWrapped().toURI());
+			if (prestage != null) {
+				labels.add("pre-staged=>" + prestage.toString());
+			}
 			if (r.getStagingLocatorType() != null) {
 				// captured file (original or the div)
 				overlay = Icon.StagedDecor.getImageDescriptor();
@@ -169,60 +169,24 @@ public class OriginalsDecorator implements ILightweightLabelDecorator {
 		}
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.eclipse.core.resources.IResourceChangeListener#resourceChanged(org
-	 * .eclipse.core.resources.IResourceChangeEvent)
-	 */
-//	@Override
-//	public void resourceChanged(IResourceChangeEvent event) {
-//		// TODO how to update on changes with file store objects
-//		Set<Object> changes = new HashSet<Object>();
-//		IMarkerDelta[] captures = event.findMarkerDeltas(IResourceConstants.MARKER_CAPTURED, false);
-//		IMarkerDelta[] stages = event.findMarkerDeltas(IResourceConstants.MARKER_STAGED, false);
-//		for (IMarkerDelta d : captures) {
-//			if (d.getResource().getProject().isOpen()) {
-//				changes.add(d.getResource());
-//				try {
-//					MetsProjectNature n = (MetsProjectNature) d.getResource().getProject()
-//							.getNature(MetsProjectNature.NATURE_ID);
-//					String divID = IResourceConstants.getDivID(d.getResource());
-//					if (n != null && n.getMetsResource() != null && divID != null) {
-//						Object div = n.getMetsResource().getEObject(divID);
-//						if (div != null) {
-//							changes.add(div);
-//						}
-//					}
-//				} catch (CoreException e1) {
-//					e1.printStackTrace();
-//				}
-//			}
-//		}
-//		for (IMarkerDelta d : stages) {
-//			if (d.getResource().getProject().isOpen()) {
-//				changes.add(d.getResource());
-//				try {
-//					MetsProjectNature n = (MetsProjectNature) d.getResource().getProject()
-//							.getNature(MetsProjectNature.NATURE_ID);
-//					String divID = IResourceConstants.getDivID(d.getResource());
-//					if (n != null && n.getMetsResource() != null && divID != null) {
-//						Object div = n.getMetsResource().getEObject(divID);
-//						if (div != null) {
-//							changes.add(div);
-//						}
-//					}
-//				} catch (CoreException e1) {
-//					e1.printStackTrace();
-//				}
-//			}
-//		}
-//		if (changes.size() > 0) {
-//			LabelProviderChangedEvent e = new LabelProviderChangedEvent(this, changes.toArray());
-//			for (ILabelProviderListener l : listeners) {
-//				l.labelProviderChanged(e);
-//			}
-//		}
-//	}
-
+	private void decorateOriginalStub(OriginalStub stub, IDecoration decoration) {
+		decoration.addPrefix("Originals on ");
+		List<String> labels = new ArrayList<String>();
+		// ejected overlay for detached disks
+		if (!stub.isAttached()) {
+			decoration.addOverlay(Icon.EjectedDecore.getImageDescriptor(), IDecoration.TOP_RIGHT);
+		}
+		labels.add(stub.getVolumeType());
+		if (labels.size() > 0) {
+			// decoration.setForegroundColor(org.eclipse.swt.graphics.);
+			StringBuilder sb = new StringBuilder();
+			sb.append("  [");
+			sb.append(labels.remove(0));
+			for (String label : labels) {
+				sb.append("  ").append(label);
+			}
+			sb.append("]");
+			decoration.addSuffix(sb.toString());
+		}
+	}
 }

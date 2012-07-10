@@ -15,17 +15,18 @@
  */
 package unc.lib.cdr.workbench.capture;
 
+import java.io.IOException;
 import java.net.URI;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import org.eclipse.core.filesystem.EFS;
 import org.eclipse.core.filesystem.IFileStore;
-import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.IFolder;
-import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IProject;
-import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -33,13 +34,10 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Status;
-import org.eclipse.core.runtime.SubProgressMonitor;
 import org.eclipse.core.runtime.URIUtil;
 import org.eclipse.core.runtime.jobs.Job;
 
-import unc.lib.cdr.workbench.IResourceConstants;
 import unc.lib.cdr.workbench.originals.OriginalStub;
-import unc.lib.cdr.workbench.originals.OriginalsFileSystem;
 import unc.lib.cdr.workbench.originals.VolumeUtil;
 import unc.lib.cdr.workbench.project.MetsProjectNature;
 
@@ -78,26 +76,58 @@ public class OriginalsLinkJob extends Job {
 		monitor.beginTask("Linking to originals ...", this.locations.size());
 		MetsProjectNature n = MetsProjectNature.get(project);
 		try {
+			Set<URI> volumes = new HashSet<URI>();
+			Map<URI, Map<URI, URI>> volumeToPrestageLocations = new HashMap<URI, Map<URI, URI>>();
+			Map<URI, List<URI>> volumeToLocations = new HashMap<URI, List<URI>>();
 			for (URI location : locations) {
+				System.out.println("location: "+location);
 				IFileStore fs = EFS.getStore(location);
+				URI volume = null;
+				try {
+					volume = VolumeUtil.getTopResourceInVolume(location);
+					System.out.println("top resource in volume: "+volume);
+				} catch(IOException e) {
+					throw new Error(e);
+				}
+				volumes.add(volume);
+				if(volumeToLocations.get(volume) == null) {
+					volumeToLocations.put(volume, new ArrayList<URI>());
+				}
+				volumeToLocations.get(volume).add(location);
+				
 				URI myprestage = null;
 				if (this.prestaged && this.prestagedBase != null && this.baselocation != null) {
 					// calculate staging base for each original location
 					IPath basePath = new Path(this.baselocation.getPath()); // base path for all locations
-					IPath subPath = new Path(fs.toURI().getPath()).makeRelativeTo(basePath.removeLastSegments(1))
-							.removeLastSegments(1);
+					IPath subPath = new Path(fs.toURI().getPath()).makeRelativeTo(basePath.removeLastSegments(1));
 					String myprestagestr = prestagedBase.toString();
 					if (subPath.segmentCount() > 0) {
 						myprestage = prestagedBase;
 						for (String s : subPath.segments()) {
 							myprestage = URIUtil.append(myprestage, s);
 						}
-						myprestagestr = myprestage.toString() + "/";
+						if(volumeToPrestageLocations.get(volume) == null) {
+							volumeToPrestageLocations.put(volume, new HashMap<URI, URI>());
+						}
+						volumeToPrestageLocations.get(volume).put(location, myprestage);
 					}
 				}
-				OriginalStub original = new OriginalStub(location, this.project, myprestage, null);
-				n.addOriginal(original);
 			}
+			for(URI volumeRoot : volumes) {
+				OriginalStub existingStub = null;
+				for(OriginalStub s :n.getOriginals()) {
+					if(s.getVolumeRoot().equals(volumeRoot)) {
+						existingStub = s;
+					}
+				}
+				if(existingStub != null) {
+					existingStub.addLocations(volumeToLocations.get(volumeRoot), volumeToPrestageLocations.get(volumeRoot));
+				} else {
+					OriginalStub original = new OriginalStub(volumeRoot, volumeToLocations.get(volumeRoot), volumeToPrestageLocations.get(volumeRoot), this.project);
+					n.addOriginal(original);
+				}
+			}
+			n.save();
 			monitor.done();
 			return Status.OK_STATUS;
 		} catch (CoreException e) {

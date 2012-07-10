@@ -10,6 +10,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.List;
 
 import org.eclipse.core.filesystem.EFS;
 import org.eclipse.core.filesystem.IFileInfo;
@@ -19,6 +20,7 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Status;
 
 import unc.lib.cdr.workbench.project.MetsProjectNature;
@@ -37,8 +39,6 @@ public class OriginalFileStore implements IFileStore {
 		return wrapped;
 	}
 
-	protected int volumeHash = -1;
-
 	public OriginalFileStore(URI uri, OriginalStub stub) throws CoreException {
 		this.stub = stub;
 		this.uri = uri;
@@ -55,7 +55,6 @@ public class OriginalFileStore implements IFileStore {
 					+ uri, e));
 		}
 		this.wrapped = EFS.getStore(wrappedUri);
-		this.volumeHash = VolumeUtil.makeVolumeFingerprint(wrappedUri);
 	}
 
 	public OriginalFileStore(IFileStore iFileStore, OriginalStub stub) throws CoreException {
@@ -112,7 +111,7 @@ public class OriginalFileStore implements IFileStore {
 
 	@Override
 	public int hashCode() {
-		return this.uri.hashCode() ^ this.volumeHash;
+		return this.uri.hashCode() ^ this.stub.getVolumeHash();
 	}
 
 	@Override
@@ -278,6 +277,54 @@ public class OriginalFileStore implements IFileStore {
 	@Override
 	public URI toURI() {
 		return uri;
+	}
+
+	/**
+	 * Calculate the pre-staged location URI, if applicable
+	 * @return the pre-staged URI, or null if not pre-staged.
+	 */
+	public URI getPrestagedLocation() {
+		// get path back to store containing prestage location
+		List<OriginalFileStore> stubStores = this.stub.getStores();
+		OriginalFileStore test = (OriginalFileStore)this.getParent();
+		for(test = (OriginalFileStore)this.getParent(); test != null; test = (OriginalFileStore)test.getParent()) {
+			URI prestage = this.stub.getPrestageBase(test.getWrapped().toURI());
+			if(prestage != null) {
+				Path mypath = new Path(this.toURI().getPath());
+				Path basePath = new Path(test.toURI().getPath());
+				IPath relPath = mypath.makeRelativeTo(basePath);
+				IPath psPath = new Path(prestage.getPath()).append(relPath);
+				try {
+					URI result = new URI(prestage.getScheme(), prestage.getUserInfo(), prestage.getHost(), prestage.getPort(), psPath.toString(), prestage.getQuery(), prestage.getFragment() );
+					return result;
+				} catch (URISyntaxException e) {
+					throw new Error(e);
+				}
+			}
+			if(stubStores.contains(test)) return null; // did not find prestaged location in tree
+		}
+		return null;
+	}
+
+	public IFileStore getStageLocation() {
+		MetsProjectNature mpn = MetsProjectNature.get(getProject());
+		URI stageBase = mpn.getStagingBase();
+		IPath stageBasePath = new Path(stageBase.getPath());
+		Path mypath = new Path(this.toURI().getPath());
+		for(OriginalFileStore root : this.getOriginalStub().getStores()) {
+			Path rootPath = new Path(root.toURI().getPath());
+			if(rootPath.isPrefixOf(mypath)) {
+				IPath relPath = mypath.makeRelativeTo(rootPath);
+				IPath stagePath = stageBasePath.append(relPath);
+				try {
+					URI stageLoc = new URI(stageBase.getScheme(), stageBase.getUserInfo(), stageBase.getHost(), stageBase.getPort(), stagePath.toString(), stageBase.getQuery(), stageBase.getFragment());
+					return EFS.getStore(stageLoc);
+				} catch(Exception e) {
+					throw new Error(e);
+				}
+			}
+		}
+		return null;
 	}
 
 }

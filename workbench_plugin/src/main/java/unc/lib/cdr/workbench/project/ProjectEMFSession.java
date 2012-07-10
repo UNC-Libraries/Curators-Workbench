@@ -24,6 +24,7 @@ import gov.loc.mets.util.MetsResourceFactoryImpl;
 import gov.loc.mods.mods.provider.MODSItemProviderAdapterFactory;
 
 import java.io.IOException;
+import java.util.EventObject;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -38,10 +39,10 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
-import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.command.BasicCommandStack;
 import org.eclipse.emf.common.command.CommandStack;
+import org.eclipse.emf.common.command.CommandStackListener;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.Resource.Diagnostic;
@@ -55,7 +56,6 @@ import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
 import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
-import org.eclipse.ui.IWorkbench;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.w3._1999.xlink.provider.XlinkItemProviderAdapterFactory;
@@ -106,7 +106,7 @@ public class ProjectEMFSession {
 		this.extendedMetaData = new BasicExtendedMetaData(resourceSet.getPackageRegistry());
 		load();
 	}
-
+	
 	private void load() {
 		IPath f = getMetsFile();
 		IFile old = getOldMetsFile();

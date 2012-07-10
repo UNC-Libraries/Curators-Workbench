@@ -131,6 +131,7 @@ public class MetsProjectNature implements IProjectNature {
 			if (this.getEMFSession() != null) {
 				this.getEMFSession().save();
 			}
+			saveOriginals();
 		}
 	}
 
@@ -225,7 +226,7 @@ public class MetsProjectNature implements IProjectNature {
 
 	public void addOriginal(OriginalStub o) {
 		this.originals.add(o);
-		log.debug("adding original at: " + o.getBase().toString());
+		// log.debug("adding original at: " + o.getBase().toString());
 		this.saveOriginals();
 	}
 
@@ -319,10 +320,12 @@ public class MetsProjectNature implements IProjectNature {
 						MetsProjectNature n = MetsProjectNature.getNatureForMetsObject(div);
 						OriginalStub mystub = null;
 						for (OriginalStub stub : n.getOriginals()) {
-							IPath originalStubPath = Path.fromOSString(stub.getBase().getPath());
-							if (originalStubPath.isPrefixOf(divPath)) {
-								mystub = stub;
-								break;
+							for (URI loc : stub.getLocations()) {
+								IPath stubPath = Path.fromOSString(loc.getPath());
+								if (stubPath.isPrefixOf(divPath)) {
+									mystub = stub;
+									break;
+								}
 							}
 						}
 						return (OriginalFileStore) OriginalsFileSystem.wrapStore(uri, mystub);

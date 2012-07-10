@@ -9,7 +9,6 @@ import java.nio.file.Paths;
 import java.text.NumberFormat;
 
 import org.eclipse.core.runtime.Assert;
-import org.eclipse.core.runtime.CoreException;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.SWT;
@@ -31,25 +30,25 @@ import org.slf4j.LoggerFactory;
 
 import unc.lib.cdr.workbench.originals.OriginalFileStore;
 import unc.lib.cdr.workbench.originals.OriginalStub;
-import unc.lib.cdr.workbench.originals.VolumeUtil;
 import unc.lib.cdr.workbench.project.MetsProjectNature;
 
 public class OriginalVolumeSection extends AbstractPropertySection {
-	
+
 	@SuppressWarnings("unused")
 	private static final Logger LOG = LoggerFactory.getLogger(OriginalVolumeSection.class);
-	
-	private OriginalFileStore original = null;
-	
+
+	private OriginalStub stub = null;
+
 	Text nameText = null;
 	Text typeText = null;
 	Text usedSpaceText = null;
 	Text hashText = null;
+	Text attachedText = null;
 	Group composite = null;
 
 	public OriginalVolumeSection() {
 	}
-	
+
 	/**
 	 * @see org.eclipse.ui.views.properties.tabbed.ISection#setInput(org.eclipse.ui.IWorkbenchPart,
 	 *      org.eclipse.jface.viewers.ISelection)
@@ -59,17 +58,17 @@ public class OriginalVolumeSection extends AbstractPropertySection {
 		super.setInput(part, s);
 		Assert.isTrue(s instanceof IStructuredSelection);
 		Object fs = ((IStructuredSelection) s).getFirstElement();
-		if(fs instanceof OriginalFileStore) {
-			this.original = (OriginalFileStore) fs;
-		} else if(fs instanceof OriginalStub) {
-			this.original = ((OriginalStub)fs).getStore();
-		} else if(fs instanceof DivType) {
-			DivType div = (DivType)fs;
-			this.original = MetsProjectNature.getOriginal(div);
+		if (fs instanceof OriginalFileStore) {
+			this.stub = ((OriginalFileStore) fs).getOriginalStub();
+		} else if (fs instanceof OriginalStub) {
+			this.stub = (OriginalStub) fs;
+		} else if (fs instanceof DivType) {
+			DivType div = (DivType) fs;
+			this.stub = MetsProjectNature.getOriginal(div).getOriginalStub();
 		}
-		Assert.isTrue(this.original != null);
+		Assert.isTrue(this.stub != null);
 	}
-	
+
 	@Override
 	public void createControls(Composite parent, TabbedPropertySheetPage aTabbedPropertySheetPage) {
 		super.createControls(parent, aTabbedPropertySheetPage);
@@ -79,9 +78,9 @@ public class OriginalVolumeSection extends AbstractPropertySection {
 		composite.setLayoutData(new GridData(SWT.BEGINNING, SWT.BEGINNING, true, false));
 		FormLayout layout = new FormLayout();
 		composite.setLayout(layout);
-		
+
 		FormData data;
-		
+
 		int secondTab = 50;
 
 		CLabel l1 = getWidgetFactory().createCLabel(composite, "Name");
@@ -101,7 +100,7 @@ public class OriginalVolumeSection extends AbstractPropertySection {
 		data.left = new FormAttachment(0, ITabbedPropertyConstants.HSPACE);
 		data.top = new FormAttachment(l1, ITabbedPropertyConstants.VSPACE);
 		l2.setLayoutData(data);
-		
+
 		typeText = getWidgetFactory().createText(composite, "", SWT.READ_ONLY);
 		data = new FormData();
 		data.left = new FormAttachment(secondTab, ITabbedPropertyConstants.HSPACE);
@@ -119,7 +118,7 @@ public class OriginalVolumeSection extends AbstractPropertySection {
 		data.top = new FormAttachment(l2, ITabbedPropertyConstants.VSPACE);
 		usedSpaceText = getWidgetFactory().createText(composite, "", SWT.READ_ONLY);
 		usedSpaceText.setLayoutData(data);
-		
+
 		CLabel hl = getWidgetFactory().createCLabel(composite, "Hash Key");
 		data = new FormData();
 		data.left = new FormAttachment(0, ITabbedPropertyConstants.HSPACE);
@@ -132,33 +131,44 @@ public class OriginalVolumeSection extends AbstractPropertySection {
 		hashText = getWidgetFactory().createText(composite, "", SWT.READ_ONLY);
 		hashText.setLayoutData(data);
 		
+		CLabel al = getWidgetFactory().createCLabel(composite, "Attached");
+		data = new FormData();
+		data.left = new FormAttachment(0, ITabbedPropertyConstants.HSPACE);
+		data.top = new FormAttachment(hl, ITabbedPropertyConstants.VSPACE);
+		al.setLayoutData(data);
+
+		data = new FormData();
+		data.left = new FormAttachment(secondTab, ITabbedPropertyConstants.HSPACE);
+		data.top = new FormAttachment(hl, ITabbedPropertyConstants.VSPACE);
+		attachedText = getWidgetFactory().createText(composite, "", SWT.READ_ONLY);
+		attachedText.setLayoutData(data);
+
 		nameText.pack();
 		typeText.pack();
 		usedSpaceText.pack();
 		hashText.pack();
+		attachedText.pack();
 	}
 
 	@Override
 	public void refresh() {
+		nameText.setText(stub.getName());
+		typeText.setText(stub.getVolumeType());
+		hashText.setText(String.valueOf(stub.getVolumeHash()));
+		attachedText.setText(stub.isAttached() ? "yes" : "no");
 		try {
-			FileStore fs = Files.getFileStore(Paths.get(this.original.getWrapped().toURI()));
-			nameText.setText(fs.name());
-			typeText.setText(fs.type());
+			FileStore fs = Files.getFileStore(Paths.get(this.stub.getVolumeRoot()));
 			NumberFormat f = NumberFormat.getInstance();
-			usedSpaceText.setText( f.format( (fs.getTotalSpace() - fs.getUnallocatedSpace())/1024 )+ " kilobytes" );
-			try {
-				hashText.setText(String.valueOf(VolumeUtil.makeVolumeFingerprint(this.original.getWrapped().toURI())));
-			} catch(CoreException e) {
-				e.printStackTrace();
-			}
-			nameText.pack();
-			typeText.pack();
-			usedSpaceText.pack();
-			hashText.pack();
-			composite.pack();
-		} catch(IOException e) {
-			throw new Error(e);
+			usedSpaceText.setText(f.format((fs.getTotalSpace() - fs.getUnallocatedSpace()) / 1024) + " kilobytes");
+		} catch (IOException e) {
+			usedSpaceText.setText("unavailable");
 		}
+		nameText.pack();
+		typeText.pack();
+		usedSpaceText.pack();
+		hashText.pack();
+		attachedText.pack();
+		composite.pack();
 	}
 
 	/**

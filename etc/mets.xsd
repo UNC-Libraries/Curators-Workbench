@@ -653,7 +653,7 @@ to clarify the differences between the ORDER, ORDERLABEL, and LABEL attributes f
 							</xsd:documentation>
 						</xsd:annotation>
 					</xsd:attribute>
-					<xsd:attribute name="FILEID" type="xsd:IDREF" use="optional">
+					<xsd:attribute name="FILEID" type="xsd:IDREF" use="optional" ecore:name="file" ecore:reference="fileType" ecore:opposite="fptr">
 						<xsd:annotation>
 							<xsd:documentation xml:lang="en">FILEID (IDREF/O): An optional attribute that provides the XML ID identifying the &lt;file&gt; element that links to and/or contains the digital content represented by the &lt;fptr&gt;. A &lt;fptr&gt; element should only have a FILEID attribute value if it does not have a child &lt;area&gt;, &lt;par&gt; or &lt;seq&gt; element. If it has a child element, then the responsibility for pointing to the relevant content falls to this child element or its descendants.
 							</xsd:documentation>

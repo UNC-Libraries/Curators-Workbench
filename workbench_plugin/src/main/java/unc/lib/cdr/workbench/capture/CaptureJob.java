@@ -266,7 +266,7 @@ public class CaptureJob extends Job {
 	 */
 	private void makeOrLinkParent(OriginalFileStore original, DivType div) throws CoreException {
 		DivType parent = null;
-		if (original.getOriginalStub().getStore().equals(original)) {
+		if (original.getOriginalStub().getStores().contains(original)) {
 			parent = this.bag;
 		} else {
 			parent = ((OriginalFileStore)original.getParent()).getMetsDivType();

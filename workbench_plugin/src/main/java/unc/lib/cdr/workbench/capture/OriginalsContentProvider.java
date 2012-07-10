@@ -70,7 +70,7 @@ public class OriginalsContentProvider implements ITreeContentProvider {
 				}
 			} else if(parent instanceof OriginalStub) {
 				OriginalStub original = (OriginalStub)parent;
-				results.add(original.getStore());
+				results.addAll(original.getStores());
 			} else if (parent instanceof IFileStore) {
 				IFileStore f = (IFileStore) parent;
 				for (IFileStore r : f.childStores(0, new NullProgressMonitor())) {

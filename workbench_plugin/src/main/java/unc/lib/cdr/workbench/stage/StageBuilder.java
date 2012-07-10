@@ -15,6 +15,11 @@
  */
 package unc.lib.cdr.workbench.stage;
 
+import gov.loc.mets.DivType;
+import gov.loc.mets.FLocatType;
+import gov.loc.mets.FptrType;
+import gov.loc.mets.util.METSUtils;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -30,8 +35,11 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.jobs.Job;
+import org.eclipse.emf.common.util.TreeIterator;
+import org.eclipse.emf.ecore.EObject;
 
 import unc.lib.cdr.workbench.IResourceConstants;
+import unc.lib.cdr.workbench.originals.OriginalFileStore;
 import unc.lib.cdr.workbench.project.MetsProjectNature;
 
 public class StageBuilder extends IncrementalProjectBuilder {
@@ -50,10 +58,9 @@ public class StageBuilder extends IncrementalProjectBuilder {
 	@Override
 	protected IProject[] build(int kind, @SuppressWarnings("rawtypes") Map args, IProgressMonitor monitor) throws CoreException {
 		IProject[] result = null;
-		MetsProjectNature mpn = (MetsProjectNature)getProject().getNature(MetsProjectNature.NATURE_ID);
 
-		if(AUTO_BUILD == kind && !mpn.getAutomaticStaging(getProject())) {
-			System.out.println("skipping this auto build b/c auto staging says "+mpn.getAutomaticStaging(getProject()));
+		if(AUTO_BUILD == kind && !MetsProjectNature.getAutomaticStaging(getProject())) {
+			System.out.println("skipping this auto build b/c auto staging says "+MetsProjectNature.getAutomaticStaging(getProject()));
 			return result;
 		}
 		boolean audit = false;
@@ -73,20 +80,23 @@ public class StageBuilder extends IncrementalProjectBuilder {
 	protected void fullBuild(boolean audit, final IProgressMonitor monitor) throws CoreException {
 		// gather all the files to be staged, put the set in a job
 		// job must recheck each marker before staging to prevent conflict.
-		IMarker[] captured = getProject()
-				.findMarkers(IResourceConstants.MARKER_CAPTURED, false, IResource.DEPTH_INFINITE);
-		List<IFile> toStage = new ArrayList<IFile>();
-		for (IMarker m : captured) {
-			if (m.getResource() instanceof IFile) {
-				IMarker[] staged = m.getResource().findMarkers(IResourceConstants.MARKER_STAGED, false,
-						IResource.DEPTH_ZERO);
-				if (staged.length > 0) {
-				} else {
-					toStage.add((IFile) m.getResource());
+		// TODO find all divs that have fptr/files but no FLocat with staging use.
+
+		List<OriginalFileStore> toStage = new ArrayList<OriginalFileStore>();
+		
+		MetsProjectNature mpn = MetsProjectNature.get(getProject());
+		DivType bag = METSUtils.findBagDiv(mpn.getMets());
+		for(TreeIterator<EObject> iter = bag.eAllContents(); iter.hasNext();) {
+			EObject next = iter.next();
+			if(next instanceof FptrType) {
+				FptrType fptr = (FptrType)next;
+				OriginalFileStore original = mpn.getOriginal((DivType)fptr.eContainer());
+				if(original != null) {
+					FLocatType loc = original.getStagingLocatorType();
+					if(loc == null) {
+						toStage.add(original);
+					}
 				}
-			} else {
-				// TODO detect files changed since the last stage and prompt user
-				// a list with filename, mod date, checkboxes and select/deselect all would do it.
 			}
 		}
 		Job stagingJob = new StagingJob("Staging all captured files", toStage);
@@ -100,21 +110,7 @@ public class StageBuilder extends IncrementalProjectBuilder {
 	}
 
 	protected void incrementalBuild(IResourceDelta delta, boolean audit, IProgressMonitor monitor) throws CoreException {
-		List<IFile> toStage = new ArrayList<IFile>();
-		IMarkerDelta[] mds = delta.getMarkerDeltas();
-		for (IMarkerDelta md : mds) {
-			if (md.getKind() == IResourceDelta.ADDED && IResourceConstants.MARKER_CAPTURED.equals(md.getType())) {
-				IResource r = md.getResource();
-				if (r instanceof IFile) {
-					IMarker[] staged = r.findMarkers(IResourceConstants.MARKER_STAGED, false, IResource.DEPTH_ZERO);
-					if (staged.length == 0) {
-						toStage.add((IFile) r);
-					}
-				}
-			}
-		}
-		Job stagingJob = new StagingJob("Staging captured files", toStage);
-		stagingJob.schedule();
+		fullBuild(audit, monitor);
 	}
 
 }

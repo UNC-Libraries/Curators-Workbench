@@ -15,11 +15,7 @@
  */
 package unc.lib.cdr.workbench.capture;
 
-import java.io.File;
-
-import org.eclipse.core.filesystem.EFS;
 import org.eclipse.core.filesystem.IFileStore;
-import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.jface.viewers.DecoratingLabelProvider;
 import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.ILabelProviderListener;
@@ -132,7 +128,9 @@ public class OriginalsLabelProvider implements ILabelProvider/* , IDelayedLabelD
 				}
 			}
 		} else if(element instanceof OriginalStub) {
-			return LabelImageFactory.getImage(Icon.OriginalsEl);
+			// distinctive disk type images
+			OriginalStub stub = (OriginalStub)element;
+			return LabelImageFactory.getDiskImage(stub.getVolumeType());
 		}
 		return provider.getImage(element);
 	}
@@ -146,8 +144,7 @@ public class OriginalsLabelProvider implements ILabelProvider/* , IDelayedLabelD
 	public String getText(Object element) {
 		if(element instanceof OriginalStub) {
 			OriginalStub o = (OriginalStub)element;
-			if(o.getName() != null) return o.getName();
-			return o.getStore().getName();
+			return o.getName();
 		} else if(element instanceof IFileStore) {
 			return ((IFileStore)element).getName();
 		}

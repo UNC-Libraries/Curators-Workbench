@@ -19,6 +19,9 @@ import gov.loc.mets.DivType;
 import gov.loc.mets.MdSecType;
 import gov.loc.mets.util.METSConstants;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.eclipse.core.filesystem.IFileStore;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
@@ -45,6 +48,16 @@ import unc.lib.cdr.workbench.stage.StagedFilesProjectElement;
 public class LabelImageFactory {
 	public static String iconPath = "icons/";
 	private static final int DEFAULT_ICON_SIZE = 24;
+	public static Map<String, Icon> diskImages = new HashMap<String, Icon>();
+	
+	static {
+		diskImages.put("rootfs", Icon.HardDisk);
+		diskImages.put("vfat", Icon.HardDisk);
+		diskImages.put("fat", Icon.HardDisk);
+		diskImages.put("ntfs", Icon.HardDisk);
+		diskImages.put("fat32", Icon.HardDisk);
+		diskImages.put("fuseblk", Icon.HardDisk);
+	}
 
 	public static enum Size {
 		ORIGINAL(0, 0), DEFAULT_ICON(DEFAULT_ICON_SIZE, DEFAULT_ICON_SIZE);
@@ -57,20 +70,26 @@ public class LabelImageFactory {
 		}
 	}
 
-	public static enum Icon {
-		OpenProject("24px-Crystal_Clear_app_ark.png", Size.DEFAULT_ICON), ClosedProject(
-				"24px-Crystal_Clear_app_kthememgr.png", Size.DEFAULT_ICON), HardDisk(
-				"24px-Crystal_Clear_app_harddrive.png", Size.DEFAULT_ICON), Folder(
-				"24px-Crystal_Clear_filesystem_folder_grey.png", Size.DEFAULT_ICON), File(
-				"24px-Crystal_Clear_action_filenew.png", Size.DEFAULT_ICON), Collection(
-				"24px-Crystal_Clear_app_file-manager.png", Size.DEFAULT_ICON), AggregateWork(
-				"24px-Crystal_Clear_filesystem_folder_txt.png", Size.DEFAULT_ICON), ArrangementEl("edtsrclkup_co.gif",
-				Size.ORIGINAL), CrosswalkEl("filter_tsk.gif", Size.ORIGINAL), OriginalsEl("access_restriction_attrib.gif",
-				Size.ORIGINAL), StageEl("var_cntnt_prvdr.gif", Size.ORIGINAL), CaptureDecor("waiting_ovr.gif",
-				Size.ORIGINAL), StagedDecor("version_controlled.gif", Size.ORIGINAL), UserEditedDecor("write_obj.gif",
-				Size.ORIGINAL), CrosswalkedDecor("crosswalk_decor.gif", Size.ORIGINAL), ACLDecor("key_sm.gif",
-				Size.ORIGINAL), CrosswalkedRecord("property_obj.gif", Size.ORIGINAL), LinkedObject("link_obj.gif",
-				Size.ORIGINAL);
+	public enum Icon {
+		OpenProject("24px-Crystal_Clear_app_ark.png", Size.DEFAULT_ICON),
+		ClosedProject("24px-Crystal_Clear_app_kthememgr.png", Size.DEFAULT_ICON),
+		HardDisk("24px-Crystal_Clear_app_harddrive.png", Size.DEFAULT_ICON),
+		Folder("24px-Crystal_Clear_filesystem_folder_grey.png", Size.DEFAULT_ICON),
+		File("24px-Crystal_Clear_action_filenew.png", Size.DEFAULT_ICON),
+		Collection("24px-Crystal_Clear_app_file-manager.png", Size.DEFAULT_ICON),
+		AggregateWork("24px-Crystal_Clear_filesystem_folder_txt.png", Size.DEFAULT_ICON),
+		ArrangementEl("edtsrclkup_co.gif", Size.ORIGINAL),
+		CrosswalkEl("filter_tsk.gif", Size.ORIGINAL),
+		OriginalsEl("access_restriction_attrib.gif", Size.ORIGINAL),
+		StageEl("var_cntnt_prvdr.gif", Size.ORIGINAL),
+		CaptureDecor("waiting_ovr.gif", Size.ORIGINAL),
+		StagedDecor("version_controlled.gif", Size.ORIGINAL),
+		UserEditedDecor("write_obj.gif", Size.ORIGINAL),
+		CrosswalkedDecor("crosswalk_decor.gif", Size.ORIGINAL),
+		ACLDecor("key_sm.gif", Size.ORIGINAL),
+		CrosswalkedRecord("property_obj.gif", Size.ORIGINAL),
+		LinkedObject("link_obj.gif", Size.ORIGINAL),
+		EjectedDecore("ejected1.gif", Size.ORIGINAL);
 		Size size = Size.ORIGINAL;
 		String imageFile = null;
 
@@ -226,5 +245,18 @@ public class LabelImageFactory {
 			image = getImage(Icon.File);
 		}
 		return image;
+	}
+
+	public static Image getDiskImage(String type) {
+		Icon icon = null;
+		if(type == null) {
+			icon = Icon.HardDisk;
+		} else {
+			icon = diskImages.get(type);
+			if(icon == null) {
+				icon = Icon.HardDisk;
+			}
+		}
+		return icon.getImage();
 	}
 }

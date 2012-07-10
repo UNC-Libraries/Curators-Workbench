@@ -232,16 +232,14 @@
                <iterate
                      ifEmpty="false"
                      operator="and">
-                  <and>
-                     <or>
-                        <instanceof
-                              value="org.eclipse.core.resources.IFile">
-                        </instanceof>
-                        <instanceof
-                              value="org.eclipse.core.resources.IFolder">
-                        </instanceof>
-                     </or>
-                  </and>
+                  <or>
+                     <instanceof
+                           value="org.eclipse.core.resources.IFile">
+                     </instanceof>
+                     <instanceof
+                           value="org.eclipse.core.resources.IFolder">
+                     </instanceof>
+                  </or>
                </iterate>
             </with>
          </activeWhen>
@@ -533,9 +531,15 @@
                style="push">
             <visibleWhen
                   checkEnabled="false">
-               <instanceof
-                     value="gov.loc.mets.DivType">
-               </instanceof>
+               <with
+                     variable="activeMenuSelection">
+                  <iterate
+                        ifEmpty="false">
+                     <instanceof
+                           value="gov.loc.mets.DivType">
+                     </instanceof>
+                  </iterate>
+               </with>
             </visibleWhen>
          </command>
          <command
@@ -1297,7 +1301,7 @@
       <decorator
             class="unc.lib.cdr.workbench.capture.OriginalsDecorator"
             id="cdr-workbench.decoratorCaptured"
-            label="Captured File Decorators"
+            label="Originals Decorator"
             lightweight="true"
             location="BOTTOM_RIGHT"
             state="true">
@@ -1308,6 +1312,9 @@
                </objectClass>
                <objectClass
                      name="gov.loc.mets.DivType">
+               </objectClass>
+               <objectClass
+                     name="unc.lib.cdr.workbench.originals.OriginalStub">
                </objectClass>
             </or>
          </enablement>
