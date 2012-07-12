@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
 	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>curators.workbench</groupId>
@@ -32,16 +33,10 @@
 		<url>http://www.unc.edu</url>
 	</organization>
 	<repositories>
-		<!--repository>
-			<id>update36</id>
-			<url>${eclipse-repository-url}</url>
-			<layout>p2</layout>
-		</repository-->
-		<!--repository>
-			<id>helios</id>
-			<layout>p2</layout>
-			<url>http://download.eclipse.org/releases/helios/</url>
-		</repository-->
+		<!--repository> <id>update36</id> <url>${eclipse-repository-url}</url> 
+			<layout>p2</layout> </repository -->
+		<!--repository> <id>helios</id> <layout>p2</layout> <url>http://download.eclipse.org/releases/helios/</url> 
+			</repository -->
 		<repository>
 			<id>eclipse-indigo</id>
 			<layout>p2</layout>
@@ -57,7 +52,7 @@
 		<module>workbench_feature</module>
 		<module>workbench_plugin</module>
 		<module>eclipse-repository</module>
-		<!--<module>workbench_updatesite</module>-->
+		<!--<module>workbench_updatesite</module> -->
 		<module>irods-efs.plugin</module>
 		<module>mets.model</module>
 		<module>mets.model.edit</module>
@@ -66,11 +61,12 @@
 		<module>mods.model.editor</module>
 		<module>xlink.model</module>
 		<module>xlink.model.edit</module>
-		<module>org.slf4j.pde</module>
 		<module>target-definition</module>
 		<module>access-control</module>
 		<module>access-control.edit</module>
 		<module>crosswalk-gmf.custom</module>
+		<module>org.slf4j.log4j12</module>
+		<module>org.apache.log4j</module>
 	</modules>
 	<build>
 		<plugins>
@@ -95,7 +91,7 @@
 							<classifier>indigo</classifier>
 						</artifact>
 					</target>
-					<!--<pomDependencies>consider</pomDependencies>-->
+					<pomDependencies>consider</pomDependencies>
 					<environments>
 						<environment>
 							<os>linux</os>
@@ -181,30 +177,32 @@
 			<build>
 				<plugins>
 					<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.3.2</version>
-				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
-				</configuration>
-				<executions>
-					<execution>
-						<id>default-compile</id>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-compiler-plugin</artifactId>
+						<version>2.3.2</version>
 						<configuration>
 							<source>1.6</source>
 							<target>1.6</target>
-							<excludes>
-								<exclude>workbench_plugin/src/main/java/unc/lib/cdr/workbench/readonly/VolumeUtil.java</exclude>
-							</excludes>
-							<includes>
-								<include>workbench_plugin/src/main/java6/unc/lib/cdr/workbench/readonly/VolumeUtil.java</include>
-							</includes>
 						</configuration>
-						<goals><goal>compile</goal></goals>
-					</execution>
-				</executions>
-			</plugin>
+						<executions>
+							<execution>
+								<id>default-compile</id>
+								<configuration>
+									<source>1.6</source>
+									<target>1.6</target>
+									<excludes>
+										<exclude>workbench_plugin/src/main/java/unc/lib/cdr/workbench/readonly/VolumeUtil.java</exclude>
+									</excludes>
+									<includes>
+										<include>workbench_plugin/src/main/java6/unc/lib/cdr/workbench/readonly/VolumeUtil.java</include>
+									</includes>
+								</configuration>
+								<goals>
+									<goal>compile</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
 				</plugins>
 			</build>
 		</profile>
