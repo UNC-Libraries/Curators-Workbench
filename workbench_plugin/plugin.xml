@@ -1332,6 +1332,23 @@
                </objectClass>
          </enablement>
       </decorator>
+      <decorator
+            class="unc.lib.cdr.workbench.stage.StagedResourcesDecorator"
+            id="workbench_plugin.decorator1"
+            label="Staged Resources Decoration"
+            lightweight="true"
+            state="true">
+         <enablement>
+            <or>
+               <objectClass
+                     name="org.eclipse.core.resources.IFile">
+               </objectClass>
+               <objectClass
+                     name="org.eclipse.core.resources.IFolder">
+               </objectClass>
+            </or>
+         </enablement>
+      </decorator>
    </extension>
    <extension
          id="unc.lib.cdr.workbench.builders.StageBuilder"

@@ -24,7 +24,6 @@ import gov.loc.mets.util.MetsResourceFactoryImpl;
 import gov.loc.mods.mods.provider.MODSItemProviderAdapterFactory;
 
 import java.io.IOException;
-import java.util.EventObject;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -33,7 +32,6 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IResourceChangeEvent;
 import org.eclipse.core.resources.IResourceChangeListener;
-import org.eclipse.core.resources.ProjectScope;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
@@ -42,7 +40,6 @@ import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.command.BasicCommandStack;
 import org.eclipse.emf.common.command.CommandStack;
-import org.eclipse.emf.common.command.CommandStackListener;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.Resource.Diagnostic;
@@ -67,7 +64,7 @@ import unc.lib.cdr.workbench.rcp.Activator;
  * 
  */
 public class ProjectEMFSession {
-	private static final Path METS_PATH = new Path("workbench-mets.xml");
+	private static final Path METS_PATH = new Path(".workbench-mets.xml");
 	private static final Logger log = LoggerFactory.getLogger(ProjectEMFSession.class);
 	private static ComposedAdapterFactory adapterFactory = null;
 	private static Map<String, String> xmlOptions = new HashMap<String, String>();
@@ -152,8 +149,7 @@ public class ProjectEMFSession {
 	}
 
 	public IPath getMetsFile() {
-		ProjectScope scope = new ProjectScope(this.project);
-		IPath metsPath = scope.getLocation().append(METS_PATH);
+		IPath metsPath = this.project.getLocation().append(METS_PATH);
 		System.err.println("METS FILE PATH: "+metsPath);
 		return metsPath;
 	}

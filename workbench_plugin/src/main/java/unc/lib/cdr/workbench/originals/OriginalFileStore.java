@@ -229,15 +229,14 @@ public class OriginalFileStore implements IFileStore {
 	public OriginalStub getOriginalStub() {
 		return stub;
 	}
-	
+
 	public IProject getProject() {
 		return stub.getProject();
 	}
 
 	@Override
 	public boolean isParentOf(IFileStore other) {
-		if (OriginalsFileSystem.class.isInstance(other.getFileSystem())
-				&& OriginalFileStore.class.isInstance(other)) {
+		if (OriginalsFileSystem.class.isInstance(other.getFileSystem()) && OriginalFileStore.class.isInstance(other)) {
 			OriginalFileStore o = (OriginalFileStore) other;
 			return wrapped.isParentOf(o.wrapped);
 		}
@@ -281,27 +280,30 @@ public class OriginalFileStore implements IFileStore {
 
 	/**
 	 * Calculate the pre-staged location URI, if applicable
+	 * 
 	 * @return the pre-staged URI, or null if not pre-staged.
 	 */
 	public URI getPrestagedLocation() {
 		// get path back to store containing prestage location
 		List<OriginalFileStore> stubStores = this.stub.getStores();
-		OriginalFileStore test = (OriginalFileStore)this.getParent();
-		for(test = (OriginalFileStore)this.getParent(); test != null; test = (OriginalFileStore)test.getParent()) {
+		OriginalFileStore test = (OriginalFileStore) this.getParent();
+		for (test = (OriginalFileStore) this.getParent(); test != null; test = (OriginalFileStore) test.getParent()) {
 			URI prestage = this.stub.getPrestageBase(test.getWrapped().toURI());
-			if(prestage != null) {
+			if (prestage != null) {
 				Path mypath = new Path(this.toURI().getPath());
 				Path basePath = new Path(test.toURI().getPath());
 				IPath relPath = mypath.makeRelativeTo(basePath);
 				IPath psPath = new Path(prestage.getPath()).append(relPath);
 				try {
-					URI result = new URI(prestage.getScheme(), prestage.getUserInfo(), prestage.getHost(), prestage.getPort(), psPath.toString(), prestage.getQuery(), prestage.getFragment() );
+					URI result = new URI(prestage.getScheme(), prestage.getUserInfo(), prestage.getHost(),
+							prestage.getPort(), psPath.toString(), prestage.getQuery(), prestage.getFragment());
 					return result;
 				} catch (URISyntaxException e) {
 					throw new Error(e);
 				}
 			}
-			if(stubStores.contains(test)) return null; // did not find prestaged location in tree
+			if (stubStores.contains(test))
+				return null; // did not find prestaged location in tree
 		}
 		return null;
 	}
@@ -311,20 +313,18 @@ public class OriginalFileStore implements IFileStore {
 		URI stageBase = mpn.getStagingBase();
 		IPath stageBasePath = new Path(stageBase.getPath());
 		Path mypath = new Path(this.toURI().getPath());
-		for(OriginalFileStore root : this.getOriginalStub().getStores()) {
-			Path rootPath = new Path(root.toURI().getPath());
-			if(rootPath.isPrefixOf(mypath)) {
-				IPath relPath = mypath.makeRelativeTo(rootPath);
-				IPath stagePath = stageBasePath.append(relPath);
-				try {
-					URI stageLoc = new URI(stageBase.getScheme(), stageBase.getUserInfo(), stageBase.getHost(), stageBase.getPort(), stagePath.toString(), stageBase.getQuery(), stageBase.getFragment());
-					return EFS.getStore(stageLoc);
-				} catch(Exception e) {
-					throw new Error(e);
-				}
-			}
+		Path stubPath = new Path(this.getOriginalStub().getVolumeRoot().getPath());
+		IPath relStubPath = mypath.makeRelativeTo(stubPath);
+		String stubSegment = new StringBuilder().append(this.getOriginalStub().getName()).append("_")
+				.append(this.getOriginalStub().getVolumeHash()).toString();
+		IPath stagePath = stageBasePath.append(stubSegment).append(relStubPath);
+		try {
+			URI stageLoc = new URI(stageBase.getScheme(), stageBase.getUserInfo(), stageBase.getHost(),
+					stageBase.getPort(), stagePath.toString(), stageBase.getQuery(), stageBase.getFragment());
+			return EFS.getStore(stageLoc);
+		} catch (Exception e) {
+			throw new Error(e);
 		}
-		return null;
 	}
 
 }

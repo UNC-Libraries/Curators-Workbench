@@ -53,7 +53,6 @@ public class AddFolderDivHandler extends AbstractHandler {
 		DivType within = null;
 		MetsProjectNature mpn = null;
 		Object o = select.getFirstElement();
-		LOG.debug("HEREHERE " + o.toString());
 		if (o instanceof IProject || o instanceof ArrangementProjectElement) {
 			// get the bag div
 			IProject p = null;
