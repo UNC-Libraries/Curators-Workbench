@@ -103,7 +103,7 @@ public class ProjectEMFSession {
 		this.extendedMetaData = new BasicExtendedMetaData(resourceSet.getPackageRegistry());
 		load();
 	}
-	
+
 	private void load() {
 		IPath f = getMetsFile();
 		IFile old = getOldMetsFile();
@@ -150,7 +150,7 @@ public class ProjectEMFSession {
 
 	public IPath getMetsFile() {
 		IPath metsPath = this.project.getLocation().append(METS_PATH);
-		System.err.println("METS FILE PATH: "+metsPath);
+		System.err.println("METS FILE PATH: " + metsPath);
 		return metsPath;
 	}
 
@@ -218,6 +218,11 @@ public class ProjectEMFSession {
 			this.metsResource.save(xmlOptions);
 		} catch (IOException e) {
 			log.error("Cannot save EMF session", e);
+		}
+		try {
+			this.project.refreshLocal(IResource.DEPTH_ONE, new NullProgressMonitor());
+		} catch (CoreException e) {
+			throw new Error(e);
 		}
 	}
 }

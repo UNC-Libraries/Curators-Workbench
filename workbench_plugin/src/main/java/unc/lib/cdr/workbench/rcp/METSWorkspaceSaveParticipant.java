@@ -20,6 +20,8 @@ import org.eclipse.core.resources.ISaveContext;
 import org.eclipse.core.resources.ISaveParticipant;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import unc.lib.cdr.workbench.project.MetsProjectNature;
 
@@ -28,6 +30,9 @@ import unc.lib.cdr.workbench.project.MetsProjectNature;
  * 
  */
 public class METSWorkspaceSaveParticipant implements ISaveParticipant {
+
+	@SuppressWarnings("unused")
+	private static final Logger LOG = LoggerFactory.getLogger(METSWorkspaceSaveParticipant.class);
 
 	/*
 	 * (non-Javadoc)
@@ -78,12 +83,18 @@ public class METSWorkspaceSaveParticipant implements ISaveParticipant {
 	 */
 	@Override
 	public void saving(ISaveContext context) throws CoreException {
+		LOG.debug("METS save participant called, save(context)");
 		// find all projects with METS nature
-		for (IProject p : ResourcesPlugin.getWorkspace().getRoot().getProjects()) {
-			if (p.isOpen() && p.hasNature(MetsProjectNature.NATURE_ID)) {
-				MetsProjectNature n = (MetsProjectNature) p.getNature(MetsProjectNature.NATURE_ID);
-				n.save();
+		if(context.getKind() == ISaveContext.FULL_SAVE || context.getKind() == ISaveContext.SNAPSHOT) {
+			for (IProject p : ResourcesPlugin.getWorkspace().getRoot().getProjects()) {
+				if (p.isOpen() && p.hasNature(MetsProjectNature.NATURE_ID)) {
+					MetsProjectNature n = (MetsProjectNature) p.getNature(MetsProjectNature.NATURE_ID);
+					n.save();
+				}
 			}
+		} else if(context.getKind() == ISaveContext.PROJECT_SAVE) {
+			MetsProjectNature n = MetsProjectNature.get(context.getProject());
+			if(n != null) n.save();
 		}
 	}
 

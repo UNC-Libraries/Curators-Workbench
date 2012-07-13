@@ -16,28 +16,11 @@
 package unc.lib.cdr.workbench.arrange;
 
 import gov.loc.mets.DivType;
-import gov.loc.mets.DocumentRoot;
-import gov.loc.mets.MdSecType;
-import gov.loc.mets.SmLinkType;
-import gov.loc.mets.util.METSConstants;
-import gov.loc.mets.util.METSUtils;
-
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.util.HashSet;
-import java.util.Set;
 
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
-import org.eclipse.core.resources.IProject;
-import org.eclipse.core.resources.IResource;
-import org.eclipse.core.resources.ResourcesPlugin;
-import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.common.command.Command;
-import org.eclipse.emf.common.command.CompoundCommand;
-import org.eclipse.emf.common.util.TreeIterator;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -45,7 +28,6 @@ import org.eclipse.ui.handlers.HandlerUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import unc.lib.cdr.workbench.IResourceConstants;
 import unc.lib.cdr.workbench.project.MetsProjectNature;
 
 /**
@@ -68,14 +50,6 @@ public class RemoveDivHandler extends AbstractHandler {
 		for (Object o : select.toList()) {
 			if (o instanceof DivType) {
 				DivType d = (DivType) o;
-				IProject project = MetsProjectNature.getProjectForMetsEObject(d);
-				removeCaptureMarker(d, project);
-				for(TreeIterator<EObject> iter = d.eAllContents(); iter.hasNext();) {
-					EObject eobj = iter.next();
-					if(DivType.class.isInstance(eobj)) {
-						removeCaptureMarker((DivType)eobj, project);
-					}
-				}
 				EditingDomain ed = MetsProjectNature.getEditingDomain(d);
 				Command cmd = RemoveCommand.create(ed, o);
 				try {
@@ -88,41 +62,5 @@ public class RemoveDivHandler extends AbstractHandler {
 			}
 		}
 		return null;
-	}
-
-	/**
-	 * @param d
-	 */
-	private void removeCaptureMarker(DivType d, IProject project) {
-		// get top folder/file
-		if (d.getCONTENTIDS() != null && d.getCONTENTIDS().size() > 0) {
-			String originalLoc = d.getCONTENTIDS().get(0);
-			try {
-				URI location = new URI(originalLoc);
-				IResource r = null;
-				IResource[] found = null;
-				if (METSUtils.isContainer(d)) {
-					found = ResourcesPlugin.getWorkspace().getRoot().findContainersForLocationURI(location);
-				} else {
-					found = ResourcesPlugin.getWorkspace().getRoot().findFilesForLocationURI(location);
-				}
-				for (IResource f : found) {
-					if (project.equals(f.getProject())) {
-						r = f;
-						break;
-					}
-				}
-				if (r != null) {
-					r.deleteMarkers(IResourceConstants.MARKER_CAPTURED, true, r.DEPTH_ZERO);
-				} else {
-					LOG.debug("Did not find resource for URI: " + location);
-				}
-			} catch (URISyntaxException e) {
-				e.printStackTrace();
-			} catch (CoreException e) {
-				e.printStackTrace();
-			}
-		}
-		// remove capture and stage markers with infinite depth
 	}
 }
