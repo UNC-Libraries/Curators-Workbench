@@ -38,7 +38,6 @@ import org.eclipse.ui.forms.widgets.TableWrapData;
 import org.eclipse.ui.forms.widgets.TableWrapLayout;
 
 import unc.lib.cdr.workbench.project.MetsProjectNature;
-
 import edu.unc.lib.schemas.acl.AclPackage;
 import edu.unc.lib.schemas.acl.GrantType;
 

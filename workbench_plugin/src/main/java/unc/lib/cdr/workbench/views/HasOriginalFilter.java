@@ -4,8 +4,8 @@ import gov.loc.mets.DivType;
 
 import org.eclipse.jface.viewers.IFilter;
 
-import unc.lib.cdr.workbench.originals.OriginalStub;
 import unc.lib.cdr.workbench.originals.OriginalFileStore;
+import unc.lib.cdr.workbench.originals.OriginalStub;
 import unc.lib.cdr.workbench.project.MetsProjectNature;
 
 public class HasOriginalFilter implements IFilter {

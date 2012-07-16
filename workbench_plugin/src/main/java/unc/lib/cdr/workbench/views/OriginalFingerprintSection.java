@@ -3,7 +3,6 @@ package unc.lib.cdr.workbench.views;
 import gov.loc.mets.DivType;
 import gov.loc.mets.FLocatType;
 import gov.loc.mets.FileType;
-import gov.loc.mets.MetsType;
 import gov.loc.mets.util.METSConstants;
 
 import org.eclipse.core.runtime.Assert;
@@ -23,7 +22,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import unc.lib.cdr.workbench.originals.OriginalFileStore;
-import unc.lib.cdr.workbench.project.MetsProjectNature;
 
 public class OriginalFingerprintSection extends AbstractPropertySection {
 
@@ -59,21 +57,9 @@ public class OriginalFingerprintSection extends AbstractPropertySection {
 		Composite composite = getWidgetFactory().createFlatFormComposite(parent);
 		FormData data;
 
-		CLabel l1 = getWidgetFactory().createCLabel(composite, "Checksum");
+		CLabel l2 = getWidgetFactory().createCLabel(composite, "Digest Algorithm");
 		data = new FormData();
 		data.left = new FormAttachment(0, ITabbedPropertyConstants.HSPACE);
-		data.top = new FormAttachment(0, ITabbedPropertyConstants.VSPACE);
-		l1.setLayoutData(data);
-
-		data = new FormData();
-		data.left = new FormAttachment(l1, ITabbedPropertyConstants.HSPACE);
-		data.top = new FormAttachment(0, ITabbedPropertyConstants.VSPACE);
-		checksumText = getWidgetFactory().createText(composite, "", SWT.READ_ONLY);
-		checksumText.setLayoutData(data);
-
-		CLabel l2 = getWidgetFactory().createCLabel(composite, "Type");
-		data = new FormData();
-		data.left = new FormAttachment(checksumText, ITabbedPropertyConstants.HSPACE);
 		data.top = new FormAttachment(0, ITabbedPropertyConstants.VSPACE);
 		l2.setLayoutData(data);
 		checksumTypeText = getWidgetFactory().createText(composite, "", SWT.READ_ONLY);
@@ -81,6 +67,18 @@ public class OriginalFingerprintSection extends AbstractPropertySection {
 		data.left = new FormAttachment(l2, ITabbedPropertyConstants.HSPACE);
 		data.top = new FormAttachment(0, ITabbedPropertyConstants.VSPACE);
 		checksumTypeText.setLayoutData(data);
+		
+		CLabel l1 = getWidgetFactory().createCLabel(composite, "Digest");
+		data = new FormData();
+		data.left = new FormAttachment(0, ITabbedPropertyConstants.HSPACE);
+		data.top = new FormAttachment(l2, ITabbedPropertyConstants.VSPACE);
+		l1.setLayoutData(data);
+
+		data = new FormData();
+		data.left = new FormAttachment(l1, ITabbedPropertyConstants.HSPACE);
+		data.top = new FormAttachment(l2, ITabbedPropertyConstants.VSPACE);
+		checksumText = getWidgetFactory().createText(composite, "", SWT.READ_ONLY);
+		checksumText.setLayoutData(data);
 
 		CLabel sl = getWidgetFactory().createCLabel(composite, "Staged Location");
 		data = new FormData();
@@ -89,8 +87,8 @@ public class OriginalFingerprintSection extends AbstractPropertySection {
 		sl.setLayoutData(data);
 
 		data = new FormData();
-		data.left = new FormAttachment(sl, ITabbedPropertyConstants.HSPACE);
-		data.top = new FormAttachment(l2, ITabbedPropertyConstants.VSPACE);
+		data.left = new FormAttachment(0, ITabbedPropertyConstants.HSPACE);
+		data.top = new FormAttachment(sl, ITabbedPropertyConstants.VSPACE);
 		stagedLocationText = getWidgetFactory().createText(composite, "", SWT.READ_ONLY);
 		stagedLocationText.setLayoutData(data);
 	}

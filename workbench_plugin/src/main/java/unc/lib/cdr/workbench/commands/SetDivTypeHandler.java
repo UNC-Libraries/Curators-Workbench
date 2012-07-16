@@ -12,6 +12,7 @@ import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.handlers.HandlerUtil;
 import org.eclipse.ui.handlers.RadioState;
+
 import unc.lib.cdr.workbench.project.MetsProjectNature;
 
 public class SetDivTypeHandler extends AbstractHandler {

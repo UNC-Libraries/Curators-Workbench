@@ -33,6 +33,7 @@ import org.eclipse.ui.application.IActionBarConfigurer;
 public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
 
 	private IWorkbenchAction newWizardDropDownAction;
+	private IWorkbenchAction importAction;
 	private IWorkbenchAction aboutAction;
 	private IWorkbenchAction introAction;
 	private IWorkbenchAction showHelpAction;
@@ -56,6 +57,9 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
 		} catch (NullPointerException e) {
 			e.printStackTrace();
 		}
+
+		importAction = ActionFactory.IMPORT.create(window);
+		register(importAction);
 		aboutAction = ActionFactory.ABOUT.create(window);
 		showHelpAction = ActionFactory.HELP_CONTENTS.create(window);
 		register(showHelpAction);
@@ -72,7 +76,7 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
 		deleteAction = ActionFactory.DELETE.create(window);
 		register(deleteAction);
 
-		newWizardMenu = ContributionItemFactory.NEW_WIZARD_SHORTLIST.create(window);
+		newWizardMenu = ContributionItemFactory.NEW_WIZARD_SHORTLIST.create(window);		
 	}
 
 	@Override
@@ -83,6 +87,7 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
 			MenuManager newMenu = new MenuManager("New", "new");
 			newMenu.add(this.newWizardMenu);
 			menu.add(newMenu);
+			menu.add(importAction);
 			menuBar.add(menu);
 		}
 		{

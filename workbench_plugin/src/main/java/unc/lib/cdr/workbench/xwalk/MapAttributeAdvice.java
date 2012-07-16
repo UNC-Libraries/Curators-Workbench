@@ -5,9 +5,7 @@ import org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice
 import org.eclipse.gmf.runtime.emf.type.core.edithelper.IEditHelperAdvice;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 
-import crosswalk.CrossWalk;
 import crosswalk.MappedElement;
-import crosswalk.MetadataBlock;
 import crosswalk.diagram.providers.CrosswalkElementTypes;
 
 public class MapAttributeAdvice extends AbstractEditHelperAdvice implements IEditHelperAdvice {

@@ -15,9 +15,6 @@
  */
 package unc.lib.cdr.workbench.capture;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
-
 import org.eclipse.core.filesystem.EFS;
 import org.eclipse.core.filesystem.IFileStore;
 import org.eclipse.core.runtime.CoreException;

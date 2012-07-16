@@ -18,7 +18,6 @@ package unc.lib.cdr.workbench.capture;
 import java.net.URI;
 import java.util.List;
 
-import org.eclipse.core.resources.IProject;
 import org.eclipse.jface.dialogs.IDialogSettings;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.Wizard;

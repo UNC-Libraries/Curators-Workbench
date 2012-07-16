@@ -21,8 +21,6 @@ import org.eclipse.jface.viewers.ILabelProviderListener;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.model.WorkbenchLabelProvider;
 
-import unc.lib.cdr.workbench.views.LabelImageFactory;
-
 public class CrosswalkLabelProvider implements ILabelProvider {
 	private DecoratingLabelProvider provider = (DecoratingLabelProvider) WorkbenchLabelProvider
 			.getDecoratingWorkbenchLabelProvider();

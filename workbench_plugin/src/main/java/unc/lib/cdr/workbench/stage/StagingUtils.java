@@ -28,11 +28,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.URI;
-import java.net.URISyntaxException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
-import java.util.List;
 
 import org.apache.commons.codec.binary.Hex;
 import org.eclipse.core.filesystem.EFS;
@@ -43,14 +40,11 @@ import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.NullProgressMonitor;
-import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.SubProgressMonitor;
-import org.eclipse.core.runtime.URIUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -71,7 +65,6 @@ public class StagingUtils {
 	public static int countUnstaged(IProject project) throws CoreException {
 		int result = 0;
 		IMarker[] captured = project.findMarkers(IResourceConstants.MARKER_CAPTURED, false, IResource.DEPTH_INFINITE);
-		List<IFile> toStage = new ArrayList<IFile>();
 		for (IMarker m : captured) {
 			if (m.getResource() instanceof IFile) {
 				IMarker[] staged = m.getResource().findMarkers(IResourceConstants.MARKER_STAGED, false,
@@ -157,38 +150,6 @@ public class StagingUtils {
 	}
 
 	/**
-	 * @param f
-	 * @return
-	 * @throws CoreException
-	 */
-	// public static IFileStore getStageRoot() throws CoreException {
-	// // get the file store for staging this file
-	// try {
-	// URI stage = this.;
-	// String stageChoice = store.getString(PreferenceConstants.P_STAGE_CHOICE);
-	// if (PreferenceConstants.P_STAGE_CHOICE_LOCAL.equals(stageChoice)) {
-	// String rawPath = store.getString(PreferenceConstants.P_LOCAL_STAGE_PATH);
-	// IPath path = new Path(rawPath);
-	// File f = path.toFile();
-	// stage = f.toURI();
-	// //stage = ("file:" + rawPath.replace('\\', '/'));
-	// } else if
-	// (PreferenceConstants.P_STAGE_CHOICE_IRODS_PROD.equals(stageChoice)) {
-	// stage = new URI(store.getString(PreferenceConstants.P_PROD_IRODS_URI));
-	// } else if
-	// (PreferenceConstants.P_STAGE_CHOICE_IRODS_TEST.equals(stageChoice)) {
-	// stage = new URI(store.getString(PreferenceConstants.P_TEST_IRODS_URI));
-	// } else {
-	// throw new Error("unknown stage choice " + stageChoice);
-	// }
-	// return stageRootFileStore;
-	// } catch (URISyntaxException e) {
-	// throw new CoreException(new Status(Status.ERROR, Activator.PLUGIN_ID,
-	// "The staging location is not configured correctly in preferences.", e));
-	// }
-	// }
-
-	/**
 	 * @param stageFileStore
 	 * @return
 	 */
@@ -245,8 +206,8 @@ public class StagingUtils {
 			IProgressMonitor monitor) throws CoreException {
 		// TODO honor cancellation requests during copy
 		// TODO report progress
-		log.info("source: " + source);
-		log.info("destination: " + destination);
+		log.debug("source: " + source);
+		log.debug("destination: " + destination);
 		// monitor.subTask("Copying file " + source.getName() + "...");
 		String result = null;
 		byte[] buffer = new byte[chunkSize];
@@ -269,6 +230,9 @@ public class StagingUtils {
 			destination.getParent().mkdir(EFS.NONE, null);
 			out = new BufferedOutputStream(destination.openOutputStream(EFS.NONE, null), 1024 * 64);
 			while ((bytesRead = in.read(buffer, 0, chunkSize)) != -1) {
+				if(monitor.isCanceled()) {
+					throw new CoreException(new Status(IStatus.CANCEL, Activator.PLUGIN_ID, "Staging cancelled"));
+				}
 				out.write(buffer, 0, bytesRead);
 				messageDigest.update(buffer, 0, bytesRead);
 				totalBytesCopied = totalBytesCopied + bytesRead;
@@ -412,18 +376,5 @@ public class StagingUtils {
 				}
 			}
 			return result;
-	}
-
-	/**
-	 * @param f
-	 * @param topOriginal
-	 * @param prestageBase
-	 * @return
-	 * @throws URISyntaxException
-	 */
-	private static URI getPrestageLocation(IFile f, IResource topOriginal, URI prestageBase) throws URISyntaxException {
-		IPath path = f.getProjectRelativePath().makeRelativeTo(topOriginal.getParent().getProjectRelativePath());
-		URI test = URIUtil.fromString(path.toString());
-		return new URI(prestageBase.toString()+ test.getRawPath() );
 	}
 }

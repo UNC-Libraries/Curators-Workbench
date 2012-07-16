@@ -22,7 +22,6 @@ import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import unc.lib.cdr.workbench.originals.OriginalStub;
 import unc.lib.cdr.workbench.originals.OriginalFileStore;
 import unc.lib.cdr.workbench.project.MetsProjectNature;
 

@@ -24,11 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.IMarker;
-import org.eclipse.core.resources.IMarkerDelta;
 import org.eclipse.core.resources.IProject;
-import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IResourceDelta;
 import org.eclipse.core.resources.IncrementalProjectBuilder;
 import org.eclipse.core.resources.ResourcesPlugin;
@@ -38,7 +34,6 @@ import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
 
-import unc.lib.cdr.workbench.IResourceConstants;
 import unc.lib.cdr.workbench.originals.OriginalFileStore;
 import unc.lib.cdr.workbench.project.MetsProjectNature;
 
