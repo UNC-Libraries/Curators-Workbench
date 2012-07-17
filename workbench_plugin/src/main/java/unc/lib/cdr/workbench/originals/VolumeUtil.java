@@ -14,11 +14,19 @@ import java.nio.file.attribute.BasicFileAttributes;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.swing.filechooser.FileSystemView;
+
 import org.eclipse.core.runtime.QualifiedName;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import unc.lib.cdr.workbench.rcp.Activator;
 
 public class VolumeUtil {
+	
+	@SuppressWarnings("unused")
+	private static final Logger LOG = LoggerFactory.getLogger(VolumeUtil.class);
+	
 	public static final QualifiedName VOLUME_FINGERPRINT = new QualifiedName(Activator.PLUGIN_ID, "volume-fingerprint");
 	public static Set<String> removableFileStoreTypes = new HashSet<String>();
 
@@ -45,6 +53,12 @@ public class VolumeUtil {
 		FileStore fstore = getFileStore(uri);
 		Path path = Paths.get(uri);
 		Path volumeRoot = findTopResourceInVolume(fstore, path);
+		File fr = volumeRoot.toFile();
+		String s1 = FileSystemView.getFileSystemView().getSystemDisplayName(fr);
+      String s2 = FileSystemView.getFileSystemView().getSystemTypeDescription(fr);
+      LOG.debug("getSystemDisplayName : " + s1);
+      LOG.debug("getSystemTypeDescription : " + s2);
+		
 		if("/".equals(volumeRoot.toFile().getPath())) {
 			return -1; // fake hash key for root linux filesystem
 		}
@@ -84,7 +98,7 @@ public class VolumeUtil {
 		FileStore fstore = getFileStore(location);
 		Path p = findTopResourceInVolume(fstore, path);
 		try {
-			URI result = new URI(location.getScheme(), location.getUserInfo(), location.getHost(), location.getPort(), p.toString(), location.getQuery(), location.getFragment());
+			URI result = new URI(location.getScheme(), location.getUserInfo(), location.getHost(), location.getPort(), p.toUri().getPath(), location.getQuery(), location.getFragment());
 			return result;
 		} catch(URISyntaxException e) {
 			throw new Error(e);

@@ -96,16 +96,26 @@ public class CrosswalksProjectBuilder extends IncrementalProjectBuilder {
 	 * @param monitor
 	 */
 	private void incrementalBuild(IProgressMonitor monitor) {
+		LOG.debug("incremental crosswalk build triggered");
 		IProject p = getProject();
 		try {
 			if (p.isOpen() && p.hasNature(MetsProjectNature.NATURE_ID)) {
 				IResourceDelta d = this.getDelta(p);
 				MetsProjectNature n = (MetsProjectNature) p.getNature(MetsProjectNature.NATURE_ID);
 				if (d != null) {
-					for (IResourceDelta r : d.getAffectedChildren()) {
-						if (r.getResource().exists() && r.getResource() instanceof IFile
-								&& IResourceConstants.CROSSWALK_EXTENSION.equals(r.getResource().getFileExtension())) {
-							runCrosswalk(n, (IFile) r.getResource());
+					if (d.getResource().exists() && d.getResource() instanceof IFile
+							&& IResourceConstants.CROSSWALK_EXTENSION.equals(d.getResource().getFileExtension())) {
+						runCrosswalk(n, (IFile) d.getResource());
+					} else {
+						for (IResourceDelta r : d.getAffectedChildren()) {
+							LOG.debug("incremental crosswalk build child loop triggered: "+r);
+							if (r.getResource().exists() && r.getResource() instanceof IFile) {
+								LOG.debug("exists and is file: "+r);
+								if(IResourceConstants.CROSSWALK_EXTENSION.equals(r.getResource().getFileExtension())) {
+									LOG.debug("matched extension: "+r);
+									runCrosswalk(n, (IFile) r.getResource());
+								}
+							}
 						}
 					}
 				}
@@ -119,6 +129,7 @@ public class CrosswalksProjectBuilder extends IncrementalProjectBuilder {
 	 * @param monitor
 	 */
 	private void fullBuild(IProgressMonitor monitor) {
+		LOG.debug("full crosswalk build triggered");
 		IProject p = getProject();
 		try {
 			if (p.isOpen() && p.hasNature(MetsProjectNature.NATURE_ID)) {

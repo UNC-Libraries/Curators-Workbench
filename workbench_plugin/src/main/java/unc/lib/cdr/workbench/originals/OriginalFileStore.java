@@ -22,11 +22,17 @@ import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Status;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import unc.lib.cdr.workbench.project.MetsProjectNature;
 import unc.lib.cdr.workbench.rcp.Activator;
 
 public class OriginalFileStore implements IFileStore {
+	
+	@SuppressWarnings("unused")
+	private static final Logger LOG = LoggerFactory.getLogger(OriginalFileStore.class);
+	
 	private static final String FILETYPE_PREFIX = "f_";
 	private static final String DIVTYPE_PREFIX = "d_";
 	private static final String protectedMessage = "Operation cancelled. This file under read only protection within the workbench.";
@@ -311,16 +317,24 @@ public class OriginalFileStore implements IFileStore {
 	public IFileStore getStageLocation() {
 		MetsProjectNature mpn = MetsProjectNature.get(getProject());
 		URI stageBase = mpn.getStagingBase();
+		LOG.debug("stagebase.getPath(): "+stageBase.getPath());
 		IPath stageBasePath = new Path(stageBase.getPath());
+		LOG.debug("original.toURI().getPath()"+this.toURI().getPath());
 		Path mypath = new Path(this.toURI().getPath());
 		Path stubPath = new Path(this.getOriginalStub().getVolumeRoot().getPath());
+		LOG.debug("stubPath: "+stubPath);
 		IPath relStubPath = mypath.makeRelativeTo(stubPath);
-		String stubSegment = new StringBuilder().append(this.getOriginalStub().getName()).append("_")
+		LOG.debug("relStubPath: "+relStubPath);
+		String stubSegment = new StringBuilder().append("_")
 				.append(this.getOriginalStub().getVolumeHash()).toString();
 		IPath stagePath = stageBasePath.append(stubSegment).append(relStubPath);
+		LOG.debug("stagePath: "+stagePath);
+		String sps = stagePath.toFile().toURI().getPath();
+		LOG.debug("sps: "+sps);
 		try {
 			URI stageLoc = new URI(stageBase.getScheme(), stageBase.getUserInfo(), stageBase.getHost(),
-					stageBase.getPort(), stagePath.toString(), stageBase.getQuery(), stageBase.getFragment());
+					stageBase.getPort(), sps, stageBase.getQuery(), stageBase.getFragment());
+			LOG.debug("stageLoc: "+stageLoc);
 			return EFS.getStore(stageLoc);
 		} catch (Exception e) {
 			throw new Error(e);

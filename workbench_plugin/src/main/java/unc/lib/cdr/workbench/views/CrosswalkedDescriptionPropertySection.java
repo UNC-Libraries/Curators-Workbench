@@ -115,15 +115,18 @@ public class CrosswalkedDescriptionPropertySection extends AbstractPropertySecti
 			if (this.div != null) {
 				for (MdSecType md : this.div.getDmdSec()) {
 					// LOG.debug(md.toString());
-					if (METSConstants.MD_STATUS_CROSSWALK_LINKED.equals(md.getSTATUS())) {
+					//if (METSConstants.MD_STATUS_CROSSWALK_LINKED.equals(md.getSTATUS())) {
+					//	cwMdSecs.add(md);
+					//} else if (METSConstants.MD_STATUS_CROSSWALK_USER_LINKED.equals(md.getSTATUS())) {
 						cwMdSecs.add(md);
-					} else if (METSConstants.MD_STATUS_CROSSWALK_USER_LINKED.equals(md.getSTATUS())) {
-						cwMdSecs.add(md);
-					}
+					//}
 				}
 			}
 			for (MdSecType md : cwMdSecs) {
-				String title = md.getGROUPID() + " (" + md.getMdWrap().getLABEL() + ")";
+				String title = "User Edited";
+				if(md.getGROUPID() != null) {
+					title = md.getGROUPID() + " (" + md.getMdWrap().getLABEL() + ")";
+				}
 				boolean userLinked = METSConstants.MD_STATUS_CROSSWALK_USER_LINKED.equals(md.getSTATUS()) ? true : false;
 				String mods = getXMLText(md);
 				CTabItem i = addTabItem(title, mods, userLinked);

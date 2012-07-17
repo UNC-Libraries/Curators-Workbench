@@ -66,6 +66,9 @@ import unc.lib.cdr.workbench.stage.StagedFilesProjectElement;
 
 public class MetsProjectNature implements IProjectNature {
 
+	@SuppressWarnings("unused")
+	private static final Logger LOG = LoggerFactory.getLogger(MetsProjectNature.class);
+	
 	public static final String ORIGINALS_FOLDER_NAME = ".originals";
 	// public static final String STAGE_FOLDER_NAME = ".stage";
 
@@ -354,6 +357,7 @@ public class MetsProjectNature implements IProjectNature {
 	 * @param stageURI
 	 */
 	public static void setStagingBase(java.net.URI stageURI, IProject project) {
+		LOG.debug("setting stageURI to: "+stageURI);
 		IEclipsePreferences projectNode = new ProjectScope(project).getNode(Activator.PLUGIN_ID);
 		projectNode.put(STAGING_BASE_URI_KEY, stageURI.toString());
 	}
@@ -376,9 +380,8 @@ public class MetsProjectNature implements IProjectNature {
 		try {
 			return EFS.getStore(getStagingBase());
 		} catch (CoreException e) {
-			e.printStackTrace();
+			throw new Error(e);
 		}
-		return null;
 	}
 
 	public static void setupBuildSpec(IProjectDescription desc, boolean autostage) {

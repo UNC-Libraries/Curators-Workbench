@@ -1454,19 +1454,13 @@
             contributorId="cdr-workbench.projectview">
          <propertyTab
                category="description"
-               id="workbench_plugin.propertyTabUserDescription"
-               label="User Description">
-         </propertyTab>
-         <propertyTab
-               afterTab="workbench_plugin.propertyTabUserDescription"
-               category="description"
-               id="workbench_plugin.propertyTabCrosswalkedDescription"
-               label="Crosswalked Descriptions">
+               id="workbench_plugin.propertyTabDescriptions"
+               label="Descriptions">
          </propertyTab>
          <propertyTab
                category="technical"
-               id="workbench_plugin.propertyTabOriginalProperties"
-               label="Original Properties">
+               id="workbench_plugin.propertyTabStorageProperties"
+               label="Storage">
          </propertyTab>
          <propertyTab
                afterTab="workbench_plugin.propertyTabCrosswalkedDescription"
@@ -1492,40 +1486,18 @@
       <propertySections
             contributorId="cdr-workbench.projectview">
          <propertySection
-               class="unc.lib.cdr.workbench.views.UserDescriptionPropertySection"
-               enablesFor="1"
-               filter="unc.lib.cdr.workbench.views.UserDescriptionDivTypeFilter"
-               id="workbench_plugin.propertySectionUserDescription"
-               tab="workbench_plugin.propertyTabUserDescription">
-         </propertySection>
-         <propertySection
                class="unc.lib.cdr.workbench.views.CrosswalkedDescriptionPropertySection"
                enablesFor="1"
-               filter="unc.lib.cdr.workbench.views.CrosswalkedDescriptionDivTypeFilter"
+               filter="unc.lib.cdr.workbench.views.HasDescriptionsDivTypeFilter"
                id="workbench_plugin.propertySectionCrosswalkedDescription"
-               tab="workbench_plugin.propertyTabCrosswalkedDescription">
+               tab="workbench_plugin.propertyTabDescriptions">
          </propertySection>
          <propertySection
                class="unc.lib.cdr.workbench.views.OriginalFingerprintSection"
                enablesFor="1"
                filter="unc.lib.cdr.workbench.views.HasStagedFileFilter"
                id="workbench_plugin.propertySectionOriginalFingerprintSection"
-               tab="workbench_plugin.propertyTabOriginalProperties">
-         </propertySection>
-         <propertySection
-               afterSection="workbench_plugin.propertySectionOriginalFingerprintSection"
-               class="unc.lib.cdr.workbench.views.OriginalResourcePropertySheetSection"
-               enablesFor="1"
-               filter="unc.lib.cdr.workbench.views.HasOriginalFilter"
-               id="workbench_plugin.propertySectionOriginalProperties"
-               tab="workbench_plugin.propertyTabOriginalProperties">
-         </propertySection>
-         <propertySection
-               class="org.eclipse.ui.views.properties.tabbed.AdvancedPropertySection"
-               enablesFor="1"
-               filter="unc.lib.cdr.workbench.views.HasOriginalFilter"
-               id="workbench_plugin.propertySectionResourceProperties"
-               tab="workbench_plugin.propertyTabOriginalProperties">
+               tab="workbench_plugin.propertyTabStorageProperties">
          </propertySection>
          <propertySection
                class="unc.lib.cdr.workbench.views.MdSecTypePropertySection"
@@ -1537,11 +1509,12 @@
             </input>
          </propertySection>
          <propertySection
+               afterSection="workbench_plugin.propertySectionOriginalFingerprintSection"
                class="unc.lib.cdr.workbench.views.OriginalVolumeSection"
                enablesFor="1"
                filter="unc.lib.cdr.workbench.views.HasOriginalFilter"
                id="workbench_plugin.propertySectionOriginalVolumeSection"
-               tab="workbench_plugin.propertyTabOriginalProperties">
+               tab="workbench_plugin.propertyTabStorageProperties">
          </propertySection>
       </propertySections>
    </extension>

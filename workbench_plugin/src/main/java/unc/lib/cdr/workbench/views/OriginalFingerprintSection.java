@@ -12,7 +12,11 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CLabel;
 import org.eclipse.swt.layout.FormAttachment;
 import org.eclipse.swt.layout.FormData;
+import org.eclipse.swt.layout.FormLayout;
+import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.views.properties.tabbed.AbstractPropertySection;
@@ -32,6 +36,7 @@ public class OriginalFingerprintSection extends AbstractPropertySection {
 	Text checksumText = null;
 	Text checksumTypeText = null;
 	Text stagedLocationText = null;
+	Group composite = null;
 
 	/**
 	 * @see org.eclipse.ui.views.properties.tabbed.ISection#setInput(org.eclipse.ui.IWorkbenchPart,
@@ -54,8 +59,16 @@ public class OriginalFingerprintSection extends AbstractPropertySection {
 	@Override
 	public void createControls(Composite parent, TabbedPropertySheetPage aTabbedPropertySheetPage) {
 		super.createControls(parent, aTabbedPropertySheetPage);
-		Composite composite = getWidgetFactory().createFlatFormComposite(parent);
+		
+		Composite outer = getWidgetFactory().createFlatFormComposite(parent);
+		outer.setLayout(new GridLayout());
+		composite =  getWidgetFactory().createGroup(outer, "Fixity");
+		composite.setLayoutData(new GridData(SWT.BEGINNING, SWT.BEGINNING, true, false));
+		FormLayout layout = new FormLayout();
+		composite.setLayout(layout);
+		
 		FormData data;
+		int secondTab = 150;
 
 		CLabel l2 = getWidgetFactory().createCLabel(composite, "Digest Algorithm");
 		data = new FormData();
@@ -64,7 +77,7 @@ public class OriginalFingerprintSection extends AbstractPropertySection {
 		l2.setLayoutData(data);
 		checksumTypeText = getWidgetFactory().createText(composite, "", SWT.READ_ONLY);
 		data = new FormData();
-		data.left = new FormAttachment(l2, ITabbedPropertyConstants.HSPACE);
+		data.left = new FormAttachment(0, secondTab);
 		data.top = new FormAttachment(0, ITabbedPropertyConstants.VSPACE);
 		checksumTypeText.setLayoutData(data);
 		
@@ -75,7 +88,7 @@ public class OriginalFingerprintSection extends AbstractPropertySection {
 		l1.setLayoutData(data);
 
 		data = new FormData();
-		data.left = new FormAttachment(l1, ITabbedPropertyConstants.HSPACE);
+		data.left = new FormAttachment(0, secondTab);
 		data.top = new FormAttachment(l2, ITabbedPropertyConstants.VSPACE);
 		checksumText = getWidgetFactory().createText(composite, "", SWT.READ_ONLY);
 		checksumText.setLayoutData(data);
@@ -113,6 +126,10 @@ public class OriginalFingerprintSection extends AbstractPropertySection {
 		} else {
 			stagedLocationText.setText("");
 		}
+		stagedLocationText.pack();
+		checksumText.pack();
+		checksumTypeText.pack();
+		composite.pack();
 	}
 
 	/**

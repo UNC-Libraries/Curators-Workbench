@@ -26,6 +26,8 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import crosswalk.ContextProvider;
 import crosswalk.CrossWalk;
@@ -41,6 +43,9 @@ import crosswalk.impl.MappedElementImpl;
  * 
  */
 public class MappedModelUtil {
+	
+	@SuppressWarnings("unused")
+	private static final Logger LOG = LoggerFactory.getLogger(MappedModelUtil.class);
 
 	/**
 	 * For the given mappable parent object, looks up the possible element children
@@ -50,7 +55,7 @@ public class MappedModelUtil {
 	 * @return a list of possible child reference types
 	 */
 	public static List<EStructuralFeature> getChildElementFeatures(EObject parent) {
-		// LOG.debug("model parent:" + parent);
+		LOG.debug("model parent:" + parent);
 		EClass mappedParentType = null;
 		List<MappedElement> elementsMappedAlready = new ArrayList<MappedElement>();
 		if (parent instanceof MappingContainer) {
@@ -58,7 +63,7 @@ public class MappedModelUtil {
 			for(OutputElement e : mapContainer.getElements()) {
 				if(e instanceof MappedElement) elementsMappedAlready.add((MappedElement)e);
 			}
-			for (EObject next = parent.eContainer(); next != null; next = next.eContainer()) {
+			for (EObject next = parent; next != null; next = next.eContainer()) {
 				if (next instanceof ContextProvider) {
 					EClass aMappedParentType = ((ContextProvider) next).getOutputType();
 					if(aMappedParentType != null) {
@@ -76,7 +81,7 @@ public class MappedModelUtil {
 		} else {
 			throw new IllegalArgumentException("Expecting a CrossWalk or MappedElement");
 		}
-		// LOG.debug("mappedParentType:" + mappedParentType);
+		LOG.debug("mappedParentType:" + mappedParentType);
 		if (mappedParentType == null) {
 			throw new Error("No feature was mapped on the given parent");
 		}

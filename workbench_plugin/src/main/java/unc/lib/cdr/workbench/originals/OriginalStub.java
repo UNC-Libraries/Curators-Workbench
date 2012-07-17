@@ -145,9 +145,11 @@ public class OriginalStub implements java.io.Serializable {
 			return (currentHash == this.getVolumeHash());
 		} catch (NoSuchFileException e) {
 			return false;
+		} catch(java.nio.file.FileSystemException e) {
+			return false;
 		} catch (IOException e) {
 			e.printStackTrace(System.err);
-			return true;
+			return false;
 		}
 	}
 

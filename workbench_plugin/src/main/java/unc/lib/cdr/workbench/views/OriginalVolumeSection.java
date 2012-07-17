@@ -74,14 +74,14 @@ public class OriginalVolumeSection extends AbstractPropertySection {
 		super.createControls(parent, aTabbedPropertySheetPage);
 		Composite outer = getWidgetFactory().createFlatFormComposite(parent);
 		outer.setLayout(new GridLayout());
-		composite = getWidgetFactory().createGroup(outer, "Volume Information");
+		composite = getWidgetFactory().createGroup(outer, "Storage Volume");
 		composite.setLayoutData(new GridData(SWT.BEGINNING, SWT.BEGINNING, true, false));
 		FormLayout layout = new FormLayout();
 		composite.setLayout(layout);
 
 		FormData data;
 
-		int secondTab = 50;
+		int secondTab = 150;
 
 		CLabel l1 = getWidgetFactory().createCLabel(composite, "Name");
 		data = new FormData();
@@ -90,7 +90,7 @@ public class OriginalVolumeSection extends AbstractPropertySection {
 		l1.setLayoutData(data);
 
 		data = new FormData();
-		data.left = new FormAttachment(secondTab, ITabbedPropertyConstants.HSPACE);
+		data.left = new FormAttachment(0, secondTab);
 		data.top = new FormAttachment(0, ITabbedPropertyConstants.VSPACE);
 		nameText = getWidgetFactory().createText(composite, "", SWT.READ_ONLY);
 		nameText.setLayoutData(data);
@@ -103,7 +103,7 @@ public class OriginalVolumeSection extends AbstractPropertySection {
 
 		typeText = getWidgetFactory().createText(composite, "", SWT.READ_ONLY);
 		data = new FormData();
-		data.left = new FormAttachment(secondTab, ITabbedPropertyConstants.HSPACE);
+		data.left = new FormAttachment(0, secondTab);
 		data.top = new FormAttachment(l1, ITabbedPropertyConstants.VSPACE);
 		typeText.setLayoutData(data);
 
@@ -114,7 +114,7 @@ public class OriginalVolumeSection extends AbstractPropertySection {
 		sl.setLayoutData(data);
 
 		data = new FormData();
-		data.left = new FormAttachment(secondTab, ITabbedPropertyConstants.HSPACE);
+		data.left = new FormAttachment(0, secondTab);
 		data.top = new FormAttachment(l2, ITabbedPropertyConstants.VSPACE);
 		usedSpaceText = getWidgetFactory().createText(composite, "", SWT.READ_ONLY);
 		usedSpaceText.setLayoutData(data);
@@ -126,7 +126,7 @@ public class OriginalVolumeSection extends AbstractPropertySection {
 		hl.setLayoutData(data);
 
 		data = new FormData();
-		data.left = new FormAttachment(secondTab, ITabbedPropertyConstants.HSPACE);
+		data.left = new FormAttachment(0, secondTab);
 		data.top = new FormAttachment(sl, ITabbedPropertyConstants.VSPACE);
 		hashText = getWidgetFactory().createText(composite, "", SWT.READ_ONLY);
 		hashText.setLayoutData(data);
@@ -138,7 +138,7 @@ public class OriginalVolumeSection extends AbstractPropertySection {
 		al.setLayoutData(data);
 
 		data = new FormData();
-		data.left = new FormAttachment(secondTab, ITabbedPropertyConstants.HSPACE);
+		data.left = new FormAttachment(0, secondTab);
 		data.top = new FormAttachment(hl, ITabbedPropertyConstants.VSPACE);
 		attachedText = getWidgetFactory().createText(composite, "", SWT.READ_ONLY);
 		attachedText.setLayoutData(data);

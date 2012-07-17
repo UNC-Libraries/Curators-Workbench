@@ -37,6 +37,7 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
+import org.eclipse.core.runtime.QualifiedName;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.command.BasicCommandStack;
 import org.eclipse.emf.common.command.CommandStack;
@@ -68,6 +69,8 @@ public class ProjectEMFSession {
 	private static final Logger log = LoggerFactory.getLogger(ProjectEMFSession.class);
 	private static ComposedAdapterFactory adapterFactory = null;
 	private static Map<String, String> xmlOptions = new HashMap<String, String>();
+	public static final QualifiedName EDITING_DOMAIN_KEY = new QualifiedName(MetsProjectNature.NATURE_ID,
+			"cdr_producer.editingDomain");
 
 	static {
 		adapterFactory = new ComposedAdapterFactory();
@@ -102,6 +105,11 @@ public class ProjectEMFSession {
 		this.editingDomain = new AdapterFactoryEditingDomain(adapterFactory, commandStack, resourceSet);
 		this.extendedMetaData = new BasicExtendedMetaData(resourceSet.getPackageRegistry());
 		load();
+		try {
+			this.project.setSessionProperty(EDITING_DOMAIN_KEY, this.editingDomain);
+		} catch (CoreException e) {
+			e.printStackTrace();
+		}
 	}
 
 	private void load() {
