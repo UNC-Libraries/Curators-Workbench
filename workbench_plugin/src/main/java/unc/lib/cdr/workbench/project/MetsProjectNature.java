@@ -17,7 +17,11 @@ package unc.lib.cdr.workbench.project;
 
 import gov.loc.mets.DivType;
 import gov.loc.mets.DocumentRoot;
+import gov.loc.mets.FLocatType;
+import gov.loc.mets.FptrType;
 import gov.loc.mets.MetsType1;
+import gov.loc.mets.util.METSConstants;
+import gov.loc.mets.util.METSUtils;
 import gov.loc.mods.mods.presentation.URIFragmentEditorInput;
 
 import java.io.ByteArrayInputStream;
@@ -29,6 +33,7 @@ import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import org.eclipse.core.filesystem.EFS;
 import org.eclipse.core.filesystem.IFileStore;
@@ -48,6 +53,7 @@ import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.preferences.IEclipsePreferences;
 import org.eclipse.emf.common.command.CommandStack;
+import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
@@ -66,9 +72,8 @@ import unc.lib.cdr.workbench.stage.StagedFilesProjectElement;
 
 public class MetsProjectNature implements IProjectNature {
 
-	@SuppressWarnings("unused")
 	private static final Logger LOG = LoggerFactory.getLogger(MetsProjectNature.class);
-	
+
 	public static final String ORIGINALS_FOLDER_NAME = ".originals";
 	// public static final String STAGE_FOLDER_NAME = ".stage";
 
@@ -357,7 +362,7 @@ public class MetsProjectNature implements IProjectNature {
 	 * @param stageURI
 	 */
 	public static void setStagingBase(java.net.URI stageURI, IProject project) {
-		LOG.debug("setting stageURI to: "+stageURI);
+		LOG.debug("setting stageURI to: " + stageURI);
 		IEclipsePreferences projectNode = new ProjectScope(project).getNode(Activator.PLUGIN_ID);
 		projectNode.put(STAGING_BASE_URI_KEY, stageURI.toString());
 	}
@@ -412,6 +417,70 @@ public class MetsProjectNature implements IProjectNature {
 		IProject p = ResourcesPlugin.getWorkspace().getRoot().getProject(in.getProjectName());
 		MetsProjectNature n = MetsProjectNature.get(p);
 		return n.getEditingDomain().getResourceSet().getResources().get(0).getEObject(in.getFragmentID());
+	}
+
+	public String getDescriptionStatus() {
+		int numOfFiles = 0;
+		int numOfContainers = 0;
+		int numDescribed = 0;
+		TreeIterator<EObject> iter = METSUtils.findBagDiv(getMets()).eAllContents();
+		try {
+			for (EObject eo = iter.next(); iter.hasNext(); eo = iter.next()) {
+				if(eo instanceof DivType) {
+					DivType d = (DivType)eo;
+					if(METSConstants.Div_File.equals(d.getTYPE())) {
+						numOfFiles++;
+					} else {
+						numOfContainers++;
+					}
+					if(d.getDmdSec() != null && d.getDmdSec().size() > 0) {
+						numDescribed++;
+					}
+				}
+			}
+		} catch (NoSuchElementException ignored) {
+		}
+		StringBuilder result = new StringBuilder().append(numOfFiles);
+		if(numOfFiles > 1) {
+			result.append(" files and ");
+		} else {
+			result.append(" file and ");
+		}
+		result.append(numOfContainers);
+		if(numOfContainers > 1 || numOfContainers == 0) {
+			result.append(" other objects. ");
+		} else {
+			result.append(" other object. ");
+		}
+		return result.append(numDescribed).append(" are described.").toString();
+	}
+
+	public String getStagingStatus() {
+		int numOfFiles = 0;
+		int numStaged = 0;
+		DivType bag = METSUtils.findBagDiv(getMets());
+		for(TreeIterator<EObject> iter = bag.eAllContents(); iter.hasNext();) {
+			EObject next = iter.next();
+			if(next != null && next instanceof FptrType) {
+				numOfFiles++;
+				FptrType fptr = (FptrType)next;
+				OriginalFileStore original = MetsProjectNature.getOriginal((DivType)fptr.eContainer());
+				if(original != null) {
+					FLocatType loc = original.getStagingLocatorType();
+					if(loc != null) {
+						numStaged++;
+					}
+				}
+			}
+		}
+		StringBuilder result = new StringBuilder().append(numStaged)
+			.append(" out of ").append(numOfFiles); 
+		if(numOfFiles > 1 || numOfFiles == 0) {
+			result.append(" files staged");
+		} else {
+			result.append(" file staged");
+		}
+		return result.toString();
 	}
 
 }

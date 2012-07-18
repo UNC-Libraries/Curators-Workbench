@@ -1468,6 +1468,11 @@
                id="workbench_plugin.propertyTabMdSecContent"
                label="Metadata Content">
          </propertyTab>
+         <propertyTab
+               category="description"
+               id="workbench_plugin.propertyTabGeneral"
+               label="General">
+         </propertyTab>
       </propertyTabs>
    </extension>
    <extension
@@ -1515,6 +1520,13 @@
                filter="unc.lib.cdr.workbench.views.HasOriginalFilter"
                id="workbench_plugin.propertySectionOriginalVolumeSection"
                tab="workbench_plugin.propertyTabStorageProperties">
+         </propertySection>
+         <propertySection
+               class="unc.lib.cdr.workbench.views.MetsProjectNaturePropertiesSection"
+               enablesFor="1"
+               filter="unc.lib.cdr.workbench.views.HasMetsProjectNatureFilter"
+               id="workbench_plugin.propertySectionProject"
+               tab="workbench_plugin.propertyTabGeneral">
          </propertySection>
       </propertySections>
    </extension>

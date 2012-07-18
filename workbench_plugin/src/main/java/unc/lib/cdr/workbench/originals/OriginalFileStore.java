@@ -329,7 +329,10 @@ public class OriginalFileStore implements IFileStore {
 				.append(this.getOriginalStub().getVolumeHash()).toString();
 		IPath stagePath = stageBasePath.append(stubSegment).append(relStubPath);
 		LOG.debug("stagePath: "+stagePath);
-		String sps = stagePath.toFile().toURI().getPath();
+		String sps = stagePath.toString();
+		if(!sps.startsWith("/")) {
+			sps = "/"+sps;
+		}
 		LOG.debug("sps: "+sps);
 		try {
 			URI stageLoc = new URI(stageBase.getScheme(), stageBase.getUserInfo(), stageBase.getHost(),
