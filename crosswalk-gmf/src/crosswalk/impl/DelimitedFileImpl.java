@@ -532,6 +532,7 @@ public class DelimitedFileImpl extends EObjectImpl implements DelimitedFile {
 		URI uri = this.getSourceFile();
 		File f = new File(uri);
 		if (f.exists()) {
+			this.lines.clear();
 			CSVReader reader = null;
 			try {
 				BufferedReader br = new BufferedReader(

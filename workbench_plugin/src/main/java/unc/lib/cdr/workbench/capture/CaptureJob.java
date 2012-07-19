@@ -170,31 +170,32 @@ public class CaptureJob extends Job {
 			}
 
 			mpn.getCommandStack().execute(command);
+			mpn.save();
 			project.getWorkspace().save(true, monitor);
 
-			if (mpn.getAutomaticStaging(project)) {
-				System.out.println("triggering build b/c auto staging says " + mpn.getAutomaticStaging(project));
-				Job buildJob = new Job("Staging") {
-
-					@Override
-					protected IStatus run(IProgressMonitor monitor) {
-						Map<String, String> params = new HashMap<String, String>();
-						try {
-							project.build(IncrementalProjectBuilder.FULL_BUILD, MetsProjectNature.STAGING_BUILDER_ID, params,
-									monitor);
-						} catch (CoreException e) {
-							return new Status(Status.ERROR, Activator.PLUGIN_ID,
-									"There was a problem running the staging process.", e);
-						}
-						return Status.OK_STATUS;
-					}
-				};
-				buildJob.setUser(true);
-				buildJob.setPriority(Job.BUILD);
-				buildJob.schedule(1000);
-			} else {
-				System.out.println("skipping build b/c auto staging says " + mpn.getAutomaticStaging(project));
-			}
+//			if (mpn.getAutomaticStaging(project)) {
+//				System.out.println("triggering build b/c auto staging says " + mpn.getAutomaticStaging(project));
+//				Job buildJob = new Job("Staging") {
+//
+//					@Override
+//					protected IStatus run(IProgressMonitor monitor) {
+//						Map<String, String> params = new HashMap<String, String>();
+//						try {
+//							project.build(IncrementalProjectBuilder.FULL_BUILD, MetsProjectNature.STAGING_BUILDER_ID, params,
+//									monitor);
+//						} catch (CoreException e) {
+//							return new Status(Status.ERROR, Activator.PLUGIN_ID,
+//									"There was a problem running the staging process.", e);
+//						}
+//						return Status.OK_STATUS;
+//					}
+//				};
+//				buildJob.setUser(true);
+//				buildJob.setPriority(Job.BUILD);
+//				buildJob.schedule(1000);
+//			} else {
+//				System.out.println("skipping build b/c auto staging says " + mpn.getAutomaticStaging(project));
+//			}
 
 			monitor.done();
 			return Status.OK_STATUS;

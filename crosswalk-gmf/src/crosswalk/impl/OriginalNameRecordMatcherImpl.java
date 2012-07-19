@@ -421,7 +421,7 @@ public class OriginalNameRecordMatcherImpl extends WalkWidgetImpl implements Ori
 				}
 			}
 			String recordID = ds.getRecordID();
-			// System.out.println("processMember( pattern:"+pattern+", "+recordID);
+			System.out.println("processMember( pattern:"+pattern+", "+recordID);
 			if (recordPatterns.containsKey(pattern)) {
 				recordPatterns.get(pattern).add(recordID);
 			} else {
@@ -460,7 +460,13 @@ public class OriginalNameRecordMatcherImpl extends WalkWidgetImpl implements Ori
 		if (div.getCONTENTIDS() == null || div.getCONTENTIDS().size() < 1) {
 			return result;
 		}
-		String uriencoded = div.getCONTENTIDS().get(0);
+		String uriencoded = null;
+		for(String cid : div.getCONTENTIDS()) {
+			if(!cid.startsWith("info:") && !cid.startsWith("uuid:")) {
+				uriencoded = cid;
+				break;
+			}
+		}
 		try {
 			result = URLDecoder.decode(uriencoded, "utf-8");
 		} catch (UnsupportedEncodingException e) {
