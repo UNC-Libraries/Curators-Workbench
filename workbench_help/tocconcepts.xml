@@ -14,8 +14,12 @@
  </topic>
  <topic href="html/concepts/arrangement.html" label="Arrangement">
  </topic>
+ <topic href="html/concepts/project_export.html" label="Export">
+ </topic>
  <topic href="html/concepts/crosswalks.html" label="Metadata Crosswalks">
  </topic>
- <topic href="html/concepts/project_export.html" label="Export">
+ <topic href="html/concepts/dictionaries.html" label="Metadata Dictionaries">
+ </topic>
+ <topic href="html/concepts/forms.html" label="Deposit Forms">
  </topic> 
 </toc>
