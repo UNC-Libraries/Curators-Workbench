@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package unc.lib.cdr.workbench.capture;
+package unc.lib.cdr.workbench.views;
 
 import gov.loc.mets.DivType;
 import gov.loc.mets.MdSecType;
@@ -40,15 +40,15 @@ import unc.lib.cdr.workbench.originals.OriginalFileStore;
 import unc.lib.cdr.workbench.originals.OriginalStub;
 import unc.lib.cdr.workbench.views.LabelImageFactory.Icon;
 
-public class OriginalsDecorator implements ILightweightLabelDecorator {
+public class OriginalAndDivDecorator implements ILightweightLabelDecorator {
 	Set<ILabelProviderListener> listeners = new HashSet<ILabelProviderListener>();
 
-	public OriginalsDecorator() {
+	public OriginalAndDivDecorator() {
 		// TODO register as listener to capture and staging changes (less granular this time)
 	}
 
 	@SuppressWarnings("unused")
-	private static final Logger LOG = LoggerFactory.getLogger(OriginalsDecorator.class);
+	private static final Logger LOG = LoggerFactory.getLogger(OriginalAndDivDecorator.class);
 
 	@Override
 	public void addListener(ILabelProviderListener listener) {

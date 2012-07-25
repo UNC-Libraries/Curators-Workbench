@@ -90,7 +90,7 @@
             name="Rename Div">
       </command>
       <command
-            defaultHandler="unc.lib.cdr.workbench.describe.EditDescriptionCommand"
+            defaultHandler="unc.lib.cdr.workbench.commands.EditDescriptionCommand"
             id="cdr-workbench.commandEditDescription"
             name="Edit Description (MODS)">
       </command>
@@ -709,7 +709,7 @@
                   <iterate>
                      <or>
                         <instanceof
-                              value="unc.lib.cdr.workbench.arrange.ArrangementProjectElement">
+                              value="org.eclipse.core.resources.IFolder">
                         </instanceof>
                         <and>
                            <instanceof
@@ -719,6 +719,9 @@
                                  property="workbench_plugin.projectPropertyTester.open">
                            </test>
                         </and>
+                        <instanceof
+                              value="org.eclipse.core.resources.IFile">
+                        </instanceof>
                      </or>
                   </iterate>
                </with>
@@ -1316,7 +1319,7 @@
    <extension
          point="org.eclipse.ui.decorators">
       <decorator
-            class="unc.lib.cdr.workbench.capture.OriginalsDecorator"
+            class="unc.lib.cdr.workbench.views.OriginalAndDivDecorator"
             id="cdr-workbench.decoratorCaptured"
             label="Originals Decorator"
             lightweight="true"
