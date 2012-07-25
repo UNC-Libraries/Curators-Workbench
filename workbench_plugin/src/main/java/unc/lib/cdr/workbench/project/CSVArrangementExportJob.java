@@ -16,9 +16,10 @@
 package unc.lib.cdr.workbench.project;
 
 import gov.loc.mets.DivType;
+import gov.loc.mets.MdSecType;
 import gov.loc.mets.MetsType1;
-import gov.loc.mets.StructMapType;
 import gov.loc.mets.util.METSUtils;
+import gov.loc.mods.mods.ModsDefinition;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -80,7 +81,7 @@ public class CSVArrangementExportJob extends Job {
 		CSVWriter writer = null;
 		try {
 			writer = new CSVWriter(new FileWriter(filepath));
-			writer.writeNext(new String[] {"order", "depth", "pid", "label"});
+			writer.writeNext(new String[] {"order", "depth", "pid", "label", "MODS title"});
 			int order = 1;
 			for (TreeIterator<EObject> iter = bag.eAllContents(); iter.hasNext();) {
 				EObject eo = iter.next();
@@ -88,7 +89,8 @@ public class CSVArrangementExportJob extends Job {
 					DivType d = (DivType) eo;
 					String uuid = METSUtils.getUUID(d);
 					int depth = METSUtils.getDepth(d);
-					writer.writeNext(new String[] { String.valueOf(order), String.valueOf(depth), uuid, d.getLABEL1() });
+					String title = getTitle(d);
+					writer.writeNext(new String[] { String.valueOf(order), String.valueOf(depth), uuid, d.getLABEL1(), title != null ? title : ""});
 					order++;
 				}
 			}
@@ -106,6 +108,17 @@ public class CSVArrangementExportJob extends Job {
 			e.printStackTrace();
 		}
 		return Status.OK_STATUS;
+	}
+
+	private String getTitle(DivType d) {
+		String def = null;
+		for(MdSecType mdsec : d.getDmdSec()) {
+			try {
+				ModsDefinition mods = (ModsDefinition)mdsec.getMdWrap().getXmlData().eContents().get(0);
+				return mods.getTitleInfo().get(0).getTitle().get(0).getValue();
+			} catch(NullPointerException e) {} catch(IndexOutOfBoundsException e) {}
+		}
+		return null;
 	}
 
 }
