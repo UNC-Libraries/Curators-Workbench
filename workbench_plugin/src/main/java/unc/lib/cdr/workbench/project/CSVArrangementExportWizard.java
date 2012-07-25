@@ -14,15 +14,13 @@ import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.ide.IDE;
 
-import unc.lib.cdr.workbench.stage.StagingUtils;
-
-public class CdrSipExportWizard extends Wizard implements IExportWizard {
+public class CSVArrangementExportWizard extends Wizard implements IExportWizard {
 	IWorkbench workbench = null;
 	IStructuredSelection selection = null;
 	PickExportFilePage page = null;
 	IProject project = null;
 
-	public CdrSipExportWizard() {
+	public CSVArrangementExportWizard() {
 		this.setWindowTitle("Export");
 	}
 
@@ -37,7 +35,7 @@ public class CdrSipExportWizard extends Wizard implements IExportWizard {
 
 	@Override
 	public boolean performFinish() {
-		CdrSipExportJob job = new CdrSipExportJob(project, this.page.getDestinationValue());
+		CSVArrangementExportJob job = new CSVArrangementExportJob(project, this.page.getDestinationValue());
 		job.schedule();
 		try {
 			job.join();
@@ -46,9 +44,6 @@ public class CdrSipExportWizard extends Wizard implements IExportWizard {
 		if (this.page.openFile) {
 			openFile();
 		}
-//		if (this.page.openFolder) {
-//			openFolder();
-//		}
 		return true;
 	}
 
@@ -78,7 +73,7 @@ public class CdrSipExportWizard extends Wizard implements IExportWizard {
 	@Override
 	public void addPages() {
 		super.addPages();
-		page = new PickExportFilePage("page Name", project, "Carolina Digital Repository Submission (METS)", "cdr.xml");
+		page = new PickExportFilePage("page Name", project, "Arrangement as Comma-Separated Values (CSV)", "cdr.csv");
 		addPage(page);
 	}
 
@@ -88,16 +83,6 @@ public class CdrSipExportWizard extends Wizard implements IExportWizard {
 			return false;
 		if (!page.isPageComplete())
 			return false;
-		try {
-			int unstaged = StagingUtils.countUnstaged(project);
-			if(unstaged > 0) {
-				page.setErrorMessage("There are still "+unstaged+" files queued for staging. All captured files must be staged prior to export.");
-				page.setPageComplete(false);
-				return false;
-			}
-		} catch(CoreException e) {
-			e.printStackTrace();
-		}
 		return super.canFinish();
 	}
 

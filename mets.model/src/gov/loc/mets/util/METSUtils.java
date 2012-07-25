@@ -51,7 +51,7 @@ import org.eclipse.emf.ecore.xml.type.internal.XMLCalendar;
 
 /**
  * @author Gregory Jansen
- *
+ * 
  */
 public class METSUtils {
 
@@ -62,7 +62,7 @@ public class METSUtils {
 	public static String makeXMLUUID(UUID rawuuid) {
 		return new StringBuilder().append("uuid_").append(rawuuid.toString()).toString();
 	}
-	
+
 	public static String makeXMLUUID() {
 		return new StringBuilder().append("uuid_").append(UUID.randomUUID().toString()).toString();
 	}
@@ -73,7 +73,7 @@ public class METSUtils {
 		MetsType m = result.getMets();
 		UUID uuid = UUID.randomUUID();
 		m.setID(makeXMLUUID(uuid));
-		m.setOBJID("info:fedora/uuid:"+uuid.toString());
+		m.setOBJID("info:fedora/uuid:" + uuid.toString());
 		m.setLABEL(label);
 		m.setPROFILE(METSConstants.MetsProfile_UNC_LIBRARIES);
 		m.setTYPE(METSConstants.MetsType_WORKBENCH);
@@ -143,22 +143,23 @@ public class METSUtils {
 		}
 		return result;
 	}
-	
+
 	public static SmLinkType findLink(EObject s, String p, EObject o) {
 		SmLinkType result = null;
 		EObject testMets = s.eContainer();
-		while(!MetsType.class.isInstance(testMets)) {
+		while (!MetsType.class.isInstance(testMets)) {
 			testMets = testMets.eContainer();
-			if(testMets == null) {
+			if (testMets == null) {
 				return null;
 			}
 		}
-		MetsType mets = (MetsType)testMets;
-		if(mets.getStructLink() == null) return null;
-		for(SmLinkType l : mets.getStructLink().getSmLink()) {
-			if(l.getXlinkFrom().equals(s)) {
-				if(l.getXlinkTo().equals(o)) {
-					if(l.getArcrole().equals(p)) {
+		MetsType mets = (MetsType) testMets;
+		if (mets.getStructLink() == null)
+			return null;
+		for (SmLinkType l : mets.getStructLink().getSmLink()) {
+			if (l.getXlinkFrom().equals(s)) {
+				if (l.getXlinkTo().equals(o)) {
+					if (l.getArcrole().equals(p)) {
 						result = l;
 						break;
 					}
@@ -248,7 +249,7 @@ public class METSUtils {
 	public static FLocatType addStagedFileLocator(MetsType mets, String id, URI original, URI stagedUri,
 			LOCTYPEType locType, String otherLocType) {
 		// find or create the group for this object
-		FileType data = (FileType)mets.eResource().getEObject(id);
+		FileType data = (FileType) mets.eResource().getEObject(id);
 		if (data == null) {
 			throw new Error("data file element does not exist");
 		}
@@ -286,7 +287,7 @@ public class METSUtils {
 	 * @return
 	 */
 	public static boolean isContainer(DivType d) {
-		if(!d.getDiv().isEmpty()) {
+		if (!d.getDiv().isEmpty()) {
 			return true;
 		}
 		if (METSConstants.Div_Folder.equals(d.getTYPE()) || METSConstants.Div_Collection.equals(d.getTYPE())
@@ -300,15 +301,35 @@ public class METSUtils {
 	public static Collection<SmLinkType> getObjectLinks(DivType d) {
 		Set<SmLinkType> result = new HashSet<SmLinkType>();
 		try {
-			DocumentRoot r = (DocumentRoot)d.eResource().getContents().get(0);
-			for(SmLinkType sml : r.getMets().getStructLink().getSmLink()) {
-				if(d.equals(sml.getXlinkTo())) {
+			DocumentRoot r = (DocumentRoot) d.eResource().getContents().get(0);
+			for (SmLinkType sml : r.getMets().getStructLink().getSmLink()) {
+				if (d.equals(sml.getXlinkTo())) {
 					result.add(sml);
 				}
 			}
-		} catch(NullPointerException ignored) {
-			//ignored.printStackTrace();
+		} catch (NullPointerException ignored) {
+			// ignored.printStackTrace();
 		}
 		return result;
+	}
+
+	public static int getDepth(DivType d) {
+		int depth = 0;
+		for (EObject eo = d.eContainer(); !(eo instanceof StructMapType); eo = eo.eContainer()) {
+			depth++;
+		}
+		return depth;
+	}
+
+	public static String getUUID(DivType d) {
+		String def = null;
+		if (d.getCONTENTIDS() != null) {
+			for (String id : d.getCONTENTIDS()) {
+				if (id.contains("uuid:")) {
+					return id;
+				}
+			}
+		}
+		return def;
 	}
 }

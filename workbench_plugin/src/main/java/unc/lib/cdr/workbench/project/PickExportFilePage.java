@@ -60,19 +60,19 @@ public class PickExportFilePage extends WizardPage implements IWizardPage, Liste
 	 * @param pageName
 	 * @param project
 	 */
-	protected PickExportFilePage(String pageName, IProject project) {
+	protected PickExportFilePage(String pageName, IProject project, String title, String extension) {
 		super(pageName);
-		this.setTitle("Carolina Digital Repository Submission (METS)");
+		this.setTitle(title);
 		this.setMessage("Please select the file location and options for export.");
 		this.project = project;
 		if (project != null) {
 			if(project.isOpen()) {
-				setDestinationValue(project.getLocation().append(project.getName() + ".cdr.xml").toString());
+				setDestinationValue(project.getLocation().append(project.getName() + "."+extension).toString());
 			} else {
 				setErrorMessage("The selected project is closed. Please open it and try again.");
 			}
 		} else {
-			this.setErrorMessage("You must first select an open project to export this kind of submission package.");
+			this.setErrorMessage("You must select an open project to export.");
 		}
 	}
 
@@ -244,19 +244,9 @@ public class PickExportFilePage extends WizardPage implements IWizardPage, Liste
 				return;
 			}
 		} else {
-			this.setErrorMessage("You must first select an open project to export this kind of submission package.");
+			this.setErrorMessage("You must first select an open project to export.");
 			this.setPageComplete(false);
 			return;
-		}
-		try {
-			int unstaged = StagingUtils.countUnstaged(project);
-			if(unstaged > 0) {
-				this.setErrorMessage("There are still "+unstaged+" files queued for staging. All captured files must be staged prior to export.");
-				this.setPageComplete(false);
-				return;
-			}
-		} catch(CoreException e) {
-			e.printStackTrace();
 		}
 		if(getDestinationValue() == null || "".equals(getDestinationValue().trim())) {
 			this.setErrorMessage("You must select a file location for the export.");

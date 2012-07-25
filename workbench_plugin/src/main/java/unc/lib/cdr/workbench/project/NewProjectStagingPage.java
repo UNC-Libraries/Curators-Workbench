@@ -113,7 +113,7 @@ public class NewProjectStagingPage extends WizardPage {
 
 		// checkbox - automatically stage captured files?
 		autoStageButton = new Button(composite, SWT.CHECK | SWT.RIGHT);
-		autoStageButton.setText("Automatically stage captured files");
+		autoStageButton.setText("Automatically stage files as you capture them.");
 		autoStageButton.setSelection(true);
 		GridData buttonData = new GridData();
 		buttonData.horizontalSpan = 2;
