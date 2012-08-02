@@ -22,6 +22,8 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import crosswalk.ContextProvider;
 import crosswalk.CrosswalkPackage;
@@ -46,6 +48,9 @@ import crosswalk.MappingContainer;
  * @generated
  */
 public class MappedElementImpl extends EObjectImpl implements MappedElement {
+	
+	@SuppressWarnings("unused")
+	private static final Logger LOG = LoggerFactory.getLogger(MappedElementImpl.class);
 
 	/**
 	 * The default value of the '{@link #getException() <em>Exception</em>}' attribute.
@@ -278,9 +283,9 @@ public class MappedElementImpl extends EObjectImpl implements MappedElement {
 	public void updateRecord(EObject record) {
 		if (this.getMappedFeature() != null && this.getMappedFeature().getEReferenceType() != null) {
 			EClass mytype = this.getMappedFeature().getEReferenceType();
-			System.out.println("my type: " + mytype.toString());
+			LOG.debug("my type: " + mytype.toString());
 			EObject myobject = mytype.getEPackage().getEFactoryInstance().create(mytype);
-			System.out.println("my object: " + myobject.toString());
+			LOG.debug("my object: " + myobject.toString());
 			for (MappedAttribute ma : this.getAttributes()) {
 				ma.updateRecord(myobject);
 			}
@@ -298,7 +303,7 @@ public class MappedElementImpl extends EObjectImpl implements MappedElement {
 					record.eSet(getMappedFeature(), myobject);
 				}
 			}
-			System.out.println("my modified parent: " + record.toString());
+			LOG.debug("my modified parent: " + record.toString());
 		}
 	}
 

@@ -15,6 +15,10 @@
  */
 package unc.lib.cdr.workbench.arrange;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+
 import gov.loc.mets.DivType;
 import gov.loc.mets.MetsFactory;
 import gov.loc.mets.util.METSConstants;
@@ -86,6 +90,13 @@ public class AddFolderDivHandler extends AbstractHandler {
 			div.setLABEL1(d.getValue());
 			String ID = METSUtils.makeXMLUUID();
 			div.setID(ID);
+			
+			// set PID
+			UUID uuid = UUID.randomUUID();
+			List<String> contentIds = new ArrayList<String>();
+			contentIds.add("info:fedora/uuid:" + uuid.toString());
+			div.setCONTENTIDS(contentIds);
+			
 			div.setTYPE(METSConstants.Div_Folder);
 
 			EditingDomain ed = MetsProjectNature.getEditingDomain(within);

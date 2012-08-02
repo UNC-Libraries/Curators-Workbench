@@ -4,4 +4,6 @@
 <toc label="Tasks" link_to="toc.xml#tasks"> 
 	<topic label="Set up a Preferred Staging Location"  href="html/tasks/staging_preference.html"> 
 	</topic>
+ <topic href="html/tasks/dictionaries_preference.html" label="Set up Preferred Data Dictionaries">
+ </topic>
 </toc>

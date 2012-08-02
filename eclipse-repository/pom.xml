@@ -62,7 +62,7 @@
 					<dependency>
 						<groupId>org.apache.ant</groupId>
 						<artifactId>ant-jsch</artifactId>
-						<version>1.7.0</version>
+						<version>1.8.4</version>
 					</dependency>
 					<dependency>
 						<groupId>ant-contrib</groupId>
@@ -97,6 +97,7 @@
 											keyfile="${cw.deploy.keyfile}"
 											trust="true"
 											command="rm -rf --preserve-root ${cw.deploy.basedir}/${project.version}"
+											verbose="true"
 											failonerror="false" />
 									</then>
 								</if>
@@ -106,6 +107,7 @@
 									passphrase="${cw.deploy.passphrase}"
 									keyfile="${cw.deploy.keyfile}"
 									trust="true"
+									verbose="true"
 									command="mkdir ${cw.deploy.basedir}/${project.version}" />
 								<sshexec
 									host="${cw.deploy.host}"
@@ -113,6 +115,7 @@
 									passphrase="${cw.deploy.passphrase}"
 									keyfile="${cw.deploy.keyfile}"
 									trust="true"
+									verbose="true"
 									command="mkdir ${cw.deploy.basedir}/${project.version}/repository" />
 								<scp
 									todir="${cw.deploy.username}@${cw.deploy.host}:${cw.deploy.basedir}/${project.version}/repository"
@@ -130,6 +133,7 @@
 									passphrase="${cw.deploy.passphrase}"
 									keyfile="${cw.deploy.keyfile}"
 									trust="true"
+									verbose="true"
 									command="mkdir ${cw.deploy.basedir}/${project.version}/products" />
 								<scp
 									todir="${cw.deploy.username}@${cw.deploy.host}:${cw.deploy.basedir}/${project.version}/products"

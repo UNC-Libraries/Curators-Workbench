@@ -28,6 +28,8 @@ import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import crosswalk.CrosswalkPackage;
 import crosswalk.DataException;
@@ -50,6 +52,9 @@ import crosswalk.util.ImpreciseDate;
  * @generated
  */
 public class DateRecognizerImpl extends WalkWidgetImpl implements DateRecognizer {
+	
+	@SuppressWarnings("unused")
+	private static final Logger LOG = LoggerFactory.getLogger(DateRecognizerImpl.class);
 	/**
 	 * The cached value of the '{@link #getOutput() <em>Output</em>}' reference.
 	 * <!-- begin-user-doc --> <!--
@@ -186,15 +191,15 @@ public class DateRecognizerImpl extends WalkWidgetImpl implements DateRecognizer
 			Object o = this.getOutput().getResult();
 			if (o != null && o instanceof String) {
 				String input = (String) o;
-				System.out.println("got an input string: "+input);
+				LOG.debug("got an input string: "+input);
 				for (String format : this.getFormats()) {
 					try {
 						SimpleDateFormat sdf = new SimpleDateFormat(format);
 						sdf.setLenient(false);
 						Date dt = sdf.parse(input);
-						System.out.println("parsed a date: "+dt.toString());
+						LOG.debug("parsed a date: "+dt.toString());
 						ImpreciseDate.DatePrecision precision = ImpreciseDate.getFormatPrecision(format);
-						System.out.println("get precision: "+precision);
+						LOG.debug("get precision: "+precision);
 						result = new ImpreciseDate(dt);
 						if (precision != null) {
 							result.setPrecision(precision);

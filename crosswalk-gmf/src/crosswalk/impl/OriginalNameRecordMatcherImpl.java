@@ -27,14 +27,13 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
-import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EDataType;
-import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import crosswalk.CrossWalk;
 import crosswalk.CrosswalkPackage;
@@ -62,6 +61,8 @@ import crosswalk.RecordOutOfRangeException;
  * @generated
  */
 public class OriginalNameRecordMatcherImpl extends WalkWidgetImpl implements OriginalNameRecordMatcher {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(OriginalNameRecordMatcherImpl.class);
 	/**
 	 * The cached value of the '{@link #getOutput() <em>Output</em>}' reference.
 	 * <!-- begin-user-doc --> <!--
@@ -338,7 +339,7 @@ public class OriginalNameRecordMatcherImpl extends WalkWidgetImpl implements Ori
 		}
 		MetsType mets = crosswalk.getMetsSource().getMets();
 
-		System.out.println("Running the original name record matcher.");
+		LOG.debug("Running the original name record matcher.");
 		Map<DivType, String> matches = new HashMap<DivType, String>();
 		Map<String, Set<DivType>> divPatterns = new HashMap<String, Set<DivType>>();
 		Map<String, Set<String>> recordPatterns = new HashMap<String, Set<String>>();
@@ -421,7 +422,7 @@ public class OriginalNameRecordMatcherImpl extends WalkWidgetImpl implements Ori
 				}
 			}
 			String recordID = ds.getRecordID();
-			System.out.println("processMember( pattern:"+pattern+", "+recordID);
+			LOG.debug("processMember( pattern:"+pattern+", "+recordID);
 			if (recordPatterns.containsKey(pattern)) {
 				recordPatterns.get(pattern).add(recordID);
 			} else {
@@ -439,7 +440,7 @@ public class OriginalNameRecordMatcherImpl extends WalkWidgetImpl implements Ori
 	private void processMembers(DivType container, Map<String, Set<DivType>> divPatterns) throws CoreException {
 		for (DivType div : container.getDiv()) {
 			String pattern = getDivPattern(div);
-			// System.out.println("processMember( pattern:"+pattern+", "+r.toString());
+			// LOG.debug("processMember( pattern:"+pattern+", "+r.toString());
 			if (divPatterns.containsKey(pattern)) {
 				divPatterns.get(pattern).add(div);
 			} else {

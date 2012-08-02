@@ -13,6 +13,8 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import crosswalk.CrosswalkPackage;
 import crosswalk.DateToISO8601StringConversion;
@@ -29,6 +31,9 @@ import crosswalk.util.ImpreciseDate.DatePrecision;
  * @generated
  */
 public class DateToISO8601StringConversionImpl extends EObjectImpl implements DateToISO8601StringConversion {
+	
+	@SuppressWarnings("unused")
+	private static final Logger LOG = LoggerFactory.getLogger(DateToISO8601StringConversionImpl.class);
     //private static final SimpleDateFormat centuryFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
     //private static final SimpleDateFormat decadeFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
     private static final SimpleDateFormat yearFormat = new SimpleDateFormat("yyyy");
@@ -68,7 +73,7 @@ public class DateToISO8601StringConversionImpl extends EObjectImpl implements Da
       	  }
       	  if(input instanceof ImpreciseDate) {
       		  ImpreciseDate date = (ImpreciseDate)input;
-      		  System.out.println("got imprecise date with precision: "+date.getPrecision());
+      		  LOG.debug("got imprecise date with precision: "+date.getPrecision());
       		  if(DatePrecision.Year.equals(date.getPrecision())) {
       			  return yearFormat.format(date);
       		  } else if(DatePrecision.Month.equals(date.getPrecision())) {

@@ -16,6 +16,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import crosswalk.ContextProvider;
 import crosswalk.ConversionStrategy;
@@ -44,6 +46,9 @@ import crosswalk.util.MappingException;
  * @generated
  */
 public class MappedAttributeImpl extends EObjectImpl implements MappedAttribute {
+	
+	@SuppressWarnings("unused")
+	private static final Logger LOG = LoggerFactory.getLogger(MappedAttributeImpl.class);
 	/**
 	 * The default value of the '{@link #getException() <em>Exception</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -504,7 +509,7 @@ public class MappedAttributeImpl extends EObjectImpl implements MappedAttribute 
 	 */
 	public void updateRecord(EObject record) {
 		EAttribute myAttribute = this.getMappedFeature();
-		System.out.println("my type: " + myAttribute.toString());
+		LOG.debug("my type: " + myAttribute.toString());
 
 		// the value to set
 		Object setting = null;

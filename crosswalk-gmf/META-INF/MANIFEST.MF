@@ -15,4 +15,5 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.core.resources,
  mods.model;bundle-version="0.0.0",
- mets.model;bundle-version="0.0.0"
+ mets.model;bundle-version="0.0.0",
+ org.slf4j.api;bundle-version="1.6.4"

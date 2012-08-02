@@ -88,6 +88,7 @@ public class EditAccessControlsCommand extends AbstractHandler implements IHandl
 				acl = (AccessControlType) o;
 			}
 		} catch (NullPointerException e) {
+			//e.printStackTrace();
 		}
 
 		if (acl == null) {
