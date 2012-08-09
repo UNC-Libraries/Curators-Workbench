@@ -1061,9 +1061,9 @@
                id="workbench_plugin.previewFile"
                minimized="false"
                moveable="true"
-               ratio=".8"
-               relationship="bottom"
-               relative="org.eclipse.ui.editorss"
+               ratio=".4"
+               relationship="left"
+               relative="cdr-workbench.Properties"
                showTitle="true"
                visible="true">
          </view>

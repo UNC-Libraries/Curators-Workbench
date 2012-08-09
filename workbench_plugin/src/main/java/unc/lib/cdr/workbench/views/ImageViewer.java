@@ -38,21 +38,21 @@ public class ImageViewer extends Canvas {
 				drawImage(e.gc);
 			}
 		});
-		addListener(SWT.MouseMove, new Listener() {
-			public void handleEvent(Event event) {
-				if (image == null)
-					return;
-				if (getDrawingBounds().contains(event.x, event.y))
-					showEnlargedImage();
-				else
-					stayClosed = false;
-			}
-		});
-		addListener(SWT.MouseExit, new Listener() {
-			public void handleEvent(Event event) {
-				stayClosed = false;
-			}
-		});
+//		addListener(SWT.MouseMove, new Listener() {
+//			public void handleEvent(Event event) {
+//				if (image == null)
+//					return;
+//				if (getDrawingBounds().contains(event.x, event.y))
+//					showEnlargedImage();
+//				else
+//					stayClosed = false;
+//			}
+//		});
+//		addListener(SWT.MouseExit, new Listener() {
+//			public void handleEvent(Event event) {
+//				stayClosed = false;
+//			}
+//		});
 	}
 
 	private void drawImage(GC gc) {
