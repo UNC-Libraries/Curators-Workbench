@@ -180,7 +180,8 @@ public class LabelImageFactory {
 
 	public static Image getImageForObject(Object o) {
 		Icon icon = getIconForObject(o);
-		return getImage(icon);
+		if(icon != null) return getImage(icon);
+		return null;
 	}
 
 	/**

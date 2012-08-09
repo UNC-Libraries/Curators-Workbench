@@ -158,7 +158,6 @@ public class ProjectEMFSession {
 
 	public IPath getMetsFile() {
 		IPath metsPath = this.project.getLocation().append(METS_PATH);
-		System.err.println("METS FILE PATH: " + metsPath);
 		return metsPath;
 	}
 
@@ -230,7 +229,7 @@ public class ProjectEMFSession {
 		try {
 			this.project.refreshLocal(IResource.DEPTH_ONE, new NullProgressMonitor());
 		} catch (CoreException e) {
-			throw new Error(e);
+			//throw new Error(e);
 		}
 	}
 }

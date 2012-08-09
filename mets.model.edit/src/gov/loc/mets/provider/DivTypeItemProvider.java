@@ -70,15 +70,20 @@ public class DivTypeItemProvider
         @Override
 		protected Command createRemoveCommand(EditingDomain domain, EObject owner, EStructuralFeature feature,
 				Collection<?> collection) {
-      	  return new RemoveDivTypeCommand(domain, owner, feature, collection);
+      	  if(MetsPackage.eINSTANCE.getDivType_Div().equals(feature) ||
+      			  MetsPackage.eINSTANCE.getStructMapType_Div().equals(feature)) {
+      		  return new RemoveDivTypeCommand(domain, owner, feature, collection);
+      	  } else {
+      		  return super.createRemoveCommand(domain, owner, feature, collection);
+      	  }
 		}
 
-		@Override
-		protected Command createRemoveCommand(EditingDomain domain, EObject owner, EReference feature,
-				Collection<?> collection) {
+		//@Override
+		//protected Command createRemoveCommand(EditingDomain domain, EObject owner, EReference feature,
+		//		Collection<?> collection) {
 			// TODO Auto-generated method stub
-			return new RemoveDivTypeCommand(domain, owner, feature, collection);
-		}
+			//return new RemoveDivTypeCommand(domain, owner, feature, collection);
+		//}
 
 		/**
          * This returns the property descriptors for the adapted class.

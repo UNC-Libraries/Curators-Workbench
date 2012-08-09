@@ -16,4 +16,4 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources,
  mods.model;bundle-version="0.0.0",
  mets.model;bundle-version="0.0.0",
- org.slf4j.api;bundle-version="1.6.4"
+ org.slf4j.log4j12;bundle-version="1.6.6"

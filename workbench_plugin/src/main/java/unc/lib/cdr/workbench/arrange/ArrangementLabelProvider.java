@@ -72,12 +72,11 @@ public class ArrangementLabelProvider extends AdapterFactoryLabelProvider implem
 	 */
 	@Override
 	public Image getImage(Object element) {
-		Image result = provider.getImage(element);
-
+		Image result = LabelImageFactory.getImageForObject(element);
 		if (result == null)
 			result = super.getImage(element);
 		if (result == null)
-			result = LabelImageFactory.getImageForObject(element);
+			result = provider.getImage(element);
 		return result;
 	}
 

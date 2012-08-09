@@ -21,7 +21,7 @@
             class="unc.lib.cdr.workbench.DivPropertyTester"
             id="cdr-workbench.propertyDivTester"
             namespace="cdr-workbench"
-            properties="isContainer,isFolder"
+            properties="isContainer,isFolder,hasDescription,hasAccessControls"
             type="gov.loc.mets.DivType">
       </propertyTester>
       <propertyTester
@@ -95,6 +95,11 @@
             name="Edit Description (MODS)">
       </command>
       <command
+            defaultHandler="unc.lib.cdr.workbench.commands.DeleteDescriptionsCommand"
+            id="cdr-workbench.commandDeleteDescriptions"
+            name="Delete Descriptions (MODS)">
+      </command>
+      <command
             defaultHandler="unc.lib.cdr.workbench.capture.RescanOriginalsHandler"
             description="Scan for changes to original files and folders"
             id="cdr-workbench.commandRescanOriginals"
@@ -114,6 +119,11 @@
             defaultHandler="unc.lib.cdr.workbench.acl.EditAccessControlsCommand"
             id="cdr-workbench.commandEditAccessControl"
             name="Edit Access Control">
+      </command>
+      <command
+            defaultHandler="unc.lib.cdr.workbench.acl.DeleteAccessControlsCommand"
+            id="cdr-workbench.commandDeleteAccessControls"
+            name="Delete Access Controls">
       </command>
       <command
             defaultHandler="unc.lib.cdr.workbench.commands.DivLinkHandler"
@@ -283,7 +293,7 @@
             </visibleWhen>
          </command>
          <menu
-               label="Type"
+               label="Container Type"
                mnemonic="t"
                tooltip="set the type of object">
             <command
@@ -535,53 +545,157 @@
                      variable="activeMenuSelection">
                   <iterate
                         ifEmpty="false">
-                     <instanceof
-                           value="gov.loc.mets.DivType">
-                     </instanceof>
+                     <or>
+                        <instanceof
+                              value="gov.loc.mets.DivType">
+                        </instanceof>
+                        <instanceof
+                              value="gov.loc.mets.SmLinkType">
+                        </instanceof>
+                     </or>
                   </iterate>
                </with>
             </visibleWhen>
          </command>
-         <command
-               commandId="cdr-workbench.commandEditDescription"
-               label="Edit Description"
-               style="push">
-            <visibleWhen
-                  checkEnabled="true">
-               <with
-                     variable="activeMenuSelection">
-                  <iterate
-                        ifEmpty="false">
-                     <instanceof
-                           value="gov.loc.mets.DivType">
-                     </instanceof>
-                  </iterate>
-                  <count
-                        value="1">
-                  </count>
-               </with>
-            </visibleWhen>
-         </command>
-         <command
-               commandId="cdr-workbench.commandEditAccessControl"
-               label="Edit Access Control"
-               style="push">
-            <visibleWhen
-                  checkEnabled="true">
-               <with
-                     variable="activeMenuSelection">
-                  <iterate
-                        ifEmpty="false">
-                     <instanceof
-                           value="gov.loc.mets.DivType">
-                     </instanceof>
-                  </iterate>
-                  <count
-                        value="1">
-                  </count>
-               </with>
-            </visibleWhen>
-         </command>
+         <menu
+               label="Metadata"
+               mnemonic="e"
+               tooltip="edit metadata records for the item">
+            <command
+                  commandId="cdr-workbench.commandEditDescription"
+                  label="Edit MODS Description"
+                  mnemonic="d"
+                  style="push">
+               <visibleWhen
+                     checkEnabled="true">
+                  <with
+                        variable="activeMenuSelection">
+                     <iterate
+                           ifEmpty="false">
+                        <test
+                              property="cdr-workbench.hasDescription">
+                        </test>
+                     </iterate>
+                     <count
+                           value="1">
+                     </count>
+                  </with>
+               </visibleWhen>
+            </command>
+            <command
+                  commandId="cdr-workbench.commandEditDescription"
+                  label="Create MODS Description"
+                  mnemonic="d"
+                  style="push">
+               <visibleWhen
+                     checkEnabled="true">
+                  <with
+                        variable="activeMenuSelection">
+                     <iterate
+                           ifEmpty="false">
+                        <and>
+                           <not>
+                              <test
+                                    property="cdr-workbench.hasDescription">
+                              </test>
+                           </not>
+                           <instanceof
+                                 value="gov.loc.mets.DivType">
+                           </instanceof>
+                        </and>
+                     </iterate>
+                     <count
+                           value="1">
+                     </count>
+                  </with>
+               </visibleWhen>
+            </command>
+            <command
+                  commandId="cdr-workbench.commandDeleteDescriptions"
+                  label="Delete MODS Descriptions"
+                  style="push">
+               <visibleWhen
+                     checkEnabled="true">
+                  <with
+                        variable="activeMenuSelection">
+                     <iterate
+                           ifEmpty="false"
+                           operator="or">
+                        <test
+                              property="cdr-workbench.hasDescription">
+                        </test>
+                     </iterate>
+                  </with>
+               </visibleWhen>
+            </command>
+            <command
+                  commandId="cdr-workbench.commandEditAccessControl"
+                  label="Edit Access Controls"
+                  mnemonic="a"
+                  style="push">
+               <visibleWhen
+                     checkEnabled="true">
+                  <with
+                        variable="activeMenuSelection">
+                     <iterate
+                           ifEmpty="false">
+                        <test
+                              property="cdr-workbench.hasAccessControls">
+                        </test>
+                     </iterate>
+                     <count
+                           value="1">
+                     </count>
+                  </with>
+               </visibleWhen>
+            </command>
+            <command
+                  commandId="cdr-workbench.commandEditAccessControl"
+                  label="Create Access Controls"
+                  mnemonic="a"
+                  style="push">
+               <visibleWhen
+                     checkEnabled="true">
+                  <with
+                        variable="activeMenuSelection">
+                     <iterate
+                           ifEmpty="false">
+                        <and>
+                           <instanceof
+                                 value="gov.loc.mets.DivType">
+                           </instanceof>
+                           <not>
+                              <test
+                                    property="cdr-workbench.hasAccessControls">
+                              </test>
+                           </not>
+                        </and>
+                     </iterate>
+                     <count
+                           value="1">
+                     </count>
+                  </with>
+               </visibleWhen>
+            </command>
+            <command
+                  commandId="cdr-workbench.commandDeleteAccessControls"
+                  label="Delete Access Controls"
+                  style="push">
+               <visibleWhen
+                     checkEnabled="true">
+                  <with
+                        variable="activeMenuSelection">
+                     <iterate
+                           ifEmpty="false"
+                           operator="or">
+                        <test
+                              property="cdr-workbench.hasAccessControls">
+                        </test>
+                     </iterate>
+                  </with>
+               </visibleWhen>
+            </command>
+         </menu>
          <command
                commandId="workbench_plugin.commandLink"
                label="Link with Thumbnail (or Surrogate)"

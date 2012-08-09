@@ -99,10 +99,10 @@ public class GrantTypeDetailsPage implements IDetailsPage {
 			cmd.append(SetCommand.create(MetsProjectNature.getEditingDomain(input), input, AclPackage.eINSTANCE.getGrantType_Group(), groupText.getText()));
 			if(cmd.canExecute()) {
 				MetsProjectNature.getNatureForMetsObject(input).getCommandStack().execute(cmd);
+				isDirty = false;
+				this.mform.dirtyStateChanged();
 			}
 		}
-		isDirty = true;
-		this.mform.dirtyStateChanged();
 	}
 
 	/*
@@ -227,7 +227,6 @@ public class GrantTypeDetailsPage implements IDetailsPage {
 			public void widgetSelected(SelectionEvent e) {
 				isDirty = true;
 				mform.dirtyStateChanged();
-				//commit(false);
 			}
 		});
 
@@ -243,13 +242,11 @@ public class GrantTypeDetailsPage implements IDetailsPage {
 			public void modifyText(ModifyEvent e) {
 				isDirty = true;
 				mform.dirtyStateChanged();
-				//commit(false);
 			}
 		});
 		groupText.setLayoutData(gd);
 
 		s1.setClient(client);
-		// toolkit.paintBordersFor(s1);
 	}
 
 }

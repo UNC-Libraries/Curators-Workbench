@@ -31,6 +31,8 @@ Bundle-ClassPath: .,
  lib/xml-apis-1.3.04.jar,
  lib/opencsv-2.2.jar
 Export-Package: .,
+ au.com.bytecode.opencsv,
+ au.com.bytecode.opencsv.bean,
  edu.sdsc.grid.io,
  edu.sdsc.grid.io.irods,
  edu.sdsc.grid.io.local,

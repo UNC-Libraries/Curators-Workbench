@@ -16,6 +16,8 @@
 package unc.lib.cdr.workbench;
 
 import gov.loc.mets.DivType;
+import gov.loc.mets.MdSecType;
+import gov.loc.mets.MetsPackage;
 import gov.loc.mets.util.METSConstants;
 import gov.loc.mets.util.METSUtils;
 
@@ -24,6 +26,8 @@ import org.eclipse.core.expressions.PropertyTester;
 public class DivPropertyTester extends PropertyTester {
 	public static final String IS_CONTAINER_PROPERTY = "isContainer";
 	public static final String IS_FOLDER_PROPERTY = "isFolder";
+	public static final String HAS_DESCRIPTION_PROPERTY = "hasDescription";
+	public static final String HAS_ACCESS_CONTROLS_PROPERTY = "hasAccessControls";
 
 	public DivPropertyTester() {
 	}
@@ -36,6 +40,26 @@ public class DivPropertyTester extends PropertyTester {
 				return METSUtils.isContainer(div);
 			} else if (IS_FOLDER_PROPERTY.equals(property)) {
 				return METSConstants.Div_Folder.equals(div.getTYPE());
+			} else if (HAS_ACCESS_CONTROLS_PROPERTY.equals(property)) {
+				MdSecType rightsSec = null;
+				for (MdSecType md : div.getMdSec()) {
+					if (METSConstants.MD_STATUS_USER_EDITED.equals(md.getSTATUS())) {
+						if (MetsPackage.eINSTANCE.getAmdSecType_RightsMD().equals(md.eContainingFeature())) {
+							rightsSec = md;
+							break;
+						}
+					}
+				}
+				return rightsSec != null;
+			} else if(HAS_DESCRIPTION_PROPERTY.equals(property)) {
+				MdSecType descriptionSec = null;
+				for (MdSecType md : div.getDmdSec()) {
+					if (METSConstants.MD_STATUS_USER_EDITED.equals(md.getSTATUS())) {
+						descriptionSec = md;
+						break;
+					}
+				}
+				return descriptionSec != null;
 			}
 		}
 		return false;
