@@ -344,7 +344,8 @@
          </menu>
          <command
                commandId="cdr-workbench.commandOpenCopySystemEditor"
-               label="Open copy in default editor"
+               label="Open a Copy"
+               mnemonic="o"
                style="push">
             <visibleWhen
                   checkEnabled="false">
@@ -426,7 +427,7 @@
          </command>
          <command
                commandId="cdr-workbench.commandOpenCopySystemEditor"
-               label="Open copy in default editor"
+               label="Open a Copy"
                style="push">
             <visibleWhen
                   checkEnabled="false">
@@ -1000,6 +1001,16 @@
          <adapter
                type="unc.lib.cdr.workbench.originals.OriginalFileStore">
          </adapter>
+         <adapter
+               type="unc.lib.cdr.workbench.views.ImageProvider">
+         </adapter>
+      </factory>
+      <factory
+            adaptableType="org.eclipse.core.filesystem.IFileStore"
+            class="unc.lib.cdr.workbench.arrange.DivAdapterFactory">
+         <adapter
+               type="unc.lib.cdr.workbench.views.ImageProvider">
+         </adapter>
       </factory>
    </extension>
    <extension
@@ -1042,6 +1053,17 @@
                moveable="true"
                relationship="stack"
                relative="cdr-workbench.Properties"
+               showTitle="true"
+               visible="true">
+         </view>
+         <view
+               closeable="false"
+               id="workbench_plugin.previewFile"
+               minimized="false"
+               moveable="true"
+               ratio=".8"
+               relationship="bottom"
+               relative="org.eclipse.ui.editorss"
                showTitle="true"
                visible="true">
          </view>
@@ -1135,6 +1157,13 @@
             class="org.eclipse.ui.internal.views.markers.ProblemsView"
             id="workbench_plugin.viewProblems"
             name="Problems"
+            restorable="true">
+      </view>
+      <view
+            class="unc.lib.cdr.workbench.views.ViewPartPreviewFile"
+            icon="icons/read_obj.gif"
+            id="workbench_plugin.previewFile"
+            name="Preview"
             restorable="true">
       </view>
    </extension>

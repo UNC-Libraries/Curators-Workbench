@@ -17,14 +17,17 @@ package unc.lib.cdr.workbench.arrange;
 
 import gov.loc.mets.DivType;
 
+import org.eclipse.core.filesystem.IFileStore;
 import org.eclipse.core.runtime.IAdapterFactory;
 
 import unc.lib.cdr.workbench.originals.OriginalFileStore;
 import unc.lib.cdr.workbench.project.MetsProjectNature;
+import unc.lib.cdr.workbench.views.FileStoreImageProvider;
+import unc.lib.cdr.workbench.views.ImageProvider;
 
 public class DivAdapterFactory implements IAdapterFactory {
 	@SuppressWarnings("rawtypes")
-	Class[] adapterTypes = new Class[] { OriginalFileStore.class };
+	Class[] adapterTypes = new Class[] { OriginalFileStore.class, ImageProvider.class };
 
 	@SuppressWarnings("rawtypes")
 	@Override
@@ -36,13 +39,27 @@ public class DivAdapterFactory implements IAdapterFactory {
 				return MetsProjectNature.getOriginal(d);
 			}
 		}
+		if(ImageProvider.class.equals(adapterType)) {
+			if (adaptableObject instanceof DivType) {
+				DivType d = (DivType) adaptableObject;
+				OriginalFileStore store = MetsProjectNature.getOriginal(d);
+				if(!store.fetchInfo().isDirectory()) {
+					return new FileStoreImageProvider(store);
+				}
+			} else if(adaptableObject instanceof IFileStore) {
+				IFileStore store = (IFileStore)adaptableObject;
+				if(!store.fetchInfo().isDirectory()) {
+					return new FileStoreImageProvider(store);
+				}
+			}
+		}
 		return result;
 	}
 
 	@SuppressWarnings("rawtypes")
 	@Override
 	public Class[] getAdapterList() {
-		return null;
+		return adapterTypes;
 	}
 
 }
