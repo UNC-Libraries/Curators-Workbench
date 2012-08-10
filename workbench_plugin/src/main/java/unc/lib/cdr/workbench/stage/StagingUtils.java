@@ -63,6 +63,7 @@ public class StagingUtils {
 
 	
 	public static int countUnstaged(IProject project) throws CoreException {
+		// TODO update this code to check against METS instead
 		int result = 0;
 		IMarker[] captured = project.findMarkers(IResourceConstants.MARKER_CAPTURED, false, IResource.DEPTH_INFINITE);
 		for (IMarker m : captured) {

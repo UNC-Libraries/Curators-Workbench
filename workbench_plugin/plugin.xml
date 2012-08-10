@@ -992,6 +992,16 @@
                class="org.eclipse.core.resources.IProject">
          </selection>
       </wizard>
+      <wizard
+            category="org.eclipse.ui.Basic/workbench_plugin.categorySIP"
+            class="unc.lib.cdr.workbench.project.BagItZipExportWizard"
+            icon="icons/table.gif"
+            id="workbench_plugin.wizardExportBagIt"
+            name="BagIt ZIP Package">
+         <selection
+               class="org.eclipse.core.resources.IProject">
+         </selection>
+      </wizard>
    </extension>
    <extension
          point="org.eclipse.core.runtime.adapters">
