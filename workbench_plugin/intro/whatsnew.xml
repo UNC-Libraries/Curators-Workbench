@@ -6,51 +6,66 @@
 		path="whatsnew/@"
 	>
 		<group
-			label="Overview of Release 3"
+			label="Overview of Release 4"
 			id="releasenotes-group"
 			style-id="content-group"
 		>
 			<text
 				style-id="group-description"
-			>This release included several enhancements to usability and new support for "pre-staged" originals:</text>
+			>This release includes new work flow support and several features requested by users:</text>
 			<group
-				label="Pre-Staged Originals"
-				id="prestage-group"
+				label="Reusable Crosswalks and Data Dictionaries"
+				id="dictionaries-group"
 				style-id="content-group"
 			>
 				<text
 					style-id="group-description"
-				>In normal work flow the workbench carefully copies captured files to a staging location. The "Pre-Staged Originals"
-					feature lets you assert that a set of Originals are already staged, and where. In the Link Originals Wizard you may
-					indicate the location in which the originals are already staged. This feature allows you to prepare materials that
-					are already in a safe staging location without creating redundant copies. Staged locations are now listed in the
-					Properties view for files in the Arrangement.</text>
+				>In previous releases each crosswalk was a separate effort, involving deep knowledge of the MODS schema and
+				the user supplied metadata. Now crosswalks can be copied between projects and used again. They can also
+				take advantage of common MODS mappings from a shared data dictionary. This means that not everyone creating
+				crosswalks needs to be a MODS expert. It also makes building crosswalks far less time consuming.</text>
 			</group>
 			<group
-				label="Improved Originals Wizard"
+				label="Originals and Drives"
 				id="originals-group"
 				style-id="content-group"
 			>
 				<text
 					style-id="group-description"
-				>We had a request that we support linking to multiple original folders within the same interface. This request, plus
-					the need for the pre-staging option, led to a rework of the whole "Link Originals" wizard. The new dialog lets you
-					pick a top folder, then browse within it to choose which sub-folder or files to link. Pre-stage locations are
-					entered relative to the top folder.</text>
+				>We've rebuilt the originals part of the workbench to better track drives and maintain the connection between groups of
+				originals and original media. This means we have a clearer interface and better support for removable drives.</text>
 			</group>
 			<group
-				label='Interface "Paper Cuts"'
-				id="papercuts-group"
+				label='Image Preview'
+				id="preview-group"
 				style-id="content-group"
 			>
-				<link
-					label="Paper Cuts Issue in GitHub"
-					url="https://github.com/UNC-Libraries/Curators-Workbench/issues/56"
-					style-id="content-link"
-				>
-					<text>A number of minor user interface glitches have been addressed. These fixes are documented in the paper cuts
-						issue in GitHub.</text>
-				</link>
+				<text>When you highlight an image file, either in the originals tree or the arrangement, you can see a preview
+				of the image in the workbench. This saves a lot of time for those working with image collections. The preview window can
+				be arranged and sized according to your work flow needs.</text>
+			</group>
+			<group
+				label='Exports, Exports, Exports'
+				id="exports-group"
+				style-id="content-group"
+			>
+				<text>We added export support for a variety of identified work flow needs. A BagIt ZIP export function delivers
+				project-based packages meeting this widely used standard. The project arrangement can now also be exported as a comma-separated file.
+				This was implemented to support a local EAD authoring scenario, but may be useful to others. You can also now export entire projects
+				to a ZIP file or a shared drive. This was done to support multi-user work flows and projects with a significant wait
+				between the capture step and arrangement or description. Individual files, such as crosswalks and data dictionaries, can also
+				be export and imported across project and workbench installations.</text>
+			</group>
+			<group
+				label='Deposit Form Designer'
+				id="forms-group"
+				style-id="content-group"
+			>
+				<text>Using dictionary and crosswalk mapping components, you can now build deposit forms suitable for a particular
+				content stream. The deposit forms map the input fields you choose to the MODS schema or dictionary elements. Form designs also
+				include explanatory text and designation of required fields. Forms work in tandem with a server-side form-hosting 
+				application. The form-hosting application may be configured to put uploads and MODS into a folder or to perform repository
+				deposit via SWORD.</text>
 			</group>
 		</group>
 	</extensionContent>

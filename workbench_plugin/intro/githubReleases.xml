@@ -15,12 +15,25 @@
 			>These links takes you to lists of the issues resolved in each release, on GitHub. You can always see what features
 				are under development on the project GitHub site.</text>
 			<link
+				label="Issues Closed in Release 4"
+				url="https://github.com/UNC-Libraries/Curators-Workbench/issues?&amp;state=closed&amp;milestone=5"
+				id="github-milestone"
+				style-id="content-link"
+			>
+				<text>This is the current release and comes with many features requested by users. Several features will assist users in a team
+				environment, such as many project import/export options and more reusable metadata mapping in crosswalks and via
+				data dictionaries. Support for removable drives was expanded and we added support for alphabetized folders. There
+				is also now an image preview for originals or items in the arrangement. A new feature added for CDR work flow is
+				design of ad hoc deposit forms. A visual editor lets users build deposit forms, mapping input fields to MODS records.
+				These forms can be deployed to a form-hosting service and used to make repository deposits via SWORD.</text>
+			</link>
+			<link
 				label="Issues Closed in Release 3"
 				url="https://github.com/UNC-Libraries/Curators-Workbench/issues?&amp;state=closed&amp;milestone=4"
 				id="github-milestone"
 				style-id="content-link"
 			>
-				<text>This is the current release. It adds support for pre-staged originals and addressed some usability concerns
+				<text>This release added support for pre-staged originals and addressed some usability concerns
 					raised by production use. You can also now use the context menu to "open a temporary copy" of any original or
 					arranged item in your system's default editor.</text>
 			</link>
