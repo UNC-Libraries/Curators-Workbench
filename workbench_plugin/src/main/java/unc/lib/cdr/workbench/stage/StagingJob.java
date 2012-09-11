@@ -29,6 +29,7 @@ import org.eclipse.core.runtime.SubProgressMonitor;
 import org.eclipse.core.runtime.jobs.Job;
 
 import unc.lib.cdr.workbench.originals.OriginalFileStore;
+import unc.lib.cdr.workbench.rcp.Activator;
 
 /**
  * @author Gregory Jansen
@@ -36,6 +37,16 @@ import unc.lib.cdr.workbench.originals.OriginalFileStore;
  */
 public class StagingJob extends Job {
 	List<OriginalFileStore> toStage = null;
+	
+	@Override
+	public boolean belongsTo(Object family) {
+		if(stagingFamily == family) {
+			return true;
+		}
+		return super.belongsTo(family);
+	}
+
+	public static final String stagingFamily = "stagingFamily";
 
 	/**
 	 * @param name
@@ -57,6 +68,7 @@ public class StagingJob extends Job {
 		int stageCount = 0;
 		Set<IProject> projects = new HashSet<IProject>();
 		for (OriginalFileStore original : toStage) {
+			if (monitor.isCanceled()) return Status.CANCEL_STATUS;
 			monitor.setTaskName("Staging " + stageCount++ + " of " + toStage.size());
 			URI prestagedLocation = original.getPrestagedLocation();
 			try {
@@ -68,7 +80,7 @@ public class StagingJob extends Job {
 						new SubProgressMonitor(monitor, 100, SubProgressMonitor.PREPEND_MAIN_LABEL_TO_SUBTASK));
 			}
 			} catch(CoreException e) {
-				
+				return new Status(IStatus.ERROR, Activator.PLUGIN_ID, "Job could not finish", e);
 			}
 		}
 		monitor.done();

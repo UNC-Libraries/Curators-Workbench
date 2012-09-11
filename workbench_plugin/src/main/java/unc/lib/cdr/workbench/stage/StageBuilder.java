@@ -95,6 +95,7 @@ public class StageBuilder extends IncrementalProjectBuilder {
 			}
 		}
 		Job stagingJob = new StagingJob("Staging all captured files", toStage);
+		stagingJob.setPriority(Job.LONG);
 		stagingJob.schedule();
 
 		if (audit) {

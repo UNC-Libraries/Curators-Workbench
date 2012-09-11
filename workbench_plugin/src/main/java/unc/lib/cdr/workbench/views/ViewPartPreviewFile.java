@@ -24,12 +24,12 @@ public class ViewPartPreviewFile extends ViewPart {
 	ISelectionListener selectionListener = new ISelectionListener() {
 		@Override
 		public void selectionChanged(IWorkbenchPart part, final ISelection selection) {
-			part.getSite().getShell().getDisplay().asyncExec(new Runnable() {
+		//	part.getSite().getShell().getDisplay().asyncExec(new Runnable() {
 
-				@Override
-				public void run() {
+		//		@Override
+		//		public void run() {
 					handleSelection(selection);
-				}});
+		//		}});
 		}
 	};
 

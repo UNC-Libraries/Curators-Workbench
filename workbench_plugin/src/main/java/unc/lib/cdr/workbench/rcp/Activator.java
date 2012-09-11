@@ -21,7 +21,9 @@ import java.util.List;
 import org.eclipse.core.commands.Command;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.Status;
+import org.eclipse.core.runtime.jobs.IJobManager;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.ui.PlatformUI;
@@ -29,6 +31,8 @@ import org.eclipse.ui.commands.ICommandService;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.ui.progress.UIJob;
 import org.osgi.framework.BundleContext;
+
+import unc.lib.cdr.workbench.stage.StagingJob;
 
 /**
  * The activator class controls the plug-in life cycle
@@ -93,6 +97,8 @@ public class Activator extends AbstractUIPlugin {
 	@Override
 	public void stop(BundleContext context) throws Exception {
 		plugin = null;
+		IJobManager manager = Platform.getJobManager();
+		manager.cancel(StagingJob.stagingFamily);
 		super.stop(context);
 	}
 
