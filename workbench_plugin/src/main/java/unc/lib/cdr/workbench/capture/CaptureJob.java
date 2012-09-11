@@ -300,7 +300,11 @@ public class CaptureJob extends Job {
 		contentIds.add("info:fedora/uuid:" + uuid.toString());
 		result.setCONTENTIDS(contentIds);
 		result.setID(original.getDivID());
-		result.setLABEL1(original.getWrapped().getName());
+		String name = original.getWrapped().getName();
+		if(name == null || name.trim().isEmpty()) {
+			name = "(disc root)";
+		}
+		result.setLABEL1(name);
 		if (original.fetchInfo().isDirectory()) {
 			result.setTYPE(METSConstants.Div_Folder);
 		} else {

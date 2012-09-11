@@ -14,7 +14,7 @@
             class="unc.lib.cdr.workbench.xwalk.MetadataSourcePropertyTester"
             id="cdr-workbench.propertyTesterMetadataSource"
             namespace="cdr-workbench"
-            properties="isTabularMetadataSource"
+            properties="isTabularMetadataSource,isCrosswalkFile"
             type="org.eclipse.core.resources.IFile">
       </propertyTester>
       <propertyTester
@@ -176,6 +176,11 @@
                class="org.eclipse.ui.handlers.RadioState:Folder"
                id="org.eclipse.ui.commands.radioState">
          </state>
+      </command>
+      <command
+            defaultHandler="unc.lib.cdr.workbench.commands.CrosswalkCommand"
+            id="workbench_plugin.commandRunCrosswalk"
+            name="Run Crosswalk">
       </command>
    </extension>
    <extension
@@ -842,6 +847,32 @@
                </with>
             </visibleWhen>
          </command>
+         <command
+               commandId="workbench_plugin.commandRunCrosswalk"
+               label="Run Crosswalk"
+               mnemonic="R"
+               style="push">
+            <visibleWhen
+                  checkEnabled="false">
+               <with
+                     variable="activeMenuSelection">
+                  <count
+                        value="1">
+                  </count>
+                  <iterate
+                        ifEmpty="false">
+                     <and>
+                        <instanceof
+                              value="org.eclipse.core.resources.IFile">
+                        </instanceof>
+                        <test
+                              property="cdr-workbench.isCrosswalkFile">
+                        </test>
+                     </and>
+                  </iterate>
+               </with>
+            </visibleWhen>
+         </command>
       </menuContribution>
       <menuContribution
             allPopups="false"
@@ -1379,10 +1410,7 @@
                      value="unc.lib.cdr.workbench.arrange.ArrangementProjectElement">
                </instanceof>
                <instanceof
-                     value="org.eclipse.core.resources.IFile">
-               </instanceof>
-               <instanceof
-                     value="org.eclipse.core.resources.IFolder">
+                     value="unc.lib.cdr.workbench.originals.OriginalFileStore">
                </instanceof>
                <instanceof
                      value="gov.loc.mets.MdSecType">
@@ -1543,16 +1571,6 @@
             isConfigurable="true">
          <run
                class="unc.lib.cdr.workbench.stage.StageBuilder">
-         </run>
-      </builder>
-   </extension>
-   <extension
-         id="unc.lib.cdr.workbench.builders.CrosswalksBuilder"
-         name="Crosswalk Builder"
-         point="org.eclipse.core.resources.builders">
-      <builder>
-         <run
-               class="unc.lib.cdr.workbench.xwalk.CrosswalksProjectBuilder">
          </run>
       </builder>
    </extension>

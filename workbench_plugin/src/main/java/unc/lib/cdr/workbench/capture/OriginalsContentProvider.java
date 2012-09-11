@@ -28,6 +28,7 @@ import org.eclipse.jface.viewers.Viewer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import unc.lib.cdr.workbench.originals.OriginalFileStore;
 import unc.lib.cdr.workbench.originals.OriginalStub;
 import unc.lib.cdr.workbench.project.MetsProjectNature;
 
@@ -61,13 +62,15 @@ public class OriginalsContentProvider implements ITreeContentProvider {
 					MetsProjectNature n = (MetsProjectNature) p.getNature(MetsProjectNature.NATURE_ID);
 					results.addAll(n.getOriginals());
 				}
-			} else if(parent instanceof OriginalStub) {
-				OriginalStub original = (OriginalStub)parent;
+			} else if (parent instanceof OriginalStub) {
+				OriginalStub original = (OriginalStub) parent;
 				results.addAll(original.getStores());
-			} else if (parent instanceof IFileStore) {
-				IFileStore f = (IFileStore) parent;
-				for (IFileStore r : f.childStores(0, new NullProgressMonitor())) {
-					results.add(r);
+			} else if (parent instanceof OriginalFileStore) {
+				OriginalFileStore f = (OriginalFileStore) parent;
+				if (f.isAttached()) {
+					for (IFileStore r : f.childStores(0, new NullProgressMonitor())) {
+						results.add(r);
+					}
 				}
 			}
 		} catch (CoreException e) {
@@ -85,7 +88,7 @@ public class OriginalsContentProvider implements ITreeContentProvider {
 	public Object getParent(Object element) {
 		Object result = null;
 		if (element instanceof IFileStore) {
-			return ((IFileStore)element).getParent();
+			return ((IFileStore) element).getParent();
 		} else {
 			return result;
 		}
@@ -98,13 +101,13 @@ public class OriginalsContentProvider implements ITreeContentProvider {
 	 */
 	@Override
 	public boolean hasChildren(Object element) {
-		if(element instanceof OriginalStub) {
+		if (element instanceof OriginalStub) {
 			return true;
-		} else if(element instanceof IFileStore) {
-			IFileStore fs = (IFileStore)element;
+		} else if (element instanceof IFileStore) {
+			IFileStore fs = (IFileStore) element;
 			try {
 				return (fs.fetchInfo().isDirectory() && fs.childNames(EFS.NONE, new NullProgressMonitor()).length > 0);
-			} catch(CoreException e) {
+			} catch (CoreException e) {
 				e.printStackTrace();
 				return false;
 			}

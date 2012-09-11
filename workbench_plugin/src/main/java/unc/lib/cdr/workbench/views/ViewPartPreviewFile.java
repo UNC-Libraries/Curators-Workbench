@@ -23,8 +23,13 @@ public class ViewPartPreviewFile extends ViewPart {
 
 	ISelectionListener selectionListener = new ISelectionListener() {
 		@Override
-		public void selectionChanged(IWorkbenchPart part, ISelection selection) {
-			handleSelection(selection);
+		public void selectionChanged(IWorkbenchPart part, final ISelection selection) {
+			part.getSite().getShell().getDisplay().asyncExec(new Runnable() {
+
+				@Override
+				public void run() {
+					handleSelection(selection);
+				}});
 		}
 	};
 
@@ -60,16 +65,16 @@ public class ViewPartPreviewFile extends ViewPart {
 		viewer = new ImageViewer(parent, SWT.NONE);
 	}
 
-	protected void setImageProvider(ImageProvider provider) {
-		if (provider == null)
+	protected void setImageProvider(final ImageProvider newprovider) {
+		if (newprovider == null)
 			return;
-		Image image = provider.getImage(viewer.getDisplay());
-		if (image != null) {
-			viewer.setImage(image);
+		Image newimage = newprovider.getImage(viewer.getDisplay());
+		if (newimage != null) {
+			viewer.setImage(newimage);
 		}
 		disposeImage();
-		this.provider = provider;
-		this.image = image;
+		provider = newprovider;
+		image = newimage;
 	}
 
 	public void dispose() {

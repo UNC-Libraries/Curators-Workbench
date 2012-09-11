@@ -146,7 +146,14 @@ public class OriginalsLabelProvider implements ILabelProvider/* , IDelayedLabelD
 			OriginalStub o = (OriginalStub)element;
 			return o.getName();
 		} else if(element instanceof IFileStore) {
-			return ((IFileStore)element).getName();
+			IFileStore fs = (IFileStore)element;
+			String name = fs.getName();
+			//System.out.println("got name: |"+name+"|");
+			if(name == null || name.trim().length() == 0) {
+				return "(disc root)";
+			} else {
+				return name;
+			}
 		}
 		return provider.getText(element);
 	}

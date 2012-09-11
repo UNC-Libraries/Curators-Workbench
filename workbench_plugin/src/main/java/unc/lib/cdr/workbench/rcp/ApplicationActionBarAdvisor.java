@@ -29,6 +29,7 @@ import org.eclipse.ui.actions.ActionFactory.IWorkbenchAction;
 import org.eclipse.ui.actions.ContributionItemFactory;
 import org.eclipse.ui.application.ActionBarAdvisor;
 import org.eclipse.ui.application.IActionBarConfigurer;
+import org.eclipse.ui.ide.IDEActionFactory;
 
 public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
 
@@ -67,7 +68,7 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
 		register(searchHelpAction);
 		showDynamicHelpAction = ActionFactory.DYNAMIC_HELP.create(window);
 		register(showDynamicHelpAction);
-
+		
 		// standard actions
 		newWizardDropDownAction = ActionFactory.NEW_WIZARD_DROP_DOWN.create(window);
 		register(newWizardDropDownAction);

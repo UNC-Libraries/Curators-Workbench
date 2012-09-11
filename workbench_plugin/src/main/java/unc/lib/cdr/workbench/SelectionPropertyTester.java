@@ -103,6 +103,13 @@ public class SelectionPropertyTester extends PropertyTester {
 								if(!(r instanceof OriginalFileStore)) {
 									return false;
 								}
+								if(((OriginalFileStore)r).getParent() == null) {
+									if(c != null) {
+										return false;
+									} else {
+										continue;
+									}
+								}
 								if(!(c.equals((OriginalFileStore)((OriginalFileStore)r).getParent()))) {
 									System.out.println("not the same parent");
 									return false;

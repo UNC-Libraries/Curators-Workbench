@@ -85,7 +85,7 @@ public class METSWorkspaceSaveParticipant implements ISaveParticipant {
 	public void saving(ISaveContext context) throws CoreException {
 		LOG.debug("METS save participant called, save(context)");
 		// find all projects with METS nature
-		if(context.getKind() == ISaveContext.FULL_SAVE) {
+		if(context.getKind() == ISaveContext.FULL_SAVE || context.getKind() == ISaveContext.SNAPSHOT) {
 			for (IProject p : ResourcesPlugin.getWorkspace().getRoot().getProjects()) {
 				if (p.isOpen() && p.hasNature(MetsProjectNature.NATURE_ID)) {
 					MetsProjectNature n = (MetsProjectNature) p.getNature(MetsProjectNature.NATURE_ID);

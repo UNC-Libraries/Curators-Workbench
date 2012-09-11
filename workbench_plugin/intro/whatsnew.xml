@@ -54,7 +54,7 @@
 				This was implemented to support a local EAD authoring scenario, but may be useful to others. You can also now export entire projects
 				to a ZIP file or a shared drive. This was done to support multi-user work flows and projects with a significant wait
 				between the capture step and arrangement or description. Individual files, such as crosswalks and data dictionaries, can also
-				be export and imported across project and workbench installations.</text>
+				be exported and imported across project and workbench installations.</text>
 			</group>
 			<group
 				label='Deposit Form Designer'

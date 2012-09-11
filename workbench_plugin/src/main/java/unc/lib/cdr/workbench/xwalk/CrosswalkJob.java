@@ -30,21 +30,18 @@ import gov.loc.mods.mods.MODSPackage;
 import gov.loc.mods.mods.ModsDefinition;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IMarker;
-import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
-import org.eclipse.core.resources.IResourceDelta;
-import org.eclipse.core.resources.IResourceVisitor;
-import org.eclipse.core.resources.IncrementalProjectBuilder;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
+import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.impl.NotificationImpl;
@@ -60,8 +57,8 @@ import org.eclipse.emf.edit.command.RemoveCommand;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import unc.lib.cdr.workbench.IResourceConstants;
 import unc.lib.cdr.workbench.project.MetsProjectNature;
+import unc.lib.cdr.workbench.rcp.Activator;
 import crosswalk.CrossWalk;
 import crosswalk.CrosswalkPackage;
 import crosswalk.DataException;
@@ -74,94 +71,20 @@ import crosswalk.RecordMatches;
 import crosswalk.RecordOutOfRangeException;
 import crosswalk.WalkWidget;
 
-public class CrosswalksProjectBuilder extends IncrementalProjectBuilder {
-	private static final Logger LOG = LoggerFactory.getLogger(CrosswalksProjectBuilder.class);
+public class CrosswalkJob extends Job {
+	private static final Logger LOG = LoggerFactory.getLogger(CrosswalkJob.class);
 
-	public CrosswalksProjectBuilder() {
+	IFile file = null;
+	MetsProjectNature nature = null;
+	
+	public CrosswalkJob(IFile crosswalkFile) {
+		super("Running "+crosswalkFile.getName());
+		this.file = crosswalkFile;
+		this.nature = MetsProjectNature.get(this.file.getProject());
 	}
 
 	@Override
-	protected IProject[] build(int kind, @SuppressWarnings("rawtypes") Map args, IProgressMonitor monitor)
-			throws CoreException {
-		// FIXME switch on kind, support incremental builds of just the CW that changed..
-		if (kind == this.INCREMENTAL_BUILD || kind == this.AUTO_BUILD) {
-			incrementalBuild(monitor);
-		} else if (kind == this.CLEAN_BUILD || kind == this.FULL_BUILD) {
-			fullBuild(monitor);
-		}
-		return null;
-	}
-
-	/**
-	 * @param monitor
-	 */
-	private void incrementalBuild(IProgressMonitor monitor) {
-		LOG.debug("incremental crosswalk build triggered");
-		IProject p = getProject();
-		try {
-			if (p.isOpen() && p.hasNature(MetsProjectNature.NATURE_ID)) {
-				IResourceDelta d = this.getDelta(p);
-				MetsProjectNature n = (MetsProjectNature) p.getNature(MetsProjectNature.NATURE_ID);
-				if (d != null) {
-					if (d.getResource().exists() && d.getResource() instanceof IFile
-							&& IResourceConstants.CROSSWALK_EXTENSION.equals(d.getResource().getFileExtension())) {
-						runCrosswalk(n, (IFile) d.getResource());
-					} else {
-						for (IResourceDelta r : d.getAffectedChildren()) {
-							LOG.debug("incremental crosswalk build child loop triggered: "+r);
-							if (r.getResource().exists() && r.getResource() instanceof IFile) {
-								LOG.debug("exists and is file: "+r);
-								if(IResourceConstants.CROSSWALK_EXTENSION.equals(r.getResource().getFileExtension())) {
-									LOG.debug("matched extension: "+r);
-									runCrosswalk(n, (IFile) r.getResource());
-								}
-							}
-						}
-					}
-				}
-			}
-		} catch (CoreException e) {
-			LOG.error("Unexpected", e);
-		}
-	}
-
-	/**
-	 * @param monitor
-	 */
-	private void fullBuild(IProgressMonitor monitor) {
-		LOG.debug("full crosswalk build triggered");
-		IProject p = getProject();
-		try {
-			if (p.isOpen() && p.hasNature(MetsProjectNature.NATURE_ID)) {
-				final List<IFile> crosswalks = new ArrayList<IFile>();
-				p.accept(new IResourceVisitor() {
-					@Override
-					public boolean visit(IResource resource) throws CoreException {
-						if(resource instanceof IFile && IResourceConstants.CROSSWALK_EXTENSION.equals(resource.getFileExtension())) {
-							crosswalks.add((IFile)resource);
-							return false;
-						} else {
-							return true;
-						}
-					}
-				});
-				MetsProjectNature n = (MetsProjectNature) p.getNature(MetsProjectNature.NATURE_ID);
-				for (IFile r : crosswalks) {
-					runCrosswalk(n, (IFile) r);
-				}
-			}
-		} catch (CoreException e) {
-			LOG.error("Unexpected", e);
-		}
-	}
-
-	/**
-	 * @param nature
-	 *           the METS project nature
-	 * @param file
-	 *           the crosswalk definition file
-	 */
-	private void runCrosswalk(MetsProjectNature nature, IFile file) {
+	protected IStatus run(IProgressMonitor monitor) {
 		LOG.debug("running crosswalk: " + file.getName());
 		clearProblemMarkers(file);
 		final MetsType m = nature.getMets();
@@ -188,11 +111,11 @@ public class CrosswalksProjectBuilder extends IncrementalProjectBuilder {
 		}
 		if (cw == null) {
 			setProblemMarker("No CrossWalk element in this file.", file);
-			return;
+			return new Status(IStatus.ERROR, Activator.PLUGIN_ID, "There was no crosswalk element in the file.");
 		}
 		if (cw.getDataSource() == null) {
 			setProblemMarker("No data source defined in this CrossWalk", file);
-			return;
+			return new Status(IStatus.ERROR, Activator.PLUGIN_ID, "There was no data source defined in the crosswalk file.");
 		}
 
 		String dataFileName = cw.getDataSource().getName();
@@ -201,7 +124,7 @@ public class CrosswalksProjectBuilder extends IncrementalProjectBuilder {
 		} catch (DataException e) {
 			LOG.debug("cannot reset data source", e);
 			setProblemMarker(e.getLocalizedMessage(), file);
-			return;
+			return new Status(IStatus.ERROR, Activator.PLUGIN_ID, "Cannot reset the data source in the crosswalk file.");
 		}
 		cw.setMetsSource(new MetsSource() {
 			@Override
@@ -334,6 +257,7 @@ public class CrosswalksProjectBuilder extends IncrementalProjectBuilder {
 				}
 			}
 		}
+		return Status.OK_STATUS;
 	}
 
 	/**
@@ -401,4 +325,5 @@ public class CrosswalksProjectBuilder extends IncrementalProjectBuilder {
 			LOG.error("there was a problem setting the problem marker:" + msg);
 		}
 	}
+
 }

@@ -24,6 +24,8 @@ import org.eclipse.core.runtime.content.IContentType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import unc.lib.cdr.workbench.IResourceConstants;
+
 public class MetadataSourcePropertyTester extends PropertyTester {
 
 	private static final Logger LOG = LoggerFactory.getLogger(MetadataSourcePropertyTester.class);
@@ -61,6 +63,13 @@ public class MetadataSourcePropertyTester extends PropertyTester {
 				// return expectedValue.equals(actualContentType.getId());
 			}
 			return false;
+		}
+		if (receiver instanceof IFile && "isCrosswalkFile".equals(property)) {
+			IFile file = (IFile) receiver;
+			if (!file.exists()) {
+				return false;
+			}
+			return IResourceConstants.CROSSWALK_EXTENSION.equals(file.getFileExtension());
 		}
 		return false;
 	}

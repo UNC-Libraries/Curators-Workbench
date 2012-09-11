@@ -62,6 +62,10 @@ public class OriginalFileStore implements IFileStore {
 		}
 		this.wrapped = EFS.getStore(wrappedUri);
 	}
+	
+	public boolean isAttached() {
+		return this.stub.isAttached();
+	}
 
 	public OriginalFileStore(IFileStore iFileStore, OriginalStub stub) throws CoreException {
 		this.wrapped = iFileStore;

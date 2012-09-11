@@ -59,12 +59,13 @@ public class OriginalStub implements java.io.Serializable {
 			throw new Error(e);
 		}
 		this.name = Paths.get(volumeRoot).toFile().getName();
-		if(this.name == null || this.name.trim().length() == 0) {
+		if (this.name == null || this.name.trim().length() == 0) {
 			this.name = this.volumeRoot.toString();
-			if("file:/".equals(this.name.trim())) this.name = "/";
+			if ("file:/".equals(this.name.trim()))
+				this.name = "/";
 		}
 	}
-	
+
 	public String getName() {
 		return this.name;
 	}
@@ -120,10 +121,14 @@ public class OriginalStub implements java.io.Serializable {
 	}
 
 	public void addLocations(Collection<URI> newLocations, Map<URI, URI> prestageLocations) {
-		this.locations.addAll(newLocations);
-		if (prestageLocations != null)
-			this.prestageLocations.putAll(prestageLocations);
-		init();
+		if (this.isAttached()) {
+			this.locations.addAll(newLocations);
+			if (prestageLocations != null)
+				this.prestageLocations.putAll(prestageLocations);
+			init();
+		} else {
+			throw new Error("cannot add locations to an original stub when it is not attached.");
+		}
 	}
 
 	public int getVolumeHash() {
@@ -141,11 +146,11 @@ public class OriginalStub implements java.io.Serializable {
 	public boolean isAttached() {
 		try {
 			int currentHash = VolumeUtil.makeVolumeFingerprint(this.getVolumeRoot());
-			//System.err.println("hashes " + currentHash + " " + this.getVolumeHash());
+			// System.err.println("hashes " + currentHash + " " + this.getVolumeHash());
 			return (currentHash == this.getVolumeHash());
 		} catch (NoSuchFileException e) {
 			return false;
-		} catch(java.nio.file.FileSystemException e) {
+		} catch (java.nio.file.FileSystemException e) {
 			return false;
 		} catch (IOException e) {
 			e.printStackTrace(System.err);
@@ -154,7 +159,7 @@ public class OriginalStub implements java.io.Serializable {
 	}
 
 	public List<OriginalFileStore> getStores() {
-		if (this.stores == null || this.stores.isEmpty())
+		if (this.isAttached() && (this.stores == null || this.stores.isEmpty()))
 			init();
 		return stores;
 	}

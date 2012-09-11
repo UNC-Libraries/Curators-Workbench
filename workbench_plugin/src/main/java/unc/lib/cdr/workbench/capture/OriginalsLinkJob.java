@@ -120,7 +120,7 @@ public class OriginalsLinkJob extends Job {
 						existingStub = s;
 					}
 				}
-				if(existingStub != null) {
+				if(existingStub != null && existingStub.isAttached()) {
 					existingStub.addLocations(volumeToLocations.get(volumeRoot), volumeToPrestageLocations.get(volumeRoot));
 				} else {
 					OriginalStub original = new OriginalStub(volumeRoot, volumeToLocations.get(volumeRoot), volumeToPrestageLocations.get(volumeRoot), this.project);

@@ -73,10 +73,6 @@ import unc.lib.cdr.workbench.stage.StagedFilesProjectElement;
 public class MetsProjectNature implements IProjectNature {
 
 	private static final Logger LOG = LoggerFactory.getLogger(MetsProjectNature.class);
-
-	public static final String ORIGINALS_FOLDER_NAME = ".originals";
-	// public static final String STAGE_FOLDER_NAME = ".stage";
-
 	private static final Logger log = LoggerFactory.getLogger(MetsProjectNature.class);
 	public static final String NATURE_ID = "cdr_producer.projectNature";
 	public static final String STAGING_BUILDER_ID = "unc.lib.cdr.workbench.builders.StageBuilder";
@@ -158,10 +154,6 @@ public class MetsProjectNature implements IProjectNature {
 	public void configure() throws CoreException {
 		System.err.println("IN CONFIGURE!!");
 		try {
-			IFolder os = this.getProject().getFolder(ORIGINALS_FOLDER_NAME);
-			if (!os.exists()) {
-				os.create(IResource.FORCE, true, new NullProgressMonitor());
-			}
 			// set up builders
 			IProjectDescription desc = this.getProject().getDescription();
 			boolean autostage = getAutomaticStaging(getProject());
@@ -399,18 +391,10 @@ public class MetsProjectNature implements IProjectNature {
 		stagingCommand.setBuilding(IncrementalProjectBuilder.FULL_BUILD, true);
 		stagingCommand.setBuilding(IncrementalProjectBuilder.INCREMENTAL_BUILD, true);
 
-		// create crosswalks builder
-		ICommand crosswalksCommand = desc.newCommand();
-		crosswalksCommand.setBuilderName(MetsProjectNature.CROSSWALKS_BUILDER_ID);
-		crosswalksCommand.setBuilding(IncrementalProjectBuilder.AUTO_BUILD, true);
-		crosswalksCommand.setBuilding(IncrementalProjectBuilder.FULL_BUILD, true);
-		crosswalksCommand.setBuilding(IncrementalProjectBuilder.INCREMENTAL_BUILD, true);
-
 		// add builders to project description
 		List<ICommand> builders = new ArrayList<ICommand>();
 		builders.add(stagingCommand);
-		builders.add(crosswalksCommand);
-		desc.setBuildSpec(builders.toArray(new ICommand[2]));
+		desc.setBuildSpec(builders.toArray(new ICommand[1]));
 	}
 
 	public static EObject getModel(URIFragmentEditorInput in) {

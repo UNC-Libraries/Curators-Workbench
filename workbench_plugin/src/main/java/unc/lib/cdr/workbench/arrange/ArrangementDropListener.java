@@ -353,9 +353,11 @@ public class ArrangementDropListener extends ViewerDropAdapter {
 		try {
 	   	 IStructuredSelection sel = (IStructuredSelection)LocalSelectionTransfer.getTransfer().getSelection();
 	   	 for(Object o : sel.toArray()) {
-	   		 if(o instanceof IResource) {
-	   			 IResource r = (IResource)o;
-	   			 if (!MetsProjectNature.ORIGINALS_FOLDER_NAME.equals(r.getProjectRelativePath().segment(0))) {
+	   		 if(o instanceof OriginalFileStore) {
+	   			 OriginalFileStore r = (OriginalFileStore)o;
+	   			 if(r.isAttached()) {
+	   				 continue;
+	   			 } else {
 	   				 return false;
 	   			 }
 	   		 } else if(o instanceof DivType) {
