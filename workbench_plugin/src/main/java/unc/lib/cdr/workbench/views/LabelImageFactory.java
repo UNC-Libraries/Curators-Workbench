@@ -89,7 +89,9 @@ public class LabelImageFactory {
 		ACLDecor("key_sm.gif", Size.ORIGINAL),
 		CrosswalkedRecord("property_obj.gif", Size.ORIGINAL),
 		LinkedObject("link_obj.gif", Size.ORIGINAL),
-		EjectedDecore("ejected1.gif", Size.ORIGINAL);
+		EjectedDecore("ejected1.gif", Size.ORIGINAL), 
+		Loading("loading.png", Size.ORIGINAL),
+		NoPreview("no_preview.png", Size.ORIGINAL);
 		Size size = Size.ORIGINAL;
 		String imageFile = null;
 

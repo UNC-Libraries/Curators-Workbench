@@ -40,13 +40,13 @@ public class StagingJob extends Job {
 	
 	@Override
 	public boolean belongsTo(Object family) {
-		if(stagingFamily == family) {
+		if(stagingJobFamilyObject == family) {
 			return true;
 		}
 		return super.belongsTo(family);
 	}
 
-	public static final String stagingFamily = "stagingFamily";
+	public static final String stagingJobFamilyObject = "stagingFamily";
 
 	/**
 	 * @param name

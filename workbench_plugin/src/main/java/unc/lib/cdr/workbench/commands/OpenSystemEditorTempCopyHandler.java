@@ -17,7 +17,9 @@ import org.eclipse.core.runtime.Path;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.IWorkbenchPage;
+import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PartInitException;
+import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.handlers.HandlerUtil;
 import org.eclipse.ui.ide.IDE;
 
@@ -58,7 +60,7 @@ public class OpenSystemEditorTempCopyHandler extends AbstractHandler implements 
 				origPath.removeFileExtension().lastSegment() +
 				" (Temporary Copy)." +
 				origPath.getFileExtension());
-		IFileStore tempStore = EFS.getLocalFileSystem().getStore(temppath);
+		final IFileStore tempStore = EFS.getLocalFileSystem().getStore(temppath);
 		if(!tempStore.fetchInfo().exists()) {
 			try {
 				tempStore.getParent().mkdir(EFS.NONE, new NullProgressMonitor());
@@ -68,14 +70,17 @@ public class OpenSystemEditorTempCopyHandler extends AbstractHandler implements 
 				throw new ExecutionException("Cannot copy file to temporary location: "+e.getMessage());
 			}
 		}
-		IWorkbenchPage page = HandlerUtil.getActiveWorkbenchWindow(event).getActivePage();
-		System.out.print(page);
-		try {
-			IDE.openEditorOnFileStore(page, tempStore);
-		} catch (PartInitException e) {
-			e.printStackTrace();
-			throw new ExecutionException("Cannot open editor for temporary copy: "+e.getMessage());
-		}
+		PlatformUI.getWorkbench().getDisplay().asyncExec(new Runnable() {
+
+			@Override
+			public void run() {
+				IWorkbenchPage page = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
+				try {
+					IDE.openEditorOnFileStore(page, tempStore);
+				} catch (PartInitException e) {
+					e.printStackTrace();
+				}				
+			}});
 	}
 
 }

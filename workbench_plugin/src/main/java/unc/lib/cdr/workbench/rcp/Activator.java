@@ -33,6 +33,7 @@ import org.eclipse.ui.progress.UIJob;
 import org.osgi.framework.BundleContext;
 
 import unc.lib.cdr.workbench.stage.StagingJob;
+import unc.lib.cdr.workbench.xwalk.CrosswalkJob;
 
 /**
  * The activator class controls the plug-in life cycle
@@ -96,10 +97,11 @@ public class Activator extends AbstractUIPlugin {
 	 */
 	@Override
 	public void stop(BundleContext context) throws Exception {
-		plugin = null;
 		IJobManager manager = Platform.getJobManager();
-		manager.cancel(StagingJob.stagingFamily);
+		manager.cancel(StagingJob.stagingJobFamilyObject);
+		manager.cancel(CrosswalkJob.crosswalkJobFamilyObject);
 		super.stop(context);
+		plugin = null;
 	}
 
 	/**

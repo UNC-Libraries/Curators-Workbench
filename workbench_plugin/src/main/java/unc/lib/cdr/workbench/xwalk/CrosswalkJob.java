@@ -72,6 +72,13 @@ import crosswalk.RecordOutOfRangeException;
 import crosswalk.WalkWidget;
 
 public class CrosswalkJob extends Job {
+	public static final String crosswalkJobFamilyObject = "crosswalkJobFamily";
+	@Override
+	public boolean belongsTo(Object family) {
+		if(family == crosswalkJobFamilyObject) return true;
+		return super.belongsTo(family);
+	}
+
 	private static final Logger LOG = LoggerFactory.getLogger(CrosswalkJob.class);
 
 	IFile file = null;
@@ -150,6 +157,7 @@ public class CrosswalkJob extends Job {
 		// create new records, update status if old dmd was user linked
 		try {
 			while (true) {
+				if (monitor.isCanceled()) return Status.CANCEL_STATUS;
 				MdSecType md = processRecord(cw, m, nature, file, dataFileName);
 				newCwDmds.put(md.getID(), md);
 				if (oldCwDmds.containsKey(md.getID())) {

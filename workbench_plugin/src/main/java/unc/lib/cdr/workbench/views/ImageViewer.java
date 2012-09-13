@@ -135,6 +135,10 @@ public class ImageViewer extends Canvas {
 	 */
 	public void setImage(Image image) {
 		this.image = image;
-		redraw();
+		this.getDisplay().asyncExec(new Runnable() {
+			@Override
+			public void run() {
+				redraw();
+			}});
 	}
 }

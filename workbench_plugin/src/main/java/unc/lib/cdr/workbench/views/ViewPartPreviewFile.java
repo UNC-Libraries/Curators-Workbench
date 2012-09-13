@@ -1,7 +1,11 @@
 package unc.lib.cdr.workbench.views;
 
 import org.eclipse.core.runtime.IAdaptable;
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Platform;
+import org.eclipse.core.runtime.Status;
+import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.SWT;
@@ -24,12 +28,15 @@ public class ViewPartPreviewFile extends ViewPart {
 	ISelectionListener selectionListener = new ISelectionListener() {
 		@Override
 		public void selectionChanged(IWorkbenchPart part, final ISelection selection) {
-		//	part.getSite().getShell().getDisplay().asyncExec(new Runnable() {
-
-		//		@Override
-		//		public void run() {
+			Job load = new Job("Loading image preview") {
+				@Override
+				protected IStatus run(IProgressMonitor monitor) {
 					handleSelection(selection);
-		//		}});
+					return Status.OK_STATUS;
+				}
+			};
+			load.setPriority(Job.DECORATE);
+			load.schedule();
 		}
 	};
 
@@ -37,6 +44,13 @@ public class ViewPartPreviewFile extends ViewPart {
 		if (selection instanceof IStructuredSelection) {
 			IStructuredSelection sel = (IStructuredSelection) selection;
 			Object o = sel.getFirstElement();
+			Image first = LabelImageFactory.getImageForObject(o);
+			if (first == null) {
+				LabelImageFactory.getImage(LabelImageFactory.Icon.Loading);
+			}
+			if (viewer != null) {
+				viewer.setImage(first);
+			}
 			setImageProvider(getImageProvider(o));
 		}
 	}
@@ -49,12 +63,13 @@ public class ViewPartPreviewFile extends ViewPart {
 		ImageProvider provider = null;
 		if (object instanceof IAdaptable)
 			provider = (ImageProvider) ((IAdaptable) object).getAdapter(ImageProvider.class);
-		
+
 		// If we haven't found an adapter yet, try asking the AdapterManager.
 		try {
 			if (provider == null)
 				provider = (ImageProvider) Platform.getAdapterManager().loadAdapter(object, ImageProvider.class.getName());
-		} catch(NullPointerException ignored) {}
+		} catch (NullPointerException ignored) {
+		}
 		return provider;
 	}
 
@@ -71,6 +86,8 @@ public class ViewPartPreviewFile extends ViewPart {
 		Image newimage = newprovider.getImage(viewer.getDisplay());
 		if (newimage != null) {
 			viewer.setImage(newimage);
+		} else {
+			viewer.setImage(LabelImageFactory.getImage(LabelImageFactory.Icon.NoPreview));
 		}
 		disposeImage();
 		provider = newprovider;
