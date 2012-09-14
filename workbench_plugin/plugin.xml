@@ -73,6 +73,11 @@
             defaultHandler="unc.lib.cdr.workbench.capture.CaptureHandler"
             id="cdr-workbench.commandCaptureObject"
             name="Capture Object">
+         <commandParameter
+               id="workbench_plugin.commandParameterCaptureFilter"
+               name="filterExtensions"
+               optional="true">
+         </commandParameter>
       </command>
       <command
             defaultHandler="unc.lib.cdr.workbench.capture.LinkOriginalsHandler"
@@ -429,6 +434,36 @@
                   </and>
                </with>
             </visibleWhen>
+         </command>
+         <command
+               commandId="cdr-workbench.commandCaptureObject"
+               label="Capture by File Extension..."
+               style="push">
+            <visibleWhen
+                  checkEnabled="false">
+               <with
+                     variable="activeMenuSelection">
+                  <and>
+                     <test
+                           property="workbench_plugin.selection.siblingOriginals">
+                     </test>
+                     <iterate
+                           ifEmpty="false">
+                        <and>
+                           <or>
+                              <instanceof
+                                    value="unc.lib.cdr.workbench.originals.OriginalFileStore">
+                              </instanceof>
+                           </or>
+                        </and>
+                     </iterate>
+                  </and>
+               </with>
+            </visibleWhen>
+            <parameter
+                  name="workbench_plugin.commandParameterCaptureFilter"
+                  value="true">
+            </parameter>
          </command>
          <command
                commandId="cdr-workbench.commandOpenCopySystemEditor"

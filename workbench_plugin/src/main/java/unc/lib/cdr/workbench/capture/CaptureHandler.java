@@ -16,13 +16,16 @@
 package unc.lib.cdr.workbench.capture;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.jface.viewers.ISelectionProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.window.Window;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.handlers.HandlerUtil;
@@ -48,8 +51,21 @@ public class CaptureHandler extends AbstractHandler {
 		ISelectionProvider sp = HandlerUtil.getActiveSite(event).getSelectionProvider();
 		IStructuredSelection s = (IStructuredSelection) sp.getSelection();
 		toCapture.addAll(s.toList());
+		
 
 		CaptureJob job = new CaptureJob("Capturing " + Integer.toString(toCapture.size()) + " items...", toCapture);
+		
+		String filter = event.getParameter("workbench_plugin.commandParameterCaptureFilter");
+		if("true".equals(filter)) {
+			SelectFileExtensionsDialog dialog = new SelectFileExtensionsDialog(HandlerUtil.getActiveShell(event), toCapture);
+			dialog.create();
+			if (dialog.open() == Window.OK) {
+			  job.setIncludedFileExtensions(dialog.getSelectedFileExtensions());
+			} else {
+				return null;
+			}
+		}
+
 		IWorkbenchPart part = HandlerUtil.getActivePart(event);
 		if (part != null) {
 			IWorkbenchSiteProgressService siteService = (IWorkbenchSiteProgressService) part.getSite().getAdapter(

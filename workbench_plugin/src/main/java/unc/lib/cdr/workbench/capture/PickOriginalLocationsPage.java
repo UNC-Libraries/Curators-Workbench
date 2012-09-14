@@ -42,6 +42,8 @@ import org.eclipse.jface.viewers.CheckStateChangedEvent;
 import org.eclipse.jface.viewers.CheckboxTreeViewer;
 import org.eclipse.jface.viewers.ICheckStateListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.viewers.TreePath;
+import org.eclipse.jface.viewers.TreeSelection;
 import org.eclipse.jface.viewers.ViewerComparator;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
@@ -477,7 +479,7 @@ public class PickOriginalLocationsPage extends WizardPage implements Listener {
 			setErrorMessage(validLocationMessage);
 			return false;
 		}
-		if (this.fileTreeViewer.getSelection().isEmpty()) {
+		if (this.fileTreeViewer.getCheckedElements().length < 1) {
 			setErrorMessage("Please select originals to link in the folder tree.");
 			return false;
 		}
@@ -544,6 +546,7 @@ public class PickOriginalLocationsPage extends WizardPage implements Listener {
 			FileStoreProvider.Root root = (FileStoreProvider.Root) this.fileTreeViewer.getInput();
 			if (root.roots != null && root.roots.length > 0) {
 				this.fileTreeViewer.setChecked(root.roots[0], true);
+				//this.fileTreeViewer.setSelection(new TreeSelection(new TreePath(new Object[] {root, root.roots[0]})));
 			}
 		}
 	}
@@ -636,6 +639,7 @@ public class PickOriginalLocationsPage extends WizardPage implements Listener {
 			if (!base.equals(this.fileTreeViewer.getInput())) {
 				this.fileTreeViewer.setInput(new FileStoreProvider.Root(base));
 				this.preStageSuffixLabel.setText(base.getName());
+				selectFirstCheckbox();
 			}
 		}
 	}
@@ -662,7 +666,7 @@ public class PickOriginalLocationsPage extends WizardPage implements Listener {
 	 * @return
 	 */
 	public boolean finish() {
-		List<URI> selected = getSelectedLocations();
+		List<URI> selected = getCheckedLocations();
 		URI prestageBase = null;
 		try {
 			if (this.preStagedButton.getSelection()) {
@@ -691,7 +695,7 @@ public class PickOriginalLocationsPage extends WizardPage implements Listener {
 	 * @return
 	 * 
 	 */
-	private List<URI> getSelectedLocations() {
+	private List<URI> getCheckedLocations() {
 		List<URI> result = new ArrayList<URI>();
 		for (Object o : this.fileTreeViewer.getCheckedElements()) {
 			result.add(((IFileStore) o).toURI());

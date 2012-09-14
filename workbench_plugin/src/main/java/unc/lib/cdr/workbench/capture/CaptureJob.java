@@ -23,7 +23,6 @@ import gov.loc.mets.MetsPackage;
 import gov.loc.mets.MetsType;
 import gov.loc.mets.util.METSConstants;
 import gov.loc.mets.util.METSUtils;
-import irods.efs.plugin.Activator;
 
 import java.text.Collator;
 import java.util.ArrayList;
@@ -33,13 +32,14 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.UUID;
+import java.util.regex.Pattern;
 
 import org.eclipse.core.filesystem.EFS;
 import org.eclipse.core.filesystem.IFileInfo;
 import org.eclipse.core.filesystem.IFileStore;
 import org.eclipse.core.resources.IProject;
-import org.eclipse.core.resources.IncrementalProjectBuilder;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
@@ -60,6 +60,15 @@ import unc.lib.cdr.workbench.project.MetsProjectNature;
 public class CaptureJob extends Job {
 	private IProject project = null;
 	private List<OriginalFileStore> items;
+	private Set<String> includedFileExtensions = null;
+	public Set<String> getIncludedFileExtensions() {
+		return includedFileExtensions;
+	}
+
+	public void setIncludedFileExtensions(Set<String> includedFileExtensions) {
+		this.includedFileExtensions = includedFileExtensions;
+	}
+
 	private DivType topDestination = null;
 	private DivType insertBefore = null;
 	private MetsProjectNature mpn = null;
@@ -227,12 +236,16 @@ public class CaptureJob extends Job {
 			DivType d = r.getMetsDivType();
 			boolean newDiv = false;
 			if (d == null) {
-				newDiv = true;
-				d = makeDiv(r);
-				result.put(r, d);
-				// dest.getDiv().add(d);
-			} else {
-				System.out.println("previously captured: " + d);
+				String ext = "";
+				String[] parts = r.getName().split(Pattern.quote("."));
+				if(parts.length > 1) {
+					ext = parts[parts.length-1];
+				}
+				if(r.fetchInfo().isDirectory() || this.includedFileExtensions == null || this.includedFileExtensions.contains(ext)) {
+					newDiv = true;
+					d = makeDiv(r);
+					result.put(r, d);
+				}
 			}
 			IProgressMonitor mon = new NullProgressMonitor();
 			if (r.fetchInfo().isDirectory()) {
