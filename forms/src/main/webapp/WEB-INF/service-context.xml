@@ -57,39 +57,9 @@
 		<property name="defaultContainer" ref="${forms.default.container.pid}"/>
 	</bean>
 	
-	<bean id="authorizationHandler" class="cdr.forms.ShibbolethAuthorizationHandler">
+	<bean id="authorizationHandler" class="cdr.forms.RequestHeaderAuthorizationHandler">
 		<property name="groupsHeaderName" value="isMemberOf"/>
 		<property name="splitCharacter" value=";"/>
 	</bean>
-
-	<!-- JMX -->
-
-	<bean id="loggingExporter" class="org.springframework.jmx.export.MBeanExporter"
-		lazy-init="false">
-		<property name="beans">
-			<map>
-				<entry key="cdr-services:jmxservice=loggingConfiguration"
-					value-ref="loggingMBean" />
-			</map>
-		</property>
-		<property name="registrationBehaviorName" value="REGISTRATION_REPLACE_EXISTING" />
-		<property name="assembler">
-			<bean
-				class="org.springframework.jmx.export.assembler.InterfaceBasedMBeanInfoAssembler">
-				<property name="managedInterfaces">
-					<array value-type="java.lang.Class">
-						<value>de.stefanheintz.log.jmxservice.LoggingConfig</value>
-					</array>
-				</property>
-			</bean>
-		</property>
-	</bean>
-
-	<!-- Logging MBean -->
-	<!-- http://code.google.com/p/logging-jmx-service/wiki/Tutorial -->
-	<bean id="loggingMBean" class="de.stefanheintz.log.jmxservice.LoggingConfigImpl">
-	</bean>
-
-
 
 </beans>

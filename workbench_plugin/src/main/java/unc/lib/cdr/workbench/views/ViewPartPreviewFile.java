@@ -6,11 +6,15 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
+import org.eclipse.jface.action.Action;
+import org.eclipse.jface.action.IMenuManager;
+import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.ISelectionListener;
 import org.eclipse.ui.ISelectionService;
 import org.eclipse.ui.IWorkbenchPart;
@@ -18,9 +22,25 @@ import org.eclipse.ui.part.ViewPart;
 
 public class ViewPartPreviewFile extends ViewPart {
 
+	public class PreviewToggleAction extends Action {
+		public PreviewToggleAction() {
+			super("Disable Preview");
+		}
+		@Override
+		public void run() {
+			enabled = !enabled;
+			if(enabled) {
+				this.setText("Disable Preview");
+			} else {
+				this.setText("Enable Preview");
+			}
+		}
+	}
+
 	ImageProvider provider = null;
 	ImageViewer viewer = null;
 	Image image;
+	boolean enabled = true;
 
 	public ViewPartPreviewFile() {
 	}
@@ -41,6 +61,10 @@ public class ViewPartPreviewFile extends ViewPart {
 	};
 
 	private void handleSelection(ISelection selection) {
+		if(!enabled) {
+			viewer.setImage(null);
+			return;
+		}
 		if (selection instanceof IStructuredSelection) {
 			IStructuredSelection sel = (IStructuredSelection) selection;
 			Object o = sel.getFirstElement();
@@ -78,6 +102,12 @@ public class ViewPartPreviewFile extends ViewPart {
 		getSelectionService().addPostSelectionListener(selectionListener);
 		handleSelection(getSelectionService().getSelection());
 		viewer = new ImageViewer(parent, SWT.NONE);
+		Action action = new PreviewToggleAction();
+	   IActionBars actionBars = getViewSite().getActionBars();
+	   IMenuManager dropDownMenu = actionBars.getMenuManager();
+	   //IToolBarManager toolBar = actionBars.getToolBarManager();
+	   dropDownMenu.add(action);
+	   //toolBar.add(action);
 	}
 
 	protected void setImageProvider(final ImageProvider newprovider) {

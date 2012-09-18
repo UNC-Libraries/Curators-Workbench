@@ -9,12 +9,12 @@ import org.slf4j.LoggerFactory;
 
 import crosswalk.Form;
 
-public class ShibbolethAuthorizationHandler implements AuthorizationHandler {
+public class RequestHeaderAuthorizationHandler implements AuthorizationHandler {
 	private String splitCharacter = null;
 	private String groupsHeaderName = null;
 	
 	@SuppressWarnings("unused")
-	private static final Logger LOG = LoggerFactory.getLogger(ShibbolethAuthorizationHandler.class);
+	private static final Logger LOG = LoggerFactory.getLogger(RequestHeaderAuthorizationHandler.class);
 
 	public String getSplitCharacter() {
 		return splitCharacter;
