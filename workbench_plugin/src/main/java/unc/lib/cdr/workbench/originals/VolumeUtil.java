@@ -37,7 +37,6 @@ public class VolumeUtil {
 	public static boolean isVolumeRemovable(URI uri) throws IOException {
 		FileStore fs = getFileStore(uri);
 		String type = fs.type();
-		//System.err.println("Is this a removable?  type=" + type);
 		return removableFileStoreTypes.contains(type);
 	}
 
@@ -62,7 +61,7 @@ public class VolumeUtil {
 		if("/".equals(volumeRoot.toFile().getPath())) {
 			return -1; // fake hash key for root linux filesystem
 		}
-		//System.err.println("Found volume root: " + volumeRoot);
+		LOG.debug("Found volume root: " + volumeRoot);
 		long oldestFileCreation = -1;
 		File[] files = volumeRoot.toFile().listFiles();
 		if (files != null) {
@@ -77,14 +76,14 @@ public class VolumeUtil {
 			}
 		}
 		String name = volumeRoot.toString();
-		System.err.println("Found volume root name: " + name);
+		LOG.debug("Found volume root name: " + name);
 		if (fstore.supportsFileAttributeView("basic")) {
 			BasicFileAttributeView v = FileSystems.getDefault().provider()
 					.getFileAttributeView(volumeRoot, BasicFileAttributeView.class, LinkOption.NOFOLLOW_LINKS);
 			BasicFileAttributes basic = v.readAttributes();
-			System.err.println("Found volume root file key: " + basic.fileKey());
-			System.err.println("Found volume root create time: " + basic.creationTime());
-			System.err.println("Oldest file create time: " + basic.creationTime());
+			LOG.debug("Found volume root file key: " + basic.fileKey());
+			LOG.debug("Found volume root create time: " + basic.creationTime());
+			LOG.debug("Oldest file create time: " + basic.creationTime());
 			int result = name.hashCode() ^ (int) basic.creationTime().toMillis()
 					^ (int) oldestFileCreation;
 			return result;
