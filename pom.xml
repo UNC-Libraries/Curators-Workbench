@@ -14,6 +14,8 @@
 		<eclipse-repository-url>http://download.eclipse.org/eclipse/updates/3.6</eclipse-repository-url>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<spring.version>3.0.6.RELEASE</spring.version>
+		<spring.ws.version>2.0.1.RELEASE</spring.ws.version>
 	</properties>
 	<developers>
 		<developer>
@@ -67,6 +69,7 @@
 		<module>crosswalk-gmf.custom</module>
 		<module>org.slf4j.log4j12</module>
 		<module>org.apache.log4j</module>
+		<module>forms</module>
 	</modules>
 	<build>
 		<plugins>

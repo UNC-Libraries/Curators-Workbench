@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2008 The University of North Carolina at Chapel Hill Licensed 
+	under the Apache License, Version 2.0 (the "License"); you may not use this 
+	file except in compliance with the License. You may obtain a copy of the 
+	License at http://www.apache.org/licenses/LICENSE-2.0 Unless required by 
+	applicable law or agreed to in writing, software distributed under the License 
+	is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY 
+	KIND, either express or implied. See the License for the specific language 
+	governing permissions and limitations under the License. -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jms="http://www.springframework.org/schema/jms"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/jms http://www.springframework.org/schema/jms/spring-jms-3.0.xsd
+		http://www.springframework.org/schema/util 
+		http://www.springframework.org/schema/util/spring-util.xsd">
+
+	<bean name="propertiesURI" class="java.lang.System"
+		factory-method="getProperty">
+		<constructor-arg index="0" value="server.properties.uri" />
+		<!-- property name for properties URI location -->
+		<constructor-arg index="1" value="classpath:server.properties" />
+		<!-- default location for testing -->
+	</bean>
+
+	<bean id="serverProperties"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<ref bean="propertiesURI" />
+			</list>
+		</property>
+		<property name="ignoreResourceNotFound" value="false" />
+	</bean>
+	
+	<!-- Note that ClamScan is not thread safe. -->
+	<bean id="clamScan" class="com.philvarner.clamavj.ClamScan">
+		<property name="host" value="${clamd.host}"/>
+		<property name="port" value="${clamd.port}"/>
+		<property name="timeout" value="${clamd.timeout}"/>
+	</bean>
+
+	<bean id="formFactory" class="cdr.forms.CachedXMIFormFactory">
+		<property name="formPath" value="${forms.dir}" />
+	</bean>
+	
+	<bean id="administratorEmail" class="java.lang.String">
+		<constructor-arg value="${administrator.email}"/>
+	</bean>
+
+	<bean id="depositHandler" class="cdr.forms.SwordDepositHandler">
+		<property name="serviceUrl"
+			value="${admin.services.url}${services.context}/sword/" />
+		<property name="username" value="${forms.sword.username}" />
+		<property name="password" value="${forms.sword.password}" />
+		<property name="defaultContainer" ref="${forms.default.container.pid}"/>
+	</bean>
+	
+	<bean id="authorizationHandler" class="cdr.forms.ShibbolethAuthorizationHandler">
+		<property name="groupsHeaderName" value="isMemberOf"/>
+		<property name="splitCharacter" value=";"/>
+	</bean>
+
+	<!-- JMX -->
+
+	<bean id="loggingExporter" class="org.springframework.jmx.export.MBeanExporter"
+		lazy-init="false">
+		<property name="beans">
+			<map>
+				<entry key="cdr-services:jmxservice=loggingConfiguration"
+					value-ref="loggingMBean" />
+			</map>
+		</property>
+		<property name="registrationBehaviorName" value="REGISTRATION_REPLACE_EXISTING" />
+		<property name="assembler">
+			<bean
+				class="org.springframework.jmx.export.assembler.InterfaceBasedMBeanInfoAssembler">
+				<property name="managedInterfaces">
+					<array value-type="java.lang.Class">
+						<value>de.stefanheintz.log.jmxservice.LoggingConfig</value>
+					</array>
+				</property>
+			</bean>
+		</property>
+	</bean>
+
+	<!-- Logging MBean -->
+	<!-- http://code.google.com/p/logging-jmx-service/wiki/Tutorial -->
+	<bean id="loggingMBean" class="de.stefanheintz.log.jmxservice.LoggingConfigImpl">
+	</bean>
+
+
+
+</beans>
