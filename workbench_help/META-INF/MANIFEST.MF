@@ -4,4 +4,4 @@ Bundle-Name: Curator's Workbench Help
 Bundle-SymbolicName: workbench_help; singleton:=true
 Bundle-Version: 4.0.0.qualifier
 Bundle-Vendor: UNC Libraries
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7

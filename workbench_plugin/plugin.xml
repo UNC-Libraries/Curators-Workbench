@@ -1410,7 +1410,7 @@
       </navigatorContent>
       <navigatorContent
             activeByDefault="true"
-            appearsBefore="workbench_plugin.navigatorContentResources"
+            appearsBefore="cdr-workbench.crosswalksContent"
             contentProvider="unc.lib.cdr.workbench.arrange.ArrangementContentProvider"
             id="cdr-workbench.arrangementContent"
             labelProvider="unc.lib.cdr.workbench.arrange.ArrangementLabelProvider"
@@ -1637,7 +1637,7 @@
          </property>
          <property
                name="introTitle"
-               value="Wecome to the Curator&apos;s Workbench - Version 3">
+               value="Wecome to the Curator&apos;s Workbench - Version 4">
          </property>
          <property
                name="introBrandingImage"

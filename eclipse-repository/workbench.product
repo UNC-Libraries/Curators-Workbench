@@ -6,7 +6,7 @@
    <aboutInfo>
       <image path="/workbench_plugin/about.png"/>
       <text>
-         Curator&apos;s Workbench, version 3
+         Curator&apos;s Workbench, version 4.0.0
 
 The Curator&apos;s Workbench is a project of the Carolina Digital Repository, created by the University Libraries of UNC Chapel Hill.
 http://cdr.unc.edu
@@ -22,6 +22,8 @@ Lead Developer:  Gregory N. Jansen, count0@email.unc.edu
 Project Team:
 Erin O&apos;Meara
 Jill Sexton
+Ben Pennell
+Jennifer Martin
 
 Special thanks to:
 Jackie Dean
@@ -37,7 +39,7 @@ Biff Hollingsworth
 
    <launcherArgs>
       <programArgs>-consoleLog -data @user.home/curators-workspace</programArgs>
-      <vmArgs>-Dosgi.requiredJavaVersion=1.6 -XX:MaxPermSize=256m -Xms128m -Xmx1024m -Djargon.debug=0 -Dlog4j.configuration=file:./log4j.properties</vmArgs>
+      <vmArgs>-Dosgi.requiredJavaVersion=1.7 -XX:MaxPermSize=256m -Xms128m -Xmx1024m -Djargon.debug=0 -Dlog4j.configuration=file:./log4j.properties</vmArgs>
    </launcherArgs>
 
    <windowImages/>
@@ -55,16 +57,16 @@ Biff Hollingsworth
    <intro introId="org.eclipse.ui.intro.universal"/>
 
    <vm>
-      <linux include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6</linux>
-      <macos include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6</macos>
-      <solaris include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6</solaris>
-      <windows include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6</windows>
+      <linux include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7</linux>
+      <macos include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7</macos>
+      <solaris include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7</solaris>
+      <windows include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7</windows>
    </vm>
 
    <license>
         <url>http://www.apache.org/licenses/LICENSE-2.0</url>
         <text>
-   Copyright 2010 The University of North Carolina at Chapel Hill
+   Copyright 2012 The University of North Carolina at Chapel Hill
 
 Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
 you may not use this file except in compliance with the License.

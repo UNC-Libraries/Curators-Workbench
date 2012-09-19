@@ -9,6 +9,7 @@ import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.commands.IHandler;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.edit.command.RemoveCommand;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.handlers.HandlerUtil;
@@ -22,6 +23,9 @@ public class RemoveSmLinkHandler extends AbstractHandler implements IHandler {
 		ISelection selection = HandlerUtil.getCurrentSelectionChecked(event);
 		if (!selection.isEmpty()) {
 			IStructuredSelection sSelection = (IStructuredSelection) selection;
+			boolean confirmed = MessageDialog.openConfirm(HandlerUtil.getActiveShell(event), "Confirm Delete", 
+					"Please confirm that you wish to delete this metadata.");
+			if(!confirmed) return null;
 			if (sSelection.size() == 1) {
 				if (sSelection.getFirstElement() instanceof SmLinkType) {
 					SmLinkType link = (SmLinkType) sSelection.getFirstElement();

@@ -21,7 +21,7 @@ Require-Bundle: org.eclipse.core.expressions;bundle-version="3.4.300",
  crosswalk-gmf.custom;bundle-version="0.0.0",
  org.slf4j.log4j12;bundle-version="1.6.6",
  org.apache.log4j;bundle-version="1.2.17"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Bundle-ClassPath: .,
  lib/jargon-core-0.0.2.jar,

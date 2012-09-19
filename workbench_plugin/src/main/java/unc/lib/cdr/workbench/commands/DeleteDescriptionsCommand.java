@@ -22,6 +22,7 @@ import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.handlers.HandlerUtil;
 
@@ -32,6 +33,9 @@ public class DeleteDescriptionsCommand extends AbstractHandler implements IHandl
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		IStructuredSelection s = (IStructuredSelection) HandlerUtil.getCurrentSelectionChecked(event);
+		boolean confirmed = MessageDialog.openConfirm(HandlerUtil.getActiveShell(event), "Confirm Delete", 
+				"Please confirm that you wish to delete descriptions.");
+		if(!confirmed) return null;
 		Map<IProject, CompoundCommand> deletesByProject = new HashMap<IProject, CompoundCommand>();
 		for (@SuppressWarnings("rawtypes")
 		Iterator iter = s.iterator(); iter.hasNext();) {

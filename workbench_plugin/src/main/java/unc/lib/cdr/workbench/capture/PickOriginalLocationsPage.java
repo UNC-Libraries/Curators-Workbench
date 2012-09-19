@@ -639,8 +639,10 @@ public class PickOriginalLocationsPage extends WizardPage implements Listener {
 			if (!base.equals(this.fileTreeViewer.getInput())) {
 				this.fileTreeViewer.setInput(new FileStoreProvider.Root(base));
 				this.preStageSuffixLabel.setText(base.getName());
-				selectFirstCheckbox();
 			}
+		}
+		if(this.fileTreeViewer.getCheckedElements().length == 0) {
+			selectFirstCheckbox();
 		}
 	}
 

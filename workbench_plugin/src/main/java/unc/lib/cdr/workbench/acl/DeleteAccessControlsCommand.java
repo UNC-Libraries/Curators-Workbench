@@ -17,6 +17,7 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.handlers.HandlerUtil;
 
@@ -27,6 +28,9 @@ public class DeleteAccessControlsCommand extends AbstractHandler implements IHan
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		IStructuredSelection s = (IStructuredSelection) HandlerUtil.getCurrentSelectionChecked(event);
+		boolean confirmed = MessageDialog.openConfirm(HandlerUtil.getActiveShell(event), "Confirm Delete", 
+				"Please confirm that you wish to delete access controls.");
+		if(!confirmed) return null;
 		Map<IProject, CompoundCommand> deletesByProject = new HashMap<IProject, CompoundCommand>();
 		for (@SuppressWarnings("rawtypes")
 		Iterator iter = s.iterator(); iter.hasNext();) {
