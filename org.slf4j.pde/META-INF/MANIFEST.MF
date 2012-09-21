@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: SLF4J over Pde Plug-in
 Bundle-SymbolicName: org.slf4j.pde; singleton:=true
-Bundle-Version: 4.0.0.qualifier
+Bundle-Version: 4.0.0
 Bundle-Activator: org.slf4j.pde.SLF4jPlugin
 Bundle-Vendor: John J. Franey and slf4j.org
 Bundle-Localization: plugin

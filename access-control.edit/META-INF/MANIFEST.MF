@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: access-control.edit;singleton:=true
-Bundle-Version: 4.0.0.qualifier
+Bundle-Version: 4.0.0
 Bundle-ClassPath: .
 Bundle-Activator: edu.unc.lib.schemas.acl.provider.AclEditPlugin$Implementation
 Bundle-Vendor: %providerName
@@ -10,6 +10,6 @@ Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: edu.unc.lib.schemas.acl.provider
 Require-Bundle: org.eclipse.core.runtime,
- access-control;bundle-version="4.0.0";visibility:=reexport,
+ access-control;visibility:=reexport,
  org.eclipse.emf.edit;visibility:=reexport
 Bundle-ActivationPolicy: lazy
