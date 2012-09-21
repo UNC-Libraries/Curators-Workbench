@@ -1,0 +1,21 @@
+#!/bin/sh
+#
+# Use Java Preferences to disable JVMs earlier than 7
+# edit the JAVA_HOME below to reflect your Java 7 install location
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_06.jdk/Contents/Home
+
+DIR=`dirname $0`
+LAUNCHER_JAR=$DIR/plugins/org.eclipse.equinox.launcher_1.2.0.v20110502.jar
+
+java \
+-showversion \
+-XX:MaxPermSize=256m \
+-Xms1024m \
+-Xmx1024m \
+-XstartOnFirstThread \
+-Dorg.eclipse.swt.internal.carbon.smallFonts \
+-Dosgi.requiredJavaVersion=1.7 \
+-Dosgi.instance.area=@user.home/curators-workspace \
+-Djargon.debug=0 \
+-Dlog4j.configuration=file:$DIR/log4j.properties \
+-jar $LAUNCHER_JAR
