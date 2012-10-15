@@ -6,12 +6,10 @@
  */
 package crosswalk.impl;
 
-import java.util.Date;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EDataType;
-import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -35,6 +35,7 @@ import crosswalk.CurrentDate;
 import crosswalk.CurrentUsername;
 import crosswalk.DataException;
 import crosswalk.DataField;
+import crosswalk.DateInputField;
 import crosswalk.DateRecognizer;
 import crosswalk.DateToISO8601StringConversion;
 import crosswalk.DelimitedFile;
@@ -45,14 +46,15 @@ import crosswalk.InputField;
 import crosswalk.MappedAttribute;
 import crosswalk.MappedElement;
 import crosswalk.MetadataBlock;
+import crosswalk.MultiLineTextInputField;
 import crosswalk.OriginalNameRecordMatcher;
 import crosswalk.Paragraph;
 import crosswalk.RecordMatches;
 import crosswalk.RecordOutOfRangeException;
 import crosswalk.TabbedDataField;
 import crosswalk.Text;
+import crosswalk.TextInputField;
 import crosswalk.TrimWhitespace;
-import crosswalk.Vocabulary;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!--
@@ -112,13 +114,13 @@ public class CrosswalkFactoryImpl extends EFactoryImpl implements CrosswalkFacto
 			case CrosswalkPackage.DATE_TO_ISO8601_STRING_CONVERSION: return createDateToISO8601StringConversion();
 			case CrosswalkPackage.DICTIONARY: return createDictionary();
 			case CrosswalkPackage.METADATA_BLOCK: return createMetadataBlock();
-			case CrosswalkPackage.VOCABULARY: return createVocabulary();
 			case CrosswalkPackage.INPUT_FIELD: return createInputField();
 			case CrosswalkPackage.TEXT_INPUT_FIELD: return createTextInputField();
 			case CrosswalkPackage.EDITING_CONTAINER: return createEditingContainer();
 			case CrosswalkPackage.FORM: return createForm();
 			case CrosswalkPackage.PARAGRAPH: return createParagraph();
 			case CrosswalkPackage.DATE_INPUT_FIELD: return createDateInputField();
+			case CrosswalkPackage.MULTI_LINE_TEXT_INPUT_FIELD: return createMultiLineTextInputField();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -324,16 +326,6 @@ public class CrosswalkFactoryImpl extends EFactoryImpl implements CrosswalkFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Vocabulary createVocabulary() {
-		VocabularyImpl vocabulary = new VocabularyImpl();
-		return vocabulary;
-	}
-
-/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public <F> InputField<F> createInputField() {
 		InputFieldImpl<F> inputField = new InputFieldImpl<F>();
 		return inputField;
@@ -387,6 +379,16 @@ public class CrosswalkFactoryImpl extends EFactoryImpl implements CrosswalkFacto
 	public DateInputField createDateInputField() {
 		DateInputFieldImpl dateInputField = new DateInputFieldImpl();
 		return dateInputField;
+	}
+
+/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MultiLineTextInputField createMultiLineTextInputField() {
+		MultiLineTextInputFieldImpl multiLineTextInputField = new MultiLineTextInputFieldImpl();
+		return multiLineTextInputField;
 	}
 
 /**

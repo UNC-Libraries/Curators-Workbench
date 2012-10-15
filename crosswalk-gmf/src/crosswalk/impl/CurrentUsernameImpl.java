@@ -7,9 +7,7 @@
 package crosswalk.impl;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EcorePackage;
 
 import crosswalk.ContextProvider;
 import crosswalk.CrosswalkPackage;

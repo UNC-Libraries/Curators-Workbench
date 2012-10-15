@@ -9,8 +9,6 @@ package crosswalk.impl;
 import java.util.Date;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EDataType;
-import org.eclipse.emf.ecore.EcorePackage;
 
 import crosswalk.CrosswalkPackage;
 import crosswalk.CurrentDate;

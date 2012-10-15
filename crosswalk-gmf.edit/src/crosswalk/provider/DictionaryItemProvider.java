@@ -130,7 +130,6 @@ public class DictionaryItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(CrosswalkPackage.Literals.DICTIONARY__BLOCKS);
-			childrenFeatures.add(CrosswalkPackage.Literals.DICTIONARY__VOCABULARIES);
 		}
 		return childrenFeatures;
 	}
@@ -190,7 +189,6 @@ public class DictionaryItemProvider
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case CrosswalkPackage.DICTIONARY__BLOCKS:
-			case CrosswalkPackage.DICTIONARY__VOCABULARIES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -212,11 +210,6 @@ public class DictionaryItemProvider
 			(createChildParameter
 				(CrosswalkPackage.Literals.DICTIONARY__BLOCKS,
 				 CrosswalkFactory.eINSTANCE.createMetadataBlock()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CrosswalkPackage.Literals.DICTIONARY__VOCABULARIES,
-				 CrosswalkFactory.eINSTANCE.createVocabulary()));
 	}
 
 }

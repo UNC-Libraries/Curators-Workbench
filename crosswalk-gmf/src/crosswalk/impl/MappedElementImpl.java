@@ -25,7 +25,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import crosswalk.ContextProvider;
 import crosswalk.CrosswalkPackage;
 import crosswalk.MappedAttribute;
 import crosswalk.MappedElement;

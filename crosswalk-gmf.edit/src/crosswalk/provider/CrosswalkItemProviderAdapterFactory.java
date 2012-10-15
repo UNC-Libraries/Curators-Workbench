@@ -414,29 +414,6 @@ public class CrosswalkItemProviderAdapterFactory extends CrosswalkAdapterFactory
 	}
 
 								/**
-	 * This keeps track of the one adapter used for all {@link crosswalk.Vocabulary} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected VocabularyItemProvider vocabularyItemProvider;
-
-								/**
-	 * This creates an adapter for a {@link crosswalk.Vocabulary}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createVocabularyAdapter() {
-		if (vocabularyItemProvider == null) {
-			vocabularyItemProvider = new VocabularyItemProvider(this);
-		}
-
-		return vocabularyItemProvider;
-	}
-
-								/**
 	 * This keeps track of the one adapter used for all {@link crosswalk.InputField} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -572,6 +549,29 @@ public class CrosswalkItemProviderAdapterFactory extends CrosswalkAdapterFactory
 		}
 
 		return dateInputFieldItemProvider;
+	}
+
+								/**
+	 * This keeps track of the one adapter used for all {@link crosswalk.MultiLineTextInputField} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MultiLineTextInputFieldItemProvider multiLineTextInputFieldItemProvider;
+
+								/**
+	 * This creates an adapter for a {@link crosswalk.MultiLineTextInputField}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMultiLineTextInputFieldAdapter() {
+		if (multiLineTextInputFieldItemProvider == null) {
+			multiLineTextInputFieldItemProvider = new MultiLineTextInputFieldItemProvider(this);
+		}
+
+		return multiLineTextInputFieldItemProvider;
 	}
 
 								/**

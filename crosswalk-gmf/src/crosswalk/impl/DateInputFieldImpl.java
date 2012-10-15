@@ -6,12 +6,12 @@
  */
 package crosswalk.impl;
 
-import crosswalk.CrosswalkPackage;
-import crosswalk.DateInputField;
-
 import java.util.Date;
 
 import org.eclipse.emf.ecore.EClass;
+
+import crosswalk.CrosswalkPackage;
+import crosswalk.DateInputField;
 
 /**
  * <!-- begin-user-doc -->

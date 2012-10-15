@@ -20,6 +20,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link crosswalk.MetadataBlock#getDescription <em>Description</em>}</li>
  *   <li>{@link crosswalk.MetadataBlock#getPorts <em>Ports</em>}</li>
  *   <li>{@link crosswalk.MetadataBlock#isRequired <em>Required</em>}</li>
+ *   <li>{@link crosswalk.MetadataBlock#getMaxRepeat <em>Max Repeat</em>}</li>
  * </ul>
  * </p>
  *
@@ -122,5 +123,32 @@ public interface MetadataBlock extends OutputElement, MappingContainer, FormElem
 	 * @generated
 	 */
 	void setRequired(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Max Repeat</b></em>' attribute.
+	 * The default value is <code>"1"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Max Repeat</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Max Repeat</em>' attribute.
+	 * @see #setMaxRepeat(int)
+	 * @see crosswalk.CrosswalkPackage#getMetadataBlock_MaxRepeat()
+	 * @model default="1" required="true"
+	 * @generated
+	 */
+	int getMaxRepeat();
+
+	/**
+	 * Sets the value of the '{@link crosswalk.MetadataBlock#getMaxRepeat <em>Max Repeat</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Max Repeat</em>' attribute.
+	 * @see #getMaxRepeat()
+	 * @generated
+	 */
+	void setMaxRepeat(int value);
 
 } // MetadataBlock

@@ -54,6 +54,7 @@ import crosswalk.MappedAttribute;
 import crosswalk.MappedElement;
 import crosswalk.MappingContainer;
 import crosswalk.MetadataBlock;
+import crosswalk.MultiLineTextInputField;
 import crosswalk.OriginalNameRecordMatcher;
 import crosswalk.Output;
 import crosswalk.OutputElement;
@@ -65,7 +66,6 @@ import crosswalk.TabbedDataField;
 import crosswalk.Text;
 import crosswalk.TextInputField;
 import crosswalk.TrimWhitespace;
-import crosswalk.Vocabulary;
 import crosswalk.WalkWidget;
 
 /**
@@ -251,13 +251,6 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass vocabularyEClass = null;
-
-								/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass inputFieldEClass = null;
 
 								/**
@@ -322,6 +315,13 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 	 * @generated
 	 */
 	private EClass dateInputFieldEClass = null;
+
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass multiLineTextInputFieldEClass = null;
 
 								/**
 	 * <!-- begin-user-doc -->
@@ -908,17 +908,8 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDictionary_Vocabularies() {
-		return (EReference)dictionaryEClass.getEStructuralFeatures().get(2);
-	}
-
-								/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getDictionary_Description() {
-		return (EAttribute)dictionaryEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)dictionaryEClass.getEStructuralFeatures().get(2);
 	}
 
 								/**
@@ -971,8 +962,8 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getVocabulary() {
-		return vocabularyEClass;
+	public EAttribute getMetadataBlock_MaxRepeat() {
+		return (EAttribute)metadataBlockEClass.getEStructuralFeatures().get(4);
 	}
 
 								/**
@@ -1045,6 +1036,24 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 	 */
 	public EAttribute getTextInputField_MaxSize() {
 		return (EAttribute)textInputFieldEClass.getEStructuralFeatures().get(1);
+	}
+
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTextInputField_VocabularyURL() {
+		return (EAttribute)textInputFieldEClass.getEStructuralFeatures().get(2);
+	}
+
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTextInputField_AllowFreeText() {
+		return (EAttribute)textInputFieldEClass.getEStructuralFeatures().get(3);
 	}
 
 								/**
@@ -1247,6 +1256,24 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 
 								/**
 	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getMultiLineTextInputField() {
+		return multiLineTextInputFieldEClass;
+	}
+
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMultiLineTextInputField_MaxSize() {
+		return (EAttribute)multiLineTextInputFieldEClass.getEStructuralFeatures().get(0);
+	}
+
+								/**
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -1400,7 +1427,6 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 		dictionaryEClass = createEClass(DICTIONARY);
 		createEAttribute(dictionaryEClass, DICTIONARY__NAME);
 		createEReference(dictionaryEClass, DICTIONARY__BLOCKS);
-		createEReference(dictionaryEClass, DICTIONARY__VOCABULARIES);
 		createEAttribute(dictionaryEClass, DICTIONARY__DESCRIPTION);
 
 		metadataBlockEClass = createEClass(METADATA_BLOCK);
@@ -1408,8 +1434,7 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 		createEAttribute(metadataBlockEClass, METADATA_BLOCK__DESCRIPTION);
 		createEReference(metadataBlockEClass, METADATA_BLOCK__PORTS);
 		createEAttribute(metadataBlockEClass, METADATA_BLOCK__REQUIRED);
-
-		vocabularyEClass = createEClass(VOCABULARY);
+		createEAttribute(metadataBlockEClass, METADATA_BLOCK__MAX_REPEAT);
 
 		inputFieldEClass = createEClass(INPUT_FIELD);
 		createEAttribute(inputFieldEClass, INPUT_FIELD__LABEL);
@@ -1420,6 +1445,8 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 		textInputFieldEClass = createEClass(TEXT_INPUT_FIELD);
 		createEAttribute(textInputFieldEClass, TEXT_INPUT_FIELD__PREFERRED_SIZE);
 		createEAttribute(textInputFieldEClass, TEXT_INPUT_FIELD__MAX_SIZE);
+		createEAttribute(textInputFieldEClass, TEXT_INPUT_FIELD__VOCABULARY_URL);
+		createEAttribute(textInputFieldEClass, TEXT_INPUT_FIELD__ALLOW_FREE_TEXT);
 
 		contextProviderEClass = createEClass(CONTEXT_PROVIDER);
 		createEReference(contextProviderEClass, CONTEXT_PROVIDER__OUTPUT_TYPE);
@@ -1450,6 +1477,9 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 		createEAttribute(paragraphEClass, PARAGRAPH__TEXT);
 
 		dateInputFieldEClass = createEClass(DATE_INPUT_FIELD);
+
+		multiLineTextInputFieldEClass = createEClass(MULTI_LINE_TEXT_INPUT_FIELD);
+		createEAttribute(multiLineTextInputFieldEClass, MULTI_LINE_TEXT_INPUT_FIELD__MAX_SIZE);
 
 		// Create data types
 		dataExceptionEDataType = createEDataType(DATA_EXCEPTION);
@@ -1533,6 +1563,10 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 		g2 = createEGenericType(ecorePackage.getEDate());
 		g1.getETypeArguments().add(g2);
 		dateInputFieldEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getInputField());
+		g2 = createEGenericType(ecorePackage.getEString());
+		g1.getETypeArguments().add(g2);
+		multiLineTextInputFieldEClass.getEGenericSuperTypes().add(g1);
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(tabbedDataFieldEClass, TabbedDataField.class, "TabbedDataField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1656,7 +1690,6 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 		initEClass(dictionaryEClass, Dictionary.class, "Dictionary", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDictionary_Name(), ecorePackage.getEString(), "name", null, 1, 1, Dictionary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDictionary_Blocks(), this.getMetadataBlock(), null, "blocks", null, 0, -1, Dictionary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDictionary_Vocabularies(), this.getVocabulary(), null, "vocabularies", null, 0, -1, Dictionary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDictionary_Description(), ecorePackage.getEString(), "description", null, 1, 1, Dictionary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(metadataBlockEClass, MetadataBlock.class, "MetadataBlock", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1667,26 +1700,7 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 		g1.getETypeArguments().add(g2);
 		initEReference(getMetadataBlock_Ports(), g1, null, "ports", null, 0, -1, MetadataBlock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMetadataBlock_Required(), ecorePackage.getEBoolean(), "required", "false", 1, 1, MetadataBlock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(vocabularyEClass, Vocabulary.class, "Vocabulary", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		op = addEOperation(vocabularyEClass, null, "getTerms", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "broaderTerm", 0, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(ecorePackage.getEMap());
-		g2 = createEGenericType();
-		g1.getETypeArguments().add(g2);
-		g2 = createEGenericType();
-		g1.getETypeArguments().add(g2);
-		initEOperation(op, g1);
-
-		op = addEOperation(vocabularyEClass, null, "getCompletions", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "prefix", 1, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(ecorePackage.getEMap());
-		g2 = createEGenericType();
-		g1.getETypeArguments().add(g2);
-		g2 = createEGenericType();
-		g1.getETypeArguments().add(g2);
-		initEOperation(op, g1);
+		initEAttribute(getMetadataBlock_MaxRepeat(), ecorePackage.getEInt(), "maxRepeat", "1", 1, 1, MetadataBlock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(inputFieldEClass, InputField.class, "InputField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getInputField_Label(), ecorePackage.getEString(), "label", null, 1, 1, InputField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1698,6 +1712,8 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 		initEClass(textInputFieldEClass, TextInputField.class, "TextInputField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTextInputField_PreferredSize(), ecorePackage.getEInt(), "preferredSize", "40", 1, 1, TextInputField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTextInputField_MaxSize(), ecorePackage.getEInt(), "maxSize", "256", 1, 1, TextInputField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTextInputField_VocabularyURL(), ecorePackage.getEString(), "vocabularyURL", null, 0, 1, TextInputField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTextInputField_AllowFreeText(), ecorePackage.getEBoolean(), "allowFreeText", "true", 1, 1, TextInputField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(contextProviderEClass, ContextProvider.class, "ContextProvider", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getContextProvider_OutputType(), ecorePackage.getEClass(), null, "outputType", null, 1, 1, ContextProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1728,6 +1744,9 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 		initEAttribute(getParagraph_Text(), ecorePackage.getEString(), "text", null, 1, 1, Paragraph.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dateInputFieldEClass, DateInputField.class, "DateInputField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(multiLineTextInputFieldEClass, MultiLineTextInputField.class, "MultiLineTextInputField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getMultiLineTextInputField_MaxSize(), ecorePackage.getEInt(), "maxSize", "2048", 1, 1, MultiLineTextInputField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize data types
 		initEDataType(dataExceptionEDataType, DataException.class, "DataException", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

@@ -63,6 +63,8 @@ public class TextInputFieldItemProvider
 
 			addPreferredSizePropertyDescriptor(object);
 			addMaxSizePropertyDescriptor(object);
+			addVocabularyURLPropertyDescriptor(object);
+			addAllowFreeTextPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -112,6 +114,50 @@ public class TextInputFieldItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Vocabulary URL feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addVocabularyURLPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_TextInputField_vocabularyURL_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TextInputField_vocabularyURL_feature", "_UI_TextInputField_type"),
+				 CrosswalkPackage.Literals.TEXT_INPUT_FIELD__VOCABULARY_URL,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Allow Free Text feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAllowFreeTextPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_TextInputField_allowFreeText_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TextInputField_allowFreeText_feature", "_UI_TextInputField_type"),
+				 CrosswalkPackage.Literals.TEXT_INPUT_FIELD__ALLOW_FREE_TEXT,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns TextInputField.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -150,6 +196,8 @@ public class TextInputFieldItemProvider
 		switch (notification.getFeatureID(TextInputField.class)) {
 			case CrosswalkPackage.TEXT_INPUT_FIELD__PREFERRED_SIZE:
 			case CrosswalkPackage.TEXT_INPUT_FIELD__MAX_SIZE:
+			case CrosswalkPackage.TEXT_INPUT_FIELD__VOCABULARY_URL:
+			case CrosswalkPackage.TEXT_INPUT_FIELD__ALLOW_FREE_TEXT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

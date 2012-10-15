@@ -246,12 +246,6 @@ public class CrosswalkSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case CrosswalkPackage.VOCABULARY: {
-				Vocabulary vocabulary = (Vocabulary)theEObject;
-				T result = caseVocabulary(vocabulary);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case CrosswalkPackage.INPUT_FIELD: {
 				InputField<?> inputField = (InputField<?>)theEObject;
 				T result = caseInputField(inputField);
@@ -321,6 +315,15 @@ public class CrosswalkSwitch<T> extends Switch<T> {
 				if (result == null) result = caseInputField(dateInputField);
 				if (result == null) result = caseOutput(dateInputField);
 				if (result == null) result = caseInput(dateInputField);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CrosswalkPackage.MULTI_LINE_TEXT_INPUT_FIELD: {
+				MultiLineTextInputField multiLineTextInputField = (MultiLineTextInputField)theEObject;
+				T result = caseMultiLineTextInputField(multiLineTextInputField);
+				if (result == null) result = caseInputField(multiLineTextInputField);
+				if (result == null) result = caseOutput(multiLineTextInputField);
+				if (result == null) result = caseInput(multiLineTextInputField);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -659,21 +662,6 @@ public class CrosswalkSwitch<T> extends Switch<T> {
 	}
 
 								/**
-	 * Returns the result of interpreting the object as an instance of '<em>Vocabulary</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Vocabulary</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseVocabulary(Vocabulary object) {
-		return null;
-	}
-
-								/**
 	 * Returns the result of interpreting the object as an instance of '<em>Input Field</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -820,6 +808,21 @@ public class CrosswalkSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseDateInputField(DateInputField object) {
+		return null;
+	}
+
+								/**
+	 * Returns the result of interpreting the object as an instance of '<em>Multi Line Text Input Field</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Multi Line Text Input Field</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMultiLineTextInputField(MultiLineTextInputField object) {
 		return null;
 	}
 

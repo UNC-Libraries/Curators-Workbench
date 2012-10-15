@@ -344,7 +344,7 @@ public interface CrosswalkPackage extends EPackage {
 	 * @see crosswalk.impl.CrosswalkPackageImpl#getContextProvider()
 	 * @generated
 	 */
-	int CONTEXT_PROVIDER = 25;
+	int CONTEXT_PROVIDER = 24;
 
 								/**
 	 * The feature id for the '<em><b>Output Type</b></em>' reference.
@@ -1023,22 +1023,13 @@ public interface CrosswalkPackage extends EPackage {
 	int DICTIONARY__BLOCKS = CONTEXT_PROVIDER_FEATURE_COUNT + 1;
 
 								/**
-	 * The feature id for the '<em><b>Vocabularies</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DICTIONARY__VOCABULARIES = CONTEXT_PROVIDER_FEATURE_COUNT + 2;
-
-								/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DICTIONARY__DESCRIPTION = CONTEXT_PROVIDER_FEATURE_COUNT + 3;
+	int DICTIONARY__DESCRIPTION = CONTEXT_PROVIDER_FEATURE_COUNT + 2;
 
 								/**
 	 * The number of structural features of the '<em>Dictionary</em>' class.
@@ -1047,7 +1038,7 @@ public interface CrosswalkPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DICTIONARY_FEATURE_COUNT = CONTEXT_PROVIDER_FEATURE_COUNT + 4;
+	int DICTIONARY_FEATURE_COUNT = CONTEXT_PROVIDER_FEATURE_COUNT + 3;
 
 								/**
 	 * The meta object id for the '{@link crosswalk.impl.MetadataBlockImpl <em>Metadata Block</em>}' class.
@@ -1159,32 +1150,22 @@ public interface CrosswalkPackage extends EPackage {
 	int METADATA_BLOCK__REQUIRED = OUTPUT_ELEMENT_FEATURE_COUNT + 8;
 
 								/**
+	 * The feature id for the '<em><b>Max Repeat</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METADATA_BLOCK__MAX_REPEAT = OUTPUT_ELEMENT_FEATURE_COUNT + 9;
+
+								/**
 	 * The number of structural features of the '<em>Metadata Block</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int METADATA_BLOCK_FEATURE_COUNT = OUTPUT_ELEMENT_FEATURE_COUNT + 9;
-
-								/**
-	 * The meta object id for the '{@link crosswalk.impl.VocabularyImpl <em>Vocabulary</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see crosswalk.impl.VocabularyImpl
-	 * @see crosswalk.impl.CrosswalkPackageImpl#getVocabulary()
-	 * @generated
-	 */
-	int VOCABULARY = 22;
-
-								/**
-	 * The number of structural features of the '<em>Vocabulary</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VOCABULARY_FEATURE_COUNT = 0;
+	int METADATA_BLOCK_FEATURE_COUNT = OUTPUT_ELEMENT_FEATURE_COUNT + 10;
 
 								/**
 	 * The meta object id for the '{@link crosswalk.impl.InputFieldImpl <em>Input Field</em>}' class.
@@ -1194,7 +1175,7 @@ public interface CrosswalkPackage extends EPackage {
 	 * @see crosswalk.impl.CrosswalkPackageImpl#getInputField()
 	 * @generated
 	 */
-	int INPUT_FIELD = 23;
+	int INPUT_FIELD = 22;
 
 								/**
 	 * The feature id for the '<em><b>Output</b></em>' reference.
@@ -1258,7 +1239,7 @@ public interface CrosswalkPackage extends EPackage {
 	 * @see crosswalk.impl.CrosswalkPackageImpl#getTextInputField()
 	 * @generated
 	 */
-	int TEXT_INPUT_FIELD = 24;
+	int TEXT_INPUT_FIELD = 23;
 
 								/**
 	 * The feature id for the '<em><b>Output</b></em>' reference.
@@ -1324,13 +1305,31 @@ public interface CrosswalkPackage extends EPackage {
 	int TEXT_INPUT_FIELD__MAX_SIZE = INPUT_FIELD_FEATURE_COUNT + 1;
 
 								/**
+	 * The feature id for the '<em><b>Vocabulary URL</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_INPUT_FIELD__VOCABULARY_URL = INPUT_FIELD_FEATURE_COUNT + 2;
+
+								/**
+	 * The feature id for the '<em><b>Allow Free Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_INPUT_FIELD__ALLOW_FREE_TEXT = INPUT_FIELD_FEATURE_COUNT + 3;
+
+								/**
 	 * The number of structural features of the '<em>Text Input Field</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_INPUT_FIELD_FEATURE_COUNT = INPUT_FIELD_FEATURE_COUNT + 2;
+	int TEXT_INPUT_FIELD_FEATURE_COUNT = INPUT_FIELD_FEATURE_COUNT + 4;
 
 								/**
 	 * The meta object id for the '{@link crosswalk.MappingContainer <em>Mapping Container</em>}' class.
@@ -1340,7 +1339,7 @@ public interface CrosswalkPackage extends EPackage {
 	 * @see crosswalk.impl.CrosswalkPackageImpl#getMappingContainer()
 	 * @generated
 	 */
-	int MAPPING_CONTAINER = 26;
+	int MAPPING_CONTAINER = 25;
 
 								/**
 	 * The feature id for the '<em><b>Output Type</b></em>' reference.
@@ -1404,7 +1403,7 @@ public interface CrosswalkPackage extends EPackage {
 	 * @see crosswalk.impl.CrosswalkPackageImpl#getEditingContainer()
 	 * @generated
 	 */
-	int EDITING_CONTAINER = 27;
+	int EDITING_CONTAINER = 26;
 
 								/**
 	 * The feature id for the '<em><b>Model</b></em>' containment reference.
@@ -1432,7 +1431,7 @@ public interface CrosswalkPackage extends EPackage {
 	 * @see crosswalk.impl.CrosswalkPackageImpl#getEditable()
 	 * @generated
 	 */
-	int EDITABLE = 28;
+	int EDITABLE = 27;
 
 								/**
 	 * The number of structural features of the '<em>Editable</em>' class.
@@ -1451,7 +1450,7 @@ public interface CrosswalkPackage extends EPackage {
 	 * @see crosswalk.impl.CrosswalkPackageImpl#getForm()
 	 * @generated
 	 */
-	int FORM = 29;
+	int FORM = 28;
 
 								/**
 	 * The feature id for the '<em><b>Output Type</b></em>' reference.
@@ -1542,7 +1541,7 @@ public interface CrosswalkPackage extends EPackage {
 	 * @see crosswalk.impl.CrosswalkPackageImpl#getFormElement()
 	 * @generated
 	 */
-	int FORM_ELEMENT = 30;
+	int FORM_ELEMENT = 29;
 
 								/**
 	 * The number of structural features of the '<em>Form Element</em>' class.
@@ -1561,7 +1560,7 @@ public interface CrosswalkPackage extends EPackage {
 	 * @see crosswalk.impl.CrosswalkPackageImpl#getParagraph()
 	 * @generated
 	 */
-	int PARAGRAPH = 31;
+	int PARAGRAPH = 30;
 
 								/**
 	 * The feature id for the '<em><b>Heading</b></em>' attribute.
@@ -1598,7 +1597,7 @@ public interface CrosswalkPackage extends EPackage {
 	 * @see crosswalk.impl.CrosswalkPackageImpl#getDateInputField()
 	 * @generated
 	 */
-	int DATE_INPUT_FIELD = 32;
+	int DATE_INPUT_FIELD = 31;
 
 								/**
 	 * The feature id for the '<em><b>Output</b></em>' reference.
@@ -1653,6 +1652,79 @@ public interface CrosswalkPackage extends EPackage {
 	 * @ordered
 	 */
 	int DATE_INPUT_FIELD_FEATURE_COUNT = INPUT_FIELD_FEATURE_COUNT + 0;
+
+								/**
+	 * The meta object id for the '{@link crosswalk.impl.MultiLineTextInputFieldImpl <em>Multi Line Text Input Field</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see crosswalk.impl.MultiLineTextInputFieldImpl
+	 * @see crosswalk.impl.CrosswalkPackageImpl#getMultiLineTextInputField()
+	 * @generated
+	 */
+	int MULTI_LINE_TEXT_INPUT_FIELD = 32;
+
+								/**
+	 * The feature id for the '<em><b>Output</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTI_LINE_TEXT_INPUT_FIELD__OUTPUT = INPUT_FIELD__OUTPUT;
+
+								/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTI_LINE_TEXT_INPUT_FIELD__LABEL = INPUT_FIELD__LABEL;
+
+								/**
+	 * The feature id for the '<em><b>Usage</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTI_LINE_TEXT_INPUT_FIELD__USAGE = INPUT_FIELD__USAGE;
+
+								/**
+	 * The feature id for the '<em><b>Required</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTI_LINE_TEXT_INPUT_FIELD__REQUIRED = INPUT_FIELD__REQUIRED;
+
+								/**
+	 * The feature id for the '<em><b>Entered Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTI_LINE_TEXT_INPUT_FIELD__ENTERED_VALUE = INPUT_FIELD__ENTERED_VALUE;
+
+								/**
+	 * The feature id for the '<em><b>Max Size</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTI_LINE_TEXT_INPUT_FIELD__MAX_SIZE = INPUT_FIELD_FEATURE_COUNT + 0;
+
+								/**
+	 * The number of structural features of the '<em>Multi Line Text Input Field</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTI_LINE_TEXT_INPUT_FIELD_FEATURE_COUNT = INPUT_FIELD_FEATURE_COUNT + 1;
 
 								/**
 	 * The meta object id for the '<em>Data Exception</em>' data type.
@@ -2277,17 +2349,6 @@ public interface CrosswalkPackage extends EPackage {
 	EReference getDictionary_Blocks();
 
 								/**
-	 * Returns the meta object for the containment reference list '{@link crosswalk.Dictionary#getVocabularies <em>Vocabularies</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Vocabularies</em>'.
-	 * @see crosswalk.Dictionary#getVocabularies()
-	 * @see #getDictionary()
-	 * @generated
-	 */
-	EReference getDictionary_Vocabularies();
-
-								/**
 	 * Returns the meta object for the attribute '{@link crosswalk.Dictionary#getDescription <em>Description</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2353,14 +2414,15 @@ public interface CrosswalkPackage extends EPackage {
 	EAttribute getMetadataBlock_Required();
 
 								/**
-	 * Returns the meta object for class '{@link crosswalk.Vocabulary <em>Vocabulary</em>}'.
+	 * Returns the meta object for the attribute '{@link crosswalk.MetadataBlock#getMaxRepeat <em>Max Repeat</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Vocabulary</em>'.
-	 * @see crosswalk.Vocabulary
+	 * @return the meta object for the attribute '<em>Max Repeat</em>'.
+	 * @see crosswalk.MetadataBlock#getMaxRepeat()
+	 * @see #getMetadataBlock()
 	 * @generated
 	 */
-	EClass getVocabulary();
+	EAttribute getMetadataBlock_MaxRepeat();
 
 								/**
 	 * Returns the meta object for class '{@link crosswalk.InputField <em>Input Field</em>}'.
@@ -2447,6 +2509,28 @@ public interface CrosswalkPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getTextInputField_MaxSize();
+
+								/**
+	 * Returns the meta object for the attribute '{@link crosswalk.TextInputField#getVocabularyURL <em>Vocabulary URL</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Vocabulary URL</em>'.
+	 * @see crosswalk.TextInputField#getVocabularyURL()
+	 * @see #getTextInputField()
+	 * @generated
+	 */
+	EAttribute getTextInputField_VocabularyURL();
+
+								/**
+	 * Returns the meta object for the attribute '{@link crosswalk.TextInputField#isAllowFreeText <em>Allow Free Text</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Allow Free Text</em>'.
+	 * @see crosswalk.TextInputField#isAllowFreeText()
+	 * @see #getTextInputField()
+	 * @generated
+	 */
+	EAttribute getTextInputField_AllowFreeText();
 
 								/**
 	 * Returns the meta object for class '{@link crosswalk.ContextProvider <em>Context Provider</em>}'.
@@ -2681,6 +2765,27 @@ public interface CrosswalkPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getDateInputField();
+
+								/**
+	 * Returns the meta object for class '{@link crosswalk.MultiLineTextInputField <em>Multi Line Text Input Field</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Multi Line Text Input Field</em>'.
+	 * @see crosswalk.MultiLineTextInputField
+	 * @generated
+	 */
+	EClass getMultiLineTextInputField();
+
+								/**
+	 * Returns the meta object for the attribute '{@link crosswalk.MultiLineTextInputField#getMaxSize <em>Max Size</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Max Size</em>'.
+	 * @see crosswalk.MultiLineTextInputField#getMaxSize()
+	 * @see #getMultiLineTextInputField()
+	 * @generated
+	 */
+	EAttribute getMultiLineTextInputField_MaxSize();
 
 								/**
 	 * Returns the meta object for data type '{@link crosswalk.DataException <em>Data Exception</em>}'.
@@ -3237,14 +3342,6 @@ public interface CrosswalkPackage extends EPackage {
 		EReference DICTIONARY__BLOCKS = eINSTANCE.getDictionary_Blocks();
 
 																/**
-		 * The meta object literal for the '<em><b>Vocabularies</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DICTIONARY__VOCABULARIES = eINSTANCE.getDictionary_Vocabularies();
-
-																/**
 		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3295,14 +3392,12 @@ public interface CrosswalkPackage extends EPackage {
 		EAttribute METADATA_BLOCK__REQUIRED = eINSTANCE.getMetadataBlock_Required();
 
 																/**
-		 * The meta object literal for the '{@link crosswalk.impl.VocabularyImpl <em>Vocabulary</em>}' class.
+		 * The meta object literal for the '<em><b>Max Repeat</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see crosswalk.impl.VocabularyImpl
-		 * @see crosswalk.impl.CrosswalkPackageImpl#getVocabulary()
 		 * @generated
 		 */
-		EClass VOCABULARY = eINSTANCE.getVocabulary();
+		EAttribute METADATA_BLOCK__MAX_REPEAT = eINSTANCE.getMetadataBlock_MaxRepeat();
 
 																/**
 		 * The meta object literal for the '{@link crosswalk.impl.InputFieldImpl <em>Input Field</em>}' class.
@@ -3371,6 +3466,22 @@ public interface CrosswalkPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute TEXT_INPUT_FIELD__MAX_SIZE = eINSTANCE.getTextInputField_MaxSize();
+
+																/**
+		 * The meta object literal for the '<em><b>Vocabulary URL</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TEXT_INPUT_FIELD__VOCABULARY_URL = eINSTANCE.getTextInputField_VocabularyURL();
+
+																/**
+		 * The meta object literal for the '<em><b>Allow Free Text</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TEXT_INPUT_FIELD__ALLOW_FREE_TEXT = eINSTANCE.getTextInputField_AllowFreeText();
 
 																/**
 		 * The meta object literal for the '{@link crosswalk.impl.ContextProviderImpl <em>Context Provider</em>}' class.
@@ -3563,6 +3674,24 @@ public interface CrosswalkPackage extends EPackage {
 		 * @generated
 		 */
 		EClass DATE_INPUT_FIELD = eINSTANCE.getDateInputField();
+
+																/**
+		 * The meta object literal for the '{@link crosswalk.impl.MultiLineTextInputFieldImpl <em>Multi Line Text Input Field</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see crosswalk.impl.MultiLineTextInputFieldImpl
+		 * @see crosswalk.impl.CrosswalkPackageImpl#getMultiLineTextInputField()
+		 * @generated
+		 */
+		EClass MULTI_LINE_TEXT_INPUT_FIELD = eINSTANCE.getMultiLineTextInputField();
+
+																/**
+		 * The meta object literal for the '<em><b>Max Size</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MULTI_LINE_TEXT_INPUT_FIELD__MAX_SIZE = eINSTANCE.getMultiLineTextInputField_MaxSize();
 
 																/**
 		 * The meta object literal for the '<em>Data Exception</em>' data type.

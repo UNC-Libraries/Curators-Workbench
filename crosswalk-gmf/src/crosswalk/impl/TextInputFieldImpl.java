@@ -6,14 +6,12 @@
  */
 package crosswalk.impl;
 
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import crosswalk.CrosswalkPackage;
 import crosswalk.TextInputField;
-
-import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,6 +22,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link crosswalk.impl.TextInputFieldImpl#getPreferredSize <em>Preferred Size</em>}</li>
  *   <li>{@link crosswalk.impl.TextInputFieldImpl#getMaxSize <em>Max Size</em>}</li>
+ *   <li>{@link crosswalk.impl.TextInputFieldImpl#getVocabularyURL <em>Vocabulary URL</em>}</li>
+ *   <li>{@link crosswalk.impl.TextInputFieldImpl#isAllowFreeText <em>Allow Free Text</em>}</li>
  * </ul>
  * </p>
  *
@@ -69,6 +69,55 @@ public class TextInputFieldImpl extends InputFieldImpl<String> implements TextIn
 	 * @ordered
 	 */
 	protected int maxSize = MAX_SIZE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getVocabularyURL() <em>Vocabulary URL</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getVocabularyURL()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String VOCABULARY_URL_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getVocabularyURL() <em>Vocabulary URL</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getVocabularyURL()
+	 * @generated
+	 * @ordered
+	 */
+	protected String vocabularyURL = VOCABULARY_URL_EDEFAULT;
+
+	/**
+	 * This is true if the Vocabulary URL attribute has been set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean vocabularyURLESet;
+
+	/**
+	 * The default value of the '{@link #isAllowFreeText() <em>Allow Free Text</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isAllowFreeText()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean ALLOW_FREE_TEXT_EDEFAULT = true;
+
+	/**
+	 * The cached value of the '{@link #isAllowFreeText() <em>Allow Free Text</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isAllowFreeText()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean allowFreeText = ALLOW_FREE_TEXT_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -136,6 +185,73 @@ public class TextInputFieldImpl extends InputFieldImpl<String> implements TextIn
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getVocabularyURL() {
+		return vocabularyURL;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setVocabularyURL(String newVocabularyURL) {
+		String oldVocabularyURL = vocabularyURL;
+		vocabularyURL = newVocabularyURL;
+		boolean oldVocabularyURLESet = vocabularyURLESet;
+		vocabularyURLESet = true;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.TEXT_INPUT_FIELD__VOCABULARY_URL, oldVocabularyURL, vocabularyURL, !oldVocabularyURLESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void unsetVocabularyURL() {
+		String oldVocabularyURL = vocabularyURL;
+		boolean oldVocabularyURLESet = vocabularyURLESet;
+		vocabularyURL = VOCABULARY_URL_EDEFAULT;
+		vocabularyURLESet = false;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CrosswalkPackage.TEXT_INPUT_FIELD__VOCABULARY_URL, oldVocabularyURL, VOCABULARY_URL_EDEFAULT, oldVocabularyURLESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSetVocabularyURL() {
+		return vocabularyURLESet;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isAllowFreeText() {
+		return allowFreeText;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAllowFreeText(boolean newAllowFreeText) {
+		boolean oldAllowFreeText = allowFreeText;
+		allowFreeText = newAllowFreeText;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.TEXT_INPUT_FIELD__ALLOW_FREE_TEXT, oldAllowFreeText, allowFreeText));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -143,6 +259,10 @@ public class TextInputFieldImpl extends InputFieldImpl<String> implements TextIn
 				return getPreferredSize();
 			case CrosswalkPackage.TEXT_INPUT_FIELD__MAX_SIZE:
 				return getMaxSize();
+			case CrosswalkPackage.TEXT_INPUT_FIELD__VOCABULARY_URL:
+				return getVocabularyURL();
+			case CrosswalkPackage.TEXT_INPUT_FIELD__ALLOW_FREE_TEXT:
+				return isAllowFreeText();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -160,6 +280,12 @@ public class TextInputFieldImpl extends InputFieldImpl<String> implements TextIn
 				return;
 			case CrosswalkPackage.TEXT_INPUT_FIELD__MAX_SIZE:
 				setMaxSize((Integer)newValue);
+				return;
+			case CrosswalkPackage.TEXT_INPUT_FIELD__VOCABULARY_URL:
+				setVocabularyURL((String)newValue);
+				return;
+			case CrosswalkPackage.TEXT_INPUT_FIELD__ALLOW_FREE_TEXT:
+				setAllowFreeText((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -179,6 +305,12 @@ public class TextInputFieldImpl extends InputFieldImpl<String> implements TextIn
 			case CrosswalkPackage.TEXT_INPUT_FIELD__MAX_SIZE:
 				setMaxSize(MAX_SIZE_EDEFAULT);
 				return;
+			case CrosswalkPackage.TEXT_INPUT_FIELD__VOCABULARY_URL:
+				unsetVocabularyURL();
+				return;
+			case CrosswalkPackage.TEXT_INPUT_FIELD__ALLOW_FREE_TEXT:
+				setAllowFreeText(ALLOW_FREE_TEXT_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -195,6 +327,10 @@ public class TextInputFieldImpl extends InputFieldImpl<String> implements TextIn
 				return preferredSize != PREFERRED_SIZE_EDEFAULT;
 			case CrosswalkPackage.TEXT_INPUT_FIELD__MAX_SIZE:
 				return maxSize != MAX_SIZE_EDEFAULT;
+			case CrosswalkPackage.TEXT_INPUT_FIELD__VOCABULARY_URL:
+				return isSetVocabularyURL();
+			case CrosswalkPackage.TEXT_INPUT_FIELD__ALLOW_FREE_TEXT:
+				return allowFreeText != ALLOW_FREE_TEXT_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -213,6 +349,10 @@ public class TextInputFieldImpl extends InputFieldImpl<String> implements TextIn
 		result.append(preferredSize);
 		result.append(", maxSize: ");
 		result.append(maxSize);
+		result.append(", vocabularyURL: ");
+		if (vocabularyURLESet) result.append(vocabularyURL); else result.append("<unset>");
+		result.append(", allowFreeText: ");
+		result.append(allowFreeText);
 		result.append(')');
 		return result.toString();
 	}

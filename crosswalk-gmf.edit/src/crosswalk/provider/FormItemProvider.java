@@ -67,7 +67,6 @@ public class FormItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addOutputTypePropertyDescriptor(object);
 			addTitlePropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
 			addEmailDepositNoticeToPropertyDescriptor(object);
@@ -75,28 +74,6 @@ public class FormItemProvider
 			addAuthorizedGroupsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Output Type feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addOutputTypePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ContextProvider_outputType_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ContextProvider_outputType_feature", "_UI_ContextProvider_type"),
-				 CrosswalkPackage.Literals.CONTEXT_PROVIDER__OUTPUT_TYPE,
-				 false,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**

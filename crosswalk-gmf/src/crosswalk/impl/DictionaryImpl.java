@@ -20,7 +20,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import crosswalk.CrosswalkPackage;
 import crosswalk.Dictionary;
 import crosswalk.MetadataBlock;
-import crosswalk.Vocabulary;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,7 +30,6 @@ import crosswalk.Vocabulary;
  * <ul>
  *   <li>{@link crosswalk.impl.DictionaryImpl#getName <em>Name</em>}</li>
  *   <li>{@link crosswalk.impl.DictionaryImpl#getBlocks <em>Blocks</em>}</li>
- *   <li>{@link crosswalk.impl.DictionaryImpl#getVocabularies <em>Vocabularies</em>}</li>
  *   <li>{@link crosswalk.impl.DictionaryImpl#getDescription <em>Description</em>}</li>
  * </ul>
  * </p>
@@ -68,16 +66,6 @@ public class DictionaryImpl extends ContextProviderImpl implements Dictionary {
 	 * @ordered
 	 */
 	protected EList<MetadataBlock> blocks;
-
-	/**
-	 * The cached value of the '{@link #getVocabularies() <em>Vocabularies</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getVocabularies()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Vocabulary> vocabularies;
 
 	/**
 	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
@@ -156,18 +144,6 @@ public class DictionaryImpl extends ContextProviderImpl implements Dictionary {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Vocabulary> getVocabularies() {
-		if (vocabularies == null) {
-			vocabularies = new EObjectContainmentEList<Vocabulary>(Vocabulary.class, this, CrosswalkPackage.DICTIONARY__VOCABULARIES);
-		}
-		return vocabularies;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public String getDescription() {
 		return description;
 	}
@@ -194,8 +170,6 @@ public class DictionaryImpl extends ContextProviderImpl implements Dictionary {
 		switch (featureID) {
 			case CrosswalkPackage.DICTIONARY__BLOCKS:
 				return ((InternalEList<?>)getBlocks()).basicRemove(otherEnd, msgs);
-			case CrosswalkPackage.DICTIONARY__VOCABULARIES:
-				return ((InternalEList<?>)getVocabularies()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -212,8 +186,6 @@ public class DictionaryImpl extends ContextProviderImpl implements Dictionary {
 				return getName();
 			case CrosswalkPackage.DICTIONARY__BLOCKS:
 				return getBlocks();
-			case CrosswalkPackage.DICTIONARY__VOCABULARIES:
-				return getVocabularies();
 			case CrosswalkPackage.DICTIONARY__DESCRIPTION:
 				return getDescription();
 		}
@@ -236,10 +208,6 @@ public class DictionaryImpl extends ContextProviderImpl implements Dictionary {
 				getBlocks().clear();
 				getBlocks().addAll((Collection<? extends MetadataBlock>)newValue);
 				return;
-			case CrosswalkPackage.DICTIONARY__VOCABULARIES:
-				getVocabularies().clear();
-				getVocabularies().addAll((Collection<? extends Vocabulary>)newValue);
-				return;
 			case CrosswalkPackage.DICTIONARY__DESCRIPTION:
 				setDescription((String)newValue);
 				return;
@@ -261,9 +229,6 @@ public class DictionaryImpl extends ContextProviderImpl implements Dictionary {
 			case CrosswalkPackage.DICTIONARY__BLOCKS:
 				getBlocks().clear();
 				return;
-			case CrosswalkPackage.DICTIONARY__VOCABULARIES:
-				getVocabularies().clear();
-				return;
 			case CrosswalkPackage.DICTIONARY__DESCRIPTION:
 				setDescription(DESCRIPTION_EDEFAULT);
 				return;
@@ -283,8 +248,6 @@ public class DictionaryImpl extends ContextProviderImpl implements Dictionary {
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case CrosswalkPackage.DICTIONARY__BLOCKS:
 				return blocks != null && !blocks.isEmpty();
-			case CrosswalkPackage.DICTIONARY__VOCABULARIES:
-				return vocabularies != null && !vocabularies.isEmpty();
 			case CrosswalkPackage.DICTIONARY__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
 		}

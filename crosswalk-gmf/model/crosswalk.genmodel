@@ -110,7 +110,6 @@
     <genClasses ecoreClass="crosswalk.ecore#//Dictionary">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//Dictionary/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference crosswalk.ecore#//Dictionary/blocks"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference crosswalk.ecore#//Dictionary/vocabularies"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//Dictionary/description"/>
     </genClasses>
     <genClasses ecoreClass="crosswalk.ecore#//MetadataBlock">
@@ -118,14 +117,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//MetadataBlock/description"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference crosswalk.ecore#//MetadataBlock/ports"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//MetadataBlock/required"/>
-    </genClasses>
-    <genClasses ecoreClass="crosswalk.ecore#//Vocabulary">
-      <genOperations ecoreOperation="crosswalk.ecore#//Vocabulary/getTerms">
-        <genParameters ecoreParameter="crosswalk.ecore#//Vocabulary/getTerms/broaderTerm"/>
-      </genOperations>
-      <genOperations ecoreOperation="crosswalk.ecore#//Vocabulary/getCompletions">
-        <genParameters ecoreParameter="crosswalk.ecore#//Vocabulary/getCompletions/prefix"/>
-      </genOperations>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//MetadataBlock/maxRepeat"/>
     </genClasses>
     <genClasses ecoreClass="crosswalk.ecore#//InputField">
       <genTypeParameters ecoreTypeParameter="crosswalk.ecore#//InputField/F"/>
@@ -137,16 +129,18 @@
     <genClasses ecoreClass="crosswalk.ecore#//TextInputField">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//TextInputField/preferredSize"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//TextInputField/maxSize"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//TextInputField/vocabularyURL"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//TextInputField/allowFreeText"/>
     </genClasses>
     <genClasses image="false" ecoreClass="crosswalk.ecore#//ContextProvider">
-      <genFeatures property="Readonly" notify="false" createChild="false" propertySortChoices="true"
+      <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
           ecoreFeature="ecore:EReference crosswalk.ecore#//ContextProvider/outputType"/>
       <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//ContextProvider/currentUser"/>
     </genClasses>
     <genClasses image="false" ecoreClass="crosswalk.ecore#//MappingContainer">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference crosswalk.ecore#//MappingContainer/widgets"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference crosswalk.ecore#//MappingContainer/elements"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//MappingContainer/exceptions"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//MappingContainer/exceptions"/>
     </genClasses>
     <genClasses ecoreClass="crosswalk.ecore#//EditingContainer">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference crosswalk.ecore#//EditingContainer/model"/>
@@ -166,5 +160,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//Paragraph/text"/>
     </genClasses>
     <genClasses ecoreClass="crosswalk.ecore#//DateInputField"/>
+    <genClasses ecoreClass="crosswalk.ecore#//MultiLineTextInputField">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//MultiLineTextInputField/maxSize"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

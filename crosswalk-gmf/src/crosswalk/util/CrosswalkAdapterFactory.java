@@ -169,10 +169,6 @@ public class CrosswalkAdapterFactory extends AdapterFactoryImpl {
 				return createMetadataBlockAdapter();
 			}
 			@Override
-			public Adapter caseVocabulary(Vocabulary object) {
-				return createVocabularyAdapter();
-			}
-			@Override
 			public <F> Adapter caseInputField(InputField<F> object) {
 				return createInputFieldAdapter();
 			}
@@ -211,6 +207,10 @@ public class CrosswalkAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseDateInputField(DateInputField object) {
 				return createDateInputFieldAdapter();
+			}
+			@Override
+			public Adapter caseMultiLineTextInputField(MultiLineTextInputField object) {
+				return createMultiLineTextInputFieldAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -541,20 +541,6 @@ public class CrosswalkAdapterFactory extends AdapterFactoryImpl {
 	}
 
 								/**
-	 * Creates a new adapter for an object of class '{@link crosswalk.Vocabulary <em>Vocabulary</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see crosswalk.Vocabulary
-	 * @generated
-	 */
-	public Adapter createVocabularyAdapter() {
-		return null;
-	}
-
-								/**
 	 * Creates a new adapter for an object of class '{@link crosswalk.InputField <em>Input Field</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -691,6 +677,20 @@ public class CrosswalkAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDateInputFieldAdapter() {
+		return null;
+	}
+
+								/**
+	 * Creates a new adapter for an object of class '{@link crosswalk.MultiLineTextInputField <em>Multi Line Text Input Field</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see crosswalk.MultiLineTextInputField
+	 * @generated
+	 */
+	public Adapter createMultiLineTextInputFieldAdapter() {
 		return null;
 	}
 

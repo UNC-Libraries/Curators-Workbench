@@ -133,8 +133,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="blocks" upperBound="-1"
         eType="#//MetadataBlock" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="vocabularies" upperBound="-1"
-        eType="#//Vocabulary" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
@@ -149,22 +147,8 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="required" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Vocabulary">
-    <eOperations name="getTerms" lowerBound="1">
-      <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
-        <eTypeArguments/>
-        <eTypeArguments/>
-      </eGenericType>
-      <eParameters name="broaderTerm" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    </eOperations>
-    <eOperations name="getCompletions">
-      <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
-        <eTypeArguments/>
-        <eTypeArguments/>
-      </eGenericType>
-      <eParameters name="prefix" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxRepeat" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InputField" eSuperTypes="#//Output #//Input">
     <eTypeParameters name="F"/>
@@ -182,6 +166,10 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="40"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxSize" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="256"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="vocabularyURL" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        unsettable="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="allowFreeText" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="true"/>
     <eGenericSuperTypes eClassifier="#//InputField">
       <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eGenericSuperTypes>
@@ -229,6 +217,13 @@
   <eClassifiers xsi:type="ecore:EClass" name="DateInputField">
     <eGenericSuperTypes eClassifier="#//InputField">
       <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MultiLineTextInputField">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxSize" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="2048"/>
+    <eGenericSuperTypes eClassifier="#//InputField">
+      <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eGenericSuperTypes>
   </eClassifiers>
 </ecore:EPackage>

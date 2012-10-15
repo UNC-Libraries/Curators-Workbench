@@ -49,6 +49,7 @@ import crosswalk.WalkWidget;
  *   <li>{@link crosswalk.impl.MetadataBlockImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link crosswalk.impl.MetadataBlockImpl#getPorts <em>Ports</em>}</li>
  *   <li>{@link crosswalk.impl.MetadataBlockImpl#isRequired <em>Required</em>}</li>
+ *   <li>{@link crosswalk.impl.MetadataBlockImpl#getMaxRepeat <em>Max Repeat</em>}</li>
  * </ul>
  * </p>
  *
@@ -204,6 +205,26 @@ public class MetadataBlockImpl extends EObjectImpl implements MetadataBlock {
 	 * @ordered
 	 */
 	protected boolean required = REQUIRED_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getMaxRepeat() <em>Max Repeat</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMaxRepeat()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int MAX_REPEAT_EDEFAULT = 1;
+
+	/**
+	 * The cached value of the '{@link #getMaxRepeat() <em>Max Repeat</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMaxRepeat()
+	 * @generated
+	 * @ordered
+	 */
+	protected int maxRepeat = MAX_REPEAT_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -449,6 +470,27 @@ public class MetadataBlockImpl extends EObjectImpl implements MetadataBlock {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public int getMaxRepeat() {
+		return maxRepeat;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMaxRepeat(int newMaxRepeat) {
+		int oldMaxRepeat = maxRepeat;
+		maxRepeat = newMaxRepeat;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.METADATA_BLOCK__MAX_REPEAT, oldMaxRepeat, maxRepeat));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<WalkWidget> getWidgets() {
 		if (widgets == null) {
 			widgets = new EObjectContainmentWithInverseEList<WalkWidget>(WalkWidget.class, this, CrosswalkPackage.METADATA_BLOCK__WIDGETS, CrosswalkPackage.WALK_WIDGET__WALK);
@@ -553,6 +595,8 @@ public class MetadataBlockImpl extends EObjectImpl implements MetadataBlock {
 				return getPorts();
 			case CrosswalkPackage.METADATA_BLOCK__REQUIRED:
 				return isRequired();
+			case CrosswalkPackage.METADATA_BLOCK__MAX_REPEAT:
+				return getMaxRepeat();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -603,6 +647,9 @@ public class MetadataBlockImpl extends EObjectImpl implements MetadataBlock {
 			case CrosswalkPackage.METADATA_BLOCK__REQUIRED:
 				setRequired((Boolean)newValue);
 				return;
+			case CrosswalkPackage.METADATA_BLOCK__MAX_REPEAT:
+				setMaxRepeat((Integer)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -648,6 +695,9 @@ public class MetadataBlockImpl extends EObjectImpl implements MetadataBlock {
 			case CrosswalkPackage.METADATA_BLOCK__REQUIRED:
 				setRequired(REQUIRED_EDEFAULT);
 				return;
+			case CrosswalkPackage.METADATA_BLOCK__MAX_REPEAT:
+				setMaxRepeat(MAX_REPEAT_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -682,6 +732,8 @@ public class MetadataBlockImpl extends EObjectImpl implements MetadataBlock {
 				return ports != null && !ports.isEmpty();
 			case CrosswalkPackage.METADATA_BLOCK__REQUIRED:
 				return required != REQUIRED_EDEFAULT;
+			case CrosswalkPackage.METADATA_BLOCK__MAX_REPEAT:
+				return maxRepeat != MAX_REPEAT_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -768,6 +820,8 @@ public class MetadataBlockImpl extends EObjectImpl implements MetadataBlock {
 		result.append(description);
 		result.append(", required: ");
 		result.append(required);
+		result.append(", maxRepeat: ");
+		result.append(maxRepeat);
 		result.append(')');
 		return result.toString();
 	}

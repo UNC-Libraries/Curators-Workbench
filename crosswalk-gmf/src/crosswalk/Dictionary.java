@@ -18,7 +18,6 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link crosswalk.Dictionary#getName <em>Name</em>}</li>
  *   <li>{@link crosswalk.Dictionary#getBlocks <em>Blocks</em>}</li>
- *   <li>{@link crosswalk.Dictionary#getVocabularies <em>Vocabularies</em>}</li>
  *   <li>{@link crosswalk.Dictionary#getDescription <em>Description</em>}</li>
  * </ul>
  * </p>
@@ -69,22 +68,6 @@ public interface Dictionary extends ContextProvider, Editable {
 	 * @generated
 	 */
 	EList<MetadataBlock> getBlocks();
-
-	/**
-	 * Returns the value of the '<em><b>Vocabularies</b></em>' containment reference list.
-	 * The list contents are of type {@link crosswalk.Vocabulary}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Vocabularies</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Vocabularies</em>' containment reference list.
-	 * @see crosswalk.CrosswalkPackage#getDictionary_Vocabularies()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Vocabulary> getVocabularies();
 
 	/**
 	 * Returns the value of the '<em><b>Description</b></em>' attribute.

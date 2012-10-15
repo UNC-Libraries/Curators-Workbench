@@ -170,15 +170,6 @@ public interface CrosswalkFactory extends EFactory {
 	MetadataBlock createMetadataBlock();
 
 								/**
-	 * Returns a new object of class '<em>Vocabulary</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Vocabulary</em>'.
-	 * @generated
-	 */
-	Vocabulary createVocabulary();
-
-								/**
 	 * Returns a new object of class '<em>Input Field</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -231,6 +222,15 @@ public interface CrosswalkFactory extends EFactory {
 	 * @generated
 	 */
 	DateInputField createDateInputField();
+
+								/**
+	 * Returns a new object of class '<em>Multi Line Text Input Field</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Multi Line Text Input Field</em>'.
+	 * @generated
+	 */
+	MultiLineTextInputField createMultiLineTextInputField();
 
 								/**
 	 * Returns the package supported by this factory.
