@@ -18,5 +18,6 @@ package crosswalk.diagram.edit.helpers;
 /**
  * @generated
  */
-public class OriginalNameRecordMatcherEditHelper extends CrosswalkBaseEditHelper {
+public class OriginalNameRecordMatcherEditHelper extends
+		CrosswalkBaseEditHelper {
 }

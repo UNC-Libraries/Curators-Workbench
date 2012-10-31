@@ -27,7 +27,8 @@ import crosswalk.diagram.providers.CrosswalkElementTypes;
 /**
  * @generated
  */
-public class MappedAttributeItemSemanticEditPolicy extends CrosswalkBaseItemSemanticEditPolicy {
+public class MappedAttributeItemSemanticEditPolicy extends
+		CrosswalkBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
@@ -41,12 +42,14 @@ public class MappedAttributeItemSemanticEditPolicy extends CrosswalkBaseItemSema
 	 */
 	protected Command getDestroyElementCommand(DestroyElementRequest req) {
 		View view = (View) getHost().getModel();
-		CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(getEditingDomain(), null);
+		CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(
+				getEditingDomain(), null);
 		cmd.setTransactionNestingEnabled(false);
 		for (Iterator<?> it = view.getSourceEdges().iterator(); it.hasNext();) {
 			Edge outgoingLink = (Edge) it.next();
 			if (CrosswalkVisualIDRegistry.getVisualID(outgoingLink) == InputOutputEditPart.VISUAL_ID) {
-				DestroyReferenceRequest r = new DestroyReferenceRequest(outgoingLink.getSource().getElement(), null,
+				DestroyReferenceRequest r = new DestroyReferenceRequest(
+						outgoingLink.getSource().getElement(), null,
 						outgoingLink.getTarget().getElement(), false);
 				cmd.add(new DestroyReferenceCommand(r));
 				cmd.add(new DeleteCommand(getEditingDomain(), outgoingLink));
@@ -71,15 +74,18 @@ public class MappedAttributeItemSemanticEditPolicy extends CrosswalkBaseItemSema
 	protected Command getCreateRelationshipCommand(CreateRelationshipRequest req) {
 		Command command = req.getTarget() == null ? getStartCreateRelationshipCommand(req)
 				: getCompleteCreateRelationshipCommand(req);
-		return command != null ? command : super.getCreateRelationshipCommand(req);
+		return command != null ? command : super
+				.getCreateRelationshipCommand(req);
 	}
 
 	/**
 	 * @generated
 	 */
-	protected Command getStartCreateRelationshipCommand(CreateRelationshipRequest req) {
+	protected Command getStartCreateRelationshipCommand(
+			CreateRelationshipRequest req) {
 		if (CrosswalkElementTypes.InputOutput_4001 == req.getElementType()) {
-			return getGEFWrapper(new InputOutputCreateCommand(req, req.getSource(), req.getTarget()));
+			return getGEFWrapper(new InputOutputCreateCommand(req,
+					req.getSource(), req.getTarget()));
 		}
 		return null;
 	}
@@ -87,7 +93,8 @@ public class MappedAttributeItemSemanticEditPolicy extends CrosswalkBaseItemSema
 	/**
 	 * @generated
 	 */
-	protected Command getCompleteCreateRelationshipCommand(CreateRelationshipRequest req) {
+	protected Command getCompleteCreateRelationshipCommand(
+			CreateRelationshipRequest req) {
 		if (CrosswalkElementTypes.InputOutput_4001 == req.getElementType()) {
 			return null;
 		}
@@ -100,10 +107,11 @@ public class MappedAttributeItemSemanticEditPolicy extends CrosswalkBaseItemSema
 	 * 
 	 * @generated
 	 */
-	protected Command getReorientReferenceRelationshipCommand(ReorientReferenceRelationshipRequest req) {
+	protected Command getReorientReferenceRelationshipCommand(
+			ReorientReferenceRelationshipRequest req) {
 		switch (getVisualID(req)) {
-			case InputOutputEditPart.VISUAL_ID:
-				return getGEFWrapper(new InputOutputReorientCommand(req));
+		case InputOutputEditPart.VISUAL_ID:
+			return getGEFWrapper(new InputOutputReorientCommand(req));
 		}
 		return super.getReorientReferenceRelationshipCommand(req);
 	}

@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ecore:EPackage xmi:version="2.0"
-    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="crosswalk"
-    nsURI="http://lib.unc.edu/schemas/crosswalk" nsPrefix="walk">
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="crosswalk" nsURI="http://lib.unc.edu/schemas/crosswalk" nsPrefix="walk">
   <eClassifiers xsi:type="ecore:EClass" name="TabbedDataField" eSuperTypes="#//DataField">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ColumnNumber" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="1"/>
@@ -215,6 +213,8 @@
   <eClassifiers xsi:type="ecore:EDataType" name="Exception" instanceClassName="java.lang.Throwable"/>
   <eClassifiers xsi:type="ecore:EDataType" name="Clazz" instanceClassName="java.lang.Class"/>
   <eClassifiers xsi:type="ecore:EClass" name="DateInputField">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="datePrecision" lowerBound="1"
+        eType="#//DatePrecision" defaultValueLiteral="Day"/>
     <eGenericSuperTypes eClassifier="#//InputField">
       <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
     </eGenericSuperTypes>
@@ -225,5 +225,13 @@
     <eGenericSuperTypes eClassifier="#//InputField">
       <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="DatePrecision">
+    <eLiterals name="year"/>
+    <eLiterals name="month" value="1"/>
+    <eLiterals name="day" value="2"/>
+    <eLiterals name="hour" value="3"/>
+    <eLiterals name="minute" value="4"/>
+    <eLiterals name="second" value="5"/>
   </eClassifiers>
 </ecore:EPackage>

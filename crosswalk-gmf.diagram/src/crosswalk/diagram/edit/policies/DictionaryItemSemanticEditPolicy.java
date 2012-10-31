@@ -20,7 +20,8 @@ import crosswalk.diagram.providers.CrosswalkElementTypes;
 /**
  * @generated
  */
-public class DictionaryItemSemanticEditPolicy extends CrosswalkBaseItemSemanticEditPolicy {
+public class DictionaryItemSemanticEditPolicy extends
+		CrosswalkBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
@@ -34,7 +35,8 @@ public class DictionaryItemSemanticEditPolicy extends CrosswalkBaseItemSemanticE
 	 */
 	protected Command getDestroyElementCommand(DestroyElementRequest req) {
 		View view = (View) getHost().getModel();
-		CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(getEditingDomain(), null);
+		CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(
+				getEditingDomain(), null);
 		cmd.setTransactionNestingEnabled(false);
 		EAnnotation annotation = view.getEAnnotation("Shortcut"); //$NON-NLS-1$
 		if (annotation == null) {
@@ -57,19 +59,21 @@ public class DictionaryItemSemanticEditPolicy extends CrosswalkBaseItemSemanticE
 		for (Iterator<?> nit = view.getChildren().iterator(); nit.hasNext();) {
 			Node node = (Node) nit.next();
 			switch (CrosswalkVisualIDRegistry.getVisualID(node)) {
-				case DictionaryModelBoxCompartmentEditPart.VISUAL_ID:
-					for (Iterator<?> cit = node.getChildren().iterator(); cit.hasNext();) {
-						Node cnode = (Node) cit.next();
-						switch (CrosswalkVisualIDRegistry.getVisualID(cnode)) {
-							case MetadataBlockEditPart.VISUAL_ID:
-								cmd.add(new DestroyElementCommand(new DestroyElementRequest(getEditingDomain(), cnode
-										.getElement(), false))); // directlyOwned: true
-								// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
-								// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
-								break;
-						}
+			case DictionaryModelBoxCompartmentEditPart.VISUAL_ID:
+				for (Iterator<?> cit = node.getChildren().iterator(); cit
+						.hasNext();) {
+					Node cnode = (Node) cit.next();
+					switch (CrosswalkVisualIDRegistry.getVisualID(cnode)) {
+					case MetadataBlockEditPart.VISUAL_ID:
+						cmd.add(new DestroyElementCommand(
+								new DestroyElementRequest(getEditingDomain(),
+										cnode.getElement(), false))); // directlyOwned: true
+						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
+						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
+						break;
 					}
-					break;
+				}
+				break;
 			}
 		}
 	}

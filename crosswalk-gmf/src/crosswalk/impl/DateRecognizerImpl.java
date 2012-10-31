@@ -31,6 +31,7 @@ import org.slf4j.LoggerFactory;
 
 import crosswalk.CrosswalkPackage;
 import crosswalk.DataException;
+import crosswalk.DatePrecision;
 import crosswalk.DateRecognizer;
 import crosswalk.Input;
 import crosswalk.Output;
@@ -196,7 +197,7 @@ public class DateRecognizerImpl extends WalkWidgetImpl implements DateRecognizer
 						sdf.setLenient(false);
 						Date dt = sdf.parse(input);
 						LOG.debug("parsed a date: "+dt.toString());
-						ImpreciseDate.DatePrecision precision = ImpreciseDate.getFormatPrecision(format);
+						DatePrecision precision = ImpreciseDate.getFormatPrecision(format);
 						LOG.debug("get precision: "+precision);
 						result = new ImpreciseDate(dt);
 						if (precision != null) {

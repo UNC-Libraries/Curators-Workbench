@@ -133,6 +133,8 @@ public class CrosswalkFactoryImpl extends EFactoryImpl implements CrosswalkFacto
     @Override
     public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
+			case CrosswalkPackage.DATE_PRECISION:
+				return createDatePrecisionFromString(eDataType, initialValue);
 			case CrosswalkPackage.DATA_EXCEPTION:
 				return createDataExceptionFromString(eDataType, initialValue);
 			case CrosswalkPackage.RECORD_MATCHES:
@@ -157,6 +159,8 @@ public class CrosswalkFactoryImpl extends EFactoryImpl implements CrosswalkFacto
     @Override
     public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
+			case CrosswalkPackage.DATE_PRECISION:
+				return convertDatePrecisionToString(eDataType, instanceValue);
 			case CrosswalkPackage.DATA_EXCEPTION:
 				return convertDataExceptionToString(eDataType, instanceValue);
 			case CrosswalkPackage.RECORD_MATCHES:
@@ -389,6 +393,26 @@ public class CrosswalkFactoryImpl extends EFactoryImpl implements CrosswalkFacto
 	public MultiLineTextInputField createMultiLineTextInputField() {
 		MultiLineTextInputFieldImpl multiLineTextInputField = new MultiLineTextInputFieldImpl();
 		return multiLineTextInputField;
+	}
+
+/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DatePrecision createDatePrecisionFromString(EDataType eDataType, String initialValue) {
+		DatePrecision result = DatePrecision.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertDatePrecisionToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 /**

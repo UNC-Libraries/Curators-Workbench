@@ -15,9 +15,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import crosswalk.CrosswalkPackage;
+import crosswalk.DatePrecision;
 import crosswalk.DateToISO8601StringConversion;
 import crosswalk.util.ImpreciseDate;
-import crosswalk.util.ImpreciseDate.DatePrecision;
 
 /**
  * <!-- begin-user-doc -->
@@ -72,21 +72,21 @@ public class DateToISO8601StringConversionImpl extends EObjectImpl implements Da
       	  if(input instanceof ImpreciseDate) {
       		  ImpreciseDate date = (ImpreciseDate)input;
       		  LOG.debug("got imprecise date with precision: "+date.getPrecision());
-      		  if(DatePrecision.Year.equals(date.getPrecision())) {
+      		  if(DatePrecision.YEAR.equals(date.getPrecision())) {
       			  return yearFormat.format(date);
-      		  } else if(DatePrecision.Month.equals(date.getPrecision())) {
+      		  } else if(DatePrecision.MONTH.equals(date.getPrecision())) {
       			  return monthFormat.format(date);
-      		  } else if(DatePrecision.Day.equals(date.getPrecision())) {
+      		  } else if(DatePrecision.DAY.equals(date.getPrecision())) {
       			  return dayFormat.format(date);
-      		  } else if(DatePrecision.Hour.equals(date.getPrecision())) {
+      		  } else if(DatePrecision.HOUR.equals(date.getPrecision())) {
       			  return hourFormat.format(date);
-      		  } else if(DatePrecision.Second.equals(date.getPrecision())) {
+      		  } else if(DatePrecision.SECOND.equals(date.getPrecision())) {
       			  return secondFormat.format(date);
       		  } else {
       			  return dayFormat.format(date);
       		  }
       	  }
-           return dayFormat.format(input);
+          return dayFormat.format(input);
         }
 
         /**

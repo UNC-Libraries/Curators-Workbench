@@ -10,15 +10,18 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ResizableCompartmentEditP
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.notation.View;
 
+import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicyWithCustomReparent;
 import crosswalk.diagram.custom.CompartmentChildCreationEditPolicy;
 import crosswalk.diagram.edit.policies.MetadataBlockMetadataBlockInputFieldsCompartmentCanonicalEditPolicy;
 import crosswalk.diagram.edit.policies.MetadataBlockMetadataBlockInputFieldsCompartmentItemSemanticEditPolicy;
+import crosswalk.diagram.part.CrosswalkVisualIDRegistry;
 import crosswalk.diagram.part.Messages;
 
 /**
  * @generated
  */
-public class MetadataBlockMetadataBlockInputFieldsCompartmentEditPart extends ListCompartmentEditPart {
+public class MetadataBlockMetadataBlockInputFieldsCompartmentEditPart extends
+		ListCompartmentEditPart {
 
 	/**
 	 * @generated
@@ -51,12 +54,18 @@ public class MetadataBlockMetadataBlockInputFieldsCompartmentEditPart extends Li
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE, new ResizableCompartmentEditPolicy());
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
+		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
+				new ResizableCompartmentEditPolicy());
+		installEditPolicy(
+				EditPolicyRoles.SEMANTIC_ROLE,
 				new MetadataBlockMetadataBlockInputFieldsCompartmentItemSemanticEditPolicy());
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicy());
-		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new DragDropEditPolicy());
-		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
+				new CreationEditPolicyWithCustomReparent(
+						CrosswalkVisualIDRegistry.TYPED_INSTANCE));
+		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
+				new DragDropEditPolicy());
+		installEditPolicy(
+				EditPolicyRoles.CANONICAL_ROLE,
 				new MetadataBlockMetadataBlockInputFieldsCompartmentCanonicalEditPolicy());
 	}
 

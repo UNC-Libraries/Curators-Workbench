@@ -28,6 +28,7 @@ public class DiagramPrintingPreferencePage extends PrintingPreferencePage {
 	 * @generated
 	 */
 	public DiagramPrintingPreferencePage() {
-		setPreferenceStore(CrosswalkDiagramEditorPlugin.getInstance().getPreferenceStore());
+		setPreferenceStore(CrosswalkDiagramEditorPlugin.getInstance()
+				.getPreferenceStore());
 	}
 }

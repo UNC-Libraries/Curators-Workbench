@@ -48,6 +48,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.WebDataBinder;
@@ -154,15 +155,26 @@ public class FormController {
        binder.registerCustomEditor(java.lang.String.class, new StringTrimmerEditor(true));
    }
 	
-	@ModelAttribute("form")
-	protected Form getForm(@PathVariable String formId) {
-		return factory.getForm(formId);
-	}
+//	@ModelAttribute("form")
+//	protected Form getForm(@PathVariable String formId) {
+//		return factory.getForm(formId);
+//	}
+	
+	// get always loads the form model into modelmap as just "form"
+	// also sets modelmap "formId"
+	// successful save will destroy the specific model?
 
 	@RequestMapping(value = "/{formId}.form", method = RequestMethod.GET)
-	public String showForm(@PathVariable String formId, @ModelAttribute("form") Form form, HttpServletRequest request) throws PermissionDeniedException {
+	public String showForm(@PathVariable String formId, ModelMap modelmap, HttpServletRequest request) throws PermissionDeniedException {
 		LOG.debug("in GET for form " + formId);
-		this.getAuthorizationHandler().checkPermission(formId, form, request);
+		String sessionFormId = (String)modelmap.get("formId");
+		Form form = null;
+		if(sessionFormId == null || !sessionFormId.equals(formId)) {
+			form = factory.getForm(formId);
+			this.getAuthorizationHandler().checkPermission(formId, form, request);
+			modelmap.put("form", form);
+			modelmap.put("formId", formId);
+		}
 		return "form";
 	}
 

@@ -27,6 +27,7 @@ import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicyWithCustomReparent;
 import org.eclipse.swt.graphics.Color;
 
 import crosswalk.diagram.edit.policies.CrosswalkTextSelectionEditPolicy;
@@ -65,9 +66,12 @@ public class DelimitedFileEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected void createDefaultEditPolicies() {
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicy());
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
+				new CreationEditPolicyWithCustomReparent(
+						CrosswalkVisualIDRegistry.TYPED_INSTANCE));
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new DelimitedFileItemSemanticEditPolicy());
+		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
+				new DelimitedFileItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
@@ -111,13 +115,15 @@ public class DelimitedFileEditPart extends ShapeNodeEditPart {
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof DelimitedFileSourceFileEditPart) {
-			((DelimitedFileSourceFileEditPart) childEditPart).setLabel(getPrimaryShape().getFigureDataSourceNameFigure());
+			((DelimitedFileSourceFileEditPart) childEditPart)
+					.setLabel(getPrimaryShape().getFigureDataSourceNameFigure());
 			return true;
 		}
 		if (childEditPart instanceof DelimitedFileDataFieldCompartmentEditPart) {
 			IFigure pane = getPrimaryShape().getFigureFieldCompartmentRect();
 			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
-			pane.add(((DelimitedFileDataFieldCompartmentEditPart) childEditPart).getFigure());
+			pane.add(((DelimitedFileDataFieldCompartmentEditPart) childEditPart)
+					.getFigure());
 			return true;
 		}
 		return false;
@@ -132,8 +138,8 @@ public class DelimitedFileEditPart extends ShapeNodeEditPart {
 		}
 		if (childEditPart instanceof DelimitedFileDataFieldCompartmentEditPart) {
 			IFigure pane = getPrimaryShape().getFigureFieldCompartmentRect();
-			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
-			pane.remove(((DelimitedFileDataFieldCompartmentEditPart) childEditPart).getFigure());
+			pane.remove(((DelimitedFileDataFieldCompartmentEditPart) childEditPart)
+					.getFigure());
 			return true;
 		}
 		return false;
@@ -259,7 +265,8 @@ public class DelimitedFileEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	public EditPart getPrimaryChildEditPart() {
-		return getChildBySemanticHint(CrosswalkVisualIDRegistry.getType(DelimitedFileSourceFileEditPart.VISUAL_ID));
+		return getChildBySemanticHint(CrosswalkVisualIDRegistry
+				.getType(DelimitedFileSourceFileEditPart.VISUAL_ID));
 	}
 
 	/**
@@ -267,9 +274,11 @@ public class DelimitedFileEditPart extends ShapeNodeEditPart {
 	 */
 	public EditPart getTargetEditPart(Request request) {
 		if (request instanceof CreateViewAndElementRequest) {
-			CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request).getViewAndElementDescriptor()
+			CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request)
+					.getViewAndElementDescriptor()
 					.getCreateElementRequestAdapter();
-			IElementType type = (IElementType) adapter.getAdapter(IElementType.class);
+			IElementType type = (IElementType) adapter
+					.getAdapter(IElementType.class);
 			if (type == CrosswalkElementTypes.TabbedDataField_3002) {
 				return getChildBySemanticHint(CrosswalkVisualIDRegistry
 						.getType(DelimitedFileDataFieldCompartmentEditPart.VISUAL_ID));
@@ -306,7 +315,8 @@ public class DelimitedFileEditPart extends ShapeNodeEditPart {
 
 			this.setLayoutManager(layoutThis);
 
-			this.setBorder(new MarginBorder(getMapMode().DPtoLP(5), getMapMode().DPtoLP(0), getMapMode().DPtoLP(0),
+			this.setBorder(new MarginBorder(getMapMode().DPtoLP(5),
+					getMapMode().DPtoLP(0), getMapMode().DPtoLP(0),
 					getMapMode().DPtoLP(0)));
 			createContents();
 		}
@@ -317,16 +327,19 @@ public class DelimitedFileEditPart extends ShapeNodeEditPart {
 		private void createContents() {
 
 			WrappingLabel l0 = new WrappingLabel();
+
 			l0.setText("Data Source");
 
 			this.add(l0);
 
 			fFigureDataSourceNameFigure = new WrappingLabel();
+
 			fFigureDataSourceNameFigure.setText("faaa");
 
 			this.add(fFigureDataSourceNameFigure);
 
 			fFigureFieldCompartmentRect = new RectangleFigure();
+
 			fFigureFieldCompartmentRect.setFill(false);
 			fFigureFieldCompartmentRect.setOutline(false);
 
@@ -334,12 +347,14 @@ public class DelimitedFileEditPart extends ShapeNodeEditPart {
 
 			ToolbarLayout layoutFFigureFieldCompartmentRect = new ToolbarLayout();
 			layoutFFigureFieldCompartmentRect.setStretchMinorAxis(false);
-			layoutFFigureFieldCompartmentRect.setMinorAlignment(ToolbarLayout.ALIGN_CENTER);
+			layoutFFigureFieldCompartmentRect
+					.setMinorAlignment(ToolbarLayout.ALIGN_CENTER);
 
 			layoutFFigureFieldCompartmentRect.setSpacing(0);
 			layoutFFigureFieldCompartmentRect.setVertical(true);
 
-			fFigureFieldCompartmentRect.setLayoutManager(layoutFFigureFieldCompartmentRect);
+			fFigureFieldCompartmentRect
+					.setLayoutManager(layoutFFigureFieldCompartmentRect);
 
 		}
 

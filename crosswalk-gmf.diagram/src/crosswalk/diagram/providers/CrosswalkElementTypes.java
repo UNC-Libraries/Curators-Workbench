@@ -212,22 +212,26 @@ public class CrosswalkElementTypes {
 	/**
 	 * @generated
 	 */
-	private static ImageDescriptor getProvidedImageDescriptor(ENamedElement element) {
+	private static ImageDescriptor getProvidedImageDescriptor(
+			ENamedElement element) {
 		if (element instanceof EStructuralFeature) {
 			EStructuralFeature feature = ((EStructuralFeature) element);
 			EClass eContainingClass = feature.getEContainingClass();
 			EClassifier eType = feature.getEType();
 			if (eContainingClass != null && !eContainingClass.isAbstract()) {
 				element = eContainingClass;
-			} else if (eType instanceof EClass && !((EClass) eType).isAbstract()) {
+			} else if (eType instanceof EClass
+					&& !((EClass) eType).isAbstract()) {
 				element = eType;
 			}
 		}
 		if (element instanceof EClass) {
 			EClass eClass = (EClass) element;
 			if (!eClass.isAbstract()) {
-				return CrosswalkDiagramEditorPlugin.getInstance().getItemImageDescriptor(
-						eClass.getEPackage().getEFactoryInstance().create(eClass));
+				return CrosswalkDiagramEditorPlugin.getInstance()
+						.getItemImageDescriptor(
+								eClass.getEPackage().getEFactoryInstance()
+										.create(eClass));
 			}
 		}
 		// TODO : support structural features
@@ -299,49 +303,69 @@ public class CrosswalkElementTypes {
 		if (elements == null) {
 			elements = new IdentityHashMap<IElementType, ENamedElement>();
 
-			elements.put(EditingContainer_1000, CrosswalkPackage.eINSTANCE.getEditingContainer());
+			elements.put(EditingContainer_1000,
+					CrosswalkPackage.eINSTANCE.getEditingContainer());
 
-			elements.put(CrossWalk_2001, CrosswalkPackage.eINSTANCE.getCrossWalk());
+			elements.put(CrossWalk_2001,
+					CrosswalkPackage.eINSTANCE.getCrossWalk());
 
-			elements.put(Dictionary_2002, CrosswalkPackage.eINSTANCE.getDictionary());
+			elements.put(Dictionary_2002,
+					CrosswalkPackage.eINSTANCE.getDictionary());
 
 			elements.put(Form_2003, CrosswalkPackage.eINSTANCE.getForm());
 
-			elements.put(DelimitedFile_3001, CrosswalkPackage.eINSTANCE.getDelimitedFile());
+			elements.put(DelimitedFile_3001,
+					CrosswalkPackage.eINSTANCE.getDelimitedFile());
 
-			elements.put(TabbedDataField_3002, CrosswalkPackage.eINSTANCE.getTabbedDataField());
+			elements.put(TabbedDataField_3002,
+					CrosswalkPackage.eINSTANCE.getTabbedDataField());
 
-			elements.put(OriginalNameRecordMatcher_3003, CrosswalkPackage.eINSTANCE.getOriginalNameRecordMatcher());
+			elements.put(OriginalNameRecordMatcher_3003,
+					CrosswalkPackage.eINSTANCE.getOriginalNameRecordMatcher());
 
-			elements.put(DateRecognizer_3004, CrosswalkPackage.eINSTANCE.getDateRecognizer());
+			elements.put(DateRecognizer_3004,
+					CrosswalkPackage.eINSTANCE.getDateRecognizer());
 
 			elements.put(Text_3005, CrosswalkPackage.eINSTANCE.getText());
 
-			elements.put(TrimWhitespace_3006, CrosswalkPackage.eINSTANCE.getTrimWhitespace());
+			elements.put(TrimWhitespace_3006,
+					CrosswalkPackage.eINSTANCE.getTrimWhitespace());
 
-			elements.put(MappedElement_3007, CrosswalkPackage.eINSTANCE.getMappedElement());
+			elements.put(MappedElement_3007,
+					CrosswalkPackage.eINSTANCE.getMappedElement());
 
-			elements.put(MappedElement_3008, CrosswalkPackage.eINSTANCE.getMappedElement());
+			elements.put(MappedElement_3008,
+					CrosswalkPackage.eINSTANCE.getMappedElement());
 
-			elements.put(MappedAttribute_3009, CrosswalkPackage.eINSTANCE.getMappedAttribute());
+			elements.put(MappedAttribute_3009,
+					CrosswalkPackage.eINSTANCE.getMappedAttribute());
 
-			elements.put(MetadataBlock_3018, CrosswalkPackage.eINSTANCE.getMetadataBlock());
+			elements.put(MetadataBlock_3018,
+					CrosswalkPackage.eINSTANCE.getMetadataBlock());
 
-			elements.put(TextInputField_3023, CrosswalkPackage.eINSTANCE.getTextInputField());
+			elements.put(TextInputField_3023,
+					CrosswalkPackage.eINSTANCE.getTextInputField());
 
-			elements.put(CurrentDate_3021, CrosswalkPackage.eINSTANCE.getCurrentDate());
+			elements.put(CurrentDate_3021,
+					CrosswalkPackage.eINSTANCE.getCurrentDate());
 
-			elements.put(CurrentUsername_3022, CrosswalkPackage.eINSTANCE.getCurrentUsername());
+			elements.put(CurrentUsername_3022,
+					CrosswalkPackage.eINSTANCE.getCurrentUsername());
 
-			elements.put(DateInputField_3024, CrosswalkPackage.eINSTANCE.getDateInputField());
+			elements.put(DateInputField_3024,
+					CrosswalkPackage.eINSTANCE.getDateInputField());
 
-			elements.put(MetadataBlock_3010, CrosswalkPackage.eINSTANCE.getMetadataBlock());
+			elements.put(MetadataBlock_3010,
+					CrosswalkPackage.eINSTANCE.getMetadataBlock());
 
-			elements.put(MetadataBlock_3019, CrosswalkPackage.eINSTANCE.getMetadataBlock());
+			elements.put(MetadataBlock_3019,
+					CrosswalkPackage.eINSTANCE.getMetadataBlock());
 
-			elements.put(Paragraph_3020, CrosswalkPackage.eINSTANCE.getParagraph());
+			elements.put(Paragraph_3020,
+					CrosswalkPackage.eINSTANCE.getParagraph());
 
-			elements.put(InputOutput_4001, CrosswalkPackage.eINSTANCE.getInput_Output());
+			elements.put(InputOutput_4001,
+					CrosswalkPackage.eINSTANCE.getInput_Output());
 		}
 		return (ENamedElement) elements.get(type);
 	}
@@ -390,50 +414,50 @@ public class CrosswalkElementTypes {
 	 */
 	public static IElementType getElementType(int visualID) {
 		switch (visualID) {
-			case EditingContainerEditPart.VISUAL_ID:
-				return EditingContainer_1000;
-			case CrossWalkEditPart.VISUAL_ID:
-				return CrossWalk_2001;
-			case DictionaryEditPart.VISUAL_ID:
-				return Dictionary_2002;
-			case FormEditPart.VISUAL_ID:
-				return Form_2003;
-			case DelimitedFileEditPart.VISUAL_ID:
-				return DelimitedFile_3001;
-			case TabbedDataFieldEditPart.VISUAL_ID:
-				return TabbedDataField_3002;
-			case OriginalNameRecordMatcherEditPart.VISUAL_ID:
-				return OriginalNameRecordMatcher_3003;
-			case DateRecognizerEditPart.VISUAL_ID:
-				return DateRecognizer_3004;
-			case TextEditPart.VISUAL_ID:
-				return Text_3005;
-			case TrimWhitespaceEditPart.VISUAL_ID:
-				return TrimWhitespace_3006;
-			case MappedElementEditPart.VISUAL_ID:
-				return MappedElement_3007;
-			case MappedElement2EditPart.VISUAL_ID:
-				return MappedElement_3008;
-			case MappedAttributeEditPart.VISUAL_ID:
-				return MappedAttribute_3009;
-			case MetadataBlock2EditPart.VISUAL_ID:
-				return MetadataBlock_3018;
-			case TextInputFieldEditPart.VISUAL_ID:
-				return TextInputField_3023;
-			case CurrentDateEditPart.VISUAL_ID:
-				return CurrentDate_3021;
-			case CurrentUsernameEditPart.VISUAL_ID:
-				return CurrentUsername_3022;
-			case DateInputFieldEditPart.VISUAL_ID:
-				return DateInputField_3024;
-			case MetadataBlockEditPart.VISUAL_ID:
-				return MetadataBlock_3010;
-			case MetadataBlock3EditPart.VISUAL_ID:
-				return MetadataBlock_3019;
-			case ParagraphEditPart.VISUAL_ID:
-				return Paragraph_3020;
-			case InputOutputEditPart.VISUAL_ID:
-				return InputOutput_4001;
+		case EditingContainerEditPart.VISUAL_ID:
+			return EditingContainer_1000;
+		case CrossWalkEditPart.VISUAL_ID:
+			return CrossWalk_2001;
+		case DictionaryEditPart.VISUAL_ID:
+			return Dictionary_2002;
+		case FormEditPart.VISUAL_ID:
+			return Form_2003;
+		case DelimitedFileEditPart.VISUAL_ID:
+			return DelimitedFile_3001;
+		case TabbedDataFieldEditPart.VISUAL_ID:
+			return TabbedDataField_3002;
+		case OriginalNameRecordMatcherEditPart.VISUAL_ID:
+			return OriginalNameRecordMatcher_3003;
+		case DateRecognizerEditPart.VISUAL_ID:
+			return DateRecognizer_3004;
+		case TextEditPart.VISUAL_ID:
+			return Text_3005;
+		case TrimWhitespaceEditPart.VISUAL_ID:
+			return TrimWhitespace_3006;
+		case MappedElementEditPart.VISUAL_ID:
+			return MappedElement_3007;
+		case MappedElement2EditPart.VISUAL_ID:
+			return MappedElement_3008;
+		case MappedAttributeEditPart.VISUAL_ID:
+			return MappedAttribute_3009;
+		case MetadataBlock2EditPart.VISUAL_ID:
+			return MetadataBlock_3018;
+		case TextInputFieldEditPart.VISUAL_ID:
+			return TextInputField_3023;
+		case CurrentDateEditPart.VISUAL_ID:
+			return CurrentDate_3021;
+		case CurrentUsernameEditPart.VISUAL_ID:
+			return CurrentUsername_3022;
+		case DateInputFieldEditPart.VISUAL_ID:
+			return DateInputField_3024;
+		case MetadataBlockEditPart.VISUAL_ID:
+			return MetadataBlock_3010;
+		case MetadataBlock3EditPart.VISUAL_ID:
+			return MetadataBlock_3019;
+		case ParagraphEditPart.VISUAL_ID:
+			return Paragraph_3020;
+		case InputOutputEditPart.VISUAL_ID:
+			return InputOutput_4001;
 		}
 		return null;
 	}

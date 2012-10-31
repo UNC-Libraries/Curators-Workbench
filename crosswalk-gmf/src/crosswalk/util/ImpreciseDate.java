@@ -15,8 +15,9 @@
  */
 package crosswalk.util;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import crosswalk.DatePrecision;
 
 /**
  * @author Gregory Jansen
@@ -28,11 +29,7 @@ public class ImpreciseDate extends Date {
 	 */
 	private static final long serialVersionUID = -3018712925738860949L;
 
-	public static enum DatePrecision {
-		Century(), Decade(), Year(), Month(), Day(), Hour(), Minute(), Second();
-	}
-
-	private DatePrecision precision = DatePrecision.Hour;
+	private DatePrecision precision = DatePrecision.HOUR;
 
 	/**
 	 * @param parse
@@ -58,17 +55,17 @@ public class ImpreciseDate extends Date {
 		// detect the most precise first
 		// FIXME detect when characters are quoted
 		if(format.contains("s")) {
-			return DatePrecision.Second;
+			return DatePrecision.SECOND;
 		} else if(format.contains("m")) {
-			return DatePrecision.Minute;
+			return DatePrecision.MINUTE;
 		} else if(format.contains("h") || format.contains("k") || format.contains("H") || format.contains("K")) {
-			return DatePrecision.Hour;
+			return DatePrecision.HOUR;
 		} else if(format.contains("d") || format.contains("D") || format.contains("F") || format.contains("E")) {
-			return DatePrecision.Day;
+			return DatePrecision.DAY;
 		} else if(format.contains("M")) {
-			return DatePrecision.Month;
+			return DatePrecision.MONTH;
 		} else if(format.contains("y")) {
-			return DatePrecision.Year;
+			return DatePrecision.YEAR;
 		}
 		return null;
 	}

@@ -81,16 +81,20 @@ import crosswalk.diagram.providers.CrosswalkParserProvider;
 /**
  * @generated
  */
-public class CrosswalkNavigatorLabelProvider extends LabelProvider implements ICommonLabelProvider,
-		ITreePathLabelProvider {
+public class CrosswalkNavigatorLabelProvider extends LabelProvider implements
+		ICommonLabelProvider, ITreePathLabelProvider {
 
 	/**
 	 * @generated
 	 */
 	static {
-		CrosswalkDiagramEditorPlugin.getInstance().getImageRegistry()
+		CrosswalkDiagramEditorPlugin
+				.getInstance()
+				.getImageRegistry()
 				.put("Navigator?UnknownElement", ImageDescriptor.getMissingImageDescriptor()); //$NON-NLS-1$
-		CrosswalkDiagramEditorPlugin.getInstance().getImageRegistry()
+		CrosswalkDiagramEditorPlugin
+				.getInstance()
+				.getImageRegistry()
 				.put("Navigator?ImageNotFound", ImageDescriptor.getMissingImageDescriptor()); //$NON-NLS-1$
 	}
 
@@ -99,7 +103,8 @@ public class CrosswalkNavigatorLabelProvider extends LabelProvider implements IC
 	 */
 	public void updateLabel(ViewerLabel label, TreePath elementPath) {
 		Object element = elementPath.getLastSegment();
-		if (element instanceof CrosswalkNavigatorItem && !isOwnView(((CrosswalkNavigatorItem) element).getView())) {
+		if (element instanceof CrosswalkNavigatorItem
+				&& !isOwnView(((CrosswalkNavigatorItem) element).getView())) {
 			return;
 		}
 		label.setText(getText(element));
@@ -113,7 +118,8 @@ public class CrosswalkNavigatorLabelProvider extends LabelProvider implements IC
 	public Image getImage(Object element) {
 		if (element instanceof CrosswalkNavigatorGroup) {
 			CrosswalkNavigatorGroup group = (CrosswalkNavigatorGroup) element;
-			return CrosswalkDiagramEditorPlugin.getInstance().getBundledImage(group.getIcon());
+			return CrosswalkDiagramEditorPlugin.getInstance().getBundledImage(
+					group.getIcon());
 		}
 
 		if (element instanceof CrosswalkNavigatorItem) {
@@ -132,71 +138,72 @@ public class CrosswalkNavigatorLabelProvider extends LabelProvider implements IC
 	 */
 	public Image getImage(View view) {
 		switch (CrosswalkVisualIDRegistry.getVisualID(view)) {
-			case DateRecognizerEditPart.VISUAL_ID:
-				return getImage(
-						"Navigator?Node?http://lib.unc.edu/schemas/crosswalk?DateRecognizer", CrosswalkElementTypes.DateRecognizer_3004); //$NON-NLS-1$
-			case ParagraphEditPart.VISUAL_ID:
-				return getImage(
-						"Navigator?Node?http://lib.unc.edu/schemas/crosswalk?Paragraph", CrosswalkElementTypes.Paragraph_3020); //$NON-NLS-1$
-			case TrimWhitespaceEditPart.VISUAL_ID:
-				return getImage(
-						"Navigator?Node?http://lib.unc.edu/schemas/crosswalk?TrimWhitespace", CrosswalkElementTypes.TrimWhitespace_3006); //$NON-NLS-1$
-			case MappedElement2EditPart.VISUAL_ID:
-				return getImage(
-						"Navigator?Node?http://lib.unc.edu/schemas/crosswalk?MappedElement", CrosswalkElementTypes.MappedElement_3008); //$NON-NLS-1$
-			case DelimitedFileEditPart.VISUAL_ID:
-				return getImage(
-						"Navigator?Node?http://lib.unc.edu/schemas/crosswalk?DelimitedFile", CrosswalkElementTypes.DelimitedFile_3001); //$NON-NLS-1$
-			case DictionaryEditPart.VISUAL_ID:
-				return getImage(
-						"Navigator?TopLevelNode?http://lib.unc.edu/schemas/crosswalk?Dictionary", CrosswalkElementTypes.Dictionary_2002); //$NON-NLS-1$
-			case MetadataBlock3EditPart.VISUAL_ID:
-				return getImage(
-						"Navigator?Node?http://lib.unc.edu/schemas/crosswalk?MetadataBlock", CrosswalkElementTypes.MetadataBlock_3019); //$NON-NLS-1$
-			case TextInputFieldEditPart.VISUAL_ID:
-				return getImage(
-						"Navigator?Node?http://lib.unc.edu/schemas/crosswalk?TextInputField", CrosswalkElementTypes.TextInputField_3023); //$NON-NLS-1$
-			case TabbedDataFieldEditPart.VISUAL_ID:
-				return getImage(
-						"Navigator?Node?http://lib.unc.edu/schemas/crosswalk?TabbedDataField", CrosswalkElementTypes.TabbedDataField_3002); //$NON-NLS-1$
-			case FormEditPart.VISUAL_ID:
-				return getImage(
-						"Navigator?TopLevelNode?http://lib.unc.edu/schemas/crosswalk?Form", CrosswalkElementTypes.Form_2003); //$NON-NLS-1$
-			case OriginalNameRecordMatcherEditPart.VISUAL_ID:
-				return getImage(
-						"Navigator?Node?http://lib.unc.edu/schemas/crosswalk?OriginalNameRecordMatcher", CrosswalkElementTypes.OriginalNameRecordMatcher_3003); //$NON-NLS-1$
-			case MetadataBlockEditPart.VISUAL_ID:
-				return getImage(
-						"Navigator?Node?http://lib.unc.edu/schemas/crosswalk?MetadataBlock", CrosswalkElementTypes.MetadataBlock_3010); //$NON-NLS-1$
-			case CrossWalkEditPart.VISUAL_ID:
-				return getImage(
-						"Navigator?TopLevelNode?http://lib.unc.edu/schemas/crosswalk?CrossWalk", CrosswalkElementTypes.CrossWalk_2001); //$NON-NLS-1$
-			case MetadataBlock2EditPart.VISUAL_ID:
-				return getImage(
-						"Navigator?Node?http://lib.unc.edu/schemas/crosswalk?MetadataBlock", CrosswalkElementTypes.MetadataBlock_3018); //$NON-NLS-1$
-			case MappedAttributeEditPart.VISUAL_ID:
-				return getImage(
-						"Navigator?Node?http://lib.unc.edu/schemas/crosswalk?MappedAttribute", CrosswalkElementTypes.MappedAttribute_3009); //$NON-NLS-1$
-			case InputOutputEditPart.VISUAL_ID:
-				return getImage(
-						"Navigator?Link?http://lib.unc.edu/schemas/crosswalk?Input?Output", CrosswalkElementTypes.InputOutput_4001); //$NON-NLS-1$
-			case MappedElementEditPart.VISUAL_ID:
-				return getImage(
-						"Navigator?Node?http://lib.unc.edu/schemas/crosswalk?MappedElement", CrosswalkElementTypes.MappedElement_3007); //$NON-NLS-1$
-			case TextEditPart.VISUAL_ID:
-				return getImage("Navigator?Node?http://lib.unc.edu/schemas/crosswalk?Text", CrosswalkElementTypes.Text_3005); //$NON-NLS-1$
-			case DateInputFieldEditPart.VISUAL_ID:
-				return getImage(
-						"Navigator?Node?http://lib.unc.edu/schemas/crosswalk?DateInputField", CrosswalkElementTypes.DateInputField_3024); //$NON-NLS-1$
-			case EditingContainerEditPart.VISUAL_ID:
-				return getImage(
-						"Navigator?Diagram?http://lib.unc.edu/schemas/crosswalk?EditingContainer", CrosswalkElementTypes.EditingContainer_1000); //$NON-NLS-1$
-			case CurrentUsernameEditPart.VISUAL_ID:
-				return getImage(
-						"Navigator?Node?http://lib.unc.edu/schemas/crosswalk?CurrentUsername", CrosswalkElementTypes.CurrentUsername_3022); //$NON-NLS-1$
-			case CurrentDateEditPart.VISUAL_ID:
-				return getImage(
-						"Navigator?Node?http://lib.unc.edu/schemas/crosswalk?CurrentDate", CrosswalkElementTypes.CurrentDate_3021); //$NON-NLS-1$
+		case TextEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://lib.unc.edu/schemas/crosswalk?Text", CrosswalkElementTypes.Text_3005); //$NON-NLS-1$
+		case FormEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?TopLevelNode?http://lib.unc.edu/schemas/crosswalk?Form", CrosswalkElementTypes.Form_2003); //$NON-NLS-1$
+		case CrossWalkEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?TopLevelNode?http://lib.unc.edu/schemas/crosswalk?CrossWalk", CrosswalkElementTypes.CrossWalk_2001); //$NON-NLS-1$
+		case DateRecognizerEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://lib.unc.edu/schemas/crosswalk?DateRecognizer", CrosswalkElementTypes.DateRecognizer_3004); //$NON-NLS-1$
+		case OriginalNameRecordMatcherEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://lib.unc.edu/schemas/crosswalk?OriginalNameRecordMatcher", CrosswalkElementTypes.OriginalNameRecordMatcher_3003); //$NON-NLS-1$
+		case TabbedDataFieldEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://lib.unc.edu/schemas/crosswalk?TabbedDataField", CrosswalkElementTypes.TabbedDataField_3002); //$NON-NLS-1$
+		case TextInputFieldEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://lib.unc.edu/schemas/crosswalk?TextInputField", CrosswalkElementTypes.TextInputField_3023); //$NON-NLS-1$
+		case DelimitedFileEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://lib.unc.edu/schemas/crosswalk?DelimitedFile", CrosswalkElementTypes.DelimitedFile_3001); //$NON-NLS-1$
+		case ParagraphEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://lib.unc.edu/schemas/crosswalk?Paragraph", CrosswalkElementTypes.Paragraph_3020); //$NON-NLS-1$
+		case DateInputFieldEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://lib.unc.edu/schemas/crosswalk?DateInputField", CrosswalkElementTypes.DateInputField_3024); //$NON-NLS-1$
+		case MappedAttributeEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://lib.unc.edu/schemas/crosswalk?MappedAttribute", CrosswalkElementTypes.MappedAttribute_3009); //$NON-NLS-1$
+		case TrimWhitespaceEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://lib.unc.edu/schemas/crosswalk?TrimWhitespace", CrosswalkElementTypes.TrimWhitespace_3006); //$NON-NLS-1$
+		case EditingContainerEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Diagram?http://lib.unc.edu/schemas/crosswalk?EditingContainer", CrosswalkElementTypes.EditingContainer_1000); //$NON-NLS-1$
+		case MetadataBlock2EditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://lib.unc.edu/schemas/crosswalk?MetadataBlock", CrosswalkElementTypes.MetadataBlock_3018); //$NON-NLS-1$
+		case DictionaryEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?TopLevelNode?http://lib.unc.edu/schemas/crosswalk?Dictionary", CrosswalkElementTypes.Dictionary_2002); //$NON-NLS-1$
+		case MetadataBlockEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://lib.unc.edu/schemas/crosswalk?MetadataBlock", CrosswalkElementTypes.MetadataBlock_3010); //$NON-NLS-1$
+		case MetadataBlock3EditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://lib.unc.edu/schemas/crosswalk?MetadataBlock", CrosswalkElementTypes.MetadataBlock_3019); //$NON-NLS-1$
+		case CurrentUsernameEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://lib.unc.edu/schemas/crosswalk?CurrentUsername", CrosswalkElementTypes.CurrentUsername_3022); //$NON-NLS-1$
+		case CurrentDateEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://lib.unc.edu/schemas/crosswalk?CurrentDate", CrosswalkElementTypes.CurrentDate_3021); //$NON-NLS-1$
+		case MappedElement2EditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://lib.unc.edu/schemas/crosswalk?MappedElement", CrosswalkElementTypes.MappedElement_3008); //$NON-NLS-1$
+		case InputOutputEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://lib.unc.edu/schemas/crosswalk?Input?Output", CrosswalkElementTypes.InputOutput_4001); //$NON-NLS-1$
+		case MappedElementEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://lib.unc.edu/schemas/crosswalk?MappedElement", CrosswalkElementTypes.MappedElement_3007); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
@@ -205,9 +212,11 @@ public class CrosswalkNavigatorLabelProvider extends LabelProvider implements IC
 	 * @generated
 	 */
 	private Image getImage(String key, IElementType elementType) {
-		ImageRegistry imageRegistry = CrosswalkDiagramEditorPlugin.getInstance().getImageRegistry();
+		ImageRegistry imageRegistry = CrosswalkDiagramEditorPlugin
+				.getInstance().getImageRegistry();
 		Image image = imageRegistry.get(key);
-		if (image == null && elementType != null && CrosswalkElementTypes.isKnownElementType(elementType)) {
+		if (image == null && elementType != null
+				&& CrosswalkElementTypes.isKnownElementType(elementType)) {
 			image = CrosswalkElementTypes.getImage(elementType);
 			imageRegistry.put(key, image);
 		}
@@ -248,50 +257,50 @@ public class CrosswalkNavigatorLabelProvider extends LabelProvider implements IC
 			return getUnresolvedDomainElementProxyText(view);
 		}
 		switch (CrosswalkVisualIDRegistry.getVisualID(view)) {
-			case DateRecognizerEditPart.VISUAL_ID:
-				return getDateRecognizer_3004Text(view);
-			case ParagraphEditPart.VISUAL_ID:
-				return getParagraph_3020Text(view);
-			case TrimWhitespaceEditPart.VISUAL_ID:
-				return getTrimWhitespace_3006Text(view);
-			case MappedElement2EditPart.VISUAL_ID:
-				return getMappedElement_3008Text(view);
-			case DelimitedFileEditPart.VISUAL_ID:
-				return getDelimitedFile_3001Text(view);
-			case DictionaryEditPart.VISUAL_ID:
-				return getDictionary_2002Text(view);
-			case MetadataBlock3EditPart.VISUAL_ID:
-				return getMetadataBlock_3019Text(view);
-			case TextInputFieldEditPart.VISUAL_ID:
-				return getTextInputField_3023Text(view);
-			case TabbedDataFieldEditPart.VISUAL_ID:
-				return getTabbedDataField_3002Text(view);
-			case FormEditPart.VISUAL_ID:
-				return getForm_2003Text(view);
-			case OriginalNameRecordMatcherEditPart.VISUAL_ID:
-				return getOriginalNameRecordMatcher_3003Text(view);
-			case MetadataBlockEditPart.VISUAL_ID:
-				return getMetadataBlock_3010Text(view);
-			case CrossWalkEditPart.VISUAL_ID:
-				return getCrossWalk_2001Text(view);
-			case MetadataBlock2EditPart.VISUAL_ID:
-				return getMetadataBlock_3018Text(view);
-			case MappedAttributeEditPart.VISUAL_ID:
-				return getMappedAttribute_3009Text(view);
-			case InputOutputEditPart.VISUAL_ID:
-				return getInputOutput_4001Text(view);
-			case MappedElementEditPart.VISUAL_ID:
-				return getMappedElement_3007Text(view);
-			case TextEditPart.VISUAL_ID:
-				return getText_3005Text(view);
-			case DateInputFieldEditPart.VISUAL_ID:
-				return getDateInputField_3024Text(view);
-			case EditingContainerEditPart.VISUAL_ID:
-				return getEditingContainer_1000Text(view);
-			case CurrentUsernameEditPart.VISUAL_ID:
-				return getCurrentUsername_3022Text(view);
-			case CurrentDateEditPart.VISUAL_ID:
-				return getCurrentDate_3021Text(view);
+		case TextEditPart.VISUAL_ID:
+			return getText_3005Text(view);
+		case FormEditPart.VISUAL_ID:
+			return getForm_2003Text(view);
+		case CrossWalkEditPart.VISUAL_ID:
+			return getCrossWalk_2001Text(view);
+		case DateRecognizerEditPart.VISUAL_ID:
+			return getDateRecognizer_3004Text(view);
+		case OriginalNameRecordMatcherEditPart.VISUAL_ID:
+			return getOriginalNameRecordMatcher_3003Text(view);
+		case TabbedDataFieldEditPart.VISUAL_ID:
+			return getTabbedDataField_3002Text(view);
+		case TextInputFieldEditPart.VISUAL_ID:
+			return getTextInputField_3023Text(view);
+		case DelimitedFileEditPart.VISUAL_ID:
+			return getDelimitedFile_3001Text(view);
+		case ParagraphEditPart.VISUAL_ID:
+			return getParagraph_3020Text(view);
+		case DateInputFieldEditPart.VISUAL_ID:
+			return getDateInputField_3024Text(view);
+		case MappedAttributeEditPart.VISUAL_ID:
+			return getMappedAttribute_3009Text(view);
+		case TrimWhitespaceEditPart.VISUAL_ID:
+			return getTrimWhitespace_3006Text(view);
+		case EditingContainerEditPart.VISUAL_ID:
+			return getEditingContainer_1000Text(view);
+		case MetadataBlock2EditPart.VISUAL_ID:
+			return getMetadataBlock_3018Text(view);
+		case DictionaryEditPart.VISUAL_ID:
+			return getDictionary_2002Text(view);
+		case MetadataBlockEditPart.VISUAL_ID:
+			return getMetadataBlock_3010Text(view);
+		case MetadataBlock3EditPart.VISUAL_ID:
+			return getMetadataBlock_3019Text(view);
+		case CurrentUsernameEditPart.VISUAL_ID:
+			return getCurrentUsername_3022Text(view);
+		case CurrentDateEditPart.VISUAL_ID:
+			return getCurrentDate_3021Text(view);
+		case MappedElement2EditPart.VISUAL_ID:
+			return getMappedElement_3008Text(view);
+		case InputOutputEditPart.VISUAL_ID:
+			return getInputOutput_4001Text(view);
+		case MappedElementEditPart.VISUAL_ID:
+			return getMappedElement_3007Text(view);
 		}
 		return getUnknownElementText(view);
 	}
@@ -300,14 +309,18 @@ public class CrosswalkNavigatorLabelProvider extends LabelProvider implements IC
 	 * @generated
 	 */
 	private String getMappedAttribute_3009Text(View view) {
-		IParser parser = CrosswalkParserProvider.getParser(CrosswalkElementTypes.MappedAttribute_3009,
+		IParser parser = CrosswalkParserProvider.getParser(
+				CrosswalkElementTypes.MappedAttribute_3009,
 				view.getElement() != null ? view.getElement() : view,
-				CrosswalkVisualIDRegistry.getType(WrappingLabel7EditPart.VISUAL_ID));
+				CrosswalkVisualIDRegistry
+						.getType(WrappingLabel7EditPart.VISUAL_ID));
 		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
 					ParserOptions.NONE.intValue());
 		} else {
-			CrosswalkDiagramEditorPlugin.getInstance().logError("Parser was not found for label " + 5008); //$NON-NLS-1$
+			CrosswalkDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 5008); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -316,14 +329,18 @@ public class CrosswalkNavigatorLabelProvider extends LabelProvider implements IC
 	 * @generated
 	 */
 	private String getMappedElement_3008Text(View view) {
-		IParser parser = CrosswalkParserProvider.getParser(CrosswalkElementTypes.MappedElement_3008,
+		IParser parser = CrosswalkParserProvider.getParser(
+				CrosswalkElementTypes.MappedElement_3008,
 				view.getElement() != null ? view.getElement() : view,
-				CrosswalkVisualIDRegistry.getType(WrappingLabel6EditPart.VISUAL_ID));
+				CrosswalkVisualIDRegistry
+						.getType(WrappingLabel6EditPart.VISUAL_ID));
 		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
 					ParserOptions.NONE.intValue());
 		} else {
-			CrosswalkDiagramEditorPlugin.getInstance().logError("Parser was not found for label " + 5009); //$NON-NLS-1$
+			CrosswalkDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 5009); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -332,14 +349,18 @@ public class CrosswalkNavigatorLabelProvider extends LabelProvider implements IC
 	 * @generated
 	 */
 	private String getDateInputField_3024Text(View view) {
-		IParser parser = CrosswalkParserProvider.getParser(CrosswalkElementTypes.DateInputField_3024,
+		IParser parser = CrosswalkParserProvider.getParser(
+				CrosswalkElementTypes.DateInputField_3024,
 				view.getElement() != null ? view.getElement() : view,
-				CrosswalkVisualIDRegistry.getType(DateInputFieldLabelEditPart.VISUAL_ID));
+				CrosswalkVisualIDRegistry
+						.getType(DateInputFieldLabelEditPart.VISUAL_ID));
 		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
 					ParserOptions.NONE.intValue());
 		} else {
-			CrosswalkDiagramEditorPlugin.getInstance().logError("Parser was not found for label " + 5030); //$NON-NLS-1$
+			CrosswalkDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 5030); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -348,14 +369,18 @@ public class CrosswalkNavigatorLabelProvider extends LabelProvider implements IC
 	 * @generated
 	 */
 	private String getCurrentUsername_3022Text(View view) {
-		IParser parser = CrosswalkParserProvider.getParser(CrosswalkElementTypes.CurrentUsername_3022,
+		IParser parser = CrosswalkParserProvider.getParser(
+				CrosswalkElementTypes.CurrentUsername_3022,
 				view.getElement() != null ? view.getElement() : view,
-				CrosswalkVisualIDRegistry.getType(WrappingLabel9EditPart.VISUAL_ID));
+				CrosswalkVisualIDRegistry
+						.getType(WrappingLabel9EditPart.VISUAL_ID));
 		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
 					ParserOptions.NONE.intValue());
 		} else {
-			CrosswalkDiagramEditorPlugin.getInstance().logError("Parser was not found for label " + 5028); //$NON-NLS-1$
+			CrosswalkDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 5028); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -364,14 +389,18 @@ public class CrosswalkNavigatorLabelProvider extends LabelProvider implements IC
 	 * @generated
 	 */
 	private String getTrimWhitespace_3006Text(View view) {
-		IParser parser = CrosswalkParserProvider.getParser(CrosswalkElementTypes.TrimWhitespace_3006,
+		IParser parser = CrosswalkParserProvider.getParser(
+				CrosswalkElementTypes.TrimWhitespace_3006,
 				view.getElement() != null ? view.getElement() : view,
-				CrosswalkVisualIDRegistry.getType(WrappingLabel4EditPart.VISUAL_ID));
+				CrosswalkVisualIDRegistry
+						.getType(WrappingLabel4EditPart.VISUAL_ID));
 		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
 					ParserOptions.NONE.intValue());
 		} else {
-			CrosswalkDiagramEditorPlugin.getInstance().logError("Parser was not found for label " + 5007); //$NON-NLS-1$
+			CrosswalkDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 5007); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -380,14 +409,18 @@ public class CrosswalkNavigatorLabelProvider extends LabelProvider implements IC
 	 * @generated
 	 */
 	private String getMappedElement_3007Text(View view) {
-		IParser parser = CrosswalkParserProvider.getParser(CrosswalkElementTypes.MappedElement_3007,
+		IParser parser = CrosswalkParserProvider.getParser(
+				CrosswalkElementTypes.MappedElement_3007,
 				view.getElement() != null ? view.getElement() : view,
-				CrosswalkVisualIDRegistry.getType(WrappingLabel5EditPart.VISUAL_ID));
+				CrosswalkVisualIDRegistry
+						.getType(WrappingLabel5EditPart.VISUAL_ID));
 		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
 					ParserOptions.NONE.intValue());
 		} else {
-			CrosswalkDiagramEditorPlugin.getInstance().logError("Parser was not found for label " + 5010); //$NON-NLS-1$
+			CrosswalkDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 5010); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -403,14 +436,18 @@ public class CrosswalkNavigatorLabelProvider extends LabelProvider implements IC
 	 * @generated
 	 */
 	private String getCurrentDate_3021Text(View view) {
-		IParser parser = CrosswalkParserProvider.getParser(CrosswalkElementTypes.CurrentDate_3021,
+		IParser parser = CrosswalkParserProvider.getParser(
+				CrosswalkElementTypes.CurrentDate_3021,
 				view.getElement() != null ? view.getElement() : view,
-				CrosswalkVisualIDRegistry.getType(WrappingLabel8EditPart.VISUAL_ID));
+				CrosswalkVisualIDRegistry
+						.getType(WrappingLabel8EditPart.VISUAL_ID));
 		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
 					ParserOptions.NONE.intValue());
 		} else {
-			CrosswalkDiagramEditorPlugin.getInstance().logError("Parser was not found for label " + 5027); //$NON-NLS-1$
+			CrosswalkDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 5027); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -419,14 +456,18 @@ public class CrosswalkNavigatorLabelProvider extends LabelProvider implements IC
 	 * @generated
 	 */
 	private String getParagraph_3020Text(View view) {
-		IParser parser = CrosswalkParserProvider.getParser(CrosswalkElementTypes.Paragraph_3020,
+		IParser parser = CrosswalkParserProvider.getParser(
+				CrosswalkElementTypes.Paragraph_3020,
 				view.getElement() != null ? view.getElement() : view,
-				CrosswalkVisualIDRegistry.getType(ParagraphHeadingEditPart.VISUAL_ID));
+				CrosswalkVisualIDRegistry
+						.getType(ParagraphHeadingEditPart.VISUAL_ID));
 		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
 					ParserOptions.NONE.intValue());
 		} else {
-			CrosswalkDiagramEditorPlugin.getInstance().logError("Parser was not found for label " + 5021); //$NON-NLS-1$
+			CrosswalkDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 5021); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -435,14 +476,18 @@ public class CrosswalkNavigatorLabelProvider extends LabelProvider implements IC
 	 * @generated
 	 */
 	private String getTabbedDataField_3002Text(View view) {
-		IParser parser = CrosswalkParserProvider.getParser(CrosswalkElementTypes.TabbedDataField_3002,
+		IParser parser = CrosswalkParserProvider.getParser(
+				CrosswalkElementTypes.TabbedDataField_3002,
 				view.getElement() != null ? view.getElement() : view,
-				CrosswalkVisualIDRegistry.getType(WrappingLabelEditPart.VISUAL_ID));
+				CrosswalkVisualIDRegistry
+						.getType(WrappingLabelEditPart.VISUAL_ID));
 		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
 					ParserOptions.NONE.intValue());
 		} else {
-			CrosswalkDiagramEditorPlugin.getInstance().logError("Parser was not found for label " + 5001); //$NON-NLS-1$
+			CrosswalkDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 5001); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -451,14 +496,18 @@ public class CrosswalkNavigatorLabelProvider extends LabelProvider implements IC
 	 * @generated
 	 */
 	private String getDictionary_2002Text(View view) {
-		IParser parser = CrosswalkParserProvider.getParser(CrosswalkElementTypes.Dictionary_2002,
+		IParser parser = CrosswalkParserProvider.getParser(
+				CrosswalkElementTypes.Dictionary_2002,
 				view.getElement() != null ? view.getElement() : view,
-				CrosswalkVisualIDRegistry.getType(DictionaryNameEditPart.VISUAL_ID));
+				CrosswalkVisualIDRegistry
+						.getType(DictionaryNameEditPart.VISUAL_ID));
 		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
 					ParserOptions.NONE.intValue());
 		} else {
-			CrosswalkDiagramEditorPlugin.getInstance().logError("Parser was not found for label " + 5025); //$NON-NLS-1$
+			CrosswalkDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 5025); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -467,14 +516,18 @@ public class CrosswalkNavigatorLabelProvider extends LabelProvider implements IC
 	 * @generated
 	 */
 	private String getOriginalNameRecordMatcher_3003Text(View view) {
-		IParser parser = CrosswalkParserProvider.getParser(CrosswalkElementTypes.OriginalNameRecordMatcher_3003,
-				view.getElement() != null ? view.getElement() : view,
-				CrosswalkVisualIDRegistry.getType(WrappingLabel2EditPart.VISUAL_ID));
+		IParser parser = CrosswalkParserProvider.getParser(
+				CrosswalkElementTypes.OriginalNameRecordMatcher_3003, view
+						.getElement() != null ? view.getElement() : view,
+				CrosswalkVisualIDRegistry
+						.getType(WrappingLabel2EditPart.VISUAL_ID));
 		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
 					ParserOptions.NONE.intValue());
 		} else {
-			CrosswalkDiagramEditorPlugin.getInstance().logError("Parser was not found for label " + 5004); //$NON-NLS-1$
+			CrosswalkDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 5004); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -483,14 +536,18 @@ public class CrosswalkNavigatorLabelProvider extends LabelProvider implements IC
 	 * @generated
 	 */
 	private String getMetadataBlock_3018Text(View view) {
-		IParser parser = CrosswalkParserProvider.getParser(CrosswalkElementTypes.MetadataBlock_3018,
+		IParser parser = CrosswalkParserProvider.getParser(
+				CrosswalkElementTypes.MetadataBlock_3018,
 				view.getElement() != null ? view.getElement() : view,
-				CrosswalkVisualIDRegistry.getType(MetadataBlockName2EditPart.VISUAL_ID));
+				CrosswalkVisualIDRegistry
+						.getType(MetadataBlockName2EditPart.VISUAL_ID));
 		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
 					ParserOptions.NONE.intValue());
 		} else {
-			CrosswalkDiagramEditorPlugin.getInstance().logError("Parser was not found for label " + 5019); //$NON-NLS-1$
+			CrosswalkDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 5019); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -499,14 +556,18 @@ public class CrosswalkNavigatorLabelProvider extends LabelProvider implements IC
 	 * @generated
 	 */
 	private String getMetadataBlock_3019Text(View view) {
-		IParser parser = CrosswalkParserProvider.getParser(CrosswalkElementTypes.MetadataBlock_3019,
+		IParser parser = CrosswalkParserProvider.getParser(
+				CrosswalkElementTypes.MetadataBlock_3019,
 				view.getElement() != null ? view.getElement() : view,
-				CrosswalkVisualIDRegistry.getType(MetadataBlockName3EditPart.VISUAL_ID));
+				CrosswalkVisualIDRegistry
+						.getType(MetadataBlockName3EditPart.VISUAL_ID));
 		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
 					ParserOptions.NONE.intValue());
 		} else {
-			CrosswalkDiagramEditorPlugin.getInstance().logError("Parser was not found for label " + 5020); //$NON-NLS-1$
+			CrosswalkDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 5020); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -515,14 +576,18 @@ public class CrosswalkNavigatorLabelProvider extends LabelProvider implements IC
 	 * @generated
 	 */
 	private String getDelimitedFile_3001Text(View view) {
-		IParser parser = CrosswalkParserProvider.getParser(CrosswalkElementTypes.DelimitedFile_3001,
+		IParser parser = CrosswalkParserProvider.getParser(
+				CrosswalkElementTypes.DelimitedFile_3001,
 				view.getElement() != null ? view.getElement() : view,
-				CrosswalkVisualIDRegistry.getType(DelimitedFileSourceFileEditPart.VISUAL_ID));
+				CrosswalkVisualIDRegistry
+						.getType(DelimitedFileSourceFileEditPart.VISUAL_ID));
 		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
 					ParserOptions.NONE.intValue());
 		} else {
-			CrosswalkDiagramEditorPlugin.getInstance().logError("Parser was not found for label " + 5003); //$NON-NLS-1$
+			CrosswalkDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 5003); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -538,14 +603,18 @@ public class CrosswalkNavigatorLabelProvider extends LabelProvider implements IC
 	 * @generated
 	 */
 	private String getTextInputField_3023Text(View view) {
-		IParser parser = CrosswalkParserProvider.getParser(CrosswalkElementTypes.TextInputField_3023,
+		IParser parser = CrosswalkParserProvider.getParser(
+				CrosswalkElementTypes.TextInputField_3023,
 				view.getElement() != null ? view.getElement() : view,
-				CrosswalkVisualIDRegistry.getType(TextInputFieldLabelEditPart.VISUAL_ID));
+				CrosswalkVisualIDRegistry
+						.getType(TextInputFieldLabelEditPart.VISUAL_ID));
 		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
 					ParserOptions.NONE.intValue());
 		} else {
-			CrosswalkDiagramEditorPlugin.getInstance().logError("Parser was not found for label " + 5029); //$NON-NLS-1$
+			CrosswalkDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 5029); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -554,14 +623,18 @@ public class CrosswalkNavigatorLabelProvider extends LabelProvider implements IC
 	 * @generated
 	 */
 	private String getMetadataBlock_3010Text(View view) {
-		IParser parser = CrosswalkParserProvider.getParser(CrosswalkElementTypes.MetadataBlock_3010,
+		IParser parser = CrosswalkParserProvider.getParser(
+				CrosswalkElementTypes.MetadataBlock_3010,
 				view.getElement() != null ? view.getElement() : view,
-				CrosswalkVisualIDRegistry.getType(MetadataBlockNameEditPart.VISUAL_ID));
+				CrosswalkVisualIDRegistry
+						.getType(MetadataBlockNameEditPart.VISUAL_ID));
 		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
 					ParserOptions.NONE.intValue());
 		} else {
-			CrosswalkDiagramEditorPlugin.getInstance().logError("Parser was not found for label " + 5018); //$NON-NLS-1$
+			CrosswalkDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 5018); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -574,7 +647,8 @@ public class CrosswalkNavigatorLabelProvider extends LabelProvider implements IC
 		if (domainModelElement != null) {
 			return domainModelElement.getCurrentUser();
 		} else {
-			CrosswalkDiagramEditorPlugin.getInstance().logError("No domain element for view with visualID = " + 2001); //$NON-NLS-1$
+			CrosswalkDiagramEditorPlugin.getInstance().logError(
+					"No domain element for view with visualID = " + 2001); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -583,14 +657,18 @@ public class CrosswalkNavigatorLabelProvider extends LabelProvider implements IC
 	 * @generated
 	 */
 	private String getDateRecognizer_3004Text(View view) {
-		IParser parser = CrosswalkParserProvider.getParser(CrosswalkElementTypes.DateRecognizer_3004,
+		IParser parser = CrosswalkParserProvider.getParser(
+				CrosswalkElementTypes.DateRecognizer_3004,
 				view.getElement() != null ? view.getElement() : view,
-				CrosswalkVisualIDRegistry.getType(WrappingLabel3EditPart.VISUAL_ID));
+				CrosswalkVisualIDRegistry
+						.getType(WrappingLabel3EditPart.VISUAL_ID));
 		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
 					ParserOptions.NONE.intValue());
 		} else {
-			CrosswalkDiagramEditorPlugin.getInstance().logError("Parser was not found for label " + 5005); //$NON-NLS-1$
+			CrosswalkDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 5005); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -599,14 +677,17 @@ public class CrosswalkNavigatorLabelProvider extends LabelProvider implements IC
 	 * @generated
 	 */
 	private String getForm_2003Text(View view) {
-		IParser parser = CrosswalkParserProvider.getParser(CrosswalkElementTypes.Form_2003,
+		IParser parser = CrosswalkParserProvider.getParser(
+				CrosswalkElementTypes.Form_2003,
 				view.getElement() != null ? view.getElement() : view,
 				CrosswalkVisualIDRegistry.getType(FormTitleEditPart.VISUAL_ID));
 		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
 					ParserOptions.NONE.intValue());
 		} else {
-			CrosswalkDiagramEditorPlugin.getInstance().logError("Parser was not found for label " + 5023); //$NON-NLS-1$
+			CrosswalkDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 5023); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -615,14 +696,17 @@ public class CrosswalkNavigatorLabelProvider extends LabelProvider implements IC
 	 * @generated
 	 */
 	private String getText_3005Text(View view) {
-		IParser parser = CrosswalkParserProvider.getParser(CrosswalkElementTypes.Text_3005,
+		IParser parser = CrosswalkParserProvider.getParser(
+				CrosswalkElementTypes.Text_3005,
 				view.getElement() != null ? view.getElement() : view,
 				CrosswalkVisualIDRegistry.getType(TextValueEditPart.VISUAL_ID));
 		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
 					ParserOptions.NONE.intValue());
 		} else {
-			CrosswalkDiagramEditorPlugin.getInstance().logError("Parser was not found for label " + 5006); //$NON-NLS-1$
+			CrosswalkDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 5006); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -670,7 +754,8 @@ public class CrosswalkNavigatorLabelProvider extends LabelProvider implements IC
 	 * @generated
 	 */
 	private boolean isOwnView(View view) {
-		return EditingContainerEditPart.MODEL_ID.equals(CrosswalkVisualIDRegistry.getModelID(view));
+		return EditingContainerEditPart.MODEL_ID
+				.equals(CrosswalkVisualIDRegistry.getModelID(view));
 	}
 
 }

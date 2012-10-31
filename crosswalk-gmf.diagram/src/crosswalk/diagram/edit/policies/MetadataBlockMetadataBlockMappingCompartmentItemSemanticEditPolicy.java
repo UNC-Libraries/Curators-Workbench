@@ -14,8 +14,8 @@ import crosswalk.diagram.providers.CrosswalkElementTypes;
 /**
  * @generated
  */
-public class MetadataBlockMetadataBlockMappingCompartmentItemSemanticEditPolicy extends
-		CrosswalkBaseItemSemanticEditPolicy {
+public class MetadataBlockMetadataBlockMappingCompartmentItemSemanticEditPolicy
+		extends CrosswalkBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated

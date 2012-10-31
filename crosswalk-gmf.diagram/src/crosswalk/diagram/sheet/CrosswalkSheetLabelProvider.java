@@ -30,7 +30,8 @@ import crosswalk.diagram.providers.CrosswalkElementTypes;
 /**
  * @generated
  */
-public class CrosswalkSheetLabelProvider extends BaseLabelProvider implements ILabelProvider {
+public class CrosswalkSheetLabelProvider extends BaseLabelProvider implements
+		ILabelProvider {
 
 	/**
 	 * @generated
@@ -86,7 +87,8 @@ public class CrosswalkSheetLabelProvider extends BaseLabelProvider implements IL
 			if (etype != null) {
 				return etype;
 			}
-			view = view.eContainer() instanceof View ? (View) view.eContainer() : null;
+			view = view.eContainer() instanceof View ? (View) view.eContainer()
+					: null;
 		}
 		return null;
 	}

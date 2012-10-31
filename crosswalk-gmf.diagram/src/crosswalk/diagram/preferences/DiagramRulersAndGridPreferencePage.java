@@ -28,6 +28,7 @@ public class DiagramRulersAndGridPreferencePage extends RulerGridPreferencePage 
 	 * @generated
 	 */
 	public DiagramRulersAndGridPreferencePage() {
-		setPreferenceStore(CrosswalkDiagramEditorPlugin.getInstance().getPreferenceStore());
+		setPreferenceStore(CrosswalkDiagramEditorPlugin.getInstance()
+				.getPreferenceStore());
 	}
 }

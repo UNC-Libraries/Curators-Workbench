@@ -63,7 +63,8 @@ public class DictionaryEditPart extends ShapeNodeEditPart {
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new DictionaryItemSemanticEditPolicy());
+		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
+				new DictionaryItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
@@ -76,7 +77,8 @@ public class DictionaryEditPart extends ShapeNodeEditPart {
 		org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
 
 			protected EditPolicy createChildEditPolicy(EditPart child) {
-				EditPolicy result = child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
+				EditPolicy result = child
+						.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
 				if (result == null) {
 					result = new NonResizableEditPolicy();
 				}
@@ -113,17 +115,20 @@ public class DictionaryEditPart extends ShapeNodeEditPart {
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof DictionaryNameEditPart) {
-			((DictionaryNameEditPart) childEditPart).setLabel(getPrimaryShape().getFigureModelLabelFigure());
+			((DictionaryNameEditPart) childEditPart).setLabel(getPrimaryShape()
+					.getFigureModelLabelFigure());
 			return true;
 		}
 		if (childEditPart instanceof DictionaryDescriptionEditPart) {
-			((DictionaryDescriptionEditPart) childEditPart).setLabel(getPrimaryShape().getFigureModelNotesFigure());
+			((DictionaryDescriptionEditPart) childEditPart)
+					.setLabel(getPrimaryShape().getFigureModelNotesFigure());
 			return true;
 		}
 		if (childEditPart instanceof DictionaryModelBoxCompartmentEditPart) {
 			IFigure pane = getPrimaryShape().getFigureModelBox();
 			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
-			pane.add(((DictionaryModelBoxCompartmentEditPart) childEditPart).getFigure());
+			pane.add(((DictionaryModelBoxCompartmentEditPart) childEditPart)
+					.getFigure());
 			return true;
 		}
 		return false;
@@ -141,8 +146,8 @@ public class DictionaryEditPart extends ShapeNodeEditPart {
 		}
 		if (childEditPart instanceof DictionaryModelBoxCompartmentEditPart) {
 			IFigure pane = getPrimaryShape().getFigureModelBox();
-			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
-			pane.remove(((DictionaryModelBoxCompartmentEditPart) childEditPart).getFigure());
+			pane.remove(((DictionaryModelBoxCompartmentEditPart) childEditPart)
+					.getFigure());
 			return true;
 		}
 		return false;
@@ -268,7 +273,8 @@ public class DictionaryEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	public EditPart getPrimaryChildEditPart() {
-		return getChildBySemanticHint(CrosswalkVisualIDRegistry.getType(DictionaryNameEditPart.VISUAL_ID));
+		return getChildBySemanticHint(CrosswalkVisualIDRegistry
+				.getType(DictionaryNameEditPart.VISUAL_ID));
 	}
 
 	/**
@@ -301,7 +307,8 @@ public class DictionaryEditPart extends ShapeNodeEditPart {
 			this.setLayoutManager(layoutThis);
 
 			this.setBackgroundColor(ColorConstants.lightGray);
-			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(1000), getMapMode().DPtoLP(1000)));
+			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(1000),
+					getMapMode().DPtoLP(1000)));
 			createContents();
 		}
 
@@ -311,6 +318,7 @@ public class DictionaryEditPart extends ShapeNodeEditPart {
 		private void createContents() {
 
 			fFigureModelLabelFigure = new WrappingLabel();
+
 			fFigureModelLabelFigure.setText("");
 
 			fFigureModelLabelFigure.setFont(FFIGUREMODELLABELFIGURE_FONT);
@@ -326,6 +334,7 @@ public class DictionaryEditPart extends ShapeNodeEditPart {
 			this.add(fFigureModelLabelFigure, constraintFFigureModelLabelFigure);
 
 			fFigureModelNotesFigure = new WrappingLabel();
+
 			fFigureModelNotesFigure.setText("");
 
 			GridData constraintFFigureModelNotesFigure = new GridData();
@@ -378,7 +387,8 @@ public class DictionaryEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	static final Font FFIGUREMODELLABELFIGURE_FONT = new Font(Display.getCurrent(), Display.getDefault().getSystemFont()
-			.getFontData()[0].getName(), 26, SWT.BOLD);
+	static final Font FFIGUREMODELLABELFIGURE_FONT = new Font(
+			Display.getCurrent(), Display.getDefault().getSystemFont()
+					.getFontData()[0].getName(), 26, SWT.BOLD);
 
 }

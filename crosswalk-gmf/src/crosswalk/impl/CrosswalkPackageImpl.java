@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EDataType;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
@@ -40,6 +41,7 @@ import crosswalk.DataException;
 import crosswalk.DataField;
 import crosswalk.DataSource;
 import crosswalk.DateInputField;
+import crosswalk.DatePrecision;
 import crosswalk.DateRecognizer;
 import crosswalk.DateToISO8601StringConversion;
 import crosswalk.DelimitedFile;
@@ -322,6 +324,13 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 	 * @generated
 	 */
 	private EClass multiLineTextInputFieldEClass = null;
+
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum datePrecisionEEnum = null;
 
 								/**
 	 * <!-- begin-user-doc -->
@@ -1259,6 +1268,15 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getDateInputField_DatePrecision() {
+		return (EAttribute)dateInputFieldEClass.getEStructuralFeatures().get(0);
+	}
+
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getMultiLineTextInputField() {
 		return multiLineTextInputFieldEClass;
 	}
@@ -1270,6 +1288,15 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 	 */
 	public EAttribute getMultiLineTextInputField_MaxSize() {
 		return (EAttribute)multiLineTextInputFieldEClass.getEStructuralFeatures().get(0);
+	}
+
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getDatePrecision() {
+		return datePrecisionEEnum;
 	}
 
 								/**
@@ -1477,9 +1504,13 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 		createEAttribute(paragraphEClass, PARAGRAPH__TEXT);
 
 		dateInputFieldEClass = createEClass(DATE_INPUT_FIELD);
+		createEAttribute(dateInputFieldEClass, DATE_INPUT_FIELD__DATE_PRECISION);
 
 		multiLineTextInputFieldEClass = createEClass(MULTI_LINE_TEXT_INPUT_FIELD);
 		createEAttribute(multiLineTextInputFieldEClass, MULTI_LINE_TEXT_INPUT_FIELD__MAX_SIZE);
+
+		// Create enums
+		datePrecisionEEnum = createEEnum(DATE_PRECISION);
 
 		// Create data types
 		dataExceptionEDataType = createEDataType(DATA_EXCEPTION);
@@ -1744,9 +1775,19 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 		initEAttribute(getParagraph_Text(), ecorePackage.getEString(), "text", null, 1, 1, Paragraph.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dateInputFieldEClass, DateInputField.class, "DateInputField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDateInputField_DatePrecision(), this.getDatePrecision(), "datePrecision", "Day", 1, 1, DateInputField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(multiLineTextInputFieldEClass, MultiLineTextInputField.class, "MultiLineTextInputField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMultiLineTextInputField_MaxSize(), ecorePackage.getEInt(), "maxSize", "2048", 1, 1, MultiLineTextInputField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		// Initialize enums and add enum literals
+		initEEnum(datePrecisionEEnum, DatePrecision.class, "DatePrecision");
+		addEEnumLiteral(datePrecisionEEnum, DatePrecision.YEAR);
+		addEEnumLiteral(datePrecisionEEnum, DatePrecision.MONTH);
+		addEEnumLiteral(datePrecisionEEnum, DatePrecision.DAY);
+		addEEnumLiteral(datePrecisionEEnum, DatePrecision.HOUR);
+		addEEnumLiteral(datePrecisionEEnum, DatePrecision.MINUTE);
+		addEEnumLiteral(datePrecisionEEnum, DatePrecision.SECOND);
 
 		// Initialize data types
 		initEDataType(dataExceptionEDataType, DataException.class, "DataException", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

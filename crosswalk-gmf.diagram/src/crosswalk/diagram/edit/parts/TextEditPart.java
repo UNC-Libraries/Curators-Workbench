@@ -79,7 +79,8 @@ public class TextEditPart extends ShapeNodeEditPart {
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new TextItemSemanticEditPolicy());
+		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
+				new TextItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
@@ -96,7 +97,8 @@ public class TextEditPart extends ShapeNodeEditPart {
 				return null;
 			}
 
-			protected Command createMoveChildCommand(EditPart child, EditPart after) {
+			protected Command createMoveChildCommand(EditPart child,
+					EditPart after) {
 				return null;
 			}
 
@@ -126,7 +128,8 @@ public class TextEditPart extends ShapeNodeEditPart {
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof TextValueEditPart) {
-			((TextValueEditPart) childEditPart).setLabel(getPrimaryShape().getFigureWidgetLabelFigure());
+			((TextValueEditPart) childEditPart).setLabel(getPrimaryShape()
+					.getFigureWidgetLabelFigure());
 			return true;
 		}
 		return false;
@@ -259,7 +262,8 @@ public class TextEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	public EditPart getPrimaryChildEditPart() {
-		return getChildBySemanticHint(CrosswalkVisualIDRegistry.getType(TextValueEditPart.VISUAL_ID));
+		return getChildBySemanticHint(CrosswalkVisualIDRegistry
+				.getType(TextValueEditPart.VISUAL_ID));
 	}
 
 	/**
@@ -313,9 +317,11 @@ public class TextEditPart extends ShapeNodeEditPart {
 
 			this.setLayoutManager(layoutThis);
 
-			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(20), getMapMode().DPtoLP(20)));
+			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(20),
+					getMapMode().DPtoLP(20)));
 
-			this.setBorder(new MarginBorder(getMapMode().DPtoLP(10), getMapMode().DPtoLP(10), getMapMode().DPtoLP(10),
+			this.setBorder(new MarginBorder(getMapMode().DPtoLP(10),
+					getMapMode().DPtoLP(10), getMapMode().DPtoLP(10),
 					getMapMode().DPtoLP(10)));
 			createContents();
 		}
@@ -326,6 +332,7 @@ public class TextEditPart extends ShapeNodeEditPart {
 		private void createContents() {
 
 			fFigureWidgetLabelFigure = new WrappingLabel();
+
 			fFigureWidgetLabelFigure.setText("Unknown Widget");
 
 			this.add(fFigureWidgetLabelFigure);

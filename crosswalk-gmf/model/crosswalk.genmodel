@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<genmodel:GenModel xmi:version="2.0"
-    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/crosswalk-gmf/src"
-    modelPluginID="crosswalk-gmf" modelName="Crosswalk" importerID="org.eclipse.emf.importer.ecore"
-    complianceLevel="6.0" copyrightFields="false">
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/crosswalk-gmf/src" modelPluginID="crosswalk-gmf"
+    modelName="Crosswalk" importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0"
+    copyrightFields="false">
   <foreignModel>crosswalk.ecore</foreignModel>
   <genPackages prefix="Crosswalk" disposableProviderFactory="true" ecorePackage="crosswalk.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="crosswalk.ecore#//DatePrecision">
+      <genEnumLiterals ecoreEnumLiteral="crosswalk.ecore#//DatePrecision/year"/>
+      <genEnumLiterals ecoreEnumLiteral="crosswalk.ecore#//DatePrecision/month"/>
+      <genEnumLiterals ecoreEnumLiteral="crosswalk.ecore#//DatePrecision/day"/>
+      <genEnumLiterals ecoreEnumLiteral="crosswalk.ecore#//DatePrecision/hour"/>
+      <genEnumLiterals ecoreEnumLiteral="crosswalk.ecore#//DatePrecision/minute"/>
+      <genEnumLiterals ecoreEnumLiteral="crosswalk.ecore#//DatePrecision/second"/>
+    </genEnums>
     <genDataTypes ecoreDataType="crosswalk.ecore#//DataException"/>
     <genDataTypes ecoreDataType="crosswalk.ecore#//RecordMatches"/>
     <genDataTypes ecoreDataType="crosswalk.ecore#//RecordOutOfRangeException"/>
@@ -159,7 +166,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//Paragraph/heading"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//Paragraph/text"/>
     </genClasses>
-    <genClasses ecoreClass="crosswalk.ecore#//DateInputField"/>
+    <genClasses ecoreClass="crosswalk.ecore#//DateInputField">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//DateInputField/datePrecision"/>
+    </genClasses>
     <genClasses ecoreClass="crosswalk.ecore#//MultiLineTextInputField">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//MultiLineTextInputField/maxSize"/>
     </genClasses>

@@ -38,7 +38,8 @@ import crosswalk.diagram.part.CrosswalkDiagramEditorPlugin;
 /**
  * @generated
  */
-public class CrosswalkDomainNavigatorContentProvider implements ICommonContentProvider {
+public class CrosswalkDomainNavigatorContentProvider implements
+		ICommonContentProvider {
 
 	/**
 	 * @generated
@@ -74,9 +75,11 @@ public class CrosswalkDomainNavigatorContentProvider implements ICommonContentPr
 	 * @generated
 	 */
 	public CrosswalkDomainNavigatorContentProvider() {
-		myAdapterFctoryContentProvier = new AdapterFactoryContentProvider(CrosswalkDiagramEditorPlugin.getInstance()
-				.getItemProvidersAdapterFactory());
-		TransactionalEditingDomain editingDomain = GMFEditingDomainFactory.INSTANCE.createEditingDomain();
+		myAdapterFctoryContentProvier = new AdapterFactoryContentProvider(
+				CrosswalkDiagramEditorPlugin.getInstance()
+						.getItemProvidersAdapterFactory());
+		TransactionalEditingDomain editingDomain = GMFEditingDomainFactory.INSTANCE
+				.createEditingDomain();
 		myEditingDomain = (AdapterFactoryEditingDomain) editingDomain;
 		myEditingDomain.setResourceToReadOnlyMap(new HashMap() {
 			public Object get(Object key) {
@@ -93,28 +96,30 @@ public class CrosswalkDomainNavigatorContentProvider implements ICommonContentPr
 				}
 			}
 		};
-		myWorkspaceSynchronizer = new WorkspaceSynchronizer(editingDomain, new WorkspaceSynchronizer.Delegate() {
-			public void dispose() {
-			}
+		myWorkspaceSynchronizer = new WorkspaceSynchronizer(editingDomain,
+				new WorkspaceSynchronizer.Delegate() {
+					public void dispose() {
+					}
 
-			public boolean handleResourceChanged(final Resource resource) {
-				unloadAllResources();
-				asyncRefresh();
-				return true;
-			}
+					public boolean handleResourceChanged(final Resource resource) {
+						unloadAllResources();
+						asyncRefresh();
+						return true;
+					}
 
-			public boolean handleResourceDeleted(Resource resource) {
-				unloadAllResources();
-				asyncRefresh();
-				return true;
-			}
+					public boolean handleResourceDeleted(Resource resource) {
+						unloadAllResources();
+						asyncRefresh();
+						return true;
+					}
 
-			public boolean handleResourceMoved(Resource resource, final URI newURI) {
-				unloadAllResources();
-				asyncRefresh();
-				return true;
-			}
-		});
+					public boolean handleResourceMoved(Resource resource,
+							final URI newURI) {
+						unloadAllResources();
+						asyncRefresh();
+						return true;
+					}
+				});
 	}
 
 	/**
@@ -141,7 +146,8 @@ public class CrosswalkDomainNavigatorContentProvider implements ICommonContentPr
 	 * @generated
 	 */
 	void unloadAllResources() {
-		for (Resource nextResource : myEditingDomain.getResourceSet().getResources()) {
+		for (Resource nextResource : myEditingDomain.getResourceSet()
+				.getResources()) {
 			nextResource.unload();
 		}
 	}
@@ -151,7 +157,8 @@ public class CrosswalkDomainNavigatorContentProvider implements ICommonContentPr
 	 */
 	void asyncRefresh() {
 		if (myViewer != null && !myViewer.getControl().isDisposed()) {
-			myViewer.getControl().getDisplay().asyncExec(myViewerRefreshRunnable);
+			myViewer.getControl().getDisplay()
+					.asyncExec(myViewerRefreshRunnable);
 		}
 	}
 
@@ -186,15 +193,19 @@ public class CrosswalkDomainNavigatorContentProvider implements ICommonContentPr
 	public Object[] getChildren(Object parentElement) {
 		if (parentElement instanceof IFile) {
 			IFile file = (IFile) parentElement;
-			URI fileURI = URI.createPlatformResourceURI(file.getFullPath().toString(), true);
-			Resource resource = myEditingDomain.getResourceSet().getResource(fileURI, true);
-			return wrapEObjects(myAdapterFctoryContentProvier.getChildren(resource), parentElement);
+			URI fileURI = URI.createPlatformResourceURI(file.getFullPath()
+					.toString(), true);
+			Resource resource = myEditingDomain.getResourceSet().getResource(
+					fileURI, true);
+			return wrapEObjects(
+					myAdapterFctoryContentProvier.getChildren(resource),
+					parentElement);
 		}
 
 		if (parentElement instanceof CrosswalkDomainNavigatorItem) {
 			return wrapEObjects(
-					myAdapterFctoryContentProvier.getChildren(((CrosswalkDomainNavigatorItem) parentElement).getEObject()),
-					parentElement);
+					myAdapterFctoryContentProvier.getChildren(((CrosswalkDomainNavigatorItem) parentElement)
+							.getEObject()), parentElement);
 		}
 		return EMPTY_ARRAY;
 	}
@@ -206,7 +217,8 @@ public class CrosswalkDomainNavigatorContentProvider implements ICommonContentPr
 		Collection result = new ArrayList();
 		for (int i = 0; i < objects.length; i++) {
 			if (objects[i] instanceof EObject) {
-				result.add(new CrosswalkDomainNavigatorItem((EObject) objects[i], parentElement,
+				result.add(new CrosswalkDomainNavigatorItem(
+						(EObject) objects[i], parentElement,
 						myAdapterFctoryContentProvier));
 			}
 		}

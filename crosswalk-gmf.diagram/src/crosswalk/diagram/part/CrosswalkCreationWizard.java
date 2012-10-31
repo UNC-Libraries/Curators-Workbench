@@ -118,7 +118,8 @@ public class CrosswalkCreationWizard extends Wizard implements INewWizard {
 	/**
 	 * @generated
 	 */
-	public void setOpenNewlyCreatedDiagramEditor(boolean openNewlyCreatedDiagramEditor) {
+	public void setOpenNewlyCreatedDiagramEditor(
+			boolean openNewlyCreatedDiagramEditor) {
 		this.openNewlyCreatedDiagramEditor = openNewlyCreatedDiagramEditor;
 	}
 
@@ -131,17 +132,21 @@ public class CrosswalkCreationWizard extends Wizard implements INewWizard {
 		if (this.getSelection() != null) {
 			for (Object o : this.getSelection().toArray()) {
 				if (o instanceof IResource) {
-					this.project = ((IResource) this.getSelection().getFirstElement()).getProject();
+					this.project = ((IResource) this.getSelection()
+							.getFirstElement()).getProject();
 					break;
 				} else if (o instanceof EObject) {
-					Resource r = ((EObject) this.getSelection().getFirstElement()).eResource();
-					IFile f = ResourcesPlugin.getWorkspace().getRoot().getFile(new Path(r.getURI().toFileString()));
+					Resource r = ((EObject) this.getSelection()
+							.getFirstElement()).eResource();
+					IFile f = ResourcesPlugin.getWorkspace().getRoot()
+							.getFile(new Path(r.getURI().toFileString()));
 					this.project = f.getProject();
 					break;
 				} else {
 					for (Method m : o.getClass().getMethods()) {
 						if ("getProject".equals(m.getName())) {
-							if (IProject.class.isAssignableFrom(m.getReturnType())) {
+							if (IProject.class.isAssignableFrom(m
+									.getReturnType())) {
 								try {
 									this.project = (IProject) m.invoke(o);
 								} catch (IllegalArgumentException e) {
@@ -172,11 +177,16 @@ public class CrosswalkCreationWizard extends Wizard implements INewWizard {
 	@Override
 	public void addPages() {
 		System.out.println("addPages called");
-		dataSourceTypePage = new CrosswalkPickDataSourceWizardPage("Choose a data source type.");
-		delimitedFilePage = new DelimitedFileDataSourceWizardPage("Choose your text file and character set.");
-		delimitedFileDelimitersPage = new DelimitedFileDelimitersWizardPage("Choose the delimiters and significant rows.");
+		dataSourceTypePage = new CrosswalkPickDataSourceWizardPage(
+				"Choose a data source type.");
+		delimitedFilePage = new DelimitedFileDataSourceWizardPage(
+				"Choose your text file and character set.");
+		delimitedFileDelimitersPage = new DelimitedFileDelimitersWizardPage(
+				"Choose the delimiters and significant rows.");
 		delimitedFileDelimitersPage.filePage = delimitedFilePage;
-		this.dataSourceTypePages.put(CrosswalkPackage.eINSTANCE.getDelimitedFile(), delimitedFilePage);
+		this.dataSourceTypePages.put(
+				CrosswalkPackage.eINSTANCE.getDelimitedFile(),
+				delimitedFilePage);
 		this.addPage(dataSourceTypePage);
 		this.addPage(delimitedFilePage);
 		this.addPage(delimitedFileDelimitersPage);
@@ -184,7 +194,8 @@ public class CrosswalkCreationWizard extends Wizard implements INewWizard {
 
 	private URI getCrosswalkFileURI() {
 		IFile f = this.project.getFile(this.crosswalkName + ".crosswalk");
-		URI result = URI.createPlatformResourceURI(f.getFullPath().toString(), true);
+		URI result = URI.createPlatformResourceURI(f.getFullPath().toString(),
+				true);
 		return result;
 	}
 
@@ -194,18 +205,24 @@ public class CrosswalkCreationWizard extends Wizard implements INewWizard {
 	@Override
 	public boolean performFinish() {
 		if (dataSource == null) { // create the selected type of data source, if not set by a page
-			dataSource = (DataSource) CrosswalkFactory.eINSTANCE.create(this.selectedDataSourceType);
+			dataSource = (DataSource) CrosswalkFactory.eINSTANCE
+					.create(this.selectedDataSourceType);
 		}
 		IRunnableWithProgress op = new WorkspaceModifyOperation(null) {
 			@Override
-			protected void execute(IProgressMonitor monitor) throws CoreException, InterruptedException {
-				diagram = CrosswalkDiagramEditorUtil.createCrosswalkWithSource(getCrosswalkFileURI(), monitor, dataSource);
+			protected void execute(IProgressMonitor monitor)
+					throws CoreException, InterruptedException {
+				diagram = CrosswalkDiagramEditorUtil.createCrosswalkWithSource(
+						getCrosswalkFileURI(), monitor, dataSource);
 				if (isOpenNewlyCreatedDiagramEditor() && diagram != null) {
 					try {
 						CrosswalkDiagramEditorUtil.openDiagram(diagram);
 					} catch (PartInitException e) {
-						ErrorDialog.openError(getContainer().getShell(), Messages.CrosswalkCreationWizardOpenEditorError,
-								null, e.getStatus());
+						ErrorDialog
+								.openError(
+										getContainer().getShell(),
+										Messages.CrosswalkCreationWizardOpenEditorError,
+										null, e.getStatus());
 					}
 				}
 			}
@@ -216,10 +233,12 @@ public class CrosswalkCreationWizard extends Wizard implements INewWizard {
 			return false;
 		} catch (InvocationTargetException e) {
 			if (e.getTargetException() instanceof CoreException) {
-				ErrorDialog.openError(getContainer().getShell(), Messages.CrosswalkCreationWizardCreationError, null,
+				ErrorDialog.openError(getContainer().getShell(),
+						Messages.CrosswalkCreationWizardCreationError, null,
 						((CoreException) e.getTargetException()).getStatus());
 			} else {
-				CrosswalkDiagramEditorPlugin.getInstance().logError("Error creating diagram", e.getTargetException()); //$NON-NLS-1$
+				CrosswalkDiagramEditorPlugin.getInstance().logError(
+						"Error creating diagram", e.getTargetException()); //$NON-NLS-1$
 			}
 			return false;
 		}

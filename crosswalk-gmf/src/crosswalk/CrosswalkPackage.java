@@ -20,6 +20,7 @@ import java.util.List;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -1645,13 +1646,22 @@ public interface CrosswalkPackage extends EPackage {
 	int DATE_INPUT_FIELD__ENTERED_VALUE = INPUT_FIELD__ENTERED_VALUE;
 
 								/**
+	 * The feature id for the '<em><b>Date Precision</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_INPUT_FIELD__DATE_PRECISION = INPUT_FIELD_FEATURE_COUNT + 0;
+
+								/**
 	 * The number of structural features of the '<em>Date Input Field</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATE_INPUT_FIELD_FEATURE_COUNT = INPUT_FIELD_FEATURE_COUNT + 0;
+	int DATE_INPUT_FIELD_FEATURE_COUNT = INPUT_FIELD_FEATURE_COUNT + 1;
 
 								/**
 	 * The meta object id for the '{@link crosswalk.impl.MultiLineTextInputFieldImpl <em>Multi Line Text Input Field</em>}' class.
@@ -1727,6 +1737,16 @@ public interface CrosswalkPackage extends EPackage {
 	int MULTI_LINE_TEXT_INPUT_FIELD_FEATURE_COUNT = INPUT_FIELD_FEATURE_COUNT + 1;
 
 								/**
+	 * The meta object id for the '{@link crosswalk.DatePrecision <em>Date Precision</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see crosswalk.DatePrecision
+	 * @see crosswalk.impl.CrosswalkPackageImpl#getDatePrecision()
+	 * @generated
+	 */
+	int DATE_PRECISION = 33;
+
+								/**
 	 * The meta object id for the '<em>Data Exception</em>' data type.
 	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -1734,7 +1754,7 @@ public interface CrosswalkPackage extends EPackage {
 	 * @see crosswalk.impl.CrosswalkPackageImpl#getDataException()
 	 * @generated
 	 */
-        int DATA_EXCEPTION = 33;
+        int DATA_EXCEPTION = 34;
 
         /**
 	 * The meta object id for the '<em>Record Matches</em>' data type.
@@ -1744,7 +1764,7 @@ public interface CrosswalkPackage extends EPackage {
 	 * @see crosswalk.impl.CrosswalkPackageImpl#getRecordMatches()
 	 * @generated
 	 */
-        int RECORD_MATCHES = 34;
+        int RECORD_MATCHES = 35;
 
         /**
 	 * The meta object id for the '<em>Record Out Of Range Exception</em>' data type.
@@ -1754,7 +1774,7 @@ public interface CrosswalkPackage extends EPackage {
 	 * @see crosswalk.impl.CrosswalkPackageImpl#getRecordOutOfRangeException()
 	 * @generated
 	 */
-        int RECORD_OUT_OF_RANGE_EXCEPTION = 35;
+        int RECORD_OUT_OF_RANGE_EXCEPTION = 36;
 
         /**
 	 * The meta object id for the '<em>URI</em>' data type.
@@ -1764,7 +1784,7 @@ public interface CrosswalkPackage extends EPackage {
 	 * @see crosswalk.impl.CrosswalkPackageImpl#getURI()
 	 * @generated
 	 */
-	int URI = 36;
+	int URI = 37;
 
 								/**
 	 * The meta object id for the '<em>Exception</em>' data type.
@@ -1774,7 +1794,7 @@ public interface CrosswalkPackage extends EPackage {
 	 * @see crosswalk.impl.CrosswalkPackageImpl#getException()
 	 * @generated
 	 */
-	int EXCEPTION = 37;
+	int EXCEPTION = 38;
 
 								/**
 	 * The meta object id for the '<em>Clazz</em>' data type.
@@ -1784,7 +1804,7 @@ public interface CrosswalkPackage extends EPackage {
 	 * @see crosswalk.impl.CrosswalkPackageImpl#getClazz()
 	 * @generated
 	 */
-	int CLAZZ = 38;
+	int CLAZZ = 39;
 
 								/**
 	 * Returns the meta object for class '{@link crosswalk.TabbedDataField <em>Tabbed Data Field</em>}'.
@@ -2767,6 +2787,17 @@ public interface CrosswalkPackage extends EPackage {
 	EClass getDateInputField();
 
 								/**
+	 * Returns the meta object for the attribute '{@link crosswalk.DateInputField#getDatePrecision <em>Date Precision</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Date Precision</em>'.
+	 * @see crosswalk.DateInputField#getDatePrecision()
+	 * @see #getDateInputField()
+	 * @generated
+	 */
+	EAttribute getDateInputField_DatePrecision();
+
+								/**
 	 * Returns the meta object for class '{@link crosswalk.MultiLineTextInputField <em>Multi Line Text Input Field</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2786,6 +2817,16 @@ public interface CrosswalkPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getMultiLineTextInputField_MaxSize();
+
+								/**
+	 * Returns the meta object for enum '{@link crosswalk.DatePrecision <em>Date Precision</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Date Precision</em>'.
+	 * @see crosswalk.DatePrecision
+	 * @generated
+	 */
+	EEnum getDatePrecision();
 
 								/**
 	 * Returns the meta object for data type '{@link crosswalk.DataException <em>Data Exception</em>}'.
@@ -3676,6 +3717,14 @@ public interface CrosswalkPackage extends EPackage {
 		EClass DATE_INPUT_FIELD = eINSTANCE.getDateInputField();
 
 																/**
+		 * The meta object literal for the '<em><b>Date Precision</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DATE_INPUT_FIELD__DATE_PRECISION = eINSTANCE.getDateInputField_DatePrecision();
+
+																/**
 		 * The meta object literal for the '{@link crosswalk.impl.MultiLineTextInputFieldImpl <em>Multi Line Text Input Field</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3692,6 +3741,16 @@ public interface CrosswalkPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute MULTI_LINE_TEXT_INPUT_FIELD__MAX_SIZE = eINSTANCE.getMultiLineTextInputField_MaxSize();
+
+																/**
+		 * The meta object literal for the '{@link crosswalk.DatePrecision <em>Date Precision</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see crosswalk.DatePrecision
+		 * @see crosswalk.impl.CrosswalkPackageImpl#getDatePrecision()
+		 * @generated
+		 */
+		EEnum DATE_PRECISION = eINSTANCE.getDatePrecision();
 
 																/**
 		 * The meta object literal for the '<em>Data Exception</em>' data type.

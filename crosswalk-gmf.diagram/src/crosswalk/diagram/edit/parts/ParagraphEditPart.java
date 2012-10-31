@@ -59,7 +59,8 @@ public class ParagraphEditPart extends ShapeNodeEditPart {
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new ParagraphItemSemanticEditPolicy());
+		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
+				new ParagraphItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
@@ -103,11 +104,14 @@ public class ParagraphEditPart extends ShapeNodeEditPart {
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof ParagraphHeadingEditPart) {
-			((ParagraphHeadingEditPart) childEditPart).setLabel(getPrimaryShape().getFigureParagraphHeadingLabel());
+			((ParagraphHeadingEditPart) childEditPart)
+					.setLabel(getPrimaryShape()
+							.getFigureParagraphHeadingLabel());
 			return true;
 		}
 		if (childEditPart instanceof ParagraphTextEditPart) {
-			((ParagraphTextEditPart) childEditPart).setLabel(getPrimaryShape().getFigureParagraphTextLabel());
+			((ParagraphTextEditPart) childEditPart).setLabel(getPrimaryShape()
+					.getFigureParagraphTextLabel());
 			return true;
 		}
 		return false;
@@ -243,7 +247,8 @@ public class ParagraphEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	public EditPart getPrimaryChildEditPart() {
-		return getChildBySemanticHint(CrosswalkVisualIDRegistry.getType(ParagraphHeadingEditPart.VISUAL_ID));
+		return getChildBySemanticHint(CrosswalkVisualIDRegistry
+				.getType(ParagraphHeadingEditPart.VISUAL_ID));
 	}
 
 	/**
@@ -284,13 +289,16 @@ public class ParagraphEditPart extends ShapeNodeEditPart {
 		private void createContents() {
 
 			fFigureParagraphHeadingLabel = new WrappingLabel();
+
 			fFigureParagraphHeadingLabel.setText("");
 
-			fFigureParagraphHeadingLabel.setFont(FFIGUREPARAGRAPHHEADINGLABEL_FONT);
+			fFigureParagraphHeadingLabel
+					.setFont(FFIGUREPARAGRAPHHEADINGLABEL_FONT);
 
 			this.add(fFigureParagraphHeadingLabel);
 
 			fFigureParagraphTextLabel = new WrappingLabel();
+
 			fFigureParagraphTextLabel.setText("");
 
 			this.add(fFigureParagraphTextLabel);
@@ -316,7 +324,8 @@ public class ParagraphEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	static final Font FFIGUREPARAGRAPHHEADINGLABEL_FONT = new Font(Display.getCurrent(), Display.getDefault()
-			.getSystemFont().getFontData()[0].getName(), 12, SWT.BOLD);
+	static final Font FFIGUREPARAGRAPHHEADINGLABEL_FONT = new Font(
+			Display.getCurrent(), Display.getDefault().getSystemFont()
+					.getFontData()[0].getName(), 12, SWT.BOLD);
 
 }

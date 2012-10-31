@@ -66,7 +66,8 @@ public class CrosswalkDiagramEditorPlugin extends AbstractUIPlugin {
 	/**
 	 * @generated
 	 */
-	public static final PreferencesHint DIAGRAM_PREFERENCES_HINT = new PreferencesHint(ID);
+	public static final PreferencesHint DIAGRAM_PREFERENCES_HINT = new PreferencesHint(
+			ID);
 
 	/**
 	 * @generated
@@ -113,7 +114,8 @@ public class CrosswalkDiagramEditorPlugin extends AbstractUIPlugin {
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
 		instance = this;
-		PreferencesHint.registerPreferenceStore(DIAGRAM_PREFERENCES_HINT, getPreferenceStore());
+		PreferencesHint.registerPreferenceStore(DIAGRAM_PREFERENCES_HINT,
+				getPreferenceStore());
 		adapterFactory = createAdapterFactory();
 	}
 
@@ -167,9 +169,11 @@ public class CrosswalkDiagramEditorPlugin extends AbstractUIPlugin {
 	 * @generated
 	 */
 	public ImageDescriptor getItemImageDescriptor(Object item) {
-		IItemLabelProvider labelProvider = (IItemLabelProvider) adapterFactory.adapt(item, IItemLabelProvider.class);
+		IItemLabelProvider labelProvider = (IItemLabelProvider) adapterFactory
+				.adapt(item, IItemLabelProvider.class);
 		if (labelProvider != null) {
-			return ExtendedImageRegistry.getInstance().getImageDescriptor(labelProvider.getImage(item));
+			return ExtendedImageRegistry.getInstance().getImageDescriptor(
+					labelProvider.getImage(item));
 		}
 		return null;
 	}
@@ -198,8 +202,8 @@ public class CrosswalkDiagramEditorPlugin extends AbstractUIPlugin {
 	public static ImageDescriptor findImageDescriptor(String path) {
 		final IPath p = new Path(path);
 		if (p.isAbsolute() && p.segmentCount() > 1) {
-			return AbstractUIPlugin.imageDescriptorFromPlugin(p.segment(0), p.removeFirstSegments(1).makeAbsolute()
-					.toString());
+			return AbstractUIPlugin.imageDescriptorFromPlugin(p.segment(0), p
+					.removeFirstSegments(1).makeAbsolute().toString());
 		} else {
 			return getBundledImageDescriptor(p.makeAbsolute().toString());
 		}
@@ -251,7 +255,8 @@ public class CrosswalkDiagramEditorPlugin extends AbstractUIPlugin {
 	/**
 	 * @generated
 	 */
-	public void setLinkConstraints(CrosswalkBaseItemSemanticEditPolicy.LinkConstraints lc) {
+	public void setLinkConstraints(
+			CrosswalkBaseItemSemanticEditPolicy.LinkConstraints lc) {
 		this.linkConstraints = lc;
 	}
 
@@ -270,7 +275,8 @@ public class CrosswalkDiagramEditorPlugin extends AbstractUIPlugin {
 	}
 
 	public void loadDictionaries() {
-		Map<String, String> xmlOptions = Collections.singletonMap(XMLResource.OPTION_ENCODING, "utf-8");
+		Map<String, String> xmlOptions = Collections.singletonMap(
+				XMLResource.OPTION_ENCODING, "utf-8");
 		if (dictionaries != null) {
 			this.dictionaries.clear();
 		} else {
@@ -282,19 +288,24 @@ public class CrosswalkDiagramEditorPlugin extends AbstractUIPlugin {
 			Resource metsResource = null;
 			try {
 				logInfo("METS attempting to load existing file:" + uri);
-				metsResource = resourceSet.getResource(URI.createURI(uri), true);
-				((ResourceImpl) metsResource).setIntrinsicIDToEObjectMap(new HashMap());
+				metsResource = resourceSet
+						.getResource(URI.createURI(uri), true);
+				((ResourceImpl) metsResource)
+						.setIntrinsicIDToEObjectMap(new HashMap());
 				metsResource.load(xmlOptions);
 				if (metsResource.getContents().get(0) != null
 						&& metsResource.getContents().get(0) instanceof EditingContainer) {
-					EditingContainer container = (EditingContainer) metsResource.getContents().get(0);
+					EditingContainer container = (EditingContainer) metsResource
+							.getContents().get(0);
 					dictionaries.add((Dictionary) container.getModel());
 				}
 			} catch (RuntimeException e) {
 				// TODO warn user in an alert dialog
-				logInfo("Cannot load preferred dictionary: " + loc.toString() + " (" + e.getLocalizedMessage() + ")");
+				logInfo("Cannot load preferred dictionary: " + loc.toString()
+						+ " (" + e.getLocalizedMessage() + ")");
 			} catch (IOException e) {
-				logInfo("Cannot load preferred dictionary: " + loc.toString() + " (" + e.getLocalizedMessage() + ")");
+				logInfo("Cannot load preferred dictionary: " + loc.toString()
+						+ " (" + e.getLocalizedMessage() + ")");
 			}
 		}
 	}
@@ -334,7 +345,9 @@ public class CrosswalkDiagramEditorPlugin extends AbstractUIPlugin {
 		if (error == null && throwable != null) {
 			error = throwable.getMessage();
 		}
-		getLog().log(new Status(IStatus.ERROR, CrosswalkDiagramEditorPlugin.ID, IStatus.OK, error, throwable));
+		getLog().log(
+				new Status(IStatus.ERROR, CrosswalkDiagramEditorPlugin.ID,
+						IStatus.OK, error, throwable));
 		debug(error, throwable);
 	}
 
@@ -352,7 +365,9 @@ public class CrosswalkDiagramEditorPlugin extends AbstractUIPlugin {
 		if (message == null && throwable != null) {
 			message = throwable.getMessage();
 		}
-		getLog().log(new Status(IStatus.INFO, CrosswalkDiagramEditorPlugin.ID, IStatus.OK, message, throwable));
+		getLog().log(
+				new Status(IStatus.INFO, CrosswalkDiagramEditorPlugin.ID,
+						IStatus.OK, message, throwable));
 		debug(message, throwable);
 	}
 
