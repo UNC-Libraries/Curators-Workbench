@@ -1,0 +1,42 @@
+.form_field label {
+	float: left; 
+	clear: both; 
+	width: 12em; 
+	height: 2em; 
+	text-align: right; 
+	vertical-align: baseline; 
+	margin-right: 1em;
+}
+
+.form_field br {
+	clear: both;
+}
+
+.file_field input {
+	margin-right: 5px;
+}
+
+.red {
+	color: red;
+}
+
+.indented_block {
+	margin: 0em 2em;
+}
+
+.metadata_block h3 {
+	margin-bottom: 15px;
+}
+
+.submit_container {
+	text-align: center;
+	margin: 2em;
+}
+
+#ui-datepicker-div {
+	display: none;
+}
+
+.ui-datepicker-calendar {
+	display: none;
+}

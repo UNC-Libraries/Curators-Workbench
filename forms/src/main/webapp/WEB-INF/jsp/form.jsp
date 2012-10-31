@@ -19,11 +19,13 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="crosswalk.*" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" session="true"%>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!doctype html>
+<html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" type="text/css" href="/static/css/reset.css" />
 <link rel="stylesheet" type="text/css" href="/static/css/cdrui_styles.css" />
+<link rel="stylesheet" type="text/css" href="css/cdr_forms.css" />
 
 <link type="text/css" href="/cdradmin/css/jquery/ui/jquery-ui.css" rel="stylesheet" />
 
@@ -32,7 +34,16 @@
 
 <script type="text/javascript">
 	$(document).ready( function() {
-		$(".datepicker").datepicker({dateFormat : 'yy-mm-dd', changeYear : true, changeMonth : true, yearRange : '-300:+02' }).val($.datepicker.formatDate('yy-mm-dd', new Date()));
+		$(".datepicker").datepicker({
+			changeMonth: true,
+	        changeYear: true,
+	        showButtonPanel: true,
+	        dateFormat: 'yy-mm',
+	        onClose: function(dateText, inst) {
+	            var month = $("#ui-datepicker-div .ui-datepicker-month :selected").val();
+	            var year = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
+	            $(this).datepicker('setDate', new Date(year, month, 1));
+	        }, yearRange : '-300:+02' }).val($.datepicker.formatDate('yy-mm', new Date()));
 		// $(".datepicker").datepicker('option', 'constrainInput', true);
 		// $(".datepicker").datepicker('option', 'maxDate', '+0m +0w');
 	});
@@ -81,36 +92,41 @@
 					<% } %>
 			<% } else if(MetadataBlock.class.isInstance(status.getValue())) { 
 					MetadataBlock mb = (MetadataBlock)status.getValue(); %>
-					<br/><h3 style="clear: both;"><%= ((MetadataBlock)status.getValue()).getName() %></h3>
-					<% if(mb.getDescription() != null) { %>
-					<p><%= ((MetadataBlock)status.getValue()).getDescription() %></p>
-					<% } %>
-					<div style="margin: 0em 2em;">
-					  <p>
-					<c:forEach items="${form.elements[elementRow.index].ports}" var="port" varStatus="portRow">
-						<spring:bind path="form.elements[${elementRow.index}].ports[${portRow.index}]" ignoreNestedPath="true">
-							<div style="float: left; clear: both; width: 12em; height: 2em; text-align: right; vertical-align: baseline; margin-right: 1em;"><c:out value="${port.label}"/></div>
-							<% if(status.getValue() instanceof DateInputField) { %>
-							<form:input cssClass="datepicker" path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}" />
-							<% } else if(status.getValue() instanceof TextInputField) { %>
-							<form:input path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}" maxlength="${port.maxSize}" size="${port.preferredSize}" />
-							<% } else { %>
-							<form:input path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}" />
-							<% } %>
-							<c:if test="${port.required}"><span style="color:red">*</span></c:if>
-							<form:errors cssStyle="color:red;" path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" /><br />
-						</spring:bind>
-					</c:forEach>
-					  </p>
+					<div class="metadata_block">
+						<br/><h3><%= ((MetadataBlock)status.getValue()).getName() %></h3>
+						<% if(mb.getDescription() != null && ((MetadataBlock)status.getValue()).getDescription().length() > 0) { %>
+						<p><%= ((MetadataBlock)status.getValue()).getDescription() %></p>
+						<% } %>
+						<div class="indented_block">
+							<c:forEach items="${form.elements[elementRow.index].ports}" var="port" varStatus="portRow">
+								<spring:bind path="form.elements[${elementRow.index}].ports[${portRow.index}]" ignoreNestedPath="true">
+									<div class="form_field">
+										<label><c:out value="${port.label}"/></label>
+										<% if(status.getValue() instanceof DateInputField) { %>
+										<form:input cssClass="datepicker" path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}" />
+										<% } else if(status.getValue() instanceof TextInputField) { %>
+										<form:input path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}" maxlength="${port.maxSize}" size="${port.preferredSize}" />
+										<% } else { %>
+										<form:input path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}" />
+										<% } %>
+										<c:if test="${port.required}"><span class="red">*</span></c:if>
+										<form:errors cssClass="red" path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" />
+										<br/>
+									</div>
+								</spring:bind>
+							</c:forEach>
+						</div>
 					</div>
 			<% } %>
 		</spring:bind>
 	</c:forEach>
 	<br/><h3>File for Deposit</h3>
-	<div style="margin: 0em 2em;">
-		<p><input name="file" type="file" /><spring:hasBindErrors name="form"><span style="color:red"><%= errors.getFieldError("file") == null ? "" : errors.getFieldError("file").getDefaultMessage() %></span></spring:hasBindErrors></p>
+	<div class="indented_block">
+		<div class="form_field file_field">
+			<input name="file" type="file" size="40"/><spring:hasBindErrors name="form"><span class="red"><%= errors.getFieldError("file") == null ? "" : errors.getFieldError("file").getDefaultMessage() %></span></spring:hasBindErrors>
+		</div>
 	</div>
-	<div style="text-align: center; margin: 2em;">
+	<div class="submit_container">
 		<input type="submit" value="submit deposit" />
 	</div>
 </form:form>
