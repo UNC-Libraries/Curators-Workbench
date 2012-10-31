@@ -28,7 +28,6 @@ public class DiagramAppearancePreferencePage extends AppearancePreferencePage {
 	 * @generated
 	 */
 	public DiagramAppearancePreferencePage() {
-		setPreferenceStore(CrosswalkDiagramEditorPlugin.getInstance()
-				.getPreferenceStore());
+		setPreferenceStore(CrosswalkDiagramEditorPlugin.getInstance().getPreferenceStore());
 	}
 }

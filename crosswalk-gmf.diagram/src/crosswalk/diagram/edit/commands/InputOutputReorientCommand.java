@@ -41,8 +41,7 @@ public class InputOutputReorientCommand extends EditElementCommand {
 	/**
 	 * @generated
 	 */
-	public InputOutputReorientCommand(
-			ReorientReferenceRelationshipRequest request) {
+	public InputOutputReorientCommand(ReorientReferenceRelationshipRequest request) {
 		super(request.getLabel(), null, request);
 		reorientDirection = request.getDirection();
 		referenceOwner = request.getReferenceOwner();
@@ -73,8 +72,8 @@ public class InputOutputReorientCommand extends EditElementCommand {
 		if (!(oldEnd instanceof Output && newEnd instanceof Input)) {
 			return false;
 		}
-		return CrosswalkBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canExistInputOutput_4001(getNewSource(), getOldTarget());
+		return CrosswalkBaseItemSemanticEditPolicy.getLinkConstraints().canExistInputOutput_4001(getNewSource(),
+				getOldTarget());
 	}
 
 	/**
@@ -84,18 +83,16 @@ public class InputOutputReorientCommand extends EditElementCommand {
 		if (!(oldEnd instanceof Output && newEnd instanceof Output)) {
 			return false;
 		}
-		return CrosswalkBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canExistInputOutput_4001(getOldSource(), getNewTarget());
+		return CrosswalkBaseItemSemanticEditPolicy.getLinkConstraints().canExistInputOutput_4001(getOldSource(),
+				getNewTarget());
 	}
 
 	/**
 	 * @generated
 	 */
-	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
-			IAdaptable info) throws ExecutionException {
+	protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
 		if (!canExecute()) {
-			throw new ExecutionException(
-					"Invalid arguments in reorient link command"); //$NON-NLS-1$
+			throw new ExecutionException("Invalid arguments in reorient link command"); //$NON-NLS-1$
 		}
 		if (reorientDirection == ReorientRelationshipRequest.REORIENT_SOURCE) {
 			return reorientSource();

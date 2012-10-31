@@ -10,8 +10,8 @@ import crosswalk.diagram.providers.CrosswalkElementTypes;
 /**
  * @generated
  */
-public class MetadataBlockMetadataBlockInputFieldsCompartmentItemSemanticEditPolicy
-		extends CrosswalkBaseItemSemanticEditPolicy {
+public class MetadataBlockMetadataBlockInputFieldsCompartmentItemSemanticEditPolicy extends
+		CrosswalkBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated

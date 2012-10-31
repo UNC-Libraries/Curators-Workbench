@@ -34,8 +34,7 @@ public class NativeParser extends AbstractParser {
 			throw new IllegalArgumentException(Arrays.toString(features));
 		}
 		if (editableFeatures.length != 1) {
-			throw new IllegalArgumentException(
-					Arrays.toString(editableFeatures));
+			throw new IllegalArgumentException(Arrays.toString(editableFeatures));
 		}
 	}
 
@@ -44,27 +43,22 @@ public class NativeParser extends AbstractParser {
 	 */
 	public String getEditString(IAdaptable adapter, int flags) {
 		EObject element = (EObject) adapter.getAdapter(EObject.class);
-		String s = EcoreUtil.convertToString(
-				editableFeatures[0].getEAttributeType(),
-				element.eGet(editableFeatures[0]));
+		String s = EcoreUtil.convertToString(editableFeatures[0].getEAttributeType(), element.eGet(editableFeatures[0]));
 		return s != null ? s : ""; //$NON-NLS-1$
 	}
 
 	/**
 	 * @generated
 	 */
-	public IParserEditStatus isValidEditString(IAdaptable adapter,
-			String editString) {
+	public IParserEditStatus isValidEditString(IAdaptable adapter, String editString) {
 		return ParserEditStatus.EDITABLE_STATUS;
 	}
 
 	/**
 	 * @generated
 	 */
-	public ICommand getParseCommand(IAdaptable adapter, String newString,
-			int flags) {
-		Object value = EcoreUtil.createFromString(
-				editableFeatures[0].getEAttributeType(), newString);
+	public ICommand getParseCommand(IAdaptable adapter, String newString, int flags) {
+		Object value = EcoreUtil.createFromString(editableFeatures[0].getEAttributeType(), newString);
 		return getParseCommand(adapter, new Object[] { value }, flags);
 	}
 
@@ -73,8 +67,7 @@ public class NativeParser extends AbstractParser {
 	 */
 	public String getPrintString(IAdaptable adapter, int flags) {
 		EObject element = (EObject) adapter.getAdapter(EObject.class);
-		String s = EcoreUtil.convertToString(features[0].getEAttributeType(),
-				element.eGet(features[0]));
+		String s = EcoreUtil.convertToString(features[0].getEAttributeType(), element.eGet(features[0]));
 		return s != null ? s : ""; //$NON-NLS-1$
 	}
 

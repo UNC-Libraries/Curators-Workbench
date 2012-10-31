@@ -24,8 +24,7 @@ import org.eclipse.ui.IWorkbenchPage;
 /**
  * @generated
  */
-public class CrosswalkDiagramActionBarContributor extends
-		DiagramActionBarContributor {
+public class CrosswalkDiagramActionBarContributor extends DiagramActionBarContributor {
 
 	/**
 	 * @generated
@@ -47,8 +46,7 @@ public class CrosswalkDiagramActionBarContributor extends
 	public void init(IActionBars bars, IWorkbenchPage page) {
 		super.init(bars, page);
 		// print preview
-		IMenuManager fileMenu = bars.getMenuManager().findMenuUsingPath(
-				IWorkbenchActionConstants.M_FILE);
+		IMenuManager fileMenu = bars.getMenuManager().findMenuUsingPath(IWorkbenchActionConstants.M_FILE);
 		assert fileMenu != null;
 		fileMenu.remove("pageSetupAction"); //$NON-NLS-1$
 	}

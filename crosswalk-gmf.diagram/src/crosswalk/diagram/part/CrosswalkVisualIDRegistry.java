@@ -21,7 +21,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
 
-import org.eclipse.gmf.tooling.runtime.structure.DiagramStructure;
 import crosswalk.CrosswalkPackage;
 import crosswalk.EditingContainer;
 import crosswalk.diagram.edit.parts.CrossWalkEditPart;
@@ -106,8 +105,7 @@ public class CrosswalkVisualIDRegistry {
 				return -1;
 			}
 		}
-		return crosswalk.diagram.part.CrosswalkVisualIDRegistry
-				.getVisualID(view.getType());
+		return crosswalk.diagram.part.CrosswalkVisualIDRegistry.getVisualID(view.getType());
 	}
 
 	/**
@@ -132,11 +130,9 @@ public class CrosswalkVisualIDRegistry {
 		try {
 			return Integer.parseInt(type);
 		} catch (NumberFormatException e) {
-			if (Boolean.TRUE.toString().equalsIgnoreCase(
-					Platform.getDebugOption(DEBUG_KEY))) {
+			if (Boolean.TRUE.toString().equalsIgnoreCase(Platform.getDebugOption(DEBUG_KEY))) {
 				CrosswalkDiagramEditorPlugin.getInstance().logError(
-						"Unable to parse view type as a visualID number: "
-								+ type);
+						"Unable to parse view type as a visualID number: " + type);
 			}
 		}
 		return -1;
@@ -156,8 +152,7 @@ public class CrosswalkVisualIDRegistry {
 		if (domainElement == null) {
 			return -1;
 		}
-		if (CrosswalkPackage.eINSTANCE.getEditingContainer().isSuperTypeOf(
-				domainElement.eClass())
+		if (CrosswalkPackage.eINSTANCE.getEditingContainer().isSuperTypeOf(domainElement.eClass())
 				&& isDiagram((EditingContainer) domainElement)) {
 			return EditingContainerEditPart.VISUAL_ID;
 		}
@@ -171,15 +166,13 @@ public class CrosswalkVisualIDRegistry {
 		if (domainElement == null) {
 			return -1;
 		}
-		String containerModelID = crosswalk.diagram.part.CrosswalkVisualIDRegistry
-				.getModelID(containerView);
+		String containerModelID = crosswalk.diagram.part.CrosswalkVisualIDRegistry.getModelID(containerView);
 		if (!EditingContainerEditPart.MODEL_ID.equals(containerModelID)) {
 			return -1;
 		}
 		int containerVisualID;
 		if (EditingContainerEditPart.MODEL_ID.equals(containerModelID)) {
-			containerVisualID = crosswalk.diagram.part.CrosswalkVisualIDRegistry
-					.getVisualID(containerView);
+			containerVisualID = crosswalk.diagram.part.CrosswalkVisualIDRegistry.getVisualID(containerView);
 		} else {
 			if (containerView instanceof Diagram) {
 				containerVisualID = EditingContainerEditPart.VISUAL_ID;
@@ -188,210 +181,166 @@ public class CrosswalkVisualIDRegistry {
 			}
 		}
 		switch (containerVisualID) {
-		case EditingContainerEditPart.VISUAL_ID:
-			if (CrosswalkPackage.eINSTANCE.getCrossWalk().isSuperTypeOf(
-					domainElement.eClass())) {
-				return CrossWalkEditPart.VISUAL_ID;
-			}
-			if (CrosswalkPackage.eINSTANCE.getDictionary().isSuperTypeOf(
-					domainElement.eClass())) {
-				return DictionaryEditPart.VISUAL_ID;
-			}
-			if (CrosswalkPackage.eINSTANCE.getForm().isSuperTypeOf(
-					domainElement.eClass())) {
-				return FormEditPart.VISUAL_ID;
-			}
-			break;
-		case CrossWalkEditPart.VISUAL_ID:
-			if (CrosswalkPackage.eINSTANCE.getCurrentDate().isSuperTypeOf(
-					domainElement.eClass())) {
-				return CurrentDateEditPart.VISUAL_ID;
-			}
-			if (CrosswalkPackage.eINSTANCE.getCurrentUsername().isSuperTypeOf(
-					domainElement.eClass())) {
-				return CurrentUsernameEditPart.VISUAL_ID;
-			}
-			break;
-		case CrossWalkModelBoxCompartmentEditPart.VISUAL_ID:
-			if (CrosswalkPackage.eINSTANCE.getDelimitedFile().isSuperTypeOf(
-					domainElement.eClass())) {
-				return DelimitedFileEditPart.VISUAL_ID;
-			}
-			if (CrosswalkPackage.eINSTANCE.getOriginalNameRecordMatcher()
-					.isSuperTypeOf(domainElement.eClass())) {
-				return OriginalNameRecordMatcherEditPart.VISUAL_ID;
-			}
-			if (CrosswalkPackage.eINSTANCE.getDateRecognizer().isSuperTypeOf(
-					domainElement.eClass())) {
-				return DateRecognizerEditPart.VISUAL_ID;
-			}
-			if (CrosswalkPackage.eINSTANCE.getText().isSuperTypeOf(
-					domainElement.eClass())) {
-				return TextEditPart.VISUAL_ID;
-			}
-			if (CrosswalkPackage.eINSTANCE.getTrimWhitespace().isSuperTypeOf(
-					domainElement.eClass())) {
-				return TrimWhitespaceEditPart.VISUAL_ID;
-			}
-			if (CrosswalkPackage.eINSTANCE.getMappedElement().isSuperTypeOf(
-					domainElement.eClass())) {
-				return MappedElementEditPart.VISUAL_ID;
-			}
-			if (CrosswalkPackage.eINSTANCE.getMetadataBlock().isSuperTypeOf(
-					domainElement.eClass())) {
-				return MetadataBlock2EditPart.VISUAL_ID;
-			}
-			break;
-		case DelimitedFileDataFieldCompartmentEditPart.VISUAL_ID:
-			if (CrosswalkPackage.eINSTANCE.getTabbedDataField().isSuperTypeOf(
-					domainElement.eClass())) {
-				return TabbedDataFieldEditPart.VISUAL_ID;
-			}
-			break;
-		case MappedElementChildElementsCompartmentEditPart.VISUAL_ID:
-			if (CrosswalkPackage.eINSTANCE.getMappedElement().isSuperTypeOf(
-					domainElement.eClass())) {
-				return MappedElement2EditPart.VISUAL_ID;
-			}
-			if (CrosswalkPackage.eINSTANCE.getMappedAttribute().isSuperTypeOf(
-					domainElement.eClass())) {
-				return MappedAttributeEditPart.VISUAL_ID;
-			}
-			break;
-		case MappedElementChildElementsCompartment2EditPart.VISUAL_ID:
-			if (CrosswalkPackage.eINSTANCE.getMappedElement().isSuperTypeOf(
-					domainElement.eClass())) {
-				return MappedElement2EditPart.VISUAL_ID;
-			}
-			if (CrosswalkPackage.eINSTANCE.getMappedAttribute().isSuperTypeOf(
-					domainElement.eClass())) {
-				return MappedAttributeEditPart.VISUAL_ID;
-			}
-			break;
-		case MetadataBlockMetadataBlockInputFieldsCompartment2EditPart.VISUAL_ID:
-			if (CrosswalkPackage.eINSTANCE.getTextInputField().isSuperTypeOf(
-					domainElement.eClass())) {
-				return TextInputFieldEditPart.VISUAL_ID;
-			}
-			if (CrosswalkPackage.eINSTANCE.getDateInputField().isSuperTypeOf(
-					domainElement.eClass())) {
-				return DateInputFieldEditPart.VISUAL_ID;
-			}
-			break;
-		case MetadataBlockMetadataBlockMappingCompartment2EditPart.VISUAL_ID:
-			if (CrosswalkPackage.eINSTANCE.getDateRecognizer().isSuperTypeOf(
-					domainElement.eClass())) {
-				return DateRecognizerEditPart.VISUAL_ID;
-			}
-			if (CrosswalkPackage.eINSTANCE.getText().isSuperTypeOf(
-					domainElement.eClass())) {
-				return TextEditPart.VISUAL_ID;
-			}
-			if (CrosswalkPackage.eINSTANCE.getTrimWhitespace().isSuperTypeOf(
-					domainElement.eClass())) {
-				return TrimWhitespaceEditPart.VISUAL_ID;
-			}
-			if (CrosswalkPackage.eINSTANCE.getMappedElement().isSuperTypeOf(
-					domainElement.eClass())) {
-				return MappedElementEditPart.VISUAL_ID;
-			}
-			if (CrosswalkPackage.eINSTANCE.getCurrentDate().isSuperTypeOf(
-					domainElement.eClass())) {
-				return CurrentDateEditPart.VISUAL_ID;
-			}
-			if (CrosswalkPackage.eINSTANCE.getCurrentUsername().isSuperTypeOf(
-					domainElement.eClass())) {
-				return CurrentUsernameEditPart.VISUAL_ID;
-			}
-			break;
-		case DictionaryModelBoxCompartmentEditPart.VISUAL_ID:
-			if (CrosswalkPackage.eINSTANCE.getMetadataBlock().isSuperTypeOf(
-					domainElement.eClass())) {
-				return MetadataBlockEditPart.VISUAL_ID;
-			}
-			break;
-		case MetadataBlockMetadataBlockInputFieldsCompartmentEditPart.VISUAL_ID:
-			if (CrosswalkPackage.eINSTANCE.getTextInputField().isSuperTypeOf(
-					domainElement.eClass())) {
-				return TextInputFieldEditPart.VISUAL_ID;
-			}
-			if (CrosswalkPackage.eINSTANCE.getDateInputField().isSuperTypeOf(
-					domainElement.eClass())) {
-				return DateInputFieldEditPart.VISUAL_ID;
-			}
-			break;
-		case MetadataBlockMetadataBlockMappingCompartmentEditPart.VISUAL_ID:
-			if (CrosswalkPackage.eINSTANCE.getDateRecognizer().isSuperTypeOf(
-					domainElement.eClass())) {
-				return DateRecognizerEditPart.VISUAL_ID;
-			}
-			if (CrosswalkPackage.eINSTANCE.getText().isSuperTypeOf(
-					domainElement.eClass())) {
-				return TextEditPart.VISUAL_ID;
-			}
-			if (CrosswalkPackage.eINSTANCE.getTrimWhitespace().isSuperTypeOf(
-					domainElement.eClass())) {
-				return TrimWhitespaceEditPart.VISUAL_ID;
-			}
-			if (CrosswalkPackage.eINSTANCE.getMappedElement().isSuperTypeOf(
-					domainElement.eClass())) {
-				return MappedElementEditPart.VISUAL_ID;
-			}
-			if (CrosswalkPackage.eINSTANCE.getCurrentDate().isSuperTypeOf(
-					domainElement.eClass())) {
-				return CurrentDateEditPart.VISUAL_ID;
-			}
-			if (CrosswalkPackage.eINSTANCE.getCurrentUsername().isSuperTypeOf(
-					domainElement.eClass())) {
-				return CurrentUsernameEditPart.VISUAL_ID;
-			}
-			break;
-		case FormModelBoxCompartmentEditPart.VISUAL_ID:
-			if (CrosswalkPackage.eINSTANCE.getMetadataBlock().isSuperTypeOf(
-					domainElement.eClass())) {
-				return MetadataBlock3EditPart.VISUAL_ID;
-			}
-			if (CrosswalkPackage.eINSTANCE.getParagraph().isSuperTypeOf(
-					domainElement.eClass())) {
-				return ParagraphEditPart.VISUAL_ID;
-			}
-			break;
-		case MetadataBlockMetadataBlockInputFieldsCompartment3EditPart.VISUAL_ID:
-			if (CrosswalkPackage.eINSTANCE.getTextInputField().isSuperTypeOf(
-					domainElement.eClass())) {
-				return TextInputFieldEditPart.VISUAL_ID;
-			}
-			if (CrosswalkPackage.eINSTANCE.getDateInputField().isSuperTypeOf(
-					domainElement.eClass())) {
-				return DateInputFieldEditPart.VISUAL_ID;
-			}
-			break;
-		case MetadataBlockMetadataBlockMappingCompartment3EditPart.VISUAL_ID:
-			if (CrosswalkPackage.eINSTANCE.getDateRecognizer().isSuperTypeOf(
-					domainElement.eClass())) {
-				return DateRecognizerEditPart.VISUAL_ID;
-			}
-			if (CrosswalkPackage.eINSTANCE.getText().isSuperTypeOf(
-					domainElement.eClass())) {
-				return TextEditPart.VISUAL_ID;
-			}
-			if (CrosswalkPackage.eINSTANCE.getTrimWhitespace().isSuperTypeOf(
-					domainElement.eClass())) {
-				return TrimWhitespaceEditPart.VISUAL_ID;
-			}
-			if (CrosswalkPackage.eINSTANCE.getMappedElement().isSuperTypeOf(
-					domainElement.eClass())) {
-				return MappedElementEditPart.VISUAL_ID;
-			}
-			if (CrosswalkPackage.eINSTANCE.getCurrentDate().isSuperTypeOf(
-					domainElement.eClass())) {
-				return CurrentDateEditPart.VISUAL_ID;
-			}
-			if (CrosswalkPackage.eINSTANCE.getCurrentUsername().isSuperTypeOf(
-					domainElement.eClass())) {
-				return CurrentUsernameEditPart.VISUAL_ID;
-			}
-			break;
+			case EditingContainerEditPart.VISUAL_ID:
+				if (CrosswalkPackage.eINSTANCE.getCrossWalk().isSuperTypeOf(domainElement.eClass())) {
+					return CrossWalkEditPart.VISUAL_ID;
+				}
+				if (CrosswalkPackage.eINSTANCE.getDictionary().isSuperTypeOf(domainElement.eClass())) {
+					return DictionaryEditPart.VISUAL_ID;
+				}
+				if (CrosswalkPackage.eINSTANCE.getForm().isSuperTypeOf(domainElement.eClass())) {
+					return FormEditPart.VISUAL_ID;
+				}
+				break;
+			case CrossWalkEditPart.VISUAL_ID:
+				if (CrosswalkPackage.eINSTANCE.getCurrentDate().isSuperTypeOf(domainElement.eClass())) {
+					return CurrentDateEditPart.VISUAL_ID;
+				}
+				if (CrosswalkPackage.eINSTANCE.getCurrentUsername().isSuperTypeOf(domainElement.eClass())) {
+					return CurrentUsernameEditPart.VISUAL_ID;
+				}
+				break;
+			case CrossWalkModelBoxCompartmentEditPart.VISUAL_ID:
+				if (CrosswalkPackage.eINSTANCE.getDelimitedFile().isSuperTypeOf(domainElement.eClass())) {
+					return DelimitedFileEditPart.VISUAL_ID;
+				}
+				if (CrosswalkPackage.eINSTANCE.getOriginalNameRecordMatcher().isSuperTypeOf(domainElement.eClass())) {
+					return OriginalNameRecordMatcherEditPart.VISUAL_ID;
+				}
+				if (CrosswalkPackage.eINSTANCE.getDateRecognizer().isSuperTypeOf(domainElement.eClass())) {
+					return DateRecognizerEditPart.VISUAL_ID;
+				}
+				if (CrosswalkPackage.eINSTANCE.getText().isSuperTypeOf(domainElement.eClass())) {
+					return TextEditPart.VISUAL_ID;
+				}
+				if (CrosswalkPackage.eINSTANCE.getTrimWhitespace().isSuperTypeOf(domainElement.eClass())) {
+					return TrimWhitespaceEditPart.VISUAL_ID;
+				}
+				if (CrosswalkPackage.eINSTANCE.getMappedElement().isSuperTypeOf(domainElement.eClass())) {
+					return MappedElementEditPart.VISUAL_ID;
+				}
+				if (CrosswalkPackage.eINSTANCE.getMetadataBlock().isSuperTypeOf(domainElement.eClass())) {
+					return MetadataBlock2EditPart.VISUAL_ID;
+				}
+				break;
+			case DelimitedFileDataFieldCompartmentEditPart.VISUAL_ID:
+				if (CrosswalkPackage.eINSTANCE.getTabbedDataField().isSuperTypeOf(domainElement.eClass())) {
+					return TabbedDataFieldEditPart.VISUAL_ID;
+				}
+				break;
+			case MappedElementChildElementsCompartmentEditPart.VISUAL_ID:
+				if (CrosswalkPackage.eINSTANCE.getMappedElement().isSuperTypeOf(domainElement.eClass())) {
+					return MappedElement2EditPart.VISUAL_ID;
+				}
+				if (CrosswalkPackage.eINSTANCE.getMappedAttribute().isSuperTypeOf(domainElement.eClass())) {
+					return MappedAttributeEditPart.VISUAL_ID;
+				}
+				break;
+			case MappedElementChildElementsCompartment2EditPart.VISUAL_ID:
+				if (CrosswalkPackage.eINSTANCE.getMappedElement().isSuperTypeOf(domainElement.eClass())) {
+					return MappedElement2EditPart.VISUAL_ID;
+				}
+				if (CrosswalkPackage.eINSTANCE.getMappedAttribute().isSuperTypeOf(domainElement.eClass())) {
+					return MappedAttributeEditPart.VISUAL_ID;
+				}
+				break;
+			case MetadataBlockMetadataBlockInputFieldsCompartment2EditPart.VISUAL_ID:
+				if (CrosswalkPackage.eINSTANCE.getTextInputField().isSuperTypeOf(domainElement.eClass())) {
+					return TextInputFieldEditPart.VISUAL_ID;
+				}
+				if (CrosswalkPackage.eINSTANCE.getDateInputField().isSuperTypeOf(domainElement.eClass())) {
+					return DateInputFieldEditPart.VISUAL_ID;
+				}
+				break;
+			case MetadataBlockMetadataBlockMappingCompartment2EditPart.VISUAL_ID:
+				if (CrosswalkPackage.eINSTANCE.getDateRecognizer().isSuperTypeOf(domainElement.eClass())) {
+					return DateRecognizerEditPart.VISUAL_ID;
+				}
+				if (CrosswalkPackage.eINSTANCE.getText().isSuperTypeOf(domainElement.eClass())) {
+					return TextEditPart.VISUAL_ID;
+				}
+				if (CrosswalkPackage.eINSTANCE.getTrimWhitespace().isSuperTypeOf(domainElement.eClass())) {
+					return TrimWhitespaceEditPart.VISUAL_ID;
+				}
+				if (CrosswalkPackage.eINSTANCE.getMappedElement().isSuperTypeOf(domainElement.eClass())) {
+					return MappedElementEditPart.VISUAL_ID;
+				}
+				if (CrosswalkPackage.eINSTANCE.getCurrentDate().isSuperTypeOf(domainElement.eClass())) {
+					return CurrentDateEditPart.VISUAL_ID;
+				}
+				if (CrosswalkPackage.eINSTANCE.getCurrentUsername().isSuperTypeOf(domainElement.eClass())) {
+					return CurrentUsernameEditPart.VISUAL_ID;
+				}
+				break;
+			case DictionaryModelBoxCompartmentEditPart.VISUAL_ID:
+				if (CrosswalkPackage.eINSTANCE.getMetadataBlock().isSuperTypeOf(domainElement.eClass())) {
+					return MetadataBlockEditPart.VISUAL_ID;
+				}
+				break;
+			case MetadataBlockMetadataBlockInputFieldsCompartmentEditPart.VISUAL_ID:
+				if (CrosswalkPackage.eINSTANCE.getTextInputField().isSuperTypeOf(domainElement.eClass())) {
+					return TextInputFieldEditPart.VISUAL_ID;
+				}
+				if (CrosswalkPackage.eINSTANCE.getDateInputField().isSuperTypeOf(domainElement.eClass())) {
+					return DateInputFieldEditPart.VISUAL_ID;
+				}
+				break;
+			case MetadataBlockMetadataBlockMappingCompartmentEditPart.VISUAL_ID:
+				if (CrosswalkPackage.eINSTANCE.getDateRecognizer().isSuperTypeOf(domainElement.eClass())) {
+					return DateRecognizerEditPart.VISUAL_ID;
+				}
+				if (CrosswalkPackage.eINSTANCE.getText().isSuperTypeOf(domainElement.eClass())) {
+					return TextEditPart.VISUAL_ID;
+				}
+				if (CrosswalkPackage.eINSTANCE.getTrimWhitespace().isSuperTypeOf(domainElement.eClass())) {
+					return TrimWhitespaceEditPart.VISUAL_ID;
+				}
+				if (CrosswalkPackage.eINSTANCE.getMappedElement().isSuperTypeOf(domainElement.eClass())) {
+					return MappedElementEditPart.VISUAL_ID;
+				}
+				if (CrosswalkPackage.eINSTANCE.getCurrentDate().isSuperTypeOf(domainElement.eClass())) {
+					return CurrentDateEditPart.VISUAL_ID;
+				}
+				if (CrosswalkPackage.eINSTANCE.getCurrentUsername().isSuperTypeOf(domainElement.eClass())) {
+					return CurrentUsernameEditPart.VISUAL_ID;
+				}
+				break;
+			case FormModelBoxCompartmentEditPart.VISUAL_ID:
+				if (CrosswalkPackage.eINSTANCE.getMetadataBlock().isSuperTypeOf(domainElement.eClass())) {
+					return MetadataBlock3EditPart.VISUAL_ID;
+				}
+				if (CrosswalkPackage.eINSTANCE.getParagraph().isSuperTypeOf(domainElement.eClass())) {
+					return ParagraphEditPart.VISUAL_ID;
+				}
+				break;
+			case MetadataBlockMetadataBlockInputFieldsCompartment3EditPart.VISUAL_ID:
+				if (CrosswalkPackage.eINSTANCE.getTextInputField().isSuperTypeOf(domainElement.eClass())) {
+					return TextInputFieldEditPart.VISUAL_ID;
+				}
+				if (CrosswalkPackage.eINSTANCE.getDateInputField().isSuperTypeOf(domainElement.eClass())) {
+					return DateInputFieldEditPart.VISUAL_ID;
+				}
+				break;
+			case MetadataBlockMetadataBlockMappingCompartment3EditPart.VISUAL_ID:
+				if (CrosswalkPackage.eINSTANCE.getDateRecognizer().isSuperTypeOf(domainElement.eClass())) {
+					return DateRecognizerEditPart.VISUAL_ID;
+				}
+				if (CrosswalkPackage.eINSTANCE.getText().isSuperTypeOf(domainElement.eClass())) {
+					return TextEditPart.VISUAL_ID;
+				}
+				if (CrosswalkPackage.eINSTANCE.getTrimWhitespace().isSuperTypeOf(domainElement.eClass())) {
+					return TrimWhitespaceEditPart.VISUAL_ID;
+				}
+				if (CrosswalkPackage.eINSTANCE.getMappedElement().isSuperTypeOf(domainElement.eClass())) {
+					return MappedElementEditPart.VISUAL_ID;
+				}
+				if (CrosswalkPackage.eINSTANCE.getCurrentDate().isSuperTypeOf(domainElement.eClass())) {
+					return CurrentDateEditPart.VISUAL_ID;
+				}
+				if (CrosswalkPackage.eINSTANCE.getCurrentUsername().isSuperTypeOf(domainElement.eClass())) {
+					return CurrentUsernameEditPart.VISUAL_ID;
+				}
+				break;
 		}
 		return -1;
 	}
@@ -400,15 +349,13 @@ public class CrosswalkVisualIDRegistry {
 	 * @generated
 	 */
 	public static boolean canCreateNode(View containerView, int nodeVisualID) {
-		String containerModelID = crosswalk.diagram.part.CrosswalkVisualIDRegistry
-				.getModelID(containerView);
+		String containerModelID = crosswalk.diagram.part.CrosswalkVisualIDRegistry.getModelID(containerView);
 		if (!EditingContainerEditPart.MODEL_ID.equals(containerModelID)) {
 			return false;
 		}
 		int containerVisualID;
 		if (EditingContainerEditPart.MODEL_ID.equals(containerModelID)) {
-			containerVisualID = crosswalk.diagram.part.CrosswalkVisualIDRegistry
-					.getVisualID(containerView);
+			containerVisualID = crosswalk.diagram.part.CrosswalkVisualIDRegistry.getVisualID(containerView);
 		} else {
 			if (containerView instanceof Diagram) {
 				containerVisualID = EditingContainerEditPart.VISUAL_ID;
@@ -417,309 +364,309 @@ public class CrosswalkVisualIDRegistry {
 			}
 		}
 		switch (containerVisualID) {
-		case EditingContainerEditPart.VISUAL_ID:
-			if (CrossWalkEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (DictionaryEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (FormEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case CrossWalkEditPart.VISUAL_ID:
-			if (CrossWalkModelBoxCompartmentEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (CurrentDateEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (CurrentUsernameEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case DictionaryEditPart.VISUAL_ID:
-			if (DictionaryNameEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (DictionaryDescriptionEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (DictionaryModelBoxCompartmentEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case FormEditPart.VISUAL_ID:
-			if (FormTitleEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (FormDescriptionEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (FormModelBoxCompartmentEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case DelimitedFileEditPart.VISUAL_ID:
-			if (DelimitedFileSourceFileEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (DelimitedFileDataFieldCompartmentEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case TabbedDataFieldEditPart.VISUAL_ID:
-			if (WrappingLabelEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (TabbedDataFieldLabelColumnNumberEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case OriginalNameRecordMatcherEditPart.VISUAL_ID:
-			if (WrappingLabel2EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case DateRecognizerEditPart.VISUAL_ID:
-			if (WrappingLabel3EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case TextEditPart.VISUAL_ID:
-			if (TextValueEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case TrimWhitespaceEditPart.VISUAL_ID:
-			if (WrappingLabel4EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case MappedElementEditPart.VISUAL_ID:
-			if (WrappingLabel5EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (MappedElementChildElementsCompartmentEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case MappedElement2EditPart.VISUAL_ID:
-			if (WrappingLabel6EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (MappedElementChildElementsCompartment2EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case MappedAttributeEditPart.VISUAL_ID:
-			if (WrappingLabel7EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case MetadataBlock2EditPart.VISUAL_ID:
-			if (MetadataBlockName2EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (MetadataBlockMetadataBlockInputFieldsCompartment2EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (MetadataBlockMetadataBlockMappingCompartment2EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case TextInputFieldEditPart.VISUAL_ID:
-			if (TextInputFieldLabelEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case CurrentDateEditPart.VISUAL_ID:
-			if (WrappingLabel8EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case CurrentUsernameEditPart.VISUAL_ID:
-			if (WrappingLabel9EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case DateInputFieldEditPart.VISUAL_ID:
-			if (DateInputFieldLabelEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case MetadataBlockEditPart.VISUAL_ID:
-			if (MetadataBlockNameEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (MetadataBlockMetadataBlockInputFieldsCompartmentEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (MetadataBlockMetadataBlockMappingCompartmentEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case MetadataBlock3EditPart.VISUAL_ID:
-			if (MetadataBlockName3EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (MetadataBlockMetadataBlockInputFieldsCompartment3EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (MetadataBlockMetadataBlockMappingCompartment3EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case ParagraphEditPart.VISUAL_ID:
-			if (ParagraphHeadingEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (ParagraphTextEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case CrossWalkModelBoxCompartmentEditPart.VISUAL_ID:
-			if (DelimitedFileEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (OriginalNameRecordMatcherEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (DateRecognizerEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (TextEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (TrimWhitespaceEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (MappedElementEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (MetadataBlock2EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case DelimitedFileDataFieldCompartmentEditPart.VISUAL_ID:
-			if (TabbedDataFieldEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case MappedElementChildElementsCompartmentEditPart.VISUAL_ID:
-			if (MappedElement2EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (MappedAttributeEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case MappedElementChildElementsCompartment2EditPart.VISUAL_ID:
-			if (MappedElement2EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (MappedAttributeEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case MetadataBlockMetadataBlockInputFieldsCompartment2EditPart.VISUAL_ID:
-			if (TextInputFieldEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (DateInputFieldEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case MetadataBlockMetadataBlockMappingCompartment2EditPart.VISUAL_ID:
-			if (DateRecognizerEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (TextEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (TrimWhitespaceEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (MappedElementEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (CurrentDateEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (CurrentUsernameEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case DictionaryModelBoxCompartmentEditPart.VISUAL_ID:
-			if (MetadataBlockEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case MetadataBlockMetadataBlockInputFieldsCompartmentEditPart.VISUAL_ID:
-			if (TextInputFieldEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (DateInputFieldEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case MetadataBlockMetadataBlockMappingCompartmentEditPart.VISUAL_ID:
-			if (DateRecognizerEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (TextEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (TrimWhitespaceEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (MappedElementEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (CurrentDateEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (CurrentUsernameEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case FormModelBoxCompartmentEditPart.VISUAL_ID:
-			if (MetadataBlock3EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (ParagraphEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case MetadataBlockMetadataBlockInputFieldsCompartment3EditPart.VISUAL_ID:
-			if (TextInputFieldEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (DateInputFieldEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case MetadataBlockMetadataBlockMappingCompartment3EditPart.VISUAL_ID:
-			if (DateRecognizerEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (TextEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (TrimWhitespaceEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (MappedElementEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (CurrentDateEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (CurrentUsernameEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
+			case EditingContainerEditPart.VISUAL_ID:
+				if (CrossWalkEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				if (DictionaryEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				if (FormEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				break;
+			case CrossWalkEditPart.VISUAL_ID:
+				if (CrossWalkModelBoxCompartmentEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				if (CurrentDateEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				if (CurrentUsernameEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				break;
+			case DictionaryEditPart.VISUAL_ID:
+				if (DictionaryNameEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				if (DictionaryDescriptionEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				if (DictionaryModelBoxCompartmentEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				break;
+			case FormEditPart.VISUAL_ID:
+				if (FormTitleEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				if (FormDescriptionEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				if (FormModelBoxCompartmentEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				break;
+			case DelimitedFileEditPart.VISUAL_ID:
+				if (DelimitedFileSourceFileEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				if (DelimitedFileDataFieldCompartmentEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				break;
+			case TabbedDataFieldEditPart.VISUAL_ID:
+				if (WrappingLabelEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				if (TabbedDataFieldLabelColumnNumberEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				break;
+			case OriginalNameRecordMatcherEditPart.VISUAL_ID:
+				if (WrappingLabel2EditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				break;
+			case DateRecognizerEditPart.VISUAL_ID:
+				if (WrappingLabel3EditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				break;
+			case TextEditPart.VISUAL_ID:
+				if (TextValueEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				break;
+			case TrimWhitespaceEditPart.VISUAL_ID:
+				if (WrappingLabel4EditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				break;
+			case MappedElementEditPart.VISUAL_ID:
+				if (WrappingLabel5EditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				if (MappedElementChildElementsCompartmentEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				break;
+			case MappedElement2EditPart.VISUAL_ID:
+				if (WrappingLabel6EditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				if (MappedElementChildElementsCompartment2EditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				break;
+			case MappedAttributeEditPart.VISUAL_ID:
+				if (WrappingLabel7EditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				break;
+			case MetadataBlock2EditPart.VISUAL_ID:
+				if (MetadataBlockName2EditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				if (MetadataBlockMetadataBlockInputFieldsCompartment2EditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				if (MetadataBlockMetadataBlockMappingCompartment2EditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				break;
+			case TextInputFieldEditPart.VISUAL_ID:
+				if (TextInputFieldLabelEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				break;
+			case CurrentDateEditPart.VISUAL_ID:
+				if (WrappingLabel8EditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				break;
+			case CurrentUsernameEditPart.VISUAL_ID:
+				if (WrappingLabel9EditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				break;
+			case DateInputFieldEditPart.VISUAL_ID:
+				if (DateInputFieldLabelEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				break;
+			case MetadataBlockEditPart.VISUAL_ID:
+				if (MetadataBlockNameEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				if (MetadataBlockMetadataBlockInputFieldsCompartmentEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				if (MetadataBlockMetadataBlockMappingCompartmentEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				break;
+			case MetadataBlock3EditPart.VISUAL_ID:
+				if (MetadataBlockName3EditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				if (MetadataBlockMetadataBlockInputFieldsCompartment3EditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				if (MetadataBlockMetadataBlockMappingCompartment3EditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				break;
+			case ParagraphEditPart.VISUAL_ID:
+				if (ParagraphHeadingEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				if (ParagraphTextEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				break;
+			case CrossWalkModelBoxCompartmentEditPart.VISUAL_ID:
+				if (DelimitedFileEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				if (OriginalNameRecordMatcherEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				if (DateRecognizerEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				if (TextEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				if (TrimWhitespaceEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				if (MappedElementEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				if (MetadataBlock2EditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				break;
+			case DelimitedFileDataFieldCompartmentEditPart.VISUAL_ID:
+				if (TabbedDataFieldEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				break;
+			case MappedElementChildElementsCompartmentEditPart.VISUAL_ID:
+				if (MappedElement2EditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				if (MappedAttributeEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				break;
+			case MappedElementChildElementsCompartment2EditPart.VISUAL_ID:
+				if (MappedElement2EditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				if (MappedAttributeEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				break;
+			case MetadataBlockMetadataBlockInputFieldsCompartment2EditPart.VISUAL_ID:
+				if (TextInputFieldEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				if (DateInputFieldEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				break;
+			case MetadataBlockMetadataBlockMappingCompartment2EditPart.VISUAL_ID:
+				if (DateRecognizerEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				if (TextEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				if (TrimWhitespaceEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				if (MappedElementEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				if (CurrentDateEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				if (CurrentUsernameEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				break;
+			case DictionaryModelBoxCompartmentEditPart.VISUAL_ID:
+				if (MetadataBlockEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				break;
+			case MetadataBlockMetadataBlockInputFieldsCompartmentEditPart.VISUAL_ID:
+				if (TextInputFieldEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				if (DateInputFieldEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				break;
+			case MetadataBlockMetadataBlockMappingCompartmentEditPart.VISUAL_ID:
+				if (DateRecognizerEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				if (TextEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				if (TrimWhitespaceEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				if (MappedElementEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				if (CurrentDateEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				if (CurrentUsernameEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				break;
+			case FormModelBoxCompartmentEditPart.VISUAL_ID:
+				if (MetadataBlock3EditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				if (ParagraphEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				break;
+			case MetadataBlockMetadataBlockInputFieldsCompartment3EditPart.VISUAL_ID:
+				if (TextInputFieldEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				if (DateInputFieldEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				break;
+			case MetadataBlockMetadataBlockMappingCompartment3EditPart.VISUAL_ID:
+				if (DateRecognizerEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				if (TextEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				if (TrimWhitespaceEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				if (MappedElementEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				if (CurrentDateEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				if (CurrentUsernameEditPart.VISUAL_ID == nodeVisualID) {
+					return true;
+				}
+				break;
 		}
 		return false;
 	}
@@ -743,127 +690,5 @@ public class CrosswalkVisualIDRegistry {
 	private static boolean isDiagram(EditingContainer element) {
 		return true;
 	}
-
-	/**
-	 * @generated
-	 */
-	public static boolean checkNodeVisualID(View containerView,
-			EObject domainElement, int candidate) {
-		if (candidate == -1) {
-			//unrecognized id is always bad
-			return false;
-		}
-		int basic = getNodeVisualID(containerView, domainElement);
-		return basic == candidate;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static boolean isCompartmentVisualID(int visualID) {
-		switch (visualID) {
-		case CrossWalkModelBoxCompartmentEditPart.VISUAL_ID:
-		case DelimitedFileDataFieldCompartmentEditPart.VISUAL_ID:
-		case MappedElementChildElementsCompartmentEditPart.VISUAL_ID:
-		case MappedElementChildElementsCompartment2EditPart.VISUAL_ID:
-		case MetadataBlockMetadataBlockInputFieldsCompartment2EditPart.VISUAL_ID:
-		case MetadataBlockMetadataBlockMappingCompartment2EditPart.VISUAL_ID:
-		case DictionaryModelBoxCompartmentEditPart.VISUAL_ID:
-		case MetadataBlockMetadataBlockInputFieldsCompartmentEditPart.VISUAL_ID:
-		case MetadataBlockMetadataBlockMappingCompartmentEditPart.VISUAL_ID:
-		case FormModelBoxCompartmentEditPart.VISUAL_ID:
-		case MetadataBlockMetadataBlockInputFieldsCompartment3EditPart.VISUAL_ID:
-		case MetadataBlockMetadataBlockMappingCompartment3EditPart.VISUAL_ID:
-			return true;
-		default:
-			break;
-		}
-		return false;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static boolean isSemanticLeafVisualID(int visualID) {
-		switch (visualID) {
-		case EditingContainerEditPart.VISUAL_ID:
-			return false;
-		case TabbedDataFieldEditPart.VISUAL_ID:
-		case OriginalNameRecordMatcherEditPart.VISUAL_ID:
-		case DateRecognizerEditPart.VISUAL_ID:
-		case TextEditPart.VISUAL_ID:
-		case TrimWhitespaceEditPart.VISUAL_ID:
-		case MappedAttributeEditPart.VISUAL_ID:
-		case ParagraphEditPart.VISUAL_ID:
-		case CurrentDateEditPart.VISUAL_ID:
-		case CurrentUsernameEditPart.VISUAL_ID:
-		case TextInputFieldEditPart.VISUAL_ID:
-		case DateInputFieldEditPart.VISUAL_ID:
-			return true;
-		default:
-			break;
-		}
-		return false;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static final DiagramStructure TYPED_INSTANCE = new DiagramStructure() {
-		/**
-		 * @generated
-		 */
-		@Override
-		public int getVisualID(View view) {
-			return crosswalk.diagram.part.CrosswalkVisualIDRegistry
-					.getVisualID(view);
-		}
-
-		/**
-		 * @generated
-		 */
-		@Override
-		public String getModelID(View view) {
-			return crosswalk.diagram.part.CrosswalkVisualIDRegistry
-					.getModelID(view);
-		}
-
-		/**
-		 * @generated
-		 */
-		@Override
-		public int getNodeVisualID(View containerView, EObject domainElement) {
-			return crosswalk.diagram.part.CrosswalkVisualIDRegistry
-					.getNodeVisualID(containerView, domainElement);
-		}
-
-		/**
-		 * @generated
-		 */
-		@Override
-		public boolean checkNodeVisualID(View containerView,
-				EObject domainElement, int candidate) {
-			return crosswalk.diagram.part.CrosswalkVisualIDRegistry
-					.checkNodeVisualID(containerView, domainElement, candidate);
-		}
-
-		/**
-		 * @generated
-		 */
-		@Override
-		public boolean isCompartmentVisualID(int visualID) {
-			return crosswalk.diagram.part.CrosswalkVisualIDRegistry
-					.isCompartmentVisualID(visualID);
-		}
-
-		/**
-		 * @generated
-		 */
-		@Override
-		public boolean isSemanticLeafVisualID(int visualID) {
-			return crosswalk.diagram.part.CrosswalkVisualIDRegistry
-					.isSemanticLeafVisualID(visualID);
-		}
-	};
 
 }

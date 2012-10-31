@@ -10,8 +10,7 @@ import crosswalk.diagram.providers.CrosswalkElementTypes;
 /**
  * @generated
  */
-public class MappedElementChildElementsCompartment2ItemSemanticEditPolicy
-		extends CrosswalkBaseItemSemanticEditPolicy {
+public class MappedElementChildElementsCompartment2ItemSemanticEditPolicy extends CrosswalkBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated

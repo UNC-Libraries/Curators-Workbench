@@ -9,8 +9,7 @@ import crosswalk.diagram.providers.CrosswalkElementTypes;
 /**
  * @generated
  */
-public class InputOutputItemSemanticEditPolicy extends
-		CrosswalkBaseItemSemanticEditPolicy {
+public class InputOutputItemSemanticEditPolicy extends CrosswalkBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated

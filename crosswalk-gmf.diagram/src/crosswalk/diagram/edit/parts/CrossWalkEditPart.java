@@ -40,7 +40,6 @@ import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
-import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicyWithCustomReparent;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Font;
@@ -48,7 +47,6 @@ import org.eclipse.swt.widgets.Display;
 
 import crosswalk.diagram.edit.policies.CrossWalkCanonicalEditPolicy;
 import crosswalk.diagram.edit.policies.CrossWalkItemSemanticEditPolicy;
-import crosswalk.diagram.part.CrosswalkVisualIDRegistry;
 
 /**
  * @generated
@@ -82,16 +80,11 @@ public class CrossWalkEditPart extends ShapeNodeEditPart {
 	 */
 	@Override
 	protected void createDefaultEditPolicies() {
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
-				new CreationEditPolicyWithCustomReparent(
-						CrosswalkVisualIDRegistry.TYPED_INSTANCE));
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicy());
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new CrossWalkItemSemanticEditPolicy());
-		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
-				new DragDropEditPolicy());
-		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
-				new CrossWalkCanonicalEditPolicy());
+		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new CrossWalkItemSemanticEditPolicy());
+		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new DragDropEditPolicy());
+		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE, new CrossWalkCanonicalEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
@@ -104,8 +97,7 @@ public class CrossWalkEditPart extends ShapeNodeEditPart {
 		org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
 
 			protected EditPolicy createChildEditPolicy(EditPart child) {
-				EditPolicy result = child
-						.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
+				EditPolicy result = child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
 				if (result == null) {
 					result = new NonResizableEditPolicy();
 				}
@@ -144,8 +136,7 @@ public class CrossWalkEditPart extends ShapeNodeEditPart {
 		if (childEditPart instanceof CrossWalkModelBoxCompartmentEditPart) {
 			IFigure pane = getPrimaryShape().getFigureModelBox();
 			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
-			pane.add(((CrossWalkModelBoxCompartmentEditPart) childEditPart)
-					.getFigure());
+			pane.add(((CrossWalkModelBoxCompartmentEditPart) childEditPart).getFigure());
 			return true;
 		}
 		return false;
@@ -157,8 +148,8 @@ public class CrossWalkEditPart extends ShapeNodeEditPart {
 	protected boolean removeFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof CrossWalkModelBoxCompartmentEditPart) {
 			IFigure pane = getPrimaryShape().getFigureModelBox();
-			pane.remove(((CrossWalkModelBoxCompartmentEditPart) childEditPart)
-					.getFigure());
+			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
+			pane.remove(((CrossWalkModelBoxCompartmentEditPart) childEditPart).getFigure());
 			return true;
 		}
 		return false;
@@ -310,8 +301,7 @@ public class CrossWalkEditPart extends ShapeNodeEditPart {
 			this.setLayoutManager(layoutThis);
 
 			this.setBackgroundColor(ColorConstants.lightGray);
-			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(1000),
-					getMapMode().DPtoLP(1000)));
+			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(1000), getMapMode().DPtoLP(1000)));
 			createContents();
 		}
 
@@ -321,7 +311,6 @@ public class CrossWalkEditPart extends ShapeNodeEditPart {
 		private void createContents() {
 
 			fFigureModelLabelFigure = new WrappingLabel();
-
 			fFigureModelLabelFigure.setText("");
 
 			fFigureModelLabelFigure.setFont(FFIGUREMODELLABELFIGURE_FONT);
@@ -337,7 +326,6 @@ public class CrossWalkEditPart extends ShapeNodeEditPart {
 			this.add(fFigureModelLabelFigure, constraintFFigureModelLabelFigure);
 
 			fFigureModelNotesFigure = new WrappingLabel();
-
 			fFigureModelNotesFigure.setText("");
 
 			GridData constraintFFigureModelNotesFigure = new GridData();
@@ -390,8 +378,7 @@ public class CrossWalkEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	static final Font FFIGUREMODELLABELFIGURE_FONT = new Font(
-			Display.getCurrent(), Display.getDefault().getSystemFont()
-					.getFontData()[0].getName(), 26, SWT.BOLD);
+	static final Font FFIGUREMODELLABELFIGURE_FONT = new Font(Display.getCurrent(), Display.getDefault().getSystemFont()
+			.getFontData()[0].getName(), 26, SWT.BOLD);
 
 }

@@ -11,9 +11,9 @@ import org.eclipse.ocl.Environment;
 import org.eclipse.ocl.EvaluationEnvironment;
 import org.eclipse.ocl.ParserException;
 import org.eclipse.ocl.ecore.EcoreFactory;
+import org.eclipse.ocl.ecore.OCL.Helper;
 import org.eclipse.ocl.ecore.OCLExpression;
 import org.eclipse.ocl.ecore.Variable;
-import org.eclipse.ocl.ecore.OCL.Helper;
 import org.eclipse.ocl.options.ParsingOptions;
 
 import crosswalk.diagram.part.CrosswalkDiagramEditorPlugin;
@@ -31,52 +31,27 @@ public class CrosswalkOCLFactory {
 	/**
 	 * @generated
 	 */
-	private final String[] expressionBodies;
-
-	/**
-	 * @generated
-	 */
 	protected CrosswalkOCLFactory() {
 		this.expressions = new CrosswalkAbstractExpression[1];
-		this.expressionBodies = new String[] { "self.getName()", //$NON-NLS-1$
-		};
 	}
 
 	/**
 	 * @generated
 	 */
-	private static CrosswalkOCLFactory getInstance() {
-		CrosswalkOCLFactory instance = CrosswalkDiagramEditorPlugin
-				.getInstance().getCrosswalkOCLFactory();
-		if (instance == null) {
-			CrosswalkDiagramEditorPlugin.getInstance().setCrosswalkOCLFactory(
-					instance = new CrosswalkOCLFactory());
+	public static CrosswalkAbstractExpression getExpression(int index, EClassifier context,
+			Map<String, EClassifier> environment) {
+		CrosswalkOCLFactory cached = CrosswalkDiagramEditorPlugin.getInstance().getCrosswalkOCLFactory();
+		if (cached == null) {
+			CrosswalkDiagramEditorPlugin.getInstance().setCrosswalkOCLFactory(cached = new CrosswalkOCLFactory());
 		}
-		return instance;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static String getExpressionBody(int index) {
-		return getInstance().expressionBodies[index];
-	}
-
-	/**
-	 * @generated
-	 */
-	public static CrosswalkAbstractExpression getExpression(int index,
-			EClassifier context, Map<String, EClassifier> environment) {
-		CrosswalkOCLFactory cached = getInstance();
 		if (index < 0 || index >= cached.expressions.length) {
 			throw new IllegalArgumentException();
 		}
 		if (cached.expressions[index] == null) {
-			cached.expressions[index] = getExpression(
-					cached.expressionBodies[index],
-					context,
-					environment == null ? Collections
-							.<String, EClassifier> emptyMap() : environment);
+			final String[] exprBodies = new String[] { "self.getName()", //$NON-NLS-1$
+			};
+			cached.expressions[index] = getExpression(exprBodies[index], context,
+					environment == null ? Collections.<String, EClassifier> emptyMap() : environment);
 		}
 		return cached.expressions[index];
 	}
@@ -85,8 +60,8 @@ public class CrosswalkOCLFactory {
 	 * This is factory method, callers are responsible to keep reference to the return value if they want to reuse parsed expression
 	 * @generated
 	 */
-	public static CrosswalkAbstractExpression getExpression(String body,
-			EClassifier context, Map<String, EClassifier> environment) {
+	public static CrosswalkAbstractExpression getExpression(String body, EClassifier context,
+			Map<String, EClassifier> environment) {
 		return new Expression(body, context, environment);
 	}
 
@@ -94,10 +69,8 @@ public class CrosswalkOCLFactory {
 	 * This method will become private in the next release
 	 * @generated
 	 */
-	public static CrosswalkAbstractExpression getExpression(String body,
-			EClassifier context) {
-		return getExpression(body, context,
-				Collections.<String, EClassifier> emptyMap());
+	public static CrosswalkAbstractExpression getExpression(String body, EClassifier context) {
+		return getExpression(body, context, Collections.<String, EClassifier> emptyMap());
 	}
 
 	/**
@@ -118,8 +91,7 @@ public class CrosswalkOCLFactory {
 		/**
 		 * @generated
 		 */
-		public Expression(String body, EClassifier context,
-				Map<String, EClassifier> environment) {
+		public Expression(String body, EClassifier context, Map<String, EClassifier> environment) {
 			super(body, context);
 			oclInstance = org.eclipse.ocl.ecore.OCL.newInstance();
 			initCustomEnv(oclInstance.getEnvironment(), environment);
@@ -143,8 +115,7 @@ public class CrosswalkOCLFactory {
 				return null;
 			}
 			// on the first call, both evalEnvironment and extentMap are clear, for later we have finally, below.
-			EvaluationEnvironment<?, ?, ?, ?, ?> evalEnv = oclInstance
-					.getEvaluationEnvironment();
+			EvaluationEnvironment<?, ?, ?, ?, ?> evalEnv = oclInstance.getEvaluationEnvironment();
 			// initialize environment
 			for (Object nextKey : env.keySet()) {
 				evalEnv.replace((String) nextKey, env.get(nextKey));
@@ -161,25 +132,21 @@ public class CrosswalkOCLFactory {
 		/**
 		 * @generated
 		 */
-		private static void initCustomEnv(
-				Environment<?, EClassifier, ?, ?, ?, EParameter, ?, ?, ?, ?, ?, ?> ecoreEnv,
+		private static void initCustomEnv(Environment<?, EClassifier, ?, ?, ?, EParameter, ?, ?, ?, ?, ?, ?> ecoreEnv,
 				Map<String, EClassifier> environment) {
 			// Use EObject as implicit root class for any object, to allow eContainer() and other EObject operations from OCL expressions
-			ParsingOptions.setOption(ecoreEnv,
-					ParsingOptions.implicitRootClass(ecoreEnv),
+			ParsingOptions.setOption(ecoreEnv, ParsingOptions.implicitRootClass(ecoreEnv),
 					EcorePackage.eINSTANCE.getEObject());
 			for (String varName : environment.keySet()) {
 				EClassifier varType = environment.get(varName);
-				ecoreEnv.addElement(varName,
-						createVar(ecoreEnv, varName, varType), false);
+				ecoreEnv.addElement(varName, createVar(ecoreEnv, varName, varType), false);
 			}
 		}
 
 		/**
 		 * @generated
 		 */
-		private static Variable createVar(
-				Environment<?, EClassifier, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?> ecoreEnv,
+		private static Variable createVar(Environment<?, EClassifier, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?> ecoreEnv,
 				String name, EClassifier type) {
 			Variable var = EcoreFactory.eINSTANCE.createVariable();
 			var.setName(name);

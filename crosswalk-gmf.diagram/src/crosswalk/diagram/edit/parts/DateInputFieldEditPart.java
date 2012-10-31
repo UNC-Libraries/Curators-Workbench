@@ -67,8 +67,7 @@ public class DateInputFieldEditPart extends ShapeNodeEditPart {
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new DateInputFieldItemSemanticEditPolicy());
+		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new DateInputFieldItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
@@ -81,8 +80,7 @@ public class DateInputFieldEditPart extends ShapeNodeEditPart {
 		org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
 
 			protected EditPolicy createChildEditPolicy(EditPart child) {
-				EditPolicy result = child
-						.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
+				EditPolicy result = child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
 				if (result == null) {
 					result = new NonResizableEditPolicy();
 				}
@@ -119,8 +117,7 @@ public class DateInputFieldEditPart extends ShapeNodeEditPart {
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof DateInputFieldLabelEditPart) {
-			((DateInputFieldLabelEditPart) childEditPart)
-					.setLabel(getPrimaryShape().getFigureInputFieldLabel());
+			((DateInputFieldLabelEditPart) childEditPart).setLabel(getPrimaryShape().getFigureInputFieldLabel());
 			return true;
 		}
 		return false;
@@ -253,8 +250,7 @@ public class DateInputFieldEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	public EditPart getPrimaryChildEditPart() {
-		return getChildBySemanticHint(CrosswalkVisualIDRegistry
-				.getType(DateInputFieldLabelEditPart.VISUAL_ID));
+		return getChildBySemanticHint(CrosswalkVisualIDRegistry.getType(DateInputFieldLabelEditPart.VISUAL_ID));
 	}
 
 	/**
@@ -269,8 +265,7 @@ public class DateInputFieldEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public List<IElementType> getMARelTypesOnSourceAndTarget(
-			IGraphicalEditPart targetEditPart) {
+	public List<IElementType> getMARelTypesOnSourceAndTarget(IGraphicalEditPart targetEditPart) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
 		if (targetEditPart instanceof TabbedDataFieldEditPart) {
 			types.add(CrosswalkElementTypes.InputOutput_4001);
@@ -377,12 +372,9 @@ public class DateInputFieldEditPart extends ShapeNodeEditPart {
 		private void createContents() {
 
 			fFigureInputFieldEllipsis = new Ellipse();
-
 			fFigureInputFieldEllipsis.setBackgroundColor(ColorConstants.red);
-			fFigureInputFieldEllipsis.setPreferredSize(new Dimension(
-					getMapMode().DPtoLP(10), getMapMode().DPtoLP(10)));
-			fFigureInputFieldEllipsis.setMaximumSize(new Dimension(getMapMode()
-					.DPtoLP(10), getMapMode().DPtoLP(10)));
+			fFigureInputFieldEllipsis.setPreferredSize(new Dimension(getMapMode().DPtoLP(10), getMapMode().DPtoLP(10)));
+			fFigureInputFieldEllipsis.setMaximumSize(new Dimension(getMapMode().DPtoLP(10), getMapMode().DPtoLP(10)));
 
 			GridData constraintFFigureInputFieldEllipsis = new GridData();
 			constraintFFigureInputFieldEllipsis.verticalAlignment = GridData.CENTER;
@@ -392,11 +384,9 @@ public class DateInputFieldEditPart extends ShapeNodeEditPart {
 			constraintFFigureInputFieldEllipsis.verticalSpan = 1;
 			constraintFFigureInputFieldEllipsis.grabExcessHorizontalSpace = false;
 			constraintFFigureInputFieldEllipsis.grabExcessVerticalSpace = false;
-			this.add(fFigureInputFieldEllipsis,
-					constraintFFigureInputFieldEllipsis);
+			this.add(fFigureInputFieldEllipsis, constraintFFigureInputFieldEllipsis);
 
 			fFigureInputFieldLabel = new WrappingLabel();
-
 			fFigureInputFieldLabel.setText("input");
 
 			GridData constraintFFigureInputFieldLabel = new GridData();

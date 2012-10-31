@@ -27,8 +27,7 @@ import crosswalk.diagram.providers.CrosswalkElementTypes;
 /**
  * @generated
  */
-public class DelimitedFileItemSemanticEditPolicy extends
-		CrosswalkBaseItemSemanticEditPolicy {
+public class DelimitedFileItemSemanticEditPolicy extends CrosswalkBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
@@ -42,8 +41,7 @@ public class DelimitedFileItemSemanticEditPolicy extends
 	 */
 	protected Command getDestroyElementCommand(DestroyElementRequest req) {
 		View view = (View) getHost().getModel();
-		CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(
-				getEditingDomain(), null);
+		CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(getEditingDomain(), null);
 		cmd.setTransactionNestingEnabled(false);
 		EAnnotation annotation = view.getEAnnotation("Shortcut"); //$NON-NLS-1$
 		if (annotation == null) {
@@ -66,36 +64,29 @@ public class DelimitedFileItemSemanticEditPolicy extends
 		for (Iterator<?> nit = view.getChildren().iterator(); nit.hasNext();) {
 			Node node = (Node) nit.next();
 			switch (CrosswalkVisualIDRegistry.getVisualID(node)) {
-			case DelimitedFileDataFieldCompartmentEditPart.VISUAL_ID:
-				for (Iterator<?> cit = node.getChildren().iterator(); cit
-						.hasNext();) {
-					Node cnode = (Node) cit.next();
-					switch (CrosswalkVisualIDRegistry.getVisualID(cnode)) {
-					case TabbedDataFieldEditPart.VISUAL_ID:
-						for (Iterator<?> it = cnode.getTargetEdges().iterator(); it
-								.hasNext();) {
-							Edge incomingLink = (Edge) it.next();
-							if (CrosswalkVisualIDRegistry
-									.getVisualID(incomingLink) == InputOutputEditPart.VISUAL_ID) {
-								DestroyReferenceRequest r = new DestroyReferenceRequest(
-										incomingLink.getSource().getElement(),
-										null, incomingLink.getTarget()
-												.getElement(), false);
-								cmd.add(new DestroyReferenceCommand(r));
-								cmd.add(new DeleteCommand(getEditingDomain(),
-										incomingLink));
-								continue;
-							}
+				case DelimitedFileDataFieldCompartmentEditPart.VISUAL_ID:
+					for (Iterator<?> cit = node.getChildren().iterator(); cit.hasNext();) {
+						Node cnode = (Node) cit.next();
+						switch (CrosswalkVisualIDRegistry.getVisualID(cnode)) {
+							case TabbedDataFieldEditPart.VISUAL_ID:
+								for (Iterator<?> it = cnode.getTargetEdges().iterator(); it.hasNext();) {
+									Edge incomingLink = (Edge) it.next();
+									if (CrosswalkVisualIDRegistry.getVisualID(incomingLink) == InputOutputEditPart.VISUAL_ID) {
+										DestroyReferenceRequest r = new DestroyReferenceRequest(incomingLink.getSource()
+												.getElement(), null, incomingLink.getTarget().getElement(), false);
+										cmd.add(new DestroyReferenceCommand(r));
+										cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
+										continue;
+									}
+								}
+								cmd.add(new DestroyElementCommand(new DestroyElementRequest(getEditingDomain(), cnode
+										.getElement(), false))); // directlyOwned: true
+								// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
+								// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
+								break;
 						}
-						cmd.add(new DestroyElementCommand(
-								new DestroyElementRequest(getEditingDomain(),
-										cnode.getElement(), false))); // directlyOwned: true
-						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
-						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
-						break;
 					}
-				}
-				break;
+					break;
 			}
 		}
 	}

@@ -27,15 +27,13 @@ import crosswalk.diagram.part.CrosswalkDiagramEditorPlugin;
 /**
  * @generated
  */
-public class CrosswalkDomainNavigatorLabelProvider implements
-		ICommonLabelProvider {
+public class CrosswalkDomainNavigatorLabelProvider implements ICommonLabelProvider {
 
 	/**
 	 * @generated
 	 */
 	private AdapterFactoryLabelProvider myAdapterFactoryLabelProvider = new AdapterFactoryLabelProvider(
-			CrosswalkDiagramEditorPlugin.getInstance()
-					.getItemProvidersAdapterFactory());
+			CrosswalkDiagramEditorPlugin.getInstance().getItemProvidersAdapterFactory());
 
 	/**
 	 * @generated
@@ -48,9 +46,7 @@ public class CrosswalkDomainNavigatorLabelProvider implements
 	 */
 	public Image getImage(Object element) {
 		if (element instanceof CrosswalkDomainNavigatorItem) {
-			return myAdapterFactoryLabelProvider
-					.getImage(((CrosswalkDomainNavigatorItem) element)
-							.getEObject());
+			return myAdapterFactoryLabelProvider.getImage(((CrosswalkDomainNavigatorItem) element).getEObject());
 		}
 		return null;
 	}
@@ -60,9 +56,7 @@ public class CrosswalkDomainNavigatorLabelProvider implements
 	 */
 	public String getText(Object element) {
 		if (element instanceof CrosswalkDomainNavigatorItem) {
-			return myAdapterFactoryLabelProvider
-					.getText(((CrosswalkDomainNavigatorItem) element)
-							.getEObject());
+			return myAdapterFactoryLabelProvider.getText(((CrosswalkDomainNavigatorItem) element).getEObject());
 		}
 		return null;
 	}

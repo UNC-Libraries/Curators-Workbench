@@ -9,8 +9,7 @@ import crosswalk.diagram.providers.CrosswalkElementTypes;
 /**
  * @generated
  */
-public class DictionaryModelBoxCompartmentItemSemanticEditPolicy extends
-		CrosswalkBaseItemSemanticEditPolicy {
+public class DictionaryModelBoxCompartmentItemSemanticEditPolicy extends CrosswalkBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated

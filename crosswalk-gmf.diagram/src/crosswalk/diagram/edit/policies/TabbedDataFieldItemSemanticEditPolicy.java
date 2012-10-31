@@ -39,8 +39,7 @@ import crosswalk.diagram.providers.CrosswalkElementTypes;
 /**
  * @generated
  */
-public class TabbedDataFieldItemSemanticEditPolicy extends
-		CrosswalkBaseItemSemanticEditPolicy {
+public class TabbedDataFieldItemSemanticEditPolicy extends CrosswalkBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
@@ -55,14 +54,12 @@ public class TabbedDataFieldItemSemanticEditPolicy extends
 	@Override
 	protected Command getDestroyElementCommand(DestroyElementRequest req) {
 		View view = (View) getHost().getModel();
-		CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(
-				getEditingDomain(), null);
+		CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(getEditingDomain(), null);
 		cmd.setTransactionNestingEnabled(false);
 		for (Iterator<?> it = view.getTargetEdges().iterator(); it.hasNext();) {
 			Edge incomingLink = (Edge) it.next();
 			if (CrosswalkVisualIDRegistry.getVisualID(incomingLink) == InputOutputEditPart.VISUAL_ID) {
-				DestroyReferenceRequest r = new DestroyReferenceRequest(
-						incomingLink.getSource().getElement(), null,
+				DestroyReferenceRequest r = new DestroyReferenceRequest(incomingLink.getSource().getElement(), null,
 						incomingLink.getTarget().getElement(), false);
 				cmd.add(new DestroyReferenceCommand(r));
 				cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
@@ -88,15 +85,13 @@ public class TabbedDataFieldItemSemanticEditPolicy extends
 	protected Command getCreateRelationshipCommand(CreateRelationshipRequest req) {
 		Command command = req.getTarget() == null ? getStartCreateRelationshipCommand(req)
 				: getCompleteCreateRelationshipCommand(req);
-		return command != null ? command : super
-				.getCreateRelationshipCommand(req);
+		return command != null ? command : super.getCreateRelationshipCommand(req);
 	}
 
 	/**
 	 * @generated
 	 */
-	protected Command getStartCreateRelationshipCommand(
-			CreateRelationshipRequest req) {
+	protected Command getStartCreateRelationshipCommand(CreateRelationshipRequest req) {
 		if (CrosswalkElementTypes.InputOutput_4001 == req.getElementType()) {
 			return null;
 		}
@@ -106,11 +101,9 @@ public class TabbedDataFieldItemSemanticEditPolicy extends
 	/**
 	 * @generated
 	 */
-	protected Command getCompleteCreateRelationshipCommand(
-			CreateRelationshipRequest req) {
+	protected Command getCompleteCreateRelationshipCommand(CreateRelationshipRequest req) {
 		if (CrosswalkElementTypes.InputOutput_4001 == req.getElementType()) {
-			return getGEFWrapper(new InputOutputCreateCommand(req,
-					req.getSource(), req.getTarget()));
+			return getGEFWrapper(new InputOutputCreateCommand(req, req.getSource(), req.getTarget()));
 		}
 		return null;
 	}
@@ -122,11 +115,10 @@ public class TabbedDataFieldItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	@Override
-	protected Command getReorientReferenceRelationshipCommand(
-			ReorientReferenceRelationshipRequest req) {
+	protected Command getReorientReferenceRelationshipCommand(ReorientReferenceRelationshipRequest req) {
 		switch (getVisualID(req)) {
-		case InputOutputEditPart.VISUAL_ID:
-			return getGEFWrapper(new InputOutputReorientCommand(req));
+			case InputOutputEditPart.VISUAL_ID:
+				return getGEFWrapper(new InputOutputReorientCommand(req));
 		}
 		return super.getReorientReferenceRelationshipCommand(req);
 	}

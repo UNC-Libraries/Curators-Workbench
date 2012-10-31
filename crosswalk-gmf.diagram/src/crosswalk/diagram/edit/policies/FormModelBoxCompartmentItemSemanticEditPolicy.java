@@ -10,8 +10,7 @@ import crosswalk.diagram.providers.CrosswalkElementTypes;
 /**
  * @generated
  */
-public class FormModelBoxCompartmentItemSemanticEditPolicy extends
-		CrosswalkBaseItemSemanticEditPolicy {
+public class FormModelBoxCompartmentItemSemanticEditPolicy extends CrosswalkBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated

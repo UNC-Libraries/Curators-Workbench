@@ -76,8 +76,7 @@ public class TabbedDataFieldEditPart extends ShapeNodeEditPart {
 
 	@Override
 	public ConnectionAnchor getTargetConnectionAnchor(Request request) {
-		return getNodeFigure().getSourceConnectionAnchorAt(
-				getPrimaryShape().getBounds().getRight());
+		return getNodeFigure().getSourceConnectionAnchorAt(getPrimaryShape().getBounds().getRight());
 	}
 
 	/**
@@ -86,8 +85,7 @@ public class TabbedDataFieldEditPart extends ShapeNodeEditPart {
 	@Override
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new TabbedDataFieldItemSemanticEditPolicy());
+		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new TabbedDataFieldItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
@@ -100,8 +98,7 @@ public class TabbedDataFieldEditPart extends ShapeNodeEditPart {
 		org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
 
 			protected EditPolicy createChildEditPolicy(EditPart child) {
-				EditPolicy result = child
-						.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
+				EditPolicy result = child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
 				if (result == null) {
 					result = new NonResizableEditPolicy();
 				}
@@ -138,13 +135,12 @@ public class TabbedDataFieldEditPart extends ShapeNodeEditPart {
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof WrappingLabelEditPart) {
-			((WrappingLabelEditPart) childEditPart).setLabel(getPrimaryShape()
-					.getFigureDataFieldValueLabelFigure());
+			((WrappingLabelEditPart) childEditPart).setLabel(getPrimaryShape().getFigureDataFieldValueLabelFigure());
 			return true;
 		}
 		if (childEditPart instanceof TabbedDataFieldLabelColumnNumberEditPart) {
-			((TabbedDataFieldLabelColumnNumberEditPart) childEditPart)
-					.setLabel(getPrimaryShape().getFigureDataFieldLabelFigure());
+			((TabbedDataFieldLabelColumnNumberEditPart) childEditPart).setLabel(getPrimaryShape()
+					.getFigureDataFieldLabelFigure());
 			return true;
 		}
 		return false;
@@ -290,8 +286,7 @@ public class TabbedDataFieldEditPart extends ShapeNodeEditPart {
 	 */
 	@Override
 	public EditPart getPrimaryChildEditPart() {
-		return getChildBySemanticHint(CrosswalkVisualIDRegistry
-				.getType(WrappingLabelEditPart.VISUAL_ID));
+		return getChildBySemanticHint(CrosswalkVisualIDRegistry.getType(WrappingLabelEditPart.VISUAL_ID));
 	}
 
 	/**
@@ -348,18 +343,14 @@ public class TabbedDataFieldEditPart extends ShapeNodeEditPart {
 		private void createContents() {
 
 			fFigureDataFieldLabelFigure = new WrappingLabel();
-
 			fFigureDataFieldLabelFigure.setText("foo");
-			fFigureDataFieldLabelFigure
-					.setForegroundColor(ColorConstants.darkGray);
+			fFigureDataFieldLabelFigure.setForegroundColor(ColorConstants.darkGray);
 
 			this.add(fFigureDataFieldLabelFigure);
 
 			fFigureDataFieldValueLabelFigure = new WrappingLabel();
-
 			fFigureDataFieldValueLabelFigure.setText("");
-			fFigureDataFieldValueLabelFigure
-					.setForegroundColor(ColorConstants.darkBlue);
+			fFigureDataFieldValueLabelFigure.setForegroundColor(ColorConstants.darkBlue);
 
 			this.add(fFigureDataFieldValueLabelFigure);
 

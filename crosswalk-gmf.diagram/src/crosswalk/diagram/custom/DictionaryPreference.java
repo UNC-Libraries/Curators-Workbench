@@ -2,6 +2,7 @@ package crosswalk.diagram.custom;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import org.eclipse.emf.common.util.URI;
 
 import crosswalk.diagram.part.CrosswalkDiagramEditorPlugin;

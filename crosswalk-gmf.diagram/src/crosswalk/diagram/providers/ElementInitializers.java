@@ -30,11 +30,9 @@ public class ElementInitializers {
 	 * @generated
 	 */
 	public static ElementInitializers getInstance() {
-		ElementInitializers cached = CrosswalkDiagramEditorPlugin.getInstance()
-				.getElementInitializers();
+		ElementInitializers cached = CrosswalkDiagramEditorPlugin.getInstance().getElementInitializers();
 		if (cached == null) {
-			CrosswalkDiagramEditorPlugin.getInstance().setElementInitializers(
-					cached = new ElementInitializers());
+			CrosswalkDiagramEditorPlugin.getInstance().setElementInitializers(cached = new ElementInitializers());
 		}
 		return cached;
 	}

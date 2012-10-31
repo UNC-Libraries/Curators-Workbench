@@ -36,8 +36,7 @@ public class CrosswalkNavigatorItem extends CrosswalkAbstractNavigatorItem {
 			public Object getAdapter(Object adaptableObject, Class adapterType) {
 				if (adaptableObject instanceof crosswalk.diagram.navigator.CrosswalkNavigatorItem
 						&& (adapterType == View.class || adapterType == EObject.class)) {
-					return ((crosswalk.diagram.navigator.CrosswalkNavigatorItem) adaptableObject)
-							.getView();
+					return ((crosswalk.diagram.navigator.CrosswalkNavigatorItem) adaptableObject).getView();
 				}
 				return null;
 			}
@@ -86,11 +85,8 @@ public class CrosswalkNavigatorItem extends CrosswalkAbstractNavigatorItem {
 	 */
 	public boolean equals(Object obj) {
 		if (obj instanceof crosswalk.diagram.navigator.CrosswalkNavigatorItem) {
-			return EcoreUtil
-					.getURI(getView())
-					.equals(EcoreUtil
-							.getURI(((crosswalk.diagram.navigator.CrosswalkNavigatorItem) obj)
-									.getView()));
+			return EcoreUtil.getURI(getView()).equals(
+					EcoreUtil.getURI(((crosswalk.diagram.navigator.CrosswalkNavigatorItem) obj).getView()));
 		}
 		return super.equals(obj);
 	}

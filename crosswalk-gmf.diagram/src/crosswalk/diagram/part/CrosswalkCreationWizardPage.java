@@ -36,8 +36,7 @@ public class CrosswalkCreationWizardPage extends WizardNewFileCreationPage {
 	/**
 	 * @generated
 	 */
-	public CrosswalkCreationWizardPage(String pageName,
-			IStructuredSelection selection, String fileExtension) {
+	public CrosswalkCreationWizardPage(String pageName, IStructuredSelection selection, String fileExtension) {
 		super(pageName, selection);
 		this.fileExtension = fileExtension;
 	}
@@ -79,8 +78,7 @@ public class CrosswalkCreationWizardPage extends WizardNewFileCreationPage {
 	@Override
 	public void createControl(Composite parent) {
 		super.createControl(parent);
-		setFileName(CrosswalkDiagramEditorUtil.getUniqueFileName(
-				getContainerFullPath(), getFileName(), getExtension()));
+		setFileName(CrosswalkDiagramEditorUtil.getUniqueFileName(getContainerFullPath(), getFileName(), getExtension()));
 		setPageComplete(validatePage());
 	}
 
@@ -93,11 +91,8 @@ public class CrosswalkCreationWizardPage extends WizardNewFileCreationPage {
 			return false;
 		}
 		String extension = getExtension();
-		if (extension != null
-				&& !getFilePath().toString().endsWith("." + extension)) {
-			setErrorMessage(NLS.bind(
-					Messages.CrosswalkCreationWizardPageExtensionError,
-					extension));
+		if (extension != null && !getFilePath().toString().endsWith("." + extension)) {
+			setErrorMessage(NLS.bind(Messages.CrosswalkCreationWizardPageExtensionError, extension));
 			return false;
 		}
 		return true;

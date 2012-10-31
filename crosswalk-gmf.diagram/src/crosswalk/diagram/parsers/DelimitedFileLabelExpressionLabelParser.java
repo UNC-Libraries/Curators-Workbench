@@ -18,7 +18,6 @@ import org.eclipse.gmf.runtime.common.ui.services.parser.IParser;
 import org.eclipse.gmf.runtime.common.ui.services.parser.IParserEditStatus;
 import org.eclipse.gmf.runtime.common.ui.services.parser.ParserEditStatus;
 import org.eclipse.gmf.runtime.emf.commands.core.command.AbstractTransactionalCommand;
-import org.eclipse.gmf.tooling.runtime.parsers.ExpressionLabelParserBase;
 import org.eclipse.jface.text.contentassist.IContentAssistProcessor;
 
 import crosswalk.CrosswalkPackage;
@@ -27,21 +26,11 @@ import crosswalk.diagram.expressions.CrosswalkOCLFactory;
 /**
  * @generated
  */
-public class DelimitedFileLabelExpressionLabelParser extends
-		ExpressionLabelParserBase {
+public class DelimitedFileLabelExpressionLabelParser implements IParser {
 	/**
 	 * @generated
 	 */
 	public DelimitedFileLabelExpressionLabelParser() {
-	}
-
-	/**
-	 * @generated
-	 */
-	@Override
-	protected String getExpressionBody() {
-		return CrosswalkOCLFactory.getExpression(0,
-				CrosswalkPackage.eINSTANCE.getDelimitedFile(), null).body();
 	}
 
 	/**
@@ -54,35 +43,49 @@ public class DelimitedFileLabelExpressionLabelParser extends
 	/**
 	 * @generated
 	 */
-	public IParserEditStatus isValidEditString(IAdaptable element,
-			String editString) {
+	public IParserEditStatus isValidEditString(IAdaptable element, String editString) {
 		return ParserEditStatus.EDITABLE_STATUS;
 	}
 
 	/**
 	 * @generated
 	 */
-	public ICommand getParseCommand(IAdaptable element, final String newString,
-			int flags) {
+	public ICommand getParseCommand(IAdaptable element, final String newString, int flags) {
 		final EObject target = (EObject) element.getAdapter(EObject.class);
 		if (!validateValues(target, newString)) {
 			return UnexecutableCommand.INSTANCE;
 		}
-		TransactionalEditingDomain editingDomain = TransactionUtil
-				.getEditingDomain(target);
+		TransactionalEditingDomain editingDomain = TransactionUtil.getEditingDomain(target);
 		if (editingDomain == null) {
 			return UnexecutableCommand.INSTANCE;
 		}
 		IFile affectedFile = WorkspaceSynchronizer.getFile(target.eResource());
-		return new AbstractTransactionalCommand(
-				editingDomain,
+		return new AbstractTransactionalCommand(editingDomain,
 				"Set Values", affectedFile == null ? null : Collections.singletonList(affectedFile)) { //$NON-NLS-1$ 
-			protected CommandResult doExecuteWithResult(
-					IProgressMonitor monitor, IAdaptable info)
+			protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info)
 					throws ExecutionException {
 				return new CommandResult(updateValues(target, newString));
 			}
 		};
+	}
+
+	/**
+	 * @generated
+	 */
+	public String getPrintString(IAdaptable element, int flags) {
+		EObject target = (EObject) element.getAdapter(EObject.class);
+		Object result = CrosswalkOCLFactory.getExpression(0, CrosswalkPackage.eINSTANCE.getDelimitedFile(), null)
+				.evaluate(target);
+		return String.valueOf(result);
+	}
+
+	/**
+	 * @generated
+	 */
+	public boolean isAffectingEvent(Object event, int flags) {
+		// XXX Any event is recognized as important, unless there's a way to extract this information from expression itself.
+		// TODO analyze expressions (e.g. using OCL parser) to find out structural features in use  
+		return true;
 	}
 
 	/**
@@ -103,12 +106,10 @@ public class DelimitedFileLabelExpressionLabelParser extends
 	/**
 	 * @generated
 	 */
-	private IStatus updateValues(EObject target, String newString)
-			throws ExecutionException {
+	private IStatus updateValues(EObject target, String newString) throws ExecutionException {
 		// TODO implement this method
 		// DO NOT FORGET to remove @generated tag or mark method @generated NOT
-		throw new ExecutionException(
-				"Please implement parsing and value modification");
+		throw new ExecutionException("Please implement parsing and value modification");
 	}
 
 }

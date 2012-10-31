@@ -15,8 +15,7 @@ import crosswalk.diagram.providers.CrosswalkElementTypes;
 /**
  * @generated
  */
-public class CrossWalkModelBoxCompartmentItemSemanticEditPolicy extends
-		CrosswalkBaseItemSemanticEditPolicy {
+public class CrossWalkModelBoxCompartmentItemSemanticEditPolicy extends CrosswalkBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
@@ -32,8 +31,7 @@ public class CrossWalkModelBoxCompartmentItemSemanticEditPolicy extends
 		if (CrosswalkElementTypes.DelimitedFile_3001 == req.getElementType()) {
 			return getGEFWrapper(new DelimitedFileCreateCommand(req));
 		}
-		if (CrosswalkElementTypes.OriginalNameRecordMatcher_3003 == req
-				.getElementType()) {
+		if (CrosswalkElementTypes.OriginalNameRecordMatcher_3003 == req.getElementType()) {
 			return getGEFWrapper(new OriginalNameRecordMatcherCreateCommand(req));
 		}
 		if (CrosswalkElementTypes.DateRecognizer_3004 == req.getElementType()) {

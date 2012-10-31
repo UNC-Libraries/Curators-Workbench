@@ -64,8 +64,7 @@ public class TrimWhitespaceEditPart extends ShapeNodeEditPart {
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new TrimWhitespaceItemSemanticEditPolicy());
+		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new TrimWhitespaceItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
@@ -82,8 +81,7 @@ public class TrimWhitespaceEditPart extends ShapeNodeEditPart {
 				return null;
 			}
 
-			protected Command createMoveChildCommand(EditPart child,
-					EditPart after) {
+			protected Command createMoveChildCommand(EditPart child, EditPart after) {
 				return null;
 			}
 
@@ -113,8 +111,7 @@ public class TrimWhitespaceEditPart extends ShapeNodeEditPart {
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof WrappingLabel4EditPart) {
-			((WrappingLabel4EditPart) childEditPart).setLabel(getPrimaryShape()
-					.getFigureWidgetLabelFigure());
+			((WrappingLabel4EditPart) childEditPart).setLabel(getPrimaryShape().getFigureWidgetLabelFigure());
 			return true;
 		}
 		return false;
@@ -247,8 +244,7 @@ public class TrimWhitespaceEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	public EditPart getPrimaryChildEditPart() {
-		return getChildBySemanticHint(CrosswalkVisualIDRegistry
-				.getType(WrappingLabel4EditPart.VISUAL_ID));
+		return getChildBySemanticHint(CrosswalkVisualIDRegistry.getType(WrappingLabel4EditPart.VISUAL_ID));
 	}
 
 	/**
@@ -263,8 +259,7 @@ public class TrimWhitespaceEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public List<IElementType> getMARelTypesOnSourceAndTarget(
-			IGraphicalEditPart targetEditPart) {
+	public List<IElementType> getMARelTypesOnSourceAndTarget(IGraphicalEditPart targetEditPart) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
 		if (targetEditPart instanceof TabbedDataFieldEditPart) {
 			types.add(CrosswalkElementTypes.InputOutput_4001);
@@ -362,11 +357,9 @@ public class TrimWhitespaceEditPart extends ShapeNodeEditPart {
 
 			this.setLayoutManager(layoutThis);
 
-			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(20),
-					getMapMode().DPtoLP(20)));
+			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(20), getMapMode().DPtoLP(20)));
 
-			this.setBorder(new MarginBorder(getMapMode().DPtoLP(10),
-					getMapMode().DPtoLP(10), getMapMode().DPtoLP(10),
+			this.setBorder(new MarginBorder(getMapMode().DPtoLP(10), getMapMode().DPtoLP(10), getMapMode().DPtoLP(10),
 					getMapMode().DPtoLP(10)));
 			createContents();
 		}
@@ -377,7 +370,6 @@ public class TrimWhitespaceEditPart extends ShapeNodeEditPart {
 		private void createContents() {
 
 			fFigureWidgetLabelFigure = new WrappingLabel();
-
 			fFigureWidgetLabelFigure.setText("Unknown Widget");
 
 			this.add(fFigureWidgetLabelFigure);

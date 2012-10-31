@@ -1,6 +1,5 @@
 package crosswalk.diagram.custom;
 
-import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;

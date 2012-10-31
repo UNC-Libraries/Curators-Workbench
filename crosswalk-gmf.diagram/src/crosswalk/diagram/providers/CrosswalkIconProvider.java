@@ -25,8 +25,7 @@ import org.eclipse.swt.graphics.Image;
 /**
  * @generated
  */
-public class CrosswalkIconProvider extends AbstractProvider implements
-		IIconProvider {
+public class CrosswalkIconProvider extends AbstractProvider implements IIconProvider {
 
 	/**
 	 * @generated

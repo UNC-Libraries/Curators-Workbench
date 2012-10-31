@@ -58,8 +58,7 @@ public class CrosswalkPaletteFactory {
 	 * @generated
 	 */
 	private PaletteContainer createMetadataMapping1Group() {
-		PaletteDrawer paletteContainer = new PaletteDrawer(
-				Messages.MetadataMapping1Group_title);
+		PaletteDrawer paletteContainer = new PaletteDrawer(Messages.MetadataMapping1Group_title);
 		paletteContainer.setId("createMetadataMapping1Group"); //$NON-NLS-1$
 		paletteContainer.add(createXMLElement1CreationTool());
 		paletteContainer.add(createXMLAttribute2CreationTool());
@@ -78,8 +77,7 @@ public class CrosswalkPaletteFactory {
 	 * @generated
 	 */
 	private PaletteContainer createFormandDictionary2Group() {
-		PaletteDrawer paletteContainer = new PaletteDrawer(
-				Messages.FormandDictionary2Group_title);
+		PaletteDrawer paletteContainer = new PaletteDrawer(Messages.FormandDictionary2Group_title);
 		paletteContainer.setId("createFormandDictionary2Group"); //$NON-NLS-1$
 		paletteContainer.add(createMetadataBlock1CreationTool());
 		paletteContainer.add(createTextField2CreationTool());
@@ -93,8 +91,7 @@ public class CrosswalkPaletteFactory {
 	 */
 	private List<PaletteContainer> createDictionaryContentsGroups() {
 		List<PaletteContainer> result = new ArrayList<PaletteContainer>();
-		for (Dictionary dict : CrosswalkDiagramEditorPlugin.getInstance()
-				.getDictionaries()) {
+		for (Dictionary dict : CrosswalkDiagramEditorPlugin.getInstance().getDictionaries()) {
 			PaletteDrawer paletteContainer = new PaletteDrawer(dict.getName());
 			paletteContainer.setDescription(dict.getDescription());
 			paletteContainer.setId("createCustomDictionary2Group"); //$NON-NLS-1$
@@ -113,12 +110,10 @@ public class CrosswalkPaletteFactory {
 		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
 		types.add(CrosswalkElementTypes.MappedElement_3007);
 		types.add(CrosswalkElementTypes.MappedElement_3008);
-		NodeToolEntry entry = new NodeToolEntry(
-				Messages.XMLElement1CreationTool_title,
+		NodeToolEntry entry = new NodeToolEntry(Messages.XMLElement1CreationTool_title,
 				Messages.XMLElement1CreationTool_desc, types);
 		entry.setId("createXMLElement1CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(CrosswalkElementTypes
-				.getImageDescriptor(CrosswalkElementTypes.MappedElement_3007));
+		entry.setSmallIcon(CrosswalkElementTypes.getImageDescriptor(CrosswalkElementTypes.MappedElement_3007));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -127,14 +122,11 @@ public class CrosswalkPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createXMLAttribute2CreationTool() {
-		NodeToolEntry entry = new NodeToolEntry(
-				Messages.XMLAttribute2CreationTool_title,
+		NodeToolEntry entry = new NodeToolEntry(Messages.XMLAttribute2CreationTool_title,
 				Messages.XMLAttribute2CreationTool_desc,
-				Collections
-						.singletonList(CrosswalkElementTypes.MappedAttribute_3009));
+				Collections.singletonList(CrosswalkElementTypes.MappedAttribute_3009));
 		entry.setId("createXMLAttribute2CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(CrosswalkElementTypes
-				.getImageDescriptor(CrosswalkElementTypes.MappedAttribute_3009));
+		entry.setSmallIcon(CrosswalkElementTypes.getImageDescriptor(CrosswalkElementTypes.MappedAttribute_3009));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -143,14 +135,11 @@ public class CrosswalkPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createInputConnector3CreationTool() {
-		LinkToolEntry entry = new LinkToolEntry(
-				Messages.InputConnector3CreationTool_title,
+		LinkToolEntry entry = new LinkToolEntry(Messages.InputConnector3CreationTool_title,
 				Messages.InputConnector3CreationTool_desc,
-				Collections
-						.singletonList(CrosswalkElementTypes.InputOutput_4001));
+				Collections.singletonList(CrosswalkElementTypes.InputOutput_4001));
 		entry.setId("createInputConnector3CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(CrosswalkElementTypes
-				.getImageDescriptor(CrosswalkElementTypes.InputOutput_4001));
+		entry.setSmallIcon(CrosswalkElementTypes.getImageDescriptor(CrosswalkElementTypes.InputOutput_4001));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -159,14 +148,11 @@ public class CrosswalkPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createOriginalNameMatcher4CreationTool() {
-		NodeToolEntry entry = new NodeToolEntry(
-				Messages.OriginalNameMatcher4CreationTool_title,
+		NodeToolEntry entry = new NodeToolEntry(Messages.OriginalNameMatcher4CreationTool_title,
 				Messages.OriginalNameMatcher4CreationTool_desc,
-				Collections
-						.singletonList(CrosswalkElementTypes.OriginalNameRecordMatcher_3003));
+				Collections.singletonList(CrosswalkElementTypes.OriginalNameRecordMatcher_3003));
 		entry.setId("createOriginalNameMatcher4CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(CrosswalkElementTypes
-				.getImageDescriptor(CrosswalkElementTypes.OriginalNameRecordMatcher_3003));
+		entry.setSmallIcon(CrosswalkElementTypes.getImageDescriptor(CrosswalkElementTypes.OriginalNameRecordMatcher_3003));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -175,14 +161,10 @@ public class CrosswalkPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createDateMaker5CreationTool() {
-		NodeToolEntry entry = new NodeToolEntry(
-				Messages.DateMaker5CreationTool_title,
-				Messages.DateMaker5CreationTool_desc,
-				Collections
-						.singletonList(CrosswalkElementTypes.DateRecognizer_3004));
+		NodeToolEntry entry = new NodeToolEntry(Messages.DateMaker5CreationTool_title,
+				Messages.DateMaker5CreationTool_desc, Collections.singletonList(CrosswalkElementTypes.DateRecognizer_3004));
 		entry.setId("createDateMaker5CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(CrosswalkElementTypes
-				.getImageDescriptor(CrosswalkElementTypes.DateRecognizer_3004));
+		entry.setSmallIcon(CrosswalkElementTypes.getImageDescriptor(CrosswalkElementTypes.DateRecognizer_3004));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -191,13 +173,10 @@ public class CrosswalkPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createFixedText6CreationTool() {
-		NodeToolEntry entry = new NodeToolEntry(
-				Messages.FixedText6CreationTool_title,
-				Messages.FixedText6CreationTool_desc,
-				Collections.singletonList(CrosswalkElementTypes.Text_3005));
+		NodeToolEntry entry = new NodeToolEntry(Messages.FixedText6CreationTool_title,
+				Messages.FixedText6CreationTool_desc, Collections.singletonList(CrosswalkElementTypes.Text_3005));
 		entry.setId("createFixedText6CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(CrosswalkElementTypes
-				.getImageDescriptor(CrosswalkElementTypes.Text_3005));
+		entry.setSmallIcon(CrosswalkElementTypes.getImageDescriptor(CrosswalkElementTypes.Text_3005));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -206,14 +185,10 @@ public class CrosswalkPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createTrimSpaces7CreationTool() {
-		NodeToolEntry entry = new NodeToolEntry(
-				Messages.TrimSpaces7CreationTool_title,
-				Messages.TrimSpaces7CreationTool_desc,
-				Collections
-						.singletonList(CrosswalkElementTypes.TrimWhitespace_3006));
+		NodeToolEntry entry = new NodeToolEntry(Messages.TrimSpaces7CreationTool_title,
+				Messages.TrimSpaces7CreationTool_desc, Collections.singletonList(CrosswalkElementTypes.TrimWhitespace_3006));
 		entry.setId("createTrimSpaces7CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(CrosswalkElementTypes
-				.getImageDescriptor(CrosswalkElementTypes.TrimWhitespace_3006));
+		entry.setSmallIcon(CrosswalkElementTypes.getImageDescriptor(CrosswalkElementTypes.TrimWhitespace_3006));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -222,14 +197,11 @@ public class CrosswalkPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createCurrentUsername8CreationTool() {
-		NodeToolEntry entry = new NodeToolEntry(
-				Messages.CurrentUsername8CreationTool_title,
+		NodeToolEntry entry = new NodeToolEntry(Messages.CurrentUsername8CreationTool_title,
 				Messages.CurrentUsername8CreationTool_desc,
-				Collections
-						.singletonList(CrosswalkElementTypes.CurrentUsername_3022));
+				Collections.singletonList(CrosswalkElementTypes.CurrentUsername_3022));
 		entry.setId("createCurrentUsername8CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(CrosswalkElementTypes
-				.getImageDescriptor(CrosswalkElementTypes.CurrentUsername_3022));
+		entry.setSmallIcon(CrosswalkElementTypes.getImageDescriptor(CrosswalkElementTypes.CurrentUsername_3022));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -238,14 +210,11 @@ public class CrosswalkPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createCurrentDateTime9CreationTool() {
-		NodeToolEntry entry = new NodeToolEntry(
-				Messages.CurrentDateTime9CreationTool_title,
+		NodeToolEntry entry = new NodeToolEntry(Messages.CurrentDateTime9CreationTool_title,
 				Messages.CurrentDateTime9CreationTool_desc,
-				Collections
-						.singletonList(CrosswalkElementTypes.CurrentDate_3021));
+				Collections.singletonList(CrosswalkElementTypes.CurrentDate_3021));
 		entry.setId("createCurrentDateTime9CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(CrosswalkElementTypes
-				.getImageDescriptor(CrosswalkElementTypes.CurrentDate_3021));
+		entry.setSmallIcon(CrosswalkElementTypes.getImageDescriptor(CrosswalkElementTypes.CurrentDate_3021));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -258,12 +227,10 @@ public class CrosswalkPaletteFactory {
 		types.add(CrosswalkElementTypes.MetadataBlock_3018);
 		types.add(CrosswalkElementTypes.MetadataBlock_3010);
 		types.add(CrosswalkElementTypes.MetadataBlock_3019);
-		NodeToolEntry entry = new NodeToolEntry(
-				Messages.MetadataBlock1CreationTool_title,
+		NodeToolEntry entry = new NodeToolEntry(Messages.MetadataBlock1CreationTool_title,
 				Messages.MetadataBlock1CreationTool_desc, types);
 		entry.setId("createMetadataBlock1CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(CrosswalkElementTypes
-				.getImageDescriptor(CrosswalkElementTypes.MetadataBlock_3018));
+		entry.setSmallIcon(CrosswalkElementTypes.getImageDescriptor(CrosswalkElementTypes.MetadataBlock_3018));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -272,14 +239,10 @@ public class CrosswalkPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createTextField2CreationTool() {
-		NodeToolEntry entry = new NodeToolEntry(
-				Messages.TextField2CreationTool_title,
-				Messages.TextField2CreationTool_desc,
-				Collections
-						.singletonList(CrosswalkElementTypes.TextInputField_3023));
+		NodeToolEntry entry = new NodeToolEntry(Messages.TextField2CreationTool_title,
+				Messages.TextField2CreationTool_desc, Collections.singletonList(CrosswalkElementTypes.TextInputField_3023));
 		entry.setId("createTextField2CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(CrosswalkElementTypes
-				.getImageDescriptor(CrosswalkElementTypes.TextInputField_3023));
+		entry.setSmallIcon(CrosswalkElementTypes.getImageDescriptor(CrosswalkElementTypes.TextInputField_3023));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -291,12 +254,10 @@ public class CrosswalkPaletteFactory {
 		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
 		types.add(CrosswalkElementTypes.DateInputField_3024);
 		types.add(CrosswalkElementTypes.Paragraph_3020);
-		NodeToolEntry entry = new NodeToolEntry(
-				Messages.DateField3CreationTool_title,
+		NodeToolEntry entry = new NodeToolEntry(Messages.DateField3CreationTool_title,
 				Messages.DateField3CreationTool_desc, types);
 		entry.setId("createDateField3CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(CrosswalkElementTypes
-				.getImageDescriptor(CrosswalkElementTypes.DateInputField_3024));
+		entry.setSmallIcon(CrosswalkElementTypes.getImageDescriptor(CrosswalkElementTypes.DateInputField_3024));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -305,8 +266,8 @@ public class CrosswalkPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createParagraph4CreationTool() {
-		ToolEntry entry = new ToolEntry(Messages.Paragraph4CreationTool_title,
-				Messages.Paragraph4CreationTool_desc, null, null) {
+		ToolEntry entry = new ToolEntry(Messages.Paragraph4CreationTool_title, Messages.Paragraph4CreationTool_desc,
+				null, null) {
 		};
 		entry.setId("createParagraph4CreationTool"); //$NON-NLS-1$
 		return entry;
@@ -318,11 +279,9 @@ public class CrosswalkPaletteFactory {
 	 */
 	private ToolEntry createMetadataBlockCopyTool(MetadataBlock mb) {
 		;
-		TemplateObjectToolEntry entry = new TemplateObjectToolEntry(
-				mb.getName(), mb.getDescription(), mb);
+		TemplateObjectToolEntry entry = new TemplateObjectToolEntry(mb.getName(), mb.getDescription(), mb);
 		entry.setId(null); //$NON-NLS-1$
-		entry.setSmallIcon(CrosswalkElementTypes
-				.getImageDescriptor(CrosswalkElementTypes.MetadataBlock_3018));
+		entry.setSmallIcon(CrosswalkElementTypes.getImageDescriptor(CrosswalkElementTypes.MetadataBlock_3018));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -340,8 +299,7 @@ public class CrosswalkPaletteFactory {
 		/**
 		 * @generated
 		 */
-		private NodeToolEntry(String title, String description,
-				List<IElementType> elementTypes) {
+		private NodeToolEntry(String title, String description, List<IElementType> elementTypes) {
 			super(title, description, null, null);
 			this.elementTypes = elementTypes;
 		}
@@ -370,8 +328,7 @@ public class CrosswalkPaletteFactory {
 		/**
 		 * @generated
 		 */
-		private LinkToolEntry(String title, String description,
-				List<IElementType> relationshipTypes) {
+		private LinkToolEntry(String title, String description, List<IElementType> relationshipTypes) {
 			super(title, description, null, null);
 			this.relationshipTypes = relationshipTypes;
 		}
@@ -399,8 +356,7 @@ public class CrosswalkPaletteFactory {
 		/**
 		 * @generated NOT
 		 */
-		private TemplateObjectToolEntry(String title, String description,
-				EObject object) {
+		private TemplateObjectToolEntry(String title, String description, EObject object) {
 			super(title, description, null, null);
 			this.object = object;
 		}
@@ -445,8 +401,7 @@ public class CrosswalkPaletteFactory {
 			types.add(CrosswalkElementTypes.MetadataBlock_3018);
 			types.add(CrosswalkElementTypes.MetadataBlock_3019);
 
-			CreateUnspecifiedTypeRequest result = new CreateUnspecifiedTypeRequest(
-					types, getPreferencesHint());
+			CreateUnspecifiedTypeRequest result = new CreateUnspecifiedTypeRequest(types, getPreferencesHint());
 			result.getExtendedData().put("templateElement", object);
 			//CreateViewRequest req = CreateViewRequestFactory.getCreateShapeRequest(
 			//	CrosswalkElementTypes.MetadataBlock_3018, getPreferencesHint());

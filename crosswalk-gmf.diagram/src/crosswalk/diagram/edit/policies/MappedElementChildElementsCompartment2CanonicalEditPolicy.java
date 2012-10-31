@@ -33,8 +33,7 @@ import crosswalk.diagram.part.CrosswalkVisualIDRegistry;
 /**
  * @generated
  */
-public class MappedElementChildElementsCompartment2CanonicalEditPolicy extends
-		CanonicalEditPolicy {
+public class MappedElementChildElementsCompartment2CanonicalEditPolicy extends CanonicalEditPolicy {
 
 	/**
 	 * @generated
@@ -59,10 +58,8 @@ public class MappedElementChildElementsCompartment2CanonicalEditPolicy extends
 	protected Set getFeaturesToSynchronize() {
 		if (myFeaturesToSynchronize == null) {
 			myFeaturesToSynchronize = new HashSet<EStructuralFeature>();
-			myFeaturesToSynchronize.add(CrosswalkPackage.eINSTANCE
-					.getMappedElement_ChildElements());
-			myFeaturesToSynchronize.add(CrosswalkPackage.eINSTANCE
-					.getMappedElement_Attributes());
+			myFeaturesToSynchronize.add(CrosswalkPackage.eINSTANCE.getMappedElement_ChildElements());
+			myFeaturesToSynchronize.add(CrosswalkPackage.eINSTANCE.getMappedElement_Attributes());
 		}
 		return myFeaturesToSynchronize;
 	}
@@ -85,10 +82,8 @@ public class MappedElementChildElementsCompartment2CanonicalEditPolicy extends
 	/**
 	 * @generated
 	 */
-	protected boolean isOrphaned(Collection<EObject> semanticChildren,
-			final View view) {
-		return isMyDiagramElement(view)
-				&& !semanticChildren.contains(view.getElement());
+	protected boolean isOrphaned(Collection<EObject> semanticChildren, final View view) {
+		return isMyDiagramElement(view) && !semanticChildren.contains(view.getElement());
 	}
 
 	/**
@@ -96,8 +91,7 @@ public class MappedElementChildElementsCompartment2CanonicalEditPolicy extends
 	 */
 	private boolean isMyDiagramElement(View view) {
 		int visualID = CrosswalkVisualIDRegistry.getVisualID(view);
-		return visualID == MappedElement2EditPart.VISUAL_ID
-				|| visualID == MappedAttributeEditPart.VISUAL_ID;
+		return visualID == MappedElement2EditPart.VISUAL_ID || visualID == MappedAttributeEditPart.VISUAL_ID;
 	}
 
 	/**
@@ -109,8 +103,7 @@ public class MappedElementChildElementsCompartment2CanonicalEditPolicy extends
 		}
 		LinkedList<IAdaptable> createdViews = new LinkedList<IAdaptable>();
 		List<CrosswalkNodeDescriptor> childDescriptors = CrosswalkDiagramUpdater
-				.getMappedElementChildElementsCompartment_7004SemanticChildren((View) getHost()
-						.getModel());
+				.getMappedElementChildElementsCompartment_7004SemanticChildren((View) getHost().getModel());
 		LinkedList<View> orphaned = new LinkedList<View>();
 		// we care to check only views we recognize as ours
 		LinkedList<View> knownViewChildren = new LinkedList<View>();
@@ -124,8 +117,8 @@ public class MappedElementChildElementsCompartment2CanonicalEditPolicy extends
 		// iteration happens over list of desired semantic elements, trying to find best matching View, while original CEP
 		// iterates views, potentially losing view (size/bounds) information - i.e. if there are few views to reference same EObject, only last one 
 		// to answer isOrphaned == true will be used for the domain element representation, see #cleanCanonicalSemanticChildren()
-		for (Iterator<CrosswalkNodeDescriptor> descriptorsIterator = childDescriptors
-				.iterator(); descriptorsIterator.hasNext();) {
+		for (Iterator<CrosswalkNodeDescriptor> descriptorsIterator = childDescriptors.iterator(); descriptorsIterator
+				.hasNext();) {
 			CrosswalkNodeDescriptor next = descriptorsIterator.next();
 			String hint = CrosswalkVisualIDRegistry.getType(next.getVisualID());
 			LinkedList<View> perfectMatch = new LinkedList<View>(); // both semanticElement and hint match that of NodeDescriptor
@@ -154,11 +147,9 @@ public class MappedElementChildElementsCompartment2CanonicalEditPolicy extends
 				childDescriptors.size());
 		for (CrosswalkNodeDescriptor next : childDescriptors) {
 			String hint = CrosswalkVisualIDRegistry.getType(next.getVisualID());
-			IAdaptable elementAdapter = new CanonicalElementAdapter(
-					next.getModelElement(), hint);
-			CreateViewRequest.ViewDescriptor descriptor = new CreateViewRequest.ViewDescriptor(
-					elementAdapter, Node.class, hint, ViewUtil.APPEND, false,
-					host().getDiagramPreferencesHint());
+			IAdaptable elementAdapter = new CanonicalElementAdapter(next.getModelElement(), hint);
+			CreateViewRequest.ViewDescriptor descriptor = new CreateViewRequest.ViewDescriptor(elementAdapter, Node.class,
+					hint, ViewUtil.APPEND, false, host().getDiagramPreferencesHint());
 			viewDescriptors.add(descriptor);
 		}
 
@@ -167,8 +158,7 @@ public class MappedElementChildElementsCompartment2CanonicalEditPolicy extends
 		CreateViewRequest request = getCreateViewRequest(viewDescriptors);
 		Command cmd = getCreateViewCommand(request);
 		if (cmd != null && cmd.canExecute()) {
-			SetViewMutabilityCommand.makeMutable(
-					new EObjectAdapter(host().getNotationView())).execute();
+			SetViewMutabilityCommand.makeMutable(new EObjectAdapter(host().getNotationView())).execute();
 			executeCommand(cmd);
 			@SuppressWarnings("unchecked")
 			List<IAdaptable> nl = (List<IAdaptable>) request.getNewObject();
@@ -179,8 +169,7 @@ public class MappedElementChildElementsCompartment2CanonicalEditPolicy extends
 		}
 		if (createdViews.size() > 1) {
 			// perform a layout of the container
-			DeferredLayoutCommand layoutCmd = new DeferredLayoutCommand(host()
-					.getEditingDomain(), createdViews, host());
+			DeferredLayoutCommand layoutCmd = new DeferredLayoutCommand(host().getEditingDomain(), createdViews, host());
 			executeCommand(new ICommandProxy(layoutCmd));
 		}
 
