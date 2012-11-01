@@ -54,7 +54,7 @@
 			<div class="contentarea">
 <h2><c:out value="${form.title}"/></h2>
 <p><c:out value="${form.description}"/></p>
-<% if(session != null && session.getAttribute("user") != null) { %>
+<% if(request.getRemoteUser() != null) { %>
 <h3>Not Authorized to Deposit</h3>
 <p><c:out value="${message}"/></p>
 <% } else { %>

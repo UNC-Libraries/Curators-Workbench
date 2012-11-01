@@ -37,10 +37,10 @@ import unc.lib.cdr.workbench.rcp.Activator;
  */
 public class StagingJob extends Job {
 	List<OriginalFileStore> toStage = null;
-	
+
 	@Override
 	public boolean belongsTo(Object family) {
-		if(stagingJobFamilyObject == family) {
+		if (stagingJobFamilyObject == family) {
 			return true;
 		}
 		return super.belongsTo(family);
@@ -67,24 +67,35 @@ public class StagingJob extends Job {
 		monitor.setTaskName("Staging 1 of " + toStage.size());
 		int stageCount = 0;
 		Set<IProject> projects = new HashSet<IProject>();
+		Set<OriginalFileStore> skipped = new HashSet<OriginalFileStore>();
 		for (OriginalFileStore original : toStage) {
-			if (monitor.isCanceled()) return Status.CANCEL_STATUS;
+			if (monitor.isCanceled())
+				return Status.CANCEL_STATUS;
 			monitor.setTaskName("Staging " + stageCount++ + " of " + toStage.size());
 			URI prestagedLocation = original.getPrestagedLocation();
 			try {
-			if (prestagedLocation != null) {
-				StagingUtils.prestage(original, prestagedLocation, new SubProgressMonitor(monitor, 100,
-						SubProgressMonitor.PREPEND_MAIN_LABEL_TO_SUBTASK));
-			} else {
-				StagingUtils.stage(original,
-						new SubProgressMonitor(monitor, 100, SubProgressMonitor.PREPEND_MAIN_LABEL_TO_SUBTASK));
-			}
-			} catch(CoreException e) {
+				if (prestagedLocation != null) {
+					StagingUtils.prestage(original, prestagedLocation, new SubProgressMonitor(monitor, 100,
+							SubProgressMonitor.PREPEND_MAIN_LABEL_TO_SUBTASK));
+				} else {
+					if(original.isAttached()) {
+						StagingUtils.stage(original, new SubProgressMonitor(monitor, 100,
+							SubProgressMonitor.PREPEND_MAIN_LABEL_TO_SUBTASK));
+					} else {
+						skipped.add(original);
+					}
+				}
+			} catch (CoreException e) {
 				return new Status(IStatus.ERROR, Activator.PLUGIN_ID, "Job could not finish", e);
 			}
 		}
 		monitor.done();
-		return Status.OK_STATUS;
+
+		if(skipped.size() > 0) {
+			return new Status(IStatus.INFO, Activator.PLUGIN_ID, skipped.size()+ " original files cannot stage because they are not accessible.");
+		} else {
+			return Status.OK_STATUS;
+		}
 	}
 
 }
