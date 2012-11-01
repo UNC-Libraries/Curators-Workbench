@@ -40,3 +40,80 @@
 .ui-datepicker-calendar {
 	display: none;
 }
+
+/* Autocomplete
+----------------------------------*/
+.ui-autocomplete { 
+	position: absolute; 
+	cursor: default;
+	background-color: white;
+    border: 2px solid #CECECE;
+    font-size: 12px;
+    padding: 0;
+    z-index: 99999;
+    max-height: 300px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: #fff;
+    width: 300px;
+}
+
+
+
+/* workarounds */
+* html .ui-autocomplete { width:1px; } /* without this, the menu expands to 100% in IE6 */
+
+
+/* Menu
+----------------------------------*/
+.ui-menu {
+        list-style:none;
+        padding: 2px;
+        margin: 0;
+        display:block;
+}
+.ui-menu .ui-menu {
+        margin-top: -3px;
+}
+.ui-menu .ui-menu-item {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+}
+.ui-menu .ui-menu-item a {
+        text-decoration:none;
+        display:block;
+        line-height:1.5;
+        zoom:1;
+}
+.ui-menu .ui-menu-item a.ui-state-hover,
+.ui-menu .ui-menu-item a.ui-state-active {
+        margin: -1px;
+}
+
+.ui-autocomplete ul {
+    list-style: none outside none;
+    margin: 15px 0 -4px;
+    padding: 4px;
+}
+.ui-autocomplete li {
+    color: #000000;
+    display: block;
+    overflow: hidden;
+    padding: 5px 0;
+    text-align: left;
+    text-decoration: none;
+    text-indent: 0;
+}
+.ui-autocomplete li a {
+	padding: 0.2em 0.4em;
+    padding-left: 1.7em;
+    text-indent: -1.5em;
+    font-weight: normal;
+}
+
+.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover{
+	font-weight: normal;
+	background-color: #E2F6FF;
+	color: #566;
+}

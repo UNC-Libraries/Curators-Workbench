@@ -19,18 +19,50 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="crosswalk.*" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" session="true"%>
+<%@ page import="java.util.*"%>
+<%@ page import="crosswalk.impl.*"%>
+<%@ page import="java.net.URL"%>
+<%@ page import="java.io.*"%>
 <!doctype html>
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" type="text/css" href="/static/css/reset.css" />
+<link type="text/css" href="/static/css/jquery-ui.css" rel="stylesheet" />
 <link rel="stylesheet" type="text/css" href="/static/css/cdrui_styles.css" />
 <link rel="stylesheet" type="text/css" href="css/cdr_forms.css" />
 
-<link type="text/css" href="/cdradmin/css/jquery/ui/jquery-ui.css" rel="stylesheet" />
-
 <script type="text/javascript" src="/cdradmin/js/jquery/jquery.min.js"></script> 
 <script type="text/javascript" src="/cdradmin/js/jquery/ui/jquery-ui.min.js"></script> 
+
+<%
+Map<Integer,List<String>> vocabURLMap = new HashMap<Integer,List<String>>();
+for (Object element: ((FormImpl)request.getAttribute("form")).getElements()) {
+	if (element instanceof MetadataBlockImpl) {
+		MetadataBlockImpl mdBlock = (MetadataBlockImpl)element;
+		for (Object fieldObj: mdBlock.getPorts()) {
+			if (fieldObj instanceof TextInputFieldImpl) {
+				TextInputFieldImpl textField = (TextInputFieldImpl)fieldObj;
+				if (textField.getVocabularyURL() != null) {
+					if (!vocabURLMap.containsKey(textField.getVocabularyURL().hashCode())) {
+						List<String> vocabList = new ArrayList<String>();
+						URL vocabURL = new URL(textField.getVocabularyURL());
+						BufferedReader br = new BufferedReader(new InputStreamReader(vocabURL.openStream()));
+						String vocabEntry;
+						while ((vocabEntry = br.readLine()) != null) {
+							vocabList.add(vocabEntry);
+						}
+						br.close();
+						vocabURLMap.put(textField.getVocabularyURL().hashCode(), vocabList);
+					}
+				}
+			}
+		}
+	}
+}
+pageContext.setAttribute("vocabURLMap", vocabURLMap);
+//out.println(vocabURLMap.toString());
+%>
 
 <script type="text/javascript">
 	$(document).ready( function() {
@@ -46,8 +78,26 @@
 	        }, yearRange : '-300:+02' }).val($.datepicker.formatDate('yy-mm', new Date()));
 		// $(".datepicker").datepicker('option', 'constrainInput', true);
 		// $(".datepicker").datepicker('option', 'maxDate', '+0m +0w');
+		
+		<%
+		for (Map.Entry<Integer,List<String>> vocabEntry: vocabURLMap.entrySet()) {
+			out.print("$(\".cv_" + vocabEntry.getKey() + "\").autocomplete({source: [");
+			boolean first = true;
+			for (String vocabValue: vocabEntry.getValue()) {
+				if (first){
+					first = false;
+				} else {
+					out.print(",");
+				}
+				out.print("\"" + vocabValue + "\"");
+			}
+			out.println("]});");
+		}
+		%>
 	});
 </script>
+
+
 
 <!--[if IE 8]>
 	<link rel="stylesheet" type="text/css" href="/static/css/cdrui_styles_ie8.css" />
@@ -105,7 +155,24 @@
 										<% if(status.getValue() instanceof DateInputField) { %>
 										<form:input cssClass="datepicker" path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}" />
 										<% } else if(status.getValue() instanceof TextInputField) { %>
-										<form:input path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}" maxlength="${port.maxSize}" size="${port.preferredSize}" />
+										<c:choose>
+											<c:when test="${port.vocabularyURL != null}">
+												<c:choose>
+													<c:when test="${port.allowFreeText}">
+														<form:input path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}" maxlength="${port.maxSize}" size="${port.preferredSize}" cssClass="cv_${port.vocabularyURL.hashCode()}"/>
+													</c:when>
+													<c:otherwise>
+														<form:select path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}">
+															<form:options items="${vocabURLMap[port.vocabularyURL.hashCode()]}"/>
+														</form:select>
+													</c:otherwise>
+												</c:choose>
+											</c:when>
+											<c:otherwise>
+												<form:input path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}" maxlength="${port.maxSize}" size="${port.preferredSize}" />
+											</c:otherwise>
+										</c:choose>
+										
 										<% } else { %>
 										<form:input path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}" />
 										<% } %>
