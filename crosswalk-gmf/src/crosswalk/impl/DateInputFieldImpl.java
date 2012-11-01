@@ -10,11 +10,13 @@ import java.util.Date;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import crosswalk.CrosswalkPackage;
+import crosswalk.DataException;
 import crosswalk.DateInputField;
 import crosswalk.DatePrecision;
+import crosswalk.util.ImpreciseDate;
 
 /**
  * <!-- begin-user-doc -->
@@ -161,6 +163,14 @@ public class DateInputFieldImpl extends InputFieldImpl<Date> implements DateInpu
 		result.append(datePrecision);
 		result.append(')');
 		return result.toString();
+	}
+
+	@Override
+	public Object getResult() throws DataException {
+		Date date = (Date)super.getResult();
+		ImpreciseDate impdate = new ImpreciseDate(date);
+		impdate.setPrecision(getDatePrecision());
+		return impdate;
 	}
 
 } //DateInputFieldImpl

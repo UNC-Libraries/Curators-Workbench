@@ -1324,13 +1324,31 @@ public interface CrosswalkPackage extends EPackage {
 	int TEXT_INPUT_FIELD__ALLOW_FREE_TEXT = INPUT_FIELD_FEATURE_COUNT + 3;
 
 								/**
+	 * The feature id for the '<em><b>Valid Values</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_INPUT_FIELD__VALID_VALUES = INPUT_FIELD_FEATURE_COUNT + 4;
+
+								/**
+	 * The feature id for the '<em><b>Rows</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_INPUT_FIELD__ROWS = INPUT_FIELD_FEATURE_COUNT + 5;
+
+								/**
 	 * The number of structural features of the '<em>Text Input Field</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_INPUT_FIELD_FEATURE_COUNT = INPUT_FIELD_FEATURE_COUNT + 4;
+	int TEXT_INPUT_FIELD_FEATURE_COUNT = INPUT_FIELD_FEATURE_COUNT + 6;
 
 								/**
 	 * The meta object id for the '{@link crosswalk.MappingContainer <em>Mapping Container</em>}' class.
@@ -2553,6 +2571,28 @@ public interface CrosswalkPackage extends EPackage {
 	EAttribute getTextInputField_AllowFreeText();
 
 								/**
+	 * Returns the meta object for the attribute list '{@link crosswalk.TextInputField#getValidValues <em>Valid Values</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Valid Values</em>'.
+	 * @see crosswalk.TextInputField#getValidValues()
+	 * @see #getTextInputField()
+	 * @generated
+	 */
+	EAttribute getTextInputField_ValidValues();
+
+								/**
+	 * Returns the meta object for the attribute '{@link crosswalk.TextInputField#getRows <em>Rows</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Rows</em>'.
+	 * @see crosswalk.TextInputField#getRows()
+	 * @see #getTextInputField()
+	 * @generated
+	 */
+	EAttribute getTextInputField_Rows();
+
+								/**
 	 * Returns the meta object for class '{@link crosswalk.ContextProvider <em>Context Provider</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3523,6 +3563,22 @@ public interface CrosswalkPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute TEXT_INPUT_FIELD__ALLOW_FREE_TEXT = eINSTANCE.getTextInputField_AllowFreeText();
+
+																/**
+		 * The meta object literal for the '<em><b>Valid Values</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TEXT_INPUT_FIELD__VALID_VALUES = eINSTANCE.getTextInputField_ValidValues();
+
+																/**
+		 * The meta object literal for the '<em><b>Rows</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TEXT_INPUT_FIELD__ROWS = eINSTANCE.getTextInputField_Rows();
 
 																/**
 		 * The meta object literal for the '{@link crosswalk.impl.ContextProviderImpl <em>Context Provider</em>}' class.

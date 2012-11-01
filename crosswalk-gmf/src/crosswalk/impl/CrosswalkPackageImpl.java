@@ -1070,6 +1070,24 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getTextInputField_ValidValues() {
+		return (EAttribute)textInputFieldEClass.getEStructuralFeatures().get(4);
+	}
+
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTextInputField_Rows() {
+		return (EAttribute)textInputFieldEClass.getEStructuralFeatures().get(5);
+	}
+
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getContextProvider() {
 		return contextProviderEClass;
 	}
@@ -1474,6 +1492,8 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 		createEAttribute(textInputFieldEClass, TEXT_INPUT_FIELD__MAX_SIZE);
 		createEAttribute(textInputFieldEClass, TEXT_INPUT_FIELD__VOCABULARY_URL);
 		createEAttribute(textInputFieldEClass, TEXT_INPUT_FIELD__ALLOW_FREE_TEXT);
+		createEAttribute(textInputFieldEClass, TEXT_INPUT_FIELD__VALID_VALUES);
+		createEAttribute(textInputFieldEClass, TEXT_INPUT_FIELD__ROWS);
 
 		contextProviderEClass = createEClass(CONTEXT_PROVIDER);
 		createEReference(contextProviderEClass, CONTEXT_PROVIDER__OUTPUT_TYPE);
@@ -1745,6 +1765,8 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 		initEAttribute(getTextInputField_MaxSize(), ecorePackage.getEInt(), "maxSize", "256", 1, 1, TextInputField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTextInputField_VocabularyURL(), ecorePackage.getEString(), "vocabularyURL", null, 0, 1, TextInputField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTextInputField_AllowFreeText(), ecorePackage.getEBoolean(), "allowFreeText", "true", 1, 1, TextInputField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTextInputField_ValidValues(), ecorePackage.getEString(), "validValues", null, 0, -1, TextInputField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTextInputField_Rows(), ecorePackage.getEInt(), "rows", "1", 1, 1, TextInputField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(contextProviderEClass, ContextProvider.class, "ContextProvider", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getContextProvider_OutputType(), ecorePackage.getEClass(), null, "outputType", null, 1, 1, ContextProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

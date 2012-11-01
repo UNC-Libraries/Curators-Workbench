@@ -139,6 +139,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//TextInputField/maxSize"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//TextInputField/vocabularyURL"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//TextInputField/allowFreeText"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//TextInputField/validValues"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//TextInputField/rows"/>
     </genClasses>
     <genClasses image="false" ecoreClass="crosswalk.ecore#//ContextProvider">
       <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"

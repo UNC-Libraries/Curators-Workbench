@@ -7,11 +7,14 @@
 package crosswalk.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import crosswalk.CrosswalkPackage;
 import crosswalk.TextInputField;
+import java.util.Collection;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,6 +27,8 @@ import crosswalk.TextInputField;
  *   <li>{@link crosswalk.impl.TextInputFieldImpl#getMaxSize <em>Max Size</em>}</li>
  *   <li>{@link crosswalk.impl.TextInputFieldImpl#getVocabularyURL <em>Vocabulary URL</em>}</li>
  *   <li>{@link crosswalk.impl.TextInputFieldImpl#isAllowFreeText <em>Allow Free Text</em>}</li>
+ *   <li>{@link crosswalk.impl.TextInputFieldImpl#getValidValues <em>Valid Values</em>}</li>
+ *   <li>{@link crosswalk.impl.TextInputFieldImpl#getRows <em>Rows</em>}</li>
  * </ul>
  * </p>
  *
@@ -118,6 +123,36 @@ public class TextInputFieldImpl extends InputFieldImpl<String> implements TextIn
 	 * @ordered
 	 */
 	protected boolean allowFreeText = ALLOW_FREE_TEXT_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getValidValues() <em>Valid Values</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValidValues()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<String> validValues;
+
+	/**
+	 * The default value of the '{@link #getRows() <em>Rows</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRows()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int ROWS_EDEFAULT = 1;
+
+	/**
+	 * The cached value of the '{@link #getRows() <em>Rows</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRows()
+	 * @generated
+	 * @ordered
+	 */
+	protected int rows = ROWS_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -252,6 +287,39 @@ public class TextInputFieldImpl extends InputFieldImpl<String> implements TextIn
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<String> getValidValues() {
+		if (validValues == null) {
+			validValues = new EDataTypeUniqueEList<String>(String.class, this, CrosswalkPackage.TEXT_INPUT_FIELD__VALID_VALUES);
+		}
+		return validValues;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getRows() {
+		return rows;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRows(int newRows) {
+		int oldRows = rows;
+		rows = newRows;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.TEXT_INPUT_FIELD__ROWS, oldRows, rows));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -263,6 +331,10 @@ public class TextInputFieldImpl extends InputFieldImpl<String> implements TextIn
 				return getVocabularyURL();
 			case CrosswalkPackage.TEXT_INPUT_FIELD__ALLOW_FREE_TEXT:
 				return isAllowFreeText();
+			case CrosswalkPackage.TEXT_INPUT_FIELD__VALID_VALUES:
+				return getValidValues();
+			case CrosswalkPackage.TEXT_INPUT_FIELD__ROWS:
+				return getRows();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -272,6 +344,7 @@ public class TextInputFieldImpl extends InputFieldImpl<String> implements TextIn
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -286,6 +359,13 @@ public class TextInputFieldImpl extends InputFieldImpl<String> implements TextIn
 				return;
 			case CrosswalkPackage.TEXT_INPUT_FIELD__ALLOW_FREE_TEXT:
 				setAllowFreeText((Boolean)newValue);
+				return;
+			case CrosswalkPackage.TEXT_INPUT_FIELD__VALID_VALUES:
+				getValidValues().clear();
+				getValidValues().addAll((Collection<? extends String>)newValue);
+				return;
+			case CrosswalkPackage.TEXT_INPUT_FIELD__ROWS:
+				setRows((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -311,6 +391,12 @@ public class TextInputFieldImpl extends InputFieldImpl<String> implements TextIn
 			case CrosswalkPackage.TEXT_INPUT_FIELD__ALLOW_FREE_TEXT:
 				setAllowFreeText(ALLOW_FREE_TEXT_EDEFAULT);
 				return;
+			case CrosswalkPackage.TEXT_INPUT_FIELD__VALID_VALUES:
+				getValidValues().clear();
+				return;
+			case CrosswalkPackage.TEXT_INPUT_FIELD__ROWS:
+				setRows(ROWS_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -331,6 +417,10 @@ public class TextInputFieldImpl extends InputFieldImpl<String> implements TextIn
 				return isSetVocabularyURL();
 			case CrosswalkPackage.TEXT_INPUT_FIELD__ALLOW_FREE_TEXT:
 				return allowFreeText != ALLOW_FREE_TEXT_EDEFAULT;
+			case CrosswalkPackage.TEXT_INPUT_FIELD__VALID_VALUES:
+				return validValues != null && !validValues.isEmpty();
+			case CrosswalkPackage.TEXT_INPUT_FIELD__ROWS:
+				return rows != ROWS_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -353,6 +443,10 @@ public class TextInputFieldImpl extends InputFieldImpl<String> implements TextIn
 		if (vocabularyURLESet) result.append(vocabularyURL); else result.append("<unset>");
 		result.append(", allowFreeText: ");
 		result.append(allowFreeText);
+		result.append(", validValues: ");
+		result.append(validValues);
+		result.append(", rows: ");
+		result.append(rows);
 		result.append(')');
 		return result.toString();
 	}

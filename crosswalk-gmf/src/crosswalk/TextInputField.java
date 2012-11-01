@@ -6,6 +6,8 @@
  */
 package crosswalk;
 
+import org.eclipse.emf.common.util.EList;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -19,6 +21,8 @@ package crosswalk;
  *   <li>{@link crosswalk.TextInputField#getMaxSize <em>Max Size</em>}</li>
  *   <li>{@link crosswalk.TextInputField#getVocabularyURL <em>Vocabulary URL</em>}</li>
  *   <li>{@link crosswalk.TextInputField#isAllowFreeText <em>Allow Free Text</em>}</li>
+ *   <li>{@link crosswalk.TextInputField#getValidValues <em>Valid Values</em>}</li>
+ *   <li>{@link crosswalk.TextInputField#getRows <em>Rows</em>}</li>
  * </ul>
  * </p>
  *
@@ -160,5 +164,48 @@ public interface TextInputField extends InputField<String> {
 	 * @generated
 	 */
 	void setAllowFreeText(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Valid Values</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.String}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Valid Values</em>' attribute list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Valid Values</em>' attribute list.
+	 * @see crosswalk.CrosswalkPackage#getTextInputField_ValidValues()
+	 * @model
+	 * @generated
+	 */
+	EList<String> getValidValues();
+
+	/**
+	 * Returns the value of the '<em><b>Rows</b></em>' attribute.
+	 * The default value is <code>"1"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Rows</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Rows</em>' attribute.
+	 * @see #setRows(int)
+	 * @see crosswalk.CrosswalkPackage#getTextInputField_Rows()
+	 * @model default="1" required="true"
+	 * @generated
+	 */
+	int getRows();
+
+	/**
+	 * Sets the value of the '{@link crosswalk.TextInputField#getRows <em>Rows</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Rows</em>' attribute.
+	 * @see #getRows()
+	 * @generated
+	 */
+	void setRows(int value);
 
 } // TextInputField

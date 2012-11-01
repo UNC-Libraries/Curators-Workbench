@@ -65,6 +65,8 @@ public class TextInputFieldItemProvider
 			addMaxSizePropertyDescriptor(object);
 			addVocabularyURLPropertyDescriptor(object);
 			addAllowFreeTextPropertyDescriptor(object);
+			addValidValuesPropertyDescriptor(object);
+			addRowsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -158,6 +160,50 @@ public class TextInputFieldItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Valid Values feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addValidValuesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_TextInputField_validValues_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TextInputField_validValues_feature", "_UI_TextInputField_type"),
+				 CrosswalkPackage.Literals.TEXT_INPUT_FIELD__VALID_VALUES,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Rows feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRowsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_TextInputField_rows_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TextInputField_rows_feature", "_UI_TextInputField_type"),
+				 CrosswalkPackage.Literals.TEXT_INPUT_FIELD__ROWS,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns TextInputField.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -198,6 +244,8 @@ public class TextInputFieldItemProvider
 			case CrosswalkPackage.TEXT_INPUT_FIELD__MAX_SIZE:
 			case CrosswalkPackage.TEXT_INPUT_FIELD__VOCABULARY_URL:
 			case CrosswalkPackage.TEXT_INPUT_FIELD__ALLOW_FREE_TEXT:
+			case CrosswalkPackage.TEXT_INPUT_FIELD__VALID_VALUES:
+			case CrosswalkPackage.TEXT_INPUT_FIELD__ROWS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

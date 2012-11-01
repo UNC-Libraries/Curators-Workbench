@@ -1440,10 +1440,10 @@
   </diagram>
   <plugin
       provider="UNC Chapel Hill Libraries"
-      version="4.0.0.qualifier">
+      version="4.0.1.qualifier">
     <requiredPlugins>org.eclipse.draw2d</requiredPlugins>
     <requiredPlugins>org.eclipse.gmf.runtime.draw2d.ui</requiredPlugins>
-    <requiredPlugins>org.eclipse.gmf.tooling.runtime</requiredPlugins>
+    <requiredPlugins>org.eclipse.gmf.runtime.tooling</requiredPlugins>
   </plugin>
   <editor/>
   <navigator>
