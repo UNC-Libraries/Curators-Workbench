@@ -32,19 +32,23 @@
 <link rel="stylesheet" type="text/css" href="/static/css/cdrui_styles.css" />
 <link rel="stylesheet" type="text/css" href="css/cdr_forms.css" />
 
-<script type="text/javascript" src="/cdradmin/js/jquery/jquery.min.js"></script> 
-<script type="text/javascript" src="/cdradmin/js/jquery/ui/jquery-ui.min.js"></script> 
+<script type="text/javascript" src="js/jquery.js"></script> 
+<script type="text/javascript" src="js/jquery-ui.min.js"></script> 
 
 <%
-Map<Integer,List<String>> vocabURLMap = new HashMap<Integer,List<String>>();
+Map<String,List<String>> vocabURLMap = new HashMap<String,List<String>>();
+int elementNum = 0;
 for (Object element: ((FormImpl)request.getAttribute("form")).getElements()) {
 	if (element instanceof MetadataBlockImpl) {
 		MetadataBlockImpl mdBlock = (MetadataBlockImpl)element;
+		int fieldNum = 0;
 		for (Object fieldObj: mdBlock.getPorts()) {
-			if (fieldObj instanceof TextInputFieldImpl) {
+			if (fieldObj != null && fieldObj instanceof TextInputFieldImpl) {
 				TextInputFieldImpl textField = (TextInputFieldImpl)fieldObj;
+				String urlHash = null;
 				if (textField.getVocabularyURL() != null) {
-					if (!vocabURLMap.containsKey(textField.getVocabularyURL().hashCode())) {
+					urlHash = "" + textField.getVocabularyURL().hashCode();
+					if (!vocabURLMap.containsKey(urlHash)) {
 						List<String> vocabList = new ArrayList<String>();
 						URL vocabURL = new URL(textField.getVocabularyURL());
 						BufferedReader br = new BufferedReader(new InputStreamReader(vocabURL.openStream()));
@@ -53,35 +57,81 @@ for (Object element: ((FormImpl)request.getAttribute("form")).getElements()) {
 							vocabList.add(vocabEntry);
 						}
 						br.close();
-						vocabURLMap.put(textField.getVocabularyURL().hashCode(), vocabList);
+						vocabURLMap.put(urlHash, vocabList);
+					}
+				}
+				
+				if (textField.getValidValues() != null && textField.getValidValues().size() > 0) {
+					List<String> vocabList = vocabURLMap.get(urlHash);
+					List<String> validValues = textField.getValidValues();
+					if (vocabList == null) {
+						vocabURLMap.put("elements" + elementNum + ".ports" + fieldNum + ".enteredValue", validValues);
+					} else {
+						List<String> mergedList = new ArrayList(vocabList);
+						mergedList.addAll(validValues);
+						vocabURLMap.put(urlHash + "_elements" + elementNum + ".ports" + fieldNum + ".enteredValue", mergedList);
 					}
 				}
 			}
+			fieldNum++;
 		}
 	}
+	elementNum++;
 }
 pageContext.setAttribute("vocabURLMap", vocabURLMap);
-//out.println(vocabURLMap.toString());
 %>
 
 <script type="text/javascript">
 	$(document).ready( function() {
+		$(".monthpicker").datepicker({
+			dateFormat: 'yy-mm',
+			defaultDate: new Date(),
+			changeMonth: true,
+			changeYear: true,
+			showButtonPanel: false,
+			onChangeMonthYear : function(year, month, inst) {
+				var newDate = new Date(year, month - 1, 1);
+				$(this).datepicker("setDate", newDate);
+				$(this).val($.datepicker.formatDate('yy-mm', newDate));
+			}, yearRange: "-200:+5"
+		}).focus(function () {
+			$(".ui-datepicker-calendar").hide();
+			$("#ui-datepicker-div").position({
+				my: "center top",
+				at: "center bottom",
+				of: $(this)
+			});
+		});
+		
 		$(".datepicker").datepicker({
 			changeMonth: true,
 	        changeYear: true,
-	        showButtonPanel: true,
-	        dateFormat: 'yy-mm',
-	        onClose: function(dateText, inst) {
-	            var month = $("#ui-datepicker-div .ui-datepicker-month :selected").val();
-	            var year = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
-	            $(this).datepicker('setDate', new Date(year, month, 1));
-	        }, yearRange : '-300:+02' }).val($.datepicker.formatDate('yy-mm', new Date()));
-		// $(".datepicker").datepicker('option', 'constrainInput', true);
-		// $(".datepicker").datepicker('option', 'maxDate', '+0m +0w');
+	        showButtonPanel: false,
+	        dateFormat: 'yy-mm-dd',
+	        defaultDate: new Date(),
+	        yearRange: "-200:+5"
+		}).focus(function () {
+			$(".ui-datepicker-calendar").show();
+			$(".ui-datepicker-month").show();
+		});
+		
+		$(".yearpicker").datepicker({
+			changeMonth: false,
+	        changeYear: true,
+	        showButtonPanel: false,
+	        dateFormat: 'yy',
+	        defaultDate: new Date(),
+	        onChangeMonthYear : function(year, month, inst) {
+				$(this).val($.datepicker.formatDate('yy', new Date(year, 1, 1)));
+			}, yearRange: "-200:+5"
+		}).focus(function () {
+			$(".ui-datepicker-calendar").hide();
+			$(".ui-datepicker-month").hide();
+		});
 		
 		<%
-		for (Map.Entry<Integer,List<String>> vocabEntry: vocabURLMap.entrySet()) {
-			out.print("$(\".cv_" + vocabEntry.getKey() + "\").autocomplete({source: [");
+		for (Map.Entry<String,List<String>> vocabEntry: vocabURLMap.entrySet()) {
+			out.print("$(\".cv_" + vocabEntry.getKey().replaceAll("\\.", "\\\\\\\\.") + "\").autocomplete({source: [");
 			boolean first = true;
 			for (String vocabValue: vocabEntry.getValue()) {
 				if (first){
@@ -153,23 +203,53 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 									<div class="form_field">
 										<label><c:out value="${port.label}"/></label>
 										<% if(status.getValue() instanceof DateInputField) { %>
-										<form:input cssClass="datepicker" path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}" />
+										<c:choose>
+											<c:when test="${port.datePrecision.name == 'month'}">
+												<form:input cssClass="monthpicker" path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}" />
+											</c:when>
+											<c:when test="${port.datePrecision.name == 'day'}">
+												<form:input cssClass="datepicker" path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}" />
+											</c:when>
+											<c:when test="${port.datePrecision.name == 'year'}">
+												<form:input cssClass="yearpicker" path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}" />
+											</c:when>
+										</c:choose>
 										<% } else if(status.getValue() instanceof TextInputField) { %>
+
 										<c:choose>
 											<c:when test="${port.vocabularyURL != null}">
 												<c:choose>
 													<c:when test="${port.allowFreeText}">
-														<form:input path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}" maxlength="${port.maxSize}" size="${port.preferredSize}" cssClass="cv_${port.vocabularyURL.hashCode()}"/>
+														<c:choose>
+															<c:when test="${port.validValues == null || port.validValues.size() == 0}">
+																<form:input path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}" maxlength="${port.maxSize}" size="${port.preferredSize}" cssClass="cv_${port.vocabularyURL.hashCode()}"/>
+															</c:when>
+															<c:otherwise>
+																<form:input path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}" maxlength="${port.maxSize}" size="${port.preferredSize}" cssClass="cv_${port.vocabularyURL.hashCode()}_elements${elementRow.index}.ports${portRow.index}.enteredValue"/>
+															</c:otherwise>
+														</c:choose>
 													</c:when>
 													<c:otherwise>
 														<form:select path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}">
-															<form:options items="${vocabURLMap[port.vocabularyURL.hashCode()]}"/>
+															<form:options items="${vocabURLMap[port.vocabularyURL.hashCode().toString()]}"/>
+															<form:options items="${port.validValues}"/>
 														</form:select>
 													</c:otherwise>
 												</c:choose>
-											</c:when>
+											</c:when>											
 											<c:otherwise>
-												<form:input path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}" maxlength="${port.maxSize}" size="${port.preferredSize}" />
+												<c:choose>
+													<c:when test="${port.validValues == null || port.validValues.size() == 0}">
+														<form:input path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}" maxlength="${port.maxSize}" size="${port.preferredSize}" />
+													</c:when>
+													<c:otherwise>
+														<form:select path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}">
+															<form:options items="${port.validValues}"/>
+														</form:select>
+													</c:otherwise>
+												</c:choose>
+											
+												
 											</c:otherwise>
 										</c:choose>
 										
