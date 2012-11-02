@@ -110,17 +110,15 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 			changeYear: true,
 			showButtonPanel: false,
 			onChangeMonthYear : function(year, month, inst) {
+				console.log("change moth");
 				var newDate = new Date(year, month - 1, 1);
 				$(this).datepicker("setDate", newDate);
 				$(this).val($.datepicker.formatDate('yy-mm', newDate));
+				$(".ui-datepicker-calendar").hide();
 			}, yearRange: "-200:+5"
 		}).focus(function () {
+			console.log("monthpicker focus");
 			$(".ui-datepicker-calendar").hide();
-			$("#ui-datepicker-div").position({
-				my: "center top",
-				at: "center bottom",
-				of: $(this)
-			});
 		});
 		
 		$(".datepicker").datepicker({
@@ -129,8 +127,12 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 	        showButtonPanel: false,
 	        dateFormat: 'yy-mm-dd',
 	        defaultDate: new Date(),
-	        yearRange: "-200:+5"
+	        yearRange: "-200:+5",
+	        beforeShow: function() {
+				console.log("before show d");
+			}
 		}).focus(function () {
+			console.log("datepicker focus");
 			$(".ui-datepicker-calendar").show();
 			$(".ui-datepicker-month").show();
 		});
@@ -152,20 +154,6 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 			}
 			out.println("]});");
 		}
-		
-		/*for (Map.Entry<String,List<String>> vocabEntry: vocabURLMap.entrySet()) {
-			out.print("$(\".cv_" + vocabEntry.getKey().replaceAll("\\.", "\\\\\\\\.") + "\").autocomplete({source: [");
-			boolean first = true;
-			for (String vocabValue: vocabEntry.getValue()) {
-				if (first){
-					first = false;
-				} else {
-					out.print(",");
-				}
-				out.print("\"" + vocabValue + "\"");
-			}
-			out.println("]});");
-		}*/
 		%>
 	});
 </script>
@@ -201,6 +189,7 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 		<div id="content">
 			<div class="contentarea">
 <h2><c:out value="${form.title}"/></h2>
+<spring:hasBindErrors name="form"><span class="red"><%= errors.getFieldError("file") == null ? "" : errors.getFieldError("file").getDefaultMessage() %></span><br/><br/></spring:hasBindErrors>
 <p><c:out value="${form.description}"/></p>
 <form:form modelAttribute="form" enctype="multipart/form-data">
 	<c:forEach items="${form.elements}" varStatus="elementRow">
@@ -314,7 +303,7 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 	<br/><h3>File for Deposit</h3>
 	<div class="indented_block">
 		<div class="form_field file_field">
-			<label></label><input name="file" type="file" size="40"/> <span class="red">*</span> <spring:hasBindErrors name="form"><span class="red"><%= errors.getFieldError("file") == null ? "" : errors.getFieldError("file").getDefaultMessage() %></span></spring:hasBindErrors>
+			<label></label><input name="file" type="file" size="40"/> <span class="red">*</span>
 		</div>
 	</div>
 	<div class="submit_container">
