@@ -505,7 +505,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="crosswalk.gmftool#//@palette/@tools.1/@tools.2"/>
+              href="crosswalk.gmftool#//@palette/@tools.1/@tools.3"/>
           <diagramNode
               href="crosswalk.gmfgraph#ParagraphNode"/>
         </ownedChild>

@@ -18,27 +18,57 @@ package cdr.forms;
 import java.beans.PropertyEditorSupport;
 import java.text.DateFormat;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+
+import crosswalk.DatePrecision;
+import crosswalk.util.ImpreciseDate;
 
 public class DateEditor extends PropertyEditorSupport {
-	private DateFormat format = null;
+	private static Map<DatePrecision, DateFormat> formats = new HashMap<DatePrecision, DateFormat>();
+	private DatePrecision defaultPrecision = DatePrecision.DAY;
 	
-	public DateEditor(DateFormat format) {
-		this.format = format;
+	static {
+		formats.put(DatePrecision.DAY, new SimpleDateFormat("yyyy-MM-dd"));
+		formats.put(DatePrecision.MONTH, new SimpleDateFormat("yyyy-MM"));
+		formats.put(DatePrecision.YEAR, new SimpleDateFormat("yyyy"));
+	}
+
+	public DateEditor() {
+	}
+
+	public void setAsText(String text) throws IllegalArgumentException {
+		Date value = null;
+		value = parseDate(DatePrecision.DAY, text);
+		if(value == null) {
+			value = parseDate(DatePrecision.MONTH, text);
+		}
+		if(value == null) {
+			value = parseDate(DatePrecision.YEAR, text);
+		}
+		setValue(value);
 	}
 	
-	public void setAsText(String text) throws IllegalArgumentException {
+	private Date parseDate(DatePrecision precision, String text) {
 		try {
-            setValue(format.parse(text));
+			Date parsed = formats.get(precision).parse(text);
+			ImpreciseDate result = new ImpreciseDate(parsed);
+			result.setPrecision(precision);
+			return result;
+		} catch(ParseException ignored) {
+			return null;
 		}
-        catch (ParseException e) {
-            throw new IllegalArgumentException(
-                    "Could not convert Date for " + text + ": " + e.getMessage());
-        }
 	}
 
 	public String getAsText() {
-        Date value = (Date) getValue();
-		return (value != null ? format.format(value) : "");
+		Date value = (Date) getValue();
+		if (value instanceof ImpreciseDate) {
+			ImpreciseDate impDate = (ImpreciseDate) value;
+			return (value != null ? formats.get(impDate.getPrecision()).format(value) : "");
+		} else {
+			return (value != null ? formats.get(defaultPrecision).format(value) : "");
+		}
 	}
 }

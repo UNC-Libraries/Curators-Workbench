@@ -251,11 +251,8 @@ public class CrosswalkPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createDateField3CreationTool() {
-		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
-		types.add(CrosswalkElementTypes.DateInputField_3024);
-		types.add(CrosswalkElementTypes.Paragraph_3020);
 		NodeToolEntry entry = new NodeToolEntry(Messages.DateField3CreationTool_title,
-				Messages.DateField3CreationTool_desc, types);
+				Messages.DateField3CreationTool_desc, Collections.singletonList(CrosswalkElementTypes.DateInputField_3024));
 		entry.setId("createDateField3CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(CrosswalkElementTypes.getImageDescriptor(CrosswalkElementTypes.DateInputField_3024));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -266,10 +263,11 @@ public class CrosswalkPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createParagraph4CreationTool() {
-		ToolEntry entry = new ToolEntry(Messages.Paragraph4CreationTool_title, Messages.Paragraph4CreationTool_desc,
-				null, null) {
-		};
+		NodeToolEntry entry = new NodeToolEntry(Messages.Paragraph4CreationTool_title,
+				Messages.Paragraph4CreationTool_desc, Collections.singletonList(CrosswalkElementTypes.Paragraph_3020));
 		entry.setId("createParagraph4CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(CrosswalkElementTypes.getImageDescriptor(CrosswalkElementTypes.Paragraph_3020));
+		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
 

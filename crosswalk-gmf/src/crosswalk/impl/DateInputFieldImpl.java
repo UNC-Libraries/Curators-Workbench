@@ -168,6 +168,7 @@ public class DateInputFieldImpl extends InputFieldImpl<Date> implements DateInpu
 	@Override
 	public Object getResult() throws DataException {
 		Date date = (Date)super.getResult();
+		if(date == null) return null;
 		ImpreciseDate impdate = new ImpreciseDate(date);
 		impdate.setPrecision(getDatePrecision());
 		return impdate;

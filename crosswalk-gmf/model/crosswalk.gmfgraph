@@ -373,9 +373,12 @@
           xsi:type="gmfgraph:Rectangle"
           outline="false">
         <layout
-            xsi:type="gmfgraph:FlowLayout"
-            vertical="true"
-            forceSingleLine="true"/>
+            xsi:type="gmfgraph:GridLayout"/>
+        <insets
+            top="5"
+            left="5"
+            bottom="5"
+            right="5"/>
         <children
             xsi:type="gmfgraph:Label"
             name="ParagraphHeadingLabel">

@@ -150,7 +150,7 @@ public class FormController {
 	@InitBinder
    protected void initBinder(WebDataBinder binder) {
        binder.setValidator(new FormValidator());
-       binder.registerCustomEditor(java.util.Date.class, new DateEditor(new SimpleDateFormat("yy-MM-dd")));
+       binder.registerCustomEditor(java.util.Date.class, new DateEditor());
        //binder.setBindEmptyMultipartFiles(false);
        binder.registerCustomEditor(java.lang.String.class, new StringTrimmerEditor(true));
    }

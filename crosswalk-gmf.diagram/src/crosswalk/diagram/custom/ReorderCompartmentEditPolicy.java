@@ -51,7 +51,7 @@ public class ReorderCompartmentEditPolicy extends FlowLayoutEditPolicy {
 			displacement = afterIndex - childIndex;
 			if (childIndex <= afterIndex) {
 				newIndex--;
-				displacement--;			
+				displacement--;
 			}
 		}
 
@@ -61,7 +61,7 @@ public class ReorderCompartmentEditPolicy extends FlowLayoutEditPolicy {
 		RepositionEObjectCommand command = new CompartmentRepositionEObjectCommand(child, editingDomain, "", 
 				(EList)((View)child.getParent().getModel()).getElement().eGet(feature), 
 				((View)child.getModel()).getElement(), 
-				displacement, newIndex);	
+				displacement, newIndex);
 
 		//TODO ev. reintroduce target feedback (actual problem: line is not deleted after dropping)
 		eraseLayoutTargetFeedback(null);
