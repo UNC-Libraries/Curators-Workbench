@@ -38,9 +38,12 @@ public class RequestHeaderAuthorizationHandler implements AuthorizationHandler {
 		
 		// get header string
 		String groupsHeader = request.getHeader(getGroupsHeaderName());
-		if(groupsHeader == null) {
+		if(request.getRemoteUser() == null) {
 			throw new PermissionDeniedException("You must first log in to use this deposit form.", form, formId);
 		} else {
+			if(groupsHeader == null) {
+				throw new PermissionDeniedException("Your login is not authorized to use this form.", form, formId);
+			}
 			for(String group : groupsHeader.split(getSplitCharacter())) {
 				if(form.getAuthorizedGroups().contains(group)) return;
 			}
