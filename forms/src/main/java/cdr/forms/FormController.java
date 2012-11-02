@@ -204,7 +204,7 @@ public class FormController {
 		}
 		
 		// perform a deposit with the default handler.
-		DepositResult result = this.getDepositHandler().deposit(form.getDepositContainerId(), mods, mpfile.getOriginalFilename(), depositFile);
+		DepositResult result = this.getDepositHandler().deposit(form.getDepositContainerId(), mods, mpfile.getOriginalFilename(), depositFile, mpfile.getContentType());
 		
 		if(result.getStatus() == Status.FAILED) {
 			LOG.error("deposit failed");
