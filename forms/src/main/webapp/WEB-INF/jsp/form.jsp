@@ -314,7 +314,7 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 	<br/><h3>File for Deposit</h3>
 	<div class="indented_block">
 		<div class="form_field file_field">
-			<input name="file" type="file" size="40"/> <span class="red">*</span> <spring:hasBindErrors name="form"><span class="red"><%= errors.getFieldError("file") == null ? "" : errors.getFieldError("file").getDefaultMessage() %></span></spring:hasBindErrors>
+			<label></label><input name="file" type="file" size="40"/> <span class="red">*</span> <spring:hasBindErrors name="form"><span class="red"><%= errors.getFieldError("file") == null ? "" : errors.getFieldError("file").getDefaultMessage() %></span></spring:hasBindErrors>
 		</div>
 	</div>
 	<div class="submit_container">
