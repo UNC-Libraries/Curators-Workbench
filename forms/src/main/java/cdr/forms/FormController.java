@@ -203,6 +203,8 @@ public class FormController {
 			return "form";
 		}
 		
+		LOG.debug("mpfile.getOriginalFilename(): "+mpfile.getOriginalFilename());
+		
 		// perform a deposit with the default handler.
 		DepositResult result = this.getDepositHandler().deposit(form.getDepositContainerId(), mods, mpfile.getOriginalFilename(), depositFile, mpfile.getContentType());
 		
