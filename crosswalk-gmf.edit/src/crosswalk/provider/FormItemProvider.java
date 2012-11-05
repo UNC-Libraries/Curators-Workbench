@@ -72,6 +72,8 @@ public class FormItemProvider
 			addEmailDepositNoticeToPropertyDescriptor(object);
 			addDepositContainerIdPropertyDescriptor(object);
 			addAuthorizedGroupsPropertyDescriptor(object);
+			addReviewBeforePublicationPropertyDescriptor(object);
+			addPromptForMultipleSubmissionsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -187,6 +189,50 @@ public class FormItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Review Before Publication feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addReviewBeforePublicationPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Form_reviewBeforePublication_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Form_reviewBeforePublication_feature", "_UI_Form_type"),
+				 CrosswalkPackage.Literals.FORM__REVIEW_BEFORE_PUBLICATION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Prompt For Multiple Submissions feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPromptForMultipleSubmissionsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Form_promptForMultipleSubmissions_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Form_promptForMultipleSubmissions_feature", "_UI_Form_type"),
+				 CrosswalkPackage.Literals.FORM__PROMPT_FOR_MULTIPLE_SUBMISSIONS,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -259,6 +305,8 @@ public class FormItemProvider
 			case CrosswalkPackage.FORM__EMAIL_DEPOSIT_NOTICE_TO:
 			case CrosswalkPackage.FORM__DEPOSIT_CONTAINER_ID:
 			case CrosswalkPackage.FORM__AUTHORIZED_GROUPS:
+			case CrosswalkPackage.FORM__REVIEW_BEFORE_PUBLICATION:
+			case CrosswalkPackage.FORM__PROMPT_FOR_MULTIPLE_SUBMISSIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case CrosswalkPackage.FORM__ELEMENTS:

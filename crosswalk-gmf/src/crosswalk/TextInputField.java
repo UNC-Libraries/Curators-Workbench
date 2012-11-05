@@ -17,12 +17,12 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link crosswalk.TextInputField#getPreferredSize <em>Preferred Size</em>}</li>
- *   <li>{@link crosswalk.TextInputField#getMaxSize <em>Max Size</em>}</li>
+ *   <li>{@link crosswalk.TextInputField#getWidth <em>Width</em>}</li>
+ *   <li>{@link crosswalk.TextInputField#getMaxCharacters <em>Max Characters</em>}</li>
  *   <li>{@link crosswalk.TextInputField#getVocabularyURL <em>Vocabulary URL</em>}</li>
  *   <li>{@link crosswalk.TextInputField#isAllowFreeText <em>Allow Free Text</em>}</li>
  *   <li>{@link crosswalk.TextInputField#getValidValues <em>Valid Values</em>}</li>
- *   <li>{@link crosswalk.TextInputField#getRows <em>Rows</em>}</li>
+ *   <li>{@link crosswalk.TextInputField#getType <em>Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -32,58 +32,87 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface TextInputField extends InputField<String> {
 	/**
-	 * Returns the value of the '<em><b>Preferred Size</b></em>' attribute.
-	 * The default value is <code>"40"</code>.
+	 * Returns the value of the '<em><b>Width</b></em>' attribute.
+	 * The default value is <code>"Normal"</code>.
+	 * The literals are from the enumeration {@link crosswalk.FieldWidth}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Preferred Size</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Width</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Preferred Size</em>' attribute.
-	 * @see #setPreferredSize(int)
-	 * @see crosswalk.CrosswalkPackage#getTextInputField_PreferredSize()
-	 * @model default="40" required="true"
+	 * @return the value of the '<em>Width</em>' attribute.
+	 * @see crosswalk.FieldWidth
+	 * @see #setWidth(FieldWidth)
+	 * @see crosswalk.CrosswalkPackage#getTextInputField_Width()
+	 * @model default="Normal" required="true"
 	 * @generated
 	 */
-	int getPreferredSize();
+	FieldWidth getWidth();
 
 	/**
-	 * Sets the value of the '{@link crosswalk.TextInputField#getPreferredSize <em>Preferred Size</em>}' attribute.
+	 * Sets the value of the '{@link crosswalk.TextInputField#getWidth <em>Width</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Preferred Size</em>' attribute.
-	 * @see #getPreferredSize()
+	 * @param value the new value of the '<em>Width</em>' attribute.
+	 * @see crosswalk.FieldWidth
+	 * @see #getWidth()
 	 * @generated
 	 */
-	void setPreferredSize(int value);
+	void setWidth(FieldWidth value);
 
 	/**
-	 * Returns the value of the '<em><b>Max Size</b></em>' attribute.
-	 * The default value is <code>"256"</code>.
+	 * Returns the value of the '<em><b>Max Characters</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Max Size</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Max Characters</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Max Size</em>' attribute.
-	 * @see #setMaxSize(int)
-	 * @see crosswalk.CrosswalkPackage#getTextInputField_MaxSize()
-	 * @model default="256" required="true"
+	 * @return the value of the '<em>Max Characters</em>' attribute.
+	 * @see #isSetMaxCharacters()
+	 * @see #unsetMaxCharacters()
+	 * @see #setMaxCharacters(Integer)
+	 * @see crosswalk.CrosswalkPackage#getTextInputField_MaxCharacters()
+	 * @model unsettable="true"
 	 * @generated
 	 */
-	int getMaxSize();
+	Integer getMaxCharacters();
 
 	/**
-	 * Sets the value of the '{@link crosswalk.TextInputField#getMaxSize <em>Max Size</em>}' attribute.
+	 * Sets the value of the '{@link crosswalk.TextInputField#getMaxCharacters <em>Max Characters</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Max Size</em>' attribute.
-	 * @see #getMaxSize()
+	 * @param value the new value of the '<em>Max Characters</em>' attribute.
+	 * @see #isSetMaxCharacters()
+	 * @see #unsetMaxCharacters()
+	 * @see #getMaxCharacters()
 	 * @generated
 	 */
-	void setMaxSize(int value);
+	void setMaxCharacters(Integer value);
+
+	/**
+	 * Unsets the value of the '{@link crosswalk.TextInputField#getMaxCharacters <em>Max Characters</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSetMaxCharacters()
+	 * @see #getMaxCharacters()
+	 * @see #setMaxCharacters(Integer)
+	 * @generated
+	 */
+	void unsetMaxCharacters();
+
+	/**
+	 * Returns whether the value of the '{@link crosswalk.TextInputField#getMaxCharacters <em>Max Characters</em>}' attribute is set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return whether the value of the '<em>Max Characters</em>' attribute is set.
+	 * @see #unsetMaxCharacters()
+	 * @see #getMaxCharacters()
+	 * @see #setMaxCharacters(Integer)
+	 * @generated
+	 */
+	boolean isSetMaxCharacters();
 
 	/**
 	 * Returns the value of the '<em><b>Vocabulary URL</b></em>' attribute.
@@ -182,30 +211,33 @@ public interface TextInputField extends InputField<String> {
 	EList<String> getValidValues();
 
 	/**
-	 * Returns the value of the '<em><b>Rows</b></em>' attribute.
-	 * The default value is <code>"1"</code>.
+	 * Returns the value of the '<em><b>Type</b></em>' attribute.
+	 * The default value is <code>"SingleLine"</code>.
+	 * The literals are from the enumeration {@link crosswalk.TextInputType}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Rows</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Type</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Rows</em>' attribute.
-	 * @see #setRows(int)
-	 * @see crosswalk.CrosswalkPackage#getTextInputField_Rows()
-	 * @model default="1" required="true"
+	 * @return the value of the '<em>Type</em>' attribute.
+	 * @see crosswalk.TextInputType
+	 * @see #setType(TextInputType)
+	 * @see crosswalk.CrosswalkPackage#getTextInputField_Type()
+	 * @model default="SingleLine" required="true"
 	 * @generated
 	 */
-	int getRows();
+	TextInputType getType();
 
 	/**
-	 * Sets the value of the '{@link crosswalk.TextInputField#getRows <em>Rows</em>}' attribute.
+	 * Sets the value of the '{@link crosswalk.TextInputField#getType <em>Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Rows</em>' attribute.
-	 * @see #getRows()
+	 * @param value the new value of the '<em>Type</em>' attribute.
+	 * @see crosswalk.TextInputType
+	 * @see #getType()
 	 * @generated
 	 */
-	void setRows(int value);
+	void setType(TextInputType value);
 
 } // TextInputField

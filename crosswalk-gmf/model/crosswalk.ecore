@@ -162,18 +162,18 @@
     </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TextInputField">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="preferredSize" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="40"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxSize" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="256"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="width" lowerBound="1" eType="#//FieldWidth"
+        defaultValueLiteral="Normal"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxCharacters" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"
+        unsettable="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="vocabularyURL" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         unsettable="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="allowFreeText" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="validValues" upperBound="-1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rows" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-        defaultValueLiteral="1"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="#//TextInputType"
+        defaultValueLiteral="SingleLine"/>
     <eGenericSuperTypes eClassifier="#//InputField">
       <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eGenericSuperTypes>
@@ -209,6 +209,12 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="depositContainerId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="authorizedGroups" upperBound="-1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="public"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="reviewBeforePublication"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="promptForMultipleSubmissions"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FormElement" abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EDataType" name="URI" instanceClassName="java.net.URI"/>
@@ -225,13 +231,6 @@
       <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
     </eGenericSuperTypes>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MultiLineTextInputField">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxSize" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="2048"/>
-    <eGenericSuperTypes eClassifier="#//InputField">
-      <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    </eGenericSuperTypes>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="DatePrecision">
     <eLiterals name="year"/>
     <eLiterals name="month" value="1"/>
@@ -239,5 +238,15 @@
     <eLiterals name="hour" value="3"/>
     <eLiterals name="minute" value="4"/>
     <eLiterals name="second" value="5"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="FieldWidth">
+    <eLiterals name="Short"/>
+    <eLiterals name="Normal" value="1"/>
+    <eLiterals name="Long" value="2"/>
+    <eLiterals name="FullLine" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="TextInputType">
+    <eLiterals name="SingleLine"/>
+    <eLiterals name="MultipleLines" value="1"/>
   </eClassifiers>
 </ecore:EPackage>

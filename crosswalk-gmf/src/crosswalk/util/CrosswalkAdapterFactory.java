@@ -209,10 +209,6 @@ public class CrosswalkAdapterFactory extends AdapterFactoryImpl {
 				return createDateInputFieldAdapter();
 			}
 			@Override
-			public Adapter caseMultiLineTextInputField(MultiLineTextInputField object) {
-				return createMultiLineTextInputFieldAdapter();
-			}
-			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -677,20 +673,6 @@ public class CrosswalkAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDateInputFieldAdapter() {
-		return null;
-	}
-
-								/**
-	 * Creates a new adapter for an object of class '{@link crosswalk.MultiLineTextInputField <em>Multi Line Text Input Field</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see crosswalk.MultiLineTextInputField
-	 * @generated
-	 */
-	public Adapter createMultiLineTextInputFieldAdapter() {
 		return null;
 	}
 

@@ -39,6 +39,8 @@ import crosswalk.FormElement;
  *   <li>{@link crosswalk.impl.FormImpl#getEmailDepositNoticeTo <em>Email Deposit Notice To</em>}</li>
  *   <li>{@link crosswalk.impl.FormImpl#getDepositContainerId <em>Deposit Container Id</em>}</li>
  *   <li>{@link crosswalk.impl.FormImpl#getAuthorizedGroups <em>Authorized Groups</em>}</li>
+ *   <li>{@link crosswalk.impl.FormImpl#isReviewBeforePublication <em>Review Before Publication</em>}</li>
+ *   <li>{@link crosswalk.impl.FormImpl#isPromptForMultipleSubmissions <em>Prompt For Multiple Submissions</em>}</li>
  * </ul>
  * </p>
  *
@@ -164,6 +166,46 @@ public class FormImpl extends EObjectImpl implements Form {
 	 * @ordered
 	 */
 	protected EList<String> authorizedGroups;
+
+	/**
+	 * The default value of the '{@link #isReviewBeforePublication() <em>Review Before Publication</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isReviewBeforePublication()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean REVIEW_BEFORE_PUBLICATION_EDEFAULT = true;
+
+	/**
+	 * The cached value of the '{@link #isReviewBeforePublication() <em>Review Before Publication</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isReviewBeforePublication()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean reviewBeforePublication = REVIEW_BEFORE_PUBLICATION_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isPromptForMultipleSubmissions() <em>Prompt For Multiple Submissions</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isPromptForMultipleSubmissions()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean PROMPT_FOR_MULTIPLE_SUBMISSIONS_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isPromptForMultipleSubmissions() <em>Prompt For Multiple Submissions</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isPromptForMultipleSubmissions()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean promptForMultipleSubmissions = PROMPT_FOR_MULTIPLE_SUBMISSIONS_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -347,6 +389,48 @@ public class FormImpl extends EObjectImpl implements Form {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isReviewBeforePublication() {
+		return reviewBeforePublication;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setReviewBeforePublication(boolean newReviewBeforePublication) {
+		boolean oldReviewBeforePublication = reviewBeforePublication;
+		reviewBeforePublication = newReviewBeforePublication;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.FORM__REVIEW_BEFORE_PUBLICATION, oldReviewBeforePublication, reviewBeforePublication));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isPromptForMultipleSubmissions() {
+		return promptForMultipleSubmissions;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPromptForMultipleSubmissions(boolean newPromptForMultipleSubmissions) {
+		boolean oldPromptForMultipleSubmissions = promptForMultipleSubmissions;
+		promptForMultipleSubmissions = newPromptForMultipleSubmissions;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.FORM__PROMPT_FOR_MULTIPLE_SUBMISSIONS, oldPromptForMultipleSubmissions, promptForMultipleSubmissions));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -381,6 +465,10 @@ public class FormImpl extends EObjectImpl implements Form {
 				return getDepositContainerId();
 			case CrosswalkPackage.FORM__AUTHORIZED_GROUPS:
 				return getAuthorizedGroups();
+			case CrosswalkPackage.FORM__REVIEW_BEFORE_PUBLICATION:
+				return isReviewBeforePublication();
+			case CrosswalkPackage.FORM__PROMPT_FOR_MULTIPLE_SUBMISSIONS:
+				return isPromptForMultipleSubmissions();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -421,6 +509,12 @@ public class FormImpl extends EObjectImpl implements Form {
 				getAuthorizedGroups().clear();
 				getAuthorizedGroups().addAll((Collection<? extends String>)newValue);
 				return;
+			case CrosswalkPackage.FORM__REVIEW_BEFORE_PUBLICATION:
+				setReviewBeforePublication((Boolean)newValue);
+				return;
+			case CrosswalkPackage.FORM__PROMPT_FOR_MULTIPLE_SUBMISSIONS:
+				setPromptForMultipleSubmissions((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -457,6 +551,12 @@ public class FormImpl extends EObjectImpl implements Form {
 			case CrosswalkPackage.FORM__AUTHORIZED_GROUPS:
 				getAuthorizedGroups().clear();
 				return;
+			case CrosswalkPackage.FORM__REVIEW_BEFORE_PUBLICATION:
+				setReviewBeforePublication(REVIEW_BEFORE_PUBLICATION_EDEFAULT);
+				return;
+			case CrosswalkPackage.FORM__PROMPT_FOR_MULTIPLE_SUBMISSIONS:
+				setPromptForMultipleSubmissions(PROMPT_FOR_MULTIPLE_SUBMISSIONS_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -485,6 +585,10 @@ public class FormImpl extends EObjectImpl implements Form {
 				return DEPOSIT_CONTAINER_ID_EDEFAULT == null ? depositContainerId != null : !DEPOSIT_CONTAINER_ID_EDEFAULT.equals(depositContainerId);
 			case CrosswalkPackage.FORM__AUTHORIZED_GROUPS:
 				return authorizedGroups != null && !authorizedGroups.isEmpty();
+			case CrosswalkPackage.FORM__REVIEW_BEFORE_PUBLICATION:
+				return reviewBeforePublication != REVIEW_BEFORE_PUBLICATION_EDEFAULT;
+			case CrosswalkPackage.FORM__PROMPT_FOR_MULTIPLE_SUBMISSIONS:
+				return promptForMultipleSubmissions != PROMPT_FOR_MULTIPLE_SUBMISSIONS_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -545,6 +649,10 @@ public class FormImpl extends EObjectImpl implements Form {
 		result.append(depositContainerId);
 		result.append(", authorizedGroups: ");
 		result.append(authorizedGroups);
+		result.append(", reviewBeforePublication: ");
+		result.append(reviewBeforePublication);
+		result.append(", promptForMultipleSubmissions: ");
+		result.append(promptForMultipleSubmissions);
 		result.append(')');
 		return result.toString();
 	}

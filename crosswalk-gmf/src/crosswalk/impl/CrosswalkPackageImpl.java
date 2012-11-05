@@ -48,6 +48,7 @@ import crosswalk.DelimitedFile;
 import crosswalk.Dictionary;
 import crosswalk.Editable;
 import crosswalk.EditingContainer;
+import crosswalk.FieldWidth;
 import crosswalk.Form;
 import crosswalk.FormElement;
 import crosswalk.Input;
@@ -56,7 +57,6 @@ import crosswalk.MappedAttribute;
 import crosswalk.MappedElement;
 import crosswalk.MappingContainer;
 import crosswalk.MetadataBlock;
-import crosswalk.MultiLineTextInputField;
 import crosswalk.OriginalNameRecordMatcher;
 import crosswalk.Output;
 import crosswalk.OutputElement;
@@ -67,6 +67,7 @@ import crosswalk.RecordOutOfRangeException;
 import crosswalk.TabbedDataField;
 import crosswalk.Text;
 import crosswalk.TextInputField;
+import crosswalk.TextInputType;
 import crosswalk.TrimWhitespace;
 import crosswalk.WalkWidget;
 
@@ -323,14 +324,21 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass multiLineTextInputFieldEClass = null;
+	private EEnum datePrecisionEEnum = null;
 
 								/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EEnum datePrecisionEEnum = null;
+	private EEnum fieldWidthEEnum = null;
+
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum textInputTypeEEnum = null;
 
 								/**
 	 * <!-- begin-user-doc -->
@@ -1034,7 +1042,7 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTextInputField_PreferredSize() {
+	public EAttribute getTextInputField_Width() {
 		return (EAttribute)textInputFieldEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -1043,7 +1051,7 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTextInputField_MaxSize() {
+	public EAttribute getTextInputField_MaxCharacters() {
 		return (EAttribute)textInputFieldEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -1079,7 +1087,7 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTextInputField_Rows() {
+	public EAttribute getTextInputField_Type() {
 		return (EAttribute)textInputFieldEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -1241,6 +1249,24 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getForm_ReviewBeforePublication() {
+		return (EAttribute)formEClass.getEStructuralFeatures().get(6);
+	}
+
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getForm_PromptForMultipleSubmissions() {
+		return (EAttribute)formEClass.getEStructuralFeatures().get(7);
+	}
+
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getFormElement() {
 		return formElementEClass;
 	}
@@ -1295,26 +1321,26 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getMultiLineTextInputField() {
-		return multiLineTextInputFieldEClass;
-	}
-
-								/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getMultiLineTextInputField_MaxSize() {
-		return (EAttribute)multiLineTextInputFieldEClass.getEStructuralFeatures().get(0);
-	}
-
-								/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EEnum getDatePrecision() {
 		return datePrecisionEEnum;
+	}
+
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getFieldWidth() {
+		return fieldWidthEEnum;
+	}
+
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getTextInputType() {
+		return textInputTypeEEnum;
 	}
 
 								/**
@@ -1488,12 +1514,12 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 		createEAttribute(inputFieldEClass, INPUT_FIELD__ENTERED_VALUE);
 
 		textInputFieldEClass = createEClass(TEXT_INPUT_FIELD);
-		createEAttribute(textInputFieldEClass, TEXT_INPUT_FIELD__PREFERRED_SIZE);
-		createEAttribute(textInputFieldEClass, TEXT_INPUT_FIELD__MAX_SIZE);
+		createEAttribute(textInputFieldEClass, TEXT_INPUT_FIELD__WIDTH);
+		createEAttribute(textInputFieldEClass, TEXT_INPUT_FIELD__MAX_CHARACTERS);
 		createEAttribute(textInputFieldEClass, TEXT_INPUT_FIELD__VOCABULARY_URL);
 		createEAttribute(textInputFieldEClass, TEXT_INPUT_FIELD__ALLOW_FREE_TEXT);
 		createEAttribute(textInputFieldEClass, TEXT_INPUT_FIELD__VALID_VALUES);
-		createEAttribute(textInputFieldEClass, TEXT_INPUT_FIELD__ROWS);
+		createEAttribute(textInputFieldEClass, TEXT_INPUT_FIELD__TYPE);
 
 		contextProviderEClass = createEClass(CONTEXT_PROVIDER);
 		createEReference(contextProviderEClass, CONTEXT_PROVIDER__OUTPUT_TYPE);
@@ -1516,6 +1542,8 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 		createEAttribute(formEClass, FORM__EMAIL_DEPOSIT_NOTICE_TO);
 		createEAttribute(formEClass, FORM__DEPOSIT_CONTAINER_ID);
 		createEAttribute(formEClass, FORM__AUTHORIZED_GROUPS);
+		createEAttribute(formEClass, FORM__REVIEW_BEFORE_PUBLICATION);
+		createEAttribute(formEClass, FORM__PROMPT_FOR_MULTIPLE_SUBMISSIONS);
 
 		formElementEClass = createEClass(FORM_ELEMENT);
 
@@ -1526,11 +1554,10 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 		dateInputFieldEClass = createEClass(DATE_INPUT_FIELD);
 		createEAttribute(dateInputFieldEClass, DATE_INPUT_FIELD__DATE_PRECISION);
 
-		multiLineTextInputFieldEClass = createEClass(MULTI_LINE_TEXT_INPUT_FIELD);
-		createEAttribute(multiLineTextInputFieldEClass, MULTI_LINE_TEXT_INPUT_FIELD__MAX_SIZE);
-
 		// Create enums
 		datePrecisionEEnum = createEEnum(DATE_PRECISION);
+		fieldWidthEEnum = createEEnum(FIELD_WIDTH);
+		textInputTypeEEnum = createEEnum(TEXT_INPUT_TYPE);
 
 		// Create data types
 		dataExceptionEDataType = createEDataType(DATA_EXCEPTION);
@@ -1614,10 +1641,6 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 		g2 = createEGenericType(ecorePackage.getEDate());
 		g1.getETypeArguments().add(g2);
 		dateInputFieldEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getInputField());
-		g2 = createEGenericType(ecorePackage.getEString());
-		g1.getETypeArguments().add(g2);
-		multiLineTextInputFieldEClass.getEGenericSuperTypes().add(g1);
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(tabbedDataFieldEClass, TabbedDataField.class, "TabbedDataField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1761,12 +1784,12 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 		initEAttribute(getInputField_EnteredValue(), g1, "enteredValue", null, 0, 1, InputField.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(textInputFieldEClass, TextInputField.class, "TextInputField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getTextInputField_PreferredSize(), ecorePackage.getEInt(), "preferredSize", "40", 1, 1, TextInputField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTextInputField_MaxSize(), ecorePackage.getEInt(), "maxSize", "256", 1, 1, TextInputField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTextInputField_Width(), this.getFieldWidth(), "width", "Normal", 1, 1, TextInputField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTextInputField_MaxCharacters(), ecorePackage.getEIntegerObject(), "maxCharacters", null, 0, 1, TextInputField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTextInputField_VocabularyURL(), ecorePackage.getEString(), "vocabularyURL", null, 0, 1, TextInputField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTextInputField_AllowFreeText(), ecorePackage.getEBoolean(), "allowFreeText", "true", 1, 1, TextInputField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTextInputField_ValidValues(), ecorePackage.getEString(), "validValues", null, 0, -1, TextInputField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTextInputField_Rows(), ecorePackage.getEInt(), "rows", "1", 1, 1, TextInputField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTextInputField_Type(), this.getTextInputType(), "type", "SingleLine", 1, 1, TextInputField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(contextProviderEClass, ContextProvider.class, "ContextProvider", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getContextProvider_OutputType(), ecorePackage.getEClass(), null, "outputType", null, 1, 1, ContextProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1789,6 +1812,8 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 		initEAttribute(getForm_EmailDepositNoticeTo(), ecorePackage.getEString(), "emailDepositNoticeTo", null, 0, -1, Form.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getForm_DepositContainerId(), ecorePackage.getEString(), "depositContainerId", null, 0, 1, Form.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getForm_AuthorizedGroups(), ecorePackage.getEString(), "authorizedGroups", "public", 0, -1, Form.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getForm_ReviewBeforePublication(), ecorePackage.getEBoolean(), "reviewBeforePublication", "true", 1, 1, Form.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getForm_PromptForMultipleSubmissions(), ecorePackage.getEBoolean(), "promptForMultipleSubmissions", "false", 1, 1, Form.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(formElementEClass, FormElement.class, "FormElement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1799,9 +1824,6 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 		initEClass(dateInputFieldEClass, DateInputField.class, "DateInputField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDateInputField_DatePrecision(), this.getDatePrecision(), "datePrecision", "Day", 1, 1, DateInputField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(multiLineTextInputFieldEClass, MultiLineTextInputField.class, "MultiLineTextInputField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getMultiLineTextInputField_MaxSize(), ecorePackage.getEInt(), "maxSize", "2048", 1, 1, MultiLineTextInputField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
 		// Initialize enums and add enum literals
 		initEEnum(datePrecisionEEnum, DatePrecision.class, "DatePrecision");
 		addEEnumLiteral(datePrecisionEEnum, DatePrecision.YEAR);
@@ -1810,6 +1832,16 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 		addEEnumLiteral(datePrecisionEEnum, DatePrecision.HOUR);
 		addEEnumLiteral(datePrecisionEEnum, DatePrecision.MINUTE);
 		addEEnumLiteral(datePrecisionEEnum, DatePrecision.SECOND);
+
+		initEEnum(fieldWidthEEnum, FieldWidth.class, "FieldWidth");
+		addEEnumLiteral(fieldWidthEEnum, FieldWidth.SHORT);
+		addEEnumLiteral(fieldWidthEEnum, FieldWidth.NORMAL);
+		addEEnumLiteral(fieldWidthEEnum, FieldWidth.LONG);
+		addEEnumLiteral(fieldWidthEEnum, FieldWidth.FULL_LINE);
+
+		initEEnum(textInputTypeEEnum, TextInputType.class, "TextInputType");
+		addEEnumLiteral(textInputTypeEEnum, TextInputType.SINGLE_LINE);
+		addEEnumLiteral(textInputTypeEEnum, TextInputType.MULTIPLE_LINES);
 
 		// Initialize data types
 		initEDataType(dataExceptionEDataType, DataException.class, "DataException", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

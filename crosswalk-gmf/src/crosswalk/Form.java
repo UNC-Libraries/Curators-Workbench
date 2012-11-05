@@ -23,6 +23,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link crosswalk.Form#getEmailDepositNoticeTo <em>Email Deposit Notice To</em>}</li>
  *   <li>{@link crosswalk.Form#getDepositContainerId <em>Deposit Container Id</em>}</li>
  *   <li>{@link crosswalk.Form#getAuthorizedGroups <em>Authorized Groups</em>}</li>
+ *   <li>{@link crosswalk.Form#isReviewBeforePublication <em>Review Before Publication</em>}</li>
+ *   <li>{@link crosswalk.Form#isPromptForMultipleSubmissions <em>Prompt For Multiple Submissions</em>}</li>
  * </ul>
  * </p>
  *
@@ -156,5 +158,59 @@ public interface Form extends Editable, ContextProvider {
 	 * @generated
 	 */
 	EList<String> getAuthorizedGroups();
+
+	/**
+	 * Returns the value of the '<em><b>Review Before Publication</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Review Before Publication</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Review Before Publication</em>' attribute.
+	 * @see #setReviewBeforePublication(boolean)
+	 * @see crosswalk.CrosswalkPackage#getForm_ReviewBeforePublication()
+	 * @model default="true" required="true"
+	 * @generated
+	 */
+	boolean isReviewBeforePublication();
+
+	/**
+	 * Sets the value of the '{@link crosswalk.Form#isReviewBeforePublication <em>Review Before Publication</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Review Before Publication</em>' attribute.
+	 * @see #isReviewBeforePublication()
+	 * @generated
+	 */
+	void setReviewBeforePublication(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Prompt For Multiple Submissions</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Prompt For Multiple Submissions</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Prompt For Multiple Submissions</em>' attribute.
+	 * @see #setPromptForMultipleSubmissions(boolean)
+	 * @see crosswalk.CrosswalkPackage#getForm_PromptForMultipleSubmissions()
+	 * @model default="false" required="true"
+	 * @generated
+	 */
+	boolean isPromptForMultipleSubmissions();
+
+	/**
+	 * Sets the value of the '{@link crosswalk.Form#isPromptForMultipleSubmissions <em>Prompt For Multiple Submissions</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Prompt For Multiple Submissions</em>' attribute.
+	 * @see #isPromptForMultipleSubmissions()
+	 * @generated
+	 */
+	void setPromptForMultipleSubmissions(boolean value);
 
 } // Form

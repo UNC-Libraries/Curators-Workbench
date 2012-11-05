@@ -61,56 +61,56 @@ public class TextInputFieldItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addPreferredSizePropertyDescriptor(object);
-			addMaxSizePropertyDescriptor(object);
+			addWidthPropertyDescriptor(object);
+			addMaxCharactersPropertyDescriptor(object);
 			addVocabularyURLPropertyDescriptor(object);
 			addAllowFreeTextPropertyDescriptor(object);
 			addValidValuesPropertyDescriptor(object);
-			addRowsPropertyDescriptor(object);
+			addTypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Preferred Size feature.
+	 * This adds a property descriptor for the Width feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addPreferredSizePropertyDescriptor(Object object) {
+	protected void addWidthPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_TextInputField_preferredSize_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TextInputField_preferredSize_feature", "_UI_TextInputField_type"),
-				 CrosswalkPackage.Literals.TEXT_INPUT_FIELD__PREFERRED_SIZE,
+				 getString("_UI_TextInputField_width_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TextInputField_width_feature", "_UI_TextInputField_type"),
+				 CrosswalkPackage.Literals.TEXT_INPUT_FIELD__WIDTH,
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Max Size feature.
+	 * This adds a property descriptor for the Max Characters feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addMaxSizePropertyDescriptor(Object object) {
+	protected void addMaxCharactersPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_TextInputField_maxSize_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TextInputField_maxSize_feature", "_UI_TextInputField_type"),
-				 CrosswalkPackage.Literals.TEXT_INPUT_FIELD__MAX_SIZE,
+				 getString("_UI_TextInputField_maxCharacters_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TextInputField_maxCharacters_feature", "_UI_TextInputField_type"),
+				 CrosswalkPackage.Literals.TEXT_INPUT_FIELD__MAX_CHARACTERS,
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -182,23 +182,23 @@ public class TextInputFieldItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Rows feature.
+	 * This adds a property descriptor for the Type feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addRowsPropertyDescriptor(Object object) {
+	protected void addTypePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_TextInputField_rows_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TextInputField_rows_feature", "_UI_TextInputField_type"),
-				 CrosswalkPackage.Literals.TEXT_INPUT_FIELD__ROWS,
+				 getString("_UI_TextInputField_type_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TextInputField_type_feature", "_UI_TextInputField_type"),
+				 CrosswalkPackage.Literals.TEXT_INPUT_FIELD__TYPE,
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -240,12 +240,12 @@ public class TextInputFieldItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(TextInputField.class)) {
-			case CrosswalkPackage.TEXT_INPUT_FIELD__PREFERRED_SIZE:
-			case CrosswalkPackage.TEXT_INPUT_FIELD__MAX_SIZE:
+			case CrosswalkPackage.TEXT_INPUT_FIELD__WIDTH:
+			case CrosswalkPackage.TEXT_INPUT_FIELD__MAX_CHARACTERS:
 			case CrosswalkPackage.TEXT_INPUT_FIELD__VOCABULARY_URL:
 			case CrosswalkPackage.TEXT_INPUT_FIELD__ALLOW_FREE_TEXT:
 			case CrosswalkPackage.TEXT_INPUT_FIELD__VALID_VALUES:
-			case CrosswalkPackage.TEXT_INPUT_FIELD__ROWS:
+			case CrosswalkPackage.TEXT_INPUT_FIELD__TYPE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

@@ -320,11 +320,6 @@ public class MetadataBlockItemProvider
 			(createChildParameter
 				(CrosswalkPackage.Literals.METADATA_BLOCK__PORTS,
 				 CrosswalkFactory.eINSTANCE.createDateInputField()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CrosswalkPackage.Literals.METADATA_BLOCK__PORTS,
-				 CrosswalkFactory.eINSTANCE.createMultiLineTextInputField()));
 	}
 
 	/**

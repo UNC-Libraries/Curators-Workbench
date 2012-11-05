@@ -14,6 +14,16 @@
       <genEnumLiterals ecoreEnumLiteral="crosswalk.ecore#//DatePrecision/minute"/>
       <genEnumLiterals ecoreEnumLiteral="crosswalk.ecore#//DatePrecision/second"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="crosswalk.ecore#//FieldWidth">
+      <genEnumLiterals ecoreEnumLiteral="crosswalk.ecore#//FieldWidth/Short"/>
+      <genEnumLiterals ecoreEnumLiteral="crosswalk.ecore#//FieldWidth/Normal"/>
+      <genEnumLiterals ecoreEnumLiteral="crosswalk.ecore#//FieldWidth/Long"/>
+      <genEnumLiterals ecoreEnumLiteral="crosswalk.ecore#//FieldWidth/FullLine"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="crosswalk.ecore#//TextInputType">
+      <genEnumLiterals ecoreEnumLiteral="crosswalk.ecore#//TextInputType/SingleLine"/>
+      <genEnumLiterals ecoreEnumLiteral="crosswalk.ecore#//TextInputType/MultipleLines"/>
+    </genEnums>
     <genDataTypes ecoreDataType="crosswalk.ecore#//DataException"/>
     <genDataTypes ecoreDataType="crosswalk.ecore#//RecordMatches"/>
     <genDataTypes ecoreDataType="crosswalk.ecore#//RecordOutOfRangeException"/>
@@ -135,12 +145,12 @@
       <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//InputField/enteredValue"/>
     </genClasses>
     <genClasses ecoreClass="crosswalk.ecore#//TextInputField">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//TextInputField/preferredSize"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//TextInputField/maxSize"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//TextInputField/width"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//TextInputField/maxCharacters"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//TextInputField/vocabularyURL"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//TextInputField/allowFreeText"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//TextInputField/validValues"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//TextInputField/rows"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//TextInputField/type"/>
     </genClasses>
     <genClasses image="false" ecoreClass="crosswalk.ecore#//ContextProvider">
       <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
@@ -163,6 +173,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//Form/emailDepositNoticeTo"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//Form/depositContainerId"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//Form/authorizedGroups"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//Form/reviewBeforePublication"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//Form/promptForMultipleSubmissions"/>
     </genClasses>
     <genClasses image="false" ecoreClass="crosswalk.ecore#//FormElement"/>
     <genClasses ecoreClass="crosswalk.ecore#//Paragraph">
@@ -171,9 +183,6 @@
     </genClasses>
     <genClasses ecoreClass="crosswalk.ecore#//DateInputField">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//DateInputField/datePrecision"/>
-    </genClasses>
-    <genClasses ecoreClass="crosswalk.ecore#//MultiLineTextInputField">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//MultiLineTextInputField/maxSize"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

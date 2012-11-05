@@ -552,29 +552,6 @@ public class CrosswalkItemProviderAdapterFactory extends CrosswalkAdapterFactory
 	}
 
 								/**
-	 * This keeps track of the one adapter used for all {@link crosswalk.MultiLineTextInputField} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected MultiLineTextInputFieldItemProvider multiLineTextInputFieldItemProvider;
-
-								/**
-	 * This creates an adapter for a {@link crosswalk.MultiLineTextInputField}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createMultiLineTextInputFieldAdapter() {
-		if (multiLineTextInputFieldItemProvider == null) {
-			multiLineTextInputFieldItemProvider = new MultiLineTextInputFieldItemProvider(this);
-		}
-
-		return multiLineTextInputFieldItemProvider;
-	}
-
-								/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->

@@ -6,15 +6,18 @@
  */
 package crosswalk.impl;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
+
 import crosswalk.CrosswalkPackage;
+import crosswalk.FieldWidth;
 import crosswalk.TextInputField;
-import java.util.Collection;
+import crosswalk.TextInputType;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,12 +26,12 @@ import java.util.Collection;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link crosswalk.impl.TextInputFieldImpl#getPreferredSize <em>Preferred Size</em>}</li>
- *   <li>{@link crosswalk.impl.TextInputFieldImpl#getMaxSize <em>Max Size</em>}</li>
+ *   <li>{@link crosswalk.impl.TextInputFieldImpl#getWidth <em>Width</em>}</li>
+ *   <li>{@link crosswalk.impl.TextInputFieldImpl#getMaxCharacters <em>Max Characters</em>}</li>
  *   <li>{@link crosswalk.impl.TextInputFieldImpl#getVocabularyURL <em>Vocabulary URL</em>}</li>
  *   <li>{@link crosswalk.impl.TextInputFieldImpl#isAllowFreeText <em>Allow Free Text</em>}</li>
  *   <li>{@link crosswalk.impl.TextInputFieldImpl#getValidValues <em>Valid Values</em>}</li>
- *   <li>{@link crosswalk.impl.TextInputFieldImpl#getRows <em>Rows</em>}</li>
+ *   <li>{@link crosswalk.impl.TextInputFieldImpl#getType <em>Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -36,44 +39,53 @@ import java.util.Collection;
  */
 public class TextInputFieldImpl extends InputFieldImpl<String> implements TextInputField {
 	/**
-	 * The default value of the '{@link #getPreferredSize() <em>Preferred Size</em>}' attribute.
+	 * The default value of the '{@link #getWidth() <em>Width</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPreferredSize()
+	 * @see #getWidth()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int PREFERRED_SIZE_EDEFAULT = 40;
+	protected static final FieldWidth WIDTH_EDEFAULT = FieldWidth.NORMAL;
 
 	/**
-	 * The cached value of the '{@link #getPreferredSize() <em>Preferred Size</em>}' attribute.
+	 * The cached value of the '{@link #getWidth() <em>Width</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPreferredSize()
+	 * @see #getWidth()
 	 * @generated
 	 * @ordered
 	 */
-	protected int preferredSize = PREFERRED_SIZE_EDEFAULT;
+	protected FieldWidth width = WIDTH_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getMaxSize() <em>Max Size</em>}' attribute.
+	 * The default value of the '{@link #getMaxCharacters() <em>Max Characters</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getMaxSize()
+	 * @see #getMaxCharacters()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int MAX_SIZE_EDEFAULT = 256;
+	protected static final Integer MAX_CHARACTERS_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getMaxSize() <em>Max Size</em>}' attribute.
+	 * The cached value of the '{@link #getMaxCharacters() <em>Max Characters</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getMaxSize()
+	 * @see #getMaxCharacters()
 	 * @generated
 	 * @ordered
 	 */
-	protected int maxSize = MAX_SIZE_EDEFAULT;
+	protected Integer maxCharacters = MAX_CHARACTERS_EDEFAULT;
+
+	/**
+	 * This is true if the Max Characters attribute has been set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean maxCharactersESet;
 
 	/**
 	 * The default value of the '{@link #getVocabularyURL() <em>Vocabulary URL</em>}' attribute.
@@ -135,24 +147,24 @@ public class TextInputFieldImpl extends InputFieldImpl<String> implements TextIn
 	protected EList<String> validValues;
 
 	/**
-	 * The default value of the '{@link #getRows() <em>Rows</em>}' attribute.
+	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRows()
+	 * @see #getType()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int ROWS_EDEFAULT = 1;
+	protected static final TextInputType TYPE_EDEFAULT = TextInputType.SINGLE_LINE;
 
 	/**
-	 * The cached value of the '{@link #getRows() <em>Rows</em>}' attribute.
+	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRows()
+	 * @see #getType()
 	 * @generated
 	 * @ordered
 	 */
-	protected int rows = ROWS_EDEFAULT;
+	protected TextInputType type = TYPE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -178,8 +190,8 @@ public class TextInputFieldImpl extends InputFieldImpl<String> implements TextIn
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getPreferredSize() {
-		return preferredSize;
+	public FieldWidth getWidth() {
+		return width;
 	}
 
 	/**
@@ -187,11 +199,11 @@ public class TextInputFieldImpl extends InputFieldImpl<String> implements TextIn
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPreferredSize(int newPreferredSize) {
-		int oldPreferredSize = preferredSize;
-		preferredSize = newPreferredSize;
+	public void setWidth(FieldWidth newWidth) {
+		FieldWidth oldWidth = width;
+		width = newWidth == null ? WIDTH_EDEFAULT : newWidth;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.TEXT_INPUT_FIELD__PREFERRED_SIZE, oldPreferredSize, preferredSize));
+			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.TEXT_INPUT_FIELD__WIDTH, oldWidth, width));
 	}
 
 	/**
@@ -199,8 +211,8 @@ public class TextInputFieldImpl extends InputFieldImpl<String> implements TextIn
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getMaxSize() {
-		return maxSize;
+	public Integer getMaxCharacters() {
+		return maxCharacters;
 	}
 
 	/**
@@ -208,11 +220,36 @@ public class TextInputFieldImpl extends InputFieldImpl<String> implements TextIn
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setMaxSize(int newMaxSize) {
-		int oldMaxSize = maxSize;
-		maxSize = newMaxSize;
+	public void setMaxCharacters(Integer newMaxCharacters) {
+		Integer oldMaxCharacters = maxCharacters;
+		maxCharacters = newMaxCharacters;
+		boolean oldMaxCharactersESet = maxCharactersESet;
+		maxCharactersESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.TEXT_INPUT_FIELD__MAX_SIZE, oldMaxSize, maxSize));
+			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.TEXT_INPUT_FIELD__MAX_CHARACTERS, oldMaxCharacters, maxCharacters, !oldMaxCharactersESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void unsetMaxCharacters() {
+		Integer oldMaxCharacters = maxCharacters;
+		boolean oldMaxCharactersESet = maxCharactersESet;
+		maxCharacters = MAX_CHARACTERS_EDEFAULT;
+		maxCharactersESet = false;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CrosswalkPackage.TEXT_INPUT_FIELD__MAX_CHARACTERS, oldMaxCharacters, MAX_CHARACTERS_EDEFAULT, oldMaxCharactersESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSetMaxCharacters() {
+		return maxCharactersESet;
 	}
 
 	/**
@@ -299,8 +336,8 @@ public class TextInputFieldImpl extends InputFieldImpl<String> implements TextIn
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getRows() {
-		return rows;
+	public TextInputType getType() {
+		return type;
 	}
 
 	/**
@@ -308,11 +345,11 @@ public class TextInputFieldImpl extends InputFieldImpl<String> implements TextIn
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRows(int newRows) {
-		int oldRows = rows;
-		rows = newRows;
+	public void setType(TextInputType newType) {
+		TextInputType oldType = type;
+		type = newType == null ? TYPE_EDEFAULT : newType;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.TEXT_INPUT_FIELD__ROWS, oldRows, rows));
+			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.TEXT_INPUT_FIELD__TYPE, oldType, type));
 	}
 
 	/**
@@ -323,18 +360,18 @@ public class TextInputFieldImpl extends InputFieldImpl<String> implements TextIn
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CrosswalkPackage.TEXT_INPUT_FIELD__PREFERRED_SIZE:
-				return getPreferredSize();
-			case CrosswalkPackage.TEXT_INPUT_FIELD__MAX_SIZE:
-				return getMaxSize();
+			case CrosswalkPackage.TEXT_INPUT_FIELD__WIDTH:
+				return getWidth();
+			case CrosswalkPackage.TEXT_INPUT_FIELD__MAX_CHARACTERS:
+				return getMaxCharacters();
 			case CrosswalkPackage.TEXT_INPUT_FIELD__VOCABULARY_URL:
 				return getVocabularyURL();
 			case CrosswalkPackage.TEXT_INPUT_FIELD__ALLOW_FREE_TEXT:
 				return isAllowFreeText();
 			case CrosswalkPackage.TEXT_INPUT_FIELD__VALID_VALUES:
 				return getValidValues();
-			case CrosswalkPackage.TEXT_INPUT_FIELD__ROWS:
-				return getRows();
+			case CrosswalkPackage.TEXT_INPUT_FIELD__TYPE:
+				return getType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -348,11 +385,11 @@ public class TextInputFieldImpl extends InputFieldImpl<String> implements TextIn
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CrosswalkPackage.TEXT_INPUT_FIELD__PREFERRED_SIZE:
-				setPreferredSize((Integer)newValue);
+			case CrosswalkPackage.TEXT_INPUT_FIELD__WIDTH:
+				setWidth((FieldWidth)newValue);
 				return;
-			case CrosswalkPackage.TEXT_INPUT_FIELD__MAX_SIZE:
-				setMaxSize((Integer)newValue);
+			case CrosswalkPackage.TEXT_INPUT_FIELD__MAX_CHARACTERS:
+				setMaxCharacters((Integer)newValue);
 				return;
 			case CrosswalkPackage.TEXT_INPUT_FIELD__VOCABULARY_URL:
 				setVocabularyURL((String)newValue);
@@ -364,8 +401,8 @@ public class TextInputFieldImpl extends InputFieldImpl<String> implements TextIn
 				getValidValues().clear();
 				getValidValues().addAll((Collection<? extends String>)newValue);
 				return;
-			case CrosswalkPackage.TEXT_INPUT_FIELD__ROWS:
-				setRows((Integer)newValue);
+			case CrosswalkPackage.TEXT_INPUT_FIELD__TYPE:
+				setType((TextInputType)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -379,11 +416,11 @@ public class TextInputFieldImpl extends InputFieldImpl<String> implements TextIn
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CrosswalkPackage.TEXT_INPUT_FIELD__PREFERRED_SIZE:
-				setPreferredSize(PREFERRED_SIZE_EDEFAULT);
+			case CrosswalkPackage.TEXT_INPUT_FIELD__WIDTH:
+				setWidth(WIDTH_EDEFAULT);
 				return;
-			case CrosswalkPackage.TEXT_INPUT_FIELD__MAX_SIZE:
-				setMaxSize(MAX_SIZE_EDEFAULT);
+			case CrosswalkPackage.TEXT_INPUT_FIELD__MAX_CHARACTERS:
+				unsetMaxCharacters();
 				return;
 			case CrosswalkPackage.TEXT_INPUT_FIELD__VOCABULARY_URL:
 				unsetVocabularyURL();
@@ -394,8 +431,8 @@ public class TextInputFieldImpl extends InputFieldImpl<String> implements TextIn
 			case CrosswalkPackage.TEXT_INPUT_FIELD__VALID_VALUES:
 				getValidValues().clear();
 				return;
-			case CrosswalkPackage.TEXT_INPUT_FIELD__ROWS:
-				setRows(ROWS_EDEFAULT);
+			case CrosswalkPackage.TEXT_INPUT_FIELD__TYPE:
+				setType(TYPE_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -409,18 +446,18 @@ public class TextInputFieldImpl extends InputFieldImpl<String> implements TextIn
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CrosswalkPackage.TEXT_INPUT_FIELD__PREFERRED_SIZE:
-				return preferredSize != PREFERRED_SIZE_EDEFAULT;
-			case CrosswalkPackage.TEXT_INPUT_FIELD__MAX_SIZE:
-				return maxSize != MAX_SIZE_EDEFAULT;
+			case CrosswalkPackage.TEXT_INPUT_FIELD__WIDTH:
+				return width != WIDTH_EDEFAULT;
+			case CrosswalkPackage.TEXT_INPUT_FIELD__MAX_CHARACTERS:
+				return isSetMaxCharacters();
 			case CrosswalkPackage.TEXT_INPUT_FIELD__VOCABULARY_URL:
 				return isSetVocabularyURL();
 			case CrosswalkPackage.TEXT_INPUT_FIELD__ALLOW_FREE_TEXT:
 				return allowFreeText != ALLOW_FREE_TEXT_EDEFAULT;
 			case CrosswalkPackage.TEXT_INPUT_FIELD__VALID_VALUES:
 				return validValues != null && !validValues.isEmpty();
-			case CrosswalkPackage.TEXT_INPUT_FIELD__ROWS:
-				return rows != ROWS_EDEFAULT;
+			case CrosswalkPackage.TEXT_INPUT_FIELD__TYPE:
+				return type != TYPE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -435,18 +472,18 @@ public class TextInputFieldImpl extends InputFieldImpl<String> implements TextIn
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (preferredSize: ");
-		result.append(preferredSize);
-		result.append(", maxSize: ");
-		result.append(maxSize);
+		result.append(" (width: ");
+		result.append(width);
+		result.append(", maxCharacters: ");
+		if (maxCharactersESet) result.append(maxCharacters); else result.append("<unset>");
 		result.append(", vocabularyURL: ");
 		if (vocabularyURLESet) result.append(vocabularyURL); else result.append("<unset>");
 		result.append(", allowFreeText: ");
 		result.append(allowFreeText);
 		result.append(", validValues: ");
 		result.append(validValues);
-		result.append(", rows: ");
-		result.append(rows);
+		result.append(", type: ");
+		result.append(type);
 		result.append(')');
 		return result.toString();
 	}

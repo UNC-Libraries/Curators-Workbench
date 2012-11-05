@@ -108,7 +108,7 @@ public class SwordDepositHandler implements DepositHandler {
 	 */
 	@Override
 	public DepositResult deposit(String containerId, String modsXml, String title, File depositData, String fileMimetype) {
-		if(containerId == null) containerId = this.getDefaultContainer();
+		if(containerId == null || "".equals(containerId.trim())) containerId = this.getDefaultContainer();
 		Abdera abdera = Abdera.getInstance();
 		Factory factory = abdera.getFactory();
 		Entry entry = factory.newEntry();

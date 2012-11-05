@@ -36,17 +36,18 @@ import crosswalk.CurrentUsername;
 import crosswalk.DataException;
 import crosswalk.DataField;
 import crosswalk.DateInputField;
+import crosswalk.DatePrecision;
 import crosswalk.DateRecognizer;
 import crosswalk.DateToISO8601StringConversion;
 import crosswalk.DelimitedFile;
 import crosswalk.Dictionary;
 import crosswalk.EditingContainer;
+import crosswalk.FieldWidth;
 import crosswalk.Form;
 import crosswalk.InputField;
 import crosswalk.MappedAttribute;
 import crosswalk.MappedElement;
 import crosswalk.MetadataBlock;
-import crosswalk.MultiLineTextInputField;
 import crosswalk.OriginalNameRecordMatcher;
 import crosswalk.Paragraph;
 import crosswalk.RecordMatches;
@@ -54,6 +55,7 @@ import crosswalk.RecordOutOfRangeException;
 import crosswalk.TabbedDataField;
 import crosswalk.Text;
 import crosswalk.TextInputField;
+import crosswalk.TextInputType;
 import crosswalk.TrimWhitespace;
 
 /**
@@ -120,7 +122,6 @@ public class CrosswalkFactoryImpl extends EFactoryImpl implements CrosswalkFacto
 			case CrosswalkPackage.FORM: return createForm();
 			case CrosswalkPackage.PARAGRAPH: return createParagraph();
 			case CrosswalkPackage.DATE_INPUT_FIELD: return createDateInputField();
-			case CrosswalkPackage.MULTI_LINE_TEXT_INPUT_FIELD: return createMultiLineTextInputField();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -135,6 +136,10 @@ public class CrosswalkFactoryImpl extends EFactoryImpl implements CrosswalkFacto
 		switch (eDataType.getClassifierID()) {
 			case CrosswalkPackage.DATE_PRECISION:
 				return createDatePrecisionFromString(eDataType, initialValue);
+			case CrosswalkPackage.FIELD_WIDTH:
+				return createFieldWidthFromString(eDataType, initialValue);
+			case CrosswalkPackage.TEXT_INPUT_TYPE:
+				return createTextInputTypeFromString(eDataType, initialValue);
 			case CrosswalkPackage.DATA_EXCEPTION:
 				return createDataExceptionFromString(eDataType, initialValue);
 			case CrosswalkPackage.RECORD_MATCHES:
@@ -161,6 +166,10 @@ public class CrosswalkFactoryImpl extends EFactoryImpl implements CrosswalkFacto
 		switch (eDataType.getClassifierID()) {
 			case CrosswalkPackage.DATE_PRECISION:
 				return convertDatePrecisionToString(eDataType, instanceValue);
+			case CrosswalkPackage.FIELD_WIDTH:
+				return convertFieldWidthToString(eDataType, instanceValue);
+			case CrosswalkPackage.TEXT_INPUT_TYPE:
+				return convertTextInputTypeToString(eDataType, instanceValue);
 			case CrosswalkPackage.DATA_EXCEPTION:
 				return convertDataExceptionToString(eDataType, instanceValue);
 			case CrosswalkPackage.RECORD_MATCHES:
@@ -390,16 +399,6 @@ public class CrosswalkFactoryImpl extends EFactoryImpl implements CrosswalkFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MultiLineTextInputField createMultiLineTextInputField() {
-		MultiLineTextInputFieldImpl multiLineTextInputField = new MultiLineTextInputFieldImpl();
-		return multiLineTextInputField;
-	}
-
-/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public DatePrecision createDatePrecisionFromString(EDataType eDataType, String initialValue) {
 		DatePrecision result = DatePrecision.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -412,6 +411,46 @@ public class CrosswalkFactoryImpl extends EFactoryImpl implements CrosswalkFacto
 	 * @generated
 	 */
 	public String convertDatePrecisionToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FieldWidth createFieldWidthFromString(EDataType eDataType, String initialValue) {
+		FieldWidth result = FieldWidth.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertFieldWidthToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TextInputType createTextInputTypeFromString(EDataType eDataType, String initialValue) {
+		TextInputType result = TextInputType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertTextInputTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

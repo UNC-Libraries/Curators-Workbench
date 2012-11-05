@@ -224,15 +224,6 @@ public interface CrosswalkFactory extends EFactory {
 	DateInputField createDateInputField();
 
 								/**
-	 * Returns a new object of class '<em>Multi Line Text Input Field</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Multi Line Text Input Field</em>'.
-	 * @generated
-	 */
-	MultiLineTextInputField createMultiLineTextInputField();
-
-								/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
