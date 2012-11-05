@@ -137,8 +137,8 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 			$(".ui-datepicker-month").show();
 		});
 		
-		$("textarea").expandingTextarea();
-		
+		$("textarea").expandingTextarea().css("position", "static").outerWidth();
+		$("textarea").css("position", "absolute");
 		<%
 		for (String freeTextKey: freeTextKeys) {
 			List<String> vocabList = vocabURLMap.get(freeTextKey);
@@ -155,6 +155,8 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 			out.println("]});");
 		}
 		%>
+		
+		
 	});
 </script>
 
