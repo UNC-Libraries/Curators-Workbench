@@ -94,13 +94,6 @@ for (Object element: ((FormImpl)request.getAttribute("form")).getElements()) {
 pageContext.setAttribute("vocabURLMap", vocabURLMap);
 %>
 
-<style>
-	textarea, .textareaClone {
-		min-height: 3em;
-		max-height: 20em;
-	}
-</style>
-
 <script type="text/javascript">
 	$(document).ready( function() {
 		$(".monthpicker").datepicker({
@@ -214,87 +207,107 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 						<div class="indented_block">
 							<c:forEach items="${form.elements[elementRow.index].ports}" var="port" varStatus="portRow">
 								<spring:bind path="form.elements[${elementRow.index}].ports[${portRow.index}]" ignoreNestedPath="true">
-									<div class="form_field">
-										<label><c:out value="${port.label}"/></label>
-										<% if(status.getValue() instanceof DateInputField) { %>
-										<c:choose>
-											<c:when test="${port.datePrecision.name == 'month'}">
-												<form:input cssClass="monthpicker" path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}" />
-											</c:when>
-											<c:when test="${port.datePrecision.name == 'day'}">
-												<form:input cssClass="datepicker" path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}" />
-											</c:when>
-											<c:when test="${port.datePrecision.name == 'year'}">
-												<form:select path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}">
-													<%-- Display a select of years, from 190 in the past to 10 in the future --%>
-													<c:forEach var="i" begin="0" end="200">
-														<%-- Select the year from the form bean or the current year if none is provided --%>
-														<c:choose>
-															<c:when test="${(form.elements[elementRow.index].ports[portRow.index].enteredValue != null && form.elements[elementRow.index].ports[portRow.index].enteredValue.year == (currentYear - i + 10 - 1900))  
-																	|| (form.elements[elementRow.index].ports[portRow.index].enteredValue == null && i == 10)}">
-																<form:option value="${currentYear - i + 10}" selected="true"/>
-															</c:when>
-															<c:otherwise>
-																<form:option value="${currentYear - i + 10}"/>
-															</c:otherwise>
-														</c:choose>
-													</c:forEach>
-												</form:select>
-											</c:when>
-										</c:choose>
-										<% } else if(status.getValue() instanceof TextInputField) { %>
-										<c:choose>
-											<c:when test="${port.rows <= 1}">
-												<c:choose>
-													<c:when test="${port.vocabularyURL != null}">
-														<c:choose>
-															<c:when test="${port.allowFreeText}">
-																<c:choose>
-																	<c:when test="${port.validValues == null || port.validValues.size() == 0}">
-																		<form:input path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}" maxlength="${port.maxSize}" size="${port.preferredSize}" cssClass="cv_${port.vocabularyURL.hashCode()}"/>
-																	</c:when>
-																	<c:otherwise>
-																		<form:input path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}" maxlength="${port.maxSize}" size="${port.preferredSize}" cssClass="cv_${port.vocabularyURL.hashCode()}_elements${elementRow.index}.ports${portRow.index}.enteredValue"/>
-																	</c:otherwise>
-																</c:choose>
-															</c:when>
-															<c:otherwise>
-																<form:select path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}">
-																	<form:options items="${vocabURLMap[port.vocabularyURL.hashCode().toString()]}"/>
-																	<form:options items="${port.validValues}"/>
-																</form:select>
-															</c:otherwise>
-														</c:choose>
-													</c:when>											
-													<c:otherwise>
-														<c:choose>
-															<c:when test="${port.validValues == null || port.validValues.size() == 0}">
-																<form:input path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}" maxlength="${port.maxSize}" size="${port.preferredSize}" />
-															</c:when>
-															<c:otherwise>
-																<form:select path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}">
-																	<form:options items="${port.validValues}"/>
-																</form:select>
-															</c:otherwise>
-														</c:choose>
-													
-														
-													</c:otherwise>
-												</c:choose>
-											</c:when>
-											<c:otherwise>
-												<form:textarea path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}" rows="${port.rows}" cols="${port.preferredSize}" maxlength="${port.maxSize}"/>
-											</c:otherwise>
-										</c:choose>
-										
-										
-										<% } else { %>
-										<form:input path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}" />
-										<% } %>
-										<c:if test="${port.required}"><span class="red">*</span></c:if>
-										<form:errors cssClass="red" path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" />
-										<br/>
-									</div>
+									<% if(status.getValue() instanceof DateInputField) { %>
+										<div class="form_field">
+											<label><c:out value="${port.label}"/></label>
+											<c:choose>
+												<c:when test="${port.datePrecision.name == 'month'}">
+													<form:input cssClass="monthpicker" path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}" />
+												</c:when>
+												<c:when test="${port.datePrecision.name == 'day'}">
+													<form:input cssClass="datepicker" path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}" />
+												</c:when>
+												<c:when test="${port.datePrecision.name == 'year'}">
+													<form:select path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}">
+														<%-- Display a select of years, from 190 in the past to 10 in the future --%>
+														<c:forEach var="i" begin="0" end="200">
+															<%-- Select the year from the form bean or the current year if none is provided --%>
+															<c:choose>
+																<c:when test="${(form.elements[elementRow.index].ports[portRow.index].enteredValue != null && form.elements[elementRow.index].ports[portRow.index].enteredValue.year == (currentYear - i + 10 - 1900))  
+																		|| (form.elements[elementRow.index].ports[portRow.index].enteredValue == null && i == 10)}">
+																	<form:option value="${currentYear - i + 10}" selected="true"/>
+																</c:when>
+																<c:otherwise>
+																	<form:option value="${currentYear - i + 10}"/>
+																</c:otherwise>
+															</c:choose>
+														</c:forEach>
+													</form:select>
+												</c:when>
+											</c:choose>
+											<c:if test="${port.required}"><span class="red">*</span></c:if>
+											<form:errors cssClass="red" path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" />
+											<br/>
+										</div>
+									<% } else if(status.getValue() instanceof TextInputField) { %>
+										<div class="form_field width_${port.width.name}">
+											<label><c:out value="${port.label}"/></label>
+											<c:if test="${port.width.name == 'FullLine' && port.type.name != 'MultipleLines'}">
+												<br/>
+											</c:if>
+											<c:choose>
+												<c:when test="${port.type.name == 'MultipleLines'}">
+													<div class="multi_notes">
+														<c:if test="${port.required}"><span class="red">*</span></c:if>
+														<form:errors cssClass="red" path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" />
+													</div>
+													<c:if test="${port.width.name == 'FullLine'}">
+														<br/>
+													</c:if>													
+													<c:choose>
+														<c:when test="${port.maxCharacters != null}">
+															<form:textarea path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}" maxlength="${port.maxCharacters}"/>
+														</c:when>
+														<c:otherwise>
+															<form:textarea path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}"/>
+														</c:otherwise>
+													</c:choose>
+													<br/>
+												</c:when>
+												<c:otherwise>
+													<c:choose>
+														<c:when test="${port.vocabularyURL != null}">
+															<c:choose>
+																<c:when test="${port.allowFreeText}">
+																	<c:choose>
+																		<c:when test="${port.validValues == null || port.validValues.size() == 0}">
+																			<form:input path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}" maxlength="${port.maxCharacters}" cssClass="cv_${port.vocabularyURL.hashCode()}"/>
+																		</c:when>
+																		<c:otherwise>
+																			<form:input path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}" maxlength="${port.maxCharacters}" cssClass="cv_${port.vocabularyURL.hashCode()}_elements${elementRow.index}.ports${portRow.index}.enteredValue"/>
+																		</c:otherwise>
+																	</c:choose>
+																</c:when>
+																<c:otherwise>
+																	<form:select path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}">
+																		<form:options items="${vocabURLMap[port.vocabularyURL.hashCode().toString()]}"/>
+																		<form:options items="${port.validValues}"/>
+																	</form:select>
+																</c:otherwise>
+															</c:choose>
+														</c:when>											
+														<c:otherwise>
+															<c:choose>
+																<c:when test="${port.validValues == null || port.validValues.size() == 0}">
+																	<form:input path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}" maxlength="${port.maxCharacters}"/>
+																</c:when>
+																<c:otherwise>
+																	<form:select path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}">
+																		<form:options items="${port.validValues}"/>
+																	</form:select>
+																</c:otherwise>
+															</c:choose>
+														</c:otherwise>
+													</c:choose>
+													<c:if test="${port.required}"><span class="red">*</span></c:if>
+													<form:errors cssClass="red" path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" />
+													<br/>
+												</c:otherwise>
+											</c:choose>
+										</div>
+									<% } else { %>
+									<form:input path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}" />
+									<% } %>
 								</spring:bind>
 							</c:forEach>
 						</div>

@@ -1,8 +1,10 @@
+.form_field {
+	margin-top: 0.8em;
+}
+
 .form_field label {
-	float: left; 
-	clear: both; 
-	width: 12em; 
-	height: 2em; 
+	float: left;
+	width: 12em;
 	text-align: right; 
 	vertical-align: baseline; 
 	margin-right: 1em;
@@ -10,6 +12,7 @@
 
 .form_field br {
 	clear: both;
+	display: block;
 }
 
 .file_field input {
@@ -31,6 +34,57 @@
 .submit_container {
 	text-align: center;
 	margin: 2em;
+}
+
+.form_field.width_Short input, .form_field.width_Short textarea, .form_field.width_Short select {
+	width: 100px;
+}
+
+.form_field.width_Normal input, .form_field.width_Normal textarea, .form_field.width_Normal select {
+	width: 350px;
+}
+
+.form_field.width_Long input, .form_field.width_Long textarea, .form_field.width_Long select {
+	width: 610px;
+}
+
+.form_field.width_FullLine label {
+	text-align: left;
+	width: auto;
+	margin-bottom: 0.5em;
+}
+.form_field.width_FullLine input, .form_field.width_FullLine textarea, .form_field.width_FullLine select {
+	width: 100%;
+}
+
+.form_field.width_FullLine .multi_notes {
+	float: left;
+}
+
+.form_field.width_Short .multi_notes {
+	float: left;
+	left: 107px;
+	position: relative;
+	width: 0;
+}
+
+.form_field.width_Normal .multi_notes {
+	float: left;
+	left: 307px;
+	position: relative;
+	width: 0;
+}
+
+.form_field.width_Long .multi_notes {
+	float: left;
+	left: 617px;
+	position: relative;
+	width: 0;
+}
+
+textarea, .textareaClone {
+	min-height: 4em;
+	max-height: 25em;
 }
 
 #ui-datepicker-div {
