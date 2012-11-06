@@ -23,8 +23,23 @@
 	color: red;
 }
 
+p {
+	margin-left: 1em;
+	margin-bottom: 0;
+}
+
+h2 {
+	 color: #335;
+	 font-weight: bold;
+	 border-bottom: 1px dotted #A0D0D0;
+}
+
 .indented_block {
 	margin: 0em 2em;
+}
+
+.metadata_block {
+	margin-top: 1em;
 }
 
 .metadata_block h3 {
@@ -70,7 +85,7 @@
 
 .form_field.width_Normal .multi_notes {
 	float: left;
-	left: 307px;
+	left: 357px;
 	position: relative;
 	width: 0;
 }

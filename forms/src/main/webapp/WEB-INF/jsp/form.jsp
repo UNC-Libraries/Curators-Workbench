@@ -200,7 +200,7 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 			<% } else if(MetadataBlock.class.isInstance(status.getValue())) { 
 					MetadataBlock mb = (MetadataBlock)status.getValue(); %>
 					<div class="metadata_block">
-						<br/><h3><%= ((MetadataBlock)status.getValue()).getName() %></h3>
+						<h3><%= ((MetadataBlock)status.getValue()).getName() %></h3>
 						<% if(mb.getDescription() != null && ((MetadataBlock)status.getValue()).getDescription().length() > 0) { %>
 						<p><%= ((MetadataBlock)status.getValue()).getDescription() %></p>
 						<% } %>
@@ -318,7 +318,7 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 	<br/><h3>File for Deposit</h3>
 	<div class="indented_block">
 		<div class="form_field file_field">
-			<label></label><input name="file" type="file" size="40"/> <span class="red">*</span>
+			<label>&nbsp;</label><input name="file" type="file" size="40"/> <span class="red">*</span>
 		</div>
 	</div>
 	<div class="submit_container">
