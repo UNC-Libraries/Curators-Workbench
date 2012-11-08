@@ -15,10 +15,11 @@
     limitations under the License.
 
 --%>
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" session="true"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page import="crosswalk.*" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" session="true"%>
+<%@ page import="crosswalk.*"%>
 <%@ page import="java.util.*"%>
 <%@ page import="crosswalk.impl.*"%>
 <%@ page import="java.net.URL"%>
@@ -28,13 +29,15 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" type="text/css" href="/static/css/reset.css" />
-<link type="text/css" href="/static/css/jquery-ui.css" rel="stylesheet" />
+<link type="text/css" href="css/jquery-ui.css" rel="stylesheet" />
 <link rel="stylesheet" type="text/css" href="/static/css/cdrui_styles.css" />
+<link rel="stylesheet" type="text/css" href="css/jquery.qtip.min.css" />
 <link rel="stylesheet" type="text/css" href="css/cdr_forms.css" />
 
 <script type="text/javascript" src="js/jquery.js"></script> 
 <script type="text/javascript" src="js/jquery-ui.min.js"></script>
-<script type="text/javascript" src="js/expanding.js"></script>  
+<script type="text/javascript" src="js/expanding.js"></script>
+<script type="text/javascript" src="js/jquery.qtip.min.js"></script>  
 
 <%
 int year = Calendar.getInstance().get(Calendar.YEAR);
@@ -112,7 +115,7 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 		}).focus(function () {
 			console.log("monthpicker focus");
 			$(".ui-datepicker-calendar").hide();
-		});
+		}).attr("readonly", true);
 		
 		$(".datepicker").datepicker({
 			changeMonth: true,
@@ -129,6 +132,8 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 			$(".ui-datepicker-calendar").show();
 			$(".ui-datepicker-month").show();
 		});
+		
+		$("a[title]").qtip();
 		
 		$("textarea").expandingTextarea().css("position", "static").outerWidth();
 		$("textarea").css("position", "absolute");
@@ -186,7 +191,7 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 <h2><c:out value="${form.title}"/></h2>
 <spring:hasBindErrors name="form"><span class="red"><%= errors.getFieldError("file") == null ? "" : errors.getFieldError("file").getDefaultMessage() %></span><br/><br/></spring:hasBindErrors>
 <p><c:out value="${form.description}"/></p>
-<form:form modelAttribute="form" enctype="multipart/form-data">
+<form:form modelAttribute="form" enctype="multipart/form-data" acceptCharset="UTF-8">
 	<c:forEach items="${form.elements}" varStatus="elementRow">
 		<spring:bind path="form.elements[${elementRow.index}]" ignoreNestedPath="true">
 			<% if(Paragraph.class.isInstance(status.getValue())) { 
@@ -209,7 +214,7 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 								<spring:bind path="form.elements[${elementRow.index}].ports[${portRow.index}]" ignoreNestedPath="true">
 									<% if(status.getValue() instanceof DateInputField) { %>
 										<div class="form_field">
-											<label><c:out value="${port.label}"/></label>
+											<label><c:if test="${not empty port.usage}"><a title="${port.usage}">(i)</a>&nbsp;</c:if><c:out value="${port.label}"/></label>
 											<c:choose>
 												<c:when test="${port.datePrecision.name == 'month'}">
 													<form:input cssClass="monthpicker" path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}" />
@@ -241,7 +246,7 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 										</div>
 									<% } else if(status.getValue() instanceof TextInputField) { %>
 										<div class="form_field width_${port.width.name}">
-											<label><c:out value="${port.label}"/></label>
+											<label><c:if test="${not empty port.usage}"><a title="${port.usage}">(i)</a>&nbsp;</c:if><c:out value="${port.label}"/></label>
 											<c:if test="${port.width.name == 'FullLine' && port.type.name != 'MultipleLines'}">
 												<br/>
 											</c:if>
@@ -256,10 +261,10 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 													</c:if>													
 													<c:choose>
 														<c:when test="${port.maxCharacters != null}">
-															<form:textarea path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}" maxlength="${port.maxCharacters}"/>
+															<form:textarea path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}" placeholder="${port.usage}" maxlength="${port.maxCharacters}"/>
 														</c:when>
 														<c:otherwise>
-															<form:textarea path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}"/>
+															<form:textarea path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}" placeholder="${port.usage}"/>
 														</c:otherwise>
 													</c:choose>
 													<br/>
@@ -271,10 +276,10 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 																<c:when test="${port.allowFreeText}">
 																	<c:choose>
 																		<c:when test="${port.validValues == null || port.validValues.size() == 0}">
-																			<form:input path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}" maxlength="${port.maxCharacters}" cssClass="cv_${port.vocabularyURL.hashCode()}"/>
+																			<form:input path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}" placeholder="${port.usage}" maxlength="${port.maxCharacters}" cssClass="cv_${port.vocabularyURL.hashCode()}"/>
 																		</c:when>
 																		<c:otherwise>
-																			<form:input path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}" maxlength="${port.maxCharacters}" cssClass="cv_${port.vocabularyURL.hashCode()}_elements${elementRow.index}.ports${portRow.index}.enteredValue"/>
+																			<form:input path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}" placeholder="${port.usage}" maxlength="${port.maxCharacters}" cssClass="cv_${port.vocabularyURL.hashCode()}_elements${elementRow.index}.ports${portRow.index}.enteredValue"/>
 																		</c:otherwise>
 																	</c:choose>
 																</c:when>
@@ -289,7 +294,7 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 														<c:otherwise>
 															<c:choose>
 																<c:when test="${port.validValues == null || port.validValues.size() == 0}">
-																	<form:input path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}" maxlength="${port.maxCharacters}"/>
+																	<form:input path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}" placeholder="${port.usage}" maxlength="${port.maxCharacters}"/>
 																</c:when>
 																<c:otherwise>
 																	<form:select path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}">
