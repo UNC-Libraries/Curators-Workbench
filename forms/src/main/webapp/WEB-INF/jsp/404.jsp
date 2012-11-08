@@ -24,12 +24,6 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" type="text/css" href="/static/css/reset.css" />
 <link rel="stylesheet" type="text/css" href="/static/css/cdrui_styles.css" />
-
-<link type="text/css" href="/cdradmin/css/jquery/ui/jquery-ui.css" rel="stylesheet" />
-
-<script type="text/javascript" src="/cdradmin/js/jquery/jquery.min.js"></script> 
-<script type="text/javascript" src="/cdradmin/js/jquery/ui/jquery-ui.min.js"></script> 
-
 <!--[if IE 8]>
 	<link rel="stylesheet" type="text/css" href="/static/css/cdrui_styles_ie8.css" />
 <![endif]-->
@@ -37,7 +31,7 @@
 <meta name="keywords" content="Carolina Digital Repository, deposit" />
 <meta name="robots" content="index, nofollow" />
 <link rel="shortcut icon" href="/static/images/favicon.ico" type="image/x-icon" />
-<title><c:out value="${form.title}"/></title>
+<title>Form Not Found</title>
 </head>
 <body>
 <div id="pagewrap">
@@ -58,16 +52,8 @@
 		</div>
 		<div id="content">
 			<div class="contentarea">
-<h2><c:out value="${form.title}"/></h2>
-<p><c:out value="${form.description}"/></p>
-<h3>Thank you for your deposit!</h3>
-	<c:choose>
-		<c:when test="${form.promptForMultipleSubmissions}">
-			<a href="<%= request.getAttribute("formId") %>.form">Click here to submit another deposit.</a>
-		</c:when>
-		<c:otherwise>
-		</c:otherwise>
-	</c:choose>
+<h2>Form Not Found</h2>
+<p>Sorry, the specified form cannot be found.</p>
 </div>
 </div>
 <div id="footer" class="darkest">
@@ -75,9 +61,9 @@
 		<div class="contentarea">
 			<p>
 				<a href="/">Home</a>&nbsp;|&nbsp;
-				<a href="search?types=Collection">Browse Collections</a>&nbsp;|&nbsp;
-				<a href="external?page=about.about">About</a>&nbsp;|&nbsp;
-				<a href="external?page=contact&amp;refer=https%3a%2f%2fcdr.lib.unc.edu%2f">Contact Us</a>&nbsp;|&nbsp;
+				<a href="/search?types=Collection">Browse Collections</a>&nbsp;|&nbsp;
+				<a href="/external?page=about.about">About</a>&nbsp;|&nbsp;
+				<a href="/external?page=contact&amp;refer=https%3a%2f%2fcdr.lib.unc.edu%2f">Contact Us</a>&nbsp;|&nbsp;
 				<a href="http://www.lib.unc.edu">Library Home</a>&nbsp;|&nbsp;
 				<a href="http://www.lib.unc.edu/aoffice/policies/privacy_policy.html">Privacy Policy</a>
 			</p>

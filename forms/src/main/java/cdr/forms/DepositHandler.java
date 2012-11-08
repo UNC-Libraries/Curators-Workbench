@@ -16,7 +16,8 @@
 package cdr.forms;
 
 import java.io.File;
+import java.util.Map;
 
 public interface DepositHandler {
-	DepositResult deposit(String containerPid, String modsXml, String title, File depositData, String fileMimetype);
+	DepositResult deposit(String containerPid, String modsXml, String title, File depositData, Map<String, Object> options);
 }

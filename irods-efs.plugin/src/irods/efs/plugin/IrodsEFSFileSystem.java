@@ -28,47 +28,49 @@ import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 import org.irods.jargon.core.connection.IRODSAccount;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class IrodsEFSFileSystem extends FileSystem {
+	
+	@SuppressWarnings("unused")
+	private static final Logger LOG = LoggerFactory.getLogger(IrodsEFSFileSystem.class);
+	private static Object lock = new Object();
 
 	public IrodsEFSFileSystem() {
 		super();
 	}
 
 	/*
-	 * This method retrieves FileStore objects based on the irods scheme. iRODS
-	 * URIs look like this;
-	 *
+	 * This method retrieves FileStore objects based on the irods scheme. iRODS URIs look like this;
+	 * 
 	 * irods://myUser:myPassword@myirodshost.org:1247/myDirectory/myFile
-	 *
-	 * If username and/or password are omitted, then store creation will result
-	 * in a prompt for these. The prompt will save username and password as a
-	 * preference under the URI.
-	 *
-	 * @see
-	 * org.eclipse.core.filesystem.provider.FileSystem#getStore(java.net.URI)
+	 * 
+	 * If username and/or password are omitted, then store creation will result in a prompt for these. The prompt will
+	 * save username and password as a preference under the URI.
+	 * 
+	 * @see org.eclipse.core.filesystem.provider.FileSystem#getStore(java.net.URI)
 	 */
 	@Override
 	public IFileStore getStore(URI uri) {
 		// get IRODS file store (handle only) for URI
 		try {
 			return new IrodsFileStore(uri);
-		} catch(CoreException e) {
+		} catch (CoreException e) {
 			throw new Error(e);
 		}
 	}
 
 	/**
-	 * For this base server URI, save zone, password, username, etc in
-	 * application preferences.
-	 *
+	 * For this base server URI, save zone, password, username, etc in application preferences.
+	 * 
 	 * @param a
 	 * @return the server base URI for which connection details are stored
 	 */
 	public static URI storeConnectionDetails(IRODSAccount a) {
 		try {
-			URI serverURI = new URI("irods", a.getUserName(), a.getHost(),
-					a.getPort(), "/" + a.getZone() + "/", null, null);
+			URI serverURI = new URI("irods", a.getUserName(), a.getHost(), a.getPort(), "/" + a.getZone() + "/", null,
+					null);
 			putStoredCredentials(serverURI, a.getUserName(), a.getPassword());
 			return serverURI;
 		} catch (URISyntaxException e) {
@@ -77,9 +79,9 @@ public class IrodsEFSFileSystem extends FileSystem {
 	}
 
 	/**
-	 * For this server URI, load zone, password, username, etc in application
-	 * preferences. Will prompt user if preferences have not been stored.
-	 *
+	 * For this server URI, load zone, password, username, etc in application preferences. Will prompt user if
+	 * preferences have not been stored.
+	 * 
 	 * @param uri
 	 */
 	protected static IRODSAccount getAccount(final URI uri) throws CoreException {
@@ -100,38 +102,41 @@ public class IrodsEFSFileSystem extends FileSystem {
 		}
 
 		if (credentials[0] == null || credentials[1] == null) { // prompt
-			PlatformUI.getWorkbench().getDisplay().syncExec(new Runnable() {
-				public void run() {
-					Shell s = Activator.getDefault().getWorkbench()
-							.getDisplay().getActiveShell();
-					String message = "Need a username and password to connect to iRODS.";
-					String promptName = null;
-					if (uri.getUserInfo() != null) {
-						promptName = uri.getUserInfo();
-					}
-					URI serverURI = null;
-					try {
-						serverURI = new URI(makeServerPreferenceKey(uri));
-					} catch (URISyntaxException e) {
-						throw new Error(e);
-					}
-					LoginInputDialog d = new LoginInputDialog(s, message,
-							serverURI, promptName, zone);
-					if (Dialog.OK == d.open()) {
-						putStoredCredentials(uri, d.getUsername(),
-								d.getPassword());
-					}
+			synchronized (lock) {
+				credentials = getStoredCredentials(uri);
+				LOG.info(Thread.currentThread().getId()+" in sync and got initial creds: "+credentials[1]);
+				if (credentials[0] == null || credentials[1] == null) {
+					PlatformUI.getWorkbench().getDisplay().syncExec(new Runnable() {
+						public void run() {
+							Shell s = Activator.getDefault().getWorkbench().getDisplay().getActiveShell();
+							String message = "Need a username and password to connect to iRODS.";
+							String promptName = null;
+							if (uri.getUserInfo() != null) {
+								promptName = uri.getUserInfo();
+							}
+							URI serverURI = null;
+							try {
+								serverURI = new URI(makeServerPreferenceKey(uri));
+							} catch (URISyntaxException e) {
+								throw new Error(e);
+							}
+							LoginInputDialog d = new LoginInputDialog(s, message, serverURI, promptName, zone);
+							if (Dialog.OK == d.open()) {
+								putStoredCredentials(uri, d.getUsername(), d.getPassword());
+							}
+						}
+					});
+					credentials = getStoredCredentials(uri);
+					LOG.info(Thread.currentThread().getId()+" exiting sync with creds: "+credentials[1]);
 				}
-			});
-			credentials = getStoredCredentials(uri);
+			}
 		}
 
 		if (credentials[0] == null || credentials[1] == null) {
-			throw new CoreException(new Status(IStatus.ERROR, Activator.PLUGIN_ID, "Cannot obtain credentials for irods connection: "
-					+ uri.toString()));
+			throw new CoreException(new Status(IStatus.ERROR, Activator.PLUGIN_ID,
+					"Cannot obtain credentials for irods connection: " + uri.toString()));
 		}
-		result = new IRODSAccount(uri.getHost(), uri.getPort(), credentials[0],
-				credentials[1], "", zone, "fake");
+		result = new IRODSAccount(uri.getHost(), uri.getPort(), credentials[0], credentials[1], "", zone, "fake");
 		return result;
 	}
 
@@ -141,8 +146,7 @@ public class IrodsEFSFileSystem extends FileSystem {
 			if (userName != null && userName.contains(":")) {
 				userName = userName.substring(0, userName.indexOf(":"));
 			}
-			return new URI(uri.getScheme(), userName, uri.getHost(),
-					uri.getPort(), uri.getPath(), null, null);
+			return new URI(uri.getScheme(), userName, uri.getHost(), uri.getPort(), uri.getPath(), null, null);
 		} catch (URISyntaxException e) {
 			throw new Error("Problem removing password from an iRODS URI.", e);
 		}
@@ -155,13 +159,16 @@ public class IrodsEFSFileSystem extends FileSystem {
 		IPreferenceStore store = Activator.getDefault().getPreferenceStore();
 		result[0] = store.getString(baseKey + "#username").trim();
 		result[1] = store.getString(baseKey + "#password").trim();
-		if(result[0] != null && result[0].isEmpty()) { result[0] = null; }
-		if(result[1] != null && result[1].isEmpty()) { result[1] = null; }
+		if (result[0] != null && result[0].isEmpty()) {
+			result[0] = null;
+		}
+		if (result[1] != null && result[1].isEmpty()) {
+			result[1] = null;
+		}
 		return result;
 	}
 
-	private static void putStoredCredentials(URI locationURI, String username,
-			String password) {
+	private static void putStoredCredentials(URI locationURI, String username, String password) {
 		String baseKey = makeServerPreferenceKey(locationURI);
 		IPreferenceStore store = Activator.getDefault().getPreferenceStore();
 		store.setValue(baseKey + "#username", username.trim());
@@ -184,8 +191,7 @@ public class IrodsEFSFileSystem extends FileSystem {
 		String zone = getZone(locationURI);
 		URI result = null;
 		try {
-			result = new URI("irods", userName, locationURI.getHost(),
-					locationURI.getPort(), "/" + zone + "/", null, null);
+			result = new URI("irods", userName, locationURI.getHost(), locationURI.getPort(), "/" + zone + "/", null, null);
 			return result.toString();
 		} catch (URISyntaxException e) {
 			throw new Error(e);

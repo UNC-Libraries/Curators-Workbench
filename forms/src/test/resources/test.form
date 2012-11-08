@@ -1,0 +1,615 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:walk="http://lib.unc.edu/schemas/crosswalk">
+  <walk:EditingContainer>
+    <model xsi:type="walk:Form" title="Test Form" description="This form is for testing deposit form capabilities." depositContainerId="" promptForMultipleSubmissions="true">
+      <outputType href="http://www.loc.gov/mods/v3#//ModsDefinition"/>
+      <elements xsi:type="walk:MetadataBlock" name="Vocabulary Text Input Tests">
+        <elements xsi:type="walk:MappedElement">
+          <attributes Output="/0/@model/@elements.0/@ports.0">
+            <mappedFeature href="http://www.loc.gov/mods/v3#//XsString/value"/>
+          </attributes>
+          <attributes defaultValue="no vocab">
+            <mappedFeature href="http://www.loc.gov/mods/v3#//UnstructuredTextDefinition/displayLabel"/>
+          </attributes>
+          <mappedFeature href="http://www.loc.gov/mods/v3#//ModsDefinition/note"/>
+        </elements>
+        <elements xsi:type="walk:MappedElement">
+          <attributes Output="/0/@model/@elements.0/@ports.1">
+            <mappedFeature href="http://www.loc.gov/mods/v3#//XsString/value"/>
+          </attributes>
+          <attributes defaultValue="subject vocab or free text">
+            <mappedFeature href="http://www.loc.gov/mods/v3#//UnstructuredTextDefinition/displayLabel"/>
+          </attributes>
+          <mappedFeature href="http://www.loc.gov/mods/v3#//ModsDefinition/note"/>
+        </elements>
+        <elements xsi:type="walk:MappedElement">
+          <attributes Output="/0/@model/@elements.0/@ports.2">
+            <mappedFeature href="http://www.loc.gov/mods/v3#//XsString/value"/>
+          </attributes>
+          <attributes defaultValue="degree vocab no free text">
+            <mappedFeature href="http://www.loc.gov/mods/v3#//UnstructuredTextDefinition/displayLabel"/>
+          </attributes>
+          <mappedFeature href="http://www.loc.gov/mods/v3#//ModsDefinition/note"/>
+        </elements>
+        <elements xsi:type="walk:MappedElement">
+          <attributes Output="/0/@model/@elements.0/@ports.3">
+            <mappedFeature href="http://www.loc.gov/mods/v3#//XsString/value"/>
+          </attributes>
+          <attributes defaultValue="valid values, not free text input">
+            <mappedFeature href="http://www.loc.gov/mods/v3#//UnstructuredTextDefinition/displayLabel"/>
+          </attributes>
+          <mappedFeature href="http://www.loc.gov/mods/v3#//ModsDefinition/note"/>
+        </elements>
+        <elements xsi:type="walk:MappedElement">
+          <attributes Output="/0/@model/@elements.0/@ports.4">
+            <mappedFeature href="http://www.loc.gov/mods/v3#//XsString/value"/>
+          </attributes>
+          <attributes defaultValue="valid values, vocab, not free text">
+            <mappedFeature href="http://www.loc.gov/mods/v3#//UnstructuredTextDefinition/displayLabel"/>
+          </attributes>
+          <mappedFeature href="http://www.loc.gov/mods/v3#//ModsDefinition/note"/>
+        </elements>
+        <elements xsi:type="walk:MappedElement">
+          <attributes Output="/0/@model/@elements.0/@ports.5">
+            <mappedFeature href="http://www.loc.gov/mods/v3#//XsString/value"/>
+          </attributes>
+          <attributes defaultValue="valid values, vocab, free text">
+            <mappedFeature href="http://www.loc.gov/mods/v3#//UnstructuredTextDefinition/displayLabel"/>
+          </attributes>
+          <mappedFeature href="http://www.loc.gov/mods/v3#//ModsDefinition/note"/>
+        </elements>
+        <ports xsi:type="walk:TextInputField" label="no vocab"/>
+        <ports xsi:type="walk:TextInputField" label="vocab allow free text" maxCharacters="1024" vocabularyURL="https://cdr-dev.lib.unc.edu/static/vocab/subject.txt"/>
+        <ports xsi:type="walk:TextInputField" label="vocab no free text" vocabularyURL="https://cdr-dev.lib.unc.edu/static/vocab/degree.txt" allowFreeText="false"/>
+        <ports xsi:type="walk:TextInputField" label="valid values no free" allowFreeText="false">
+          <validValues>Valid Value 1</validValues>
+          <validValues>Valid Value 2</validValues>
+          <validValues>Valid Value 3</validValues>
+        </ports>
+        <ports xsi:type="walk:TextInputField" label="valid values and vocab no free" vocabularyURL="https://cdr-dev.lib.unc.edu/static/vocab/degree.txt" allowFreeText="false">
+          <validValues>Valid Value 1</validValues>
+          <validValues>Valid Value 2</validValues>
+          <validValues>Valid Value 3</validValues>
+        </ports>
+        <ports xsi:type="walk:TextInputField" label="valid values, vocab, free, Full Line" width="FullLine" vocabularyURL="https://cdr-dev.lib.unc.edu/static/vocab/degree.txt">
+          <validValues>Valid Value 1</validValues>
+          <validValues>Valid Value 2</validValues>
+          <validValues>Valid Value 3</validValues>
+        </ports>
+      </elements>
+      <elements xsi:type="walk:MetadataBlock" name="Text Input Field Sizes and Layouts">
+        <elements xsi:type="walk:MappedElement">
+          <attributes Output="/0/@model/@elements.1/@ports.0">
+            <mappedFeature href="http://www.loc.gov/mods/v3#//XsString/value"/>
+          </attributes>
+          <attributes defaultValue="plain text input defaults">
+            <mappedFeature href="http://www.loc.gov/mods/v3#//UnstructuredTextDefinition/displayLabel"/>
+          </attributes>
+          <mappedFeature href="http://www.loc.gov/mods/v3#//ModsDefinition/note"/>
+        </elements>
+        <elements xsi:type="walk:MappedElement">
+          <attributes Output="/0/@model/@elements.1/@ports.1">
+            <mappedFeature href="http://www.loc.gov/mods/v3#//XsString/value"/>
+          </attributes>
+          <attributes defaultValue="rows:4 maxSize:50 text">
+            <mappedFeature href="http://www.loc.gov/mods/v3#//UnstructuredTextDefinition/displayLabel"/>
+          </attributes>
+          <mappedFeature href="http://www.loc.gov/mods/v3#//ModsDefinition/note"/>
+        </elements>
+        <elements xsi:type="walk:MappedElement">
+          <attributes Output="/0/@model/@elements.1/@ports.2">
+            <mappedFeature href="http://www.loc.gov/mods/v3#//XsString/value"/>
+          </attributes>
+          <attributes defaultValue="rows:1 maxSize:4000 prefSize:80">
+            <mappedFeature href="http://www.loc.gov/mods/v3#//UnstructuredTextDefinition/displayLabel"/>
+          </attributes>
+          <mappedFeature href="http://www.loc.gov/mods/v3#//ModsDefinition/note"/>
+        </elements>
+	<elements xsi:type="walk:MappedElement">
+          <attributes Output="/0/@model/@elements.1/@ports.3">
+            <mappedFeature href="http://www.loc.gov/mods/v3#//XsString/value"/>
+          </attributes>
+          <attributes defaultValue="short">
+            <mappedFeature href="http://www.loc.gov/mods/v3#//UnstructuredTextDefinition/displayLabel"/>
+          </attributes>
+          <mappedFeature href="http://www.loc.gov/mods/v3#//ModsDefinition/note"/>
+        </elements>
+	<elements xsi:type="walk:MappedElement">
+          <attributes Output="/0/@model/@elements.1/@ports.4">
+            <mappedFeature href="http://www.loc.gov/mods/v3#//XsString/value"/>
+          </attributes>
+          <attributes defaultValue="multiline fulline">
+            <mappedFeature href="http://www.loc.gov/mods/v3#//UnstructuredTextDefinition/displayLabel"/>
+          </attributes>
+          <mappedFeature href="http://www.loc.gov/mods/v3#//ModsDefinition/note"/>
+        </elements>
+	<elements xsi:type="walk:MappedElement">
+          <attributes Output="/0/@model/@elements.1/@ports.5">
+            <mappedFeature href="http://www.loc.gov/mods/v3#//XsString/value"/>
+          </attributes>
+          <attributes defaultValue="multiline short req">
+            <mappedFeature href="http://www.loc.gov/mods/v3#//UnstructuredTextDefinition/displayLabel"/>
+          </attributes>
+          <mappedFeature href="http://www.loc.gov/mods/v3#//ModsDefinition/note"/>
+        </elements>
+	<elements xsi:type="walk:MappedElement">
+          <attributes Output="/0/@model/@elements.1/@ports.6">
+            <mappedFeature href="http://www.loc.gov/mods/v3#//XsString/value"/>
+          </attributes>
+          <attributes defaultValue="multiline long req">
+            <mappedFeature href="http://www.loc.gov/mods/v3#//UnstructuredTextDefinition/displayLabel"/>
+          </attributes>
+          <mappedFeature href="http://www.loc.gov/mods/v3#//ModsDefinition/note"/>
+        </elements>
+        <ports xsi:type="walk:TextInputField" label="plain text input defaults"/>
+        <ports xsi:type="walk:TextInputField" label="multiline maxChars:50 " maxCharacters="50" type="MultipleLines" required="true" usage="This text field is multiline"/>
+        <ports xsi:type="walk:TextInputField" label="single line maxchars:4000 Long usagenote" usage="This is the usage note for this field.. instructions would go here." width="Long" maxCharacters="4000"/>
+	<ports xsi:type="walk:TextInputField" label="short" width="Short"/>
+	<ports xsi:type="walk:TextInputField" label="require multiline fullline lots of characters (no char limit)" type="MultipleLines" width="FullLine" required="true" usage="Split to two lines"/>
+	<ports xsi:type="walk:TextInputField" label="multiline short req" maxCharacters="50" type="MultipleLines" required="true" width="Short"/>
+	<ports xsi:type="walk:TextInputField" label="multiline long req" maxCharacters="50" type="MultipleLines" required="true" width="Long"/>
+      </elements>
+      <elements xsi:type="walk:MetadataBlock" name="Date Input Tests">
+        <elements xsi:type="walk:MappedElement">
+          <childElements>
+            <attributes Output="/0/@model/@elements.2/@ports.0">
+              <mappedFeature href="http://www.loc.gov/mods/v3#//XsString/value"/>
+              <conversionStrategy xsi:type="walk:DateToISO8601StringConversion"/>
+            </attributes>
+            <attributes defaultValue="iso8601">
+              <mappedFeature href="http://www.loc.gov/mods/v3#//DateBaseDefinition/encoding"/>
+            </attributes>
+            <mappedFeature href="http://www.loc.gov/mods/v3#//OriginInfoDefinition/dateCaptured"/>
+          </childElements>
+          <childElements>
+            <attributes Output="/0/@model/@elements.2/@ports.1">
+              <mappedFeature href="http://www.loc.gov/mods/v3#//XsString/value"/>
+              <conversionStrategy xsi:type="walk:DateToISO8601StringConversion"/>
+            </attributes>
+            <attributes defaultValue="iso8601">
+              <mappedFeature href="http://www.loc.gov/mods/v3#//DateBaseDefinition/encoding"/>
+            </attributes>
+            <mappedFeature href="http://www.loc.gov/mods/v3#//OriginInfoDefinition/dateIssued"/>
+          </childElements>
+          <childElements>
+            <attributes>
+              <mappedFeature href="http://www.loc.gov/mods/v3#//XsString/value"/>
+            </attributes>
+            <mappedFeature href="http://www.loc.gov/mods/v3#//OriginInfoDefinition/publisher"/>
+          </childElements>
+          <childElements>
+            <attributes Output="/0/@model/@elements.2/@ports.2">
+              <mappedFeature href="http://www.loc.gov/mods/v3#//XsString/value"/>
+              <conversionStrategy xsi:type="walk:DateToISO8601StringConversion"/>
+            </attributes>
+            <attributes defaultValue="iso8601">
+              <mappedFeature href="http://www.loc.gov/mods/v3#//DateBaseDefinition/encoding"/>
+            </attributes>
+            <mappedFeature href="http://www.loc.gov/mods/v3#//OriginInfoDefinition/copyrightDate"/>
+          </childElements>
+          <mappedFeature href="http://www.loc.gov/mods/v3#//ModsDefinition/originInfo"/>
+        </elements>
+        <ports xsi:type="walk:DateInputField" label="Day Date" datePrecision="day"/>
+        <ports xsi:type="walk:DateInputField" label="Month Date" datePrecision="month"/>
+        <ports xsi:type="walk:DateInputField" label="Year Date"/>
+      </elements>
+      <elements xsi:type="walk:Paragraph" heading="Test Paragraph Header" text="This is the body text of a test paragraph. Paragraphs should be pretty standard and might wrap at a certain point when text goes too far in one direction. Four score and seven years agao. Our forefathers set out acrrosss..slajflakjsfdlkasdflalkfdsj."/>
+      <elements xsi:type="walk:Paragraph" heading="hahaha"/>
+      <emailDepositNoticeTo>count0@email.unc.edu</emailDepositNoticeTo>
+      <authorizedGroups>public</authorizedGroups>
+    </model>
+  </walk:EditingContainer>
+  <notation:Diagram type="Crosswalk" element="/0" name="test.form" measurementUnit="Pixel">
+    <children type="2003" element="/0/@model">
+      <children xsi:type="notation:DecorationNode" type="5023"/>
+      <children xsi:type="notation:DecorationNode" type="5024"/>
+      <children xsi:type="notation:DecorationNode" type="7011">
+        <children xsi:type="notation:Shape" type="3019" element="/0/@model/@elements.1" fontName="Ubuntu">
+          <children xsi:type="notation:DecorationNode" type="5020"/>
+          <children xsi:type="notation:BasicCompartment" type="7012">
+            <children xsi:type="notation:Shape" type="3023" element="/0/@model/@elements.1/@ports.0" fontName="Ubuntu">
+              <children xsi:type="notation:DecorationNode" type="5029"/>
+              <layoutConstraint xsi:type="notation:Bounds"/>
+            </children>
+            <children xsi:type="notation:Shape" type="3023" element="/0/@model/@elements.1/@ports.1" fontName="Ubuntu">
+              <children xsi:type="notation:DecorationNode" type="5029"/>
+              <layoutConstraint xsi:type="notation:Bounds"/>
+            </children>
+            <children xsi:type="notation:Shape" type="3023" element="/0/@model/@elements.1/@ports.2" fontName="Ubuntu">
+              <children xsi:type="notation:DecorationNode" type="5029"/>
+              <layoutConstraint xsi:type="notation:Bounds"/>
+            </children>
+            <styles xsi:type="notation:TitleStyle" showTitle="true"/>
+            <styles xsi:type="notation:SortingStyle"/>
+            <styles xsi:type="notation:FilteringStyle"/>
+          </children>
+          <children xsi:type="notation:BasicCompartment" type="7013" collapsed="true">
+            <children xsi:type="notation:Shape" type="3007" element="/0/@model/@elements.1/@elements.0" fontName="Ubuntu">
+              <children xsi:type="notation:DecorationNode" type="5010"/>
+              <children xsi:type="notation:DecorationNode" type="7003">
+                <children xsi:type="notation:Shape" type="3009" element="/0/@model/@elements.1/@elements.0/@attributes.1" fontName="Ubuntu">
+                  <children xsi:type="notation:DecorationNode" type="5008"/>
+                  <layoutConstraint xsi:type="notation:Bounds"/>
+                </children>
+                <children xsi:type="notation:Shape" type="3009" element="/0/@model/@elements.1/@elements.0/@attributes.0" fontName="Ubuntu">
+                  <children xsi:type="notation:DecorationNode" type="5008"/>
+                  <layoutConstraint xsi:type="notation:Bounds"/>
+                </children>
+                <styles xsi:type="notation:SortingStyle"/>
+                <styles xsi:type="notation:FilteringStyle"/>
+              </children>
+              <layoutConstraint xsi:type="notation:Bounds" x="15" y="-7"/>
+            </children>
+            <children xsi:type="notation:Shape" type="3007" element="/0/@model/@elements.1/@elements.1" fontName="Ubuntu">
+              <children xsi:type="notation:DecorationNode" type="5010"/>
+              <children xsi:type="notation:DecorationNode" type="7003">
+                <children xsi:type="notation:Shape" type="3009" element="/0/@model/@elements.1/@elements.1/@attributes.1" fontName="Ubuntu">
+                  <children xsi:type="notation:DecorationNode" type="5008"/>
+                  <layoutConstraint xsi:type="notation:Bounds"/>
+                </children>
+                <children xsi:type="notation:Shape" type="3009" element="/0/@model/@elements.1/@elements.1/@attributes.0" fontName="Ubuntu">
+                  <children xsi:type="notation:DecorationNode" type="5008"/>
+                  <layoutConstraint xsi:type="notation:Bounds"/>
+                </children>
+                <styles xsi:type="notation:SortingStyle"/>
+                <styles xsi:type="notation:FilteringStyle"/>
+              </children>
+              <layoutConstraint xsi:type="notation:Bounds" x="12" y="77"/>
+            </children>
+            <children xsi:type="notation:Shape" type="3007" element="/0/@model/@elements.1/@elements.2" fontName="Ubuntu">
+              <children xsi:type="notation:DecorationNode" type="5010"/>
+              <children xsi:type="notation:DecorationNode" type="7003">
+                <children xsi:type="notation:Shape" type="3009" element="/0/@model/@elements.1/@elements.2/@attributes.1" fontName="Ubuntu">
+                  <children xsi:type="notation:DecorationNode" type="5008"/>
+                  <layoutConstraint xsi:type="notation:Bounds"/>
+                </children>
+                <children xsi:type="notation:Shape" type="3009" element="/0/@model/@elements.1/@elements.2/@attributes.0" fontName="Ubuntu">
+                  <children xsi:type="notation:DecorationNode" type="5008"/>
+                  <layoutConstraint xsi:type="notation:Bounds"/>
+                </children>
+                <styles xsi:type="notation:SortingStyle"/>
+                <styles xsi:type="notation:FilteringStyle"/>
+              </children>
+              <layoutConstraint xsi:type="notation:Bounds" x="7" y="161"/>
+            </children>
+            <styles xsi:type="notation:TitleStyle" showTitle="true"/>
+          </children>
+          <layoutConstraint xsi:type="notation:Bounds"/>
+        </children>
+        <children xsi:type="notation:Shape" type="3020" element="/0/@model/@elements.4" fontName="Ubuntu">
+          <children xsi:type="notation:DecorationNode" type="5021"/>
+          <children xsi:type="notation:DecorationNode" type="5022"/>
+          <layoutConstraint xsi:type="notation:Bounds"/>
+        </children>
+        <children xsi:type="notation:Shape" type="3019" element="/0/@model/@elements.0" fontName="Ubuntu">
+          <children xsi:type="notation:DecorationNode" type="5020"/>
+          <children xsi:type="notation:BasicCompartment" type="7012">
+            <children xsi:type="notation:Shape" type="3023" element="/0/@model/@elements.0/@ports.0" fontName="Ubuntu">
+              <children xsi:type="notation:DecorationNode" type="5029"/>
+              <layoutConstraint xsi:type="notation:Bounds"/>
+            </children>
+            <children xsi:type="notation:Shape" type="3023" element="/0/@model/@elements.0/@ports.1" fontName="Ubuntu">
+              <children xsi:type="notation:DecorationNode" type="5029"/>
+              <layoutConstraint xsi:type="notation:Bounds"/>
+            </children>
+            <children xsi:type="notation:Shape" type="3023" element="/0/@model/@elements.0/@ports.2" fontName="Ubuntu">
+              <children xsi:type="notation:DecorationNode" type="5029"/>
+              <layoutConstraint xsi:type="notation:Bounds"/>
+            </children>
+            <children xsi:type="notation:Shape" type="3023" element="/0/@model/@elements.0/@ports.3" fontName="Ubuntu">
+              <children xsi:type="notation:DecorationNode" type="5029"/>
+              <layoutConstraint xsi:type="notation:Bounds"/>
+            </children>
+            <children xsi:type="notation:Shape" type="3023" element="/0/@model/@elements.0/@ports.4" fontName="Ubuntu">
+              <children xsi:type="notation:DecorationNode" type="5029"/>
+              <layoutConstraint xsi:type="notation:Bounds"/>
+            </children>
+            <children xsi:type="notation:Shape" type="3023" element="/0/@model/@elements.0/@ports.5" fontName="Ubuntu">
+              <children xsi:type="notation:DecorationNode" type="5029"/>
+              <layoutConstraint xsi:type="notation:Bounds"/>
+            </children>
+            <styles xsi:type="notation:TitleStyle" showTitle="true"/>
+            <styles xsi:type="notation:SortingStyle"/>
+            <styles xsi:type="notation:FilteringStyle"/>
+          </children>
+          <children xsi:type="notation:BasicCompartment" type="7013" collapsed="true">
+            <children xsi:type="notation:Shape" type="3007" element="/0/@model/@elements.0/@elements.0" fontName="Ubuntu">
+              <children xsi:type="notation:DecorationNode" type="5010"/>
+              <children xsi:type="notation:DecorationNode" type="7003">
+                <children xsi:type="notation:Shape" type="3009" element="/0/@model/@elements.0/@elements.0/@attributes.1" fontName="Ubuntu">
+                  <children xsi:type="notation:DecorationNode" type="5008"/>
+                  <layoutConstraint xsi:type="notation:Bounds"/>
+                </children>
+                <children xsi:type="notation:Shape" type="3009" element="/0/@model/@elements.0/@elements.0/@attributes.0" fontName="Ubuntu">
+                  <children xsi:type="notation:DecorationNode" type="5008"/>
+                  <layoutConstraint xsi:type="notation:Bounds"/>
+                </children>
+                <styles xsi:type="notation:SortingStyle"/>
+                <styles xsi:type="notation:FilteringStyle"/>
+              </children>
+              <layoutConstraint xsi:type="notation:Bounds" x="28" y="1"/>
+            </children>
+            <children xsi:type="notation:Shape" type="3007" element="/0/@model/@elements.0/@elements.1" fontName="Ubuntu">
+              <children xsi:type="notation:DecorationNode" type="5010"/>
+              <children xsi:type="notation:DecorationNode" type="7003">
+                <children xsi:type="notation:Shape" type="3009" element="/0/@model/@elements.0/@elements.1/@attributes.1" fontName="Ubuntu">
+                  <children xsi:type="notation:DecorationNode" type="5008"/>
+                  <layoutConstraint xsi:type="notation:Bounds"/>
+                </children>
+                <children xsi:type="notation:Shape" type="3009" element="/0/@model/@elements.0/@elements.1/@attributes.0" fontName="Ubuntu">
+                  <children xsi:type="notation:DecorationNode" type="5008"/>
+                  <layoutConstraint xsi:type="notation:Bounds"/>
+                </children>
+                <styles xsi:type="notation:SortingStyle"/>
+                <styles xsi:type="notation:FilteringStyle"/>
+              </children>
+              <layoutConstraint xsi:type="notation:Bounds" x="28" y="85"/>
+            </children>
+            <children xsi:type="notation:Shape" type="3007" element="/0/@model/@elements.0/@elements.2" fontName="Ubuntu">
+              <children xsi:type="notation:DecorationNode" type="5010"/>
+              <children xsi:type="notation:DecorationNode" type="7003">
+                <children xsi:type="notation:Shape" type="3009" element="/0/@model/@elements.0/@elements.2/@attributes.1" fontName="Ubuntu">
+                  <children xsi:type="notation:DecorationNode" type="5008"/>
+                  <layoutConstraint xsi:type="notation:Bounds"/>
+                </children>
+                <children xsi:type="notation:Shape" type="3009" element="/0/@model/@elements.0/@elements.2/@attributes.0" fontName="Ubuntu">
+                  <children xsi:type="notation:DecorationNode" type="5008"/>
+                  <layoutConstraint xsi:type="notation:Bounds"/>
+                </children>
+                <styles xsi:type="notation:SortingStyle"/>
+                <styles xsi:type="notation:FilteringStyle"/>
+              </children>
+              <layoutConstraint xsi:type="notation:Bounds" x="16" y="165"/>
+            </children>
+            <children xsi:type="notation:Shape" type="3007" element="/0/@model/@elements.0/@elements.3" fontName="Ubuntu">
+              <children xsi:type="notation:DecorationNode" type="5010"/>
+              <children xsi:type="notation:DecorationNode" type="7003">
+                <children xsi:type="notation:Shape" type="3009" element="/0/@model/@elements.0/@elements.3/@attributes.1" fontName="Ubuntu">
+                  <children xsi:type="notation:DecorationNode" type="5008"/>
+                  <layoutConstraint xsi:type="notation:Bounds"/>
+                </children>
+                <children xsi:type="notation:Shape" type="3009" element="/0/@model/@elements.0/@elements.3/@attributes.0" fontName="Ubuntu">
+                  <children xsi:type="notation:DecorationNode" type="5008"/>
+                  <layoutConstraint xsi:type="notation:Bounds"/>
+                </children>
+                <styles xsi:type="notation:SortingStyle"/>
+                <styles xsi:type="notation:FilteringStyle"/>
+              </children>
+              <layoutConstraint xsi:type="notation:Bounds" x="16" y="253"/>
+            </children>
+            <children xsi:type="notation:Shape" type="3007" element="/0/@model/@elements.0/@elements.4" fontName="Ubuntu">
+              <children xsi:type="notation:DecorationNode" type="5010"/>
+              <children xsi:type="notation:DecorationNode" type="7003">
+                <children xsi:type="notation:Shape" type="3009" element="/0/@model/@elements.0/@elements.4/@attributes.1" fontName="Ubuntu">
+                  <children xsi:type="notation:DecorationNode" type="5008"/>
+                  <layoutConstraint xsi:type="notation:Bounds"/>
+                </children>
+                <children xsi:type="notation:Shape" type="3009" element="/0/@model/@elements.0/@elements.4/@attributes.0" fontName="Ubuntu">
+                  <children xsi:type="notation:DecorationNode" type="5008"/>
+                  <layoutConstraint xsi:type="notation:Bounds"/>
+                </children>
+                <styles xsi:type="notation:SortingStyle"/>
+                <styles xsi:type="notation:FilteringStyle"/>
+              </children>
+              <layoutConstraint xsi:type="notation:Bounds" x="16" y="337"/>
+            </children>
+            <children xsi:type="notation:Shape" type="3007" element="/0/@model/@elements.0/@elements.5" fontName="Ubuntu">
+              <children xsi:type="notation:DecorationNode" type="5010"/>
+              <children xsi:type="notation:DecorationNode" type="7003">
+                <children xsi:type="notation:Shape" type="3009" element="/0/@model/@elements.0/@elements.5/@attributes.1" fontName="Ubuntu">
+                  <children xsi:type="notation:DecorationNode" type="5008"/>
+                  <layoutConstraint xsi:type="notation:Bounds"/>
+                </children>
+                <children xsi:type="notation:Shape" type="3009" element="/0/@model/@elements.0/@elements.5/@attributes.0" fontName="Ubuntu">
+                  <children xsi:type="notation:DecorationNode" type="5008"/>
+                  <layoutConstraint xsi:type="notation:Bounds"/>
+                </children>
+                <styles xsi:type="notation:SortingStyle"/>
+                <styles xsi:type="notation:FilteringStyle"/>
+              </children>
+              <layoutConstraint xsi:type="notation:Bounds" x="16" y="421"/>
+            </children>
+            <styles xsi:type="notation:TitleStyle" showTitle="true"/>
+          </children>
+          <layoutConstraint xsi:type="notation:Bounds"/>
+        </children>
+        <children xsi:type="notation:Shape" type="3020" element="/0/@model/@elements.3" fontName="Ubuntu">
+          <children xsi:type="notation:DecorationNode" type="5021"/>
+          <children xsi:type="notation:DecorationNode" type="5022"/>
+          <layoutConstraint xsi:type="notation:Bounds"/>
+        </children>
+        <children xsi:type="notation:Shape" type="3019" element="/0/@model/@elements.2" fontName="Ubuntu">
+          <children xsi:type="notation:DecorationNode" type="5020"/>
+          <children xsi:type="notation:BasicCompartment" type="7012">
+            <children xsi:type="notation:Shape" type="3024" element="/0/@model/@elements.2/@ports.0" fontName="Ubuntu">
+              <children xsi:type="notation:DecorationNode" type="5030"/>
+              <layoutConstraint xsi:type="notation:Bounds"/>
+            </children>
+            <children xsi:type="notation:Shape" type="3024" element="/0/@model/@elements.2/@ports.1" fontName="Ubuntu">
+              <children xsi:type="notation:DecorationNode" type="5030"/>
+              <layoutConstraint xsi:type="notation:Bounds"/>
+            </children>
+            <children xsi:type="notation:Shape" type="3024" element="/0/@model/@elements.2/@ports.2" fontName="Ubuntu">
+              <children xsi:type="notation:DecorationNode" type="5030"/>
+              <layoutConstraint xsi:type="notation:Bounds"/>
+            </children>
+            <styles xsi:type="notation:TitleStyle" showTitle="true"/>
+            <styles xsi:type="notation:SortingStyle"/>
+            <styles xsi:type="notation:FilteringStyle"/>
+          </children>
+          <children xsi:type="notation:BasicCompartment" type="7013" collapsed="true">
+            <children xsi:type="notation:Shape" type="3007" element="/0/@model/@elements.2/@elements.0" fontName="Ubuntu">
+              <children xsi:type="notation:DecorationNode" type="5010"/>
+              <children xsi:type="notation:DecorationNode" type="7003">
+                <children xsi:type="notation:Shape" type="3008" element="/0/@model/@elements.2/@elements.0/@childElements.0" fontName="Ubuntu">
+                  <children xsi:type="notation:DecorationNode" type="5009"/>
+                  <children xsi:type="notation:DecorationNode" type="7004">
+                    <children xsi:type="notation:Shape" type="3009" element="/0/@model/@elements.2/@elements.0/@childElements.0/@attributes.0" fontName="Ubuntu">
+                      <children xsi:type="notation:DecorationNode" type="5008"/>
+                      <layoutConstraint xsi:type="notation:Bounds"/>
+                    </children>
+                    <children xsi:type="notation:Shape" type="3009" element="/0/@model/@elements.2/@elements.0/@childElements.0/@attributes.1" fontName="Ubuntu">
+                      <children xsi:type="notation:DecorationNode" type="5008"/>
+                      <layoutConstraint xsi:type="notation:Bounds"/>
+                    </children>
+                    <styles xsi:type="notation:SortingStyle"/>
+                    <styles xsi:type="notation:FilteringStyle"/>
+                  </children>
+                  <layoutConstraint xsi:type="notation:Bounds"/>
+                </children>
+                <children xsi:type="notation:Shape" type="3008" element="/0/@model/@elements.2/@elements.0/@childElements.1" fontName="Ubuntu">
+                  <children xsi:type="notation:DecorationNode" type="5009"/>
+                  <children xsi:type="notation:DecorationNode" type="7004">
+                    <children xsi:type="notation:Shape" type="3009" element="/0/@model/@elements.2/@elements.0/@childElements.1/@attributes.0" fontName="Ubuntu">
+                      <children xsi:type="notation:DecorationNode" type="5008"/>
+                      <layoutConstraint xsi:type="notation:Bounds"/>
+                    </children>
+                    <children xsi:type="notation:Shape" type="3009" element="/0/@model/@elements.2/@elements.0/@childElements.1/@attributes.1" fontName="Ubuntu">
+                      <children xsi:type="notation:DecorationNode" type="5008"/>
+                      <layoutConstraint xsi:type="notation:Bounds"/>
+                    </children>
+                    <styles xsi:type="notation:SortingStyle"/>
+                    <styles xsi:type="notation:FilteringStyle"/>
+                  </children>
+                  <layoutConstraint xsi:type="notation:Bounds"/>
+                </children>
+                <children xsi:type="notation:Shape" type="3008" element="/0/@model/@elements.2/@elements.0/@childElements.2" fontName="Ubuntu">
+                  <children xsi:type="notation:DecorationNode" type="5009"/>
+                  <children xsi:type="notation:DecorationNode" type="7004">
+                    <styles xsi:type="notation:SortingStyle"/>
+                    <styles xsi:type="notation:FilteringStyle"/>
+                  </children>
+                  <layoutConstraint xsi:type="notation:Bounds"/>
+                </children>
+                <children xsi:type="notation:Shape" type="3008" element="/0/@model/@elements.2/@elements.0/@childElements.3" fontName="Ubuntu">
+                  <children xsi:type="notation:DecorationNode" type="5009"/>
+                  <children xsi:type="notation:DecorationNode" type="7004">
+                    <children xsi:type="notation:Shape" type="3009" element="/0/@model/@elements.2/@elements.0/@childElements.3/@attributes.0" fontName="Ubuntu">
+                      <children xsi:type="notation:DecorationNode" type="5008"/>
+                      <layoutConstraint xsi:type="notation:Bounds"/>
+                    </children>
+                    <children xsi:type="notation:Shape" type="3009" element="/0/@model/@elements.2/@elements.0/@childElements.3/@attributes.1" fontName="Ubuntu">
+                      <children xsi:type="notation:DecorationNode" type="5008"/>
+                      <layoutConstraint xsi:type="notation:Bounds"/>
+                    </children>
+                    <styles xsi:type="notation:SortingStyle"/>
+                    <styles xsi:type="notation:FilteringStyle"/>
+                  </children>
+                  <layoutConstraint xsi:type="notation:Bounds"/>
+                </children>
+                <styles xsi:type="notation:SortingStyle"/>
+                <styles xsi:type="notation:FilteringStyle"/>
+              </children>
+              <layoutConstraint xsi:type="notation:Bounds" x="21" y="-2"/>
+            </children>
+            <styles xsi:type="notation:TitleStyle" showTitle="true"/>
+          </children>
+          <layoutConstraint xsi:type="notation:Bounds"/>
+        </children>
+        <styles xsi:type="notation:SortingStyle"/>
+        <styles xsi:type="notation:FilteringStyle"/>
+      </children>
+      <styles xsi:type="notation:DescriptionStyle"/>
+      <styles xsi:type="notation:FontStyle" fontName="Ubuntu"/>
+      <styles xsi:type="notation:LineStyle"/>
+      <layoutConstraint xsi:type="notation:Bounds"/>
+    </children>
+    <styles xsi:type="notation:DiagramStyle"/>
+    <edges type="4001" source="/1/@children.0/@children.2/@children.4/@children.2/@children.0/@children.1/@children.0/@children.1/@children.0" target="/1/@children.0/@children.2/@children.4/@children.1/@children.0">
+      <styles xsi:type="notation:RoutingStyle"/>
+      <styles xsi:type="notation:FontStyle" fontName="Ubuntu"/>
+      <element xsi:nil="true"/>
+      <bendpoints xsi:type="notation:RelativeBendpoints" points="[0, 0, 120, 52]$[-108, -56, 12, -4]"/>
+      <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.0,0.0)"/>
+      <targetAnchor xsi:type="notation:IdentityAnchor" id="(0.8421052631578947,0.3)"/>
+    </edges>
+    <edges type="4001" source="/1/@children.0/@children.2/@children.4/@children.2/@children.0/@children.1/@children.1/@children.1/@children.0" target="/1/@children.0/@children.2/@children.4/@children.1/@children.1">
+      <styles xsi:type="notation:RoutingStyle"/>
+      <styles xsi:type="notation:FontStyle" fontName="Ubuntu"/>
+      <element xsi:nil="true"/>
+      <bendpoints xsi:type="notation:RelativeBendpoints" points="[0, 0, 115, 54]$[-93, -63, 22, -9]"/>
+      <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.0,0.0)"/>
+      <targetAnchor xsi:type="notation:IdentityAnchor" id="(0.7582417582417582,0.275)"/>
+    </edges>
+    <edges type="4001" source="/1/@children.0/@children.2/@children.4/@children.2/@children.0/@children.1/@children.3/@children.1/@children.0" target="/1/@children.0/@children.2/@children.4/@children.1/@children.2">
+      <styles xsi:type="notation:RoutingStyle"/>
+      <styles xsi:type="notation:FontStyle" fontName="Ubuntu"/>
+      <element xsi:nil="true"/>
+      <bendpoints xsi:type="notation:RelativeBendpoints" points="[0, 0, 124, 59]$[-111, -67, 13, -8]"/>
+      <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.0,0.0)"/>
+      <targetAnchor xsi:type="notation:IdentityAnchor" id="(0.759493670886076,0.2)"/>
+    </edges>
+    <edges type="4001" source="/1/@children.0/@children.2/@children.2/@children.2/@children.0/@children.1/@children.1" target="/1/@children.0/@children.2/@children.2/@children.1/@children.0">
+      <styles xsi:type="notation:RoutingStyle"/>
+      <styles xsi:type="notation:FontStyle" fontName="Ubuntu"/>
+      <element xsi:nil="true"/>
+      <bendpoints xsi:type="notation:RelativeBendpoints" points="[0, 0, 169, 43]$[-133, -63, 36, -20]"/>
+      <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.0,0.0)"/>
+      <targetAnchor xsi:type="notation:IdentityAnchor" id="(0.7162162162162162,0.175)"/>
+    </edges>
+    <edges type="4001" source="/1/@children.0/@children.2/@children.2/@children.2/@children.1/@children.1/@children.1" target="/1/@children.0/@children.2/@children.2/@children.1/@children.1">
+      <styles xsi:type="notation:RoutingStyle"/>
+      <styles xsi:type="notation:FontStyle" fontName="Ubuntu"/>
+      <element xsi:nil="true"/>
+      <bendpoints xsi:type="notation:RelativeBendpoints" points="[0, 0, 97, 68]$[-86, -70, 11, -2]"/>
+      <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.0,0.0)"/>
+      <targetAnchor xsi:type="notation:IdentityAnchor" id="(0.9219858156028369,0.25)"/>
+    </edges>
+    <edges type="4001" source="/1/@children.0/@children.2/@children.2/@children.2/@children.2/@children.1/@children.1" target="/1/@children.0/@children.2/@children.2/@children.1/@children.2">
+      <styles xsi:type="notation:RoutingStyle"/>
+      <styles xsi:type="notation:FontStyle" fontName="Ubuntu"/>
+      <element xsi:nil="true"/>
+      <bendpoints xsi:type="notation:RelativeBendpoints" points="[0, 0, 92, 67]$[-77, -71, 15, -4]"/>
+      <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.0,0.0)"/>
+      <targetAnchor xsi:type="notation:IdentityAnchor" id="(0.8818897637795275,0.2)"/>
+    </edges>
+    <edges type="4001" source="/1/@children.0/@children.2/@children.2/@children.2/@children.3/@children.1/@children.1" target="/1/@children.0/@children.2/@children.2/@children.1/@children.3">
+      <styles xsi:type="notation:RoutingStyle"/>
+      <styles xsi:type="notation:FontStyle" fontName="Ubuntu"/>
+      <element xsi:nil="true"/>
+      <bendpoints xsi:type="notation:RelativeBendpoints" points="[0, 0, 133, 128]$[-121, -131, 12, -3]"/>
+      <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.0,0.0)"/>
+      <targetAnchor xsi:type="notation:IdentityAnchor" id="(0.9083969465648855,0.275)"/>
+    </edges>
+    <edges type="4001" source="/1/@children.0/@children.2/@children.2/@children.2/@children.4/@children.1/@children.1" target="/1/@children.0/@children.2/@children.2/@children.1/@children.4">
+      <styles xsi:type="notation:RoutingStyle"/>
+      <styles xsi:type="notation:FontStyle" fontName="Ubuntu"/>
+      <element xsi:nil="true"/>
+      <bendpoints xsi:type="notation:RelativeBendpoints" points="[0, 0, 85, 145]$[-63, -148, 22, -3]"/>
+      <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.0,1.0)"/>
+      <targetAnchor xsi:type="notation:IdentityAnchor" id="(0.8835978835978836,0.275)"/>
+    </edges>
+    <edges type="4001" source="/1/@children.0/@children.2/@children.2/@children.2/@children.5/@children.1/@children.1" target="/1/@children.0/@children.2/@children.2/@children.1/@children.5">
+      <styles xsi:type="notation:RoutingStyle"/>
+      <styles xsi:type="notation:FontStyle" fontName="Ubuntu"/>
+      <element xsi:nil="true"/>
+      <bendpoints xsi:type="notation:RelativeBendpoints" points="[0, 0, 115, 150]$[-97, -154, 18, -4]"/>
+      <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.0,1.0)"/>
+      <targetAnchor xsi:type="notation:IdentityAnchor" id="(0.8838709677419355,0.2)"/>
+    </edges>
+    <edges type="4001" source="/1/@children.0/@children.2/@children.0/@children.2/@children.0/@children.1/@children.1" target="/1/@children.0/@children.2/@children.0/@children.1/@children.0">
+      <styles xsi:type="notation:RoutingStyle"/>
+      <styles xsi:type="notation:FontStyle" fontName="Ubuntu"/>
+      <element xsi:nil="true"/>
+      <bendpoints xsi:type="notation:RelativeBendpoints" points="[0, 0, 126, 63]$[-110, -66, 16, -3]"/>
+      <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.0,0.0)"/>
+      <targetAnchor xsi:type="notation:IdentityAnchor" id="(0.8980891719745223,0.25)"/>
+    </edges>
+    <edges type="4001" source="/1/@children.0/@children.2/@children.0/@children.2/@children.1/@children.1/@children.1" target="/1/@children.0/@children.2/@children.0/@children.1/@children.1">
+      <styles xsi:type="notation:RoutingStyle"/>
+      <styles xsi:type="notation:FontStyle" fontName="Ubuntu"/>
+      <element xsi:nil="true"/>
+      <bendpoints xsi:type="notation:RelativeBendpoints" points="[0, 0, 158, 59]$[-136, -65, 22, -6]"/>
+      <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.0,0.0)"/>
+      <targetAnchor xsi:type="notation:IdentityAnchor" id="(0.828125,0.225)"/>
+    </edges>
+    <edges type="4001" source="/1/@children.0/@children.2/@children.0/@children.2/@children.2/@children.1/@children.1" target="/1/@children.0/@children.2/@children.0/@children.1/@children.2">
+      <styles xsi:type="notation:RoutingStyle"/>
+      <styles xsi:type="notation:FontStyle" fontName="Ubuntu"/>
+      <element xsi:nil="true"/>
+      <bendpoints xsi:type="notation:RelativeBendpoints" points="[0, 0, 70, 62]$[-54, -65, 16, -3]"/>
+      <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.0,0.0)"/>
+      <targetAnchor xsi:type="notation:IdentityAnchor" id="(0.9219512195121952,0.2)"/>
+    </edges>
+  </notation:Diagram>
+</xmi:XMI>

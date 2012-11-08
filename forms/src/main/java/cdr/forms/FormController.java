@@ -31,10 +31,10 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.StringWriter;
 import java.security.Principal;
-import java.text.SimpleDateFormat;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -48,6 +48,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
@@ -152,7 +153,7 @@ public class FormController {
        binder.setValidator(new FormValidator());
        binder.registerCustomEditor(java.util.Date.class, new DateEditor());
        //binder.setBindEmptyMultipartFiles(false);
-       binder.registerCustomEditor(java.lang.String.class, new StringTrimmerEditor(true));
+       binder.registerCustomEditor(java.lang.String.class, new StringCleanerTrimmerEditor(true));
    }
 	
 //	@ModelAttribute("form")
@@ -171,6 +172,9 @@ public class FormController {
 		Form form = null;
 		if(sessionFormId == null || !sessionFormId.equals(formId)) {
 			form = factory.getForm(formId);
+			if(form == null) {
+				return "404";
+			}
 			this.getAuthorizationHandler().checkPermission(formId, form, request);
 			modelmap.put("form", form);
 			modelmap.put("formId", formId);
@@ -206,7 +210,12 @@ public class FormController {
 		LOG.debug("mpfile.getOriginalFilename(): "+mpfile.getOriginalFilename());
 		
 		// perform a deposit with the default handler.
-		DepositResult result = this.getDepositHandler().deposit(form.getDepositContainerId(), mods, mpfile.getOriginalFilename(), depositFile, mpfile.getContentType());
+		Map<String, Object> depositOptions = new HashMap<String, Object>();
+		depositOptions.put("publish", new Boolean(!form.isReviewBeforePublication()));
+		depositOptions.put("mime-type", mpfile.getContentType());
+		String filename = mpfile.getOriginalFilename();
+		filename = filename.replaceAll(Pattern.quote("\""), "");
+		DepositResult result = this.getDepositHandler().deposit(form.getDepositContainerId(), mods, filename, depositFile, depositOptions);
 		
 		if(result.getStatus() == Status.FAILED) {
 			LOG.error("deposit failed");
@@ -214,12 +223,11 @@ public class FormController {
 			return "form";
 		}
 		
-		// TODO email notices
-
 		// delete files
 		if(depositFile != null) depositFile.delete();
 		// clear session
 		sessionStatus.setComplete();
+		request.setAttribute("formId", formId);
 		return "success";
 	}
 

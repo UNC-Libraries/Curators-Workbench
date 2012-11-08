@@ -23,7 +23,6 @@
 		<constructor-arg index="1" value="classpath:server.properties" />
 		<!-- default location for testing -->
 	</bean>
-
 	<bean id="serverProperties"
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="locations">
@@ -34,7 +33,6 @@
 		<property name="ignoreResourceNotFound" value="false" />
 	</bean>
 	
-	<!-- Note that ClamScan is not thread safe. -->
 	<bean id="clamScan" class="com.philvarner.clamavj.ClamScan">
 		<property name="host" value="${clamd.host}"/>
 		<property name="port" value="${clamd.port}"/>
@@ -60,6 +58,11 @@
 	<bean id="authorizationHandler" class="cdr.forms.RequestHeaderAuthorizationHandler">
 		<property name="groupsHeaderName" value="isMemberOf"/>
 		<property name="splitCharacter" value=";"/>
+		<property name="groupsAlwaysPermitted">
+		<list>
+			<value>${admin.access.groups}</value>
+		</list>
+		</property>
 	</bean>
 
 </beans>

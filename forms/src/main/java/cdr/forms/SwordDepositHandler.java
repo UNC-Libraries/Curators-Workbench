@@ -24,6 +24,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 import org.apache.abdera.Abdera;
@@ -48,6 +49,7 @@ import org.jdom.Element;
 import org.jdom.JDOMException;
 import org.jdom.Namespace;
 import org.jdom.input.SAXBuilder;
+import org.jdom.output.XMLOutputter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -55,8 +57,16 @@ import cdr.forms.DepositResult.Status;
 
 
 public class SwordDepositHandler implements DepositHandler {
+	/**
+	 * This option takes a Boolean object indicate if publication is desired.
+	 */
+	public static final String OPTION_PUBLISH = "publish";
+	
+	/**
+	 * This option takes a string, indicating the observed mime-type.
+	 */
+	public static final String OPTION_MIMETYPE = "mime-type";
 
-	@SuppressWarnings("unused")
 	private static final Logger LOG = LoggerFactory.getLogger(SwordDepositHandler.class);
 
 	private String serviceUrl;
@@ -107,19 +117,25 @@ public class SwordDepositHandler implements DepositHandler {
 	 * @see cdr.forms.DepositHandler#deposit(java.lang.String, java.lang.String, java.io.InputStream)
 	 */
 	@Override
-	public DepositResult deposit(String containerId, String modsXml, String title, File depositData, String fileMimetype) {
+	public DepositResult deposit(String containerId, String modsXml, String title, File depositData, Map<String, Object> options) {
 		if(containerId == null || "".equals(containerId.trim())) containerId = this.getDefaultContainer();
 		Abdera abdera = Abdera.getInstance();
 		Factory factory = abdera.getFactory();
 		Entry entry = factory.newEntry();
 		String pid = "uuid:" + UUID.randomUUID().toString();
-		entry.setId("urn:" + pid);
+		// id is the identify of the Atom POST
+		entry.setId("urn:uuid:" + UUID.randomUUID().toString());
 		entry.setSummary("mods and binary deposit", Type.TEXT);
 		entry.setTitle(title);
 		entry.setUpdated(new Date(System.currentTimeMillis()));
 		Parser parser = abdera.getParser();
 		Document<FOMExtensibleElement> doc = parser.parse(new ByteArrayInputStream(modsXml.getBytes()));
 		entry.addExtension(doc.getRoot());
+		
+		if(options.containsKey("publish") && !(Boolean)options.get("publish")) {
+			// add RELS-EXT triple to block publication
+			addPublicationBlockingRELSEXT(entry, pid);
+		}
 
 		StringWriter swEntry = new StringWriter();
 		try {
@@ -134,9 +150,9 @@ public class SwordDepositHandler implements DepositHandler {
 		} catch (FileNotFoundException e1) {
 			throw new Error(e1);
 		}
-		if (fileMimetype == null)
+		if (options.get("mime-type") == null)
 			payloadPart.setContentType("application/octet-stream");
-		else payloadPart.setContentType(fileMimetype);
+		else payloadPart.setContentType((String)options.get("mime-type"));
 		payloadPart.setTransferEncoding("binary");
 
 		FilePart atomPart = new FilePart("atom", new ByteArrayPartSource("atom", swEntry.toString().getBytes()),
@@ -155,6 +171,8 @@ public class SwordDepositHandler implements DepositHandler {
 		boundary = boundary.substring(boundary.indexOf("boundary=") + 9);
 		Header header = new Header("Content-type", "multipart/related; type=application/atom+xml; boundary=" + boundary);
 		post.addRequestHeader(header);
+		Header slugHeader = new Header("Slug", pid);
+		post.addRequestHeader(slugHeader);
 		post.setRequestEntity(multipartEntity);
 		int responseCode;
 
@@ -192,6 +210,31 @@ public class SwordDepositHandler implements DepositHandler {
 			throw new Error(e);
 		}
 		return result;
+	}
+
+	/**
+	 * Add a RELS-EXT datastream with an entry that blocks publication. (assuming a review work flow)
+	 * @param entry
+	 * @param pid
+	 */
+	private void addPublicationBlockingRELSEXT(Entry entry, String pid) {
+		Parser parser = Abdera.getInstance().getParser();
+		Element dsEl = new Element("datastream", "cdr", "http://cdr.lib.unc.edu/");
+		dsEl.setAttribute("id", "RELS-EXT");
+		Namespace rdfNS = Namespace.getNamespace("rdf", "http://www.w3.org/1999/02/22-rdf-syntax-ns#");
+		dsEl.addContent(
+				new Element("RDF", rdfNS).addContent(
+						new Element("Description", rdfNS)
+							.setAttribute("about", "info:fedora/"+pid, rdfNS)
+							.addContent(
+								new Element("isPublished", "cdr-model", "http://cdr.unc.edu/definitions/1.0/base-model.xml#")
+									.setText("no")
+						)
+				)
+		);
+		String rels = new XMLOutputter().outputString(dsEl);
+		Document<FOMExtensibleElement> doc = parser.parse(new ByteArrayInputStream(rels.getBytes()));
+		entry.addExtension(doc.getRoot());
 	}
 
 	/**

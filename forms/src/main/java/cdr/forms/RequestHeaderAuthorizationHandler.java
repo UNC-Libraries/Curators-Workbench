@@ -1,5 +1,7 @@
 package cdr.forms;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Pattern;
 
 import javax.servlet.http.HttpServletRequest;
@@ -12,7 +14,16 @@ import crosswalk.Form;
 public class RequestHeaderAuthorizationHandler implements AuthorizationHandler {
 	private String splitCharacter = null;
 	private String groupsHeaderName = null;
+	private List<String> groupsAlwaysPermitted = new ArrayList<String>();
 	
+	public List<String> getGroupsAlwaysPermitted() {
+		return groupsAlwaysPermitted;
+	}
+
+	public void setGroupsAlwaysPermitted(List<String> groupsAlwaysPermitted) {
+		this.groupsAlwaysPermitted = groupsAlwaysPermitted;
+	}
+
 	@SuppressWarnings("unused")
 	private static final Logger LOG = LoggerFactory.getLogger(RequestHeaderAuthorizationHandler.class);
 
@@ -34,7 +45,7 @@ public class RequestHeaderAuthorizationHandler implements AuthorizationHandler {
 
 	@Override
 	public void checkPermission(String formId, Form form, HttpServletRequest request) throws PermissionDeniedException {
-		if(form.getAuthorizedGroups().contains("public")) return;
+		if(form.getAuthorizedGroups() == null || form.getAuthorizedGroups().contains("public")) return;
 		
 		// get header string
 		String groupsHeader = request.getHeader(getGroupsHeaderName());
@@ -45,6 +56,7 @@ public class RequestHeaderAuthorizationHandler implements AuthorizationHandler {
 				throw new PermissionDeniedException("Your login is not authorized to use this form.", form, formId);
 			}
 			for(String group : groupsHeader.split(getSplitCharacter())) {
+				if(this.groupsAlwaysPermitted.contains(group)) return;
 				if(form.getAuthorizedGroups().contains(group)) return;
 			}
 			throw new PermissionDeniedException("Your login is not authorized to use this form.", form, formId);
