@@ -51,6 +51,15 @@ h2 {
 	margin: 2em;
 }
 
+.form_field label a {
+	font-size: 14px;
+	font-family: serif;
+	vertical-align: 50%;
+	font-style: italic;
+	z-index: 100;
+	font-weight: bold;
+}
+
 .form_field.width_Short input, .form_field.width_Short textarea, .form_field.width_Short select {
 	width: 100px;
 }
@@ -68,8 +77,17 @@ h2 {
 	width: auto;
 	margin-bottom: 0.5em;
 }
+
 .form_field.width_FullLine input, .form_field.width_FullLine textarea, .form_field.width_FullLine select {
 	width: 100%;
+}
+
+.form_field .multi_notes {
+	z-index: 100;
+}
+
+.form_field .multi_notes span {
+	white-space: nowrap;
 }
 
 .form_field.width_FullLine .multi_notes {
@@ -97,6 +115,10 @@ h2 {
 	width: 0;
 }
 
+.expandingText {
+	margin-left: 13em;
+}
+
 textarea, .textareaClone {
 	min-height: 4em;
 	max-height: 25em;
@@ -109,6 +131,16 @@ textarea, .textareaClone {
 .ui-datepicker-calendar {
 	display: none;
 }
+
+input, textarea, select {
+	font-family: monospace;
+	font-size: 12px;
+}
+
+input[readonly] {
+	background-color: #fff;
+}
+
 
 /* Autocomplete
 ----------------------------------*/
@@ -181,8 +213,9 @@ textarea, .textareaClone {
     font-weight: normal;
 }
 
-.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover{
+.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus {
 	font-weight: normal;
 	background-color: #E2F6FF;
 	color: #566;
+	border: 0;
 }
