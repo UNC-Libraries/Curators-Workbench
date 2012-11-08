@@ -101,7 +101,6 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 	$(document).ready( function() {
 		$(".monthpicker").datepicker({
 			dateFormat: 'yy-mm',
-			defaultDate: new Date(),
 			changeMonth: true,
 			changeYear: true,
 			showButtonPanel: false,
@@ -115,14 +114,17 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 		}).focus(function () {
 			console.log("monthpicker focus");
 			$(".ui-datepicker-calendar").hide();
-		}).attr("readonly", true);
+		}).attr("readonly", true).each(function(){
+			if (!$(this).val()) {
+				$(this).datepicker("setDate", new Date());
+			}
+		});
 		
 		$(".datepicker").datepicker({
 			changeMonth: true,
 	        changeYear: true,
 	        showButtonPanel: false,
 	        dateFormat: 'yy-mm-dd',
-	        defaultDate: new Date(),
 	        yearRange: "-200:+5",
 	        beforeShow: function() {
 				console.log("before show d");
@@ -131,6 +133,10 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 			console.log("datepicker focus");
 			$(".ui-datepicker-calendar").show();
 			$(".ui-datepicker-month").show();
+		}).each(function(){
+			if (!$(this).val()) {
+				$(this).datepicker("setDate", new Date());
+			}
 		});
 		
 		$("a[title]").qtip();
