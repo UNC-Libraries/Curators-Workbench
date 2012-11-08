@@ -337,9 +337,9 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 		<div class="contentarea">
 			<p>
 				<a href="/">Home</a>&nbsp;|&nbsp;
-				<a href="search?types=Collection">Browse Collections</a>&nbsp;|&nbsp;
-				<a href="external?page=about.about">About</a>&nbsp;|&nbsp;
-				<a href="external?page=contact&amp;refer=https%3a%2f%2fcdr.lib.unc.edu%2f">Contact Us</a>&nbsp;|&nbsp;
+				<a href="/search?types=Collection">Browse Collections</a>&nbsp;|&nbsp;
+				<a href="/external?page=about.about">About</a>&nbsp;|&nbsp;
+				<a href="/external?page=contact&amp;refer=https%3a%2f%2fcdr.lib.unc.edu%2f">Contact Us</a>&nbsp;|&nbsp;
 				<a href="http://www.lib.unc.edu">Library Home</a>&nbsp;|&nbsp;
 				<a href="http://www.lib.unc.edu/aoffice/policies/privacy_policy.html">Privacy Policy</a>
 			</p>

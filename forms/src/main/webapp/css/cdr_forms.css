@@ -82,14 +82,6 @@ h2 {
 	width: 100%;
 }
 
-.form_field .multi_notes {
-	z-index: 100;
-}
-
-.form_field .multi_notes span {
-	white-space: nowrap;
-}
-
 .form_field.width_FullLine .multi_notes {
 	float: left;
 }
@@ -117,6 +109,10 @@ h2 {
 
 .expandingText {
 	margin-left: 13em;
+}
+
+.form_field.width_FullLine .expandingText {
+	margin-left: 0;
 }
 
 textarea, .textareaClone {
