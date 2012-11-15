@@ -47,7 +47,6 @@ import org.irods.jargon.core.pub.domain.Collection;
 import org.irods.jargon.core.pub.domain.DataObject;
 import org.irods.jargon.core.pub.io.IRODSFile;
 import org.irods.jargon.core.pub.io.IRODSFileFactory;
-import org.irods.jargon.core.pub.io.IRODSFileInputStream;
 import org.irods.jargon.core.pub.io.IRODSFileOutputStream;
 
 /**
@@ -491,18 +490,6 @@ public class IrodsFileStore extends FileStore {
 			IRODSFileSystem irodsFileSystem = IRODSFileSystem.instance();
 			IRODSFileFactory irodsFileFactory = irodsFileSystem.getIRODSAccessObjectFactory()
 					.getIRODSFileFactory(getAccount());
-			IRODSFile irodsFile = irodsFileFactory
-					.instanceIRODSFile(getDecodedPath());
-			IRODSFile parent = irodsFileFactory.instanceIRODSFile(irodsFile
-					.getParent());
-			if (!parent.exists()) {
-				parent.mkdirs();
-			}
-			if(irodsFile.exists()) {
-				irodsFile.deleteWithForceOption();
-			}
-			parent.close();
-			irodsFile.close();
 			IRODSFileOutputStream irodsFileOutputStream = irodsFileFactory
 					.instanceIRODSFileOutputStream(getDecodedPath());
 			BufferedOutputStream bos = new BufferedOutputStream(irodsFileOutputStream, BUFFER_SIZE);
@@ -510,9 +497,6 @@ public class IrodsFileStore extends FileStore {
 			monitor.done();
 			return bos;
 		} catch (JargonException e) {
-			// log.debug(account.toString() + " resc:" +
-			// account.getDefaultStorageResource() + " " + account.getUserName()
-			// + "/" + account.getPassword(), e);
 			throw new CoreException(new Status(Status.ERROR,
 					Activator.PLUGIN_ID, "Problem getting iRODS output stream",
 					e));
@@ -522,7 +506,6 @@ public class IrodsFileStore extends FileStore {
 	@Override
 	public void putInfo(IFileInfo info, int options, IProgressMonitor monitor)
 			throws CoreException {
-		// TODO Auto-generated method stub
 		super.putInfo(info, options, monitor);
 		// if (monitor == null) {
 		// monitor = new NullProgressMonitor();

@@ -16,7 +16,10 @@
 package unc.lib.cdr.workbench.stage;
 
 import gov.loc.mets.CHECKSUMTYPEType;
+import gov.loc.mets.DivType;
+import gov.loc.mets.FLocatType;
 import gov.loc.mets.FileType;
+import gov.loc.mets.FptrType;
 import gov.loc.mets.LOCTYPEType;
 import gov.loc.mets.util.METSConstants;
 import gov.loc.mets.util.METSUtils;
@@ -36,19 +39,18 @@ import org.eclipse.core.filesystem.EFS;
 import org.eclipse.core.filesystem.IFileInfo;
 import org.eclipse.core.filesystem.IFileStore;
 import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IProject;
-import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.SubProgressMonitor;
+import org.eclipse.emf.common.util.TreeIterator;
+import org.eclipse.emf.ecore.EObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import unc.lib.cdr.workbench.IResourceConstants;
 import unc.lib.cdr.workbench.originals.OriginalFileStore;
 import unc.lib.cdr.workbench.project.MetsProjectNature;
 import unc.lib.cdr.workbench.rcp.Activator;
@@ -63,19 +65,24 @@ public class StagingUtils {
 
 	
 	public static int countUnstaged(IProject project) throws CoreException {
-		// TODO update this code to check against METS instead
-		int result = 0;
-		IMarker[] captured = project.findMarkers(IResourceConstants.MARKER_CAPTURED, false, IResource.DEPTH_INFINITE);
-		for (IMarker m : captured) {
-			if (m.getResource() instanceof IFile) {
-				IMarker[] staged = m.getResource().findMarkers(IResourceConstants.MARKER_STAGED, false,
-						IResource.DEPTH_ZERO);
-				if (staged.length <= 0) {
-					result++;
+		int numOfFiles = 0;
+		int numStaged = 0;
+		DivType bag = METSUtils.findBagDiv(MetsProjectNature.get(project).getMets());
+		for(TreeIterator<EObject> iter = bag.eAllContents(); iter.hasNext();) {
+			EObject next = iter.next();
+			if(next != null && next instanceof FptrType) {
+				numOfFiles++;
+				FptrType fptr = (FptrType)next;
+				OriginalFileStore original = MetsProjectNature.getOriginal((DivType)fptr.eContainer());
+				if(original != null) {
+					FLocatType loc = original.getStagingLocatorType();
+					if(loc != null) {
+						numStaged++;
+					}
 				}
 			}
 		}
-		return result;
+		return numOfFiles - numStaged;
 	}
 	
 	/**
@@ -261,21 +268,10 @@ public class StagingUtils {
 					in.close();
 				}
 			} catch (IOException e) {
-				throw new CoreException(new Status(Status.ERROR, Activator.PLUGIN_ID, e.getLocalizedMessage(), e));
+				log.error("Trouble closing i/o resources", e);
 			}
 		}
 		return result;
-	}
-
-	/**
-	 * @param r
-	 * @param subProgressMonitor
-	 */
-	public static void audit(IFile r, IProgressMonitor monitor) {
-		// TODO get URI and checksum from METS
-		// create staged file store and fetch MD5
-		// compare manifest checksum with the one fetched..
-		// if okay then quit, else stage it..
 	}
 
 	/**
@@ -373,7 +369,7 @@ public class StagingUtils {
 						in.close();
 					}
 				} catch (IOException e) {
-					throw new CoreException(new Status(Status.ERROR, Activator.PLUGIN_ID, e.getLocalizedMessage(), e));
+					log.error("Trouble closing i/o resources", e);
 				}
 			}
 			return result;
