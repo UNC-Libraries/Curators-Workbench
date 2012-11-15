@@ -154,7 +154,7 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 				} else {
 					out.print(",");
 				}
-				out.print("\"" + vocabValue + "\"");
+				out.print("\"" + vocabValue.replaceAll("\"", "\\\"") + "\"");
 			}
 			out.println("]});");
 		}
