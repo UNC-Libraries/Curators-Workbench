@@ -24,6 +24,7 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.IJobManager;
+import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.ui.PlatformUI;
@@ -99,7 +100,18 @@ public class Activator extends AbstractUIPlugin {
 	public void stop(BundleContext context) throws Exception {
 		IJobManager manager = Platform.getJobManager();
 		manager.cancel(StagingJob.stagingJobFamilyObject);
+		Job[] stagingJobs = manager.find(StagingJob.stagingJobFamilyObject);
+		for(Job sj : stagingJobs) {
+			if(!sj.cancel())
+				sj.join();
+		}
 		manager.cancel(CrosswalkJob.crosswalkJobFamilyObject);
+		Job[] cwjobs = manager.find(CrosswalkJob.crosswalkJobFamilyObject);
+		for(Job cwj : cwjobs) {
+			if(!cwj.cancel())
+				cwj.join();
+		}
+		manager.cancel(null);
 		super.stop(context);
 		plugin = null;
 	}
