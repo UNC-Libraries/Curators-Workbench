@@ -26,6 +26,7 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.SubProgressMonitor;
+import org.eclipse.core.runtime.jobs.ISchedulingRule;
 import org.eclipse.core.runtime.jobs.Job;
 
 import unc.lib.cdr.workbench.originals.OriginalFileStore;
@@ -37,6 +38,16 @@ import unc.lib.cdr.workbench.rcp.Activator;
  */
 public class StagingJob extends Job {
 	List<OriginalFileStore> toStage = null;
+	public static MutexRule mySchedulingRule = new MutexRule();
+	
+	public static class MutexRule implements ISchedulingRule {
+		public boolean isConflicting(ISchedulingRule rule) {
+			return rule == this;
+		}
+		public boolean contains(ISchedulingRule rule) {
+			return rule == this;
+		}
+	}
 
 	@Override
 	public boolean belongsTo(Object family) {
@@ -54,6 +65,7 @@ public class StagingJob extends Job {
 	public StagingJob(String name, List<OriginalFileStore> toStage2) {
 		super(name);
 		this.toStage = toStage2;
+		this.setRule(mySchedulingRule);
 	}
 
 	/*

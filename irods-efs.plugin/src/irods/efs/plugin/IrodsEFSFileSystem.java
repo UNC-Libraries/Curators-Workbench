@@ -17,6 +17,8 @@ package irods.efs.plugin;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.eclipse.core.filesystem.IFileStore;
 import org.eclipse.core.filesystem.provider.FileSystem;
@@ -36,6 +38,7 @@ public class IrodsEFSFileSystem extends FileSystem {
 	@SuppressWarnings("unused")
 	private static final Logger LOG = LoggerFactory.getLogger(IrodsEFSFileSystem.class);
 	private static Object lock = new Object();
+	private static Map<String, String[]> sessionCredentials = new HashMap<String, String[]>();
 
 	public IrodsEFSFileSystem() {
 		super();
@@ -71,7 +74,7 @@ public class IrodsEFSFileSystem extends FileSystem {
 		try {
 			URI serverURI = new URI("irods", a.getUserName(), a.getHost(), a.getPort(), "/" + a.getZone() + "/", null,
 					null);
-			putStoredCredentials(serverURI, a.getUserName(), a.getPassword());
+			sessionCredentials.put(makeServerPreferenceKey(serverURI), new String[] {a.getUserName(), a.getPassword()});
 			return serverURI;
 		} catch (URISyntaxException e) {
 			throw new Error(e);
@@ -88,11 +91,13 @@ public class IrodsEFSFileSystem extends FileSystem {
 		IRODSAccount result = null;
 
 		final String zone = getZone(uri);
-
+		
+		String baseKey = makeServerPreferenceKey(uri);
+		
 		// do we have credentials stored?
-		String[] credentials = getStoredCredentials(uri);
+		String[] credentials = sessionCredentials.get(baseKey);
 
-		if (credentials[0] == null || credentials[1] == null) {
+		if (!sessionCredentials.containsKey(baseKey)) {
 			System.out.println("No stored credentials");
 			// are there sufficient credentials on the URI?
 			if (uri.getUserInfo() != null && uri.getUserInfo().contains(":")) {
@@ -101,13 +106,14 @@ public class IrodsEFSFileSystem extends FileSystem {
 			}
 		}
 
-		if (credentials[0] == null || credentials[1] == null) { // prompt
+		if (credentials == null || credentials[0] == null || credentials[1] == null) { // prompt
 			synchronized (lock) {
-				credentials = getStoredCredentials(uri);
-				LOG.info(Thread.currentThread().getId()+" in sync and got initial creds: "+credentials[1]);
-				if (credentials[0] == null || credentials[1] == null) {
+				credentials = sessionCredentials.get(baseKey);
+				LOG.info(Thread.currentThread().getId()+" in sync and got initial creds: "+credentials);
+				if (credentials == null || credentials[0] == null || credentials[1] == null) {
 					PlatformUI.getWorkbench().getDisplay().syncExec(new Runnable() {
 						public void run() {
+							String baseKey = makeServerPreferenceKey(uri);
 							Shell s = Activator.getDefault().getWorkbench().getDisplay().getActiveShell();
 							String message = "Need a username and password to connect to iRODS.";
 							String promptName = null;
@@ -116,17 +122,17 @@ public class IrodsEFSFileSystem extends FileSystem {
 							}
 							URI serverURI = null;
 							try {
-								serverURI = new URI(makeServerPreferenceKey(uri));
+								serverURI = new URI(baseKey);
 							} catch (URISyntaxException e) {
 								throw new Error(e);
 							}
 							LoginInputDialog d = new LoginInputDialog(s, message, serverURI, promptName, zone);
 							if (Dialog.OK == d.open()) {
-								putStoredCredentials(uri, d.getUsername(), d.getPassword());
+								sessionCredentials.put(baseKey, new String[] {d.getUsername(), d.getPassword()});
 							}
 						}
 					});
-					credentials = getStoredCredentials(uri);
+					credentials = sessionCredentials.get(baseKey);
 					LOG.info(Thread.currentThread().getId()+" exiting sync with creds: "+credentials[1]);
 				}
 			}
@@ -150,29 +156,6 @@ public class IrodsEFSFileSystem extends FileSystem {
 		} catch (URISyntaxException e) {
 			throw new Error("Problem removing password from an iRODS URI.", e);
 		}
-	}
-
-	// store URI key may be slightly different from regular URI
-	private static String[] getStoredCredentials(URI locationURI) {
-		String[] result = new String[2];
-		String baseKey = makeServerPreferenceKey(locationURI);
-		IPreferenceStore store = Activator.getDefault().getPreferenceStore();
-		result[0] = store.getString(baseKey + "#username").trim();
-		result[1] = store.getString(baseKey + "#password").trim();
-		if (result[0] != null && result[0].isEmpty()) {
-			result[0] = null;
-		}
-		if (result[1] != null && result[1].isEmpty()) {
-			result[1] = null;
-		}
-		return result;
-	}
-
-	private static void putStoredCredentials(URI locationURI, String username, String password) {
-		String baseKey = makeServerPreferenceKey(locationURI);
-		IPreferenceStore store = Activator.getDefault().getPreferenceStore();
-		store.setValue(baseKey + "#username", username.trim());
-		store.setValue(baseKey + "#password", password.trim());
 	}
 
 	private static String makeServerPreferenceKey(URI locationURI) {

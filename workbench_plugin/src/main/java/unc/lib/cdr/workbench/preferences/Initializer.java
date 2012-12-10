@@ -34,22 +34,20 @@ public class Initializer extends AbstractPreferenceInitializer {
 	public void initializeDefaultPreferences() {
 		List<String[]> locs = new ArrayList<String[]>();
 		
-		locs.add(new String[] { "CDR Production iRODS Grid",
-		"irods://${USER_NAME}@cdr-vault.libint.unc.edu:3333/cdrZone/home/${USER_NAME}/staging/${PROJECT_NAME}" });
+		locs.add(new String[] { "CDR Staging iRODS Grid",
+		"irods://${USER_NAME}@cdr-stage.lib.unc.edu:3333/stagingZone/home/${USER_NAME}/${PROJECT_NAME}" });
+		
+		locs.add(new String[] { "StorHouse processing folder", "file:/Z:/in_process/${PROJECT_NAME}" });
 		
 		// set Local Staging Folder
 		String osUserHome = (String) System.getProperties().get("user.home");
 		File dir = new File(osUserHome + "/workbench_staging");
 		locs.add(new String[] { "Staging folder in home directory", dir.toURI().toString() + "/${PROJECT_NAME}" });
 		
-		locs.add(new String[] { "StorHouse processing folder", "file:/Z:/in_process/${PROJECT_NAME}" });
+		
 		
 		// add the relative to project folder option (using dynamic path variable for PROJECT_PATH)
 		locs.add(new String[] { "Data folder within project (Bag-It style)", "${PROJECT_LOC}/data" });
-
-		// add example iRODS path (using dynamic path variable for project name)
-		locs.add(new String[] { "CDR Test iRODS Grid",
-				"irods://${USER_NAME}@cdr-dev-vault.libint.unc.edu:5555/cdrTestZone/home/${USER_NAME}/staging/${PROJECT_NAME}" });
 		
 		String str = Activator.convertLocationsToPref(locs);
 		// Activator.getDefault().getLog().log(new Status(IStatus.INFO, Activator.PLUGIN_ID, "setting defaults: "+str));

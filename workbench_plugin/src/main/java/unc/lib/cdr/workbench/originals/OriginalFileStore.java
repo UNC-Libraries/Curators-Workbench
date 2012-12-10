@@ -29,10 +29,10 @@ import unc.lib.cdr.workbench.project.MetsProjectNature;
 import unc.lib.cdr.workbench.rcp.Activator;
 
 public class OriginalFileStore implements IFileStore {
-	
+
 	@SuppressWarnings("unused")
 	private static final Logger LOG = LoggerFactory.getLogger(OriginalFileStore.class);
-	
+
 	private static final String FILETYPE_PREFIX = "f_";
 	private static final String DIVTYPE_PREFIX = "d_";
 	private static final String protectedMessage = "Operation cancelled. This file under read only protection within the workbench.";
@@ -62,7 +62,7 @@ public class OriginalFileStore implements IFileStore {
 		}
 		this.wrapped = EFS.getStore(wrappedUri);
 	}
-	
+
 	public boolean isAttached() {
 		return this.stub.isAttached();
 	}
@@ -97,15 +97,14 @@ public class OriginalFileStore implements IFileStore {
 	}
 
 	public FLocatType getStagingLocatorType() {
-		try {
-			MetsProjectNature n = MetsProjectNature.get(stub.getProject());
-			FileType ft = (FileType) n.getMetsResource().getEObject(getFileID());
+		MetsProjectNature n = MetsProjectNature.get(stub.getProject());
+		FileType ft = (FileType) n.getMetsResource().getEObject(getFileID());
+		if (ft != null && ft.getFLocat() != null) {
 			for (FLocatType loc : ft.getFLocat()) {
 				if (METSConstants.FLocat_USE_STAGE.equals(loc.getUSE())) {
 					return loc;
 				}
 			}
-		} catch (NullPointerException e) {
 		}
 		return null;
 	}
@@ -321,27 +320,26 @@ public class OriginalFileStore implements IFileStore {
 	public IFileStore getStageLocation() {
 		MetsProjectNature mpn = MetsProjectNature.get(getProject());
 		URI stageBase = mpn.getStagingBase();
-		LOG.debug("stagebase.getPath(): "+stageBase.getPath());
+		LOG.debug("stagebase.getPath(): " + stageBase.getPath());
 		IPath stageBasePath = new Path(stageBase.getPath());
-		LOG.debug("original.toURI().getPath()"+this.toURI().getPath());
+		LOG.debug("original.toURI().getPath()" + this.toURI().getPath());
 		Path mypath = new Path(this.toURI().getPath());
 		Path stubPath = new Path(this.getOriginalStub().getVolumeRoot().getPath());
-		LOG.debug("stubPath: "+stubPath);
+		LOG.debug("stubPath: " + stubPath);
 		IPath relStubPath = mypath.makeRelativeTo(stubPath);
-		LOG.debug("relStubPath: "+relStubPath);
-		String stubSegment = new StringBuilder().append("_")
-				.append(this.getOriginalStub().getVolumeHash()).toString();
+		LOG.debug("relStubPath: " + relStubPath);
+		String stubSegment = new StringBuilder().append("_").append(this.getOriginalStub().getVolumeHash()).toString();
 		IPath stagePath = stageBasePath.append(stubSegment).append(relStubPath);
-		LOG.debug("stagePath: "+stagePath);
+		LOG.debug("stagePath: " + stagePath);
 		String sps = stagePath.toString();
-		if(!sps.startsWith("/")) {
-			sps = "/"+sps;
+		if (!sps.startsWith("/")) {
+			sps = "/" + sps;
 		}
-		LOG.debug("sps: "+sps);
+		LOG.debug("sps: " + sps);
 		try {
 			URI stageLoc = new URI(stageBase.getScheme(), stageBase.getUserInfo(), stageBase.getHost(),
 					stageBase.getPort(), sps, stageBase.getQuery(), stageBase.getFragment());
-			LOG.debug("stageLoc: "+stageLoc);
+			LOG.debug("stageLoc: " + stageLoc);
 			return EFS.getStore(stageLoc);
 		} catch (Exception e) {
 			throw new Error(e);

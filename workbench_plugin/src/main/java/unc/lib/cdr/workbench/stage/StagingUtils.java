@@ -145,7 +145,9 @@ public class StagingUtils {
 		String stagedMD5 = fetchMD5Digest(stageFileStore, stagedChecksumMonitor); // 1 tick
 
 		if (!sourceMD5.equals(stagedMD5)) {
+			log.error("checksums do not match:"+sourceMD5+" | "+stagedMD5);
 			stageFileStore.delete(EFS.NONE, stagedChecksumMonitor);
+			throw new CoreException(new Status(IStatus.ERROR, Activator.PLUGIN_ID, "Checksum mismatch during staging."));
 		} else {
 			// now update markers and record File in METS
 			stageFileInfo = stageFileStore.fetchInfo();
@@ -164,11 +166,10 @@ public class StagingUtils {
 		String result = null;
 		IFileInfo info = null;
 		if (fileStore instanceof IrodsFileStore) {
-			monitor.beginTask("Retrieving checksum from iRODS", 1);
 			info = fileStore.fetchInfo();
 			result = info.getStringAttribute(EFS.ATTRIBUTE_LINK_TARGET);
-			monitor.done();
-		} else {
+		}
+		if(result == null) {
 			monitor.beginTask("Retreiving staged file and calculating checksum", 100);
 			info = fileStore.fetchInfo();
 			if(info.getLength() == 0) {

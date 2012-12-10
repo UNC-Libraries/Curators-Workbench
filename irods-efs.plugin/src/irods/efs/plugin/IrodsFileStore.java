@@ -43,6 +43,7 @@ import org.irods.jargon.core.pub.CollectionAO;
 import org.irods.jargon.core.pub.DataObjectAO;
 import org.irods.jargon.core.pub.IRODSAccessObjectFactory;
 import org.irods.jargon.core.pub.IRODSFileSystem;
+import org.irods.jargon.core.pub.RemoteExecutionOfCommandsAO;
 import org.irods.jargon.core.pub.domain.Collection;
 import org.irods.jargon.core.pub.domain.DataObject;
 import org.irods.jargon.core.pub.io.IRODSFile;
@@ -215,6 +216,10 @@ public class IrodsFileStore extends FileStore {
 			info.setAttribute(EFS.ATTRIBUTE_READ_ONLY, false);
 			info.setAttribute(EFS.ATTRIBUTE_SYMLINK, false);
 		} catch (JargonException e) {
+			throw new CoreException(new Status(Status.ERROR,
+					Activator.PLUGIN_ID, "Problem executing IRODS data query",
+					e));
+		} catch (java.io.FileNotFoundException e) {
 			throw new CoreException(new Status(Status.ERROR,
 					Activator.PLUGIN_ID, "Problem executing IRODS data query",
 					e));
@@ -490,6 +495,18 @@ public class IrodsFileStore extends FileStore {
 			IRODSFileSystem irodsFileSystem = IRODSFileSystem.instance();
 			IRODSFileFactory irodsFileFactory = irodsFileSystem.getIRODSAccessObjectFactory()
 					.getIRODSFileFactory(getAccount());
+			IRODSFile irodsFile = irodsFileFactory
+					.instanceIRODSFile(getDecodedPath());
+			IRODSFile parent = irodsFileFactory.instanceIRODSFile(irodsFile
+					.getParent());
+			if (!parent.exists()) {
+				parent.mkdirs();
+			}
+			if(irodsFile.exists()) {
+				irodsFile.deleteWithForceOption();
+			}
+			parent.close();
+			irodsFile.close();
 			IRODSFileOutputStream irodsFileOutputStream = irodsFileFactory
 					.instanceIRODSFileOutputStream(getDecodedPath());
 			BufferedOutputStream bos = new BufferedOutputStream(irodsFileOutputStream, BUFFER_SIZE);
