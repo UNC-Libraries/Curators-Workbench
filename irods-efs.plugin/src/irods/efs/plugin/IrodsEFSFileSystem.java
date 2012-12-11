@@ -30,6 +30,7 @@ import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 import org.irods.jargon.core.connection.IRODSAccount;
+import org.irods.jargon.core.connection.IRODSAccount.AuthScheme;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -38,7 +39,7 @@ public class IrodsEFSFileSystem extends FileSystem {
 	@SuppressWarnings("unused")
 	private static final Logger LOG = LoggerFactory.getLogger(IrodsEFSFileSystem.class);
 	private static Object lock = new Object();
-	private static Map<String, String[]> sessionCredentials = new HashMap<String, String[]>();
+	private static Map<String, IRODSAccount> sessionCredentials = new HashMap<String, IRODSAccount>();
 
 	public IrodsEFSFileSystem() {
 		super();
@@ -74,7 +75,7 @@ public class IrodsEFSFileSystem extends FileSystem {
 		try {
 			URI serverURI = new URI("irods", a.getUserName(), a.getHost(), a.getPort(), "/" + a.getZone() + "/", null,
 					null);
-			sessionCredentials.put(makeServerPreferenceKey(serverURI), new String[] {a.getUserName(), a.getPassword()});
+			sessionCredentials.put(makeServerPreferenceKey(serverURI), a);
 			return serverURI;
 		} catch (URISyntaxException e) {
 			throw new Error(e);
@@ -95,22 +96,13 @@ public class IrodsEFSFileSystem extends FileSystem {
 		String baseKey = makeServerPreferenceKey(uri);
 		
 		// do we have credentials stored?
-		String[] credentials = sessionCredentials.get(baseKey);
+		result = sessionCredentials.get(baseKey);
 
-		if (!sessionCredentials.containsKey(baseKey)) {
-			System.out.println("No stored credentials");
-			// are there sufficient credentials on the URI?
-			if (uri.getUserInfo() != null && uri.getUserInfo().contains(":")) {
-				// we may have username and password in URI
-				credentials = uri.getUserInfo().split(":");
-			}
-		}
-
-		if (credentials == null || credentials[0] == null || credentials[1] == null) { // prompt
+		if (result == null) { // prompt
 			synchronized (lock) {
-				credentials = sessionCredentials.get(baseKey);
-				LOG.info(Thread.currentThread().getId()+" in sync and got initial creds: "+credentials);
-				if (credentials == null || credentials[0] == null || credentials[1] == null) {
+				result = sessionCredentials.get(baseKey);
+				LOG.info(Thread.currentThread().getId()+" in sync and got initial account: "+result);
+				if (result == null) {
 					PlatformUI.getWorkbench().getDisplay().syncExec(new Runnable() {
 						public void run() {
 							String baseKey = makeServerPreferenceKey(uri);
@@ -126,23 +118,22 @@ public class IrodsEFSFileSystem extends FileSystem {
 							} catch (URISyntaxException e) {
 								throw new Error(e);
 							}
-							LoginInputDialog d = new LoginInputDialog(s, message, serverURI, promptName, zone);
+							LoginInputDialog d = new LoginInputDialog(s, message, serverURI, promptName, zone, AuthScheme.PAM);
 							if (Dialog.OK == d.open()) {
-								sessionCredentials.put(baseKey, new String[] {d.getUsername(), d.getPassword()});
+								sessionCredentials.put(baseKey, d.getAuthenticatedIRODSAccount());
 							}
 						}
 					});
-					credentials = sessionCredentials.get(baseKey);
-					LOG.info(Thread.currentThread().getId()+" exiting sync with creds: "+credentials[1]);
+					result = sessionCredentials.get(baseKey);
+					LOG.info(Thread.currentThread().getId()+" exiting sync with creds: "+result);
 				}
 			}
 		}
 
-		if (credentials[0] == null || credentials[1] == null) {
+		if (result == null) {
 			throw new CoreException(new Status(IStatus.ERROR, Activator.PLUGIN_ID,
 					"Cannot obtain credentials for irods connection: " + uri.toString()));
 		}
-		result = new IRODSAccount(uri.getHost(), uri.getPort(), credentials[0], credentials[1], "", zone, "fake");
 		return result;
 	}
 

@@ -33,9 +33,10 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 import org.irods.jargon.core.connection.IRODSAccount;
+import org.irods.jargon.core.connection.IRODSAccount.AuthScheme;
+import org.irods.jargon.core.connection.auth.AuthResponse;
 import org.irods.jargon.core.exception.JargonException;
 import org.irods.jargon.core.pub.IRODSFileSystem;
-import org.irods.jargon.core.pub.ResourceAO;
 import org.irods.jargon.core.pub.io.IRODSFile;
 import org.irods.jargon.core.pub.io.IRODSFileFactory;
 
@@ -56,11 +57,14 @@ public class LoginInputDialog extends TitleAreaDialog {
 
 	String username = null;
 	String password = null;
+	AuthScheme authScheme = null;
+	IRODSAccount authenticatedIrodsAccount = null;
 
 	/**
 	 * @param parentShell
+	 * @param pam 
 	 */
-	protected LoginInputDialog(Shell parentShell, String message, URI irodsURI, String defaultUsername, String zone) {
+	protected LoginInputDialog(Shell parentShell, String message, URI irodsURI, String defaultUsername, String zone, AuthScheme scheme) {
 		super(parentShell);
 		this.message = message;
 		this.irodsURI = irodsURI;
@@ -68,6 +72,7 @@ public class LoginInputDialog extends TitleAreaDialog {
 		this.textPassword = null;
 		this.textUsername = null;
 		this.zone = zone;
+		this.authScheme = scheme;
 	}
 
 	@Override
@@ -165,6 +170,7 @@ public class LoginInputDialog extends TitleAreaDialog {
 	protected IRODSAccount makeAccount() {
 		IRODSAccount result = new IRODSAccount(this.irodsURI.getHost(), this.irodsURI.getPort(), textUsername.getText(),
 				textPassword.getText(), "", zone, "fake");
+		result.setAuthenticationScheme(authScheme);
 		return result;
 	}
 
@@ -222,17 +228,16 @@ public class LoginInputDialog extends TitleAreaDialog {
 	}
 
 	private boolean testConnection(IRODSAccount account) {
-		boolean result = false;
 		try {
+			this.authenticatedIrodsAccount = null;
 			IRODSFileSystem irodsFileSystem = IRODSFileSystem.instance();
-			IRODSFileFactory ff = irodsFileSystem.getIRODSFileFactory(account);
-			String testPath = "/lakjsdf/asdfl/asdf/thispathisgarbage";
-			// System.out.println("testing path:"+testPath);
-			IRODSFile file = ff.instanceIRODSFile(testPath);
-
-			file.exists();
-			result = true;
-			setMessage("Connection succeeded.", IMessageProvider.INFORMATION);
+			AuthResponse ar = irodsFileSystem.getIRODSAccessObjectFactory().authenticateIRODSAccount(account);
+			if(ar.isSuccessful()) {
+				this.authenticatedIrodsAccount = ar.getAuthenticatedIRODSAccount();
+				setMessage("Connection succeeded.", IMessageProvider.INFORMATION);
+				this.okButton.setEnabled(true);
+				return true;
+			}
 		} catch (JargonException e) {
 			String msg = null;
 			if (e.getCause() != null) {
@@ -246,13 +251,12 @@ public class LoginInputDialog extends TitleAreaDialog {
 				setMessage("Connection failed due to an error: " + msg, IMessageProvider.ERROR);
 			}
 		}
-		if (result) {
-			setMessage("Connection succeeded", IMessageProvider.INFORMATION);
-			this.okButton.setEnabled(true);
-		} else {
-			this.okButton.setEnabled(false);
-		}
-		return result;
+		this.okButton.setEnabled(false);
+		return false;
+	}
+
+	public IRODSAccount getAuthenticatedIRODSAccount() {
+		return this.authenticatedIrodsAccount;
 	}
 
 }
