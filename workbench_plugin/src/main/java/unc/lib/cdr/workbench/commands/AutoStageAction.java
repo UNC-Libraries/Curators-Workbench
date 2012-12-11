@@ -8,6 +8,7 @@ import org.eclipse.core.resources.IncrementalProjectBuilder;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -15,6 +16,7 @@ import org.eclipse.ui.IObjectActionDelegate;
 import org.eclipse.ui.IWorkbenchPart;
 
 import unc.lib.cdr.workbench.project.MetsProjectNature;
+import unc.lib.cdr.workbench.stage.StagingJob;
 
 public class AutoStageAction implements IObjectActionDelegate {
 	ISelection selection = null;
@@ -54,12 +56,12 @@ public class AutoStageAction implements IObjectActionDelegate {
 	 */
 	private void toggleStaging(IProject project) throws CoreException {
 		MetsProjectNature mpn = (MetsProjectNature)project.getNature(MetsProjectNature.NATURE_ID);
-		boolean setting = mpn.getAutomaticStaging(project);
-		mpn.setAutomaticStaging(!setting, project);
-		System.out.println("toggled auto staging, it now says "+mpn.getAutomaticStaging(project));
-		if(mpn.getAutomaticStaging(project)) {
-			project.build(IncrementalProjectBuilder.FULL_BUILD, MetsProjectNature.STAGING_BUILDER_ID, Collections.EMPTY_MAP,
-				new NullProgressMonitor());
+		boolean setting = MetsProjectNature.getAutomaticStaging(project);
+		MetsProjectNature.setAutomaticStaging(!setting, project);
+		System.out.println("toggled auto staging, it now says "+MetsProjectNature.getAutomaticStaging(project));
+		if(MetsProjectNature.getAutomaticStaging(project)) {
+			Job stagingJob = new StagingJob("Staging after autostage enabled", project);
+			stagingJob.schedule();
 		}
 	}
 

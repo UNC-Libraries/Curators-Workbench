@@ -15,7 +15,13 @@
  */
 package unc.lib.cdr.workbench.stage;
 
+import gov.loc.mets.DivType;
+import gov.loc.mets.FLocatType;
+import gov.loc.mets.FptrType;
+import gov.loc.mets.util.METSUtils;
+
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -28,8 +34,11 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.SubProgressMonitor;
 import org.eclipse.core.runtime.jobs.ISchedulingRule;
 import org.eclipse.core.runtime.jobs.Job;
+import org.eclipse.emf.common.util.TreeIterator;
+import org.eclipse.emf.ecore.EObject;
 
 import unc.lib.cdr.workbench.originals.OriginalFileStore;
+import unc.lib.cdr.workbench.project.MetsProjectNature;
 import unc.lib.cdr.workbench.rcp.Activator;
 
 /**
@@ -66,6 +75,30 @@ public class StagingJob extends Job {
 		super(name);
 		this.toStage = toStage2;
 		this.setRule(mySchedulingRule);
+	}
+	
+	/**
+	 * @param name
+	 */
+	public StagingJob(String name, IProject project) {
+		super(name);
+		this.setRule(mySchedulingRule);
+		this.toStage = new ArrayList<OriginalFileStore>();
+		MetsProjectNature mpn = MetsProjectNature.get(project);
+		DivType bag = METSUtils.findBagDiv(mpn.getMets());
+		for(TreeIterator<EObject> iter = bag.eAllContents(); iter.hasNext();) {
+			EObject next = iter.next();
+			if(next instanceof FptrType) {
+				FptrType fptr = (FptrType)next;
+				OriginalFileStore original = mpn.getOriginal((DivType)fptr.eContainer());
+				if(original != null) {
+					FLocatType loc = original.getStagingLocatorType();
+					if(loc == null) {
+						toStage.add(original);
+					}
+				}
+			}
+		}
 	}
 
 	/*

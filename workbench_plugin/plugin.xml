@@ -1597,19 +1597,6 @@
       </decorator>
    </extension>
    <extension
-         id="unc.lib.cdr.workbench.builders.StageBuilder"
-         name="Staging Builder"
-         point="org.eclipse.core.resources.builders">
-      <builder
-            callOnEmptyDelta="true"
-            hasNature="true"
-            isConfigurable="true">
-         <run
-               class="unc.lib.cdr.workbench.stage.StageBuilder">
-         </run>
-      </builder>
-   </extension>
-   <extension
          point="org.eclipse.ui.editors">
       <editor
             class="unc.lib.cdr.workbench.capture.OriginalFolderEditorPart"

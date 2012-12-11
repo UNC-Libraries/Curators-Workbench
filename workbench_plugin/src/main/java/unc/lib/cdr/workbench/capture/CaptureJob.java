@@ -52,6 +52,7 @@ import org.eclipse.emf.edit.command.AddCommand;
 
 import unc.lib.cdr.workbench.originals.OriginalFileStore;
 import unc.lib.cdr.workbench.project.MetsProjectNature;
+import unc.lib.cdr.workbench.stage.StagingJob;
 
 /**
  * @author Gregory Jansen
@@ -182,30 +183,14 @@ public class CaptureJob extends Job {
 			mpn.save();
 			project.getWorkspace().save(true, monitor);
 
-//			if (mpn.getAutomaticStaging(project)) {
-//				System.out.println("triggering build b/c auto staging says " + mpn.getAutomaticStaging(project));
-//				Job buildJob = new Job("Staging") {
-//
-//					@Override
-//					protected IStatus run(IProgressMonitor monitor) {
-//						Map<String, String> params = new HashMap<String, String>();
-//						try {
-//							project.build(IncrementalProjectBuilder.FULL_BUILD, MetsProjectNature.STAGING_BUILDER_ID, params,
-//									monitor);
-//						} catch (CoreException e) {
-//							return new Status(Status.ERROR, Activator.PLUGIN_ID,
-//									"There was a problem running the staging process.", e);
-//						}
-//						return Status.OK_STATUS;
-//					}
-//				};
-//				buildJob.setUser(true);
-//				buildJob.setPriority(Job.BUILD);
-//				buildJob.schedule(1000);
-//			} else {
-//				System.out.println("skipping build b/c auto staging says " + mpn.getAutomaticStaging(project));
-//			}
-
+			boolean autostage = MetsProjectNature.getAutomaticStaging(project);
+			if (autostage) {
+				System.out.println("triggering build b/c auto staging says " + autostage);
+				Job stagingJob = new StagingJob("Staging after capture", project);
+				stagingJob.schedule();
+			} else {
+				System.out.println("skipping build b/c auto staging says " + autostage);
+			}
 			monitor.done();
 			return Status.OK_STATUS;
 		} catch (CoreException e) {
