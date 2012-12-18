@@ -34,12 +34,18 @@ import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.jface.dialogs.IInputValidator;
 import org.eclipse.jface.dialogs.InputDialog;
+import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.viewers.StructuredSelection;
+import org.eclipse.ui.IViewPart;
+import org.eclipse.ui.IWorkbenchPage;
+import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.handlers.HandlerUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import unc.lib.cdr.workbench.project.MetsProjectNature;
+import unc.lib.cdr.workbench.views.MetsProjectNavigator;
 
 public class AddFolderDivHandler extends AbstractHandler {
 
@@ -53,55 +59,65 @@ public class AddFolderDivHandler extends AbstractHandler {
 	 */
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
-		IStructuredSelection select = (IStructuredSelection) HandlerUtil.getCurrentSelectionChecked(event);
-		DivType within = null;
-		MetsProjectNature mpn = null;
-		Object o = select.getFirstElement();
-		if (o instanceof IProject || o instanceof ArrangementProjectElement) {
-			// get the bag div
-			IProject p = null;
-			if (o instanceof IProject) {
-				p = (IProject) o;
-			} else {
-				p = ((ArrangementProjectElement) o).getProject();
-			}
-			try {
-				mpn = (MetsProjectNature) p.getNature(MetsProjectNature.NATURE_ID);
-				within = METSUtils.findBagDiv(mpn.getMets());
-			} catch (CoreException e) {
-				throw new ExecutionException("Project must have a METS nature.", e);
-			}
-		} else if (o instanceof DivType) {
-			within = (DivType) o;
-		}
-		LOG.debug("WITHIN " + within.toString());
-		IInputValidator v = new IInputValidator() {
-			@Override
-			public String isValid(String newText) {
-				if (newText.trim().length() < 1) {
-					return "Name cannot be empty or blank";
+		IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindow(event);
+		IWorkbenchPage page = window.getActivePage();
+		IViewPart view = page.findView(MetsProjectNavigator.ID);
+		// Get the selection
+		ISelection selection = view.getSite().getSelectionProvider().getSelection();
+		if (selection != null && selection instanceof IStructuredSelection) {
+			IStructuredSelection select = (IStructuredSelection) selection;
+			DivType within = null;
+			MetsProjectNature mpn = null;
+			Object o = select.getFirstElement();
+			if (o instanceof IProject || o instanceof ArrangementProjectElement) {
+				// get the bag div
+				IProject p = null;
+				if (o instanceof IProject) {
+					p = (IProject) o;
+				} else {
+					p = ((ArrangementProjectElement) o).getProject();
 				}
-				return null;
+				try {
+					mpn = (MetsProjectNature) p.getNature(MetsProjectNature.NATURE_ID);
+					within = METSUtils.findBagDiv(mpn.getMets());
+				} catch (CoreException e) {
+					throw new ExecutionException("Project must have a METS nature.", e);
+				}
+			} else if (o instanceof DivType) {
+				within = (DivType) o;
 			}
-		};
-		InputDialog d = new InputDialog(HandlerUtil.getActiveShell(event), "Folder Name", "Enter the folder name.", "", v);
-		if (InputDialog.OK == d.open()) {
-			DivType div = MetsFactory.eINSTANCE.createDivType();
-			div.setLABEL1(d.getValue());
-			String ID = METSUtils.makeXMLUUID();
-			div.setID(ID);
-			
-			// set PID
-			UUID uuid = UUID.randomUUID();
-			List<String> contentIds = new ArrayList<String>();
-			contentIds.add("info:fedora/uuid:" + uuid.toString());
-			div.setCONTENTIDS(contentIds);
-			
-			div.setTYPE(METSConstants.Div_Folder);
+			LOG.debug("WITHIN " + within.toString());
+			IInputValidator v = new IInputValidator() {
+				@Override
+				public String isValid(String newText) {
+					if (newText.trim().length() < 1) {
+						return "Name cannot be empty or blank";
+					}
+					return null;
+				}
+			};
+			InputDialog d = new InputDialog(HandlerUtil.getActiveShell(event), "Folder Name", "Enter the folder name.",
+					"", v);
+			if (InputDialog.OK == d.open()) {
+				DivType div = MetsFactory.eINSTANCE.createDivType();
+				div.setLABEL1(d.getValue());
+				String ID = METSUtils.makeXMLUUID();
+				div.setID(ID);
 
-			EditingDomain ed = MetsProjectNature.getEditingDomain(within);
-			Command cmd = AddCommand.create(ed, within, null, div);
-			ed.getCommandStack().execute(cmd);
+				// set PID
+				UUID uuid = UUID.randomUUID();
+				List<String> contentIds = new ArrayList<String>();
+				contentIds.add("info:fedora/uuid:" + uuid.toString());
+				div.setCONTENTIDS(contentIds);
+
+				div.setTYPE(METSConstants.Div_Folder);
+
+				EditingDomain ed = MetsProjectNature.getEditingDomain(within);
+				Command cmd = AddCommand.create(ed, within, null, div);
+				ed.getCommandStack().execute(cmd);
+				// select it in navigator
+				view.getSite().getSelectionProvider().setSelection(new StructuredSelection(div));
+			}
 		}
 		return null;
 	}

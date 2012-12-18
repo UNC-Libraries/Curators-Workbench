@@ -7,6 +7,8 @@ import gov.loc.mets.SmLinkType;
 import gov.loc.mets.util.METSConstants;
 
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.util.EList;
@@ -63,6 +65,7 @@ public class RemoveDivTypeCommand extends RemoveCommand implements Command {
 	 *           the DivType with potential links
 	 */
 	private void deleteMetadataSections(DivType div) {
+		Set<EObject> deletes = new HashSet<EObject>();
 		for (MdSecType dmd : div.getDmdSec()) {
 			if (METSConstants.MD_STATUS_CROSSWALK_LINKED.equals(dmd.getSTATUS())) {
 				dmd.setSTATUS(METSConstants.MD_STATUS_CROSSWALK_NOT_LINKED);
@@ -70,11 +73,14 @@ public class RemoveDivTypeCommand extends RemoveCommand implements Command {
 			if (METSConstants.MD_STATUS_CROSSWALK_USER_LINKED.equals(dmd.getSTATUS())) {
 				dmd.setSTATUS(METSConstants.MD_STATUS_CROSSWALK_NOT_LINKED);
 			} else if (METSConstants.MD_STATUS_USER_EDITED.equals(dmd.getSTATUS())) {
-				EcoreUtil.delete(dmd);
+				deletes.add(dmd);
 			}
 		}
 		for (MdSecType md : div.getMdSec()) {
-			EcoreUtil.delete(md);
+			deletes.add(md);
+		}
+		for(EObject o : deletes) {
+			EcoreUtil.delete(o);
 		}
 	}
 

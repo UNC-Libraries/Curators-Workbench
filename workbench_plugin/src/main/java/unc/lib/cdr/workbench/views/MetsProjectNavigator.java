@@ -45,6 +45,8 @@ import unc.lib.cdr.workbench.rcp.Activator;
 public class MetsProjectNavigator extends CommonNavigator implements ITabbedPropertySheetPageContributor {
 
 	private static final Logger LOG = LoggerFactory.getLogger(MetsProjectNavigator.class);
+	
+	public static final String ID = "cdr-workbench.projectview";
 
 	protected TabbedPropertySheetPage page;
 

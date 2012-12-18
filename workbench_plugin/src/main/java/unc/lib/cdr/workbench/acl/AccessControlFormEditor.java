@@ -41,6 +41,8 @@ import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 import org.eclipse.ui.forms.editor.FormEditor;
 import org.eclipse.ui.forms.widgets.FormToolkit;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import unc.lib.cdr.workbench.project.MetsProjectNature;
 import edu.unc.lib.schemas.acl.AccessControlType;
@@ -52,6 +54,9 @@ import gov.loc.mods.mods.presentation.URIFragmentEditorInput;
  * 
  */
 public class AccessControlFormEditor extends FormEditor {
+	
+	@SuppressWarnings("unused")
+	private static final Logger LOG = LoggerFactory.getLogger(AccessControlFormEditor.class);
 
 	protected AccessControlType model = null;
 	protected AccessControlFormPage page = null;
@@ -92,6 +97,8 @@ public class AccessControlFormEditor extends FormEditor {
 			this.editingDomain = MetsProjectNature.get(project).getEditingDomain();
 			EObject eobj = MetsProjectNature.getModel(in);
 			this.model = (AccessControlType)eobj;
+		} else {
+			LOG.warn("editor input unexpected: "+this.getEditorInput());
 		}
 
 		// command stack that will notify this editor as commands are executed

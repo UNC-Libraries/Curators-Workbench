@@ -36,86 +36,89 @@ import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.commands.IHandler;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.ecore.xml.type.internal.XMLCalendar;
+import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.ui.IViewPart;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PartInitException;
-import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.handlers.HandlerUtil;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import unc.lib.cdr.workbench.project.MetsProjectNature;
+import unc.lib.cdr.workbench.views.MetsProjectNavigator;
 
 public class EditAccessControlsCommand extends AbstractHandler implements IHandler {
 
-	private static final Logger LOG = LoggerFactory.getLogger(EditAccessControlsCommand.class);
-
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
-		IStructuredSelection s = (IStructuredSelection) HandlerUtil.getCurrentSelectionChecked(event);
-		DivType d = (DivType) s.getFirstElement();
-		LOG.debug(String.valueOf(d));
-		MetsProjectNature n = MetsProjectNature.getNatureForMetsObject(d);
+		IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindow(event);
+		IWorkbenchPage page = window.getActivePage();
+		IViewPart view = page.findView(MetsProjectNavigator.ID);
+		// Get the selection
+		ISelection selection = view.getSite().getSelectionProvider().getSelection();
+		if (selection != null && selection instanceof IStructuredSelection) {
+			IStructuredSelection s = (IStructuredSelection) selection;
 
-		MdSecType rightsSec = null;
-		for (MdSecType md : d.getMdSec()) {
-			if (METSConstants.MD_STATUS_USER_EDITED.equals(md.getSTATUS())) {
-				if (MetsPackage.eINSTANCE.getAmdSecType_RightsMD().equals(md.eContainingFeature())) {
-					rightsSec = md;
-					break;
+			DivType d = (DivType) s.getFirstElement();
+			MetsProjectNature n = MetsProjectNature.getNatureForMetsObject(d);
+
+			MdSecType rightsSec = null;
+			for (MdSecType md : d.getMdSec()) {
+				if (METSConstants.MD_STATUS_USER_EDITED.equals(md.getSTATUS())) {
+					if (MetsPackage.eINSTANCE.getAmdSecType_RightsMD().equals(md.eContainingFeature())) {
+						rightsSec = md;
+						break;
+					}
 				}
 			}
-		}
 
-		if (rightsSec == null) {
-			AmdSecType amdSec = MetsFactory.eINSTANCE.createAmdSecType();
-			n.getMets().getAmdSec().add(amdSec);
+			if (rightsSec == null) {
+				AmdSecType amdSec = MetsFactory.eINSTANCE.createAmdSecType();
+				n.getMets().getAmdSec().add(amdSec);
 
-			rightsSec = MetsFactory.eINSTANCE.createMdSecType();
-			rightsSec.setSTATUS(METSConstants.MD_STATUS_USER_EDITED);
-			rightsSec.setCREATED(new XMLCalendar(new java.util.Date(System.currentTimeMillis()), XMLCalendar.DATETIME));
-			rightsSec.setID(METSUtils.makeXMLUUID());
-			amdSec.getRightsMD().add(rightsSec);
-			// link div to rightsMD
-			d.getMdSec().add(rightsSec);
-		}
-
-		AccessControlType acl = null;
-		try {
-			Object o = rightsSec.getMdWrap().getXmlData().getAny().getValue(0);
-			if (o != null && o instanceof AccessControlType) {
-				acl = (AccessControlType) o;
+				rightsSec = MetsFactory.eINSTANCE.createMdSecType();
+				rightsSec.setSTATUS(METSConstants.MD_STATUS_USER_EDITED);
+				rightsSec.setCREATED(new XMLCalendar(new java.util.Date(System.currentTimeMillis()), XMLCalendar.DATETIME));
+				rightsSec.setID(METSUtils.makeXMLUUID());
+				amdSec.getRightsMD().add(rightsSec);
+				// link div to rightsMD
+				d.getMdSec().add(rightsSec);
 			}
-		} catch (NullPointerException e) {
-			//e.printStackTrace();
-		}
 
-		if (acl == null) {
-			XmlDataType1 xml = MetsFactory.eINSTANCE.createXmlDataType1();
-			acl = AclFactory.eINSTANCE.createAccessControlType();
-			// acl.setID(METSUtils.makeXMLUUID());
-			xml.getAny().add(AclPackage.eINSTANCE.getDocumentRoot_AccessControl(), acl);
-			MdWrapType wrap = MetsFactory.eINSTANCE.createMdWrapType();
-			wrap.setMDTYPE(MDTYPEType.OTHER);
-			wrap.setXmlData(xml);
-			rightsSec.setMdWrap(wrap);
+			AccessControlType acl = null;
+			try {
+				Object o = rightsSec.getMdWrap().getXmlData().getAny().getValue(0);
+				if (o != null && o instanceof AccessControlType) {
+					acl = (AccessControlType) o;
+				}
+			} catch (NullPointerException e) {
+				// e.printStackTrace();
+			}
+
+			if (acl == null) {
+				XmlDataType1 xml = MetsFactory.eINSTANCE.createXmlDataType1();
+				acl = AclFactory.eINSTANCE.createAccessControlType();
+				// acl.setID(METSUtils.makeXMLUUID());
+				xml.getAny().add(AclPackage.eINSTANCE.getDocumentRoot_AccessControl(), acl);
+				MdWrapType wrap = MetsFactory.eINSTANCE.createMdWrapType();
+				wrap.setMDTYPE(MDTYPEType.OTHER);
+				wrap.setXmlData(xml);
+				rightsSec.setMdWrap(wrap);
+			}
+			try {
+				n.save();
+			} catch (CoreException e) {
+				throw new ExecutionException("There were unexpected problems opening the MODS Editor", e);
+			}
+			String uriFrag = acl.eResource().getURIFragment(acl);
+			URIFragmentEditorInput input = new URIFragmentEditorInput(n.getProject().getName(), uriFrag,
+					"Access Controls for '" + d.getLABEL1() + "'", acl);
+			try {
+				page.openEditor(input, "workbench_plugin.accessControlEditor");
+			} catch (PartInitException e) {
+				throw new ExecutionException("There were unexpected problems opening the ACL Editor", e);
+			}
 		}
-		try {
-			n.save();
-		} catch (CoreException e) {
-			throw new ExecutionException("There were unexpected problems opening the MODS Editor", e);
-		}
-		String uriFrag = acl.eResource().getURIFragment(acl);
-		URIFragmentEditorInput input = new URIFragmentEditorInput(n.getProject().getName(), uriFrag, "Access Controls for '" + d.getLABEL1() + "'", acl);
-		IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
-		IWorkbenchPage page = window.getActivePage();
-		try {
-			page.openEditor(input, "workbench_plugin.accessControlEditor");
-		} catch (PartInitException e) {
-			throw new ExecutionException("There were unexpected problems opening the ACL Editor", e);
-		}
-		// open Editor
 		return null;
 	}
 
