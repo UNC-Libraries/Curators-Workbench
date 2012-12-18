@@ -86,8 +86,10 @@ public class OriginalStub implements java.io.Serializable {
 	private void init() {
 		try {
 			this.stores = new ArrayList<OriginalFileStore>();
-			for (URI base : locations) {
-				this.stores.add((OriginalFileStore) OriginalsFileSystem.wrapStore(base, this));
+			if (isAttached()) {
+				for (URI base : locations) {
+					this.stores.add((OriginalFileStore) OriginalsFileSystem.wrapStore(base, this));
+				}
 			}
 			this.project = ResourcesPlugin.getWorkspace().getRoot().getProject(projectName);
 		} catch (CoreException e) {
@@ -159,7 +161,7 @@ public class OriginalStub implements java.io.Serializable {
 	}
 
 	public List<OriginalFileStore> getStores() {
-		if (this.isAttached() && (this.stores == null || this.stores.isEmpty()))
+		if (this.stores == null || this.stores.isEmpty())
 			init();
 		return stores;
 	}

@@ -46,13 +46,14 @@ import unc.lib.cdr.workbench.rcp.Activator;
  * 
  */
 public class StagingJob extends Job {
-	List<OriginalFileStore> toStage = null;
+	IProject project = null;
 	public static MutexRule mySchedulingRule = new MutexRule();
-	
+
 	public static class MutexRule implements ISchedulingRule {
 		public boolean isConflicting(ISchedulingRule rule) {
 			return rule == this;
 		}
+
 		public boolean contains(ISchedulingRule rule) {
 			return rule == this;
 		}
@@ -71,34 +72,19 @@ public class StagingJob extends Job {
 	/**
 	 * @param name
 	 */
-	public StagingJob(String name, List<OriginalFileStore> toStage2) {
-		super(name);
-		this.toStage = toStage2;
-		this.setRule(mySchedulingRule);
-	}
-	
+	// public StagingJob(String name, List<OriginalFileStore> toStage2) {
+	// super(name);
+	// this.toStage = toStage2;
+	// this.setRule(mySchedulingRule);
+	// }
+
 	/**
 	 * @param name
 	 */
 	public StagingJob(String name, IProject project) {
 		super(name);
+		this.project = project;
 		this.setRule(mySchedulingRule);
-		this.toStage = new ArrayList<OriginalFileStore>();
-		MetsProjectNature mpn = MetsProjectNature.get(project);
-		DivType bag = METSUtils.findBagDiv(mpn.getMets());
-		for(TreeIterator<EObject> iter = bag.eAllContents(); iter.hasNext();) {
-			EObject next = iter.next();
-			if(next instanceof FptrType) {
-				FptrType fptr = (FptrType)next;
-				OriginalFileStore original = mpn.getOriginal((DivType)fptr.eContainer());
-				if(original != null) {
-					FLocatType loc = original.getStagingLocatorType();
-					if(loc == null) {
-						toStage.add(original);
-					}
-				}
-			}
-		}
 	}
 
 	/*
@@ -108,10 +94,27 @@ public class StagingJob extends Job {
 	 */
 	@Override
 	protected IStatus run(IProgressMonitor monitor) {
+		List<OriginalFileStore> toStage = new ArrayList<OriginalFileStore>();
+		MetsProjectNature mpn = MetsProjectNature.get(project);
+		DivType bag = METSUtils.findBagDiv(mpn.getMets());
+		for (TreeIterator<EObject> iter = bag.eAllContents(); iter.hasNext();) {
+			EObject next = iter.next();
+			if (next instanceof FptrType) {
+				FptrType fptr = (FptrType) next;
+				OriginalFileStore original = mpn.getOriginal((DivType) fptr.eContainer());
+				if (original != null) {
+					FLocatType loc = original.getStagingLocatorType();
+					if (loc == null) {
+						toStage.add(original);
+					}
+				}
+			}
+		}
+
 		monitor.beginTask("Staging " + toStage.size() + " files", toStage.size() * 100);
 		monitor.setTaskName("Staging 1 of " + toStage.size());
+
 		int stageCount = 0;
-		Set<IProject> projects = new HashSet<IProject>();
 		Set<OriginalFileStore> skipped = new HashSet<OriginalFileStore>();
 		for (OriginalFileStore original : toStage) {
 			if (monitor.isCanceled())
@@ -123,9 +126,9 @@ public class StagingJob extends Job {
 					StagingUtils.prestage(original, prestagedLocation, new SubProgressMonitor(monitor, 100,
 							SubProgressMonitor.PREPEND_MAIN_LABEL_TO_SUBTASK));
 				} else {
-					if(original.isAttached()) {
+					if (original.isAttached()) {
 						StagingUtils.stage(original, new SubProgressMonitor(monitor, 100,
-							SubProgressMonitor.PREPEND_MAIN_LABEL_TO_SUBTASK));
+								SubProgressMonitor.PREPEND_MAIN_LABEL_TO_SUBTASK));
 					} else {
 						skipped.add(original);
 					}
@@ -136,8 +139,9 @@ public class StagingJob extends Job {
 		}
 		monitor.done();
 
-		if(skipped.size() > 0) {
-			return new Status(IStatus.INFO, Activator.PLUGIN_ID, skipped.size()+ " original files cannot stage because they are not accessible.");
+		if (skipped.size() > 0) {
+			return new Status(IStatus.INFO, Activator.PLUGIN_ID, skipped.size()
+					+ " original files cannot stage because they are not accessible.");
 		} else {
 			return Status.OK_STATUS;
 		}

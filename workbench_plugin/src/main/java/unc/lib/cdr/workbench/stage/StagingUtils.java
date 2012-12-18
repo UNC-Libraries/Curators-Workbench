@@ -155,6 +155,8 @@ public class StagingUtils {
 			METSUtils.addStagedFileLocator(mpn.getMets(), fileID, original.getWrapped().toURI(), stageFileStore.toURI(),
 					LOCTYPEType.OTHER, METSConstants.LocType_EFS_SCHEME);
 		}
+		
+		// TODO notify navigator listener of DivType and IFileStore changes
 		monitor.done();
 	}
 
