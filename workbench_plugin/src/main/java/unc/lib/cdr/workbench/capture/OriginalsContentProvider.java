@@ -24,6 +24,7 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.jface.viewers.ITreeContentProvider;
+import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.Viewer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -38,7 +39,7 @@ import unc.lib.cdr.workbench.project.MetsProjectNature;
  */
 public class OriginalsContentProvider implements ITreeContentProvider {
 	private static final Logger log = LoggerFactory.getLogger(OriginalsContentProvider.class);
-	Viewer viewer = null;
+	TreeViewer viewer = null;
 
 	/**
      *
@@ -143,7 +144,7 @@ public class OriginalsContentProvider implements ITreeContentProvider {
 	 */
 	@Override
 	public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
-		this.viewer = viewer;
+		this.viewer = (TreeViewer)viewer;
 	}
 
 }

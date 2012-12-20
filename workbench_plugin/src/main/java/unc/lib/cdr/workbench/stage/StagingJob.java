@@ -101,12 +101,18 @@ public class StagingJob extends Job {
 			EObject next = iter.next();
 			if (next instanceof FptrType) {
 				FptrType fptr = (FptrType) next;
+				System.err.print(((DivType)fptr.eContainer()).getLABEL1());
 				OriginalFileStore original = mpn.getOriginal((DivType) fptr.eContainer());
 				if (original != null) {
 					FLocatType loc = original.getStagingLocatorType();
 					if (loc == null) {
 						toStage.add(original);
+						System.err.println(" queued");
+					} else {
+						System.err.println(" found stage flocat");
 					}
+				} else {
+					System.err.println(" cannot find original");
 				}
 			}
 		}
@@ -119,10 +125,11 @@ public class StagingJob extends Job {
 		for (OriginalFileStore original : toStage) {
 			if (monitor.isCanceled())
 				return Status.CANCEL_STATUS;
-			monitor.setTaskName("Staging " + stageCount++ + " of " + toStage.size());
+			monitor.setTaskName(stageCount++ + " of " + toStage.size()+" staged");
 			URI prestagedLocation = original.getPrestagedLocation();
 			try {
 				if (prestagedLocation != null) {
+					System.err.println("prestaged..");
 					StagingUtils.prestage(original, prestagedLocation, new SubProgressMonitor(monitor, 100,
 							SubProgressMonitor.PREPEND_MAIN_LABEL_TO_SUBTASK));
 				} else {

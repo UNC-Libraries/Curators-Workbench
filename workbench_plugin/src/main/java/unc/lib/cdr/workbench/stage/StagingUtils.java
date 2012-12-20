@@ -21,6 +21,7 @@ import gov.loc.mets.FLocatType;
 import gov.loc.mets.FileType;
 import gov.loc.mets.FptrType;
 import gov.loc.mets.LOCTYPEType;
+import gov.loc.mets.MetsPackage;
 import gov.loc.mets.util.METSConstants;
 import gov.loc.mets.util.METSUtils;
 import irods.efs.plugin.IrodsFileStore;
@@ -33,6 +34,8 @@ import java.io.OutputStream;
 import java.net.URI;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.apache.commons.codec.binary.Hex;
 import org.eclipse.core.filesystem.EFS;
@@ -45,8 +48,13 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.SubProgressMonitor;
+import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.edit.command.AddCommand;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -111,15 +119,31 @@ public class StagingUtils {
 
 		IFileStore stageFileStore = original.getStageLocation();
 
-
+		FileType fileRec = (FileType) mpn.getMets().eResource().getEObject(fileID);
+		String divID = original.getDivID();
+		DivType div = (DivType) mpn.getMets().eResource().getEObject(divID);
+		if(div == null) {
+			setupMon.setTaskName("Skipping a file that is no longer in the arrangement.");
+			monitor.done();
+			return;
+		}
+		
+		setupMon.done();
+		
 		// prepare for overwrite if necessary
 		IFileInfo stageFileInfo = stageFileStore.fetchInfo();
 		if (stageFileInfo.exists()) {
 				stageFileStore.delete(EFS.NONE, null);
 		}
-
-		FileType fileRec = (FileType) mpn.getMets().eResource().getEObject(fileID);
-		setupMon.done();
+		Set<FLocatType> oldStageFLocat = new HashSet<FLocatType>();
+		for(FLocatType l : fileRec.getFLocat()) {
+			if(METSConstants.FLocat_USE_STAGE.equals(l.getUSE())) {
+				oldStageFLocat.add(l);
+			}
+		}
+		for(EObject e : oldStageFLocat) {
+			EcoreUtil.delete(e);
+		}
 
 		// stage the file
 		IProgressMonitor copyMonitor = new SubProgressMonitor(monitor, 50,
@@ -138,7 +162,6 @@ public class StagingUtils {
 		fileRec.setCHECKSUM(sourceMD5);
 
 		// get the digest of the staged file
-		
 		IProgressMonitor stagedChecksumMonitor = new SubProgressMonitor(monitor, 49,
 			SubProgressMonitor.PREPEND_MAIN_LABEL_TO_SUBTASK);
 		// stagedChecksumMonitor.subTask("Getting digest for staged file.. ");
@@ -152,11 +175,15 @@ public class StagingUtils {
 			// now update markers and record File in METS
 			stageFileInfo = stageFileStore.fetchInfo();
 			// checksum, size, location type, other loc type, URI
-			METSUtils.addStagedFileLocator(mpn.getMets(), fileID, original.getWrapped().toURI(), stageFileStore.toURI(),
+			FLocatType flocat = METSUtils.makeStagedFileLocator(mpn.getMets(), fileID, original.getWrapped().toURI(), stageFileStore.toURI(),
 					LOCTYPEType.OTHER, METSConstants.LocType_EFS_SCHEME);
+			Command add = AddCommand.create(mpn.getEditingDomain(), fileRec, MetsPackage.eINSTANCE.getFileType_FLocat(), flocat);
+			if (add.canExecute()) {
+				mpn.getCommandStack().execute(add);
+			} else {
+				System.out.println("Cannot add Flocat via command");
+			}
 		}
-		
-		// TODO notify navigator listener of DivType and IFileStore changes
 		monitor.done();
 	}
 
@@ -315,8 +342,14 @@ public class StagingUtils {
 		fileRec.setCHECKSUM(sourceMD5);
 		// now update markers and record File in METS
 		// checksum, size, location type, other loc type, URI
-		METSUtils.addStagedFileLocator(mpn.getMets(), fileID, f.getWrapped().toURI(), prestagedLocation, LOCTYPEType.OTHER,
+		FLocatType flocat = METSUtils.makeStagedFileLocator(mpn.getMets(), fileID, f.getWrapped().toURI(), prestagedLocation, LOCTYPEType.OTHER,
 				METSConstants.LocType_EFS_SCHEME);
+		Command add = AddCommand.create(mpn.getEditingDomain(), fileRec, MetsPackage.eINSTANCE.getFileType_FLocat(), flocat);
+		if (add.canExecute()) {
+			mpn.getCommandStack().execute(add);
+		} else {
+			System.out.println("Cannot add Flocat via command");
+		}
 		monitor.done();
 	}
 

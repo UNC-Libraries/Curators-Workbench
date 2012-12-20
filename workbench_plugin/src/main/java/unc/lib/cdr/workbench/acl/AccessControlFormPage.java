@@ -172,7 +172,11 @@ public class AccessControlFormPage extends FormPage {
 		s1.setLayoutData(gd);
 
 		inheritFlag = toolkit.createButton(s1, "Yes, groups may retain roles granted above this level.", SWT.CHECK); //$NON-NLS-1$
-		inheritFlag.setSelection(model.isInherit());
+		if(model != null) {
+			inheritFlag.setSelection(model.isInherit());
+		} else {
+			inheritFlag.setSelection(true);
+		}
 		inheritFlag.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {

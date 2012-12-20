@@ -18,6 +18,7 @@ package unc.lib.cdr.workbench.project;
 import gov.loc.mets.DivType;
 import gov.loc.mets.DocumentRoot;
 import gov.loc.mets.FLocatType;
+import gov.loc.mets.FileType;
 import gov.loc.mets.FptrType;
 import gov.loc.mets.MetsType1;
 import gov.loc.mets.util.METSConstants;
@@ -38,11 +39,9 @@ import java.util.NoSuchElementException;
 import org.eclipse.core.filesystem.EFS;
 import org.eclipse.core.filesystem.IFileStore;
 import org.eclipse.core.resources.ICommand;
-import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IProjectDescription;
 import org.eclipse.core.resources.IProjectNature;
-import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IncrementalProjectBuilder;
 import org.eclipse.core.resources.ProjectScope;
 import org.eclipse.core.resources.ResourcesPlugin;
@@ -301,8 +300,7 @@ public class MetsProjectNature implements IProjectNature {
 	 * @return the IResource of the original
 	 */
 	public static OriginalFileStore getOriginal(DivType div) {
-		try {
-			if (div.getCONTENTIDS().size() > 0) {
+			if (div.getCONTENTIDS() != null && div.getCONTENTIDS().size() > 0) {
 				URI uri = null;
 				for (String contentid : div.getCONTENTIDS()) {
 					try {
@@ -310,31 +308,53 @@ public class MetsProjectNature implements IProjectNature {
 					} catch (URISyntaxException e) {
 						throw new Error(e);
 					}
-					if (!"uuid".equals(uri.getScheme()))
+					if (!"info".equals(uri.getScheme()))
 						break;
 				}
-				if (uri != null) {
-					try {
-						IPath divPath = Path.fromOSString(uri.getPath());
-						MetsProjectNature n = MetsProjectNature.getNatureForMetsObject(div);
-						OriginalStub mystub = null;
-						for (OriginalStub stub : n.getOriginals()) {
-							for (URI loc : stub.getLocations()) {
-								IPath stubPath = Path.fromOSString(loc.getPath());
-								if (stubPath.isPrefixOf(divPath)) {
-									mystub = stub;
-									break;
-								}
-							}
-						}
-						return (OriginalFileStore) OriginalsFileSystem.wrapStore(uri, mystub);
-					} catch (Exception ignored) {
+				return getNatureForMetsObject(div).getOriginal(uri);
+			}
+		return null;
+	}
+
+	public static OriginalFileStore getOriginal(FileType file) {
+		OriginalFileStore result = null;
+		if (file.getFLocat() != null && file.getFLocat().size() > 0) {
+			URI uri = null;
+			for (FLocatType locat : file.getFLocat()) {
+				try {
+					if (METSConstants.FLocat_USE_ORIGINAL.equals(locat.getUSE())) {
+						uri = new URI(locat.getHref());
+						break;
+					}
+				} catch (URISyntaxException e) {
+					throw new Error(e);
+				}
+			}
+			if (uri != null) {
+				result = getNatureForMetsObject(file).getOriginal(uri);
+			}
+		}
+		return result;
+	}
+
+	public OriginalFileStore getOriginal(URI uri) {
+		OriginalFileStore result = null;
+		try {
+			IPath divPath = Path.fromOSString(uri.getPath());
+			OriginalStub mystub = null;
+			for (OriginalStub stub : getOriginals()) {
+				for (URI loc : stub.getLocations()) {
+					IPath stubPath = Path.fromOSString(loc.getPath());
+					if (stubPath.isPrefixOf(divPath)) {
+						mystub = stub;
+						break;
 					}
 				}
 			}
-		} catch (NullPointerException ignored) {
+			result = (OriginalFileStore) OriginalsFileSystem.wrapStore(uri, mystub);
+		} catch (Exception ignored) {
 		}
-		return null;
+		return result;
 	}
 
 	/**
@@ -410,14 +430,14 @@ public class MetsProjectNature implements IProjectNature {
 		TreeIterator<EObject> iter = METSUtils.findBagDiv(getMets()).eAllContents();
 		try {
 			for (EObject eo = iter.next(); iter.hasNext(); eo = iter.next()) {
-				if(eo instanceof DivType) {
-					DivType d = (DivType)eo;
-					if(METSConstants.Div_File.equals(d.getTYPE())) {
+				if (eo instanceof DivType) {
+					DivType d = (DivType) eo;
+					if (METSConstants.Div_File.equals(d.getTYPE())) {
 						numOfFiles++;
 					} else {
 						numOfContainers++;
 					}
-					if(d.getDmdSec() != null && d.getDmdSec().size() > 0) {
+					if (d.getDmdSec() != null && d.getDmdSec().size() > 0) {
 						numDescribed++;
 					}
 				}
@@ -425,13 +445,13 @@ public class MetsProjectNature implements IProjectNature {
 		} catch (NoSuchElementException ignored) {
 		}
 		StringBuilder result = new StringBuilder().append(numOfFiles);
-		if(numOfFiles > 1) {
+		if (numOfFiles > 1) {
 			result.append(" files and ");
 		} else {
 			result.append(" file and ");
 		}
 		result.append(numOfContainers);
-		if(numOfContainers > 1 || numOfContainers == 0) {
+		if (numOfContainers > 1 || numOfContainers == 0) {
 			result.append(" other objects. ");
 		} else {
 			result.append(" other object. ");
@@ -443,23 +463,22 @@ public class MetsProjectNature implements IProjectNature {
 		int numOfFiles = 0;
 		int numStaged = 0;
 		DivType bag = METSUtils.findBagDiv(getMets());
-		for(TreeIterator<EObject> iter = bag.eAllContents(); iter.hasNext();) {
+		for (TreeIterator<EObject> iter = bag.eAllContents(); iter.hasNext();) {
 			EObject next = iter.next();
-			if(next != null && next instanceof FptrType) {
+			if (next != null && next instanceof FptrType) {
 				numOfFiles++;
-				FptrType fptr = (FptrType)next;
-				OriginalFileStore original = MetsProjectNature.getOriginal((DivType)fptr.eContainer());
-				if(original != null) {
+				FptrType fptr = (FptrType) next;
+				OriginalFileStore original = MetsProjectNature.getOriginal((DivType) fptr.eContainer());
+				if (original != null) {
 					FLocatType loc = original.getStagingLocatorType();
-					if(loc != null) {
+					if (loc != null) {
 						numStaged++;
 					}
 				}
 			}
 		}
-		StringBuilder result = new StringBuilder().append(numStaged)
-			.append(" out of ").append(numOfFiles); 
-		if(numOfFiles > 1 || numOfFiles == 0) {
+		StringBuilder result = new StringBuilder().append(numStaged).append(" out of ").append(numOfFiles);
+		if (numOfFiles > 1 || numOfFiles == 0) {
 			result.append(" files staged");
 		} else {
 			result.append(" file staged");

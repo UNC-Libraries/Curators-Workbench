@@ -48,22 +48,22 @@ public class ArrangementLabelProvider extends AdapterFactoryLabelProvider implem
 		super(MetsProjectNature.getAdapterFactory());
 	}
 
-	 @Override
-	 public void addListener(ILabelProviderListener listener) {
-		 super.addListener(listener);
-		 this.provider.addListener(listener);
-	 }
+	@Override
+	public void addListener(ILabelProviderListener listener) {
+		super.addListener(listener);
+		this.provider.addListener(listener);
+	}
 
-	 @Override
-	 public void dispose() {
-	 super.dispose();
-	 }
+	@Override
+	public void dispose() {
+		super.dispose();
+	}
 
-	 @Override
-	 public void removeListener(ILabelProviderListener listener) {
-		 super.removeListener(listener);
-		 this.provider.removeListener(listener);
-	 }
+	@Override
+	public void removeListener(ILabelProviderListener listener) {
+		super.removeListener(listener);
+		this.provider.removeListener(listener);
+	}
 
 	/*
 	 * (non-Javadoc)
@@ -104,15 +104,15 @@ public class ArrangementLabelProvider extends AdapterFactoryLabelProvider implem
 	 * @see org.eclipse.emf.edit.provider.INotifyChangedListener#notifyChanged(org
 	 * .eclipse.emf.common.notify.Notification)
 	 */
-	@Override
-	public void notifyChanged(Notification notification) {
-		final LabelProviderChangedEvent e = new LabelProviderChangedEvent(this, notification.getNotifier());
-		Display.getDefault().asyncExec(new Runnable() {
-			public void run() {
-				for (ILabelProviderListener l : labelProviderListeners) {
-					l.labelProviderChanged(e);
-				}
-			}
-		});
-	}
+//	@Override
+//	public void notifyChanged(Notification notification) {
+//		final LabelProviderChangedEvent e = new LabelProviderChangedEvent(this, notification.getNotifier());
+//		Display.getDefault().asyncExec(new Runnable() {
+//			public void run() {
+//				for (ILabelProviderListener l : labelProviderListeners) {
+//					l.labelProviderChanged(e);
+//				}
+//			}
+//		});
+//	}
 }

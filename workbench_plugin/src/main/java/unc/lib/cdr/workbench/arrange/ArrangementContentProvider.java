@@ -16,32 +16,38 @@
 package unc.lib.cdr.workbench.arrange;
 
 //import gov.loc.mets.DivType;
+import gov.loc.mets.AmdSecType;
 import gov.loc.mets.DivType;
+import gov.loc.mets.FileType;
+import gov.loc.mets.MdSecType;
 import gov.loc.mets.MetsType;
 import gov.loc.mets.SmLinkType;
+import gov.loc.mets.util.METSConstants;
 import gov.loc.mets.util.METSUtils;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.eclipse.core.resources.IProject;
-import org.eclipse.core.resources.IResourceChangeEvent;
-import org.eclipse.core.resources.IResourceChangeListener;
-import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
+import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.views.properties.IPropertySource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import unc.lib.cdr.workbench.originals.OriginalFileStore;
 import unc.lib.cdr.workbench.project.ICustomEObjectBucket;
 import unc.lib.cdr.workbench.project.MetsProjectNature;
 
-public class ArrangementContentProvider extends AdapterFactoryContentProvider implements IResourceChangeListener {
+public class ArrangementContentProvider extends AdapterFactoryContentProvider /* implements IResourceChangeListener */{
 	private static final Logger log = LoggerFactory.getLogger(ArrangementContentProvider.class);
+	private TreeViewer tviewer = null;
 
 	// private AdapterFactoryContentProvider provider = new
 	// AdapterFactoryContentProvider(MetsProjectNature.getAdapterFactory());
@@ -51,7 +57,7 @@ public class ArrangementContentProvider extends AdapterFactoryContentProvider im
 
 	public ArrangementContentProvider() {
 		super(MetsProjectNature.getAdapterFactory());
-		ResourcesPlugin.getWorkspace().addResourceChangeListener(this, IResourceChangeEvent.POST_CHANGE);
+		// ResourcesPlugin.getWorkspace().addResourceChangeListener(this, IResourceChangeEvent.POST_CHANGE);
 		MetsProjectNature.getAdapterFactory().addListener(this);
 	}
 
@@ -167,7 +173,7 @@ public class ArrangementContentProvider extends AdapterFactoryContentProvider im
 
 	@Override
 	public void dispose() {
-		ResourcesPlugin.getWorkspace().removeResourceChangeListener(this);
+		// ResourcesPlugin.getWorkspace().removeResourceChangeListener(this);
 		MetsProjectNature.getAdapterFactory().removeListener(this);
 		super.dispose();
 	}
@@ -175,28 +181,8 @@ public class ArrangementContentProvider extends AdapterFactoryContentProvider im
 	@Override
 	public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
 		this.viewer = viewer;
+		this.tviewer = (TreeViewer) viewer;
 		super.inputChanged(viewer, oldInput, newInput);
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.eclipse.core.resources.IResourceChangeListener#resourceChanged(org
-	 * .eclipse.core.resources.IResourceChangeEvent)
-	 */
-	@Override
-	public void resourceChanged(IResourceChangeEvent event) {
-		refresh();
-	}
-
-	private void refresh() {
-		Display.getDefault().asyncExec(new Runnable() {
-			public void run() {
-				if (viewer != null && viewer.getControl() != null && !viewer.getControl().isDisposed()) {
-					viewer.refresh();
-				}
-			}
-		});
 	}
 
 	/*
@@ -206,8 +192,58 @@ public class ArrangementContentProvider extends AdapterFactoryContentProvider im
 	 * .eclipse.emf.common.notify.Notification)
 	 */
 	@Override
-	public void notifyChanged(Notification notification) {
-		refresh();
+	public void notifyChanged(final Notification notification) {
+		System.err.println("notifier is " + notification.getNotifier());
+		if (tviewer != null) {
+			final Set<Object> updates = new HashSet<Object>();
+			if (notification.getNotifier() instanceof FileType) {
+				FileType f = (FileType) notification.getNotifier();
+				OriginalFileStore orig = MetsProjectNature.getOriginal(f);
+				updates.add(orig);
+				updates.add(orig.getMetsDivType());
+			} else if (notification.getNotifier() instanceof DivType) {
+				DivType d = (DivType) notification.getNotifier();
+				if (METSConstants.Div_Bag.equals(d.getTYPE())) {
+					updates.add(MetsProjectNature.getNatureForMetsObject(d).getArrangementElement());
+				} else if (METSConstants.Div_File.equals(d.getTYPE())) {
+					updates.add(d);
+					updates.add(MetsProjectNature.getOriginal(d));
+				} else {
+					updates.add(d);
+				}
+			} else if (notification.getNotifier() instanceof MetsType) {
+				MetsType mets = (MetsType) notification.getNotifier();
+				if (notification.getOldValue() instanceof MdSecType) {
+					Display.getDefault().asyncExec(new Runnable() {
+						public void run() {
+							if (tviewer != null && tviewer.getControl() != null && !tviewer.getControl().isDisposed()) {
+								tviewer.refresh();
+							}
+						}
+					});
+				}
+			} else if(notification.getNotifier() instanceof AmdSecType) {
+				Display.getDefault().asyncExec(new Runnable() {
+					public void run() {
+						if (tviewer != null && tviewer.getControl() != null && !tviewer.getControl().isDisposed()) {
+							tviewer.refresh();
+						}
+					}
+				});
+			}
+			if (updates.size() > 0) {
+				Display.getDefault().asyncExec(new Runnable() {
+					public void run() {
+						if (tviewer != null && tviewer.getControl() != null && !tviewer.getControl().isDisposed()) {
+							for (Object o : updates) {
+								if (o != null)
+									tviewer.refresh(o, true);
+							}
+						}
+					}
+				});
+			}
+		}
 	}
 
 }

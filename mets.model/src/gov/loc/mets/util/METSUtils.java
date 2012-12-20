@@ -46,6 +46,7 @@ import java.util.UUID;
 
 import javax.activation.MimetypesFileTypeMap;
 
+import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.xml.type.internal.XMLCalendar;
 
@@ -246,16 +247,9 @@ public class METSUtils {
 	 *           other location type or null
 	 * @return the locator
 	 */
-	public static FLocatType addStagedFileLocator(MetsType mets, String id, URI original, URI stagedUri,
+	public static FLocatType makeStagedFileLocator(MetsType mets, String id, URI original, URI stagedUri,
 			LOCTYPEType locType, String otherLocType) {
-		// find or create the group for this object
-		FileType data = (FileType) mets.eResource().getEObject(id);
-		if (data == null) {
-			throw new Error("data file element does not exist");
-		}
-		// find or create the staged File record
 		FLocatType l = MetsFactory.eINSTANCE.createFLocatType();
-		data.getFLocat().add(l);
 		l.setUSE(METSConstants.FLocat_USE_STAGE);
 		l.setLOCTYPE(locType);
 		if (LOCTYPEType.OTHER.equals(locType) && otherLocType != null) {
@@ -331,5 +325,33 @@ public class METSUtils {
 			}
 		}
 		return def;
+	}
+
+	public static DivType findDiv(MetsType mets, MdSecType f) {
+		DivType result = null;
+		DivType bag = findBagDiv(mets);
+		for(TreeIterator<EObject> iter = bag.eAllContents(); iter.hasNext();) {
+			EObject o = iter.next();
+			if(o instanceof DivType) {
+				DivType div = (DivType)o;
+				if(div.getDmdSec() != null) {
+					for(MdSecType md : div.getDmdSec()) {
+						if(f.getID().equals(md.getID())) {
+							result = div;
+							break;
+						}
+					}
+				}
+				if(div.getMdSec() != null) {
+					for(MdSecType md : div.getMdSec()) {
+						if(f.equals(md)) {
+							result = div;
+							break;
+						}
+					}
+				}
+			}
+		}
+		return result;
 	}
 }

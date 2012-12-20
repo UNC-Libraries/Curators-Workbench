@@ -62,7 +62,7 @@ public class RemoveDivHandler extends AbstractHandler {
 					}
 				} catch (NullPointerException e) {
 					e.printStackTrace();
-				}				
+				}
 			}
 		}
 		return null;

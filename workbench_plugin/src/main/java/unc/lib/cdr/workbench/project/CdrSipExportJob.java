@@ -20,6 +20,7 @@ import gov.loc.mets.DocumentRoot;
 import gov.loc.mets.FLocatType;
 import gov.loc.mets.FileGrpType;
 import gov.loc.mets.FileGrpType1;
+import gov.loc.mets.FileType;
 import gov.loc.mets.MdSecType;
 import gov.loc.mets.MetsFactory;
 import gov.loc.mets.MetsPackage;
@@ -161,6 +162,7 @@ public class CdrSipExportJob extends Job {
 		removeNonStageFLocat(cdr);
 		removeNonObjectsFileGroups(cdr);
 		removeEmptyStructLink(cdr);
+		removeEmptyFileTypes(cdr);
 		// moveObjectsFileGroupsToFileSec(cdr);
 
 		// cleanup PROFILE and TYPEs..
@@ -258,6 +260,24 @@ public class CdrSipExportJob extends Job {
 				if (METSConstants.FLocat_USE_STAGE.equals(l.getUSE())) {
 					// l.setLOCTYPE(value)
 				} else if (METSConstants.FLocat_USE_ORIGINAL.equals(l.getUSE())) {
+					remove.add(l);
+				}
+			}
+		}
+		Command c = RemoveCommand.create(editingDomain, remove);
+		if (c.canExecute()) {
+			c.execute();
+		}
+	}
+	
+	private void removeEmptyFileTypes(MetsType m) {
+		Set<FileType> remove = new HashSet<FileType>();
+		Iterator<EObject> i = m.getFileSec().eAllContents();
+		while (i.hasNext()) {
+			EObject next = i.next();
+			if (next instanceof FileType) {
+				FileType l = (FileType) next;
+				if (l.getFLocat() == null || l.getFLocat().size() == 0) {
 					remove.add(l);
 				}
 			}
