@@ -15,6 +15,7 @@
  */
 package unc.lib.cdr.workbench.project;
 
+import gov.loc.mets.AmdSecType;
 import gov.loc.mets.DivType;
 import gov.loc.mets.DocumentRoot;
 import gov.loc.mets.FLocatType;
@@ -163,6 +164,7 @@ public class CdrSipExportJob extends Job {
 		removeNonObjectsFileGroups(cdr);
 		removeEmptyStructLink(cdr);
 		removeEmptyFileTypes(cdr);
+		removeEmptyAmdSecTypes(cdr);
 		// moveObjectsFileGroupsToFileSec(cdr);
 
 		// cleanup PROFILE and TYPEs..
@@ -190,6 +192,21 @@ public class CdrSipExportJob extends Job {
 		}
 
 		return Status.OK_STATUS;
+	}
+
+	private void removeEmptyAmdSecTypes(MetsType1 cdr) {
+		Set<AmdSecType> del = new HashSet<AmdSecType>();
+		for(AmdSecType a : cdr.getAmdSec()) {
+			if(a.eContents() == null || a.eContents().isEmpty()) {
+				del.add(a);
+			}
+		}
+		if(del.size() > 0) {
+			Command c = RemoveCommand.create(editingDomain, del);
+			if (c.canExecute()) {
+				c.execute();
+			}
+		}
 	}
 
 	/**

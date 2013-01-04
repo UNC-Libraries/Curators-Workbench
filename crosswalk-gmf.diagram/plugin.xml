@@ -50,7 +50,6 @@ copyright 2010 University of North Carolina at Chapel Hill
   	     category="org.eclipse.ui.Examples"
   	     class="crosswalk.diagram.part.CrosswalkCreationWizard"
   	     id="crosswalk.diagram.part.CrosswalkCreationWizardID">
-  	  	 <description>%newWizardDesc</description>  
       </wizard>
    </extension>
 

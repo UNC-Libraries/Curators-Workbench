@@ -13,6 +13,7 @@ import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.geometry.Dimension;
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
@@ -28,9 +29,12 @@ import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
+import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
 
+import crosswalk.DateInputField;
+import crosswalk.MappedAttribute;
 import crosswalk.diagram.edit.policies.DateInputFieldItemSemanticEditPolicy;
 import crosswalk.diagram.part.CrosswalkVisualIDRegistry;
 import crosswalk.diagram.providers.CrosswalkElementTypes;
@@ -141,6 +145,14 @@ public class DateInputFieldEditPart extends ShapeNodeEditPart {
 			return;
 		}
 		super.addChildVisual(childEditPart, -1);
+	}
+	
+	@Override
+	protected void handleNotificationEvent(Notification notification) {
+		if (notification.getNotifier() instanceof DateInputField) {
+			getPrimaryShape().updateFace();
+		}
+		super.handleNotificationEvent(notification);
 	}
 
 	/**
@@ -352,7 +364,7 @@ public class DateInputFieldEditPart extends ShapeNodeEditPart {
 		private Ellipse fFigureInputFieldEllipsis;
 
 		/**
-		 * @generated
+		 * @generated NOT
 		 */
 		public InputFieldFigure() {
 
@@ -364,6 +376,20 @@ public class DateInputFieldEditPart extends ShapeNodeEditPart {
 			this.setFill(false);
 			this.setOutline(false);
 			createContents();
+			updateFace();
+		}
+
+		public void updateFace() {
+			DateInputField att = (DateInputField) ((Node) DateInputFieldEditPart.this.getModel()).getElement();
+			Color c = ColorConstants.red;
+			if (att.getOutput() != null) {
+				c = ColorConstants.darkGreen;
+			} else if (att.getEnteredValue() != null) {
+				c = ColorConstants.lightGreen;
+			} else if (!att.isRequired()) {
+				c = ColorConstants.yellow;
+			}
+			fFigureInputFieldEllipsis.setBackgroundColor(c);
 		}
 
 		/**

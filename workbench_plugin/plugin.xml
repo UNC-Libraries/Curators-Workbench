@@ -1001,7 +1001,7 @@
             descriptionImage="icons/48px-Crystal_Clear_app_ark.png"
             finalPerspective="cdr-workbench.AccessionPerspective"
             hasPages="true"
-            icon="icons/48px-Crystal_Clear_filesystem_folder_tar.png"
+            icon="icons/24px-Crystal_Clear_app_ark.png"
             id="cdr-workbench.wizard.new.project"
             name="Workbench Project"
             project="true">

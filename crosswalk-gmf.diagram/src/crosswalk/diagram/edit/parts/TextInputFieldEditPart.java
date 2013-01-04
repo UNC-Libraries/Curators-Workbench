@@ -13,6 +13,7 @@ import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.geometry.Dimension;
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
@@ -32,6 +33,7 @@ import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
 
+import crosswalk.DateInputField;
 import crosswalk.TextInputField;
 import crosswalk.diagram.edit.policies.TextInputFieldItemSemanticEditPolicy;
 import crosswalk.diagram.part.CrosswalkVisualIDRegistry;
@@ -143,6 +145,14 @@ public class TextInputFieldEditPart extends ShapeNodeEditPart {
 			return;
 		}
 		super.addChildVisual(childEditPart, -1);
+	}
+	
+	@Override
+	protected void handleNotificationEvent(Notification notification) {
+		if (notification.getNotifier() instanceof TextInputField) {
+			getPrimaryShape().updateFace();
+		}
+		super.handleNotificationEvent(notification);
 	}
 
 	/**
@@ -354,7 +364,7 @@ public class TextInputFieldEditPart extends ShapeNodeEditPart {
 		private Ellipse fFigureInputFieldEllipsis;
 
 		/**
-		 * @generated
+		 * @generated NOT
 		 */
 		public InputFieldFigure() {
 
@@ -366,6 +376,7 @@ public class TextInputFieldEditPart extends ShapeNodeEditPart {
 			this.setFill(false);
 			this.setOutline(false);
 			createContents();
+			updateFace();
 		}
 
 		/**
@@ -400,8 +411,6 @@ public class TextInputFieldEditPart extends ShapeNodeEditPart {
 			constraintFFigureInputFieldLabel.grabExcessHorizontalSpace = false;
 			constraintFFigureInputFieldLabel.grabExcessVerticalSpace = false;
 			this.add(fFigureInputFieldLabel, constraintFFigureInputFieldLabel);
-
-			updateFace();
 		}
 
 		/**
@@ -423,12 +432,11 @@ public class TextInputFieldEditPart extends ShapeNodeEditPart {
 			Color c = ColorConstants.red;
 			if (input.getOutput() != null) {
 				c = ColorConstants.darkGreen;
-			} /* TODO inspect model for default and required in mapped attribute
-				else if (input.getDefaultValue() != null) {
+			} else if (input.getEnteredValue() != null) {
 				c = ColorConstants.lightGreen;
-				} else if (!input.isRequired()) {
+			} else if (!input.isRequired()) {
 				c = ColorConstants.yellow;
-				} */
+			}
 			fFigureInputFieldEllipsis.setBackgroundColor(c);
 		}
 

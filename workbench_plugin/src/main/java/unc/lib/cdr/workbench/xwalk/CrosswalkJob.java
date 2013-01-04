@@ -212,6 +212,12 @@ public class CrosswalkJob extends Job {
 		nature.getCommandStack().execute(
 				AddCommand.create(nature.getEditingDomain(), m, MetsPackage.eINSTANCE.getMetsType_DmdSec(),
 						newCwDmds.values()));
+		
+		try {
+			nature.save();
+		} catch (CoreException e1) {
+			e1.printStackTrace();
+		}
 
 		// find the matcher strategies
 		CompoundCommand autoLinkCommand = new CompoundCommand();
@@ -230,9 +236,6 @@ public class CrosswalkJob extends Job {
 						String divID = match.getKey().getID();
 						System.out.println("got id " + divID + " for resource " + match.getKey());
 						if (divID != null) {
-							// DivType div = METSUtils.findDivTreeSearch(bag,
-							// divID);
-							DivType div = (DivType) m.eResource().getEObject(divID);
 							String dmdID = makeMdSecID(file, match.getValue());
 							if (newCwDmds.containsKey(dmdID)) {
 								MdSecType md = newCwDmds.get(dmdID);
@@ -251,6 +254,7 @@ public class CrosswalkJob extends Job {
 									}
 								}
 								// add the CW link
+								DivType div = (DivType) m.eResource().getEObject(divID);
 								autoLinkCommand.append(AddCommand.create(nature.getEditingDomain(), div,
 										MetsPackage.eINSTANCE.getDivType_DmdSec(), md));
 							}

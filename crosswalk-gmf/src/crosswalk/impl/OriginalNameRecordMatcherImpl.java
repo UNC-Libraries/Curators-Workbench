@@ -335,6 +335,7 @@ public class OriginalNameRecordMatcherImpl extends WalkWidgetImpl implements Ori
 		if (this.getWalk() instanceof CrossWalk) {
 			crosswalk = (CrossWalk) this.getWalk();
 		} else {
+			LOG.error("Cannot get crosswalk model..");
 			return;
 		}
 		MetsType mets = crosswalk.getMetsSource().getMets();
