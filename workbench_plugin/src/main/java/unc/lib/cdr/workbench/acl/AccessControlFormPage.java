@@ -107,7 +107,7 @@ public class AccessControlFormPage extends FormPage {
 
 		TableWrapData twd = new TableWrapData(TableWrapData.RIGHT, TableWrapData.MIDDLE, 1, 1);
 		embargoFlag = toolkit.createButton(client, "Yes, embargo until", SWT.CHECK); //$NON-NLS-1$
-		embargoFlag.setSelection(model.isSetEmbargoUntil());
+		if(model != null) embargoFlag.setSelection(model.isSetEmbargoUntil());
 		embargoFlag.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
@@ -117,7 +117,7 @@ public class AccessControlFormPage extends FormPage {
 		});
 		embargoFlag.setLayoutData(twd);
 		untilDate = new DateTime(client, SWT.DATE | SWT.BORDER);
-		if (model.isSetEmbargoUntil() && model.getEmbargoUntil() != null) {
+		if (model != null && model.isSetEmbargoUntil() && model.getEmbargoUntil() != null) {
 			XMLGregorianCalendar cal = model.getEmbargoUntil();
 			untilDate.setYear(cal.getYear());
 			untilDate.setMonth(cal.getMonth() - 1);
@@ -207,7 +207,7 @@ public class AccessControlFormPage extends FormPage {
 		s1.marginHeight = 5;
 		s1.setLayoutData(gd);
 		discoverableFlag = toolkit.createButton(s1, "Yes, allow discovery via search and browse.", SWT.CHECK); //$NON-NLS-1$
-		discoverableFlag.setSelection(model.isDiscoverable());
+		if(model != null) discoverableFlag.setSelection(model.isDiscoverable());
 		discoverableFlag.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
