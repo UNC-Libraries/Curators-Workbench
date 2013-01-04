@@ -71,7 +71,11 @@ public class DivLinkHandler extends AbstractHandler implements IHandler {
 			e.printStackTrace();
 			throw new ExecutionException("unable to add link", e);
 		}
-		MetsProjectNature.getAdapterFactory().fireNotifyChanged(new NotificationImpl(Notification.ADD, null, null));
+		for(DivType[] l : links) {
+			if(l[0] != null) l[0].eNotify(new NotificationImpl(Notification.ADD, null, null));
+			if(l[1] != null) l[1].eNotify(new NotificationImpl(Notification.ADD, null, null));
+		}
+		//MetsProjectNature.getAdapterFactory().fireNotifyChanged(new NotificationImpl(Notification.ADD, null, null));
 		return null;
 	}
 

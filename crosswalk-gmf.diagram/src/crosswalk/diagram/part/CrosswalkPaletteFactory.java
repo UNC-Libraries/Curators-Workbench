@@ -276,7 +276,6 @@ public class CrosswalkPaletteFactory {
 	 * @generated NOT
 	 */
 	private ToolEntry createMetadataBlockCopyTool(MetadataBlock mb) {
-		;
 		TemplateObjectToolEntry entry = new TemplateObjectToolEntry(mb.getName(), mb.getDescription(), mb);
 		entry.setId(null); //$NON-NLS-1$
 		entry.setSmallIcon(CrosswalkElementTypes.getImageDescriptor(CrosswalkElementTypes.MetadataBlock_3018));

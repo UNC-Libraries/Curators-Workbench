@@ -22,6 +22,7 @@ import gov.loc.mets.FileType;
 import gov.loc.mets.MdSecType;
 import gov.loc.mets.MetsType;
 import gov.loc.mets.SmLinkType;
+import gov.loc.mets.StructLinkType;
 import gov.loc.mets.util.METSConstants;
 import gov.loc.mets.util.METSUtils;
 
@@ -223,6 +224,14 @@ public class ArrangementContentProvider extends AdapterFactoryContentProvider /*
 					});
 				}
 			} else if(notification.getNotifier() instanceof AmdSecType) {
+				Display.getDefault().asyncExec(new Runnable() {
+					public void run() {
+						if (tviewer != null && tviewer.getControl() != null && !tviewer.getControl().isDisposed()) {
+							tviewer.refresh();
+						}
+					}
+				});
+			} else if(notification.getNotifier() instanceof StructLinkType) {
 				Display.getDefault().asyncExec(new Runnable() {
 					public void run() {
 						if (tviewer != null && tviewer.getControl() != null && !tviewer.getControl().isDisposed()) {
