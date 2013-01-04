@@ -194,7 +194,7 @@ public class ArrangementContentProvider extends AdapterFactoryContentProvider /*
 	 */
 	@Override
 	public void notifyChanged(final Notification notification) {
-		System.err.println("notifier is " + notification.getNotifier());
+		//System.err.println("notifier is " + notification.getNotifier());
 		if (tviewer != null) {
 			final Set<Object> updates = new HashSet<Object>();
 			if (notification.getNotifier() instanceof FileType) {

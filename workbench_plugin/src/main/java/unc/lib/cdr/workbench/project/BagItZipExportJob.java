@@ -20,6 +20,7 @@ import java.util.zip.ZipOutputStream;
 import org.eclipse.core.filesystem.EFS;
 import org.eclipse.core.filesystem.IFileStore;
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
@@ -88,7 +89,7 @@ public class BagItZipExportJob extends Job {
 						if(fid.equals(ftype.getID())) {
 							out.print(ftype.getCHECKSUM());
 							out.print(' ');
-							out.print(getLocation((DivType)fptr.eContainer(), bag));
+							out.println(getLocation((DivType)fptr.eContainer(), bag));
 						}
 					}
 				}
@@ -126,6 +127,10 @@ public class BagItZipExportJob extends Job {
 				try { zout.close(); } catch(IOException e) {}
 			}
 			if(out != null) out.close();
+		}
+		try {
+			nature.getProject().refreshLocal(IResource.DEPTH_ONE, new NullProgressMonitor());
+		} catch (CoreException ignored) {
 		}
 		// write all data files in main manifest
 		// close the zip file

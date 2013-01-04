@@ -178,8 +178,13 @@
                optional="false">
          </commandParameter>
          <state
-               class="org.eclipse.ui.handlers.RadioState:Folder"
                id="org.eclipse.ui.commands.radioState">
+               <class
+                     class="org.eclipse.ui.handlers.RadioState">
+                     <parameter
+                           name="default" value="Folder">
+                     </parameter>
+               </class>
          </state>
       </command>
       <command
