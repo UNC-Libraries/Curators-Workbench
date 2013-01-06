@@ -6,7 +6,7 @@
    <aboutInfo>
       <image path="/workbench_plugin/about.png"/>
       <text>
-         Curator&apos;s Workbench, version 4.0.0
+         Curator&apos;s Workbench, version 4.0.1
 
 The Curator&apos;s Workbench is a project of the Carolina Digital Repository, created by the University Libraries of UNC Chapel Hill.
 http://cdr.unc.edu
@@ -66,7 +66,7 @@ Biff Hollingsworth
    <license>
         <url>http://www.apache.org/licenses/LICENSE-2.0</url>
         <text>
-   Copyright 2012 The University of North Carolina at Chapel Hill
+   Copyright 2013 The University of North Carolina at Chapel Hill
 
 Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
 you may not use this file except in compliance with the License.
