@@ -399,7 +399,8 @@
                   href="crosswalk.ecore#//DateInputField"/>
               <labelMappings
                   xsi:type="gmfmap:FeatureLabelMapping"
-                  viewMethod="NATIVE"
+                  viewPattern="{0} (Date)"
+                  editorPattern=""
                   editMethod="NATIVE">
                 <diagramLabel
                     href="crosswalk.gmfgraph#InputFieldLabel"/>

@@ -146,7 +146,7 @@ public class DateInputFieldEditPart extends ShapeNodeEditPart {
 		}
 		super.addChildVisual(childEditPart, -1);
 	}
-	
+
 	@Override
 	protected void handleNotificationEvent(Notification notification) {
 		if (notification.getNotifier() instanceof DateInputField) {

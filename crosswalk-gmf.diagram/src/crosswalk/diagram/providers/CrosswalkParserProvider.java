@@ -58,6 +58,7 @@ import crosswalk.diagram.parsers.DateRecognizerLabelExpressionLabelParser;
 import crosswalk.diagram.parsers.DelimitedFileLabelExpressionLabelParser;
 import crosswalk.diagram.parsers.MappedAttributeLabelExpressionLabelParser;
 import crosswalk.diagram.parsers.MappedElementLabelExpressionLabelParser;
+import crosswalk.diagram.parsers.MessageFormatMessageFormatParser;
 import crosswalk.diagram.parsers.MessageFormatParser;
 import crosswalk.diagram.parsers.NativeParser;
 import crosswalk.diagram.parsers.OriginalNameRecordMatcherLabelExpressionLabelParser;
@@ -452,7 +453,9 @@ public class CrosswalkParserProvider extends AbstractProvider implements IParser
 		if (dateInputFieldLabel_5030Parser == null) {
 			EAttribute[] features = new EAttribute[] { CrosswalkPackage.eINSTANCE.getInputField_Label() };
 			EAttribute[] editableFeatures = new EAttribute[] { CrosswalkPackage.eINSTANCE.getInputField_Label() };
-			NativeParser parser = new NativeParser(features, editableFeatures);
+			MessageFormatMessageFormatParser parser = new MessageFormatMessageFormatParser(features, editableFeatures);
+			parser.setViewPattern("{0} (Date)"); //$NON-NLS-1$
+			parser.setEditorPattern("{0} (Date)"); //$NON-NLS-1$
 			dateInputFieldLabel_5030Parser = parser;
 		}
 		return dateInputFieldLabel_5030Parser;
