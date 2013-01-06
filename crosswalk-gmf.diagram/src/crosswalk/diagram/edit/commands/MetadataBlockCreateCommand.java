@@ -4,6 +4,7 @@ import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.gmf.runtime.common.core.command.CommandResult;
 import org.eclipse.gmf.runtime.common.core.command.ICommand;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
@@ -15,6 +16,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import crosswalk.CrosswalkFactory;
 import crosswalk.Dictionary;
 import crosswalk.MetadataBlock;
+import crosswalk.diagram.providers.CrosswalkElementTypes;
 
 /**
  * @generated
@@ -49,11 +51,20 @@ public class MetadataBlockCreateCommand extends EditElementCommand {
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
-		MetadataBlock newElement = CrosswalkFactory.eINSTANCE.createMetadataBlock();
-
+		CreateElementRequest request = ((CreateElementRequest) getRequest());
+		MetadataBlock newElement = null;
+		if (request.getParameters().containsKey("templateElement") &&
+				request.getElementType() == CrosswalkElementTypes.MetadataBlock_3018) {
+			EObject template = (EObject) request.getParameter("templateElement");
+			EcoreUtil.Copier copier = new EcoreUtil.Copier(false, true);
+			newElement = (MetadataBlock)copier.copy(template);
+			copier.copyReferences();
+		} else {
+			newElement = CrosswalkFactory.eINSTANCE.createMetadataBlock();
+		}
 		Dictionary owner = (Dictionary) getElementToEdit();
 		owner.getBlocks().add(newElement);
 
