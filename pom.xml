@@ -34,6 +34,18 @@
 		<name>University Libraries, UNC Chapel Hill</name>
 		<url>http://www.unc.edu</url>
 	</organization>
+	<distributionManagement>
+		<repository>
+			<id>dlbuild.libint.unc.edu</id>
+			<name>dlbuild.libint.unc.edu-releases</name>
+			<url>http://dlbuild.libint.unc.edu:8080/artifactory/libs-release-local</url>
+		</repository>
+		<snapshotRepository>
+			<id>dlbuild.libint.unc.edu</id>
+			<name>dlbuild.libint.unc.edu-snapshots</name>
+			<url>http://dlbuild.libint.unc.edu:8080/artifactory/libs-snapshot-local</url>
+		</snapshotRepository>
+	</distributionManagement>
 	<repositories>
 		<!--repository> <id>update36</id> <url>${eclipse-repository-url}</url> 
 			<layout>p2</layout> </repository -->
@@ -106,11 +118,8 @@
 							<ws>gtk</ws>
 							<arch>x86</arch>
 						</environment>
-						<!-- <environment>
-							<os>macosx</os>
-							<ws>cocoa</ws>
-							<arch>x86</arch>
-						</environment> -->
+						<!-- <environment> <os>macosx</os> <ws>cocoa</ws> <arch>x86</arch> 
+							</environment> -->
 						<environment>
 							<os>macosx</os>
 							<ws>cocoa</ws>

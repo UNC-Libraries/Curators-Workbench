@@ -6,6 +6,18 @@
   <artifactId>org.apache.log4j</artifactId>
   <version>1.2.17</version>
   <packaging>eclipse-plugin</packaging>
+	<distributionManagement>
+		<repository>
+			<id>dlbuild.libint.unc.edu</id>
+			<name>dlbuild.libint.unc.edu-releases</name>
+			<url>http://dlbuild.libint.unc.edu:8080/artifactory/libs-release-local</url>
+		</repository>
+		<snapshotRepository>
+			<id>dlbuild.libint.unc.edu</id>
+			<name>dlbuild.libint.unc.edu-snapshots</name>
+			<url>http://dlbuild.libint.unc.edu:8080/artifactory/libs-snapshot-local</url>
+		</snapshotRepository>
+	</distributionManagement>
     	<properties>
 		<tycho-version>0.14.0</tycho-version>
 		<tycho-groupid>org.eclipse.tycho</tycho-groupid>

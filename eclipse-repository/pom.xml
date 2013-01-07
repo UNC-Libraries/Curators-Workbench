@@ -75,7 +75,7 @@
 						<!-- Installs the ZIPs and repository to versioned folder on web server: Should replaces snapshot versions. Fails if 
 							you try to post the same final version twice. -->
 						<id>deploy</id>
-						<phase>install</phase>
+						<phase>install-disabled</phase>
 						<goals>
 							<goal>run</goal>
 						</goals>
