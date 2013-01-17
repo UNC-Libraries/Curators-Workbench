@@ -167,7 +167,7 @@ public class LabelImageFactory {
 	 * 
 	 * @param i
 	 */
-	private static void register(Icon i) {
+	private static synchronized void register(Icon i) {
 		Image result = null;
 		ImageDescriptor d = null;
 		d = Activator.imageDescriptorFromPlugin(Activator.PLUGIN_ID, iconPath + i.imageFile);

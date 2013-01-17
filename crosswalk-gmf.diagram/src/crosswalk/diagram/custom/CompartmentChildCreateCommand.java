@@ -4,6 +4,7 @@ import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gmf.runtime.common.core.command.CommandResult;
 import org.eclipse.gmf.runtime.diagram.core.services.ViewService;
@@ -31,12 +32,6 @@ public class CompartmentChildCreateCommand extends CreateCommand {
 				viewDescriptor.isPersisted(), viewDescriptor.getPreferencesHint());
 		Assert.isNotNull(view, "failed to create a view"); //$NON-NLS-1$
 		viewDescriptor.setView(view);
-
-		if (index > -1) {
-			EList nodes = (EList)
-			getContainerView().getElement().eGet(CrosswalkPackage.Literals.FORM__ELEMENTS);
-			nodes.add(index, nodes.remove(nodes.size() - 1));
-		}
 		
 		return CommandResult.newOKCommandResult(viewDescriptor);
 	}

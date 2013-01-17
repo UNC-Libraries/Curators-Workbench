@@ -250,6 +250,12 @@ public class CrosswalkDiagramEditor extends DiagramDocumentEditor implements IGo
 		}
 	}
 
+	@Override
+	public void doSave(IProgressMonitor progressMonitor) {
+		this.getDiagramEditPart().refresh();
+		super.doSave(progressMonitor);
+	}
+
 	/**
 	 * @generated
 	 */

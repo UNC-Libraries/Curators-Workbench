@@ -42,7 +42,7 @@ public class Initializer extends AbstractPreferenceInitializer {
 		// set Local Staging Folder
 		String osUserHome = (String) System.getProperties().get("user.home");
 		File dir = new File(osUserHome + "/workbench_staging");
-		locs.add(new String[] { "Staging folder in home directory", dir.toURI().toString() + "/${PROJECT_NAME}" });
+		locs.add(new String[] { "Staging folder in home directory", dir.toURI().toString() + "${PROJECT_NAME}" });
 		
 		
 		

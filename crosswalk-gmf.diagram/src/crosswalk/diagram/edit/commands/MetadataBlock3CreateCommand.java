@@ -4,6 +4,7 @@ import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.gmf.runtime.common.core.command.CommandResult;
 import org.eclipse.gmf.runtime.common.core.command.ICommand;
@@ -55,24 +56,40 @@ public class MetadataBlock3CreateCommand extends EditElementCommand {
 	 */
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
 		CreateElementRequest request = ((CreateElementRequest) getRequest());
-		MetadataBlock newElement = null;
-		if (request.getParameters().containsKey("templateElement") &&
-				request.getElementType() == CrosswalkElementTypes.MetadataBlock_3018) {
-			EObject template = (EObject) request.getParameter("templateElement");
-			EcoreUtil.Copier copier = new EcoreUtil.Copier(false, true);
-			newElement = (MetadataBlock)copier.copy(template);
-			copier.copyReferences();
-		} else {
-			newElement = CrosswalkFactory.eINSTANCE.createMetadataBlock();
-		}
-		
+		MetadataBlock newElement = CrosswalkFactory.eINSTANCE.createMetadataBlock();
 		Form owner = (Form) getElementToEdit();
 		owner.getElements().add(newElement);
-
 		doConfigure(newElement, monitor, info);
+		
+		if (request.getParameters().containsKey("templateElement")) {
+			System.err.println("MB3 create command, container: "+getElementToEdit());
+			EObject template = (EObject) request.getParameter("templateElement");
+			EcoreUtil.Copier copier = new EcoreUtil.Copier(true, true) {
 
-		((CreateElementRequest) getRequest()).setNewElement(newElement);
-		return CommandResult.newOKCommandResult(newElement);
+				@Override
+				protected void copyReference(EReference eReference, EObject eObject, EObject copyEObject) {
+					System.err.println(eReference);
+					super.copyReference(eReference, eObject, copyEObject);
+				}
+
+				@Override
+				protected void copyProxyURI(EObject eObject, EObject copyEObject) {
+					super.copyProxyURI(eObject, copyEObject);
+				}
+				
+			};
+			MetadataBlock copyElement = (MetadataBlock)copier.copy(template);
+			copier.copyReferences();
+			owner.getElements().add(copyElement);
+			doConfigure(copyElement, monitor, info);
+
+			owner.getElements().remove(newElement);
+			((CreateElementRequest) getRequest()).setNewElement(copyElement);
+			return CommandResult.newOKCommandResult(copyElement);
+		} else {
+			((CreateElementRequest) getRequest()).setNewElement(newElement);
+			return CommandResult.newOKCommandResult(newElement);
+		}
 	}
 
 	/**
@@ -81,6 +98,7 @@ public class MetadataBlock3CreateCommand extends EditElementCommand {
 	protected void doConfigure(MetadataBlock newElement, IProgressMonitor monitor, IAdaptable info)
 			throws ExecutionException {
 		IElementType elementType = ((CreateElementRequest) getRequest()).getElementType();
+		System.err.println("Form hosted MB: "+elementType);
 		ConfigureRequest configureRequest = new ConfigureRequest(getEditingDomain(), newElement, elementType);
 		configureRequest.setClientContext(((CreateElementRequest) getRequest()).getClientContext());
 		configureRequest.addParameters(getRequest().getParameters());

@@ -34,7 +34,6 @@ public class CompartmentChildCreationEditPolicy extends CreationEditPolicy {
 
 		while (descriptors.hasNext()) {
 			CreateViewRequest.ViewDescriptor descriptor = (CreateViewRequest.ViewDescriptor) descriptors.next();
-
 			CreateCommand createCommand = new CompartmentChildCreateCommand(editingDomain, descriptor,
 					(View) (getHost().getModel()), getFeedbackIndexFor(request));
 

@@ -56,10 +56,9 @@ public class MetadataBlock2CreateCommand extends EditElementCommand {
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
 		CreateElementRequest request = ((CreateElementRequest) getRequest());
 		MetadataBlock newElement = null;
-		if (request.getParameters().containsKey("templateElement") &&
-				request.getElementType() == CrosswalkElementTypes.MetadataBlock_3018) {
+		if (request.getParameters().containsKey("templateElement")) {
 			EObject template = (EObject) request.getParameter("templateElement");
-			EcoreUtil.Copier copier = new EcoreUtil.Copier(false, true);
+			EcoreUtil.Copier copier = new EcoreUtil.Copier(true, true);
 			newElement = (MetadataBlock)copier.copy(template);
 			copier.copyReferences();
 		} else {
@@ -81,6 +80,7 @@ public class MetadataBlock2CreateCommand extends EditElementCommand {
 	protected void doConfigure(MetadataBlock newElement, IProgressMonitor monitor, IAdaptable info)
 			throws ExecutionException {
 		IElementType elementType = ((CreateElementRequest) getRequest()).getElementType();
+		System.err.println("MappingContainer/Crosswalk hosted MB: "+elementType);
 		ConfigureRequest configureRequest = new ConfigureRequest(getEditingDomain(), newElement, elementType);
 		configureRequest.setClientContext(((CreateElementRequest) getRequest()).getClientContext());
 		configureRequest.addParameters(getRequest().getParameters());
