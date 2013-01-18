@@ -56,6 +56,11 @@
 			<layout>p2</layout>
 			<url>http://download.eclipse.org/releases/indigo</url>
 		</repository>
+		<repository>
+			<id>eclipse-indigo-updates</id>
+			<layout>p2</layout>
+			<url>http://download.eclipse.org/eclipse/updates/3.8</url>
+		</repository>
 	</repositories>
 	<modules>
 		<module>crosswalk-gmf</module>
