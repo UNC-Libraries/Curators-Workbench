@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: crosswalk-gmf.diagram; singleton:=true
-Bundle-Version: 4.1.0.qualifier
+Bundle-Version: 4.1.0
 Bundle-ClassPath: .,juniversalchardet-1.0.3.jar
 Bundle-Activator: crosswalk.diagram.part.CrosswalkDiagramEditorPlugin
 Bundle-Vendor: %providerName
