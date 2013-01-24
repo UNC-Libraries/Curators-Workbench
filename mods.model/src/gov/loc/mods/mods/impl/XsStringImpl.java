@@ -180,7 +180,8 @@ public class XsStringImpl extends EObjectImpl implements XsString {
 		String oldValue = value;
 		value = newValue;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.XS_STRING__VALUE, oldValue, value));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.XS_STRING__VALUE, oldValue, value));
 	}
 
 	/**
@@ -201,7 +202,8 @@ public class XsStringImpl extends EObjectImpl implements XsString {
 		String oldLang = lang;
 		lang = newLang;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.XS_STRING__LANG, oldLang, lang));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.XS_STRING__LANG, oldLang, lang));
 	}
 
 	/**
@@ -222,7 +224,8 @@ public class XsStringImpl extends EObjectImpl implements XsString {
 		String oldLang1 = lang1;
 		lang1 = newLang1;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.XS_STRING__LANG1, oldLang1, lang1));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.XS_STRING__LANG1, oldLang1, lang1));
 	}
 
 	/**
@@ -243,7 +246,8 @@ public class XsStringImpl extends EObjectImpl implements XsString {
 		String oldScript = script;
 		script = newScript;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.XS_STRING__SCRIPT, oldScript, script));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.XS_STRING__SCRIPT, oldScript, script));
 	}
 
 	/**
@@ -264,8 +268,9 @@ public class XsStringImpl extends EObjectImpl implements XsString {
 		String oldTransliteration = transliteration;
 		transliteration = newTransliteration;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.XS_STRING__TRANSLITERATION,
-					oldTransliteration, transliteration));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.XS_STRING__TRANSLITERATION, oldTransliteration,
+					transliteration));
 	}
 
 	/**
@@ -276,16 +281,16 @@ public class XsStringImpl extends EObjectImpl implements XsString {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case MODSPackage.XS_STRING__VALUE:
-				return getValue();
-			case MODSPackage.XS_STRING__LANG:
-				return getLang();
-			case MODSPackage.XS_STRING__LANG1:
-				return getLang1();
-			case MODSPackage.XS_STRING__SCRIPT:
-				return getScript();
-			case MODSPackage.XS_STRING__TRANSLITERATION:
-				return getTransliteration();
+		case MODSPackage.XS_STRING__VALUE:
+			return getValue();
+		case MODSPackage.XS_STRING__LANG:
+			return getLang();
+		case MODSPackage.XS_STRING__LANG1:
+			return getLang1();
+		case MODSPackage.XS_STRING__SCRIPT:
+			return getScript();
+		case MODSPackage.XS_STRING__TRANSLITERATION:
+			return getTransliteration();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -298,21 +303,21 @@ public class XsStringImpl extends EObjectImpl implements XsString {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case MODSPackage.XS_STRING__VALUE:
-				setValue((String) newValue);
-				return;
-			case MODSPackage.XS_STRING__LANG:
-				setLang((String) newValue);
-				return;
-			case MODSPackage.XS_STRING__LANG1:
-				setLang1((String) newValue);
-				return;
-			case MODSPackage.XS_STRING__SCRIPT:
-				setScript((String) newValue);
-				return;
-			case MODSPackage.XS_STRING__TRANSLITERATION:
-				setTransliteration((String) newValue);
-				return;
+		case MODSPackage.XS_STRING__VALUE:
+			setValue((String) newValue);
+			return;
+		case MODSPackage.XS_STRING__LANG:
+			setLang((String) newValue);
+			return;
+		case MODSPackage.XS_STRING__LANG1:
+			setLang1((String) newValue);
+			return;
+		case MODSPackage.XS_STRING__SCRIPT:
+			setScript((String) newValue);
+			return;
+		case MODSPackage.XS_STRING__TRANSLITERATION:
+			setTransliteration((String) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -325,21 +330,21 @@ public class XsStringImpl extends EObjectImpl implements XsString {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case MODSPackage.XS_STRING__VALUE:
-				setValue(VALUE_EDEFAULT);
-				return;
-			case MODSPackage.XS_STRING__LANG:
-				setLang(LANG_EDEFAULT);
-				return;
-			case MODSPackage.XS_STRING__LANG1:
-				setLang1(LANG1_EDEFAULT);
-				return;
-			case MODSPackage.XS_STRING__SCRIPT:
-				setScript(SCRIPT_EDEFAULT);
-				return;
-			case MODSPackage.XS_STRING__TRANSLITERATION:
-				setTransliteration(TRANSLITERATION_EDEFAULT);
-				return;
+		case MODSPackage.XS_STRING__VALUE:
+			setValue(VALUE_EDEFAULT);
+			return;
+		case MODSPackage.XS_STRING__LANG:
+			setLang(LANG_EDEFAULT);
+			return;
+		case MODSPackage.XS_STRING__LANG1:
+			setLang1(LANG1_EDEFAULT);
+			return;
+		case MODSPackage.XS_STRING__SCRIPT:
+			setScript(SCRIPT_EDEFAULT);
+			return;
+		case MODSPackage.XS_STRING__TRANSLITERATION:
+			setTransliteration(TRANSLITERATION_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -352,17 +357,21 @@ public class XsStringImpl extends EObjectImpl implements XsString {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case MODSPackage.XS_STRING__VALUE:
-				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
-			case MODSPackage.XS_STRING__LANG:
-				return LANG_EDEFAULT == null ? lang != null : !LANG_EDEFAULT.equals(lang);
-			case MODSPackage.XS_STRING__LANG1:
-				return LANG1_EDEFAULT == null ? lang1 != null : !LANG1_EDEFAULT.equals(lang1);
-			case MODSPackage.XS_STRING__SCRIPT:
-				return SCRIPT_EDEFAULT == null ? script != null : !SCRIPT_EDEFAULT.equals(script);
-			case MODSPackage.XS_STRING__TRANSLITERATION:
-				return TRANSLITERATION_EDEFAULT == null ? transliteration != null : !TRANSLITERATION_EDEFAULT
-						.equals(transliteration);
+		case MODSPackage.XS_STRING__VALUE:
+			return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT
+					.equals(value);
+		case MODSPackage.XS_STRING__LANG:
+			return LANG_EDEFAULT == null ? lang != null : !LANG_EDEFAULT
+					.equals(lang);
+		case MODSPackage.XS_STRING__LANG1:
+			return LANG1_EDEFAULT == null ? lang1 != null : !LANG1_EDEFAULT
+					.equals(lang1);
+		case MODSPackage.XS_STRING__SCRIPT:
+			return SCRIPT_EDEFAULT == null ? script != null : !SCRIPT_EDEFAULT
+					.equals(script);
+		case MODSPackage.XS_STRING__TRANSLITERATION:
+			return TRANSLITERATION_EDEFAULT == null ? transliteration != null
+					: !TRANSLITERATION_EDEFAULT.equals(transliteration);
 		}
 		return super.eIsSet(featureID);
 	}

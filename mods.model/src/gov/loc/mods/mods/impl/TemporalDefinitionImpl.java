@@ -39,7 +39,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class TemporalDefinitionImpl extends DateDefinitionImpl implements TemporalDefinition {
+public class TemporalDefinitionImpl extends DateDefinitionImpl implements
+		TemporalDefinition {
 	/**
 	 * The default value of the '{@link #getAuthority() <em>Authority</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -137,8 +138,9 @@ public class TemporalDefinitionImpl extends DateDefinitionImpl implements Tempor
 		String oldAuthority = authority;
 		authority = newAuthority;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.TEMPORAL_DEFINITION__AUTHORITY,
-					oldAuthority, authority));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.TEMPORAL_DEFINITION__AUTHORITY, oldAuthority,
+					authority));
 	}
 
 	/**
@@ -159,7 +161,8 @@ public class TemporalDefinitionImpl extends DateDefinitionImpl implements Tempor
 		String oldAuthorityURI = authorityURI;
 		authorityURI = newAuthorityURI;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.TEMPORAL_DEFINITION__AUTHORITY_URI,
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.TEMPORAL_DEFINITION__AUTHORITY_URI,
 					oldAuthorityURI, authorityURI));
 	}
 
@@ -181,7 +184,8 @@ public class TemporalDefinitionImpl extends DateDefinitionImpl implements Tempor
 		String oldValueURI = valueURI;
 		valueURI = newValueURI;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.TEMPORAL_DEFINITION__VALUE_URI, oldValueURI,
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.TEMPORAL_DEFINITION__VALUE_URI, oldValueURI,
 					valueURI));
 	}
 
@@ -193,12 +197,12 @@ public class TemporalDefinitionImpl extends DateDefinitionImpl implements Tempor
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case MODSPackage.TEMPORAL_DEFINITION__AUTHORITY:
-				return getAuthority();
-			case MODSPackage.TEMPORAL_DEFINITION__AUTHORITY_URI:
-				return getAuthorityURI();
-			case MODSPackage.TEMPORAL_DEFINITION__VALUE_URI:
-				return getValueURI();
+		case MODSPackage.TEMPORAL_DEFINITION__AUTHORITY:
+			return getAuthority();
+		case MODSPackage.TEMPORAL_DEFINITION__AUTHORITY_URI:
+			return getAuthorityURI();
+		case MODSPackage.TEMPORAL_DEFINITION__VALUE_URI:
+			return getValueURI();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -211,15 +215,15 @@ public class TemporalDefinitionImpl extends DateDefinitionImpl implements Tempor
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case MODSPackage.TEMPORAL_DEFINITION__AUTHORITY:
-				setAuthority((String) newValue);
-				return;
-			case MODSPackage.TEMPORAL_DEFINITION__AUTHORITY_URI:
-				setAuthorityURI((String) newValue);
-				return;
-			case MODSPackage.TEMPORAL_DEFINITION__VALUE_URI:
-				setValueURI((String) newValue);
-				return;
+		case MODSPackage.TEMPORAL_DEFINITION__AUTHORITY:
+			setAuthority((String) newValue);
+			return;
+		case MODSPackage.TEMPORAL_DEFINITION__AUTHORITY_URI:
+			setAuthorityURI((String) newValue);
+			return;
+		case MODSPackage.TEMPORAL_DEFINITION__VALUE_URI:
+			setValueURI((String) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -232,15 +236,15 @@ public class TemporalDefinitionImpl extends DateDefinitionImpl implements Tempor
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case MODSPackage.TEMPORAL_DEFINITION__AUTHORITY:
-				setAuthority(AUTHORITY_EDEFAULT);
-				return;
-			case MODSPackage.TEMPORAL_DEFINITION__AUTHORITY_URI:
-				setAuthorityURI(AUTHORITY_URI_EDEFAULT);
-				return;
-			case MODSPackage.TEMPORAL_DEFINITION__VALUE_URI:
-				setValueURI(VALUE_URI_EDEFAULT);
-				return;
+		case MODSPackage.TEMPORAL_DEFINITION__AUTHORITY:
+			setAuthority(AUTHORITY_EDEFAULT);
+			return;
+		case MODSPackage.TEMPORAL_DEFINITION__AUTHORITY_URI:
+			setAuthorityURI(AUTHORITY_URI_EDEFAULT);
+			return;
+		case MODSPackage.TEMPORAL_DEFINITION__VALUE_URI:
+			setValueURI(VALUE_URI_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -253,12 +257,15 @@ public class TemporalDefinitionImpl extends DateDefinitionImpl implements Tempor
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case MODSPackage.TEMPORAL_DEFINITION__AUTHORITY:
-				return AUTHORITY_EDEFAULT == null ? authority != null : !AUTHORITY_EDEFAULT.equals(authority);
-			case MODSPackage.TEMPORAL_DEFINITION__AUTHORITY_URI:
-				return AUTHORITY_URI_EDEFAULT == null ? authorityURI != null : !AUTHORITY_URI_EDEFAULT.equals(authorityURI);
-			case MODSPackage.TEMPORAL_DEFINITION__VALUE_URI:
-				return VALUE_URI_EDEFAULT == null ? valueURI != null : !VALUE_URI_EDEFAULT.equals(valueURI);
+		case MODSPackage.TEMPORAL_DEFINITION__AUTHORITY:
+			return AUTHORITY_EDEFAULT == null ? authority != null
+					: !AUTHORITY_EDEFAULT.equals(authority);
+		case MODSPackage.TEMPORAL_DEFINITION__AUTHORITY_URI:
+			return AUTHORITY_URI_EDEFAULT == null ? authorityURI != null
+					: !AUTHORITY_URI_EDEFAULT.equals(authorityURI);
+		case MODSPackage.TEMPORAL_DEFINITION__VALUE_URI:
+			return VALUE_URI_EDEFAULT == null ? valueURI != null
+					: !VALUE_URI_EDEFAULT.equals(valueURI);
 		}
 		return super.eIsSet(featureID);
 	}

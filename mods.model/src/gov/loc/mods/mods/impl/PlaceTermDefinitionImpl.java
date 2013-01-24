@@ -42,7 +42,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class PlaceTermDefinitionImpl extends XsStringImpl implements PlaceTermDefinition {
+public class PlaceTermDefinitionImpl extends XsStringImpl implements
+		PlaceTermDefinition {
 	/**
 	 * The default value of the '{@link #getAuthority() <em>Authority</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -180,8 +181,9 @@ public class PlaceTermDefinitionImpl extends XsStringImpl implements PlaceTermDe
 		boolean oldAuthorityESet = authorityESet;
 		authorityESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.PLACE_TERM_DEFINITION__AUTHORITY,
-					oldAuthority, authority, !oldAuthorityESet));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.PLACE_TERM_DEFINITION__AUTHORITY, oldAuthority,
+					authority, !oldAuthorityESet));
 	}
 
 	/**
@@ -195,8 +197,9 @@ public class PlaceTermDefinitionImpl extends XsStringImpl implements PlaceTermDe
 		authority = AUTHORITY_EDEFAULT;
 		authorityESet = false;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, MODSPackage.PLACE_TERM_DEFINITION__AUTHORITY,
-					oldAuthority, AUTHORITY_EDEFAULT, oldAuthorityESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET,
+					MODSPackage.PLACE_TERM_DEFINITION__AUTHORITY, oldAuthority,
+					AUTHORITY_EDEFAULT, oldAuthorityESet));
 	}
 
 	/**
@@ -226,7 +229,8 @@ public class PlaceTermDefinitionImpl extends XsStringImpl implements PlaceTermDe
 		String oldAuthorityURI = authorityURI;
 		authorityURI = newAuthorityURI;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.PLACE_TERM_DEFINITION__AUTHORITY_URI,
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.PLACE_TERM_DEFINITION__AUTHORITY_URI,
 					oldAuthorityURI, authorityURI));
 	}
 
@@ -250,7 +254,8 @@ public class PlaceTermDefinitionImpl extends XsStringImpl implements PlaceTermDe
 		boolean oldTypeESet = typeESet;
 		typeESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.PLACE_TERM_DEFINITION__TYPE, oldType, type,
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.PLACE_TERM_DEFINITION__TYPE, oldType, type,
 					!oldTypeESet));
 	}
 
@@ -265,7 +270,8 @@ public class PlaceTermDefinitionImpl extends XsStringImpl implements PlaceTermDe
 		type = TYPE_EDEFAULT;
 		typeESet = false;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, MODSPackage.PLACE_TERM_DEFINITION__TYPE, oldType,
+			eNotify(new ENotificationImpl(this, Notification.UNSET,
+					MODSPackage.PLACE_TERM_DEFINITION__TYPE, oldType,
 					TYPE_EDEFAULT, oldTypeESet));
 	}
 
@@ -296,8 +302,9 @@ public class PlaceTermDefinitionImpl extends XsStringImpl implements PlaceTermDe
 		String oldValueURI = valueURI;
 		valueURI = newValueURI;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.PLACE_TERM_DEFINITION__VALUE_URI,
-					oldValueURI, valueURI));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.PLACE_TERM_DEFINITION__VALUE_URI, oldValueURI,
+					valueURI));
 	}
 
 	/**
@@ -308,14 +315,14 @@ public class PlaceTermDefinitionImpl extends XsStringImpl implements PlaceTermDe
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case MODSPackage.PLACE_TERM_DEFINITION__AUTHORITY:
-				return getAuthority();
-			case MODSPackage.PLACE_TERM_DEFINITION__AUTHORITY_URI:
-				return getAuthorityURI();
-			case MODSPackage.PLACE_TERM_DEFINITION__TYPE:
-				return getType();
-			case MODSPackage.PLACE_TERM_DEFINITION__VALUE_URI:
-				return getValueURI();
+		case MODSPackage.PLACE_TERM_DEFINITION__AUTHORITY:
+			return getAuthority();
+		case MODSPackage.PLACE_TERM_DEFINITION__AUTHORITY_URI:
+			return getAuthorityURI();
+		case MODSPackage.PLACE_TERM_DEFINITION__TYPE:
+			return getType();
+		case MODSPackage.PLACE_TERM_DEFINITION__VALUE_URI:
+			return getValueURI();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -328,18 +335,18 @@ public class PlaceTermDefinitionImpl extends XsStringImpl implements PlaceTermDe
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case MODSPackage.PLACE_TERM_DEFINITION__AUTHORITY:
-				setAuthority((PlaceAuthorityAttributeDefinition) newValue);
-				return;
-			case MODSPackage.PLACE_TERM_DEFINITION__AUTHORITY_URI:
-				setAuthorityURI((String) newValue);
-				return;
-			case MODSPackage.PLACE_TERM_DEFINITION__TYPE:
-				setType((CodeOrTextDefinition) newValue);
-				return;
-			case MODSPackage.PLACE_TERM_DEFINITION__VALUE_URI:
-				setValueURI((String) newValue);
-				return;
+		case MODSPackage.PLACE_TERM_DEFINITION__AUTHORITY:
+			setAuthority((PlaceAuthorityAttributeDefinition) newValue);
+			return;
+		case MODSPackage.PLACE_TERM_DEFINITION__AUTHORITY_URI:
+			setAuthorityURI((String) newValue);
+			return;
+		case MODSPackage.PLACE_TERM_DEFINITION__TYPE:
+			setType((CodeOrTextDefinition) newValue);
+			return;
+		case MODSPackage.PLACE_TERM_DEFINITION__VALUE_URI:
+			setValueURI((String) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -352,18 +359,18 @@ public class PlaceTermDefinitionImpl extends XsStringImpl implements PlaceTermDe
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case MODSPackage.PLACE_TERM_DEFINITION__AUTHORITY:
-				unsetAuthority();
-				return;
-			case MODSPackage.PLACE_TERM_DEFINITION__AUTHORITY_URI:
-				setAuthorityURI(AUTHORITY_URI_EDEFAULT);
-				return;
-			case MODSPackage.PLACE_TERM_DEFINITION__TYPE:
-				unsetType();
-				return;
-			case MODSPackage.PLACE_TERM_DEFINITION__VALUE_URI:
-				setValueURI(VALUE_URI_EDEFAULT);
-				return;
+		case MODSPackage.PLACE_TERM_DEFINITION__AUTHORITY:
+			unsetAuthority();
+			return;
+		case MODSPackage.PLACE_TERM_DEFINITION__AUTHORITY_URI:
+			setAuthorityURI(AUTHORITY_URI_EDEFAULT);
+			return;
+		case MODSPackage.PLACE_TERM_DEFINITION__TYPE:
+			unsetType();
+			return;
+		case MODSPackage.PLACE_TERM_DEFINITION__VALUE_URI:
+			setValueURI(VALUE_URI_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -376,14 +383,16 @@ public class PlaceTermDefinitionImpl extends XsStringImpl implements PlaceTermDe
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case MODSPackage.PLACE_TERM_DEFINITION__AUTHORITY:
-				return isSetAuthority();
-			case MODSPackage.PLACE_TERM_DEFINITION__AUTHORITY_URI:
-				return AUTHORITY_URI_EDEFAULT == null ? authorityURI != null : !AUTHORITY_URI_EDEFAULT.equals(authorityURI);
-			case MODSPackage.PLACE_TERM_DEFINITION__TYPE:
-				return isSetType();
-			case MODSPackage.PLACE_TERM_DEFINITION__VALUE_URI:
-				return VALUE_URI_EDEFAULT == null ? valueURI != null : !VALUE_URI_EDEFAULT.equals(valueURI);
+		case MODSPackage.PLACE_TERM_DEFINITION__AUTHORITY:
+			return isSetAuthority();
+		case MODSPackage.PLACE_TERM_DEFINITION__AUTHORITY_URI:
+			return AUTHORITY_URI_EDEFAULT == null ? authorityURI != null
+					: !AUTHORITY_URI_EDEFAULT.equals(authorityURI);
+		case MODSPackage.PLACE_TERM_DEFINITION__TYPE:
+			return isSetType();
+		case MODSPackage.PLACE_TERM_DEFINITION__VALUE_URI:
+			return VALUE_URI_EDEFAULT == null ? valueURI != null
+					: !VALUE_URI_EDEFAULT.equals(valueURI);
 		}
 		return super.eIsSet(featureID);
 	}

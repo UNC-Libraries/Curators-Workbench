@@ -101,7 +101,8 @@ import org.w3._1999.xlink.ShowType;
  *
  * @generated
  */
-public class RelatedItemDefinitionImpl extends EObjectImpl implements RelatedItemDefinition {
+public class RelatedItemDefinitionImpl extends EObjectImpl implements
+		RelatedItemDefinition {
 	/**
 	 * The cached value of the '{@link #getModsGroup() <em>Mods Group</em>}' attribute list.
 	 * <!-- begin-user-doc -->
@@ -374,7 +375,8 @@ public class RelatedItemDefinitionImpl extends EObjectImpl implements RelatedIte
 	 */
 	public FeatureMap getModsGroup() {
 		if (modsGroup == null) {
-			modsGroup = new BasicFeatureMap(this, MODSPackage.RELATED_ITEM_DEFINITION__MODS_GROUP);
+			modsGroup = new BasicFeatureMap(this,
+					MODSPackage.RELATED_ITEM_DEFINITION__MODS_GROUP);
 		}
 		return modsGroup;
 	}
@@ -385,7 +387,8 @@ public class RelatedItemDefinitionImpl extends EObjectImpl implements RelatedIte
 	 * @generated
 	 */
 	public EList<AbstractDefinition> getAbstract() {
-		return getModsGroup().list(MODSPackage.eINSTANCE.getRelatedItemDefinition_Abstract());
+		return getModsGroup().list(
+				MODSPackage.eINSTANCE.getRelatedItemDefinition_Abstract());
 	}
 
 	/**
@@ -394,7 +397,9 @@ public class RelatedItemDefinitionImpl extends EObjectImpl implements RelatedIte
 	 * @generated
 	 */
 	public EList<AccessConditionDefinition> getAccessCondition() {
-		return getModsGroup().list(MODSPackage.eINSTANCE.getRelatedItemDefinition_AccessCondition());
+		return getModsGroup().list(
+				MODSPackage.eINSTANCE
+						.getRelatedItemDefinition_AccessCondition());
 	}
 
 	/**
@@ -403,7 +408,9 @@ public class RelatedItemDefinitionImpl extends EObjectImpl implements RelatedIte
 	 * @generated
 	 */
 	public EList<ClassificationDefinition> getClassification() {
-		return getModsGroup().list(MODSPackage.eINSTANCE.getRelatedItemDefinition_Classification());
+		return getModsGroup()
+				.list(MODSPackage.eINSTANCE
+						.getRelatedItemDefinition_Classification());
 	}
 
 	/**
@@ -412,7 +419,8 @@ public class RelatedItemDefinitionImpl extends EObjectImpl implements RelatedIte
 	 * @generated
 	 */
 	public EList<ExtensionDefinition> getExtension() {
-		return getModsGroup().list(MODSPackage.eINSTANCE.getRelatedItemDefinition_Extension());
+		return getModsGroup().list(
+				MODSPackage.eINSTANCE.getRelatedItemDefinition_Extension());
 	}
 
 	/**
@@ -421,7 +429,8 @@ public class RelatedItemDefinitionImpl extends EObjectImpl implements RelatedIte
 	 * @generated
 	 */
 	public EList<GenreDefinition> getGenre() {
-		return getModsGroup().list(MODSPackage.eINSTANCE.getRelatedItemDefinition_Genre());
+		return getModsGroup().list(
+				MODSPackage.eINSTANCE.getRelatedItemDefinition_Genre());
 	}
 
 	/**
@@ -430,7 +439,8 @@ public class RelatedItemDefinitionImpl extends EObjectImpl implements RelatedIte
 	 * @generated
 	 */
 	public EList<IdentifierDefinition> getIdentifier() {
-		return getModsGroup().list(MODSPackage.eINSTANCE.getRelatedItemDefinition_Identifier());
+		return getModsGroup().list(
+				MODSPackage.eINSTANCE.getRelatedItemDefinition_Identifier());
 	}
 
 	/**
@@ -439,7 +449,8 @@ public class RelatedItemDefinitionImpl extends EObjectImpl implements RelatedIte
 	 * @generated
 	 */
 	public EList<LanguageDefinition> getLanguage() {
-		return getModsGroup().list(MODSPackage.eINSTANCE.getRelatedItemDefinition_Language());
+		return getModsGroup().list(
+				MODSPackage.eINSTANCE.getRelatedItemDefinition_Language());
 	}
 
 	/**
@@ -448,7 +459,8 @@ public class RelatedItemDefinitionImpl extends EObjectImpl implements RelatedIte
 	 * @generated
 	 */
 	public EList<LocationDefinition> getLocation() {
-		return getModsGroup().list(MODSPackage.eINSTANCE.getRelatedItemDefinition_Location());
+		return getModsGroup().list(
+				MODSPackage.eINSTANCE.getRelatedItemDefinition_Location());
 	}
 
 	/**
@@ -457,7 +469,8 @@ public class RelatedItemDefinitionImpl extends EObjectImpl implements RelatedIte
 	 * @generated
 	 */
 	public EList<NameDefinition> getName() {
-		return getModsGroup().list(MODSPackage.eINSTANCE.getRelatedItemDefinition_Name());
+		return getModsGroup().list(
+				MODSPackage.eINSTANCE.getRelatedItemDefinition_Name());
 	}
 
 	/**
@@ -466,7 +479,8 @@ public class RelatedItemDefinitionImpl extends EObjectImpl implements RelatedIte
 	 * @generated
 	 */
 	public EList<NoteDefinition> getNote() {
-		return getModsGroup().list(MODSPackage.eINSTANCE.getRelatedItemDefinition_Note());
+		return getModsGroup().list(
+				MODSPackage.eINSTANCE.getRelatedItemDefinition_Note());
 	}
 
 	/**
@@ -475,7 +489,8 @@ public class RelatedItemDefinitionImpl extends EObjectImpl implements RelatedIte
 	 * @generated
 	 */
 	public EList<OriginInfoDefinition> getOriginInfo() {
-		return getModsGroup().list(MODSPackage.eINSTANCE.getRelatedItemDefinition_OriginInfo());
+		return getModsGroup().list(
+				MODSPackage.eINSTANCE.getRelatedItemDefinition_OriginInfo());
 	}
 
 	/**
@@ -484,7 +499,8 @@ public class RelatedItemDefinitionImpl extends EObjectImpl implements RelatedIte
 	 * @generated
 	 */
 	public EList<PartDefinition> getPart() {
-		return getModsGroup().list(MODSPackage.eINSTANCE.getRelatedItemDefinition_Part());
+		return getModsGroup().list(
+				MODSPackage.eINSTANCE.getRelatedItemDefinition_Part());
 	}
 
 	/**
@@ -493,7 +509,9 @@ public class RelatedItemDefinitionImpl extends EObjectImpl implements RelatedIte
 	 * @generated
 	 */
 	public EList<PhysicalDescriptionDefinition> getPhysicalDescription() {
-		return getModsGroup().list(MODSPackage.eINSTANCE.getRelatedItemDefinition_PhysicalDescription());
+		return getModsGroup().list(
+				MODSPackage.eINSTANCE
+						.getRelatedItemDefinition_PhysicalDescription());
 	}
 
 	/**
@@ -502,7 +520,8 @@ public class RelatedItemDefinitionImpl extends EObjectImpl implements RelatedIte
 	 * @generated
 	 */
 	public EList<RecordInfoDefinition> getRecordInfo() {
-		return getModsGroup().list(MODSPackage.eINSTANCE.getRelatedItemDefinition_RecordInfo());
+		return getModsGroup().list(
+				MODSPackage.eINSTANCE.getRelatedItemDefinition_RecordInfo());
 	}
 
 	/**
@@ -511,7 +530,8 @@ public class RelatedItemDefinitionImpl extends EObjectImpl implements RelatedIte
 	 * @generated
 	 */
 	public EList<RelatedItemDefinition> getRelatedItem() {
-		return getModsGroup().list(MODSPackage.eINSTANCE.getRelatedItemDefinition_RelatedItem());
+		return getModsGroup().list(
+				MODSPackage.eINSTANCE.getRelatedItemDefinition_RelatedItem());
 	}
 
 	/**
@@ -520,7 +540,8 @@ public class RelatedItemDefinitionImpl extends EObjectImpl implements RelatedIte
 	 * @generated
 	 */
 	public EList<SubjectDefinition> getSubject() {
-		return getModsGroup().list(MODSPackage.eINSTANCE.getRelatedItemDefinition_Subject());
+		return getModsGroup().list(
+				MODSPackage.eINSTANCE.getRelatedItemDefinition_Subject());
 	}
 
 	/**
@@ -529,7 +550,9 @@ public class RelatedItemDefinitionImpl extends EObjectImpl implements RelatedIte
 	 * @generated
 	 */
 	public EList<TableOfContentsDefinition> getTableOfContents() {
-		return getModsGroup().list(MODSPackage.eINSTANCE.getRelatedItemDefinition_TableOfContents());
+		return getModsGroup().list(
+				MODSPackage.eINSTANCE
+						.getRelatedItemDefinition_TableOfContents());
 	}
 
 	/**
@@ -538,7 +561,9 @@ public class RelatedItemDefinitionImpl extends EObjectImpl implements RelatedIte
 	 * @generated
 	 */
 	public EList<TargetAudienceDefinition> getTargetAudience() {
-		return getModsGroup().list(MODSPackage.eINSTANCE.getRelatedItemDefinition_TargetAudience());
+		return getModsGroup()
+				.list(MODSPackage.eINSTANCE
+						.getRelatedItemDefinition_TargetAudience());
 	}
 
 	/**
@@ -547,7 +572,8 @@ public class RelatedItemDefinitionImpl extends EObjectImpl implements RelatedIte
 	 * @generated
 	 */
 	public EList<TitleInfoDefinition> getTitleInfo() {
-		return getModsGroup().list(MODSPackage.eINSTANCE.getRelatedItemDefinition_TitleInfo());
+		return getModsGroup().list(
+				MODSPackage.eINSTANCE.getRelatedItemDefinition_TitleInfo());
 	}
 
 	/**
@@ -556,7 +582,9 @@ public class RelatedItemDefinitionImpl extends EObjectImpl implements RelatedIte
 	 * @generated
 	 */
 	public EList<TypeOfResourceDefinition> getTypeOfResource() {
-		return getModsGroup().list(MODSPackage.eINSTANCE.getRelatedItemDefinition_TypeOfResource());
+		return getModsGroup()
+				.list(MODSPackage.eINSTANCE
+						.getRelatedItemDefinition_TypeOfResource());
 	}
 
 	/**
@@ -579,8 +607,9 @@ public class RelatedItemDefinitionImpl extends EObjectImpl implements RelatedIte
 		boolean oldActuateESet = actuateESet;
 		actuateESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.RELATED_ITEM_DEFINITION__ACTUATE,
-					oldActuate, actuate, !oldActuateESet));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.RELATED_ITEM_DEFINITION__ACTUATE, oldActuate,
+					actuate, !oldActuateESet));
 	}
 
 	/**
@@ -594,8 +623,9 @@ public class RelatedItemDefinitionImpl extends EObjectImpl implements RelatedIte
 		actuate = ACTUATE_EDEFAULT;
 		actuateESet = false;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, MODSPackage.RELATED_ITEM_DEFINITION__ACTUATE,
-					oldActuate, ACTUATE_EDEFAULT, oldActuateESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET,
+					MODSPackage.RELATED_ITEM_DEFINITION__ACTUATE, oldActuate,
+					ACTUATE_EDEFAULT, oldActuateESet));
 	}
 
 	/**
@@ -625,8 +655,9 @@ public class RelatedItemDefinitionImpl extends EObjectImpl implements RelatedIte
 		String oldArcrole = arcrole;
 		arcrole = newArcrole;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.RELATED_ITEM_DEFINITION__ARCROLE,
-					oldArcrole, arcrole));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.RELATED_ITEM_DEFINITION__ARCROLE, oldArcrole,
+					arcrole));
 	}
 
 	/**
@@ -647,7 +678,8 @@ public class RelatedItemDefinitionImpl extends EObjectImpl implements RelatedIte
 		String oldDisplayLabel = displayLabel;
 		displayLabel = newDisplayLabel;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.RELATED_ITEM_DEFINITION__DISPLAY_LABEL,
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.RELATED_ITEM_DEFINITION__DISPLAY_LABEL,
 					oldDisplayLabel, displayLabel));
 	}
 
@@ -669,7 +701,8 @@ public class RelatedItemDefinitionImpl extends EObjectImpl implements RelatedIte
 		String oldHref = href;
 		href = newHref;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.RELATED_ITEM_DEFINITION__HREF, oldHref, href));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.RELATED_ITEM_DEFINITION__HREF, oldHref, href));
 	}
 
 	/**
@@ -690,7 +723,8 @@ public class RelatedItemDefinitionImpl extends EObjectImpl implements RelatedIte
 		String oldID = iD;
 		iD = newID;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.RELATED_ITEM_DEFINITION__ID, oldID, iD));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.RELATED_ITEM_DEFINITION__ID, oldID, iD));
 	}
 
 	/**
@@ -711,7 +745,8 @@ public class RelatedItemDefinitionImpl extends EObjectImpl implements RelatedIte
 		String oldRole = role;
 		role = newRole;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.RELATED_ITEM_DEFINITION__ROLE, oldRole, role));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.RELATED_ITEM_DEFINITION__ROLE, oldRole, role));
 	}
 
 	/**
@@ -734,8 +769,9 @@ public class RelatedItemDefinitionImpl extends EObjectImpl implements RelatedIte
 		boolean oldShowESet = showESet;
 		showESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.RELATED_ITEM_DEFINITION__SHOW, oldShow,
-					show, !oldShowESet));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.RELATED_ITEM_DEFINITION__SHOW, oldShow, show,
+					!oldShowESet));
 	}
 
 	/**
@@ -749,7 +785,8 @@ public class RelatedItemDefinitionImpl extends EObjectImpl implements RelatedIte
 		show = SHOW_EDEFAULT;
 		showESet = false;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, MODSPackage.RELATED_ITEM_DEFINITION__SHOW, oldShow,
+			eNotify(new ENotificationImpl(this, Notification.UNSET,
+					MODSPackage.RELATED_ITEM_DEFINITION__SHOW, oldShow,
 					SHOW_EDEFAULT, oldShowESet));
 	}
 
@@ -780,8 +817,8 @@ public class RelatedItemDefinitionImpl extends EObjectImpl implements RelatedIte
 		String oldTitle = title;
 		title = newTitle;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.RELATED_ITEM_DEFINITION__TITLE, oldTitle,
-					title));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.RELATED_ITEM_DEFINITION__TITLE, oldTitle, title));
 	}
 
 	/**
@@ -804,8 +841,9 @@ public class RelatedItemDefinitionImpl extends EObjectImpl implements RelatedIte
 		boolean oldTypeESet = typeESet;
 		typeESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.RELATED_ITEM_DEFINITION__TYPE, oldType,
-					type, !oldTypeESet));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.RELATED_ITEM_DEFINITION__TYPE, oldType, type,
+					!oldTypeESet));
 	}
 
 	/**
@@ -819,7 +857,8 @@ public class RelatedItemDefinitionImpl extends EObjectImpl implements RelatedIte
 		type = TYPE_EDEFAULT;
 		typeESet = false;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, MODSPackage.RELATED_ITEM_DEFINITION__TYPE, oldType,
+			eNotify(new ENotificationImpl(this, Notification.UNSET,
+					MODSPackage.RELATED_ITEM_DEFINITION__TYPE, oldType,
 					TYPE_EDEFAULT, oldTypeESet));
 	}
 
@@ -852,7 +891,8 @@ public class RelatedItemDefinitionImpl extends EObjectImpl implements RelatedIte
 		boolean oldType1ESet = type1ESet;
 		type1ESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.RELATED_ITEM_DEFINITION__TYPE1, oldType1,
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.RELATED_ITEM_DEFINITION__TYPE1, oldType1,
 					type1, !oldType1ESet));
 	}
 
@@ -867,7 +907,8 @@ public class RelatedItemDefinitionImpl extends EObjectImpl implements RelatedIte
 		type1 = TYPE1_EDEFAULT;
 		type1ESet = false;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, MODSPackage.RELATED_ITEM_DEFINITION__TYPE1, oldType1,
+			eNotify(new ENotificationImpl(this, Notification.UNSET,
+					MODSPackage.RELATED_ITEM_DEFINITION__TYPE1, oldType1,
 					TYPE1_EDEFAULT, oldType1ESet));
 	}
 
@@ -886,50 +927,68 @@ public class RelatedItemDefinitionImpl extends EObjectImpl implements RelatedIte
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+	public NotificationChain eInverseRemove(InternalEObject otherEnd,
+			int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case MODSPackage.RELATED_ITEM_DEFINITION__MODS_GROUP:
-				return ((InternalEList<?>) getModsGroup()).basicRemove(otherEnd, msgs);
-			case MODSPackage.RELATED_ITEM_DEFINITION__ABSTRACT:
-				return ((InternalEList<?>) getAbstract()).basicRemove(otherEnd, msgs);
-			case MODSPackage.RELATED_ITEM_DEFINITION__ACCESS_CONDITION:
-				return ((InternalEList<?>) getAccessCondition()).basicRemove(otherEnd, msgs);
-			case MODSPackage.RELATED_ITEM_DEFINITION__CLASSIFICATION:
-				return ((InternalEList<?>) getClassification()).basicRemove(otherEnd, msgs);
-			case MODSPackage.RELATED_ITEM_DEFINITION__EXTENSION:
-				return ((InternalEList<?>) getExtension()).basicRemove(otherEnd, msgs);
-			case MODSPackage.RELATED_ITEM_DEFINITION__GENRE:
-				return ((InternalEList<?>) getGenre()).basicRemove(otherEnd, msgs);
-			case MODSPackage.RELATED_ITEM_DEFINITION__IDENTIFIER:
-				return ((InternalEList<?>) getIdentifier()).basicRemove(otherEnd, msgs);
-			case MODSPackage.RELATED_ITEM_DEFINITION__LANGUAGE:
-				return ((InternalEList<?>) getLanguage()).basicRemove(otherEnd, msgs);
-			case MODSPackage.RELATED_ITEM_DEFINITION__LOCATION:
-				return ((InternalEList<?>) getLocation()).basicRemove(otherEnd, msgs);
-			case MODSPackage.RELATED_ITEM_DEFINITION__NAME:
-				return ((InternalEList<?>) getName()).basicRemove(otherEnd, msgs);
-			case MODSPackage.RELATED_ITEM_DEFINITION__NOTE:
-				return ((InternalEList<?>) getNote()).basicRemove(otherEnd, msgs);
-			case MODSPackage.RELATED_ITEM_DEFINITION__ORIGIN_INFO:
-				return ((InternalEList<?>) getOriginInfo()).basicRemove(otherEnd, msgs);
-			case MODSPackage.RELATED_ITEM_DEFINITION__PART:
-				return ((InternalEList<?>) getPart()).basicRemove(otherEnd, msgs);
-			case MODSPackage.RELATED_ITEM_DEFINITION__PHYSICAL_DESCRIPTION:
-				return ((InternalEList<?>) getPhysicalDescription()).basicRemove(otherEnd, msgs);
-			case MODSPackage.RELATED_ITEM_DEFINITION__RECORD_INFO:
-				return ((InternalEList<?>) getRecordInfo()).basicRemove(otherEnd, msgs);
-			case MODSPackage.RELATED_ITEM_DEFINITION__RELATED_ITEM:
-				return ((InternalEList<?>) getRelatedItem()).basicRemove(otherEnd, msgs);
-			case MODSPackage.RELATED_ITEM_DEFINITION__SUBJECT:
-				return ((InternalEList<?>) getSubject()).basicRemove(otherEnd, msgs);
-			case MODSPackage.RELATED_ITEM_DEFINITION__TABLE_OF_CONTENTS:
-				return ((InternalEList<?>) getTableOfContents()).basicRemove(otherEnd, msgs);
-			case MODSPackage.RELATED_ITEM_DEFINITION__TARGET_AUDIENCE:
-				return ((InternalEList<?>) getTargetAudience()).basicRemove(otherEnd, msgs);
-			case MODSPackage.RELATED_ITEM_DEFINITION__TITLE_INFO:
-				return ((InternalEList<?>) getTitleInfo()).basicRemove(otherEnd, msgs);
-			case MODSPackage.RELATED_ITEM_DEFINITION__TYPE_OF_RESOURCE:
-				return ((InternalEList<?>) getTypeOfResource()).basicRemove(otherEnd, msgs);
+		case MODSPackage.RELATED_ITEM_DEFINITION__MODS_GROUP:
+			return ((InternalEList<?>) getModsGroup()).basicRemove(otherEnd,
+					msgs);
+		case MODSPackage.RELATED_ITEM_DEFINITION__ABSTRACT:
+			return ((InternalEList<?>) getAbstract()).basicRemove(otherEnd,
+					msgs);
+		case MODSPackage.RELATED_ITEM_DEFINITION__ACCESS_CONDITION:
+			return ((InternalEList<?>) getAccessCondition()).basicRemove(
+					otherEnd, msgs);
+		case MODSPackage.RELATED_ITEM_DEFINITION__CLASSIFICATION:
+			return ((InternalEList<?>) getClassification()).basicRemove(
+					otherEnd, msgs);
+		case MODSPackage.RELATED_ITEM_DEFINITION__EXTENSION:
+			return ((InternalEList<?>) getExtension()).basicRemove(otherEnd,
+					msgs);
+		case MODSPackage.RELATED_ITEM_DEFINITION__GENRE:
+			return ((InternalEList<?>) getGenre()).basicRemove(otherEnd, msgs);
+		case MODSPackage.RELATED_ITEM_DEFINITION__IDENTIFIER:
+			return ((InternalEList<?>) getIdentifier()).basicRemove(otherEnd,
+					msgs);
+		case MODSPackage.RELATED_ITEM_DEFINITION__LANGUAGE:
+			return ((InternalEList<?>) getLanguage()).basicRemove(otherEnd,
+					msgs);
+		case MODSPackage.RELATED_ITEM_DEFINITION__LOCATION:
+			return ((InternalEList<?>) getLocation()).basicRemove(otherEnd,
+					msgs);
+		case MODSPackage.RELATED_ITEM_DEFINITION__NAME:
+			return ((InternalEList<?>) getName()).basicRemove(otherEnd, msgs);
+		case MODSPackage.RELATED_ITEM_DEFINITION__NOTE:
+			return ((InternalEList<?>) getNote()).basicRemove(otherEnd, msgs);
+		case MODSPackage.RELATED_ITEM_DEFINITION__ORIGIN_INFO:
+			return ((InternalEList<?>) getOriginInfo()).basicRemove(otherEnd,
+					msgs);
+		case MODSPackage.RELATED_ITEM_DEFINITION__PART:
+			return ((InternalEList<?>) getPart()).basicRemove(otherEnd, msgs);
+		case MODSPackage.RELATED_ITEM_DEFINITION__PHYSICAL_DESCRIPTION:
+			return ((InternalEList<?>) getPhysicalDescription()).basicRemove(
+					otherEnd, msgs);
+		case MODSPackage.RELATED_ITEM_DEFINITION__RECORD_INFO:
+			return ((InternalEList<?>) getRecordInfo()).basicRemove(otherEnd,
+					msgs);
+		case MODSPackage.RELATED_ITEM_DEFINITION__RELATED_ITEM:
+			return ((InternalEList<?>) getRelatedItem()).basicRemove(otherEnd,
+					msgs);
+		case MODSPackage.RELATED_ITEM_DEFINITION__SUBJECT:
+			return ((InternalEList<?>) getSubject())
+					.basicRemove(otherEnd, msgs);
+		case MODSPackage.RELATED_ITEM_DEFINITION__TABLE_OF_CONTENTS:
+			return ((InternalEList<?>) getTableOfContents()).basicRemove(
+					otherEnd, msgs);
+		case MODSPackage.RELATED_ITEM_DEFINITION__TARGET_AUDIENCE:
+			return ((InternalEList<?>) getTargetAudience()).basicRemove(
+					otherEnd, msgs);
+		case MODSPackage.RELATED_ITEM_DEFINITION__TITLE_INFO:
+			return ((InternalEList<?>) getTitleInfo()).basicRemove(otherEnd,
+					msgs);
+		case MODSPackage.RELATED_ITEM_DEFINITION__TYPE_OF_RESOURCE:
+			return ((InternalEList<?>) getTypeOfResource()).basicRemove(
+					otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -942,70 +1001,70 @@ public class RelatedItemDefinitionImpl extends EObjectImpl implements RelatedIte
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case MODSPackage.RELATED_ITEM_DEFINITION__MODS_GROUP:
-				if (coreType)
-					return getModsGroup();
-				return ((FeatureMap.Internal) getModsGroup()).getWrapper();
-			case MODSPackage.RELATED_ITEM_DEFINITION__ABSTRACT:
-				return getAbstract();
-			case MODSPackage.RELATED_ITEM_DEFINITION__ACCESS_CONDITION:
-				return getAccessCondition();
-			case MODSPackage.RELATED_ITEM_DEFINITION__CLASSIFICATION:
-				return getClassification();
-			case MODSPackage.RELATED_ITEM_DEFINITION__EXTENSION:
-				return getExtension();
-			case MODSPackage.RELATED_ITEM_DEFINITION__GENRE:
-				return getGenre();
-			case MODSPackage.RELATED_ITEM_DEFINITION__IDENTIFIER:
-				return getIdentifier();
-			case MODSPackage.RELATED_ITEM_DEFINITION__LANGUAGE:
-				return getLanguage();
-			case MODSPackage.RELATED_ITEM_DEFINITION__LOCATION:
-				return getLocation();
-			case MODSPackage.RELATED_ITEM_DEFINITION__NAME:
-				return getName();
-			case MODSPackage.RELATED_ITEM_DEFINITION__NOTE:
-				return getNote();
-			case MODSPackage.RELATED_ITEM_DEFINITION__ORIGIN_INFO:
-				return getOriginInfo();
-			case MODSPackage.RELATED_ITEM_DEFINITION__PART:
-				return getPart();
-			case MODSPackage.RELATED_ITEM_DEFINITION__PHYSICAL_DESCRIPTION:
-				return getPhysicalDescription();
-			case MODSPackage.RELATED_ITEM_DEFINITION__RECORD_INFO:
-				return getRecordInfo();
-			case MODSPackage.RELATED_ITEM_DEFINITION__RELATED_ITEM:
-				return getRelatedItem();
-			case MODSPackage.RELATED_ITEM_DEFINITION__SUBJECT:
-				return getSubject();
-			case MODSPackage.RELATED_ITEM_DEFINITION__TABLE_OF_CONTENTS:
-				return getTableOfContents();
-			case MODSPackage.RELATED_ITEM_DEFINITION__TARGET_AUDIENCE:
-				return getTargetAudience();
-			case MODSPackage.RELATED_ITEM_DEFINITION__TITLE_INFO:
-				return getTitleInfo();
-			case MODSPackage.RELATED_ITEM_DEFINITION__TYPE_OF_RESOURCE:
-				return getTypeOfResource();
-			case MODSPackage.RELATED_ITEM_DEFINITION__ACTUATE:
-				return getActuate();
-			case MODSPackage.RELATED_ITEM_DEFINITION__ARCROLE:
-				return getArcrole();
-			case MODSPackage.RELATED_ITEM_DEFINITION__DISPLAY_LABEL:
-				return getDisplayLabel();
-			case MODSPackage.RELATED_ITEM_DEFINITION__HREF:
-				return getHref();
-			case MODSPackage.RELATED_ITEM_DEFINITION__ID:
-				return getID();
-			case MODSPackage.RELATED_ITEM_DEFINITION__ROLE:
-				return getRole();
-			case MODSPackage.RELATED_ITEM_DEFINITION__SHOW:
-				return getShow();
-			case MODSPackage.RELATED_ITEM_DEFINITION__TITLE:
-				return getTitle();
-			case MODSPackage.RELATED_ITEM_DEFINITION__TYPE:
-				return getType();
-			case MODSPackage.RELATED_ITEM_DEFINITION__TYPE1:
-				return getType1();
+		case MODSPackage.RELATED_ITEM_DEFINITION__MODS_GROUP:
+			if (coreType)
+				return getModsGroup();
+			return ((FeatureMap.Internal) getModsGroup()).getWrapper();
+		case MODSPackage.RELATED_ITEM_DEFINITION__ABSTRACT:
+			return getAbstract();
+		case MODSPackage.RELATED_ITEM_DEFINITION__ACCESS_CONDITION:
+			return getAccessCondition();
+		case MODSPackage.RELATED_ITEM_DEFINITION__CLASSIFICATION:
+			return getClassification();
+		case MODSPackage.RELATED_ITEM_DEFINITION__EXTENSION:
+			return getExtension();
+		case MODSPackage.RELATED_ITEM_DEFINITION__GENRE:
+			return getGenre();
+		case MODSPackage.RELATED_ITEM_DEFINITION__IDENTIFIER:
+			return getIdentifier();
+		case MODSPackage.RELATED_ITEM_DEFINITION__LANGUAGE:
+			return getLanguage();
+		case MODSPackage.RELATED_ITEM_DEFINITION__LOCATION:
+			return getLocation();
+		case MODSPackage.RELATED_ITEM_DEFINITION__NAME:
+			return getName();
+		case MODSPackage.RELATED_ITEM_DEFINITION__NOTE:
+			return getNote();
+		case MODSPackage.RELATED_ITEM_DEFINITION__ORIGIN_INFO:
+			return getOriginInfo();
+		case MODSPackage.RELATED_ITEM_DEFINITION__PART:
+			return getPart();
+		case MODSPackage.RELATED_ITEM_DEFINITION__PHYSICAL_DESCRIPTION:
+			return getPhysicalDescription();
+		case MODSPackage.RELATED_ITEM_DEFINITION__RECORD_INFO:
+			return getRecordInfo();
+		case MODSPackage.RELATED_ITEM_DEFINITION__RELATED_ITEM:
+			return getRelatedItem();
+		case MODSPackage.RELATED_ITEM_DEFINITION__SUBJECT:
+			return getSubject();
+		case MODSPackage.RELATED_ITEM_DEFINITION__TABLE_OF_CONTENTS:
+			return getTableOfContents();
+		case MODSPackage.RELATED_ITEM_DEFINITION__TARGET_AUDIENCE:
+			return getTargetAudience();
+		case MODSPackage.RELATED_ITEM_DEFINITION__TITLE_INFO:
+			return getTitleInfo();
+		case MODSPackage.RELATED_ITEM_DEFINITION__TYPE_OF_RESOURCE:
+			return getTypeOfResource();
+		case MODSPackage.RELATED_ITEM_DEFINITION__ACTUATE:
+			return getActuate();
+		case MODSPackage.RELATED_ITEM_DEFINITION__ARCROLE:
+			return getArcrole();
+		case MODSPackage.RELATED_ITEM_DEFINITION__DISPLAY_LABEL:
+			return getDisplayLabel();
+		case MODSPackage.RELATED_ITEM_DEFINITION__HREF:
+			return getHref();
+		case MODSPackage.RELATED_ITEM_DEFINITION__ID:
+			return getID();
+		case MODSPackage.RELATED_ITEM_DEFINITION__ROLE:
+			return getRole();
+		case MODSPackage.RELATED_ITEM_DEFINITION__SHOW:
+			return getShow();
+		case MODSPackage.RELATED_ITEM_DEFINITION__TITLE:
+			return getTitle();
+		case MODSPackage.RELATED_ITEM_DEFINITION__TYPE:
+			return getType();
+		case MODSPackage.RELATED_ITEM_DEFINITION__TYPE1:
+			return getType1();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -1019,119 +1078,135 @@ public class RelatedItemDefinitionImpl extends EObjectImpl implements RelatedIte
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case MODSPackage.RELATED_ITEM_DEFINITION__MODS_GROUP:
-				((FeatureMap.Internal) getModsGroup()).set(newValue);
-				return;
-			case MODSPackage.RELATED_ITEM_DEFINITION__ABSTRACT:
-				getAbstract().clear();
-				getAbstract().addAll((Collection<? extends AbstractDefinition>) newValue);
-				return;
-			case MODSPackage.RELATED_ITEM_DEFINITION__ACCESS_CONDITION:
-				getAccessCondition().clear();
-				getAccessCondition().addAll((Collection<? extends AccessConditionDefinition>) newValue);
-				return;
-			case MODSPackage.RELATED_ITEM_DEFINITION__CLASSIFICATION:
-				getClassification().clear();
-				getClassification().addAll((Collection<? extends ClassificationDefinition>) newValue);
-				return;
-			case MODSPackage.RELATED_ITEM_DEFINITION__EXTENSION:
-				getExtension().clear();
-				getExtension().addAll((Collection<? extends ExtensionDefinition>) newValue);
-				return;
-			case MODSPackage.RELATED_ITEM_DEFINITION__GENRE:
-				getGenre().clear();
-				getGenre().addAll((Collection<? extends GenreDefinition>) newValue);
-				return;
-			case MODSPackage.RELATED_ITEM_DEFINITION__IDENTIFIER:
-				getIdentifier().clear();
-				getIdentifier().addAll((Collection<? extends IdentifierDefinition>) newValue);
-				return;
-			case MODSPackage.RELATED_ITEM_DEFINITION__LANGUAGE:
-				getLanguage().clear();
-				getLanguage().addAll((Collection<? extends LanguageDefinition>) newValue);
-				return;
-			case MODSPackage.RELATED_ITEM_DEFINITION__LOCATION:
-				getLocation().clear();
-				getLocation().addAll((Collection<? extends LocationDefinition>) newValue);
-				return;
-			case MODSPackage.RELATED_ITEM_DEFINITION__NAME:
-				getName().clear();
-				getName().addAll((Collection<? extends NameDefinition>) newValue);
-				return;
-			case MODSPackage.RELATED_ITEM_DEFINITION__NOTE:
-				getNote().clear();
-				getNote().addAll((Collection<? extends NoteDefinition>) newValue);
-				return;
-			case MODSPackage.RELATED_ITEM_DEFINITION__ORIGIN_INFO:
-				getOriginInfo().clear();
-				getOriginInfo().addAll((Collection<? extends OriginInfoDefinition>) newValue);
-				return;
-			case MODSPackage.RELATED_ITEM_DEFINITION__PART:
-				getPart().clear();
-				getPart().addAll((Collection<? extends PartDefinition>) newValue);
-				return;
-			case MODSPackage.RELATED_ITEM_DEFINITION__PHYSICAL_DESCRIPTION:
-				getPhysicalDescription().clear();
-				getPhysicalDescription().addAll((Collection<? extends PhysicalDescriptionDefinition>) newValue);
-				return;
-			case MODSPackage.RELATED_ITEM_DEFINITION__RECORD_INFO:
-				getRecordInfo().clear();
-				getRecordInfo().addAll((Collection<? extends RecordInfoDefinition>) newValue);
-				return;
-			case MODSPackage.RELATED_ITEM_DEFINITION__RELATED_ITEM:
-				getRelatedItem().clear();
-				getRelatedItem().addAll((Collection<? extends RelatedItemDefinition>) newValue);
-				return;
-			case MODSPackage.RELATED_ITEM_DEFINITION__SUBJECT:
-				getSubject().clear();
-				getSubject().addAll((Collection<? extends SubjectDefinition>) newValue);
-				return;
-			case MODSPackage.RELATED_ITEM_DEFINITION__TABLE_OF_CONTENTS:
-				getTableOfContents().clear();
-				getTableOfContents().addAll((Collection<? extends TableOfContentsDefinition>) newValue);
-				return;
-			case MODSPackage.RELATED_ITEM_DEFINITION__TARGET_AUDIENCE:
-				getTargetAudience().clear();
-				getTargetAudience().addAll((Collection<? extends TargetAudienceDefinition>) newValue);
-				return;
-			case MODSPackage.RELATED_ITEM_DEFINITION__TITLE_INFO:
-				getTitleInfo().clear();
-				getTitleInfo().addAll((Collection<? extends TitleInfoDefinition>) newValue);
-				return;
-			case MODSPackage.RELATED_ITEM_DEFINITION__TYPE_OF_RESOURCE:
-				getTypeOfResource().clear();
-				getTypeOfResource().addAll((Collection<? extends TypeOfResourceDefinition>) newValue);
-				return;
-			case MODSPackage.RELATED_ITEM_DEFINITION__ACTUATE:
-				setActuate((ActuateType) newValue);
-				return;
-			case MODSPackage.RELATED_ITEM_DEFINITION__ARCROLE:
-				setArcrole((String) newValue);
-				return;
-			case MODSPackage.RELATED_ITEM_DEFINITION__DISPLAY_LABEL:
-				setDisplayLabel((String) newValue);
-				return;
-			case MODSPackage.RELATED_ITEM_DEFINITION__HREF:
-				setHref((String) newValue);
-				return;
-			case MODSPackage.RELATED_ITEM_DEFINITION__ID:
-				setID((String) newValue);
-				return;
-			case MODSPackage.RELATED_ITEM_DEFINITION__ROLE:
-				setRole((String) newValue);
-				return;
-			case MODSPackage.RELATED_ITEM_DEFINITION__SHOW:
-				setShow((ShowType) newValue);
-				return;
-			case MODSPackage.RELATED_ITEM_DEFINITION__TITLE:
-				setTitle((String) newValue);
-				return;
-			case MODSPackage.RELATED_ITEM_DEFINITION__TYPE:
-				setType((RelatedItemTypeAttributeDefinition) newValue);
-				return;
-			case MODSPackage.RELATED_ITEM_DEFINITION__TYPE1:
-				setType1((String) newValue);
-				return;
+		case MODSPackage.RELATED_ITEM_DEFINITION__MODS_GROUP:
+			((FeatureMap.Internal) getModsGroup()).set(newValue);
+			return;
+		case MODSPackage.RELATED_ITEM_DEFINITION__ABSTRACT:
+			getAbstract().clear();
+			getAbstract().addAll(
+					(Collection<? extends AbstractDefinition>) newValue);
+			return;
+		case MODSPackage.RELATED_ITEM_DEFINITION__ACCESS_CONDITION:
+			getAccessCondition().clear();
+			getAccessCondition().addAll(
+					(Collection<? extends AccessConditionDefinition>) newValue);
+			return;
+		case MODSPackage.RELATED_ITEM_DEFINITION__CLASSIFICATION:
+			getClassification().clear();
+			getClassification().addAll(
+					(Collection<? extends ClassificationDefinition>) newValue);
+			return;
+		case MODSPackage.RELATED_ITEM_DEFINITION__EXTENSION:
+			getExtension().clear();
+			getExtension().addAll(
+					(Collection<? extends ExtensionDefinition>) newValue);
+			return;
+		case MODSPackage.RELATED_ITEM_DEFINITION__GENRE:
+			getGenre().clear();
+			getGenre().addAll((Collection<? extends GenreDefinition>) newValue);
+			return;
+		case MODSPackage.RELATED_ITEM_DEFINITION__IDENTIFIER:
+			getIdentifier().clear();
+			getIdentifier().addAll(
+					(Collection<? extends IdentifierDefinition>) newValue);
+			return;
+		case MODSPackage.RELATED_ITEM_DEFINITION__LANGUAGE:
+			getLanguage().clear();
+			getLanguage().addAll(
+					(Collection<? extends LanguageDefinition>) newValue);
+			return;
+		case MODSPackage.RELATED_ITEM_DEFINITION__LOCATION:
+			getLocation().clear();
+			getLocation().addAll(
+					(Collection<? extends LocationDefinition>) newValue);
+			return;
+		case MODSPackage.RELATED_ITEM_DEFINITION__NAME:
+			getName().clear();
+			getName().addAll((Collection<? extends NameDefinition>) newValue);
+			return;
+		case MODSPackage.RELATED_ITEM_DEFINITION__NOTE:
+			getNote().clear();
+			getNote().addAll((Collection<? extends NoteDefinition>) newValue);
+			return;
+		case MODSPackage.RELATED_ITEM_DEFINITION__ORIGIN_INFO:
+			getOriginInfo().clear();
+			getOriginInfo().addAll(
+					(Collection<? extends OriginInfoDefinition>) newValue);
+			return;
+		case MODSPackage.RELATED_ITEM_DEFINITION__PART:
+			getPart().clear();
+			getPart().addAll((Collection<? extends PartDefinition>) newValue);
+			return;
+		case MODSPackage.RELATED_ITEM_DEFINITION__PHYSICAL_DESCRIPTION:
+			getPhysicalDescription().clear();
+			getPhysicalDescription()
+					.addAll((Collection<? extends PhysicalDescriptionDefinition>) newValue);
+			return;
+		case MODSPackage.RELATED_ITEM_DEFINITION__RECORD_INFO:
+			getRecordInfo().clear();
+			getRecordInfo().addAll(
+					(Collection<? extends RecordInfoDefinition>) newValue);
+			return;
+		case MODSPackage.RELATED_ITEM_DEFINITION__RELATED_ITEM:
+			getRelatedItem().clear();
+			getRelatedItem().addAll(
+					(Collection<? extends RelatedItemDefinition>) newValue);
+			return;
+		case MODSPackage.RELATED_ITEM_DEFINITION__SUBJECT:
+			getSubject().clear();
+			getSubject().addAll(
+					(Collection<? extends SubjectDefinition>) newValue);
+			return;
+		case MODSPackage.RELATED_ITEM_DEFINITION__TABLE_OF_CONTENTS:
+			getTableOfContents().clear();
+			getTableOfContents().addAll(
+					(Collection<? extends TableOfContentsDefinition>) newValue);
+			return;
+		case MODSPackage.RELATED_ITEM_DEFINITION__TARGET_AUDIENCE:
+			getTargetAudience().clear();
+			getTargetAudience().addAll(
+					(Collection<? extends TargetAudienceDefinition>) newValue);
+			return;
+		case MODSPackage.RELATED_ITEM_DEFINITION__TITLE_INFO:
+			getTitleInfo().clear();
+			getTitleInfo().addAll(
+					(Collection<? extends TitleInfoDefinition>) newValue);
+			return;
+		case MODSPackage.RELATED_ITEM_DEFINITION__TYPE_OF_RESOURCE:
+			getTypeOfResource().clear();
+			getTypeOfResource().addAll(
+					(Collection<? extends TypeOfResourceDefinition>) newValue);
+			return;
+		case MODSPackage.RELATED_ITEM_DEFINITION__ACTUATE:
+			setActuate((ActuateType) newValue);
+			return;
+		case MODSPackage.RELATED_ITEM_DEFINITION__ARCROLE:
+			setArcrole((String) newValue);
+			return;
+		case MODSPackage.RELATED_ITEM_DEFINITION__DISPLAY_LABEL:
+			setDisplayLabel((String) newValue);
+			return;
+		case MODSPackage.RELATED_ITEM_DEFINITION__HREF:
+			setHref((String) newValue);
+			return;
+		case MODSPackage.RELATED_ITEM_DEFINITION__ID:
+			setID((String) newValue);
+			return;
+		case MODSPackage.RELATED_ITEM_DEFINITION__ROLE:
+			setRole((String) newValue);
+			return;
+		case MODSPackage.RELATED_ITEM_DEFINITION__SHOW:
+			setShow((ShowType) newValue);
+			return;
+		case MODSPackage.RELATED_ITEM_DEFINITION__TITLE:
+			setTitle((String) newValue);
+			return;
+		case MODSPackage.RELATED_ITEM_DEFINITION__TYPE:
+			setType((RelatedItemTypeAttributeDefinition) newValue);
+			return;
+		case MODSPackage.RELATED_ITEM_DEFINITION__TYPE1:
+			setType1((String) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -1144,99 +1219,99 @@ public class RelatedItemDefinitionImpl extends EObjectImpl implements RelatedIte
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case MODSPackage.RELATED_ITEM_DEFINITION__MODS_GROUP:
-				getModsGroup().clear();
-				return;
-			case MODSPackage.RELATED_ITEM_DEFINITION__ABSTRACT:
-				getAbstract().clear();
-				return;
-			case MODSPackage.RELATED_ITEM_DEFINITION__ACCESS_CONDITION:
-				getAccessCondition().clear();
-				return;
-			case MODSPackage.RELATED_ITEM_DEFINITION__CLASSIFICATION:
-				getClassification().clear();
-				return;
-			case MODSPackage.RELATED_ITEM_DEFINITION__EXTENSION:
-				getExtension().clear();
-				return;
-			case MODSPackage.RELATED_ITEM_DEFINITION__GENRE:
-				getGenre().clear();
-				return;
-			case MODSPackage.RELATED_ITEM_DEFINITION__IDENTIFIER:
-				getIdentifier().clear();
-				return;
-			case MODSPackage.RELATED_ITEM_DEFINITION__LANGUAGE:
-				getLanguage().clear();
-				return;
-			case MODSPackage.RELATED_ITEM_DEFINITION__LOCATION:
-				getLocation().clear();
-				return;
-			case MODSPackage.RELATED_ITEM_DEFINITION__NAME:
-				getName().clear();
-				return;
-			case MODSPackage.RELATED_ITEM_DEFINITION__NOTE:
-				getNote().clear();
-				return;
-			case MODSPackage.RELATED_ITEM_DEFINITION__ORIGIN_INFO:
-				getOriginInfo().clear();
-				return;
-			case MODSPackage.RELATED_ITEM_DEFINITION__PART:
-				getPart().clear();
-				return;
-			case MODSPackage.RELATED_ITEM_DEFINITION__PHYSICAL_DESCRIPTION:
-				getPhysicalDescription().clear();
-				return;
-			case MODSPackage.RELATED_ITEM_DEFINITION__RECORD_INFO:
-				getRecordInfo().clear();
-				return;
-			case MODSPackage.RELATED_ITEM_DEFINITION__RELATED_ITEM:
-				getRelatedItem().clear();
-				return;
-			case MODSPackage.RELATED_ITEM_DEFINITION__SUBJECT:
-				getSubject().clear();
-				return;
-			case MODSPackage.RELATED_ITEM_DEFINITION__TABLE_OF_CONTENTS:
-				getTableOfContents().clear();
-				return;
-			case MODSPackage.RELATED_ITEM_DEFINITION__TARGET_AUDIENCE:
-				getTargetAudience().clear();
-				return;
-			case MODSPackage.RELATED_ITEM_DEFINITION__TITLE_INFO:
-				getTitleInfo().clear();
-				return;
-			case MODSPackage.RELATED_ITEM_DEFINITION__TYPE_OF_RESOURCE:
-				getTypeOfResource().clear();
-				return;
-			case MODSPackage.RELATED_ITEM_DEFINITION__ACTUATE:
-				unsetActuate();
-				return;
-			case MODSPackage.RELATED_ITEM_DEFINITION__ARCROLE:
-				setArcrole(ARCROLE_EDEFAULT);
-				return;
-			case MODSPackage.RELATED_ITEM_DEFINITION__DISPLAY_LABEL:
-				setDisplayLabel(DISPLAY_LABEL_EDEFAULT);
-				return;
-			case MODSPackage.RELATED_ITEM_DEFINITION__HREF:
-				setHref(HREF_EDEFAULT);
-				return;
-			case MODSPackage.RELATED_ITEM_DEFINITION__ID:
-				setID(ID_EDEFAULT);
-				return;
-			case MODSPackage.RELATED_ITEM_DEFINITION__ROLE:
-				setRole(ROLE_EDEFAULT);
-				return;
-			case MODSPackage.RELATED_ITEM_DEFINITION__SHOW:
-				unsetShow();
-				return;
-			case MODSPackage.RELATED_ITEM_DEFINITION__TITLE:
-				setTitle(TITLE_EDEFAULT);
-				return;
-			case MODSPackage.RELATED_ITEM_DEFINITION__TYPE:
-				unsetType();
-				return;
-			case MODSPackage.RELATED_ITEM_DEFINITION__TYPE1:
-				unsetType1();
-				return;
+		case MODSPackage.RELATED_ITEM_DEFINITION__MODS_GROUP:
+			getModsGroup().clear();
+			return;
+		case MODSPackage.RELATED_ITEM_DEFINITION__ABSTRACT:
+			getAbstract().clear();
+			return;
+		case MODSPackage.RELATED_ITEM_DEFINITION__ACCESS_CONDITION:
+			getAccessCondition().clear();
+			return;
+		case MODSPackage.RELATED_ITEM_DEFINITION__CLASSIFICATION:
+			getClassification().clear();
+			return;
+		case MODSPackage.RELATED_ITEM_DEFINITION__EXTENSION:
+			getExtension().clear();
+			return;
+		case MODSPackage.RELATED_ITEM_DEFINITION__GENRE:
+			getGenre().clear();
+			return;
+		case MODSPackage.RELATED_ITEM_DEFINITION__IDENTIFIER:
+			getIdentifier().clear();
+			return;
+		case MODSPackage.RELATED_ITEM_DEFINITION__LANGUAGE:
+			getLanguage().clear();
+			return;
+		case MODSPackage.RELATED_ITEM_DEFINITION__LOCATION:
+			getLocation().clear();
+			return;
+		case MODSPackage.RELATED_ITEM_DEFINITION__NAME:
+			getName().clear();
+			return;
+		case MODSPackage.RELATED_ITEM_DEFINITION__NOTE:
+			getNote().clear();
+			return;
+		case MODSPackage.RELATED_ITEM_DEFINITION__ORIGIN_INFO:
+			getOriginInfo().clear();
+			return;
+		case MODSPackage.RELATED_ITEM_DEFINITION__PART:
+			getPart().clear();
+			return;
+		case MODSPackage.RELATED_ITEM_DEFINITION__PHYSICAL_DESCRIPTION:
+			getPhysicalDescription().clear();
+			return;
+		case MODSPackage.RELATED_ITEM_DEFINITION__RECORD_INFO:
+			getRecordInfo().clear();
+			return;
+		case MODSPackage.RELATED_ITEM_DEFINITION__RELATED_ITEM:
+			getRelatedItem().clear();
+			return;
+		case MODSPackage.RELATED_ITEM_DEFINITION__SUBJECT:
+			getSubject().clear();
+			return;
+		case MODSPackage.RELATED_ITEM_DEFINITION__TABLE_OF_CONTENTS:
+			getTableOfContents().clear();
+			return;
+		case MODSPackage.RELATED_ITEM_DEFINITION__TARGET_AUDIENCE:
+			getTargetAudience().clear();
+			return;
+		case MODSPackage.RELATED_ITEM_DEFINITION__TITLE_INFO:
+			getTitleInfo().clear();
+			return;
+		case MODSPackage.RELATED_ITEM_DEFINITION__TYPE_OF_RESOURCE:
+			getTypeOfResource().clear();
+			return;
+		case MODSPackage.RELATED_ITEM_DEFINITION__ACTUATE:
+			unsetActuate();
+			return;
+		case MODSPackage.RELATED_ITEM_DEFINITION__ARCROLE:
+			setArcrole(ARCROLE_EDEFAULT);
+			return;
+		case MODSPackage.RELATED_ITEM_DEFINITION__DISPLAY_LABEL:
+			setDisplayLabel(DISPLAY_LABEL_EDEFAULT);
+			return;
+		case MODSPackage.RELATED_ITEM_DEFINITION__HREF:
+			setHref(HREF_EDEFAULT);
+			return;
+		case MODSPackage.RELATED_ITEM_DEFINITION__ID:
+			setID(ID_EDEFAULT);
+			return;
+		case MODSPackage.RELATED_ITEM_DEFINITION__ROLE:
+			setRole(ROLE_EDEFAULT);
+			return;
+		case MODSPackage.RELATED_ITEM_DEFINITION__SHOW:
+			unsetShow();
+			return;
+		case MODSPackage.RELATED_ITEM_DEFINITION__TITLE:
+			setTitle(TITLE_EDEFAULT);
+			return;
+		case MODSPackage.RELATED_ITEM_DEFINITION__TYPE:
+			unsetType();
+			return;
+		case MODSPackage.RELATED_ITEM_DEFINITION__TYPE1:
+			unsetType1();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -1249,68 +1324,73 @@ public class RelatedItemDefinitionImpl extends EObjectImpl implements RelatedIte
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case MODSPackage.RELATED_ITEM_DEFINITION__MODS_GROUP:
-				return modsGroup != null && !modsGroup.isEmpty();
-			case MODSPackage.RELATED_ITEM_DEFINITION__ABSTRACT:
-				return !getAbstract().isEmpty();
-			case MODSPackage.RELATED_ITEM_DEFINITION__ACCESS_CONDITION:
-				return !getAccessCondition().isEmpty();
-			case MODSPackage.RELATED_ITEM_DEFINITION__CLASSIFICATION:
-				return !getClassification().isEmpty();
-			case MODSPackage.RELATED_ITEM_DEFINITION__EXTENSION:
-				return !getExtension().isEmpty();
-			case MODSPackage.RELATED_ITEM_DEFINITION__GENRE:
-				return !getGenre().isEmpty();
-			case MODSPackage.RELATED_ITEM_DEFINITION__IDENTIFIER:
-				return !getIdentifier().isEmpty();
-			case MODSPackage.RELATED_ITEM_DEFINITION__LANGUAGE:
-				return !getLanguage().isEmpty();
-			case MODSPackage.RELATED_ITEM_DEFINITION__LOCATION:
-				return !getLocation().isEmpty();
-			case MODSPackage.RELATED_ITEM_DEFINITION__NAME:
-				return !getName().isEmpty();
-			case MODSPackage.RELATED_ITEM_DEFINITION__NOTE:
-				return !getNote().isEmpty();
-			case MODSPackage.RELATED_ITEM_DEFINITION__ORIGIN_INFO:
-				return !getOriginInfo().isEmpty();
-			case MODSPackage.RELATED_ITEM_DEFINITION__PART:
-				return !getPart().isEmpty();
-			case MODSPackage.RELATED_ITEM_DEFINITION__PHYSICAL_DESCRIPTION:
-				return !getPhysicalDescription().isEmpty();
-			case MODSPackage.RELATED_ITEM_DEFINITION__RECORD_INFO:
-				return !getRecordInfo().isEmpty();
-			case MODSPackage.RELATED_ITEM_DEFINITION__RELATED_ITEM:
-				return !getRelatedItem().isEmpty();
-			case MODSPackage.RELATED_ITEM_DEFINITION__SUBJECT:
-				return !getSubject().isEmpty();
-			case MODSPackage.RELATED_ITEM_DEFINITION__TABLE_OF_CONTENTS:
-				return !getTableOfContents().isEmpty();
-			case MODSPackage.RELATED_ITEM_DEFINITION__TARGET_AUDIENCE:
-				return !getTargetAudience().isEmpty();
-			case MODSPackage.RELATED_ITEM_DEFINITION__TITLE_INFO:
-				return !getTitleInfo().isEmpty();
-			case MODSPackage.RELATED_ITEM_DEFINITION__TYPE_OF_RESOURCE:
-				return !getTypeOfResource().isEmpty();
-			case MODSPackage.RELATED_ITEM_DEFINITION__ACTUATE:
-				return isSetActuate();
-			case MODSPackage.RELATED_ITEM_DEFINITION__ARCROLE:
-				return ARCROLE_EDEFAULT == null ? arcrole != null : !ARCROLE_EDEFAULT.equals(arcrole);
-			case MODSPackage.RELATED_ITEM_DEFINITION__DISPLAY_LABEL:
-				return DISPLAY_LABEL_EDEFAULT == null ? displayLabel != null : !DISPLAY_LABEL_EDEFAULT.equals(displayLabel);
-			case MODSPackage.RELATED_ITEM_DEFINITION__HREF:
-				return HREF_EDEFAULT == null ? href != null : !HREF_EDEFAULT.equals(href);
-			case MODSPackage.RELATED_ITEM_DEFINITION__ID:
-				return ID_EDEFAULT == null ? iD != null : !ID_EDEFAULT.equals(iD);
-			case MODSPackage.RELATED_ITEM_DEFINITION__ROLE:
-				return ROLE_EDEFAULT == null ? role != null : !ROLE_EDEFAULT.equals(role);
-			case MODSPackage.RELATED_ITEM_DEFINITION__SHOW:
-				return isSetShow();
-			case MODSPackage.RELATED_ITEM_DEFINITION__TITLE:
-				return TITLE_EDEFAULT == null ? title != null : !TITLE_EDEFAULT.equals(title);
-			case MODSPackage.RELATED_ITEM_DEFINITION__TYPE:
-				return isSetType();
-			case MODSPackage.RELATED_ITEM_DEFINITION__TYPE1:
-				return isSetType1();
+		case MODSPackage.RELATED_ITEM_DEFINITION__MODS_GROUP:
+			return modsGroup != null && !modsGroup.isEmpty();
+		case MODSPackage.RELATED_ITEM_DEFINITION__ABSTRACT:
+			return !getAbstract().isEmpty();
+		case MODSPackage.RELATED_ITEM_DEFINITION__ACCESS_CONDITION:
+			return !getAccessCondition().isEmpty();
+		case MODSPackage.RELATED_ITEM_DEFINITION__CLASSIFICATION:
+			return !getClassification().isEmpty();
+		case MODSPackage.RELATED_ITEM_DEFINITION__EXTENSION:
+			return !getExtension().isEmpty();
+		case MODSPackage.RELATED_ITEM_DEFINITION__GENRE:
+			return !getGenre().isEmpty();
+		case MODSPackage.RELATED_ITEM_DEFINITION__IDENTIFIER:
+			return !getIdentifier().isEmpty();
+		case MODSPackage.RELATED_ITEM_DEFINITION__LANGUAGE:
+			return !getLanguage().isEmpty();
+		case MODSPackage.RELATED_ITEM_DEFINITION__LOCATION:
+			return !getLocation().isEmpty();
+		case MODSPackage.RELATED_ITEM_DEFINITION__NAME:
+			return !getName().isEmpty();
+		case MODSPackage.RELATED_ITEM_DEFINITION__NOTE:
+			return !getNote().isEmpty();
+		case MODSPackage.RELATED_ITEM_DEFINITION__ORIGIN_INFO:
+			return !getOriginInfo().isEmpty();
+		case MODSPackage.RELATED_ITEM_DEFINITION__PART:
+			return !getPart().isEmpty();
+		case MODSPackage.RELATED_ITEM_DEFINITION__PHYSICAL_DESCRIPTION:
+			return !getPhysicalDescription().isEmpty();
+		case MODSPackage.RELATED_ITEM_DEFINITION__RECORD_INFO:
+			return !getRecordInfo().isEmpty();
+		case MODSPackage.RELATED_ITEM_DEFINITION__RELATED_ITEM:
+			return !getRelatedItem().isEmpty();
+		case MODSPackage.RELATED_ITEM_DEFINITION__SUBJECT:
+			return !getSubject().isEmpty();
+		case MODSPackage.RELATED_ITEM_DEFINITION__TABLE_OF_CONTENTS:
+			return !getTableOfContents().isEmpty();
+		case MODSPackage.RELATED_ITEM_DEFINITION__TARGET_AUDIENCE:
+			return !getTargetAudience().isEmpty();
+		case MODSPackage.RELATED_ITEM_DEFINITION__TITLE_INFO:
+			return !getTitleInfo().isEmpty();
+		case MODSPackage.RELATED_ITEM_DEFINITION__TYPE_OF_RESOURCE:
+			return !getTypeOfResource().isEmpty();
+		case MODSPackage.RELATED_ITEM_DEFINITION__ACTUATE:
+			return isSetActuate();
+		case MODSPackage.RELATED_ITEM_DEFINITION__ARCROLE:
+			return ARCROLE_EDEFAULT == null ? arcrole != null
+					: !ARCROLE_EDEFAULT.equals(arcrole);
+		case MODSPackage.RELATED_ITEM_DEFINITION__DISPLAY_LABEL:
+			return DISPLAY_LABEL_EDEFAULT == null ? displayLabel != null
+					: !DISPLAY_LABEL_EDEFAULT.equals(displayLabel);
+		case MODSPackage.RELATED_ITEM_DEFINITION__HREF:
+			return HREF_EDEFAULT == null ? href != null : !HREF_EDEFAULT
+					.equals(href);
+		case MODSPackage.RELATED_ITEM_DEFINITION__ID:
+			return ID_EDEFAULT == null ? iD != null : !ID_EDEFAULT.equals(iD);
+		case MODSPackage.RELATED_ITEM_DEFINITION__ROLE:
+			return ROLE_EDEFAULT == null ? role != null : !ROLE_EDEFAULT
+					.equals(role);
+		case MODSPackage.RELATED_ITEM_DEFINITION__SHOW:
+			return isSetShow();
+		case MODSPackage.RELATED_ITEM_DEFINITION__TITLE:
+			return TITLE_EDEFAULT == null ? title != null : !TITLE_EDEFAULT
+					.equals(title);
+		case MODSPackage.RELATED_ITEM_DEFINITION__TYPE:
+			return isSetType();
+		case MODSPackage.RELATED_ITEM_DEFINITION__TYPE1:
+			return isSetType1();
 		}
 		return super.eIsSet(featureID);
 	}

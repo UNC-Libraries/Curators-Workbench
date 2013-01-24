@@ -40,7 +40,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class GeographicCodeDefinitionImpl extends XsStringImpl implements GeographicCodeDefinition {
+public class GeographicCodeDefinitionImpl extends XsStringImpl implements
+		GeographicCodeDefinition {
 	/**
 	 * The default value of the '{@link #getAuthority() <em>Authority</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -149,7 +150,8 @@ public class GeographicCodeDefinitionImpl extends XsStringImpl implements Geogra
 		boolean oldAuthorityESet = authorityESet;
 		authorityESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.GEOGRAPHIC_CODE_DEFINITION__AUTHORITY,
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.GEOGRAPHIC_CODE_DEFINITION__AUTHORITY,
 					oldAuthority, authority, !oldAuthorityESet));
 	}
 
@@ -164,7 +166,8 @@ public class GeographicCodeDefinitionImpl extends XsStringImpl implements Geogra
 		authority = AUTHORITY_EDEFAULT;
 		authorityESet = false;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, MODSPackage.GEOGRAPHIC_CODE_DEFINITION__AUTHORITY,
+			eNotify(new ENotificationImpl(this, Notification.UNSET,
+					MODSPackage.GEOGRAPHIC_CODE_DEFINITION__AUTHORITY,
 					oldAuthority, AUTHORITY_EDEFAULT, oldAuthorityESet));
 	}
 
@@ -195,7 +198,8 @@ public class GeographicCodeDefinitionImpl extends XsStringImpl implements Geogra
 		String oldAuthorityURI = authorityURI;
 		authorityURI = newAuthorityURI;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.GEOGRAPHIC_CODE_DEFINITION__AUTHORITY_URI,
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.GEOGRAPHIC_CODE_DEFINITION__AUTHORITY_URI,
 					oldAuthorityURI, authorityURI));
 	}
 
@@ -217,7 +221,8 @@ public class GeographicCodeDefinitionImpl extends XsStringImpl implements Geogra
 		String oldValueURI = valueURI;
 		valueURI = newValueURI;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.GEOGRAPHIC_CODE_DEFINITION__VALUE_URI,
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.GEOGRAPHIC_CODE_DEFINITION__VALUE_URI,
 					oldValueURI, valueURI));
 	}
 
@@ -229,12 +234,12 @@ public class GeographicCodeDefinitionImpl extends XsStringImpl implements Geogra
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case MODSPackage.GEOGRAPHIC_CODE_DEFINITION__AUTHORITY:
-				return getAuthority();
-			case MODSPackage.GEOGRAPHIC_CODE_DEFINITION__AUTHORITY_URI:
-				return getAuthorityURI();
-			case MODSPackage.GEOGRAPHIC_CODE_DEFINITION__VALUE_URI:
-				return getValueURI();
+		case MODSPackage.GEOGRAPHIC_CODE_DEFINITION__AUTHORITY:
+			return getAuthority();
+		case MODSPackage.GEOGRAPHIC_CODE_DEFINITION__AUTHORITY_URI:
+			return getAuthorityURI();
+		case MODSPackage.GEOGRAPHIC_CODE_DEFINITION__VALUE_URI:
+			return getValueURI();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -247,15 +252,15 @@ public class GeographicCodeDefinitionImpl extends XsStringImpl implements Geogra
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case MODSPackage.GEOGRAPHIC_CODE_DEFINITION__AUTHORITY:
-				setAuthority((PlaceAuthorityAttributeDefinition) newValue);
-				return;
-			case MODSPackage.GEOGRAPHIC_CODE_DEFINITION__AUTHORITY_URI:
-				setAuthorityURI((String) newValue);
-				return;
-			case MODSPackage.GEOGRAPHIC_CODE_DEFINITION__VALUE_URI:
-				setValueURI((String) newValue);
-				return;
+		case MODSPackage.GEOGRAPHIC_CODE_DEFINITION__AUTHORITY:
+			setAuthority((PlaceAuthorityAttributeDefinition) newValue);
+			return;
+		case MODSPackage.GEOGRAPHIC_CODE_DEFINITION__AUTHORITY_URI:
+			setAuthorityURI((String) newValue);
+			return;
+		case MODSPackage.GEOGRAPHIC_CODE_DEFINITION__VALUE_URI:
+			setValueURI((String) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -268,15 +273,15 @@ public class GeographicCodeDefinitionImpl extends XsStringImpl implements Geogra
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case MODSPackage.GEOGRAPHIC_CODE_DEFINITION__AUTHORITY:
-				unsetAuthority();
-				return;
-			case MODSPackage.GEOGRAPHIC_CODE_DEFINITION__AUTHORITY_URI:
-				setAuthorityURI(AUTHORITY_URI_EDEFAULT);
-				return;
-			case MODSPackage.GEOGRAPHIC_CODE_DEFINITION__VALUE_URI:
-				setValueURI(VALUE_URI_EDEFAULT);
-				return;
+		case MODSPackage.GEOGRAPHIC_CODE_DEFINITION__AUTHORITY:
+			unsetAuthority();
+			return;
+		case MODSPackage.GEOGRAPHIC_CODE_DEFINITION__AUTHORITY_URI:
+			setAuthorityURI(AUTHORITY_URI_EDEFAULT);
+			return;
+		case MODSPackage.GEOGRAPHIC_CODE_DEFINITION__VALUE_URI:
+			setValueURI(VALUE_URI_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -289,12 +294,14 @@ public class GeographicCodeDefinitionImpl extends XsStringImpl implements Geogra
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case MODSPackage.GEOGRAPHIC_CODE_DEFINITION__AUTHORITY:
-				return isSetAuthority();
-			case MODSPackage.GEOGRAPHIC_CODE_DEFINITION__AUTHORITY_URI:
-				return AUTHORITY_URI_EDEFAULT == null ? authorityURI != null : !AUTHORITY_URI_EDEFAULT.equals(authorityURI);
-			case MODSPackage.GEOGRAPHIC_CODE_DEFINITION__VALUE_URI:
-				return VALUE_URI_EDEFAULT == null ? valueURI != null : !VALUE_URI_EDEFAULT.equals(valueURI);
+		case MODSPackage.GEOGRAPHIC_CODE_DEFINITION__AUTHORITY:
+			return isSetAuthority();
+		case MODSPackage.GEOGRAPHIC_CODE_DEFINITION__AUTHORITY_URI:
+			return AUTHORITY_URI_EDEFAULT == null ? authorityURI != null
+					: !AUTHORITY_URI_EDEFAULT.equals(authorityURI);
+		case MODSPackage.GEOGRAPHIC_CODE_DEFINITION__VALUE_URI:
+			return VALUE_URI_EDEFAULT == null ? valueURI != null
+					: !VALUE_URI_EDEFAULT.equals(valueURI);
 		}
 		return super.eIsSet(featureID);
 	}

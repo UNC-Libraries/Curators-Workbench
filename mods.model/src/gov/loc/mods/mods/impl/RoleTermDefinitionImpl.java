@@ -38,7 +38,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class RoleTermDefinitionImpl extends StringPlusAuthorityImpl implements RoleTermDefinition {
+public class RoleTermDefinitionImpl extends StringPlusAuthorityImpl implements
+		RoleTermDefinition {
 	/**
 	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -107,7 +108,8 @@ public class RoleTermDefinitionImpl extends StringPlusAuthorityImpl implements R
 		boolean oldTypeESet = typeESet;
 		typeESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.ROLE_TERM_DEFINITION__TYPE, oldType, type,
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.ROLE_TERM_DEFINITION__TYPE, oldType, type,
 					!oldTypeESet));
 	}
 
@@ -122,7 +124,8 @@ public class RoleTermDefinitionImpl extends StringPlusAuthorityImpl implements R
 		type = TYPE_EDEFAULT;
 		typeESet = false;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, MODSPackage.ROLE_TERM_DEFINITION__TYPE, oldType,
+			eNotify(new ENotificationImpl(this, Notification.UNSET,
+					MODSPackage.ROLE_TERM_DEFINITION__TYPE, oldType,
 					TYPE_EDEFAULT, oldTypeESet));
 	}
 
@@ -143,8 +146,8 @@ public class RoleTermDefinitionImpl extends StringPlusAuthorityImpl implements R
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case MODSPackage.ROLE_TERM_DEFINITION__TYPE:
-				return getType();
+		case MODSPackage.ROLE_TERM_DEFINITION__TYPE:
+			return getType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -157,9 +160,9 @@ public class RoleTermDefinitionImpl extends StringPlusAuthorityImpl implements R
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case MODSPackage.ROLE_TERM_DEFINITION__TYPE:
-				setType((CodeOrTextDefinition) newValue);
-				return;
+		case MODSPackage.ROLE_TERM_DEFINITION__TYPE:
+			setType((CodeOrTextDefinition) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -172,9 +175,9 @@ public class RoleTermDefinitionImpl extends StringPlusAuthorityImpl implements R
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case MODSPackage.ROLE_TERM_DEFINITION__TYPE:
-				unsetType();
-				return;
+		case MODSPackage.ROLE_TERM_DEFINITION__TYPE:
+			unsetType();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -187,8 +190,8 @@ public class RoleTermDefinitionImpl extends StringPlusAuthorityImpl implements R
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case MODSPackage.ROLE_TERM_DEFINITION__TYPE:
-				return isSetType();
+		case MODSPackage.ROLE_TERM_DEFINITION__TYPE:
+			return isSetType();
 		}
 		return super.eIsSet(featureID);
 	}

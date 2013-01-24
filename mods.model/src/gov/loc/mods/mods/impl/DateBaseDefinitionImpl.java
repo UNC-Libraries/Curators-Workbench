@@ -42,7 +42,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class DateBaseDefinitionImpl extends XsStringImpl implements DateBaseDefinition {
+public class DateBaseDefinitionImpl extends XsStringImpl implements
+		DateBaseDefinition {
 	/**
 	 * The default value of the '{@link #getEncoding() <em>Encoding</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -169,7 +170,8 @@ public class DateBaseDefinitionImpl extends XsStringImpl implements DateBaseDefi
 		boolean oldEncodingESet = encodingESet;
 		encodingESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.DATE_BASE_DEFINITION__ENCODING, oldEncoding,
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.DATE_BASE_DEFINITION__ENCODING, oldEncoding,
 					encoding, !oldEncodingESet));
 	}
 
@@ -184,8 +186,9 @@ public class DateBaseDefinitionImpl extends XsStringImpl implements DateBaseDefi
 		encoding = ENCODING_EDEFAULT;
 		encodingESet = false;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, MODSPackage.DATE_BASE_DEFINITION__ENCODING,
-					oldEncoding, ENCODING_EDEFAULT, oldEncodingESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET,
+					MODSPackage.DATE_BASE_DEFINITION__ENCODING, oldEncoding,
+					ENCODING_EDEFAULT, oldEncodingESet));
 	}
 
 	/**
@@ -217,8 +220,9 @@ public class DateBaseDefinitionImpl extends XsStringImpl implements DateBaseDefi
 		boolean oldPointESet = pointESet;
 		pointESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.DATE_BASE_DEFINITION__POINT, oldPoint,
-					point, !oldPointESet));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.DATE_BASE_DEFINITION__POINT, oldPoint, point,
+					!oldPointESet));
 	}
 
 	/**
@@ -232,7 +236,8 @@ public class DateBaseDefinitionImpl extends XsStringImpl implements DateBaseDefi
 		point = POINT_EDEFAULT;
 		pointESet = false;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, MODSPackage.DATE_BASE_DEFINITION__POINT, oldPoint,
+			eNotify(new ENotificationImpl(this, Notification.UNSET,
+					MODSPackage.DATE_BASE_DEFINITION__POINT, oldPoint,
 					POINT_EDEFAULT, oldPointESet));
 	}
 
@@ -265,8 +270,9 @@ public class DateBaseDefinitionImpl extends XsStringImpl implements DateBaseDefi
 		boolean oldQualifierESet = qualifierESet;
 		qualifierESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.DATE_BASE_DEFINITION__QUALIFIER,
-					oldQualifier, qualifier, !oldQualifierESet));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.DATE_BASE_DEFINITION__QUALIFIER, oldQualifier,
+					qualifier, !oldQualifierESet));
 	}
 
 	/**
@@ -280,8 +286,9 @@ public class DateBaseDefinitionImpl extends XsStringImpl implements DateBaseDefi
 		qualifier = QUALIFIER_EDEFAULT;
 		qualifierESet = false;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, MODSPackage.DATE_BASE_DEFINITION__QUALIFIER,
-					oldQualifier, QUALIFIER_EDEFAULT, oldQualifierESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET,
+					MODSPackage.DATE_BASE_DEFINITION__QUALIFIER, oldQualifier,
+					QUALIFIER_EDEFAULT, oldQualifierESet));
 	}
 
 	/**
@@ -301,12 +308,12 @@ public class DateBaseDefinitionImpl extends XsStringImpl implements DateBaseDefi
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case MODSPackage.DATE_BASE_DEFINITION__ENCODING:
-				return getEncoding();
-			case MODSPackage.DATE_BASE_DEFINITION__POINT:
-				return getPoint();
-			case MODSPackage.DATE_BASE_DEFINITION__QUALIFIER:
-				return getQualifier();
+		case MODSPackage.DATE_BASE_DEFINITION__ENCODING:
+			return getEncoding();
+		case MODSPackage.DATE_BASE_DEFINITION__POINT:
+			return getPoint();
+		case MODSPackage.DATE_BASE_DEFINITION__QUALIFIER:
+			return getQualifier();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -319,15 +326,15 @@ public class DateBaseDefinitionImpl extends XsStringImpl implements DateBaseDefi
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case MODSPackage.DATE_BASE_DEFINITION__ENCODING:
-				setEncoding((DateEncodingAttributeDefinition) newValue);
-				return;
-			case MODSPackage.DATE_BASE_DEFINITION__POINT:
-				setPoint((DatePointAttributeDefinition) newValue);
-				return;
-			case MODSPackage.DATE_BASE_DEFINITION__QUALIFIER:
-				setQualifier((DateQualifierAttributeDefinition) newValue);
-				return;
+		case MODSPackage.DATE_BASE_DEFINITION__ENCODING:
+			setEncoding((DateEncodingAttributeDefinition) newValue);
+			return;
+		case MODSPackage.DATE_BASE_DEFINITION__POINT:
+			setPoint((DatePointAttributeDefinition) newValue);
+			return;
+		case MODSPackage.DATE_BASE_DEFINITION__QUALIFIER:
+			setQualifier((DateQualifierAttributeDefinition) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -340,15 +347,15 @@ public class DateBaseDefinitionImpl extends XsStringImpl implements DateBaseDefi
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case MODSPackage.DATE_BASE_DEFINITION__ENCODING:
-				unsetEncoding();
-				return;
-			case MODSPackage.DATE_BASE_DEFINITION__POINT:
-				unsetPoint();
-				return;
-			case MODSPackage.DATE_BASE_DEFINITION__QUALIFIER:
-				unsetQualifier();
-				return;
+		case MODSPackage.DATE_BASE_DEFINITION__ENCODING:
+			unsetEncoding();
+			return;
+		case MODSPackage.DATE_BASE_DEFINITION__POINT:
+			unsetPoint();
+			return;
+		case MODSPackage.DATE_BASE_DEFINITION__QUALIFIER:
+			unsetQualifier();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -361,12 +368,12 @@ public class DateBaseDefinitionImpl extends XsStringImpl implements DateBaseDefi
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case MODSPackage.DATE_BASE_DEFINITION__ENCODING:
-				return isSetEncoding();
-			case MODSPackage.DATE_BASE_DEFINITION__POINT:
-				return isSetPoint();
-			case MODSPackage.DATE_BASE_DEFINITION__QUALIFIER:
-				return isSetQualifier();
+		case MODSPackage.DATE_BASE_DEFINITION__ENCODING:
+			return isSetEncoding();
+		case MODSPackage.DATE_BASE_DEFINITION__POINT:
+			return isSetPoint();
+		case MODSPackage.DATE_BASE_DEFINITION__QUALIFIER:
+			return isSetQualifier();
 		}
 		return super.eIsSet(featureID);
 	}

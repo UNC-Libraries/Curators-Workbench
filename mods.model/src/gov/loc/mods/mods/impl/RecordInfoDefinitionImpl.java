@@ -66,7 +66,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class RecordInfoDefinitionImpl extends EObjectImpl implements RecordInfoDefinition {
+public class RecordInfoDefinitionImpl extends EObjectImpl implements
+		RecordInfoDefinition {
 	/**
 	 * The cached value of the '{@link #getGroup() <em>Group</em>}' attribute list.
 	 * <!-- begin-user-doc -->
@@ -223,7 +224,8 @@ public class RecordInfoDefinitionImpl extends EObjectImpl implements RecordInfoD
 	 */
 	public FeatureMap getGroup() {
 		if (group == null) {
-			group = new BasicFeatureMap(this, MODSPackage.RECORD_INFO_DEFINITION__GROUP);
+			group = new BasicFeatureMap(this,
+					MODSPackage.RECORD_INFO_DEFINITION__GROUP);
 		}
 		return group;
 	}
@@ -234,7 +236,9 @@ public class RecordInfoDefinitionImpl extends EObjectImpl implements RecordInfoD
 	 * @generated
 	 */
 	public EList<StringPlusAuthority> getRecordContentSource() {
-		return getGroup().list(MODSPackage.eINSTANCE.getRecordInfoDefinition_RecordContentSource());
+		return getGroup().list(
+				MODSPackage.eINSTANCE
+						.getRecordInfoDefinition_RecordContentSource());
 	}
 
 	/**
@@ -243,7 +247,9 @@ public class RecordInfoDefinitionImpl extends EObjectImpl implements RecordInfoD
 	 * @generated
 	 */
 	public EList<DateDefinition> getRecordCreationDate() {
-		return getGroup().list(MODSPackage.eINSTANCE.getRecordInfoDefinition_RecordCreationDate());
+		return getGroup().list(
+				MODSPackage.eINSTANCE
+						.getRecordInfoDefinition_RecordCreationDate());
 	}
 
 	/**
@@ -252,7 +258,9 @@ public class RecordInfoDefinitionImpl extends EObjectImpl implements RecordInfoD
 	 * @generated
 	 */
 	public EList<DateDefinition> getRecordChangeDate() {
-		return getGroup().list(MODSPackage.eINSTANCE.getRecordInfoDefinition_RecordChangeDate());
+		return getGroup().list(
+				MODSPackage.eINSTANCE
+						.getRecordInfoDefinition_RecordChangeDate());
 	}
 
 	/**
@@ -261,7 +269,9 @@ public class RecordInfoDefinitionImpl extends EObjectImpl implements RecordInfoD
 	 * @generated
 	 */
 	public EList<RecordIdentifierDefinition> getRecordIdentifier() {
-		return getGroup().list(MODSPackage.eINSTANCE.getRecordInfoDefinition_RecordIdentifier());
+		return getGroup().list(
+				MODSPackage.eINSTANCE
+						.getRecordInfoDefinition_RecordIdentifier());
 	}
 
 	/**
@@ -270,7 +280,9 @@ public class RecordInfoDefinitionImpl extends EObjectImpl implements RecordInfoD
 	 * @generated
 	 */
 	public EList<LanguageDefinition> getLanguageOfCataloging() {
-		return getGroup().list(MODSPackage.eINSTANCE.getRecordInfoDefinition_LanguageOfCataloging());
+		return getGroup().list(
+				MODSPackage.eINSTANCE
+						.getRecordInfoDefinition_LanguageOfCataloging());
 	}
 
 	/**
@@ -279,7 +291,8 @@ public class RecordInfoDefinitionImpl extends EObjectImpl implements RecordInfoD
 	 * @generated
 	 */
 	public EList<XsString> getRecordOrigin() {
-		return getGroup().list(MODSPackage.eINSTANCE.getRecordInfoDefinition_RecordOrigin());
+		return getGroup().list(
+				MODSPackage.eINSTANCE.getRecordInfoDefinition_RecordOrigin());
 	}
 
 	/**
@@ -288,7 +301,9 @@ public class RecordInfoDefinitionImpl extends EObjectImpl implements RecordInfoD
 	 * @generated
 	 */
 	public EList<StringPlusAuthority> getDescriptionStandard() {
-		return getGroup().list(MODSPackage.eINSTANCE.getRecordInfoDefinition_DescriptionStandard());
+		return getGroup().list(
+				MODSPackage.eINSTANCE
+						.getRecordInfoDefinition_DescriptionStandard());
 	}
 
 	/**
@@ -309,7 +324,8 @@ public class RecordInfoDefinitionImpl extends EObjectImpl implements RecordInfoD
 		String oldAltRepGroup = altRepGroup;
 		altRepGroup = newAltRepGroup;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.RECORD_INFO_DEFINITION__ALT_REP_GROUP,
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.RECORD_INFO_DEFINITION__ALT_REP_GROUP,
 					oldAltRepGroup, altRepGroup));
 	}
 
@@ -331,7 +347,8 @@ public class RecordInfoDefinitionImpl extends EObjectImpl implements RecordInfoD
 		String oldDisplayLabel = displayLabel;
 		displayLabel = newDisplayLabel;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.RECORD_INFO_DEFINITION__DISPLAY_LABEL,
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.RECORD_INFO_DEFINITION__DISPLAY_LABEL,
 					oldDisplayLabel, displayLabel));
 	}
 
@@ -353,7 +370,8 @@ public class RecordInfoDefinitionImpl extends EObjectImpl implements RecordInfoD
 		String oldLang = lang;
 		lang = newLang;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.RECORD_INFO_DEFINITION__LANG, oldLang, lang));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.RECORD_INFO_DEFINITION__LANG, oldLang, lang));
 	}
 
 	/**
@@ -374,8 +392,8 @@ public class RecordInfoDefinitionImpl extends EObjectImpl implements RecordInfoD
 		String oldLang1 = lang1;
 		lang1 = newLang1;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.RECORD_INFO_DEFINITION__LANG1, oldLang1,
-					lang1));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.RECORD_INFO_DEFINITION__LANG1, oldLang1, lang1));
 	}
 
 	/**
@@ -396,7 +414,8 @@ public class RecordInfoDefinitionImpl extends EObjectImpl implements RecordInfoD
 		String oldScript = script;
 		script = newScript;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.RECORD_INFO_DEFINITION__SCRIPT, oldScript,
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.RECORD_INFO_DEFINITION__SCRIPT, oldScript,
 					script));
 	}
 
@@ -418,7 +437,8 @@ public class RecordInfoDefinitionImpl extends EObjectImpl implements RecordInfoD
 		String oldTransliteration = transliteration;
 		transliteration = newTransliteration;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.RECORD_INFO_DEFINITION__TRANSLITERATION,
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.RECORD_INFO_DEFINITION__TRANSLITERATION,
 					oldTransliteration, transliteration));
 	}
 
@@ -428,24 +448,32 @@ public class RecordInfoDefinitionImpl extends EObjectImpl implements RecordInfoD
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+	public NotificationChain eInverseRemove(InternalEObject otherEnd,
+			int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case MODSPackage.RECORD_INFO_DEFINITION__GROUP:
-				return ((InternalEList<?>) getGroup()).basicRemove(otherEnd, msgs);
-			case MODSPackage.RECORD_INFO_DEFINITION__RECORD_CONTENT_SOURCE:
-				return ((InternalEList<?>) getRecordContentSource()).basicRemove(otherEnd, msgs);
-			case MODSPackage.RECORD_INFO_DEFINITION__RECORD_CREATION_DATE:
-				return ((InternalEList<?>) getRecordCreationDate()).basicRemove(otherEnd, msgs);
-			case MODSPackage.RECORD_INFO_DEFINITION__RECORD_CHANGE_DATE:
-				return ((InternalEList<?>) getRecordChangeDate()).basicRemove(otherEnd, msgs);
-			case MODSPackage.RECORD_INFO_DEFINITION__RECORD_IDENTIFIER:
-				return ((InternalEList<?>) getRecordIdentifier()).basicRemove(otherEnd, msgs);
-			case MODSPackage.RECORD_INFO_DEFINITION__LANGUAGE_OF_CATALOGING:
-				return ((InternalEList<?>) getLanguageOfCataloging()).basicRemove(otherEnd, msgs);
-			case MODSPackage.RECORD_INFO_DEFINITION__RECORD_ORIGIN:
-				return ((InternalEList<?>) getRecordOrigin()).basicRemove(otherEnd, msgs);
-			case MODSPackage.RECORD_INFO_DEFINITION__DESCRIPTION_STANDARD:
-				return ((InternalEList<?>) getDescriptionStandard()).basicRemove(otherEnd, msgs);
+		case MODSPackage.RECORD_INFO_DEFINITION__GROUP:
+			return ((InternalEList<?>) getGroup()).basicRemove(otherEnd, msgs);
+		case MODSPackage.RECORD_INFO_DEFINITION__RECORD_CONTENT_SOURCE:
+			return ((InternalEList<?>) getRecordContentSource()).basicRemove(
+					otherEnd, msgs);
+		case MODSPackage.RECORD_INFO_DEFINITION__RECORD_CREATION_DATE:
+			return ((InternalEList<?>) getRecordCreationDate()).basicRemove(
+					otherEnd, msgs);
+		case MODSPackage.RECORD_INFO_DEFINITION__RECORD_CHANGE_DATE:
+			return ((InternalEList<?>) getRecordChangeDate()).basicRemove(
+					otherEnd, msgs);
+		case MODSPackage.RECORD_INFO_DEFINITION__RECORD_IDENTIFIER:
+			return ((InternalEList<?>) getRecordIdentifier()).basicRemove(
+					otherEnd, msgs);
+		case MODSPackage.RECORD_INFO_DEFINITION__LANGUAGE_OF_CATALOGING:
+			return ((InternalEList<?>) getLanguageOfCataloging()).basicRemove(
+					otherEnd, msgs);
+		case MODSPackage.RECORD_INFO_DEFINITION__RECORD_ORIGIN:
+			return ((InternalEList<?>) getRecordOrigin()).basicRemove(otherEnd,
+					msgs);
+		case MODSPackage.RECORD_INFO_DEFINITION__DESCRIPTION_STANDARD:
+			return ((InternalEList<?>) getDescriptionStandard()).basicRemove(
+					otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -458,36 +486,36 @@ public class RecordInfoDefinitionImpl extends EObjectImpl implements RecordInfoD
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case MODSPackage.RECORD_INFO_DEFINITION__GROUP:
-				if (coreType)
-					return getGroup();
-				return ((FeatureMap.Internal) getGroup()).getWrapper();
-			case MODSPackage.RECORD_INFO_DEFINITION__RECORD_CONTENT_SOURCE:
-				return getRecordContentSource();
-			case MODSPackage.RECORD_INFO_DEFINITION__RECORD_CREATION_DATE:
-				return getRecordCreationDate();
-			case MODSPackage.RECORD_INFO_DEFINITION__RECORD_CHANGE_DATE:
-				return getRecordChangeDate();
-			case MODSPackage.RECORD_INFO_DEFINITION__RECORD_IDENTIFIER:
-				return getRecordIdentifier();
-			case MODSPackage.RECORD_INFO_DEFINITION__LANGUAGE_OF_CATALOGING:
-				return getLanguageOfCataloging();
-			case MODSPackage.RECORD_INFO_DEFINITION__RECORD_ORIGIN:
-				return getRecordOrigin();
-			case MODSPackage.RECORD_INFO_DEFINITION__DESCRIPTION_STANDARD:
-				return getDescriptionStandard();
-			case MODSPackage.RECORD_INFO_DEFINITION__ALT_REP_GROUP:
-				return getAltRepGroup();
-			case MODSPackage.RECORD_INFO_DEFINITION__DISPLAY_LABEL:
-				return getDisplayLabel();
-			case MODSPackage.RECORD_INFO_DEFINITION__LANG:
-				return getLang();
-			case MODSPackage.RECORD_INFO_DEFINITION__LANG1:
-				return getLang1();
-			case MODSPackage.RECORD_INFO_DEFINITION__SCRIPT:
-				return getScript();
-			case MODSPackage.RECORD_INFO_DEFINITION__TRANSLITERATION:
-				return getTransliteration();
+		case MODSPackage.RECORD_INFO_DEFINITION__GROUP:
+			if (coreType)
+				return getGroup();
+			return ((FeatureMap.Internal) getGroup()).getWrapper();
+		case MODSPackage.RECORD_INFO_DEFINITION__RECORD_CONTENT_SOURCE:
+			return getRecordContentSource();
+		case MODSPackage.RECORD_INFO_DEFINITION__RECORD_CREATION_DATE:
+			return getRecordCreationDate();
+		case MODSPackage.RECORD_INFO_DEFINITION__RECORD_CHANGE_DATE:
+			return getRecordChangeDate();
+		case MODSPackage.RECORD_INFO_DEFINITION__RECORD_IDENTIFIER:
+			return getRecordIdentifier();
+		case MODSPackage.RECORD_INFO_DEFINITION__LANGUAGE_OF_CATALOGING:
+			return getLanguageOfCataloging();
+		case MODSPackage.RECORD_INFO_DEFINITION__RECORD_ORIGIN:
+			return getRecordOrigin();
+		case MODSPackage.RECORD_INFO_DEFINITION__DESCRIPTION_STANDARD:
+			return getDescriptionStandard();
+		case MODSPackage.RECORD_INFO_DEFINITION__ALT_REP_GROUP:
+			return getAltRepGroup();
+		case MODSPackage.RECORD_INFO_DEFINITION__DISPLAY_LABEL:
+			return getDisplayLabel();
+		case MODSPackage.RECORD_INFO_DEFINITION__LANG:
+			return getLang();
+		case MODSPackage.RECORD_INFO_DEFINITION__LANG1:
+			return getLang1();
+		case MODSPackage.RECORD_INFO_DEFINITION__SCRIPT:
+			return getScript();
+		case MODSPackage.RECORD_INFO_DEFINITION__TRANSLITERATION:
+			return getTransliteration();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -501,55 +529,61 @@ public class RecordInfoDefinitionImpl extends EObjectImpl implements RecordInfoD
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case MODSPackage.RECORD_INFO_DEFINITION__GROUP:
-				((FeatureMap.Internal) getGroup()).set(newValue);
-				return;
-			case MODSPackage.RECORD_INFO_DEFINITION__RECORD_CONTENT_SOURCE:
-				getRecordContentSource().clear();
-				getRecordContentSource().addAll((Collection<? extends StringPlusAuthority>) newValue);
-				return;
-			case MODSPackage.RECORD_INFO_DEFINITION__RECORD_CREATION_DATE:
-				getRecordCreationDate().clear();
-				getRecordCreationDate().addAll((Collection<? extends DateDefinition>) newValue);
-				return;
-			case MODSPackage.RECORD_INFO_DEFINITION__RECORD_CHANGE_DATE:
-				getRecordChangeDate().clear();
-				getRecordChangeDate().addAll((Collection<? extends DateDefinition>) newValue);
-				return;
-			case MODSPackage.RECORD_INFO_DEFINITION__RECORD_IDENTIFIER:
-				getRecordIdentifier().clear();
-				getRecordIdentifier().addAll((Collection<? extends RecordIdentifierDefinition>) newValue);
-				return;
-			case MODSPackage.RECORD_INFO_DEFINITION__LANGUAGE_OF_CATALOGING:
-				getLanguageOfCataloging().clear();
-				getLanguageOfCataloging().addAll((Collection<? extends LanguageDefinition>) newValue);
-				return;
-			case MODSPackage.RECORD_INFO_DEFINITION__RECORD_ORIGIN:
-				getRecordOrigin().clear();
-				getRecordOrigin().addAll((Collection<? extends XsString>) newValue);
-				return;
-			case MODSPackage.RECORD_INFO_DEFINITION__DESCRIPTION_STANDARD:
-				getDescriptionStandard().clear();
-				getDescriptionStandard().addAll((Collection<? extends StringPlusAuthority>) newValue);
-				return;
-			case MODSPackage.RECORD_INFO_DEFINITION__ALT_REP_GROUP:
-				setAltRepGroup((String) newValue);
-				return;
-			case MODSPackage.RECORD_INFO_DEFINITION__DISPLAY_LABEL:
-				setDisplayLabel((String) newValue);
-				return;
-			case MODSPackage.RECORD_INFO_DEFINITION__LANG:
-				setLang((String) newValue);
-				return;
-			case MODSPackage.RECORD_INFO_DEFINITION__LANG1:
-				setLang1((String) newValue);
-				return;
-			case MODSPackage.RECORD_INFO_DEFINITION__SCRIPT:
-				setScript((String) newValue);
-				return;
-			case MODSPackage.RECORD_INFO_DEFINITION__TRANSLITERATION:
-				setTransliteration((String) newValue);
-				return;
+		case MODSPackage.RECORD_INFO_DEFINITION__GROUP:
+			((FeatureMap.Internal) getGroup()).set(newValue);
+			return;
+		case MODSPackage.RECORD_INFO_DEFINITION__RECORD_CONTENT_SOURCE:
+			getRecordContentSource().clear();
+			getRecordContentSource().addAll(
+					(Collection<? extends StringPlusAuthority>) newValue);
+			return;
+		case MODSPackage.RECORD_INFO_DEFINITION__RECORD_CREATION_DATE:
+			getRecordCreationDate().clear();
+			getRecordCreationDate().addAll(
+					(Collection<? extends DateDefinition>) newValue);
+			return;
+		case MODSPackage.RECORD_INFO_DEFINITION__RECORD_CHANGE_DATE:
+			getRecordChangeDate().clear();
+			getRecordChangeDate().addAll(
+					(Collection<? extends DateDefinition>) newValue);
+			return;
+		case MODSPackage.RECORD_INFO_DEFINITION__RECORD_IDENTIFIER:
+			getRecordIdentifier().clear();
+			getRecordIdentifier()
+					.addAll((Collection<? extends RecordIdentifierDefinition>) newValue);
+			return;
+		case MODSPackage.RECORD_INFO_DEFINITION__LANGUAGE_OF_CATALOGING:
+			getLanguageOfCataloging().clear();
+			getLanguageOfCataloging().addAll(
+					(Collection<? extends LanguageDefinition>) newValue);
+			return;
+		case MODSPackage.RECORD_INFO_DEFINITION__RECORD_ORIGIN:
+			getRecordOrigin().clear();
+			getRecordOrigin().addAll((Collection<? extends XsString>) newValue);
+			return;
+		case MODSPackage.RECORD_INFO_DEFINITION__DESCRIPTION_STANDARD:
+			getDescriptionStandard().clear();
+			getDescriptionStandard().addAll(
+					(Collection<? extends StringPlusAuthority>) newValue);
+			return;
+		case MODSPackage.RECORD_INFO_DEFINITION__ALT_REP_GROUP:
+			setAltRepGroup((String) newValue);
+			return;
+		case MODSPackage.RECORD_INFO_DEFINITION__DISPLAY_LABEL:
+			setDisplayLabel((String) newValue);
+			return;
+		case MODSPackage.RECORD_INFO_DEFINITION__LANG:
+			setLang((String) newValue);
+			return;
+		case MODSPackage.RECORD_INFO_DEFINITION__LANG1:
+			setLang1((String) newValue);
+			return;
+		case MODSPackage.RECORD_INFO_DEFINITION__SCRIPT:
+			setScript((String) newValue);
+			return;
+		case MODSPackage.RECORD_INFO_DEFINITION__TRANSLITERATION:
+			setTransliteration((String) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -562,48 +596,48 @@ public class RecordInfoDefinitionImpl extends EObjectImpl implements RecordInfoD
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case MODSPackage.RECORD_INFO_DEFINITION__GROUP:
-				getGroup().clear();
-				return;
-			case MODSPackage.RECORD_INFO_DEFINITION__RECORD_CONTENT_SOURCE:
-				getRecordContentSource().clear();
-				return;
-			case MODSPackage.RECORD_INFO_DEFINITION__RECORD_CREATION_DATE:
-				getRecordCreationDate().clear();
-				return;
-			case MODSPackage.RECORD_INFO_DEFINITION__RECORD_CHANGE_DATE:
-				getRecordChangeDate().clear();
-				return;
-			case MODSPackage.RECORD_INFO_DEFINITION__RECORD_IDENTIFIER:
-				getRecordIdentifier().clear();
-				return;
-			case MODSPackage.RECORD_INFO_DEFINITION__LANGUAGE_OF_CATALOGING:
-				getLanguageOfCataloging().clear();
-				return;
-			case MODSPackage.RECORD_INFO_DEFINITION__RECORD_ORIGIN:
-				getRecordOrigin().clear();
-				return;
-			case MODSPackage.RECORD_INFO_DEFINITION__DESCRIPTION_STANDARD:
-				getDescriptionStandard().clear();
-				return;
-			case MODSPackage.RECORD_INFO_DEFINITION__ALT_REP_GROUP:
-				setAltRepGroup(ALT_REP_GROUP_EDEFAULT);
-				return;
-			case MODSPackage.RECORD_INFO_DEFINITION__DISPLAY_LABEL:
-				setDisplayLabel(DISPLAY_LABEL_EDEFAULT);
-				return;
-			case MODSPackage.RECORD_INFO_DEFINITION__LANG:
-				setLang(LANG_EDEFAULT);
-				return;
-			case MODSPackage.RECORD_INFO_DEFINITION__LANG1:
-				setLang1(LANG1_EDEFAULT);
-				return;
-			case MODSPackage.RECORD_INFO_DEFINITION__SCRIPT:
-				setScript(SCRIPT_EDEFAULT);
-				return;
-			case MODSPackage.RECORD_INFO_DEFINITION__TRANSLITERATION:
-				setTransliteration(TRANSLITERATION_EDEFAULT);
-				return;
+		case MODSPackage.RECORD_INFO_DEFINITION__GROUP:
+			getGroup().clear();
+			return;
+		case MODSPackage.RECORD_INFO_DEFINITION__RECORD_CONTENT_SOURCE:
+			getRecordContentSource().clear();
+			return;
+		case MODSPackage.RECORD_INFO_DEFINITION__RECORD_CREATION_DATE:
+			getRecordCreationDate().clear();
+			return;
+		case MODSPackage.RECORD_INFO_DEFINITION__RECORD_CHANGE_DATE:
+			getRecordChangeDate().clear();
+			return;
+		case MODSPackage.RECORD_INFO_DEFINITION__RECORD_IDENTIFIER:
+			getRecordIdentifier().clear();
+			return;
+		case MODSPackage.RECORD_INFO_DEFINITION__LANGUAGE_OF_CATALOGING:
+			getLanguageOfCataloging().clear();
+			return;
+		case MODSPackage.RECORD_INFO_DEFINITION__RECORD_ORIGIN:
+			getRecordOrigin().clear();
+			return;
+		case MODSPackage.RECORD_INFO_DEFINITION__DESCRIPTION_STANDARD:
+			getDescriptionStandard().clear();
+			return;
+		case MODSPackage.RECORD_INFO_DEFINITION__ALT_REP_GROUP:
+			setAltRepGroup(ALT_REP_GROUP_EDEFAULT);
+			return;
+		case MODSPackage.RECORD_INFO_DEFINITION__DISPLAY_LABEL:
+			setDisplayLabel(DISPLAY_LABEL_EDEFAULT);
+			return;
+		case MODSPackage.RECORD_INFO_DEFINITION__LANG:
+			setLang(LANG_EDEFAULT);
+			return;
+		case MODSPackage.RECORD_INFO_DEFINITION__LANG1:
+			setLang1(LANG1_EDEFAULT);
+			return;
+		case MODSPackage.RECORD_INFO_DEFINITION__SCRIPT:
+			setScript(SCRIPT_EDEFAULT);
+			return;
+		case MODSPackage.RECORD_INFO_DEFINITION__TRANSLITERATION:
+			setTransliteration(TRANSLITERATION_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -616,35 +650,40 @@ public class RecordInfoDefinitionImpl extends EObjectImpl implements RecordInfoD
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case MODSPackage.RECORD_INFO_DEFINITION__GROUP:
-				return group != null && !group.isEmpty();
-			case MODSPackage.RECORD_INFO_DEFINITION__RECORD_CONTENT_SOURCE:
-				return !getRecordContentSource().isEmpty();
-			case MODSPackage.RECORD_INFO_DEFINITION__RECORD_CREATION_DATE:
-				return !getRecordCreationDate().isEmpty();
-			case MODSPackage.RECORD_INFO_DEFINITION__RECORD_CHANGE_DATE:
-				return !getRecordChangeDate().isEmpty();
-			case MODSPackage.RECORD_INFO_DEFINITION__RECORD_IDENTIFIER:
-				return !getRecordIdentifier().isEmpty();
-			case MODSPackage.RECORD_INFO_DEFINITION__LANGUAGE_OF_CATALOGING:
-				return !getLanguageOfCataloging().isEmpty();
-			case MODSPackage.RECORD_INFO_DEFINITION__RECORD_ORIGIN:
-				return !getRecordOrigin().isEmpty();
-			case MODSPackage.RECORD_INFO_DEFINITION__DESCRIPTION_STANDARD:
-				return !getDescriptionStandard().isEmpty();
-			case MODSPackage.RECORD_INFO_DEFINITION__ALT_REP_GROUP:
-				return ALT_REP_GROUP_EDEFAULT == null ? altRepGroup != null : !ALT_REP_GROUP_EDEFAULT.equals(altRepGroup);
-			case MODSPackage.RECORD_INFO_DEFINITION__DISPLAY_LABEL:
-				return DISPLAY_LABEL_EDEFAULT == null ? displayLabel != null : !DISPLAY_LABEL_EDEFAULT.equals(displayLabel);
-			case MODSPackage.RECORD_INFO_DEFINITION__LANG:
-				return LANG_EDEFAULT == null ? lang != null : !LANG_EDEFAULT.equals(lang);
-			case MODSPackage.RECORD_INFO_DEFINITION__LANG1:
-				return LANG1_EDEFAULT == null ? lang1 != null : !LANG1_EDEFAULT.equals(lang1);
-			case MODSPackage.RECORD_INFO_DEFINITION__SCRIPT:
-				return SCRIPT_EDEFAULT == null ? script != null : !SCRIPT_EDEFAULT.equals(script);
-			case MODSPackage.RECORD_INFO_DEFINITION__TRANSLITERATION:
-				return TRANSLITERATION_EDEFAULT == null ? transliteration != null : !TRANSLITERATION_EDEFAULT
-						.equals(transliteration);
+		case MODSPackage.RECORD_INFO_DEFINITION__GROUP:
+			return group != null && !group.isEmpty();
+		case MODSPackage.RECORD_INFO_DEFINITION__RECORD_CONTENT_SOURCE:
+			return !getRecordContentSource().isEmpty();
+		case MODSPackage.RECORD_INFO_DEFINITION__RECORD_CREATION_DATE:
+			return !getRecordCreationDate().isEmpty();
+		case MODSPackage.RECORD_INFO_DEFINITION__RECORD_CHANGE_DATE:
+			return !getRecordChangeDate().isEmpty();
+		case MODSPackage.RECORD_INFO_DEFINITION__RECORD_IDENTIFIER:
+			return !getRecordIdentifier().isEmpty();
+		case MODSPackage.RECORD_INFO_DEFINITION__LANGUAGE_OF_CATALOGING:
+			return !getLanguageOfCataloging().isEmpty();
+		case MODSPackage.RECORD_INFO_DEFINITION__RECORD_ORIGIN:
+			return !getRecordOrigin().isEmpty();
+		case MODSPackage.RECORD_INFO_DEFINITION__DESCRIPTION_STANDARD:
+			return !getDescriptionStandard().isEmpty();
+		case MODSPackage.RECORD_INFO_DEFINITION__ALT_REP_GROUP:
+			return ALT_REP_GROUP_EDEFAULT == null ? altRepGroup != null
+					: !ALT_REP_GROUP_EDEFAULT.equals(altRepGroup);
+		case MODSPackage.RECORD_INFO_DEFINITION__DISPLAY_LABEL:
+			return DISPLAY_LABEL_EDEFAULT == null ? displayLabel != null
+					: !DISPLAY_LABEL_EDEFAULT.equals(displayLabel);
+		case MODSPackage.RECORD_INFO_DEFINITION__LANG:
+			return LANG_EDEFAULT == null ? lang != null : !LANG_EDEFAULT
+					.equals(lang);
+		case MODSPackage.RECORD_INFO_DEFINITION__LANG1:
+			return LANG1_EDEFAULT == null ? lang1 != null : !LANG1_EDEFAULT
+					.equals(lang1);
+		case MODSPackage.RECORD_INFO_DEFINITION__SCRIPT:
+			return SCRIPT_EDEFAULT == null ? script != null : !SCRIPT_EDEFAULT
+					.equals(script);
+		case MODSPackage.RECORD_INFO_DEFINITION__TRANSLITERATION:
+			return TRANSLITERATION_EDEFAULT == null ? transliteration != null
+					: !TRANSLITERATION_EDEFAULT.equals(transliteration);
 		}
 		return super.eIsSet(featureID);
 	}

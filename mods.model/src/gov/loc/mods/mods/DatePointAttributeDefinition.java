@@ -87,7 +87,8 @@ public enum DatePointAttributeDefinition implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final DatePointAttributeDefinition[] VALUES_ARRAY = new DatePointAttributeDefinition[] { START, END, };
+	private static final DatePointAttributeDefinition[] VALUES_ARRAY = new DatePointAttributeDefinition[] {
+			START, END, };
 
 	/**
 	 * A public read-only list of all the '<em><b>Date Point Attribute Definition</b></em>' enumerators.
@@ -95,8 +96,8 @@ public enum DatePointAttributeDefinition implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final List<DatePointAttributeDefinition> VALUES = Collections.unmodifiableList(Arrays
-			.asList(VALUES_ARRAY));
+	public static final List<DatePointAttributeDefinition> VALUES = Collections
+			.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
 	 * Returns the '<em><b>Date Point Attribute Definition</b></em>' literal with the specified literal value.
@@ -138,10 +139,10 @@ public enum DatePointAttributeDefinition implements Enumerator {
 	 */
 	public static DatePointAttributeDefinition get(int value) {
 		switch (value) {
-			case START_VALUE:
-				return START;
-			case END_VALUE:
-				return END;
+		case START_VALUE:
+			return START;
+		case END_VALUE:
+			return END;
 		}
 		return null;
 	}

@@ -62,7 +62,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class LocationDefinitionImpl extends EObjectImpl implements LocationDefinition {
+public class LocationDefinitionImpl extends EObjectImpl implements
+		LocationDefinition {
 	/**
 	 * The cached value of the '{@link #getPhysicalLocation() <em>Physical Location</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -259,8 +260,9 @@ public class LocationDefinitionImpl extends EObjectImpl implements LocationDefin
 	 */
 	public EList<PhysicalLocationDefinition> getPhysicalLocation() {
 		if (physicalLocation == null) {
-			physicalLocation = new EObjectContainmentEList<PhysicalLocationDefinition>(PhysicalLocationDefinition.class,
-					this, MODSPackage.LOCATION_DEFINITION__PHYSICAL_LOCATION);
+			physicalLocation = new EObjectContainmentEList<PhysicalLocationDefinition>(
+					PhysicalLocationDefinition.class, this,
+					MODSPackage.LOCATION_DEFINITION__PHYSICAL_LOCATION);
 		}
 		return physicalLocation;
 	}
@@ -272,7 +274,8 @@ public class LocationDefinitionImpl extends EObjectImpl implements LocationDefin
 	 */
 	public EList<XsString> getShelfLocator() {
 		if (shelfLocator == null) {
-			shelfLocator = new EObjectContainmentEList<XsString>(XsString.class, this,
+			shelfLocator = new EObjectContainmentEList<XsString>(
+					XsString.class, this,
 					MODSPackage.LOCATION_DEFINITION__SHELF_LOCATOR);
 		}
 		return shelfLocator;
@@ -285,7 +288,8 @@ public class LocationDefinitionImpl extends EObjectImpl implements LocationDefin
 	 */
 	public EList<UrlDefinition> getUrl() {
 		if (url == null) {
-			url = new EObjectContainmentEList<UrlDefinition>(UrlDefinition.class, this,
+			url = new EObjectContainmentEList<UrlDefinition>(
+					UrlDefinition.class, this,
 					MODSPackage.LOCATION_DEFINITION__URL);
 		}
 		return url;
@@ -305,12 +309,15 @@ public class LocationDefinitionImpl extends EObjectImpl implements LocationDefin
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetHoldingSimple(HoldingSimpleDefinition newHoldingSimple, NotificationChain msgs) {
+	public NotificationChain basicSetHoldingSimple(
+			HoldingSimpleDefinition newHoldingSimple, NotificationChain msgs) {
 		HoldingSimpleDefinition oldHoldingSimple = holdingSimple;
 		holdingSimple = newHoldingSimple;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					MODSPackage.LOCATION_DEFINITION__HOLDING_SIMPLE, oldHoldingSimple, newHoldingSimple);
+			ENotificationImpl notification = new ENotificationImpl(this,
+					Notification.SET,
+					MODSPackage.LOCATION_DEFINITION__HOLDING_SIMPLE,
+					oldHoldingSimple, newHoldingSimple);
 			if (msgs == null)
 				msgs = notification;
 			else
@@ -328,16 +335,25 @@ public class LocationDefinitionImpl extends EObjectImpl implements LocationDefin
 		if (newHoldingSimple != holdingSimple) {
 			NotificationChain msgs = null;
 			if (holdingSimple != null)
-				msgs = ((InternalEObject) holdingSimple).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- MODSPackage.LOCATION_DEFINITION__HOLDING_SIMPLE, null, msgs);
+				msgs = ((InternalEObject) holdingSimple)
+						.eInverseRemove(
+								this,
+								EOPPOSITE_FEATURE_BASE
+										- MODSPackage.LOCATION_DEFINITION__HOLDING_SIMPLE,
+								null, msgs);
 			if (newHoldingSimple != null)
-				msgs = ((InternalEObject) newHoldingSimple).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- MODSPackage.LOCATION_DEFINITION__HOLDING_SIMPLE, null, msgs);
+				msgs = ((InternalEObject) newHoldingSimple)
+						.eInverseAdd(
+								this,
+								EOPPOSITE_FEATURE_BASE
+										- MODSPackage.LOCATION_DEFINITION__HOLDING_SIMPLE,
+								null, msgs);
 			msgs = basicSetHoldingSimple(newHoldingSimple, msgs);
 			if (msgs != null)
 				msgs.dispatch();
 		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.LOCATION_DEFINITION__HOLDING_SIMPLE,
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.LOCATION_DEFINITION__HOLDING_SIMPLE,
 					newHoldingSimple, newHoldingSimple));
 	}
 
@@ -355,12 +371,15 @@ public class LocationDefinitionImpl extends EObjectImpl implements LocationDefin
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetHoldingExternal(ExtensionDefinition newHoldingExternal, NotificationChain msgs) {
+	public NotificationChain basicSetHoldingExternal(
+			ExtensionDefinition newHoldingExternal, NotificationChain msgs) {
 		ExtensionDefinition oldHoldingExternal = holdingExternal;
 		holdingExternal = newHoldingExternal;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					MODSPackage.LOCATION_DEFINITION__HOLDING_EXTERNAL, oldHoldingExternal, newHoldingExternal);
+			ENotificationImpl notification = new ENotificationImpl(this,
+					Notification.SET,
+					MODSPackage.LOCATION_DEFINITION__HOLDING_EXTERNAL,
+					oldHoldingExternal, newHoldingExternal);
 			if (msgs == null)
 				msgs = notification;
 			else
@@ -378,16 +397,25 @@ public class LocationDefinitionImpl extends EObjectImpl implements LocationDefin
 		if (newHoldingExternal != holdingExternal) {
 			NotificationChain msgs = null;
 			if (holdingExternal != null)
-				msgs = ((InternalEObject) holdingExternal).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- MODSPackage.LOCATION_DEFINITION__HOLDING_EXTERNAL, null, msgs);
+				msgs = ((InternalEObject) holdingExternal)
+						.eInverseRemove(
+								this,
+								EOPPOSITE_FEATURE_BASE
+										- MODSPackage.LOCATION_DEFINITION__HOLDING_EXTERNAL,
+								null, msgs);
 			if (newHoldingExternal != null)
-				msgs = ((InternalEObject) newHoldingExternal).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- MODSPackage.LOCATION_DEFINITION__HOLDING_EXTERNAL, null, msgs);
+				msgs = ((InternalEObject) newHoldingExternal)
+						.eInverseAdd(
+								this,
+								EOPPOSITE_FEATURE_BASE
+										- MODSPackage.LOCATION_DEFINITION__HOLDING_EXTERNAL,
+								null, msgs);
 			msgs = basicSetHoldingExternal(newHoldingExternal, msgs);
 			if (msgs != null)
 				msgs.dispatch();
 		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.LOCATION_DEFINITION__HOLDING_EXTERNAL,
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.LOCATION_DEFINITION__HOLDING_EXTERNAL,
 					newHoldingExternal, newHoldingExternal));
 	}
 
@@ -409,7 +437,8 @@ public class LocationDefinitionImpl extends EObjectImpl implements LocationDefin
 		String oldAltRepGroup = altRepGroup;
 		altRepGroup = newAltRepGroup;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.LOCATION_DEFINITION__ALT_REP_GROUP,
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.LOCATION_DEFINITION__ALT_REP_GROUP,
 					oldAltRepGroup, altRepGroup));
 	}
 
@@ -431,7 +460,8 @@ public class LocationDefinitionImpl extends EObjectImpl implements LocationDefin
 		String oldDisplayLabel = displayLabel;
 		displayLabel = newDisplayLabel;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.LOCATION_DEFINITION__DISPLAY_LABEL,
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.LOCATION_DEFINITION__DISPLAY_LABEL,
 					oldDisplayLabel, displayLabel));
 	}
 
@@ -453,7 +483,8 @@ public class LocationDefinitionImpl extends EObjectImpl implements LocationDefin
 		String oldLang = lang;
 		lang = newLang;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.LOCATION_DEFINITION__LANG, oldLang, lang));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.LOCATION_DEFINITION__LANG, oldLang, lang));
 	}
 
 	/**
@@ -474,7 +505,8 @@ public class LocationDefinitionImpl extends EObjectImpl implements LocationDefin
 		String oldLang1 = lang1;
 		lang1 = newLang1;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.LOCATION_DEFINITION__LANG1, oldLang1, lang1));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.LOCATION_DEFINITION__LANG1, oldLang1, lang1));
 	}
 
 	/**
@@ -495,8 +527,8 @@ public class LocationDefinitionImpl extends EObjectImpl implements LocationDefin
 		String oldScript = script;
 		script = newScript;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.LOCATION_DEFINITION__SCRIPT, oldScript,
-					script));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.LOCATION_DEFINITION__SCRIPT, oldScript, script));
 	}
 
 	/**
@@ -517,7 +549,8 @@ public class LocationDefinitionImpl extends EObjectImpl implements LocationDefin
 		String oldTransliteration = transliteration;
 		transliteration = newTransliteration;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.LOCATION_DEFINITION__TRANSLITERATION,
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.LOCATION_DEFINITION__TRANSLITERATION,
 					oldTransliteration, transliteration));
 	}
 
@@ -527,18 +560,21 @@ public class LocationDefinitionImpl extends EObjectImpl implements LocationDefin
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+	public NotificationChain eInverseRemove(InternalEObject otherEnd,
+			int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case MODSPackage.LOCATION_DEFINITION__PHYSICAL_LOCATION:
-				return ((InternalEList<?>) getPhysicalLocation()).basicRemove(otherEnd, msgs);
-			case MODSPackage.LOCATION_DEFINITION__SHELF_LOCATOR:
-				return ((InternalEList<?>) getShelfLocator()).basicRemove(otherEnd, msgs);
-			case MODSPackage.LOCATION_DEFINITION__URL:
-				return ((InternalEList<?>) getUrl()).basicRemove(otherEnd, msgs);
-			case MODSPackage.LOCATION_DEFINITION__HOLDING_SIMPLE:
-				return basicSetHoldingSimple(null, msgs);
-			case MODSPackage.LOCATION_DEFINITION__HOLDING_EXTERNAL:
-				return basicSetHoldingExternal(null, msgs);
+		case MODSPackage.LOCATION_DEFINITION__PHYSICAL_LOCATION:
+			return ((InternalEList<?>) getPhysicalLocation()).basicRemove(
+					otherEnd, msgs);
+		case MODSPackage.LOCATION_DEFINITION__SHELF_LOCATOR:
+			return ((InternalEList<?>) getShelfLocator()).basicRemove(otherEnd,
+					msgs);
+		case MODSPackage.LOCATION_DEFINITION__URL:
+			return ((InternalEList<?>) getUrl()).basicRemove(otherEnd, msgs);
+		case MODSPackage.LOCATION_DEFINITION__HOLDING_SIMPLE:
+			return basicSetHoldingSimple(null, msgs);
+		case MODSPackage.LOCATION_DEFINITION__HOLDING_EXTERNAL:
+			return basicSetHoldingExternal(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -551,28 +587,28 @@ public class LocationDefinitionImpl extends EObjectImpl implements LocationDefin
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case MODSPackage.LOCATION_DEFINITION__PHYSICAL_LOCATION:
-				return getPhysicalLocation();
-			case MODSPackage.LOCATION_DEFINITION__SHELF_LOCATOR:
-				return getShelfLocator();
-			case MODSPackage.LOCATION_DEFINITION__URL:
-				return getUrl();
-			case MODSPackage.LOCATION_DEFINITION__HOLDING_SIMPLE:
-				return getHoldingSimple();
-			case MODSPackage.LOCATION_DEFINITION__HOLDING_EXTERNAL:
-				return getHoldingExternal();
-			case MODSPackage.LOCATION_DEFINITION__ALT_REP_GROUP:
-				return getAltRepGroup();
-			case MODSPackage.LOCATION_DEFINITION__DISPLAY_LABEL:
-				return getDisplayLabel();
-			case MODSPackage.LOCATION_DEFINITION__LANG:
-				return getLang();
-			case MODSPackage.LOCATION_DEFINITION__LANG1:
-				return getLang1();
-			case MODSPackage.LOCATION_DEFINITION__SCRIPT:
-				return getScript();
-			case MODSPackage.LOCATION_DEFINITION__TRANSLITERATION:
-				return getTransliteration();
+		case MODSPackage.LOCATION_DEFINITION__PHYSICAL_LOCATION:
+			return getPhysicalLocation();
+		case MODSPackage.LOCATION_DEFINITION__SHELF_LOCATOR:
+			return getShelfLocator();
+		case MODSPackage.LOCATION_DEFINITION__URL:
+			return getUrl();
+		case MODSPackage.LOCATION_DEFINITION__HOLDING_SIMPLE:
+			return getHoldingSimple();
+		case MODSPackage.LOCATION_DEFINITION__HOLDING_EXTERNAL:
+			return getHoldingExternal();
+		case MODSPackage.LOCATION_DEFINITION__ALT_REP_GROUP:
+			return getAltRepGroup();
+		case MODSPackage.LOCATION_DEFINITION__DISPLAY_LABEL:
+			return getDisplayLabel();
+		case MODSPackage.LOCATION_DEFINITION__LANG:
+			return getLang();
+		case MODSPackage.LOCATION_DEFINITION__LANG1:
+			return getLang1();
+		case MODSPackage.LOCATION_DEFINITION__SCRIPT:
+			return getScript();
+		case MODSPackage.LOCATION_DEFINITION__TRANSLITERATION:
+			return getTransliteration();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -586,42 +622,43 @@ public class LocationDefinitionImpl extends EObjectImpl implements LocationDefin
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case MODSPackage.LOCATION_DEFINITION__PHYSICAL_LOCATION:
-				getPhysicalLocation().clear();
-				getPhysicalLocation().addAll((Collection<? extends PhysicalLocationDefinition>) newValue);
-				return;
-			case MODSPackage.LOCATION_DEFINITION__SHELF_LOCATOR:
-				getShelfLocator().clear();
-				getShelfLocator().addAll((Collection<? extends XsString>) newValue);
-				return;
-			case MODSPackage.LOCATION_DEFINITION__URL:
-				getUrl().clear();
-				getUrl().addAll((Collection<? extends UrlDefinition>) newValue);
-				return;
-			case MODSPackage.LOCATION_DEFINITION__HOLDING_SIMPLE:
-				setHoldingSimple((HoldingSimpleDefinition) newValue);
-				return;
-			case MODSPackage.LOCATION_DEFINITION__HOLDING_EXTERNAL:
-				setHoldingExternal((ExtensionDefinition) newValue);
-				return;
-			case MODSPackage.LOCATION_DEFINITION__ALT_REP_GROUP:
-				setAltRepGroup((String) newValue);
-				return;
-			case MODSPackage.LOCATION_DEFINITION__DISPLAY_LABEL:
-				setDisplayLabel((String) newValue);
-				return;
-			case MODSPackage.LOCATION_DEFINITION__LANG:
-				setLang((String) newValue);
-				return;
-			case MODSPackage.LOCATION_DEFINITION__LANG1:
-				setLang1((String) newValue);
-				return;
-			case MODSPackage.LOCATION_DEFINITION__SCRIPT:
-				setScript((String) newValue);
-				return;
-			case MODSPackage.LOCATION_DEFINITION__TRANSLITERATION:
-				setTransliteration((String) newValue);
-				return;
+		case MODSPackage.LOCATION_DEFINITION__PHYSICAL_LOCATION:
+			getPhysicalLocation().clear();
+			getPhysicalLocation()
+					.addAll((Collection<? extends PhysicalLocationDefinition>) newValue);
+			return;
+		case MODSPackage.LOCATION_DEFINITION__SHELF_LOCATOR:
+			getShelfLocator().clear();
+			getShelfLocator().addAll((Collection<? extends XsString>) newValue);
+			return;
+		case MODSPackage.LOCATION_DEFINITION__URL:
+			getUrl().clear();
+			getUrl().addAll((Collection<? extends UrlDefinition>) newValue);
+			return;
+		case MODSPackage.LOCATION_DEFINITION__HOLDING_SIMPLE:
+			setHoldingSimple((HoldingSimpleDefinition) newValue);
+			return;
+		case MODSPackage.LOCATION_DEFINITION__HOLDING_EXTERNAL:
+			setHoldingExternal((ExtensionDefinition) newValue);
+			return;
+		case MODSPackage.LOCATION_DEFINITION__ALT_REP_GROUP:
+			setAltRepGroup((String) newValue);
+			return;
+		case MODSPackage.LOCATION_DEFINITION__DISPLAY_LABEL:
+			setDisplayLabel((String) newValue);
+			return;
+		case MODSPackage.LOCATION_DEFINITION__LANG:
+			setLang((String) newValue);
+			return;
+		case MODSPackage.LOCATION_DEFINITION__LANG1:
+			setLang1((String) newValue);
+			return;
+		case MODSPackage.LOCATION_DEFINITION__SCRIPT:
+			setScript((String) newValue);
+			return;
+		case MODSPackage.LOCATION_DEFINITION__TRANSLITERATION:
+			setTransliteration((String) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -634,39 +671,39 @@ public class LocationDefinitionImpl extends EObjectImpl implements LocationDefin
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case MODSPackage.LOCATION_DEFINITION__PHYSICAL_LOCATION:
-				getPhysicalLocation().clear();
-				return;
-			case MODSPackage.LOCATION_DEFINITION__SHELF_LOCATOR:
-				getShelfLocator().clear();
-				return;
-			case MODSPackage.LOCATION_DEFINITION__URL:
-				getUrl().clear();
-				return;
-			case MODSPackage.LOCATION_DEFINITION__HOLDING_SIMPLE:
-				setHoldingSimple((HoldingSimpleDefinition) null);
-				return;
-			case MODSPackage.LOCATION_DEFINITION__HOLDING_EXTERNAL:
-				setHoldingExternal((ExtensionDefinition) null);
-				return;
-			case MODSPackage.LOCATION_DEFINITION__ALT_REP_GROUP:
-				setAltRepGroup(ALT_REP_GROUP_EDEFAULT);
-				return;
-			case MODSPackage.LOCATION_DEFINITION__DISPLAY_LABEL:
-				setDisplayLabel(DISPLAY_LABEL_EDEFAULT);
-				return;
-			case MODSPackage.LOCATION_DEFINITION__LANG:
-				setLang(LANG_EDEFAULT);
-				return;
-			case MODSPackage.LOCATION_DEFINITION__LANG1:
-				setLang1(LANG1_EDEFAULT);
-				return;
-			case MODSPackage.LOCATION_DEFINITION__SCRIPT:
-				setScript(SCRIPT_EDEFAULT);
-				return;
-			case MODSPackage.LOCATION_DEFINITION__TRANSLITERATION:
-				setTransliteration(TRANSLITERATION_EDEFAULT);
-				return;
+		case MODSPackage.LOCATION_DEFINITION__PHYSICAL_LOCATION:
+			getPhysicalLocation().clear();
+			return;
+		case MODSPackage.LOCATION_DEFINITION__SHELF_LOCATOR:
+			getShelfLocator().clear();
+			return;
+		case MODSPackage.LOCATION_DEFINITION__URL:
+			getUrl().clear();
+			return;
+		case MODSPackage.LOCATION_DEFINITION__HOLDING_SIMPLE:
+			setHoldingSimple((HoldingSimpleDefinition) null);
+			return;
+		case MODSPackage.LOCATION_DEFINITION__HOLDING_EXTERNAL:
+			setHoldingExternal((ExtensionDefinition) null);
+			return;
+		case MODSPackage.LOCATION_DEFINITION__ALT_REP_GROUP:
+			setAltRepGroup(ALT_REP_GROUP_EDEFAULT);
+			return;
+		case MODSPackage.LOCATION_DEFINITION__DISPLAY_LABEL:
+			setDisplayLabel(DISPLAY_LABEL_EDEFAULT);
+			return;
+		case MODSPackage.LOCATION_DEFINITION__LANG:
+			setLang(LANG_EDEFAULT);
+			return;
+		case MODSPackage.LOCATION_DEFINITION__LANG1:
+			setLang1(LANG1_EDEFAULT);
+			return;
+		case MODSPackage.LOCATION_DEFINITION__SCRIPT:
+			setScript(SCRIPT_EDEFAULT);
+			return;
+		case MODSPackage.LOCATION_DEFINITION__TRANSLITERATION:
+			setTransliteration(TRANSLITERATION_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -679,29 +716,34 @@ public class LocationDefinitionImpl extends EObjectImpl implements LocationDefin
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case MODSPackage.LOCATION_DEFINITION__PHYSICAL_LOCATION:
-				return physicalLocation != null && !physicalLocation.isEmpty();
-			case MODSPackage.LOCATION_DEFINITION__SHELF_LOCATOR:
-				return shelfLocator != null && !shelfLocator.isEmpty();
-			case MODSPackage.LOCATION_DEFINITION__URL:
-				return url != null && !url.isEmpty();
-			case MODSPackage.LOCATION_DEFINITION__HOLDING_SIMPLE:
-				return holdingSimple != null;
-			case MODSPackage.LOCATION_DEFINITION__HOLDING_EXTERNAL:
-				return holdingExternal != null;
-			case MODSPackage.LOCATION_DEFINITION__ALT_REP_GROUP:
-				return ALT_REP_GROUP_EDEFAULT == null ? altRepGroup != null : !ALT_REP_GROUP_EDEFAULT.equals(altRepGroup);
-			case MODSPackage.LOCATION_DEFINITION__DISPLAY_LABEL:
-				return DISPLAY_LABEL_EDEFAULT == null ? displayLabel != null : !DISPLAY_LABEL_EDEFAULT.equals(displayLabel);
-			case MODSPackage.LOCATION_DEFINITION__LANG:
-				return LANG_EDEFAULT == null ? lang != null : !LANG_EDEFAULT.equals(lang);
-			case MODSPackage.LOCATION_DEFINITION__LANG1:
-				return LANG1_EDEFAULT == null ? lang1 != null : !LANG1_EDEFAULT.equals(lang1);
-			case MODSPackage.LOCATION_DEFINITION__SCRIPT:
-				return SCRIPT_EDEFAULT == null ? script != null : !SCRIPT_EDEFAULT.equals(script);
-			case MODSPackage.LOCATION_DEFINITION__TRANSLITERATION:
-				return TRANSLITERATION_EDEFAULT == null ? transliteration != null : !TRANSLITERATION_EDEFAULT
-						.equals(transliteration);
+		case MODSPackage.LOCATION_DEFINITION__PHYSICAL_LOCATION:
+			return physicalLocation != null && !physicalLocation.isEmpty();
+		case MODSPackage.LOCATION_DEFINITION__SHELF_LOCATOR:
+			return shelfLocator != null && !shelfLocator.isEmpty();
+		case MODSPackage.LOCATION_DEFINITION__URL:
+			return url != null && !url.isEmpty();
+		case MODSPackage.LOCATION_DEFINITION__HOLDING_SIMPLE:
+			return holdingSimple != null;
+		case MODSPackage.LOCATION_DEFINITION__HOLDING_EXTERNAL:
+			return holdingExternal != null;
+		case MODSPackage.LOCATION_DEFINITION__ALT_REP_GROUP:
+			return ALT_REP_GROUP_EDEFAULT == null ? altRepGroup != null
+					: !ALT_REP_GROUP_EDEFAULT.equals(altRepGroup);
+		case MODSPackage.LOCATION_DEFINITION__DISPLAY_LABEL:
+			return DISPLAY_LABEL_EDEFAULT == null ? displayLabel != null
+					: !DISPLAY_LABEL_EDEFAULT.equals(displayLabel);
+		case MODSPackage.LOCATION_DEFINITION__LANG:
+			return LANG_EDEFAULT == null ? lang != null : !LANG_EDEFAULT
+					.equals(lang);
+		case MODSPackage.LOCATION_DEFINITION__LANG1:
+			return LANG1_EDEFAULT == null ? lang1 != null : !LANG1_EDEFAULT
+					.equals(lang1);
+		case MODSPackage.LOCATION_DEFINITION__SCRIPT:
+			return SCRIPT_EDEFAULT == null ? script != null : !SCRIPT_EDEFAULT
+					.equals(script);
+		case MODSPackage.LOCATION_DEFINITION__TRANSLITERATION:
+			return TRANSLITERATION_EDEFAULT == null ? transliteration != null
+					: !TRANSLITERATION_EDEFAULT.equals(transliteration);
 		}
 		return super.eIsSet(featureID);
 	}

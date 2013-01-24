@@ -50,8 +50,9 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class OriginInfoDefinitionItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
-		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class OriginInfoDefinitionItemProvider extends ItemProviderAdapter
+		implements IEditingDomainItemProvider, IStructuredItemContentProvider,
+		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -92,12 +93,15 @@ public class OriginInfoDefinitionItemProvider extends ItemProviderAdapter implem
 	 */
 	protected void addIssuancePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_OriginInfoDefinition_issuance_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_OriginInfoDefinition_issuance_feature",
-						"_UI_OriginInfoDefinition_type"), MODSPackage.eINSTANCE.getOriginInfoDefinition_Issuance(), true,
-				false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_OriginInfoDefinition_issuance_feature",
+						"_UI_OriginInfoDefinition_type"), MODSPackage.eINSTANCE
+						.getOriginInfoDefinition_Issuance(), true, false,
+				false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -108,12 +112,15 @@ public class OriginInfoDefinitionItemProvider extends ItemProviderAdapter implem
 	 */
 	protected void addAltRepGroupPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_OriginInfoDefinition_altRepGroup_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_OriginInfoDefinition_altRepGroup_feature",
-						"_UI_OriginInfoDefinition_type"), MODSPackage.eINSTANCE.getOriginInfoDefinition_AltRepGroup(), true,
-				false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_OriginInfoDefinition_altRepGroup_feature",
+						"_UI_OriginInfoDefinition_type"), MODSPackage.eINSTANCE
+						.getOriginInfoDefinition_AltRepGroup(), true, false,
+				false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -124,12 +131,15 @@ public class OriginInfoDefinitionItemProvider extends ItemProviderAdapter implem
 	 */
 	protected void addDisplayLabelPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_OriginInfoDefinition_displayLabel_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_OriginInfoDefinition_displayLabel_feature",
-						"_UI_OriginInfoDefinition_type"), MODSPackage.eINSTANCE.getOriginInfoDefinition_DisplayLabel(), true,
-				false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_OriginInfoDefinition_displayLabel_feature",
+						"_UI_OriginInfoDefinition_type"), MODSPackage.eINSTANCE
+						.getOriginInfoDefinition_DisplayLabel(), true, false,
+				false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -140,12 +150,15 @@ public class OriginInfoDefinitionItemProvider extends ItemProviderAdapter implem
 	 */
 	protected void addLangPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_OriginInfoDefinition_lang_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_OriginInfoDefinition_lang_feature",
-						"_UI_OriginInfoDefinition_type"), MODSPackage.eINSTANCE.getOriginInfoDefinition_Lang(), true, false,
-				false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_OriginInfoDefinition_lang_feature",
+						"_UI_OriginInfoDefinition_type"), MODSPackage.eINSTANCE
+						.getOriginInfoDefinition_Lang(), true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -156,12 +169,15 @@ public class OriginInfoDefinitionItemProvider extends ItemProviderAdapter implem
 	 */
 	protected void addLang1PropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_OriginInfoDefinition_lang1_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_OriginInfoDefinition_lang1_feature",
-						"_UI_OriginInfoDefinition_type"), MODSPackage.eINSTANCE.getOriginInfoDefinition_Lang1(), true, false,
-				false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_OriginInfoDefinition_lang1_feature",
+						"_UI_OriginInfoDefinition_type"), MODSPackage.eINSTANCE
+						.getOriginInfoDefinition_Lang1(), true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -172,12 +188,15 @@ public class OriginInfoDefinitionItemProvider extends ItemProviderAdapter implem
 	 */
 	protected void addScriptPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_OriginInfoDefinition_script_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_OriginInfoDefinition_script_feature",
-						"_UI_OriginInfoDefinition_type"), MODSPackage.eINSTANCE.getOriginInfoDefinition_Script(), true,
-				false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_OriginInfoDefinition_script_feature",
+						"_UI_OriginInfoDefinition_type"), MODSPackage.eINSTANCE
+						.getOriginInfoDefinition_Script(), true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -188,12 +207,16 @@ public class OriginInfoDefinitionItemProvider extends ItemProviderAdapter implem
 	 */
 	protected void addTransliterationPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_OriginInfoDefinition_transliteration_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_OriginInfoDefinition_transliteration_feature",
-						"_UI_OriginInfoDefinition_type"), MODSPackage.eINSTANCE.getOriginInfoDefinition_Transliteration(),
-				true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_OriginInfoDefinition_transliteration_feature",
+						"_UI_OriginInfoDefinition_type"), MODSPackage.eINSTANCE
+						.getOriginInfoDefinition_Transliteration(), true,
+				false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null,
+				null));
 	}
 
 	/**
@@ -205,10 +228,12 @@ public class OriginInfoDefinitionItemProvider extends ItemProviderAdapter implem
 	 * @generated
 	 */
 	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(
+			Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(MODSPackage.eINSTANCE.getOriginInfoDefinition_Group());
+			childrenFeatures.add(MODSPackage.eINSTANCE
+					.getOriginInfoDefinition_Group());
 		}
 		return childrenFeatures;
 	}
@@ -234,7 +259,9 @@ public class OriginInfoDefinitionItemProvider extends ItemProviderAdapter implem
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/OriginInfoDefinition"));
+		return overlayImage(object,
+				getResourceLocator()
+						.getImage("full/obj16/OriginInfoDefinition"));
 	}
 
 	/**
@@ -272,18 +299,20 @@ public class OriginInfoDefinitionItemProvider extends ItemProviderAdapter implem
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(OriginInfoDefinition.class)) {
-			case MODSPackage.ORIGIN_INFO_DEFINITION__ISSUANCE:
-			case MODSPackage.ORIGIN_INFO_DEFINITION__ALT_REP_GROUP:
-			case MODSPackage.ORIGIN_INFO_DEFINITION__DISPLAY_LABEL:
-			case MODSPackage.ORIGIN_INFO_DEFINITION__LANG:
-			case MODSPackage.ORIGIN_INFO_DEFINITION__LANG1:
-			case MODSPackage.ORIGIN_INFO_DEFINITION__SCRIPT:
-			case MODSPackage.ORIGIN_INFO_DEFINITION__TRANSLITERATION:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-			case MODSPackage.ORIGIN_INFO_DEFINITION__GROUP:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-				return;
+		case MODSPackage.ORIGIN_INFO_DEFINITION__ISSUANCE:
+		case MODSPackage.ORIGIN_INFO_DEFINITION__ALT_REP_GROUP:
+		case MODSPackage.ORIGIN_INFO_DEFINITION__DISPLAY_LABEL:
+		case MODSPackage.ORIGIN_INFO_DEFINITION__LANG:
+		case MODSPackage.ORIGIN_INFO_DEFINITION__LANG1:
+		case MODSPackage.ORIGIN_INFO_DEFINITION__SCRIPT:
+		case MODSPackage.ORIGIN_INFO_DEFINITION__TRANSLITERATION:
+			fireNotifyChanged(new ViewerNotification(notification,
+					notification.getNotifier(), false, true));
+			return;
+		case MODSPackage.ORIGIN_INFO_DEFINITION__GROUP:
+			fireNotifyChanged(new ViewerNotification(notification,
+					notification.getNotifier(), true, false));
+			return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -296,157 +325,179 @@ public class OriginInfoDefinitionItemProvider extends ItemProviderAdapter implem
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(
+			Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getOriginInfoDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getOriginInfoDefinition_Place(),
-						MODSFactory.eINSTANCE.createPlaceDefinition())));
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getOriginInfoDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getOriginInfoDefinition_Place(),
+				MODSFactory.eINSTANCE.createPlaceDefinition())));
 
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getOriginInfoDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getOriginInfoDefinition_Publisher(),
-						MODSFactory.eINSTANCE.createStringPlusSupplied())));
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getOriginInfoDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getOriginInfoDefinition_Publisher(),
+				MODSFactory.eINSTANCE.createStringPlusSupplied())));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getOriginInfoDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getOriginInfoDefinition_DateIssued(),
-						MODSFactory.eINSTANCE.createDateDefinition())));
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getOriginInfoDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getOriginInfoDefinition_DateIssued(),
+				MODSFactory.eINSTANCE.createDateDefinition())));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getOriginInfoDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getOriginInfoDefinition_DateIssued(),
-						MODSFactory.eINSTANCE.createDateOtherDefinition())));
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getOriginInfoDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getOriginInfoDefinition_DateIssued(),
+				MODSFactory.eINSTANCE.createDateOtherDefinition())));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getOriginInfoDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getOriginInfoDefinition_DateIssued(),
-						MODSFactory.eINSTANCE.createTemporalDefinition())));
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getOriginInfoDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getOriginInfoDefinition_DateIssued(),
+				MODSFactory.eINSTANCE.createTemporalDefinition())));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getOriginInfoDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getOriginInfoDefinition_DateCreated(),
-						MODSFactory.eINSTANCE.createDateDefinition())));
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getOriginInfoDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getOriginInfoDefinition_DateCreated(),
+				MODSFactory.eINSTANCE.createDateDefinition())));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getOriginInfoDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getOriginInfoDefinition_DateCreated(),
-						MODSFactory.eINSTANCE.createDateOtherDefinition())));
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getOriginInfoDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getOriginInfoDefinition_DateCreated(),
+				MODSFactory.eINSTANCE.createDateOtherDefinition())));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getOriginInfoDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getOriginInfoDefinition_DateCreated(),
-						MODSFactory.eINSTANCE.createTemporalDefinition())));
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getOriginInfoDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getOriginInfoDefinition_DateCreated(),
+				MODSFactory.eINSTANCE.createTemporalDefinition())));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getOriginInfoDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getOriginInfoDefinition_DateCaptured(),
-						MODSFactory.eINSTANCE.createDateDefinition())));
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getOriginInfoDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getOriginInfoDefinition_DateCaptured(),
+				MODSFactory.eINSTANCE.createDateDefinition())));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getOriginInfoDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getOriginInfoDefinition_DateCaptured(),
-						MODSFactory.eINSTANCE.createDateOtherDefinition())));
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getOriginInfoDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getOriginInfoDefinition_DateCaptured(),
+				MODSFactory.eINSTANCE.createDateOtherDefinition())));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getOriginInfoDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getOriginInfoDefinition_DateCaptured(),
-						MODSFactory.eINSTANCE.createTemporalDefinition())));
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getOriginInfoDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getOriginInfoDefinition_DateCaptured(),
+				MODSFactory.eINSTANCE.createTemporalDefinition())));
 
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getOriginInfoDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getOriginInfoDefinition_DateValid(),
-						MODSFactory.eINSTANCE.createDateDefinition())));
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getOriginInfoDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getOriginInfoDefinition_DateValid(),
+				MODSFactory.eINSTANCE.createDateDefinition())));
 
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getOriginInfoDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getOriginInfoDefinition_DateValid(),
-						MODSFactory.eINSTANCE.createDateOtherDefinition())));
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getOriginInfoDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getOriginInfoDefinition_DateValid(),
+				MODSFactory.eINSTANCE.createDateOtherDefinition())));
 
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getOriginInfoDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getOriginInfoDefinition_DateValid(),
-						MODSFactory.eINSTANCE.createTemporalDefinition())));
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getOriginInfoDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getOriginInfoDefinition_DateValid(),
+				MODSFactory.eINSTANCE.createTemporalDefinition())));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getOriginInfoDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getOriginInfoDefinition_DateModified(),
-						MODSFactory.eINSTANCE.createDateDefinition())));
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getOriginInfoDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getOriginInfoDefinition_DateModified(),
+				MODSFactory.eINSTANCE.createDateDefinition())));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getOriginInfoDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getOriginInfoDefinition_DateModified(),
-						MODSFactory.eINSTANCE.createDateOtherDefinition())));
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getOriginInfoDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getOriginInfoDefinition_DateModified(),
+				MODSFactory.eINSTANCE.createDateOtherDefinition())));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getOriginInfoDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getOriginInfoDefinition_DateModified(),
-						MODSFactory.eINSTANCE.createTemporalDefinition())));
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getOriginInfoDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getOriginInfoDefinition_DateModified(),
+				MODSFactory.eINSTANCE.createTemporalDefinition())));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getOriginInfoDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getOriginInfoDefinition_CopyrightDate(),
-						MODSFactory.eINSTANCE.createDateDefinition())));
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getOriginInfoDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getOriginInfoDefinition_CopyrightDate(),
+				MODSFactory.eINSTANCE.createDateDefinition())));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getOriginInfoDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getOriginInfoDefinition_CopyrightDate(),
-						MODSFactory.eINSTANCE.createDateOtherDefinition())));
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getOriginInfoDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getOriginInfoDefinition_CopyrightDate(),
+				MODSFactory.eINSTANCE.createDateOtherDefinition())));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getOriginInfoDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getOriginInfoDefinition_CopyrightDate(),
-						MODSFactory.eINSTANCE.createTemporalDefinition())));
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getOriginInfoDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getOriginInfoDefinition_CopyrightDate(),
+				MODSFactory.eINSTANCE.createTemporalDefinition())));
 
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getOriginInfoDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getOriginInfoDefinition_DateOther(),
-						MODSFactory.eINSTANCE.createDateOtherDefinition())));
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getOriginInfoDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getOriginInfoDefinition_DateOther(),
+				MODSFactory.eINSTANCE.createDateOtherDefinition())));
 
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getOriginInfoDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getOriginInfoDefinition_Edition(),
-						MODSFactory.eINSTANCE.createStringPlusSupplied())));
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getOriginInfoDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getOriginInfoDefinition_Edition(),
+				MODSFactory.eINSTANCE.createStringPlusSupplied())));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getOriginInfoDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getOriginInfoDefinition_Issuance(),
-						IssuanceDefinition.CONTINUING)));
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getOriginInfoDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getOriginInfoDefinition_Issuance(),
+				IssuanceDefinition.CONTINUING)));
 
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getOriginInfoDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getOriginInfoDefinition_Frequency(),
-						MODSFactory.eINSTANCE.createStringPlusAuthority())));
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getOriginInfoDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getOriginInfoDefinition_Frequency(),
+				MODSFactory.eINSTANCE.createStringPlusAuthority())));
 
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getOriginInfoDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getOriginInfoDefinition_Frequency(),
-						MODSFactory.eINSTANCE.createClassificationDefinition())));
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getOriginInfoDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getOriginInfoDefinition_Frequency(),
+				MODSFactory.eINSTANCE.createClassificationDefinition())));
 
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getOriginInfoDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getOriginInfoDefinition_Frequency(),
-						MODSFactory.eINSTANCE.createStringPlusAuthorityPlusType())));
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getOriginInfoDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getOriginInfoDefinition_Frequency(),
+				MODSFactory.eINSTANCE.createStringPlusAuthorityPlusType())));
 
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getOriginInfoDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getOriginInfoDefinition_Frequency(),
-						MODSFactory.eINSTANCE.createStringPlusAuthorityPlusTypePlusDisplayLabel())));
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getOriginInfoDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getOriginInfoDefinition_Frequency(),
+				MODSFactory.eINSTANCE
+						.createStringPlusAuthorityPlusTypePlusDisplayLabel())));
 
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getOriginInfoDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getOriginInfoDefinition_Frequency(),
-						MODSFactory.eINSTANCE.createGenreDefinition())));
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getOriginInfoDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getOriginInfoDefinition_Frequency(),
+				MODSFactory.eINSTANCE.createGenreDefinition())));
 
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getOriginInfoDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getOriginInfoDefinition_Frequency(),
-						MODSFactory.eINSTANCE.createStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink())));
+		newChildDescriptors
+				.add(createChildParameter(
+						MODSPackage.eINSTANCE.getOriginInfoDefinition_Group(),
+						FeatureMapUtil.createEntry(
+								MODSPackage.eINSTANCE
+										.getOriginInfoDefinition_Frequency(),
+								MODSFactory.eINSTANCE
+										.createStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink())));
 
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getOriginInfoDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getOriginInfoDefinition_Frequency(),
-						MODSFactory.eINSTANCE.createPhysicalLocationDefinition())));
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getOriginInfoDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getOriginInfoDefinition_Frequency(),
+				MODSFactory.eINSTANCE.createPhysicalLocationDefinition())));
 
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getOriginInfoDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getOriginInfoDefinition_Frequency(),
-						MODSFactory.eINSTANCE.createRoleTermDefinition())));
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getOriginInfoDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getOriginInfoDefinition_Frequency(),
+				MODSFactory.eINSTANCE.createRoleTermDefinition())));
 
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getOriginInfoDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getOriginInfoDefinition_Frequency(),
-						MODSFactory.eINSTANCE.createScriptTermDefinition())));
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getOriginInfoDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getOriginInfoDefinition_Frequency(),
+				MODSFactory.eINSTANCE.createScriptTermDefinition())));
 
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getOriginInfoDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getOriginInfoDefinition_Frequency(),
-						MODSFactory.eINSTANCE.createTargetAudienceDefinition())));
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getOriginInfoDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getOriginInfoDefinition_Frequency(),
+				MODSFactory.eINSTANCE.createTargetAudienceDefinition())));
 	}
 
 	/**
@@ -456,29 +507,42 @@ public class OriginInfoDefinitionItemProvider extends ItemProviderAdapter implem
 	 * @generated
 	 */
 	@Override
-	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+	public String getCreateChildText(Object owner, Object feature,
+			Object child, Collection<?> selection) {
 		Object childFeature = feature;
 		Object childObject = child;
 
-		if (childFeature instanceof EStructuralFeature && FeatureMapUtil.isFeatureMap((EStructuralFeature) childFeature)) {
+		if (childFeature instanceof EStructuralFeature
+				&& FeatureMapUtil
+						.isFeatureMap((EStructuralFeature) childFeature)) {
 			FeatureMap.Entry entry = (FeatureMap.Entry) childObject;
 			childFeature = entry.getEStructuralFeature();
 			childObject = entry.getValue();
 		}
 
-		boolean qualify = childFeature == MODSPackage.eINSTANCE.getOriginInfoDefinition_Publisher()
-				|| childFeature == MODSPackage.eINSTANCE.getOriginInfoDefinition_Edition()
-				|| childFeature == MODSPackage.eINSTANCE.getOriginInfoDefinition_DateIssued()
-				|| childFeature == MODSPackage.eINSTANCE.getOriginInfoDefinition_DateCreated()
-				|| childFeature == MODSPackage.eINSTANCE.getOriginInfoDefinition_DateCaptured()
-				|| childFeature == MODSPackage.eINSTANCE.getOriginInfoDefinition_DateValid()
-				|| childFeature == MODSPackage.eINSTANCE.getOriginInfoDefinition_DateModified()
-				|| childFeature == MODSPackage.eINSTANCE.getOriginInfoDefinition_CopyrightDate()
-				|| childFeature == MODSPackage.eINSTANCE.getOriginInfoDefinition_DateOther();
+		boolean qualify = childFeature == MODSPackage.eINSTANCE
+				.getOriginInfoDefinition_Publisher()
+				|| childFeature == MODSPackage.eINSTANCE
+						.getOriginInfoDefinition_Edition()
+				|| childFeature == MODSPackage.eINSTANCE
+						.getOriginInfoDefinition_DateIssued()
+				|| childFeature == MODSPackage.eINSTANCE
+						.getOriginInfoDefinition_DateCreated()
+				|| childFeature == MODSPackage.eINSTANCE
+						.getOriginInfoDefinition_DateCaptured()
+				|| childFeature == MODSPackage.eINSTANCE
+						.getOriginInfoDefinition_DateValid()
+				|| childFeature == MODSPackage.eINSTANCE
+						.getOriginInfoDefinition_DateModified()
+				|| childFeature == MODSPackage.eINSTANCE
+						.getOriginInfoDefinition_CopyrightDate()
+				|| childFeature == MODSPackage.eINSTANCE
+						.getOriginInfoDefinition_DateOther();
 
 		if (qualify) {
-			return getString("_UI_CreateChild_text2", new Object[] { getTypeText(childObject),
-					getFeatureText(childFeature), getTypeText(owner) });
+			return getString("_UI_CreateChild_text2", new Object[] {
+					getTypeText(childObject), getFeatureText(childFeature),
+					getTypeText(owner) });
 		}
 		return super.getCreateChildText(owner, feature, child, selection);
 	}

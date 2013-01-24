@@ -29,7 +29,8 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class PhysicalLocationDefinitionImpl extends StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlinkImpl implements
+public class PhysicalLocationDefinitionImpl extends
+		StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlinkImpl implements
 		PhysicalLocationDefinition {
 	/**
 	 * <!-- begin-user-doc -->

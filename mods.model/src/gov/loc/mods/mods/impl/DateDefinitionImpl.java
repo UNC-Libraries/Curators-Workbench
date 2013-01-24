@@ -38,7 +38,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class DateDefinitionImpl extends DateBaseDefinitionImpl implements DateDefinition {
+public class DateDefinitionImpl extends DateBaseDefinitionImpl implements
+		DateDefinition {
 	/**
 	 * The default value of the '{@link #getKeyDate() <em>Key Date</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -107,8 +108,9 @@ public class DateDefinitionImpl extends DateBaseDefinitionImpl implements DateDe
 		boolean oldKeyDateESet = keyDateESet;
 		keyDateESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.DATE_DEFINITION__KEY_DATE, oldKeyDate,
-					keyDate, !oldKeyDateESet));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.DATE_DEFINITION__KEY_DATE, oldKeyDate, keyDate,
+					!oldKeyDateESet));
 	}
 
 	/**
@@ -122,7 +124,8 @@ public class DateDefinitionImpl extends DateBaseDefinitionImpl implements DateDe
 		keyDate = KEY_DATE_EDEFAULT;
 		keyDateESet = false;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, MODSPackage.DATE_DEFINITION__KEY_DATE, oldKeyDate,
+			eNotify(new ENotificationImpl(this, Notification.UNSET,
+					MODSPackage.DATE_DEFINITION__KEY_DATE, oldKeyDate,
 					KEY_DATE_EDEFAULT, oldKeyDateESet));
 	}
 
@@ -143,8 +146,8 @@ public class DateDefinitionImpl extends DateBaseDefinitionImpl implements DateDe
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case MODSPackage.DATE_DEFINITION__KEY_DATE:
-				return getKeyDate();
+		case MODSPackage.DATE_DEFINITION__KEY_DATE:
+			return getKeyDate();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -157,9 +160,9 @@ public class DateDefinitionImpl extends DateBaseDefinitionImpl implements DateDe
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case MODSPackage.DATE_DEFINITION__KEY_DATE:
-				setKeyDate((YesDefinition) newValue);
-				return;
+		case MODSPackage.DATE_DEFINITION__KEY_DATE:
+			setKeyDate((YesDefinition) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -172,9 +175,9 @@ public class DateDefinitionImpl extends DateBaseDefinitionImpl implements DateDe
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case MODSPackage.DATE_DEFINITION__KEY_DATE:
-				unsetKeyDate();
-				return;
+		case MODSPackage.DATE_DEFINITION__KEY_DATE:
+			unsetKeyDate();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -187,8 +190,8 @@ public class DateDefinitionImpl extends DateBaseDefinitionImpl implements DateDe
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case MODSPackage.DATE_DEFINITION__KEY_DATE:
-				return isSetKeyDate();
+		case MODSPackage.DATE_DEFINITION__KEY_DATE:
+			return isSetKeyDate();
 		}
 		return super.eIsSet(featureID);
 	}

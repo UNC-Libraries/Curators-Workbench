@@ -46,7 +46,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class HoldingSimpleDefinitionImpl extends EObjectImpl implements HoldingSimpleDefinition {
+public class HoldingSimpleDefinitionImpl extends EObjectImpl implements
+		HoldingSimpleDefinition {
 	/**
 	 * The cached value of the '{@link #getCopyInformation() <em>Copy Information</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -83,8 +84,9 @@ public class HoldingSimpleDefinitionImpl extends EObjectImpl implements HoldingS
 	 */
 	public EList<CopyInformationDefinition> getCopyInformation() {
 		if (copyInformation == null) {
-			copyInformation = new EObjectContainmentEList<CopyInformationDefinition>(CopyInformationDefinition.class,
-					this, MODSPackage.HOLDING_SIMPLE_DEFINITION__COPY_INFORMATION);
+			copyInformation = new EObjectContainmentEList<CopyInformationDefinition>(
+					CopyInformationDefinition.class, this,
+					MODSPackage.HOLDING_SIMPLE_DEFINITION__COPY_INFORMATION);
 		}
 		return copyInformation;
 	}
@@ -95,10 +97,12 @@ public class HoldingSimpleDefinitionImpl extends EObjectImpl implements HoldingS
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+	public NotificationChain eInverseRemove(InternalEObject otherEnd,
+			int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case MODSPackage.HOLDING_SIMPLE_DEFINITION__COPY_INFORMATION:
-				return ((InternalEList<?>) getCopyInformation()).basicRemove(otherEnd, msgs);
+		case MODSPackage.HOLDING_SIMPLE_DEFINITION__COPY_INFORMATION:
+			return ((InternalEList<?>) getCopyInformation()).basicRemove(
+					otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -111,8 +115,8 @@ public class HoldingSimpleDefinitionImpl extends EObjectImpl implements HoldingS
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case MODSPackage.HOLDING_SIMPLE_DEFINITION__COPY_INFORMATION:
-				return getCopyInformation();
+		case MODSPackage.HOLDING_SIMPLE_DEFINITION__COPY_INFORMATION:
+			return getCopyInformation();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -126,10 +130,11 @@ public class HoldingSimpleDefinitionImpl extends EObjectImpl implements HoldingS
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case MODSPackage.HOLDING_SIMPLE_DEFINITION__COPY_INFORMATION:
-				getCopyInformation().clear();
-				getCopyInformation().addAll((Collection<? extends CopyInformationDefinition>) newValue);
-				return;
+		case MODSPackage.HOLDING_SIMPLE_DEFINITION__COPY_INFORMATION:
+			getCopyInformation().clear();
+			getCopyInformation().addAll(
+					(Collection<? extends CopyInformationDefinition>) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -142,9 +147,9 @@ public class HoldingSimpleDefinitionImpl extends EObjectImpl implements HoldingS
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case MODSPackage.HOLDING_SIMPLE_DEFINITION__COPY_INFORMATION:
-				getCopyInformation().clear();
-				return;
+		case MODSPackage.HOLDING_SIMPLE_DEFINITION__COPY_INFORMATION:
+			getCopyInformation().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -157,8 +162,8 @@ public class HoldingSimpleDefinitionImpl extends EObjectImpl implements HoldingS
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case MODSPackage.HOLDING_SIMPLE_DEFINITION__COPY_INFORMATION:
-				return copyInformation != null && !copyInformation.isEmpty();
+		case MODSPackage.HOLDING_SIMPLE_DEFINITION__COPY_INFORMATION:
+			return copyInformation != null && !copyInformation.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

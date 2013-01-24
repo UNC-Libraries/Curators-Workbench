@@ -53,7 +53,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class CartographicsDefinitionImpl extends EObjectImpl implements CartographicsDefinition {
+public class CartographicsDefinitionImpl extends EObjectImpl implements
+		CartographicsDefinition {
 	/**
 	 * The cached value of the '{@link #getScale() <em>Scale</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -177,12 +178,15 @@ public class CartographicsDefinitionImpl extends EObjectImpl implements Cartogra
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetScale(XsString newScale, NotificationChain msgs) {
+	public NotificationChain basicSetScale(XsString newScale,
+			NotificationChain msgs) {
 		XsString oldScale = scale;
 		scale = newScale;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					MODSPackage.CARTOGRAPHICS_DEFINITION__SCALE, oldScale, newScale);
+			ENotificationImpl notification = new ENotificationImpl(this,
+					Notification.SET,
+					MODSPackage.CARTOGRAPHICS_DEFINITION__SCALE, oldScale,
+					newScale);
 			if (msgs == null)
 				msgs = notification;
 			else
@@ -200,16 +204,21 @@ public class CartographicsDefinitionImpl extends EObjectImpl implements Cartogra
 		if (newScale != scale) {
 			NotificationChain msgs = null;
 			if (scale != null)
-				msgs = ((InternalEObject) scale).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- MODSPackage.CARTOGRAPHICS_DEFINITION__SCALE, null, msgs);
+				msgs = ((InternalEObject) scale).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE
+								- MODSPackage.CARTOGRAPHICS_DEFINITION__SCALE,
+						null, msgs);
 			if (newScale != null)
-				msgs = ((InternalEObject) newScale).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- MODSPackage.CARTOGRAPHICS_DEFINITION__SCALE, null, msgs);
+				msgs = ((InternalEObject) newScale).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE
+								- MODSPackage.CARTOGRAPHICS_DEFINITION__SCALE,
+						null, msgs);
 			msgs = basicSetScale(newScale, msgs);
 			if (msgs != null)
 				msgs.dispatch();
 		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.CARTOGRAPHICS_DEFINITION__SCALE, newScale,
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.CARTOGRAPHICS_DEFINITION__SCALE, newScale,
 					newScale));
 	}
 
@@ -227,12 +236,15 @@ public class CartographicsDefinitionImpl extends EObjectImpl implements Cartogra
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetProjection(XsString newProjection, NotificationChain msgs) {
+	public NotificationChain basicSetProjection(XsString newProjection,
+			NotificationChain msgs) {
 		XsString oldProjection = projection;
 		projection = newProjection;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					MODSPackage.CARTOGRAPHICS_DEFINITION__PROJECTION, oldProjection, newProjection);
+			ENotificationImpl notification = new ENotificationImpl(this,
+					Notification.SET,
+					MODSPackage.CARTOGRAPHICS_DEFINITION__PROJECTION,
+					oldProjection, newProjection);
 			if (msgs == null)
 				msgs = notification;
 			else
@@ -250,16 +262,25 @@ public class CartographicsDefinitionImpl extends EObjectImpl implements Cartogra
 		if (newProjection != projection) {
 			NotificationChain msgs = null;
 			if (projection != null)
-				msgs = ((InternalEObject) projection).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- MODSPackage.CARTOGRAPHICS_DEFINITION__PROJECTION, null, msgs);
+				msgs = ((InternalEObject) projection)
+						.eInverseRemove(
+								this,
+								EOPPOSITE_FEATURE_BASE
+										- MODSPackage.CARTOGRAPHICS_DEFINITION__PROJECTION,
+								null, msgs);
 			if (newProjection != null)
-				msgs = ((InternalEObject) newProjection).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- MODSPackage.CARTOGRAPHICS_DEFINITION__PROJECTION, null, msgs);
+				msgs = ((InternalEObject) newProjection)
+						.eInverseAdd(
+								this,
+								EOPPOSITE_FEATURE_BASE
+										- MODSPackage.CARTOGRAPHICS_DEFINITION__PROJECTION,
+								null, msgs);
 			msgs = basicSetProjection(newProjection, msgs);
 			if (msgs != null)
 				msgs.dispatch();
 		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.CARTOGRAPHICS_DEFINITION__PROJECTION,
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.CARTOGRAPHICS_DEFINITION__PROJECTION,
 					newProjection, newProjection));
 	}
 
@@ -270,8 +291,8 @@ public class CartographicsDefinitionImpl extends EObjectImpl implements Cartogra
 	 */
 	public EList<XsString> getCoordinates() {
 		if (coordinates == null) {
-			coordinates = new EObjectContainmentEList<XsString>(XsString.class, this,
-					MODSPackage.CARTOGRAPHICS_DEFINITION__COORDINATES);
+			coordinates = new EObjectContainmentEList<XsString>(XsString.class,
+					this, MODSPackage.CARTOGRAPHICS_DEFINITION__COORDINATES);
 		}
 		return coordinates;
 	}
@@ -294,7 +315,8 @@ public class CartographicsDefinitionImpl extends EObjectImpl implements Cartogra
 		String oldAuthority = authority;
 		authority = newAuthority;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.CARTOGRAPHICS_DEFINITION__AUTHORITY,
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.CARTOGRAPHICS_DEFINITION__AUTHORITY,
 					oldAuthority, authority));
 	}
 
@@ -316,7 +338,8 @@ public class CartographicsDefinitionImpl extends EObjectImpl implements Cartogra
 		String oldAuthorityURI = authorityURI;
 		authorityURI = newAuthorityURI;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.CARTOGRAPHICS_DEFINITION__AUTHORITY_URI,
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.CARTOGRAPHICS_DEFINITION__AUTHORITY_URI,
 					oldAuthorityURI, authorityURI));
 	}
 
@@ -338,7 +361,8 @@ public class CartographicsDefinitionImpl extends EObjectImpl implements Cartogra
 		String oldValueURI = valueURI;
 		valueURI = newValueURI;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.CARTOGRAPHICS_DEFINITION__VALUE_URI,
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.CARTOGRAPHICS_DEFINITION__VALUE_URI,
 					oldValueURI, valueURI));
 	}
 
@@ -348,14 +372,16 @@ public class CartographicsDefinitionImpl extends EObjectImpl implements Cartogra
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+	public NotificationChain eInverseRemove(InternalEObject otherEnd,
+			int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case MODSPackage.CARTOGRAPHICS_DEFINITION__SCALE:
-				return basicSetScale(null, msgs);
-			case MODSPackage.CARTOGRAPHICS_DEFINITION__PROJECTION:
-				return basicSetProjection(null, msgs);
-			case MODSPackage.CARTOGRAPHICS_DEFINITION__COORDINATES:
-				return ((InternalEList<?>) getCoordinates()).basicRemove(otherEnd, msgs);
+		case MODSPackage.CARTOGRAPHICS_DEFINITION__SCALE:
+			return basicSetScale(null, msgs);
+		case MODSPackage.CARTOGRAPHICS_DEFINITION__PROJECTION:
+			return basicSetProjection(null, msgs);
+		case MODSPackage.CARTOGRAPHICS_DEFINITION__COORDINATES:
+			return ((InternalEList<?>) getCoordinates()).basicRemove(otherEnd,
+					msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -368,18 +394,18 @@ public class CartographicsDefinitionImpl extends EObjectImpl implements Cartogra
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case MODSPackage.CARTOGRAPHICS_DEFINITION__SCALE:
-				return getScale();
-			case MODSPackage.CARTOGRAPHICS_DEFINITION__PROJECTION:
-				return getProjection();
-			case MODSPackage.CARTOGRAPHICS_DEFINITION__COORDINATES:
-				return getCoordinates();
-			case MODSPackage.CARTOGRAPHICS_DEFINITION__AUTHORITY:
-				return getAuthority();
-			case MODSPackage.CARTOGRAPHICS_DEFINITION__AUTHORITY_URI:
-				return getAuthorityURI();
-			case MODSPackage.CARTOGRAPHICS_DEFINITION__VALUE_URI:
-				return getValueURI();
+		case MODSPackage.CARTOGRAPHICS_DEFINITION__SCALE:
+			return getScale();
+		case MODSPackage.CARTOGRAPHICS_DEFINITION__PROJECTION:
+			return getProjection();
+		case MODSPackage.CARTOGRAPHICS_DEFINITION__COORDINATES:
+			return getCoordinates();
+		case MODSPackage.CARTOGRAPHICS_DEFINITION__AUTHORITY:
+			return getAuthority();
+		case MODSPackage.CARTOGRAPHICS_DEFINITION__AUTHORITY_URI:
+			return getAuthorityURI();
+		case MODSPackage.CARTOGRAPHICS_DEFINITION__VALUE_URI:
+			return getValueURI();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -393,25 +419,25 @@ public class CartographicsDefinitionImpl extends EObjectImpl implements Cartogra
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case MODSPackage.CARTOGRAPHICS_DEFINITION__SCALE:
-				setScale((XsString) newValue);
-				return;
-			case MODSPackage.CARTOGRAPHICS_DEFINITION__PROJECTION:
-				setProjection((XsString) newValue);
-				return;
-			case MODSPackage.CARTOGRAPHICS_DEFINITION__COORDINATES:
-				getCoordinates().clear();
-				getCoordinates().addAll((Collection<? extends XsString>) newValue);
-				return;
-			case MODSPackage.CARTOGRAPHICS_DEFINITION__AUTHORITY:
-				setAuthority((String) newValue);
-				return;
-			case MODSPackage.CARTOGRAPHICS_DEFINITION__AUTHORITY_URI:
-				setAuthorityURI((String) newValue);
-				return;
-			case MODSPackage.CARTOGRAPHICS_DEFINITION__VALUE_URI:
-				setValueURI((String) newValue);
-				return;
+		case MODSPackage.CARTOGRAPHICS_DEFINITION__SCALE:
+			setScale((XsString) newValue);
+			return;
+		case MODSPackage.CARTOGRAPHICS_DEFINITION__PROJECTION:
+			setProjection((XsString) newValue);
+			return;
+		case MODSPackage.CARTOGRAPHICS_DEFINITION__COORDINATES:
+			getCoordinates().clear();
+			getCoordinates().addAll((Collection<? extends XsString>) newValue);
+			return;
+		case MODSPackage.CARTOGRAPHICS_DEFINITION__AUTHORITY:
+			setAuthority((String) newValue);
+			return;
+		case MODSPackage.CARTOGRAPHICS_DEFINITION__AUTHORITY_URI:
+			setAuthorityURI((String) newValue);
+			return;
+		case MODSPackage.CARTOGRAPHICS_DEFINITION__VALUE_URI:
+			setValueURI((String) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -424,24 +450,24 @@ public class CartographicsDefinitionImpl extends EObjectImpl implements Cartogra
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case MODSPackage.CARTOGRAPHICS_DEFINITION__SCALE:
-				setScale((XsString) null);
-				return;
-			case MODSPackage.CARTOGRAPHICS_DEFINITION__PROJECTION:
-				setProjection((XsString) null);
-				return;
-			case MODSPackage.CARTOGRAPHICS_DEFINITION__COORDINATES:
-				getCoordinates().clear();
-				return;
-			case MODSPackage.CARTOGRAPHICS_DEFINITION__AUTHORITY:
-				setAuthority(AUTHORITY_EDEFAULT);
-				return;
-			case MODSPackage.CARTOGRAPHICS_DEFINITION__AUTHORITY_URI:
-				setAuthorityURI(AUTHORITY_URI_EDEFAULT);
-				return;
-			case MODSPackage.CARTOGRAPHICS_DEFINITION__VALUE_URI:
-				setValueURI(VALUE_URI_EDEFAULT);
-				return;
+		case MODSPackage.CARTOGRAPHICS_DEFINITION__SCALE:
+			setScale((XsString) null);
+			return;
+		case MODSPackage.CARTOGRAPHICS_DEFINITION__PROJECTION:
+			setProjection((XsString) null);
+			return;
+		case MODSPackage.CARTOGRAPHICS_DEFINITION__COORDINATES:
+			getCoordinates().clear();
+			return;
+		case MODSPackage.CARTOGRAPHICS_DEFINITION__AUTHORITY:
+			setAuthority(AUTHORITY_EDEFAULT);
+			return;
+		case MODSPackage.CARTOGRAPHICS_DEFINITION__AUTHORITY_URI:
+			setAuthorityURI(AUTHORITY_URI_EDEFAULT);
+			return;
+		case MODSPackage.CARTOGRAPHICS_DEFINITION__VALUE_URI:
+			setValueURI(VALUE_URI_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -454,18 +480,21 @@ public class CartographicsDefinitionImpl extends EObjectImpl implements Cartogra
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case MODSPackage.CARTOGRAPHICS_DEFINITION__SCALE:
-				return scale != null;
-			case MODSPackage.CARTOGRAPHICS_DEFINITION__PROJECTION:
-				return projection != null;
-			case MODSPackage.CARTOGRAPHICS_DEFINITION__COORDINATES:
-				return coordinates != null && !coordinates.isEmpty();
-			case MODSPackage.CARTOGRAPHICS_DEFINITION__AUTHORITY:
-				return AUTHORITY_EDEFAULT == null ? authority != null : !AUTHORITY_EDEFAULT.equals(authority);
-			case MODSPackage.CARTOGRAPHICS_DEFINITION__AUTHORITY_URI:
-				return AUTHORITY_URI_EDEFAULT == null ? authorityURI != null : !AUTHORITY_URI_EDEFAULT.equals(authorityURI);
-			case MODSPackage.CARTOGRAPHICS_DEFINITION__VALUE_URI:
-				return VALUE_URI_EDEFAULT == null ? valueURI != null : !VALUE_URI_EDEFAULT.equals(valueURI);
+		case MODSPackage.CARTOGRAPHICS_DEFINITION__SCALE:
+			return scale != null;
+		case MODSPackage.CARTOGRAPHICS_DEFINITION__PROJECTION:
+			return projection != null;
+		case MODSPackage.CARTOGRAPHICS_DEFINITION__COORDINATES:
+			return coordinates != null && !coordinates.isEmpty();
+		case MODSPackage.CARTOGRAPHICS_DEFINITION__AUTHORITY:
+			return AUTHORITY_EDEFAULT == null ? authority != null
+					: !AUTHORITY_EDEFAULT.equals(authority);
+		case MODSPackage.CARTOGRAPHICS_DEFINITION__AUTHORITY_URI:
+			return AUTHORITY_URI_EDEFAULT == null ? authorityURI != null
+					: !AUTHORITY_URI_EDEFAULT.equals(authorityURI);
+		case MODSPackage.CARTOGRAPHICS_DEFINITION__VALUE_URI:
+			return VALUE_URI_EDEFAULT == null ? valueURI != null
+					: !VALUE_URI_EDEFAULT.equals(valueURI);
 		}
 		return super.eIsSet(featureID);
 	}

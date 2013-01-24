@@ -187,8 +187,9 @@ public enum IssuanceDefinition implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final IssuanceDefinition[] VALUES_ARRAY = new IssuanceDefinition[] { CONTINUING, MONOGRAPHIC,
-			SINGLE_UNIT, MULTIPART_MONOGRAPH, SERIAL, INTEGRATING_RESOURCE, };
+	private static final IssuanceDefinition[] VALUES_ARRAY = new IssuanceDefinition[] {
+			CONTINUING, MONOGRAPHIC, SINGLE_UNIT, MULTIPART_MONOGRAPH, SERIAL,
+			INTEGRATING_RESOURCE, };
 
 	/**
 	 * A public read-only list of all the '<em><b>Issuance Definition</b></em>' enumerators.
@@ -196,7 +197,8 @@ public enum IssuanceDefinition implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final List<IssuanceDefinition> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+	public static final List<IssuanceDefinition> VALUES = Collections
+			.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
 	 * Returns the '<em><b>Issuance Definition</b></em>' literal with the specified literal value.
@@ -238,18 +240,18 @@ public enum IssuanceDefinition implements Enumerator {
 	 */
 	public static IssuanceDefinition get(int value) {
 		switch (value) {
-			case CONTINUING_VALUE:
-				return CONTINUING;
-			case MONOGRAPHIC_VALUE:
-				return MONOGRAPHIC;
-			case SINGLE_UNIT_VALUE:
-				return SINGLE_UNIT;
-			case MULTIPART_MONOGRAPH_VALUE:
-				return MULTIPART_MONOGRAPH;
-			case SERIAL_VALUE:
-				return SERIAL;
-			case INTEGRATING_RESOURCE_VALUE:
-				return INTEGRATING_RESOURCE;
+		case CONTINUING_VALUE:
+			return CONTINUING;
+		case MONOGRAPHIC_VALUE:
+			return MONOGRAPHIC;
+		case SINGLE_UNIT_VALUE:
+			return SINGLE_UNIT;
+		case MULTIPART_MONOGRAPH_VALUE:
+			return MULTIPART_MONOGRAPH;
+		case SERIAL_VALUE:
+			return SERIAL;
+		case INTEGRATING_RESOURCE_VALUE:
+			return INTEGRATING_RESOURCE;
 		}
 		return null;
 	}

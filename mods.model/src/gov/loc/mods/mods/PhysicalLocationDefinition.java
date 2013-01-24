@@ -25,5 +25,6 @@ package gov.loc.mods.mods;
  * @model extendedMetaData="name='physicalLocationDefinition' kind='simple'"
  * @generated
  */
-public interface PhysicalLocationDefinition extends StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink {
+public interface PhysicalLocationDefinition extends
+		StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink {
 } // PhysicalLocationDefinition

@@ -38,7 +38,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class NamePartDefinitionImpl extends XsStringImpl implements NamePartDefinition {
+public class NamePartDefinitionImpl extends XsStringImpl implements
+		NamePartDefinition {
 	/**
 	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -107,7 +108,8 @@ public class NamePartDefinitionImpl extends XsStringImpl implements NamePartDefi
 		boolean oldTypeESet = typeESet;
 		typeESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.NAME_PART_DEFINITION__TYPE, oldType, type,
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.NAME_PART_DEFINITION__TYPE, oldType, type,
 					!oldTypeESet));
 	}
 
@@ -122,7 +124,8 @@ public class NamePartDefinitionImpl extends XsStringImpl implements NamePartDefi
 		type = TYPE_EDEFAULT;
 		typeESet = false;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, MODSPackage.NAME_PART_DEFINITION__TYPE, oldType,
+			eNotify(new ENotificationImpl(this, Notification.UNSET,
+					MODSPackage.NAME_PART_DEFINITION__TYPE, oldType,
 					TYPE_EDEFAULT, oldTypeESet));
 	}
 
@@ -143,8 +146,8 @@ public class NamePartDefinitionImpl extends XsStringImpl implements NamePartDefi
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case MODSPackage.NAME_PART_DEFINITION__TYPE:
-				return getType();
+		case MODSPackage.NAME_PART_DEFINITION__TYPE:
+			return getType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -157,9 +160,9 @@ public class NamePartDefinitionImpl extends XsStringImpl implements NamePartDefi
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case MODSPackage.NAME_PART_DEFINITION__TYPE:
-				setType((NamePartTypeAttributeDefinition) newValue);
-				return;
+		case MODSPackage.NAME_PART_DEFINITION__TYPE:
+			setType((NamePartTypeAttributeDefinition) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -172,9 +175,9 @@ public class NamePartDefinitionImpl extends XsStringImpl implements NamePartDefi
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case MODSPackage.NAME_PART_DEFINITION__TYPE:
-				unsetType();
-				return;
+		case MODSPackage.NAME_PART_DEFINITION__TYPE:
+			unsetType();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -187,8 +190,8 @@ public class NamePartDefinitionImpl extends XsStringImpl implements NamePartDefi
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case MODSPackage.NAME_PART_DEFINITION__TYPE:
-				return isSetType();
+		case MODSPackage.NAME_PART_DEFINITION__TYPE:
+			return isSetType();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -49,8 +49,9 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class NameBaseDefinitionItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
-		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class NameBaseDefinitionItemProvider extends ItemProviderAdapter
+		implements IEditingDomainItemProvider, IStructuredItemContentProvider,
+		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -101,12 +102,15 @@ public class NameBaseDefinitionItemProvider extends ItemProviderAdapter implemen
 	 */
 	protected void addActuatePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_NameBaseDefinition_actuate_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_NameBaseDefinition_actuate_feature",
-						"_UI_NameBaseDefinition_type"), MODSPackage.eINSTANCE.getNameBaseDefinition_Actuate(), true, false,
-				false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_NameBaseDefinition_actuate_feature",
+						"_UI_NameBaseDefinition_type"), MODSPackage.eINSTANCE
+						.getNameBaseDefinition_Actuate(), true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -117,12 +121,15 @@ public class NameBaseDefinitionItemProvider extends ItemProviderAdapter implemen
 	 */
 	protected void addArcrolePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_NameBaseDefinition_arcrole_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_NameBaseDefinition_arcrole_feature",
-						"_UI_NameBaseDefinition_type"), MODSPackage.eINSTANCE.getNameBaseDefinition_Arcrole(), true, false,
-				false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_NameBaseDefinition_arcrole_feature",
+						"_UI_NameBaseDefinition_type"), MODSPackage.eINSTANCE
+						.getNameBaseDefinition_Arcrole(), true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -133,12 +140,15 @@ public class NameBaseDefinitionItemProvider extends ItemProviderAdapter implemen
 	 */
 	protected void addAuthorityPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_NameBaseDefinition_authority_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_NameBaseDefinition_authority_feature",
-						"_UI_NameBaseDefinition_type"), MODSPackage.eINSTANCE.getNameBaseDefinition_Authority(), true, false,
-				false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_NameBaseDefinition_authority_feature",
+						"_UI_NameBaseDefinition_type"), MODSPackage.eINSTANCE
+						.getNameBaseDefinition_Authority(), true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -149,12 +159,15 @@ public class NameBaseDefinitionItemProvider extends ItemProviderAdapter implemen
 	 */
 	protected void addAuthorityURIPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_NameBaseDefinition_authorityURI_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_NameBaseDefinition_authorityURI_feature",
-						"_UI_NameBaseDefinition_type"), MODSPackage.eINSTANCE.getNameBaseDefinition_AuthorityURI(), true,
-				false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_NameBaseDefinition_authorityURI_feature",
+						"_UI_NameBaseDefinition_type"), MODSPackage.eINSTANCE
+						.getNameBaseDefinition_AuthorityURI(), true, false,
+				false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -165,12 +178,15 @@ public class NameBaseDefinitionItemProvider extends ItemProviderAdapter implemen
 	 */
 	protected void addDisplayLabelPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_NameBaseDefinition_displayLabel_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_NameBaseDefinition_displayLabel_feature",
-						"_UI_NameBaseDefinition_type"), MODSPackage.eINSTANCE.getNameBaseDefinition_DisplayLabel(), true,
-				false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_NameBaseDefinition_displayLabel_feature",
+						"_UI_NameBaseDefinition_type"), MODSPackage.eINSTANCE
+						.getNameBaseDefinition_DisplayLabel(), true, false,
+				false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -181,12 +197,15 @@ public class NameBaseDefinitionItemProvider extends ItemProviderAdapter implemen
 	 */
 	protected void addHrefPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_NameBaseDefinition_href_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_NameBaseDefinition_href_feature",
-						"_UI_NameBaseDefinition_type"), MODSPackage.eINSTANCE.getNameBaseDefinition_Href(), true, false,
-				false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_NameBaseDefinition_href_feature",
+						"_UI_NameBaseDefinition_type"), MODSPackage.eINSTANCE
+						.getNameBaseDefinition_Href(), true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -197,11 +216,14 @@ public class NameBaseDefinitionItemProvider extends ItemProviderAdapter implemen
 	 */
 	protected void addIDPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_NameBaseDefinition_iD_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_NameBaseDefinition_iD_feature",
-						"_UI_NameBaseDefinition_type"), MODSPackage.eINSTANCE.getNameBaseDefinition_ID(), true, false, false,
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_NameBaseDefinition_iD_feature",
+						"_UI_NameBaseDefinition_type"), MODSPackage.eINSTANCE
+						.getNameBaseDefinition_ID(), true, false, false,
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
@@ -213,12 +235,15 @@ public class NameBaseDefinitionItemProvider extends ItemProviderAdapter implemen
 	 */
 	protected void addLangPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_NameBaseDefinition_lang_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_NameBaseDefinition_lang_feature",
-						"_UI_NameBaseDefinition_type"), MODSPackage.eINSTANCE.getNameBaseDefinition_Lang(), true, false,
-				false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_NameBaseDefinition_lang_feature",
+						"_UI_NameBaseDefinition_type"), MODSPackage.eINSTANCE
+						.getNameBaseDefinition_Lang(), true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -229,12 +254,15 @@ public class NameBaseDefinitionItemProvider extends ItemProviderAdapter implemen
 	 */
 	protected void addLang1PropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_NameBaseDefinition_lang1_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_NameBaseDefinition_lang1_feature",
-						"_UI_NameBaseDefinition_type"), MODSPackage.eINSTANCE.getNameBaseDefinition_Lang1(), true, false,
-				false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_NameBaseDefinition_lang1_feature",
+						"_UI_NameBaseDefinition_type"), MODSPackage.eINSTANCE
+						.getNameBaseDefinition_Lang1(), true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -245,12 +273,15 @@ public class NameBaseDefinitionItemProvider extends ItemProviderAdapter implemen
 	 */
 	protected void addRole1PropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_NameBaseDefinition_role1_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_NameBaseDefinition_role1_feature",
-						"_UI_NameBaseDefinition_type"), MODSPackage.eINSTANCE.getNameBaseDefinition_Role1(), true, false,
-				false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_NameBaseDefinition_role1_feature",
+						"_UI_NameBaseDefinition_type"), MODSPackage.eINSTANCE
+						.getNameBaseDefinition_Role1(), true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -261,12 +292,15 @@ public class NameBaseDefinitionItemProvider extends ItemProviderAdapter implemen
 	 */
 	protected void addScriptPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_NameBaseDefinition_script_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_NameBaseDefinition_script_feature",
-						"_UI_NameBaseDefinition_type"), MODSPackage.eINSTANCE.getNameBaseDefinition_Script(), true, false,
-				false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_NameBaseDefinition_script_feature",
+						"_UI_NameBaseDefinition_type"), MODSPackage.eINSTANCE
+						.getNameBaseDefinition_Script(), true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -277,12 +311,15 @@ public class NameBaseDefinitionItemProvider extends ItemProviderAdapter implemen
 	 */
 	protected void addShowPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_NameBaseDefinition_show_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_NameBaseDefinition_show_feature",
-						"_UI_NameBaseDefinition_type"), MODSPackage.eINSTANCE.getNameBaseDefinition_Show(), true, false,
-				false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_NameBaseDefinition_show_feature",
+						"_UI_NameBaseDefinition_type"), MODSPackage.eINSTANCE
+						.getNameBaseDefinition_Show(), true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -293,12 +330,15 @@ public class NameBaseDefinitionItemProvider extends ItemProviderAdapter implemen
 	 */
 	protected void addTitlePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_NameBaseDefinition_title_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_NameBaseDefinition_title_feature",
-						"_UI_NameBaseDefinition_type"), MODSPackage.eINSTANCE.getNameBaseDefinition_Title(), true, false,
-				false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_NameBaseDefinition_title_feature",
+						"_UI_NameBaseDefinition_type"), MODSPackage.eINSTANCE
+						.getNameBaseDefinition_Title(), true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -309,12 +349,15 @@ public class NameBaseDefinitionItemProvider extends ItemProviderAdapter implemen
 	 */
 	protected void addTransliterationPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_NameBaseDefinition_transliteration_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_NameBaseDefinition_transliteration_feature",
-						"_UI_NameBaseDefinition_type"), MODSPackage.eINSTANCE.getNameBaseDefinition_Transliteration(), true,
-				false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_NameBaseDefinition_transliteration_feature",
+						"_UI_NameBaseDefinition_type"), MODSPackage.eINSTANCE
+						.getNameBaseDefinition_Transliteration(), true, false,
+				false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -325,12 +368,15 @@ public class NameBaseDefinitionItemProvider extends ItemProviderAdapter implemen
 	 */
 	protected void addTypePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_NameBaseDefinition_type_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_NameBaseDefinition_type_feature",
-						"_UI_NameBaseDefinition_type"), MODSPackage.eINSTANCE.getNameBaseDefinition_Type(), true, false,
-				false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_NameBaseDefinition_type_feature",
+						"_UI_NameBaseDefinition_type"), MODSPackage.eINSTANCE
+						.getNameBaseDefinition_Type(), true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -341,12 +387,15 @@ public class NameBaseDefinitionItemProvider extends ItemProviderAdapter implemen
 	 */
 	protected void addType1PropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_NameBaseDefinition_type1_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_NameBaseDefinition_type1_feature",
-						"_UI_NameBaseDefinition_type"), MODSPackage.eINSTANCE.getNameBaseDefinition_Type1(), true, false,
-				false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_NameBaseDefinition_type1_feature",
+						"_UI_NameBaseDefinition_type"), MODSPackage.eINSTANCE
+						.getNameBaseDefinition_Type1(), true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -357,12 +406,15 @@ public class NameBaseDefinitionItemProvider extends ItemProviderAdapter implemen
 	 */
 	protected void addValueURIPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_NameBaseDefinition_valueURI_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_NameBaseDefinition_valueURI_feature",
-						"_UI_NameBaseDefinition_type"), MODSPackage.eINSTANCE.getNameBaseDefinition_ValueURI(), true, false,
-				false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_NameBaseDefinition_valueURI_feature",
+						"_UI_NameBaseDefinition_type"), MODSPackage.eINSTANCE
+						.getNameBaseDefinition_ValueURI(), true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -374,10 +426,12 @@ public class NameBaseDefinitionItemProvider extends ItemProviderAdapter implemen
 	 * @generated
 	 */
 	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(
+			Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(MODSPackage.eINSTANCE.getNameBaseDefinition_Group());
+			childrenFeatures.add(MODSPackage.eINSTANCE
+					.getNameBaseDefinition_Group());
 		}
 		return childrenFeatures;
 	}
@@ -403,7 +457,8 @@ public class NameBaseDefinitionItemProvider extends ItemProviderAdapter implemen
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/NameBaseDefinition"));
+		return overlayImage(object,
+				getResourceLocator().getImage("full/obj16/NameBaseDefinition"));
 	}
 
 	/**
@@ -441,28 +496,30 @@ public class NameBaseDefinitionItemProvider extends ItemProviderAdapter implemen
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(NameBaseDefinition.class)) {
-			case MODSPackage.NAME_BASE_DEFINITION__ACTUATE:
-			case MODSPackage.NAME_BASE_DEFINITION__ARCROLE:
-			case MODSPackage.NAME_BASE_DEFINITION__AUTHORITY:
-			case MODSPackage.NAME_BASE_DEFINITION__AUTHORITY_URI:
-			case MODSPackage.NAME_BASE_DEFINITION__DISPLAY_LABEL:
-			case MODSPackage.NAME_BASE_DEFINITION__HREF:
-			case MODSPackage.NAME_BASE_DEFINITION__ID:
-			case MODSPackage.NAME_BASE_DEFINITION__LANG:
-			case MODSPackage.NAME_BASE_DEFINITION__LANG1:
-			case MODSPackage.NAME_BASE_DEFINITION__ROLE1:
-			case MODSPackage.NAME_BASE_DEFINITION__SCRIPT:
-			case MODSPackage.NAME_BASE_DEFINITION__SHOW:
-			case MODSPackage.NAME_BASE_DEFINITION__TITLE:
-			case MODSPackage.NAME_BASE_DEFINITION__TRANSLITERATION:
-			case MODSPackage.NAME_BASE_DEFINITION__TYPE:
-			case MODSPackage.NAME_BASE_DEFINITION__TYPE1:
-			case MODSPackage.NAME_BASE_DEFINITION__VALUE_URI:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-			case MODSPackage.NAME_BASE_DEFINITION__GROUP:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-				return;
+		case MODSPackage.NAME_BASE_DEFINITION__ACTUATE:
+		case MODSPackage.NAME_BASE_DEFINITION__ARCROLE:
+		case MODSPackage.NAME_BASE_DEFINITION__AUTHORITY:
+		case MODSPackage.NAME_BASE_DEFINITION__AUTHORITY_URI:
+		case MODSPackage.NAME_BASE_DEFINITION__DISPLAY_LABEL:
+		case MODSPackage.NAME_BASE_DEFINITION__HREF:
+		case MODSPackage.NAME_BASE_DEFINITION__ID:
+		case MODSPackage.NAME_BASE_DEFINITION__LANG:
+		case MODSPackage.NAME_BASE_DEFINITION__LANG1:
+		case MODSPackage.NAME_BASE_DEFINITION__ROLE1:
+		case MODSPackage.NAME_BASE_DEFINITION__SCRIPT:
+		case MODSPackage.NAME_BASE_DEFINITION__SHOW:
+		case MODSPackage.NAME_BASE_DEFINITION__TITLE:
+		case MODSPackage.NAME_BASE_DEFINITION__TRANSLITERATION:
+		case MODSPackage.NAME_BASE_DEFINITION__TYPE:
+		case MODSPackage.NAME_BASE_DEFINITION__TYPE1:
+		case MODSPackage.NAME_BASE_DEFINITION__VALUE_URI:
+			fireNotifyChanged(new ViewerNotification(notification,
+					notification.getNotifier(), false, true));
+			return;
+		case MODSPackage.NAME_BASE_DEFINITION__GROUP:
+			fireNotifyChanged(new ViewerNotification(notification,
+					notification.getNotifier(), true, false));
+			return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -475,438 +532,472 @@ public class NameBaseDefinitionItemProvider extends ItemProviderAdapter implemen
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(
+			Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_NamePart(),
-						MODSFactory.eINSTANCE.createNamePartDefinition())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_DisplayForm(),
-						MODSFactory.eINSTANCE.createXsString())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_DisplayForm(),
-						MODSFactory.eINSTANCE.createUnstructuredTextDefinition())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_DisplayForm(),
-						MODSFactory.eINSTANCE.createAbstractDefinition())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_DisplayForm(),
-						MODSFactory.eINSTANCE.createStringPlusAuthority())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_DisplayForm(),
-						MODSFactory.eINSTANCE.createClassificationDefinition())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_DisplayForm(),
-						MODSFactory.eINSTANCE.createDateBaseDefinition())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_DisplayForm(),
-						MODSFactory.eINSTANCE.createDateDefinition())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_DisplayForm(),
-						MODSFactory.eINSTANCE.createDateOtherDefinition())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_DisplayForm(),
-						MODSFactory.eINSTANCE.createEnumerationAndChronologyDefinition())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_DisplayForm(),
-						MODSFactory.eINSTANCE.createStringPlusAuthorityPlusType())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_DisplayForm(),
-						MODSFactory.eINSTANCE.createStringPlusAuthorityPlusTypePlusDisplayLabel())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_DisplayForm(),
-						MODSFactory.eINSTANCE.createGenreDefinition())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_DisplayForm(),
-						MODSFactory.eINSTANCE.createGeographicCodeDefinition())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_DisplayForm(),
-						MODSFactory.eINSTANCE.createIdentifierDefinition())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_DisplayForm(),
-						MODSFactory.eINSTANCE.createLanguageTermDefinition())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_DisplayForm(),
-						MODSFactory.eINSTANCE.createNamePartDefinition())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_DisplayForm(),
-						MODSFactory.eINSTANCE.createNoteBaseDefinition())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_DisplayForm(),
-						MODSFactory.eINSTANCE.createNoteDefinition())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_DisplayForm(),
-						MODSFactory.eINSTANCE.createStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_DisplayForm(),
-						MODSFactory.eINSTANCE.createPhysicalLocationDefinition())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_DisplayForm(),
-						MODSFactory.eINSTANCE.createPlaceTermDefinition())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_DisplayForm(),
-						MODSFactory.eINSTANCE.createRecordIdentifierDefinition())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_DisplayForm(),
-						MODSFactory.eINSTANCE.createRoleTermDefinition())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_DisplayForm(),
-						MODSFactory.eINSTANCE.createScriptTermDefinition())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_DisplayForm(),
-						MODSFactory.eINSTANCE.createStringPlusSupplied())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_DisplayForm(),
-						MODSFactory.eINSTANCE.createTableOfContentsDefinition())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_DisplayForm(),
-						MODSFactory.eINSTANCE.createTargetAudienceDefinition())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_DisplayForm(),
-						MODSFactory.eINSTANCE.createTemporalDefinition())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_Affiliation(),
-						MODSFactory.eINSTANCE.createXsString())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_Affiliation(),
-						MODSFactory.eINSTANCE.createUnstructuredTextDefinition())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_Affiliation(),
-						MODSFactory.eINSTANCE.createAbstractDefinition())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_Affiliation(),
-						MODSFactory.eINSTANCE.createStringPlusAuthority())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_Affiliation(),
-						MODSFactory.eINSTANCE.createClassificationDefinition())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_Affiliation(),
-						MODSFactory.eINSTANCE.createDateBaseDefinition())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_Affiliation(),
-						MODSFactory.eINSTANCE.createDateDefinition())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_Affiliation(),
-						MODSFactory.eINSTANCE.createDateOtherDefinition())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_Affiliation(),
-						MODSFactory.eINSTANCE.createEnumerationAndChronologyDefinition())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_Affiliation(),
-						MODSFactory.eINSTANCE.createStringPlusAuthorityPlusType())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_Affiliation(),
-						MODSFactory.eINSTANCE.createStringPlusAuthorityPlusTypePlusDisplayLabel())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_Affiliation(),
-						MODSFactory.eINSTANCE.createGenreDefinition())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_Affiliation(),
-						MODSFactory.eINSTANCE.createGeographicCodeDefinition())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_Affiliation(),
-						MODSFactory.eINSTANCE.createIdentifierDefinition())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_Affiliation(),
-						MODSFactory.eINSTANCE.createLanguageTermDefinition())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_Affiliation(),
-						MODSFactory.eINSTANCE.createNamePartDefinition())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_Affiliation(),
-						MODSFactory.eINSTANCE.createNoteBaseDefinition())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_Affiliation(),
-						MODSFactory.eINSTANCE.createNoteDefinition())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_Affiliation(),
-						MODSFactory.eINSTANCE.createStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_Affiliation(),
-						MODSFactory.eINSTANCE.createPhysicalLocationDefinition())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_Affiliation(),
-						MODSFactory.eINSTANCE.createPlaceTermDefinition())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_Affiliation(),
-						MODSFactory.eINSTANCE.createRecordIdentifierDefinition())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_Affiliation(),
-						MODSFactory.eINSTANCE.createRoleTermDefinition())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_Affiliation(),
-						MODSFactory.eINSTANCE.createScriptTermDefinition())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_Affiliation(),
-						MODSFactory.eINSTANCE.createStringPlusSupplied())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_Affiliation(),
-						MODSFactory.eINSTANCE.createTableOfContentsDefinition())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_Affiliation(),
-						MODSFactory.eINSTANCE.createTargetAudienceDefinition())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_Affiliation(),
-						MODSFactory.eINSTANCE.createTemporalDefinition())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_Role(),
-						MODSFactory.eINSTANCE.createRoleDefinition())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_Description(),
-						MODSFactory.eINSTANCE.createXsString())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_Description(),
-						MODSFactory.eINSTANCE.createUnstructuredTextDefinition())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_Description(),
-						MODSFactory.eINSTANCE.createAbstractDefinition())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_Description(),
-						MODSFactory.eINSTANCE.createStringPlusAuthority())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_Description(),
-						MODSFactory.eINSTANCE.createClassificationDefinition())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_Description(),
-						MODSFactory.eINSTANCE.createDateBaseDefinition())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_Description(),
-						MODSFactory.eINSTANCE.createDateDefinition())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_Description(),
-						MODSFactory.eINSTANCE.createDateOtherDefinition())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_Description(),
-						MODSFactory.eINSTANCE.createEnumerationAndChronologyDefinition())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_Description(),
-						MODSFactory.eINSTANCE.createStringPlusAuthorityPlusType())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_Description(),
-						MODSFactory.eINSTANCE.createStringPlusAuthorityPlusTypePlusDisplayLabel())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_Description(),
-						MODSFactory.eINSTANCE.createGenreDefinition())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_Description(),
-						MODSFactory.eINSTANCE.createGeographicCodeDefinition())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_Description(),
-						MODSFactory.eINSTANCE.createIdentifierDefinition())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_Description(),
-						MODSFactory.eINSTANCE.createLanguageTermDefinition())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_Description(),
-						MODSFactory.eINSTANCE.createNamePartDefinition())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_Description(),
-						MODSFactory.eINSTANCE.createNoteBaseDefinition())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_Description(),
-						MODSFactory.eINSTANCE.createNoteDefinition())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_Description(),
-						MODSFactory.eINSTANCE.createStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_Description(),
-						MODSFactory.eINSTANCE.createPhysicalLocationDefinition())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_Description(),
-						MODSFactory.eINSTANCE.createPlaceTermDefinition())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_Description(),
-						MODSFactory.eINSTANCE.createRecordIdentifierDefinition())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_Description(),
-						MODSFactory.eINSTANCE.createRoleTermDefinition())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_Description(),
-						MODSFactory.eINSTANCE.createScriptTermDefinition())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_Description(),
-						MODSFactory.eINSTANCE.createStringPlusSupplied())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_Description(),
-						MODSFactory.eINSTANCE.createTableOfContentsDefinition())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_Description(),
-						MODSFactory.eINSTANCE.createTargetAudienceDefinition())));
-
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getNameBaseDefinition_Description(),
-						MODSFactory.eINSTANCE.createTemporalDefinition())));
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_NamePart(),
+				MODSFactory.eINSTANCE.createNamePartDefinition())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_DisplayForm(),
+				MODSFactory.eINSTANCE.createXsString())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_DisplayForm(),
+				MODSFactory.eINSTANCE.createUnstructuredTextDefinition())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_DisplayForm(),
+				MODSFactory.eINSTANCE.createAbstractDefinition())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_DisplayForm(),
+				MODSFactory.eINSTANCE.createAccessConditionDefinition())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_DisplayForm(),
+				MODSFactory.eINSTANCE.createStringPlusAuthority())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_DisplayForm(),
+				MODSFactory.eINSTANCE.createClassificationDefinition())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_DisplayForm(),
+				MODSFactory.eINSTANCE.createDateBaseDefinition())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_DisplayForm(),
+				MODSFactory.eINSTANCE.createDateDefinition())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_DisplayForm(),
+				MODSFactory.eINSTANCE.createDateOtherDefinition())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_DisplayForm(),
+				MODSFactory.eINSTANCE
+						.createEnumerationAndChronologyDefinition())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_DisplayForm(),
+				MODSFactory.eINSTANCE.createStringPlusAuthorityPlusType())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_DisplayForm(),
+				MODSFactory.eINSTANCE
+						.createStringPlusAuthorityPlusTypePlusDisplayLabel())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_DisplayForm(),
+				MODSFactory.eINSTANCE.createGenreDefinition())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_DisplayForm(),
+				MODSFactory.eINSTANCE.createGeographicCodeDefinition())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_DisplayForm(),
+				MODSFactory.eINSTANCE.createIdentifierDefinition())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_DisplayForm(),
+				MODSFactory.eINSTANCE.createLanguageTermDefinition())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_DisplayForm(),
+				MODSFactory.eINSTANCE.createNamePartDefinition())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_DisplayForm(),
+				MODSFactory.eINSTANCE.createNoteBaseDefinition())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_DisplayForm(),
+				MODSFactory.eINSTANCE.createNoteDefinition())));
+
+		newChildDescriptors
+				.add(createChildParameter(
+						MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
+						FeatureMapUtil.createEntry(
+								MODSPackage.eINSTANCE
+										.getNameBaseDefinition_DisplayForm(),
+								MODSFactory.eINSTANCE
+										.createStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_DisplayForm(),
+				MODSFactory.eINSTANCE.createPhysicalLocationDefinition())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_DisplayForm(),
+				MODSFactory.eINSTANCE.createPlaceTermDefinition())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_DisplayForm(),
+				MODSFactory.eINSTANCE.createRecordIdentifierDefinition())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_DisplayForm(),
+				MODSFactory.eINSTANCE.createRoleTermDefinition())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_DisplayForm(),
+				MODSFactory.eINSTANCE.createScriptTermDefinition())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_DisplayForm(),
+				MODSFactory.eINSTANCE.createStringPlusSupplied())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_DisplayForm(),
+				MODSFactory.eINSTANCE.createTableOfContentsDefinition())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_DisplayForm(),
+				MODSFactory.eINSTANCE.createTargetAudienceDefinition())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_DisplayForm(),
+				MODSFactory.eINSTANCE.createTemporalDefinition())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_Affiliation(),
+				MODSFactory.eINSTANCE.createXsString())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_Affiliation(),
+				MODSFactory.eINSTANCE.createUnstructuredTextDefinition())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_Affiliation(),
+				MODSFactory.eINSTANCE.createAbstractDefinition())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_Affiliation(),
+				MODSFactory.eINSTANCE.createAccessConditionDefinition())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_Affiliation(),
+				MODSFactory.eINSTANCE.createStringPlusAuthority())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_Affiliation(),
+				MODSFactory.eINSTANCE.createClassificationDefinition())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_Affiliation(),
+				MODSFactory.eINSTANCE.createDateBaseDefinition())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_Affiliation(),
+				MODSFactory.eINSTANCE.createDateDefinition())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_Affiliation(),
+				MODSFactory.eINSTANCE.createDateOtherDefinition())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_Affiliation(),
+				MODSFactory.eINSTANCE
+						.createEnumerationAndChronologyDefinition())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_Affiliation(),
+				MODSFactory.eINSTANCE.createStringPlusAuthorityPlusType())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_Affiliation(),
+				MODSFactory.eINSTANCE
+						.createStringPlusAuthorityPlusTypePlusDisplayLabel())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_Affiliation(),
+				MODSFactory.eINSTANCE.createGenreDefinition())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_Affiliation(),
+				MODSFactory.eINSTANCE.createGeographicCodeDefinition())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_Affiliation(),
+				MODSFactory.eINSTANCE.createIdentifierDefinition())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_Affiliation(),
+				MODSFactory.eINSTANCE.createLanguageTermDefinition())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_Affiliation(),
+				MODSFactory.eINSTANCE.createNamePartDefinition())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_Affiliation(),
+				MODSFactory.eINSTANCE.createNoteBaseDefinition())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_Affiliation(),
+				MODSFactory.eINSTANCE.createNoteDefinition())));
+
+		newChildDescriptors
+				.add(createChildParameter(
+						MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
+						FeatureMapUtil.createEntry(
+								MODSPackage.eINSTANCE
+										.getNameBaseDefinition_Affiliation(),
+								MODSFactory.eINSTANCE
+										.createStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_Affiliation(),
+				MODSFactory.eINSTANCE.createPhysicalLocationDefinition())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_Affiliation(),
+				MODSFactory.eINSTANCE.createPlaceTermDefinition())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_Affiliation(),
+				MODSFactory.eINSTANCE.createRecordIdentifierDefinition())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_Affiliation(),
+				MODSFactory.eINSTANCE.createRoleTermDefinition())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_Affiliation(),
+				MODSFactory.eINSTANCE.createScriptTermDefinition())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_Affiliation(),
+				MODSFactory.eINSTANCE.createStringPlusSupplied())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_Affiliation(),
+				MODSFactory.eINSTANCE.createTableOfContentsDefinition())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_Affiliation(),
+				MODSFactory.eINSTANCE.createTargetAudienceDefinition())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_Affiliation(),
+				MODSFactory.eINSTANCE.createTemporalDefinition())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_Role(),
+				MODSFactory.eINSTANCE.createRoleDefinition())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_Description(),
+				MODSFactory.eINSTANCE.createXsString())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_Description(),
+				MODSFactory.eINSTANCE.createUnstructuredTextDefinition())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_Description(),
+				MODSFactory.eINSTANCE.createAbstractDefinition())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_Description(),
+				MODSFactory.eINSTANCE.createAccessConditionDefinition())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_Description(),
+				MODSFactory.eINSTANCE.createStringPlusAuthority())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_Description(),
+				MODSFactory.eINSTANCE.createClassificationDefinition())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_Description(),
+				MODSFactory.eINSTANCE.createDateBaseDefinition())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_Description(),
+				MODSFactory.eINSTANCE.createDateDefinition())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_Description(),
+				MODSFactory.eINSTANCE.createDateOtherDefinition())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_Description(),
+				MODSFactory.eINSTANCE
+						.createEnumerationAndChronologyDefinition())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_Description(),
+				MODSFactory.eINSTANCE.createStringPlusAuthorityPlusType())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_Description(),
+				MODSFactory.eINSTANCE
+						.createStringPlusAuthorityPlusTypePlusDisplayLabel())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_Description(),
+				MODSFactory.eINSTANCE.createGenreDefinition())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_Description(),
+				MODSFactory.eINSTANCE.createGeographicCodeDefinition())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_Description(),
+				MODSFactory.eINSTANCE.createIdentifierDefinition())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_Description(),
+				MODSFactory.eINSTANCE.createLanguageTermDefinition())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_Description(),
+				MODSFactory.eINSTANCE.createNamePartDefinition())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_Description(),
+				MODSFactory.eINSTANCE.createNoteBaseDefinition())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_Description(),
+				MODSFactory.eINSTANCE.createNoteDefinition())));
+
+		newChildDescriptors
+				.add(createChildParameter(
+						MODSPackage.eINSTANCE.getNameBaseDefinition_Group(),
+						FeatureMapUtil.createEntry(
+								MODSPackage.eINSTANCE
+										.getNameBaseDefinition_Description(),
+								MODSFactory.eINSTANCE
+										.createStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_Description(),
+				MODSFactory.eINSTANCE.createPhysicalLocationDefinition())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_Description(),
+				MODSFactory.eINSTANCE.createPlaceTermDefinition())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_Description(),
+				MODSFactory.eINSTANCE.createRecordIdentifierDefinition())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_Description(),
+				MODSFactory.eINSTANCE.createRoleTermDefinition())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_Description(),
+				MODSFactory.eINSTANCE.createScriptTermDefinition())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_Description(),
+				MODSFactory.eINSTANCE.createStringPlusSupplied())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_Description(),
+				MODSFactory.eINSTANCE.createTableOfContentsDefinition())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_Description(),
+				MODSFactory.eINSTANCE.createTargetAudienceDefinition())));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getNameBaseDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getNameBaseDefinition_Description(),
+				MODSFactory.eINSTANCE.createTemporalDefinition())));
 	}
 
 	/**
@@ -916,24 +1007,32 @@ public class NameBaseDefinitionItemProvider extends ItemProviderAdapter implemen
 	 * @generated
 	 */
 	@Override
-	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+	public String getCreateChildText(Object owner, Object feature,
+			Object child, Collection<?> selection) {
 		Object childFeature = feature;
 		Object childObject = child;
 
-		if (childFeature instanceof EStructuralFeature && FeatureMapUtil.isFeatureMap((EStructuralFeature) childFeature)) {
+		if (childFeature instanceof EStructuralFeature
+				&& FeatureMapUtil
+						.isFeatureMap((EStructuralFeature) childFeature)) {
 			FeatureMap.Entry entry = (FeatureMap.Entry) childObject;
 			childFeature = entry.getEStructuralFeature();
 			childObject = entry.getValue();
 		}
 
-		boolean qualify = childFeature == MODSPackage.eINSTANCE.getNameBaseDefinition_NamePart()
-				|| childFeature == MODSPackage.eINSTANCE.getNameBaseDefinition_DisplayForm()
-				|| childFeature == MODSPackage.eINSTANCE.getNameBaseDefinition_Affiliation()
-				|| childFeature == MODSPackage.eINSTANCE.getNameBaseDefinition_Description();
+		boolean qualify = childFeature == MODSPackage.eINSTANCE
+				.getNameBaseDefinition_NamePart()
+				|| childFeature == MODSPackage.eINSTANCE
+						.getNameBaseDefinition_DisplayForm()
+				|| childFeature == MODSPackage.eINSTANCE
+						.getNameBaseDefinition_Affiliation()
+				|| childFeature == MODSPackage.eINSTANCE
+						.getNameBaseDefinition_Description();
 
 		if (qualify) {
-			return getString("_UI_CreateChild_text2", new Object[] { getTypeText(childObject),
-					getFeatureText(childFeature), getTypeText(owner) });
+			return getString("_UI_CreateChild_text2", new Object[] {
+					getTypeText(childObject), getFeatureText(childFeature),
+					getTypeText(owner) });
 		}
 		return super.getCreateChildText(owner, feature, child, selection);
 	}

@@ -313,8 +313,9 @@ public enum RelatedItemTypeAttributeDefinition implements Enumerator {
 	 * @generated
 	 */
 	private static final RelatedItemTypeAttributeDefinition[] VALUES_ARRAY = new RelatedItemTypeAttributeDefinition[] {
-			PRECEDING, SUCCEEDING, ORIGINAL, HOST, CONSTITUENT, SERIES, OTHER_VERSION, OTHER_FORMAT, IS_REFERENCED_BY,
-			REFERENCES, REVIEW_OF, };
+			PRECEDING, SUCCEEDING, ORIGINAL, HOST, CONSTITUENT, SERIES,
+			OTHER_VERSION, OTHER_FORMAT, IS_REFERENCED_BY, REFERENCES,
+			REVIEW_OF, };
 
 	/**
 	 * A public read-only list of all the '<em><b>Related Item Type Attribute Definition</b></em>' enumerators.
@@ -322,8 +323,8 @@ public enum RelatedItemTypeAttributeDefinition implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final List<RelatedItemTypeAttributeDefinition> VALUES = Collections.unmodifiableList(Arrays
-			.asList(VALUES_ARRAY));
+	public static final List<RelatedItemTypeAttributeDefinition> VALUES = Collections
+			.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
 	 * Returns the '<em><b>Related Item Type Attribute Definition</b></em>' literal with the specified literal value.
@@ -365,28 +366,28 @@ public enum RelatedItemTypeAttributeDefinition implements Enumerator {
 	 */
 	public static RelatedItemTypeAttributeDefinition get(int value) {
 		switch (value) {
-			case PRECEDING_VALUE:
-				return PRECEDING;
-			case SUCCEEDING_VALUE:
-				return SUCCEEDING;
-			case ORIGINAL_VALUE:
-				return ORIGINAL;
-			case HOST_VALUE:
-				return HOST;
-			case CONSTITUENT_VALUE:
-				return CONSTITUENT;
-			case SERIES_VALUE:
-				return SERIES;
-			case OTHER_VERSION_VALUE:
-				return OTHER_VERSION;
-			case OTHER_FORMAT_VALUE:
-				return OTHER_FORMAT;
-			case IS_REFERENCED_BY_VALUE:
-				return IS_REFERENCED_BY;
-			case REFERENCES_VALUE:
-				return REFERENCES;
-			case REVIEW_OF_VALUE:
-				return REVIEW_OF;
+		case PRECEDING_VALUE:
+			return PRECEDING;
+		case SUCCEEDING_VALUE:
+			return SUCCEEDING;
+		case ORIGINAL_VALUE:
+			return ORIGINAL;
+		case HOST_VALUE:
+			return HOST;
+		case CONSTITUENT_VALUE:
+			return CONSTITUENT;
+		case SERIES_VALUE:
+			return SERIES;
+		case OTHER_VERSION_VALUE:
+			return OTHER_VERSION;
+		case OTHER_FORMAT_VALUE:
+			return OTHER_FORMAT;
+		case IS_REFERENCED_BY_VALUE:
+			return IS_REFERENCED_BY;
+		case REFERENCES_VALUE:
+			return REFERENCES;
+		case REVIEW_OF_VALUE:
+			return REVIEW_OF;
 		}
 		return null;
 	}
@@ -418,7 +419,8 @@ public enum RelatedItemTypeAttributeDefinition implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private RelatedItemTypeAttributeDefinition(int value, String name, String literal) {
+	private RelatedItemTypeAttributeDefinition(int value, String name,
+			String literal) {
 		this.value = value;
 		this.name = name;
 		this.literal = literal;

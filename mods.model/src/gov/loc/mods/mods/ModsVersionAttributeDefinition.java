@@ -162,8 +162,8 @@ public enum ModsVersionAttributeDefinition implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final ModsVersionAttributeDefinition[] VALUES_ARRAY = new ModsVersionAttributeDefinition[] { _34,
-			_33, _32, _31, _30, };
+	private static final ModsVersionAttributeDefinition[] VALUES_ARRAY = new ModsVersionAttributeDefinition[] {
+			_34, _33, _32, _31, _30, };
 
 	/**
 	 * A public read-only list of all the '<em><b>Mods Version Attribute Definition</b></em>' enumerators.
@@ -171,8 +171,8 @@ public enum ModsVersionAttributeDefinition implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final List<ModsVersionAttributeDefinition> VALUES = Collections.unmodifiableList(Arrays
-			.asList(VALUES_ARRAY));
+	public static final List<ModsVersionAttributeDefinition> VALUES = Collections
+			.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
 	 * Returns the '<em><b>Mods Version Attribute Definition</b></em>' literal with the specified literal value.
@@ -214,16 +214,16 @@ public enum ModsVersionAttributeDefinition implements Enumerator {
 	 */
 	public static ModsVersionAttributeDefinition get(int value) {
 		switch (value) {
-			case _34_VALUE:
-				return _34;
-			case _33_VALUE:
-				return _33;
-			case _32_VALUE:
-				return _32;
-			case _31_VALUE:
-				return _31;
-			case _30_VALUE:
-				return _30;
+		case _34_VALUE:
+			return _34;
+		case _33_VALUE:
+			return _33;
+		case _32_VALUE:
+			return _32;
+		case _31_VALUE:
+			return _31;
+		case _30_VALUE:
+			return _30;
 		}
 		return null;
 	}
@@ -255,7 +255,8 @@ public enum ModsVersionAttributeDefinition implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private ModsVersionAttributeDefinition(int value, String name, String literal) {
+	private ModsVersionAttributeDefinition(int value, String name,
+			String literal) {
 		this.value = value;
 		this.name = name;
 		this.literal = literal;

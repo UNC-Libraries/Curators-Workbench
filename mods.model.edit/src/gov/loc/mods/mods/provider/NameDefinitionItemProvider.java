@@ -45,8 +45,9 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class NameDefinitionItemProvider extends NameBaseDefinitionItemProvider implements IEditingDomainItemProvider,
-		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class NameDefinitionItemProvider extends NameBaseDefinitionItemProvider
+		implements IEditingDomainItemProvider, IStructuredItemContentProvider,
+		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -83,12 +84,15 @@ public class NameDefinitionItemProvider extends NameBaseDefinitionItemProvider i
 	 */
 	protected void addAltRepGroupPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_NameDefinition_altRepGroup_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_NameDefinition_altRepGroup_feature",
-						"_UI_NameDefinition_type"), MODSPackage.eINSTANCE.getNameDefinition_AltRepGroup(), true, false,
-				false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_NameDefinition_altRepGroup_feature",
+						"_UI_NameDefinition_type"), MODSPackage.eINSTANCE
+						.getNameDefinition_AltRepGroup(), true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -99,11 +103,14 @@ public class NameDefinitionItemProvider extends NameBaseDefinitionItemProvider i
 	 */
 	protected void addNameTitleGroupPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_NameDefinition_nameTitleGroup_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_NameDefinition_nameTitleGroup_feature",
-						"_UI_NameDefinition_type"), MODSPackage.eINSTANCE.getNameDefinition_NameTitleGroup(), true, false,
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_NameDefinition_nameTitleGroup_feature",
+						"_UI_NameDefinition_type"), MODSPackage.eINSTANCE
+						.getNameDefinition_NameTitleGroup(), true, false,
 				false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
@@ -115,11 +122,14 @@ public class NameDefinitionItemProvider extends NameBaseDefinitionItemProvider i
 	 */
 	protected void addUsagePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_NameDefinition_usage_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_NameDefinition_usage_feature",
-						"_UI_NameDefinition_type"), MODSPackage.eINSTANCE.getNameDefinition_Usage(), true, false, false,
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_NameDefinition_usage_feature",
+						"_UI_NameDefinition_type"), MODSPackage.eINSTANCE
+						.getNameDefinition_Usage(), true, false, false,
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
@@ -131,7 +141,8 @@ public class NameDefinitionItemProvider extends NameBaseDefinitionItemProvider i
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/NameDefinition"));
+		return overlayImage(object,
+				getResourceLocator().getImage("full/obj16/NameDefinition"));
 	}
 
 	/**
@@ -169,11 +180,12 @@ public class NameDefinitionItemProvider extends NameBaseDefinitionItemProvider i
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(NameDefinition.class)) {
-			case MODSPackage.NAME_DEFINITION__ALT_REP_GROUP:
-			case MODSPackage.NAME_DEFINITION__NAME_TITLE_GROUP:
-			case MODSPackage.NAME_DEFINITION__USAGE:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
+		case MODSPackage.NAME_DEFINITION__ALT_REP_GROUP:
+		case MODSPackage.NAME_DEFINITION__NAME_TITLE_GROUP:
+		case MODSPackage.NAME_DEFINITION__USAGE:
+			fireNotifyChanged(new ViewerNotification(notification,
+					notification.getNotifier(), false, true));
+			return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -186,7 +198,8 @@ public class NameDefinitionItemProvider extends NameBaseDefinitionItemProvider i
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(
+			Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 
@@ -197,24 +210,32 @@ public class NameDefinitionItemProvider extends NameBaseDefinitionItemProvider i
 	 * @generated
 	 */
 	@Override
-	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+	public String getCreateChildText(Object owner, Object feature,
+			Object child, Collection<?> selection) {
 		Object childFeature = feature;
 		Object childObject = child;
 
-		if (childFeature instanceof EStructuralFeature && FeatureMapUtil.isFeatureMap((EStructuralFeature) childFeature)) {
+		if (childFeature instanceof EStructuralFeature
+				&& FeatureMapUtil
+						.isFeatureMap((EStructuralFeature) childFeature)) {
 			FeatureMap.Entry entry = (FeatureMap.Entry) childObject;
 			childFeature = entry.getEStructuralFeature();
 			childObject = entry.getValue();
 		}
 
-		boolean qualify = childFeature == MODSPackage.eINSTANCE.getNameBaseDefinition_NamePart()
-				|| childFeature == MODSPackage.eINSTANCE.getNameBaseDefinition_DisplayForm()
-				|| childFeature == MODSPackage.eINSTANCE.getNameBaseDefinition_Affiliation()
-				|| childFeature == MODSPackage.eINSTANCE.getNameBaseDefinition_Description();
+		boolean qualify = childFeature == MODSPackage.eINSTANCE
+				.getNameBaseDefinition_NamePart()
+				|| childFeature == MODSPackage.eINSTANCE
+						.getNameBaseDefinition_DisplayForm()
+				|| childFeature == MODSPackage.eINSTANCE
+						.getNameBaseDefinition_Affiliation()
+				|| childFeature == MODSPackage.eINSTANCE
+						.getNameBaseDefinition_Description();
 
 		if (qualify) {
-			return getString("_UI_CreateChild_text2", new Object[] { getTypeText(childObject),
-					getFeatureText(childFeature), getTypeText(owner) });
+			return getString("_UI_CreateChild_text2", new Object[] {
+					getTypeText(childObject), getFeatureText(childFeature),
+					getTypeText(owner) });
 		}
 		return super.getCreateChildText(owner, feature, child, selection);
 	}

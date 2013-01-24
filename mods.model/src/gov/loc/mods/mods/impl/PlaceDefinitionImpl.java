@@ -116,7 +116,8 @@ public class PlaceDefinitionImpl extends EObjectImpl implements PlaceDefinition 
 	 */
 	public EList<PlaceTermDefinition> getPlaceTerm() {
 		if (placeTerm == null) {
-			placeTerm = new EObjectContainmentEList<PlaceTermDefinition>(PlaceTermDefinition.class, this,
+			placeTerm = new EObjectContainmentEList<PlaceTermDefinition>(
+					PlaceTermDefinition.class, this,
 					MODSPackage.PLACE_DEFINITION__PLACE_TERM);
 		}
 		return placeTerm;
@@ -142,7 +143,8 @@ public class PlaceDefinitionImpl extends EObjectImpl implements PlaceDefinition 
 		boolean oldSuppliedESet = suppliedESet;
 		suppliedESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.PLACE_DEFINITION__SUPPLIED, oldSupplied,
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.PLACE_DEFINITION__SUPPLIED, oldSupplied,
 					supplied, !oldSuppliedESet));
 	}
 
@@ -157,7 +159,8 @@ public class PlaceDefinitionImpl extends EObjectImpl implements PlaceDefinition 
 		supplied = SUPPLIED_EDEFAULT;
 		suppliedESet = false;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, MODSPackage.PLACE_DEFINITION__SUPPLIED, oldSupplied,
+			eNotify(new ENotificationImpl(this, Notification.UNSET,
+					MODSPackage.PLACE_DEFINITION__SUPPLIED, oldSupplied,
 					SUPPLIED_EDEFAULT, oldSuppliedESet));
 	}
 
@@ -176,10 +179,12 @@ public class PlaceDefinitionImpl extends EObjectImpl implements PlaceDefinition 
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+	public NotificationChain eInverseRemove(InternalEObject otherEnd,
+			int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case MODSPackage.PLACE_DEFINITION__PLACE_TERM:
-				return ((InternalEList<?>) getPlaceTerm()).basicRemove(otherEnd, msgs);
+		case MODSPackage.PLACE_DEFINITION__PLACE_TERM:
+			return ((InternalEList<?>) getPlaceTerm()).basicRemove(otherEnd,
+					msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -192,10 +197,10 @@ public class PlaceDefinitionImpl extends EObjectImpl implements PlaceDefinition 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case MODSPackage.PLACE_DEFINITION__PLACE_TERM:
-				return getPlaceTerm();
-			case MODSPackage.PLACE_DEFINITION__SUPPLIED:
-				return getSupplied();
+		case MODSPackage.PLACE_DEFINITION__PLACE_TERM:
+			return getPlaceTerm();
+		case MODSPackage.PLACE_DEFINITION__SUPPLIED:
+			return getSupplied();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -209,13 +214,14 @@ public class PlaceDefinitionImpl extends EObjectImpl implements PlaceDefinition 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case MODSPackage.PLACE_DEFINITION__PLACE_TERM:
-				getPlaceTerm().clear();
-				getPlaceTerm().addAll((Collection<? extends PlaceTermDefinition>) newValue);
-				return;
-			case MODSPackage.PLACE_DEFINITION__SUPPLIED:
-				setSupplied((YesDefinition) newValue);
-				return;
+		case MODSPackage.PLACE_DEFINITION__PLACE_TERM:
+			getPlaceTerm().clear();
+			getPlaceTerm().addAll(
+					(Collection<? extends PlaceTermDefinition>) newValue);
+			return;
+		case MODSPackage.PLACE_DEFINITION__SUPPLIED:
+			setSupplied((YesDefinition) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -228,12 +234,12 @@ public class PlaceDefinitionImpl extends EObjectImpl implements PlaceDefinition 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case MODSPackage.PLACE_DEFINITION__PLACE_TERM:
-				getPlaceTerm().clear();
-				return;
-			case MODSPackage.PLACE_DEFINITION__SUPPLIED:
-				unsetSupplied();
-				return;
+		case MODSPackage.PLACE_DEFINITION__PLACE_TERM:
+			getPlaceTerm().clear();
+			return;
+		case MODSPackage.PLACE_DEFINITION__SUPPLIED:
+			unsetSupplied();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -246,10 +252,10 @@ public class PlaceDefinitionImpl extends EObjectImpl implements PlaceDefinition 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case MODSPackage.PLACE_DEFINITION__PLACE_TERM:
-				return placeTerm != null && !placeTerm.isEmpty();
-			case MODSPackage.PLACE_DEFINITION__SUPPLIED:
-				return isSetSupplied();
+		case MODSPackage.PLACE_DEFINITION__PLACE_TERM:
+			return placeTerm != null && !placeTerm.isEmpty();
+		case MODSPackage.PLACE_DEFINITION__SUPPLIED:
+			return isSetSupplied();
 		}
 		return super.eIsSet(featureID);
 	}

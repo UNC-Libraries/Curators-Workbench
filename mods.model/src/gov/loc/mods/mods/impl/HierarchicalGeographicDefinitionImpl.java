@@ -64,7 +64,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class HierarchicalGeographicDefinitionImpl extends EObjectImpl implements HierarchicalGeographicDefinition {
+public class HierarchicalGeographicDefinitionImpl extends EObjectImpl implements
+		HierarchicalGeographicDefinition {
 	/**
 	 * The cached value of the '{@link #getGroup() <em>Group</em>}' attribute list.
 	 * <!-- begin-user-doc -->
@@ -161,7 +162,8 @@ public class HierarchicalGeographicDefinitionImpl extends EObjectImpl implements
 	 */
 	public FeatureMap getGroup() {
 		if (group == null) {
-			group = new BasicFeatureMap(this, MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__GROUP);
+			group = new BasicFeatureMap(this,
+					MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__GROUP);
 		}
 		return group;
 	}
@@ -172,7 +174,9 @@ public class HierarchicalGeographicDefinitionImpl extends EObjectImpl implements
 	 * @generated
 	 */
 	public EList<XsString> getExtraterrestrialArea() {
-		return getGroup().list(MODSPackage.eINSTANCE.getHierarchicalGeographicDefinition_ExtraterrestrialArea());
+		return getGroup()
+				.list(MODSPackage.eINSTANCE
+						.getHierarchicalGeographicDefinition_ExtraterrestrialArea());
 	}
 
 	/**
@@ -181,7 +185,9 @@ public class HierarchicalGeographicDefinitionImpl extends EObjectImpl implements
 	 * @generated
 	 */
 	public EList<XsString> getContinent() {
-		return getGroup().list(MODSPackage.eINSTANCE.getHierarchicalGeographicDefinition_Continent());
+		return getGroup().list(
+				MODSPackage.eINSTANCE
+						.getHierarchicalGeographicDefinition_Continent());
 	}
 
 	/**
@@ -190,7 +196,9 @@ public class HierarchicalGeographicDefinitionImpl extends EObjectImpl implements
 	 * @generated
 	 */
 	public EList<XsString> getCountry() {
-		return getGroup().list(MODSPackage.eINSTANCE.getHierarchicalGeographicDefinition_Country());
+		return getGroup().list(
+				MODSPackage.eINSTANCE
+						.getHierarchicalGeographicDefinition_Country());
 	}
 
 	/**
@@ -199,7 +207,9 @@ public class HierarchicalGeographicDefinitionImpl extends EObjectImpl implements
 	 * @generated
 	 */
 	public EList<XsString> getProvince() {
-		return getGroup().list(MODSPackage.eINSTANCE.getHierarchicalGeographicDefinition_Province());
+		return getGroup().list(
+				MODSPackage.eINSTANCE
+						.getHierarchicalGeographicDefinition_Province());
 	}
 
 	/**
@@ -208,7 +218,9 @@ public class HierarchicalGeographicDefinitionImpl extends EObjectImpl implements
 	 * @generated
 	 */
 	public EList<XsString> getRegion() {
-		return getGroup().list(MODSPackage.eINSTANCE.getHierarchicalGeographicDefinition_Region());
+		return getGroup().list(
+				MODSPackage.eINSTANCE
+						.getHierarchicalGeographicDefinition_Region());
 	}
 
 	/**
@@ -217,7 +229,9 @@ public class HierarchicalGeographicDefinitionImpl extends EObjectImpl implements
 	 * @generated
 	 */
 	public EList<XsString> getState() {
-		return getGroup().list(MODSPackage.eINSTANCE.getHierarchicalGeographicDefinition_State());
+		return getGroup().list(
+				MODSPackage.eINSTANCE
+						.getHierarchicalGeographicDefinition_State());
 	}
 
 	/**
@@ -226,7 +240,9 @@ public class HierarchicalGeographicDefinitionImpl extends EObjectImpl implements
 	 * @generated
 	 */
 	public EList<XsString> getTerritory() {
-		return getGroup().list(MODSPackage.eINSTANCE.getHierarchicalGeographicDefinition_Territory());
+		return getGroup().list(
+				MODSPackage.eINSTANCE
+						.getHierarchicalGeographicDefinition_Territory());
 	}
 
 	/**
@@ -235,7 +251,9 @@ public class HierarchicalGeographicDefinitionImpl extends EObjectImpl implements
 	 * @generated
 	 */
 	public EList<XsString> getCounty() {
-		return getGroup().list(MODSPackage.eINSTANCE.getHierarchicalGeographicDefinition_County());
+		return getGroup().list(
+				MODSPackage.eINSTANCE
+						.getHierarchicalGeographicDefinition_County());
 	}
 
 	/**
@@ -244,7 +262,9 @@ public class HierarchicalGeographicDefinitionImpl extends EObjectImpl implements
 	 * @generated
 	 */
 	public EList<XsString> getCity() {
-		return getGroup().list(MODSPackage.eINSTANCE.getHierarchicalGeographicDefinition_City());
+		return getGroup().list(
+				MODSPackage.eINSTANCE
+						.getHierarchicalGeographicDefinition_City());
 	}
 
 	/**
@@ -253,7 +273,9 @@ public class HierarchicalGeographicDefinitionImpl extends EObjectImpl implements
 	 * @generated
 	 */
 	public EList<XsString> getCitySection() {
-		return getGroup().list(MODSPackage.eINSTANCE.getHierarchicalGeographicDefinition_CitySection());
+		return getGroup().list(
+				MODSPackage.eINSTANCE
+						.getHierarchicalGeographicDefinition_CitySection());
 	}
 
 	/**
@@ -262,7 +284,9 @@ public class HierarchicalGeographicDefinitionImpl extends EObjectImpl implements
 	 * @generated
 	 */
 	public EList<XsString> getIsland() {
-		return getGroup().list(MODSPackage.eINSTANCE.getHierarchicalGeographicDefinition_Island());
+		return getGroup().list(
+				MODSPackage.eINSTANCE
+						.getHierarchicalGeographicDefinition_Island());
 	}
 
 	/**
@@ -271,7 +295,9 @@ public class HierarchicalGeographicDefinitionImpl extends EObjectImpl implements
 	 * @generated
 	 */
 	public EList<XsString> getArea() {
-		return getGroup().list(MODSPackage.eINSTANCE.getHierarchicalGeographicDefinition_Area());
+		return getGroup().list(
+				MODSPackage.eINSTANCE
+						.getHierarchicalGeographicDefinition_Area());
 	}
 
 	/**
@@ -293,7 +319,8 @@ public class HierarchicalGeographicDefinitionImpl extends EObjectImpl implements
 		authority = newAuthority;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET,
-					MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__AUTHORITY, oldAuthority, authority));
+					MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__AUTHORITY,
+					oldAuthority, authority));
 	}
 
 	/**
@@ -314,8 +341,11 @@ public class HierarchicalGeographicDefinitionImpl extends EObjectImpl implements
 		String oldAuthorityURI = authorityURI;
 		authorityURI = newAuthorityURI;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__AUTHORITY_URI, oldAuthorityURI, authorityURI));
+			eNotify(new ENotificationImpl(
+					this,
+					Notification.SET,
+					MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__AUTHORITY_URI,
+					oldAuthorityURI, authorityURI));
 	}
 
 	/**
@@ -337,7 +367,8 @@ public class HierarchicalGeographicDefinitionImpl extends EObjectImpl implements
 		valueURI = newValueURI;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET,
-					MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__VALUE_URI, oldValueURI, valueURI));
+					MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__VALUE_URI,
+					oldValueURI, valueURI));
 	}
 
 	/**
@@ -346,34 +377,41 @@ public class HierarchicalGeographicDefinitionImpl extends EObjectImpl implements
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+	public NotificationChain eInverseRemove(InternalEObject otherEnd,
+			int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__GROUP:
-				return ((InternalEList<?>) getGroup()).basicRemove(otherEnd, msgs);
-			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__EXTRATERRESTRIAL_AREA:
-				return ((InternalEList<?>) getExtraterrestrialArea()).basicRemove(otherEnd, msgs);
-			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__CONTINENT:
-				return ((InternalEList<?>) getContinent()).basicRemove(otherEnd, msgs);
-			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__COUNTRY:
-				return ((InternalEList<?>) getCountry()).basicRemove(otherEnd, msgs);
-			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__PROVINCE:
-				return ((InternalEList<?>) getProvince()).basicRemove(otherEnd, msgs);
-			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__REGION:
-				return ((InternalEList<?>) getRegion()).basicRemove(otherEnd, msgs);
-			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__STATE:
-				return ((InternalEList<?>) getState()).basicRemove(otherEnd, msgs);
-			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__TERRITORY:
-				return ((InternalEList<?>) getTerritory()).basicRemove(otherEnd, msgs);
-			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__COUNTY:
-				return ((InternalEList<?>) getCounty()).basicRemove(otherEnd, msgs);
-			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__CITY:
-				return ((InternalEList<?>) getCity()).basicRemove(otherEnd, msgs);
-			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__CITY_SECTION:
-				return ((InternalEList<?>) getCitySection()).basicRemove(otherEnd, msgs);
-			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__ISLAND:
-				return ((InternalEList<?>) getIsland()).basicRemove(otherEnd, msgs);
-			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__AREA:
-				return ((InternalEList<?>) getArea()).basicRemove(otherEnd, msgs);
+		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__GROUP:
+			return ((InternalEList<?>) getGroup()).basicRemove(otherEnd, msgs);
+		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__EXTRATERRESTRIAL_AREA:
+			return ((InternalEList<?>) getExtraterrestrialArea()).basicRemove(
+					otherEnd, msgs);
+		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__CONTINENT:
+			return ((InternalEList<?>) getContinent()).basicRemove(otherEnd,
+					msgs);
+		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__COUNTRY:
+			return ((InternalEList<?>) getCountry())
+					.basicRemove(otherEnd, msgs);
+		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__PROVINCE:
+			return ((InternalEList<?>) getProvince()).basicRemove(otherEnd,
+					msgs);
+		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__REGION:
+			return ((InternalEList<?>) getRegion()).basicRemove(otherEnd, msgs);
+		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__STATE:
+			return ((InternalEList<?>) getState()).basicRemove(otherEnd, msgs);
+		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__TERRITORY:
+			return ((InternalEList<?>) getTerritory()).basicRemove(otherEnd,
+					msgs);
+		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__COUNTY:
+			return ((InternalEList<?>) getCounty()).basicRemove(otherEnd, msgs);
+		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__CITY:
+			return ((InternalEList<?>) getCity()).basicRemove(otherEnd, msgs);
+		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__CITY_SECTION:
+			return ((InternalEList<?>) getCitySection()).basicRemove(otherEnd,
+					msgs);
+		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__ISLAND:
+			return ((InternalEList<?>) getIsland()).basicRemove(otherEnd, msgs);
+		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__AREA:
+			return ((InternalEList<?>) getArea()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -386,40 +424,40 @@ public class HierarchicalGeographicDefinitionImpl extends EObjectImpl implements
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__GROUP:
-				if (coreType)
-					return getGroup();
-				return ((FeatureMap.Internal) getGroup()).getWrapper();
-			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__EXTRATERRESTRIAL_AREA:
-				return getExtraterrestrialArea();
-			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__CONTINENT:
-				return getContinent();
-			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__COUNTRY:
-				return getCountry();
-			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__PROVINCE:
-				return getProvince();
-			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__REGION:
-				return getRegion();
-			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__STATE:
-				return getState();
-			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__TERRITORY:
-				return getTerritory();
-			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__COUNTY:
-				return getCounty();
-			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__CITY:
-				return getCity();
-			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__CITY_SECTION:
-				return getCitySection();
-			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__ISLAND:
-				return getIsland();
-			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__AREA:
-				return getArea();
-			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__AUTHORITY:
-				return getAuthority();
-			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__AUTHORITY_URI:
-				return getAuthorityURI();
-			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__VALUE_URI:
-				return getValueURI();
+		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__GROUP:
+			if (coreType)
+				return getGroup();
+			return ((FeatureMap.Internal) getGroup()).getWrapper();
+		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__EXTRATERRESTRIAL_AREA:
+			return getExtraterrestrialArea();
+		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__CONTINENT:
+			return getContinent();
+		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__COUNTRY:
+			return getCountry();
+		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__PROVINCE:
+			return getProvince();
+		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__REGION:
+			return getRegion();
+		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__STATE:
+			return getState();
+		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__TERRITORY:
+			return getTerritory();
+		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__COUNTY:
+			return getCounty();
+		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__CITY:
+			return getCity();
+		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__CITY_SECTION:
+			return getCitySection();
+		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__ISLAND:
+			return getIsland();
+		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__AREA:
+			return getArea();
+		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__AUTHORITY:
+			return getAuthority();
+		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__AUTHORITY_URI:
+			return getAuthorityURI();
+		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__VALUE_URI:
+			return getValueURI();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -433,66 +471,67 @@ public class HierarchicalGeographicDefinitionImpl extends EObjectImpl implements
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__GROUP:
-				((FeatureMap.Internal) getGroup()).set(newValue);
-				return;
-			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__EXTRATERRESTRIAL_AREA:
-				getExtraterrestrialArea().clear();
-				getExtraterrestrialArea().addAll((Collection<? extends XsString>) newValue);
-				return;
-			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__CONTINENT:
-				getContinent().clear();
-				getContinent().addAll((Collection<? extends XsString>) newValue);
-				return;
-			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__COUNTRY:
-				getCountry().clear();
-				getCountry().addAll((Collection<? extends XsString>) newValue);
-				return;
-			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__PROVINCE:
-				getProvince().clear();
-				getProvince().addAll((Collection<? extends XsString>) newValue);
-				return;
-			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__REGION:
-				getRegion().clear();
-				getRegion().addAll((Collection<? extends XsString>) newValue);
-				return;
-			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__STATE:
-				getState().clear();
-				getState().addAll((Collection<? extends XsString>) newValue);
-				return;
-			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__TERRITORY:
-				getTerritory().clear();
-				getTerritory().addAll((Collection<? extends XsString>) newValue);
-				return;
-			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__COUNTY:
-				getCounty().clear();
-				getCounty().addAll((Collection<? extends XsString>) newValue);
-				return;
-			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__CITY:
-				getCity().clear();
-				getCity().addAll((Collection<? extends XsString>) newValue);
-				return;
-			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__CITY_SECTION:
-				getCitySection().clear();
-				getCitySection().addAll((Collection<? extends XsString>) newValue);
-				return;
-			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__ISLAND:
-				getIsland().clear();
-				getIsland().addAll((Collection<? extends XsString>) newValue);
-				return;
-			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__AREA:
-				getArea().clear();
-				getArea().addAll((Collection<? extends XsString>) newValue);
-				return;
-			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__AUTHORITY:
-				setAuthority((String) newValue);
-				return;
-			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__AUTHORITY_URI:
-				setAuthorityURI((String) newValue);
-				return;
-			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__VALUE_URI:
-				setValueURI((String) newValue);
-				return;
+		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__GROUP:
+			((FeatureMap.Internal) getGroup()).set(newValue);
+			return;
+		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__EXTRATERRESTRIAL_AREA:
+			getExtraterrestrialArea().clear();
+			getExtraterrestrialArea().addAll(
+					(Collection<? extends XsString>) newValue);
+			return;
+		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__CONTINENT:
+			getContinent().clear();
+			getContinent().addAll((Collection<? extends XsString>) newValue);
+			return;
+		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__COUNTRY:
+			getCountry().clear();
+			getCountry().addAll((Collection<? extends XsString>) newValue);
+			return;
+		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__PROVINCE:
+			getProvince().clear();
+			getProvince().addAll((Collection<? extends XsString>) newValue);
+			return;
+		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__REGION:
+			getRegion().clear();
+			getRegion().addAll((Collection<? extends XsString>) newValue);
+			return;
+		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__STATE:
+			getState().clear();
+			getState().addAll((Collection<? extends XsString>) newValue);
+			return;
+		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__TERRITORY:
+			getTerritory().clear();
+			getTerritory().addAll((Collection<? extends XsString>) newValue);
+			return;
+		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__COUNTY:
+			getCounty().clear();
+			getCounty().addAll((Collection<? extends XsString>) newValue);
+			return;
+		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__CITY:
+			getCity().clear();
+			getCity().addAll((Collection<? extends XsString>) newValue);
+			return;
+		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__CITY_SECTION:
+			getCitySection().clear();
+			getCitySection().addAll((Collection<? extends XsString>) newValue);
+			return;
+		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__ISLAND:
+			getIsland().clear();
+			getIsland().addAll((Collection<? extends XsString>) newValue);
+			return;
+		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__AREA:
+			getArea().clear();
+			getArea().addAll((Collection<? extends XsString>) newValue);
+			return;
+		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__AUTHORITY:
+			setAuthority((String) newValue);
+			return;
+		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__AUTHORITY_URI:
+			setAuthorityURI((String) newValue);
+			return;
+		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__VALUE_URI:
+			setValueURI((String) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -505,54 +544,54 @@ public class HierarchicalGeographicDefinitionImpl extends EObjectImpl implements
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__GROUP:
-				getGroup().clear();
-				return;
-			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__EXTRATERRESTRIAL_AREA:
-				getExtraterrestrialArea().clear();
-				return;
-			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__CONTINENT:
-				getContinent().clear();
-				return;
-			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__COUNTRY:
-				getCountry().clear();
-				return;
-			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__PROVINCE:
-				getProvince().clear();
-				return;
-			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__REGION:
-				getRegion().clear();
-				return;
-			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__STATE:
-				getState().clear();
-				return;
-			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__TERRITORY:
-				getTerritory().clear();
-				return;
-			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__COUNTY:
-				getCounty().clear();
-				return;
-			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__CITY:
-				getCity().clear();
-				return;
-			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__CITY_SECTION:
-				getCitySection().clear();
-				return;
-			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__ISLAND:
-				getIsland().clear();
-				return;
-			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__AREA:
-				getArea().clear();
-				return;
-			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__AUTHORITY:
-				setAuthority(AUTHORITY_EDEFAULT);
-				return;
-			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__AUTHORITY_URI:
-				setAuthorityURI(AUTHORITY_URI_EDEFAULT);
-				return;
-			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__VALUE_URI:
-				setValueURI(VALUE_URI_EDEFAULT);
-				return;
+		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__GROUP:
+			getGroup().clear();
+			return;
+		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__EXTRATERRESTRIAL_AREA:
+			getExtraterrestrialArea().clear();
+			return;
+		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__CONTINENT:
+			getContinent().clear();
+			return;
+		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__COUNTRY:
+			getCountry().clear();
+			return;
+		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__PROVINCE:
+			getProvince().clear();
+			return;
+		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__REGION:
+			getRegion().clear();
+			return;
+		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__STATE:
+			getState().clear();
+			return;
+		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__TERRITORY:
+			getTerritory().clear();
+			return;
+		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__COUNTY:
+			getCounty().clear();
+			return;
+		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__CITY:
+			getCity().clear();
+			return;
+		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__CITY_SECTION:
+			getCitySection().clear();
+			return;
+		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__ISLAND:
+			getIsland().clear();
+			return;
+		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__AREA:
+			getArea().clear();
+			return;
+		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__AUTHORITY:
+			setAuthority(AUTHORITY_EDEFAULT);
+			return;
+		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__AUTHORITY_URI:
+			setAuthorityURI(AUTHORITY_URI_EDEFAULT);
+			return;
+		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__VALUE_URI:
+			setValueURI(VALUE_URI_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -565,38 +604,41 @@ public class HierarchicalGeographicDefinitionImpl extends EObjectImpl implements
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__GROUP:
-				return group != null && !group.isEmpty();
-			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__EXTRATERRESTRIAL_AREA:
-				return !getExtraterrestrialArea().isEmpty();
-			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__CONTINENT:
-				return !getContinent().isEmpty();
-			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__COUNTRY:
-				return !getCountry().isEmpty();
-			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__PROVINCE:
-				return !getProvince().isEmpty();
-			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__REGION:
-				return !getRegion().isEmpty();
-			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__STATE:
-				return !getState().isEmpty();
-			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__TERRITORY:
-				return !getTerritory().isEmpty();
-			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__COUNTY:
-				return !getCounty().isEmpty();
-			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__CITY:
-				return !getCity().isEmpty();
-			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__CITY_SECTION:
-				return !getCitySection().isEmpty();
-			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__ISLAND:
-				return !getIsland().isEmpty();
-			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__AREA:
-				return !getArea().isEmpty();
-			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__AUTHORITY:
-				return AUTHORITY_EDEFAULT == null ? authority != null : !AUTHORITY_EDEFAULT.equals(authority);
-			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__AUTHORITY_URI:
-				return AUTHORITY_URI_EDEFAULT == null ? authorityURI != null : !AUTHORITY_URI_EDEFAULT.equals(authorityURI);
-			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__VALUE_URI:
-				return VALUE_URI_EDEFAULT == null ? valueURI != null : !VALUE_URI_EDEFAULT.equals(valueURI);
+		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__GROUP:
+			return group != null && !group.isEmpty();
+		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__EXTRATERRESTRIAL_AREA:
+			return !getExtraterrestrialArea().isEmpty();
+		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__CONTINENT:
+			return !getContinent().isEmpty();
+		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__COUNTRY:
+			return !getCountry().isEmpty();
+		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__PROVINCE:
+			return !getProvince().isEmpty();
+		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__REGION:
+			return !getRegion().isEmpty();
+		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__STATE:
+			return !getState().isEmpty();
+		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__TERRITORY:
+			return !getTerritory().isEmpty();
+		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__COUNTY:
+			return !getCounty().isEmpty();
+		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__CITY:
+			return !getCity().isEmpty();
+		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__CITY_SECTION:
+			return !getCitySection().isEmpty();
+		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__ISLAND:
+			return !getIsland().isEmpty();
+		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__AREA:
+			return !getArea().isEmpty();
+		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__AUTHORITY:
+			return AUTHORITY_EDEFAULT == null ? authority != null
+					: !AUTHORITY_EDEFAULT.equals(authority);
+		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__AUTHORITY_URI:
+			return AUTHORITY_URI_EDEFAULT == null ? authorityURI != null
+					: !AUTHORITY_URI_EDEFAULT.equals(authorityURI);
+		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION__VALUE_URI:
+			return VALUE_URI_EDEFAULT == null ? valueURI != null
+					: !VALUE_URI_EDEFAULT.equals(valueURI);
 		}
 		return super.eIsSet(featureID);
 	}

@@ -48,8 +48,9 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class PartDefinitionItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
-		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class PartDefinitionItemProvider extends ItemProviderAdapter implements
+		IEditingDomainItemProvider, IStructuredItemContentProvider,
+		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -92,12 +93,15 @@ public class PartDefinitionItemProvider extends ItemProviderAdapter implements I
 	 */
 	protected void addAltRepGroupPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_PartDefinition_altRepGroup_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_PartDefinition_altRepGroup_feature",
-						"_UI_PartDefinition_type"), MODSPackage.eINSTANCE.getPartDefinition_AltRepGroup(), true, false,
-				false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_PartDefinition_altRepGroup_feature",
+						"_UI_PartDefinition_type"), MODSPackage.eINSTANCE
+						.getPartDefinition_AltRepGroup(), true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -108,12 +112,15 @@ public class PartDefinitionItemProvider extends ItemProviderAdapter implements I
 	 */
 	protected void addDisplayLabelPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_PartDefinition_displayLabel_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_PartDefinition_displayLabel_feature",
-						"_UI_PartDefinition_type"), MODSPackage.eINSTANCE.getPartDefinition_DisplayLabel(), true, false,
-				false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_PartDefinition_displayLabel_feature",
+						"_UI_PartDefinition_type"), MODSPackage.eINSTANCE
+						.getPartDefinition_DisplayLabel(), true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -123,14 +130,16 @@ public class PartDefinitionItemProvider extends ItemProviderAdapter implements I
 	 * @generated
 	 */
 	protected void addIDPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(
-						((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(),
-						getString("_UI_PartDefinition_iD_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_PartDefinition_iD_feature",
-								"_UI_PartDefinition_type"), MODSPackage.eINSTANCE.getPartDefinition_ID(), true, false, false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
+				getResourceLocator(),
+				getString("_UI_PartDefinition_iD_feature"),
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_PartDefinition_iD_feature",
+						"_UI_PartDefinition_type"), MODSPackage.eINSTANCE
+						.getPartDefinition_ID(), true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -141,11 +150,14 @@ public class PartDefinitionItemProvider extends ItemProviderAdapter implements I
 	 */
 	protected void addLangPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_PartDefinition_lang_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_PartDefinition_lang_feature",
-						"_UI_PartDefinition_type"), MODSPackage.eINSTANCE.getPartDefinition_Lang(), true, false, false,
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_PartDefinition_lang_feature",
+						"_UI_PartDefinition_type"), MODSPackage.eINSTANCE
+						.getPartDefinition_Lang(), true, false, false,
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
@@ -157,11 +169,14 @@ public class PartDefinitionItemProvider extends ItemProviderAdapter implements I
 	 */
 	protected void addLang1PropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_PartDefinition_lang1_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_PartDefinition_lang1_feature",
-						"_UI_PartDefinition_type"), MODSPackage.eINSTANCE.getPartDefinition_Lang1(), true, false, false,
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_PartDefinition_lang1_feature",
+						"_UI_PartDefinition_type"), MODSPackage.eINSTANCE
+						.getPartDefinition_Lang1(), true, false, false,
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
@@ -173,11 +188,14 @@ public class PartDefinitionItemProvider extends ItemProviderAdapter implements I
 	 */
 	protected void addOrderPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_PartDefinition_order_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_PartDefinition_order_feature",
-						"_UI_PartDefinition_type"), MODSPackage.eINSTANCE.getPartDefinition_Order(), true, false, false,
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_PartDefinition_order_feature",
+						"_UI_PartDefinition_type"), MODSPackage.eINSTANCE
+						.getPartDefinition_Order(), true, false, false,
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
@@ -189,11 +207,14 @@ public class PartDefinitionItemProvider extends ItemProviderAdapter implements I
 	 */
 	protected void addScriptPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_PartDefinition_script_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_PartDefinition_script_feature",
-						"_UI_PartDefinition_type"), MODSPackage.eINSTANCE.getPartDefinition_Script(), true, false, false,
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_PartDefinition_script_feature",
+						"_UI_PartDefinition_type"), MODSPackage.eINSTANCE
+						.getPartDefinition_Script(), true, false, false,
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
@@ -205,11 +226,14 @@ public class PartDefinitionItemProvider extends ItemProviderAdapter implements I
 	 */
 	protected void addTransliterationPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_PartDefinition_transliteration_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_PartDefinition_transliteration_feature",
-						"_UI_PartDefinition_type"), MODSPackage.eINSTANCE.getPartDefinition_Transliteration(), true, false,
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_PartDefinition_transliteration_feature",
+						"_UI_PartDefinition_type"), MODSPackage.eINSTANCE
+						.getPartDefinition_Transliteration(), true, false,
 				false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
@@ -221,11 +245,14 @@ public class PartDefinitionItemProvider extends ItemProviderAdapter implements I
 	 */
 	protected void addTypePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_PartDefinition_type_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_PartDefinition_type_feature",
-						"_UI_PartDefinition_type"), MODSPackage.eINSTANCE.getPartDefinition_Type(), true, false, false,
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_PartDefinition_type_feature",
+						"_UI_PartDefinition_type"), MODSPackage.eINSTANCE
+						.getPartDefinition_Type(), true, false, false,
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
@@ -238,10 +265,12 @@ public class PartDefinitionItemProvider extends ItemProviderAdapter implements I
 	 * @generated
 	 */
 	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(
+			Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(MODSPackage.eINSTANCE.getPartDefinition_Group());
+			childrenFeatures.add(MODSPackage.eINSTANCE
+					.getPartDefinition_Group());
 		}
 		return childrenFeatures;
 	}
@@ -267,7 +296,8 @@ public class PartDefinitionItemProvider extends ItemProviderAdapter implements I
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/PartDefinition"));
+		return overlayImage(object,
+				getResourceLocator().getImage("full/obj16/PartDefinition"));
 	}
 
 	/**
@@ -305,20 +335,22 @@ public class PartDefinitionItemProvider extends ItemProviderAdapter implements I
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(PartDefinition.class)) {
-			case MODSPackage.PART_DEFINITION__ALT_REP_GROUP:
-			case MODSPackage.PART_DEFINITION__DISPLAY_LABEL:
-			case MODSPackage.PART_DEFINITION__ID:
-			case MODSPackage.PART_DEFINITION__LANG:
-			case MODSPackage.PART_DEFINITION__LANG1:
-			case MODSPackage.PART_DEFINITION__ORDER:
-			case MODSPackage.PART_DEFINITION__SCRIPT:
-			case MODSPackage.PART_DEFINITION__TRANSLITERATION:
-			case MODSPackage.PART_DEFINITION__TYPE:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-			case MODSPackage.PART_DEFINITION__GROUP:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-				return;
+		case MODSPackage.PART_DEFINITION__ALT_REP_GROUP:
+		case MODSPackage.PART_DEFINITION__DISPLAY_LABEL:
+		case MODSPackage.PART_DEFINITION__ID:
+		case MODSPackage.PART_DEFINITION__LANG:
+		case MODSPackage.PART_DEFINITION__LANG1:
+		case MODSPackage.PART_DEFINITION__ORDER:
+		case MODSPackage.PART_DEFINITION__SCRIPT:
+		case MODSPackage.PART_DEFINITION__TRANSLITERATION:
+		case MODSPackage.PART_DEFINITION__TYPE:
+			fireNotifyChanged(new ViewerNotification(notification,
+					notification.getNotifier(), false, true));
+			return;
+		case MODSPackage.PART_DEFINITION__GROUP:
+			fireNotifyChanged(new ViewerNotification(notification,
+					notification.getNotifier(), true, false));
+			return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -331,63 +363,64 @@ public class PartDefinitionItemProvider extends ItemProviderAdapter implements I
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(
+			Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getPartDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getPartDefinition_Detail(),
-						MODSFactory.eINSTANCE.createDetailDefinition())));
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getPartDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getPartDefinition_Detail(),
+				MODSFactory.eINSTANCE.createDetailDefinition())));
 
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getPartDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getPartDefinition_Extent(),
-						MODSFactory.eINSTANCE.createExtentDefinition())));
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getPartDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getPartDefinition_Extent(),
+				MODSFactory.eINSTANCE.createExtentDefinition())));
 
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getPartDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getPartDefinition_Date(),
-						MODSFactory.eINSTANCE.createDateBaseDefinition())));
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getPartDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getPartDefinition_Date(),
+				MODSFactory.eINSTANCE.createDateBaseDefinition())));
 
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getPartDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getPartDefinition_Date(),
-						MODSFactory.eINSTANCE.createDateDefinition())));
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getPartDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getPartDefinition_Date(),
+				MODSFactory.eINSTANCE.createDateDefinition())));
 
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getPartDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getPartDefinition_Date(),
-						MODSFactory.eINSTANCE.createDateOtherDefinition())));
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getPartDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getPartDefinition_Date(),
+				MODSFactory.eINSTANCE.createDateOtherDefinition())));
 
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getPartDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getPartDefinition_Date(),
-						MODSFactory.eINSTANCE.createTemporalDefinition())));
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getPartDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getPartDefinition_Date(),
+				MODSFactory.eINSTANCE.createTemporalDefinition())));
 
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getPartDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getPartDefinition_Text(),
-						MODSFactory.eINSTANCE.createUnstructuredTextDefinition())));
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getPartDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getPartDefinition_Text(),
+				MODSFactory.eINSTANCE.createUnstructuredTextDefinition())));
 
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getPartDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getPartDefinition_Text(),
-						MODSFactory.eINSTANCE.createAbstractDefinition())));
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getPartDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getPartDefinition_Text(),
+				MODSFactory.eINSTANCE.createAbstractDefinition())));
 
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getPartDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getPartDefinition_Text(),
-						MODSFactory.eINSTANCE.createNoteBaseDefinition())));
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getPartDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getPartDefinition_Text(),
+				MODSFactory.eINSTANCE.createNoteBaseDefinition())));
 
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getPartDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getPartDefinition_Text(),
-						MODSFactory.eINSTANCE.createNoteDefinition())));
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getPartDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getPartDefinition_Text(),
+				MODSFactory.eINSTANCE.createNoteDefinition())));
 
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getPartDefinition_Group(),
-				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getPartDefinition_Text(),
-						MODSFactory.eINSTANCE.createTableOfContentsDefinition())));
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getPartDefinition_Group(), FeatureMapUtil.createEntry(
+				MODSPackage.eINSTANCE.getPartDefinition_Text(),
+				MODSFactory.eINSTANCE.createTableOfContentsDefinition())));
 	}
 
 	/**

@@ -59,7 +59,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class LanguageDefinitionImpl extends EObjectImpl implements LanguageDefinition {
+public class LanguageDefinitionImpl extends EObjectImpl implements
+		LanguageDefinition {
 	/**
 	 * The cached value of the '{@link #getLanguageTerm() <em>Language Term</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -275,7 +276,8 @@ public class LanguageDefinitionImpl extends EObjectImpl implements LanguageDefin
 	 */
 	public EList<LanguageTermDefinition> getLanguageTerm() {
 		if (languageTerm == null) {
-			languageTerm = new EObjectContainmentEList<LanguageTermDefinition>(LanguageTermDefinition.class, this,
+			languageTerm = new EObjectContainmentEList<LanguageTermDefinition>(
+					LanguageTermDefinition.class, this,
 					MODSPackage.LANGUAGE_DEFINITION__LANGUAGE_TERM);
 		}
 		return languageTerm;
@@ -288,7 +290,8 @@ public class LanguageDefinitionImpl extends EObjectImpl implements LanguageDefin
 	 */
 	public EList<ScriptTermDefinition> getScriptTerm() {
 		if (scriptTerm == null) {
-			scriptTerm = new EObjectContainmentEList<ScriptTermDefinition>(ScriptTermDefinition.class, this,
+			scriptTerm = new EObjectContainmentEList<ScriptTermDefinition>(
+					ScriptTermDefinition.class, this,
 					MODSPackage.LANGUAGE_DEFINITION__SCRIPT_TERM);
 		}
 		return scriptTerm;
@@ -312,7 +315,8 @@ public class LanguageDefinitionImpl extends EObjectImpl implements LanguageDefin
 		String oldAltRepGroup = altRepGroup;
 		altRepGroup = newAltRepGroup;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.LANGUAGE_DEFINITION__ALT_REP_GROUP,
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.LANGUAGE_DEFINITION__ALT_REP_GROUP,
 					oldAltRepGroup, altRepGroup));
 	}
 
@@ -334,7 +338,8 @@ public class LanguageDefinitionImpl extends EObjectImpl implements LanguageDefin
 		String oldDisplayLabel = displayLabel;
 		displayLabel = newDisplayLabel;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.LANGUAGE_DEFINITION__DISPLAY_LABEL,
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.LANGUAGE_DEFINITION__DISPLAY_LABEL,
 					oldDisplayLabel, displayLabel));
 	}
 
@@ -356,7 +361,8 @@ public class LanguageDefinitionImpl extends EObjectImpl implements LanguageDefin
 		String oldLang = lang;
 		lang = newLang;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.LANGUAGE_DEFINITION__LANG, oldLang, lang));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.LANGUAGE_DEFINITION__LANG, oldLang, lang));
 	}
 
 	/**
@@ -377,7 +383,8 @@ public class LanguageDefinitionImpl extends EObjectImpl implements LanguageDefin
 		String oldLang1 = lang1;
 		lang1 = newLang1;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.LANGUAGE_DEFINITION__LANG1, oldLang1, lang1));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.LANGUAGE_DEFINITION__LANG1, oldLang1, lang1));
 	}
 
 	/**
@@ -398,7 +405,8 @@ public class LanguageDefinitionImpl extends EObjectImpl implements LanguageDefin
 		String oldObjectPart = objectPart;
 		objectPart = newObjectPart;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.LANGUAGE_DEFINITION__OBJECT_PART,
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.LANGUAGE_DEFINITION__OBJECT_PART,
 					oldObjectPart, objectPart));
 	}
 
@@ -420,8 +428,8 @@ public class LanguageDefinitionImpl extends EObjectImpl implements LanguageDefin
 		String oldScript = script;
 		script = newScript;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.LANGUAGE_DEFINITION__SCRIPT, oldScript,
-					script));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.LANGUAGE_DEFINITION__SCRIPT, oldScript, script));
 	}
 
 	/**
@@ -442,7 +450,8 @@ public class LanguageDefinitionImpl extends EObjectImpl implements LanguageDefin
 		String oldTransliteration = transliteration;
 		transliteration = newTransliteration;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.LANGUAGE_DEFINITION__TRANSLITERATION,
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.LANGUAGE_DEFINITION__TRANSLITERATION,
 					oldTransliteration, transliteration));
 	}
 
@@ -466,7 +475,8 @@ public class LanguageDefinitionImpl extends EObjectImpl implements LanguageDefin
 		boolean oldUsageESet = usageESet;
 		usageESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.LANGUAGE_DEFINITION__USAGE, oldUsage, usage,
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.LANGUAGE_DEFINITION__USAGE, oldUsage, usage,
 					!oldUsageESet));
 	}
 
@@ -481,7 +491,8 @@ public class LanguageDefinitionImpl extends EObjectImpl implements LanguageDefin
 		usage = USAGE_EDEFAULT;
 		usageESet = false;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, MODSPackage.LANGUAGE_DEFINITION__USAGE, oldUsage,
+			eNotify(new ENotificationImpl(this, Notification.UNSET,
+					MODSPackage.LANGUAGE_DEFINITION__USAGE, oldUsage,
 					USAGE_EDEFAULT, oldUsageESet));
 	}
 
@@ -500,12 +511,15 @@ public class LanguageDefinitionImpl extends EObjectImpl implements LanguageDefin
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+	public NotificationChain eInverseRemove(InternalEObject otherEnd,
+			int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case MODSPackage.LANGUAGE_DEFINITION__LANGUAGE_TERM:
-				return ((InternalEList<?>) getLanguageTerm()).basicRemove(otherEnd, msgs);
-			case MODSPackage.LANGUAGE_DEFINITION__SCRIPT_TERM:
-				return ((InternalEList<?>) getScriptTerm()).basicRemove(otherEnd, msgs);
+		case MODSPackage.LANGUAGE_DEFINITION__LANGUAGE_TERM:
+			return ((InternalEList<?>) getLanguageTerm()).basicRemove(otherEnd,
+					msgs);
+		case MODSPackage.LANGUAGE_DEFINITION__SCRIPT_TERM:
+			return ((InternalEList<?>) getScriptTerm()).basicRemove(otherEnd,
+					msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -518,26 +532,26 @@ public class LanguageDefinitionImpl extends EObjectImpl implements LanguageDefin
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case MODSPackage.LANGUAGE_DEFINITION__LANGUAGE_TERM:
-				return getLanguageTerm();
-			case MODSPackage.LANGUAGE_DEFINITION__SCRIPT_TERM:
-				return getScriptTerm();
-			case MODSPackage.LANGUAGE_DEFINITION__ALT_REP_GROUP:
-				return getAltRepGroup();
-			case MODSPackage.LANGUAGE_DEFINITION__DISPLAY_LABEL:
-				return getDisplayLabel();
-			case MODSPackage.LANGUAGE_DEFINITION__LANG:
-				return getLang();
-			case MODSPackage.LANGUAGE_DEFINITION__LANG1:
-				return getLang1();
-			case MODSPackage.LANGUAGE_DEFINITION__OBJECT_PART:
-				return getObjectPart();
-			case MODSPackage.LANGUAGE_DEFINITION__SCRIPT:
-				return getScript();
-			case MODSPackage.LANGUAGE_DEFINITION__TRANSLITERATION:
-				return getTransliteration();
-			case MODSPackage.LANGUAGE_DEFINITION__USAGE:
-				return getUsage();
+		case MODSPackage.LANGUAGE_DEFINITION__LANGUAGE_TERM:
+			return getLanguageTerm();
+		case MODSPackage.LANGUAGE_DEFINITION__SCRIPT_TERM:
+			return getScriptTerm();
+		case MODSPackage.LANGUAGE_DEFINITION__ALT_REP_GROUP:
+			return getAltRepGroup();
+		case MODSPackage.LANGUAGE_DEFINITION__DISPLAY_LABEL:
+			return getDisplayLabel();
+		case MODSPackage.LANGUAGE_DEFINITION__LANG:
+			return getLang();
+		case MODSPackage.LANGUAGE_DEFINITION__LANG1:
+			return getLang1();
+		case MODSPackage.LANGUAGE_DEFINITION__OBJECT_PART:
+			return getObjectPart();
+		case MODSPackage.LANGUAGE_DEFINITION__SCRIPT:
+			return getScript();
+		case MODSPackage.LANGUAGE_DEFINITION__TRANSLITERATION:
+			return getTransliteration();
+		case MODSPackage.LANGUAGE_DEFINITION__USAGE:
+			return getUsage();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -551,38 +565,40 @@ public class LanguageDefinitionImpl extends EObjectImpl implements LanguageDefin
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case MODSPackage.LANGUAGE_DEFINITION__LANGUAGE_TERM:
-				getLanguageTerm().clear();
-				getLanguageTerm().addAll((Collection<? extends LanguageTermDefinition>) newValue);
-				return;
-			case MODSPackage.LANGUAGE_DEFINITION__SCRIPT_TERM:
-				getScriptTerm().clear();
-				getScriptTerm().addAll((Collection<? extends ScriptTermDefinition>) newValue);
-				return;
-			case MODSPackage.LANGUAGE_DEFINITION__ALT_REP_GROUP:
-				setAltRepGroup((String) newValue);
-				return;
-			case MODSPackage.LANGUAGE_DEFINITION__DISPLAY_LABEL:
-				setDisplayLabel((String) newValue);
-				return;
-			case MODSPackage.LANGUAGE_DEFINITION__LANG:
-				setLang((String) newValue);
-				return;
-			case MODSPackage.LANGUAGE_DEFINITION__LANG1:
-				setLang1((String) newValue);
-				return;
-			case MODSPackage.LANGUAGE_DEFINITION__OBJECT_PART:
-				setObjectPart((String) newValue);
-				return;
-			case MODSPackage.LANGUAGE_DEFINITION__SCRIPT:
-				setScript((String) newValue);
-				return;
-			case MODSPackage.LANGUAGE_DEFINITION__TRANSLITERATION:
-				setTransliteration((String) newValue);
-				return;
-			case MODSPackage.LANGUAGE_DEFINITION__USAGE:
-				setUsage((UsageAttributeDefinition) newValue);
-				return;
+		case MODSPackage.LANGUAGE_DEFINITION__LANGUAGE_TERM:
+			getLanguageTerm().clear();
+			getLanguageTerm().addAll(
+					(Collection<? extends LanguageTermDefinition>) newValue);
+			return;
+		case MODSPackage.LANGUAGE_DEFINITION__SCRIPT_TERM:
+			getScriptTerm().clear();
+			getScriptTerm().addAll(
+					(Collection<? extends ScriptTermDefinition>) newValue);
+			return;
+		case MODSPackage.LANGUAGE_DEFINITION__ALT_REP_GROUP:
+			setAltRepGroup((String) newValue);
+			return;
+		case MODSPackage.LANGUAGE_DEFINITION__DISPLAY_LABEL:
+			setDisplayLabel((String) newValue);
+			return;
+		case MODSPackage.LANGUAGE_DEFINITION__LANG:
+			setLang((String) newValue);
+			return;
+		case MODSPackage.LANGUAGE_DEFINITION__LANG1:
+			setLang1((String) newValue);
+			return;
+		case MODSPackage.LANGUAGE_DEFINITION__OBJECT_PART:
+			setObjectPart((String) newValue);
+			return;
+		case MODSPackage.LANGUAGE_DEFINITION__SCRIPT:
+			setScript((String) newValue);
+			return;
+		case MODSPackage.LANGUAGE_DEFINITION__TRANSLITERATION:
+			setTransliteration((String) newValue);
+			return;
+		case MODSPackage.LANGUAGE_DEFINITION__USAGE:
+			setUsage((UsageAttributeDefinition) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -595,36 +611,36 @@ public class LanguageDefinitionImpl extends EObjectImpl implements LanguageDefin
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case MODSPackage.LANGUAGE_DEFINITION__LANGUAGE_TERM:
-				getLanguageTerm().clear();
-				return;
-			case MODSPackage.LANGUAGE_DEFINITION__SCRIPT_TERM:
-				getScriptTerm().clear();
-				return;
-			case MODSPackage.LANGUAGE_DEFINITION__ALT_REP_GROUP:
-				setAltRepGroup(ALT_REP_GROUP_EDEFAULT);
-				return;
-			case MODSPackage.LANGUAGE_DEFINITION__DISPLAY_LABEL:
-				setDisplayLabel(DISPLAY_LABEL_EDEFAULT);
-				return;
-			case MODSPackage.LANGUAGE_DEFINITION__LANG:
-				setLang(LANG_EDEFAULT);
-				return;
-			case MODSPackage.LANGUAGE_DEFINITION__LANG1:
-				setLang1(LANG1_EDEFAULT);
-				return;
-			case MODSPackage.LANGUAGE_DEFINITION__OBJECT_PART:
-				setObjectPart(OBJECT_PART_EDEFAULT);
-				return;
-			case MODSPackage.LANGUAGE_DEFINITION__SCRIPT:
-				setScript(SCRIPT_EDEFAULT);
-				return;
-			case MODSPackage.LANGUAGE_DEFINITION__TRANSLITERATION:
-				setTransliteration(TRANSLITERATION_EDEFAULT);
-				return;
-			case MODSPackage.LANGUAGE_DEFINITION__USAGE:
-				unsetUsage();
-				return;
+		case MODSPackage.LANGUAGE_DEFINITION__LANGUAGE_TERM:
+			getLanguageTerm().clear();
+			return;
+		case MODSPackage.LANGUAGE_DEFINITION__SCRIPT_TERM:
+			getScriptTerm().clear();
+			return;
+		case MODSPackage.LANGUAGE_DEFINITION__ALT_REP_GROUP:
+			setAltRepGroup(ALT_REP_GROUP_EDEFAULT);
+			return;
+		case MODSPackage.LANGUAGE_DEFINITION__DISPLAY_LABEL:
+			setDisplayLabel(DISPLAY_LABEL_EDEFAULT);
+			return;
+		case MODSPackage.LANGUAGE_DEFINITION__LANG:
+			setLang(LANG_EDEFAULT);
+			return;
+		case MODSPackage.LANGUAGE_DEFINITION__LANG1:
+			setLang1(LANG1_EDEFAULT);
+			return;
+		case MODSPackage.LANGUAGE_DEFINITION__OBJECT_PART:
+			setObjectPart(OBJECT_PART_EDEFAULT);
+			return;
+		case MODSPackage.LANGUAGE_DEFINITION__SCRIPT:
+			setScript(SCRIPT_EDEFAULT);
+			return;
+		case MODSPackage.LANGUAGE_DEFINITION__TRANSLITERATION:
+			setTransliteration(TRANSLITERATION_EDEFAULT);
+			return;
+		case MODSPackage.LANGUAGE_DEFINITION__USAGE:
+			unsetUsage();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -637,27 +653,33 @@ public class LanguageDefinitionImpl extends EObjectImpl implements LanguageDefin
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case MODSPackage.LANGUAGE_DEFINITION__LANGUAGE_TERM:
-				return languageTerm != null && !languageTerm.isEmpty();
-			case MODSPackage.LANGUAGE_DEFINITION__SCRIPT_TERM:
-				return scriptTerm != null && !scriptTerm.isEmpty();
-			case MODSPackage.LANGUAGE_DEFINITION__ALT_REP_GROUP:
-				return ALT_REP_GROUP_EDEFAULT == null ? altRepGroup != null : !ALT_REP_GROUP_EDEFAULT.equals(altRepGroup);
-			case MODSPackage.LANGUAGE_DEFINITION__DISPLAY_LABEL:
-				return DISPLAY_LABEL_EDEFAULT == null ? displayLabel != null : !DISPLAY_LABEL_EDEFAULT.equals(displayLabel);
-			case MODSPackage.LANGUAGE_DEFINITION__LANG:
-				return LANG_EDEFAULT == null ? lang != null : !LANG_EDEFAULT.equals(lang);
-			case MODSPackage.LANGUAGE_DEFINITION__LANG1:
-				return LANG1_EDEFAULT == null ? lang1 != null : !LANG1_EDEFAULT.equals(lang1);
-			case MODSPackage.LANGUAGE_DEFINITION__OBJECT_PART:
-				return OBJECT_PART_EDEFAULT == null ? objectPart != null : !OBJECT_PART_EDEFAULT.equals(objectPart);
-			case MODSPackage.LANGUAGE_DEFINITION__SCRIPT:
-				return SCRIPT_EDEFAULT == null ? script != null : !SCRIPT_EDEFAULT.equals(script);
-			case MODSPackage.LANGUAGE_DEFINITION__TRANSLITERATION:
-				return TRANSLITERATION_EDEFAULT == null ? transliteration != null : !TRANSLITERATION_EDEFAULT
-						.equals(transliteration);
-			case MODSPackage.LANGUAGE_DEFINITION__USAGE:
-				return isSetUsage();
+		case MODSPackage.LANGUAGE_DEFINITION__LANGUAGE_TERM:
+			return languageTerm != null && !languageTerm.isEmpty();
+		case MODSPackage.LANGUAGE_DEFINITION__SCRIPT_TERM:
+			return scriptTerm != null && !scriptTerm.isEmpty();
+		case MODSPackage.LANGUAGE_DEFINITION__ALT_REP_GROUP:
+			return ALT_REP_GROUP_EDEFAULT == null ? altRepGroup != null
+					: !ALT_REP_GROUP_EDEFAULT.equals(altRepGroup);
+		case MODSPackage.LANGUAGE_DEFINITION__DISPLAY_LABEL:
+			return DISPLAY_LABEL_EDEFAULT == null ? displayLabel != null
+					: !DISPLAY_LABEL_EDEFAULT.equals(displayLabel);
+		case MODSPackage.LANGUAGE_DEFINITION__LANG:
+			return LANG_EDEFAULT == null ? lang != null : !LANG_EDEFAULT
+					.equals(lang);
+		case MODSPackage.LANGUAGE_DEFINITION__LANG1:
+			return LANG1_EDEFAULT == null ? lang1 != null : !LANG1_EDEFAULT
+					.equals(lang1);
+		case MODSPackage.LANGUAGE_DEFINITION__OBJECT_PART:
+			return OBJECT_PART_EDEFAULT == null ? objectPart != null
+					: !OBJECT_PART_EDEFAULT.equals(objectPart);
+		case MODSPackage.LANGUAGE_DEFINITION__SCRIPT:
+			return SCRIPT_EDEFAULT == null ? script != null : !SCRIPT_EDEFAULT
+					.equals(script);
+		case MODSPackage.LANGUAGE_DEFINITION__TRANSLITERATION:
+			return TRANSLITERATION_EDEFAULT == null ? transliteration != null
+					: !TRANSLITERATION_EDEFAULT.equals(transliteration);
+		case MODSPackage.LANGUAGE_DEFINITION__USAGE:
+			return isSetUsage();
 		}
 		return super.eIsSet(featureID);
 	}

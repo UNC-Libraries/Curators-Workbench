@@ -40,8 +40,10 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class RecordIdentifierDefinitionItemProvider extends XsStringItemProvider implements IEditingDomainItemProvider,
-		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class RecordIdentifierDefinitionItemProvider extends
+		XsStringItemProvider implements IEditingDomainItemProvider,
+		IStructuredItemContentProvider, ITreeItemContentProvider,
+		IItemLabelProvider, IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -76,12 +78,16 @@ public class RecordIdentifierDefinitionItemProvider extends XsStringItemProvider
 	 */
 	protected void addSourcePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_RecordIdentifierDefinition_source_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_RecordIdentifierDefinition_source_feature",
-						"_UI_RecordIdentifierDefinition_type"), MODSPackage.eINSTANCE.getRecordIdentifierDefinition_Source(),
-				true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_RecordIdentifierDefinition_source_feature",
+						"_UI_RecordIdentifierDefinition_type"),
+				MODSPackage.eINSTANCE.getRecordIdentifierDefinition_Source(),
+				true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				null, null));
 	}
 
 	/**
@@ -92,7 +98,10 @@ public class RecordIdentifierDefinitionItemProvider extends XsStringItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/RecordIdentifierDefinition"));
+		return overlayImage(
+				object,
+				getResourceLocator().getImage(
+						"full/obj16/RecordIdentifierDefinition"));
 	}
 
 	/**
@@ -115,7 +124,8 @@ public class RecordIdentifierDefinitionItemProvider extends XsStringItemProvider
 	public String getText(Object object) {
 		String label = ((RecordIdentifierDefinition) object).getValue();
 		return label == null || label.length() == 0 ? getString("_UI_RecordIdentifierDefinition_type")
-				: getString("_UI_RecordIdentifierDefinition_type") + " " + label;
+				: getString("_UI_RecordIdentifierDefinition_type") + " "
+						+ label;
 	}
 
 	/**
@@ -130,9 +140,10 @@ public class RecordIdentifierDefinitionItemProvider extends XsStringItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(RecordIdentifierDefinition.class)) {
-			case MODSPackage.RECORD_IDENTIFIER_DEFINITION__SOURCE:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
+		case MODSPackage.RECORD_IDENTIFIER_DEFINITION__SOURCE:
+			fireNotifyChanged(new ViewerNotification(notification,
+					notification.getNotifier(), false, true));
+			return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -145,7 +156,8 @@ public class RecordIdentifierDefinitionItemProvider extends XsStringItemProvider
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(
+			Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 

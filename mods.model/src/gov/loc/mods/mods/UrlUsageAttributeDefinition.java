@@ -96,8 +96,8 @@ public enum UrlUsageAttributeDefinition implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final List<UrlUsageAttributeDefinition> VALUES = Collections.unmodifiableList(Arrays
-			.asList(VALUES_ARRAY));
+	public static final List<UrlUsageAttributeDefinition> VALUES = Collections
+			.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
 	 * Returns the '<em><b>Url Usage Attribute Definition</b></em>' literal with the specified literal value.
@@ -139,10 +139,10 @@ public enum UrlUsageAttributeDefinition implements Enumerator {
 	 */
 	public static UrlUsageAttributeDefinition get(int value) {
 		switch (value) {
-			case PRIMARY_DISPLAY_VALUE:
-				return PRIMARY_DISPLAY;
-			case PRIMARY_VALUE:
-				return PRIMARY;
+		case PRIMARY_DISPLAY_VALUE:
+			return PRIMARY_DISPLAY;
+		case PRIMARY_VALUE:
+			return PRIMARY;
 		}
 		return null;
 	}

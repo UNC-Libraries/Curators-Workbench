@@ -48,8 +48,9 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ExtentDefinitionItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
-		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class ExtentDefinitionItemProvider extends ItemProviderAdapter implements
+		IEditingDomainItemProvider, IStructuredItemContentProvider,
+		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -85,11 +86,14 @@ public class ExtentDefinitionItemProvider extends ItemProviderAdapter implements
 	 */
 	protected void addTotalPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_ExtentDefinition_total_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_ExtentDefinition_total_feature",
-						"_UI_ExtentDefinition_type"), MODSPackage.eINSTANCE.getExtentDefinition_Total(), true, false, false,
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_ExtentDefinition_total_feature",
+						"_UI_ExtentDefinition_type"), MODSPackage.eINSTANCE
+						.getExtentDefinition_Total(), true, false, false,
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
@@ -101,11 +105,14 @@ public class ExtentDefinitionItemProvider extends ItemProviderAdapter implements
 	 */
 	protected void addUnitPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_ExtentDefinition_unit_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_ExtentDefinition_unit_feature",
-						"_UI_ExtentDefinition_type"), MODSPackage.eINSTANCE.getExtentDefinition_Unit(), true, false, false,
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_ExtentDefinition_unit_feature",
+						"_UI_ExtentDefinition_type"), MODSPackage.eINSTANCE
+						.getExtentDefinition_Unit(), true, false, false,
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
@@ -118,12 +125,16 @@ public class ExtentDefinitionItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(
+			Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(MODSPackage.eINSTANCE.getExtentDefinition_Start());
-			childrenFeatures.add(MODSPackage.eINSTANCE.getExtentDefinition_End());
-			childrenFeatures.add(MODSPackage.eINSTANCE.getExtentDefinition_List());
+			childrenFeatures.add(MODSPackage.eINSTANCE
+					.getExtentDefinition_Start());
+			childrenFeatures.add(MODSPackage.eINSTANCE
+					.getExtentDefinition_End());
+			childrenFeatures.add(MODSPackage.eINSTANCE
+					.getExtentDefinition_List());
 		}
 		return childrenFeatures;
 	}
@@ -149,7 +160,8 @@ public class ExtentDefinitionItemProvider extends ItemProviderAdapter implements
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ExtentDefinition"));
+		return overlayImage(object,
+				getResourceLocator().getImage("full/obj16/ExtentDefinition"));
 	}
 
 	/**
@@ -188,15 +200,17 @@ public class ExtentDefinitionItemProvider extends ItemProviderAdapter implements
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ExtentDefinition.class)) {
-			case MODSPackage.EXTENT_DEFINITION__TOTAL:
-			case MODSPackage.EXTENT_DEFINITION__UNIT:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-			case MODSPackage.EXTENT_DEFINITION__START:
-			case MODSPackage.EXTENT_DEFINITION__END:
-			case MODSPackage.EXTENT_DEFINITION__LIST:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-				return;
+		case MODSPackage.EXTENT_DEFINITION__TOTAL:
+		case MODSPackage.EXTENT_DEFINITION__UNIT:
+			fireNotifyChanged(new ViewerNotification(notification,
+					notification.getNotifier(), false, true));
+			return;
+		case MODSPackage.EXTENT_DEFINITION__START:
+		case MODSPackage.EXTENT_DEFINITION__END:
+		case MODSPackage.EXTENT_DEFINITION__LIST:
+			fireNotifyChanged(new ViewerNotification(notification,
+					notification.getNotifier(), true, false));
+			return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -209,259 +223,356 @@ public class ExtentDefinitionItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(
+			Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_Start(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_Start(),
 				MODSFactory.eINSTANCE.createXsString()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_Start(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_Start(),
 				MODSFactory.eINSTANCE.createUnstructuredTextDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_Start(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_Start(),
 				MODSFactory.eINSTANCE.createAbstractDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_Start(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_Start(),
+				MODSFactory.eINSTANCE.createAccessConditionDefinition()));
+
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_Start(),
 				MODSFactory.eINSTANCE.createStringPlusAuthority()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_Start(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_Start(),
 				MODSFactory.eINSTANCE.createClassificationDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_Start(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_Start(),
 				MODSFactory.eINSTANCE.createDateBaseDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_Start(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_Start(),
 				MODSFactory.eINSTANCE.createDateDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_Start(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_Start(),
 				MODSFactory.eINSTANCE.createDateOtherDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_Start(),
-				MODSFactory.eINSTANCE.createEnumerationAndChronologyDefinition()));
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getExtentDefinition_Start(), MODSFactory.eINSTANCE
+				.createEnumerationAndChronologyDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_Start(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_Start(),
 				MODSFactory.eINSTANCE.createStringPlusAuthorityPlusType()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_Start(),
-				MODSFactory.eINSTANCE.createStringPlusAuthorityPlusTypePlusDisplayLabel()));
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getExtentDefinition_Start(), MODSFactory.eINSTANCE
+				.createStringPlusAuthorityPlusTypePlusDisplayLabel()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_Start(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_Start(),
 				MODSFactory.eINSTANCE.createGenreDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_Start(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_Start(),
 				MODSFactory.eINSTANCE.createGeographicCodeDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_Start(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_Start(),
 				MODSFactory.eINSTANCE.createIdentifierDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_Start(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_Start(),
 				MODSFactory.eINSTANCE.createLanguageTermDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_Start(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_Start(),
 				MODSFactory.eINSTANCE.createNamePartDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_Start(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_Start(),
 				MODSFactory.eINSTANCE.createNoteBaseDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_Start(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_Start(),
 				MODSFactory.eINSTANCE.createNoteDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_Start(),
-				MODSFactory.eINSTANCE.createStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink()));
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getExtentDefinition_Start(), MODSFactory.eINSTANCE
+				.createStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_Start(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_Start(),
 				MODSFactory.eINSTANCE.createPhysicalLocationDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_Start(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_Start(),
 				MODSFactory.eINSTANCE.createPlaceTermDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_Start(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_Start(),
 				MODSFactory.eINSTANCE.createRecordIdentifierDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_Start(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_Start(),
 				MODSFactory.eINSTANCE.createRoleTermDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_Start(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_Start(),
 				MODSFactory.eINSTANCE.createScriptTermDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_Start(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_Start(),
 				MODSFactory.eINSTANCE.createStringPlusSupplied()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_Start(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_Start(),
 				MODSFactory.eINSTANCE.createTableOfContentsDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_Start(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_Start(),
 				MODSFactory.eINSTANCE.createTargetAudienceDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_Start(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_Start(),
 				MODSFactory.eINSTANCE.createTemporalDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_End(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_End(),
 				MODSFactory.eINSTANCE.createXsString()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_End(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_End(),
 				MODSFactory.eINSTANCE.createUnstructuredTextDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_End(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_End(),
 				MODSFactory.eINSTANCE.createAbstractDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_End(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_End(),
+				MODSFactory.eINSTANCE.createAccessConditionDefinition()));
+
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_End(),
 				MODSFactory.eINSTANCE.createStringPlusAuthority()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_End(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_End(),
 				MODSFactory.eINSTANCE.createClassificationDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_End(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_End(),
 				MODSFactory.eINSTANCE.createDateBaseDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_End(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_End(),
 				MODSFactory.eINSTANCE.createDateDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_End(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_End(),
 				MODSFactory.eINSTANCE.createDateOtherDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_End(),
-				MODSFactory.eINSTANCE.createEnumerationAndChronologyDefinition()));
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getExtentDefinition_End(), MODSFactory.eINSTANCE
+				.createEnumerationAndChronologyDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_End(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_End(),
 				MODSFactory.eINSTANCE.createStringPlusAuthorityPlusType()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_End(),
-				MODSFactory.eINSTANCE.createStringPlusAuthorityPlusTypePlusDisplayLabel()));
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getExtentDefinition_End(), MODSFactory.eINSTANCE
+				.createStringPlusAuthorityPlusTypePlusDisplayLabel()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_End(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_End(),
 				MODSFactory.eINSTANCE.createGenreDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_End(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_End(),
 				MODSFactory.eINSTANCE.createGeographicCodeDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_End(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_End(),
 				MODSFactory.eINSTANCE.createIdentifierDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_End(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_End(),
 				MODSFactory.eINSTANCE.createLanguageTermDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_End(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_End(),
 				MODSFactory.eINSTANCE.createNamePartDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_End(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_End(),
 				MODSFactory.eINSTANCE.createNoteBaseDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_End(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_End(),
 				MODSFactory.eINSTANCE.createNoteDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_End(),
-				MODSFactory.eINSTANCE.createStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink()));
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getExtentDefinition_End(), MODSFactory.eINSTANCE
+				.createStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_End(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_End(),
 				MODSFactory.eINSTANCE.createPhysicalLocationDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_End(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_End(),
 				MODSFactory.eINSTANCE.createPlaceTermDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_End(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_End(),
 				MODSFactory.eINSTANCE.createRecordIdentifierDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_End(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_End(),
 				MODSFactory.eINSTANCE.createRoleTermDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_End(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_End(),
 				MODSFactory.eINSTANCE.createScriptTermDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_End(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_End(),
 				MODSFactory.eINSTANCE.createStringPlusSupplied()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_End(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_End(),
 				MODSFactory.eINSTANCE.createTableOfContentsDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_End(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_End(),
 				MODSFactory.eINSTANCE.createTargetAudienceDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_End(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_End(),
 				MODSFactory.eINSTANCE.createTemporalDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_List(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_List(),
 				MODSFactory.eINSTANCE.createXsString()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_List(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_List(),
 				MODSFactory.eINSTANCE.createUnstructuredTextDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_List(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_List(),
 				MODSFactory.eINSTANCE.createAbstractDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_List(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_List(),
+				MODSFactory.eINSTANCE.createAccessConditionDefinition()));
+
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_List(),
 				MODSFactory.eINSTANCE.createStringPlusAuthority()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_List(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_List(),
 				MODSFactory.eINSTANCE.createClassificationDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_List(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_List(),
 				MODSFactory.eINSTANCE.createDateBaseDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_List(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_List(),
 				MODSFactory.eINSTANCE.createDateDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_List(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_List(),
 				MODSFactory.eINSTANCE.createDateOtherDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_List(),
-				MODSFactory.eINSTANCE.createEnumerationAndChronologyDefinition()));
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getExtentDefinition_List(), MODSFactory.eINSTANCE
+				.createEnumerationAndChronologyDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_List(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_List(),
 				MODSFactory.eINSTANCE.createStringPlusAuthorityPlusType()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_List(),
-				MODSFactory.eINSTANCE.createStringPlusAuthorityPlusTypePlusDisplayLabel()));
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getExtentDefinition_List(), MODSFactory.eINSTANCE
+				.createStringPlusAuthorityPlusTypePlusDisplayLabel()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_List(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_List(),
 				MODSFactory.eINSTANCE.createGenreDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_List(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_List(),
 				MODSFactory.eINSTANCE.createGeographicCodeDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_List(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_List(),
 				MODSFactory.eINSTANCE.createIdentifierDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_List(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_List(),
 				MODSFactory.eINSTANCE.createLanguageTermDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_List(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_List(),
 				MODSFactory.eINSTANCE.createNamePartDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_List(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_List(),
 				MODSFactory.eINSTANCE.createNoteBaseDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_List(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_List(),
 				MODSFactory.eINSTANCE.createNoteDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_List(),
-				MODSFactory.eINSTANCE.createStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink()));
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getExtentDefinition_List(), MODSFactory.eINSTANCE
+				.createStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_List(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_List(),
 				MODSFactory.eINSTANCE.createPhysicalLocationDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_List(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_List(),
 				MODSFactory.eINSTANCE.createPlaceTermDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_List(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_List(),
 				MODSFactory.eINSTANCE.createRecordIdentifierDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_List(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_List(),
 				MODSFactory.eINSTANCE.createRoleTermDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_List(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_List(),
 				MODSFactory.eINSTANCE.createScriptTermDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_List(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_List(),
 				MODSFactory.eINSTANCE.createStringPlusSupplied()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_List(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_List(),
 				MODSFactory.eINSTANCE.createTableOfContentsDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_List(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_List(),
 				MODSFactory.eINSTANCE.createTargetAudienceDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getExtentDefinition_List(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getExtentDefinition_List(),
 				MODSFactory.eINSTANCE.createTemporalDefinition()));
 	}
 
@@ -472,17 +583,22 @@ public class ExtentDefinitionItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	@Override
-	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+	public String getCreateChildText(Object owner, Object feature,
+			Object child, Collection<?> selection) {
 		Object childFeature = feature;
 		Object childObject = child;
 
-		boolean qualify = childFeature == MODSPackage.eINSTANCE.getExtentDefinition_Start()
-				|| childFeature == MODSPackage.eINSTANCE.getExtentDefinition_End()
-				|| childFeature == MODSPackage.eINSTANCE.getExtentDefinition_List();
+		boolean qualify = childFeature == MODSPackage.eINSTANCE
+				.getExtentDefinition_Start()
+				|| childFeature == MODSPackage.eINSTANCE
+						.getExtentDefinition_End()
+				|| childFeature == MODSPackage.eINSTANCE
+						.getExtentDefinition_List();
 
 		if (qualify) {
-			return getString("_UI_CreateChild_text2", new Object[] { getTypeText(childObject),
-					getFeatureText(childFeature), getTypeText(owner) });
+			return getString("_UI_CreateChild_text2", new Object[] {
+					getTypeText(childObject), getFeatureText(childFeature),
+					getTypeText(owner) });
 		}
 		return super.getCreateChildText(owner, feature, child, selection);
 	}

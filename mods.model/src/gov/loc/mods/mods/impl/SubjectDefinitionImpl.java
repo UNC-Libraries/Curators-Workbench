@@ -88,7 +88,8 @@ import org.w3._1999.xlink.ShowType;
  *
  * @generated
  */
-public class SubjectDefinitionImpl extends EObjectImpl implements SubjectDefinition {
+public class SubjectDefinitionImpl extends EObjectImpl implements
+		SubjectDefinition {
 	/**
 	 * The cached value of the '{@link #getGroup() <em>Group</em>}' attribute list.
 	 * <!-- begin-user-doc -->
@@ -521,7 +522,8 @@ public class SubjectDefinitionImpl extends EObjectImpl implements SubjectDefinit
 	 */
 	public FeatureMap getGroup() {
 		if (group == null) {
-			group = new BasicFeatureMap(this, MODSPackage.SUBJECT_DEFINITION__GROUP);
+			group = new BasicFeatureMap(this,
+					MODSPackage.SUBJECT_DEFINITION__GROUP);
 		}
 		return group;
 	}
@@ -532,7 +534,8 @@ public class SubjectDefinitionImpl extends EObjectImpl implements SubjectDefinit
 	 * @generated
 	 */
 	public EList<StringPlusAuthority> getTopic() {
-		return getGroup().list(MODSPackage.eINSTANCE.getSubjectDefinition_Topic());
+		return getGroup().list(
+				MODSPackage.eINSTANCE.getSubjectDefinition_Topic());
 	}
 
 	/**
@@ -541,7 +544,8 @@ public class SubjectDefinitionImpl extends EObjectImpl implements SubjectDefinit
 	 * @generated
 	 */
 	public EList<StringPlusAuthority> getGeographic() {
-		return getGroup().list(MODSPackage.eINSTANCE.getSubjectDefinition_Geographic());
+		return getGroup().list(
+				MODSPackage.eINSTANCE.getSubjectDefinition_Geographic());
 	}
 
 	/**
@@ -550,7 +554,8 @@ public class SubjectDefinitionImpl extends EObjectImpl implements SubjectDefinit
 	 * @generated
 	 */
 	public EList<TemporalDefinition> getTemporal() {
-		return getGroup().list(MODSPackage.eINSTANCE.getSubjectDefinition_Temporal());
+		return getGroup().list(
+				MODSPackage.eINSTANCE.getSubjectDefinition_Temporal());
 	}
 
 	/**
@@ -559,7 +564,8 @@ public class SubjectDefinitionImpl extends EObjectImpl implements SubjectDefinit
 	 * @generated
 	 */
 	public EList<SubjectTitleInfoDefinition> getTitleInfo() {
-		return getGroup().list(MODSPackage.eINSTANCE.getSubjectDefinition_TitleInfo());
+		return getGroup().list(
+				MODSPackage.eINSTANCE.getSubjectDefinition_TitleInfo());
 	}
 
 	/**
@@ -568,7 +574,8 @@ public class SubjectDefinitionImpl extends EObjectImpl implements SubjectDefinit
 	 * @generated
 	 */
 	public EList<SubjectNameDefinition> getName() {
-		return getGroup().list(MODSPackage.eINSTANCE.getSubjectDefinition_Name());
+		return getGroup().list(
+				MODSPackage.eINSTANCE.getSubjectDefinition_Name());
 	}
 
 	/**
@@ -577,7 +584,8 @@ public class SubjectDefinitionImpl extends EObjectImpl implements SubjectDefinit
 	 * @generated
 	 */
 	public EList<GeographicCodeDefinition> getGeographicCode() {
-		return getGroup().list(MODSPackage.eINSTANCE.getSubjectDefinition_GeographicCode());
+		return getGroup().list(
+				MODSPackage.eINSTANCE.getSubjectDefinition_GeographicCode());
 	}
 
 	/**
@@ -586,7 +594,9 @@ public class SubjectDefinitionImpl extends EObjectImpl implements SubjectDefinit
 	 * @generated
 	 */
 	public EList<HierarchicalGeographicDefinition> getHierarchicalGeographic() {
-		return getGroup().list(MODSPackage.eINSTANCE.getSubjectDefinition_HierarchicalGeographic());
+		return getGroup().list(
+				MODSPackage.eINSTANCE
+						.getSubjectDefinition_HierarchicalGeographic());
 	}
 
 	/**
@@ -595,7 +605,8 @@ public class SubjectDefinitionImpl extends EObjectImpl implements SubjectDefinit
 	 * @generated
 	 */
 	public EList<CartographicsDefinition> getCartographics() {
-		return getGroup().list(MODSPackage.eINSTANCE.getSubjectDefinition_Cartographics());
+		return getGroup().list(
+				MODSPackage.eINSTANCE.getSubjectDefinition_Cartographics());
 	}
 
 	/**
@@ -604,7 +615,8 @@ public class SubjectDefinitionImpl extends EObjectImpl implements SubjectDefinit
 	 * @generated
 	 */
 	public EList<StringPlusAuthority> getOccupation() {
-		return getGroup().list(MODSPackage.eINSTANCE.getSubjectDefinition_Occupation());
+		return getGroup().list(
+				MODSPackage.eINSTANCE.getSubjectDefinition_Occupation());
 	}
 
 	/**
@@ -613,7 +625,8 @@ public class SubjectDefinitionImpl extends EObjectImpl implements SubjectDefinit
 	 * @generated
 	 */
 	public EList<GenreDefinition> getGenre() {
-		return getGroup().list(MODSPackage.eINSTANCE.getSubjectDefinition_Genre());
+		return getGroup().list(
+				MODSPackage.eINSTANCE.getSubjectDefinition_Genre());
 	}
 
 	/**
@@ -636,7 +649,8 @@ public class SubjectDefinitionImpl extends EObjectImpl implements SubjectDefinit
 		boolean oldActuateESet = actuateESet;
 		actuateESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.SUBJECT_DEFINITION__ACTUATE, oldActuate,
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.SUBJECT_DEFINITION__ACTUATE, oldActuate,
 					actuate, !oldActuateESet));
 	}
 
@@ -651,7 +665,8 @@ public class SubjectDefinitionImpl extends EObjectImpl implements SubjectDefinit
 		actuate = ACTUATE_EDEFAULT;
 		actuateESet = false;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, MODSPackage.SUBJECT_DEFINITION__ACTUATE, oldActuate,
+			eNotify(new ENotificationImpl(this, Notification.UNSET,
+					MODSPackage.SUBJECT_DEFINITION__ACTUATE, oldActuate,
 					ACTUATE_EDEFAULT, oldActuateESet));
 	}
 
@@ -682,7 +697,8 @@ public class SubjectDefinitionImpl extends EObjectImpl implements SubjectDefinit
 		String oldAltRepGroup = altRepGroup;
 		altRepGroup = newAltRepGroup;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.SUBJECT_DEFINITION__ALT_REP_GROUP,
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.SUBJECT_DEFINITION__ALT_REP_GROUP,
 					oldAltRepGroup, altRepGroup));
 	}
 
@@ -704,7 +720,8 @@ public class SubjectDefinitionImpl extends EObjectImpl implements SubjectDefinit
 		String oldArcrole = arcrole;
 		arcrole = newArcrole;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.SUBJECT_DEFINITION__ARCROLE, oldArcrole,
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.SUBJECT_DEFINITION__ARCROLE, oldArcrole,
 					arcrole));
 	}
 
@@ -726,7 +743,8 @@ public class SubjectDefinitionImpl extends EObjectImpl implements SubjectDefinit
 		String oldAuthority = authority;
 		authority = newAuthority;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.SUBJECT_DEFINITION__AUTHORITY, oldAuthority,
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.SUBJECT_DEFINITION__AUTHORITY, oldAuthority,
 					authority));
 	}
 
@@ -748,7 +766,8 @@ public class SubjectDefinitionImpl extends EObjectImpl implements SubjectDefinit
 		String oldAuthorityURI = authorityURI;
 		authorityURI = newAuthorityURI;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.SUBJECT_DEFINITION__AUTHORITY_URI,
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.SUBJECT_DEFINITION__AUTHORITY_URI,
 					oldAuthorityURI, authorityURI));
 	}
 
@@ -770,7 +789,8 @@ public class SubjectDefinitionImpl extends EObjectImpl implements SubjectDefinit
 		String oldDisplayLabel = displayLabel;
 		displayLabel = newDisplayLabel;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.SUBJECT_DEFINITION__DISPLAY_LABEL,
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.SUBJECT_DEFINITION__DISPLAY_LABEL,
 					oldDisplayLabel, displayLabel));
 	}
 
@@ -792,7 +812,8 @@ public class SubjectDefinitionImpl extends EObjectImpl implements SubjectDefinit
 		String oldHref = href;
 		href = newHref;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.SUBJECT_DEFINITION__HREF, oldHref, href));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.SUBJECT_DEFINITION__HREF, oldHref, href));
 	}
 
 	/**
@@ -813,7 +834,8 @@ public class SubjectDefinitionImpl extends EObjectImpl implements SubjectDefinit
 		String oldID = iD;
 		iD = newID;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.SUBJECT_DEFINITION__ID, oldID, iD));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.SUBJECT_DEFINITION__ID, oldID, iD));
 	}
 
 	/**
@@ -834,7 +856,8 @@ public class SubjectDefinitionImpl extends EObjectImpl implements SubjectDefinit
 		String oldLang = lang;
 		lang = newLang;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.SUBJECT_DEFINITION__LANG, oldLang, lang));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.SUBJECT_DEFINITION__LANG, oldLang, lang));
 	}
 
 	/**
@@ -855,7 +878,8 @@ public class SubjectDefinitionImpl extends EObjectImpl implements SubjectDefinit
 		String oldLang1 = lang1;
 		lang1 = newLang1;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.SUBJECT_DEFINITION__LANG1, oldLang1, lang1));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.SUBJECT_DEFINITION__LANG1, oldLang1, lang1));
 	}
 
 	/**
@@ -876,7 +900,8 @@ public class SubjectDefinitionImpl extends EObjectImpl implements SubjectDefinit
 		String oldRole = role;
 		role = newRole;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.SUBJECT_DEFINITION__ROLE, oldRole, role));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.SUBJECT_DEFINITION__ROLE, oldRole, role));
 	}
 
 	/**
@@ -897,8 +922,8 @@ public class SubjectDefinitionImpl extends EObjectImpl implements SubjectDefinit
 		String oldScript = script;
 		script = newScript;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.SUBJECT_DEFINITION__SCRIPT, oldScript,
-					script));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.SUBJECT_DEFINITION__SCRIPT, oldScript, script));
 	}
 
 	/**
@@ -921,7 +946,8 @@ public class SubjectDefinitionImpl extends EObjectImpl implements SubjectDefinit
 		boolean oldShowESet = showESet;
 		showESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.SUBJECT_DEFINITION__SHOW, oldShow, show,
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.SUBJECT_DEFINITION__SHOW, oldShow, show,
 					!oldShowESet));
 	}
 
@@ -936,7 +962,8 @@ public class SubjectDefinitionImpl extends EObjectImpl implements SubjectDefinit
 		show = SHOW_EDEFAULT;
 		showESet = false;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, MODSPackage.SUBJECT_DEFINITION__SHOW, oldShow,
+			eNotify(new ENotificationImpl(this, Notification.UNSET,
+					MODSPackage.SUBJECT_DEFINITION__SHOW, oldShow,
 					SHOW_EDEFAULT, oldShowESet));
 	}
 
@@ -967,7 +994,8 @@ public class SubjectDefinitionImpl extends EObjectImpl implements SubjectDefinit
 		String oldTitle = title;
 		title = newTitle;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.SUBJECT_DEFINITION__TITLE, oldTitle, title));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.SUBJECT_DEFINITION__TITLE, oldTitle, title));
 	}
 
 	/**
@@ -988,7 +1016,8 @@ public class SubjectDefinitionImpl extends EObjectImpl implements SubjectDefinit
 		String oldTransliteration = transliteration;
 		transliteration = newTransliteration;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.SUBJECT_DEFINITION__TRANSLITERATION,
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.SUBJECT_DEFINITION__TRANSLITERATION,
 					oldTransliteration, transliteration));
 	}
 
@@ -1012,7 +1041,8 @@ public class SubjectDefinitionImpl extends EObjectImpl implements SubjectDefinit
 		boolean oldTypeESet = typeESet;
 		typeESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.SUBJECT_DEFINITION__TYPE, oldType, type,
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.SUBJECT_DEFINITION__TYPE, oldType, type,
 					!oldTypeESet));
 	}
 
@@ -1027,7 +1057,8 @@ public class SubjectDefinitionImpl extends EObjectImpl implements SubjectDefinit
 		type = TYPE_EDEFAULT;
 		typeESet = false;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, MODSPackage.SUBJECT_DEFINITION__TYPE, oldType,
+			eNotify(new ENotificationImpl(this, Notification.UNSET,
+					MODSPackage.SUBJECT_DEFINITION__TYPE, oldType,
 					TYPE_EDEFAULT, oldTypeESet));
 	}
 
@@ -1060,7 +1091,8 @@ public class SubjectDefinitionImpl extends EObjectImpl implements SubjectDefinit
 		boolean oldUsageESet = usageESet;
 		usageESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.SUBJECT_DEFINITION__USAGE, oldUsage, usage,
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.SUBJECT_DEFINITION__USAGE, oldUsage, usage,
 					!oldUsageESet));
 	}
 
@@ -1075,7 +1107,8 @@ public class SubjectDefinitionImpl extends EObjectImpl implements SubjectDefinit
 		usage = USAGE_EDEFAULT;
 		usageESet = false;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, MODSPackage.SUBJECT_DEFINITION__USAGE, oldUsage,
+			eNotify(new ENotificationImpl(this, Notification.UNSET,
+					MODSPackage.SUBJECT_DEFINITION__USAGE, oldUsage,
 					USAGE_EDEFAULT, oldUsageESet));
 	}
 
@@ -1106,7 +1139,8 @@ public class SubjectDefinitionImpl extends EObjectImpl implements SubjectDefinit
 		String oldValueURI = valueURI;
 		valueURI = newValueURI;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.SUBJECT_DEFINITION__VALUE_URI, oldValueURI,
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.SUBJECT_DEFINITION__VALUE_URI, oldValueURI,
 					valueURI));
 	}
 
@@ -1116,30 +1150,38 @@ public class SubjectDefinitionImpl extends EObjectImpl implements SubjectDefinit
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+	public NotificationChain eInverseRemove(InternalEObject otherEnd,
+			int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case MODSPackage.SUBJECT_DEFINITION__GROUP:
-				return ((InternalEList<?>) getGroup()).basicRemove(otherEnd, msgs);
-			case MODSPackage.SUBJECT_DEFINITION__TOPIC:
-				return ((InternalEList<?>) getTopic()).basicRemove(otherEnd, msgs);
-			case MODSPackage.SUBJECT_DEFINITION__GEOGRAPHIC:
-				return ((InternalEList<?>) getGeographic()).basicRemove(otherEnd, msgs);
-			case MODSPackage.SUBJECT_DEFINITION__TEMPORAL:
-				return ((InternalEList<?>) getTemporal()).basicRemove(otherEnd, msgs);
-			case MODSPackage.SUBJECT_DEFINITION__TITLE_INFO:
-				return ((InternalEList<?>) getTitleInfo()).basicRemove(otherEnd, msgs);
-			case MODSPackage.SUBJECT_DEFINITION__NAME:
-				return ((InternalEList<?>) getName()).basicRemove(otherEnd, msgs);
-			case MODSPackage.SUBJECT_DEFINITION__GEOGRAPHIC_CODE:
-				return ((InternalEList<?>) getGeographicCode()).basicRemove(otherEnd, msgs);
-			case MODSPackage.SUBJECT_DEFINITION__HIERARCHICAL_GEOGRAPHIC:
-				return ((InternalEList<?>) getHierarchicalGeographic()).basicRemove(otherEnd, msgs);
-			case MODSPackage.SUBJECT_DEFINITION__CARTOGRAPHICS:
-				return ((InternalEList<?>) getCartographics()).basicRemove(otherEnd, msgs);
-			case MODSPackage.SUBJECT_DEFINITION__OCCUPATION:
-				return ((InternalEList<?>) getOccupation()).basicRemove(otherEnd, msgs);
-			case MODSPackage.SUBJECT_DEFINITION__GENRE:
-				return ((InternalEList<?>) getGenre()).basicRemove(otherEnd, msgs);
+		case MODSPackage.SUBJECT_DEFINITION__GROUP:
+			return ((InternalEList<?>) getGroup()).basicRemove(otherEnd, msgs);
+		case MODSPackage.SUBJECT_DEFINITION__TOPIC:
+			return ((InternalEList<?>) getTopic()).basicRemove(otherEnd, msgs);
+		case MODSPackage.SUBJECT_DEFINITION__GEOGRAPHIC:
+			return ((InternalEList<?>) getGeographic()).basicRemove(otherEnd,
+					msgs);
+		case MODSPackage.SUBJECT_DEFINITION__TEMPORAL:
+			return ((InternalEList<?>) getTemporal()).basicRemove(otherEnd,
+					msgs);
+		case MODSPackage.SUBJECT_DEFINITION__TITLE_INFO:
+			return ((InternalEList<?>) getTitleInfo()).basicRemove(otherEnd,
+					msgs);
+		case MODSPackage.SUBJECT_DEFINITION__NAME:
+			return ((InternalEList<?>) getName()).basicRemove(otherEnd, msgs);
+		case MODSPackage.SUBJECT_DEFINITION__GEOGRAPHIC_CODE:
+			return ((InternalEList<?>) getGeographicCode()).basicRemove(
+					otherEnd, msgs);
+		case MODSPackage.SUBJECT_DEFINITION__HIERARCHICAL_GEOGRAPHIC:
+			return ((InternalEList<?>) getHierarchicalGeographic())
+					.basicRemove(otherEnd, msgs);
+		case MODSPackage.SUBJECT_DEFINITION__CARTOGRAPHICS:
+			return ((InternalEList<?>) getCartographics()).basicRemove(
+					otherEnd, msgs);
+		case MODSPackage.SUBJECT_DEFINITION__OCCUPATION:
+			return ((InternalEList<?>) getOccupation()).basicRemove(otherEnd,
+					msgs);
+		case MODSPackage.SUBJECT_DEFINITION__GENRE:
+			return ((InternalEList<?>) getGenre()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -1152,66 +1194,66 @@ public class SubjectDefinitionImpl extends EObjectImpl implements SubjectDefinit
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case MODSPackage.SUBJECT_DEFINITION__GROUP:
-				if (coreType)
-					return getGroup();
-				return ((FeatureMap.Internal) getGroup()).getWrapper();
-			case MODSPackage.SUBJECT_DEFINITION__TOPIC:
-				return getTopic();
-			case MODSPackage.SUBJECT_DEFINITION__GEOGRAPHIC:
-				return getGeographic();
-			case MODSPackage.SUBJECT_DEFINITION__TEMPORAL:
-				return getTemporal();
-			case MODSPackage.SUBJECT_DEFINITION__TITLE_INFO:
-				return getTitleInfo();
-			case MODSPackage.SUBJECT_DEFINITION__NAME:
-				return getName();
-			case MODSPackage.SUBJECT_DEFINITION__GEOGRAPHIC_CODE:
-				return getGeographicCode();
-			case MODSPackage.SUBJECT_DEFINITION__HIERARCHICAL_GEOGRAPHIC:
-				return getHierarchicalGeographic();
-			case MODSPackage.SUBJECT_DEFINITION__CARTOGRAPHICS:
-				return getCartographics();
-			case MODSPackage.SUBJECT_DEFINITION__OCCUPATION:
-				return getOccupation();
-			case MODSPackage.SUBJECT_DEFINITION__GENRE:
-				return getGenre();
-			case MODSPackage.SUBJECT_DEFINITION__ACTUATE:
-				return getActuate();
-			case MODSPackage.SUBJECT_DEFINITION__ALT_REP_GROUP:
-				return getAltRepGroup();
-			case MODSPackage.SUBJECT_DEFINITION__ARCROLE:
-				return getArcrole();
-			case MODSPackage.SUBJECT_DEFINITION__AUTHORITY:
-				return getAuthority();
-			case MODSPackage.SUBJECT_DEFINITION__AUTHORITY_URI:
-				return getAuthorityURI();
-			case MODSPackage.SUBJECT_DEFINITION__DISPLAY_LABEL:
-				return getDisplayLabel();
-			case MODSPackage.SUBJECT_DEFINITION__HREF:
-				return getHref();
-			case MODSPackage.SUBJECT_DEFINITION__ID:
-				return getID();
-			case MODSPackage.SUBJECT_DEFINITION__LANG:
-				return getLang();
-			case MODSPackage.SUBJECT_DEFINITION__LANG1:
-				return getLang1();
-			case MODSPackage.SUBJECT_DEFINITION__ROLE:
-				return getRole();
-			case MODSPackage.SUBJECT_DEFINITION__SCRIPT:
-				return getScript();
-			case MODSPackage.SUBJECT_DEFINITION__SHOW:
-				return getShow();
-			case MODSPackage.SUBJECT_DEFINITION__TITLE:
-				return getTitle();
-			case MODSPackage.SUBJECT_DEFINITION__TRANSLITERATION:
-				return getTransliteration();
-			case MODSPackage.SUBJECT_DEFINITION__TYPE:
-				return getType();
-			case MODSPackage.SUBJECT_DEFINITION__USAGE:
-				return getUsage();
-			case MODSPackage.SUBJECT_DEFINITION__VALUE_URI:
-				return getValueURI();
+		case MODSPackage.SUBJECT_DEFINITION__GROUP:
+			if (coreType)
+				return getGroup();
+			return ((FeatureMap.Internal) getGroup()).getWrapper();
+		case MODSPackage.SUBJECT_DEFINITION__TOPIC:
+			return getTopic();
+		case MODSPackage.SUBJECT_DEFINITION__GEOGRAPHIC:
+			return getGeographic();
+		case MODSPackage.SUBJECT_DEFINITION__TEMPORAL:
+			return getTemporal();
+		case MODSPackage.SUBJECT_DEFINITION__TITLE_INFO:
+			return getTitleInfo();
+		case MODSPackage.SUBJECT_DEFINITION__NAME:
+			return getName();
+		case MODSPackage.SUBJECT_DEFINITION__GEOGRAPHIC_CODE:
+			return getGeographicCode();
+		case MODSPackage.SUBJECT_DEFINITION__HIERARCHICAL_GEOGRAPHIC:
+			return getHierarchicalGeographic();
+		case MODSPackage.SUBJECT_DEFINITION__CARTOGRAPHICS:
+			return getCartographics();
+		case MODSPackage.SUBJECT_DEFINITION__OCCUPATION:
+			return getOccupation();
+		case MODSPackage.SUBJECT_DEFINITION__GENRE:
+			return getGenre();
+		case MODSPackage.SUBJECT_DEFINITION__ACTUATE:
+			return getActuate();
+		case MODSPackage.SUBJECT_DEFINITION__ALT_REP_GROUP:
+			return getAltRepGroup();
+		case MODSPackage.SUBJECT_DEFINITION__ARCROLE:
+			return getArcrole();
+		case MODSPackage.SUBJECT_DEFINITION__AUTHORITY:
+			return getAuthority();
+		case MODSPackage.SUBJECT_DEFINITION__AUTHORITY_URI:
+			return getAuthorityURI();
+		case MODSPackage.SUBJECT_DEFINITION__DISPLAY_LABEL:
+			return getDisplayLabel();
+		case MODSPackage.SUBJECT_DEFINITION__HREF:
+			return getHref();
+		case MODSPackage.SUBJECT_DEFINITION__ID:
+			return getID();
+		case MODSPackage.SUBJECT_DEFINITION__LANG:
+			return getLang();
+		case MODSPackage.SUBJECT_DEFINITION__LANG1:
+			return getLang1();
+		case MODSPackage.SUBJECT_DEFINITION__ROLE:
+			return getRole();
+		case MODSPackage.SUBJECT_DEFINITION__SCRIPT:
+			return getScript();
+		case MODSPackage.SUBJECT_DEFINITION__SHOW:
+			return getShow();
+		case MODSPackage.SUBJECT_DEFINITION__TITLE:
+			return getTitle();
+		case MODSPackage.SUBJECT_DEFINITION__TRANSLITERATION:
+			return getTransliteration();
+		case MODSPackage.SUBJECT_DEFINITION__TYPE:
+			return getType();
+		case MODSPackage.SUBJECT_DEFINITION__USAGE:
+			return getUsage();
+		case MODSPackage.SUBJECT_DEFINITION__VALUE_URI:
+			return getValueURI();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -1225,103 +1267,112 @@ public class SubjectDefinitionImpl extends EObjectImpl implements SubjectDefinit
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case MODSPackage.SUBJECT_DEFINITION__GROUP:
-				((FeatureMap.Internal) getGroup()).set(newValue);
-				return;
-			case MODSPackage.SUBJECT_DEFINITION__TOPIC:
-				getTopic().clear();
-				getTopic().addAll((Collection<? extends StringPlusAuthority>) newValue);
-				return;
-			case MODSPackage.SUBJECT_DEFINITION__GEOGRAPHIC:
-				getGeographic().clear();
-				getGeographic().addAll((Collection<? extends StringPlusAuthority>) newValue);
-				return;
-			case MODSPackage.SUBJECT_DEFINITION__TEMPORAL:
-				getTemporal().clear();
-				getTemporal().addAll((Collection<? extends TemporalDefinition>) newValue);
-				return;
-			case MODSPackage.SUBJECT_DEFINITION__TITLE_INFO:
-				getTitleInfo().clear();
-				getTitleInfo().addAll((Collection<? extends SubjectTitleInfoDefinition>) newValue);
-				return;
-			case MODSPackage.SUBJECT_DEFINITION__NAME:
-				getName().clear();
-				getName().addAll((Collection<? extends SubjectNameDefinition>) newValue);
-				return;
-			case MODSPackage.SUBJECT_DEFINITION__GEOGRAPHIC_CODE:
-				getGeographicCode().clear();
-				getGeographicCode().addAll((Collection<? extends GeographicCodeDefinition>) newValue);
-				return;
-			case MODSPackage.SUBJECT_DEFINITION__HIERARCHICAL_GEOGRAPHIC:
-				getHierarchicalGeographic().clear();
-				getHierarchicalGeographic().addAll((Collection<? extends HierarchicalGeographicDefinition>) newValue);
-				return;
-			case MODSPackage.SUBJECT_DEFINITION__CARTOGRAPHICS:
-				getCartographics().clear();
-				getCartographics().addAll((Collection<? extends CartographicsDefinition>) newValue);
-				return;
-			case MODSPackage.SUBJECT_DEFINITION__OCCUPATION:
-				getOccupation().clear();
-				getOccupation().addAll((Collection<? extends StringPlusAuthority>) newValue);
-				return;
-			case MODSPackage.SUBJECT_DEFINITION__GENRE:
-				getGenre().clear();
-				getGenre().addAll((Collection<? extends GenreDefinition>) newValue);
-				return;
-			case MODSPackage.SUBJECT_DEFINITION__ACTUATE:
-				setActuate((ActuateType) newValue);
-				return;
-			case MODSPackage.SUBJECT_DEFINITION__ALT_REP_GROUP:
-				setAltRepGroup((String) newValue);
-				return;
-			case MODSPackage.SUBJECT_DEFINITION__ARCROLE:
-				setArcrole((String) newValue);
-				return;
-			case MODSPackage.SUBJECT_DEFINITION__AUTHORITY:
-				setAuthority((String) newValue);
-				return;
-			case MODSPackage.SUBJECT_DEFINITION__AUTHORITY_URI:
-				setAuthorityURI((String) newValue);
-				return;
-			case MODSPackage.SUBJECT_DEFINITION__DISPLAY_LABEL:
-				setDisplayLabel((String) newValue);
-				return;
-			case MODSPackage.SUBJECT_DEFINITION__HREF:
-				setHref((String) newValue);
-				return;
-			case MODSPackage.SUBJECT_DEFINITION__ID:
-				setID((String) newValue);
-				return;
-			case MODSPackage.SUBJECT_DEFINITION__LANG:
-				setLang((String) newValue);
-				return;
-			case MODSPackage.SUBJECT_DEFINITION__LANG1:
-				setLang1((String) newValue);
-				return;
-			case MODSPackage.SUBJECT_DEFINITION__ROLE:
-				setRole((String) newValue);
-				return;
-			case MODSPackage.SUBJECT_DEFINITION__SCRIPT:
-				setScript((String) newValue);
-				return;
-			case MODSPackage.SUBJECT_DEFINITION__SHOW:
-				setShow((ShowType) newValue);
-				return;
-			case MODSPackage.SUBJECT_DEFINITION__TITLE:
-				setTitle((String) newValue);
-				return;
-			case MODSPackage.SUBJECT_DEFINITION__TRANSLITERATION:
-				setTransliteration((String) newValue);
-				return;
-			case MODSPackage.SUBJECT_DEFINITION__TYPE:
-				setType((String) newValue);
-				return;
-			case MODSPackage.SUBJECT_DEFINITION__USAGE:
-				setUsage((UsageAttributeDefinition) newValue);
-				return;
-			case MODSPackage.SUBJECT_DEFINITION__VALUE_URI:
-				setValueURI((String) newValue);
-				return;
+		case MODSPackage.SUBJECT_DEFINITION__GROUP:
+			((FeatureMap.Internal) getGroup()).set(newValue);
+			return;
+		case MODSPackage.SUBJECT_DEFINITION__TOPIC:
+			getTopic().clear();
+			getTopic().addAll(
+					(Collection<? extends StringPlusAuthority>) newValue);
+			return;
+		case MODSPackage.SUBJECT_DEFINITION__GEOGRAPHIC:
+			getGeographic().clear();
+			getGeographic().addAll(
+					(Collection<? extends StringPlusAuthority>) newValue);
+			return;
+		case MODSPackage.SUBJECT_DEFINITION__TEMPORAL:
+			getTemporal().clear();
+			getTemporal().addAll(
+					(Collection<? extends TemporalDefinition>) newValue);
+			return;
+		case MODSPackage.SUBJECT_DEFINITION__TITLE_INFO:
+			getTitleInfo().clear();
+			getTitleInfo()
+					.addAll((Collection<? extends SubjectTitleInfoDefinition>) newValue);
+			return;
+		case MODSPackage.SUBJECT_DEFINITION__NAME:
+			getName().clear();
+			getName().addAll(
+					(Collection<? extends SubjectNameDefinition>) newValue);
+			return;
+		case MODSPackage.SUBJECT_DEFINITION__GEOGRAPHIC_CODE:
+			getGeographicCode().clear();
+			getGeographicCode().addAll(
+					(Collection<? extends GeographicCodeDefinition>) newValue);
+			return;
+		case MODSPackage.SUBJECT_DEFINITION__HIERARCHICAL_GEOGRAPHIC:
+			getHierarchicalGeographic().clear();
+			getHierarchicalGeographic()
+					.addAll((Collection<? extends HierarchicalGeographicDefinition>) newValue);
+			return;
+		case MODSPackage.SUBJECT_DEFINITION__CARTOGRAPHICS:
+			getCartographics().clear();
+			getCartographics().addAll(
+					(Collection<? extends CartographicsDefinition>) newValue);
+			return;
+		case MODSPackage.SUBJECT_DEFINITION__OCCUPATION:
+			getOccupation().clear();
+			getOccupation().addAll(
+					(Collection<? extends StringPlusAuthority>) newValue);
+			return;
+		case MODSPackage.SUBJECT_DEFINITION__GENRE:
+			getGenre().clear();
+			getGenre().addAll((Collection<? extends GenreDefinition>) newValue);
+			return;
+		case MODSPackage.SUBJECT_DEFINITION__ACTUATE:
+			setActuate((ActuateType) newValue);
+			return;
+		case MODSPackage.SUBJECT_DEFINITION__ALT_REP_GROUP:
+			setAltRepGroup((String) newValue);
+			return;
+		case MODSPackage.SUBJECT_DEFINITION__ARCROLE:
+			setArcrole((String) newValue);
+			return;
+		case MODSPackage.SUBJECT_DEFINITION__AUTHORITY:
+			setAuthority((String) newValue);
+			return;
+		case MODSPackage.SUBJECT_DEFINITION__AUTHORITY_URI:
+			setAuthorityURI((String) newValue);
+			return;
+		case MODSPackage.SUBJECT_DEFINITION__DISPLAY_LABEL:
+			setDisplayLabel((String) newValue);
+			return;
+		case MODSPackage.SUBJECT_DEFINITION__HREF:
+			setHref((String) newValue);
+			return;
+		case MODSPackage.SUBJECT_DEFINITION__ID:
+			setID((String) newValue);
+			return;
+		case MODSPackage.SUBJECT_DEFINITION__LANG:
+			setLang((String) newValue);
+			return;
+		case MODSPackage.SUBJECT_DEFINITION__LANG1:
+			setLang1((String) newValue);
+			return;
+		case MODSPackage.SUBJECT_DEFINITION__ROLE:
+			setRole((String) newValue);
+			return;
+		case MODSPackage.SUBJECT_DEFINITION__SCRIPT:
+			setScript((String) newValue);
+			return;
+		case MODSPackage.SUBJECT_DEFINITION__SHOW:
+			setShow((ShowType) newValue);
+			return;
+		case MODSPackage.SUBJECT_DEFINITION__TITLE:
+			setTitle((String) newValue);
+			return;
+		case MODSPackage.SUBJECT_DEFINITION__TRANSLITERATION:
+			setTransliteration((String) newValue);
+			return;
+		case MODSPackage.SUBJECT_DEFINITION__TYPE:
+			setType((String) newValue);
+			return;
+		case MODSPackage.SUBJECT_DEFINITION__USAGE:
+			setUsage((UsageAttributeDefinition) newValue);
+			return;
+		case MODSPackage.SUBJECT_DEFINITION__VALUE_URI:
+			setValueURI((String) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -1334,93 +1385,93 @@ public class SubjectDefinitionImpl extends EObjectImpl implements SubjectDefinit
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case MODSPackage.SUBJECT_DEFINITION__GROUP:
-				getGroup().clear();
-				return;
-			case MODSPackage.SUBJECT_DEFINITION__TOPIC:
-				getTopic().clear();
-				return;
-			case MODSPackage.SUBJECT_DEFINITION__GEOGRAPHIC:
-				getGeographic().clear();
-				return;
-			case MODSPackage.SUBJECT_DEFINITION__TEMPORAL:
-				getTemporal().clear();
-				return;
-			case MODSPackage.SUBJECT_DEFINITION__TITLE_INFO:
-				getTitleInfo().clear();
-				return;
-			case MODSPackage.SUBJECT_DEFINITION__NAME:
-				getName().clear();
-				return;
-			case MODSPackage.SUBJECT_DEFINITION__GEOGRAPHIC_CODE:
-				getGeographicCode().clear();
-				return;
-			case MODSPackage.SUBJECT_DEFINITION__HIERARCHICAL_GEOGRAPHIC:
-				getHierarchicalGeographic().clear();
-				return;
-			case MODSPackage.SUBJECT_DEFINITION__CARTOGRAPHICS:
-				getCartographics().clear();
-				return;
-			case MODSPackage.SUBJECT_DEFINITION__OCCUPATION:
-				getOccupation().clear();
-				return;
-			case MODSPackage.SUBJECT_DEFINITION__GENRE:
-				getGenre().clear();
-				return;
-			case MODSPackage.SUBJECT_DEFINITION__ACTUATE:
-				unsetActuate();
-				return;
-			case MODSPackage.SUBJECT_DEFINITION__ALT_REP_GROUP:
-				setAltRepGroup(ALT_REP_GROUP_EDEFAULT);
-				return;
-			case MODSPackage.SUBJECT_DEFINITION__ARCROLE:
-				setArcrole(ARCROLE_EDEFAULT);
-				return;
-			case MODSPackage.SUBJECT_DEFINITION__AUTHORITY:
-				setAuthority(AUTHORITY_EDEFAULT);
-				return;
-			case MODSPackage.SUBJECT_DEFINITION__AUTHORITY_URI:
-				setAuthorityURI(AUTHORITY_URI_EDEFAULT);
-				return;
-			case MODSPackage.SUBJECT_DEFINITION__DISPLAY_LABEL:
-				setDisplayLabel(DISPLAY_LABEL_EDEFAULT);
-				return;
-			case MODSPackage.SUBJECT_DEFINITION__HREF:
-				setHref(HREF_EDEFAULT);
-				return;
-			case MODSPackage.SUBJECT_DEFINITION__ID:
-				setID(ID_EDEFAULT);
-				return;
-			case MODSPackage.SUBJECT_DEFINITION__LANG:
-				setLang(LANG_EDEFAULT);
-				return;
-			case MODSPackage.SUBJECT_DEFINITION__LANG1:
-				setLang1(LANG1_EDEFAULT);
-				return;
-			case MODSPackage.SUBJECT_DEFINITION__ROLE:
-				setRole(ROLE_EDEFAULT);
-				return;
-			case MODSPackage.SUBJECT_DEFINITION__SCRIPT:
-				setScript(SCRIPT_EDEFAULT);
-				return;
-			case MODSPackage.SUBJECT_DEFINITION__SHOW:
-				unsetShow();
-				return;
-			case MODSPackage.SUBJECT_DEFINITION__TITLE:
-				setTitle(TITLE_EDEFAULT);
-				return;
-			case MODSPackage.SUBJECT_DEFINITION__TRANSLITERATION:
-				setTransliteration(TRANSLITERATION_EDEFAULT);
-				return;
-			case MODSPackage.SUBJECT_DEFINITION__TYPE:
-				unsetType();
-				return;
-			case MODSPackage.SUBJECT_DEFINITION__USAGE:
-				unsetUsage();
-				return;
-			case MODSPackage.SUBJECT_DEFINITION__VALUE_URI:
-				setValueURI(VALUE_URI_EDEFAULT);
-				return;
+		case MODSPackage.SUBJECT_DEFINITION__GROUP:
+			getGroup().clear();
+			return;
+		case MODSPackage.SUBJECT_DEFINITION__TOPIC:
+			getTopic().clear();
+			return;
+		case MODSPackage.SUBJECT_DEFINITION__GEOGRAPHIC:
+			getGeographic().clear();
+			return;
+		case MODSPackage.SUBJECT_DEFINITION__TEMPORAL:
+			getTemporal().clear();
+			return;
+		case MODSPackage.SUBJECT_DEFINITION__TITLE_INFO:
+			getTitleInfo().clear();
+			return;
+		case MODSPackage.SUBJECT_DEFINITION__NAME:
+			getName().clear();
+			return;
+		case MODSPackage.SUBJECT_DEFINITION__GEOGRAPHIC_CODE:
+			getGeographicCode().clear();
+			return;
+		case MODSPackage.SUBJECT_DEFINITION__HIERARCHICAL_GEOGRAPHIC:
+			getHierarchicalGeographic().clear();
+			return;
+		case MODSPackage.SUBJECT_DEFINITION__CARTOGRAPHICS:
+			getCartographics().clear();
+			return;
+		case MODSPackage.SUBJECT_DEFINITION__OCCUPATION:
+			getOccupation().clear();
+			return;
+		case MODSPackage.SUBJECT_DEFINITION__GENRE:
+			getGenre().clear();
+			return;
+		case MODSPackage.SUBJECT_DEFINITION__ACTUATE:
+			unsetActuate();
+			return;
+		case MODSPackage.SUBJECT_DEFINITION__ALT_REP_GROUP:
+			setAltRepGroup(ALT_REP_GROUP_EDEFAULT);
+			return;
+		case MODSPackage.SUBJECT_DEFINITION__ARCROLE:
+			setArcrole(ARCROLE_EDEFAULT);
+			return;
+		case MODSPackage.SUBJECT_DEFINITION__AUTHORITY:
+			setAuthority(AUTHORITY_EDEFAULT);
+			return;
+		case MODSPackage.SUBJECT_DEFINITION__AUTHORITY_URI:
+			setAuthorityURI(AUTHORITY_URI_EDEFAULT);
+			return;
+		case MODSPackage.SUBJECT_DEFINITION__DISPLAY_LABEL:
+			setDisplayLabel(DISPLAY_LABEL_EDEFAULT);
+			return;
+		case MODSPackage.SUBJECT_DEFINITION__HREF:
+			setHref(HREF_EDEFAULT);
+			return;
+		case MODSPackage.SUBJECT_DEFINITION__ID:
+			setID(ID_EDEFAULT);
+			return;
+		case MODSPackage.SUBJECT_DEFINITION__LANG:
+			setLang(LANG_EDEFAULT);
+			return;
+		case MODSPackage.SUBJECT_DEFINITION__LANG1:
+			setLang1(LANG1_EDEFAULT);
+			return;
+		case MODSPackage.SUBJECT_DEFINITION__ROLE:
+			setRole(ROLE_EDEFAULT);
+			return;
+		case MODSPackage.SUBJECT_DEFINITION__SCRIPT:
+			setScript(SCRIPT_EDEFAULT);
+			return;
+		case MODSPackage.SUBJECT_DEFINITION__SHOW:
+			unsetShow();
+			return;
+		case MODSPackage.SUBJECT_DEFINITION__TITLE:
+			setTitle(TITLE_EDEFAULT);
+			return;
+		case MODSPackage.SUBJECT_DEFINITION__TRANSLITERATION:
+			setTransliteration(TRANSLITERATION_EDEFAULT);
+			return;
+		case MODSPackage.SUBJECT_DEFINITION__TYPE:
+			unsetType();
+			return;
+		case MODSPackage.SUBJECT_DEFINITION__USAGE:
+			unsetUsage();
+			return;
+		case MODSPackage.SUBJECT_DEFINITION__VALUE_URI:
+			setValueURI(VALUE_URI_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -1433,65 +1484,77 @@ public class SubjectDefinitionImpl extends EObjectImpl implements SubjectDefinit
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case MODSPackage.SUBJECT_DEFINITION__GROUP:
-				return group != null && !group.isEmpty();
-			case MODSPackage.SUBJECT_DEFINITION__TOPIC:
-				return !getTopic().isEmpty();
-			case MODSPackage.SUBJECT_DEFINITION__GEOGRAPHIC:
-				return !getGeographic().isEmpty();
-			case MODSPackage.SUBJECT_DEFINITION__TEMPORAL:
-				return !getTemporal().isEmpty();
-			case MODSPackage.SUBJECT_DEFINITION__TITLE_INFO:
-				return !getTitleInfo().isEmpty();
-			case MODSPackage.SUBJECT_DEFINITION__NAME:
-				return !getName().isEmpty();
-			case MODSPackage.SUBJECT_DEFINITION__GEOGRAPHIC_CODE:
-				return !getGeographicCode().isEmpty();
-			case MODSPackage.SUBJECT_DEFINITION__HIERARCHICAL_GEOGRAPHIC:
-				return !getHierarchicalGeographic().isEmpty();
-			case MODSPackage.SUBJECT_DEFINITION__CARTOGRAPHICS:
-				return !getCartographics().isEmpty();
-			case MODSPackage.SUBJECT_DEFINITION__OCCUPATION:
-				return !getOccupation().isEmpty();
-			case MODSPackage.SUBJECT_DEFINITION__GENRE:
-				return !getGenre().isEmpty();
-			case MODSPackage.SUBJECT_DEFINITION__ACTUATE:
-				return isSetActuate();
-			case MODSPackage.SUBJECT_DEFINITION__ALT_REP_GROUP:
-				return ALT_REP_GROUP_EDEFAULT == null ? altRepGroup != null : !ALT_REP_GROUP_EDEFAULT.equals(altRepGroup);
-			case MODSPackage.SUBJECT_DEFINITION__ARCROLE:
-				return ARCROLE_EDEFAULT == null ? arcrole != null : !ARCROLE_EDEFAULT.equals(arcrole);
-			case MODSPackage.SUBJECT_DEFINITION__AUTHORITY:
-				return AUTHORITY_EDEFAULT == null ? authority != null : !AUTHORITY_EDEFAULT.equals(authority);
-			case MODSPackage.SUBJECT_DEFINITION__AUTHORITY_URI:
-				return AUTHORITY_URI_EDEFAULT == null ? authorityURI != null : !AUTHORITY_URI_EDEFAULT.equals(authorityURI);
-			case MODSPackage.SUBJECT_DEFINITION__DISPLAY_LABEL:
-				return DISPLAY_LABEL_EDEFAULT == null ? displayLabel != null : !DISPLAY_LABEL_EDEFAULT.equals(displayLabel);
-			case MODSPackage.SUBJECT_DEFINITION__HREF:
-				return HREF_EDEFAULT == null ? href != null : !HREF_EDEFAULT.equals(href);
-			case MODSPackage.SUBJECT_DEFINITION__ID:
-				return ID_EDEFAULT == null ? iD != null : !ID_EDEFAULT.equals(iD);
-			case MODSPackage.SUBJECT_DEFINITION__LANG:
-				return LANG_EDEFAULT == null ? lang != null : !LANG_EDEFAULT.equals(lang);
-			case MODSPackage.SUBJECT_DEFINITION__LANG1:
-				return LANG1_EDEFAULT == null ? lang1 != null : !LANG1_EDEFAULT.equals(lang1);
-			case MODSPackage.SUBJECT_DEFINITION__ROLE:
-				return ROLE_EDEFAULT == null ? role != null : !ROLE_EDEFAULT.equals(role);
-			case MODSPackage.SUBJECT_DEFINITION__SCRIPT:
-				return SCRIPT_EDEFAULT == null ? script != null : !SCRIPT_EDEFAULT.equals(script);
-			case MODSPackage.SUBJECT_DEFINITION__SHOW:
-				return isSetShow();
-			case MODSPackage.SUBJECT_DEFINITION__TITLE:
-				return TITLE_EDEFAULT == null ? title != null : !TITLE_EDEFAULT.equals(title);
-			case MODSPackage.SUBJECT_DEFINITION__TRANSLITERATION:
-				return TRANSLITERATION_EDEFAULT == null ? transliteration != null : !TRANSLITERATION_EDEFAULT
-						.equals(transliteration);
-			case MODSPackage.SUBJECT_DEFINITION__TYPE:
-				return isSetType();
-			case MODSPackage.SUBJECT_DEFINITION__USAGE:
-				return isSetUsage();
-			case MODSPackage.SUBJECT_DEFINITION__VALUE_URI:
-				return VALUE_URI_EDEFAULT == null ? valueURI != null : !VALUE_URI_EDEFAULT.equals(valueURI);
+		case MODSPackage.SUBJECT_DEFINITION__GROUP:
+			return group != null && !group.isEmpty();
+		case MODSPackage.SUBJECT_DEFINITION__TOPIC:
+			return !getTopic().isEmpty();
+		case MODSPackage.SUBJECT_DEFINITION__GEOGRAPHIC:
+			return !getGeographic().isEmpty();
+		case MODSPackage.SUBJECT_DEFINITION__TEMPORAL:
+			return !getTemporal().isEmpty();
+		case MODSPackage.SUBJECT_DEFINITION__TITLE_INFO:
+			return !getTitleInfo().isEmpty();
+		case MODSPackage.SUBJECT_DEFINITION__NAME:
+			return !getName().isEmpty();
+		case MODSPackage.SUBJECT_DEFINITION__GEOGRAPHIC_CODE:
+			return !getGeographicCode().isEmpty();
+		case MODSPackage.SUBJECT_DEFINITION__HIERARCHICAL_GEOGRAPHIC:
+			return !getHierarchicalGeographic().isEmpty();
+		case MODSPackage.SUBJECT_DEFINITION__CARTOGRAPHICS:
+			return !getCartographics().isEmpty();
+		case MODSPackage.SUBJECT_DEFINITION__OCCUPATION:
+			return !getOccupation().isEmpty();
+		case MODSPackage.SUBJECT_DEFINITION__GENRE:
+			return !getGenre().isEmpty();
+		case MODSPackage.SUBJECT_DEFINITION__ACTUATE:
+			return isSetActuate();
+		case MODSPackage.SUBJECT_DEFINITION__ALT_REP_GROUP:
+			return ALT_REP_GROUP_EDEFAULT == null ? altRepGroup != null
+					: !ALT_REP_GROUP_EDEFAULT.equals(altRepGroup);
+		case MODSPackage.SUBJECT_DEFINITION__ARCROLE:
+			return ARCROLE_EDEFAULT == null ? arcrole != null
+					: !ARCROLE_EDEFAULT.equals(arcrole);
+		case MODSPackage.SUBJECT_DEFINITION__AUTHORITY:
+			return AUTHORITY_EDEFAULT == null ? authority != null
+					: !AUTHORITY_EDEFAULT.equals(authority);
+		case MODSPackage.SUBJECT_DEFINITION__AUTHORITY_URI:
+			return AUTHORITY_URI_EDEFAULT == null ? authorityURI != null
+					: !AUTHORITY_URI_EDEFAULT.equals(authorityURI);
+		case MODSPackage.SUBJECT_DEFINITION__DISPLAY_LABEL:
+			return DISPLAY_LABEL_EDEFAULT == null ? displayLabel != null
+					: !DISPLAY_LABEL_EDEFAULT.equals(displayLabel);
+		case MODSPackage.SUBJECT_DEFINITION__HREF:
+			return HREF_EDEFAULT == null ? href != null : !HREF_EDEFAULT
+					.equals(href);
+		case MODSPackage.SUBJECT_DEFINITION__ID:
+			return ID_EDEFAULT == null ? iD != null : !ID_EDEFAULT.equals(iD);
+		case MODSPackage.SUBJECT_DEFINITION__LANG:
+			return LANG_EDEFAULT == null ? lang != null : !LANG_EDEFAULT
+					.equals(lang);
+		case MODSPackage.SUBJECT_DEFINITION__LANG1:
+			return LANG1_EDEFAULT == null ? lang1 != null : !LANG1_EDEFAULT
+					.equals(lang1);
+		case MODSPackage.SUBJECT_DEFINITION__ROLE:
+			return ROLE_EDEFAULT == null ? role != null : !ROLE_EDEFAULT
+					.equals(role);
+		case MODSPackage.SUBJECT_DEFINITION__SCRIPT:
+			return SCRIPT_EDEFAULT == null ? script != null : !SCRIPT_EDEFAULT
+					.equals(script);
+		case MODSPackage.SUBJECT_DEFINITION__SHOW:
+			return isSetShow();
+		case MODSPackage.SUBJECT_DEFINITION__TITLE:
+			return TITLE_EDEFAULT == null ? title != null : !TITLE_EDEFAULT
+					.equals(title);
+		case MODSPackage.SUBJECT_DEFINITION__TRANSLITERATION:
+			return TRANSLITERATION_EDEFAULT == null ? transliteration != null
+					: !TRANSLITERATION_EDEFAULT.equals(transliteration);
+		case MODSPackage.SUBJECT_DEFINITION__TYPE:
+			return isSetType();
+		case MODSPackage.SUBJECT_DEFINITION__USAGE:
+			return isSetUsage();
+		case MODSPackage.SUBJECT_DEFINITION__VALUE_URI:
+			return VALUE_URI_EDEFAULT == null ? valueURI != null
+					: !VALUE_URI_EDEFAULT.equals(valueURI);
 		}
 		return super.eIsSet(featureID);
 	}

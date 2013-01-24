@@ -40,8 +40,9 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class DateDefinitionItemProvider extends DateBaseDefinitionItemProvider implements IEditingDomainItemProvider,
-		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class DateDefinitionItemProvider extends DateBaseDefinitionItemProvider
+		implements IEditingDomainItemProvider, IStructuredItemContentProvider,
+		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -76,11 +77,14 @@ public class DateDefinitionItemProvider extends DateBaseDefinitionItemProvider i
 	 */
 	protected void addKeyDatePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_DateDefinition_keyDate_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_DateDefinition_keyDate_feature",
-						"_UI_DateDefinition_type"), MODSPackage.eINSTANCE.getDateDefinition_KeyDate(), true, false, false,
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_DateDefinition_keyDate_feature",
+						"_UI_DateDefinition_type"), MODSPackage.eINSTANCE
+						.getDateDefinition_KeyDate(), true, false, false,
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
@@ -92,7 +96,8 @@ public class DateDefinitionItemProvider extends DateBaseDefinitionItemProvider i
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/DateDefinition"));
+		return overlayImage(object,
+				getResourceLocator().getImage("full/obj16/DateDefinition"));
 	}
 
 	/**
@@ -130,9 +135,10 @@ public class DateDefinitionItemProvider extends DateBaseDefinitionItemProvider i
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(DateDefinition.class)) {
-			case MODSPackage.DATE_DEFINITION__KEY_DATE:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
+		case MODSPackage.DATE_DEFINITION__KEY_DATE:
+			fireNotifyChanged(new ViewerNotification(notification,
+					notification.getNotifier(), false, true));
+			return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -145,7 +151,8 @@ public class DateDefinitionItemProvider extends DateBaseDefinitionItemProvider i
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(
+			Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 

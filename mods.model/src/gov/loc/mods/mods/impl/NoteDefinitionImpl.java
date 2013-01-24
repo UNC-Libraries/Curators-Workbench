@@ -37,7 +37,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class NoteDefinitionImpl extends NoteBaseDefinitionImpl implements NoteDefinition {
+public class NoteDefinitionImpl extends NoteBaseDefinitionImpl implements
+		NoteDefinition {
 	/**
 	 * The default value of the '{@link #getAltRepGroup() <em>Alt Rep Group</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -95,8 +96,9 @@ public class NoteDefinitionImpl extends NoteBaseDefinitionImpl implements NoteDe
 		String oldAltRepGroup = altRepGroup;
 		altRepGroup = newAltRepGroup;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.NOTE_DEFINITION__ALT_REP_GROUP,
-					oldAltRepGroup, altRepGroup));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.NOTE_DEFINITION__ALT_REP_GROUP, oldAltRepGroup,
+					altRepGroup));
 	}
 
 	/**
@@ -107,8 +109,8 @@ public class NoteDefinitionImpl extends NoteBaseDefinitionImpl implements NoteDe
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case MODSPackage.NOTE_DEFINITION__ALT_REP_GROUP:
-				return getAltRepGroup();
+		case MODSPackage.NOTE_DEFINITION__ALT_REP_GROUP:
+			return getAltRepGroup();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -121,9 +123,9 @@ public class NoteDefinitionImpl extends NoteBaseDefinitionImpl implements NoteDe
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case MODSPackage.NOTE_DEFINITION__ALT_REP_GROUP:
-				setAltRepGroup((String) newValue);
-				return;
+		case MODSPackage.NOTE_DEFINITION__ALT_REP_GROUP:
+			setAltRepGroup((String) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -136,9 +138,9 @@ public class NoteDefinitionImpl extends NoteBaseDefinitionImpl implements NoteDe
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case MODSPackage.NOTE_DEFINITION__ALT_REP_GROUP:
-				setAltRepGroup(ALT_REP_GROUP_EDEFAULT);
-				return;
+		case MODSPackage.NOTE_DEFINITION__ALT_REP_GROUP:
+			setAltRepGroup(ALT_REP_GROUP_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -151,8 +153,9 @@ public class NoteDefinitionImpl extends NoteBaseDefinitionImpl implements NoteDe
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case MODSPackage.NOTE_DEFINITION__ALT_REP_GROUP:
-				return ALT_REP_GROUP_EDEFAULT == null ? altRepGroup != null : !ALT_REP_GROUP_EDEFAULT.equals(altRepGroup);
+		case MODSPackage.NOTE_DEFINITION__ALT_REP_GROUP:
+			return ALT_REP_GROUP_EDEFAULT == null ? altRepGroup != null
+					: !ALT_REP_GROUP_EDEFAULT.equals(altRepGroup);
 		}
 		return super.eIsSet(featureID);
 	}

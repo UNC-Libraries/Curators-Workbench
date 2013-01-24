@@ -138,26 +138,27 @@ import org.eclipse.ui.views.properties.PropertySheetPage;
 import org.w3._1999.xlink.provider.XlinkItemProviderAdapterFactory;
 
 /**
- * This is an example of a MODS model editor. <!-- begin-user-doc --> <!-- end-user-doc -->
- *
+ * This is an example of a MODS model editor.
+ * <!-- begin-user-doc --> <!-- end-user-doc -->
  * @generated
  */
-public class MODSEditor extends MultiPageEditorPart implements IEditingDomainProvider, ISelectionProvider,
-		IMenuListener, IViewerProvider, IGotoMarker {
+public class MODSEditor extends MultiPageEditorPart implements
+		IEditingDomainProvider, ISelectionProvider, IMenuListener,
+		IViewerProvider, IGotoMarker {
 
 	public static final String METS_PROJECT_NATURE_ID = "cdr_producer.projectNature";
-	public static final QualifiedName EDITING_DOMAIN_KEY = new QualifiedName(METS_PROJECT_NATURE_ID,
-			"cdr_producer.editingDomain");
-	public static final QualifiedName RESOURCE_SET_KEY = new QualifiedName(METS_PROJECT_NATURE_ID,
-			"cdr_producer.resourceSet");
+	public static final QualifiedName EDITING_DOMAIN_KEY = new QualifiedName(
+			METS_PROJECT_NATURE_ID, "cdr_producer.editingDomain");
+	public static final QualifiedName RESOURCE_SET_KEY = new QualifiedName(
+			METS_PROJECT_NATURE_ID, "cdr_producer.resourceSet");
 
 	protected boolean persistedByEditor = true;
 	protected EObject modelElement = null;
 
 	/**
-	 * This keeps track of the editing domain that is used to track all changes to the model. <!-- begin-user-doc -->
+	 * This keeps track of the editing domain that is used to track all changes to the model.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected AdapterFactoryEditingDomain editingDomain;
@@ -171,52 +172,52 @@ public class MODSEditor extends MultiPageEditorPart implements IEditingDomainPro
 	protected ComposedAdapterFactory adapterFactory;
 
 	/**
-	 * This is the content outline page. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * This is the content outline page.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected IContentOutlinePage contentOutlinePage;
 
 	/**
-	 * This is a kludge... <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * This is a kludge...
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected IStatusLineManager contentOutlineStatusLineManager;
 
 	/**
-	 * This is the content outline page's viewer. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * This is the content outline page's viewer.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected TreeViewer contentOutlineViewer;
 
 	/**
-	 * This is the property sheet page. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * This is the property sheet page.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected PropertySheetPage propertySheetPage;
 
 	/**
-	 * This is the viewer that shadows the selection in the content outline. The parent relation must be correctly
-	 * defined for this to work. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * This is the viewer that shadows the selection in the content outline.
+	 * The parent relation must be correctly defined for this to work.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected TreeViewer selectionViewer;
 
 	/**
-	 * This inverts the roll of parent and child in the content provider and show parents as a tree. <!-- begin-user-doc
+	 * This inverts the roll of parent and child in the content provider and show parents as a tree.
+	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected TreeViewer parentViewer;
 
 	/**
-	 * This shows how a tree view works. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * This shows how a tree view works.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected TreeViewer treeViewer;
@@ -230,53 +231,52 @@ public class MODSEditor extends MultiPageEditorPart implements IEditingDomainPro
 	protected ListViewer listViewer;
 
 	/**
-	 * This shows how a table view works. A table can be used as a list with icons. <!-- begin-user-doc --> <!--
+	 * This shows how a table view works.
+	 * A table can be used as a list with icons.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected TableViewer tableViewer;
 
 	/**
-	 * This shows how a tree view with columns works. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * This shows how a tree view with columns works.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected TreeViewer treeViewerWithColumns;
 
 	/**
-	 * This keeps track of the active viewer pane, in the book. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * This keeps track of the active viewer pane, in the book.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected ViewerPane currentViewerPane;
 
 	/**
-	 * This keeps track of the active content viewer, which may be either one of the viewers in the pages or the content
-	 * outline viewer. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * This keeps track of the active content viewer, which may be either one of the viewers in the pages or the content outline viewer.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected Viewer currentViewer;
 
 	/**
-	 * This listens to which ever viewer is active. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * This listens to which ever viewer is active.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected ISelectionChangedListener selectionChangedListener;
 
 	/**
-	 * This keeps track of all the {@link org.eclipse.jface.viewers.ISelectionChangedListener}s that are listening to
-	 * this editor. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * This keeps track of all the {@link org.eclipse.jface.viewers.ISelectionChangedListener}s that are listening to this editor.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected Collection<ISelectionChangedListener> selectionChangedListeners = new ArrayList<ISelectionChangedListener>();
 
 	/**
-	 * This keeps track of the selection of the editor as a whole. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * This keeps track of the selection of the editor as a whole.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected ISelection editorSelection = StructuredSelection.EMPTY;
@@ -290,8 +290,8 @@ public class MODSEditor extends MultiPageEditorPart implements IEditingDomainPro
 	protected MarkerHelper markerHelper = new EditUIMarkerHelper();
 
 	/**
-	 * This listens for when the outline becomes active <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * This listens for when the outline becomes active
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected IPartListener partListener = new IPartListener() {
@@ -330,44 +330,44 @@ public class MODSEditor extends MultiPageEditorPart implements IEditingDomainPro
 	};
 
 	/**
-	 * Resources that have been removed since last activation. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * Resources that have been removed since last activation.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected Collection<Resource> removedResources = new ArrayList<Resource>();
 
 	/**
-	 * Resources that have been changed since last activation. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * Resources that have been changed since last activation.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected Collection<Resource> changedResources = new ArrayList<Resource>();
 
 	/**
-	 * Resources that have been saved. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * Resources that have been saved.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected Collection<Resource> savedResources = new ArrayList<Resource>();
 
 	/**
-	 * Map to store the diagnostic associated with a resource. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * Map to store the diagnostic associated with a resource.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected Map<Resource, Diagnostic> resourceToDiagnosticMap = new LinkedHashMap<Resource, Diagnostic>();
 
 	/**
-	 * Controls whether the problem indication should be updated. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * Controls whether the problem indication should be updated.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected boolean updateProblemIndication = true;
 
 	/**
-	 * Adapter used to update the problem indication when resources are demanded loaded. <!-- begin-user-doc --> <!--
+	 * Adapter used to update the problem indication when resources are demanded loaded.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected EContentAdapter problemIndicationAdapter = new EContentAdapter() {
@@ -375,26 +375,28 @@ public class MODSEditor extends MultiPageEditorPart implements IEditingDomainPro
 		public void notifyChanged(Notification notification) {
 			if (notification.getNotifier() instanceof Resource) {
 				switch (notification.getFeatureID(Resource.class)) {
-					case Resource.RESOURCE__IS_LOADED:
-					case Resource.RESOURCE__ERRORS:
-					case Resource.RESOURCE__WARNINGS: {
-						Resource resource = (Resource) notification.getNotifier();
-						Diagnostic diagnostic = analyzeResourceProblems(resource, null);
-						if (diagnostic.getSeverity() != Diagnostic.OK) {
-							resourceToDiagnosticMap.put(resource, diagnostic);
-						} else {
-							resourceToDiagnosticMap.remove(resource);
-						}
-
-						if (updateProblemIndication) {
-							getSite().getShell().getDisplay().asyncExec(new Runnable() {
-								public void run() {
-									updateProblemIndication();
-								}
-							});
-						}
-						break;
+				case Resource.RESOURCE__IS_LOADED:
+				case Resource.RESOURCE__ERRORS:
+				case Resource.RESOURCE__WARNINGS: {
+					Resource resource = (Resource) notification.getNotifier();
+					Diagnostic diagnostic = analyzeResourceProblems(resource,
+							null);
+					if (diagnostic.getSeverity() != Diagnostic.OK) {
+						resourceToDiagnosticMap.put(resource, diagnostic);
+					} else {
+						resourceToDiagnosticMap.remove(resource);
 					}
+
+					if (updateProblemIndication) {
+						getSite().getShell().getDisplay()
+								.asyncExec(new Runnable() {
+									public void run() {
+										updateProblemIndication();
+									}
+								});
+					}
+					break;
+				}
 				}
 			} else {
 				super.notifyChanged(notification);
@@ -413,8 +415,8 @@ public class MODSEditor extends MultiPageEditorPart implements IEditingDomainPro
 	};
 
 	/**
-	 * This listens for workspace changes. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * This listens for workspace changes.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected IResourceChangeListener resourceChangeListener = new IResourceChangeListener() {
@@ -422,16 +424,22 @@ public class MODSEditor extends MultiPageEditorPart implements IEditingDomainPro
 			IResourceDelta delta = event.getDelta();
 			try {
 				class ResourceDeltaVisitor implements IResourceDeltaVisitor {
-					protected ResourceSet resourceSet = editingDomain.getResourceSet();
+					protected ResourceSet resourceSet = editingDomain
+							.getResourceSet();
 					protected Collection<Resource> changedResources = new ArrayList<Resource>();
 					protected Collection<Resource> removedResources = new ArrayList<Resource>();
 
 					public boolean visit(IResourceDelta delta) {
 						if (delta.getResource().getType() == IResource.FILE) {
-							if (delta.getKind() == IResourceDelta.REMOVED || delta.getKind() == IResourceDelta.CHANGED
+							if (delta.getKind() == IResourceDelta.REMOVED
+									|| delta.getKind() == IResourceDelta.CHANGED
 									&& delta.getFlags() != IResourceDelta.MARKERS) {
-								Resource resource = resourceSet.getResource(
-										URI.createPlatformResourceURI(delta.getFullPath().toString(), true), false);
+								Resource resource = resourceSet
+										.getResource(URI
+												.createPlatformResourceURI(
+														delta.getFullPath()
+																.toString(),
+														true), false);
 								if (resource != null) {
 									if (delta.getKind() == IResourceDelta.REMOVED) {
 										removedResources.add(resource);
@@ -460,9 +468,11 @@ public class MODSEditor extends MultiPageEditorPart implements IEditingDomainPro
 				if (!visitor.getRemovedResources().isEmpty()) {
 					getSite().getShell().getDisplay().asyncExec(new Runnable() {
 						public void run() {
-							removedResources.addAll(visitor.getRemovedResources());
+							removedResources.addAll(visitor
+									.getRemovedResources());
 							if (!isDirty()) {
-								getSite().getPage().closeEditor(MODSEditor.this, false);
+								getSite().getPage().closeEditor(
+										MODSEditor.this, false);
 							}
 						}
 					});
@@ -471,7 +481,8 @@ public class MODSEditor extends MultiPageEditorPart implements IEditingDomainPro
 				if (!visitor.getChangedResources().isEmpty()) {
 					getSite().getShell().getDisplay().asyncExec(new Runnable() {
 						public void run() {
-							changedResources.addAll(visitor.getChangedResources());
+							changedResources.addAll(visitor
+									.getChangedResources());
 							if (getSite().getPage().getActiveEditor() == MODSEditor.this) {
 								handleActivate();
 							}
@@ -485,8 +496,8 @@ public class MODSEditor extends MultiPageEditorPart implements IEditingDomainPro
 	};
 
 	/**
-	 * Handles activation of the editor or it's associated views. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * Handles activation of the editor or it's associated views.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected void handleActivate() {
@@ -517,14 +528,16 @@ public class MODSEditor extends MultiPageEditorPart implements IEditingDomainPro
 	}
 
 	/**
-	 * Handles what to do with changed resources on activation. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * Handles what to do with changed resources on activation.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected void handleChangedResources() {
-		if (!changedResources.isEmpty() && (!isDirty() || handleDirtyConflict())) {
+		if (!changedResources.isEmpty()
+				&& (!isDirty() || handleDirtyConflict())) {
 			if (isDirty()) {
-				changedResources.addAll(editingDomain.getResourceSet().getResources());
+				changedResources.addAll(editingDomain.getResourceSet()
+						.getResources());
 			}
 			editingDomain.getCommandStack().flush();
 
@@ -536,7 +549,10 @@ public class MODSEditor extends MultiPageEditorPart implements IEditingDomainPro
 						resource.load(Collections.EMPTY_MAP);
 					} catch (IOException exception) {
 						if (!resourceToDiagnosticMap.containsKey(resource)) {
-							resourceToDiagnosticMap.put(resource, analyzeResourceProblems(resource, exception));
+							resourceToDiagnosticMap
+									.put(resource,
+											analyzeResourceProblems(resource,
+													exception));
 						}
 					}
 				}
@@ -552,14 +568,15 @@ public class MODSEditor extends MultiPageEditorPart implements IEditingDomainPro
 	}
 
 	/**
-	 * Updates the problems indication with the information described in the specified diagnostic. <!-- begin-user-doc
+	 * Updates the problems indication with the information described in the specified diagnostic.
+	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected void updateProblemIndication() {
 		if (updateProblemIndication) {
-			BasicDiagnostic diagnostic = new BasicDiagnostic(Diagnostic.OK, "mods.model.editor", 0, null,
+			BasicDiagnostic diagnostic = new BasicDiagnostic(Diagnostic.OK,
+					"mods.model.editor", 0, null,
 					new Object[] { editingDomain.getResourceSet() });
 			for (Diagnostic childDiagnostic : resourceToDiagnosticMap.values()) {
 				if (childDiagnostic.getSeverity() != Diagnostic.OK) {
@@ -568,8 +585,10 @@ public class MODSEditor extends MultiPageEditorPart implements IEditingDomainPro
 			}
 
 			int lastEditorPage = getPageCount() - 1;
-			if (lastEditorPage >= 0 && getEditor(lastEditorPage) instanceof ProblemEditorPart) {
-				((ProblemEditorPart) getEditor(lastEditorPage)).setDiagnostic(diagnostic);
+			if (lastEditorPage >= 0
+					&& getEditor(lastEditorPage) instanceof ProblemEditorPart) {
+				((ProblemEditorPart) getEditor(lastEditorPage))
+						.setDiagnostic(diagnostic);
 				if (diagnostic.getSeverity() != Diagnostic.OK) {
 					setActivePage(lastEditorPage);
 				}
@@ -578,7 +597,8 @@ public class MODSEditor extends MultiPageEditorPart implements IEditingDomainPro
 				problemEditorPart.setDiagnostic(diagnostic);
 				problemEditorPart.setMarkerHelper(markerHelper);
 				try {
-					addPage(++lastEditorPage, problemEditorPart, getEditorInput());
+					addPage(++lastEditorPage, problemEditorPart,
+							getEditorInput());
 					setPageText(lastEditorPage, problemEditorPart.getPartName());
 					setActivePage(lastEditorPage);
 					showTabs();
@@ -601,12 +621,13 @@ public class MODSEditor extends MultiPageEditorPart implements IEditingDomainPro
 	}
 
 	/**
-	 * Shows a dialog that asks if conflicting changes should be discarded. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * Shows a dialog that asks if conflicting changes should be discarded.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected boolean handleDirtyConflict() {
-		return MessageDialog.openQuestion(getSite().getShell(), getString("_UI_FileConflict_label"),
+		return MessageDialog.openQuestion(getSite().getShell(),
+				getString("_UI_FileConflict_label"),
 				getString("_WARN_FileConflict"));
 	}
 
@@ -621,19 +642,22 @@ public class MODSEditor extends MultiPageEditorPart implements IEditingDomainPro
 	}
 
 	/**
-	 * This sets up the editing domain for the model editor. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * This sets up the editing domain for the model editor.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected void initializeEditingDomain() {
 		// Create an adapter factory that yields item providers.
 		//
-		adapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
+		adapterFactory = new ComposedAdapterFactory(
+				ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
 
-		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
+		adapterFactory
+				.addAdapterFactory(new ResourceItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new MODSItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new XlinkItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
+		adapterFactory
+				.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
 		// Create the command stack that will notify this editor as commands are executed.
 		//
@@ -649,11 +673,14 @@ public class MODSEditor extends MultiPageEditorPart implements IEditingDomainPro
 
 						// Try to select the affected objects.
 						//
-						Command mostRecentCommand = ((CommandStack) event.getSource()).getMostRecentCommand();
+						Command mostRecentCommand = ((CommandStack) event
+								.getSource()).getMostRecentCommand();
 						if (mostRecentCommand != null) {
-							setSelectionToViewer(mostRecentCommand.getAffectedObjects());
+							setSelectionToViewer(mostRecentCommand
+									.getAffectedObjects());
 						}
-						if (propertySheetPage != null && !propertySheetPage.getControl().isDisposed()) {
+						if (propertySheetPage != null
+								&& !propertySheetPage.getControl().isDisposed()) {
 							propertySheetPage.refresh();
 						}
 					}
@@ -663,12 +690,13 @@ public class MODSEditor extends MultiPageEditorPart implements IEditingDomainPro
 
 		// Create the editing domain with a special command stack.
 		//
-		editingDomain = new AdapterFactoryEditingDomain(adapterFactory, commandStack, new HashMap<Resource, Boolean>());
+		editingDomain = new AdapterFactoryEditingDomain(adapterFactory,
+				commandStack, new HashMap<Resource, Boolean>());
 	}
 
 	/**
-	 * This is here for the listener to be able to call it. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * This is here for the listener to be able to call it.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -677,8 +705,8 @@ public class MODSEditor extends MultiPageEditorPart implements IEditingDomainPro
 	}
 
 	/**
-	 * This sets the selection into whichever viewer is active. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * This sets the selection into whichever viewer is active.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setSelectionToViewer(Collection<?> collection) {
@@ -691,7 +719,8 @@ public class MODSEditor extends MultiPageEditorPart implements IEditingDomainPro
 					// Try to select the items in the current content viewer of the editor.
 					//
 					if (currentViewer != null) {
-						currentViewer.setSelection(new StructuredSelection(theSelection.toArray()), true);
+						currentViewer.setSelection(new StructuredSelection(
+								theSelection.toArray()), true);
 					}
 				}
 			};
@@ -700,10 +729,10 @@ public class MODSEditor extends MultiPageEditorPart implements IEditingDomainPro
 	}
 
 	/**
-	 * This returns the editing domain as required by the {@link IEditingDomainProvider} interface. This is important for
-	 * implementing the static methods of {@link AdapterFactoryEditingDomain} and for supporting
-	 * {@link org.eclipse.emf.edit.ui.action.CommandAction}. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * This returns the editing domain as required by the {@link IEditingDomainProvider} interface.
+	 * This is important for implementing the static methods of {@link AdapterFactoryEditingDomain}
+	 * and for supporting {@link org.eclipse.emf.edit.ui.action.CommandAction}.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EditingDomain getEditingDomain() {
@@ -712,44 +741,43 @@ public class MODSEditor extends MultiPageEditorPart implements IEditingDomainPro
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
-	public class ReverseAdapterFactoryContentProvider extends AdapterFactoryContentProvider {
+	public class ReverseAdapterFactoryContentProvider extends
+			AdapterFactoryContentProvider {
 		/**
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 *
 		 * @generated
 		 */
-		public ReverseAdapterFactoryContentProvider(AdapterFactory adapterFactory) {
+		public ReverseAdapterFactoryContentProvider(
+				AdapterFactory adapterFactory) {
 			super(adapterFactory);
 		}
 
 		/**
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 *
 		 * @generated
 		 */
 		@Override
 		public Object[] getElements(Object object) {
 			Object parent = super.getParent(object);
-			return (parent == null ? Collections.EMPTY_SET : Collections.singleton(parent)).toArray();
+			return (parent == null ? Collections.EMPTY_SET : Collections
+					.singleton(parent)).toArray();
 		}
 
 		/**
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 *
 		 * @generated
 		 */
 		@Override
 		public Object[] getChildren(Object object) {
 			Object parent = super.getParent(object);
-			return (parent == null ? Collections.EMPTY_SET : Collections.singleton(parent)).toArray();
+			return (parent == null ? Collections.EMPTY_SET : Collections
+					.singleton(parent)).toArray();
 		}
 
 		/**
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 *
 		 * @generated
 		 */
 		@Override
@@ -760,7 +788,6 @@ public class MODSEditor extends MultiPageEditorPart implements IEditingDomainPro
 
 		/**
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 *
 		 * @generated
 		 */
 		@Override
@@ -771,7 +798,6 @@ public class MODSEditor extends MultiPageEditorPart implements IEditingDomainPro
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public void setCurrentViewerPane(ViewerPane viewerPane) {
@@ -785,9 +811,9 @@ public class MODSEditor extends MultiPageEditorPart implements IEditingDomainPro
 	}
 
 	/**
-	 * This makes sure that one content viewer, either for the current page or the outline view, if it has focus, is the
-	 * current one. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * This makes sure that one content viewer, either for the current page or the outline view, if it has focus,
+	 * is the current one.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setCurrentViewer(Viewer viewer) {
@@ -800,7 +826,8 @@ public class MODSEditor extends MultiPageEditorPart implements IEditingDomainPro
 				selectionChangedListener = new ISelectionChangedListener() {
 					// This just notifies those things that are affected by the section.
 					//
-					public void selectionChanged(SelectionChangedEvent selectionChangedEvent) {
+					public void selectionChanged(
+							SelectionChangedEvent selectionChangedEvent) {
 						setSelection(selectionChangedEvent.getSelection());
 					}
 				};
@@ -809,7 +836,8 @@ public class MODSEditor extends MultiPageEditorPart implements IEditingDomainPro
 			// Stop listening to the old one.
 			//
 			if (currentViewer != null) {
-				currentViewer.removeSelectionChangedListener(selectionChangedListener);
+				currentViewer
+						.removeSelectionChangedListener(selectionChangedListener);
 			}
 
 			// Start listening to the new one.
@@ -824,14 +852,15 @@ public class MODSEditor extends MultiPageEditorPart implements IEditingDomainPro
 
 			// Set the editors selection based on the current viewer's selection.
 			//
-			setSelection(currentViewer == null ? StructuredSelection.EMPTY : currentViewer.getSelection());
+			setSelection(currentViewer == null ? StructuredSelection.EMPTY
+					: currentViewer.getSelection());
 		}
 	}
 
 	/**
-	 * This returns the viewer as required by the {@link IViewerProvider} interface. <!-- begin-user-doc --> <!--
+	 * This returns the viewer as required by the {@link IViewerProvider} interface.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public Viewer getViewer() {
@@ -851,12 +880,15 @@ public class MODSEditor extends MultiPageEditorPart implements IEditingDomainPro
 		contextMenu.addMenuListener(this);
 		Menu menu = contextMenu.createContextMenu(viewer.getControl());
 		viewer.getControl().setMenu(menu);
-		getSite().registerContextMenu(contextMenu, new UnwrappingSelectionProvider(viewer));
+		getSite().registerContextMenu(contextMenu,
+				new UnwrappingSelectionProvider(viewer));
 
 		int dndOperations = DND.DROP_COPY | DND.DROP_MOVE | DND.DROP_LINK;
 		Transfer[] transfers = new Transfer[] { LocalTransfer.getInstance() };
-		viewer.addDragSupport(dndOperations, transfers, new ViewerDragAdapter(viewer));
-		viewer.addDropSupport(dndOperations, transfers, new EditingDomainViewerDropAdapter(editingDomain, viewer));
+		viewer.addDragSupport(dndOperations, transfers, new ViewerDragAdapter(
+				viewer));
+		viewer.addDropSupport(dndOperations, transfers,
+				new EditingDomainViewerDropAdapter(editingDomain, viewer));
 	}
 
 	/**
@@ -874,12 +906,15 @@ public class MODSEditor extends MultiPageEditorPart implements IEditingDomainPro
 			this.persistedByEditor = false;
 			modsInput = (URIFragmentEditorInput) getEditorInput();
 			String projectName = modsInput.getProjectName();
-			IProject p = ResourcesPlugin.getWorkspace().getRoot().getProject(projectName);
+			IProject p = ResourcesPlugin.getWorkspace().getRoot()
+					.getProject(projectName);
 			try {
 				p.getNature(METS_PROJECT_NATURE_ID);
-				this.editingDomain = (AdapterFactoryEditingDomain) p.getSessionProperty(EDITING_DOMAIN_KEY);
+				this.editingDomain = (AdapterFactoryEditingDomain) p
+						.getSessionProperty(EDITING_DOMAIN_KEY);
 				System.out.println("editing domain: " + this.editingDomain);
-				resource = this.editingDomain.getResourceSet().getResources().get(0);
+				resource = this.editingDomain.getResourceSet().getResources()
+						.get(0);
 				System.out.println("resource: " + resource);
 				// this.adapterFactory = (ComposedAdapterFactory) this.editingDomain.getAdapterFactory();
 				EObject mods = modsInput.getMODS();
@@ -898,36 +933,45 @@ public class MODSEditor extends MultiPageEditorPart implements IEditingDomainPro
 			try {
 				// Load the resource through the editing domain.
 				//
-				resource = editingDomain.getResourceSet().getResource(resourceURI, true);
+				resource = editingDomain.getResourceSet().getResource(
+						resourceURI, true);
 			} catch (Exception e) {
 				exception = e;
-				resource = editingDomain.getResourceSet().getResource(resourceURI, false);
+				resource = editingDomain.getResourceSet().getResource(
+						resourceURI, false);
 			}
 
 			Diagnostic diagnostic = analyzeResourceProblems(resource, exception);
 			if (diagnostic.getSeverity() != Diagnostic.OK) {
-				resourceToDiagnosticMap.put(resource, analyzeResourceProblems(resource, exception));
+				resourceToDiagnosticMap.put(resource,
+						analyzeResourceProblems(resource, exception));
 			}
-			editingDomain.getResourceSet().eAdapters().add(problemIndicationAdapter);
+			editingDomain.getResourceSet().eAdapters()
+					.add(problemIndicationAdapter);
 		}
 	}
 
 	/**
-	 * Returns a diagnostic describing the errors and warnings listed in the resource and the specified exception (if
-	 * any). <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * Returns a diagnostic describing the errors and warnings listed in the resource
+	 * and the specified exception (if any).
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Diagnostic analyzeResourceProblems(Resource resource, Exception exception) {
-		if (!resource.getErrors().isEmpty() || !resource.getWarnings().isEmpty()) {
-			BasicDiagnostic basicDiagnostic = new BasicDiagnostic(Diagnostic.ERROR, "mods.model.editor", 0, getString(
-					"_UI_CreateModelError_message", resource.getURI()), new Object[] { exception == null ? (Object) resource
-					: exception });
+	public Diagnostic analyzeResourceProblems(Resource resource,
+			Exception exception) {
+		if (!resource.getErrors().isEmpty()
+				|| !resource.getWarnings().isEmpty()) {
+			BasicDiagnostic basicDiagnostic = new BasicDiagnostic(
+					Diagnostic.ERROR, "mods.model.editor", 0, getString(
+							"_UI_CreateModelError_message", resource.getURI()),
+					new Object[] { exception == null ? (Object) resource
+							: exception });
 			basicDiagnostic.merge(EcoreUtil.computeDiagnostic(resource, true));
 			return basicDiagnostic;
 		} else if (exception != null) {
-			return new BasicDiagnostic(Diagnostic.ERROR, "mods.model.editor", 0, getString("_UI_CreateModelError_message",
-					resource.getURI()), new Object[] { exception });
+			return new BasicDiagnostic(Diagnostic.ERROR, "mods.model.editor",
+					0, getString("_UI_CreateModelError_message",
+							resource.getURI()), new Object[] { exception });
 		} else {
 			return Diagnostic.OK_INSTANCE;
 		}
@@ -951,7 +995,8 @@ public class MODSEditor extends MultiPageEditorPart implements IEditingDomainPro
 			// Create a page for the selection tree view.
 			//
 			{
-				ViewerPane viewerPane = new ViewerPane(getSite().getPage(), MODSEditor.this) {
+				ViewerPane viewerPane = new ViewerPane(getSite().getPage(),
+						MODSEditor.this) {
 					@Override
 					public Viewer createViewer(Composite composite) {
 						Tree tree = new Tree(composite, SWT.MULTI);
@@ -968,21 +1013,28 @@ public class MODSEditor extends MultiPageEditorPart implements IEditingDomainPro
 				viewerPane.createControl(getContainer());
 
 				selectionViewer = (TreeViewer) viewerPane.getViewer();
-				selectionViewer.setContentProvider(new AdapterFactoryContentProvider(adapterFactory));
+				selectionViewer
+						.setContentProvider(new AdapterFactoryContentProvider(
+								adapterFactory));
 
-				selectionViewer.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
+				selectionViewer
+						.setLabelProvider(new AdapterFactoryLabelProvider(
+								adapterFactory));
 				if (this.persistedByEditor) {
 					selectionViewer.setInput(editingDomain.getResourceSet());
-					selectionViewer.setSelection(new StructuredSelection(editingDomain.getResourceSet().getResources()
-							.get(0)), true);
+					selectionViewer.setSelection(new StructuredSelection(
+							editingDomain.getResourceSet().getResources()
+									.get(0)), true);
 					viewerPane.setTitle(editingDomain.getResourceSet());
 				} else {
 					selectionViewer.setInput(this.modelElement);
-					selectionViewer.setSelection(new StructuredSelection(this.modelElement), true);
+					selectionViewer.setSelection(new StructuredSelection(
+							this.modelElement), true);
 					viewerPane.setTitle(this.modelElement);
 				}
 
-				new AdapterFactoryTreeEditor(selectionViewer.getTree(), adapterFactory);
+				new AdapterFactoryTreeEditor(selectionViewer.getTree(),
+						adapterFactory);
 
 				createContextMenuFor(selectionViewer);
 				int pageIndex = addPage(viewerPane.getControl());
@@ -1221,8 +1273,8 @@ public class MODSEditor extends MultiPageEditorPart implements IEditingDomainPro
 	}
 
 	/**
-	 * This is used to track the active viewer. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * This is used to track the active viewer.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -1235,8 +1287,8 @@ public class MODSEditor extends MultiPageEditorPart implements IEditingDomainPro
 	}
 
 	/**
-	 * This is how the framework determines which interfaces we implement. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * This is how the framework determines which interfaces we implement.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("rawtypes")
@@ -1271,10 +1323,15 @@ public class MODSEditor extends MultiPageEditorPart implements IEditingDomainPro
 
 					// Set up the tree viewer.
 					//
-					contentOutlineViewer.setContentProvider(new AdapterFactoryContentProvider(adapterFactory));
-					contentOutlineViewer.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
+					contentOutlineViewer
+							.setContentProvider(new AdapterFactoryContentProvider(
+									adapterFactory));
+					contentOutlineViewer
+							.setLabelProvider(new AdapterFactoryLabelProvider(
+									adapterFactory));
 					if (modelElement == null) {
-						contentOutlineViewer.setInput(editingDomain.getResourceSet());
+						contentOutlineViewer.setInput(editingDomain
+								.getResourceSet());
 					} else {
 						contentOutlineViewer.setInput(modelElement);
 					}
@@ -1283,29 +1340,37 @@ public class MODSEditor extends MultiPageEditorPart implements IEditingDomainPro
 					//
 					createContextMenuFor(contentOutlineViewer);
 
-					if (!editingDomain.getResourceSet().getResources().isEmpty()) {
+					if (!editingDomain.getResourceSet().getResources()
+							.isEmpty()) {
 						// Select the root object in the view.
 						//
 						if (modelElement == null) {
-							contentOutlineViewer.setSelection(new StructuredSelection(editingDomain.getResourceSet()
-									.getResources().get(0)), true);
+							contentOutlineViewer.setSelection(
+									new StructuredSelection(editingDomain
+											.getResourceSet().getResources()
+											.get(0)), true);
 						} else {
-							contentOutlineViewer.setSelection(new StructuredSelection(modelElement), true);
+							contentOutlineViewer
+									.setSelection(new StructuredSelection(
+											modelElement), true);
 						}
 					}
 				}
 
 				@Override
-				public void makeContributions(IMenuManager menuManager, IToolBarManager toolBarManager,
+				public void makeContributions(IMenuManager menuManager,
+						IToolBarManager toolBarManager,
 						IStatusLineManager statusLineManager) {
-					super.makeContributions(menuManager, toolBarManager, statusLineManager);
+					super.makeContributions(menuManager, toolBarManager,
+							statusLineManager);
 					contentOutlineStatusLineManager = statusLineManager;
 				}
 
 				@Override
 				public void setActionBars(IActionBars actionBars) {
 					super.setActionBars(actionBars);
-					getActionBarContributor().shareGlobalActions(this, actionBars);
+					getActionBarContributor().shareGlobalActions(this,
+							actionBars);
 				}
 			}
 
@@ -1313,21 +1378,22 @@ public class MODSEditor extends MultiPageEditorPart implements IEditingDomainPro
 
 			// Listen to selection so that we can handle it is a special way.
 			//
-			contentOutlinePage.addSelectionChangedListener(new ISelectionChangedListener() {
-				// This ensures that we handle selections correctly.
-				//
-				public void selectionChanged(SelectionChangedEvent event) {
-					handleContentOutlineSelection(event.getSelection());
-				}
-			});
+			contentOutlinePage
+					.addSelectionChangedListener(new ISelectionChangedListener() {
+						// This ensures that we handle selections correctly.
+						//
+						public void selectionChanged(SelectionChangedEvent event) {
+							handleContentOutlineSelection(event.getSelection());
+						}
+					});
 		}
 
 		return contentOutlinePage;
 	}
 
 	/**
-	 * This accesses a cached version of the property sheet. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * This accesses a cached version of the property sheet.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public IPropertySheetPage getPropertySheetPage() {
@@ -1342,24 +1408,29 @@ public class MODSEditor extends MultiPageEditorPart implements IEditingDomainPro
 				@Override
 				public void setActionBars(IActionBars actionBars) {
 					super.setActionBars(actionBars);
-					getActionBarContributor().shareGlobalActions(this, actionBars);
+					getActionBarContributor().shareGlobalActions(this,
+							actionBars);
 				}
 			};
-			propertySheetPage.setPropertySourceProvider(new AdapterFactoryContentProvider(adapterFactory));
+			propertySheetPage
+					.setPropertySourceProvider(new AdapterFactoryContentProvider(
+							adapterFactory));
 		}
 
 		return propertySheetPage;
 	}
 
 	/**
-	 * This deals with how we want selection in the outliner to affect the other views. <!-- begin-user-doc --> <!--
+	 * This deals with how we want selection in the outliner to affect the other views.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public void handleContentOutlineSelection(ISelection selection) {
-		if (currentViewerPane != null && !selection.isEmpty() && selection instanceof IStructuredSelection) {
-			Iterator<?> selectedElements = ((IStructuredSelection) selection).iterator();
+		if (currentViewerPane != null && !selection.isEmpty()
+				&& selection instanceof IStructuredSelection) {
+			Iterator<?> selectedElements = ((IStructuredSelection) selection)
+					.iterator();
 			if (selectedElements.hasNext()) {
 				// Get the first selected element.
 				//
@@ -1376,7 +1447,8 @@ public class MODSEditor extends MultiPageEditorPart implements IEditingDomainPro
 
 					// Set the selection to the widget.
 					//
-					selectionViewer.setSelection(new StructuredSelection(selectionList));
+					selectionViewer.setSelection(new StructuredSelection(
+							selectionList));
 				} else {
 					// Set the input to the widget.
 					//
@@ -1390,20 +1462,21 @@ public class MODSEditor extends MultiPageEditorPart implements IEditingDomainPro
 	}
 
 	/**
-	 * This is for implementing {@link IEditorPart} and simply tests the command stack. <!-- begin-user-doc --> <!--
+	 * This is for implementing {@link IEditorPart} and simply tests the command stack.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public boolean isDirty() {
-		return ((BasicCommandStack) editingDomain.getCommandStack()).isSaveNeeded();
+		return ((BasicCommandStack) editingDomain.getCommandStack())
+				.isSaveNeeded();
 	}
 
 	/**
-	 * This is for implementing {@link IEditorPart} and simply saves the model file. <!-- begin-user-doc --> <!--
+	 * This is for implementing {@link IEditorPart} and simply saves the model file.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -1411,7 +1484,8 @@ public class MODSEditor extends MultiPageEditorPart implements IEditingDomainPro
 		// Save only resources that have actually changed.
 		//
 		final Map<Object, Object> saveOptions = new HashMap<Object, Object>();
-		saveOptions.put(Resource.OPTION_SAVE_ONLY_IF_CHANGED, Resource.OPTION_SAVE_ONLY_IF_CHANGED_MEMORY_BUFFER);
+		saveOptions.put(Resource.OPTION_SAVE_ONLY_IF_CHANGED,
+				Resource.OPTION_SAVE_ONLY_IF_CHANGED_MEMORY_BUFFER);
 
 		// Do the work within an operation because this is a long running activity that modifies the workbench.
 		//
@@ -1423,7 +1497,8 @@ public class MODSEditor extends MultiPageEditorPart implements IEditingDomainPro
 				// Save the resources to the file system.
 				//
 				boolean first = true;
-				for (Resource resource : editingDomain.getResourceSet().getResources()) {
+				for (Resource resource : editingDomain.getResourceSet()
+						.getResources()) {
 					if ((first || !resource.getContents().isEmpty() || isPersisted(resource))
 							&& !editingDomain.isReadOnly(resource)) {
 						try {
@@ -1433,7 +1508,10 @@ public class MODSEditor extends MultiPageEditorPart implements IEditingDomainPro
 								savedResources.add(resource);
 							}
 						} catch (Exception exception) {
-							resourceToDiagnosticMap.put(resource, analyzeResourceProblems(resource, exception));
+							resourceToDiagnosticMap
+									.put(resource,
+											analyzeResourceProblems(resource,
+													exception));
 						}
 						first = false;
 					}
@@ -1445,7 +1523,8 @@ public class MODSEditor extends MultiPageEditorPart implements IEditingDomainPro
 		try {
 			// This runs the options, and shows progress.
 			//
-			new ProgressMonitorDialog(getSite().getShell()).run(true, false, operation);
+			new ProgressMonitorDialog(getSite().getShell()).run(true, false,
+					operation);
 
 			// Refresh the necessary state.
 			//
@@ -1461,16 +1540,17 @@ public class MODSEditor extends MultiPageEditorPart implements IEditingDomainPro
 	}
 
 	/**
-	 * This returns whether something has been persisted to the URI of the specified resource. The implementation uses
-	 * the URI converter from the editor's resource set to try to open an input stream. <!-- begin-user-doc --> <!--
+	 * This returns whether something has been persisted to the URI of the specified resource.
+	 * The implementation uses the URI converter from the editor's resource set to try to open an input stream. 
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected boolean isPersisted(Resource resource) {
 		boolean result = false;
 		try {
-			InputStream stream = editingDomain.getResourceSet().getURIConverter().createInputStream(resource.getURI());
+			InputStream stream = editingDomain.getResourceSet()
+					.getURIConverter().createInputStream(resource.getURI());
 			if (stream != null) {
 				result = true;
 				stream.close();
@@ -1482,8 +1562,8 @@ public class MODSEditor extends MultiPageEditorPart implements IEditingDomainPro
 	}
 
 	/**
-	 * This always returns true because it is not currently supported. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * This always returns true because it is not currently supported.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -1492,8 +1572,8 @@ public class MODSEditor extends MultiPageEditorPart implements IEditingDomainPro
 	}
 
 	/**
-	 * This also changes the editor's input. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * This also changes the editor's input.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -1504,39 +1584,43 @@ public class MODSEditor extends MultiPageEditorPart implements IEditingDomainPro
 		if (path != null) {
 			IFile file = ResourcesPlugin.getWorkspace().getRoot().getFile(path);
 			if (file != null) {
-				doSaveAs(URI.createPlatformResourceURI(file.getFullPath().toString(), true), new FileEditorInput(file));
+				doSaveAs(URI.createPlatformResourceURI(file.getFullPath()
+						.toString(), true), new FileEditorInput(file));
 			}
 		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected void doSaveAs(URI uri, IEditorInput editorInput) {
 		(editingDomain.getResourceSet().getResources().get(0)).setURI(uri);
 		setInputWithNotify(editorInput);
 		setPartName(editorInput.getName());
-		IProgressMonitor progressMonitor = getActionBars().getStatusLineManager() != null ? getActionBars()
-				.getStatusLineManager().getProgressMonitor() : new NullProgressMonitor();
+		IProgressMonitor progressMonitor = getActionBars()
+				.getStatusLineManager() != null ? getActionBars()
+				.getStatusLineManager().getProgressMonitor()
+				: new NullProgressMonitor();
 		doSave(progressMonitor);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public void gotoMarker(IMarker marker) {
 		try {
 			if (marker.getType().equals(EValidator.MARKER)) {
-				String uriAttribute = marker.getAttribute(EValidator.URI_ATTRIBUTE, null);
+				String uriAttribute = marker.getAttribute(
+						EValidator.URI_ATTRIBUTE, null);
 				if (uriAttribute != null) {
 					URI uri = URI.createURI(uriAttribute);
-					EObject eObject = editingDomain.getResourceSet().getEObject(uri, true);
+					EObject eObject = editingDomain.getResourceSet()
+							.getEObject(uri, true);
 					if (eObject != null) {
-						setSelectionToViewer(Collections.singleton(editingDomain.getWrapper(eObject)));
+						setSelectionToViewer(Collections
+								.singleton(editingDomain.getWrapper(eObject)));
 					}
 				}
 			}
@@ -1546,8 +1630,8 @@ public class MODSEditor extends MultiPageEditorPart implements IEditingDomainPro
 	}
 
 	/**
-	 * This is called during startup. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * This is called during startup.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -1557,13 +1641,12 @@ public class MODSEditor extends MultiPageEditorPart implements IEditingDomainPro
 		setPartName(editorInput.getName());
 		site.setSelectionProvider(this);
 		site.getPage().addPartListener(partListener);
-		ResourcesPlugin.getWorkspace()
-				.addResourceChangeListener(resourceChangeListener, IResourceChangeEvent.POST_CHANGE);
+		ResourcesPlugin.getWorkspace().addResourceChangeListener(
+				resourceChangeListener, IResourceChangeEvent.POST_CHANGE);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -1591,14 +1674,14 @@ public class MODSEditor extends MultiPageEditorPart implements IEditingDomainPro
 	 *
 	 * @generated
 	 */
-	public void removeSelectionChangedListener(ISelectionChangedListener listener) {
+	public void removeSelectionChangedListener(
+			ISelectionChangedListener listener) {
 		selectionChangedListeners.remove(listener);
 	}
 
 	/**
 	 * This implements {@link org.eclipse.jface.viewers.ISelectionProvider} to return this editor's overall selection.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public ISelection getSelection() {
@@ -1607,8 +1690,8 @@ public class MODSEditor extends MultiPageEditorPart implements IEditingDomainPro
 
 	/**
 	 * This implements {@link org.eclipse.jface.viewers.ISelectionProvider} to set this editor's overall selection.
-	 * Calling this result will notify the listeners. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * Calling this result will notify the listeners.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setSelection(ISelection selection) {
@@ -1622,31 +1705,37 @@ public class MODSEditor extends MultiPageEditorPart implements IEditingDomainPro
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public void setStatusLineManager(ISelection selection) {
-		IStatusLineManager statusLineManager = currentViewer != null && currentViewer == contentOutlineViewer ? contentOutlineStatusLineManager
+		IStatusLineManager statusLineManager = currentViewer != null
+				&& currentViewer == contentOutlineViewer ? contentOutlineStatusLineManager
 				: getActionBars().getStatusLineManager();
 
 		if (statusLineManager != null) {
 			if (selection instanceof IStructuredSelection) {
-				Collection<?> collection = ((IStructuredSelection) selection).toList();
+				Collection<?> collection = ((IStructuredSelection) selection)
+						.toList();
 				switch (collection.size()) {
-					case 0: {
-						statusLineManager.setMessage(getString("_UI_NoObjectSelected"));
-						break;
-					}
-					case 1: {
-						String text = new AdapterFactoryItemDelegator(adapterFactory).getText(collection.iterator().next());
-						statusLineManager.setMessage(getString("_UI_SingleObjectSelected", text));
-						break;
-					}
-					default: {
-						statusLineManager
-								.setMessage(getString("_UI_MultiObjectSelected", Integer.toString(collection.size())));
-						break;
-					}
+				case 0: {
+					statusLineManager
+							.setMessage(getString("_UI_NoObjectSelected"));
+					break;
+				}
+				case 1: {
+					String text = new AdapterFactoryItemDelegator(
+							adapterFactory).getText(collection.iterator()
+							.next());
+					statusLineManager.setMessage(getString(
+							"_UI_SingleObjectSelected", text));
+					break;
+				}
+				default: {
+					statusLineManager.setMessage(getString(
+							"_UI_MultiObjectSelected",
+							Integer.toString(collection.size())));
+					break;
+				}
 				}
 			} else {
 				statusLineManager.setMessage("");
@@ -1655,8 +1744,8 @@ public class MODSEditor extends MultiPageEditorPart implements IEditingDomainPro
 	}
 
 	/**
-	 * This looks up a string in the plugin's plugin.properties file. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * This looks up a string in the plugin's plugin.properties file.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	private static String getString(String key) {
@@ -1664,8 +1753,8 @@ public class MODSEditor extends MultiPageEditorPart implements IEditingDomainPro
 	}
 
 	/**
-	 * This looks up a string in plugin.properties, making a substitution. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * This looks up a string in plugin.properties, making a substitution.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	private static String getString(String key, Object s1) {
@@ -1673,27 +1762,26 @@ public class MODSEditor extends MultiPageEditorPart implements IEditingDomainPro
 	}
 
 	/**
-	 * This implements {@link org.eclipse.jface.action.IMenuListener} to help fill the context menus with contributions
-	 * from the Edit menu. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * This implements {@link org.eclipse.jface.action.IMenuListener} to help fill the context menus with contributions from the Edit menu.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void menuAboutToShow(IMenuManager menuManager) {
-		((IMenuListener) getEditorSite().getActionBarContributor()).menuAboutToShow(menuManager);
+		((IMenuListener) getEditorSite().getActionBarContributor())
+				.menuAboutToShow(menuManager);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public EditingDomainActionBarContributor getActionBarContributor() {
-		return (EditingDomainActionBarContributor) getEditorSite().getActionBarContributor();
+		return (EditingDomainActionBarContributor) getEditorSite()
+				.getActionBarContributor();
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public IActionBars getActionBars() {
@@ -1702,7 +1790,6 @@ public class MODSEditor extends MultiPageEditorPart implements IEditingDomainPro
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public AdapterFactory getAdapterFactory() {
@@ -1711,14 +1798,14 @@ public class MODSEditor extends MultiPageEditorPart implements IEditingDomainPro
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void dispose() {
 		updateProblemIndication = false;
 
-		ResourcesPlugin.getWorkspace().removeResourceChangeListener(resourceChangeListener);
+		ResourcesPlugin.getWorkspace().removeResourceChangeListener(
+				resourceChangeListener);
 
 		getSite().getPage().removePartListener(partListener);
 
@@ -1740,8 +1827,8 @@ public class MODSEditor extends MultiPageEditorPart implements IEditingDomainPro
 	}
 
 	/**
-	 * Returns whether the outline view should be presented to the user. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * Returns whether the outline view should be presented to the user.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected boolean showOutlineView() {

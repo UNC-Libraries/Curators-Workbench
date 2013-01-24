@@ -171,8 +171,8 @@ public enum DateEncodingAttributeDefinition implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final List<DateEncodingAttributeDefinition> VALUES = Collections.unmodifiableList(Arrays
-			.asList(VALUES_ARRAY));
+	public static final List<DateEncodingAttributeDefinition> VALUES = Collections
+			.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
 	 * Returns the '<em><b>Date Encoding Attribute Definition</b></em>' literal with the specified literal value.
@@ -214,16 +214,16 @@ public enum DateEncodingAttributeDefinition implements Enumerator {
 	 */
 	public static DateEncodingAttributeDefinition get(int value) {
 		switch (value) {
-			case W3CDTF_VALUE:
-				return W3CDTF;
-			case ISO8601_VALUE:
-				return ISO8601;
-			case MARC_VALUE:
-				return MARC;
-			case TEMPER_VALUE:
-				return TEMPER;
-			case EDTF_VALUE:
-				return EDTF;
+		case W3CDTF_VALUE:
+			return W3CDTF;
+		case ISO8601_VALUE:
+			return ISO8601;
+		case MARC_VALUE:
+			return MARC;
+		case TEMPER_VALUE:
+			return TEMPER;
+		case EDTF_VALUE:
+			return EDTF;
 		}
 		return null;
 	}
@@ -255,7 +255,8 @@ public enum DateEncodingAttributeDefinition implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private DateEncodingAttributeDefinition(int value, String name, String literal) {
+	private DateEncodingAttributeDefinition(int value, String name,
+			String literal) {
 		this.value = value;
 		this.name = name;
 		this.literal = literal;

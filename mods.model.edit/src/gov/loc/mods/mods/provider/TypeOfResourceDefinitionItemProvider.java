@@ -44,8 +44,9 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class TypeOfResourceDefinitionItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
-		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class TypeOfResourceDefinitionItemProvider extends ItemProviderAdapter
+		implements IEditingDomainItemProvider, IStructuredItemContentProvider,
+		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -85,12 +86,16 @@ public class TypeOfResourceDefinitionItemProvider extends ItemProviderAdapter im
 	 */
 	protected void addValuePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_TypeOfResourceDefinition_value_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_TypeOfResourceDefinition_value_feature",
-						"_UI_TypeOfResourceDefinition_type"), MODSPackage.eINSTANCE.getTypeOfResourceDefinition_Value(),
-				true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_TypeOfResourceDefinition_value_feature",
+						"_UI_TypeOfResourceDefinition_type"),
+				MODSPackage.eINSTANCE.getTypeOfResourceDefinition_Value(),
+				true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				null, null));
 	}
 
 	/**
@@ -100,14 +105,20 @@ public class TypeOfResourceDefinitionItemProvider extends ItemProviderAdapter im
 	 * @generated
 	 */
 	protected void addAltRepGroupPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_TypeOfResourceDefinition_altRepGroup_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_TypeOfResourceDefinition_altRepGroup_feature",
-						"_UI_TypeOfResourceDefinition_type"),
-				MODSPackage.eINSTANCE.getTypeOfResourceDefinition_AltRepGroup(), true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(
+						((ComposeableAdapterFactory) adapterFactory)
+								.getRootAdapterFactory(),
+						getResourceLocator(),
+						getString("_UI_TypeOfResourceDefinition_altRepGroup_feature"),
+						getString(
+								"_UI_PropertyDescriptor_description",
+								"_UI_TypeOfResourceDefinition_altRepGroup_feature",
+								"_UI_TypeOfResourceDefinition_type"),
+						MODSPackage.eINSTANCE
+								.getTypeOfResourceDefinition_AltRepGroup(),
+						true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -118,12 +129,16 @@ public class TypeOfResourceDefinitionItemProvider extends ItemProviderAdapter im
 	 */
 	protected void addCollectionPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_TypeOfResourceDefinition_collection_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_TypeOfResourceDefinition_collection_feature",
-						"_UI_TypeOfResourceDefinition_type"), MODSPackage.eINSTANCE.getTypeOfResourceDefinition_Collection(),
-				true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_TypeOfResourceDefinition_collection_feature",
+						"_UI_TypeOfResourceDefinition_type"),
+				MODSPackage.eINSTANCE.getTypeOfResourceDefinition_Collection(),
+				true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				null, null));
 	}
 
 	/**
@@ -134,13 +149,17 @@ public class TypeOfResourceDefinitionItemProvider extends ItemProviderAdapter im
 	 */
 	protected void addDisplayLabelPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_TypeOfResourceDefinition_displayLabel_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_TypeOfResourceDefinition_displayLabel_feature",
-						"_UI_TypeOfResourceDefinition_type"), MODSPackage.eINSTANCE
-						.getTypeOfResourceDefinition_DisplayLabel(), true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_TypeOfResourceDefinition_displayLabel_feature",
+						"_UI_TypeOfResourceDefinition_type"),
+				MODSPackage.eINSTANCE
+						.getTypeOfResourceDefinition_DisplayLabel(), true,
+				false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null,
+				null));
 	}
 
 	/**
@@ -151,12 +170,16 @@ public class TypeOfResourceDefinitionItemProvider extends ItemProviderAdapter im
 	 */
 	protected void addManuscriptPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_TypeOfResourceDefinition_manuscript_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_TypeOfResourceDefinition_manuscript_feature",
-						"_UI_TypeOfResourceDefinition_type"), MODSPackage.eINSTANCE.getTypeOfResourceDefinition_Manuscript(),
-				true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_TypeOfResourceDefinition_manuscript_feature",
+						"_UI_TypeOfResourceDefinition_type"),
+				MODSPackage.eINSTANCE.getTypeOfResourceDefinition_Manuscript(),
+				true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				null, null));
 	}
 
 	/**
@@ -167,12 +190,16 @@ public class TypeOfResourceDefinitionItemProvider extends ItemProviderAdapter im
 	 */
 	protected void addUsagePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_TypeOfResourceDefinition_usage_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_TypeOfResourceDefinition_usage_feature",
-						"_UI_TypeOfResourceDefinition_type"), MODSPackage.eINSTANCE.getTypeOfResourceDefinition_Usage(),
-				true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_TypeOfResourceDefinition_usage_feature",
+						"_UI_TypeOfResourceDefinition_type"),
+				MODSPackage.eINSTANCE.getTypeOfResourceDefinition_Usage(),
+				true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				null, null));
 	}
 
 	/**
@@ -183,7 +210,10 @@ public class TypeOfResourceDefinitionItemProvider extends ItemProviderAdapter im
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/TypeOfResourceDefinition"));
+		return overlayImage(
+				object,
+				getResourceLocator().getImage(
+						"full/obj16/TypeOfResourceDefinition"));
 	}
 
 	/**
@@ -204,7 +234,8 @@ public class TypeOfResourceDefinitionItemProvider extends ItemProviderAdapter im
 	 */
 	@Override
 	public String getText(Object object) {
-		ResourceTypeDefinition labelValue = ((TypeOfResourceDefinition) object).getValue();
+		ResourceTypeDefinition labelValue = ((TypeOfResourceDefinition) object)
+				.getValue();
 		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ? getString("_UI_TypeOfResourceDefinition_type")
 				: getString("_UI_TypeOfResourceDefinition_type") + " " + label;
@@ -222,14 +253,15 @@ public class TypeOfResourceDefinitionItemProvider extends ItemProviderAdapter im
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(TypeOfResourceDefinition.class)) {
-			case MODSPackage.TYPE_OF_RESOURCE_DEFINITION__VALUE:
-			case MODSPackage.TYPE_OF_RESOURCE_DEFINITION__ALT_REP_GROUP:
-			case MODSPackage.TYPE_OF_RESOURCE_DEFINITION__COLLECTION:
-			case MODSPackage.TYPE_OF_RESOURCE_DEFINITION__DISPLAY_LABEL:
-			case MODSPackage.TYPE_OF_RESOURCE_DEFINITION__MANUSCRIPT:
-			case MODSPackage.TYPE_OF_RESOURCE_DEFINITION__USAGE:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
+		case MODSPackage.TYPE_OF_RESOURCE_DEFINITION__VALUE:
+		case MODSPackage.TYPE_OF_RESOURCE_DEFINITION__ALT_REP_GROUP:
+		case MODSPackage.TYPE_OF_RESOURCE_DEFINITION__COLLECTION:
+		case MODSPackage.TYPE_OF_RESOURCE_DEFINITION__DISPLAY_LABEL:
+		case MODSPackage.TYPE_OF_RESOURCE_DEFINITION__MANUSCRIPT:
+		case MODSPackage.TYPE_OF_RESOURCE_DEFINITION__USAGE:
+			fireNotifyChanged(new ViewerNotification(notification,
+					notification.getNotifier(), false, true));
+			return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -242,7 +274,8 @@ public class TypeOfResourceDefinitionItemProvider extends ItemProviderAdapter im
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(
+			Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 

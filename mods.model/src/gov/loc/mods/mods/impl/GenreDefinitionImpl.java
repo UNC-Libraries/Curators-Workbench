@@ -39,7 +39,9 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class GenreDefinitionImpl extends StringPlusAuthorityPlusTypePlusDisplayLabelImpl implements GenreDefinition {
+public class GenreDefinitionImpl extends
+		StringPlusAuthorityPlusTypePlusDisplayLabelImpl implements
+		GenreDefinition {
 	/**
 	 * The default value of the '{@link #getAltRepGroup() <em>Alt Rep Group</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -126,7 +128,8 @@ public class GenreDefinitionImpl extends StringPlusAuthorityPlusTypePlusDisplayL
 		String oldAltRepGroup = altRepGroup;
 		altRepGroup = newAltRepGroup;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.GENRE_DEFINITION__ALT_REP_GROUP,
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.GENRE_DEFINITION__ALT_REP_GROUP,
 					oldAltRepGroup, altRepGroup));
 	}
 
@@ -150,7 +153,8 @@ public class GenreDefinitionImpl extends StringPlusAuthorityPlusTypePlusDisplayL
 		boolean oldUsageESet = usageESet;
 		usageESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.GENRE_DEFINITION__USAGE, oldUsage, usage,
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.GENRE_DEFINITION__USAGE, oldUsage, usage,
 					!oldUsageESet));
 	}
 
@@ -165,7 +169,8 @@ public class GenreDefinitionImpl extends StringPlusAuthorityPlusTypePlusDisplayL
 		usage = USAGE_EDEFAULT;
 		usageESet = false;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, MODSPackage.GENRE_DEFINITION__USAGE, oldUsage,
+			eNotify(new ENotificationImpl(this, Notification.UNSET,
+					MODSPackage.GENRE_DEFINITION__USAGE, oldUsage,
 					USAGE_EDEFAULT, oldUsageESet));
 	}
 
@@ -186,10 +191,10 @@ public class GenreDefinitionImpl extends StringPlusAuthorityPlusTypePlusDisplayL
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case MODSPackage.GENRE_DEFINITION__ALT_REP_GROUP:
-				return getAltRepGroup();
-			case MODSPackage.GENRE_DEFINITION__USAGE:
-				return getUsage();
+		case MODSPackage.GENRE_DEFINITION__ALT_REP_GROUP:
+			return getAltRepGroup();
+		case MODSPackage.GENRE_DEFINITION__USAGE:
+			return getUsage();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -202,12 +207,12 @@ public class GenreDefinitionImpl extends StringPlusAuthorityPlusTypePlusDisplayL
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case MODSPackage.GENRE_DEFINITION__ALT_REP_GROUP:
-				setAltRepGroup((String) newValue);
-				return;
-			case MODSPackage.GENRE_DEFINITION__USAGE:
-				setUsage((UsageAttributeDefinition) newValue);
-				return;
+		case MODSPackage.GENRE_DEFINITION__ALT_REP_GROUP:
+			setAltRepGroup((String) newValue);
+			return;
+		case MODSPackage.GENRE_DEFINITION__USAGE:
+			setUsage((UsageAttributeDefinition) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -220,12 +225,12 @@ public class GenreDefinitionImpl extends StringPlusAuthorityPlusTypePlusDisplayL
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case MODSPackage.GENRE_DEFINITION__ALT_REP_GROUP:
-				setAltRepGroup(ALT_REP_GROUP_EDEFAULT);
-				return;
-			case MODSPackage.GENRE_DEFINITION__USAGE:
-				unsetUsage();
-				return;
+		case MODSPackage.GENRE_DEFINITION__ALT_REP_GROUP:
+			setAltRepGroup(ALT_REP_GROUP_EDEFAULT);
+			return;
+		case MODSPackage.GENRE_DEFINITION__USAGE:
+			unsetUsage();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -238,10 +243,11 @@ public class GenreDefinitionImpl extends StringPlusAuthorityPlusTypePlusDisplayL
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case MODSPackage.GENRE_DEFINITION__ALT_REP_GROUP:
-				return ALT_REP_GROUP_EDEFAULT == null ? altRepGroup != null : !ALT_REP_GROUP_EDEFAULT.equals(altRepGroup);
-			case MODSPackage.GENRE_DEFINITION__USAGE:
-				return isSetUsage();
+		case MODSPackage.GENRE_DEFINITION__ALT_REP_GROUP:
+			return ALT_REP_GROUP_EDEFAULT == null ? altRepGroup != null
+					: !ALT_REP_GROUP_EDEFAULT.equals(altRepGroup);
+		case MODSPackage.GENRE_DEFINITION__USAGE:
+			return isSetUsage();
 		}
 		return super.eIsSet(featureID);
 	}

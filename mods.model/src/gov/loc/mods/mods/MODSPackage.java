@@ -536,42 +536,6 @@ public interface MODSPackage extends EPackage {
 	int EXTENSION_DEFINITION = 11;
 
 	/**
-	 * The feature id for the '<em><b>Mixed</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTENSION_DEFINITION__MIXED = 0;
-
-	/**
-	 * The feature id for the '<em><b>Any</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTENSION_DEFINITION__ANY = 1;
-
-	/**
-	 * The feature id for the '<em><b>Display Label</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTENSION_DEFINITION__DISPLAY_LABEL = 2;
-
-	/**
-	 * The number of structural features of the '<em>Extension Definition</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTENSION_DEFINITION_FEATURE_COUNT = 3;
-
-	/**
 	 * The meta object id for the '{@link gov.loc.mods.mods.impl.AccessConditionDefinitionImpl <em>Access Condition Definition</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -582,67 +546,13 @@ public interface MODSPackage extends EPackage {
 	int ACCESS_CONDITION_DEFINITION = 1;
 
 	/**
-	 * The feature id for the '<em><b>Mixed</b></em>' attribute list.
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACCESS_CONDITION_DEFINITION__MIXED = EXTENSION_DEFINITION__MIXED;
-
-	/**
-	 * The feature id for the '<em><b>Any</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACCESS_CONDITION_DEFINITION__ANY = EXTENSION_DEFINITION__ANY;
-
-	/**
-	 * The feature id for the '<em><b>Display Label</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACCESS_CONDITION_DEFINITION__DISPLAY_LABEL = EXTENSION_DEFINITION__DISPLAY_LABEL;
-
-	/**
-	 * The feature id for the '<em><b>Actuate</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACCESS_CONDITION_DEFINITION__ACTUATE = EXTENSION_DEFINITION_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Alt Rep Group</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACCESS_CONDITION_DEFINITION__ALT_REP_GROUP = EXTENSION_DEFINITION_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Arcrole</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACCESS_CONDITION_DEFINITION__ARCROLE = EXTENSION_DEFINITION_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Href</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACCESS_CONDITION_DEFINITION__HREF = EXTENSION_DEFINITION_FEATURE_COUNT + 3;
+	int ACCESS_CONDITION_DEFINITION__VALUE = XS_STRING__VALUE;
 
 	/**
 	 * The feature id for the '<em><b>Lang</b></em>' attribute.
@@ -651,7 +561,7 @@ public interface MODSPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACCESS_CONDITION_DEFINITION__LANG = EXTENSION_DEFINITION_FEATURE_COUNT + 4;
+	int ACCESS_CONDITION_DEFINITION__LANG = XS_STRING__LANG;
 
 	/**
 	 * The feature id for the '<em><b>Lang1</b></em>' attribute.
@@ -660,16 +570,7 @@ public interface MODSPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACCESS_CONDITION_DEFINITION__LANG1 = EXTENSION_DEFINITION_FEATURE_COUNT + 5;
-
-	/**
-	 * The feature id for the '<em><b>Role</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACCESS_CONDITION_DEFINITION__ROLE = EXTENSION_DEFINITION_FEATURE_COUNT + 6;
+	int ACCESS_CONDITION_DEFINITION__LANG1 = XS_STRING__LANG1;
 
 	/**
 	 * The feature id for the '<em><b>Script</b></em>' attribute.
@@ -678,25 +579,7 @@ public interface MODSPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACCESS_CONDITION_DEFINITION__SCRIPT = EXTENSION_DEFINITION_FEATURE_COUNT + 7;
-
-	/**
-	 * The feature id for the '<em><b>Show</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACCESS_CONDITION_DEFINITION__SHOW = EXTENSION_DEFINITION_FEATURE_COUNT + 8;
-
-	/**
-	 * The feature id for the '<em><b>Title</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACCESS_CONDITION_DEFINITION__TITLE = EXTENSION_DEFINITION_FEATURE_COUNT + 9;
+	int ACCESS_CONDITION_DEFINITION__SCRIPT = XS_STRING__SCRIPT;
 
 	/**
 	 * The feature id for the '<em><b>Transliteration</b></em>' attribute.
@@ -705,7 +588,25 @@ public interface MODSPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACCESS_CONDITION_DEFINITION__TRANSLITERATION = EXTENSION_DEFINITION_FEATURE_COUNT + 10;
+	int ACCESS_CONDITION_DEFINITION__TRANSLITERATION = XS_STRING__TRANSLITERATION;
+
+	/**
+	 * The feature id for the '<em><b>Alt Rep Group</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACCESS_CONDITION_DEFINITION__ALT_REP_GROUP = XS_STRING_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Display Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACCESS_CONDITION_DEFINITION__DISPLAY_LABEL = XS_STRING_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -714,16 +615,16 @@ public interface MODSPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACCESS_CONDITION_DEFINITION__TYPE = EXTENSION_DEFINITION_FEATURE_COUNT + 11;
+	int ACCESS_CONDITION_DEFINITION__TYPE = XS_STRING_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Type1</b></em>' attribute.
+	 * The feature id for the '<em><b>Href</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACCESS_CONDITION_DEFINITION__TYPE1 = EXTENSION_DEFINITION_FEATURE_COUNT + 12;
+	int ACCESS_CONDITION_DEFINITION__HREF = XS_STRING_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Access Condition Definition</em>' class.
@@ -732,7 +633,7 @@ public interface MODSPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACCESS_CONDITION_DEFINITION_FEATURE_COUNT = EXTENSION_DEFINITION_FEATURE_COUNT + 13;
+	int ACCESS_CONDITION_DEFINITION_FEATURE_COUNT = XS_STRING_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link gov.loc.mods.mods.impl.CartographicsDefinitionImpl <em>Cartographics Definition</em>}' class.
@@ -2489,6 +2390,42 @@ public interface MODSPackage extends EPackage {
 	 * @ordered
 	 */
 	int ENUMERATION_AND_CHRONOLOGY_DEFINITION_FEATURE_COUNT = XS_STRING_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Mixed</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTENSION_DEFINITION__MIXED = 0;
+
+	/**
+	 * The feature id for the '<em><b>Any</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTENSION_DEFINITION__ANY = 1;
+
+	/**
+	 * The feature id for the '<em><b>Display Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTENSION_DEFINITION__DISPLAY_LABEL = 2;
+
+	/**
+	 * The number of structural features of the '<em>Extension Definition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTENSION_DEFINITION_FEATURE_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link gov.loc.mods.mods.impl.ExtentDefinitionImpl <em>Extent Definition</em>}' class.
@@ -8719,17 +8656,6 @@ public interface MODSPackage extends EPackage {
 	EClass getAccessConditionDefinition();
 
 	/**
-	 * Returns the meta object for the attribute '{@link gov.loc.mods.mods.AccessConditionDefinition#getActuate <em>Actuate</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Actuate</em>'.
-	 * @see gov.loc.mods.mods.AccessConditionDefinition#getActuate()
-	 * @see #getAccessConditionDefinition()
-	 * @generated
-	 */
-	EAttribute getAccessConditionDefinition_Actuate();
-
-	/**
 	 * Returns the meta object for the attribute '{@link gov.loc.mods.mods.AccessConditionDefinition#getAltRepGroup <em>Alt Rep Group</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8741,15 +8667,15 @@ public interface MODSPackage extends EPackage {
 	EAttribute getAccessConditionDefinition_AltRepGroup();
 
 	/**
-	 * Returns the meta object for the attribute '{@link gov.loc.mods.mods.AccessConditionDefinition#getArcrole <em>Arcrole</em>}'.
+	 * Returns the meta object for the attribute '{@link gov.loc.mods.mods.AccessConditionDefinition#getDisplayLabel <em>Display Label</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Arcrole</em>'.
-	 * @see gov.loc.mods.mods.AccessConditionDefinition#getArcrole()
+	 * @return the meta object for the attribute '<em>Display Label</em>'.
+	 * @see gov.loc.mods.mods.AccessConditionDefinition#getDisplayLabel()
 	 * @see #getAccessConditionDefinition()
 	 * @generated
 	 */
-	EAttribute getAccessConditionDefinition_Arcrole();
+	EAttribute getAccessConditionDefinition_DisplayLabel();
 
 	/**
 	 * Returns the meta object for the attribute '{@link gov.loc.mods.mods.AccessConditionDefinition#getHref <em>Href</em>}'.
@@ -8763,83 +8689,6 @@ public interface MODSPackage extends EPackage {
 	EAttribute getAccessConditionDefinition_Href();
 
 	/**
-	 * Returns the meta object for the attribute '{@link gov.loc.mods.mods.AccessConditionDefinition#getLang <em>Lang</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Lang</em>'.
-	 * @see gov.loc.mods.mods.AccessConditionDefinition#getLang()
-	 * @see #getAccessConditionDefinition()
-	 * @generated
-	 */
-	EAttribute getAccessConditionDefinition_Lang();
-
-	/**
-	 * Returns the meta object for the attribute '{@link gov.loc.mods.mods.AccessConditionDefinition#getLang1 <em>Lang1</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Lang1</em>'.
-	 * @see gov.loc.mods.mods.AccessConditionDefinition#getLang1()
-	 * @see #getAccessConditionDefinition()
-	 * @generated
-	 */
-	EAttribute getAccessConditionDefinition_Lang1();
-
-	/**
-	 * Returns the meta object for the attribute '{@link gov.loc.mods.mods.AccessConditionDefinition#getRole <em>Role</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Role</em>'.
-	 * @see gov.loc.mods.mods.AccessConditionDefinition#getRole()
-	 * @see #getAccessConditionDefinition()
-	 * @generated
-	 */
-	EAttribute getAccessConditionDefinition_Role();
-
-	/**
-	 * Returns the meta object for the attribute '{@link gov.loc.mods.mods.AccessConditionDefinition#getScript <em>Script</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Script</em>'.
-	 * @see gov.loc.mods.mods.AccessConditionDefinition#getScript()
-	 * @see #getAccessConditionDefinition()
-	 * @generated
-	 */
-	EAttribute getAccessConditionDefinition_Script();
-
-	/**
-	 * Returns the meta object for the attribute '{@link gov.loc.mods.mods.AccessConditionDefinition#getShow <em>Show</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Show</em>'.
-	 * @see gov.loc.mods.mods.AccessConditionDefinition#getShow()
-	 * @see #getAccessConditionDefinition()
-	 * @generated
-	 */
-	EAttribute getAccessConditionDefinition_Show();
-
-	/**
-	 * Returns the meta object for the attribute '{@link gov.loc.mods.mods.AccessConditionDefinition#getTitle <em>Title</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Title</em>'.
-	 * @see gov.loc.mods.mods.AccessConditionDefinition#getTitle()
-	 * @see #getAccessConditionDefinition()
-	 * @generated
-	 */
-	EAttribute getAccessConditionDefinition_Title();
-
-	/**
-	 * Returns the meta object for the attribute '{@link gov.loc.mods.mods.AccessConditionDefinition#getTransliteration <em>Transliteration</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Transliteration</em>'.
-	 * @see gov.loc.mods.mods.AccessConditionDefinition#getTransliteration()
-	 * @see #getAccessConditionDefinition()
-	 * @generated
-	 */
-	EAttribute getAccessConditionDefinition_Transliteration();
-
-	/**
 	 * Returns the meta object for the attribute '{@link gov.loc.mods.mods.AccessConditionDefinition#getType <em>Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8849,17 +8698,6 @@ public interface MODSPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getAccessConditionDefinition_Type();
-
-	/**
-	 * Returns the meta object for the attribute '{@link gov.loc.mods.mods.AccessConditionDefinition#getType1 <em>Type1</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Type1</em>'.
-	 * @see gov.loc.mods.mods.AccessConditionDefinition#getType1()
-	 * @see #getAccessConditionDefinition()
-	 * @generated
-	 */
-	EAttribute getAccessConditionDefinition_Type1();
 
 	/**
 	 * Returns the meta object for class '{@link gov.loc.mods.mods.CartographicsDefinition <em>Cartographics Definition</em>}'.

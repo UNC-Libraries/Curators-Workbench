@@ -40,9 +40,10 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class NoteBaseDefinitionItemProvider extends UnstructuredTextDefinitionItemProvider implements
-		IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider,
-		IItemPropertySource {
+public class NoteBaseDefinitionItemProvider extends
+		UnstructuredTextDefinitionItemProvider implements
+		IEditingDomainItemProvider, IStructuredItemContentProvider,
+		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -77,11 +78,14 @@ public class NoteBaseDefinitionItemProvider extends UnstructuredTextDefinitionIt
 	 */
 	protected void addIDPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_NoteBaseDefinition_iD_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_NoteBaseDefinition_iD_feature",
-						"_UI_NoteBaseDefinition_type"), MODSPackage.eINSTANCE.getNoteBaseDefinition_ID(), true, false, false,
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_NoteBaseDefinition_iD_feature",
+						"_UI_NoteBaseDefinition_type"), MODSPackage.eINSTANCE
+						.getNoteBaseDefinition_ID(), true, false, false,
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
@@ -93,7 +97,8 @@ public class NoteBaseDefinitionItemProvider extends UnstructuredTextDefinitionIt
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/NoteBaseDefinition"));
+		return overlayImage(object,
+				getResourceLocator().getImage("full/obj16/NoteBaseDefinition"));
 	}
 
 	/**
@@ -131,9 +136,10 @@ public class NoteBaseDefinitionItemProvider extends UnstructuredTextDefinitionIt
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(NoteBaseDefinition.class)) {
-			case MODSPackage.NOTE_BASE_DEFINITION__ID:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
+		case MODSPackage.NOTE_BASE_DEFINITION__ID:
+			fireNotifyChanged(new ViewerNotification(notification,
+					notification.getNotifier(), false, true));
+			return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -146,7 +152,8 @@ public class NoteBaseDefinitionItemProvider extends UnstructuredTextDefinitionIt
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(
+			Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 

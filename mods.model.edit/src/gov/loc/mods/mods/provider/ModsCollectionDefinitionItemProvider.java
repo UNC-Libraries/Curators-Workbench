@@ -44,8 +44,9 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ModsCollectionDefinitionItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
-		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class ModsCollectionDefinitionItemProvider extends ItemProviderAdapter
+		implements IEditingDomainItemProvider, IStructuredItemContentProvider,
+		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -80,10 +81,12 @@ public class ModsCollectionDefinitionItemProvider extends ItemProviderAdapter im
 	 * @generated
 	 */
 	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(
+			Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(MODSPackage.eINSTANCE.getModsCollectionDefinition_Mods());
+			childrenFeatures.add(MODSPackage.eINSTANCE
+					.getModsCollectionDefinition_Mods());
 		}
 		return childrenFeatures;
 	}
@@ -109,7 +112,10 @@ public class ModsCollectionDefinitionItemProvider extends ItemProviderAdapter im
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ModsCollectionDefinition"));
+		return overlayImage(
+				object,
+				getResourceLocator().getImage(
+						"full/obj16/ModsCollectionDefinition"));
 	}
 
 	/**
@@ -145,9 +151,10 @@ public class ModsCollectionDefinitionItemProvider extends ItemProviderAdapter im
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ModsCollectionDefinition.class)) {
-			case MODSPackage.MODS_COLLECTION_DEFINITION__MODS:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-				return;
+		case MODSPackage.MODS_COLLECTION_DEFINITION__MODS:
+			fireNotifyChanged(new ViewerNotification(notification,
+					notification.getNotifier(), true, false));
+			return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -160,10 +167,12 @@ public class ModsCollectionDefinitionItemProvider extends ItemProviderAdapter im
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(
+			Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getModsCollectionDefinition_Mods(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getModsCollectionDefinition_Mods(),
 				MODSFactory.eINSTANCE.createModsDefinition()));
 	}
 

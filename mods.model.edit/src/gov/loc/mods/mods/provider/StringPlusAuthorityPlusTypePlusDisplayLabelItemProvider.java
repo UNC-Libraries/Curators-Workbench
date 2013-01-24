@@ -40,16 +40,18 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class StringPlusAuthorityPlusTypePlusDisplayLabelItemProvider extends StringPlusAuthorityPlusTypeItemProvider
-		implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider,
-		IItemLabelProvider, IItemPropertySource {
+public class StringPlusAuthorityPlusTypePlusDisplayLabelItemProvider extends
+		StringPlusAuthorityPlusTypeItemProvider implements
+		IEditingDomainItemProvider, IStructuredItemContentProvider,
+		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public StringPlusAuthorityPlusTypePlusDisplayLabelItemProvider(AdapterFactory adapterFactory) {
+	public StringPlusAuthorityPlusTypePlusDisplayLabelItemProvider(
+			AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -76,15 +78,20 @@ public class StringPlusAuthorityPlusTypePlusDisplayLabelItemProvider extends Str
 	 * @generated
 	 */
 	protected void addDisplayLabelPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_StringPlusAuthorityPlusTypePlusDisplayLabel_displayLabel_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_StringPlusAuthorityPlusTypePlusDisplayLabel_displayLabel_feature",
-						"_UI_StringPlusAuthorityPlusTypePlusDisplayLabel_type"), MODSPackage.eINSTANCE
-						.getStringPlusAuthorityPlusTypePlusDisplayLabel_DisplayLabel(), true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(
+						((ComposeableAdapterFactory) adapterFactory)
+								.getRootAdapterFactory(),
+						getResourceLocator(),
+						getString("_UI_StringPlusAuthorityPlusTypePlusDisplayLabel_displayLabel_feature"),
+						getString(
+								"_UI_PropertyDescriptor_description",
+								"_UI_StringPlusAuthorityPlusTypePlusDisplayLabel_displayLabel_feature",
+								"_UI_StringPlusAuthorityPlusTypePlusDisplayLabel_type"),
+						MODSPackage.eINSTANCE
+								.getStringPlusAuthorityPlusTypePlusDisplayLabel_DisplayLabel(),
+						true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -95,8 +102,11 @@ public class StringPlusAuthorityPlusTypePlusDisplayLabelItemProvider extends Str
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object,
-				getResourceLocator().getImage("full/obj16/StringPlusAuthorityPlusTypePlusDisplayLabel"));
+		return overlayImage(
+				object,
+				getResourceLocator()
+						.getImage(
+								"full/obj16/StringPlusAuthorityPlusTypePlusDisplayLabel"));
 	}
 
 	/**
@@ -117,9 +127,11 @@ public class StringPlusAuthorityPlusTypePlusDisplayLabelItemProvider extends Str
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((StringPlusAuthorityPlusTypePlusDisplayLabel) object).getValue();
+		String label = ((StringPlusAuthorityPlusTypePlusDisplayLabel) object)
+				.getValue();
 		return label == null || label.length() == 0 ? getString("_UI_StringPlusAuthorityPlusTypePlusDisplayLabel_type")
-				: getString("_UI_StringPlusAuthorityPlusTypePlusDisplayLabel_type") + " " + label;
+				: getString("_UI_StringPlusAuthorityPlusTypePlusDisplayLabel_type")
+						+ " " + label;
 	}
 
 	/**
@@ -133,10 +145,12 @@ public class StringPlusAuthorityPlusTypePlusDisplayLabelItemProvider extends Str
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(StringPlusAuthorityPlusTypePlusDisplayLabel.class)) {
-			case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL__DISPLAY_LABEL:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
+		switch (notification
+				.getFeatureID(StringPlusAuthorityPlusTypePlusDisplayLabel.class)) {
+		case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL__DISPLAY_LABEL:
+			fireNotifyChanged(new ViewerNotification(notification,
+					notification.getNotifier(), false, true));
+			return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -149,7 +163,8 @@ public class StringPlusAuthorityPlusTypePlusDisplayLabelItemProvider extends Str
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(
+			Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 

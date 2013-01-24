@@ -72,7 +72,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class OriginInfoDefinitionImpl extends EObjectImpl implements OriginInfoDefinition {
+public class OriginInfoDefinitionImpl extends EObjectImpl implements
+		OriginInfoDefinition {
 	/**
 	 * The cached value of the '{@link #getGroup() <em>Group</em>}' attribute list.
 	 * <!-- begin-user-doc -->
@@ -229,7 +230,8 @@ public class OriginInfoDefinitionImpl extends EObjectImpl implements OriginInfoD
 	 */
 	public FeatureMap getGroup() {
 		if (group == null) {
-			group = new BasicFeatureMap(this, MODSPackage.ORIGIN_INFO_DEFINITION__GROUP);
+			group = new BasicFeatureMap(this,
+					MODSPackage.ORIGIN_INFO_DEFINITION__GROUP);
 		}
 		return group;
 	}
@@ -240,7 +242,8 @@ public class OriginInfoDefinitionImpl extends EObjectImpl implements OriginInfoD
 	 * @generated
 	 */
 	public EList<PlaceDefinition> getPlace() {
-		return getGroup().list(MODSPackage.eINSTANCE.getOriginInfoDefinition_Place());
+		return getGroup().list(
+				MODSPackage.eINSTANCE.getOriginInfoDefinition_Place());
 	}
 
 	/**
@@ -249,7 +252,8 @@ public class OriginInfoDefinitionImpl extends EObjectImpl implements OriginInfoD
 	 * @generated
 	 */
 	public EList<StringPlusSupplied> getPublisher() {
-		return getGroup().list(MODSPackage.eINSTANCE.getOriginInfoDefinition_Publisher());
+		return getGroup().list(
+				MODSPackage.eINSTANCE.getOriginInfoDefinition_Publisher());
 	}
 
 	/**
@@ -258,7 +262,8 @@ public class OriginInfoDefinitionImpl extends EObjectImpl implements OriginInfoD
 	 * @generated
 	 */
 	public EList<DateDefinition> getDateIssued() {
-		return getGroup().list(MODSPackage.eINSTANCE.getOriginInfoDefinition_DateIssued());
+		return getGroup().list(
+				MODSPackage.eINSTANCE.getOriginInfoDefinition_DateIssued());
 	}
 
 	/**
@@ -267,7 +272,8 @@ public class OriginInfoDefinitionImpl extends EObjectImpl implements OriginInfoD
 	 * @generated
 	 */
 	public EList<DateDefinition> getDateCreated() {
-		return getGroup().list(MODSPackage.eINSTANCE.getOriginInfoDefinition_DateCreated());
+		return getGroup().list(
+				MODSPackage.eINSTANCE.getOriginInfoDefinition_DateCreated());
 	}
 
 	/**
@@ -276,7 +282,8 @@ public class OriginInfoDefinitionImpl extends EObjectImpl implements OriginInfoD
 	 * @generated
 	 */
 	public EList<DateDefinition> getDateCaptured() {
-		return getGroup().list(MODSPackage.eINSTANCE.getOriginInfoDefinition_DateCaptured());
+		return getGroup().list(
+				MODSPackage.eINSTANCE.getOriginInfoDefinition_DateCaptured());
 	}
 
 	/**
@@ -285,7 +292,8 @@ public class OriginInfoDefinitionImpl extends EObjectImpl implements OriginInfoD
 	 * @generated
 	 */
 	public EList<DateDefinition> getDateValid() {
-		return getGroup().list(MODSPackage.eINSTANCE.getOriginInfoDefinition_DateValid());
+		return getGroup().list(
+				MODSPackage.eINSTANCE.getOriginInfoDefinition_DateValid());
 	}
 
 	/**
@@ -294,7 +302,8 @@ public class OriginInfoDefinitionImpl extends EObjectImpl implements OriginInfoD
 	 * @generated
 	 */
 	public EList<DateDefinition> getDateModified() {
-		return getGroup().list(MODSPackage.eINSTANCE.getOriginInfoDefinition_DateModified());
+		return getGroup().list(
+				MODSPackage.eINSTANCE.getOriginInfoDefinition_DateModified());
 	}
 
 	/**
@@ -303,7 +312,8 @@ public class OriginInfoDefinitionImpl extends EObjectImpl implements OriginInfoD
 	 * @generated
 	 */
 	public EList<DateDefinition> getCopyrightDate() {
-		return getGroup().list(MODSPackage.eINSTANCE.getOriginInfoDefinition_CopyrightDate());
+		return getGroup().list(
+				MODSPackage.eINSTANCE.getOriginInfoDefinition_CopyrightDate());
 	}
 
 	/**
@@ -312,7 +322,8 @@ public class OriginInfoDefinitionImpl extends EObjectImpl implements OriginInfoD
 	 * @generated
 	 */
 	public EList<DateOtherDefinition> getDateOther() {
-		return getGroup().list(MODSPackage.eINSTANCE.getOriginInfoDefinition_DateOther());
+		return getGroup().list(
+				MODSPackage.eINSTANCE.getOriginInfoDefinition_DateOther());
 	}
 
 	/**
@@ -321,7 +332,8 @@ public class OriginInfoDefinitionImpl extends EObjectImpl implements OriginInfoD
 	 * @generated
 	 */
 	public EList<StringPlusSupplied> getEdition() {
-		return getGroup().list(MODSPackage.eINSTANCE.getOriginInfoDefinition_Edition());
+		return getGroup().list(
+				MODSPackage.eINSTANCE.getOriginInfoDefinition_Edition());
 	}
 
 	/**
@@ -330,7 +342,8 @@ public class OriginInfoDefinitionImpl extends EObjectImpl implements OriginInfoD
 	 * @generated
 	 */
 	public EList<IssuanceDefinition> getIssuance() {
-		return getGroup().list(MODSPackage.eINSTANCE.getOriginInfoDefinition_Issuance());
+		return getGroup().list(
+				MODSPackage.eINSTANCE.getOriginInfoDefinition_Issuance());
 	}
 
 	/**
@@ -339,7 +352,8 @@ public class OriginInfoDefinitionImpl extends EObjectImpl implements OriginInfoD
 	 * @generated
 	 */
 	public EList<StringPlusAuthority> getFrequency() {
-		return getGroup().list(MODSPackage.eINSTANCE.getOriginInfoDefinition_Frequency());
+		return getGroup().list(
+				MODSPackage.eINSTANCE.getOriginInfoDefinition_Frequency());
 	}
 
 	/**
@@ -360,7 +374,8 @@ public class OriginInfoDefinitionImpl extends EObjectImpl implements OriginInfoD
 		String oldAltRepGroup = altRepGroup;
 		altRepGroup = newAltRepGroup;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.ORIGIN_INFO_DEFINITION__ALT_REP_GROUP,
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.ORIGIN_INFO_DEFINITION__ALT_REP_GROUP,
 					oldAltRepGroup, altRepGroup));
 	}
 
@@ -382,7 +397,8 @@ public class OriginInfoDefinitionImpl extends EObjectImpl implements OriginInfoD
 		String oldDisplayLabel = displayLabel;
 		displayLabel = newDisplayLabel;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.ORIGIN_INFO_DEFINITION__DISPLAY_LABEL,
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.ORIGIN_INFO_DEFINITION__DISPLAY_LABEL,
 					oldDisplayLabel, displayLabel));
 	}
 
@@ -404,7 +420,8 @@ public class OriginInfoDefinitionImpl extends EObjectImpl implements OriginInfoD
 		String oldLang = lang;
 		lang = newLang;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.ORIGIN_INFO_DEFINITION__LANG, oldLang, lang));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.ORIGIN_INFO_DEFINITION__LANG, oldLang, lang));
 	}
 
 	/**
@@ -425,8 +442,8 @@ public class OriginInfoDefinitionImpl extends EObjectImpl implements OriginInfoD
 		String oldLang1 = lang1;
 		lang1 = newLang1;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.ORIGIN_INFO_DEFINITION__LANG1, oldLang1,
-					lang1));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.ORIGIN_INFO_DEFINITION__LANG1, oldLang1, lang1));
 	}
 
 	/**
@@ -447,7 +464,8 @@ public class OriginInfoDefinitionImpl extends EObjectImpl implements OriginInfoD
 		String oldScript = script;
 		script = newScript;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.ORIGIN_INFO_DEFINITION__SCRIPT, oldScript,
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.ORIGIN_INFO_DEFINITION__SCRIPT, oldScript,
 					script));
 	}
 
@@ -469,7 +487,8 @@ public class OriginInfoDefinitionImpl extends EObjectImpl implements OriginInfoD
 		String oldTransliteration = transliteration;
 		transliteration = newTransliteration;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.ORIGIN_INFO_DEFINITION__TRANSLITERATION,
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.ORIGIN_INFO_DEFINITION__TRANSLITERATION,
 					oldTransliteration, transliteration));
 	}
 
@@ -479,32 +498,43 @@ public class OriginInfoDefinitionImpl extends EObjectImpl implements OriginInfoD
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+	public NotificationChain eInverseRemove(InternalEObject otherEnd,
+			int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case MODSPackage.ORIGIN_INFO_DEFINITION__GROUP:
-				return ((InternalEList<?>) getGroup()).basicRemove(otherEnd, msgs);
-			case MODSPackage.ORIGIN_INFO_DEFINITION__PLACE:
-				return ((InternalEList<?>) getPlace()).basicRemove(otherEnd, msgs);
-			case MODSPackage.ORIGIN_INFO_DEFINITION__PUBLISHER:
-				return ((InternalEList<?>) getPublisher()).basicRemove(otherEnd, msgs);
-			case MODSPackage.ORIGIN_INFO_DEFINITION__DATE_ISSUED:
-				return ((InternalEList<?>) getDateIssued()).basicRemove(otherEnd, msgs);
-			case MODSPackage.ORIGIN_INFO_DEFINITION__DATE_CREATED:
-				return ((InternalEList<?>) getDateCreated()).basicRemove(otherEnd, msgs);
-			case MODSPackage.ORIGIN_INFO_DEFINITION__DATE_CAPTURED:
-				return ((InternalEList<?>) getDateCaptured()).basicRemove(otherEnd, msgs);
-			case MODSPackage.ORIGIN_INFO_DEFINITION__DATE_VALID:
-				return ((InternalEList<?>) getDateValid()).basicRemove(otherEnd, msgs);
-			case MODSPackage.ORIGIN_INFO_DEFINITION__DATE_MODIFIED:
-				return ((InternalEList<?>) getDateModified()).basicRemove(otherEnd, msgs);
-			case MODSPackage.ORIGIN_INFO_DEFINITION__COPYRIGHT_DATE:
-				return ((InternalEList<?>) getCopyrightDate()).basicRemove(otherEnd, msgs);
-			case MODSPackage.ORIGIN_INFO_DEFINITION__DATE_OTHER:
-				return ((InternalEList<?>) getDateOther()).basicRemove(otherEnd, msgs);
-			case MODSPackage.ORIGIN_INFO_DEFINITION__EDITION:
-				return ((InternalEList<?>) getEdition()).basicRemove(otherEnd, msgs);
-			case MODSPackage.ORIGIN_INFO_DEFINITION__FREQUENCY:
-				return ((InternalEList<?>) getFrequency()).basicRemove(otherEnd, msgs);
+		case MODSPackage.ORIGIN_INFO_DEFINITION__GROUP:
+			return ((InternalEList<?>) getGroup()).basicRemove(otherEnd, msgs);
+		case MODSPackage.ORIGIN_INFO_DEFINITION__PLACE:
+			return ((InternalEList<?>) getPlace()).basicRemove(otherEnd, msgs);
+		case MODSPackage.ORIGIN_INFO_DEFINITION__PUBLISHER:
+			return ((InternalEList<?>) getPublisher()).basicRemove(otherEnd,
+					msgs);
+		case MODSPackage.ORIGIN_INFO_DEFINITION__DATE_ISSUED:
+			return ((InternalEList<?>) getDateIssued()).basicRemove(otherEnd,
+					msgs);
+		case MODSPackage.ORIGIN_INFO_DEFINITION__DATE_CREATED:
+			return ((InternalEList<?>) getDateCreated()).basicRemove(otherEnd,
+					msgs);
+		case MODSPackage.ORIGIN_INFO_DEFINITION__DATE_CAPTURED:
+			return ((InternalEList<?>) getDateCaptured()).basicRemove(otherEnd,
+					msgs);
+		case MODSPackage.ORIGIN_INFO_DEFINITION__DATE_VALID:
+			return ((InternalEList<?>) getDateValid()).basicRemove(otherEnd,
+					msgs);
+		case MODSPackage.ORIGIN_INFO_DEFINITION__DATE_MODIFIED:
+			return ((InternalEList<?>) getDateModified()).basicRemove(otherEnd,
+					msgs);
+		case MODSPackage.ORIGIN_INFO_DEFINITION__COPYRIGHT_DATE:
+			return ((InternalEList<?>) getCopyrightDate()).basicRemove(
+					otherEnd, msgs);
+		case MODSPackage.ORIGIN_INFO_DEFINITION__DATE_OTHER:
+			return ((InternalEList<?>) getDateOther()).basicRemove(otherEnd,
+					msgs);
+		case MODSPackage.ORIGIN_INFO_DEFINITION__EDITION:
+			return ((InternalEList<?>) getEdition())
+					.basicRemove(otherEnd, msgs);
+		case MODSPackage.ORIGIN_INFO_DEFINITION__FREQUENCY:
+			return ((InternalEList<?>) getFrequency()).basicRemove(otherEnd,
+					msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -517,46 +547,46 @@ public class OriginInfoDefinitionImpl extends EObjectImpl implements OriginInfoD
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case MODSPackage.ORIGIN_INFO_DEFINITION__GROUP:
-				if (coreType)
-					return getGroup();
-				return ((FeatureMap.Internal) getGroup()).getWrapper();
-			case MODSPackage.ORIGIN_INFO_DEFINITION__PLACE:
-				return getPlace();
-			case MODSPackage.ORIGIN_INFO_DEFINITION__PUBLISHER:
-				return getPublisher();
-			case MODSPackage.ORIGIN_INFO_DEFINITION__DATE_ISSUED:
-				return getDateIssued();
-			case MODSPackage.ORIGIN_INFO_DEFINITION__DATE_CREATED:
-				return getDateCreated();
-			case MODSPackage.ORIGIN_INFO_DEFINITION__DATE_CAPTURED:
-				return getDateCaptured();
-			case MODSPackage.ORIGIN_INFO_DEFINITION__DATE_VALID:
-				return getDateValid();
-			case MODSPackage.ORIGIN_INFO_DEFINITION__DATE_MODIFIED:
-				return getDateModified();
-			case MODSPackage.ORIGIN_INFO_DEFINITION__COPYRIGHT_DATE:
-				return getCopyrightDate();
-			case MODSPackage.ORIGIN_INFO_DEFINITION__DATE_OTHER:
-				return getDateOther();
-			case MODSPackage.ORIGIN_INFO_DEFINITION__EDITION:
-				return getEdition();
-			case MODSPackage.ORIGIN_INFO_DEFINITION__ISSUANCE:
-				return getIssuance();
-			case MODSPackage.ORIGIN_INFO_DEFINITION__FREQUENCY:
-				return getFrequency();
-			case MODSPackage.ORIGIN_INFO_DEFINITION__ALT_REP_GROUP:
-				return getAltRepGroup();
-			case MODSPackage.ORIGIN_INFO_DEFINITION__DISPLAY_LABEL:
-				return getDisplayLabel();
-			case MODSPackage.ORIGIN_INFO_DEFINITION__LANG:
-				return getLang();
-			case MODSPackage.ORIGIN_INFO_DEFINITION__LANG1:
-				return getLang1();
-			case MODSPackage.ORIGIN_INFO_DEFINITION__SCRIPT:
-				return getScript();
-			case MODSPackage.ORIGIN_INFO_DEFINITION__TRANSLITERATION:
-				return getTransliteration();
+		case MODSPackage.ORIGIN_INFO_DEFINITION__GROUP:
+			if (coreType)
+				return getGroup();
+			return ((FeatureMap.Internal) getGroup()).getWrapper();
+		case MODSPackage.ORIGIN_INFO_DEFINITION__PLACE:
+			return getPlace();
+		case MODSPackage.ORIGIN_INFO_DEFINITION__PUBLISHER:
+			return getPublisher();
+		case MODSPackage.ORIGIN_INFO_DEFINITION__DATE_ISSUED:
+			return getDateIssued();
+		case MODSPackage.ORIGIN_INFO_DEFINITION__DATE_CREATED:
+			return getDateCreated();
+		case MODSPackage.ORIGIN_INFO_DEFINITION__DATE_CAPTURED:
+			return getDateCaptured();
+		case MODSPackage.ORIGIN_INFO_DEFINITION__DATE_VALID:
+			return getDateValid();
+		case MODSPackage.ORIGIN_INFO_DEFINITION__DATE_MODIFIED:
+			return getDateModified();
+		case MODSPackage.ORIGIN_INFO_DEFINITION__COPYRIGHT_DATE:
+			return getCopyrightDate();
+		case MODSPackage.ORIGIN_INFO_DEFINITION__DATE_OTHER:
+			return getDateOther();
+		case MODSPackage.ORIGIN_INFO_DEFINITION__EDITION:
+			return getEdition();
+		case MODSPackage.ORIGIN_INFO_DEFINITION__ISSUANCE:
+			return getIssuance();
+		case MODSPackage.ORIGIN_INFO_DEFINITION__FREQUENCY:
+			return getFrequency();
+		case MODSPackage.ORIGIN_INFO_DEFINITION__ALT_REP_GROUP:
+			return getAltRepGroup();
+		case MODSPackage.ORIGIN_INFO_DEFINITION__DISPLAY_LABEL:
+			return getDisplayLabel();
+		case MODSPackage.ORIGIN_INFO_DEFINITION__LANG:
+			return getLang();
+		case MODSPackage.ORIGIN_INFO_DEFINITION__LANG1:
+			return getLang1();
+		case MODSPackage.ORIGIN_INFO_DEFINITION__SCRIPT:
+			return getScript();
+		case MODSPackage.ORIGIN_INFO_DEFINITION__TRANSLITERATION:
+			return getTransliteration();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -570,75 +600,86 @@ public class OriginInfoDefinitionImpl extends EObjectImpl implements OriginInfoD
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case MODSPackage.ORIGIN_INFO_DEFINITION__GROUP:
-				((FeatureMap.Internal) getGroup()).set(newValue);
-				return;
-			case MODSPackage.ORIGIN_INFO_DEFINITION__PLACE:
-				getPlace().clear();
-				getPlace().addAll((Collection<? extends PlaceDefinition>) newValue);
-				return;
-			case MODSPackage.ORIGIN_INFO_DEFINITION__PUBLISHER:
-				getPublisher().clear();
-				getPublisher().addAll((Collection<? extends StringPlusSupplied>) newValue);
-				return;
-			case MODSPackage.ORIGIN_INFO_DEFINITION__DATE_ISSUED:
-				getDateIssued().clear();
-				getDateIssued().addAll((Collection<? extends DateDefinition>) newValue);
-				return;
-			case MODSPackage.ORIGIN_INFO_DEFINITION__DATE_CREATED:
-				getDateCreated().clear();
-				getDateCreated().addAll((Collection<? extends DateDefinition>) newValue);
-				return;
-			case MODSPackage.ORIGIN_INFO_DEFINITION__DATE_CAPTURED:
-				getDateCaptured().clear();
-				getDateCaptured().addAll((Collection<? extends DateDefinition>) newValue);
-				return;
-			case MODSPackage.ORIGIN_INFO_DEFINITION__DATE_VALID:
-				getDateValid().clear();
-				getDateValid().addAll((Collection<? extends DateDefinition>) newValue);
-				return;
-			case MODSPackage.ORIGIN_INFO_DEFINITION__DATE_MODIFIED:
-				getDateModified().clear();
-				getDateModified().addAll((Collection<? extends DateDefinition>) newValue);
-				return;
-			case MODSPackage.ORIGIN_INFO_DEFINITION__COPYRIGHT_DATE:
-				getCopyrightDate().clear();
-				getCopyrightDate().addAll((Collection<? extends DateDefinition>) newValue);
-				return;
-			case MODSPackage.ORIGIN_INFO_DEFINITION__DATE_OTHER:
-				getDateOther().clear();
-				getDateOther().addAll((Collection<? extends DateOtherDefinition>) newValue);
-				return;
-			case MODSPackage.ORIGIN_INFO_DEFINITION__EDITION:
-				getEdition().clear();
-				getEdition().addAll((Collection<? extends StringPlusSupplied>) newValue);
-				return;
-			case MODSPackage.ORIGIN_INFO_DEFINITION__ISSUANCE:
-				getIssuance().clear();
-				getIssuance().addAll((Collection<? extends IssuanceDefinition>) newValue);
-				return;
-			case MODSPackage.ORIGIN_INFO_DEFINITION__FREQUENCY:
-				getFrequency().clear();
-				getFrequency().addAll((Collection<? extends StringPlusAuthority>) newValue);
-				return;
-			case MODSPackage.ORIGIN_INFO_DEFINITION__ALT_REP_GROUP:
-				setAltRepGroup((String) newValue);
-				return;
-			case MODSPackage.ORIGIN_INFO_DEFINITION__DISPLAY_LABEL:
-				setDisplayLabel((String) newValue);
-				return;
-			case MODSPackage.ORIGIN_INFO_DEFINITION__LANG:
-				setLang((String) newValue);
-				return;
-			case MODSPackage.ORIGIN_INFO_DEFINITION__LANG1:
-				setLang1((String) newValue);
-				return;
-			case MODSPackage.ORIGIN_INFO_DEFINITION__SCRIPT:
-				setScript((String) newValue);
-				return;
-			case MODSPackage.ORIGIN_INFO_DEFINITION__TRANSLITERATION:
-				setTransliteration((String) newValue);
-				return;
+		case MODSPackage.ORIGIN_INFO_DEFINITION__GROUP:
+			((FeatureMap.Internal) getGroup()).set(newValue);
+			return;
+		case MODSPackage.ORIGIN_INFO_DEFINITION__PLACE:
+			getPlace().clear();
+			getPlace().addAll((Collection<? extends PlaceDefinition>) newValue);
+			return;
+		case MODSPackage.ORIGIN_INFO_DEFINITION__PUBLISHER:
+			getPublisher().clear();
+			getPublisher().addAll(
+					(Collection<? extends StringPlusSupplied>) newValue);
+			return;
+		case MODSPackage.ORIGIN_INFO_DEFINITION__DATE_ISSUED:
+			getDateIssued().clear();
+			getDateIssued().addAll(
+					(Collection<? extends DateDefinition>) newValue);
+			return;
+		case MODSPackage.ORIGIN_INFO_DEFINITION__DATE_CREATED:
+			getDateCreated().clear();
+			getDateCreated().addAll(
+					(Collection<? extends DateDefinition>) newValue);
+			return;
+		case MODSPackage.ORIGIN_INFO_DEFINITION__DATE_CAPTURED:
+			getDateCaptured().clear();
+			getDateCaptured().addAll(
+					(Collection<? extends DateDefinition>) newValue);
+			return;
+		case MODSPackage.ORIGIN_INFO_DEFINITION__DATE_VALID:
+			getDateValid().clear();
+			getDateValid().addAll(
+					(Collection<? extends DateDefinition>) newValue);
+			return;
+		case MODSPackage.ORIGIN_INFO_DEFINITION__DATE_MODIFIED:
+			getDateModified().clear();
+			getDateModified().addAll(
+					(Collection<? extends DateDefinition>) newValue);
+			return;
+		case MODSPackage.ORIGIN_INFO_DEFINITION__COPYRIGHT_DATE:
+			getCopyrightDate().clear();
+			getCopyrightDate().addAll(
+					(Collection<? extends DateDefinition>) newValue);
+			return;
+		case MODSPackage.ORIGIN_INFO_DEFINITION__DATE_OTHER:
+			getDateOther().clear();
+			getDateOther().addAll(
+					(Collection<? extends DateOtherDefinition>) newValue);
+			return;
+		case MODSPackage.ORIGIN_INFO_DEFINITION__EDITION:
+			getEdition().clear();
+			getEdition().addAll(
+					(Collection<? extends StringPlusSupplied>) newValue);
+			return;
+		case MODSPackage.ORIGIN_INFO_DEFINITION__ISSUANCE:
+			getIssuance().clear();
+			getIssuance().addAll(
+					(Collection<? extends IssuanceDefinition>) newValue);
+			return;
+		case MODSPackage.ORIGIN_INFO_DEFINITION__FREQUENCY:
+			getFrequency().clear();
+			getFrequency().addAll(
+					(Collection<? extends StringPlusAuthority>) newValue);
+			return;
+		case MODSPackage.ORIGIN_INFO_DEFINITION__ALT_REP_GROUP:
+			setAltRepGroup((String) newValue);
+			return;
+		case MODSPackage.ORIGIN_INFO_DEFINITION__DISPLAY_LABEL:
+			setDisplayLabel((String) newValue);
+			return;
+		case MODSPackage.ORIGIN_INFO_DEFINITION__LANG:
+			setLang((String) newValue);
+			return;
+		case MODSPackage.ORIGIN_INFO_DEFINITION__LANG1:
+			setLang1((String) newValue);
+			return;
+		case MODSPackage.ORIGIN_INFO_DEFINITION__SCRIPT:
+			setScript((String) newValue);
+			return;
+		case MODSPackage.ORIGIN_INFO_DEFINITION__TRANSLITERATION:
+			setTransliteration((String) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -651,63 +692,63 @@ public class OriginInfoDefinitionImpl extends EObjectImpl implements OriginInfoD
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case MODSPackage.ORIGIN_INFO_DEFINITION__GROUP:
-				getGroup().clear();
-				return;
-			case MODSPackage.ORIGIN_INFO_DEFINITION__PLACE:
-				getPlace().clear();
-				return;
-			case MODSPackage.ORIGIN_INFO_DEFINITION__PUBLISHER:
-				getPublisher().clear();
-				return;
-			case MODSPackage.ORIGIN_INFO_DEFINITION__DATE_ISSUED:
-				getDateIssued().clear();
-				return;
-			case MODSPackage.ORIGIN_INFO_DEFINITION__DATE_CREATED:
-				getDateCreated().clear();
-				return;
-			case MODSPackage.ORIGIN_INFO_DEFINITION__DATE_CAPTURED:
-				getDateCaptured().clear();
-				return;
-			case MODSPackage.ORIGIN_INFO_DEFINITION__DATE_VALID:
-				getDateValid().clear();
-				return;
-			case MODSPackage.ORIGIN_INFO_DEFINITION__DATE_MODIFIED:
-				getDateModified().clear();
-				return;
-			case MODSPackage.ORIGIN_INFO_DEFINITION__COPYRIGHT_DATE:
-				getCopyrightDate().clear();
-				return;
-			case MODSPackage.ORIGIN_INFO_DEFINITION__DATE_OTHER:
-				getDateOther().clear();
-				return;
-			case MODSPackage.ORIGIN_INFO_DEFINITION__EDITION:
-				getEdition().clear();
-				return;
-			case MODSPackage.ORIGIN_INFO_DEFINITION__ISSUANCE:
-				getIssuance().clear();
-				return;
-			case MODSPackage.ORIGIN_INFO_DEFINITION__FREQUENCY:
-				getFrequency().clear();
-				return;
-			case MODSPackage.ORIGIN_INFO_DEFINITION__ALT_REP_GROUP:
-				setAltRepGroup(ALT_REP_GROUP_EDEFAULT);
-				return;
-			case MODSPackage.ORIGIN_INFO_DEFINITION__DISPLAY_LABEL:
-				setDisplayLabel(DISPLAY_LABEL_EDEFAULT);
-				return;
-			case MODSPackage.ORIGIN_INFO_DEFINITION__LANG:
-				setLang(LANG_EDEFAULT);
-				return;
-			case MODSPackage.ORIGIN_INFO_DEFINITION__LANG1:
-				setLang1(LANG1_EDEFAULT);
-				return;
-			case MODSPackage.ORIGIN_INFO_DEFINITION__SCRIPT:
-				setScript(SCRIPT_EDEFAULT);
-				return;
-			case MODSPackage.ORIGIN_INFO_DEFINITION__TRANSLITERATION:
-				setTransliteration(TRANSLITERATION_EDEFAULT);
-				return;
+		case MODSPackage.ORIGIN_INFO_DEFINITION__GROUP:
+			getGroup().clear();
+			return;
+		case MODSPackage.ORIGIN_INFO_DEFINITION__PLACE:
+			getPlace().clear();
+			return;
+		case MODSPackage.ORIGIN_INFO_DEFINITION__PUBLISHER:
+			getPublisher().clear();
+			return;
+		case MODSPackage.ORIGIN_INFO_DEFINITION__DATE_ISSUED:
+			getDateIssued().clear();
+			return;
+		case MODSPackage.ORIGIN_INFO_DEFINITION__DATE_CREATED:
+			getDateCreated().clear();
+			return;
+		case MODSPackage.ORIGIN_INFO_DEFINITION__DATE_CAPTURED:
+			getDateCaptured().clear();
+			return;
+		case MODSPackage.ORIGIN_INFO_DEFINITION__DATE_VALID:
+			getDateValid().clear();
+			return;
+		case MODSPackage.ORIGIN_INFO_DEFINITION__DATE_MODIFIED:
+			getDateModified().clear();
+			return;
+		case MODSPackage.ORIGIN_INFO_DEFINITION__COPYRIGHT_DATE:
+			getCopyrightDate().clear();
+			return;
+		case MODSPackage.ORIGIN_INFO_DEFINITION__DATE_OTHER:
+			getDateOther().clear();
+			return;
+		case MODSPackage.ORIGIN_INFO_DEFINITION__EDITION:
+			getEdition().clear();
+			return;
+		case MODSPackage.ORIGIN_INFO_DEFINITION__ISSUANCE:
+			getIssuance().clear();
+			return;
+		case MODSPackage.ORIGIN_INFO_DEFINITION__FREQUENCY:
+			getFrequency().clear();
+			return;
+		case MODSPackage.ORIGIN_INFO_DEFINITION__ALT_REP_GROUP:
+			setAltRepGroup(ALT_REP_GROUP_EDEFAULT);
+			return;
+		case MODSPackage.ORIGIN_INFO_DEFINITION__DISPLAY_LABEL:
+			setDisplayLabel(DISPLAY_LABEL_EDEFAULT);
+			return;
+		case MODSPackage.ORIGIN_INFO_DEFINITION__LANG:
+			setLang(LANG_EDEFAULT);
+			return;
+		case MODSPackage.ORIGIN_INFO_DEFINITION__LANG1:
+			setLang1(LANG1_EDEFAULT);
+			return;
+		case MODSPackage.ORIGIN_INFO_DEFINITION__SCRIPT:
+			setScript(SCRIPT_EDEFAULT);
+			return;
+		case MODSPackage.ORIGIN_INFO_DEFINITION__TRANSLITERATION:
+			setTransliteration(TRANSLITERATION_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -720,45 +761,50 @@ public class OriginInfoDefinitionImpl extends EObjectImpl implements OriginInfoD
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case MODSPackage.ORIGIN_INFO_DEFINITION__GROUP:
-				return group != null && !group.isEmpty();
-			case MODSPackage.ORIGIN_INFO_DEFINITION__PLACE:
-				return !getPlace().isEmpty();
-			case MODSPackage.ORIGIN_INFO_DEFINITION__PUBLISHER:
-				return !getPublisher().isEmpty();
-			case MODSPackage.ORIGIN_INFO_DEFINITION__DATE_ISSUED:
-				return !getDateIssued().isEmpty();
-			case MODSPackage.ORIGIN_INFO_DEFINITION__DATE_CREATED:
-				return !getDateCreated().isEmpty();
-			case MODSPackage.ORIGIN_INFO_DEFINITION__DATE_CAPTURED:
-				return !getDateCaptured().isEmpty();
-			case MODSPackage.ORIGIN_INFO_DEFINITION__DATE_VALID:
-				return !getDateValid().isEmpty();
-			case MODSPackage.ORIGIN_INFO_DEFINITION__DATE_MODIFIED:
-				return !getDateModified().isEmpty();
-			case MODSPackage.ORIGIN_INFO_DEFINITION__COPYRIGHT_DATE:
-				return !getCopyrightDate().isEmpty();
-			case MODSPackage.ORIGIN_INFO_DEFINITION__DATE_OTHER:
-				return !getDateOther().isEmpty();
-			case MODSPackage.ORIGIN_INFO_DEFINITION__EDITION:
-				return !getEdition().isEmpty();
-			case MODSPackage.ORIGIN_INFO_DEFINITION__ISSUANCE:
-				return !getIssuance().isEmpty();
-			case MODSPackage.ORIGIN_INFO_DEFINITION__FREQUENCY:
-				return !getFrequency().isEmpty();
-			case MODSPackage.ORIGIN_INFO_DEFINITION__ALT_REP_GROUP:
-				return ALT_REP_GROUP_EDEFAULT == null ? altRepGroup != null : !ALT_REP_GROUP_EDEFAULT.equals(altRepGroup);
-			case MODSPackage.ORIGIN_INFO_DEFINITION__DISPLAY_LABEL:
-				return DISPLAY_LABEL_EDEFAULT == null ? displayLabel != null : !DISPLAY_LABEL_EDEFAULT.equals(displayLabel);
-			case MODSPackage.ORIGIN_INFO_DEFINITION__LANG:
-				return LANG_EDEFAULT == null ? lang != null : !LANG_EDEFAULT.equals(lang);
-			case MODSPackage.ORIGIN_INFO_DEFINITION__LANG1:
-				return LANG1_EDEFAULT == null ? lang1 != null : !LANG1_EDEFAULT.equals(lang1);
-			case MODSPackage.ORIGIN_INFO_DEFINITION__SCRIPT:
-				return SCRIPT_EDEFAULT == null ? script != null : !SCRIPT_EDEFAULT.equals(script);
-			case MODSPackage.ORIGIN_INFO_DEFINITION__TRANSLITERATION:
-				return TRANSLITERATION_EDEFAULT == null ? transliteration != null : !TRANSLITERATION_EDEFAULT
-						.equals(transliteration);
+		case MODSPackage.ORIGIN_INFO_DEFINITION__GROUP:
+			return group != null && !group.isEmpty();
+		case MODSPackage.ORIGIN_INFO_DEFINITION__PLACE:
+			return !getPlace().isEmpty();
+		case MODSPackage.ORIGIN_INFO_DEFINITION__PUBLISHER:
+			return !getPublisher().isEmpty();
+		case MODSPackage.ORIGIN_INFO_DEFINITION__DATE_ISSUED:
+			return !getDateIssued().isEmpty();
+		case MODSPackage.ORIGIN_INFO_DEFINITION__DATE_CREATED:
+			return !getDateCreated().isEmpty();
+		case MODSPackage.ORIGIN_INFO_DEFINITION__DATE_CAPTURED:
+			return !getDateCaptured().isEmpty();
+		case MODSPackage.ORIGIN_INFO_DEFINITION__DATE_VALID:
+			return !getDateValid().isEmpty();
+		case MODSPackage.ORIGIN_INFO_DEFINITION__DATE_MODIFIED:
+			return !getDateModified().isEmpty();
+		case MODSPackage.ORIGIN_INFO_DEFINITION__COPYRIGHT_DATE:
+			return !getCopyrightDate().isEmpty();
+		case MODSPackage.ORIGIN_INFO_DEFINITION__DATE_OTHER:
+			return !getDateOther().isEmpty();
+		case MODSPackage.ORIGIN_INFO_DEFINITION__EDITION:
+			return !getEdition().isEmpty();
+		case MODSPackage.ORIGIN_INFO_DEFINITION__ISSUANCE:
+			return !getIssuance().isEmpty();
+		case MODSPackage.ORIGIN_INFO_DEFINITION__FREQUENCY:
+			return !getFrequency().isEmpty();
+		case MODSPackage.ORIGIN_INFO_DEFINITION__ALT_REP_GROUP:
+			return ALT_REP_GROUP_EDEFAULT == null ? altRepGroup != null
+					: !ALT_REP_GROUP_EDEFAULT.equals(altRepGroup);
+		case MODSPackage.ORIGIN_INFO_DEFINITION__DISPLAY_LABEL:
+			return DISPLAY_LABEL_EDEFAULT == null ? displayLabel != null
+					: !DISPLAY_LABEL_EDEFAULT.equals(displayLabel);
+		case MODSPackage.ORIGIN_INFO_DEFINITION__LANG:
+			return LANG_EDEFAULT == null ? lang != null : !LANG_EDEFAULT
+					.equals(lang);
+		case MODSPackage.ORIGIN_INFO_DEFINITION__LANG1:
+			return LANG1_EDEFAULT == null ? lang1 != null : !LANG1_EDEFAULT
+					.equals(lang1);
+		case MODSPackage.ORIGIN_INFO_DEFINITION__SCRIPT:
+			return SCRIPT_EDEFAULT == null ? script != null : !SCRIPT_EDEFAULT
+					.equals(script);
+		case MODSPackage.ORIGIN_INFO_DEFINITION__TRANSLITERATION:
+			return TRANSLITERATION_EDEFAULT == null ? transliteration != null
+					: !TRANSLITERATION_EDEFAULT.equals(transliteration);
 		}
 		return super.eIsSet(featureID);
 	}

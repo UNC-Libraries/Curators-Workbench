@@ -40,8 +40,9 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class DateBaseDefinitionItemProvider extends XsStringItemProvider implements IEditingDomainItemProvider,
-		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class DateBaseDefinitionItemProvider extends XsStringItemProvider
+		implements IEditingDomainItemProvider, IStructuredItemContentProvider,
+		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -78,12 +79,15 @@ public class DateBaseDefinitionItemProvider extends XsStringItemProvider impleme
 	 */
 	protected void addEncodingPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_DateBaseDefinition_encoding_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_DateBaseDefinition_encoding_feature",
-						"_UI_DateBaseDefinition_type"), MODSPackage.eINSTANCE.getDateBaseDefinition_Encoding(), true, false,
-				false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_DateBaseDefinition_encoding_feature",
+						"_UI_DateBaseDefinition_type"), MODSPackage.eINSTANCE
+						.getDateBaseDefinition_Encoding(), true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -94,12 +98,15 @@ public class DateBaseDefinitionItemProvider extends XsStringItemProvider impleme
 	 */
 	protected void addPointPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_DateBaseDefinition_point_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_DateBaseDefinition_point_feature",
-						"_UI_DateBaseDefinition_type"), MODSPackage.eINSTANCE.getDateBaseDefinition_Point(), true, false,
-				false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_DateBaseDefinition_point_feature",
+						"_UI_DateBaseDefinition_type"), MODSPackage.eINSTANCE
+						.getDateBaseDefinition_Point(), true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -110,12 +117,15 @@ public class DateBaseDefinitionItemProvider extends XsStringItemProvider impleme
 	 */
 	protected void addQualifierPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_DateBaseDefinition_qualifier_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_DateBaseDefinition_qualifier_feature",
-						"_UI_DateBaseDefinition_type"), MODSPackage.eINSTANCE.getDateBaseDefinition_Qualifier(), true, false,
-				false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_DateBaseDefinition_qualifier_feature",
+						"_UI_DateBaseDefinition_type"), MODSPackage.eINSTANCE
+						.getDateBaseDefinition_Qualifier(), true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -126,7 +136,8 @@ public class DateBaseDefinitionItemProvider extends XsStringItemProvider impleme
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/DateBaseDefinition"));
+		return overlayImage(object,
+				getResourceLocator().getImage("full/obj16/DateBaseDefinition"));
 	}
 
 	/**
@@ -164,11 +175,12 @@ public class DateBaseDefinitionItemProvider extends XsStringItemProvider impleme
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(DateBaseDefinition.class)) {
-			case MODSPackage.DATE_BASE_DEFINITION__ENCODING:
-			case MODSPackage.DATE_BASE_DEFINITION__POINT:
-			case MODSPackage.DATE_BASE_DEFINITION__QUALIFIER:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
+		case MODSPackage.DATE_BASE_DEFINITION__ENCODING:
+		case MODSPackage.DATE_BASE_DEFINITION__POINT:
+		case MODSPackage.DATE_BASE_DEFINITION__QUALIFIER:
+			fireNotifyChanged(new ViewerNotification(notification,
+					notification.getNotifier(), false, true));
+			return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -181,7 +193,8 @@ public class DateBaseDefinitionItemProvider extends XsStringItemProvider impleme
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(
+			Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 

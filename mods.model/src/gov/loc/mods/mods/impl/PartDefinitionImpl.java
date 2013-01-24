@@ -284,7 +284,8 @@ public class PartDefinitionImpl extends EObjectImpl implements PartDefinition {
 	 */
 	public FeatureMap getGroup() {
 		if (group == null) {
-			group = new BasicFeatureMap(this, MODSPackage.PART_DEFINITION__GROUP);
+			group = new BasicFeatureMap(this,
+					MODSPackage.PART_DEFINITION__GROUP);
 		}
 		return group;
 	}
@@ -295,7 +296,8 @@ public class PartDefinitionImpl extends EObjectImpl implements PartDefinition {
 	 * @generated
 	 */
 	public EList<DetailDefinition> getDetail() {
-		return getGroup().list(MODSPackage.eINSTANCE.getPartDefinition_Detail());
+		return getGroup()
+				.list(MODSPackage.eINSTANCE.getPartDefinition_Detail());
 	}
 
 	/**
@@ -304,7 +306,8 @@ public class PartDefinitionImpl extends EObjectImpl implements PartDefinition {
 	 * @generated
 	 */
 	public EList<ExtentDefinition> getExtent() {
-		return getGroup().list(MODSPackage.eINSTANCE.getPartDefinition_Extent());
+		return getGroup()
+				.list(MODSPackage.eINSTANCE.getPartDefinition_Extent());
 	}
 
 	/**
@@ -343,8 +346,9 @@ public class PartDefinitionImpl extends EObjectImpl implements PartDefinition {
 		String oldAltRepGroup = altRepGroup;
 		altRepGroup = newAltRepGroup;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.PART_DEFINITION__ALT_REP_GROUP,
-					oldAltRepGroup, altRepGroup));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.PART_DEFINITION__ALT_REP_GROUP, oldAltRepGroup,
+					altRepGroup));
 	}
 
 	/**
@@ -365,7 +369,8 @@ public class PartDefinitionImpl extends EObjectImpl implements PartDefinition {
 		String oldDisplayLabel = displayLabel;
 		displayLabel = newDisplayLabel;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.PART_DEFINITION__DISPLAY_LABEL,
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.PART_DEFINITION__DISPLAY_LABEL,
 					oldDisplayLabel, displayLabel));
 	}
 
@@ -387,7 +392,8 @@ public class PartDefinitionImpl extends EObjectImpl implements PartDefinition {
 		String oldID = iD;
 		iD = newID;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.PART_DEFINITION__ID, oldID, iD));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.PART_DEFINITION__ID, oldID, iD));
 	}
 
 	/**
@@ -408,7 +414,8 @@ public class PartDefinitionImpl extends EObjectImpl implements PartDefinition {
 		String oldLang = lang;
 		lang = newLang;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.PART_DEFINITION__LANG, oldLang, lang));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.PART_DEFINITION__LANG, oldLang, lang));
 	}
 
 	/**
@@ -429,7 +436,8 @@ public class PartDefinitionImpl extends EObjectImpl implements PartDefinition {
 		String oldLang1 = lang1;
 		lang1 = newLang1;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.PART_DEFINITION__LANG1, oldLang1, lang1));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.PART_DEFINITION__LANG1, oldLang1, lang1));
 	}
 
 	/**
@@ -450,7 +458,8 @@ public class PartDefinitionImpl extends EObjectImpl implements PartDefinition {
 		BigInteger oldOrder = order;
 		order = newOrder;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.PART_DEFINITION__ORDER, oldOrder, order));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.PART_DEFINITION__ORDER, oldOrder, order));
 	}
 
 	/**
@@ -471,7 +480,8 @@ public class PartDefinitionImpl extends EObjectImpl implements PartDefinition {
 		String oldScript = script;
 		script = newScript;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.PART_DEFINITION__SCRIPT, oldScript, script));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.PART_DEFINITION__SCRIPT, oldScript, script));
 	}
 
 	/**
@@ -492,7 +502,8 @@ public class PartDefinitionImpl extends EObjectImpl implements PartDefinition {
 		String oldTransliteration = transliteration;
 		transliteration = newTransliteration;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.PART_DEFINITION__TRANSLITERATION,
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.PART_DEFINITION__TRANSLITERATION,
 					oldTransliteration, transliteration));
 	}
 
@@ -514,7 +525,8 @@ public class PartDefinitionImpl extends EObjectImpl implements PartDefinition {
 		String oldType = type;
 		type = newType;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.PART_DEFINITION__TYPE, oldType, type));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.PART_DEFINITION__TYPE, oldType, type));
 	}
 
 	/**
@@ -523,18 +535,19 @@ public class PartDefinitionImpl extends EObjectImpl implements PartDefinition {
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+	public NotificationChain eInverseRemove(InternalEObject otherEnd,
+			int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case MODSPackage.PART_DEFINITION__GROUP:
-				return ((InternalEList<?>) getGroup()).basicRemove(otherEnd, msgs);
-			case MODSPackage.PART_DEFINITION__DETAIL:
-				return ((InternalEList<?>) getDetail()).basicRemove(otherEnd, msgs);
-			case MODSPackage.PART_DEFINITION__EXTENT:
-				return ((InternalEList<?>) getExtent()).basicRemove(otherEnd, msgs);
-			case MODSPackage.PART_DEFINITION__DATE:
-				return ((InternalEList<?>) getDate()).basicRemove(otherEnd, msgs);
-			case MODSPackage.PART_DEFINITION__TEXT:
-				return ((InternalEList<?>) getText()).basicRemove(otherEnd, msgs);
+		case MODSPackage.PART_DEFINITION__GROUP:
+			return ((InternalEList<?>) getGroup()).basicRemove(otherEnd, msgs);
+		case MODSPackage.PART_DEFINITION__DETAIL:
+			return ((InternalEList<?>) getDetail()).basicRemove(otherEnd, msgs);
+		case MODSPackage.PART_DEFINITION__EXTENT:
+			return ((InternalEList<?>) getExtent()).basicRemove(otherEnd, msgs);
+		case MODSPackage.PART_DEFINITION__DATE:
+			return ((InternalEList<?>) getDate()).basicRemove(otherEnd, msgs);
+		case MODSPackage.PART_DEFINITION__TEXT:
+			return ((InternalEList<?>) getText()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -547,36 +560,36 @@ public class PartDefinitionImpl extends EObjectImpl implements PartDefinition {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case MODSPackage.PART_DEFINITION__GROUP:
-				if (coreType)
-					return getGroup();
-				return ((FeatureMap.Internal) getGroup()).getWrapper();
-			case MODSPackage.PART_DEFINITION__DETAIL:
-				return getDetail();
-			case MODSPackage.PART_DEFINITION__EXTENT:
-				return getExtent();
-			case MODSPackage.PART_DEFINITION__DATE:
-				return getDate();
-			case MODSPackage.PART_DEFINITION__TEXT:
-				return getText();
-			case MODSPackage.PART_DEFINITION__ALT_REP_GROUP:
-				return getAltRepGroup();
-			case MODSPackage.PART_DEFINITION__DISPLAY_LABEL:
-				return getDisplayLabel();
-			case MODSPackage.PART_DEFINITION__ID:
-				return getID();
-			case MODSPackage.PART_DEFINITION__LANG:
-				return getLang();
-			case MODSPackage.PART_DEFINITION__LANG1:
-				return getLang1();
-			case MODSPackage.PART_DEFINITION__ORDER:
-				return getOrder();
-			case MODSPackage.PART_DEFINITION__SCRIPT:
-				return getScript();
-			case MODSPackage.PART_DEFINITION__TRANSLITERATION:
-				return getTransliteration();
-			case MODSPackage.PART_DEFINITION__TYPE:
-				return getType();
+		case MODSPackage.PART_DEFINITION__GROUP:
+			if (coreType)
+				return getGroup();
+			return ((FeatureMap.Internal) getGroup()).getWrapper();
+		case MODSPackage.PART_DEFINITION__DETAIL:
+			return getDetail();
+		case MODSPackage.PART_DEFINITION__EXTENT:
+			return getExtent();
+		case MODSPackage.PART_DEFINITION__DATE:
+			return getDate();
+		case MODSPackage.PART_DEFINITION__TEXT:
+			return getText();
+		case MODSPackage.PART_DEFINITION__ALT_REP_GROUP:
+			return getAltRepGroup();
+		case MODSPackage.PART_DEFINITION__DISPLAY_LABEL:
+			return getDisplayLabel();
+		case MODSPackage.PART_DEFINITION__ID:
+			return getID();
+		case MODSPackage.PART_DEFINITION__LANG:
+			return getLang();
+		case MODSPackage.PART_DEFINITION__LANG1:
+			return getLang1();
+		case MODSPackage.PART_DEFINITION__ORDER:
+			return getOrder();
+		case MODSPackage.PART_DEFINITION__SCRIPT:
+			return getScript();
+		case MODSPackage.PART_DEFINITION__TRANSLITERATION:
+			return getTransliteration();
+		case MODSPackage.PART_DEFINITION__TYPE:
+			return getType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -590,52 +603,56 @@ public class PartDefinitionImpl extends EObjectImpl implements PartDefinition {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case MODSPackage.PART_DEFINITION__GROUP:
-				((FeatureMap.Internal) getGroup()).set(newValue);
-				return;
-			case MODSPackage.PART_DEFINITION__DETAIL:
-				getDetail().clear();
-				getDetail().addAll((Collection<? extends DetailDefinition>) newValue);
-				return;
-			case MODSPackage.PART_DEFINITION__EXTENT:
-				getExtent().clear();
-				getExtent().addAll((Collection<? extends ExtentDefinition>) newValue);
-				return;
-			case MODSPackage.PART_DEFINITION__DATE:
-				getDate().clear();
-				getDate().addAll((Collection<? extends DateBaseDefinition>) newValue);
-				return;
-			case MODSPackage.PART_DEFINITION__TEXT:
-				getText().clear();
-				getText().addAll((Collection<? extends UnstructuredTextDefinition>) newValue);
-				return;
-			case MODSPackage.PART_DEFINITION__ALT_REP_GROUP:
-				setAltRepGroup((String) newValue);
-				return;
-			case MODSPackage.PART_DEFINITION__DISPLAY_LABEL:
-				setDisplayLabel((String) newValue);
-				return;
-			case MODSPackage.PART_DEFINITION__ID:
-				setID((String) newValue);
-				return;
-			case MODSPackage.PART_DEFINITION__LANG:
-				setLang((String) newValue);
-				return;
-			case MODSPackage.PART_DEFINITION__LANG1:
-				setLang1((String) newValue);
-				return;
-			case MODSPackage.PART_DEFINITION__ORDER:
-				setOrder((BigInteger) newValue);
-				return;
-			case MODSPackage.PART_DEFINITION__SCRIPT:
-				setScript((String) newValue);
-				return;
-			case MODSPackage.PART_DEFINITION__TRANSLITERATION:
-				setTransliteration((String) newValue);
-				return;
-			case MODSPackage.PART_DEFINITION__TYPE:
-				setType((String) newValue);
-				return;
+		case MODSPackage.PART_DEFINITION__GROUP:
+			((FeatureMap.Internal) getGroup()).set(newValue);
+			return;
+		case MODSPackage.PART_DEFINITION__DETAIL:
+			getDetail().clear();
+			getDetail().addAll(
+					(Collection<? extends DetailDefinition>) newValue);
+			return;
+		case MODSPackage.PART_DEFINITION__EXTENT:
+			getExtent().clear();
+			getExtent().addAll(
+					(Collection<? extends ExtentDefinition>) newValue);
+			return;
+		case MODSPackage.PART_DEFINITION__DATE:
+			getDate().clear();
+			getDate().addAll(
+					(Collection<? extends DateBaseDefinition>) newValue);
+			return;
+		case MODSPackage.PART_DEFINITION__TEXT:
+			getText().clear();
+			getText()
+					.addAll((Collection<? extends UnstructuredTextDefinition>) newValue);
+			return;
+		case MODSPackage.PART_DEFINITION__ALT_REP_GROUP:
+			setAltRepGroup((String) newValue);
+			return;
+		case MODSPackage.PART_DEFINITION__DISPLAY_LABEL:
+			setDisplayLabel((String) newValue);
+			return;
+		case MODSPackage.PART_DEFINITION__ID:
+			setID((String) newValue);
+			return;
+		case MODSPackage.PART_DEFINITION__LANG:
+			setLang((String) newValue);
+			return;
+		case MODSPackage.PART_DEFINITION__LANG1:
+			setLang1((String) newValue);
+			return;
+		case MODSPackage.PART_DEFINITION__ORDER:
+			setOrder((BigInteger) newValue);
+			return;
+		case MODSPackage.PART_DEFINITION__SCRIPT:
+			setScript((String) newValue);
+			return;
+		case MODSPackage.PART_DEFINITION__TRANSLITERATION:
+			setTransliteration((String) newValue);
+			return;
+		case MODSPackage.PART_DEFINITION__TYPE:
+			setType((String) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -648,48 +665,48 @@ public class PartDefinitionImpl extends EObjectImpl implements PartDefinition {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case MODSPackage.PART_DEFINITION__GROUP:
-				getGroup().clear();
-				return;
-			case MODSPackage.PART_DEFINITION__DETAIL:
-				getDetail().clear();
-				return;
-			case MODSPackage.PART_DEFINITION__EXTENT:
-				getExtent().clear();
-				return;
-			case MODSPackage.PART_DEFINITION__DATE:
-				getDate().clear();
-				return;
-			case MODSPackage.PART_DEFINITION__TEXT:
-				getText().clear();
-				return;
-			case MODSPackage.PART_DEFINITION__ALT_REP_GROUP:
-				setAltRepGroup(ALT_REP_GROUP_EDEFAULT);
-				return;
-			case MODSPackage.PART_DEFINITION__DISPLAY_LABEL:
-				setDisplayLabel(DISPLAY_LABEL_EDEFAULT);
-				return;
-			case MODSPackage.PART_DEFINITION__ID:
-				setID(ID_EDEFAULT);
-				return;
-			case MODSPackage.PART_DEFINITION__LANG:
-				setLang(LANG_EDEFAULT);
-				return;
-			case MODSPackage.PART_DEFINITION__LANG1:
-				setLang1(LANG1_EDEFAULT);
-				return;
-			case MODSPackage.PART_DEFINITION__ORDER:
-				setOrder(ORDER_EDEFAULT);
-				return;
-			case MODSPackage.PART_DEFINITION__SCRIPT:
-				setScript(SCRIPT_EDEFAULT);
-				return;
-			case MODSPackage.PART_DEFINITION__TRANSLITERATION:
-				setTransliteration(TRANSLITERATION_EDEFAULT);
-				return;
-			case MODSPackage.PART_DEFINITION__TYPE:
-				setType(TYPE_EDEFAULT);
-				return;
+		case MODSPackage.PART_DEFINITION__GROUP:
+			getGroup().clear();
+			return;
+		case MODSPackage.PART_DEFINITION__DETAIL:
+			getDetail().clear();
+			return;
+		case MODSPackage.PART_DEFINITION__EXTENT:
+			getExtent().clear();
+			return;
+		case MODSPackage.PART_DEFINITION__DATE:
+			getDate().clear();
+			return;
+		case MODSPackage.PART_DEFINITION__TEXT:
+			getText().clear();
+			return;
+		case MODSPackage.PART_DEFINITION__ALT_REP_GROUP:
+			setAltRepGroup(ALT_REP_GROUP_EDEFAULT);
+			return;
+		case MODSPackage.PART_DEFINITION__DISPLAY_LABEL:
+			setDisplayLabel(DISPLAY_LABEL_EDEFAULT);
+			return;
+		case MODSPackage.PART_DEFINITION__ID:
+			setID(ID_EDEFAULT);
+			return;
+		case MODSPackage.PART_DEFINITION__LANG:
+			setLang(LANG_EDEFAULT);
+			return;
+		case MODSPackage.PART_DEFINITION__LANG1:
+			setLang1(LANG1_EDEFAULT);
+			return;
+		case MODSPackage.PART_DEFINITION__ORDER:
+			setOrder(ORDER_EDEFAULT);
+			return;
+		case MODSPackage.PART_DEFINITION__SCRIPT:
+			setScript(SCRIPT_EDEFAULT);
+			return;
+		case MODSPackage.PART_DEFINITION__TRANSLITERATION:
+			setTransliteration(TRANSLITERATION_EDEFAULT);
+			return;
+		case MODSPackage.PART_DEFINITION__TYPE:
+			setType(TYPE_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -702,35 +719,42 @@ public class PartDefinitionImpl extends EObjectImpl implements PartDefinition {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case MODSPackage.PART_DEFINITION__GROUP:
-				return group != null && !group.isEmpty();
-			case MODSPackage.PART_DEFINITION__DETAIL:
-				return !getDetail().isEmpty();
-			case MODSPackage.PART_DEFINITION__EXTENT:
-				return !getExtent().isEmpty();
-			case MODSPackage.PART_DEFINITION__DATE:
-				return !getDate().isEmpty();
-			case MODSPackage.PART_DEFINITION__TEXT:
-				return !getText().isEmpty();
-			case MODSPackage.PART_DEFINITION__ALT_REP_GROUP:
-				return ALT_REP_GROUP_EDEFAULT == null ? altRepGroup != null : !ALT_REP_GROUP_EDEFAULT.equals(altRepGroup);
-			case MODSPackage.PART_DEFINITION__DISPLAY_LABEL:
-				return DISPLAY_LABEL_EDEFAULT == null ? displayLabel != null : !DISPLAY_LABEL_EDEFAULT.equals(displayLabel);
-			case MODSPackage.PART_DEFINITION__ID:
-				return ID_EDEFAULT == null ? iD != null : !ID_EDEFAULT.equals(iD);
-			case MODSPackage.PART_DEFINITION__LANG:
-				return LANG_EDEFAULT == null ? lang != null : !LANG_EDEFAULT.equals(lang);
-			case MODSPackage.PART_DEFINITION__LANG1:
-				return LANG1_EDEFAULT == null ? lang1 != null : !LANG1_EDEFAULT.equals(lang1);
-			case MODSPackage.PART_DEFINITION__ORDER:
-				return ORDER_EDEFAULT == null ? order != null : !ORDER_EDEFAULT.equals(order);
-			case MODSPackage.PART_DEFINITION__SCRIPT:
-				return SCRIPT_EDEFAULT == null ? script != null : !SCRIPT_EDEFAULT.equals(script);
-			case MODSPackage.PART_DEFINITION__TRANSLITERATION:
-				return TRANSLITERATION_EDEFAULT == null ? transliteration != null : !TRANSLITERATION_EDEFAULT
-						.equals(transliteration);
-			case MODSPackage.PART_DEFINITION__TYPE:
-				return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
+		case MODSPackage.PART_DEFINITION__GROUP:
+			return group != null && !group.isEmpty();
+		case MODSPackage.PART_DEFINITION__DETAIL:
+			return !getDetail().isEmpty();
+		case MODSPackage.PART_DEFINITION__EXTENT:
+			return !getExtent().isEmpty();
+		case MODSPackage.PART_DEFINITION__DATE:
+			return !getDate().isEmpty();
+		case MODSPackage.PART_DEFINITION__TEXT:
+			return !getText().isEmpty();
+		case MODSPackage.PART_DEFINITION__ALT_REP_GROUP:
+			return ALT_REP_GROUP_EDEFAULT == null ? altRepGroup != null
+					: !ALT_REP_GROUP_EDEFAULT.equals(altRepGroup);
+		case MODSPackage.PART_DEFINITION__DISPLAY_LABEL:
+			return DISPLAY_LABEL_EDEFAULT == null ? displayLabel != null
+					: !DISPLAY_LABEL_EDEFAULT.equals(displayLabel);
+		case MODSPackage.PART_DEFINITION__ID:
+			return ID_EDEFAULT == null ? iD != null : !ID_EDEFAULT.equals(iD);
+		case MODSPackage.PART_DEFINITION__LANG:
+			return LANG_EDEFAULT == null ? lang != null : !LANG_EDEFAULT
+					.equals(lang);
+		case MODSPackage.PART_DEFINITION__LANG1:
+			return LANG1_EDEFAULT == null ? lang1 != null : !LANG1_EDEFAULT
+					.equals(lang1);
+		case MODSPackage.PART_DEFINITION__ORDER:
+			return ORDER_EDEFAULT == null ? order != null : !ORDER_EDEFAULT
+					.equals(order);
+		case MODSPackage.PART_DEFINITION__SCRIPT:
+			return SCRIPT_EDEFAULT == null ? script != null : !SCRIPT_EDEFAULT
+					.equals(script);
+		case MODSPackage.PART_DEFINITION__TRANSLITERATION:
+			return TRANSLITERATION_EDEFAULT == null ? transliteration != null
+					: !TRANSLITERATION_EDEFAULT.equals(transliteration);
+		case MODSPackage.PART_DEFINITION__TYPE:
+			return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT
+					.equals(type);
 		}
 		return super.eIsSet(featureID);
 	}

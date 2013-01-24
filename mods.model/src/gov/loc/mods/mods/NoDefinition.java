@@ -70,7 +70,8 @@ public enum NoDefinition implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final List<NoDefinition> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+	public static final List<NoDefinition> VALUES = Collections
+			.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
 	 * Returns the '<em><b>No Definition</b></em>' literal with the specified literal value.
@@ -112,8 +113,8 @@ public enum NoDefinition implements Enumerator {
 	 */
 	public static NoDefinition get(int value) {
 		switch (value) {
-			case NO_VALUE:
-				return NO;
+		case NO_VALUE:
+			return NO;
 		}
 		return null;
 	}

@@ -39,7 +39,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class TableOfContentsDefinitionImpl extends UnstructuredTextDefinitionImpl implements TableOfContentsDefinition {
+public class TableOfContentsDefinitionImpl extends
+		UnstructuredTextDefinitionImpl implements TableOfContentsDefinition {
 	/**
 	 * The default value of the '{@link #getAltRepGroup() <em>Alt Rep Group</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -126,7 +127,8 @@ public class TableOfContentsDefinitionImpl extends UnstructuredTextDefinitionImp
 		String oldAltRepGroup = altRepGroup;
 		altRepGroup = newAltRepGroup;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.TABLE_OF_CONTENTS_DEFINITION__ALT_REP_GROUP,
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.TABLE_OF_CONTENTS_DEFINITION__ALT_REP_GROUP,
 					oldAltRepGroup, altRepGroup));
 	}
 
@@ -150,7 +152,8 @@ public class TableOfContentsDefinitionImpl extends UnstructuredTextDefinitionImp
 		boolean oldShareableESet = shareableESet;
 		shareableESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.TABLE_OF_CONTENTS_DEFINITION__SHAREABLE,
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.TABLE_OF_CONTENTS_DEFINITION__SHAREABLE,
 					oldShareable, shareable, !oldShareableESet));
 	}
 
@@ -165,7 +168,8 @@ public class TableOfContentsDefinitionImpl extends UnstructuredTextDefinitionImp
 		shareable = SHAREABLE_EDEFAULT;
 		shareableESet = false;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, MODSPackage.TABLE_OF_CONTENTS_DEFINITION__SHAREABLE,
+			eNotify(new ENotificationImpl(this, Notification.UNSET,
+					MODSPackage.TABLE_OF_CONTENTS_DEFINITION__SHAREABLE,
 					oldShareable, SHAREABLE_EDEFAULT, oldShareableESet));
 	}
 
@@ -186,10 +190,10 @@ public class TableOfContentsDefinitionImpl extends UnstructuredTextDefinitionImp
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case MODSPackage.TABLE_OF_CONTENTS_DEFINITION__ALT_REP_GROUP:
-				return getAltRepGroup();
-			case MODSPackage.TABLE_OF_CONTENTS_DEFINITION__SHAREABLE:
-				return getShareable();
+		case MODSPackage.TABLE_OF_CONTENTS_DEFINITION__ALT_REP_GROUP:
+			return getAltRepGroup();
+		case MODSPackage.TABLE_OF_CONTENTS_DEFINITION__SHAREABLE:
+			return getShareable();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -202,12 +206,12 @@ public class TableOfContentsDefinitionImpl extends UnstructuredTextDefinitionImp
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case MODSPackage.TABLE_OF_CONTENTS_DEFINITION__ALT_REP_GROUP:
-				setAltRepGroup((String) newValue);
-				return;
-			case MODSPackage.TABLE_OF_CONTENTS_DEFINITION__SHAREABLE:
-				setShareable((NoDefinition) newValue);
-				return;
+		case MODSPackage.TABLE_OF_CONTENTS_DEFINITION__ALT_REP_GROUP:
+			setAltRepGroup((String) newValue);
+			return;
+		case MODSPackage.TABLE_OF_CONTENTS_DEFINITION__SHAREABLE:
+			setShareable((NoDefinition) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -220,12 +224,12 @@ public class TableOfContentsDefinitionImpl extends UnstructuredTextDefinitionImp
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case MODSPackage.TABLE_OF_CONTENTS_DEFINITION__ALT_REP_GROUP:
-				setAltRepGroup(ALT_REP_GROUP_EDEFAULT);
-				return;
-			case MODSPackage.TABLE_OF_CONTENTS_DEFINITION__SHAREABLE:
-				unsetShareable();
-				return;
+		case MODSPackage.TABLE_OF_CONTENTS_DEFINITION__ALT_REP_GROUP:
+			setAltRepGroup(ALT_REP_GROUP_EDEFAULT);
+			return;
+		case MODSPackage.TABLE_OF_CONTENTS_DEFINITION__SHAREABLE:
+			unsetShareable();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -238,10 +242,11 @@ public class TableOfContentsDefinitionImpl extends UnstructuredTextDefinitionImp
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case MODSPackage.TABLE_OF_CONTENTS_DEFINITION__ALT_REP_GROUP:
-				return ALT_REP_GROUP_EDEFAULT == null ? altRepGroup != null : !ALT_REP_GROUP_EDEFAULT.equals(altRepGroup);
-			case MODSPackage.TABLE_OF_CONTENTS_DEFINITION__SHAREABLE:
-				return isSetShareable();
+		case MODSPackage.TABLE_OF_CONTENTS_DEFINITION__ALT_REP_GROUP:
+			return ALT_REP_GROUP_EDEFAULT == null ? altRepGroup != null
+					: !ALT_REP_GROUP_EDEFAULT.equals(altRepGroup);
+		case MODSPackage.TABLE_OF_CONTENTS_DEFINITION__SHAREABLE:
+			return isSetShareable();
 		}
 		return super.eIsSet(featureID);
 	}

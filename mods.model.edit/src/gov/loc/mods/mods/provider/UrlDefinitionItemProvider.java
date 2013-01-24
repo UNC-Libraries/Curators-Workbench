@@ -43,8 +43,9 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class UrlDefinitionItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
-		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class UrlDefinitionItemProvider extends ItemProviderAdapter implements
+		IEditingDomainItemProvider, IStructuredItemContentProvider,
+		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -83,14 +84,16 @@ public class UrlDefinitionItemProvider extends ItemProviderAdapter implements IE
 	 * @generated
 	 */
 	protected void addValuePropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(
-						((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(),
-						getString("_UI_UrlDefinition_value_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_UrlDefinition_value_feature",
-								"_UI_UrlDefinition_type"), MODSPackage.eINSTANCE.getUrlDefinition_Value(), true, false, false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
+				getResourceLocator(),
+				getString("_UI_UrlDefinition_value_feature"),
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_UrlDefinition_value_feature",
+						"_UI_UrlDefinition_type"), MODSPackage.eINSTANCE
+						.getUrlDefinition_Value(), true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -101,11 +104,14 @@ public class UrlDefinitionItemProvider extends ItemProviderAdapter implements IE
 	 */
 	protected void addAccessPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_UrlDefinition_access_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_UrlDefinition_access_feature",
-						"_UI_UrlDefinition_type"), MODSPackage.eINSTANCE.getUrlDefinition_Access(), true, false, false,
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_UrlDefinition_access_feature",
+						"_UI_UrlDefinition_type"), MODSPackage.eINSTANCE
+						.getUrlDefinition_Access(), true, false, false,
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
@@ -117,11 +123,14 @@ public class UrlDefinitionItemProvider extends ItemProviderAdapter implements IE
 	 */
 	protected void addDateLastAccessedPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_UrlDefinition_dateLastAccessed_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_UrlDefinition_dateLastAccessed_feature",
-						"_UI_UrlDefinition_type"), MODSPackage.eINSTANCE.getUrlDefinition_DateLastAccessed(), true, false,
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_UrlDefinition_dateLastAccessed_feature",
+						"_UI_UrlDefinition_type"), MODSPackage.eINSTANCE
+						.getUrlDefinition_DateLastAccessed(), true, false,
 				false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
@@ -133,11 +142,14 @@ public class UrlDefinitionItemProvider extends ItemProviderAdapter implements IE
 	 */
 	protected void addDisplayLabelPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_UrlDefinition_displayLabel_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_UrlDefinition_displayLabel_feature",
-						"_UI_UrlDefinition_type"), MODSPackage.eINSTANCE.getUrlDefinition_DisplayLabel(), true, false, false,
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_UrlDefinition_displayLabel_feature",
+						"_UI_UrlDefinition_type"), MODSPackage.eINSTANCE
+						.getUrlDefinition_DisplayLabel(), true, false, false,
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
@@ -148,14 +160,16 @@ public class UrlDefinitionItemProvider extends ItemProviderAdapter implements IE
 	 * @generated
 	 */
 	protected void addNotePropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(
-						((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(),
-						getString("_UI_UrlDefinition_note_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_UrlDefinition_note_feature",
-								"_UI_UrlDefinition_type"), MODSPackage.eINSTANCE.getUrlDefinition_Note(), true, false, false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
+				getResourceLocator(),
+				getString("_UI_UrlDefinition_note_feature"),
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_UrlDefinition_note_feature",
+						"_UI_UrlDefinition_type"), MODSPackage.eINSTANCE
+						.getUrlDefinition_Note(), true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -165,14 +179,16 @@ public class UrlDefinitionItemProvider extends ItemProviderAdapter implements IE
 	 * @generated
 	 */
 	protected void addUsagePropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(
-						((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(),
-						getString("_UI_UrlDefinition_usage_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_UrlDefinition_usage_feature",
-								"_UI_UrlDefinition_type"), MODSPackage.eINSTANCE.getUrlDefinition_Usage(), true, false, false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
+				getResourceLocator(),
+				getString("_UI_UrlDefinition_usage_feature"),
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_UrlDefinition_usage_feature",
+						"_UI_UrlDefinition_type"), MODSPackage.eINSTANCE
+						.getUrlDefinition_Usage(), true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -183,7 +199,8 @@ public class UrlDefinitionItemProvider extends ItemProviderAdapter implements IE
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/UrlDefinition"));
+		return overlayImage(object,
+				getResourceLocator().getImage("full/obj16/UrlDefinition"));
 	}
 
 	/**
@@ -221,14 +238,15 @@ public class UrlDefinitionItemProvider extends ItemProviderAdapter implements IE
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(UrlDefinition.class)) {
-			case MODSPackage.URL_DEFINITION__VALUE:
-			case MODSPackage.URL_DEFINITION__ACCESS:
-			case MODSPackage.URL_DEFINITION__DATE_LAST_ACCESSED:
-			case MODSPackage.URL_DEFINITION__DISPLAY_LABEL:
-			case MODSPackage.URL_DEFINITION__NOTE:
-			case MODSPackage.URL_DEFINITION__USAGE:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
+		case MODSPackage.URL_DEFINITION__VALUE:
+		case MODSPackage.URL_DEFINITION__ACCESS:
+		case MODSPackage.URL_DEFINITION__DATE_LAST_ACCESSED:
+		case MODSPackage.URL_DEFINITION__DISPLAY_LABEL:
+		case MODSPackage.URL_DEFINITION__NOTE:
+		case MODSPackage.URL_DEFINITION__USAGE:
+			fireNotifyChanged(new ViewerNotification(notification,
+					notification.getNotifier(), false, true));
+			return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -241,7 +259,8 @@ public class UrlDefinitionItemProvider extends ItemProviderAdapter implements IE
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(
+			Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 

@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<genmodel:GenModel xmi:version="2.0"
-    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/mods.model/src"
-    creationIcons="false" creationSubmenus="true" modelPluginID="mods.model" templateDirectory=""
-    redirection="" modelName="Mods" featureMapWrapperClass="" codeFormatting="true"
-    importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
-    providerRootExtendsClass="" usedGenPackages="../../xlink.model/model/xlink.genmodel#//xlink platform:/plugin/org.eclipse.emf.ecore/model/XMLNamespace.genmodel#//namespace"
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/mods.model/src" creationIcons="false" creationSubmenus="true"
+    modelPluginID="mods.model" templateDirectory="" redirection="" modelName="Mods"
+    featureMapWrapperClass="" codeFormatting="true" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="6.0" copyrightFields="false" providerRootExtendsClass="" usedGenPackages="../../xlink.model/model/xlink.genmodel#//xlink platform:/plugin/org.eclipse.emf.ecore/model/XMLNamespace.genmodel#//namespace"
     interfaceNamePattern="" classNamePattern="">
   <foreignModel>mods.ecore</foreignModel>
   <genPackages prefix="MODS" basePackage="gov.loc.mods" resource="XML" disposableProviderFactory="true"
@@ -162,19 +160,10 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mods.ecore#//AbstractDefinition/shareable"/>
     </genClasses>
     <genClasses ecoreClass="mods.ecore#//AccessConditionDefinition">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mods.ecore#//AccessConditionDefinition/actuate"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mods.ecore#//AccessConditionDefinition/altRepGroup"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mods.ecore#//AccessConditionDefinition/arcrole"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mods.ecore#//AccessConditionDefinition/href"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mods.ecore#//AccessConditionDefinition/lang"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mods.ecore#//AccessConditionDefinition/lang1"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mods.ecore#//AccessConditionDefinition/role"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mods.ecore#//AccessConditionDefinition/script"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mods.ecore#//AccessConditionDefinition/show"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mods.ecore#//AccessConditionDefinition/title"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mods.ecore#//AccessConditionDefinition/transliteration"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mods.ecore#//AccessConditionDefinition/displayLabel"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mods.ecore#//AccessConditionDefinition/type"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mods.ecore#//AccessConditionDefinition/type1"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mods.ecore#//AccessConditionDefinition/href"/>
     </genClasses>
     <genClasses ecoreClass="mods.ecore#//CartographicsDefinition">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mods.ecore#//CartographicsDefinition/scale"/>

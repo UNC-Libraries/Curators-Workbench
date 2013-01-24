@@ -46,8 +46,9 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class CartographicsDefinitionItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
-		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class CartographicsDefinitionItemProvider extends ItemProviderAdapter
+		implements IEditingDomainItemProvider, IStructuredItemContentProvider,
+		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -84,12 +85,16 @@ public class CartographicsDefinitionItemProvider extends ItemProviderAdapter imp
 	 */
 	protected void addAuthorityPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_CartographicsDefinition_authority_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_CartographicsDefinition_authority_feature",
-						"_UI_CartographicsDefinition_type"), MODSPackage.eINSTANCE.getCartographicsDefinition_Authority(),
-				true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_CartographicsDefinition_authority_feature",
+						"_UI_CartographicsDefinition_type"),
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Authority(),
+				true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				null, null));
 	}
 
 	/**
@@ -99,13 +104,20 @@ public class CartographicsDefinitionItemProvider extends ItemProviderAdapter imp
 	 * @generated
 	 */
 	protected void addAuthorityURIPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_CartographicsDefinition_authorityURI_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_CartographicsDefinition_authorityURI_feature",
-						"_UI_CartographicsDefinition_type"), MODSPackage.eINSTANCE.getCartographicsDefinition_AuthorityURI(),
-				true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(
+						((ComposeableAdapterFactory) adapterFactory)
+								.getRootAdapterFactory(),
+						getResourceLocator(),
+						getString("_UI_CartographicsDefinition_authorityURI_feature"),
+						getString(
+								"_UI_PropertyDescriptor_description",
+								"_UI_CartographicsDefinition_authorityURI_feature",
+								"_UI_CartographicsDefinition_type"),
+						MODSPackage.eINSTANCE
+								.getCartographicsDefinition_AuthorityURI(),
+						true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -116,12 +128,16 @@ public class CartographicsDefinitionItemProvider extends ItemProviderAdapter imp
 	 */
 	protected void addValueURIPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_CartographicsDefinition_valueURI_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_CartographicsDefinition_valueURI_feature",
-						"_UI_CartographicsDefinition_type"), MODSPackage.eINSTANCE.getCartographicsDefinition_ValueURI(),
-				true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_CartographicsDefinition_valueURI_feature",
+						"_UI_CartographicsDefinition_type"),
+				MODSPackage.eINSTANCE.getCartographicsDefinition_ValueURI(),
+				true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				null, null));
 	}
 
 	/**
@@ -133,12 +149,16 @@ public class CartographicsDefinitionItemProvider extends ItemProviderAdapter imp
 	 * @generated
 	 */
 	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(
+			Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(MODSPackage.eINSTANCE.getCartographicsDefinition_Scale());
-			childrenFeatures.add(MODSPackage.eINSTANCE.getCartographicsDefinition_Projection());
-			childrenFeatures.add(MODSPackage.eINSTANCE.getCartographicsDefinition_Coordinates());
+			childrenFeatures.add(MODSPackage.eINSTANCE
+					.getCartographicsDefinition_Scale());
+			childrenFeatures.add(MODSPackage.eINSTANCE
+					.getCartographicsDefinition_Projection());
+			childrenFeatures.add(MODSPackage.eINSTANCE
+					.getCartographicsDefinition_Coordinates());
 		}
 		return childrenFeatures;
 	}
@@ -164,7 +184,10 @@ public class CartographicsDefinitionItemProvider extends ItemProviderAdapter imp
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/CartographicsDefinition"));
+		return overlayImage(
+				object,
+				getResourceLocator().getImage(
+						"full/obj16/CartographicsDefinition"));
 	}
 
 	/**
@@ -202,16 +225,18 @@ public class CartographicsDefinitionItemProvider extends ItemProviderAdapter imp
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(CartographicsDefinition.class)) {
-			case MODSPackage.CARTOGRAPHICS_DEFINITION__AUTHORITY:
-			case MODSPackage.CARTOGRAPHICS_DEFINITION__AUTHORITY_URI:
-			case MODSPackage.CARTOGRAPHICS_DEFINITION__VALUE_URI:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-			case MODSPackage.CARTOGRAPHICS_DEFINITION__SCALE:
-			case MODSPackage.CARTOGRAPHICS_DEFINITION__PROJECTION:
-			case MODSPackage.CARTOGRAPHICS_DEFINITION__COORDINATES:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-				return;
+		case MODSPackage.CARTOGRAPHICS_DEFINITION__AUTHORITY:
+		case MODSPackage.CARTOGRAPHICS_DEFINITION__AUTHORITY_URI:
+		case MODSPackage.CARTOGRAPHICS_DEFINITION__VALUE_URI:
+			fireNotifyChanged(new ViewerNotification(notification,
+					notification.getNotifier(), false, true));
+			return;
+		case MODSPackage.CARTOGRAPHICS_DEFINITION__SCALE:
+		case MODSPackage.CARTOGRAPHICS_DEFINITION__PROJECTION:
+		case MODSPackage.CARTOGRAPHICS_DEFINITION__COORDINATES:
+			fireNotifyChanged(new ViewerNotification(notification,
+					notification.getNotifier(), true, false));
+			return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -224,259 +249,361 @@ public class CartographicsDefinitionItemProvider extends ItemProviderAdapter imp
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(
+			Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Scale(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Scale(),
 				MODSFactory.eINSTANCE.createXsString()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Scale(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Scale(),
 				MODSFactory.eINSTANCE.createUnstructuredTextDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Scale(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Scale(),
 				MODSFactory.eINSTANCE.createAbstractDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Scale(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Scale(),
+				MODSFactory.eINSTANCE.createAccessConditionDefinition()));
+
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Scale(),
 				MODSFactory.eINSTANCE.createStringPlusAuthority()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Scale(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Scale(),
 				MODSFactory.eINSTANCE.createClassificationDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Scale(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Scale(),
 				MODSFactory.eINSTANCE.createDateBaseDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Scale(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Scale(),
 				MODSFactory.eINSTANCE.createDateDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Scale(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Scale(),
 				MODSFactory.eINSTANCE.createDateOtherDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Scale(),
-				MODSFactory.eINSTANCE.createEnumerationAndChronologyDefinition()));
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getCartographicsDefinition_Scale(), MODSFactory.eINSTANCE
+				.createEnumerationAndChronologyDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Scale(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Scale(),
 				MODSFactory.eINSTANCE.createStringPlusAuthorityPlusType()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Scale(),
-				MODSFactory.eINSTANCE.createStringPlusAuthorityPlusTypePlusDisplayLabel()));
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getCartographicsDefinition_Scale(), MODSFactory.eINSTANCE
+				.createStringPlusAuthorityPlusTypePlusDisplayLabel()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Scale(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Scale(),
 				MODSFactory.eINSTANCE.createGenreDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Scale(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Scale(),
 				MODSFactory.eINSTANCE.createGeographicCodeDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Scale(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Scale(),
 				MODSFactory.eINSTANCE.createIdentifierDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Scale(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Scale(),
 				MODSFactory.eINSTANCE.createLanguageTermDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Scale(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Scale(),
 				MODSFactory.eINSTANCE.createNamePartDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Scale(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Scale(),
 				MODSFactory.eINSTANCE.createNoteBaseDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Scale(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Scale(),
 				MODSFactory.eINSTANCE.createNoteDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Scale(),
-				MODSFactory.eINSTANCE.createStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink()));
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getCartographicsDefinition_Scale(), MODSFactory.eINSTANCE
+				.createStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Scale(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Scale(),
 				MODSFactory.eINSTANCE.createPhysicalLocationDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Scale(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Scale(),
 				MODSFactory.eINSTANCE.createPlaceTermDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Scale(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Scale(),
 				MODSFactory.eINSTANCE.createRecordIdentifierDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Scale(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Scale(),
 				MODSFactory.eINSTANCE.createRoleTermDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Scale(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Scale(),
 				MODSFactory.eINSTANCE.createScriptTermDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Scale(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Scale(),
 				MODSFactory.eINSTANCE.createStringPlusSupplied()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Scale(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Scale(),
 				MODSFactory.eINSTANCE.createTableOfContentsDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Scale(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Scale(),
 				MODSFactory.eINSTANCE.createTargetAudienceDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Scale(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Scale(),
 				MODSFactory.eINSTANCE.createTemporalDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Projection(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Projection(),
 				MODSFactory.eINSTANCE.createXsString()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Projection(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Projection(),
 				MODSFactory.eINSTANCE.createUnstructuredTextDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Projection(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Projection(),
 				MODSFactory.eINSTANCE.createAbstractDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Projection(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Projection(),
+				MODSFactory.eINSTANCE.createAccessConditionDefinition()));
+
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Projection(),
 				MODSFactory.eINSTANCE.createStringPlusAuthority()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Projection(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Projection(),
 				MODSFactory.eINSTANCE.createClassificationDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Projection(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Projection(),
 				MODSFactory.eINSTANCE.createDateBaseDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Projection(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Projection(),
 				MODSFactory.eINSTANCE.createDateDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Projection(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Projection(),
 				MODSFactory.eINSTANCE.createDateOtherDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Projection(),
-				MODSFactory.eINSTANCE.createEnumerationAndChronologyDefinition()));
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getCartographicsDefinition_Projection(), MODSFactory.eINSTANCE
+				.createEnumerationAndChronologyDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Projection(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Projection(),
 				MODSFactory.eINSTANCE.createStringPlusAuthorityPlusType()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Projection(),
-				MODSFactory.eINSTANCE.createStringPlusAuthorityPlusTypePlusDisplayLabel()));
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getCartographicsDefinition_Projection(), MODSFactory.eINSTANCE
+				.createStringPlusAuthorityPlusTypePlusDisplayLabel()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Projection(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Projection(),
 				MODSFactory.eINSTANCE.createGenreDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Projection(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Projection(),
 				MODSFactory.eINSTANCE.createGeographicCodeDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Projection(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Projection(),
 				MODSFactory.eINSTANCE.createIdentifierDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Projection(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Projection(),
 				MODSFactory.eINSTANCE.createLanguageTermDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Projection(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Projection(),
 				MODSFactory.eINSTANCE.createNamePartDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Projection(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Projection(),
 				MODSFactory.eINSTANCE.createNoteBaseDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Projection(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Projection(),
 				MODSFactory.eINSTANCE.createNoteDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Projection(),
-				MODSFactory.eINSTANCE.createStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink()));
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getCartographicsDefinition_Projection(), MODSFactory.eINSTANCE
+				.createStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Projection(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Projection(),
 				MODSFactory.eINSTANCE.createPhysicalLocationDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Projection(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Projection(),
 				MODSFactory.eINSTANCE.createPlaceTermDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Projection(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Projection(),
 				MODSFactory.eINSTANCE.createRecordIdentifierDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Projection(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Projection(),
 				MODSFactory.eINSTANCE.createRoleTermDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Projection(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Projection(),
 				MODSFactory.eINSTANCE.createScriptTermDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Projection(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Projection(),
 				MODSFactory.eINSTANCE.createStringPlusSupplied()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Projection(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Projection(),
 				MODSFactory.eINSTANCE.createTableOfContentsDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Projection(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Projection(),
 				MODSFactory.eINSTANCE.createTargetAudienceDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Projection(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Projection(),
 				MODSFactory.eINSTANCE.createTemporalDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Coordinates(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Coordinates(),
 				MODSFactory.eINSTANCE.createXsString()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Coordinates(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Coordinates(),
 				MODSFactory.eINSTANCE.createUnstructuredTextDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Coordinates(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Coordinates(),
 				MODSFactory.eINSTANCE.createAbstractDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Coordinates(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Coordinates(),
+				MODSFactory.eINSTANCE.createAccessConditionDefinition()));
+
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Coordinates(),
 				MODSFactory.eINSTANCE.createStringPlusAuthority()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Coordinates(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Coordinates(),
 				MODSFactory.eINSTANCE.createClassificationDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Coordinates(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Coordinates(),
 				MODSFactory.eINSTANCE.createDateBaseDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Coordinates(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Coordinates(),
 				MODSFactory.eINSTANCE.createDateDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Coordinates(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Coordinates(),
 				MODSFactory.eINSTANCE.createDateOtherDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Coordinates(),
-				MODSFactory.eINSTANCE.createEnumerationAndChronologyDefinition()));
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getCartographicsDefinition_Coordinates(),
+				MODSFactory.eINSTANCE
+						.createEnumerationAndChronologyDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Coordinates(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Coordinates(),
 				MODSFactory.eINSTANCE.createStringPlusAuthorityPlusType()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Coordinates(),
-				MODSFactory.eINSTANCE.createStringPlusAuthorityPlusTypePlusDisplayLabel()));
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
+				.getCartographicsDefinition_Coordinates(),
+				MODSFactory.eINSTANCE
+						.createStringPlusAuthorityPlusTypePlusDisplayLabel()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Coordinates(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Coordinates(),
 				MODSFactory.eINSTANCE.createGenreDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Coordinates(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Coordinates(),
 				MODSFactory.eINSTANCE.createGeographicCodeDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Coordinates(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Coordinates(),
 				MODSFactory.eINSTANCE.createIdentifierDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Coordinates(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Coordinates(),
 				MODSFactory.eINSTANCE.createLanguageTermDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Coordinates(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Coordinates(),
 				MODSFactory.eINSTANCE.createNamePartDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Coordinates(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Coordinates(),
 				MODSFactory.eINSTANCE.createNoteBaseDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Coordinates(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Coordinates(),
 				MODSFactory.eINSTANCE.createNoteDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Coordinates(),
-				MODSFactory.eINSTANCE.createStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink()));
+		newChildDescriptors
+				.add(createChildParameter(
+						MODSPackage.eINSTANCE
+								.getCartographicsDefinition_Coordinates(),
+						MODSFactory.eINSTANCE
+								.createStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Coordinates(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Coordinates(),
 				MODSFactory.eINSTANCE.createPhysicalLocationDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Coordinates(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Coordinates(),
 				MODSFactory.eINSTANCE.createPlaceTermDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Coordinates(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Coordinates(),
 				MODSFactory.eINSTANCE.createRecordIdentifierDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Coordinates(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Coordinates(),
 				MODSFactory.eINSTANCE.createRoleTermDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Coordinates(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Coordinates(),
 				MODSFactory.eINSTANCE.createScriptTermDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Coordinates(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Coordinates(),
 				MODSFactory.eINSTANCE.createStringPlusSupplied()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Coordinates(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Coordinates(),
 				MODSFactory.eINSTANCE.createTableOfContentsDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Coordinates(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Coordinates(),
 				MODSFactory.eINSTANCE.createTargetAudienceDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCartographicsDefinition_Coordinates(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCartographicsDefinition_Coordinates(),
 				MODSFactory.eINSTANCE.createTemporalDefinition()));
 	}
 
@@ -487,17 +614,22 @@ public class CartographicsDefinitionItemProvider extends ItemProviderAdapter imp
 	 * @generated
 	 */
 	@Override
-	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+	public String getCreateChildText(Object owner, Object feature,
+			Object child, Collection<?> selection) {
 		Object childFeature = feature;
 		Object childObject = child;
 
-		boolean qualify = childFeature == MODSPackage.eINSTANCE.getCartographicsDefinition_Scale()
-				|| childFeature == MODSPackage.eINSTANCE.getCartographicsDefinition_Projection()
-				|| childFeature == MODSPackage.eINSTANCE.getCartographicsDefinition_Coordinates();
+		boolean qualify = childFeature == MODSPackage.eINSTANCE
+				.getCartographicsDefinition_Scale()
+				|| childFeature == MODSPackage.eINSTANCE
+						.getCartographicsDefinition_Projection()
+				|| childFeature == MODSPackage.eINSTANCE
+						.getCartographicsDefinition_Coordinates();
 
 		if (qualify) {
-			return getString("_UI_CreateChild_text2", new Object[] { getTypeText(childObject),
-					getFeatureText(childFeature), getTypeText(owner) });
+			return getString("_UI_CreateChild_text2", new Object[] {
+					getTypeText(childObject), getFeatureText(childFeature),
+					getTypeText(owner) });
 		}
 		return super.getCreateChildText(owner, feature, child, selection);
 	}

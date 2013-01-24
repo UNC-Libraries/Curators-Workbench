@@ -40,7 +40,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class NameDefinitionImpl extends NameBaseDefinitionImpl implements NameDefinition {
+public class NameDefinitionImpl extends NameBaseDefinitionImpl implements
+		NameDefinition {
 	/**
 	 * The default value of the '{@link #getAltRepGroup() <em>Alt Rep Group</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -147,8 +148,9 @@ public class NameDefinitionImpl extends NameBaseDefinitionImpl implements NameDe
 		String oldAltRepGroup = altRepGroup;
 		altRepGroup = newAltRepGroup;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.NAME_DEFINITION__ALT_REP_GROUP,
-					oldAltRepGroup, altRepGroup));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.NAME_DEFINITION__ALT_REP_GROUP, oldAltRepGroup,
+					altRepGroup));
 	}
 
 	/**
@@ -169,7 +171,8 @@ public class NameDefinitionImpl extends NameBaseDefinitionImpl implements NameDe
 		String oldNameTitleGroup = nameTitleGroup;
 		nameTitleGroup = newNameTitleGroup;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.NAME_DEFINITION__NAME_TITLE_GROUP,
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.NAME_DEFINITION__NAME_TITLE_GROUP,
 					oldNameTitleGroup, nameTitleGroup));
 	}
 
@@ -193,7 +196,8 @@ public class NameDefinitionImpl extends NameBaseDefinitionImpl implements NameDe
 		boolean oldUsageESet = usageESet;
 		usageESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.NAME_DEFINITION__USAGE, oldUsage, usage,
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.NAME_DEFINITION__USAGE, oldUsage, usage,
 					!oldUsageESet));
 	}
 
@@ -208,7 +212,8 @@ public class NameDefinitionImpl extends NameBaseDefinitionImpl implements NameDe
 		usage = USAGE_EDEFAULT;
 		usageESet = false;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, MODSPackage.NAME_DEFINITION__USAGE, oldUsage,
+			eNotify(new ENotificationImpl(this, Notification.UNSET,
+					MODSPackage.NAME_DEFINITION__USAGE, oldUsage,
 					USAGE_EDEFAULT, oldUsageESet));
 	}
 
@@ -229,12 +234,12 @@ public class NameDefinitionImpl extends NameBaseDefinitionImpl implements NameDe
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case MODSPackage.NAME_DEFINITION__ALT_REP_GROUP:
-				return getAltRepGroup();
-			case MODSPackage.NAME_DEFINITION__NAME_TITLE_GROUP:
-				return getNameTitleGroup();
-			case MODSPackage.NAME_DEFINITION__USAGE:
-				return getUsage();
+		case MODSPackage.NAME_DEFINITION__ALT_REP_GROUP:
+			return getAltRepGroup();
+		case MODSPackage.NAME_DEFINITION__NAME_TITLE_GROUP:
+			return getNameTitleGroup();
+		case MODSPackage.NAME_DEFINITION__USAGE:
+			return getUsage();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -247,15 +252,15 @@ public class NameDefinitionImpl extends NameBaseDefinitionImpl implements NameDe
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case MODSPackage.NAME_DEFINITION__ALT_REP_GROUP:
-				setAltRepGroup((String) newValue);
-				return;
-			case MODSPackage.NAME_DEFINITION__NAME_TITLE_GROUP:
-				setNameTitleGroup((String) newValue);
-				return;
-			case MODSPackage.NAME_DEFINITION__USAGE:
-				setUsage((UsageAttributeDefinition) newValue);
-				return;
+		case MODSPackage.NAME_DEFINITION__ALT_REP_GROUP:
+			setAltRepGroup((String) newValue);
+			return;
+		case MODSPackage.NAME_DEFINITION__NAME_TITLE_GROUP:
+			setNameTitleGroup((String) newValue);
+			return;
+		case MODSPackage.NAME_DEFINITION__USAGE:
+			setUsage((UsageAttributeDefinition) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -268,15 +273,15 @@ public class NameDefinitionImpl extends NameBaseDefinitionImpl implements NameDe
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case MODSPackage.NAME_DEFINITION__ALT_REP_GROUP:
-				setAltRepGroup(ALT_REP_GROUP_EDEFAULT);
-				return;
-			case MODSPackage.NAME_DEFINITION__NAME_TITLE_GROUP:
-				setNameTitleGroup(NAME_TITLE_GROUP_EDEFAULT);
-				return;
-			case MODSPackage.NAME_DEFINITION__USAGE:
-				unsetUsage();
-				return;
+		case MODSPackage.NAME_DEFINITION__ALT_REP_GROUP:
+			setAltRepGroup(ALT_REP_GROUP_EDEFAULT);
+			return;
+		case MODSPackage.NAME_DEFINITION__NAME_TITLE_GROUP:
+			setNameTitleGroup(NAME_TITLE_GROUP_EDEFAULT);
+			return;
+		case MODSPackage.NAME_DEFINITION__USAGE:
+			unsetUsage();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -289,13 +294,14 @@ public class NameDefinitionImpl extends NameBaseDefinitionImpl implements NameDe
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case MODSPackage.NAME_DEFINITION__ALT_REP_GROUP:
-				return ALT_REP_GROUP_EDEFAULT == null ? altRepGroup != null : !ALT_REP_GROUP_EDEFAULT.equals(altRepGroup);
-			case MODSPackage.NAME_DEFINITION__NAME_TITLE_GROUP:
-				return NAME_TITLE_GROUP_EDEFAULT == null ? nameTitleGroup != null : !NAME_TITLE_GROUP_EDEFAULT
-						.equals(nameTitleGroup);
-			case MODSPackage.NAME_DEFINITION__USAGE:
-				return isSetUsage();
+		case MODSPackage.NAME_DEFINITION__ALT_REP_GROUP:
+			return ALT_REP_GROUP_EDEFAULT == null ? altRepGroup != null
+					: !ALT_REP_GROUP_EDEFAULT.equals(altRepGroup);
+		case MODSPackage.NAME_DEFINITION__NAME_TITLE_GROUP:
+			return NAME_TITLE_GROUP_EDEFAULT == null ? nameTitleGroup != null
+					: !NAME_TITLE_GROUP_EDEFAULT.equals(nameTitleGroup);
+		case MODSPackage.NAME_DEFINITION__USAGE:
+			return isSetUsage();
 		}
 		return super.eIsSet(featureID);
 	}

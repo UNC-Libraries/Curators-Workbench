@@ -45,9 +45,10 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class TitleInfoDefinitionItemProvider extends TitleInfoBaseDefinitionItemProvider implements
-		IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider,
-		IItemPropertySource {
+public class TitleInfoDefinitionItemProvider extends
+		TitleInfoBaseDefinitionItemProvider implements
+		IEditingDomainItemProvider, IStructuredItemContentProvider,
+		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -85,12 +86,15 @@ public class TitleInfoDefinitionItemProvider extends TitleInfoBaseDefinitionItem
 	 */
 	protected void addNameTitleGroupPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_TitleInfoDefinition_nameTitleGroup_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_TitleInfoDefinition_nameTitleGroup_feature",
-						"_UI_TitleInfoDefinition_type"), MODSPackage.eINSTANCE.getTitleInfoDefinition_NameTitleGroup(), true,
-				false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_TitleInfoDefinition_nameTitleGroup_feature",
+						"_UI_TitleInfoDefinition_type"), MODSPackage.eINSTANCE
+						.getTitleInfoDefinition_NameTitleGroup(), true, false,
+				false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -101,12 +105,15 @@ public class TitleInfoDefinitionItemProvider extends TitleInfoBaseDefinitionItem
 	 */
 	protected void addSuppliedPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_TitleInfoDefinition_supplied_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_TitleInfoDefinition_supplied_feature",
-						"_UI_TitleInfoDefinition_type"), MODSPackage.eINSTANCE.getTitleInfoDefinition_Supplied(), true,
-				false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_TitleInfoDefinition_supplied_feature",
+						"_UI_TitleInfoDefinition_type"), MODSPackage.eINSTANCE
+						.getTitleInfoDefinition_Supplied(), true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -117,12 +124,15 @@ public class TitleInfoDefinitionItemProvider extends TitleInfoBaseDefinitionItem
 	 */
 	protected void addType1PropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_TitleInfoDefinition_type1_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_TitleInfoDefinition_type1_feature",
-						"_UI_TitleInfoDefinition_type"), MODSPackage.eINSTANCE.getTitleInfoDefinition_Type1(), true, false,
-				false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_TitleInfoDefinition_type1_feature",
+						"_UI_TitleInfoDefinition_type"), MODSPackage.eINSTANCE
+						.getTitleInfoDefinition_Type1(), true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -133,12 +143,15 @@ public class TitleInfoDefinitionItemProvider extends TitleInfoBaseDefinitionItem
 	 */
 	protected void addUsagePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_TitleInfoDefinition_usage_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_TitleInfoDefinition_usage_feature",
-						"_UI_TitleInfoDefinition_type"), MODSPackage.eINSTANCE.getTitleInfoDefinition_Usage(), true, false,
-				false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_TitleInfoDefinition_usage_feature",
+						"_UI_TitleInfoDefinition_type"), MODSPackage.eINSTANCE
+						.getTitleInfoDefinition_Usage(), true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -149,7 +162,8 @@ public class TitleInfoDefinitionItemProvider extends TitleInfoBaseDefinitionItem
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/TitleInfoDefinition"));
+		return overlayImage(object,
+				getResourceLocator().getImage("full/obj16/TitleInfoDefinition"));
 	}
 
 	/**
@@ -187,13 +201,14 @@ public class TitleInfoDefinitionItemProvider extends TitleInfoBaseDefinitionItem
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(TitleInfoDefinition.class)) {
-			case MODSPackage.TITLE_INFO_DEFINITION__ALT_REP_GROUP:
-			case MODSPackage.TITLE_INFO_DEFINITION__NAME_TITLE_GROUP:
-			case MODSPackage.TITLE_INFO_DEFINITION__SUPPLIED:
-			case MODSPackage.TITLE_INFO_DEFINITION__TYPE1:
-			case MODSPackage.TITLE_INFO_DEFINITION__USAGE:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
+		case MODSPackage.TITLE_INFO_DEFINITION__ALT_REP_GROUP:
+		case MODSPackage.TITLE_INFO_DEFINITION__NAME_TITLE_GROUP:
+		case MODSPackage.TITLE_INFO_DEFINITION__SUPPLIED:
+		case MODSPackage.TITLE_INFO_DEFINITION__TYPE1:
+		case MODSPackage.TITLE_INFO_DEFINITION__USAGE:
+			fireNotifyChanged(new ViewerNotification(notification,
+					notification.getNotifier(), false, true));
+			return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -206,7 +221,8 @@ public class TitleInfoDefinitionItemProvider extends TitleInfoBaseDefinitionItem
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(
+			Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 
@@ -217,25 +233,34 @@ public class TitleInfoDefinitionItemProvider extends TitleInfoBaseDefinitionItem
 	 * @generated
 	 */
 	@Override
-	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+	public String getCreateChildText(Object owner, Object feature,
+			Object child, Collection<?> selection) {
 		Object childFeature = feature;
 		Object childObject = child;
 
-		if (childFeature instanceof EStructuralFeature && FeatureMapUtil.isFeatureMap((EStructuralFeature) childFeature)) {
+		if (childFeature instanceof EStructuralFeature
+				&& FeatureMapUtil
+						.isFeatureMap((EStructuralFeature) childFeature)) {
 			FeatureMap.Entry entry = (FeatureMap.Entry) childObject;
 			childFeature = entry.getEStructuralFeature();
 			childObject = entry.getValue();
 		}
 
-		boolean qualify = childFeature == MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Title()
-				|| childFeature == MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_SubTitle()
-				|| childFeature == MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartNumber()
-				|| childFeature == MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartName()
-				|| childFeature == MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_NonSort();
+		boolean qualify = childFeature == MODSPackage.eINSTANCE
+				.getTitleInfoBaseDefinition_Title()
+				|| childFeature == MODSPackage.eINSTANCE
+						.getTitleInfoBaseDefinition_SubTitle()
+				|| childFeature == MODSPackage.eINSTANCE
+						.getTitleInfoBaseDefinition_PartNumber()
+				|| childFeature == MODSPackage.eINSTANCE
+						.getTitleInfoBaseDefinition_PartName()
+				|| childFeature == MODSPackage.eINSTANCE
+						.getTitleInfoBaseDefinition_NonSort();
 
 		if (qualify) {
-			return getString("_UI_CreateChild_text2", new Object[] { getTypeText(childObject),
-					getFeatureText(childFeature), getTypeText(owner) });
+			return getString("_UI_CreateChild_text2", new Object[] {
+					getTypeText(childObject), getFeatureText(childFeature),
+					getTypeText(owner) });
 		}
 		return super.getCreateChildText(owner, feature, child, selection);
 	}

@@ -29,7 +29,8 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class SubjectNameDefinitionImpl extends NameBaseDefinitionImpl implements SubjectNameDefinition {
+public class SubjectNameDefinitionImpl extends NameBaseDefinitionImpl implements
+		SubjectNameDefinition {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

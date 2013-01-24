@@ -46,8 +46,9 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class LanguageDefinitionItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
-		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class LanguageDefinitionItemProvider extends ItemProviderAdapter
+		implements IEditingDomainItemProvider, IStructuredItemContentProvider,
+		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -89,12 +90,15 @@ public class LanguageDefinitionItemProvider extends ItemProviderAdapter implemen
 	 */
 	protected void addAltRepGroupPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_LanguageDefinition_altRepGroup_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_LanguageDefinition_altRepGroup_feature",
-						"_UI_LanguageDefinition_type"), MODSPackage.eINSTANCE.getLanguageDefinition_AltRepGroup(), true,
-				false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_LanguageDefinition_altRepGroup_feature",
+						"_UI_LanguageDefinition_type"), MODSPackage.eINSTANCE
+						.getLanguageDefinition_AltRepGroup(), true, false,
+				false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -105,12 +109,15 @@ public class LanguageDefinitionItemProvider extends ItemProviderAdapter implemen
 	 */
 	protected void addDisplayLabelPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_LanguageDefinition_displayLabel_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_LanguageDefinition_displayLabel_feature",
-						"_UI_LanguageDefinition_type"), MODSPackage.eINSTANCE.getLanguageDefinition_DisplayLabel(), true,
-				false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_LanguageDefinition_displayLabel_feature",
+						"_UI_LanguageDefinition_type"), MODSPackage.eINSTANCE
+						.getLanguageDefinition_DisplayLabel(), true, false,
+				false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -121,12 +128,15 @@ public class LanguageDefinitionItemProvider extends ItemProviderAdapter implemen
 	 */
 	protected void addLangPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_LanguageDefinition_lang_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_LanguageDefinition_lang_feature",
-						"_UI_LanguageDefinition_type"), MODSPackage.eINSTANCE.getLanguageDefinition_Lang(), true, false,
-				false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_LanguageDefinition_lang_feature",
+						"_UI_LanguageDefinition_type"), MODSPackage.eINSTANCE
+						.getLanguageDefinition_Lang(), true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -137,12 +147,15 @@ public class LanguageDefinitionItemProvider extends ItemProviderAdapter implemen
 	 */
 	protected void addLang1PropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_LanguageDefinition_lang1_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_LanguageDefinition_lang1_feature",
-						"_UI_LanguageDefinition_type"), MODSPackage.eINSTANCE.getLanguageDefinition_Lang1(), true, false,
-				false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_LanguageDefinition_lang1_feature",
+						"_UI_LanguageDefinition_type"), MODSPackage.eINSTANCE
+						.getLanguageDefinition_Lang1(), true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -153,12 +166,15 @@ public class LanguageDefinitionItemProvider extends ItemProviderAdapter implemen
 	 */
 	protected void addObjectPartPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_LanguageDefinition_objectPart_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_LanguageDefinition_objectPart_feature",
-						"_UI_LanguageDefinition_type"), MODSPackage.eINSTANCE.getLanguageDefinition_ObjectPart(), true,
-				false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_LanguageDefinition_objectPart_feature",
+						"_UI_LanguageDefinition_type"), MODSPackage.eINSTANCE
+						.getLanguageDefinition_ObjectPart(), true, false,
+				false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -169,12 +185,15 @@ public class LanguageDefinitionItemProvider extends ItemProviderAdapter implemen
 	 */
 	protected void addScriptPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_LanguageDefinition_script_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_LanguageDefinition_script_feature",
-						"_UI_LanguageDefinition_type"), MODSPackage.eINSTANCE.getLanguageDefinition_Script(), true, false,
-				false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_LanguageDefinition_script_feature",
+						"_UI_LanguageDefinition_type"), MODSPackage.eINSTANCE
+						.getLanguageDefinition_Script(), true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -185,12 +204,15 @@ public class LanguageDefinitionItemProvider extends ItemProviderAdapter implemen
 	 */
 	protected void addTransliterationPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_LanguageDefinition_transliteration_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_LanguageDefinition_transliteration_feature",
-						"_UI_LanguageDefinition_type"), MODSPackage.eINSTANCE.getLanguageDefinition_Transliteration(), true,
-				false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_LanguageDefinition_transliteration_feature",
+						"_UI_LanguageDefinition_type"), MODSPackage.eINSTANCE
+						.getLanguageDefinition_Transliteration(), true, false,
+				false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -201,12 +223,15 @@ public class LanguageDefinitionItemProvider extends ItemProviderAdapter implemen
 	 */
 	protected void addUsagePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_LanguageDefinition_usage_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_LanguageDefinition_usage_feature",
-						"_UI_LanguageDefinition_type"), MODSPackage.eINSTANCE.getLanguageDefinition_Usage(), true, false,
-				false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_LanguageDefinition_usage_feature",
+						"_UI_LanguageDefinition_type"), MODSPackage.eINSTANCE
+						.getLanguageDefinition_Usage(), true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -218,11 +243,14 @@ public class LanguageDefinitionItemProvider extends ItemProviderAdapter implemen
 	 * @generated
 	 */
 	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(
+			Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(MODSPackage.eINSTANCE.getLanguageDefinition_LanguageTerm());
-			childrenFeatures.add(MODSPackage.eINSTANCE.getLanguageDefinition_ScriptTerm());
+			childrenFeatures.add(MODSPackage.eINSTANCE
+					.getLanguageDefinition_LanguageTerm());
+			childrenFeatures.add(MODSPackage.eINSTANCE
+					.getLanguageDefinition_ScriptTerm());
 		}
 		return childrenFeatures;
 	}
@@ -248,7 +276,8 @@ public class LanguageDefinitionItemProvider extends ItemProviderAdapter implemen
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/LanguageDefinition"));
+		return overlayImage(object,
+				getResourceLocator().getImage("full/obj16/LanguageDefinition"));
 	}
 
 	/**
@@ -286,20 +315,22 @@ public class LanguageDefinitionItemProvider extends ItemProviderAdapter implemen
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(LanguageDefinition.class)) {
-			case MODSPackage.LANGUAGE_DEFINITION__ALT_REP_GROUP:
-			case MODSPackage.LANGUAGE_DEFINITION__DISPLAY_LABEL:
-			case MODSPackage.LANGUAGE_DEFINITION__LANG:
-			case MODSPackage.LANGUAGE_DEFINITION__LANG1:
-			case MODSPackage.LANGUAGE_DEFINITION__OBJECT_PART:
-			case MODSPackage.LANGUAGE_DEFINITION__SCRIPT:
-			case MODSPackage.LANGUAGE_DEFINITION__TRANSLITERATION:
-			case MODSPackage.LANGUAGE_DEFINITION__USAGE:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-			case MODSPackage.LANGUAGE_DEFINITION__LANGUAGE_TERM:
-			case MODSPackage.LANGUAGE_DEFINITION__SCRIPT_TERM:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-				return;
+		case MODSPackage.LANGUAGE_DEFINITION__ALT_REP_GROUP:
+		case MODSPackage.LANGUAGE_DEFINITION__DISPLAY_LABEL:
+		case MODSPackage.LANGUAGE_DEFINITION__LANG:
+		case MODSPackage.LANGUAGE_DEFINITION__LANG1:
+		case MODSPackage.LANGUAGE_DEFINITION__OBJECT_PART:
+		case MODSPackage.LANGUAGE_DEFINITION__SCRIPT:
+		case MODSPackage.LANGUAGE_DEFINITION__TRANSLITERATION:
+		case MODSPackage.LANGUAGE_DEFINITION__USAGE:
+			fireNotifyChanged(new ViewerNotification(notification,
+					notification.getNotifier(), false, true));
+			return;
+		case MODSPackage.LANGUAGE_DEFINITION__LANGUAGE_TERM:
+		case MODSPackage.LANGUAGE_DEFINITION__SCRIPT_TERM:
+			fireNotifyChanged(new ViewerNotification(notification,
+					notification.getNotifier(), true, false));
+			return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -312,13 +343,16 @@ public class LanguageDefinitionItemProvider extends ItemProviderAdapter implemen
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(
+			Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getLanguageDefinition_LanguageTerm(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getLanguageDefinition_LanguageTerm(),
 				MODSFactory.eINSTANCE.createLanguageTermDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getLanguageDefinition_ScriptTerm(),
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getLanguageDefinition_ScriptTerm(),
 				MODSFactory.eINSTANCE.createScriptTermDefinition()));
 	}
 

@@ -177,7 +177,8 @@ public class ModsDefinitionImpl extends EObjectImpl implements ModsDefinition {
 	 */
 	public FeatureMap getModsGroup() {
 		if (modsGroup == null) {
-			modsGroup = new BasicFeatureMap(this, MODSPackage.MODS_DEFINITION__MODS_GROUP);
+			modsGroup = new BasicFeatureMap(this,
+					MODSPackage.MODS_DEFINITION__MODS_GROUP);
 		}
 		return modsGroup;
 	}
@@ -188,7 +189,8 @@ public class ModsDefinitionImpl extends EObjectImpl implements ModsDefinition {
 	 * @generated
 	 */
 	public EList<AbstractDefinition> getAbstract() {
-		return getModsGroup().list(MODSPackage.eINSTANCE.getModsDefinition_Abstract());
+		return getModsGroup().list(
+				MODSPackage.eINSTANCE.getModsDefinition_Abstract());
 	}
 
 	/**
@@ -197,7 +199,8 @@ public class ModsDefinitionImpl extends EObjectImpl implements ModsDefinition {
 	 * @generated
 	 */
 	public EList<AccessConditionDefinition> getAccessCondition() {
-		return getModsGroup().list(MODSPackage.eINSTANCE.getModsDefinition_AccessCondition());
+		return getModsGroup().list(
+				MODSPackage.eINSTANCE.getModsDefinition_AccessCondition());
 	}
 
 	/**
@@ -206,7 +209,8 @@ public class ModsDefinitionImpl extends EObjectImpl implements ModsDefinition {
 	 * @generated
 	 */
 	public EList<ClassificationDefinition> getClassification() {
-		return getModsGroup().list(MODSPackage.eINSTANCE.getModsDefinition_Classification());
+		return getModsGroup().list(
+				MODSPackage.eINSTANCE.getModsDefinition_Classification());
 	}
 
 	/**
@@ -215,7 +219,8 @@ public class ModsDefinitionImpl extends EObjectImpl implements ModsDefinition {
 	 * @generated
 	 */
 	public EList<ExtensionDefinition> getExtension() {
-		return getModsGroup().list(MODSPackage.eINSTANCE.getModsDefinition_Extension());
+		return getModsGroup().list(
+				MODSPackage.eINSTANCE.getModsDefinition_Extension());
 	}
 
 	/**
@@ -224,7 +229,8 @@ public class ModsDefinitionImpl extends EObjectImpl implements ModsDefinition {
 	 * @generated
 	 */
 	public EList<GenreDefinition> getGenre() {
-		return getModsGroup().list(MODSPackage.eINSTANCE.getModsDefinition_Genre());
+		return getModsGroup().list(
+				MODSPackage.eINSTANCE.getModsDefinition_Genre());
 	}
 
 	/**
@@ -233,7 +239,8 @@ public class ModsDefinitionImpl extends EObjectImpl implements ModsDefinition {
 	 * @generated
 	 */
 	public EList<IdentifierDefinition> getIdentifier() {
-		return getModsGroup().list(MODSPackage.eINSTANCE.getModsDefinition_Identifier());
+		return getModsGroup().list(
+				MODSPackage.eINSTANCE.getModsDefinition_Identifier());
 	}
 
 	/**
@@ -242,7 +249,8 @@ public class ModsDefinitionImpl extends EObjectImpl implements ModsDefinition {
 	 * @generated
 	 */
 	public EList<LanguageDefinition> getLanguage() {
-		return getModsGroup().list(MODSPackage.eINSTANCE.getModsDefinition_Language());
+		return getModsGroup().list(
+				MODSPackage.eINSTANCE.getModsDefinition_Language());
 	}
 
 	/**
@@ -251,7 +259,8 @@ public class ModsDefinitionImpl extends EObjectImpl implements ModsDefinition {
 	 * @generated
 	 */
 	public EList<LocationDefinition> getLocation() {
-		return getModsGroup().list(MODSPackage.eINSTANCE.getModsDefinition_Location());
+		return getModsGroup().list(
+				MODSPackage.eINSTANCE.getModsDefinition_Location());
 	}
 
 	/**
@@ -260,7 +269,8 @@ public class ModsDefinitionImpl extends EObjectImpl implements ModsDefinition {
 	 * @generated
 	 */
 	public EList<NameDefinition> getName() {
-		return getModsGroup().list(MODSPackage.eINSTANCE.getModsDefinition_Name());
+		return getModsGroup().list(
+				MODSPackage.eINSTANCE.getModsDefinition_Name());
 	}
 
 	/**
@@ -269,7 +279,8 @@ public class ModsDefinitionImpl extends EObjectImpl implements ModsDefinition {
 	 * @generated
 	 */
 	public EList<NoteDefinition> getNote() {
-		return getModsGroup().list(MODSPackage.eINSTANCE.getModsDefinition_Note());
+		return getModsGroup().list(
+				MODSPackage.eINSTANCE.getModsDefinition_Note());
 	}
 
 	/**
@@ -278,7 +289,8 @@ public class ModsDefinitionImpl extends EObjectImpl implements ModsDefinition {
 	 * @generated
 	 */
 	public EList<OriginInfoDefinition> getOriginInfo() {
-		return getModsGroup().list(MODSPackage.eINSTANCE.getModsDefinition_OriginInfo());
+		return getModsGroup().list(
+				MODSPackage.eINSTANCE.getModsDefinition_OriginInfo());
 	}
 
 	/**
@@ -287,7 +299,8 @@ public class ModsDefinitionImpl extends EObjectImpl implements ModsDefinition {
 	 * @generated
 	 */
 	public EList<PartDefinition> getPart() {
-		return getModsGroup().list(MODSPackage.eINSTANCE.getModsDefinition_Part());
+		return getModsGroup().list(
+				MODSPackage.eINSTANCE.getModsDefinition_Part());
 	}
 
 	/**
@@ -296,7 +309,8 @@ public class ModsDefinitionImpl extends EObjectImpl implements ModsDefinition {
 	 * @generated
 	 */
 	public EList<PhysicalDescriptionDefinition> getPhysicalDescription() {
-		return getModsGroup().list(MODSPackage.eINSTANCE.getModsDefinition_PhysicalDescription());
+		return getModsGroup().list(
+				MODSPackage.eINSTANCE.getModsDefinition_PhysicalDescription());
 	}
 
 	/**
@@ -305,7 +319,8 @@ public class ModsDefinitionImpl extends EObjectImpl implements ModsDefinition {
 	 * @generated
 	 */
 	public EList<RecordInfoDefinition> getRecordInfo() {
-		return getModsGroup().list(MODSPackage.eINSTANCE.getModsDefinition_RecordInfo());
+		return getModsGroup().list(
+				MODSPackage.eINSTANCE.getModsDefinition_RecordInfo());
 	}
 
 	/**
@@ -314,7 +329,8 @@ public class ModsDefinitionImpl extends EObjectImpl implements ModsDefinition {
 	 * @generated
 	 */
 	public EList<RelatedItemDefinition> getRelatedItem() {
-		return getModsGroup().list(MODSPackage.eINSTANCE.getModsDefinition_RelatedItem());
+		return getModsGroup().list(
+				MODSPackage.eINSTANCE.getModsDefinition_RelatedItem());
 	}
 
 	/**
@@ -323,7 +339,8 @@ public class ModsDefinitionImpl extends EObjectImpl implements ModsDefinition {
 	 * @generated
 	 */
 	public EList<SubjectDefinition> getSubject() {
-		return getModsGroup().list(MODSPackage.eINSTANCE.getModsDefinition_Subject());
+		return getModsGroup().list(
+				MODSPackage.eINSTANCE.getModsDefinition_Subject());
 	}
 
 	/**
@@ -332,7 +349,8 @@ public class ModsDefinitionImpl extends EObjectImpl implements ModsDefinition {
 	 * @generated
 	 */
 	public EList<TableOfContentsDefinition> getTableOfContents() {
-		return getModsGroup().list(MODSPackage.eINSTANCE.getModsDefinition_TableOfContents());
+		return getModsGroup().list(
+				MODSPackage.eINSTANCE.getModsDefinition_TableOfContents());
 	}
 
 	/**
@@ -341,7 +359,8 @@ public class ModsDefinitionImpl extends EObjectImpl implements ModsDefinition {
 	 * @generated
 	 */
 	public EList<TargetAudienceDefinition> getTargetAudience() {
-		return getModsGroup().list(MODSPackage.eINSTANCE.getModsDefinition_TargetAudience());
+		return getModsGroup().list(
+				MODSPackage.eINSTANCE.getModsDefinition_TargetAudience());
 	}
 
 	/**
@@ -350,7 +369,8 @@ public class ModsDefinitionImpl extends EObjectImpl implements ModsDefinition {
 	 * @generated
 	 */
 	public EList<TitleInfoDefinition> getTitleInfo() {
-		return getModsGroup().list(MODSPackage.eINSTANCE.getModsDefinition_TitleInfo());
+		return getModsGroup().list(
+				MODSPackage.eINSTANCE.getModsDefinition_TitleInfo());
 	}
 
 	/**
@@ -359,7 +379,8 @@ public class ModsDefinitionImpl extends EObjectImpl implements ModsDefinition {
 	 * @generated
 	 */
 	public EList<TypeOfResourceDefinition> getTypeOfResource() {
-		return getModsGroup().list(MODSPackage.eINSTANCE.getModsDefinition_TypeOfResource());
+		return getModsGroup().list(
+				MODSPackage.eINSTANCE.getModsDefinition_TypeOfResource());
 	}
 
 	/**
@@ -380,7 +401,8 @@ public class ModsDefinitionImpl extends EObjectImpl implements ModsDefinition {
 		String oldID = iD;
 		iD = newID;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.MODS_DEFINITION__ID, oldID, iD));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.MODS_DEFINITION__ID, oldID, iD));
 	}
 
 	/**
@@ -403,8 +425,9 @@ public class ModsDefinitionImpl extends EObjectImpl implements ModsDefinition {
 		boolean oldVersionESet = versionESet;
 		versionESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.MODS_DEFINITION__VERSION, oldVersion,
-					version, !oldVersionESet));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.MODS_DEFINITION__VERSION, oldVersion, version,
+					!oldVersionESet));
 	}
 
 	/**
@@ -418,7 +441,8 @@ public class ModsDefinitionImpl extends EObjectImpl implements ModsDefinition {
 		version = VERSION_EDEFAULT;
 		versionESet = false;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, MODSPackage.MODS_DEFINITION__VERSION, oldVersion,
+			eNotify(new ENotificationImpl(this, Notification.UNSET,
+					MODSPackage.MODS_DEFINITION__VERSION, oldVersion,
 					VERSION_EDEFAULT, oldVersionESet));
 	}
 
@@ -437,50 +461,68 @@ public class ModsDefinitionImpl extends EObjectImpl implements ModsDefinition {
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+	public NotificationChain eInverseRemove(InternalEObject otherEnd,
+			int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case MODSPackage.MODS_DEFINITION__MODS_GROUP:
-				return ((InternalEList<?>) getModsGroup()).basicRemove(otherEnd, msgs);
-			case MODSPackage.MODS_DEFINITION__ABSTRACT:
-				return ((InternalEList<?>) getAbstract()).basicRemove(otherEnd, msgs);
-			case MODSPackage.MODS_DEFINITION__ACCESS_CONDITION:
-				return ((InternalEList<?>) getAccessCondition()).basicRemove(otherEnd, msgs);
-			case MODSPackage.MODS_DEFINITION__CLASSIFICATION:
-				return ((InternalEList<?>) getClassification()).basicRemove(otherEnd, msgs);
-			case MODSPackage.MODS_DEFINITION__EXTENSION:
-				return ((InternalEList<?>) getExtension()).basicRemove(otherEnd, msgs);
-			case MODSPackage.MODS_DEFINITION__GENRE:
-				return ((InternalEList<?>) getGenre()).basicRemove(otherEnd, msgs);
-			case MODSPackage.MODS_DEFINITION__IDENTIFIER:
-				return ((InternalEList<?>) getIdentifier()).basicRemove(otherEnd, msgs);
-			case MODSPackage.MODS_DEFINITION__LANGUAGE:
-				return ((InternalEList<?>) getLanguage()).basicRemove(otherEnd, msgs);
-			case MODSPackage.MODS_DEFINITION__LOCATION:
-				return ((InternalEList<?>) getLocation()).basicRemove(otherEnd, msgs);
-			case MODSPackage.MODS_DEFINITION__NAME:
-				return ((InternalEList<?>) getName()).basicRemove(otherEnd, msgs);
-			case MODSPackage.MODS_DEFINITION__NOTE:
-				return ((InternalEList<?>) getNote()).basicRemove(otherEnd, msgs);
-			case MODSPackage.MODS_DEFINITION__ORIGIN_INFO:
-				return ((InternalEList<?>) getOriginInfo()).basicRemove(otherEnd, msgs);
-			case MODSPackage.MODS_DEFINITION__PART:
-				return ((InternalEList<?>) getPart()).basicRemove(otherEnd, msgs);
-			case MODSPackage.MODS_DEFINITION__PHYSICAL_DESCRIPTION:
-				return ((InternalEList<?>) getPhysicalDescription()).basicRemove(otherEnd, msgs);
-			case MODSPackage.MODS_DEFINITION__RECORD_INFO:
-				return ((InternalEList<?>) getRecordInfo()).basicRemove(otherEnd, msgs);
-			case MODSPackage.MODS_DEFINITION__RELATED_ITEM:
-				return ((InternalEList<?>) getRelatedItem()).basicRemove(otherEnd, msgs);
-			case MODSPackage.MODS_DEFINITION__SUBJECT:
-				return ((InternalEList<?>) getSubject()).basicRemove(otherEnd, msgs);
-			case MODSPackage.MODS_DEFINITION__TABLE_OF_CONTENTS:
-				return ((InternalEList<?>) getTableOfContents()).basicRemove(otherEnd, msgs);
-			case MODSPackage.MODS_DEFINITION__TARGET_AUDIENCE:
-				return ((InternalEList<?>) getTargetAudience()).basicRemove(otherEnd, msgs);
-			case MODSPackage.MODS_DEFINITION__TITLE_INFO:
-				return ((InternalEList<?>) getTitleInfo()).basicRemove(otherEnd, msgs);
-			case MODSPackage.MODS_DEFINITION__TYPE_OF_RESOURCE:
-				return ((InternalEList<?>) getTypeOfResource()).basicRemove(otherEnd, msgs);
+		case MODSPackage.MODS_DEFINITION__MODS_GROUP:
+			return ((InternalEList<?>) getModsGroup()).basicRemove(otherEnd,
+					msgs);
+		case MODSPackage.MODS_DEFINITION__ABSTRACT:
+			return ((InternalEList<?>) getAbstract()).basicRemove(otherEnd,
+					msgs);
+		case MODSPackage.MODS_DEFINITION__ACCESS_CONDITION:
+			return ((InternalEList<?>) getAccessCondition()).basicRemove(
+					otherEnd, msgs);
+		case MODSPackage.MODS_DEFINITION__CLASSIFICATION:
+			return ((InternalEList<?>) getClassification()).basicRemove(
+					otherEnd, msgs);
+		case MODSPackage.MODS_DEFINITION__EXTENSION:
+			return ((InternalEList<?>) getExtension()).basicRemove(otherEnd,
+					msgs);
+		case MODSPackage.MODS_DEFINITION__GENRE:
+			return ((InternalEList<?>) getGenre()).basicRemove(otherEnd, msgs);
+		case MODSPackage.MODS_DEFINITION__IDENTIFIER:
+			return ((InternalEList<?>) getIdentifier()).basicRemove(otherEnd,
+					msgs);
+		case MODSPackage.MODS_DEFINITION__LANGUAGE:
+			return ((InternalEList<?>) getLanguage()).basicRemove(otherEnd,
+					msgs);
+		case MODSPackage.MODS_DEFINITION__LOCATION:
+			return ((InternalEList<?>) getLocation()).basicRemove(otherEnd,
+					msgs);
+		case MODSPackage.MODS_DEFINITION__NAME:
+			return ((InternalEList<?>) getName()).basicRemove(otherEnd, msgs);
+		case MODSPackage.MODS_DEFINITION__NOTE:
+			return ((InternalEList<?>) getNote()).basicRemove(otherEnd, msgs);
+		case MODSPackage.MODS_DEFINITION__ORIGIN_INFO:
+			return ((InternalEList<?>) getOriginInfo()).basicRemove(otherEnd,
+					msgs);
+		case MODSPackage.MODS_DEFINITION__PART:
+			return ((InternalEList<?>) getPart()).basicRemove(otherEnd, msgs);
+		case MODSPackage.MODS_DEFINITION__PHYSICAL_DESCRIPTION:
+			return ((InternalEList<?>) getPhysicalDescription()).basicRemove(
+					otherEnd, msgs);
+		case MODSPackage.MODS_DEFINITION__RECORD_INFO:
+			return ((InternalEList<?>) getRecordInfo()).basicRemove(otherEnd,
+					msgs);
+		case MODSPackage.MODS_DEFINITION__RELATED_ITEM:
+			return ((InternalEList<?>) getRelatedItem()).basicRemove(otherEnd,
+					msgs);
+		case MODSPackage.MODS_DEFINITION__SUBJECT:
+			return ((InternalEList<?>) getSubject())
+					.basicRemove(otherEnd, msgs);
+		case MODSPackage.MODS_DEFINITION__TABLE_OF_CONTENTS:
+			return ((InternalEList<?>) getTableOfContents()).basicRemove(
+					otherEnd, msgs);
+		case MODSPackage.MODS_DEFINITION__TARGET_AUDIENCE:
+			return ((InternalEList<?>) getTargetAudience()).basicRemove(
+					otherEnd, msgs);
+		case MODSPackage.MODS_DEFINITION__TITLE_INFO:
+			return ((InternalEList<?>) getTitleInfo()).basicRemove(otherEnd,
+					msgs);
+		case MODSPackage.MODS_DEFINITION__TYPE_OF_RESOURCE:
+			return ((InternalEList<?>) getTypeOfResource()).basicRemove(
+					otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -493,54 +535,54 @@ public class ModsDefinitionImpl extends EObjectImpl implements ModsDefinition {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case MODSPackage.MODS_DEFINITION__MODS_GROUP:
-				if (coreType)
-					return getModsGroup();
-				return ((FeatureMap.Internal) getModsGroup()).getWrapper();
-			case MODSPackage.MODS_DEFINITION__ABSTRACT:
-				return getAbstract();
-			case MODSPackage.MODS_DEFINITION__ACCESS_CONDITION:
-				return getAccessCondition();
-			case MODSPackage.MODS_DEFINITION__CLASSIFICATION:
-				return getClassification();
-			case MODSPackage.MODS_DEFINITION__EXTENSION:
-				return getExtension();
-			case MODSPackage.MODS_DEFINITION__GENRE:
-				return getGenre();
-			case MODSPackage.MODS_DEFINITION__IDENTIFIER:
-				return getIdentifier();
-			case MODSPackage.MODS_DEFINITION__LANGUAGE:
-				return getLanguage();
-			case MODSPackage.MODS_DEFINITION__LOCATION:
-				return getLocation();
-			case MODSPackage.MODS_DEFINITION__NAME:
-				return getName();
-			case MODSPackage.MODS_DEFINITION__NOTE:
-				return getNote();
-			case MODSPackage.MODS_DEFINITION__ORIGIN_INFO:
-				return getOriginInfo();
-			case MODSPackage.MODS_DEFINITION__PART:
-				return getPart();
-			case MODSPackage.MODS_DEFINITION__PHYSICAL_DESCRIPTION:
-				return getPhysicalDescription();
-			case MODSPackage.MODS_DEFINITION__RECORD_INFO:
-				return getRecordInfo();
-			case MODSPackage.MODS_DEFINITION__RELATED_ITEM:
-				return getRelatedItem();
-			case MODSPackage.MODS_DEFINITION__SUBJECT:
-				return getSubject();
-			case MODSPackage.MODS_DEFINITION__TABLE_OF_CONTENTS:
-				return getTableOfContents();
-			case MODSPackage.MODS_DEFINITION__TARGET_AUDIENCE:
-				return getTargetAudience();
-			case MODSPackage.MODS_DEFINITION__TITLE_INFO:
-				return getTitleInfo();
-			case MODSPackage.MODS_DEFINITION__TYPE_OF_RESOURCE:
-				return getTypeOfResource();
-			case MODSPackage.MODS_DEFINITION__ID:
-				return getID();
-			case MODSPackage.MODS_DEFINITION__VERSION:
-				return getVersion();
+		case MODSPackage.MODS_DEFINITION__MODS_GROUP:
+			if (coreType)
+				return getModsGroup();
+			return ((FeatureMap.Internal) getModsGroup()).getWrapper();
+		case MODSPackage.MODS_DEFINITION__ABSTRACT:
+			return getAbstract();
+		case MODSPackage.MODS_DEFINITION__ACCESS_CONDITION:
+			return getAccessCondition();
+		case MODSPackage.MODS_DEFINITION__CLASSIFICATION:
+			return getClassification();
+		case MODSPackage.MODS_DEFINITION__EXTENSION:
+			return getExtension();
+		case MODSPackage.MODS_DEFINITION__GENRE:
+			return getGenre();
+		case MODSPackage.MODS_DEFINITION__IDENTIFIER:
+			return getIdentifier();
+		case MODSPackage.MODS_DEFINITION__LANGUAGE:
+			return getLanguage();
+		case MODSPackage.MODS_DEFINITION__LOCATION:
+			return getLocation();
+		case MODSPackage.MODS_DEFINITION__NAME:
+			return getName();
+		case MODSPackage.MODS_DEFINITION__NOTE:
+			return getNote();
+		case MODSPackage.MODS_DEFINITION__ORIGIN_INFO:
+			return getOriginInfo();
+		case MODSPackage.MODS_DEFINITION__PART:
+			return getPart();
+		case MODSPackage.MODS_DEFINITION__PHYSICAL_DESCRIPTION:
+			return getPhysicalDescription();
+		case MODSPackage.MODS_DEFINITION__RECORD_INFO:
+			return getRecordInfo();
+		case MODSPackage.MODS_DEFINITION__RELATED_ITEM:
+			return getRelatedItem();
+		case MODSPackage.MODS_DEFINITION__SUBJECT:
+			return getSubject();
+		case MODSPackage.MODS_DEFINITION__TABLE_OF_CONTENTS:
+			return getTableOfContents();
+		case MODSPackage.MODS_DEFINITION__TARGET_AUDIENCE:
+			return getTargetAudience();
+		case MODSPackage.MODS_DEFINITION__TITLE_INFO:
+			return getTitleInfo();
+		case MODSPackage.MODS_DEFINITION__TYPE_OF_RESOURCE:
+			return getTypeOfResource();
+		case MODSPackage.MODS_DEFINITION__ID:
+			return getID();
+		case MODSPackage.MODS_DEFINITION__VERSION:
+			return getVersion();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -554,95 +596,111 @@ public class ModsDefinitionImpl extends EObjectImpl implements ModsDefinition {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case MODSPackage.MODS_DEFINITION__MODS_GROUP:
-				((FeatureMap.Internal) getModsGroup()).set(newValue);
-				return;
-			case MODSPackage.MODS_DEFINITION__ABSTRACT:
-				getAbstract().clear();
-				getAbstract().addAll((Collection<? extends AbstractDefinition>) newValue);
-				return;
-			case MODSPackage.MODS_DEFINITION__ACCESS_CONDITION:
-				getAccessCondition().clear();
-				getAccessCondition().addAll((Collection<? extends AccessConditionDefinition>) newValue);
-				return;
-			case MODSPackage.MODS_DEFINITION__CLASSIFICATION:
-				getClassification().clear();
-				getClassification().addAll((Collection<? extends ClassificationDefinition>) newValue);
-				return;
-			case MODSPackage.MODS_DEFINITION__EXTENSION:
-				getExtension().clear();
-				getExtension().addAll((Collection<? extends ExtensionDefinition>) newValue);
-				return;
-			case MODSPackage.MODS_DEFINITION__GENRE:
-				getGenre().clear();
-				getGenre().addAll((Collection<? extends GenreDefinition>) newValue);
-				return;
-			case MODSPackage.MODS_DEFINITION__IDENTIFIER:
-				getIdentifier().clear();
-				getIdentifier().addAll((Collection<? extends IdentifierDefinition>) newValue);
-				return;
-			case MODSPackage.MODS_DEFINITION__LANGUAGE:
-				getLanguage().clear();
-				getLanguage().addAll((Collection<? extends LanguageDefinition>) newValue);
-				return;
-			case MODSPackage.MODS_DEFINITION__LOCATION:
-				getLocation().clear();
-				getLocation().addAll((Collection<? extends LocationDefinition>) newValue);
-				return;
-			case MODSPackage.MODS_DEFINITION__NAME:
-				getName().clear();
-				getName().addAll((Collection<? extends NameDefinition>) newValue);
-				return;
-			case MODSPackage.MODS_DEFINITION__NOTE:
-				getNote().clear();
-				getNote().addAll((Collection<? extends NoteDefinition>) newValue);
-				return;
-			case MODSPackage.MODS_DEFINITION__ORIGIN_INFO:
-				getOriginInfo().clear();
-				getOriginInfo().addAll((Collection<? extends OriginInfoDefinition>) newValue);
-				return;
-			case MODSPackage.MODS_DEFINITION__PART:
-				getPart().clear();
-				getPart().addAll((Collection<? extends PartDefinition>) newValue);
-				return;
-			case MODSPackage.MODS_DEFINITION__PHYSICAL_DESCRIPTION:
-				getPhysicalDescription().clear();
-				getPhysicalDescription().addAll((Collection<? extends PhysicalDescriptionDefinition>) newValue);
-				return;
-			case MODSPackage.MODS_DEFINITION__RECORD_INFO:
-				getRecordInfo().clear();
-				getRecordInfo().addAll((Collection<? extends RecordInfoDefinition>) newValue);
-				return;
-			case MODSPackage.MODS_DEFINITION__RELATED_ITEM:
-				getRelatedItem().clear();
-				getRelatedItem().addAll((Collection<? extends RelatedItemDefinition>) newValue);
-				return;
-			case MODSPackage.MODS_DEFINITION__SUBJECT:
-				getSubject().clear();
-				getSubject().addAll((Collection<? extends SubjectDefinition>) newValue);
-				return;
-			case MODSPackage.MODS_DEFINITION__TABLE_OF_CONTENTS:
-				getTableOfContents().clear();
-				getTableOfContents().addAll((Collection<? extends TableOfContentsDefinition>) newValue);
-				return;
-			case MODSPackage.MODS_DEFINITION__TARGET_AUDIENCE:
-				getTargetAudience().clear();
-				getTargetAudience().addAll((Collection<? extends TargetAudienceDefinition>) newValue);
-				return;
-			case MODSPackage.MODS_DEFINITION__TITLE_INFO:
-				getTitleInfo().clear();
-				getTitleInfo().addAll((Collection<? extends TitleInfoDefinition>) newValue);
-				return;
-			case MODSPackage.MODS_DEFINITION__TYPE_OF_RESOURCE:
-				getTypeOfResource().clear();
-				getTypeOfResource().addAll((Collection<? extends TypeOfResourceDefinition>) newValue);
-				return;
-			case MODSPackage.MODS_DEFINITION__ID:
-				setID((String) newValue);
-				return;
-			case MODSPackage.MODS_DEFINITION__VERSION:
-				setVersion((ModsVersionAttributeDefinition) newValue);
-				return;
+		case MODSPackage.MODS_DEFINITION__MODS_GROUP:
+			((FeatureMap.Internal) getModsGroup()).set(newValue);
+			return;
+		case MODSPackage.MODS_DEFINITION__ABSTRACT:
+			getAbstract().clear();
+			getAbstract().addAll(
+					(Collection<? extends AbstractDefinition>) newValue);
+			return;
+		case MODSPackage.MODS_DEFINITION__ACCESS_CONDITION:
+			getAccessCondition().clear();
+			getAccessCondition().addAll(
+					(Collection<? extends AccessConditionDefinition>) newValue);
+			return;
+		case MODSPackage.MODS_DEFINITION__CLASSIFICATION:
+			getClassification().clear();
+			getClassification().addAll(
+					(Collection<? extends ClassificationDefinition>) newValue);
+			return;
+		case MODSPackage.MODS_DEFINITION__EXTENSION:
+			getExtension().clear();
+			getExtension().addAll(
+					(Collection<? extends ExtensionDefinition>) newValue);
+			return;
+		case MODSPackage.MODS_DEFINITION__GENRE:
+			getGenre().clear();
+			getGenre().addAll((Collection<? extends GenreDefinition>) newValue);
+			return;
+		case MODSPackage.MODS_DEFINITION__IDENTIFIER:
+			getIdentifier().clear();
+			getIdentifier().addAll(
+					(Collection<? extends IdentifierDefinition>) newValue);
+			return;
+		case MODSPackage.MODS_DEFINITION__LANGUAGE:
+			getLanguage().clear();
+			getLanguage().addAll(
+					(Collection<? extends LanguageDefinition>) newValue);
+			return;
+		case MODSPackage.MODS_DEFINITION__LOCATION:
+			getLocation().clear();
+			getLocation().addAll(
+					(Collection<? extends LocationDefinition>) newValue);
+			return;
+		case MODSPackage.MODS_DEFINITION__NAME:
+			getName().clear();
+			getName().addAll((Collection<? extends NameDefinition>) newValue);
+			return;
+		case MODSPackage.MODS_DEFINITION__NOTE:
+			getNote().clear();
+			getNote().addAll((Collection<? extends NoteDefinition>) newValue);
+			return;
+		case MODSPackage.MODS_DEFINITION__ORIGIN_INFO:
+			getOriginInfo().clear();
+			getOriginInfo().addAll(
+					(Collection<? extends OriginInfoDefinition>) newValue);
+			return;
+		case MODSPackage.MODS_DEFINITION__PART:
+			getPart().clear();
+			getPart().addAll((Collection<? extends PartDefinition>) newValue);
+			return;
+		case MODSPackage.MODS_DEFINITION__PHYSICAL_DESCRIPTION:
+			getPhysicalDescription().clear();
+			getPhysicalDescription()
+					.addAll((Collection<? extends PhysicalDescriptionDefinition>) newValue);
+			return;
+		case MODSPackage.MODS_DEFINITION__RECORD_INFO:
+			getRecordInfo().clear();
+			getRecordInfo().addAll(
+					(Collection<? extends RecordInfoDefinition>) newValue);
+			return;
+		case MODSPackage.MODS_DEFINITION__RELATED_ITEM:
+			getRelatedItem().clear();
+			getRelatedItem().addAll(
+					(Collection<? extends RelatedItemDefinition>) newValue);
+			return;
+		case MODSPackage.MODS_DEFINITION__SUBJECT:
+			getSubject().clear();
+			getSubject().addAll(
+					(Collection<? extends SubjectDefinition>) newValue);
+			return;
+		case MODSPackage.MODS_DEFINITION__TABLE_OF_CONTENTS:
+			getTableOfContents().clear();
+			getTableOfContents().addAll(
+					(Collection<? extends TableOfContentsDefinition>) newValue);
+			return;
+		case MODSPackage.MODS_DEFINITION__TARGET_AUDIENCE:
+			getTargetAudience().clear();
+			getTargetAudience().addAll(
+					(Collection<? extends TargetAudienceDefinition>) newValue);
+			return;
+		case MODSPackage.MODS_DEFINITION__TITLE_INFO:
+			getTitleInfo().clear();
+			getTitleInfo().addAll(
+					(Collection<? extends TitleInfoDefinition>) newValue);
+			return;
+		case MODSPackage.MODS_DEFINITION__TYPE_OF_RESOURCE:
+			getTypeOfResource().clear();
+			getTypeOfResource().addAll(
+					(Collection<? extends TypeOfResourceDefinition>) newValue);
+			return;
+		case MODSPackage.MODS_DEFINITION__ID:
+			setID((String) newValue);
+			return;
+		case MODSPackage.MODS_DEFINITION__VERSION:
+			setVersion((ModsVersionAttributeDefinition) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -655,75 +713,75 @@ public class ModsDefinitionImpl extends EObjectImpl implements ModsDefinition {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case MODSPackage.MODS_DEFINITION__MODS_GROUP:
-				getModsGroup().clear();
-				return;
-			case MODSPackage.MODS_DEFINITION__ABSTRACT:
-				getAbstract().clear();
-				return;
-			case MODSPackage.MODS_DEFINITION__ACCESS_CONDITION:
-				getAccessCondition().clear();
-				return;
-			case MODSPackage.MODS_DEFINITION__CLASSIFICATION:
-				getClassification().clear();
-				return;
-			case MODSPackage.MODS_DEFINITION__EXTENSION:
-				getExtension().clear();
-				return;
-			case MODSPackage.MODS_DEFINITION__GENRE:
-				getGenre().clear();
-				return;
-			case MODSPackage.MODS_DEFINITION__IDENTIFIER:
-				getIdentifier().clear();
-				return;
-			case MODSPackage.MODS_DEFINITION__LANGUAGE:
-				getLanguage().clear();
-				return;
-			case MODSPackage.MODS_DEFINITION__LOCATION:
-				getLocation().clear();
-				return;
-			case MODSPackage.MODS_DEFINITION__NAME:
-				getName().clear();
-				return;
-			case MODSPackage.MODS_DEFINITION__NOTE:
-				getNote().clear();
-				return;
-			case MODSPackage.MODS_DEFINITION__ORIGIN_INFO:
-				getOriginInfo().clear();
-				return;
-			case MODSPackage.MODS_DEFINITION__PART:
-				getPart().clear();
-				return;
-			case MODSPackage.MODS_DEFINITION__PHYSICAL_DESCRIPTION:
-				getPhysicalDescription().clear();
-				return;
-			case MODSPackage.MODS_DEFINITION__RECORD_INFO:
-				getRecordInfo().clear();
-				return;
-			case MODSPackage.MODS_DEFINITION__RELATED_ITEM:
-				getRelatedItem().clear();
-				return;
-			case MODSPackage.MODS_DEFINITION__SUBJECT:
-				getSubject().clear();
-				return;
-			case MODSPackage.MODS_DEFINITION__TABLE_OF_CONTENTS:
-				getTableOfContents().clear();
-				return;
-			case MODSPackage.MODS_DEFINITION__TARGET_AUDIENCE:
-				getTargetAudience().clear();
-				return;
-			case MODSPackage.MODS_DEFINITION__TITLE_INFO:
-				getTitleInfo().clear();
-				return;
-			case MODSPackage.MODS_DEFINITION__TYPE_OF_RESOURCE:
-				getTypeOfResource().clear();
-				return;
-			case MODSPackage.MODS_DEFINITION__ID:
-				setID(ID_EDEFAULT);
-				return;
-			case MODSPackage.MODS_DEFINITION__VERSION:
-				unsetVersion();
-				return;
+		case MODSPackage.MODS_DEFINITION__MODS_GROUP:
+			getModsGroup().clear();
+			return;
+		case MODSPackage.MODS_DEFINITION__ABSTRACT:
+			getAbstract().clear();
+			return;
+		case MODSPackage.MODS_DEFINITION__ACCESS_CONDITION:
+			getAccessCondition().clear();
+			return;
+		case MODSPackage.MODS_DEFINITION__CLASSIFICATION:
+			getClassification().clear();
+			return;
+		case MODSPackage.MODS_DEFINITION__EXTENSION:
+			getExtension().clear();
+			return;
+		case MODSPackage.MODS_DEFINITION__GENRE:
+			getGenre().clear();
+			return;
+		case MODSPackage.MODS_DEFINITION__IDENTIFIER:
+			getIdentifier().clear();
+			return;
+		case MODSPackage.MODS_DEFINITION__LANGUAGE:
+			getLanguage().clear();
+			return;
+		case MODSPackage.MODS_DEFINITION__LOCATION:
+			getLocation().clear();
+			return;
+		case MODSPackage.MODS_DEFINITION__NAME:
+			getName().clear();
+			return;
+		case MODSPackage.MODS_DEFINITION__NOTE:
+			getNote().clear();
+			return;
+		case MODSPackage.MODS_DEFINITION__ORIGIN_INFO:
+			getOriginInfo().clear();
+			return;
+		case MODSPackage.MODS_DEFINITION__PART:
+			getPart().clear();
+			return;
+		case MODSPackage.MODS_DEFINITION__PHYSICAL_DESCRIPTION:
+			getPhysicalDescription().clear();
+			return;
+		case MODSPackage.MODS_DEFINITION__RECORD_INFO:
+			getRecordInfo().clear();
+			return;
+		case MODSPackage.MODS_DEFINITION__RELATED_ITEM:
+			getRelatedItem().clear();
+			return;
+		case MODSPackage.MODS_DEFINITION__SUBJECT:
+			getSubject().clear();
+			return;
+		case MODSPackage.MODS_DEFINITION__TABLE_OF_CONTENTS:
+			getTableOfContents().clear();
+			return;
+		case MODSPackage.MODS_DEFINITION__TARGET_AUDIENCE:
+			getTargetAudience().clear();
+			return;
+		case MODSPackage.MODS_DEFINITION__TITLE_INFO:
+			getTitleInfo().clear();
+			return;
+		case MODSPackage.MODS_DEFINITION__TYPE_OF_RESOURCE:
+			getTypeOfResource().clear();
+			return;
+		case MODSPackage.MODS_DEFINITION__ID:
+			setID(ID_EDEFAULT);
+			return;
+		case MODSPackage.MODS_DEFINITION__VERSION:
+			unsetVersion();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -736,52 +794,52 @@ public class ModsDefinitionImpl extends EObjectImpl implements ModsDefinition {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case MODSPackage.MODS_DEFINITION__MODS_GROUP:
-				return modsGroup != null && !modsGroup.isEmpty();
-			case MODSPackage.MODS_DEFINITION__ABSTRACT:
-				return !getAbstract().isEmpty();
-			case MODSPackage.MODS_DEFINITION__ACCESS_CONDITION:
-				return !getAccessCondition().isEmpty();
-			case MODSPackage.MODS_DEFINITION__CLASSIFICATION:
-				return !getClassification().isEmpty();
-			case MODSPackage.MODS_DEFINITION__EXTENSION:
-				return !getExtension().isEmpty();
-			case MODSPackage.MODS_DEFINITION__GENRE:
-				return !getGenre().isEmpty();
-			case MODSPackage.MODS_DEFINITION__IDENTIFIER:
-				return !getIdentifier().isEmpty();
-			case MODSPackage.MODS_DEFINITION__LANGUAGE:
-				return !getLanguage().isEmpty();
-			case MODSPackage.MODS_DEFINITION__LOCATION:
-				return !getLocation().isEmpty();
-			case MODSPackage.MODS_DEFINITION__NAME:
-				return !getName().isEmpty();
-			case MODSPackage.MODS_DEFINITION__NOTE:
-				return !getNote().isEmpty();
-			case MODSPackage.MODS_DEFINITION__ORIGIN_INFO:
-				return !getOriginInfo().isEmpty();
-			case MODSPackage.MODS_DEFINITION__PART:
-				return !getPart().isEmpty();
-			case MODSPackage.MODS_DEFINITION__PHYSICAL_DESCRIPTION:
-				return !getPhysicalDescription().isEmpty();
-			case MODSPackage.MODS_DEFINITION__RECORD_INFO:
-				return !getRecordInfo().isEmpty();
-			case MODSPackage.MODS_DEFINITION__RELATED_ITEM:
-				return !getRelatedItem().isEmpty();
-			case MODSPackage.MODS_DEFINITION__SUBJECT:
-				return !getSubject().isEmpty();
-			case MODSPackage.MODS_DEFINITION__TABLE_OF_CONTENTS:
-				return !getTableOfContents().isEmpty();
-			case MODSPackage.MODS_DEFINITION__TARGET_AUDIENCE:
-				return !getTargetAudience().isEmpty();
-			case MODSPackage.MODS_DEFINITION__TITLE_INFO:
-				return !getTitleInfo().isEmpty();
-			case MODSPackage.MODS_DEFINITION__TYPE_OF_RESOURCE:
-				return !getTypeOfResource().isEmpty();
-			case MODSPackage.MODS_DEFINITION__ID:
-				return ID_EDEFAULT == null ? iD != null : !ID_EDEFAULT.equals(iD);
-			case MODSPackage.MODS_DEFINITION__VERSION:
-				return isSetVersion();
+		case MODSPackage.MODS_DEFINITION__MODS_GROUP:
+			return modsGroup != null && !modsGroup.isEmpty();
+		case MODSPackage.MODS_DEFINITION__ABSTRACT:
+			return !getAbstract().isEmpty();
+		case MODSPackage.MODS_DEFINITION__ACCESS_CONDITION:
+			return !getAccessCondition().isEmpty();
+		case MODSPackage.MODS_DEFINITION__CLASSIFICATION:
+			return !getClassification().isEmpty();
+		case MODSPackage.MODS_DEFINITION__EXTENSION:
+			return !getExtension().isEmpty();
+		case MODSPackage.MODS_DEFINITION__GENRE:
+			return !getGenre().isEmpty();
+		case MODSPackage.MODS_DEFINITION__IDENTIFIER:
+			return !getIdentifier().isEmpty();
+		case MODSPackage.MODS_DEFINITION__LANGUAGE:
+			return !getLanguage().isEmpty();
+		case MODSPackage.MODS_DEFINITION__LOCATION:
+			return !getLocation().isEmpty();
+		case MODSPackage.MODS_DEFINITION__NAME:
+			return !getName().isEmpty();
+		case MODSPackage.MODS_DEFINITION__NOTE:
+			return !getNote().isEmpty();
+		case MODSPackage.MODS_DEFINITION__ORIGIN_INFO:
+			return !getOriginInfo().isEmpty();
+		case MODSPackage.MODS_DEFINITION__PART:
+			return !getPart().isEmpty();
+		case MODSPackage.MODS_DEFINITION__PHYSICAL_DESCRIPTION:
+			return !getPhysicalDescription().isEmpty();
+		case MODSPackage.MODS_DEFINITION__RECORD_INFO:
+			return !getRecordInfo().isEmpty();
+		case MODSPackage.MODS_DEFINITION__RELATED_ITEM:
+			return !getRelatedItem().isEmpty();
+		case MODSPackage.MODS_DEFINITION__SUBJECT:
+			return !getSubject().isEmpty();
+		case MODSPackage.MODS_DEFINITION__TABLE_OF_CONTENTS:
+			return !getTableOfContents().isEmpty();
+		case MODSPackage.MODS_DEFINITION__TARGET_AUDIENCE:
+			return !getTargetAudience().isEmpty();
+		case MODSPackage.MODS_DEFINITION__TITLE_INFO:
+			return !getTitleInfo().isEmpty();
+		case MODSPackage.MODS_DEFINITION__TYPE_OF_RESOURCE:
+			return !getTypeOfResource().isEmpty();
+		case MODSPackage.MODS_DEFINITION__ID:
+			return ID_EDEFAULT == null ? iD != null : !ID_EDEFAULT.equals(iD);
+		case MODSPackage.MODS_DEFINITION__VERSION:
+			return isSetVersion();
 		}
 		return super.eIsSet(featureID);
 	}

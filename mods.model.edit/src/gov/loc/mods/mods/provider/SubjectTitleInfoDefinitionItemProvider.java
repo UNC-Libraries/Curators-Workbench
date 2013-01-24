@@ -45,9 +45,10 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class SubjectTitleInfoDefinitionItemProvider extends TitleInfoBaseDefinitionItemProvider implements
-		IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider,
-		IItemPropertySource {
+public class SubjectTitleInfoDefinitionItemProvider extends
+		TitleInfoBaseDefinitionItemProvider implements
+		IEditingDomainItemProvider, IStructuredItemContentProvider,
+		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -82,12 +83,16 @@ public class SubjectTitleInfoDefinitionItemProvider extends TitleInfoBaseDefinit
 	 */
 	protected void addType1PropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_SubjectTitleInfoDefinition_type1_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_SubjectTitleInfoDefinition_type1_feature",
-						"_UI_SubjectTitleInfoDefinition_type"), MODSPackage.eINSTANCE.getSubjectTitleInfoDefinition_Type1(),
-				true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_SubjectTitleInfoDefinition_type1_feature",
+						"_UI_SubjectTitleInfoDefinition_type"),
+				MODSPackage.eINSTANCE.getSubjectTitleInfoDefinition_Type1(),
+				true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				null, null));
 	}
 
 	/**
@@ -98,7 +103,10 @@ public class SubjectTitleInfoDefinitionItemProvider extends TitleInfoBaseDefinit
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/SubjectTitleInfoDefinition"));
+		return overlayImage(
+				object,
+				getResourceLocator().getImage(
+						"full/obj16/SubjectTitleInfoDefinition"));
 	}
 
 	/**
@@ -121,7 +129,8 @@ public class SubjectTitleInfoDefinitionItemProvider extends TitleInfoBaseDefinit
 	public String getText(Object object) {
 		String label = ((SubjectTitleInfoDefinition) object).getID();
 		return label == null || label.length() == 0 ? getString("_UI_SubjectTitleInfoDefinition_type")
-				: getString("_UI_SubjectTitleInfoDefinition_type") + " " + label;
+				: getString("_UI_SubjectTitleInfoDefinition_type") + " "
+						+ label;
 	}
 
 	/**
@@ -136,9 +145,10 @@ public class SubjectTitleInfoDefinitionItemProvider extends TitleInfoBaseDefinit
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(SubjectTitleInfoDefinition.class)) {
-			case MODSPackage.SUBJECT_TITLE_INFO_DEFINITION__TYPE1:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
+		case MODSPackage.SUBJECT_TITLE_INFO_DEFINITION__TYPE1:
+			fireNotifyChanged(new ViewerNotification(notification,
+					notification.getNotifier(), false, true));
+			return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -151,7 +161,8 @@ public class SubjectTitleInfoDefinitionItemProvider extends TitleInfoBaseDefinit
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(
+			Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 
@@ -162,25 +173,34 @@ public class SubjectTitleInfoDefinitionItemProvider extends TitleInfoBaseDefinit
 	 * @generated
 	 */
 	@Override
-	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+	public String getCreateChildText(Object owner, Object feature,
+			Object child, Collection<?> selection) {
 		Object childFeature = feature;
 		Object childObject = child;
 
-		if (childFeature instanceof EStructuralFeature && FeatureMapUtil.isFeatureMap((EStructuralFeature) childFeature)) {
+		if (childFeature instanceof EStructuralFeature
+				&& FeatureMapUtil
+						.isFeatureMap((EStructuralFeature) childFeature)) {
 			FeatureMap.Entry entry = (FeatureMap.Entry) childObject;
 			childFeature = entry.getEStructuralFeature();
 			childObject = entry.getValue();
 		}
 
-		boolean qualify = childFeature == MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Title()
-				|| childFeature == MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_SubTitle()
-				|| childFeature == MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartNumber()
-				|| childFeature == MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartName()
-				|| childFeature == MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_NonSort();
+		boolean qualify = childFeature == MODSPackage.eINSTANCE
+				.getTitleInfoBaseDefinition_Title()
+				|| childFeature == MODSPackage.eINSTANCE
+						.getTitleInfoBaseDefinition_SubTitle()
+				|| childFeature == MODSPackage.eINSTANCE
+						.getTitleInfoBaseDefinition_PartNumber()
+				|| childFeature == MODSPackage.eINSTANCE
+						.getTitleInfoBaseDefinition_PartName()
+				|| childFeature == MODSPackage.eINSTANCE
+						.getTitleInfoBaseDefinition_NonSort();
 
 		if (qualify) {
-			return getString("_UI_CreateChild_text2", new Object[] { getTypeText(childObject),
-					getFeatureText(childFeature), getTypeText(owner) });
+			return getString("_UI_CreateChild_text2", new Object[] {
+					getTypeText(childObject), getFeatureText(childFeature),
+					getTypeText(owner) });
 		}
 		return super.getCreateChildText(owner, feature, child, selection);
 	}

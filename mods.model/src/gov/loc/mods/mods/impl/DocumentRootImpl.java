@@ -312,8 +312,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 */
 	public EMap<String, String> getXMLNSPrefixMap() {
 		if (xMLNSPrefixMap == null) {
-			xMLNSPrefixMap = new EcoreEMap<String, String>(EcorePackage.Literals.ESTRING_TO_STRING_MAP_ENTRY,
-					EStringToStringMapEntryImpl.class, this, MODSPackage.DOCUMENT_ROOT__XMLNS_PREFIX_MAP);
+			xMLNSPrefixMap = new EcoreEMap<String, String>(
+					EcorePackage.Literals.ESTRING_TO_STRING_MAP_ENTRY,
+					EStringToStringMapEntryImpl.class, this,
+					MODSPackage.DOCUMENT_ROOT__XMLNS_PREFIX_MAP);
 		}
 		return xMLNSPrefixMap;
 	}
@@ -325,8 +327,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 */
 	public EMap<String, String> getXSISchemaLocation() {
 		if (xSISchemaLocation == null) {
-			xSISchemaLocation = new EcoreEMap<String, String>(EcorePackage.Literals.ESTRING_TO_STRING_MAP_ENTRY,
-					EStringToStringMapEntryImpl.class, this, MODSPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION);
+			xSISchemaLocation = new EcoreEMap<String, String>(
+					EcorePackage.Literals.ESTRING_TO_STRING_MAP_ENTRY,
+					EStringToStringMapEntryImpl.class, this,
+					MODSPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION);
 		}
 		return xSISchemaLocation;
 	}
@@ -337,7 +341,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public AbstractDefinition getAbstract() {
-		return (AbstractDefinition) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_Abstract(), true);
+		return (AbstractDefinition) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_Abstract(), true);
 	}
 
 	/**
@@ -345,8 +350,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetAbstract(AbstractDefinition newAbstract, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_Abstract(), newAbstract,
+	public NotificationChain basicSetAbstract(AbstractDefinition newAbstract,
+			NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_Abstract(), newAbstract,
 				msgs);
 	}
 
@@ -356,7 +363,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setAbstract(AbstractDefinition newAbstract) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_Abstract(), newAbstract);
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_Abstract(), newAbstract);
 	}
 
 	/**
@@ -365,7 +373,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public AccessConditionDefinition getAccessCondition() {
-		return (AccessConditionDefinition) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_AccessCondition(), true);
+		return (AccessConditionDefinition) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_AccessCondition(), true);
 	}
 
 	/**
@@ -373,8 +382,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetAccessCondition(AccessConditionDefinition newAccessCondition, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_AccessCondition(),
+	public NotificationChain basicSetAccessCondition(
+			AccessConditionDefinition newAccessCondition, NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_AccessCondition(),
 				newAccessCondition, msgs);
 	}
 
@@ -384,7 +395,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setAccessCondition(AccessConditionDefinition newAccessCondition) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_AccessCondition(),
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_AccessCondition(),
 				newAccessCondition);
 	}
 
@@ -394,7 +406,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public XsString getAffiliation() {
-		return (XsString) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_Affiliation(), true);
+		return (XsString) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_Affiliation(), true);
 	}
 
 	/**
@@ -402,8 +415,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetAffiliation(XsString newAffiliation, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_Affiliation(),
+	public NotificationChain basicSetAffiliation(XsString newAffiliation,
+			NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_Affiliation(),
 				newAffiliation, msgs);
 	}
 
@@ -413,7 +428,9 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setAffiliation(XsString newAffiliation) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_Affiliation(), newAffiliation);
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_Affiliation(),
+				newAffiliation);
 	}
 
 	/**
@@ -422,7 +439,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public XsString getArea() {
-		return (XsString) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_Area(), true);
+		return (XsString) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_Area(), true);
 	}
 
 	/**
@@ -430,8 +448,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetArea(XsString newArea, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_Area(), newArea, msgs);
+	public NotificationChain basicSetArea(XsString newArea,
+			NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_Area(), newArea, msgs);
 	}
 
 	/**
@@ -440,7 +460,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setArea(XsString newArea) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_Area(), newArea);
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_Area(), newArea);
 	}
 
 	/**
@@ -449,7 +470,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public XsString getCaption() {
-		return (XsString) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_Caption(), true);
+		return (XsString) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_Caption(), true);
 	}
 
 	/**
@@ -457,8 +479,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetCaption(XsString newCaption, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_Caption(), newCaption,
+	public NotificationChain basicSetCaption(XsString newCaption,
+			NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_Caption(), newCaption,
 				msgs);
 	}
 
@@ -468,7 +492,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setCaption(XsString newCaption) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_Caption(), newCaption);
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_Caption(), newCaption);
 	}
 
 	/**
@@ -477,7 +502,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public CartographicsDefinition getCartographics() {
-		return (CartographicsDefinition) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_Cartographics(), true);
+		return (CartographicsDefinition) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_Cartographics(), true);
 	}
 
 	/**
@@ -485,8 +511,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetCartographics(CartographicsDefinition newCartographics, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_Cartographics(),
+	public NotificationChain basicSetCartographics(
+			CartographicsDefinition newCartographics, NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_Cartographics(),
 				newCartographics, msgs);
 	}
 
@@ -496,7 +524,9 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setCartographics(CartographicsDefinition newCartographics) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_Cartographics(), newCartographics);
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_Cartographics(),
+				newCartographics);
 	}
 
 	/**
@@ -505,7 +535,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public XsString getCity() {
-		return (XsString) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_City(), true);
+		return (XsString) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_City(), true);
 	}
 
 	/**
@@ -513,8 +544,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetCity(XsString newCity, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_City(), newCity, msgs);
+	public NotificationChain basicSetCity(XsString newCity,
+			NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_City(), newCity, msgs);
 	}
 
 	/**
@@ -523,7 +556,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setCity(XsString newCity) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_City(), newCity);
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_City(), newCity);
 	}
 
 	/**
@@ -532,7 +566,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public XsString getCitySection() {
-		return (XsString) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_CitySection(), true);
+		return (XsString) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_CitySection(), true);
 	}
 
 	/**
@@ -540,8 +575,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetCitySection(XsString newCitySection, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_CitySection(),
+	public NotificationChain basicSetCitySection(XsString newCitySection,
+			NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_CitySection(),
 				newCitySection, msgs);
 	}
 
@@ -551,7 +588,9 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setCitySection(XsString newCitySection) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_CitySection(), newCitySection);
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_CitySection(),
+				newCitySection);
 	}
 
 	/**
@@ -560,7 +599,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public ClassificationDefinition getClassification() {
-		return (ClassificationDefinition) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_Classification(), true);
+		return (ClassificationDefinition) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_Classification(), true);
 	}
 
 	/**
@@ -568,8 +608,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetClassification(ClassificationDefinition newClassification, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_Classification(),
+	public NotificationChain basicSetClassification(
+			ClassificationDefinition newClassification, NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_Classification(),
 				newClassification, msgs);
 	}
 
@@ -579,7 +621,9 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setClassification(ClassificationDefinition newClassification) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_Classification(), newClassification);
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_Classification(),
+				newClassification);
 	}
 
 	/**
@@ -588,7 +632,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public XsString getContinent() {
-		return (XsString) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_Continent(), true);
+		return (XsString) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_Continent(), true);
 	}
 
 	/**
@@ -596,8 +641,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetContinent(XsString newContinent, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_Continent(),
+	public NotificationChain basicSetContinent(XsString newContinent,
+			NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_Continent(),
 				newContinent, msgs);
 	}
 
@@ -607,7 +654,9 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setContinent(XsString newContinent) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_Continent(), newContinent);
+		((FeatureMap.Internal) getMixed())
+				.set(MODSPackage.eINSTANCE.getDocumentRoot_Continent(),
+						newContinent);
 	}
 
 	/**
@@ -616,7 +665,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public XsString getCoordinates() {
-		return (XsString) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_Coordinates(), true);
+		return (XsString) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_Coordinates(), true);
 	}
 
 	/**
@@ -624,8 +674,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetCoordinates(XsString newCoordinates, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_Coordinates(),
+	public NotificationChain basicSetCoordinates(XsString newCoordinates,
+			NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_Coordinates(),
 				newCoordinates, msgs);
 	}
 
@@ -635,7 +687,9 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setCoordinates(XsString newCoordinates) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_Coordinates(), newCoordinates);
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_Coordinates(),
+				newCoordinates);
 	}
 
 	/**
@@ -644,7 +698,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public CopyInformationDefinition getCopyInformation() {
-		return (CopyInformationDefinition) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_CopyInformation(), true);
+		return (CopyInformationDefinition) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_CopyInformation(), true);
 	}
 
 	/**
@@ -652,8 +707,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetCopyInformation(CopyInformationDefinition newCopyInformation, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_CopyInformation(),
+	public NotificationChain basicSetCopyInformation(
+			CopyInformationDefinition newCopyInformation, NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_CopyInformation(),
 				newCopyInformation, msgs);
 	}
 
@@ -663,7 +720,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setCopyInformation(CopyInformationDefinition newCopyInformation) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_CopyInformation(),
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_CopyInformation(),
 				newCopyInformation);
 	}
 
@@ -673,7 +731,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public DateDefinition getCopyrightDate() {
-		return (DateDefinition) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_CopyrightDate(), true);
+		return (DateDefinition) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_CopyrightDate(), true);
 	}
 
 	/**
@@ -681,8 +740,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetCopyrightDate(DateDefinition newCopyrightDate, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_CopyrightDate(),
+	public NotificationChain basicSetCopyrightDate(
+			DateDefinition newCopyrightDate, NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_CopyrightDate(),
 				newCopyrightDate, msgs);
 	}
 
@@ -692,7 +753,9 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setCopyrightDate(DateDefinition newCopyrightDate) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_CopyrightDate(), newCopyrightDate);
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_CopyrightDate(),
+				newCopyrightDate);
 	}
 
 	/**
@@ -701,7 +764,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public XsString getCountry() {
-		return (XsString) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_Country(), true);
+		return (XsString) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_Country(), true);
 	}
 
 	/**
@@ -709,8 +773,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetCountry(XsString newCountry, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_Country(), newCountry,
+	public NotificationChain basicSetCountry(XsString newCountry,
+			NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_Country(), newCountry,
 				msgs);
 	}
 
@@ -720,7 +786,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setCountry(XsString newCountry) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_Country(), newCountry);
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_Country(), newCountry);
 	}
 
 	/**
@@ -729,7 +796,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public XsString getCounty() {
-		return (XsString) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_County(), true);
+		return (XsString) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_County(), true);
 	}
 
 	/**
@@ -737,9 +805,11 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetCounty(XsString newCounty, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_County(), newCounty,
-				msgs);
+	public NotificationChain basicSetCounty(XsString newCounty,
+			NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed())
+				.basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_County(),
+						newCounty, msgs);
 	}
 
 	/**
@@ -748,7 +818,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setCounty(XsString newCounty) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_County(), newCounty);
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_County(), newCounty);
 	}
 
 	/**
@@ -757,7 +828,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public DateBaseDefinition getDate() {
-		return (DateBaseDefinition) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_Date(), true);
+		return (DateBaseDefinition) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_Date(), true);
 	}
 
 	/**
@@ -765,8 +837,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetDate(DateBaseDefinition newDate, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_Date(), newDate, msgs);
+	public NotificationChain basicSetDate(DateBaseDefinition newDate,
+			NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_Date(), newDate, msgs);
 	}
 
 	/**
@@ -775,7 +849,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setDate(DateBaseDefinition newDate) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_Date(), newDate);
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_Date(), newDate);
 	}
 
 	/**
@@ -784,7 +859,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public DateDefinition getDateCaptured() {
-		return (DateDefinition) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_DateCaptured(), true);
+		return (DateDefinition) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_DateCaptured(), true);
 	}
 
 	/**
@@ -792,8 +868,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetDateCaptured(DateDefinition newDateCaptured, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_DateCaptured(),
+	public NotificationChain basicSetDateCaptured(
+			DateDefinition newDateCaptured, NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_DateCaptured(),
 				newDateCaptured, msgs);
 	}
 
@@ -803,7 +881,9 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setDateCaptured(DateDefinition newDateCaptured) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_DateCaptured(), newDateCaptured);
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_DateCaptured(),
+				newDateCaptured);
 	}
 
 	/**
@@ -812,7 +892,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public DateDefinition getDateCreated() {
-		return (DateDefinition) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_DateCreated(), true);
+		return (DateDefinition) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_DateCreated(), true);
 	}
 
 	/**
@@ -820,8 +901,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetDateCreated(DateDefinition newDateCreated, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_DateCreated(),
+	public NotificationChain basicSetDateCreated(DateDefinition newDateCreated,
+			NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_DateCreated(),
 				newDateCreated, msgs);
 	}
 
@@ -831,7 +914,9 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setDateCreated(DateDefinition newDateCreated) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_DateCreated(), newDateCreated);
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_DateCreated(),
+				newDateCreated);
 	}
 
 	/**
@@ -840,7 +925,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public DateDefinition getDateIssued() {
-		return (DateDefinition) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_DateIssued(), true);
+		return (DateDefinition) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_DateIssued(), true);
 	}
 
 	/**
@@ -848,8 +934,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetDateIssued(DateDefinition newDateIssued, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_DateIssued(),
+	public NotificationChain basicSetDateIssued(DateDefinition newDateIssued,
+			NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_DateIssued(),
 				newDateIssued, msgs);
 	}
 
@@ -859,7 +947,9 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setDateIssued(DateDefinition newDateIssued) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_DateIssued(), newDateIssued);
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_DateIssued(),
+				newDateIssued);
 	}
 
 	/**
@@ -868,7 +958,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public DateDefinition getDateModified() {
-		return (DateDefinition) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_DateModified(), true);
+		return (DateDefinition) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_DateModified(), true);
 	}
 
 	/**
@@ -876,8 +967,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetDateModified(DateDefinition newDateModified, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_DateModified(),
+	public NotificationChain basicSetDateModified(
+			DateDefinition newDateModified, NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_DateModified(),
 				newDateModified, msgs);
 	}
 
@@ -887,7 +980,9 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setDateModified(DateDefinition newDateModified) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_DateModified(), newDateModified);
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_DateModified(),
+				newDateModified);
 	}
 
 	/**
@@ -896,7 +991,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public DateOtherDefinition getDateOther() {
-		return (DateOtherDefinition) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_DateOther(), true);
+		return (DateOtherDefinition) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_DateOther(), true);
 	}
 
 	/**
@@ -904,8 +1000,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetDateOther(DateOtherDefinition newDateOther, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_DateOther(),
+	public NotificationChain basicSetDateOther(
+			DateOtherDefinition newDateOther, NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_DateOther(),
 				newDateOther, msgs);
 	}
 
@@ -915,7 +1013,9 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setDateOther(DateOtherDefinition newDateOther) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_DateOther(), newDateOther);
+		((FeatureMap.Internal) getMixed())
+				.set(MODSPackage.eINSTANCE.getDocumentRoot_DateOther(),
+						newDateOther);
 	}
 
 	/**
@@ -924,7 +1024,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public DateDefinition getDateValid() {
-		return (DateDefinition) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_DateValid(), true);
+		return (DateDefinition) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_DateValid(), true);
 	}
 
 	/**
@@ -932,8 +1033,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetDateValid(DateDefinition newDateValid, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_DateValid(),
+	public NotificationChain basicSetDateValid(DateDefinition newDateValid,
+			NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_DateValid(),
 				newDateValid, msgs);
 	}
 
@@ -943,7 +1046,9 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setDateValid(DateDefinition newDateValid) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_DateValid(), newDateValid);
+		((FeatureMap.Internal) getMixed())
+				.set(MODSPackage.eINSTANCE.getDocumentRoot_DateValid(),
+						newDateValid);
 	}
 
 	/**
@@ -952,7 +1057,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public XsString getDescription() {
-		return (XsString) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_Description(), true);
+		return (XsString) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_Description(), true);
 	}
 
 	/**
@@ -960,8 +1066,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetDescription(XsString newDescription, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_Description(),
+	public NotificationChain basicSetDescription(XsString newDescription,
+			NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_Description(),
 				newDescription, msgs);
 	}
 
@@ -971,7 +1079,9 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setDescription(XsString newDescription) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_Description(), newDescription);
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_Description(),
+				newDescription);
 	}
 
 	/**
@@ -980,7 +1090,9 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public StringPlusAuthority getDescriptionStandard() {
-		return (StringPlusAuthority) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_DescriptionStandard(), true);
+		return (StringPlusAuthority) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_DescriptionStandard(),
+				true);
 	}
 
 	/**
@@ -988,9 +1100,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetDescriptionStandard(StringPlusAuthority newDescriptionStandard,
-			NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_DescriptionStandard(),
+	public NotificationChain basicSetDescriptionStandard(
+			StringPlusAuthority newDescriptionStandard, NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_DescriptionStandard(),
 				newDescriptionStandard, msgs);
 	}
 
@@ -999,8 +1112,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDescriptionStandard(StringPlusAuthority newDescriptionStandard) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_DescriptionStandard(),
+	public void setDescriptionStandard(
+			StringPlusAuthority newDescriptionStandard) {
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_DescriptionStandard(),
 				newDescriptionStandard);
 	}
 
@@ -1010,7 +1125,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public DetailDefinition getDetail() {
-		return (DetailDefinition) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_Detail(), true);
+		return (DetailDefinition) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_Detail(), true);
 	}
 
 	/**
@@ -1018,9 +1134,11 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetDetail(DetailDefinition newDetail, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_Detail(), newDetail,
-				msgs);
+	public NotificationChain basicSetDetail(DetailDefinition newDetail,
+			NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed())
+				.basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_Detail(),
+						newDetail, msgs);
 	}
 
 	/**
@@ -1029,7 +1147,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setDetail(DetailDefinition newDetail) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_Detail(), newDetail);
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_Detail(), newDetail);
 	}
 
 	/**
@@ -1038,7 +1157,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public DigitalOriginDefinition getDigitalOrigin() {
-		return (DigitalOriginDefinition) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_DigitalOrigin(), true);
+		return (DigitalOriginDefinition) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_DigitalOrigin(), true);
 	}
 
 	/**
@@ -1047,7 +1167,9 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setDigitalOrigin(DigitalOriginDefinition newDigitalOrigin) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_DigitalOrigin(), newDigitalOrigin);
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_DigitalOrigin(),
+				newDigitalOrigin);
 	}
 
 	/**
@@ -1056,7 +1178,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public XsString getDisplayForm() {
-		return (XsString) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_DisplayForm(), true);
+		return (XsString) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_DisplayForm(), true);
 	}
 
 	/**
@@ -1064,8 +1187,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetDisplayForm(XsString newDisplayForm, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_DisplayForm(),
+	public NotificationChain basicSetDisplayForm(XsString newDisplayForm,
+			NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_DisplayForm(),
 				newDisplayForm, msgs);
 	}
 
@@ -1075,7 +1200,9 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setDisplayForm(XsString newDisplayForm) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_DisplayForm(), newDisplayForm);
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_DisplayForm(),
+				newDisplayForm);
 	}
 
 	/**
@@ -1084,7 +1211,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public StringPlusSupplied getEdition() {
-		return (StringPlusSupplied) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_Edition(), true);
+		return (StringPlusSupplied) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_Edition(), true);
 	}
 
 	/**
@@ -1092,8 +1220,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetEdition(StringPlusSupplied newEdition, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_Edition(), newEdition,
+	public NotificationChain basicSetEdition(StringPlusSupplied newEdition,
+			NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_Edition(), newEdition,
 				msgs);
 	}
 
@@ -1103,7 +1233,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setEdition(StringPlusSupplied newEdition) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_Edition(), newEdition);
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_Edition(), newEdition);
 	}
 
 	/**
@@ -1112,7 +1243,9 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public XsString getElectronicLocator() {
-		return (XsString) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_ElectronicLocator(), true);
+		return (XsString) getMixed()
+				.get(MODSPackage.eINSTANCE.getDocumentRoot_ElectronicLocator(),
+						true);
 	}
 
 	/**
@@ -1120,8 +1253,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetElectronicLocator(XsString newElectronicLocator, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_ElectronicLocator(),
+	public NotificationChain basicSetElectronicLocator(
+			XsString newElectronicLocator, NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_ElectronicLocator(),
 				newElectronicLocator, msgs);
 	}
 
@@ -1131,7 +1266,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setElectronicLocator(XsString newElectronicLocator) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_ElectronicLocator(),
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_ElectronicLocator(),
 				newElectronicLocator);
 	}
 
@@ -1141,7 +1277,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public XsString getEnd() {
-		return (XsString) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_End(), true);
+		return (XsString) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_End(), true);
 	}
 
 	/**
@@ -1150,7 +1287,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public NotificationChain basicSetEnd(XsString newEnd, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_End(), newEnd, msgs);
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_End(), newEnd, msgs);
 	}
 
 	/**
@@ -1159,7 +1297,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setEnd(XsString newEnd) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_End(), newEnd);
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_End(), newEnd);
 	}
 
 	/**
@@ -1168,8 +1307,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public EnumerationAndChronologyDefinition getEnumerationAndChronology() {
-		return (EnumerationAndChronologyDefinition) getMixed().get(
-				MODSPackage.eINSTANCE.getDocumentRoot_EnumerationAndChronology(), true);
+		return (EnumerationAndChronologyDefinition) getMixed()
+				.get(MODSPackage.eINSTANCE
+						.getDocumentRoot_EnumerationAndChronology(),
+						true);
 	}
 
 	/**
@@ -1178,9 +1319,12 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public NotificationChain basicSetEnumerationAndChronology(
-			EnumerationAndChronologyDefinition newEnumerationAndChronology, NotificationChain msgs) {
+			EnumerationAndChronologyDefinition newEnumerationAndChronology,
+			NotificationChain msgs) {
 		return ((FeatureMap.Internal) getMixed()).basicAdd(
-				MODSPackage.eINSTANCE.getDocumentRoot_EnumerationAndChronology(), newEnumerationAndChronology, msgs);
+				MODSPackage.eINSTANCE
+						.getDocumentRoot_EnumerationAndChronology(),
+				newEnumerationAndChronology, msgs);
 	}
 
 	/**
@@ -1188,8 +1332,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setEnumerationAndChronology(EnumerationAndChronologyDefinition newEnumerationAndChronology) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_EnumerationAndChronology(),
+	public void setEnumerationAndChronology(
+			EnumerationAndChronologyDefinition newEnumerationAndChronology) {
+		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE
+				.getDocumentRoot_EnumerationAndChronology(),
 				newEnumerationAndChronology);
 	}
 
@@ -1199,7 +1345,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public ExtensionDefinition getExtension() {
-		return (ExtensionDefinition) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_Extension(), true);
+		return (ExtensionDefinition) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_Extension(), true);
 	}
 
 	/**
@@ -1207,8 +1354,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetExtension(ExtensionDefinition newExtension, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_Extension(),
+	public NotificationChain basicSetExtension(
+			ExtensionDefinition newExtension, NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_Extension(),
 				newExtension, msgs);
 	}
 
@@ -1218,7 +1367,9 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setExtension(ExtensionDefinition newExtension) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_Extension(), newExtension);
+		((FeatureMap.Internal) getMixed())
+				.set(MODSPackage.eINSTANCE.getDocumentRoot_Extension(),
+						newExtension);
 	}
 
 	/**
@@ -1227,7 +1378,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public StringPlusSupplied getExtent() {
-		return (StringPlusSupplied) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_Extent(), true);
+		return (StringPlusSupplied) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_Extent(), true);
 	}
 
 	/**
@@ -1235,9 +1387,11 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetExtent(StringPlusSupplied newExtent, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_Extent(), newExtent,
-				msgs);
+	public NotificationChain basicSetExtent(StringPlusSupplied newExtent,
+			NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed())
+				.basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_Extent(),
+						newExtent, msgs);
 	}
 
 	/**
@@ -1246,7 +1400,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setExtent(StringPlusSupplied newExtent) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_Extent(), newExtent);
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_Extent(), newExtent);
 	}
 
 	/**
@@ -1255,7 +1410,9 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public XsString getExtraterrestrialArea() {
-		return (XsString) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_ExtraterrestrialArea(), true);
+		return (XsString) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_ExtraterrestrialArea(),
+				true);
 	}
 
 	/**
@@ -1263,8 +1420,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetExtraterrestrialArea(XsString newExtraterrestrialArea, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_ExtraterrestrialArea(),
+	public NotificationChain basicSetExtraterrestrialArea(
+			XsString newExtraterrestrialArea, NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_ExtraterrestrialArea(),
 				newExtraterrestrialArea, msgs);
 	}
 
@@ -1274,7 +1433,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setExtraterrestrialArea(XsString newExtraterrestrialArea) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_ExtraterrestrialArea(),
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_ExtraterrestrialArea(),
 				newExtraterrestrialArea);
 	}
 
@@ -1284,7 +1444,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public StringPlusAuthorityPlusType getForm() {
-		return (StringPlusAuthorityPlusType) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_Form(), true);
+		return (StringPlusAuthorityPlusType) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_Form(), true);
 	}
 
 	/**
@@ -1292,8 +1453,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetForm(StringPlusAuthorityPlusType newForm, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_Form(), newForm, msgs);
+	public NotificationChain basicSetForm(StringPlusAuthorityPlusType newForm,
+			NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_Form(), newForm, msgs);
 	}
 
 	/**
@@ -1302,7 +1465,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setForm(StringPlusAuthorityPlusType newForm) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_Form(), newForm);
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_Form(), newForm);
 	}
 
 	/**
@@ -1311,7 +1475,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public StringPlusAuthority getFrequency() {
-		return (StringPlusAuthority) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_Frequency(), true);
+		return (StringPlusAuthority) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_Frequency(), true);
 	}
 
 	/**
@@ -1319,8 +1484,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetFrequency(StringPlusAuthority newFrequency, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_Frequency(),
+	public NotificationChain basicSetFrequency(
+			StringPlusAuthority newFrequency, NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_Frequency(),
 				newFrequency, msgs);
 	}
 
@@ -1330,7 +1497,9 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setFrequency(StringPlusAuthority newFrequency) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_Frequency(), newFrequency);
+		((FeatureMap.Internal) getMixed())
+				.set(MODSPackage.eINSTANCE.getDocumentRoot_Frequency(),
+						newFrequency);
 	}
 
 	/**
@@ -1339,7 +1508,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public GenreDefinition getGenre() {
-		return (GenreDefinition) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_Genre(), true);
+		return (GenreDefinition) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_Genre(), true);
 	}
 
 	/**
@@ -1347,8 +1517,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetGenre(GenreDefinition newGenre, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_Genre(), newGenre, msgs);
+	public NotificationChain basicSetGenre(GenreDefinition newGenre,
+			NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_Genre(), newGenre, msgs);
 	}
 
 	/**
@@ -1357,7 +1529,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setGenre(GenreDefinition newGenre) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_Genre(), newGenre);
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_Genre(), newGenre);
 	}
 
 	/**
@@ -1366,7 +1539,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public StringPlusAuthority getGeographic() {
-		return (StringPlusAuthority) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_Geographic(), true);
+		return (StringPlusAuthority) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_Geographic(), true);
 	}
 
 	/**
@@ -1374,8 +1548,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetGeographic(StringPlusAuthority newGeographic, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_Geographic(),
+	public NotificationChain basicSetGeographic(
+			StringPlusAuthority newGeographic, NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_Geographic(),
 				newGeographic, msgs);
 	}
 
@@ -1385,7 +1561,9 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setGeographic(StringPlusAuthority newGeographic) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_Geographic(), newGeographic);
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_Geographic(),
+				newGeographic);
 	}
 
 	/**
@@ -1394,7 +1572,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public GeographicCodeDefinition getGeographicCode() {
-		return (GeographicCodeDefinition) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_GeographicCode(), true);
+		return (GeographicCodeDefinition) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_GeographicCode(), true);
 	}
 
 	/**
@@ -1402,8 +1581,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetGeographicCode(GeographicCodeDefinition newGeographicCode, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_GeographicCode(),
+	public NotificationChain basicSetGeographicCode(
+			GeographicCodeDefinition newGeographicCode, NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_GeographicCode(),
 				newGeographicCode, msgs);
 	}
 
@@ -1413,7 +1594,9 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setGeographicCode(GeographicCodeDefinition newGeographicCode) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_GeographicCode(), newGeographicCode);
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_GeographicCode(),
+				newGeographicCode);
 	}
 
 	/**
@@ -1423,7 +1606,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 */
 	public HierarchicalGeographicDefinition getHierarchicalGeographic() {
 		return (HierarchicalGeographicDefinition) getMixed().get(
-				MODSPackage.eINSTANCE.getDocumentRoot_HierarchicalGeographic(), true);
+				MODSPackage.eINSTANCE.getDocumentRoot_HierarchicalGeographic(),
+				true);
 	}
 
 	/**
@@ -1431,10 +1615,12 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetHierarchicalGeographic(HierarchicalGeographicDefinition newHierarchicalGeographic,
+	public NotificationChain basicSetHierarchicalGeographic(
+			HierarchicalGeographicDefinition newHierarchicalGeographic,
 			NotificationChain msgs) {
 		return ((FeatureMap.Internal) getMixed()).basicAdd(
-				MODSPackage.eINSTANCE.getDocumentRoot_HierarchicalGeographic(), newHierarchicalGeographic, msgs);
+				MODSPackage.eINSTANCE.getDocumentRoot_HierarchicalGeographic(),
+				newHierarchicalGeographic, msgs);
 	}
 
 	/**
@@ -1442,8 +1628,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setHierarchicalGeographic(HierarchicalGeographicDefinition newHierarchicalGeographic) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_HierarchicalGeographic(),
+	public void setHierarchicalGeographic(
+			HierarchicalGeographicDefinition newHierarchicalGeographic) {
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_HierarchicalGeographic(),
 				newHierarchicalGeographic);
 	}
 
@@ -1453,7 +1641,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public ExtensionDefinition getHoldingExternal() {
-		return (ExtensionDefinition) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_HoldingExternal(), true);
+		return (ExtensionDefinition) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_HoldingExternal(), true);
 	}
 
 	/**
@@ -1461,8 +1650,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetHoldingExternal(ExtensionDefinition newHoldingExternal, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_HoldingExternal(),
+	public NotificationChain basicSetHoldingExternal(
+			ExtensionDefinition newHoldingExternal, NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_HoldingExternal(),
 				newHoldingExternal, msgs);
 	}
 
@@ -1472,7 +1663,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setHoldingExternal(ExtensionDefinition newHoldingExternal) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_HoldingExternal(),
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_HoldingExternal(),
 				newHoldingExternal);
 	}
 
@@ -1482,7 +1674,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public HoldingSimpleDefinition getHoldingSimple() {
-		return (HoldingSimpleDefinition) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_HoldingSimple(), true);
+		return (HoldingSimpleDefinition) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_HoldingSimple(), true);
 	}
 
 	/**
@@ -1490,8 +1683,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetHoldingSimple(HoldingSimpleDefinition newHoldingSimple, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_HoldingSimple(),
+	public NotificationChain basicSetHoldingSimple(
+			HoldingSimpleDefinition newHoldingSimple, NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_HoldingSimple(),
 				newHoldingSimple, msgs);
 	}
 
@@ -1501,7 +1696,9 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setHoldingSimple(HoldingSimpleDefinition newHoldingSimple) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_HoldingSimple(), newHoldingSimple);
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_HoldingSimple(),
+				newHoldingSimple);
 	}
 
 	/**
@@ -1510,7 +1707,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public IdentifierDefinition getIdentifier() {
-		return (IdentifierDefinition) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_Identifier(), true);
+		return (IdentifierDefinition) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_Identifier(), true);
 	}
 
 	/**
@@ -1518,8 +1716,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetIdentifier(IdentifierDefinition newIdentifier, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_Identifier(),
+	public NotificationChain basicSetIdentifier(
+			IdentifierDefinition newIdentifier, NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_Identifier(),
 				newIdentifier, msgs);
 	}
 
@@ -1529,7 +1729,9 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setIdentifier(IdentifierDefinition newIdentifier) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_Identifier(), newIdentifier);
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_Identifier(),
+				newIdentifier);
 	}
 
 	/**
@@ -1538,7 +1740,9 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public XsString getInternetMediaType() {
-		return (XsString) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_InternetMediaType(), true);
+		return (XsString) getMixed()
+				.get(MODSPackage.eINSTANCE.getDocumentRoot_InternetMediaType(),
+						true);
 	}
 
 	/**
@@ -1546,8 +1750,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetInternetMediaType(XsString newInternetMediaType, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_InternetMediaType(),
+	public NotificationChain basicSetInternetMediaType(
+			XsString newInternetMediaType, NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_InternetMediaType(),
 				newInternetMediaType, msgs);
 	}
 
@@ -1557,7 +1763,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setInternetMediaType(XsString newInternetMediaType) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_InternetMediaType(),
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_InternetMediaType(),
 				newInternetMediaType);
 	}
 
@@ -1567,7 +1774,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public XsString getIsland() {
-		return (XsString) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_Island(), true);
+		return (XsString) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_Island(), true);
 	}
 
 	/**
@@ -1575,9 +1783,11 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetIsland(XsString newIsland, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_Island(), newIsland,
-				msgs);
+	public NotificationChain basicSetIsland(XsString newIsland,
+			NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed())
+				.basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_Island(),
+						newIsland, msgs);
 	}
 
 	/**
@@ -1586,7 +1796,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setIsland(XsString newIsland) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_Island(), newIsland);
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_Island(), newIsland);
 	}
 
 	/**
@@ -1595,7 +1806,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public IssuanceDefinition getIssuance() {
-		return (IssuanceDefinition) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_Issuance(), true);
+		return (IssuanceDefinition) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_Issuance(), true);
 	}
 
 	/**
@@ -1604,7 +1816,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setIssuance(IssuanceDefinition newIssuance) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_Issuance(), newIssuance);
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_Issuance(), newIssuance);
 	}
 
 	/**
@@ -1613,7 +1826,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public LanguageDefinition getLanguage() {
-		return (LanguageDefinition) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_Language(), true);
+		return (LanguageDefinition) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_Language(), true);
 	}
 
 	/**
@@ -1621,8 +1835,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetLanguage(LanguageDefinition newLanguage, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_Language(), newLanguage,
+	public NotificationChain basicSetLanguage(LanguageDefinition newLanguage,
+			NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_Language(), newLanguage,
 				msgs);
 	}
 
@@ -1632,7 +1848,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setLanguage(LanguageDefinition newLanguage) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_Language(), newLanguage);
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_Language(), newLanguage);
 	}
 
 	/**
@@ -1641,7 +1858,9 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public LanguageDefinition getLanguageOfCataloging() {
-		return (LanguageDefinition) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_LanguageOfCataloging(), true);
+		return (LanguageDefinition) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_LanguageOfCataloging(),
+				true);
 	}
 
 	/**
@@ -1649,9 +1868,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetLanguageOfCataloging(LanguageDefinition newLanguageOfCataloging,
-			NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_LanguageOfCataloging(),
+	public NotificationChain basicSetLanguageOfCataloging(
+			LanguageDefinition newLanguageOfCataloging, NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_LanguageOfCataloging(),
 				newLanguageOfCataloging, msgs);
 	}
 
@@ -1660,8 +1880,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setLanguageOfCataloging(LanguageDefinition newLanguageOfCataloging) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_LanguageOfCataloging(),
+	public void setLanguageOfCataloging(
+			LanguageDefinition newLanguageOfCataloging) {
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_LanguageOfCataloging(),
 				newLanguageOfCataloging);
 	}
 
@@ -1671,7 +1893,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public LanguageTermDefinition getLanguageTerm() {
-		return (LanguageTermDefinition) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_LanguageTerm(), true);
+		return (LanguageTermDefinition) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_LanguageTerm(), true);
 	}
 
 	/**
@@ -1679,8 +1902,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetLanguageTerm(LanguageTermDefinition newLanguageTerm, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_LanguageTerm(),
+	public NotificationChain basicSetLanguageTerm(
+			LanguageTermDefinition newLanguageTerm, NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_LanguageTerm(),
 				newLanguageTerm, msgs);
 	}
 
@@ -1690,7 +1915,9 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setLanguageTerm(LanguageTermDefinition newLanguageTerm) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_LanguageTerm(), newLanguageTerm);
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_LanguageTerm(),
+				newLanguageTerm);
 	}
 
 	/**
@@ -1699,7 +1926,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public XsString getList() {
-		return (XsString) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_List(), true);
+		return (XsString) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_List(), true);
 	}
 
 	/**
@@ -1707,8 +1935,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetList(XsString newList, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_List(), newList, msgs);
+	public NotificationChain basicSetList(XsString newList,
+			NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_List(), newList, msgs);
 	}
 
 	/**
@@ -1717,7 +1947,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setList(XsString newList) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_List(), newList);
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_List(), newList);
 	}
 
 	/**
@@ -1726,7 +1957,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public LocationDefinition getLocation() {
-		return (LocationDefinition) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_Location(), true);
+		return (LocationDefinition) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_Location(), true);
 	}
 
 	/**
@@ -1734,8 +1966,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetLocation(LocationDefinition newLocation, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_Location(), newLocation,
+	public NotificationChain basicSetLocation(LocationDefinition newLocation,
+			NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_Location(), newLocation,
 				msgs);
 	}
 
@@ -1745,7 +1979,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setLocation(LocationDefinition newLocation) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_Location(), newLocation);
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_Location(), newLocation);
 	}
 
 	/**
@@ -1754,7 +1989,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public ModsDefinition getMods() {
-		return (ModsDefinition) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_Mods(), true);
+		return (ModsDefinition) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_Mods(), true);
 	}
 
 	/**
@@ -1762,8 +1998,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetMods(ModsDefinition newMods, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_Mods(), newMods, msgs);
+	public NotificationChain basicSetMods(ModsDefinition newMods,
+			NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_Mods(), newMods, msgs);
 	}
 
 	/**
@@ -1772,7 +2010,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setMods(ModsDefinition newMods) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_Mods(), newMods);
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_Mods(), newMods);
 	}
 
 	/**
@@ -1781,7 +2020,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public ModsCollectionDefinition getModsCollection() {
-		return (ModsCollectionDefinition) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_ModsCollection(), true);
+		return (ModsCollectionDefinition) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_ModsCollection(), true);
 	}
 
 	/**
@@ -1789,8 +2029,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetModsCollection(ModsCollectionDefinition newModsCollection, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_ModsCollection(),
+	public NotificationChain basicSetModsCollection(
+			ModsCollectionDefinition newModsCollection, NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_ModsCollection(),
 				newModsCollection, msgs);
 	}
 
@@ -1800,7 +2042,9 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setModsCollection(ModsCollectionDefinition newModsCollection) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_ModsCollection(), newModsCollection);
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_ModsCollection(),
+				newModsCollection);
 	}
 
 	/**
@@ -1809,7 +2053,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public NameDefinition getName() {
-		return (NameDefinition) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_Name(), true);
+		return (NameDefinition) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_Name(), true);
 	}
 
 	/**
@@ -1817,8 +2062,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetName(NameDefinition newName, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_Name(), newName, msgs);
+	public NotificationChain basicSetName(NameDefinition newName,
+			NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_Name(), newName, msgs);
 	}
 
 	/**
@@ -1827,7 +2074,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setName(NameDefinition newName) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_Name(), newName);
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_Name(), newName);
 	}
 
 	/**
@@ -1836,7 +2084,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public NamePartDefinition getNamePart() {
-		return (NamePartDefinition) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_NamePart(), true);
+		return (NamePartDefinition) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_NamePart(), true);
 	}
 
 	/**
@@ -1844,8 +2093,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetNamePart(NamePartDefinition newNamePart, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_NamePart(), newNamePart,
+	public NotificationChain basicSetNamePart(NamePartDefinition newNamePart,
+			NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_NamePart(), newNamePart,
 				msgs);
 	}
 
@@ -1855,7 +2106,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setNamePart(NamePartDefinition newNamePart) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_NamePart(), newNamePart);
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_NamePart(), newNamePart);
 	}
 
 	/**
@@ -1864,7 +2116,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public XsString getNonSort() {
-		return (XsString) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_NonSort(), true);
+		return (XsString) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_NonSort(), true);
 	}
 
 	/**
@@ -1872,8 +2125,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetNonSort(XsString newNonSort, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_NonSort(), newNonSort,
+	public NotificationChain basicSetNonSort(XsString newNonSort,
+			NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_NonSort(), newNonSort,
 				msgs);
 	}
 
@@ -1883,7 +2138,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setNonSort(XsString newNonSort) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_NonSort(), newNonSort);
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_NonSort(), newNonSort);
 	}
 
 	/**
@@ -1892,7 +2148,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public NoteDefinition getNote() {
-		return (NoteDefinition) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_Note(), true);
+		return (NoteDefinition) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_Note(), true);
 	}
 
 	/**
@@ -1900,8 +2157,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetNote(NoteDefinition newNote, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_Note(), newNote, msgs);
+	public NotificationChain basicSetNote(NoteDefinition newNote,
+			NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_Note(), newNote, msgs);
 	}
 
 	/**
@@ -1910,7 +2169,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setNote(NoteDefinition newNote) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_Note(), newNote);
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_Note(), newNote);
 	}
 
 	/**
@@ -1919,7 +2179,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public XsString getNumber() {
-		return (XsString) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_Number(), true);
+		return (XsString) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_Number(), true);
 	}
 
 	/**
@@ -1927,9 +2188,11 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetNumber(XsString newNumber, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_Number(), newNumber,
-				msgs);
+	public NotificationChain basicSetNumber(XsString newNumber,
+			NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed())
+				.basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_Number(),
+						newNumber, msgs);
 	}
 
 	/**
@@ -1938,7 +2201,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setNumber(XsString newNumber) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_Number(), newNumber);
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_Number(), newNumber);
 	}
 
 	/**
@@ -1947,7 +2211,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public StringPlusAuthority getOccupation() {
-		return (StringPlusAuthority) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_Occupation(), true);
+		return (StringPlusAuthority) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_Occupation(), true);
 	}
 
 	/**
@@ -1955,8 +2220,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetOccupation(StringPlusAuthority newOccupation, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_Occupation(),
+	public NotificationChain basicSetOccupation(
+			StringPlusAuthority newOccupation, NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_Occupation(),
 				newOccupation, msgs);
 	}
 
@@ -1966,7 +2233,9 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setOccupation(StringPlusAuthority newOccupation) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_Occupation(), newOccupation);
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_Occupation(),
+				newOccupation);
 	}
 
 	/**
@@ -1975,7 +2244,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public OriginInfoDefinition getOriginInfo() {
-		return (OriginInfoDefinition) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_OriginInfo(), true);
+		return (OriginInfoDefinition) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_OriginInfo(), true);
 	}
 
 	/**
@@ -1983,8 +2253,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetOriginInfo(OriginInfoDefinition newOriginInfo, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_OriginInfo(),
+	public NotificationChain basicSetOriginInfo(
+			OriginInfoDefinition newOriginInfo, NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_OriginInfo(),
 				newOriginInfo, msgs);
 	}
 
@@ -1994,7 +2266,9 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setOriginInfo(OriginInfoDefinition newOriginInfo) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_OriginInfo(), newOriginInfo);
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_OriginInfo(),
+				newOriginInfo);
 	}
 
 	/**
@@ -2003,7 +2277,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public PartDefinition getPart() {
-		return (PartDefinition) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_Part(), true);
+		return (PartDefinition) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_Part(), true);
 	}
 
 	/**
@@ -2011,8 +2286,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetPart(PartDefinition newPart, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_Part(), newPart, msgs);
+	public NotificationChain basicSetPart(PartDefinition newPart,
+			NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_Part(), newPart, msgs);
 	}
 
 	/**
@@ -2021,7 +2298,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setPart(PartDefinition newPart) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_Part(), newPart);
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_Part(), newPart);
 	}
 
 	/**
@@ -2030,7 +2308,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public XsString getPartName() {
-		return (XsString) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_PartName(), true);
+		return (XsString) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_PartName(), true);
 	}
 
 	/**
@@ -2038,8 +2317,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetPartName(XsString newPartName, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_PartName(), newPartName,
+	public NotificationChain basicSetPartName(XsString newPartName,
+			NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_PartName(), newPartName,
 				msgs);
 	}
 
@@ -2049,7 +2330,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setPartName(XsString newPartName) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_PartName(), newPartName);
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_PartName(), newPartName);
 	}
 
 	/**
@@ -2058,7 +2340,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public XsString getPartNumber() {
-		return (XsString) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_PartNumber(), true);
+		return (XsString) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_PartNumber(), true);
 	}
 
 	/**
@@ -2066,8 +2349,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetPartNumber(XsString newPartNumber, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_PartNumber(),
+	public NotificationChain basicSetPartNumber(XsString newPartNumber,
+			NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_PartNumber(),
 				newPartNumber, msgs);
 	}
 
@@ -2077,7 +2362,9 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setPartNumber(XsString newPartNumber) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_PartNumber(), newPartNumber);
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_PartNumber(),
+				newPartNumber);
 	}
 
 	/**
@@ -2087,7 +2374,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 */
 	public PhysicalDescriptionDefinition getPhysicalDescription() {
 		return (PhysicalDescriptionDefinition) getMixed().get(
-				MODSPackage.eINSTANCE.getDocumentRoot_PhysicalDescription(), true);
+				MODSPackage.eINSTANCE.getDocumentRoot_PhysicalDescription(),
+				true);
 	}
 
 	/**
@@ -2095,9 +2383,11 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetPhysicalDescription(PhysicalDescriptionDefinition newPhysicalDescription,
+	public NotificationChain basicSetPhysicalDescription(
+			PhysicalDescriptionDefinition newPhysicalDescription,
 			NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_PhysicalDescription(),
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_PhysicalDescription(),
 				newPhysicalDescription, msgs);
 	}
 
@@ -2106,8 +2396,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPhysicalDescription(PhysicalDescriptionDefinition newPhysicalDescription) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_PhysicalDescription(),
+	public void setPhysicalDescription(
+			PhysicalDescriptionDefinition newPhysicalDescription) {
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_PhysicalDescription(),
 				newPhysicalDescription);
 	}
 
@@ -2117,8 +2409,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public PhysicalLocationDefinition getPhysicalLocation() {
-		return (PhysicalLocationDefinition) getMixed()
-				.get(MODSPackage.eINSTANCE.getDocumentRoot_PhysicalLocation(), true);
+		return (PhysicalLocationDefinition) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_PhysicalLocation(), true);
 	}
 
 	/**
@@ -2126,9 +2418,11 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetPhysicalLocation(PhysicalLocationDefinition newPhysicalLocation,
+	public NotificationChain basicSetPhysicalLocation(
+			PhysicalLocationDefinition newPhysicalLocation,
 			NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_PhysicalLocation(),
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_PhysicalLocation(),
 				newPhysicalLocation, msgs);
 	}
 
@@ -2137,8 +2431,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPhysicalLocation(PhysicalLocationDefinition newPhysicalLocation) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_PhysicalLocation(),
+	public void setPhysicalLocation(
+			PhysicalLocationDefinition newPhysicalLocation) {
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_PhysicalLocation(),
 				newPhysicalLocation);
 	}
 
@@ -2148,7 +2444,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public PlaceDefinition getPlace() {
-		return (PlaceDefinition) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_Place(), true);
+		return (PlaceDefinition) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_Place(), true);
 	}
 
 	/**
@@ -2156,8 +2453,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetPlace(PlaceDefinition newPlace, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_Place(), newPlace, msgs);
+	public NotificationChain basicSetPlace(PlaceDefinition newPlace,
+			NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_Place(), newPlace, msgs);
 	}
 
 	/**
@@ -2166,7 +2465,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setPlace(PlaceDefinition newPlace) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_Place(), newPlace);
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_Place(), newPlace);
 	}
 
 	/**
@@ -2175,7 +2475,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public PlaceTermDefinition getPlaceTerm() {
-		return (PlaceTermDefinition) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_PlaceTerm(), true);
+		return (PlaceTermDefinition) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_PlaceTerm(), true);
 	}
 
 	/**
@@ -2183,8 +2484,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetPlaceTerm(PlaceTermDefinition newPlaceTerm, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_PlaceTerm(),
+	public NotificationChain basicSetPlaceTerm(
+			PlaceTermDefinition newPlaceTerm, NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_PlaceTerm(),
 				newPlaceTerm, msgs);
 	}
 
@@ -2194,7 +2497,9 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setPlaceTerm(PlaceTermDefinition newPlaceTerm) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_PlaceTerm(), newPlaceTerm);
+		((FeatureMap.Internal) getMixed())
+				.set(MODSPackage.eINSTANCE.getDocumentRoot_PlaceTerm(),
+						newPlaceTerm);
 	}
 
 	/**
@@ -2203,7 +2508,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public XsString getProjection() {
-		return (XsString) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_Projection(), true);
+		return (XsString) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_Projection(), true);
 	}
 
 	/**
@@ -2211,8 +2517,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetProjection(XsString newProjection, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_Projection(),
+	public NotificationChain basicSetProjection(XsString newProjection,
+			NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_Projection(),
 				newProjection, msgs);
 	}
 
@@ -2222,7 +2530,9 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setProjection(XsString newProjection) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_Projection(), newProjection);
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_Projection(),
+				newProjection);
 	}
 
 	/**
@@ -2231,7 +2541,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public XsString getProvince() {
-		return (XsString) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_Province(), true);
+		return (XsString) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_Province(), true);
 	}
 
 	/**
@@ -2239,8 +2550,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetProvince(XsString newProvince, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_Province(), newProvince,
+	public NotificationChain basicSetProvince(XsString newProvince,
+			NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_Province(), newProvince,
 				msgs);
 	}
 
@@ -2250,7 +2563,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setProvince(XsString newProvince) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_Province(), newProvince);
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_Province(), newProvince);
 	}
 
 	/**
@@ -2259,7 +2573,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public StringPlusSupplied getPublisher() {
-		return (StringPlusSupplied) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_Publisher(), true);
+		return (StringPlusSupplied) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_Publisher(), true);
 	}
 
 	/**
@@ -2267,8 +2582,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetPublisher(StringPlusSupplied newPublisher, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_Publisher(),
+	public NotificationChain basicSetPublisher(StringPlusSupplied newPublisher,
+			NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_Publisher(),
 				newPublisher, msgs);
 	}
 
@@ -2278,7 +2595,9 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setPublisher(StringPlusSupplied newPublisher) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_Publisher(), newPublisher);
+		((FeatureMap.Internal) getMixed())
+				.set(MODSPackage.eINSTANCE.getDocumentRoot_Publisher(),
+						newPublisher);
 	}
 
 	/**
@@ -2287,7 +2606,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public DateDefinition getRecordChangeDate() {
-		return (DateDefinition) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_RecordChangeDate(), true);
+		return (DateDefinition) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_RecordChangeDate(), true);
 	}
 
 	/**
@@ -2295,8 +2615,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRecordChangeDate(DateDefinition newRecordChangeDate, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_RecordChangeDate(),
+	public NotificationChain basicSetRecordChangeDate(
+			DateDefinition newRecordChangeDate, NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_RecordChangeDate(),
 				newRecordChangeDate, msgs);
 	}
 
@@ -2306,7 +2628,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setRecordChangeDate(DateDefinition newRecordChangeDate) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_RecordChangeDate(),
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_RecordChangeDate(),
 				newRecordChangeDate);
 	}
 
@@ -2316,7 +2639,9 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public StringPlusAuthority getRecordContentSource() {
-		return (StringPlusAuthority) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_RecordContentSource(), true);
+		return (StringPlusAuthority) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_RecordContentSource(),
+				true);
 	}
 
 	/**
@@ -2324,9 +2649,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRecordContentSource(StringPlusAuthority newRecordContentSource,
-			NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_RecordContentSource(),
+	public NotificationChain basicSetRecordContentSource(
+			StringPlusAuthority newRecordContentSource, NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_RecordContentSource(),
 				newRecordContentSource, msgs);
 	}
 
@@ -2335,8 +2661,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRecordContentSource(StringPlusAuthority newRecordContentSource) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_RecordContentSource(),
+	public void setRecordContentSource(
+			StringPlusAuthority newRecordContentSource) {
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_RecordContentSource(),
 				newRecordContentSource);
 	}
 
@@ -2346,7 +2674,9 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public DateDefinition getRecordCreationDate() {
-		return (DateDefinition) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_RecordCreationDate(), true);
+		return (DateDefinition) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_RecordCreationDate(),
+				true);
 	}
 
 	/**
@@ -2354,8 +2684,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRecordCreationDate(DateDefinition newRecordCreationDate, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_RecordCreationDate(),
+	public NotificationChain basicSetRecordCreationDate(
+			DateDefinition newRecordCreationDate, NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_RecordCreationDate(),
 				newRecordCreationDate, msgs);
 	}
 
@@ -2365,7 +2697,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setRecordCreationDate(DateDefinition newRecordCreationDate) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_RecordCreationDate(),
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_RecordCreationDate(),
 				newRecordCreationDate);
 	}
 
@@ -2375,8 +2708,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public RecordIdentifierDefinition getRecordIdentifier() {
-		return (RecordIdentifierDefinition) getMixed()
-				.get(MODSPackage.eINSTANCE.getDocumentRoot_RecordIdentifier(), true);
+		return (RecordIdentifierDefinition) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_RecordIdentifier(), true);
 	}
 
 	/**
@@ -2384,9 +2717,11 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRecordIdentifier(RecordIdentifierDefinition newRecordIdentifier,
+	public NotificationChain basicSetRecordIdentifier(
+			RecordIdentifierDefinition newRecordIdentifier,
 			NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_RecordIdentifier(),
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_RecordIdentifier(),
 				newRecordIdentifier, msgs);
 	}
 
@@ -2395,8 +2730,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRecordIdentifier(RecordIdentifierDefinition newRecordIdentifier) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_RecordIdentifier(),
+	public void setRecordIdentifier(
+			RecordIdentifierDefinition newRecordIdentifier) {
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_RecordIdentifier(),
 				newRecordIdentifier);
 	}
 
@@ -2406,7 +2743,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public RecordInfoDefinition getRecordInfo() {
-		return (RecordInfoDefinition) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_RecordInfo(), true);
+		return (RecordInfoDefinition) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_RecordInfo(), true);
 	}
 
 	/**
@@ -2414,8 +2752,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRecordInfo(RecordInfoDefinition newRecordInfo, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_RecordInfo(),
+	public NotificationChain basicSetRecordInfo(
+			RecordInfoDefinition newRecordInfo, NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_RecordInfo(),
 				newRecordInfo, msgs);
 	}
 
@@ -2425,7 +2765,9 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setRecordInfo(RecordInfoDefinition newRecordInfo) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_RecordInfo(), newRecordInfo);
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_RecordInfo(),
+				newRecordInfo);
 	}
 
 	/**
@@ -2434,7 +2776,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public XsString getRecordOrigin() {
-		return (XsString) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_RecordOrigin(), true);
+		return (XsString) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_RecordOrigin(), true);
 	}
 
 	/**
@@ -2442,8 +2785,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRecordOrigin(XsString newRecordOrigin, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_RecordOrigin(),
+	public NotificationChain basicSetRecordOrigin(XsString newRecordOrigin,
+			NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_RecordOrigin(),
 				newRecordOrigin, msgs);
 	}
 
@@ -2453,7 +2798,9 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setRecordOrigin(XsString newRecordOrigin) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_RecordOrigin(), newRecordOrigin);
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_RecordOrigin(),
+				newRecordOrigin);
 	}
 
 	/**
@@ -2463,7 +2810,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 */
 	public ReformattingQualityDefinition getReformattingQuality() {
 		return (ReformattingQualityDefinition) getMixed().get(
-				MODSPackage.eINSTANCE.getDocumentRoot_ReformattingQuality(), true);
+				MODSPackage.eINSTANCE.getDocumentRoot_ReformattingQuality(),
+				true);
 	}
 
 	/**
@@ -2471,8 +2819,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setReformattingQuality(ReformattingQualityDefinition newReformattingQuality) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_ReformattingQuality(),
+	public void setReformattingQuality(
+			ReformattingQualityDefinition newReformattingQuality) {
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_ReformattingQuality(),
 				newReformattingQuality);
 	}
 
@@ -2482,7 +2832,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public XsString getRegion() {
-		return (XsString) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_Region(), true);
+		return (XsString) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_Region(), true);
 	}
 
 	/**
@@ -2490,9 +2841,11 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRegion(XsString newRegion, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_Region(), newRegion,
-				msgs);
+	public NotificationChain basicSetRegion(XsString newRegion,
+			NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed())
+				.basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_Region(),
+						newRegion, msgs);
 	}
 
 	/**
@@ -2501,7 +2854,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setRegion(XsString newRegion) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_Region(), newRegion);
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_Region(), newRegion);
 	}
 
 	/**
@@ -2510,7 +2864,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public RelatedItemDefinition getRelatedItem() {
-		return (RelatedItemDefinition) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_RelatedItem(), true);
+		return (RelatedItemDefinition) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_RelatedItem(), true);
 	}
 
 	/**
@@ -2518,8 +2873,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRelatedItem(RelatedItemDefinition newRelatedItem, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_RelatedItem(),
+	public NotificationChain basicSetRelatedItem(
+			RelatedItemDefinition newRelatedItem, NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_RelatedItem(),
 				newRelatedItem, msgs);
 	}
 
@@ -2529,7 +2886,9 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setRelatedItem(RelatedItemDefinition newRelatedItem) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_RelatedItem(), newRelatedItem);
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_RelatedItem(),
+				newRelatedItem);
 	}
 
 	/**
@@ -2538,7 +2897,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public RoleDefinition getRole() {
-		return (RoleDefinition) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_Role(), true);
+		return (RoleDefinition) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_Role(), true);
 	}
 
 	/**
@@ -2546,8 +2906,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRole(RoleDefinition newRole, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_Role(), newRole, msgs);
+	public NotificationChain basicSetRole(RoleDefinition newRole,
+			NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_Role(), newRole, msgs);
 	}
 
 	/**
@@ -2556,7 +2918,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setRole(RoleDefinition newRole) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_Role(), newRole);
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_Role(), newRole);
 	}
 
 	/**
@@ -2565,7 +2928,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public RoleTermDefinition getRoleTerm() {
-		return (RoleTermDefinition) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_RoleTerm(), true);
+		return (RoleTermDefinition) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_RoleTerm(), true);
 	}
 
 	/**
@@ -2573,8 +2937,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRoleTerm(RoleTermDefinition newRoleTerm, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_RoleTerm(), newRoleTerm,
+	public NotificationChain basicSetRoleTerm(RoleTermDefinition newRoleTerm,
+			NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_RoleTerm(), newRoleTerm,
 				msgs);
 	}
 
@@ -2584,7 +2950,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setRoleTerm(RoleTermDefinition newRoleTerm) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_RoleTerm(), newRoleTerm);
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_RoleTerm(), newRoleTerm);
 	}
 
 	/**
@@ -2593,7 +2960,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public XsString getScale() {
-		return (XsString) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_Scale(), true);
+		return (XsString) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_Scale(), true);
 	}
 
 	/**
@@ -2601,8 +2969,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetScale(XsString newScale, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_Scale(), newScale, msgs);
+	public NotificationChain basicSetScale(XsString newScale,
+			NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_Scale(), newScale, msgs);
 	}
 
 	/**
@@ -2611,7 +2981,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setScale(XsString newScale) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_Scale(), newScale);
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_Scale(), newScale);
 	}
 
 	/**
@@ -2620,7 +2991,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public ScriptTermDefinition getScriptTerm() {
-		return (ScriptTermDefinition) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_ScriptTerm(), true);
+		return (ScriptTermDefinition) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_ScriptTerm(), true);
 	}
 
 	/**
@@ -2628,8 +3000,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetScriptTerm(ScriptTermDefinition newScriptTerm, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_ScriptTerm(),
+	public NotificationChain basicSetScriptTerm(
+			ScriptTermDefinition newScriptTerm, NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_ScriptTerm(),
 				newScriptTerm, msgs);
 	}
 
@@ -2639,7 +3013,9 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setScriptTerm(ScriptTermDefinition newScriptTerm) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_ScriptTerm(), newScriptTerm);
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_ScriptTerm(),
+				newScriptTerm);
 	}
 
 	/**
@@ -2648,7 +3024,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public XsString getShelfLocator() {
-		return (XsString) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_ShelfLocator(), true);
+		return (XsString) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_ShelfLocator(), true);
 	}
 
 	/**
@@ -2656,8 +3033,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetShelfLocator(XsString newShelfLocator, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_ShelfLocator(),
+	public NotificationChain basicSetShelfLocator(XsString newShelfLocator,
+			NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_ShelfLocator(),
 				newShelfLocator, msgs);
 	}
 
@@ -2667,7 +3046,9 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setShelfLocator(XsString newShelfLocator) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_ShelfLocator(), newShelfLocator);
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_ShelfLocator(),
+				newShelfLocator);
 	}
 
 	/**
@@ -2676,7 +3057,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public XsString getStart() {
-		return (XsString) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_Start(), true);
+		return (XsString) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_Start(), true);
 	}
 
 	/**
@@ -2684,8 +3066,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetStart(XsString newStart, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_Start(), newStart, msgs);
+	public NotificationChain basicSetStart(XsString newStart,
+			NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_Start(), newStart, msgs);
 	}
 
 	/**
@@ -2694,7 +3078,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setStart(XsString newStart) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_Start(), newStart);
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_Start(), newStart);
 	}
 
 	/**
@@ -2703,7 +3088,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public XsString getState() {
-		return (XsString) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_State(), true);
+		return (XsString) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_State(), true);
 	}
 
 	/**
@@ -2711,8 +3097,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetState(XsString newState, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_State(), newState, msgs);
+	public NotificationChain basicSetState(XsString newState,
+			NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_State(), newState, msgs);
 	}
 
 	/**
@@ -2721,7 +3109,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setState(XsString newState) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_State(), newState);
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_State(), newState);
 	}
 
 	/**
@@ -2730,7 +3119,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public SubjectDefinition getSubject() {
-		return (SubjectDefinition) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_Subject(), true);
+		return (SubjectDefinition) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_Subject(), true);
 	}
 
 	/**
@@ -2738,8 +3128,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetSubject(SubjectDefinition newSubject, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_Subject(), newSubject,
+	public NotificationChain basicSetSubject(SubjectDefinition newSubject,
+			NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_Subject(), newSubject,
 				msgs);
 	}
 
@@ -2749,7 +3141,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setSubject(SubjectDefinition newSubject) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_Subject(), newSubject);
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_Subject(), newSubject);
 	}
 
 	/**
@@ -2758,7 +3151,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public XsString getSubLocation() {
-		return (XsString) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_SubLocation(), true);
+		return (XsString) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_SubLocation(), true);
 	}
 
 	/**
@@ -2766,8 +3160,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetSubLocation(XsString newSubLocation, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_SubLocation(),
+	public NotificationChain basicSetSubLocation(XsString newSubLocation,
+			NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_SubLocation(),
 				newSubLocation, msgs);
 	}
 
@@ -2777,7 +3173,9 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setSubLocation(XsString newSubLocation) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_SubLocation(), newSubLocation);
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_SubLocation(),
+				newSubLocation);
 	}
 
 	/**
@@ -2786,7 +3184,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public XsString getSubTitle() {
-		return (XsString) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_SubTitle(), true);
+		return (XsString) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_SubTitle(), true);
 	}
 
 	/**
@@ -2794,8 +3193,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetSubTitle(XsString newSubTitle, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_SubTitle(), newSubTitle,
+	public NotificationChain basicSetSubTitle(XsString newSubTitle,
+			NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_SubTitle(), newSubTitle,
 				msgs);
 	}
 
@@ -2805,7 +3206,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setSubTitle(XsString newSubTitle) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_SubTitle(), newSubTitle);
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_SubTitle(), newSubTitle);
 	}
 
 	/**
@@ -2814,7 +3216,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public TableOfContentsDefinition getTableOfContents() {
-		return (TableOfContentsDefinition) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_TableOfContents(), true);
+		return (TableOfContentsDefinition) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_TableOfContents(), true);
 	}
 
 	/**
@@ -2822,8 +3225,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetTableOfContents(TableOfContentsDefinition newTableOfContents, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_TableOfContents(),
+	public NotificationChain basicSetTableOfContents(
+			TableOfContentsDefinition newTableOfContents, NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_TableOfContents(),
 				newTableOfContents, msgs);
 	}
 
@@ -2833,7 +3238,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setTableOfContents(TableOfContentsDefinition newTableOfContents) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_TableOfContents(),
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_TableOfContents(),
 				newTableOfContents);
 	}
 
@@ -2843,7 +3249,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public TargetAudienceDefinition getTargetAudience() {
-		return (TargetAudienceDefinition) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_TargetAudience(), true);
+		return (TargetAudienceDefinition) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_TargetAudience(), true);
 	}
 
 	/**
@@ -2851,8 +3258,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetTargetAudience(TargetAudienceDefinition newTargetAudience, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_TargetAudience(),
+	public NotificationChain basicSetTargetAudience(
+			TargetAudienceDefinition newTargetAudience, NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_TargetAudience(),
 				newTargetAudience, msgs);
 	}
 
@@ -2862,7 +3271,9 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setTargetAudience(TargetAudienceDefinition newTargetAudience) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_TargetAudience(), newTargetAudience);
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_TargetAudience(),
+				newTargetAudience);
 	}
 
 	/**
@@ -2871,7 +3282,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public TemporalDefinition getTemporal() {
-		return (TemporalDefinition) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_Temporal(), true);
+		return (TemporalDefinition) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_Temporal(), true);
 	}
 
 	/**
@@ -2879,8 +3291,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetTemporal(TemporalDefinition newTemporal, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_Temporal(), newTemporal,
+	public NotificationChain basicSetTemporal(TemporalDefinition newTemporal,
+			NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_Temporal(), newTemporal,
 				msgs);
 	}
 
@@ -2890,7 +3304,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setTemporal(TemporalDefinition newTemporal) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_Temporal(), newTemporal);
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_Temporal(), newTemporal);
 	}
 
 	/**
@@ -2899,7 +3314,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public XsString getTerritory() {
-		return (XsString) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_Territory(), true);
+		return (XsString) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_Territory(), true);
 	}
 
 	/**
@@ -2907,8 +3323,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetTerritory(XsString newTerritory, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_Territory(),
+	public NotificationChain basicSetTerritory(XsString newTerritory,
+			NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_Territory(),
 				newTerritory, msgs);
 	}
 
@@ -2918,7 +3336,9 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setTerritory(XsString newTerritory) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_Territory(), newTerritory);
+		((FeatureMap.Internal) getMixed())
+				.set(MODSPackage.eINSTANCE.getDocumentRoot_Territory(),
+						newTerritory);
 	}
 
 	/**
@@ -2927,7 +3347,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public UnstructuredTextDefinition getText() {
-		return (UnstructuredTextDefinition) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_Text(), true);
+		return (UnstructuredTextDefinition) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_Text(), true);
 	}
 
 	/**
@@ -2935,8 +3356,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetText(UnstructuredTextDefinition newText, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_Text(), newText, msgs);
+	public NotificationChain basicSetText(UnstructuredTextDefinition newText,
+			NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_Text(), newText, msgs);
 	}
 
 	/**
@@ -2945,7 +3368,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setText(UnstructuredTextDefinition newText) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_Text(), newText);
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_Text(), newText);
 	}
 
 	/**
@@ -2954,7 +3378,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public XsString getTitle() {
-		return (XsString) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_Title(), true);
+		return (XsString) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_Title(), true);
 	}
 
 	/**
@@ -2962,8 +3387,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetTitle(XsString newTitle, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_Title(), newTitle, msgs);
+	public NotificationChain basicSetTitle(XsString newTitle,
+			NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_Title(), newTitle, msgs);
 	}
 
 	/**
@@ -2972,7 +3399,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setTitle(XsString newTitle) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_Title(), newTitle);
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_Title(), newTitle);
 	}
 
 	/**
@@ -2981,7 +3409,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public TitleInfoDefinition getTitleInfo() {
-		return (TitleInfoDefinition) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_TitleInfo(), true);
+		return (TitleInfoDefinition) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_TitleInfo(), true);
 	}
 
 	/**
@@ -2989,8 +3418,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetTitleInfo(TitleInfoDefinition newTitleInfo, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_TitleInfo(),
+	public NotificationChain basicSetTitleInfo(
+			TitleInfoDefinition newTitleInfo, NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_TitleInfo(),
 				newTitleInfo, msgs);
 	}
 
@@ -3000,7 +3431,9 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setTitleInfo(TitleInfoDefinition newTitleInfo) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_TitleInfo(), newTitleInfo);
+		((FeatureMap.Internal) getMixed())
+				.set(MODSPackage.eINSTANCE.getDocumentRoot_TitleInfo(),
+						newTitleInfo);
 	}
 
 	/**
@@ -3009,7 +3442,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public StringPlusAuthority getTopic() {
-		return (StringPlusAuthority) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_Topic(), true);
+		return (StringPlusAuthority) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_Topic(), true);
 	}
 
 	/**
@@ -3017,8 +3451,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetTopic(StringPlusAuthority newTopic, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_Topic(), newTopic, msgs);
+	public NotificationChain basicSetTopic(StringPlusAuthority newTopic,
+			NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_Topic(), newTopic, msgs);
 	}
 
 	/**
@@ -3027,7 +3463,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setTopic(StringPlusAuthority newTopic) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_Topic(), newTopic);
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_Topic(), newTopic);
 	}
 
 	/**
@@ -3036,7 +3473,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public BigInteger getTotal() {
-		return (BigInteger) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_Total(), true);
+		return (BigInteger) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_Total(), true);
 	}
 
 	/**
@@ -3045,7 +3483,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setTotal(BigInteger newTotal) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_Total(), newTotal);
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_Total(), newTotal);
 	}
 
 	/**
@@ -3054,7 +3493,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public TypeOfResourceDefinition getTypeOfResource() {
-		return (TypeOfResourceDefinition) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_TypeOfResource(), true);
+		return (TypeOfResourceDefinition) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_TypeOfResource(), true);
 	}
 
 	/**
@@ -3062,8 +3502,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetTypeOfResource(TypeOfResourceDefinition newTypeOfResource, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_TypeOfResource(),
+	public NotificationChain basicSetTypeOfResource(
+			TypeOfResourceDefinition newTypeOfResource, NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_TypeOfResource(),
 				newTypeOfResource, msgs);
 	}
 
@@ -3073,7 +3515,9 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setTypeOfResource(TypeOfResourceDefinition newTypeOfResource) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_TypeOfResource(), newTypeOfResource);
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_TypeOfResource(),
+				newTypeOfResource);
 	}
 
 	/**
@@ -3082,7 +3526,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public UrlDefinition getUrl() {
-		return (UrlDefinition) getMixed().get(MODSPackage.eINSTANCE.getDocumentRoot_Url(), true);
+		return (UrlDefinition) getMixed().get(
+				MODSPackage.eINSTANCE.getDocumentRoot_Url(), true);
 	}
 
 	/**
@@ -3090,8 +3535,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetUrl(UrlDefinition newUrl, NotificationChain msgs) {
-		return ((FeatureMap.Internal) getMixed()).basicAdd(MODSPackage.eINSTANCE.getDocumentRoot_Url(), newUrl, msgs);
+	public NotificationChain basicSetUrl(UrlDefinition newUrl,
+			NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(
+				MODSPackage.eINSTANCE.getDocumentRoot_Url(), newUrl, msgs);
 	}
 
 	/**
@@ -3100,7 +3547,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	public void setUrl(UrlDefinition newUrl) {
-		((FeatureMap.Internal) getMixed()).set(MODSPackage.eINSTANCE.getDocumentRoot_Url(), newUrl);
+		((FeatureMap.Internal) getMixed()).set(
+				MODSPackage.eINSTANCE.getDocumentRoot_Url(), newUrl);
 	}
 
 	/**
@@ -3109,206 +3557,209 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+	public NotificationChain eInverseRemove(InternalEObject otherEnd,
+			int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case MODSPackage.DOCUMENT_ROOT__MIXED:
-				return ((InternalEList<?>) getMixed()).basicRemove(otherEnd, msgs);
-			case MODSPackage.DOCUMENT_ROOT__XMLNS_PREFIX_MAP:
-				return ((InternalEList<?>) getXMLNSPrefixMap()).basicRemove(otherEnd, msgs);
-			case MODSPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION:
-				return ((InternalEList<?>) getXSISchemaLocation()).basicRemove(otherEnd, msgs);
-			case MODSPackage.DOCUMENT_ROOT__ABSTRACT:
-				return basicSetAbstract(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__ACCESS_CONDITION:
-				return basicSetAccessCondition(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__AFFILIATION:
-				return basicSetAffiliation(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__AREA:
-				return basicSetArea(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__CAPTION:
-				return basicSetCaption(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__CARTOGRAPHICS:
-				return basicSetCartographics(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__CITY:
-				return basicSetCity(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__CITY_SECTION:
-				return basicSetCitySection(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__CLASSIFICATION:
-				return basicSetClassification(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__CONTINENT:
-				return basicSetContinent(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__COORDINATES:
-				return basicSetCoordinates(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__COPY_INFORMATION:
-				return basicSetCopyInformation(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__COPYRIGHT_DATE:
-				return basicSetCopyrightDate(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__COUNTRY:
-				return basicSetCountry(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__COUNTY:
-				return basicSetCounty(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__DATE:
-				return basicSetDate(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__DATE_CAPTURED:
-				return basicSetDateCaptured(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__DATE_CREATED:
-				return basicSetDateCreated(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__DATE_ISSUED:
-				return basicSetDateIssued(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__DATE_MODIFIED:
-				return basicSetDateModified(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__DATE_OTHER:
-				return basicSetDateOther(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__DATE_VALID:
-				return basicSetDateValid(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__DESCRIPTION:
-				return basicSetDescription(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__DESCRIPTION_STANDARD:
-				return basicSetDescriptionStandard(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__DETAIL:
-				return basicSetDetail(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__DISPLAY_FORM:
-				return basicSetDisplayForm(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__EDITION:
-				return basicSetEdition(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__ELECTRONIC_LOCATOR:
-				return basicSetElectronicLocator(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__END:
-				return basicSetEnd(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__ENUMERATION_AND_CHRONOLOGY:
-				return basicSetEnumerationAndChronology(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__EXTENSION:
-				return basicSetExtension(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__EXTENT:
-				return basicSetExtent(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__EXTRATERRESTRIAL_AREA:
-				return basicSetExtraterrestrialArea(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__FORM:
-				return basicSetForm(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__FREQUENCY:
-				return basicSetFrequency(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__GENRE:
-				return basicSetGenre(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__GEOGRAPHIC:
-				return basicSetGeographic(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__GEOGRAPHIC_CODE:
-				return basicSetGeographicCode(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__HIERARCHICAL_GEOGRAPHIC:
-				return basicSetHierarchicalGeographic(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__HOLDING_EXTERNAL:
-				return basicSetHoldingExternal(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__HOLDING_SIMPLE:
-				return basicSetHoldingSimple(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__IDENTIFIER:
-				return basicSetIdentifier(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__INTERNET_MEDIA_TYPE:
-				return basicSetInternetMediaType(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__ISLAND:
-				return basicSetIsland(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__LANGUAGE:
-				return basicSetLanguage(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__LANGUAGE_OF_CATALOGING:
-				return basicSetLanguageOfCataloging(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__LANGUAGE_TERM:
-				return basicSetLanguageTerm(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__LIST:
-				return basicSetList(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__LOCATION:
-				return basicSetLocation(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__MODS:
-				return basicSetMods(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__MODS_COLLECTION:
-				return basicSetModsCollection(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__NAME:
-				return basicSetName(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__NAME_PART:
-				return basicSetNamePart(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__NON_SORT:
-				return basicSetNonSort(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__NOTE:
-				return basicSetNote(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__NUMBER:
-				return basicSetNumber(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__OCCUPATION:
-				return basicSetOccupation(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__ORIGIN_INFO:
-				return basicSetOriginInfo(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__PART:
-				return basicSetPart(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__PART_NAME:
-				return basicSetPartName(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__PART_NUMBER:
-				return basicSetPartNumber(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__PHYSICAL_DESCRIPTION:
-				return basicSetPhysicalDescription(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__PHYSICAL_LOCATION:
-				return basicSetPhysicalLocation(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__PLACE:
-				return basicSetPlace(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__PLACE_TERM:
-				return basicSetPlaceTerm(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__PROJECTION:
-				return basicSetProjection(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__PROVINCE:
-				return basicSetProvince(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__PUBLISHER:
-				return basicSetPublisher(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__RECORD_CHANGE_DATE:
-				return basicSetRecordChangeDate(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__RECORD_CONTENT_SOURCE:
-				return basicSetRecordContentSource(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__RECORD_CREATION_DATE:
-				return basicSetRecordCreationDate(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__RECORD_IDENTIFIER:
-				return basicSetRecordIdentifier(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__RECORD_INFO:
-				return basicSetRecordInfo(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__RECORD_ORIGIN:
-				return basicSetRecordOrigin(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__REGION:
-				return basicSetRegion(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__RELATED_ITEM:
-				return basicSetRelatedItem(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__ROLE:
-				return basicSetRole(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__ROLE_TERM:
-				return basicSetRoleTerm(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__SCALE:
-				return basicSetScale(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__SCRIPT_TERM:
-				return basicSetScriptTerm(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__SHELF_LOCATOR:
-				return basicSetShelfLocator(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__START:
-				return basicSetStart(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__STATE:
-				return basicSetState(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__SUBJECT:
-				return basicSetSubject(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__SUB_LOCATION:
-				return basicSetSubLocation(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__SUB_TITLE:
-				return basicSetSubTitle(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__TABLE_OF_CONTENTS:
-				return basicSetTableOfContents(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__TARGET_AUDIENCE:
-				return basicSetTargetAudience(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__TEMPORAL:
-				return basicSetTemporal(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__TERRITORY:
-				return basicSetTerritory(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__TEXT:
-				return basicSetText(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__TITLE:
-				return basicSetTitle(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__TITLE_INFO:
-				return basicSetTitleInfo(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__TOPIC:
-				return basicSetTopic(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__TYPE_OF_RESOURCE:
-				return basicSetTypeOfResource(null, msgs);
-			case MODSPackage.DOCUMENT_ROOT__URL:
-				return basicSetUrl(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__MIXED:
+			return ((InternalEList<?>) getMixed()).basicRemove(otherEnd, msgs);
+		case MODSPackage.DOCUMENT_ROOT__XMLNS_PREFIX_MAP:
+			return ((InternalEList<?>) getXMLNSPrefixMap()).basicRemove(
+					otherEnd, msgs);
+		case MODSPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION:
+			return ((InternalEList<?>) getXSISchemaLocation()).basicRemove(
+					otherEnd, msgs);
+		case MODSPackage.DOCUMENT_ROOT__ABSTRACT:
+			return basicSetAbstract(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__ACCESS_CONDITION:
+			return basicSetAccessCondition(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__AFFILIATION:
+			return basicSetAffiliation(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__AREA:
+			return basicSetArea(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__CAPTION:
+			return basicSetCaption(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__CARTOGRAPHICS:
+			return basicSetCartographics(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__CITY:
+			return basicSetCity(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__CITY_SECTION:
+			return basicSetCitySection(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__CLASSIFICATION:
+			return basicSetClassification(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__CONTINENT:
+			return basicSetContinent(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__COORDINATES:
+			return basicSetCoordinates(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__COPY_INFORMATION:
+			return basicSetCopyInformation(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__COPYRIGHT_DATE:
+			return basicSetCopyrightDate(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__COUNTRY:
+			return basicSetCountry(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__COUNTY:
+			return basicSetCounty(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__DATE:
+			return basicSetDate(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__DATE_CAPTURED:
+			return basicSetDateCaptured(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__DATE_CREATED:
+			return basicSetDateCreated(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__DATE_ISSUED:
+			return basicSetDateIssued(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__DATE_MODIFIED:
+			return basicSetDateModified(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__DATE_OTHER:
+			return basicSetDateOther(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__DATE_VALID:
+			return basicSetDateValid(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__DESCRIPTION:
+			return basicSetDescription(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__DESCRIPTION_STANDARD:
+			return basicSetDescriptionStandard(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__DETAIL:
+			return basicSetDetail(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__DISPLAY_FORM:
+			return basicSetDisplayForm(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__EDITION:
+			return basicSetEdition(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__ELECTRONIC_LOCATOR:
+			return basicSetElectronicLocator(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__END:
+			return basicSetEnd(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__ENUMERATION_AND_CHRONOLOGY:
+			return basicSetEnumerationAndChronology(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__EXTENSION:
+			return basicSetExtension(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__EXTENT:
+			return basicSetExtent(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__EXTRATERRESTRIAL_AREA:
+			return basicSetExtraterrestrialArea(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__FORM:
+			return basicSetForm(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__FREQUENCY:
+			return basicSetFrequency(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__GENRE:
+			return basicSetGenre(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__GEOGRAPHIC:
+			return basicSetGeographic(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__GEOGRAPHIC_CODE:
+			return basicSetGeographicCode(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__HIERARCHICAL_GEOGRAPHIC:
+			return basicSetHierarchicalGeographic(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__HOLDING_EXTERNAL:
+			return basicSetHoldingExternal(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__HOLDING_SIMPLE:
+			return basicSetHoldingSimple(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__IDENTIFIER:
+			return basicSetIdentifier(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__INTERNET_MEDIA_TYPE:
+			return basicSetInternetMediaType(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__ISLAND:
+			return basicSetIsland(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__LANGUAGE:
+			return basicSetLanguage(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__LANGUAGE_OF_CATALOGING:
+			return basicSetLanguageOfCataloging(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__LANGUAGE_TERM:
+			return basicSetLanguageTerm(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__LIST:
+			return basicSetList(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__LOCATION:
+			return basicSetLocation(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__MODS:
+			return basicSetMods(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__MODS_COLLECTION:
+			return basicSetModsCollection(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__NAME:
+			return basicSetName(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__NAME_PART:
+			return basicSetNamePart(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__NON_SORT:
+			return basicSetNonSort(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__NOTE:
+			return basicSetNote(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__NUMBER:
+			return basicSetNumber(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__OCCUPATION:
+			return basicSetOccupation(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__ORIGIN_INFO:
+			return basicSetOriginInfo(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__PART:
+			return basicSetPart(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__PART_NAME:
+			return basicSetPartName(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__PART_NUMBER:
+			return basicSetPartNumber(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__PHYSICAL_DESCRIPTION:
+			return basicSetPhysicalDescription(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__PHYSICAL_LOCATION:
+			return basicSetPhysicalLocation(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__PLACE:
+			return basicSetPlace(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__PLACE_TERM:
+			return basicSetPlaceTerm(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__PROJECTION:
+			return basicSetProjection(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__PROVINCE:
+			return basicSetProvince(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__PUBLISHER:
+			return basicSetPublisher(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__RECORD_CHANGE_DATE:
+			return basicSetRecordChangeDate(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__RECORD_CONTENT_SOURCE:
+			return basicSetRecordContentSource(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__RECORD_CREATION_DATE:
+			return basicSetRecordCreationDate(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__RECORD_IDENTIFIER:
+			return basicSetRecordIdentifier(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__RECORD_INFO:
+			return basicSetRecordInfo(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__RECORD_ORIGIN:
+			return basicSetRecordOrigin(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__REGION:
+			return basicSetRegion(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__RELATED_ITEM:
+			return basicSetRelatedItem(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__ROLE:
+			return basicSetRole(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__ROLE_TERM:
+			return basicSetRoleTerm(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__SCALE:
+			return basicSetScale(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__SCRIPT_TERM:
+			return basicSetScriptTerm(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__SHELF_LOCATOR:
+			return basicSetShelfLocator(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__START:
+			return basicSetStart(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__STATE:
+			return basicSetState(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__SUBJECT:
+			return basicSetSubject(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__SUB_LOCATION:
+			return basicSetSubLocation(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__SUB_TITLE:
+			return basicSetSubTitle(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__TABLE_OF_CONTENTS:
+			return basicSetTableOfContents(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__TARGET_AUDIENCE:
+			return basicSetTargetAudience(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__TEMPORAL:
+			return basicSetTemporal(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__TERRITORY:
+			return basicSetTerritory(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__TEXT:
+			return basicSetText(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__TITLE:
+			return basicSetTitle(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__TITLE_INFO:
+			return basicSetTitleInfo(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__TOPIC:
+			return basicSetTopic(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__TYPE_OF_RESOURCE:
+			return basicSetTypeOfResource(null, msgs);
+		case MODSPackage.DOCUMENT_ROOT__URL:
+			return basicSetUrl(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -3321,220 +3772,220 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case MODSPackage.DOCUMENT_ROOT__MIXED:
-				if (coreType)
-					return getMixed();
-				return ((FeatureMap.Internal) getMixed()).getWrapper();
-			case MODSPackage.DOCUMENT_ROOT__XMLNS_PREFIX_MAP:
-				if (coreType)
-					return getXMLNSPrefixMap();
-				else
-					return getXMLNSPrefixMap().map();
-			case MODSPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION:
-				if (coreType)
-					return getXSISchemaLocation();
-				else
-					return getXSISchemaLocation().map();
-			case MODSPackage.DOCUMENT_ROOT__ABSTRACT:
-				return getAbstract();
-			case MODSPackage.DOCUMENT_ROOT__ACCESS_CONDITION:
-				return getAccessCondition();
-			case MODSPackage.DOCUMENT_ROOT__AFFILIATION:
-				return getAffiliation();
-			case MODSPackage.DOCUMENT_ROOT__AREA:
-				return getArea();
-			case MODSPackage.DOCUMENT_ROOT__CAPTION:
-				return getCaption();
-			case MODSPackage.DOCUMENT_ROOT__CARTOGRAPHICS:
-				return getCartographics();
-			case MODSPackage.DOCUMENT_ROOT__CITY:
-				return getCity();
-			case MODSPackage.DOCUMENT_ROOT__CITY_SECTION:
-				return getCitySection();
-			case MODSPackage.DOCUMENT_ROOT__CLASSIFICATION:
-				return getClassification();
-			case MODSPackage.DOCUMENT_ROOT__CONTINENT:
-				return getContinent();
-			case MODSPackage.DOCUMENT_ROOT__COORDINATES:
-				return getCoordinates();
-			case MODSPackage.DOCUMENT_ROOT__COPY_INFORMATION:
-				return getCopyInformation();
-			case MODSPackage.DOCUMENT_ROOT__COPYRIGHT_DATE:
-				return getCopyrightDate();
-			case MODSPackage.DOCUMENT_ROOT__COUNTRY:
-				return getCountry();
-			case MODSPackage.DOCUMENT_ROOT__COUNTY:
-				return getCounty();
-			case MODSPackage.DOCUMENT_ROOT__DATE:
-				return getDate();
-			case MODSPackage.DOCUMENT_ROOT__DATE_CAPTURED:
-				return getDateCaptured();
-			case MODSPackage.DOCUMENT_ROOT__DATE_CREATED:
-				return getDateCreated();
-			case MODSPackage.DOCUMENT_ROOT__DATE_ISSUED:
-				return getDateIssued();
-			case MODSPackage.DOCUMENT_ROOT__DATE_MODIFIED:
-				return getDateModified();
-			case MODSPackage.DOCUMENT_ROOT__DATE_OTHER:
-				return getDateOther();
-			case MODSPackage.DOCUMENT_ROOT__DATE_VALID:
-				return getDateValid();
-			case MODSPackage.DOCUMENT_ROOT__DESCRIPTION:
-				return getDescription();
-			case MODSPackage.DOCUMENT_ROOT__DESCRIPTION_STANDARD:
-				return getDescriptionStandard();
-			case MODSPackage.DOCUMENT_ROOT__DETAIL:
-				return getDetail();
-			case MODSPackage.DOCUMENT_ROOT__DIGITAL_ORIGIN:
-				return getDigitalOrigin();
-			case MODSPackage.DOCUMENT_ROOT__DISPLAY_FORM:
-				return getDisplayForm();
-			case MODSPackage.DOCUMENT_ROOT__EDITION:
-				return getEdition();
-			case MODSPackage.DOCUMENT_ROOT__ELECTRONIC_LOCATOR:
-				return getElectronicLocator();
-			case MODSPackage.DOCUMENT_ROOT__END:
-				return getEnd();
-			case MODSPackage.DOCUMENT_ROOT__ENUMERATION_AND_CHRONOLOGY:
-				return getEnumerationAndChronology();
-			case MODSPackage.DOCUMENT_ROOT__EXTENSION:
-				return getExtension();
-			case MODSPackage.DOCUMENT_ROOT__EXTENT:
-				return getExtent();
-			case MODSPackage.DOCUMENT_ROOT__EXTRATERRESTRIAL_AREA:
-				return getExtraterrestrialArea();
-			case MODSPackage.DOCUMENT_ROOT__FORM:
-				return getForm();
-			case MODSPackage.DOCUMENT_ROOT__FREQUENCY:
-				return getFrequency();
-			case MODSPackage.DOCUMENT_ROOT__GENRE:
-				return getGenre();
-			case MODSPackage.DOCUMENT_ROOT__GEOGRAPHIC:
-				return getGeographic();
-			case MODSPackage.DOCUMENT_ROOT__GEOGRAPHIC_CODE:
-				return getGeographicCode();
-			case MODSPackage.DOCUMENT_ROOT__HIERARCHICAL_GEOGRAPHIC:
-				return getHierarchicalGeographic();
-			case MODSPackage.DOCUMENT_ROOT__HOLDING_EXTERNAL:
-				return getHoldingExternal();
-			case MODSPackage.DOCUMENT_ROOT__HOLDING_SIMPLE:
-				return getHoldingSimple();
-			case MODSPackage.DOCUMENT_ROOT__IDENTIFIER:
-				return getIdentifier();
-			case MODSPackage.DOCUMENT_ROOT__INTERNET_MEDIA_TYPE:
-				return getInternetMediaType();
-			case MODSPackage.DOCUMENT_ROOT__ISLAND:
-				return getIsland();
-			case MODSPackage.DOCUMENT_ROOT__ISSUANCE:
-				return getIssuance();
-			case MODSPackage.DOCUMENT_ROOT__LANGUAGE:
-				return getLanguage();
-			case MODSPackage.DOCUMENT_ROOT__LANGUAGE_OF_CATALOGING:
-				return getLanguageOfCataloging();
-			case MODSPackage.DOCUMENT_ROOT__LANGUAGE_TERM:
-				return getLanguageTerm();
-			case MODSPackage.DOCUMENT_ROOT__LIST:
-				return getList();
-			case MODSPackage.DOCUMENT_ROOT__LOCATION:
-				return getLocation();
-			case MODSPackage.DOCUMENT_ROOT__MODS:
-				return getMods();
-			case MODSPackage.DOCUMENT_ROOT__MODS_COLLECTION:
-				return getModsCollection();
-			case MODSPackage.DOCUMENT_ROOT__NAME:
-				return getName();
-			case MODSPackage.DOCUMENT_ROOT__NAME_PART:
-				return getNamePart();
-			case MODSPackage.DOCUMENT_ROOT__NON_SORT:
-				return getNonSort();
-			case MODSPackage.DOCUMENT_ROOT__NOTE:
-				return getNote();
-			case MODSPackage.DOCUMENT_ROOT__NUMBER:
-				return getNumber();
-			case MODSPackage.DOCUMENT_ROOT__OCCUPATION:
-				return getOccupation();
-			case MODSPackage.DOCUMENT_ROOT__ORIGIN_INFO:
-				return getOriginInfo();
-			case MODSPackage.DOCUMENT_ROOT__PART:
-				return getPart();
-			case MODSPackage.DOCUMENT_ROOT__PART_NAME:
-				return getPartName();
-			case MODSPackage.DOCUMENT_ROOT__PART_NUMBER:
-				return getPartNumber();
-			case MODSPackage.DOCUMENT_ROOT__PHYSICAL_DESCRIPTION:
-				return getPhysicalDescription();
-			case MODSPackage.DOCUMENT_ROOT__PHYSICAL_LOCATION:
-				return getPhysicalLocation();
-			case MODSPackage.DOCUMENT_ROOT__PLACE:
-				return getPlace();
-			case MODSPackage.DOCUMENT_ROOT__PLACE_TERM:
-				return getPlaceTerm();
-			case MODSPackage.DOCUMENT_ROOT__PROJECTION:
-				return getProjection();
-			case MODSPackage.DOCUMENT_ROOT__PROVINCE:
-				return getProvince();
-			case MODSPackage.DOCUMENT_ROOT__PUBLISHER:
-				return getPublisher();
-			case MODSPackage.DOCUMENT_ROOT__RECORD_CHANGE_DATE:
-				return getRecordChangeDate();
-			case MODSPackage.DOCUMENT_ROOT__RECORD_CONTENT_SOURCE:
-				return getRecordContentSource();
-			case MODSPackage.DOCUMENT_ROOT__RECORD_CREATION_DATE:
-				return getRecordCreationDate();
-			case MODSPackage.DOCUMENT_ROOT__RECORD_IDENTIFIER:
-				return getRecordIdentifier();
-			case MODSPackage.DOCUMENT_ROOT__RECORD_INFO:
-				return getRecordInfo();
-			case MODSPackage.DOCUMENT_ROOT__RECORD_ORIGIN:
-				return getRecordOrigin();
-			case MODSPackage.DOCUMENT_ROOT__REFORMATTING_QUALITY:
-				return getReformattingQuality();
-			case MODSPackage.DOCUMENT_ROOT__REGION:
-				return getRegion();
-			case MODSPackage.DOCUMENT_ROOT__RELATED_ITEM:
-				return getRelatedItem();
-			case MODSPackage.DOCUMENT_ROOT__ROLE:
-				return getRole();
-			case MODSPackage.DOCUMENT_ROOT__ROLE_TERM:
-				return getRoleTerm();
-			case MODSPackage.DOCUMENT_ROOT__SCALE:
-				return getScale();
-			case MODSPackage.DOCUMENT_ROOT__SCRIPT_TERM:
-				return getScriptTerm();
-			case MODSPackage.DOCUMENT_ROOT__SHELF_LOCATOR:
-				return getShelfLocator();
-			case MODSPackage.DOCUMENT_ROOT__START:
-				return getStart();
-			case MODSPackage.DOCUMENT_ROOT__STATE:
-				return getState();
-			case MODSPackage.DOCUMENT_ROOT__SUBJECT:
-				return getSubject();
-			case MODSPackage.DOCUMENT_ROOT__SUB_LOCATION:
-				return getSubLocation();
-			case MODSPackage.DOCUMENT_ROOT__SUB_TITLE:
-				return getSubTitle();
-			case MODSPackage.DOCUMENT_ROOT__TABLE_OF_CONTENTS:
-				return getTableOfContents();
-			case MODSPackage.DOCUMENT_ROOT__TARGET_AUDIENCE:
-				return getTargetAudience();
-			case MODSPackage.DOCUMENT_ROOT__TEMPORAL:
-				return getTemporal();
-			case MODSPackage.DOCUMENT_ROOT__TERRITORY:
-				return getTerritory();
-			case MODSPackage.DOCUMENT_ROOT__TEXT:
-				return getText();
-			case MODSPackage.DOCUMENT_ROOT__TITLE:
-				return getTitle();
-			case MODSPackage.DOCUMENT_ROOT__TITLE_INFO:
-				return getTitleInfo();
-			case MODSPackage.DOCUMENT_ROOT__TOPIC:
-				return getTopic();
-			case MODSPackage.DOCUMENT_ROOT__TOTAL:
-				return getTotal();
-			case MODSPackage.DOCUMENT_ROOT__TYPE_OF_RESOURCE:
-				return getTypeOfResource();
-			case MODSPackage.DOCUMENT_ROOT__URL:
-				return getUrl();
+		case MODSPackage.DOCUMENT_ROOT__MIXED:
+			if (coreType)
+				return getMixed();
+			return ((FeatureMap.Internal) getMixed()).getWrapper();
+		case MODSPackage.DOCUMENT_ROOT__XMLNS_PREFIX_MAP:
+			if (coreType)
+				return getXMLNSPrefixMap();
+			else
+				return getXMLNSPrefixMap().map();
+		case MODSPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION:
+			if (coreType)
+				return getXSISchemaLocation();
+			else
+				return getXSISchemaLocation().map();
+		case MODSPackage.DOCUMENT_ROOT__ABSTRACT:
+			return getAbstract();
+		case MODSPackage.DOCUMENT_ROOT__ACCESS_CONDITION:
+			return getAccessCondition();
+		case MODSPackage.DOCUMENT_ROOT__AFFILIATION:
+			return getAffiliation();
+		case MODSPackage.DOCUMENT_ROOT__AREA:
+			return getArea();
+		case MODSPackage.DOCUMENT_ROOT__CAPTION:
+			return getCaption();
+		case MODSPackage.DOCUMENT_ROOT__CARTOGRAPHICS:
+			return getCartographics();
+		case MODSPackage.DOCUMENT_ROOT__CITY:
+			return getCity();
+		case MODSPackage.DOCUMENT_ROOT__CITY_SECTION:
+			return getCitySection();
+		case MODSPackage.DOCUMENT_ROOT__CLASSIFICATION:
+			return getClassification();
+		case MODSPackage.DOCUMENT_ROOT__CONTINENT:
+			return getContinent();
+		case MODSPackage.DOCUMENT_ROOT__COORDINATES:
+			return getCoordinates();
+		case MODSPackage.DOCUMENT_ROOT__COPY_INFORMATION:
+			return getCopyInformation();
+		case MODSPackage.DOCUMENT_ROOT__COPYRIGHT_DATE:
+			return getCopyrightDate();
+		case MODSPackage.DOCUMENT_ROOT__COUNTRY:
+			return getCountry();
+		case MODSPackage.DOCUMENT_ROOT__COUNTY:
+			return getCounty();
+		case MODSPackage.DOCUMENT_ROOT__DATE:
+			return getDate();
+		case MODSPackage.DOCUMENT_ROOT__DATE_CAPTURED:
+			return getDateCaptured();
+		case MODSPackage.DOCUMENT_ROOT__DATE_CREATED:
+			return getDateCreated();
+		case MODSPackage.DOCUMENT_ROOT__DATE_ISSUED:
+			return getDateIssued();
+		case MODSPackage.DOCUMENT_ROOT__DATE_MODIFIED:
+			return getDateModified();
+		case MODSPackage.DOCUMENT_ROOT__DATE_OTHER:
+			return getDateOther();
+		case MODSPackage.DOCUMENT_ROOT__DATE_VALID:
+			return getDateValid();
+		case MODSPackage.DOCUMENT_ROOT__DESCRIPTION:
+			return getDescription();
+		case MODSPackage.DOCUMENT_ROOT__DESCRIPTION_STANDARD:
+			return getDescriptionStandard();
+		case MODSPackage.DOCUMENT_ROOT__DETAIL:
+			return getDetail();
+		case MODSPackage.DOCUMENT_ROOT__DIGITAL_ORIGIN:
+			return getDigitalOrigin();
+		case MODSPackage.DOCUMENT_ROOT__DISPLAY_FORM:
+			return getDisplayForm();
+		case MODSPackage.DOCUMENT_ROOT__EDITION:
+			return getEdition();
+		case MODSPackage.DOCUMENT_ROOT__ELECTRONIC_LOCATOR:
+			return getElectronicLocator();
+		case MODSPackage.DOCUMENT_ROOT__END:
+			return getEnd();
+		case MODSPackage.DOCUMENT_ROOT__ENUMERATION_AND_CHRONOLOGY:
+			return getEnumerationAndChronology();
+		case MODSPackage.DOCUMENT_ROOT__EXTENSION:
+			return getExtension();
+		case MODSPackage.DOCUMENT_ROOT__EXTENT:
+			return getExtent();
+		case MODSPackage.DOCUMENT_ROOT__EXTRATERRESTRIAL_AREA:
+			return getExtraterrestrialArea();
+		case MODSPackage.DOCUMENT_ROOT__FORM:
+			return getForm();
+		case MODSPackage.DOCUMENT_ROOT__FREQUENCY:
+			return getFrequency();
+		case MODSPackage.DOCUMENT_ROOT__GENRE:
+			return getGenre();
+		case MODSPackage.DOCUMENT_ROOT__GEOGRAPHIC:
+			return getGeographic();
+		case MODSPackage.DOCUMENT_ROOT__GEOGRAPHIC_CODE:
+			return getGeographicCode();
+		case MODSPackage.DOCUMENT_ROOT__HIERARCHICAL_GEOGRAPHIC:
+			return getHierarchicalGeographic();
+		case MODSPackage.DOCUMENT_ROOT__HOLDING_EXTERNAL:
+			return getHoldingExternal();
+		case MODSPackage.DOCUMENT_ROOT__HOLDING_SIMPLE:
+			return getHoldingSimple();
+		case MODSPackage.DOCUMENT_ROOT__IDENTIFIER:
+			return getIdentifier();
+		case MODSPackage.DOCUMENT_ROOT__INTERNET_MEDIA_TYPE:
+			return getInternetMediaType();
+		case MODSPackage.DOCUMENT_ROOT__ISLAND:
+			return getIsland();
+		case MODSPackage.DOCUMENT_ROOT__ISSUANCE:
+			return getIssuance();
+		case MODSPackage.DOCUMENT_ROOT__LANGUAGE:
+			return getLanguage();
+		case MODSPackage.DOCUMENT_ROOT__LANGUAGE_OF_CATALOGING:
+			return getLanguageOfCataloging();
+		case MODSPackage.DOCUMENT_ROOT__LANGUAGE_TERM:
+			return getLanguageTerm();
+		case MODSPackage.DOCUMENT_ROOT__LIST:
+			return getList();
+		case MODSPackage.DOCUMENT_ROOT__LOCATION:
+			return getLocation();
+		case MODSPackage.DOCUMENT_ROOT__MODS:
+			return getMods();
+		case MODSPackage.DOCUMENT_ROOT__MODS_COLLECTION:
+			return getModsCollection();
+		case MODSPackage.DOCUMENT_ROOT__NAME:
+			return getName();
+		case MODSPackage.DOCUMENT_ROOT__NAME_PART:
+			return getNamePart();
+		case MODSPackage.DOCUMENT_ROOT__NON_SORT:
+			return getNonSort();
+		case MODSPackage.DOCUMENT_ROOT__NOTE:
+			return getNote();
+		case MODSPackage.DOCUMENT_ROOT__NUMBER:
+			return getNumber();
+		case MODSPackage.DOCUMENT_ROOT__OCCUPATION:
+			return getOccupation();
+		case MODSPackage.DOCUMENT_ROOT__ORIGIN_INFO:
+			return getOriginInfo();
+		case MODSPackage.DOCUMENT_ROOT__PART:
+			return getPart();
+		case MODSPackage.DOCUMENT_ROOT__PART_NAME:
+			return getPartName();
+		case MODSPackage.DOCUMENT_ROOT__PART_NUMBER:
+			return getPartNumber();
+		case MODSPackage.DOCUMENT_ROOT__PHYSICAL_DESCRIPTION:
+			return getPhysicalDescription();
+		case MODSPackage.DOCUMENT_ROOT__PHYSICAL_LOCATION:
+			return getPhysicalLocation();
+		case MODSPackage.DOCUMENT_ROOT__PLACE:
+			return getPlace();
+		case MODSPackage.DOCUMENT_ROOT__PLACE_TERM:
+			return getPlaceTerm();
+		case MODSPackage.DOCUMENT_ROOT__PROJECTION:
+			return getProjection();
+		case MODSPackage.DOCUMENT_ROOT__PROVINCE:
+			return getProvince();
+		case MODSPackage.DOCUMENT_ROOT__PUBLISHER:
+			return getPublisher();
+		case MODSPackage.DOCUMENT_ROOT__RECORD_CHANGE_DATE:
+			return getRecordChangeDate();
+		case MODSPackage.DOCUMENT_ROOT__RECORD_CONTENT_SOURCE:
+			return getRecordContentSource();
+		case MODSPackage.DOCUMENT_ROOT__RECORD_CREATION_DATE:
+			return getRecordCreationDate();
+		case MODSPackage.DOCUMENT_ROOT__RECORD_IDENTIFIER:
+			return getRecordIdentifier();
+		case MODSPackage.DOCUMENT_ROOT__RECORD_INFO:
+			return getRecordInfo();
+		case MODSPackage.DOCUMENT_ROOT__RECORD_ORIGIN:
+			return getRecordOrigin();
+		case MODSPackage.DOCUMENT_ROOT__REFORMATTING_QUALITY:
+			return getReformattingQuality();
+		case MODSPackage.DOCUMENT_ROOT__REGION:
+			return getRegion();
+		case MODSPackage.DOCUMENT_ROOT__RELATED_ITEM:
+			return getRelatedItem();
+		case MODSPackage.DOCUMENT_ROOT__ROLE:
+			return getRole();
+		case MODSPackage.DOCUMENT_ROOT__ROLE_TERM:
+			return getRoleTerm();
+		case MODSPackage.DOCUMENT_ROOT__SCALE:
+			return getScale();
+		case MODSPackage.DOCUMENT_ROOT__SCRIPT_TERM:
+			return getScriptTerm();
+		case MODSPackage.DOCUMENT_ROOT__SHELF_LOCATOR:
+			return getShelfLocator();
+		case MODSPackage.DOCUMENT_ROOT__START:
+			return getStart();
+		case MODSPackage.DOCUMENT_ROOT__STATE:
+			return getState();
+		case MODSPackage.DOCUMENT_ROOT__SUBJECT:
+			return getSubject();
+		case MODSPackage.DOCUMENT_ROOT__SUB_LOCATION:
+			return getSubLocation();
+		case MODSPackage.DOCUMENT_ROOT__SUB_TITLE:
+			return getSubTitle();
+		case MODSPackage.DOCUMENT_ROOT__TABLE_OF_CONTENTS:
+			return getTableOfContents();
+		case MODSPackage.DOCUMENT_ROOT__TARGET_AUDIENCE:
+			return getTargetAudience();
+		case MODSPackage.DOCUMENT_ROOT__TEMPORAL:
+			return getTemporal();
+		case MODSPackage.DOCUMENT_ROOT__TERRITORY:
+			return getTerritory();
+		case MODSPackage.DOCUMENT_ROOT__TEXT:
+			return getText();
+		case MODSPackage.DOCUMENT_ROOT__TITLE:
+			return getTitle();
+		case MODSPackage.DOCUMENT_ROOT__TITLE_INFO:
+			return getTitleInfo();
+		case MODSPackage.DOCUMENT_ROOT__TOPIC:
+			return getTopic();
+		case MODSPackage.DOCUMENT_ROOT__TOTAL:
+			return getTotal();
+		case MODSPackage.DOCUMENT_ROOT__TYPE_OF_RESOURCE:
+			return getTypeOfResource();
+		case MODSPackage.DOCUMENT_ROOT__URL:
+			return getUrl();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -3547,315 +3998,315 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case MODSPackage.DOCUMENT_ROOT__MIXED:
-				((FeatureMap.Internal) getMixed()).set(newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__XMLNS_PREFIX_MAP:
-				((EStructuralFeature.Setting) getXMLNSPrefixMap()).set(newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION:
-				((EStructuralFeature.Setting) getXSISchemaLocation()).set(newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__ABSTRACT:
-				setAbstract((AbstractDefinition) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__ACCESS_CONDITION:
-				setAccessCondition((AccessConditionDefinition) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__AFFILIATION:
-				setAffiliation((XsString) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__AREA:
-				setArea((XsString) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__CAPTION:
-				setCaption((XsString) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__CARTOGRAPHICS:
-				setCartographics((CartographicsDefinition) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__CITY:
-				setCity((XsString) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__CITY_SECTION:
-				setCitySection((XsString) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__CLASSIFICATION:
-				setClassification((ClassificationDefinition) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__CONTINENT:
-				setContinent((XsString) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__COORDINATES:
-				setCoordinates((XsString) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__COPY_INFORMATION:
-				setCopyInformation((CopyInformationDefinition) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__COPYRIGHT_DATE:
-				setCopyrightDate((DateDefinition) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__COUNTRY:
-				setCountry((XsString) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__COUNTY:
-				setCounty((XsString) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__DATE:
-				setDate((DateBaseDefinition) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__DATE_CAPTURED:
-				setDateCaptured((DateDefinition) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__DATE_CREATED:
-				setDateCreated((DateDefinition) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__DATE_ISSUED:
-				setDateIssued((DateDefinition) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__DATE_MODIFIED:
-				setDateModified((DateDefinition) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__DATE_OTHER:
-				setDateOther((DateOtherDefinition) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__DATE_VALID:
-				setDateValid((DateDefinition) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__DESCRIPTION:
-				setDescription((XsString) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__DESCRIPTION_STANDARD:
-				setDescriptionStandard((StringPlusAuthority) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__DETAIL:
-				setDetail((DetailDefinition) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__DIGITAL_ORIGIN:
-				setDigitalOrigin((DigitalOriginDefinition) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__DISPLAY_FORM:
-				setDisplayForm((XsString) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__EDITION:
-				setEdition((StringPlusSupplied) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__ELECTRONIC_LOCATOR:
-				setElectronicLocator((XsString) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__END:
-				setEnd((XsString) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__ENUMERATION_AND_CHRONOLOGY:
-				setEnumerationAndChronology((EnumerationAndChronologyDefinition) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__EXTENSION:
-				setExtension((ExtensionDefinition) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__EXTENT:
-				setExtent((StringPlusSupplied) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__EXTRATERRESTRIAL_AREA:
-				setExtraterrestrialArea((XsString) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__FORM:
-				setForm((StringPlusAuthorityPlusType) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__FREQUENCY:
-				setFrequency((StringPlusAuthority) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__GENRE:
-				setGenre((GenreDefinition) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__GEOGRAPHIC:
-				setGeographic((StringPlusAuthority) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__GEOGRAPHIC_CODE:
-				setGeographicCode((GeographicCodeDefinition) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__HIERARCHICAL_GEOGRAPHIC:
-				setHierarchicalGeographic((HierarchicalGeographicDefinition) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__HOLDING_EXTERNAL:
-				setHoldingExternal((ExtensionDefinition) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__HOLDING_SIMPLE:
-				setHoldingSimple((HoldingSimpleDefinition) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__IDENTIFIER:
-				setIdentifier((IdentifierDefinition) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__INTERNET_MEDIA_TYPE:
-				setInternetMediaType((XsString) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__ISLAND:
-				setIsland((XsString) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__ISSUANCE:
-				setIssuance((IssuanceDefinition) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__LANGUAGE:
-				setLanguage((LanguageDefinition) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__LANGUAGE_OF_CATALOGING:
-				setLanguageOfCataloging((LanguageDefinition) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__LANGUAGE_TERM:
-				setLanguageTerm((LanguageTermDefinition) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__LIST:
-				setList((XsString) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__LOCATION:
-				setLocation((LocationDefinition) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__MODS:
-				setMods((ModsDefinition) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__MODS_COLLECTION:
-				setModsCollection((ModsCollectionDefinition) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__NAME:
-				setName((NameDefinition) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__NAME_PART:
-				setNamePart((NamePartDefinition) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__NON_SORT:
-				setNonSort((XsString) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__NOTE:
-				setNote((NoteDefinition) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__NUMBER:
-				setNumber((XsString) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__OCCUPATION:
-				setOccupation((StringPlusAuthority) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__ORIGIN_INFO:
-				setOriginInfo((OriginInfoDefinition) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__PART:
-				setPart((PartDefinition) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__PART_NAME:
-				setPartName((XsString) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__PART_NUMBER:
-				setPartNumber((XsString) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__PHYSICAL_DESCRIPTION:
-				setPhysicalDescription((PhysicalDescriptionDefinition) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__PHYSICAL_LOCATION:
-				setPhysicalLocation((PhysicalLocationDefinition) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__PLACE:
-				setPlace((PlaceDefinition) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__PLACE_TERM:
-				setPlaceTerm((PlaceTermDefinition) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__PROJECTION:
-				setProjection((XsString) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__PROVINCE:
-				setProvince((XsString) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__PUBLISHER:
-				setPublisher((StringPlusSupplied) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__RECORD_CHANGE_DATE:
-				setRecordChangeDate((DateDefinition) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__RECORD_CONTENT_SOURCE:
-				setRecordContentSource((StringPlusAuthority) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__RECORD_CREATION_DATE:
-				setRecordCreationDate((DateDefinition) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__RECORD_IDENTIFIER:
-				setRecordIdentifier((RecordIdentifierDefinition) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__RECORD_INFO:
-				setRecordInfo((RecordInfoDefinition) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__RECORD_ORIGIN:
-				setRecordOrigin((XsString) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__REFORMATTING_QUALITY:
-				setReformattingQuality((ReformattingQualityDefinition) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__REGION:
-				setRegion((XsString) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__RELATED_ITEM:
-				setRelatedItem((RelatedItemDefinition) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__ROLE:
-				setRole((RoleDefinition) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__ROLE_TERM:
-				setRoleTerm((RoleTermDefinition) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__SCALE:
-				setScale((XsString) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__SCRIPT_TERM:
-				setScriptTerm((ScriptTermDefinition) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__SHELF_LOCATOR:
-				setShelfLocator((XsString) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__START:
-				setStart((XsString) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__STATE:
-				setState((XsString) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__SUBJECT:
-				setSubject((SubjectDefinition) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__SUB_LOCATION:
-				setSubLocation((XsString) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__SUB_TITLE:
-				setSubTitle((XsString) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__TABLE_OF_CONTENTS:
-				setTableOfContents((TableOfContentsDefinition) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__TARGET_AUDIENCE:
-				setTargetAudience((TargetAudienceDefinition) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__TEMPORAL:
-				setTemporal((TemporalDefinition) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__TERRITORY:
-				setTerritory((XsString) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__TEXT:
-				setText((UnstructuredTextDefinition) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__TITLE:
-				setTitle((XsString) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__TITLE_INFO:
-				setTitleInfo((TitleInfoDefinition) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__TOPIC:
-				setTopic((StringPlusAuthority) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__TOTAL:
-				setTotal((BigInteger) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__TYPE_OF_RESOURCE:
-				setTypeOfResource((TypeOfResourceDefinition) newValue);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__URL:
-				setUrl((UrlDefinition) newValue);
-				return;
+		case MODSPackage.DOCUMENT_ROOT__MIXED:
+			((FeatureMap.Internal) getMixed()).set(newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__XMLNS_PREFIX_MAP:
+			((EStructuralFeature.Setting) getXMLNSPrefixMap()).set(newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION:
+			((EStructuralFeature.Setting) getXSISchemaLocation()).set(newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__ABSTRACT:
+			setAbstract((AbstractDefinition) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__ACCESS_CONDITION:
+			setAccessCondition((AccessConditionDefinition) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__AFFILIATION:
+			setAffiliation((XsString) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__AREA:
+			setArea((XsString) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__CAPTION:
+			setCaption((XsString) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__CARTOGRAPHICS:
+			setCartographics((CartographicsDefinition) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__CITY:
+			setCity((XsString) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__CITY_SECTION:
+			setCitySection((XsString) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__CLASSIFICATION:
+			setClassification((ClassificationDefinition) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__CONTINENT:
+			setContinent((XsString) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__COORDINATES:
+			setCoordinates((XsString) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__COPY_INFORMATION:
+			setCopyInformation((CopyInformationDefinition) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__COPYRIGHT_DATE:
+			setCopyrightDate((DateDefinition) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__COUNTRY:
+			setCountry((XsString) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__COUNTY:
+			setCounty((XsString) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__DATE:
+			setDate((DateBaseDefinition) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__DATE_CAPTURED:
+			setDateCaptured((DateDefinition) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__DATE_CREATED:
+			setDateCreated((DateDefinition) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__DATE_ISSUED:
+			setDateIssued((DateDefinition) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__DATE_MODIFIED:
+			setDateModified((DateDefinition) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__DATE_OTHER:
+			setDateOther((DateOtherDefinition) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__DATE_VALID:
+			setDateValid((DateDefinition) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__DESCRIPTION:
+			setDescription((XsString) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__DESCRIPTION_STANDARD:
+			setDescriptionStandard((StringPlusAuthority) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__DETAIL:
+			setDetail((DetailDefinition) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__DIGITAL_ORIGIN:
+			setDigitalOrigin((DigitalOriginDefinition) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__DISPLAY_FORM:
+			setDisplayForm((XsString) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__EDITION:
+			setEdition((StringPlusSupplied) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__ELECTRONIC_LOCATOR:
+			setElectronicLocator((XsString) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__END:
+			setEnd((XsString) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__ENUMERATION_AND_CHRONOLOGY:
+			setEnumerationAndChronology((EnumerationAndChronologyDefinition) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__EXTENSION:
+			setExtension((ExtensionDefinition) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__EXTENT:
+			setExtent((StringPlusSupplied) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__EXTRATERRESTRIAL_AREA:
+			setExtraterrestrialArea((XsString) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__FORM:
+			setForm((StringPlusAuthorityPlusType) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__FREQUENCY:
+			setFrequency((StringPlusAuthority) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__GENRE:
+			setGenre((GenreDefinition) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__GEOGRAPHIC:
+			setGeographic((StringPlusAuthority) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__GEOGRAPHIC_CODE:
+			setGeographicCode((GeographicCodeDefinition) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__HIERARCHICAL_GEOGRAPHIC:
+			setHierarchicalGeographic((HierarchicalGeographicDefinition) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__HOLDING_EXTERNAL:
+			setHoldingExternal((ExtensionDefinition) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__HOLDING_SIMPLE:
+			setHoldingSimple((HoldingSimpleDefinition) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__IDENTIFIER:
+			setIdentifier((IdentifierDefinition) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__INTERNET_MEDIA_TYPE:
+			setInternetMediaType((XsString) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__ISLAND:
+			setIsland((XsString) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__ISSUANCE:
+			setIssuance((IssuanceDefinition) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__LANGUAGE:
+			setLanguage((LanguageDefinition) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__LANGUAGE_OF_CATALOGING:
+			setLanguageOfCataloging((LanguageDefinition) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__LANGUAGE_TERM:
+			setLanguageTerm((LanguageTermDefinition) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__LIST:
+			setList((XsString) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__LOCATION:
+			setLocation((LocationDefinition) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__MODS:
+			setMods((ModsDefinition) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__MODS_COLLECTION:
+			setModsCollection((ModsCollectionDefinition) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__NAME:
+			setName((NameDefinition) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__NAME_PART:
+			setNamePart((NamePartDefinition) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__NON_SORT:
+			setNonSort((XsString) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__NOTE:
+			setNote((NoteDefinition) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__NUMBER:
+			setNumber((XsString) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__OCCUPATION:
+			setOccupation((StringPlusAuthority) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__ORIGIN_INFO:
+			setOriginInfo((OriginInfoDefinition) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__PART:
+			setPart((PartDefinition) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__PART_NAME:
+			setPartName((XsString) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__PART_NUMBER:
+			setPartNumber((XsString) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__PHYSICAL_DESCRIPTION:
+			setPhysicalDescription((PhysicalDescriptionDefinition) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__PHYSICAL_LOCATION:
+			setPhysicalLocation((PhysicalLocationDefinition) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__PLACE:
+			setPlace((PlaceDefinition) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__PLACE_TERM:
+			setPlaceTerm((PlaceTermDefinition) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__PROJECTION:
+			setProjection((XsString) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__PROVINCE:
+			setProvince((XsString) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__PUBLISHER:
+			setPublisher((StringPlusSupplied) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__RECORD_CHANGE_DATE:
+			setRecordChangeDate((DateDefinition) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__RECORD_CONTENT_SOURCE:
+			setRecordContentSource((StringPlusAuthority) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__RECORD_CREATION_DATE:
+			setRecordCreationDate((DateDefinition) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__RECORD_IDENTIFIER:
+			setRecordIdentifier((RecordIdentifierDefinition) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__RECORD_INFO:
+			setRecordInfo((RecordInfoDefinition) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__RECORD_ORIGIN:
+			setRecordOrigin((XsString) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__REFORMATTING_QUALITY:
+			setReformattingQuality((ReformattingQualityDefinition) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__REGION:
+			setRegion((XsString) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__RELATED_ITEM:
+			setRelatedItem((RelatedItemDefinition) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__ROLE:
+			setRole((RoleDefinition) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__ROLE_TERM:
+			setRoleTerm((RoleTermDefinition) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__SCALE:
+			setScale((XsString) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__SCRIPT_TERM:
+			setScriptTerm((ScriptTermDefinition) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__SHELF_LOCATOR:
+			setShelfLocator((XsString) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__START:
+			setStart((XsString) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__STATE:
+			setState((XsString) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__SUBJECT:
+			setSubject((SubjectDefinition) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__SUB_LOCATION:
+			setSubLocation((XsString) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__SUB_TITLE:
+			setSubTitle((XsString) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__TABLE_OF_CONTENTS:
+			setTableOfContents((TableOfContentsDefinition) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__TARGET_AUDIENCE:
+			setTargetAudience((TargetAudienceDefinition) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__TEMPORAL:
+			setTemporal((TemporalDefinition) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__TERRITORY:
+			setTerritory((XsString) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__TEXT:
+			setText((UnstructuredTextDefinition) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__TITLE:
+			setTitle((XsString) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__TITLE_INFO:
+			setTitleInfo((TitleInfoDefinition) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__TOPIC:
+			setTopic((StringPlusAuthority) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__TOTAL:
+			setTotal((BigInteger) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__TYPE_OF_RESOURCE:
+			setTypeOfResource((TypeOfResourceDefinition) newValue);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__URL:
+			setUrl((UrlDefinition) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -3868,315 +4319,315 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case MODSPackage.DOCUMENT_ROOT__MIXED:
-				getMixed().clear();
-				return;
-			case MODSPackage.DOCUMENT_ROOT__XMLNS_PREFIX_MAP:
-				getXMLNSPrefixMap().clear();
-				return;
-			case MODSPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION:
-				getXSISchemaLocation().clear();
-				return;
-			case MODSPackage.DOCUMENT_ROOT__ABSTRACT:
-				setAbstract((AbstractDefinition) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__ACCESS_CONDITION:
-				setAccessCondition((AccessConditionDefinition) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__AFFILIATION:
-				setAffiliation((XsString) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__AREA:
-				setArea((XsString) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__CAPTION:
-				setCaption((XsString) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__CARTOGRAPHICS:
-				setCartographics((CartographicsDefinition) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__CITY:
-				setCity((XsString) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__CITY_SECTION:
-				setCitySection((XsString) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__CLASSIFICATION:
-				setClassification((ClassificationDefinition) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__CONTINENT:
-				setContinent((XsString) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__COORDINATES:
-				setCoordinates((XsString) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__COPY_INFORMATION:
-				setCopyInformation((CopyInformationDefinition) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__COPYRIGHT_DATE:
-				setCopyrightDate((DateDefinition) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__COUNTRY:
-				setCountry((XsString) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__COUNTY:
-				setCounty((XsString) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__DATE:
-				setDate((DateBaseDefinition) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__DATE_CAPTURED:
-				setDateCaptured((DateDefinition) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__DATE_CREATED:
-				setDateCreated((DateDefinition) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__DATE_ISSUED:
-				setDateIssued((DateDefinition) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__DATE_MODIFIED:
-				setDateModified((DateDefinition) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__DATE_OTHER:
-				setDateOther((DateOtherDefinition) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__DATE_VALID:
-				setDateValid((DateDefinition) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__DESCRIPTION:
-				setDescription((XsString) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__DESCRIPTION_STANDARD:
-				setDescriptionStandard((StringPlusAuthority) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__DETAIL:
-				setDetail((DetailDefinition) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__DIGITAL_ORIGIN:
-				setDigitalOrigin(DIGITAL_ORIGIN_EDEFAULT);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__DISPLAY_FORM:
-				setDisplayForm((XsString) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__EDITION:
-				setEdition((StringPlusSupplied) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__ELECTRONIC_LOCATOR:
-				setElectronicLocator((XsString) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__END:
-				setEnd((XsString) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__ENUMERATION_AND_CHRONOLOGY:
-				setEnumerationAndChronology((EnumerationAndChronologyDefinition) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__EXTENSION:
-				setExtension((ExtensionDefinition) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__EXTENT:
-				setExtent((StringPlusSupplied) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__EXTRATERRESTRIAL_AREA:
-				setExtraterrestrialArea((XsString) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__FORM:
-				setForm((StringPlusAuthorityPlusType) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__FREQUENCY:
-				setFrequency((StringPlusAuthority) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__GENRE:
-				setGenre((GenreDefinition) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__GEOGRAPHIC:
-				setGeographic((StringPlusAuthority) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__GEOGRAPHIC_CODE:
-				setGeographicCode((GeographicCodeDefinition) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__HIERARCHICAL_GEOGRAPHIC:
-				setHierarchicalGeographic((HierarchicalGeographicDefinition) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__HOLDING_EXTERNAL:
-				setHoldingExternal((ExtensionDefinition) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__HOLDING_SIMPLE:
-				setHoldingSimple((HoldingSimpleDefinition) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__IDENTIFIER:
-				setIdentifier((IdentifierDefinition) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__INTERNET_MEDIA_TYPE:
-				setInternetMediaType((XsString) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__ISLAND:
-				setIsland((XsString) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__ISSUANCE:
-				setIssuance(ISSUANCE_EDEFAULT);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__LANGUAGE:
-				setLanguage((LanguageDefinition) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__LANGUAGE_OF_CATALOGING:
-				setLanguageOfCataloging((LanguageDefinition) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__LANGUAGE_TERM:
-				setLanguageTerm((LanguageTermDefinition) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__LIST:
-				setList((XsString) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__LOCATION:
-				setLocation((LocationDefinition) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__MODS:
-				setMods((ModsDefinition) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__MODS_COLLECTION:
-				setModsCollection((ModsCollectionDefinition) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__NAME:
-				setName((NameDefinition) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__NAME_PART:
-				setNamePart((NamePartDefinition) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__NON_SORT:
-				setNonSort((XsString) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__NOTE:
-				setNote((NoteDefinition) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__NUMBER:
-				setNumber((XsString) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__OCCUPATION:
-				setOccupation((StringPlusAuthority) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__ORIGIN_INFO:
-				setOriginInfo((OriginInfoDefinition) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__PART:
-				setPart((PartDefinition) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__PART_NAME:
-				setPartName((XsString) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__PART_NUMBER:
-				setPartNumber((XsString) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__PHYSICAL_DESCRIPTION:
-				setPhysicalDescription((PhysicalDescriptionDefinition) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__PHYSICAL_LOCATION:
-				setPhysicalLocation((PhysicalLocationDefinition) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__PLACE:
-				setPlace((PlaceDefinition) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__PLACE_TERM:
-				setPlaceTerm((PlaceTermDefinition) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__PROJECTION:
-				setProjection((XsString) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__PROVINCE:
-				setProvince((XsString) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__PUBLISHER:
-				setPublisher((StringPlusSupplied) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__RECORD_CHANGE_DATE:
-				setRecordChangeDate((DateDefinition) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__RECORD_CONTENT_SOURCE:
-				setRecordContentSource((StringPlusAuthority) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__RECORD_CREATION_DATE:
-				setRecordCreationDate((DateDefinition) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__RECORD_IDENTIFIER:
-				setRecordIdentifier((RecordIdentifierDefinition) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__RECORD_INFO:
-				setRecordInfo((RecordInfoDefinition) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__RECORD_ORIGIN:
-				setRecordOrigin((XsString) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__REFORMATTING_QUALITY:
-				setReformattingQuality(REFORMATTING_QUALITY_EDEFAULT);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__REGION:
-				setRegion((XsString) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__RELATED_ITEM:
-				setRelatedItem((RelatedItemDefinition) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__ROLE:
-				setRole((RoleDefinition) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__ROLE_TERM:
-				setRoleTerm((RoleTermDefinition) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__SCALE:
-				setScale((XsString) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__SCRIPT_TERM:
-				setScriptTerm((ScriptTermDefinition) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__SHELF_LOCATOR:
-				setShelfLocator((XsString) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__START:
-				setStart((XsString) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__STATE:
-				setState((XsString) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__SUBJECT:
-				setSubject((SubjectDefinition) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__SUB_LOCATION:
-				setSubLocation((XsString) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__SUB_TITLE:
-				setSubTitle((XsString) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__TABLE_OF_CONTENTS:
-				setTableOfContents((TableOfContentsDefinition) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__TARGET_AUDIENCE:
-				setTargetAudience((TargetAudienceDefinition) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__TEMPORAL:
-				setTemporal((TemporalDefinition) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__TERRITORY:
-				setTerritory((XsString) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__TEXT:
-				setText((UnstructuredTextDefinition) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__TITLE:
-				setTitle((XsString) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__TITLE_INFO:
-				setTitleInfo((TitleInfoDefinition) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__TOPIC:
-				setTopic((StringPlusAuthority) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__TOTAL:
-				setTotal(TOTAL_EDEFAULT);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__TYPE_OF_RESOURCE:
-				setTypeOfResource((TypeOfResourceDefinition) null);
-				return;
-			case MODSPackage.DOCUMENT_ROOT__URL:
-				setUrl((UrlDefinition) null);
-				return;
+		case MODSPackage.DOCUMENT_ROOT__MIXED:
+			getMixed().clear();
+			return;
+		case MODSPackage.DOCUMENT_ROOT__XMLNS_PREFIX_MAP:
+			getXMLNSPrefixMap().clear();
+			return;
+		case MODSPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION:
+			getXSISchemaLocation().clear();
+			return;
+		case MODSPackage.DOCUMENT_ROOT__ABSTRACT:
+			setAbstract((AbstractDefinition) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__ACCESS_CONDITION:
+			setAccessCondition((AccessConditionDefinition) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__AFFILIATION:
+			setAffiliation((XsString) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__AREA:
+			setArea((XsString) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__CAPTION:
+			setCaption((XsString) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__CARTOGRAPHICS:
+			setCartographics((CartographicsDefinition) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__CITY:
+			setCity((XsString) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__CITY_SECTION:
+			setCitySection((XsString) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__CLASSIFICATION:
+			setClassification((ClassificationDefinition) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__CONTINENT:
+			setContinent((XsString) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__COORDINATES:
+			setCoordinates((XsString) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__COPY_INFORMATION:
+			setCopyInformation((CopyInformationDefinition) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__COPYRIGHT_DATE:
+			setCopyrightDate((DateDefinition) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__COUNTRY:
+			setCountry((XsString) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__COUNTY:
+			setCounty((XsString) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__DATE:
+			setDate((DateBaseDefinition) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__DATE_CAPTURED:
+			setDateCaptured((DateDefinition) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__DATE_CREATED:
+			setDateCreated((DateDefinition) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__DATE_ISSUED:
+			setDateIssued((DateDefinition) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__DATE_MODIFIED:
+			setDateModified((DateDefinition) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__DATE_OTHER:
+			setDateOther((DateOtherDefinition) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__DATE_VALID:
+			setDateValid((DateDefinition) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__DESCRIPTION:
+			setDescription((XsString) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__DESCRIPTION_STANDARD:
+			setDescriptionStandard((StringPlusAuthority) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__DETAIL:
+			setDetail((DetailDefinition) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__DIGITAL_ORIGIN:
+			setDigitalOrigin(DIGITAL_ORIGIN_EDEFAULT);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__DISPLAY_FORM:
+			setDisplayForm((XsString) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__EDITION:
+			setEdition((StringPlusSupplied) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__ELECTRONIC_LOCATOR:
+			setElectronicLocator((XsString) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__END:
+			setEnd((XsString) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__ENUMERATION_AND_CHRONOLOGY:
+			setEnumerationAndChronology((EnumerationAndChronologyDefinition) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__EXTENSION:
+			setExtension((ExtensionDefinition) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__EXTENT:
+			setExtent((StringPlusSupplied) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__EXTRATERRESTRIAL_AREA:
+			setExtraterrestrialArea((XsString) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__FORM:
+			setForm((StringPlusAuthorityPlusType) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__FREQUENCY:
+			setFrequency((StringPlusAuthority) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__GENRE:
+			setGenre((GenreDefinition) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__GEOGRAPHIC:
+			setGeographic((StringPlusAuthority) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__GEOGRAPHIC_CODE:
+			setGeographicCode((GeographicCodeDefinition) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__HIERARCHICAL_GEOGRAPHIC:
+			setHierarchicalGeographic((HierarchicalGeographicDefinition) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__HOLDING_EXTERNAL:
+			setHoldingExternal((ExtensionDefinition) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__HOLDING_SIMPLE:
+			setHoldingSimple((HoldingSimpleDefinition) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__IDENTIFIER:
+			setIdentifier((IdentifierDefinition) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__INTERNET_MEDIA_TYPE:
+			setInternetMediaType((XsString) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__ISLAND:
+			setIsland((XsString) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__ISSUANCE:
+			setIssuance(ISSUANCE_EDEFAULT);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__LANGUAGE:
+			setLanguage((LanguageDefinition) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__LANGUAGE_OF_CATALOGING:
+			setLanguageOfCataloging((LanguageDefinition) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__LANGUAGE_TERM:
+			setLanguageTerm((LanguageTermDefinition) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__LIST:
+			setList((XsString) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__LOCATION:
+			setLocation((LocationDefinition) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__MODS:
+			setMods((ModsDefinition) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__MODS_COLLECTION:
+			setModsCollection((ModsCollectionDefinition) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__NAME:
+			setName((NameDefinition) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__NAME_PART:
+			setNamePart((NamePartDefinition) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__NON_SORT:
+			setNonSort((XsString) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__NOTE:
+			setNote((NoteDefinition) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__NUMBER:
+			setNumber((XsString) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__OCCUPATION:
+			setOccupation((StringPlusAuthority) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__ORIGIN_INFO:
+			setOriginInfo((OriginInfoDefinition) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__PART:
+			setPart((PartDefinition) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__PART_NAME:
+			setPartName((XsString) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__PART_NUMBER:
+			setPartNumber((XsString) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__PHYSICAL_DESCRIPTION:
+			setPhysicalDescription((PhysicalDescriptionDefinition) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__PHYSICAL_LOCATION:
+			setPhysicalLocation((PhysicalLocationDefinition) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__PLACE:
+			setPlace((PlaceDefinition) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__PLACE_TERM:
+			setPlaceTerm((PlaceTermDefinition) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__PROJECTION:
+			setProjection((XsString) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__PROVINCE:
+			setProvince((XsString) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__PUBLISHER:
+			setPublisher((StringPlusSupplied) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__RECORD_CHANGE_DATE:
+			setRecordChangeDate((DateDefinition) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__RECORD_CONTENT_SOURCE:
+			setRecordContentSource((StringPlusAuthority) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__RECORD_CREATION_DATE:
+			setRecordCreationDate((DateDefinition) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__RECORD_IDENTIFIER:
+			setRecordIdentifier((RecordIdentifierDefinition) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__RECORD_INFO:
+			setRecordInfo((RecordInfoDefinition) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__RECORD_ORIGIN:
+			setRecordOrigin((XsString) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__REFORMATTING_QUALITY:
+			setReformattingQuality(REFORMATTING_QUALITY_EDEFAULT);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__REGION:
+			setRegion((XsString) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__RELATED_ITEM:
+			setRelatedItem((RelatedItemDefinition) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__ROLE:
+			setRole((RoleDefinition) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__ROLE_TERM:
+			setRoleTerm((RoleTermDefinition) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__SCALE:
+			setScale((XsString) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__SCRIPT_TERM:
+			setScriptTerm((ScriptTermDefinition) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__SHELF_LOCATOR:
+			setShelfLocator((XsString) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__START:
+			setStart((XsString) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__STATE:
+			setState((XsString) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__SUBJECT:
+			setSubject((SubjectDefinition) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__SUB_LOCATION:
+			setSubLocation((XsString) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__SUB_TITLE:
+			setSubTitle((XsString) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__TABLE_OF_CONTENTS:
+			setTableOfContents((TableOfContentsDefinition) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__TARGET_AUDIENCE:
+			setTargetAudience((TargetAudienceDefinition) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__TEMPORAL:
+			setTemporal((TemporalDefinition) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__TERRITORY:
+			setTerritory((XsString) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__TEXT:
+			setText((UnstructuredTextDefinition) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__TITLE:
+			setTitle((XsString) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__TITLE_INFO:
+			setTitleInfo((TitleInfoDefinition) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__TOPIC:
+			setTopic((StringPlusAuthority) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__TOTAL:
+			setTotal(TOTAL_EDEFAULT);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__TYPE_OF_RESOURCE:
+			setTypeOfResource((TypeOfResourceDefinition) null);
+			return;
+		case MODSPackage.DOCUMENT_ROOT__URL:
+			setUrl((UrlDefinition) null);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -4189,212 +4640,213 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case MODSPackage.DOCUMENT_ROOT__MIXED:
-				return mixed != null && !mixed.isEmpty();
-			case MODSPackage.DOCUMENT_ROOT__XMLNS_PREFIX_MAP:
-				return xMLNSPrefixMap != null && !xMLNSPrefixMap.isEmpty();
-			case MODSPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION:
-				return xSISchemaLocation != null && !xSISchemaLocation.isEmpty();
-			case MODSPackage.DOCUMENT_ROOT__ABSTRACT:
-				return getAbstract() != null;
-			case MODSPackage.DOCUMENT_ROOT__ACCESS_CONDITION:
-				return getAccessCondition() != null;
-			case MODSPackage.DOCUMENT_ROOT__AFFILIATION:
-				return getAffiliation() != null;
-			case MODSPackage.DOCUMENT_ROOT__AREA:
-				return getArea() != null;
-			case MODSPackage.DOCUMENT_ROOT__CAPTION:
-				return getCaption() != null;
-			case MODSPackage.DOCUMENT_ROOT__CARTOGRAPHICS:
-				return getCartographics() != null;
-			case MODSPackage.DOCUMENT_ROOT__CITY:
-				return getCity() != null;
-			case MODSPackage.DOCUMENT_ROOT__CITY_SECTION:
-				return getCitySection() != null;
-			case MODSPackage.DOCUMENT_ROOT__CLASSIFICATION:
-				return getClassification() != null;
-			case MODSPackage.DOCUMENT_ROOT__CONTINENT:
-				return getContinent() != null;
-			case MODSPackage.DOCUMENT_ROOT__COORDINATES:
-				return getCoordinates() != null;
-			case MODSPackage.DOCUMENT_ROOT__COPY_INFORMATION:
-				return getCopyInformation() != null;
-			case MODSPackage.DOCUMENT_ROOT__COPYRIGHT_DATE:
-				return getCopyrightDate() != null;
-			case MODSPackage.DOCUMENT_ROOT__COUNTRY:
-				return getCountry() != null;
-			case MODSPackage.DOCUMENT_ROOT__COUNTY:
-				return getCounty() != null;
-			case MODSPackage.DOCUMENT_ROOT__DATE:
-				return getDate() != null;
-			case MODSPackage.DOCUMENT_ROOT__DATE_CAPTURED:
-				return getDateCaptured() != null;
-			case MODSPackage.DOCUMENT_ROOT__DATE_CREATED:
-				return getDateCreated() != null;
-			case MODSPackage.DOCUMENT_ROOT__DATE_ISSUED:
-				return getDateIssued() != null;
-			case MODSPackage.DOCUMENT_ROOT__DATE_MODIFIED:
-				return getDateModified() != null;
-			case MODSPackage.DOCUMENT_ROOT__DATE_OTHER:
-				return getDateOther() != null;
-			case MODSPackage.DOCUMENT_ROOT__DATE_VALID:
-				return getDateValid() != null;
-			case MODSPackage.DOCUMENT_ROOT__DESCRIPTION:
-				return getDescription() != null;
-			case MODSPackage.DOCUMENT_ROOT__DESCRIPTION_STANDARD:
-				return getDescriptionStandard() != null;
-			case MODSPackage.DOCUMENT_ROOT__DETAIL:
-				return getDetail() != null;
-			case MODSPackage.DOCUMENT_ROOT__DIGITAL_ORIGIN:
-				return getDigitalOrigin() != DIGITAL_ORIGIN_EDEFAULT;
-			case MODSPackage.DOCUMENT_ROOT__DISPLAY_FORM:
-				return getDisplayForm() != null;
-			case MODSPackage.DOCUMENT_ROOT__EDITION:
-				return getEdition() != null;
-			case MODSPackage.DOCUMENT_ROOT__ELECTRONIC_LOCATOR:
-				return getElectronicLocator() != null;
-			case MODSPackage.DOCUMENT_ROOT__END:
-				return getEnd() != null;
-			case MODSPackage.DOCUMENT_ROOT__ENUMERATION_AND_CHRONOLOGY:
-				return getEnumerationAndChronology() != null;
-			case MODSPackage.DOCUMENT_ROOT__EXTENSION:
-				return getExtension() != null;
-			case MODSPackage.DOCUMENT_ROOT__EXTENT:
-				return getExtent() != null;
-			case MODSPackage.DOCUMENT_ROOT__EXTRATERRESTRIAL_AREA:
-				return getExtraterrestrialArea() != null;
-			case MODSPackage.DOCUMENT_ROOT__FORM:
-				return getForm() != null;
-			case MODSPackage.DOCUMENT_ROOT__FREQUENCY:
-				return getFrequency() != null;
-			case MODSPackage.DOCUMENT_ROOT__GENRE:
-				return getGenre() != null;
-			case MODSPackage.DOCUMENT_ROOT__GEOGRAPHIC:
-				return getGeographic() != null;
-			case MODSPackage.DOCUMENT_ROOT__GEOGRAPHIC_CODE:
-				return getGeographicCode() != null;
-			case MODSPackage.DOCUMENT_ROOT__HIERARCHICAL_GEOGRAPHIC:
-				return getHierarchicalGeographic() != null;
-			case MODSPackage.DOCUMENT_ROOT__HOLDING_EXTERNAL:
-				return getHoldingExternal() != null;
-			case MODSPackage.DOCUMENT_ROOT__HOLDING_SIMPLE:
-				return getHoldingSimple() != null;
-			case MODSPackage.DOCUMENT_ROOT__IDENTIFIER:
-				return getIdentifier() != null;
-			case MODSPackage.DOCUMENT_ROOT__INTERNET_MEDIA_TYPE:
-				return getInternetMediaType() != null;
-			case MODSPackage.DOCUMENT_ROOT__ISLAND:
-				return getIsland() != null;
-			case MODSPackage.DOCUMENT_ROOT__ISSUANCE:
-				return getIssuance() != ISSUANCE_EDEFAULT;
-			case MODSPackage.DOCUMENT_ROOT__LANGUAGE:
-				return getLanguage() != null;
-			case MODSPackage.DOCUMENT_ROOT__LANGUAGE_OF_CATALOGING:
-				return getLanguageOfCataloging() != null;
-			case MODSPackage.DOCUMENT_ROOT__LANGUAGE_TERM:
-				return getLanguageTerm() != null;
-			case MODSPackage.DOCUMENT_ROOT__LIST:
-				return getList() != null;
-			case MODSPackage.DOCUMENT_ROOT__LOCATION:
-				return getLocation() != null;
-			case MODSPackage.DOCUMENT_ROOT__MODS:
-				return getMods() != null;
-			case MODSPackage.DOCUMENT_ROOT__MODS_COLLECTION:
-				return getModsCollection() != null;
-			case MODSPackage.DOCUMENT_ROOT__NAME:
-				return getName() != null;
-			case MODSPackage.DOCUMENT_ROOT__NAME_PART:
-				return getNamePart() != null;
-			case MODSPackage.DOCUMENT_ROOT__NON_SORT:
-				return getNonSort() != null;
-			case MODSPackage.DOCUMENT_ROOT__NOTE:
-				return getNote() != null;
-			case MODSPackage.DOCUMENT_ROOT__NUMBER:
-				return getNumber() != null;
-			case MODSPackage.DOCUMENT_ROOT__OCCUPATION:
-				return getOccupation() != null;
-			case MODSPackage.DOCUMENT_ROOT__ORIGIN_INFO:
-				return getOriginInfo() != null;
-			case MODSPackage.DOCUMENT_ROOT__PART:
-				return getPart() != null;
-			case MODSPackage.DOCUMENT_ROOT__PART_NAME:
-				return getPartName() != null;
-			case MODSPackage.DOCUMENT_ROOT__PART_NUMBER:
-				return getPartNumber() != null;
-			case MODSPackage.DOCUMENT_ROOT__PHYSICAL_DESCRIPTION:
-				return getPhysicalDescription() != null;
-			case MODSPackage.DOCUMENT_ROOT__PHYSICAL_LOCATION:
-				return getPhysicalLocation() != null;
-			case MODSPackage.DOCUMENT_ROOT__PLACE:
-				return getPlace() != null;
-			case MODSPackage.DOCUMENT_ROOT__PLACE_TERM:
-				return getPlaceTerm() != null;
-			case MODSPackage.DOCUMENT_ROOT__PROJECTION:
-				return getProjection() != null;
-			case MODSPackage.DOCUMENT_ROOT__PROVINCE:
-				return getProvince() != null;
-			case MODSPackage.DOCUMENT_ROOT__PUBLISHER:
-				return getPublisher() != null;
-			case MODSPackage.DOCUMENT_ROOT__RECORD_CHANGE_DATE:
-				return getRecordChangeDate() != null;
-			case MODSPackage.DOCUMENT_ROOT__RECORD_CONTENT_SOURCE:
-				return getRecordContentSource() != null;
-			case MODSPackage.DOCUMENT_ROOT__RECORD_CREATION_DATE:
-				return getRecordCreationDate() != null;
-			case MODSPackage.DOCUMENT_ROOT__RECORD_IDENTIFIER:
-				return getRecordIdentifier() != null;
-			case MODSPackage.DOCUMENT_ROOT__RECORD_INFO:
-				return getRecordInfo() != null;
-			case MODSPackage.DOCUMENT_ROOT__RECORD_ORIGIN:
-				return getRecordOrigin() != null;
-			case MODSPackage.DOCUMENT_ROOT__REFORMATTING_QUALITY:
-				return getReformattingQuality() != REFORMATTING_QUALITY_EDEFAULT;
-			case MODSPackage.DOCUMENT_ROOT__REGION:
-				return getRegion() != null;
-			case MODSPackage.DOCUMENT_ROOT__RELATED_ITEM:
-				return getRelatedItem() != null;
-			case MODSPackage.DOCUMENT_ROOT__ROLE:
-				return getRole() != null;
-			case MODSPackage.DOCUMENT_ROOT__ROLE_TERM:
-				return getRoleTerm() != null;
-			case MODSPackage.DOCUMENT_ROOT__SCALE:
-				return getScale() != null;
-			case MODSPackage.DOCUMENT_ROOT__SCRIPT_TERM:
-				return getScriptTerm() != null;
-			case MODSPackage.DOCUMENT_ROOT__SHELF_LOCATOR:
-				return getShelfLocator() != null;
-			case MODSPackage.DOCUMENT_ROOT__START:
-				return getStart() != null;
-			case MODSPackage.DOCUMENT_ROOT__STATE:
-				return getState() != null;
-			case MODSPackage.DOCUMENT_ROOT__SUBJECT:
-				return getSubject() != null;
-			case MODSPackage.DOCUMENT_ROOT__SUB_LOCATION:
-				return getSubLocation() != null;
-			case MODSPackage.DOCUMENT_ROOT__SUB_TITLE:
-				return getSubTitle() != null;
-			case MODSPackage.DOCUMENT_ROOT__TABLE_OF_CONTENTS:
-				return getTableOfContents() != null;
-			case MODSPackage.DOCUMENT_ROOT__TARGET_AUDIENCE:
-				return getTargetAudience() != null;
-			case MODSPackage.DOCUMENT_ROOT__TEMPORAL:
-				return getTemporal() != null;
-			case MODSPackage.DOCUMENT_ROOT__TERRITORY:
-				return getTerritory() != null;
-			case MODSPackage.DOCUMENT_ROOT__TEXT:
-				return getText() != null;
-			case MODSPackage.DOCUMENT_ROOT__TITLE:
-				return getTitle() != null;
-			case MODSPackage.DOCUMENT_ROOT__TITLE_INFO:
-				return getTitleInfo() != null;
-			case MODSPackage.DOCUMENT_ROOT__TOPIC:
-				return getTopic() != null;
-			case MODSPackage.DOCUMENT_ROOT__TOTAL:
-				return TOTAL_EDEFAULT == null ? getTotal() != null : !TOTAL_EDEFAULT.equals(getTotal());
-			case MODSPackage.DOCUMENT_ROOT__TYPE_OF_RESOURCE:
-				return getTypeOfResource() != null;
-			case MODSPackage.DOCUMENT_ROOT__URL:
-				return getUrl() != null;
+		case MODSPackage.DOCUMENT_ROOT__MIXED:
+			return mixed != null && !mixed.isEmpty();
+		case MODSPackage.DOCUMENT_ROOT__XMLNS_PREFIX_MAP:
+			return xMLNSPrefixMap != null && !xMLNSPrefixMap.isEmpty();
+		case MODSPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION:
+			return xSISchemaLocation != null && !xSISchemaLocation.isEmpty();
+		case MODSPackage.DOCUMENT_ROOT__ABSTRACT:
+			return getAbstract() != null;
+		case MODSPackage.DOCUMENT_ROOT__ACCESS_CONDITION:
+			return getAccessCondition() != null;
+		case MODSPackage.DOCUMENT_ROOT__AFFILIATION:
+			return getAffiliation() != null;
+		case MODSPackage.DOCUMENT_ROOT__AREA:
+			return getArea() != null;
+		case MODSPackage.DOCUMENT_ROOT__CAPTION:
+			return getCaption() != null;
+		case MODSPackage.DOCUMENT_ROOT__CARTOGRAPHICS:
+			return getCartographics() != null;
+		case MODSPackage.DOCUMENT_ROOT__CITY:
+			return getCity() != null;
+		case MODSPackage.DOCUMENT_ROOT__CITY_SECTION:
+			return getCitySection() != null;
+		case MODSPackage.DOCUMENT_ROOT__CLASSIFICATION:
+			return getClassification() != null;
+		case MODSPackage.DOCUMENT_ROOT__CONTINENT:
+			return getContinent() != null;
+		case MODSPackage.DOCUMENT_ROOT__COORDINATES:
+			return getCoordinates() != null;
+		case MODSPackage.DOCUMENT_ROOT__COPY_INFORMATION:
+			return getCopyInformation() != null;
+		case MODSPackage.DOCUMENT_ROOT__COPYRIGHT_DATE:
+			return getCopyrightDate() != null;
+		case MODSPackage.DOCUMENT_ROOT__COUNTRY:
+			return getCountry() != null;
+		case MODSPackage.DOCUMENT_ROOT__COUNTY:
+			return getCounty() != null;
+		case MODSPackage.DOCUMENT_ROOT__DATE:
+			return getDate() != null;
+		case MODSPackage.DOCUMENT_ROOT__DATE_CAPTURED:
+			return getDateCaptured() != null;
+		case MODSPackage.DOCUMENT_ROOT__DATE_CREATED:
+			return getDateCreated() != null;
+		case MODSPackage.DOCUMENT_ROOT__DATE_ISSUED:
+			return getDateIssued() != null;
+		case MODSPackage.DOCUMENT_ROOT__DATE_MODIFIED:
+			return getDateModified() != null;
+		case MODSPackage.DOCUMENT_ROOT__DATE_OTHER:
+			return getDateOther() != null;
+		case MODSPackage.DOCUMENT_ROOT__DATE_VALID:
+			return getDateValid() != null;
+		case MODSPackage.DOCUMENT_ROOT__DESCRIPTION:
+			return getDescription() != null;
+		case MODSPackage.DOCUMENT_ROOT__DESCRIPTION_STANDARD:
+			return getDescriptionStandard() != null;
+		case MODSPackage.DOCUMENT_ROOT__DETAIL:
+			return getDetail() != null;
+		case MODSPackage.DOCUMENT_ROOT__DIGITAL_ORIGIN:
+			return getDigitalOrigin() != DIGITAL_ORIGIN_EDEFAULT;
+		case MODSPackage.DOCUMENT_ROOT__DISPLAY_FORM:
+			return getDisplayForm() != null;
+		case MODSPackage.DOCUMENT_ROOT__EDITION:
+			return getEdition() != null;
+		case MODSPackage.DOCUMENT_ROOT__ELECTRONIC_LOCATOR:
+			return getElectronicLocator() != null;
+		case MODSPackage.DOCUMENT_ROOT__END:
+			return getEnd() != null;
+		case MODSPackage.DOCUMENT_ROOT__ENUMERATION_AND_CHRONOLOGY:
+			return getEnumerationAndChronology() != null;
+		case MODSPackage.DOCUMENT_ROOT__EXTENSION:
+			return getExtension() != null;
+		case MODSPackage.DOCUMENT_ROOT__EXTENT:
+			return getExtent() != null;
+		case MODSPackage.DOCUMENT_ROOT__EXTRATERRESTRIAL_AREA:
+			return getExtraterrestrialArea() != null;
+		case MODSPackage.DOCUMENT_ROOT__FORM:
+			return getForm() != null;
+		case MODSPackage.DOCUMENT_ROOT__FREQUENCY:
+			return getFrequency() != null;
+		case MODSPackage.DOCUMENT_ROOT__GENRE:
+			return getGenre() != null;
+		case MODSPackage.DOCUMENT_ROOT__GEOGRAPHIC:
+			return getGeographic() != null;
+		case MODSPackage.DOCUMENT_ROOT__GEOGRAPHIC_CODE:
+			return getGeographicCode() != null;
+		case MODSPackage.DOCUMENT_ROOT__HIERARCHICAL_GEOGRAPHIC:
+			return getHierarchicalGeographic() != null;
+		case MODSPackage.DOCUMENT_ROOT__HOLDING_EXTERNAL:
+			return getHoldingExternal() != null;
+		case MODSPackage.DOCUMENT_ROOT__HOLDING_SIMPLE:
+			return getHoldingSimple() != null;
+		case MODSPackage.DOCUMENT_ROOT__IDENTIFIER:
+			return getIdentifier() != null;
+		case MODSPackage.DOCUMENT_ROOT__INTERNET_MEDIA_TYPE:
+			return getInternetMediaType() != null;
+		case MODSPackage.DOCUMENT_ROOT__ISLAND:
+			return getIsland() != null;
+		case MODSPackage.DOCUMENT_ROOT__ISSUANCE:
+			return getIssuance() != ISSUANCE_EDEFAULT;
+		case MODSPackage.DOCUMENT_ROOT__LANGUAGE:
+			return getLanguage() != null;
+		case MODSPackage.DOCUMENT_ROOT__LANGUAGE_OF_CATALOGING:
+			return getLanguageOfCataloging() != null;
+		case MODSPackage.DOCUMENT_ROOT__LANGUAGE_TERM:
+			return getLanguageTerm() != null;
+		case MODSPackage.DOCUMENT_ROOT__LIST:
+			return getList() != null;
+		case MODSPackage.DOCUMENT_ROOT__LOCATION:
+			return getLocation() != null;
+		case MODSPackage.DOCUMENT_ROOT__MODS:
+			return getMods() != null;
+		case MODSPackage.DOCUMENT_ROOT__MODS_COLLECTION:
+			return getModsCollection() != null;
+		case MODSPackage.DOCUMENT_ROOT__NAME:
+			return getName() != null;
+		case MODSPackage.DOCUMENT_ROOT__NAME_PART:
+			return getNamePart() != null;
+		case MODSPackage.DOCUMENT_ROOT__NON_SORT:
+			return getNonSort() != null;
+		case MODSPackage.DOCUMENT_ROOT__NOTE:
+			return getNote() != null;
+		case MODSPackage.DOCUMENT_ROOT__NUMBER:
+			return getNumber() != null;
+		case MODSPackage.DOCUMENT_ROOT__OCCUPATION:
+			return getOccupation() != null;
+		case MODSPackage.DOCUMENT_ROOT__ORIGIN_INFO:
+			return getOriginInfo() != null;
+		case MODSPackage.DOCUMENT_ROOT__PART:
+			return getPart() != null;
+		case MODSPackage.DOCUMENT_ROOT__PART_NAME:
+			return getPartName() != null;
+		case MODSPackage.DOCUMENT_ROOT__PART_NUMBER:
+			return getPartNumber() != null;
+		case MODSPackage.DOCUMENT_ROOT__PHYSICAL_DESCRIPTION:
+			return getPhysicalDescription() != null;
+		case MODSPackage.DOCUMENT_ROOT__PHYSICAL_LOCATION:
+			return getPhysicalLocation() != null;
+		case MODSPackage.DOCUMENT_ROOT__PLACE:
+			return getPlace() != null;
+		case MODSPackage.DOCUMENT_ROOT__PLACE_TERM:
+			return getPlaceTerm() != null;
+		case MODSPackage.DOCUMENT_ROOT__PROJECTION:
+			return getProjection() != null;
+		case MODSPackage.DOCUMENT_ROOT__PROVINCE:
+			return getProvince() != null;
+		case MODSPackage.DOCUMENT_ROOT__PUBLISHER:
+			return getPublisher() != null;
+		case MODSPackage.DOCUMENT_ROOT__RECORD_CHANGE_DATE:
+			return getRecordChangeDate() != null;
+		case MODSPackage.DOCUMENT_ROOT__RECORD_CONTENT_SOURCE:
+			return getRecordContentSource() != null;
+		case MODSPackage.DOCUMENT_ROOT__RECORD_CREATION_DATE:
+			return getRecordCreationDate() != null;
+		case MODSPackage.DOCUMENT_ROOT__RECORD_IDENTIFIER:
+			return getRecordIdentifier() != null;
+		case MODSPackage.DOCUMENT_ROOT__RECORD_INFO:
+			return getRecordInfo() != null;
+		case MODSPackage.DOCUMENT_ROOT__RECORD_ORIGIN:
+			return getRecordOrigin() != null;
+		case MODSPackage.DOCUMENT_ROOT__REFORMATTING_QUALITY:
+			return getReformattingQuality() != REFORMATTING_QUALITY_EDEFAULT;
+		case MODSPackage.DOCUMENT_ROOT__REGION:
+			return getRegion() != null;
+		case MODSPackage.DOCUMENT_ROOT__RELATED_ITEM:
+			return getRelatedItem() != null;
+		case MODSPackage.DOCUMENT_ROOT__ROLE:
+			return getRole() != null;
+		case MODSPackage.DOCUMENT_ROOT__ROLE_TERM:
+			return getRoleTerm() != null;
+		case MODSPackage.DOCUMENT_ROOT__SCALE:
+			return getScale() != null;
+		case MODSPackage.DOCUMENT_ROOT__SCRIPT_TERM:
+			return getScriptTerm() != null;
+		case MODSPackage.DOCUMENT_ROOT__SHELF_LOCATOR:
+			return getShelfLocator() != null;
+		case MODSPackage.DOCUMENT_ROOT__START:
+			return getStart() != null;
+		case MODSPackage.DOCUMENT_ROOT__STATE:
+			return getState() != null;
+		case MODSPackage.DOCUMENT_ROOT__SUBJECT:
+			return getSubject() != null;
+		case MODSPackage.DOCUMENT_ROOT__SUB_LOCATION:
+			return getSubLocation() != null;
+		case MODSPackage.DOCUMENT_ROOT__SUB_TITLE:
+			return getSubTitle() != null;
+		case MODSPackage.DOCUMENT_ROOT__TABLE_OF_CONTENTS:
+			return getTableOfContents() != null;
+		case MODSPackage.DOCUMENT_ROOT__TARGET_AUDIENCE:
+			return getTargetAudience() != null;
+		case MODSPackage.DOCUMENT_ROOT__TEMPORAL:
+			return getTemporal() != null;
+		case MODSPackage.DOCUMENT_ROOT__TERRITORY:
+			return getTerritory() != null;
+		case MODSPackage.DOCUMENT_ROOT__TEXT:
+			return getText() != null;
+		case MODSPackage.DOCUMENT_ROOT__TITLE:
+			return getTitle() != null;
+		case MODSPackage.DOCUMENT_ROOT__TITLE_INFO:
+			return getTitleInfo() != null;
+		case MODSPackage.DOCUMENT_ROOT__TOPIC:
+			return getTopic() != null;
+		case MODSPackage.DOCUMENT_ROOT__TOTAL:
+			return TOTAL_EDEFAULT == null ? getTotal() != null
+					: !TOTAL_EDEFAULT.equals(getTotal());
+		case MODSPackage.DOCUMENT_ROOT__TYPE_OF_RESOURCE:
+			return getTypeOfResource() != null;
+		case MODSPackage.DOCUMENT_ROOT__URL:
+			return getUrl() != null;
 		}
 		return super.eIsSet(featureID);
 	}

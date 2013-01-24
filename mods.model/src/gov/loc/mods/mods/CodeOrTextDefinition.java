@@ -87,7 +87,8 @@ public enum CodeOrTextDefinition implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final CodeOrTextDefinition[] VALUES_ARRAY = new CodeOrTextDefinition[] { CODE, TEXT, };
+	private static final CodeOrTextDefinition[] VALUES_ARRAY = new CodeOrTextDefinition[] {
+			CODE, TEXT, };
 
 	/**
 	 * A public read-only list of all the '<em><b>Code Or Text Definition</b></em>' enumerators.
@@ -95,7 +96,8 @@ public enum CodeOrTextDefinition implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final List<CodeOrTextDefinition> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+	public static final List<CodeOrTextDefinition> VALUES = Collections
+			.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
 	 * Returns the '<em><b>Code Or Text Definition</b></em>' literal with the specified literal value.
@@ -137,10 +139,10 @@ public enum CodeOrTextDefinition implements Enumerator {
 	 */
 	public static CodeOrTextDefinition get(int value) {
 		switch (value) {
-			case CODE_VALUE:
-				return CODE;
-			case TEXT_VALUE:
-				return TEXT;
+		case CODE_VALUE:
+			return CODE;
+		case TEXT_VALUE:
+			return TEXT;
 		}
 		return null;
 	}

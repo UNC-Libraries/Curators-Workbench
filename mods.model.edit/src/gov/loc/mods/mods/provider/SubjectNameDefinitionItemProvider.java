@@ -42,9 +42,10 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * <!-- end-user-doc -->
  * @generated
  */
-public class SubjectNameDefinitionItemProvider extends NameBaseDefinitionItemProvider implements
-		IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider,
-		IItemPropertySource {
+public class SubjectNameDefinitionItemProvider extends
+		NameBaseDefinitionItemProvider implements IEditingDomainItemProvider,
+		IStructuredItemContentProvider, ITreeItemContentProvider,
+		IItemLabelProvider, IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -78,7 +79,10 @@ public class SubjectNameDefinitionItemProvider extends NameBaseDefinitionItemPro
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/SubjectNameDefinition"));
+		return overlayImage(
+				object,
+				getResourceLocator().getImage(
+						"full/obj16/SubjectNameDefinition"));
 	}
 
 	/**
@@ -125,7 +129,8 @@ public class SubjectNameDefinitionItemProvider extends NameBaseDefinitionItemPro
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(
+			Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 
@@ -136,24 +141,32 @@ public class SubjectNameDefinitionItemProvider extends NameBaseDefinitionItemPro
 	 * @generated
 	 */
 	@Override
-	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+	public String getCreateChildText(Object owner, Object feature,
+			Object child, Collection<?> selection) {
 		Object childFeature = feature;
 		Object childObject = child;
 
-		if (childFeature instanceof EStructuralFeature && FeatureMapUtil.isFeatureMap((EStructuralFeature) childFeature)) {
+		if (childFeature instanceof EStructuralFeature
+				&& FeatureMapUtil
+						.isFeatureMap((EStructuralFeature) childFeature)) {
 			FeatureMap.Entry entry = (FeatureMap.Entry) childObject;
 			childFeature = entry.getEStructuralFeature();
 			childObject = entry.getValue();
 		}
 
-		boolean qualify = childFeature == MODSPackage.eINSTANCE.getNameBaseDefinition_NamePart()
-				|| childFeature == MODSPackage.eINSTANCE.getNameBaseDefinition_DisplayForm()
-				|| childFeature == MODSPackage.eINSTANCE.getNameBaseDefinition_Affiliation()
-				|| childFeature == MODSPackage.eINSTANCE.getNameBaseDefinition_Description();
+		boolean qualify = childFeature == MODSPackage.eINSTANCE
+				.getNameBaseDefinition_NamePart()
+				|| childFeature == MODSPackage.eINSTANCE
+						.getNameBaseDefinition_DisplayForm()
+				|| childFeature == MODSPackage.eINSTANCE
+						.getNameBaseDefinition_Affiliation()
+				|| childFeature == MODSPackage.eINSTANCE
+						.getNameBaseDefinition_Description();
 
 		if (qualify) {
-			return getString("_UI_CreateChild_text2", new Object[] { getTypeText(childObject),
-					getFeatureText(childFeature), getTypeText(owner) });
+			return getString("_UI_CreateChild_text2", new Object[] {
+					getTypeText(childObject), getFeatureText(childFeature),
+					getTypeText(owner) });
 		}
 		return super.getCreateChildText(owner, feature, child, selection);
 	}

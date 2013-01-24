@@ -40,9 +40,10 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class TargetAudienceDefinitionItemProvider extends StringPlusAuthorityItemProvider implements
-		IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider,
-		IItemPropertySource {
+public class TargetAudienceDefinitionItemProvider extends
+		StringPlusAuthorityItemProvider implements IEditingDomainItemProvider,
+		IStructuredItemContentProvider, ITreeItemContentProvider,
+		IItemLabelProvider, IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -77,14 +78,20 @@ public class TargetAudienceDefinitionItemProvider extends StringPlusAuthorityIte
 	 * @generated
 	 */
 	protected void addAltRepGroupPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_TargetAudienceDefinition_altRepGroup_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_TargetAudienceDefinition_altRepGroup_feature",
-						"_UI_TargetAudienceDefinition_type"),
-				MODSPackage.eINSTANCE.getTargetAudienceDefinition_AltRepGroup(), true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(
+						((ComposeableAdapterFactory) adapterFactory)
+								.getRootAdapterFactory(),
+						getResourceLocator(),
+						getString("_UI_TargetAudienceDefinition_altRepGroup_feature"),
+						getString(
+								"_UI_PropertyDescriptor_description",
+								"_UI_TargetAudienceDefinition_altRepGroup_feature",
+								"_UI_TargetAudienceDefinition_type"),
+						MODSPackage.eINSTANCE
+								.getTargetAudienceDefinition_AltRepGroup(),
+						true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -95,13 +102,17 @@ public class TargetAudienceDefinitionItemProvider extends StringPlusAuthorityIte
 	 */
 	protected void addDisplayLabelPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_TargetAudienceDefinition_displayLabel_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_TargetAudienceDefinition_displayLabel_feature",
-						"_UI_TargetAudienceDefinition_type"), MODSPackage.eINSTANCE
-						.getTargetAudienceDefinition_DisplayLabel(), true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_TargetAudienceDefinition_displayLabel_feature",
+						"_UI_TargetAudienceDefinition_type"),
+				MODSPackage.eINSTANCE
+						.getTargetAudienceDefinition_DisplayLabel(), true,
+				false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null,
+				null));
 	}
 
 	/**
@@ -112,7 +123,10 @@ public class TargetAudienceDefinitionItemProvider extends StringPlusAuthorityIte
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/TargetAudienceDefinition"));
+		return overlayImage(
+				object,
+				getResourceLocator().getImage(
+						"full/obj16/TargetAudienceDefinition"));
 	}
 
 	/**
@@ -150,10 +164,11 @@ public class TargetAudienceDefinitionItemProvider extends StringPlusAuthorityIte
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(TargetAudienceDefinition.class)) {
-			case MODSPackage.TARGET_AUDIENCE_DEFINITION__ALT_REP_GROUP:
-			case MODSPackage.TARGET_AUDIENCE_DEFINITION__DISPLAY_LABEL:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
+		case MODSPackage.TARGET_AUDIENCE_DEFINITION__ALT_REP_GROUP:
+		case MODSPackage.TARGET_AUDIENCE_DEFINITION__DISPLAY_LABEL:
+			fireNotifyChanged(new ViewerNotification(notification,
+					notification.getNotifier(), false, true));
+			return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -166,7 +181,8 @@ public class TargetAudienceDefinitionItemProvider extends StringPlusAuthorityIte
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(
+			Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 

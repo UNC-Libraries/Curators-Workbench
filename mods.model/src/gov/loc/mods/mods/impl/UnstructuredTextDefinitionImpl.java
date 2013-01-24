@@ -48,7 +48,8 @@ import org.w3._1999.xlink.ShowType;
  *
  * @generated
  */
-public class UnstructuredTextDefinitionImpl extends XsStringImpl implements UnstructuredTextDefinition {
+public class UnstructuredTextDefinitionImpl extends XsStringImpl implements
+		UnstructuredTextDefinition {
 	/**
 	 * The default value of the '{@link #getActuate() <em>Actuate</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -295,7 +296,8 @@ public class UnstructuredTextDefinitionImpl extends XsStringImpl implements Unst
 		boolean oldActuateESet = actuateESet;
 		actuateESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__ACTUATE,
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__ACTUATE,
 					oldActuate, actuate, !oldActuateESet));
 	}
 
@@ -310,7 +312,8 @@ public class UnstructuredTextDefinitionImpl extends XsStringImpl implements Unst
 		actuate = ACTUATE_EDEFAULT;
 		actuateESet = false;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__ACTUATE,
+			eNotify(new ENotificationImpl(this, Notification.UNSET,
+					MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__ACTUATE,
 					oldActuate, ACTUATE_EDEFAULT, oldActuateESet));
 	}
 
@@ -341,7 +344,8 @@ public class UnstructuredTextDefinitionImpl extends XsStringImpl implements Unst
 		String oldArcrole = arcrole;
 		arcrole = newArcrole;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__ARCROLE,
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__ARCROLE,
 					oldArcrole, arcrole));
 	}
 
@@ -363,7 +367,8 @@ public class UnstructuredTextDefinitionImpl extends XsStringImpl implements Unst
 		String oldDisplayLabel = displayLabel;
 		displayLabel = newDisplayLabel;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__DISPLAY_LABEL,
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__DISPLAY_LABEL,
 					oldDisplayLabel, displayLabel));
 	}
 
@@ -385,7 +390,8 @@ public class UnstructuredTextDefinitionImpl extends XsStringImpl implements Unst
 		String oldHref = href;
 		href = newHref;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__HREF, oldHref,
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__HREF, oldHref,
 					href));
 	}
 
@@ -407,7 +413,8 @@ public class UnstructuredTextDefinitionImpl extends XsStringImpl implements Unst
 		String oldRole = role;
 		role = newRole;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__ROLE, oldRole,
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__ROLE, oldRole,
 					role));
 	}
 
@@ -431,7 +438,8 @@ public class UnstructuredTextDefinitionImpl extends XsStringImpl implements Unst
 		boolean oldShowESet = showESet;
 		showESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__SHOW, oldShow,
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__SHOW, oldShow,
 					show, !oldShowESet));
 	}
 
@@ -446,8 +454,9 @@ public class UnstructuredTextDefinitionImpl extends XsStringImpl implements Unst
 		show = SHOW_EDEFAULT;
 		showESet = false;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__SHOW,
-					oldShow, SHOW_EDEFAULT, oldShowESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET,
+					MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__SHOW, oldShow,
+					SHOW_EDEFAULT, oldShowESet));
 	}
 
 	/**
@@ -477,8 +486,9 @@ public class UnstructuredTextDefinitionImpl extends XsStringImpl implements Unst
 		String oldTitle = title;
 		title = newTitle;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__TITLE,
-					oldTitle, title));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__TITLE, oldTitle,
+					title));
 	}
 
 	/**
@@ -499,7 +509,8 @@ public class UnstructuredTextDefinitionImpl extends XsStringImpl implements Unst
 		String oldType = type;
 		type = newType;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__TYPE, oldType,
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__TYPE, oldType,
 					type));
 	}
 
@@ -523,8 +534,9 @@ public class UnstructuredTextDefinitionImpl extends XsStringImpl implements Unst
 		boolean oldType1ESet = type1ESet;
 		type1ESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__TYPE1,
-					oldType1, type1, !oldType1ESet));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__TYPE1, oldType1,
+					type1, !oldType1ESet));
 	}
 
 	/**
@@ -538,8 +550,9 @@ public class UnstructuredTextDefinitionImpl extends XsStringImpl implements Unst
 		type1 = TYPE1_EDEFAULT;
 		type1ESet = false;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__TYPE1,
-					oldType1, TYPE1_EDEFAULT, oldType1ESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET,
+					MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__TYPE1, oldType1,
+					TYPE1_EDEFAULT, oldType1ESet));
 	}
 
 	/**
@@ -559,24 +572,24 @@ public class UnstructuredTextDefinitionImpl extends XsStringImpl implements Unst
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__ACTUATE:
-				return getActuate();
-			case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__ARCROLE:
-				return getArcrole();
-			case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__DISPLAY_LABEL:
-				return getDisplayLabel();
-			case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__HREF:
-				return getHref();
-			case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__ROLE:
-				return getRole();
-			case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__SHOW:
-				return getShow();
-			case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__TITLE:
-				return getTitle();
-			case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__TYPE:
-				return getType();
-			case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__TYPE1:
-				return getType1();
+		case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__ACTUATE:
+			return getActuate();
+		case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__ARCROLE:
+			return getArcrole();
+		case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__DISPLAY_LABEL:
+			return getDisplayLabel();
+		case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__HREF:
+			return getHref();
+		case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__ROLE:
+			return getRole();
+		case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__SHOW:
+			return getShow();
+		case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__TITLE:
+			return getTitle();
+		case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__TYPE:
+			return getType();
+		case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__TYPE1:
+			return getType1();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -589,33 +602,33 @@ public class UnstructuredTextDefinitionImpl extends XsStringImpl implements Unst
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__ACTUATE:
-				setActuate((ActuateType) newValue);
-				return;
-			case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__ARCROLE:
-				setArcrole((String) newValue);
-				return;
-			case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__DISPLAY_LABEL:
-				setDisplayLabel((String) newValue);
-				return;
-			case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__HREF:
-				setHref((String) newValue);
-				return;
-			case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__ROLE:
-				setRole((String) newValue);
-				return;
-			case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__SHOW:
-				setShow((ShowType) newValue);
-				return;
-			case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__TITLE:
-				setTitle((String) newValue);
-				return;
-			case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__TYPE:
-				setType((String) newValue);
-				return;
-			case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__TYPE1:
-				setType1((String) newValue);
-				return;
+		case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__ACTUATE:
+			setActuate((ActuateType) newValue);
+			return;
+		case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__ARCROLE:
+			setArcrole((String) newValue);
+			return;
+		case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__DISPLAY_LABEL:
+			setDisplayLabel((String) newValue);
+			return;
+		case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__HREF:
+			setHref((String) newValue);
+			return;
+		case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__ROLE:
+			setRole((String) newValue);
+			return;
+		case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__SHOW:
+			setShow((ShowType) newValue);
+			return;
+		case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__TITLE:
+			setTitle((String) newValue);
+			return;
+		case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__TYPE:
+			setType((String) newValue);
+			return;
+		case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__TYPE1:
+			setType1((String) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -628,33 +641,33 @@ public class UnstructuredTextDefinitionImpl extends XsStringImpl implements Unst
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__ACTUATE:
-				unsetActuate();
-				return;
-			case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__ARCROLE:
-				setArcrole(ARCROLE_EDEFAULT);
-				return;
-			case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__DISPLAY_LABEL:
-				setDisplayLabel(DISPLAY_LABEL_EDEFAULT);
-				return;
-			case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__HREF:
-				setHref(HREF_EDEFAULT);
-				return;
-			case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__ROLE:
-				setRole(ROLE_EDEFAULT);
-				return;
-			case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__SHOW:
-				unsetShow();
-				return;
-			case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__TITLE:
-				setTitle(TITLE_EDEFAULT);
-				return;
-			case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__TYPE:
-				setType(TYPE_EDEFAULT);
-				return;
-			case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__TYPE1:
-				unsetType1();
-				return;
+		case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__ACTUATE:
+			unsetActuate();
+			return;
+		case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__ARCROLE:
+			setArcrole(ARCROLE_EDEFAULT);
+			return;
+		case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__DISPLAY_LABEL:
+			setDisplayLabel(DISPLAY_LABEL_EDEFAULT);
+			return;
+		case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__HREF:
+			setHref(HREF_EDEFAULT);
+			return;
+		case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__ROLE:
+			setRole(ROLE_EDEFAULT);
+			return;
+		case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__SHOW:
+			unsetShow();
+			return;
+		case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__TITLE:
+			setTitle(TITLE_EDEFAULT);
+			return;
+		case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__TYPE:
+			setType(TYPE_EDEFAULT);
+			return;
+		case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__TYPE1:
+			unsetType1();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -667,24 +680,30 @@ public class UnstructuredTextDefinitionImpl extends XsStringImpl implements Unst
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__ACTUATE:
-				return isSetActuate();
-			case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__ARCROLE:
-				return ARCROLE_EDEFAULT == null ? arcrole != null : !ARCROLE_EDEFAULT.equals(arcrole);
-			case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__DISPLAY_LABEL:
-				return DISPLAY_LABEL_EDEFAULT == null ? displayLabel != null : !DISPLAY_LABEL_EDEFAULT.equals(displayLabel);
-			case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__HREF:
-				return HREF_EDEFAULT == null ? href != null : !HREF_EDEFAULT.equals(href);
-			case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__ROLE:
-				return ROLE_EDEFAULT == null ? role != null : !ROLE_EDEFAULT.equals(role);
-			case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__SHOW:
-				return isSetShow();
-			case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__TITLE:
-				return TITLE_EDEFAULT == null ? title != null : !TITLE_EDEFAULT.equals(title);
-			case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__TYPE:
-				return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
-			case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__TYPE1:
-				return isSetType1();
+		case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__ACTUATE:
+			return isSetActuate();
+		case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__ARCROLE:
+			return ARCROLE_EDEFAULT == null ? arcrole != null
+					: !ARCROLE_EDEFAULT.equals(arcrole);
+		case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__DISPLAY_LABEL:
+			return DISPLAY_LABEL_EDEFAULT == null ? displayLabel != null
+					: !DISPLAY_LABEL_EDEFAULT.equals(displayLabel);
+		case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__HREF:
+			return HREF_EDEFAULT == null ? href != null : !HREF_EDEFAULT
+					.equals(href);
+		case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__ROLE:
+			return ROLE_EDEFAULT == null ? role != null : !ROLE_EDEFAULT
+					.equals(role);
+		case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__SHOW:
+			return isSetShow();
+		case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__TITLE:
+			return TITLE_EDEFAULT == null ? title != null : !TITLE_EDEFAULT
+					.equals(title);
+		case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__TYPE:
+			return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT
+					.equals(type);
+		case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__TYPE1:
+			return isSetType1();
 		}
 		return super.eIsSet(featureID);
 	}

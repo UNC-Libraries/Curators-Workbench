@@ -40,8 +40,9 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class NoteDefinitionItemProvider extends NoteBaseDefinitionItemProvider implements IEditingDomainItemProvider,
-		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class NoteDefinitionItemProvider extends NoteBaseDefinitionItemProvider
+		implements IEditingDomainItemProvider, IStructuredItemContentProvider,
+		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -76,12 +77,15 @@ public class NoteDefinitionItemProvider extends NoteBaseDefinitionItemProvider i
 	 */
 	protected void addAltRepGroupPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_NoteDefinition_altRepGroup_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_NoteDefinition_altRepGroup_feature",
-						"_UI_NoteDefinition_type"), MODSPackage.eINSTANCE.getNoteDefinition_AltRepGroup(), true, false,
-				false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_NoteDefinition_altRepGroup_feature",
+						"_UI_NoteDefinition_type"), MODSPackage.eINSTANCE
+						.getNoteDefinition_AltRepGroup(), true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -92,7 +96,8 @@ public class NoteDefinitionItemProvider extends NoteBaseDefinitionItemProvider i
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/NoteDefinition"));
+		return overlayImage(object,
+				getResourceLocator().getImage("full/obj16/NoteDefinition"));
 	}
 
 	/**
@@ -130,9 +135,10 @@ public class NoteDefinitionItemProvider extends NoteBaseDefinitionItemProvider i
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(NoteDefinition.class)) {
-			case MODSPackage.NOTE_DEFINITION__ALT_REP_GROUP:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
+		case MODSPackage.NOTE_DEFINITION__ALT_REP_GROUP:
+			fireNotifyChanged(new ViewerNotification(notification,
+					notification.getNotifier(), false, true));
+			return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -145,7 +151,8 @@ public class NoteDefinitionItemProvider extends NoteBaseDefinitionItemProvider i
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(
+			Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 

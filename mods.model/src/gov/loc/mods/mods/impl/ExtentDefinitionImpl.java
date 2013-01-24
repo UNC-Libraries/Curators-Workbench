@@ -47,7 +47,8 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *
  * @generated
  */
-public class ExtentDefinitionImpl extends EObjectImpl implements ExtentDefinition {
+public class ExtentDefinitionImpl extends EObjectImpl implements
+		ExtentDefinition {
 	/**
 	 * The cached value of the '{@link #getStart() <em>Start</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -151,12 +152,14 @@ public class ExtentDefinitionImpl extends EObjectImpl implements ExtentDefinitio
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetStart(XsString newStart, NotificationChain msgs) {
+	public NotificationChain basicSetStart(XsString newStart,
+			NotificationChain msgs) {
 		XsString oldStart = start;
 		start = newStart;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					MODSPackage.EXTENT_DEFINITION__START, oldStart, newStart);
+			ENotificationImpl notification = new ENotificationImpl(this,
+					Notification.SET, MODSPackage.EXTENT_DEFINITION__START,
+					oldStart, newStart);
 			if (msgs == null)
 				msgs = notification;
 			else
@@ -174,16 +177,21 @@ public class ExtentDefinitionImpl extends EObjectImpl implements ExtentDefinitio
 		if (newStart != start) {
 			NotificationChain msgs = null;
 			if (start != null)
-				msgs = ((InternalEObject) start).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- MODSPackage.EXTENT_DEFINITION__START, null, msgs);
+				msgs = ((InternalEObject) start).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE
+								- MODSPackage.EXTENT_DEFINITION__START, null,
+						msgs);
 			if (newStart != null)
-				msgs = ((InternalEObject) newStart).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- MODSPackage.EXTENT_DEFINITION__START, null, msgs);
+				msgs = ((InternalEObject) newStart).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE
+								- MODSPackage.EXTENT_DEFINITION__START, null,
+						msgs);
 			msgs = basicSetStart(newStart, msgs);
 			if (msgs != null)
 				msgs.dispatch();
 		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.EXTENT_DEFINITION__START, newStart, newStart));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.EXTENT_DEFINITION__START, newStart, newStart));
 	}
 
 	/**
@@ -204,8 +212,9 @@ public class ExtentDefinitionImpl extends EObjectImpl implements ExtentDefinitio
 		XsString oldEnd = end;
 		end = newEnd;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					MODSPackage.EXTENT_DEFINITION__END, oldEnd, newEnd);
+			ENotificationImpl notification = new ENotificationImpl(this,
+					Notification.SET, MODSPackage.EXTENT_DEFINITION__END,
+					oldEnd, newEnd);
 			if (msgs == null)
 				msgs = notification;
 			else
@@ -223,16 +232,21 @@ public class ExtentDefinitionImpl extends EObjectImpl implements ExtentDefinitio
 		if (newEnd != end) {
 			NotificationChain msgs = null;
 			if (end != null)
-				msgs = ((InternalEObject) end).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- MODSPackage.EXTENT_DEFINITION__END, null, msgs);
+				msgs = ((InternalEObject) end).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE
+								- MODSPackage.EXTENT_DEFINITION__END, null,
+						msgs);
 			if (newEnd != null)
-				msgs = ((InternalEObject) newEnd).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- MODSPackage.EXTENT_DEFINITION__END, null, msgs);
+				msgs = ((InternalEObject) newEnd).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE
+								- MODSPackage.EXTENT_DEFINITION__END, null,
+						msgs);
 			msgs = basicSetEnd(newEnd, msgs);
 			if (msgs != null)
 				msgs.dispatch();
 		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.EXTENT_DEFINITION__END, newEnd, newEnd));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.EXTENT_DEFINITION__END, newEnd, newEnd));
 	}
 
 	/**
@@ -253,7 +267,8 @@ public class ExtentDefinitionImpl extends EObjectImpl implements ExtentDefinitio
 		BigInteger oldTotal = total;
 		total = newTotal;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.EXTENT_DEFINITION__TOTAL, oldTotal, total));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.EXTENT_DEFINITION__TOTAL, oldTotal, total));
 	}
 
 	/**
@@ -270,12 +285,14 @@ public class ExtentDefinitionImpl extends EObjectImpl implements ExtentDefinitio
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetList(XsString newList, NotificationChain msgs) {
+	public NotificationChain basicSetList(XsString newList,
+			NotificationChain msgs) {
 		XsString oldList = list;
 		list = newList;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					MODSPackage.EXTENT_DEFINITION__LIST, oldList, newList);
+			ENotificationImpl notification = new ENotificationImpl(this,
+					Notification.SET, MODSPackage.EXTENT_DEFINITION__LIST,
+					oldList, newList);
 			if (msgs == null)
 				msgs = notification;
 			else
@@ -293,16 +310,21 @@ public class ExtentDefinitionImpl extends EObjectImpl implements ExtentDefinitio
 		if (newList != list) {
 			NotificationChain msgs = null;
 			if (list != null)
-				msgs = ((InternalEObject) list).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- MODSPackage.EXTENT_DEFINITION__LIST, null, msgs);
+				msgs = ((InternalEObject) list).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE
+								- MODSPackage.EXTENT_DEFINITION__LIST, null,
+						msgs);
 			if (newList != null)
-				msgs = ((InternalEObject) newList).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- MODSPackage.EXTENT_DEFINITION__LIST, null, msgs);
+				msgs = ((InternalEObject) newList).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE
+								- MODSPackage.EXTENT_DEFINITION__LIST, null,
+						msgs);
 			msgs = basicSetList(newList, msgs);
 			if (msgs != null)
 				msgs.dispatch();
 		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.EXTENT_DEFINITION__LIST, newList, newList));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.EXTENT_DEFINITION__LIST, newList, newList));
 	}
 
 	/**
@@ -323,7 +345,8 @@ public class ExtentDefinitionImpl extends EObjectImpl implements ExtentDefinitio
 		String oldUnit = unit;
 		unit = newUnit;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.EXTENT_DEFINITION__UNIT, oldUnit, unit));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.EXTENT_DEFINITION__UNIT, oldUnit, unit));
 	}
 
 	/**
@@ -332,14 +355,15 @@ public class ExtentDefinitionImpl extends EObjectImpl implements ExtentDefinitio
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+	public NotificationChain eInverseRemove(InternalEObject otherEnd,
+			int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case MODSPackage.EXTENT_DEFINITION__START:
-				return basicSetStart(null, msgs);
-			case MODSPackage.EXTENT_DEFINITION__END:
-				return basicSetEnd(null, msgs);
-			case MODSPackage.EXTENT_DEFINITION__LIST:
-				return basicSetList(null, msgs);
+		case MODSPackage.EXTENT_DEFINITION__START:
+			return basicSetStart(null, msgs);
+		case MODSPackage.EXTENT_DEFINITION__END:
+			return basicSetEnd(null, msgs);
+		case MODSPackage.EXTENT_DEFINITION__LIST:
+			return basicSetList(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -352,16 +376,16 @@ public class ExtentDefinitionImpl extends EObjectImpl implements ExtentDefinitio
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case MODSPackage.EXTENT_DEFINITION__START:
-				return getStart();
-			case MODSPackage.EXTENT_DEFINITION__END:
-				return getEnd();
-			case MODSPackage.EXTENT_DEFINITION__TOTAL:
-				return getTotal();
-			case MODSPackage.EXTENT_DEFINITION__LIST:
-				return getList();
-			case MODSPackage.EXTENT_DEFINITION__UNIT:
-				return getUnit();
+		case MODSPackage.EXTENT_DEFINITION__START:
+			return getStart();
+		case MODSPackage.EXTENT_DEFINITION__END:
+			return getEnd();
+		case MODSPackage.EXTENT_DEFINITION__TOTAL:
+			return getTotal();
+		case MODSPackage.EXTENT_DEFINITION__LIST:
+			return getList();
+		case MODSPackage.EXTENT_DEFINITION__UNIT:
+			return getUnit();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -374,21 +398,21 @@ public class ExtentDefinitionImpl extends EObjectImpl implements ExtentDefinitio
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case MODSPackage.EXTENT_DEFINITION__START:
-				setStart((XsString) newValue);
-				return;
-			case MODSPackage.EXTENT_DEFINITION__END:
-				setEnd((XsString) newValue);
-				return;
-			case MODSPackage.EXTENT_DEFINITION__TOTAL:
-				setTotal((BigInteger) newValue);
-				return;
-			case MODSPackage.EXTENT_DEFINITION__LIST:
-				setList((XsString) newValue);
-				return;
-			case MODSPackage.EXTENT_DEFINITION__UNIT:
-				setUnit((String) newValue);
-				return;
+		case MODSPackage.EXTENT_DEFINITION__START:
+			setStart((XsString) newValue);
+			return;
+		case MODSPackage.EXTENT_DEFINITION__END:
+			setEnd((XsString) newValue);
+			return;
+		case MODSPackage.EXTENT_DEFINITION__TOTAL:
+			setTotal((BigInteger) newValue);
+			return;
+		case MODSPackage.EXTENT_DEFINITION__LIST:
+			setList((XsString) newValue);
+			return;
+		case MODSPackage.EXTENT_DEFINITION__UNIT:
+			setUnit((String) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -401,21 +425,21 @@ public class ExtentDefinitionImpl extends EObjectImpl implements ExtentDefinitio
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case MODSPackage.EXTENT_DEFINITION__START:
-				setStart((XsString) null);
-				return;
-			case MODSPackage.EXTENT_DEFINITION__END:
-				setEnd((XsString) null);
-				return;
-			case MODSPackage.EXTENT_DEFINITION__TOTAL:
-				setTotal(TOTAL_EDEFAULT);
-				return;
-			case MODSPackage.EXTENT_DEFINITION__LIST:
-				setList((XsString) null);
-				return;
-			case MODSPackage.EXTENT_DEFINITION__UNIT:
-				setUnit(UNIT_EDEFAULT);
-				return;
+		case MODSPackage.EXTENT_DEFINITION__START:
+			setStart((XsString) null);
+			return;
+		case MODSPackage.EXTENT_DEFINITION__END:
+			setEnd((XsString) null);
+			return;
+		case MODSPackage.EXTENT_DEFINITION__TOTAL:
+			setTotal(TOTAL_EDEFAULT);
+			return;
+		case MODSPackage.EXTENT_DEFINITION__LIST:
+			setList((XsString) null);
+			return;
+		case MODSPackage.EXTENT_DEFINITION__UNIT:
+			setUnit(UNIT_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -428,16 +452,18 @@ public class ExtentDefinitionImpl extends EObjectImpl implements ExtentDefinitio
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case MODSPackage.EXTENT_DEFINITION__START:
-				return start != null;
-			case MODSPackage.EXTENT_DEFINITION__END:
-				return end != null;
-			case MODSPackage.EXTENT_DEFINITION__TOTAL:
-				return TOTAL_EDEFAULT == null ? total != null : !TOTAL_EDEFAULT.equals(total);
-			case MODSPackage.EXTENT_DEFINITION__LIST:
-				return list != null;
-			case MODSPackage.EXTENT_DEFINITION__UNIT:
-				return UNIT_EDEFAULT == null ? unit != null : !UNIT_EDEFAULT.equals(unit);
+		case MODSPackage.EXTENT_DEFINITION__START:
+			return start != null;
+		case MODSPackage.EXTENT_DEFINITION__END:
+			return end != null;
+		case MODSPackage.EXTENT_DEFINITION__TOTAL:
+			return TOTAL_EDEFAULT == null ? total != null : !TOTAL_EDEFAULT
+					.equals(total);
+		case MODSPackage.EXTENT_DEFINITION__LIST:
+			return list != null;
+		case MODSPackage.EXTENT_DEFINITION__UNIT:
+			return UNIT_EDEFAULT == null ? unit != null : !UNIT_EDEFAULT
+					.equals(unit);
 		}
 		return super.eIsSet(featureID);
 	}

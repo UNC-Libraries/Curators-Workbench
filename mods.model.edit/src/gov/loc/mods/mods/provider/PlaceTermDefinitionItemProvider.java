@@ -40,8 +40,9 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class PlaceTermDefinitionItemProvider extends XsStringItemProvider implements IEditingDomainItemProvider,
-		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class PlaceTermDefinitionItemProvider extends XsStringItemProvider
+		implements IEditingDomainItemProvider, IStructuredItemContentProvider,
+		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -79,12 +80,15 @@ public class PlaceTermDefinitionItemProvider extends XsStringItemProvider implem
 	 */
 	protected void addAuthorityPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_PlaceTermDefinition_authority_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_PlaceTermDefinition_authority_feature",
-						"_UI_PlaceTermDefinition_type"), MODSPackage.eINSTANCE.getPlaceTermDefinition_Authority(), true,
-				false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_PlaceTermDefinition_authority_feature",
+						"_UI_PlaceTermDefinition_type"), MODSPackage.eINSTANCE
+						.getPlaceTermDefinition_Authority(), true, false,
+				false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -95,12 +99,15 @@ public class PlaceTermDefinitionItemProvider extends XsStringItemProvider implem
 	 */
 	protected void addAuthorityURIPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_PlaceTermDefinition_authorityURI_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_PlaceTermDefinition_authorityURI_feature",
-						"_UI_PlaceTermDefinition_type"), MODSPackage.eINSTANCE.getPlaceTermDefinition_AuthorityURI(), true,
-				false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_PlaceTermDefinition_authorityURI_feature",
+						"_UI_PlaceTermDefinition_type"), MODSPackage.eINSTANCE
+						.getPlaceTermDefinition_AuthorityURI(), true, false,
+				false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -111,12 +118,15 @@ public class PlaceTermDefinitionItemProvider extends XsStringItemProvider implem
 	 */
 	protected void addTypePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_PlaceTermDefinition_type_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_PlaceTermDefinition_type_feature",
-						"_UI_PlaceTermDefinition_type"), MODSPackage.eINSTANCE.getPlaceTermDefinition_Type(), true, false,
-				false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_PlaceTermDefinition_type_feature",
+						"_UI_PlaceTermDefinition_type"), MODSPackage.eINSTANCE
+						.getPlaceTermDefinition_Type(), true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -127,12 +137,15 @@ public class PlaceTermDefinitionItemProvider extends XsStringItemProvider implem
 	 */
 	protected void addValueURIPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_PlaceTermDefinition_valueURI_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_PlaceTermDefinition_valueURI_feature",
-						"_UI_PlaceTermDefinition_type"), MODSPackage.eINSTANCE.getPlaceTermDefinition_ValueURI(), true,
-				false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_PlaceTermDefinition_valueURI_feature",
+						"_UI_PlaceTermDefinition_type"), MODSPackage.eINSTANCE
+						.getPlaceTermDefinition_ValueURI(), true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -143,7 +156,8 @@ public class PlaceTermDefinitionItemProvider extends XsStringItemProvider implem
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/PlaceTermDefinition"));
+		return overlayImage(object,
+				getResourceLocator().getImage("full/obj16/PlaceTermDefinition"));
 	}
 
 	/**
@@ -181,12 +195,13 @@ public class PlaceTermDefinitionItemProvider extends XsStringItemProvider implem
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(PlaceTermDefinition.class)) {
-			case MODSPackage.PLACE_TERM_DEFINITION__AUTHORITY:
-			case MODSPackage.PLACE_TERM_DEFINITION__AUTHORITY_URI:
-			case MODSPackage.PLACE_TERM_DEFINITION__TYPE:
-			case MODSPackage.PLACE_TERM_DEFINITION__VALUE_URI:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
+		case MODSPackage.PLACE_TERM_DEFINITION__AUTHORITY:
+		case MODSPackage.PLACE_TERM_DEFINITION__AUTHORITY_URI:
+		case MODSPackage.PLACE_TERM_DEFINITION__TYPE:
+		case MODSPackage.PLACE_TERM_DEFINITION__VALUE_URI:
+			fireNotifyChanged(new ViewerNotification(notification,
+					notification.getNotifier(), false, true));
+			return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -199,7 +214,8 @@ public class PlaceTermDefinitionItemProvider extends XsStringItemProvider implem
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(
+			Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 
