@@ -121,8 +121,8 @@ public enum PlaceAuthorityAttributeDefinition implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final List<PlaceAuthorityAttributeDefinition> VALUES = Collections
-			.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+	public static final List<PlaceAuthorityAttributeDefinition> VALUES = Collections.unmodifiableList(Arrays
+			.asList(VALUES_ARRAY));
 
 	/**
 	 * Returns the '<em><b>Place Authority Attribute Definition</b></em>' literal with the specified literal value.
@@ -164,12 +164,12 @@ public enum PlaceAuthorityAttributeDefinition implements Enumerator {
 	 */
 	public static PlaceAuthorityAttributeDefinition get(int value) {
 		switch (value) {
-		case MARCGAC_VALUE:
-			return MARCGAC;
-		case MARCCOUNTRY_VALUE:
-			return MARCCOUNTRY;
-		case ISO3166_VALUE:
-			return ISO3166;
+			case MARCGAC_VALUE:
+				return MARCGAC;
+			case MARCCOUNTRY_VALUE:
+				return MARCCOUNTRY;
+			case ISO3166_VALUE:
+				return ISO3166;
 		}
 		return null;
 	}
@@ -201,8 +201,7 @@ public enum PlaceAuthorityAttributeDefinition implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private PlaceAuthorityAttributeDefinition(int value, String name,
-			String literal) {
+	private PlaceAuthorityAttributeDefinition(int value, String name, String literal) {
 		this.value = value;
 		this.name = name;
 		this.literal = literal;

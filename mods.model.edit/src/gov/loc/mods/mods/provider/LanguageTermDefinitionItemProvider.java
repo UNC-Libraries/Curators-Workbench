@@ -40,9 +40,8 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class LanguageTermDefinitionItemProvider extends XsStringItemProvider
-		implements IEditingDomainItemProvider, IStructuredItemContentProvider,
-		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class LanguageTermDefinitionItemProvider extends XsStringItemProvider implements IEditingDomainItemProvider,
+		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -80,16 +79,12 @@ public class LanguageTermDefinitionItemProvider extends XsStringItemProvider
 	 */
 	protected void addAuthorityPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_LanguageTermDefinition_authority_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_LanguageTermDefinition_authority_feature",
-						"_UI_LanguageTermDefinition_type"),
-				MODSPackage.eINSTANCE.getLanguageTermDefinition_Authority(),
-				true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				null, null));
+				getString("_UI_PropertyDescriptor_description", "_UI_LanguageTermDefinition_authority_feature",
+						"_UI_LanguageTermDefinition_type"), MODSPackage.eINSTANCE.getLanguageTermDefinition_Authority(),
+				true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -100,16 +95,12 @@ public class LanguageTermDefinitionItemProvider extends XsStringItemProvider
 	 */
 	protected void addAuthorityURIPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_LanguageTermDefinition_authorityURI_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_LanguageTermDefinition_authorityURI_feature",
-						"_UI_LanguageTermDefinition_type"),
-				MODSPackage.eINSTANCE.getLanguageTermDefinition_AuthorityURI(),
-				true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				null, null));
+				getString("_UI_PropertyDescriptor_description", "_UI_LanguageTermDefinition_authorityURI_feature",
+						"_UI_LanguageTermDefinition_type"), MODSPackage.eINSTANCE.getLanguageTermDefinition_AuthorityURI(),
+				true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -120,16 +111,12 @@ public class LanguageTermDefinitionItemProvider extends XsStringItemProvider
 	 */
 	protected void addTypePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_LanguageTermDefinition_type_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_LanguageTermDefinition_type_feature",
-						"_UI_LanguageTermDefinition_type"),
-				MODSPackage.eINSTANCE.getLanguageTermDefinition_Type(), true,
-				false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null,
-				null));
+				getString("_UI_PropertyDescriptor_description", "_UI_LanguageTermDefinition_type_feature",
+						"_UI_LanguageTermDefinition_type"), MODSPackage.eINSTANCE.getLanguageTermDefinition_Type(), true,
+				false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -140,16 +127,12 @@ public class LanguageTermDefinitionItemProvider extends XsStringItemProvider
 	 */
 	protected void addValueURIPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_LanguageTermDefinition_valueURI_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_LanguageTermDefinition_valueURI_feature",
-						"_UI_LanguageTermDefinition_type"),
-				MODSPackage.eINSTANCE.getLanguageTermDefinition_ValueURI(),
-				true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				null, null));
+				getString("_UI_PropertyDescriptor_description", "_UI_LanguageTermDefinition_valueURI_feature",
+						"_UI_LanguageTermDefinition_type"), MODSPackage.eINSTANCE.getLanguageTermDefinition_ValueURI(), true,
+				false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -160,10 +143,7 @@ public class LanguageTermDefinitionItemProvider extends XsStringItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(
-				object,
-				getResourceLocator().getImage(
-						"full/obj16/LanguageTermDefinition"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/LanguageTermDefinition"));
 	}
 
 	/**
@@ -201,13 +181,12 @@ public class LanguageTermDefinitionItemProvider extends XsStringItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(LanguageTermDefinition.class)) {
-		case MODSPackage.LANGUAGE_TERM_DEFINITION__AUTHORITY:
-		case MODSPackage.LANGUAGE_TERM_DEFINITION__AUTHORITY_URI:
-		case MODSPackage.LANGUAGE_TERM_DEFINITION__TYPE:
-		case MODSPackage.LANGUAGE_TERM_DEFINITION__VALUE_URI:
-			fireNotifyChanged(new ViewerNotification(notification,
-					notification.getNotifier(), false, true));
-			return;
+			case MODSPackage.LANGUAGE_TERM_DEFINITION__AUTHORITY:
+			case MODSPackage.LANGUAGE_TERM_DEFINITION__AUTHORITY_URI:
+			case MODSPackage.LANGUAGE_TERM_DEFINITION__TYPE:
+			case MODSPackage.LANGUAGE_TERM_DEFINITION__VALUE_URI:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -220,8 +199,7 @@ public class LanguageTermDefinitionItemProvider extends XsStringItemProvider
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(
-			Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 

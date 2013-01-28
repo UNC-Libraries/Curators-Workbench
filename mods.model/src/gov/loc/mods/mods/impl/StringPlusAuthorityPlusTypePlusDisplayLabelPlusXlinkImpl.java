@@ -47,8 +47,7 @@ import org.w3._1999.xlink.ShowType;
  * @generated
  */
 public class StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlinkImpl extends
-		StringPlusAuthorityPlusTypePlusDisplayLabelImpl implements
-		StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink {
+		StringPlusAuthorityPlusTypePlusDisplayLabelImpl implements StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink {
 	/**
 	 * The default value of the '{@link #getActuate() <em>Actuate</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -232,8 +231,7 @@ public class StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlinkImpl extends
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return MODSPackage.eINSTANCE
-				.getStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink();
+		return MODSPackage.eINSTANCE.getStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink();
 	}
 
 	/**
@@ -256,11 +254,9 @@ public class StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlinkImpl extends
 		boolean oldActuateESet = actuateESet;
 		actuateESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(
-					this,
-					Notification.SET,
-					MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__ACTUATE,
-					oldActuate, actuate, !oldActuateESet));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__ACTUATE, oldActuate, actuate,
+					!oldActuateESet));
 	}
 
 	/**
@@ -274,11 +270,9 @@ public class StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlinkImpl extends
 		actuate = ACTUATE_EDEFAULT;
 		actuateESet = false;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(
-					this,
-					Notification.UNSET,
-					MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__ACTUATE,
-					oldActuate, ACTUATE_EDEFAULT, oldActuateESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET,
+					MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__ACTUATE, oldActuate,
+					ACTUATE_EDEFAULT, oldActuateESet));
 	}
 
 	/**
@@ -308,11 +302,8 @@ public class StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlinkImpl extends
 		String oldArcrole = arcrole;
 		arcrole = newArcrole;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(
-					this,
-					Notification.SET,
-					MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__ARCROLE,
-					oldArcrole, arcrole));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__ARCROLE, oldArcrole, arcrole));
 	}
 
 	/**
@@ -333,11 +324,8 @@ public class StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlinkImpl extends
 		String oldHref = href;
 		href = newHref;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(
-					this,
-					Notification.SET,
-					MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__HREF,
-					oldHref, href));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__HREF, oldHref, href));
 	}
 
 	/**
@@ -358,11 +346,8 @@ public class StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlinkImpl extends
 		String oldRole = role;
 		role = newRole;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(
-					this,
-					Notification.SET,
-					MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__ROLE,
-					oldRole, role));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__ROLE, oldRole, role));
 	}
 
 	/**
@@ -385,11 +370,9 @@ public class StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlinkImpl extends
 		boolean oldShowESet = showESet;
 		showESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(
-					this,
-					Notification.SET,
-					MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__SHOW,
-					oldShow, show, !oldShowESet));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__SHOW, oldShow, show,
+					!oldShowESet));
 	}
 
 	/**
@@ -403,11 +386,9 @@ public class StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlinkImpl extends
 		show = SHOW_EDEFAULT;
 		showESet = false;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(
-					this,
-					Notification.UNSET,
-					MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__SHOW,
-					oldShow, SHOW_EDEFAULT, oldShowESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET,
+					MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__SHOW, oldShow, SHOW_EDEFAULT,
+					oldShowESet));
 	}
 
 	/**
@@ -437,11 +418,8 @@ public class StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlinkImpl extends
 		String oldTitle = title;
 		title = newTitle;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(
-					this,
-					Notification.SET,
-					MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__TITLE,
-					oldTitle, title));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__TITLE, oldTitle, title));
 	}
 
 	/**
@@ -464,11 +442,9 @@ public class StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlinkImpl extends
 		boolean oldType1ESet = type1ESet;
 		type1ESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(
-					this,
-					Notification.SET,
-					MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__TYPE1,
-					oldType1, type1, !oldType1ESet));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__TYPE1, oldType1, type1,
+					!oldType1ESet));
 	}
 
 	/**
@@ -482,11 +458,9 @@ public class StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlinkImpl extends
 		type1 = TYPE1_EDEFAULT;
 		type1ESet = false;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(
-					this,
-					Notification.UNSET,
-					MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__TYPE1,
-					oldType1, TYPE1_EDEFAULT, oldType1ESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET,
+					MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__TYPE1, oldType1,
+					TYPE1_EDEFAULT, oldType1ESet));
 	}
 
 	/**
@@ -506,20 +480,20 @@ public class StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlinkImpl extends
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__ACTUATE:
-			return getActuate();
-		case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__ARCROLE:
-			return getArcrole();
-		case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__HREF:
-			return getHref();
-		case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__ROLE:
-			return getRole();
-		case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__SHOW:
-			return getShow();
-		case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__TITLE:
-			return getTitle();
-		case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__TYPE1:
-			return getType1();
+			case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__ACTUATE:
+				return getActuate();
+			case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__ARCROLE:
+				return getArcrole();
+			case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__HREF:
+				return getHref();
+			case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__ROLE:
+				return getRole();
+			case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__SHOW:
+				return getShow();
+			case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__TITLE:
+				return getTitle();
+			case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__TYPE1:
+				return getType1();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -532,27 +506,27 @@ public class StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlinkImpl extends
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__ACTUATE:
-			setActuate((ActuateType) newValue);
-			return;
-		case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__ARCROLE:
-			setArcrole((String) newValue);
-			return;
-		case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__HREF:
-			setHref((String) newValue);
-			return;
-		case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__ROLE:
-			setRole((String) newValue);
-			return;
-		case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__SHOW:
-			setShow((ShowType) newValue);
-			return;
-		case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__TITLE:
-			setTitle((String) newValue);
-			return;
-		case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__TYPE1:
-			setType1((String) newValue);
-			return;
+			case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__ACTUATE:
+				setActuate((ActuateType) newValue);
+				return;
+			case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__ARCROLE:
+				setArcrole((String) newValue);
+				return;
+			case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__HREF:
+				setHref((String) newValue);
+				return;
+			case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__ROLE:
+				setRole((String) newValue);
+				return;
+			case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__SHOW:
+				setShow((ShowType) newValue);
+				return;
+			case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__TITLE:
+				setTitle((String) newValue);
+				return;
+			case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__TYPE1:
+				setType1((String) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -565,27 +539,27 @@ public class StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlinkImpl extends
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__ACTUATE:
-			unsetActuate();
-			return;
-		case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__ARCROLE:
-			setArcrole(ARCROLE_EDEFAULT);
-			return;
-		case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__HREF:
-			setHref(HREF_EDEFAULT);
-			return;
-		case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__ROLE:
-			setRole(ROLE_EDEFAULT);
-			return;
-		case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__SHOW:
-			unsetShow();
-			return;
-		case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__TITLE:
-			setTitle(TITLE_EDEFAULT);
-			return;
-		case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__TYPE1:
-			unsetType1();
-			return;
+			case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__ACTUATE:
+				unsetActuate();
+				return;
+			case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__ARCROLE:
+				setArcrole(ARCROLE_EDEFAULT);
+				return;
+			case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__HREF:
+				setHref(HREF_EDEFAULT);
+				return;
+			case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__ROLE:
+				setRole(ROLE_EDEFAULT);
+				return;
+			case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__SHOW:
+				unsetShow();
+				return;
+			case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__TITLE:
+				setTitle(TITLE_EDEFAULT);
+				return;
+			case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__TYPE1:
+				unsetType1();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -598,24 +572,20 @@ public class StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlinkImpl extends
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__ACTUATE:
-			return isSetActuate();
-		case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__ARCROLE:
-			return ARCROLE_EDEFAULT == null ? arcrole != null
-					: !ARCROLE_EDEFAULT.equals(arcrole);
-		case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__HREF:
-			return HREF_EDEFAULT == null ? href != null : !HREF_EDEFAULT
-					.equals(href);
-		case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__ROLE:
-			return ROLE_EDEFAULT == null ? role != null : !ROLE_EDEFAULT
-					.equals(role);
-		case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__SHOW:
-			return isSetShow();
-		case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__TITLE:
-			return TITLE_EDEFAULT == null ? title != null : !TITLE_EDEFAULT
-					.equals(title);
-		case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__TYPE1:
-			return isSetType1();
+			case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__ACTUATE:
+				return isSetActuate();
+			case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__ARCROLE:
+				return ARCROLE_EDEFAULT == null ? arcrole != null : !ARCROLE_EDEFAULT.equals(arcrole);
+			case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__HREF:
+				return HREF_EDEFAULT == null ? href != null : !HREF_EDEFAULT.equals(href);
+			case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__ROLE:
+				return ROLE_EDEFAULT == null ? role != null : !ROLE_EDEFAULT.equals(role);
+			case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__SHOW:
+				return isSetShow();
+			case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__TITLE:
+				return TITLE_EDEFAULT == null ? title != null : !TITLE_EDEFAULT.equals(title);
+			case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__TYPE1:
+				return isSetType1();
 		}
 		return super.eIsSet(featureID);
 	}

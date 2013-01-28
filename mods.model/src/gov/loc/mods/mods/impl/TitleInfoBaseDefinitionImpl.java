@@ -73,8 +73,7 @@ import org.w3._1999.xlink.ShowType;
  *
  * @generated
  */
-public class TitleInfoBaseDefinitionImpl extends EObjectImpl implements
-		TitleInfoBaseDefinition {
+public class TitleInfoBaseDefinitionImpl extends EObjectImpl implements TitleInfoBaseDefinition {
 	/**
 	 * The cached value of the '{@link #getGroup() <em>Group</em>}' attribute list.
 	 * <!-- begin-user-doc -->
@@ -458,8 +457,7 @@ public class TitleInfoBaseDefinitionImpl extends EObjectImpl implements
 	 */
 	public FeatureMap getGroup() {
 		if (group == null) {
-			group = new BasicFeatureMap(this,
-					MODSPackage.TITLE_INFO_BASE_DEFINITION__GROUP);
+			group = new BasicFeatureMap(this, MODSPackage.TITLE_INFO_BASE_DEFINITION__GROUP);
 		}
 		return group;
 	}
@@ -470,8 +468,7 @@ public class TitleInfoBaseDefinitionImpl extends EObjectImpl implements
 	 * @generated
 	 */
 	public EList<XsString> getTitle() {
-		return getGroup().list(
-				MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Title());
+		return getGroup().list(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_Title());
 	}
 
 	/**
@@ -480,8 +477,7 @@ public class TitleInfoBaseDefinitionImpl extends EObjectImpl implements
 	 * @generated
 	 */
 	public EList<XsString> getSubTitle() {
-		return getGroup().list(
-				MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_SubTitle());
+		return getGroup().list(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_SubTitle());
 	}
 
 	/**
@@ -490,8 +486,7 @@ public class TitleInfoBaseDefinitionImpl extends EObjectImpl implements
 	 * @generated
 	 */
 	public EList<XsString> getPartNumber() {
-		return getGroup().list(
-				MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartNumber());
+		return getGroup().list(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartNumber());
 	}
 
 	/**
@@ -500,8 +495,7 @@ public class TitleInfoBaseDefinitionImpl extends EObjectImpl implements
 	 * @generated
 	 */
 	public EList<XsString> getPartName() {
-		return getGroup().list(
-				MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartName());
+		return getGroup().list(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_PartName());
 	}
 
 	/**
@@ -510,8 +504,7 @@ public class TitleInfoBaseDefinitionImpl extends EObjectImpl implements
 	 * @generated
 	 */
 	public EList<XsString> getNonSort() {
-		return getGroup().list(
-				MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_NonSort());
+		return getGroup().list(MODSPackage.eINSTANCE.getTitleInfoBaseDefinition_NonSort());
 	}
 
 	/**
@@ -534,8 +527,7 @@ public class TitleInfoBaseDefinitionImpl extends EObjectImpl implements
 		boolean oldActuateESet = actuateESet;
 		actuateESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MODSPackage.TITLE_INFO_BASE_DEFINITION__ACTUATE,
+			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.TITLE_INFO_BASE_DEFINITION__ACTUATE,
 					oldActuate, actuate, !oldActuateESet));
 	}
 
@@ -550,8 +542,7 @@ public class TitleInfoBaseDefinitionImpl extends EObjectImpl implements
 		actuate = ACTUATE_EDEFAULT;
 		actuateESet = false;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET,
-					MODSPackage.TITLE_INFO_BASE_DEFINITION__ACTUATE,
+			eNotify(new ENotificationImpl(this, Notification.UNSET, MODSPackage.TITLE_INFO_BASE_DEFINITION__ACTUATE,
 					oldActuate, ACTUATE_EDEFAULT, oldActuateESet));
 	}
 
@@ -582,8 +573,7 @@ public class TitleInfoBaseDefinitionImpl extends EObjectImpl implements
 		String oldArcrole = arcrole;
 		arcrole = newArcrole;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MODSPackage.TITLE_INFO_BASE_DEFINITION__ARCROLE,
+			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.TITLE_INFO_BASE_DEFINITION__ARCROLE,
 					oldArcrole, arcrole));
 	}
 
@@ -605,8 +595,7 @@ public class TitleInfoBaseDefinitionImpl extends EObjectImpl implements
 		String oldAuthority = authority;
 		authority = newAuthority;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MODSPackage.TITLE_INFO_BASE_DEFINITION__AUTHORITY,
+			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.TITLE_INFO_BASE_DEFINITION__AUTHORITY,
 					oldAuthority, authority));
 	}
 
@@ -628,8 +617,7 @@ public class TitleInfoBaseDefinitionImpl extends EObjectImpl implements
 		String oldAuthorityURI = authorityURI;
 		authorityURI = newAuthorityURI;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MODSPackage.TITLE_INFO_BASE_DEFINITION__AUTHORITY_URI,
+			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.TITLE_INFO_BASE_DEFINITION__AUTHORITY_URI,
 					oldAuthorityURI, authorityURI));
 	}
 
@@ -651,8 +639,7 @@ public class TitleInfoBaseDefinitionImpl extends EObjectImpl implements
 		String oldDisplayLabel = displayLabel;
 		displayLabel = newDisplayLabel;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MODSPackage.TITLE_INFO_BASE_DEFINITION__DISPLAY_LABEL,
+			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.TITLE_INFO_BASE_DEFINITION__DISPLAY_LABEL,
 					oldDisplayLabel, displayLabel));
 	}
 
@@ -674,8 +661,8 @@ public class TitleInfoBaseDefinitionImpl extends EObjectImpl implements
 		String oldHref = href;
 		href = newHref;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MODSPackage.TITLE_INFO_BASE_DEFINITION__HREF, oldHref, href));
+			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.TITLE_INFO_BASE_DEFINITION__HREF, oldHref,
+					href));
 	}
 
 	/**
@@ -696,8 +683,7 @@ public class TitleInfoBaseDefinitionImpl extends EObjectImpl implements
 		String oldID = iD;
 		iD = newID;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MODSPackage.TITLE_INFO_BASE_DEFINITION__ID, oldID, iD));
+			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.TITLE_INFO_BASE_DEFINITION__ID, oldID, iD));
 	}
 
 	/**
@@ -718,8 +704,8 @@ public class TitleInfoBaseDefinitionImpl extends EObjectImpl implements
 		String oldLang = lang;
 		lang = newLang;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MODSPackage.TITLE_INFO_BASE_DEFINITION__LANG, oldLang, lang));
+			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.TITLE_INFO_BASE_DEFINITION__LANG, oldLang,
+					lang));
 	}
 
 	/**
@@ -740,8 +726,7 @@ public class TitleInfoBaseDefinitionImpl extends EObjectImpl implements
 		String oldLang1 = lang1;
 		lang1 = newLang1;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MODSPackage.TITLE_INFO_BASE_DEFINITION__LANG1, oldLang1,
+			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.TITLE_INFO_BASE_DEFINITION__LANG1, oldLang1,
 					lang1));
 	}
 
@@ -763,8 +748,8 @@ public class TitleInfoBaseDefinitionImpl extends EObjectImpl implements
 		String oldRole = role;
 		role = newRole;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MODSPackage.TITLE_INFO_BASE_DEFINITION__ROLE, oldRole, role));
+			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.TITLE_INFO_BASE_DEFINITION__ROLE, oldRole,
+					role));
 	}
 
 	/**
@@ -785,9 +770,8 @@ public class TitleInfoBaseDefinitionImpl extends EObjectImpl implements
 		String oldScript = script;
 		script = newScript;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MODSPackage.TITLE_INFO_BASE_DEFINITION__SCRIPT, oldScript,
-					script));
+			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.TITLE_INFO_BASE_DEFINITION__SCRIPT,
+					oldScript, script));
 	}
 
 	/**
@@ -810,8 +794,7 @@ public class TitleInfoBaseDefinitionImpl extends EObjectImpl implements
 		boolean oldShowESet = showESet;
 		showESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MODSPackage.TITLE_INFO_BASE_DEFINITION__SHOW, oldShow,
+			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.TITLE_INFO_BASE_DEFINITION__SHOW, oldShow,
 					show, !oldShowESet));
 	}
 
@@ -826,8 +809,7 @@ public class TitleInfoBaseDefinitionImpl extends EObjectImpl implements
 		show = SHOW_EDEFAULT;
 		showESet = false;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET,
-					MODSPackage.TITLE_INFO_BASE_DEFINITION__SHOW, oldShow,
+			eNotify(new ENotificationImpl(this, Notification.UNSET, MODSPackage.TITLE_INFO_BASE_DEFINITION__SHOW, oldShow,
 					SHOW_EDEFAULT, oldShowESet));
 	}
 
@@ -858,9 +840,8 @@ public class TitleInfoBaseDefinitionImpl extends EObjectImpl implements
 		String oldTitle1 = title1;
 		title1 = newTitle1;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MODSPackage.TITLE_INFO_BASE_DEFINITION__TITLE1, oldTitle1,
-					title1));
+			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.TITLE_INFO_BASE_DEFINITION__TITLE1,
+					oldTitle1, title1));
 	}
 
 	/**
@@ -881,8 +862,7 @@ public class TitleInfoBaseDefinitionImpl extends EObjectImpl implements
 		String oldTransliteration = transliteration;
 		transliteration = newTransliteration;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MODSPackage.TITLE_INFO_BASE_DEFINITION__TRANSLITERATION,
+			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.TITLE_INFO_BASE_DEFINITION__TRANSLITERATION,
 					oldTransliteration, transliteration));
 	}
 
@@ -906,8 +886,7 @@ public class TitleInfoBaseDefinitionImpl extends EObjectImpl implements
 		boolean oldTypeESet = typeESet;
 		typeESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MODSPackage.TITLE_INFO_BASE_DEFINITION__TYPE, oldType,
+			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.TITLE_INFO_BASE_DEFINITION__TYPE, oldType,
 					type, !oldTypeESet));
 	}
 
@@ -922,8 +901,7 @@ public class TitleInfoBaseDefinitionImpl extends EObjectImpl implements
 		type = TYPE_EDEFAULT;
 		typeESet = false;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET,
-					MODSPackage.TITLE_INFO_BASE_DEFINITION__TYPE, oldType,
+			eNotify(new ENotificationImpl(this, Notification.UNSET, MODSPackage.TITLE_INFO_BASE_DEFINITION__TYPE, oldType,
 					TYPE_EDEFAULT, oldTypeESet));
 	}
 
@@ -954,8 +932,7 @@ public class TitleInfoBaseDefinitionImpl extends EObjectImpl implements
 		String oldValueURI = valueURI;
 		valueURI = newValueURI;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MODSPackage.TITLE_INFO_BASE_DEFINITION__VALUE_URI,
+			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.TITLE_INFO_BASE_DEFINITION__VALUE_URI,
 					oldValueURI, valueURI));
 	}
 
@@ -965,25 +942,20 @@ public class TitleInfoBaseDefinitionImpl extends EObjectImpl implements
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd,
-			int featureID, NotificationChain msgs) {
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__GROUP:
-			return ((InternalEList<?>) getGroup()).basicRemove(otherEnd, msgs);
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__TITLE:
-			return ((InternalEList<?>) getTitle()).basicRemove(otherEnd, msgs);
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__SUB_TITLE:
-			return ((InternalEList<?>) getSubTitle()).basicRemove(otherEnd,
-					msgs);
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__PART_NUMBER:
-			return ((InternalEList<?>) getPartNumber()).basicRemove(otherEnd,
-					msgs);
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__PART_NAME:
-			return ((InternalEList<?>) getPartName()).basicRemove(otherEnd,
-					msgs);
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__NON_SORT:
-			return ((InternalEList<?>) getNonSort())
-					.basicRemove(otherEnd, msgs);
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__GROUP:
+				return ((InternalEList<?>) getGroup()).basicRemove(otherEnd, msgs);
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__TITLE:
+				return ((InternalEList<?>) getTitle()).basicRemove(otherEnd, msgs);
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__SUB_TITLE:
+				return ((InternalEList<?>) getSubTitle()).basicRemove(otherEnd, msgs);
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__PART_NUMBER:
+				return ((InternalEList<?>) getPartNumber()).basicRemove(otherEnd, msgs);
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__PART_NAME:
+				return ((InternalEList<?>) getPartName()).basicRemove(otherEnd, msgs);
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__NON_SORT:
+				return ((InternalEList<?>) getNonSort()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -996,52 +968,52 @@ public class TitleInfoBaseDefinitionImpl extends EObjectImpl implements
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__GROUP:
-			if (coreType)
-				return getGroup();
-			return ((FeatureMap.Internal) getGroup()).getWrapper();
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__TITLE:
-			return getTitle();
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__SUB_TITLE:
-			return getSubTitle();
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__PART_NUMBER:
-			return getPartNumber();
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__PART_NAME:
-			return getPartName();
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__NON_SORT:
-			return getNonSort();
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__ACTUATE:
-			return getActuate();
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__ARCROLE:
-			return getArcrole();
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__AUTHORITY:
-			return getAuthority();
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__AUTHORITY_URI:
-			return getAuthorityURI();
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__DISPLAY_LABEL:
-			return getDisplayLabel();
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__HREF:
-			return getHref();
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__ID:
-			return getID();
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__LANG:
-			return getLang();
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__LANG1:
-			return getLang1();
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__ROLE:
-			return getRole();
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__SCRIPT:
-			return getScript();
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__SHOW:
-			return getShow();
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__TITLE1:
-			return getTitle1();
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__TRANSLITERATION:
-			return getTransliteration();
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__TYPE:
-			return getType();
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__VALUE_URI:
-			return getValueURI();
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__GROUP:
+				if (coreType)
+					return getGroup();
+				return ((FeatureMap.Internal) getGroup()).getWrapper();
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__TITLE:
+				return getTitle();
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__SUB_TITLE:
+				return getSubTitle();
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__PART_NUMBER:
+				return getPartNumber();
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__PART_NAME:
+				return getPartName();
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__NON_SORT:
+				return getNonSort();
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__ACTUATE:
+				return getActuate();
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__ARCROLE:
+				return getArcrole();
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__AUTHORITY:
+				return getAuthority();
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__AUTHORITY_URI:
+				return getAuthorityURI();
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__DISPLAY_LABEL:
+				return getDisplayLabel();
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__HREF:
+				return getHref();
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__ID:
+				return getID();
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__LANG:
+				return getLang();
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__LANG1:
+				return getLang1();
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__ROLE:
+				return getRole();
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__SCRIPT:
+				return getScript();
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__SHOW:
+				return getShow();
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__TITLE1:
+				return getTitle1();
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__TRANSLITERATION:
+				return getTransliteration();
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__TYPE:
+				return getType();
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__VALUE_URI:
+				return getValueURI();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -1055,77 +1027,77 @@ public class TitleInfoBaseDefinitionImpl extends EObjectImpl implements
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__GROUP:
-			((FeatureMap.Internal) getGroup()).set(newValue);
-			return;
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__TITLE:
-			getTitle().clear();
-			getTitle().addAll((Collection<? extends XsString>) newValue);
-			return;
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__SUB_TITLE:
-			getSubTitle().clear();
-			getSubTitle().addAll((Collection<? extends XsString>) newValue);
-			return;
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__PART_NUMBER:
-			getPartNumber().clear();
-			getPartNumber().addAll((Collection<? extends XsString>) newValue);
-			return;
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__PART_NAME:
-			getPartName().clear();
-			getPartName().addAll((Collection<? extends XsString>) newValue);
-			return;
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__NON_SORT:
-			getNonSort().clear();
-			getNonSort().addAll((Collection<? extends XsString>) newValue);
-			return;
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__ACTUATE:
-			setActuate((ActuateType) newValue);
-			return;
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__ARCROLE:
-			setArcrole((String) newValue);
-			return;
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__AUTHORITY:
-			setAuthority((String) newValue);
-			return;
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__AUTHORITY_URI:
-			setAuthorityURI((String) newValue);
-			return;
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__DISPLAY_LABEL:
-			setDisplayLabel((String) newValue);
-			return;
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__HREF:
-			setHref((String) newValue);
-			return;
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__ID:
-			setID((String) newValue);
-			return;
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__LANG:
-			setLang((String) newValue);
-			return;
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__LANG1:
-			setLang1((String) newValue);
-			return;
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__ROLE:
-			setRole((String) newValue);
-			return;
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__SCRIPT:
-			setScript((String) newValue);
-			return;
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__SHOW:
-			setShow((ShowType) newValue);
-			return;
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__TITLE1:
-			setTitle1((String) newValue);
-			return;
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__TRANSLITERATION:
-			setTransliteration((String) newValue);
-			return;
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__TYPE:
-			setType((String) newValue);
-			return;
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__VALUE_URI:
-			setValueURI((String) newValue);
-			return;
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__GROUP:
+				((FeatureMap.Internal) getGroup()).set(newValue);
+				return;
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__TITLE:
+				getTitle().clear();
+				getTitle().addAll((Collection<? extends XsString>) newValue);
+				return;
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__SUB_TITLE:
+				getSubTitle().clear();
+				getSubTitle().addAll((Collection<? extends XsString>) newValue);
+				return;
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__PART_NUMBER:
+				getPartNumber().clear();
+				getPartNumber().addAll((Collection<? extends XsString>) newValue);
+				return;
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__PART_NAME:
+				getPartName().clear();
+				getPartName().addAll((Collection<? extends XsString>) newValue);
+				return;
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__NON_SORT:
+				getNonSort().clear();
+				getNonSort().addAll((Collection<? extends XsString>) newValue);
+				return;
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__ACTUATE:
+				setActuate((ActuateType) newValue);
+				return;
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__ARCROLE:
+				setArcrole((String) newValue);
+				return;
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__AUTHORITY:
+				setAuthority((String) newValue);
+				return;
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__AUTHORITY_URI:
+				setAuthorityURI((String) newValue);
+				return;
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__DISPLAY_LABEL:
+				setDisplayLabel((String) newValue);
+				return;
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__HREF:
+				setHref((String) newValue);
+				return;
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__ID:
+				setID((String) newValue);
+				return;
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__LANG:
+				setLang((String) newValue);
+				return;
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__LANG1:
+				setLang1((String) newValue);
+				return;
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__ROLE:
+				setRole((String) newValue);
+				return;
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__SCRIPT:
+				setScript((String) newValue);
+				return;
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__SHOW:
+				setShow((ShowType) newValue);
+				return;
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__TITLE1:
+				setTitle1((String) newValue);
+				return;
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__TRANSLITERATION:
+				setTransliteration((String) newValue);
+				return;
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__TYPE:
+				setType((String) newValue);
+				return;
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__VALUE_URI:
+				setValueURI((String) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -1138,72 +1110,72 @@ public class TitleInfoBaseDefinitionImpl extends EObjectImpl implements
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__GROUP:
-			getGroup().clear();
-			return;
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__TITLE:
-			getTitle().clear();
-			return;
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__SUB_TITLE:
-			getSubTitle().clear();
-			return;
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__PART_NUMBER:
-			getPartNumber().clear();
-			return;
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__PART_NAME:
-			getPartName().clear();
-			return;
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__NON_SORT:
-			getNonSort().clear();
-			return;
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__ACTUATE:
-			unsetActuate();
-			return;
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__ARCROLE:
-			setArcrole(ARCROLE_EDEFAULT);
-			return;
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__AUTHORITY:
-			setAuthority(AUTHORITY_EDEFAULT);
-			return;
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__AUTHORITY_URI:
-			setAuthorityURI(AUTHORITY_URI_EDEFAULT);
-			return;
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__DISPLAY_LABEL:
-			setDisplayLabel(DISPLAY_LABEL_EDEFAULT);
-			return;
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__HREF:
-			setHref(HREF_EDEFAULT);
-			return;
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__ID:
-			setID(ID_EDEFAULT);
-			return;
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__LANG:
-			setLang(LANG_EDEFAULT);
-			return;
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__LANG1:
-			setLang1(LANG1_EDEFAULT);
-			return;
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__ROLE:
-			setRole(ROLE_EDEFAULT);
-			return;
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__SCRIPT:
-			setScript(SCRIPT_EDEFAULT);
-			return;
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__SHOW:
-			unsetShow();
-			return;
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__TITLE1:
-			setTitle1(TITLE1_EDEFAULT);
-			return;
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__TRANSLITERATION:
-			setTransliteration(TRANSLITERATION_EDEFAULT);
-			return;
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__TYPE:
-			unsetType();
-			return;
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__VALUE_URI:
-			setValueURI(VALUE_URI_EDEFAULT);
-			return;
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__GROUP:
+				getGroup().clear();
+				return;
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__TITLE:
+				getTitle().clear();
+				return;
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__SUB_TITLE:
+				getSubTitle().clear();
+				return;
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__PART_NUMBER:
+				getPartNumber().clear();
+				return;
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__PART_NAME:
+				getPartName().clear();
+				return;
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__NON_SORT:
+				getNonSort().clear();
+				return;
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__ACTUATE:
+				unsetActuate();
+				return;
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__ARCROLE:
+				setArcrole(ARCROLE_EDEFAULT);
+				return;
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__AUTHORITY:
+				setAuthority(AUTHORITY_EDEFAULT);
+				return;
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__AUTHORITY_URI:
+				setAuthorityURI(AUTHORITY_URI_EDEFAULT);
+				return;
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__DISPLAY_LABEL:
+				setDisplayLabel(DISPLAY_LABEL_EDEFAULT);
+				return;
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__HREF:
+				setHref(HREF_EDEFAULT);
+				return;
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__ID:
+				setID(ID_EDEFAULT);
+				return;
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__LANG:
+				setLang(LANG_EDEFAULT);
+				return;
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__LANG1:
+				setLang1(LANG1_EDEFAULT);
+				return;
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__ROLE:
+				setRole(ROLE_EDEFAULT);
+				return;
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__SCRIPT:
+				setScript(SCRIPT_EDEFAULT);
+				return;
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__SHOW:
+				unsetShow();
+				return;
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__TITLE1:
+				setTitle1(TITLE1_EDEFAULT);
+				return;
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__TRANSLITERATION:
+				setTransliteration(TRANSLITERATION_EDEFAULT);
+				return;
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__TYPE:
+				unsetType();
+				return;
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__VALUE_URI:
+				setValueURI(VALUE_URI_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -1216,62 +1188,51 @@ public class TitleInfoBaseDefinitionImpl extends EObjectImpl implements
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__GROUP:
-			return group != null && !group.isEmpty();
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__TITLE:
-			return !getTitle().isEmpty();
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__SUB_TITLE:
-			return !getSubTitle().isEmpty();
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__PART_NUMBER:
-			return !getPartNumber().isEmpty();
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__PART_NAME:
-			return !getPartName().isEmpty();
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__NON_SORT:
-			return !getNonSort().isEmpty();
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__ACTUATE:
-			return isSetActuate();
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__ARCROLE:
-			return ARCROLE_EDEFAULT == null ? arcrole != null
-					: !ARCROLE_EDEFAULT.equals(arcrole);
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__AUTHORITY:
-			return AUTHORITY_EDEFAULT == null ? authority != null
-					: !AUTHORITY_EDEFAULT.equals(authority);
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__AUTHORITY_URI:
-			return AUTHORITY_URI_EDEFAULT == null ? authorityURI != null
-					: !AUTHORITY_URI_EDEFAULT.equals(authorityURI);
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__DISPLAY_LABEL:
-			return DISPLAY_LABEL_EDEFAULT == null ? displayLabel != null
-					: !DISPLAY_LABEL_EDEFAULT.equals(displayLabel);
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__HREF:
-			return HREF_EDEFAULT == null ? href != null : !HREF_EDEFAULT
-					.equals(href);
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__ID:
-			return ID_EDEFAULT == null ? iD != null : !ID_EDEFAULT.equals(iD);
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__LANG:
-			return LANG_EDEFAULT == null ? lang != null : !LANG_EDEFAULT
-					.equals(lang);
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__LANG1:
-			return LANG1_EDEFAULT == null ? lang1 != null : !LANG1_EDEFAULT
-					.equals(lang1);
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__ROLE:
-			return ROLE_EDEFAULT == null ? role != null : !ROLE_EDEFAULT
-					.equals(role);
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__SCRIPT:
-			return SCRIPT_EDEFAULT == null ? script != null : !SCRIPT_EDEFAULT
-					.equals(script);
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__SHOW:
-			return isSetShow();
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__TITLE1:
-			return TITLE1_EDEFAULT == null ? title1 != null : !TITLE1_EDEFAULT
-					.equals(title1);
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__TRANSLITERATION:
-			return TRANSLITERATION_EDEFAULT == null ? transliteration != null
-					: !TRANSLITERATION_EDEFAULT.equals(transliteration);
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__TYPE:
-			return isSetType();
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION__VALUE_URI:
-			return VALUE_URI_EDEFAULT == null ? valueURI != null
-					: !VALUE_URI_EDEFAULT.equals(valueURI);
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__GROUP:
+				return group != null && !group.isEmpty();
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__TITLE:
+				return !getTitle().isEmpty();
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__SUB_TITLE:
+				return !getSubTitle().isEmpty();
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__PART_NUMBER:
+				return !getPartNumber().isEmpty();
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__PART_NAME:
+				return !getPartName().isEmpty();
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__NON_SORT:
+				return !getNonSort().isEmpty();
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__ACTUATE:
+				return isSetActuate();
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__ARCROLE:
+				return ARCROLE_EDEFAULT == null ? arcrole != null : !ARCROLE_EDEFAULT.equals(arcrole);
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__AUTHORITY:
+				return AUTHORITY_EDEFAULT == null ? authority != null : !AUTHORITY_EDEFAULT.equals(authority);
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__AUTHORITY_URI:
+				return AUTHORITY_URI_EDEFAULT == null ? authorityURI != null : !AUTHORITY_URI_EDEFAULT.equals(authorityURI);
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__DISPLAY_LABEL:
+				return DISPLAY_LABEL_EDEFAULT == null ? displayLabel != null : !DISPLAY_LABEL_EDEFAULT.equals(displayLabel);
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__HREF:
+				return HREF_EDEFAULT == null ? href != null : !HREF_EDEFAULT.equals(href);
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__ID:
+				return ID_EDEFAULT == null ? iD != null : !ID_EDEFAULT.equals(iD);
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__LANG:
+				return LANG_EDEFAULT == null ? lang != null : !LANG_EDEFAULT.equals(lang);
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__LANG1:
+				return LANG1_EDEFAULT == null ? lang1 != null : !LANG1_EDEFAULT.equals(lang1);
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__ROLE:
+				return ROLE_EDEFAULT == null ? role != null : !ROLE_EDEFAULT.equals(role);
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__SCRIPT:
+				return SCRIPT_EDEFAULT == null ? script != null : !SCRIPT_EDEFAULT.equals(script);
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__SHOW:
+				return isSetShow();
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__TITLE1:
+				return TITLE1_EDEFAULT == null ? title1 != null : !TITLE1_EDEFAULT.equals(title1);
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__TRANSLITERATION:
+				return TRANSLITERATION_EDEFAULT == null ? transliteration != null : !TRANSLITERATION_EDEFAULT
+						.equals(transliteration);
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__TYPE:
+				return isSetType();
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION__VALUE_URI:
+				return VALUE_URI_EDEFAULT == null ? valueURI != null : !VALUE_URI_EDEFAULT.equals(valueURI);
 		}
 		return super.eIsSet(featureID);
 	}

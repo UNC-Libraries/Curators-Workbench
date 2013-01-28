@@ -40,18 +40,16 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlinkItemProvider
-		extends StringPlusAuthorityPlusTypePlusDisplayLabelItemProvider
-		implements IEditingDomainItemProvider, IStructuredItemContentProvider,
-		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlinkItemProvider extends
+		StringPlusAuthorityPlusTypePlusDisplayLabelItemProvider implements IEditingDomainItemProvider,
+		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlinkItemProvider(
-			AdapterFactory adapterFactory) {
+	public StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlinkItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -84,24 +82,16 @@ public class StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlinkItemProvider
 	 * @generated
 	 */
 	protected void addActuatePropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(
-						((ComposeableAdapterFactory) adapterFactory)
-								.getRootAdapterFactory(),
-						getResourceLocator(),
-						getString("_UI_StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_actuate_feature"),
-						getString(
-								"_UI_PropertyDescriptor_description",
-								"_UI_StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_actuate_feature",
-								"_UI_StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_type"),
-						MODSPackage.eINSTANCE
-								.getStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_Actuate(),
-						true,
-						false,
-						false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-						getString("_UI_XLinkPropertyCategory"),
-						new String[] { "org.eclipse.ui.views.properties.expert" }));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				getResourceLocator(),
+				getString("_UI_StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_actuate_feature"),
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_actuate_feature",
+						"_UI_StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_type"), MODSPackage.eINSTANCE
+						.getStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_Actuate(), true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString("_UI_XLinkPropertyCategory"),
+				new String[] { "org.eclipse.ui.views.properties.expert" }));
 	}
 
 	/**
@@ -111,24 +101,16 @@ public class StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlinkItemProvider
 	 * @generated
 	 */
 	protected void addArcrolePropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(
-						((ComposeableAdapterFactory) adapterFactory)
-								.getRootAdapterFactory(),
-						getResourceLocator(),
-						getString("_UI_StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_arcrole_feature"),
-						getString(
-								"_UI_PropertyDescriptor_description",
-								"_UI_StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_arcrole_feature",
-								"_UI_StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_type"),
-						MODSPackage.eINSTANCE
-								.getStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_Arcrole(),
-						true,
-						false,
-						false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-						getString("_UI_XLinkPropertyCategory"),
-						new String[] { "org.eclipse.ui.views.properties.expert" }));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				getResourceLocator(),
+				getString("_UI_StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_arcrole_feature"),
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_arcrole_feature",
+						"_UI_StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_type"), MODSPackage.eINSTANCE
+						.getStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_Arcrole(), true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString("_UI_XLinkPropertyCategory"),
+				new String[] { "org.eclipse.ui.views.properties.expert" }));
 	}
 
 	/**
@@ -138,24 +120,16 @@ public class StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlinkItemProvider
 	 * @generated
 	 */
 	protected void addHrefPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(
-						((ComposeableAdapterFactory) adapterFactory)
-								.getRootAdapterFactory(),
-						getResourceLocator(),
-						getString("_UI_StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_href_feature"),
-						getString(
-								"_UI_PropertyDescriptor_description",
-								"_UI_StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_href_feature",
-								"_UI_StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_type"),
-						MODSPackage.eINSTANCE
-								.getStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_Href(),
-						true,
-						false,
-						false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-						getString("_UI_XLinkPropertyCategory"),
-						new String[] { "org.eclipse.ui.views.properties.expert" }));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				getResourceLocator(),
+				getString("_UI_StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_href_feature"),
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_href_feature",
+						"_UI_StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_type"), MODSPackage.eINSTANCE
+						.getStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_Href(), true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString("_UI_XLinkPropertyCategory"),
+				new String[] { "org.eclipse.ui.views.properties.expert" }));
 	}
 
 	/**
@@ -165,24 +139,16 @@ public class StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlinkItemProvider
 	 * @generated
 	 */
 	protected void addRolePropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(
-						((ComposeableAdapterFactory) adapterFactory)
-								.getRootAdapterFactory(),
-						getResourceLocator(),
-						getString("_UI_StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_role_feature"),
-						getString(
-								"_UI_PropertyDescriptor_description",
-								"_UI_StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_role_feature",
-								"_UI_StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_type"),
-						MODSPackage.eINSTANCE
-								.getStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_Role(),
-						true,
-						false,
-						false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-						getString("_UI_XLinkPropertyCategory"),
-						new String[] { "org.eclipse.ui.views.properties.expert" }));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				getResourceLocator(),
+				getString("_UI_StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_role_feature"),
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_role_feature",
+						"_UI_StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_type"), MODSPackage.eINSTANCE
+						.getStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_Role(), true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString("_UI_XLinkPropertyCategory"),
+				new String[] { "org.eclipse.ui.views.properties.expert" }));
 	}
 
 	/**
@@ -192,24 +158,16 @@ public class StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlinkItemProvider
 	 * @generated
 	 */
 	protected void addShowPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(
-						((ComposeableAdapterFactory) adapterFactory)
-								.getRootAdapterFactory(),
-						getResourceLocator(),
-						getString("_UI_StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_show_feature"),
-						getString(
-								"_UI_PropertyDescriptor_description",
-								"_UI_StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_show_feature",
-								"_UI_StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_type"),
-						MODSPackage.eINSTANCE
-								.getStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_Show(),
-						true,
-						false,
-						false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-						getString("_UI_XLinkPropertyCategory"),
-						new String[] { "org.eclipse.ui.views.properties.expert" }));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				getResourceLocator(),
+				getString("_UI_StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_show_feature"),
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_show_feature",
+						"_UI_StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_type"), MODSPackage.eINSTANCE
+						.getStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_Show(), true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString("_UI_XLinkPropertyCategory"),
+				new String[] { "org.eclipse.ui.views.properties.expert" }));
 	}
 
 	/**
@@ -219,24 +177,16 @@ public class StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlinkItemProvider
 	 * @generated
 	 */
 	protected void addTitlePropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(
-						((ComposeableAdapterFactory) adapterFactory)
-								.getRootAdapterFactory(),
-						getResourceLocator(),
-						getString("_UI_StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_title_feature"),
-						getString(
-								"_UI_PropertyDescriptor_description",
-								"_UI_StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_title_feature",
-								"_UI_StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_type"),
-						MODSPackage.eINSTANCE
-								.getStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_Title(),
-						true,
-						false,
-						false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-						getString("_UI_XLinkPropertyCategory"),
-						new String[] { "org.eclipse.ui.views.properties.expert" }));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				getResourceLocator(),
+				getString("_UI_StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_title_feature"),
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_title_feature",
+						"_UI_StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_type"), MODSPackage.eINSTANCE
+						.getStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_Title(), true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString("_UI_XLinkPropertyCategory"),
+				new String[] { "org.eclipse.ui.views.properties.expert" }));
 	}
 
 	/**
@@ -246,24 +196,16 @@ public class StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlinkItemProvider
 	 * @generated
 	 */
 	protected void addType1PropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(
-						((ComposeableAdapterFactory) adapterFactory)
-								.getRootAdapterFactory(),
-						getResourceLocator(),
-						getString("_UI_StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_type1_feature"),
-						getString(
-								"_UI_PropertyDescriptor_description",
-								"_UI_StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_type1_feature",
-								"_UI_StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_type"),
-						MODSPackage.eINSTANCE
-								.getStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_Type1(),
-						true,
-						false,
-						false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-						getString("_UI_XLinkPropertyCategory"),
-						new String[] { "org.eclipse.ui.views.properties.expert" }));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				getResourceLocator(),
+				getString("_UI_StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_type1_feature"),
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_type1_feature",
+						"_UI_StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_type"), MODSPackage.eINSTANCE
+						.getStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_Type1(), true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString("_UI_XLinkPropertyCategory"),
+				new String[] { "org.eclipse.ui.views.properties.expert" }));
 	}
 
 	/**
@@ -274,11 +216,8 @@ public class StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlinkItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(
-				object,
-				getResourceLocator()
-						.getImage(
-								"full/obj16/StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink"));
+		return overlayImage(object,
+				getResourceLocator().getImage("full/obj16/StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink"));
 	}
 
 	/**
@@ -299,11 +238,9 @@ public class StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlinkItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink) object)
-				.getValue();
+		String label = ((StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink) object).getValue();
 		return label == null || label.length() == 0 ? getString("_UI_StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_type")
-				: getString("_UI_StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_type")
-						+ " " + label;
+				: getString("_UI_StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_type") + " " + label;
 	}
 
 	/**
@@ -317,18 +254,16 @@ public class StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlinkItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification
-				.getFeatureID(StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink.class)) {
-		case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__ACTUATE:
-		case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__ARCROLE:
-		case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__HREF:
-		case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__ROLE:
-		case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__SHOW:
-		case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__TITLE:
-		case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__TYPE1:
-			fireNotifyChanged(new ViewerNotification(notification,
-					notification.getNotifier(), false, true));
-			return;
+		switch (notification.getFeatureID(StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink.class)) {
+			case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__ACTUATE:
+			case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__ARCROLE:
+			case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__HREF:
+			case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__ROLE:
+			case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__SHOW:
+			case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__TITLE:
+			case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK__TYPE1:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -341,8 +276,7 @@ public class StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlinkItemProvider
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(
-			Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 

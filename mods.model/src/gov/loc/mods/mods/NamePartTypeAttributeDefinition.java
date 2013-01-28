@@ -137,8 +137,8 @@ public enum NamePartTypeAttributeDefinition implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final NamePartTypeAttributeDefinition[] VALUES_ARRAY = new NamePartTypeAttributeDefinition[] {
-			DATE, FAMILY, GIVEN, TERMS_OF_ADDRESS, };
+	private static final NamePartTypeAttributeDefinition[] VALUES_ARRAY = new NamePartTypeAttributeDefinition[] { DATE,
+			FAMILY, GIVEN, TERMS_OF_ADDRESS, };
 
 	/**
 	 * A public read-only list of all the '<em><b>Name Part Type Attribute Definition</b></em>' enumerators.
@@ -146,8 +146,8 @@ public enum NamePartTypeAttributeDefinition implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final List<NamePartTypeAttributeDefinition> VALUES = Collections
-			.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+	public static final List<NamePartTypeAttributeDefinition> VALUES = Collections.unmodifiableList(Arrays
+			.asList(VALUES_ARRAY));
 
 	/**
 	 * Returns the '<em><b>Name Part Type Attribute Definition</b></em>' literal with the specified literal value.
@@ -189,14 +189,14 @@ public enum NamePartTypeAttributeDefinition implements Enumerator {
 	 */
 	public static NamePartTypeAttributeDefinition get(int value) {
 		switch (value) {
-		case DATE_VALUE:
-			return DATE;
-		case FAMILY_VALUE:
-			return FAMILY;
-		case GIVEN_VALUE:
-			return GIVEN;
-		case TERMS_OF_ADDRESS_VALUE:
-			return TERMS_OF_ADDRESS;
+			case DATE_VALUE:
+				return DATE;
+			case FAMILY_VALUE:
+				return FAMILY;
+			case GIVEN_VALUE:
+				return GIVEN;
+			case TERMS_OF_ADDRESS_VALUE:
+				return TERMS_OF_ADDRESS;
 		}
 		return null;
 	}
@@ -228,8 +228,7 @@ public enum NamePartTypeAttributeDefinition implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private NamePartTypeAttributeDefinition(int value, String name,
-			String literal) {
+	private NamePartTypeAttributeDefinition(int value, String name, String literal) {
 		this.value = value;
 		this.name = name;
 		this.literal = literal;

@@ -38,8 +38,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class StringPlusSuppliedImpl extends XsStringImpl implements
-		StringPlusSupplied {
+public class StringPlusSuppliedImpl extends XsStringImpl implements StringPlusSupplied {
 	/**
 	 * The default value of the '{@link #getSupplied() <em>Supplied</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -108,8 +107,7 @@ public class StringPlusSuppliedImpl extends XsStringImpl implements
 		boolean oldSuppliedESet = suppliedESet;
 		suppliedESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MODSPackage.STRING_PLUS_SUPPLIED__SUPPLIED, oldSupplied,
+			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.STRING_PLUS_SUPPLIED__SUPPLIED, oldSupplied,
 					supplied, !oldSuppliedESet));
 	}
 
@@ -124,9 +122,8 @@ public class StringPlusSuppliedImpl extends XsStringImpl implements
 		supplied = SUPPLIED_EDEFAULT;
 		suppliedESet = false;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET,
-					MODSPackage.STRING_PLUS_SUPPLIED__SUPPLIED, oldSupplied,
-					SUPPLIED_EDEFAULT, oldSuppliedESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, MODSPackage.STRING_PLUS_SUPPLIED__SUPPLIED,
+					oldSupplied, SUPPLIED_EDEFAULT, oldSuppliedESet));
 	}
 
 	/**
@@ -146,8 +143,8 @@ public class StringPlusSuppliedImpl extends XsStringImpl implements
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case MODSPackage.STRING_PLUS_SUPPLIED__SUPPLIED:
-			return getSupplied();
+			case MODSPackage.STRING_PLUS_SUPPLIED__SUPPLIED:
+				return getSupplied();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -160,9 +157,9 @@ public class StringPlusSuppliedImpl extends XsStringImpl implements
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case MODSPackage.STRING_PLUS_SUPPLIED__SUPPLIED:
-			setSupplied((YesDefinition) newValue);
-			return;
+			case MODSPackage.STRING_PLUS_SUPPLIED__SUPPLIED:
+				setSupplied((YesDefinition) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -175,9 +172,9 @@ public class StringPlusSuppliedImpl extends XsStringImpl implements
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case MODSPackage.STRING_PLUS_SUPPLIED__SUPPLIED:
-			unsetSupplied();
-			return;
+			case MODSPackage.STRING_PLUS_SUPPLIED__SUPPLIED:
+				unsetSupplied();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -190,8 +187,8 @@ public class StringPlusSuppliedImpl extends XsStringImpl implements
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case MODSPackage.STRING_PLUS_SUPPLIED__SUPPLIED:
-			return isSetSupplied();
+			case MODSPackage.STRING_PLUS_SUPPLIED__SUPPLIED:
+				return isSetSupplied();
 		}
 		return super.eIsSet(featureID);
 	}

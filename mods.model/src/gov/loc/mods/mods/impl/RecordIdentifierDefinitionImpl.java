@@ -37,8 +37,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class RecordIdentifierDefinitionImpl extends XsStringImpl implements
-		RecordIdentifierDefinition {
+public class RecordIdentifierDefinitionImpl extends XsStringImpl implements RecordIdentifierDefinition {
 	/**
 	 * The default value of the '{@link #getSource() <em>Source</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -96,8 +95,7 @@ public class RecordIdentifierDefinitionImpl extends XsStringImpl implements
 		String oldSource = source;
 		source = newSource;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MODSPackage.RECORD_IDENTIFIER_DEFINITION__SOURCE,
+			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.RECORD_IDENTIFIER_DEFINITION__SOURCE,
 					oldSource, source));
 	}
 
@@ -109,8 +107,8 @@ public class RecordIdentifierDefinitionImpl extends XsStringImpl implements
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case MODSPackage.RECORD_IDENTIFIER_DEFINITION__SOURCE:
-			return getSource();
+			case MODSPackage.RECORD_IDENTIFIER_DEFINITION__SOURCE:
+				return getSource();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -123,9 +121,9 @@ public class RecordIdentifierDefinitionImpl extends XsStringImpl implements
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case MODSPackage.RECORD_IDENTIFIER_DEFINITION__SOURCE:
-			setSource((String) newValue);
-			return;
+			case MODSPackage.RECORD_IDENTIFIER_DEFINITION__SOURCE:
+				setSource((String) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -138,9 +136,9 @@ public class RecordIdentifierDefinitionImpl extends XsStringImpl implements
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case MODSPackage.RECORD_IDENTIFIER_DEFINITION__SOURCE:
-			setSource(SOURCE_EDEFAULT);
-			return;
+			case MODSPackage.RECORD_IDENTIFIER_DEFINITION__SOURCE:
+				setSource(SOURCE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -153,9 +151,8 @@ public class RecordIdentifierDefinitionImpl extends XsStringImpl implements
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case MODSPackage.RECORD_IDENTIFIER_DEFINITION__SOURCE:
-			return SOURCE_EDEFAULT == null ? source != null : !SOURCE_EDEFAULT
-					.equals(source);
+			case MODSPackage.RECORD_IDENTIFIER_DEFINITION__SOURCE:
+				return SOURCE_EDEFAULT == null ? source != null : !SOURCE_EDEFAULT.equals(source);
 		}
 		return super.eIsSet(featureID);
 	}

@@ -30,8 +30,7 @@ import org.eclipse.emf.common.util.Enumerator;
  * @model extendedMetaData="name='enumerationAndChronologyUnitTypeAttributeDefinition'"
  * @generated
  */
-public enum EnumerationAndChronologyUnitTypeAttributeDefinition implements
-		Enumerator {
+public enum EnumerationAndChronologyUnitTypeAttributeDefinition implements Enumerator {
 	/**
 	 * The '<em><b>1</b></em>' literal object.
 	 * <!-- begin-user-doc -->
@@ -131,8 +130,7 @@ public enum EnumerationAndChronologyUnitTypeAttributeDefinition implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static EnumerationAndChronologyUnitTypeAttributeDefinition get(
-			String literal) {
+	public static EnumerationAndChronologyUnitTypeAttributeDefinition get(String literal) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
 			EnumerationAndChronologyUnitTypeAttributeDefinition result = VALUES_ARRAY[i];
 			if (result.toString().equals(literal)) {
@@ -148,8 +146,7 @@ public enum EnumerationAndChronologyUnitTypeAttributeDefinition implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static EnumerationAndChronologyUnitTypeAttributeDefinition getByName(
-			String name) {
+	public static EnumerationAndChronologyUnitTypeAttributeDefinition getByName(String name) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
 			EnumerationAndChronologyUnitTypeAttributeDefinition result = VALUES_ARRAY[i];
 			if (result.getName().equals(name)) {
@@ -165,15 +162,14 @@ public enum EnumerationAndChronologyUnitTypeAttributeDefinition implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static EnumerationAndChronologyUnitTypeAttributeDefinition get(
-			int value) {
+	public static EnumerationAndChronologyUnitTypeAttributeDefinition get(int value) {
 		switch (value) {
-		case _1_VALUE:
-			return _1;
-		case _2_VALUE:
-			return _2;
-		case _3_VALUE:
-			return _3;
+			case _1_VALUE:
+				return _1;
+			case _2_VALUE:
+				return _2;
+			case _3_VALUE:
+				return _3;
 		}
 		return null;
 	}
@@ -205,8 +201,7 @@ public enum EnumerationAndChronologyUnitTypeAttributeDefinition implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EnumerationAndChronologyUnitTypeAttributeDefinition(int value,
-			String name, String literal) {
+	private EnumerationAndChronologyUnitTypeAttributeDefinition(int value, String name, String literal) {
 		this.value = value;
 		this.name = name;
 		this.literal = literal;

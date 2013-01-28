@@ -40,9 +40,8 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class IdentifierDefinitionItemProvider extends XsStringItemProvider
-		implements IEditingDomainItemProvider, IStructuredItemContentProvider,
-		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class IdentifierDefinitionItemProvider extends XsStringItemProvider implements IEditingDomainItemProvider,
+		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -80,15 +79,12 @@ public class IdentifierDefinitionItemProvider extends XsStringItemProvider
 	 */
 	protected void addAltRepGroupPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_IdentifierDefinition_altRepGroup_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_IdentifierDefinition_altRepGroup_feature",
-						"_UI_IdentifierDefinition_type"), MODSPackage.eINSTANCE
-						.getIdentifierDefinition_AltRepGroup(), true, false,
-				false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+				getString("_UI_PropertyDescriptor_description", "_UI_IdentifierDefinition_altRepGroup_feature",
+						"_UI_IdentifierDefinition_type"), MODSPackage.eINSTANCE.getIdentifierDefinition_AltRepGroup(), true,
+				false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -99,15 +95,12 @@ public class IdentifierDefinitionItemProvider extends XsStringItemProvider
 	 */
 	protected void addDisplayLabelPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_IdentifierDefinition_displayLabel_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_IdentifierDefinition_displayLabel_feature",
-						"_UI_IdentifierDefinition_type"), MODSPackage.eINSTANCE
-						.getIdentifierDefinition_DisplayLabel(), true, false,
-				false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+				getString("_UI_PropertyDescriptor_description", "_UI_IdentifierDefinition_displayLabel_feature",
+						"_UI_IdentifierDefinition_type"), MODSPackage.eINSTANCE.getIdentifierDefinition_DisplayLabel(), true,
+				false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -118,15 +111,12 @@ public class IdentifierDefinitionItemProvider extends XsStringItemProvider
 	 */
 	protected void addInvalidPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_IdentifierDefinition_invalid_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_IdentifierDefinition_invalid_feature",
-						"_UI_IdentifierDefinition_type"), MODSPackage.eINSTANCE
-						.getIdentifierDefinition_Invalid(), true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+				getString("_UI_PropertyDescriptor_description", "_UI_IdentifierDefinition_invalid_feature",
+						"_UI_IdentifierDefinition_type"), MODSPackage.eINSTANCE.getIdentifierDefinition_Invalid(), true,
+				false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -137,15 +127,12 @@ public class IdentifierDefinitionItemProvider extends XsStringItemProvider
 	 */
 	protected void addTypePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_IdentifierDefinition_type_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_IdentifierDefinition_type_feature",
-						"_UI_IdentifierDefinition_type"), MODSPackage.eINSTANCE
-						.getIdentifierDefinition_Type(), true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+				getString("_UI_PropertyDescriptor_description", "_UI_IdentifierDefinition_type_feature",
+						"_UI_IdentifierDefinition_type"), MODSPackage.eINSTANCE.getIdentifierDefinition_Type(), true, false,
+				false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -156,9 +143,7 @@ public class IdentifierDefinitionItemProvider extends XsStringItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object,
-				getResourceLocator()
-						.getImage("full/obj16/IdentifierDefinition"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/IdentifierDefinition"));
 	}
 
 	/**
@@ -196,13 +181,12 @@ public class IdentifierDefinitionItemProvider extends XsStringItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(IdentifierDefinition.class)) {
-		case MODSPackage.IDENTIFIER_DEFINITION__ALT_REP_GROUP:
-		case MODSPackage.IDENTIFIER_DEFINITION__DISPLAY_LABEL:
-		case MODSPackage.IDENTIFIER_DEFINITION__INVALID:
-		case MODSPackage.IDENTIFIER_DEFINITION__TYPE:
-			fireNotifyChanged(new ViewerNotification(notification,
-					notification.getNotifier(), false, true));
-			return;
+			case MODSPackage.IDENTIFIER_DEFINITION__ALT_REP_GROUP:
+			case MODSPackage.IDENTIFIER_DEFINITION__DISPLAY_LABEL:
+			case MODSPackage.IDENTIFIER_DEFINITION__INVALID:
+			case MODSPackage.IDENTIFIER_DEFINITION__TYPE:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -215,8 +199,7 @@ public class IdentifierDefinitionItemProvider extends XsStringItemProvider
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(
-			Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 

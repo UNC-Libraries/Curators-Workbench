@@ -40,9 +40,8 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class StringPlusAuthorityItemProvider extends XsStringItemProvider
-		implements IEditingDomainItemProvider, IStructuredItemContentProvider,
-		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class StringPlusAuthorityItemProvider extends XsStringItemProvider implements IEditingDomainItemProvider,
+		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -79,16 +78,12 @@ public class StringPlusAuthorityItemProvider extends XsStringItemProvider
 	 */
 	protected void addAuthorityPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_StringPlusAuthority_authority_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_StringPlusAuthority_authority_feature",
-						"_UI_StringPlusAuthority_type"), MODSPackage.eINSTANCE
-						.getStringPlusAuthority_Authority(), true, false,
-				false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				getString("_UI_XLinkPropertyCategory"),
+				getString("_UI_PropertyDescriptor_description", "_UI_StringPlusAuthority_authority_feature",
+						"_UI_StringPlusAuthority_type"), MODSPackage.eINSTANCE.getStringPlusAuthority_Authority(), true,
+				false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString("_UI_XLinkPropertyCategory"),
 				new String[] { "org.eclipse.ui.views.properties.expert" }));
 	}
 
@@ -100,16 +95,12 @@ public class StringPlusAuthorityItemProvider extends XsStringItemProvider
 	 */
 	protected void addAuthorityURIPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_StringPlusAuthority_authorityURI_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_StringPlusAuthority_authorityURI_feature",
-						"_UI_StringPlusAuthority_type"), MODSPackage.eINSTANCE
-						.getStringPlusAuthority_AuthorityURI(), true, false,
-				false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				getString("_UI_AuthorityPropertyCategory"),
+				getString("_UI_PropertyDescriptor_description", "_UI_StringPlusAuthority_authorityURI_feature",
+						"_UI_StringPlusAuthority_type"), MODSPackage.eINSTANCE.getStringPlusAuthority_AuthorityURI(), true,
+				false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString("_UI_AuthorityPropertyCategory"),
 				new String[] { "org.eclipse.ui.views.properties.expert" }));
 	}
 
@@ -121,16 +112,12 @@ public class StringPlusAuthorityItemProvider extends XsStringItemProvider
 	 */
 	protected void addValueURIPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_StringPlusAuthority_valueURI_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_StringPlusAuthority_valueURI_feature",
-						"_UI_StringPlusAuthority_type"), MODSPackage.eINSTANCE
-						.getStringPlusAuthority_ValueURI(), true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				getString("_UI_AuthorityPropertyCategory"),
+				getString("_UI_PropertyDescriptor_description", "_UI_StringPlusAuthority_valueURI_feature",
+						"_UI_StringPlusAuthority_type"), MODSPackage.eINSTANCE.getStringPlusAuthority_ValueURI(), true,
+				false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString("_UI_AuthorityPropertyCategory"),
 				new String[] { "org.eclipse.ui.views.properties.expert" }));
 	}
 
@@ -142,8 +129,7 @@ public class StringPlusAuthorityItemProvider extends XsStringItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object,
-				getResourceLocator().getImage("full/obj16/StringPlusAuthority"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/StringPlusAuthority"));
 	}
 
 	/**
@@ -181,12 +167,11 @@ public class StringPlusAuthorityItemProvider extends XsStringItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(StringPlusAuthority.class)) {
-		case MODSPackage.STRING_PLUS_AUTHORITY__AUTHORITY:
-		case MODSPackage.STRING_PLUS_AUTHORITY__AUTHORITY_URI:
-		case MODSPackage.STRING_PLUS_AUTHORITY__VALUE_URI:
-			fireNotifyChanged(new ViewerNotification(notification,
-					notification.getNotifier(), false, true));
-			return;
+			case MODSPackage.STRING_PLUS_AUTHORITY__AUTHORITY:
+			case MODSPackage.STRING_PLUS_AUTHORITY__AUTHORITY_URI:
+			case MODSPackage.STRING_PLUS_AUTHORITY__VALUE_URI:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -199,8 +184,7 @@ public class StringPlusAuthorityItemProvider extends XsStringItemProvider
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(
-			Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 

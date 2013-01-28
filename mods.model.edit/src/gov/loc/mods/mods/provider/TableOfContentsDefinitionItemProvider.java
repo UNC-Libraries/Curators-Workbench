@@ -40,10 +40,9 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class TableOfContentsDefinitionItemProvider extends
-		UnstructuredTextDefinitionItemProvider implements
-		IEditingDomainItemProvider, IStructuredItemContentProvider,
-		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class TableOfContentsDefinitionItemProvider extends UnstructuredTextDefinitionItemProvider implements
+		IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider,
+		IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -79,17 +78,13 @@ public class TableOfContentsDefinitionItemProvider extends
 	 */
 	protected void addAltRepGroupPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_TableOfContentsDefinition_altRepGroup_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_TableOfContentsDefinition_altRepGroup_feature",
-						"_UI_TableOfContentsDefinition_type"),
-				MODSPackage.eINSTANCE
-						.getTableOfContentsDefinition_AltRepGroup(), true,
-				false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null,
-				null));
+				getString("_UI_PropertyDescriptor_description", "_UI_TableOfContentsDefinition_altRepGroup_feature",
+						"_UI_TableOfContentsDefinition_type"), MODSPackage.eINSTANCE
+						.getTableOfContentsDefinition_AltRepGroup(), true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -100,16 +95,13 @@ public class TableOfContentsDefinitionItemProvider extends
 	 */
 	protected void addShareablePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_TableOfContentsDefinition_shareable_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_TableOfContentsDefinition_shareable_feature",
+				getString("_UI_PropertyDescriptor_description", "_UI_TableOfContentsDefinition_shareable_feature",
 						"_UI_TableOfContentsDefinition_type"),
-				MODSPackage.eINSTANCE.getTableOfContentsDefinition_Shareable(),
-				true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				null, null));
+				MODSPackage.eINSTANCE.getTableOfContentsDefinition_Shareable(), true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -120,10 +112,7 @@ public class TableOfContentsDefinitionItemProvider extends
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(
-				object,
-				getResourceLocator().getImage(
-						"full/obj16/TableOfContentsDefinition"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/TableOfContentsDefinition"));
 	}
 
 	/**
@@ -161,11 +150,10 @@ public class TableOfContentsDefinitionItemProvider extends
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(TableOfContentsDefinition.class)) {
-		case MODSPackage.TABLE_OF_CONTENTS_DEFINITION__ALT_REP_GROUP:
-		case MODSPackage.TABLE_OF_CONTENTS_DEFINITION__SHAREABLE:
-			fireNotifyChanged(new ViewerNotification(notification,
-					notification.getNotifier(), false, true));
-			return;
+			case MODSPackage.TABLE_OF_CONTENTS_DEFINITION__ALT_REP_GROUP:
+			case MODSPackage.TABLE_OF_CONTENTS_DEFINITION__SHAREABLE:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -178,8 +166,7 @@ public class TableOfContentsDefinitionItemProvider extends
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(
-			Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 

@@ -38,8 +38,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class EnumerationAndChronologyDefinitionImpl extends XsStringImpl
-		implements EnumerationAndChronologyDefinition {
+public class EnumerationAndChronologyDefinitionImpl extends XsStringImpl implements EnumerationAndChronologyDefinition {
 	/**
 	 * The default value of the '{@link #getUnitType() <em>Unit Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -102,18 +101,14 @@ public class EnumerationAndChronologyDefinitionImpl extends XsStringImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setUnitType(
-			EnumerationAndChronologyUnitTypeAttributeDefinition newUnitType) {
+	public void setUnitType(EnumerationAndChronologyUnitTypeAttributeDefinition newUnitType) {
 		EnumerationAndChronologyUnitTypeAttributeDefinition oldUnitType = unitType;
 		unitType = newUnitType == null ? UNIT_TYPE_EDEFAULT : newUnitType;
 		boolean oldUnitTypeESet = unitTypeESet;
 		unitTypeESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(
-					this,
-					Notification.SET,
-					MODSPackage.ENUMERATION_AND_CHRONOLOGY_DEFINITION__UNIT_TYPE,
-					oldUnitType, unitType, !oldUnitTypeESet));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.ENUMERATION_AND_CHRONOLOGY_DEFINITION__UNIT_TYPE, oldUnitType, unitType, !oldUnitTypeESet));
 	}
 
 	/**
@@ -127,11 +122,9 @@ public class EnumerationAndChronologyDefinitionImpl extends XsStringImpl
 		unitType = UNIT_TYPE_EDEFAULT;
 		unitTypeESet = false;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(
-					this,
-					Notification.UNSET,
-					MODSPackage.ENUMERATION_AND_CHRONOLOGY_DEFINITION__UNIT_TYPE,
-					oldUnitType, UNIT_TYPE_EDEFAULT, oldUnitTypeESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET,
+					MODSPackage.ENUMERATION_AND_CHRONOLOGY_DEFINITION__UNIT_TYPE, oldUnitType, UNIT_TYPE_EDEFAULT,
+					oldUnitTypeESet));
 	}
 
 	/**
@@ -151,8 +144,8 @@ public class EnumerationAndChronologyDefinitionImpl extends XsStringImpl
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case MODSPackage.ENUMERATION_AND_CHRONOLOGY_DEFINITION__UNIT_TYPE:
-			return getUnitType();
+			case MODSPackage.ENUMERATION_AND_CHRONOLOGY_DEFINITION__UNIT_TYPE:
+				return getUnitType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -165,9 +158,9 @@ public class EnumerationAndChronologyDefinitionImpl extends XsStringImpl
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case MODSPackage.ENUMERATION_AND_CHRONOLOGY_DEFINITION__UNIT_TYPE:
-			setUnitType((EnumerationAndChronologyUnitTypeAttributeDefinition) newValue);
-			return;
+			case MODSPackage.ENUMERATION_AND_CHRONOLOGY_DEFINITION__UNIT_TYPE:
+				setUnitType((EnumerationAndChronologyUnitTypeAttributeDefinition) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -180,9 +173,9 @@ public class EnumerationAndChronologyDefinitionImpl extends XsStringImpl
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case MODSPackage.ENUMERATION_AND_CHRONOLOGY_DEFINITION__UNIT_TYPE:
-			unsetUnitType();
-			return;
+			case MODSPackage.ENUMERATION_AND_CHRONOLOGY_DEFINITION__UNIT_TYPE:
+				unsetUnitType();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -195,8 +188,8 @@ public class EnumerationAndChronologyDefinitionImpl extends XsStringImpl
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case MODSPackage.ENUMERATION_AND_CHRONOLOGY_DEFINITION__UNIT_TYPE:
-			return isSetUnitType();
+			case MODSPackage.ENUMERATION_AND_CHRONOLOGY_DEFINITION__UNIT_TYPE:
+				return isSetUnitType();
 		}
 		return super.eIsSet(featureID);
 	}

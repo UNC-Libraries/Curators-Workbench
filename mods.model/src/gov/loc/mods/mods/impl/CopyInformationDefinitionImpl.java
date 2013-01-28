@@ -56,8 +56,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class CopyInformationDefinitionImpl extends EObjectImpl implements
-		CopyInformationDefinition {
+public class CopyInformationDefinitionImpl extends EObjectImpl implements CopyInformationDefinition {
 	/**
 	 * The cached value of the '{@link #getForm() <em>Form</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -151,15 +150,12 @@ public class CopyInformationDefinitionImpl extends EObjectImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetForm(StringPlusAuthorityPlusType newForm,
-			NotificationChain msgs) {
+	public NotificationChain basicSetForm(StringPlusAuthorityPlusType newForm, NotificationChain msgs) {
 		StringPlusAuthorityPlusType oldForm = form;
 		form = newForm;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this,
-					Notification.SET,
-					MODSPackage.COPY_INFORMATION_DEFINITION__FORM, oldForm,
-					newForm);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					MODSPackage.COPY_INFORMATION_DEFINITION__FORM, oldForm, newForm);
 			if (msgs == null)
 				msgs = notification;
 			else
@@ -177,25 +173,16 @@ public class CopyInformationDefinitionImpl extends EObjectImpl implements
 		if (newForm != form) {
 			NotificationChain msgs = null;
 			if (form != null)
-				msgs = ((InternalEObject) form)
-						.eInverseRemove(
-								this,
-								EOPPOSITE_FEATURE_BASE
-										- MODSPackage.COPY_INFORMATION_DEFINITION__FORM,
-								null, msgs);
+				msgs = ((InternalEObject) form).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+						- MODSPackage.COPY_INFORMATION_DEFINITION__FORM, null, msgs);
 			if (newForm != null)
-				msgs = ((InternalEObject) newForm)
-						.eInverseAdd(
-								this,
-								EOPPOSITE_FEATURE_BASE
-										- MODSPackage.COPY_INFORMATION_DEFINITION__FORM,
-								null, msgs);
+				msgs = ((InternalEObject) newForm).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+						- MODSPackage.COPY_INFORMATION_DEFINITION__FORM, null, msgs);
 			msgs = basicSetForm(newForm, msgs);
 			if (msgs != null)
 				msgs.dispatch();
 		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MODSPackage.COPY_INFORMATION_DEFINITION__FORM, newForm,
+			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.COPY_INFORMATION_DEFINITION__FORM, newForm,
 					newForm));
 	}
 
@@ -206,8 +193,8 @@ public class CopyInformationDefinitionImpl extends EObjectImpl implements
 	 */
 	public EList<XsString> getSubLocation() {
 		if (subLocation == null) {
-			subLocation = new EObjectContainmentEList<XsString>(XsString.class,
-					this, MODSPackage.COPY_INFORMATION_DEFINITION__SUB_LOCATION);
+			subLocation = new EObjectContainmentEList<XsString>(XsString.class, this,
+					MODSPackage.COPY_INFORMATION_DEFINITION__SUB_LOCATION);
 		}
 		return subLocation;
 	}
@@ -219,8 +206,7 @@ public class CopyInformationDefinitionImpl extends EObjectImpl implements
 	 */
 	public EList<XsString> getShelfLocator() {
 		if (shelfLocator == null) {
-			shelfLocator = new EObjectContainmentEList<XsString>(
-					XsString.class, this,
+			shelfLocator = new EObjectContainmentEList<XsString>(XsString.class, this,
 					MODSPackage.COPY_INFORMATION_DEFINITION__SHELF_LOCATOR);
 		}
 		return shelfLocator;
@@ -233,8 +219,7 @@ public class CopyInformationDefinitionImpl extends EObjectImpl implements
 	 */
 	public EList<XsString> getElectronicLocator() {
 		if (electronicLocator == null) {
-			electronicLocator = new EObjectContainmentEList<XsString>(
-					XsString.class, this,
+			electronicLocator = new EObjectContainmentEList<XsString>(XsString.class, this,
 					MODSPackage.COPY_INFORMATION_DEFINITION__ELECTRONIC_LOCATOR);
 		}
 		return electronicLocator;
@@ -247,8 +232,7 @@ public class CopyInformationDefinitionImpl extends EObjectImpl implements
 	 */
 	public EList<NoteBaseDefinition> getNote() {
 		if (note == null) {
-			note = new EObjectContainmentEList<NoteBaseDefinition>(
-					NoteBaseDefinition.class, this,
+			note = new EObjectContainmentEList<NoteBaseDefinition>(NoteBaseDefinition.class, this,
 					MODSPackage.COPY_INFORMATION_DEFINITION__NOTE);
 		}
 		return note;
@@ -262,8 +246,7 @@ public class CopyInformationDefinitionImpl extends EObjectImpl implements
 	public EList<EnumerationAndChronologyDefinition> getEnumerationAndChronology() {
 		if (enumerationAndChronology == null) {
 			enumerationAndChronology = new EObjectContainmentEList<EnumerationAndChronologyDefinition>(
-					EnumerationAndChronologyDefinition.class,
-					this,
+					EnumerationAndChronologyDefinition.class, this,
 					MODSPackage.COPY_INFORMATION_DEFINITION__ENUMERATION_AND_CHRONOLOGY);
 		}
 		return enumerationAndChronology;
@@ -275,25 +258,20 @@ public class CopyInformationDefinitionImpl extends EObjectImpl implements
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd,
-			int featureID, NotificationChain msgs) {
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case MODSPackage.COPY_INFORMATION_DEFINITION__FORM:
-			return basicSetForm(null, msgs);
-		case MODSPackage.COPY_INFORMATION_DEFINITION__SUB_LOCATION:
-			return ((InternalEList<?>) getSubLocation()).basicRemove(otherEnd,
-					msgs);
-		case MODSPackage.COPY_INFORMATION_DEFINITION__SHELF_LOCATOR:
-			return ((InternalEList<?>) getShelfLocator()).basicRemove(otherEnd,
-					msgs);
-		case MODSPackage.COPY_INFORMATION_DEFINITION__ELECTRONIC_LOCATOR:
-			return ((InternalEList<?>) getElectronicLocator()).basicRemove(
-					otherEnd, msgs);
-		case MODSPackage.COPY_INFORMATION_DEFINITION__NOTE:
-			return ((InternalEList<?>) getNote()).basicRemove(otherEnd, msgs);
-		case MODSPackage.COPY_INFORMATION_DEFINITION__ENUMERATION_AND_CHRONOLOGY:
-			return ((InternalEList<?>) getEnumerationAndChronology())
-					.basicRemove(otherEnd, msgs);
+			case MODSPackage.COPY_INFORMATION_DEFINITION__FORM:
+				return basicSetForm(null, msgs);
+			case MODSPackage.COPY_INFORMATION_DEFINITION__SUB_LOCATION:
+				return ((InternalEList<?>) getSubLocation()).basicRemove(otherEnd, msgs);
+			case MODSPackage.COPY_INFORMATION_DEFINITION__SHELF_LOCATOR:
+				return ((InternalEList<?>) getShelfLocator()).basicRemove(otherEnd, msgs);
+			case MODSPackage.COPY_INFORMATION_DEFINITION__ELECTRONIC_LOCATOR:
+				return ((InternalEList<?>) getElectronicLocator()).basicRemove(otherEnd, msgs);
+			case MODSPackage.COPY_INFORMATION_DEFINITION__NOTE:
+				return ((InternalEList<?>) getNote()).basicRemove(otherEnd, msgs);
+			case MODSPackage.COPY_INFORMATION_DEFINITION__ENUMERATION_AND_CHRONOLOGY:
+				return ((InternalEList<?>) getEnumerationAndChronology()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -306,18 +284,18 @@ public class CopyInformationDefinitionImpl extends EObjectImpl implements
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case MODSPackage.COPY_INFORMATION_DEFINITION__FORM:
-			return getForm();
-		case MODSPackage.COPY_INFORMATION_DEFINITION__SUB_LOCATION:
-			return getSubLocation();
-		case MODSPackage.COPY_INFORMATION_DEFINITION__SHELF_LOCATOR:
-			return getShelfLocator();
-		case MODSPackage.COPY_INFORMATION_DEFINITION__ELECTRONIC_LOCATOR:
-			return getElectronicLocator();
-		case MODSPackage.COPY_INFORMATION_DEFINITION__NOTE:
-			return getNote();
-		case MODSPackage.COPY_INFORMATION_DEFINITION__ENUMERATION_AND_CHRONOLOGY:
-			return getEnumerationAndChronology();
+			case MODSPackage.COPY_INFORMATION_DEFINITION__FORM:
+				return getForm();
+			case MODSPackage.COPY_INFORMATION_DEFINITION__SUB_LOCATION:
+				return getSubLocation();
+			case MODSPackage.COPY_INFORMATION_DEFINITION__SHELF_LOCATOR:
+				return getShelfLocator();
+			case MODSPackage.COPY_INFORMATION_DEFINITION__ELECTRONIC_LOCATOR:
+				return getElectronicLocator();
+			case MODSPackage.COPY_INFORMATION_DEFINITION__NOTE:
+				return getNote();
+			case MODSPackage.COPY_INFORMATION_DEFINITION__ENUMERATION_AND_CHRONOLOGY:
+				return getEnumerationAndChronology();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -331,32 +309,29 @@ public class CopyInformationDefinitionImpl extends EObjectImpl implements
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case MODSPackage.COPY_INFORMATION_DEFINITION__FORM:
-			setForm((StringPlusAuthorityPlusType) newValue);
-			return;
-		case MODSPackage.COPY_INFORMATION_DEFINITION__SUB_LOCATION:
-			getSubLocation().clear();
-			getSubLocation().addAll((Collection<? extends XsString>) newValue);
-			return;
-		case MODSPackage.COPY_INFORMATION_DEFINITION__SHELF_LOCATOR:
-			getShelfLocator().clear();
-			getShelfLocator().addAll((Collection<? extends XsString>) newValue);
-			return;
-		case MODSPackage.COPY_INFORMATION_DEFINITION__ELECTRONIC_LOCATOR:
-			getElectronicLocator().clear();
-			getElectronicLocator().addAll(
-					(Collection<? extends XsString>) newValue);
-			return;
-		case MODSPackage.COPY_INFORMATION_DEFINITION__NOTE:
-			getNote().clear();
-			getNote().addAll(
-					(Collection<? extends NoteBaseDefinition>) newValue);
-			return;
-		case MODSPackage.COPY_INFORMATION_DEFINITION__ENUMERATION_AND_CHRONOLOGY:
-			getEnumerationAndChronology().clear();
-			getEnumerationAndChronology()
-					.addAll((Collection<? extends EnumerationAndChronologyDefinition>) newValue);
-			return;
+			case MODSPackage.COPY_INFORMATION_DEFINITION__FORM:
+				setForm((StringPlusAuthorityPlusType) newValue);
+				return;
+			case MODSPackage.COPY_INFORMATION_DEFINITION__SUB_LOCATION:
+				getSubLocation().clear();
+				getSubLocation().addAll((Collection<? extends XsString>) newValue);
+				return;
+			case MODSPackage.COPY_INFORMATION_DEFINITION__SHELF_LOCATOR:
+				getShelfLocator().clear();
+				getShelfLocator().addAll((Collection<? extends XsString>) newValue);
+				return;
+			case MODSPackage.COPY_INFORMATION_DEFINITION__ELECTRONIC_LOCATOR:
+				getElectronicLocator().clear();
+				getElectronicLocator().addAll((Collection<? extends XsString>) newValue);
+				return;
+			case MODSPackage.COPY_INFORMATION_DEFINITION__NOTE:
+				getNote().clear();
+				getNote().addAll((Collection<? extends NoteBaseDefinition>) newValue);
+				return;
+			case MODSPackage.COPY_INFORMATION_DEFINITION__ENUMERATION_AND_CHRONOLOGY:
+				getEnumerationAndChronology().clear();
+				getEnumerationAndChronology().addAll((Collection<? extends EnumerationAndChronologyDefinition>) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -369,24 +344,24 @@ public class CopyInformationDefinitionImpl extends EObjectImpl implements
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case MODSPackage.COPY_INFORMATION_DEFINITION__FORM:
-			setForm((StringPlusAuthorityPlusType) null);
-			return;
-		case MODSPackage.COPY_INFORMATION_DEFINITION__SUB_LOCATION:
-			getSubLocation().clear();
-			return;
-		case MODSPackage.COPY_INFORMATION_DEFINITION__SHELF_LOCATOR:
-			getShelfLocator().clear();
-			return;
-		case MODSPackage.COPY_INFORMATION_DEFINITION__ELECTRONIC_LOCATOR:
-			getElectronicLocator().clear();
-			return;
-		case MODSPackage.COPY_INFORMATION_DEFINITION__NOTE:
-			getNote().clear();
-			return;
-		case MODSPackage.COPY_INFORMATION_DEFINITION__ENUMERATION_AND_CHRONOLOGY:
-			getEnumerationAndChronology().clear();
-			return;
+			case MODSPackage.COPY_INFORMATION_DEFINITION__FORM:
+				setForm((StringPlusAuthorityPlusType) null);
+				return;
+			case MODSPackage.COPY_INFORMATION_DEFINITION__SUB_LOCATION:
+				getSubLocation().clear();
+				return;
+			case MODSPackage.COPY_INFORMATION_DEFINITION__SHELF_LOCATOR:
+				getShelfLocator().clear();
+				return;
+			case MODSPackage.COPY_INFORMATION_DEFINITION__ELECTRONIC_LOCATOR:
+				getElectronicLocator().clear();
+				return;
+			case MODSPackage.COPY_INFORMATION_DEFINITION__NOTE:
+				getNote().clear();
+				return;
+			case MODSPackage.COPY_INFORMATION_DEFINITION__ENUMERATION_AND_CHRONOLOGY:
+				getEnumerationAndChronology().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -399,19 +374,18 @@ public class CopyInformationDefinitionImpl extends EObjectImpl implements
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case MODSPackage.COPY_INFORMATION_DEFINITION__FORM:
-			return form != null;
-		case MODSPackage.COPY_INFORMATION_DEFINITION__SUB_LOCATION:
-			return subLocation != null && !subLocation.isEmpty();
-		case MODSPackage.COPY_INFORMATION_DEFINITION__SHELF_LOCATOR:
-			return shelfLocator != null && !shelfLocator.isEmpty();
-		case MODSPackage.COPY_INFORMATION_DEFINITION__ELECTRONIC_LOCATOR:
-			return electronicLocator != null && !electronicLocator.isEmpty();
-		case MODSPackage.COPY_INFORMATION_DEFINITION__NOTE:
-			return note != null && !note.isEmpty();
-		case MODSPackage.COPY_INFORMATION_DEFINITION__ENUMERATION_AND_CHRONOLOGY:
-			return enumerationAndChronology != null
-					&& !enumerationAndChronology.isEmpty();
+			case MODSPackage.COPY_INFORMATION_DEFINITION__FORM:
+				return form != null;
+			case MODSPackage.COPY_INFORMATION_DEFINITION__SUB_LOCATION:
+				return subLocation != null && !subLocation.isEmpty();
+			case MODSPackage.COPY_INFORMATION_DEFINITION__SHELF_LOCATOR:
+				return shelfLocator != null && !shelfLocator.isEmpty();
+			case MODSPackage.COPY_INFORMATION_DEFINITION__ELECTRONIC_LOCATOR:
+				return electronicLocator != null && !electronicLocator.isEmpty();
+			case MODSPackage.COPY_INFORMATION_DEFINITION__NOTE:
+				return note != null && !note.isEmpty();
+			case MODSPackage.COPY_INFORMATION_DEFINITION__ENUMERATION_AND_CHRONOLOGY:
+				return enumerationAndChronology != null && !enumerationAndChronology.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

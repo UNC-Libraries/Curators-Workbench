@@ -46,8 +46,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *
  * @generated
  */
-public class TypeOfResourceDefinitionImpl extends EObjectImpl implements
-		TypeOfResourceDefinition {
+public class TypeOfResourceDefinitionImpl extends EObjectImpl implements TypeOfResourceDefinition {
 	/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -243,9 +242,8 @@ public class TypeOfResourceDefinitionImpl extends EObjectImpl implements
 		boolean oldValueESet = valueESet;
 		valueESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MODSPackage.TYPE_OF_RESOURCE_DEFINITION__VALUE, oldValue,
-					value, !oldValueESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.TYPE_OF_RESOURCE_DEFINITION__VALUE,
+					oldValue, value, !oldValueESet));
 	}
 
 	/**
@@ -259,9 +257,8 @@ public class TypeOfResourceDefinitionImpl extends EObjectImpl implements
 		value = VALUE_EDEFAULT;
 		valueESet = false;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET,
-					MODSPackage.TYPE_OF_RESOURCE_DEFINITION__VALUE, oldValue,
-					VALUE_EDEFAULT, oldValueESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, MODSPackage.TYPE_OF_RESOURCE_DEFINITION__VALUE,
+					oldValue, VALUE_EDEFAULT, oldValueESet));
 	}
 
 	/**
@@ -291,8 +288,7 @@ public class TypeOfResourceDefinitionImpl extends EObjectImpl implements
 		String oldAltRepGroup = altRepGroup;
 		altRepGroup = newAltRepGroup;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MODSPackage.TYPE_OF_RESOURCE_DEFINITION__ALT_REP_GROUP,
+			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.TYPE_OF_RESOURCE_DEFINITION__ALT_REP_GROUP,
 					oldAltRepGroup, altRepGroup));
 	}
 
@@ -312,13 +308,11 @@ public class TypeOfResourceDefinitionImpl extends EObjectImpl implements
 	 */
 	public void setCollection(YesDefinition newCollection) {
 		YesDefinition oldCollection = collection;
-		collection = newCollection == null ? COLLECTION_EDEFAULT
-				: newCollection;
+		collection = newCollection == null ? COLLECTION_EDEFAULT : newCollection;
 		boolean oldCollectionESet = collectionESet;
 		collectionESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MODSPackage.TYPE_OF_RESOURCE_DEFINITION__COLLECTION,
+			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.TYPE_OF_RESOURCE_DEFINITION__COLLECTION,
 					oldCollection, collection, !oldCollectionESet));
 	}
 
@@ -333,8 +327,7 @@ public class TypeOfResourceDefinitionImpl extends EObjectImpl implements
 		collection = COLLECTION_EDEFAULT;
 		collectionESet = false;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET,
-					MODSPackage.TYPE_OF_RESOURCE_DEFINITION__COLLECTION,
+			eNotify(new ENotificationImpl(this, Notification.UNSET, MODSPackage.TYPE_OF_RESOURCE_DEFINITION__COLLECTION,
 					oldCollection, COLLECTION_EDEFAULT, oldCollectionESet));
 	}
 
@@ -365,8 +358,7 @@ public class TypeOfResourceDefinitionImpl extends EObjectImpl implements
 		String oldDisplayLabel = displayLabel;
 		displayLabel = newDisplayLabel;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MODSPackage.TYPE_OF_RESOURCE_DEFINITION__DISPLAY_LABEL,
+			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.TYPE_OF_RESOURCE_DEFINITION__DISPLAY_LABEL,
 					oldDisplayLabel, displayLabel));
 	}
 
@@ -386,13 +378,11 @@ public class TypeOfResourceDefinitionImpl extends EObjectImpl implements
 	 */
 	public void setManuscript(YesDefinition newManuscript) {
 		YesDefinition oldManuscript = manuscript;
-		manuscript = newManuscript == null ? MANUSCRIPT_EDEFAULT
-				: newManuscript;
+		manuscript = newManuscript == null ? MANUSCRIPT_EDEFAULT : newManuscript;
 		boolean oldManuscriptESet = manuscriptESet;
 		manuscriptESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MODSPackage.TYPE_OF_RESOURCE_DEFINITION__MANUSCRIPT,
+			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.TYPE_OF_RESOURCE_DEFINITION__MANUSCRIPT,
 					oldManuscript, manuscript, !oldManuscriptESet));
 	}
 
@@ -407,8 +397,7 @@ public class TypeOfResourceDefinitionImpl extends EObjectImpl implements
 		manuscript = MANUSCRIPT_EDEFAULT;
 		manuscriptESet = false;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET,
-					MODSPackage.TYPE_OF_RESOURCE_DEFINITION__MANUSCRIPT,
+			eNotify(new ENotificationImpl(this, Notification.UNSET, MODSPackage.TYPE_OF_RESOURCE_DEFINITION__MANUSCRIPT,
 					oldManuscript, MANUSCRIPT_EDEFAULT, oldManuscriptESet));
 	}
 
@@ -441,9 +430,8 @@ public class TypeOfResourceDefinitionImpl extends EObjectImpl implements
 		boolean oldUsageESet = usageESet;
 		usageESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MODSPackage.TYPE_OF_RESOURCE_DEFINITION__USAGE, oldUsage,
-					usage, !oldUsageESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.TYPE_OF_RESOURCE_DEFINITION__USAGE,
+					oldUsage, usage, !oldUsageESet));
 	}
 
 	/**
@@ -457,9 +445,8 @@ public class TypeOfResourceDefinitionImpl extends EObjectImpl implements
 		usage = USAGE_EDEFAULT;
 		usageESet = false;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET,
-					MODSPackage.TYPE_OF_RESOURCE_DEFINITION__USAGE, oldUsage,
-					USAGE_EDEFAULT, oldUsageESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, MODSPackage.TYPE_OF_RESOURCE_DEFINITION__USAGE,
+					oldUsage, USAGE_EDEFAULT, oldUsageESet));
 	}
 
 	/**
@@ -479,18 +466,18 @@ public class TypeOfResourceDefinitionImpl extends EObjectImpl implements
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case MODSPackage.TYPE_OF_RESOURCE_DEFINITION__VALUE:
-			return getValue();
-		case MODSPackage.TYPE_OF_RESOURCE_DEFINITION__ALT_REP_GROUP:
-			return getAltRepGroup();
-		case MODSPackage.TYPE_OF_RESOURCE_DEFINITION__COLLECTION:
-			return getCollection();
-		case MODSPackage.TYPE_OF_RESOURCE_DEFINITION__DISPLAY_LABEL:
-			return getDisplayLabel();
-		case MODSPackage.TYPE_OF_RESOURCE_DEFINITION__MANUSCRIPT:
-			return getManuscript();
-		case MODSPackage.TYPE_OF_RESOURCE_DEFINITION__USAGE:
-			return getUsage();
+			case MODSPackage.TYPE_OF_RESOURCE_DEFINITION__VALUE:
+				return getValue();
+			case MODSPackage.TYPE_OF_RESOURCE_DEFINITION__ALT_REP_GROUP:
+				return getAltRepGroup();
+			case MODSPackage.TYPE_OF_RESOURCE_DEFINITION__COLLECTION:
+				return getCollection();
+			case MODSPackage.TYPE_OF_RESOURCE_DEFINITION__DISPLAY_LABEL:
+				return getDisplayLabel();
+			case MODSPackage.TYPE_OF_RESOURCE_DEFINITION__MANUSCRIPT:
+				return getManuscript();
+			case MODSPackage.TYPE_OF_RESOURCE_DEFINITION__USAGE:
+				return getUsage();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -503,24 +490,24 @@ public class TypeOfResourceDefinitionImpl extends EObjectImpl implements
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case MODSPackage.TYPE_OF_RESOURCE_DEFINITION__VALUE:
-			setValue((ResourceTypeDefinition) newValue);
-			return;
-		case MODSPackage.TYPE_OF_RESOURCE_DEFINITION__ALT_REP_GROUP:
-			setAltRepGroup((String) newValue);
-			return;
-		case MODSPackage.TYPE_OF_RESOURCE_DEFINITION__COLLECTION:
-			setCollection((YesDefinition) newValue);
-			return;
-		case MODSPackage.TYPE_OF_RESOURCE_DEFINITION__DISPLAY_LABEL:
-			setDisplayLabel((String) newValue);
-			return;
-		case MODSPackage.TYPE_OF_RESOURCE_DEFINITION__MANUSCRIPT:
-			setManuscript((YesDefinition) newValue);
-			return;
-		case MODSPackage.TYPE_OF_RESOURCE_DEFINITION__USAGE:
-			setUsage((UsageAttributeDefinition) newValue);
-			return;
+			case MODSPackage.TYPE_OF_RESOURCE_DEFINITION__VALUE:
+				setValue((ResourceTypeDefinition) newValue);
+				return;
+			case MODSPackage.TYPE_OF_RESOURCE_DEFINITION__ALT_REP_GROUP:
+				setAltRepGroup((String) newValue);
+				return;
+			case MODSPackage.TYPE_OF_RESOURCE_DEFINITION__COLLECTION:
+				setCollection((YesDefinition) newValue);
+				return;
+			case MODSPackage.TYPE_OF_RESOURCE_DEFINITION__DISPLAY_LABEL:
+				setDisplayLabel((String) newValue);
+				return;
+			case MODSPackage.TYPE_OF_RESOURCE_DEFINITION__MANUSCRIPT:
+				setManuscript((YesDefinition) newValue);
+				return;
+			case MODSPackage.TYPE_OF_RESOURCE_DEFINITION__USAGE:
+				setUsage((UsageAttributeDefinition) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -533,24 +520,24 @@ public class TypeOfResourceDefinitionImpl extends EObjectImpl implements
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case MODSPackage.TYPE_OF_RESOURCE_DEFINITION__VALUE:
-			unsetValue();
-			return;
-		case MODSPackage.TYPE_OF_RESOURCE_DEFINITION__ALT_REP_GROUP:
-			setAltRepGroup(ALT_REP_GROUP_EDEFAULT);
-			return;
-		case MODSPackage.TYPE_OF_RESOURCE_DEFINITION__COLLECTION:
-			unsetCollection();
-			return;
-		case MODSPackage.TYPE_OF_RESOURCE_DEFINITION__DISPLAY_LABEL:
-			setDisplayLabel(DISPLAY_LABEL_EDEFAULT);
-			return;
-		case MODSPackage.TYPE_OF_RESOURCE_DEFINITION__MANUSCRIPT:
-			unsetManuscript();
-			return;
-		case MODSPackage.TYPE_OF_RESOURCE_DEFINITION__USAGE:
-			unsetUsage();
-			return;
+			case MODSPackage.TYPE_OF_RESOURCE_DEFINITION__VALUE:
+				unsetValue();
+				return;
+			case MODSPackage.TYPE_OF_RESOURCE_DEFINITION__ALT_REP_GROUP:
+				setAltRepGroup(ALT_REP_GROUP_EDEFAULT);
+				return;
+			case MODSPackage.TYPE_OF_RESOURCE_DEFINITION__COLLECTION:
+				unsetCollection();
+				return;
+			case MODSPackage.TYPE_OF_RESOURCE_DEFINITION__DISPLAY_LABEL:
+				setDisplayLabel(DISPLAY_LABEL_EDEFAULT);
+				return;
+			case MODSPackage.TYPE_OF_RESOURCE_DEFINITION__MANUSCRIPT:
+				unsetManuscript();
+				return;
+			case MODSPackage.TYPE_OF_RESOURCE_DEFINITION__USAGE:
+				unsetUsage();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -563,20 +550,18 @@ public class TypeOfResourceDefinitionImpl extends EObjectImpl implements
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case MODSPackage.TYPE_OF_RESOURCE_DEFINITION__VALUE:
-			return isSetValue();
-		case MODSPackage.TYPE_OF_RESOURCE_DEFINITION__ALT_REP_GROUP:
-			return ALT_REP_GROUP_EDEFAULT == null ? altRepGroup != null
-					: !ALT_REP_GROUP_EDEFAULT.equals(altRepGroup);
-		case MODSPackage.TYPE_OF_RESOURCE_DEFINITION__COLLECTION:
-			return isSetCollection();
-		case MODSPackage.TYPE_OF_RESOURCE_DEFINITION__DISPLAY_LABEL:
-			return DISPLAY_LABEL_EDEFAULT == null ? displayLabel != null
-					: !DISPLAY_LABEL_EDEFAULT.equals(displayLabel);
-		case MODSPackage.TYPE_OF_RESOURCE_DEFINITION__MANUSCRIPT:
-			return isSetManuscript();
-		case MODSPackage.TYPE_OF_RESOURCE_DEFINITION__USAGE:
-			return isSetUsage();
+			case MODSPackage.TYPE_OF_RESOURCE_DEFINITION__VALUE:
+				return isSetValue();
+			case MODSPackage.TYPE_OF_RESOURCE_DEFINITION__ALT_REP_GROUP:
+				return ALT_REP_GROUP_EDEFAULT == null ? altRepGroup != null : !ALT_REP_GROUP_EDEFAULT.equals(altRepGroup);
+			case MODSPackage.TYPE_OF_RESOURCE_DEFINITION__COLLECTION:
+				return isSetCollection();
+			case MODSPackage.TYPE_OF_RESOURCE_DEFINITION__DISPLAY_LABEL:
+				return DISPLAY_LABEL_EDEFAULT == null ? displayLabel != null : !DISPLAY_LABEL_EDEFAULT.equals(displayLabel);
+			case MODSPackage.TYPE_OF_RESOURCE_DEFINITION__MANUSCRIPT:
+				return isSetManuscript();
+			case MODSPackage.TYPE_OF_RESOURCE_DEFINITION__USAGE:
+				return isSetUsage();
 		}
 		return super.eIsSet(featureID);
 	}

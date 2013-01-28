@@ -37,8 +37,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class StringPlusAuthorityPlusTypePlusDisplayLabelImpl extends
-		StringPlusAuthorityPlusTypeImpl implements
+public class StringPlusAuthorityPlusTypePlusDisplayLabelImpl extends StringPlusAuthorityPlusTypeImpl implements
 		StringPlusAuthorityPlusTypePlusDisplayLabel {
 	/**
 	 * The default value of the '{@link #getDisplayLabel() <em>Display Label</em>}' attribute.
@@ -76,8 +75,7 @@ public class StringPlusAuthorityPlusTypePlusDisplayLabelImpl extends
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return MODSPackage.eINSTANCE
-				.getStringPlusAuthorityPlusTypePlusDisplayLabel();
+		return MODSPackage.eINSTANCE.getStringPlusAuthorityPlusTypePlusDisplayLabel();
 	}
 
 	/**
@@ -98,11 +96,9 @@ public class StringPlusAuthorityPlusTypePlusDisplayLabelImpl extends
 		String oldDisplayLabel = displayLabel;
 		displayLabel = newDisplayLabel;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(
-					this,
-					Notification.SET,
-					MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL__DISPLAY_LABEL,
-					oldDisplayLabel, displayLabel));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL__DISPLAY_LABEL, oldDisplayLabel,
+					displayLabel));
 	}
 
 	/**
@@ -113,8 +109,8 @@ public class StringPlusAuthorityPlusTypePlusDisplayLabelImpl extends
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL__DISPLAY_LABEL:
-			return getDisplayLabel();
+			case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL__DISPLAY_LABEL:
+				return getDisplayLabel();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -127,9 +123,9 @@ public class StringPlusAuthorityPlusTypePlusDisplayLabelImpl extends
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL__DISPLAY_LABEL:
-			setDisplayLabel((String) newValue);
-			return;
+			case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL__DISPLAY_LABEL:
+				setDisplayLabel((String) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -142,9 +138,9 @@ public class StringPlusAuthorityPlusTypePlusDisplayLabelImpl extends
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL__DISPLAY_LABEL:
-			setDisplayLabel(DISPLAY_LABEL_EDEFAULT);
-			return;
+			case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL__DISPLAY_LABEL:
+				setDisplayLabel(DISPLAY_LABEL_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -157,9 +153,8 @@ public class StringPlusAuthorityPlusTypePlusDisplayLabelImpl extends
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL__DISPLAY_LABEL:
-			return DISPLAY_LABEL_EDEFAULT == null ? displayLabel != null
-					: !DISPLAY_LABEL_EDEFAULT.equals(displayLabel);
+			case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL__DISPLAY_LABEL:
+				return DISPLAY_LABEL_EDEFAULT == null ? displayLabel != null : !DISPLAY_LABEL_EDEFAULT.equals(displayLabel);
 		}
 		return super.eIsSet(featureID);
 	}

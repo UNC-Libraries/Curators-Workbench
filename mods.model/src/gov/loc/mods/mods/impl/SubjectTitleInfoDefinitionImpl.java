@@ -38,8 +38,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class SubjectTitleInfoDefinitionImpl extends TitleInfoBaseDefinitionImpl
-		implements SubjectTitleInfoDefinition {
+public class SubjectTitleInfoDefinitionImpl extends TitleInfoBaseDefinitionImpl implements SubjectTitleInfoDefinition {
 	/**
 	 * The default value of the '{@link #getType1() <em>Type1</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -108,9 +107,8 @@ public class SubjectTitleInfoDefinitionImpl extends TitleInfoBaseDefinitionImpl
 		boolean oldType1ESet = type1ESet;
 		type1ESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MODSPackage.SUBJECT_TITLE_INFO_DEFINITION__TYPE1, oldType1,
-					type1, !oldType1ESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.SUBJECT_TITLE_INFO_DEFINITION__TYPE1,
+					oldType1, type1, !oldType1ESet));
 	}
 
 	/**
@@ -124,9 +122,8 @@ public class SubjectTitleInfoDefinitionImpl extends TitleInfoBaseDefinitionImpl
 		type1 = TYPE1_EDEFAULT;
 		type1ESet = false;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET,
-					MODSPackage.SUBJECT_TITLE_INFO_DEFINITION__TYPE1, oldType1,
-					TYPE1_EDEFAULT, oldType1ESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, MODSPackage.SUBJECT_TITLE_INFO_DEFINITION__TYPE1,
+					oldType1, TYPE1_EDEFAULT, oldType1ESet));
 	}
 
 	/**
@@ -146,8 +143,8 @@ public class SubjectTitleInfoDefinitionImpl extends TitleInfoBaseDefinitionImpl
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case MODSPackage.SUBJECT_TITLE_INFO_DEFINITION__TYPE1:
-			return getType1();
+			case MODSPackage.SUBJECT_TITLE_INFO_DEFINITION__TYPE1:
+				return getType1();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -160,9 +157,9 @@ public class SubjectTitleInfoDefinitionImpl extends TitleInfoBaseDefinitionImpl
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case MODSPackage.SUBJECT_TITLE_INFO_DEFINITION__TYPE1:
-			setType1((TitleInfoTypeAttributeDefinition) newValue);
-			return;
+			case MODSPackage.SUBJECT_TITLE_INFO_DEFINITION__TYPE1:
+				setType1((TitleInfoTypeAttributeDefinition) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -175,9 +172,9 @@ public class SubjectTitleInfoDefinitionImpl extends TitleInfoBaseDefinitionImpl
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case MODSPackage.SUBJECT_TITLE_INFO_DEFINITION__TYPE1:
-			unsetType1();
-			return;
+			case MODSPackage.SUBJECT_TITLE_INFO_DEFINITION__TYPE1:
+				unsetType1();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -190,8 +187,8 @@ public class SubjectTitleInfoDefinitionImpl extends TitleInfoBaseDefinitionImpl
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case MODSPackage.SUBJECT_TITLE_INFO_DEFINITION__TYPE1:
-			return isSetType1();
+			case MODSPackage.SUBJECT_TITLE_INFO_DEFINITION__TYPE1:
+				return isSetType1();
 		}
 		return super.eIsSet(featureID);
 	}

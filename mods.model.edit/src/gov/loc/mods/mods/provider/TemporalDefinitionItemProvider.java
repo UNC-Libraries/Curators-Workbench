@@ -40,9 +40,8 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class TemporalDefinitionItemProvider extends DateDefinitionItemProvider
-		implements IEditingDomainItemProvider, IStructuredItemContentProvider,
-		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class TemporalDefinitionItemProvider extends DateDefinitionItemProvider implements IEditingDomainItemProvider,
+		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -79,15 +78,12 @@ public class TemporalDefinitionItemProvider extends DateDefinitionItemProvider
 	 */
 	protected void addAuthorityPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_TemporalDefinition_authority_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_TemporalDefinition_authority_feature",
-						"_UI_TemporalDefinition_type"), MODSPackage.eINSTANCE
-						.getTemporalDefinition_Authority(), true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+				getString("_UI_PropertyDescriptor_description", "_UI_TemporalDefinition_authority_feature",
+						"_UI_TemporalDefinition_type"), MODSPackage.eINSTANCE.getTemporalDefinition_Authority(), true, false,
+				false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -98,15 +94,12 @@ public class TemporalDefinitionItemProvider extends DateDefinitionItemProvider
 	 */
 	protected void addAuthorityURIPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_TemporalDefinition_authorityURI_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_TemporalDefinition_authorityURI_feature",
-						"_UI_TemporalDefinition_type"), MODSPackage.eINSTANCE
-						.getTemporalDefinition_AuthorityURI(), true, false,
-				false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+				getString("_UI_PropertyDescriptor_description", "_UI_TemporalDefinition_authorityURI_feature",
+						"_UI_TemporalDefinition_type"), MODSPackage.eINSTANCE.getTemporalDefinition_AuthorityURI(), true,
+				false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -117,15 +110,12 @@ public class TemporalDefinitionItemProvider extends DateDefinitionItemProvider
 	 */
 	protected void addValueURIPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_TemporalDefinition_valueURI_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_TemporalDefinition_valueURI_feature",
-						"_UI_TemporalDefinition_type"), MODSPackage.eINSTANCE
-						.getTemporalDefinition_ValueURI(), true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+				getString("_UI_PropertyDescriptor_description", "_UI_TemporalDefinition_valueURI_feature",
+						"_UI_TemporalDefinition_type"), MODSPackage.eINSTANCE.getTemporalDefinition_ValueURI(), true, false,
+				false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -136,8 +126,7 @@ public class TemporalDefinitionItemProvider extends DateDefinitionItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object,
-				getResourceLocator().getImage("full/obj16/TemporalDefinition"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/TemporalDefinition"));
 	}
 
 	/**
@@ -175,12 +164,11 @@ public class TemporalDefinitionItemProvider extends DateDefinitionItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(TemporalDefinition.class)) {
-		case MODSPackage.TEMPORAL_DEFINITION__AUTHORITY:
-		case MODSPackage.TEMPORAL_DEFINITION__AUTHORITY_URI:
-		case MODSPackage.TEMPORAL_DEFINITION__VALUE_URI:
-			fireNotifyChanged(new ViewerNotification(notification,
-					notification.getNotifier(), false, true));
-			return;
+			case MODSPackage.TEMPORAL_DEFINITION__AUTHORITY:
+			case MODSPackage.TEMPORAL_DEFINITION__AUTHORITY_URI:
+			case MODSPackage.TEMPORAL_DEFINITION__VALUE_URI:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -193,8 +181,7 @@ public class TemporalDefinitionItemProvider extends DateDefinitionItemProvider
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(
-			Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 

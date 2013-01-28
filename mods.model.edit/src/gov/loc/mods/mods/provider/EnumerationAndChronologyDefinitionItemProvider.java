@@ -40,18 +40,16 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class EnumerationAndChronologyDefinitionItemProvider extends
-		XsStringItemProvider implements IEditingDomainItemProvider,
-		IStructuredItemContentProvider, ITreeItemContentProvider,
-		IItemLabelProvider, IItemPropertySource {
+public class EnumerationAndChronologyDefinitionItemProvider extends XsStringItemProvider implements
+		IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider,
+		IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EnumerationAndChronologyDefinitionItemProvider(
-			AdapterFactory adapterFactory) {
+	public EnumerationAndChronologyDefinitionItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -78,20 +76,14 @@ public class EnumerationAndChronologyDefinitionItemProvider extends
 	 * @generated
 	 */
 	protected void addUnitTypePropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(
-						((ComposeableAdapterFactory) adapterFactory)
-								.getRootAdapterFactory(),
-						getResourceLocator(),
-						getString("_UI_EnumerationAndChronologyDefinition_unitType_feature"),
-						getString(
-								"_UI_PropertyDescriptor_description",
-								"_UI_EnumerationAndChronologyDefinition_unitType_feature",
-								"_UI_EnumerationAndChronologyDefinition_type"),
-						MODSPackage.eINSTANCE
-								.getEnumerationAndChronologyDefinition_UnitType(),
-						true, false, false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				getResourceLocator(),
+				getString("_UI_EnumerationAndChronologyDefinition_unitType_feature"),
+				getString("_UI_PropertyDescriptor_description", "_UI_EnumerationAndChronologyDefinition_unitType_feature",
+						"_UI_EnumerationAndChronologyDefinition_type"), MODSPackage.eINSTANCE
+						.getEnumerationAndChronologyDefinition_UnitType(), true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -102,10 +94,7 @@ public class EnumerationAndChronologyDefinitionItemProvider extends
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(
-				object,
-				getResourceLocator().getImage(
-						"full/obj16/EnumerationAndChronologyDefinition"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/EnumerationAndChronologyDefinition"));
 	}
 
 	/**
@@ -128,8 +117,7 @@ public class EnumerationAndChronologyDefinitionItemProvider extends
 	public String getText(Object object) {
 		String label = ((EnumerationAndChronologyDefinition) object).getValue();
 		return label == null || label.length() == 0 ? getString("_UI_EnumerationAndChronologyDefinition_type")
-				: getString("_UI_EnumerationAndChronologyDefinition_type")
-						+ " " + label;
+				: getString("_UI_EnumerationAndChronologyDefinition_type") + " " + label;
 	}
 
 	/**
@@ -143,12 +131,10 @@ public class EnumerationAndChronologyDefinitionItemProvider extends
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification
-				.getFeatureID(EnumerationAndChronologyDefinition.class)) {
-		case MODSPackage.ENUMERATION_AND_CHRONOLOGY_DEFINITION__UNIT_TYPE:
-			fireNotifyChanged(new ViewerNotification(notification,
-					notification.getNotifier(), false, true));
-			return;
+		switch (notification.getFeatureID(EnumerationAndChronologyDefinition.class)) {
+			case MODSPackage.ENUMERATION_AND_CHRONOLOGY_DEFINITION__UNIT_TYPE:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -161,8 +147,7 @@ public class EnumerationAndChronologyDefinitionItemProvider extends
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(
-			Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 

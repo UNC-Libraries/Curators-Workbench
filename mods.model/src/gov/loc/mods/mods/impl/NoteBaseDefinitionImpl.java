@@ -37,8 +37,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class NoteBaseDefinitionImpl extends UnstructuredTextDefinitionImpl
-		implements NoteBaseDefinition {
+public class NoteBaseDefinitionImpl extends UnstructuredTextDefinitionImpl implements NoteBaseDefinition {
 	/**
 	 * The default value of the '{@link #getID() <em>ID</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -96,8 +95,7 @@ public class NoteBaseDefinitionImpl extends UnstructuredTextDefinitionImpl
 		String oldID = iD;
 		iD = newID;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MODSPackage.NOTE_BASE_DEFINITION__ID, oldID, iD));
+			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.NOTE_BASE_DEFINITION__ID, oldID, iD));
 	}
 
 	/**
@@ -108,8 +106,8 @@ public class NoteBaseDefinitionImpl extends UnstructuredTextDefinitionImpl
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case MODSPackage.NOTE_BASE_DEFINITION__ID:
-			return getID();
+			case MODSPackage.NOTE_BASE_DEFINITION__ID:
+				return getID();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -122,9 +120,9 @@ public class NoteBaseDefinitionImpl extends UnstructuredTextDefinitionImpl
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case MODSPackage.NOTE_BASE_DEFINITION__ID:
-			setID((String) newValue);
-			return;
+			case MODSPackage.NOTE_BASE_DEFINITION__ID:
+				setID((String) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -137,9 +135,9 @@ public class NoteBaseDefinitionImpl extends UnstructuredTextDefinitionImpl
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case MODSPackage.NOTE_BASE_DEFINITION__ID:
-			setID(ID_EDEFAULT);
-			return;
+			case MODSPackage.NOTE_BASE_DEFINITION__ID:
+				setID(ID_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -152,8 +150,8 @@ public class NoteBaseDefinitionImpl extends UnstructuredTextDefinitionImpl
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case MODSPackage.NOTE_BASE_DEFINITION__ID:
-			return ID_EDEFAULT == null ? iD != null : !ID_EDEFAULT.equals(iD);
+			case MODSPackage.NOTE_BASE_DEFINITION__ID:
+				return ID_EDEFAULT == null ? iD != null : !ID_EDEFAULT.equals(iD);
 		}
 		return super.eIsSet(featureID);
 	}

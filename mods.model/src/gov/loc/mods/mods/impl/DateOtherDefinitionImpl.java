@@ -37,8 +37,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class DateOtherDefinitionImpl extends DateDefinitionImpl implements
-		DateOtherDefinition {
+public class DateOtherDefinitionImpl extends DateDefinitionImpl implements DateOtherDefinition {
 	/**
 	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -96,8 +95,7 @@ public class DateOtherDefinitionImpl extends DateDefinitionImpl implements
 		String oldType = type;
 		type = newType;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MODSPackage.DATE_OTHER_DEFINITION__TYPE, oldType, type));
+			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.DATE_OTHER_DEFINITION__TYPE, oldType, type));
 	}
 
 	/**
@@ -108,8 +106,8 @@ public class DateOtherDefinitionImpl extends DateDefinitionImpl implements
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case MODSPackage.DATE_OTHER_DEFINITION__TYPE:
-			return getType();
+			case MODSPackage.DATE_OTHER_DEFINITION__TYPE:
+				return getType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -122,9 +120,9 @@ public class DateOtherDefinitionImpl extends DateDefinitionImpl implements
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case MODSPackage.DATE_OTHER_DEFINITION__TYPE:
-			setType((String) newValue);
-			return;
+			case MODSPackage.DATE_OTHER_DEFINITION__TYPE:
+				setType((String) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -137,9 +135,9 @@ public class DateOtherDefinitionImpl extends DateDefinitionImpl implements
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case MODSPackage.DATE_OTHER_DEFINITION__TYPE:
-			setType(TYPE_EDEFAULT);
-			return;
+			case MODSPackage.DATE_OTHER_DEFINITION__TYPE:
+				setType(TYPE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -152,9 +150,8 @@ public class DateOtherDefinitionImpl extends DateDefinitionImpl implements
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case MODSPackage.DATE_OTHER_DEFINITION__TYPE:
-			return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT
-					.equals(type);
+			case MODSPackage.DATE_OTHER_DEFINITION__TYPE:
+				return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
 		}
 		return super.eIsSet(featureID);
 	}

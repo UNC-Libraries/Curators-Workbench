@@ -137,9 +137,8 @@ public enum DigitalOriginDefinition implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final DigitalOriginDefinition[] VALUES_ARRAY = new DigitalOriginDefinition[] {
-			BORN_DIGITAL, REFORMATTED_DIGITAL, DIGITIZED_MICROFILM,
-			DIGITIZED_OTHER_ANALOG, };
+	private static final DigitalOriginDefinition[] VALUES_ARRAY = new DigitalOriginDefinition[] { BORN_DIGITAL,
+			REFORMATTED_DIGITAL, DIGITIZED_MICROFILM, DIGITIZED_OTHER_ANALOG, };
 
 	/**
 	 * A public read-only list of all the '<em><b>Digital Origin Definition</b></em>' enumerators.
@@ -147,8 +146,7 @@ public enum DigitalOriginDefinition implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final List<DigitalOriginDefinition> VALUES = Collections
-			.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+	public static final List<DigitalOriginDefinition> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
 	 * Returns the '<em><b>Digital Origin Definition</b></em>' literal with the specified literal value.
@@ -190,14 +188,14 @@ public enum DigitalOriginDefinition implements Enumerator {
 	 */
 	public static DigitalOriginDefinition get(int value) {
 		switch (value) {
-		case BORN_DIGITAL_VALUE:
-			return BORN_DIGITAL;
-		case REFORMATTED_DIGITAL_VALUE:
-			return REFORMATTED_DIGITAL;
-		case DIGITIZED_MICROFILM_VALUE:
-			return DIGITIZED_MICROFILM;
-		case DIGITIZED_OTHER_ANALOG_VALUE:
-			return DIGITIZED_OTHER_ANALOG;
+			case BORN_DIGITAL_VALUE:
+				return BORN_DIGITAL;
+			case REFORMATTED_DIGITAL_VALUE:
+				return REFORMATTED_DIGITAL;
+			case DIGITIZED_MICROFILM_VALUE:
+				return DIGITIZED_MICROFILM;
+			case DIGITIZED_OTHER_ANALOG_VALUE:
+				return DIGITIZED_OTHER_ANALOG;
 		}
 		return null;
 	}

@@ -221,8 +221,7 @@ public class UrlDefinitionImpl extends EObjectImpl implements UrlDefinition {
 		String oldValue = value;
 		value = newValue;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MODSPackage.URL_DEFINITION__VALUE, oldValue, value));
+			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.URL_DEFINITION__VALUE, oldValue, value));
 	}
 
 	/**
@@ -245,8 +244,7 @@ public class UrlDefinitionImpl extends EObjectImpl implements UrlDefinition {
 		boolean oldAccessESet = accessESet;
 		accessESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MODSPackage.URL_DEFINITION__ACCESS, oldAccess, access,
+			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.URL_DEFINITION__ACCESS, oldAccess, access,
 					!oldAccessESet));
 	}
 
@@ -261,8 +259,7 @@ public class UrlDefinitionImpl extends EObjectImpl implements UrlDefinition {
 		access = ACCESS_EDEFAULT;
 		accessESet = false;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET,
-					MODSPackage.URL_DEFINITION__ACCESS, oldAccess,
+			eNotify(new ENotificationImpl(this, Notification.UNSET, MODSPackage.URL_DEFINITION__ACCESS, oldAccess,
 					ACCESS_EDEFAULT, oldAccessESet));
 	}
 
@@ -293,8 +290,7 @@ public class UrlDefinitionImpl extends EObjectImpl implements UrlDefinition {
 		String oldDateLastAccessed = dateLastAccessed;
 		dateLastAccessed = newDateLastAccessed;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MODSPackage.URL_DEFINITION__DATE_LAST_ACCESSED,
+			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.URL_DEFINITION__DATE_LAST_ACCESSED,
 					oldDateLastAccessed, dateLastAccessed));
 	}
 
@@ -316,9 +312,8 @@ public class UrlDefinitionImpl extends EObjectImpl implements UrlDefinition {
 		String oldDisplayLabel = displayLabel;
 		displayLabel = newDisplayLabel;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MODSPackage.URL_DEFINITION__DISPLAY_LABEL, oldDisplayLabel,
-					displayLabel));
+			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.URL_DEFINITION__DISPLAY_LABEL,
+					oldDisplayLabel, displayLabel));
 	}
 
 	/**
@@ -339,8 +334,7 @@ public class UrlDefinitionImpl extends EObjectImpl implements UrlDefinition {
 		String oldNote = note;
 		note = newNote;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MODSPackage.URL_DEFINITION__NOTE, oldNote, note));
+			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.URL_DEFINITION__NOTE, oldNote, note));
 	}
 
 	/**
@@ -363,8 +357,7 @@ public class UrlDefinitionImpl extends EObjectImpl implements UrlDefinition {
 		boolean oldUsageESet = usageESet;
 		usageESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MODSPackage.URL_DEFINITION__USAGE, oldUsage, usage,
+			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.URL_DEFINITION__USAGE, oldUsage, usage,
 					!oldUsageESet));
 	}
 
@@ -379,8 +372,7 @@ public class UrlDefinitionImpl extends EObjectImpl implements UrlDefinition {
 		usage = USAGE_EDEFAULT;
 		usageESet = false;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET,
-					MODSPackage.URL_DEFINITION__USAGE, oldUsage,
+			eNotify(new ENotificationImpl(this, Notification.UNSET, MODSPackage.URL_DEFINITION__USAGE, oldUsage,
 					USAGE_EDEFAULT, oldUsageESet));
 	}
 
@@ -401,18 +393,18 @@ public class UrlDefinitionImpl extends EObjectImpl implements UrlDefinition {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case MODSPackage.URL_DEFINITION__VALUE:
-			return getValue();
-		case MODSPackage.URL_DEFINITION__ACCESS:
-			return getAccess();
-		case MODSPackage.URL_DEFINITION__DATE_LAST_ACCESSED:
-			return getDateLastAccessed();
-		case MODSPackage.URL_DEFINITION__DISPLAY_LABEL:
-			return getDisplayLabel();
-		case MODSPackage.URL_DEFINITION__NOTE:
-			return getNote();
-		case MODSPackage.URL_DEFINITION__USAGE:
-			return getUsage();
+			case MODSPackage.URL_DEFINITION__VALUE:
+				return getValue();
+			case MODSPackage.URL_DEFINITION__ACCESS:
+				return getAccess();
+			case MODSPackage.URL_DEFINITION__DATE_LAST_ACCESSED:
+				return getDateLastAccessed();
+			case MODSPackage.URL_DEFINITION__DISPLAY_LABEL:
+				return getDisplayLabel();
+			case MODSPackage.URL_DEFINITION__NOTE:
+				return getNote();
+			case MODSPackage.URL_DEFINITION__USAGE:
+				return getUsage();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -425,24 +417,24 @@ public class UrlDefinitionImpl extends EObjectImpl implements UrlDefinition {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case MODSPackage.URL_DEFINITION__VALUE:
-			setValue((String) newValue);
-			return;
-		case MODSPackage.URL_DEFINITION__ACCESS:
-			setAccess((UrlAccessAttributeDefinition) newValue);
-			return;
-		case MODSPackage.URL_DEFINITION__DATE_LAST_ACCESSED:
-			setDateLastAccessed((String) newValue);
-			return;
-		case MODSPackage.URL_DEFINITION__DISPLAY_LABEL:
-			setDisplayLabel((String) newValue);
-			return;
-		case MODSPackage.URL_DEFINITION__NOTE:
-			setNote((String) newValue);
-			return;
-		case MODSPackage.URL_DEFINITION__USAGE:
-			setUsage((UrlUsageAttributeDefinition) newValue);
-			return;
+			case MODSPackage.URL_DEFINITION__VALUE:
+				setValue((String) newValue);
+				return;
+			case MODSPackage.URL_DEFINITION__ACCESS:
+				setAccess((UrlAccessAttributeDefinition) newValue);
+				return;
+			case MODSPackage.URL_DEFINITION__DATE_LAST_ACCESSED:
+				setDateLastAccessed((String) newValue);
+				return;
+			case MODSPackage.URL_DEFINITION__DISPLAY_LABEL:
+				setDisplayLabel((String) newValue);
+				return;
+			case MODSPackage.URL_DEFINITION__NOTE:
+				setNote((String) newValue);
+				return;
+			case MODSPackage.URL_DEFINITION__USAGE:
+				setUsage((UrlUsageAttributeDefinition) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -455,24 +447,24 @@ public class UrlDefinitionImpl extends EObjectImpl implements UrlDefinition {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case MODSPackage.URL_DEFINITION__VALUE:
-			setValue(VALUE_EDEFAULT);
-			return;
-		case MODSPackage.URL_DEFINITION__ACCESS:
-			unsetAccess();
-			return;
-		case MODSPackage.URL_DEFINITION__DATE_LAST_ACCESSED:
-			setDateLastAccessed(DATE_LAST_ACCESSED_EDEFAULT);
-			return;
-		case MODSPackage.URL_DEFINITION__DISPLAY_LABEL:
-			setDisplayLabel(DISPLAY_LABEL_EDEFAULT);
-			return;
-		case MODSPackage.URL_DEFINITION__NOTE:
-			setNote(NOTE_EDEFAULT);
-			return;
-		case MODSPackage.URL_DEFINITION__USAGE:
-			unsetUsage();
-			return;
+			case MODSPackage.URL_DEFINITION__VALUE:
+				setValue(VALUE_EDEFAULT);
+				return;
+			case MODSPackage.URL_DEFINITION__ACCESS:
+				unsetAccess();
+				return;
+			case MODSPackage.URL_DEFINITION__DATE_LAST_ACCESSED:
+				setDateLastAccessed(DATE_LAST_ACCESSED_EDEFAULT);
+				return;
+			case MODSPackage.URL_DEFINITION__DISPLAY_LABEL:
+				setDisplayLabel(DISPLAY_LABEL_EDEFAULT);
+				return;
+			case MODSPackage.URL_DEFINITION__NOTE:
+				setNote(NOTE_EDEFAULT);
+				return;
+			case MODSPackage.URL_DEFINITION__USAGE:
+				unsetUsage();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -485,22 +477,19 @@ public class UrlDefinitionImpl extends EObjectImpl implements UrlDefinition {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case MODSPackage.URL_DEFINITION__VALUE:
-			return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT
-					.equals(value);
-		case MODSPackage.URL_DEFINITION__ACCESS:
-			return isSetAccess();
-		case MODSPackage.URL_DEFINITION__DATE_LAST_ACCESSED:
-			return DATE_LAST_ACCESSED_EDEFAULT == null ? dateLastAccessed != null
-					: !DATE_LAST_ACCESSED_EDEFAULT.equals(dateLastAccessed);
-		case MODSPackage.URL_DEFINITION__DISPLAY_LABEL:
-			return DISPLAY_LABEL_EDEFAULT == null ? displayLabel != null
-					: !DISPLAY_LABEL_EDEFAULT.equals(displayLabel);
-		case MODSPackage.URL_DEFINITION__NOTE:
-			return NOTE_EDEFAULT == null ? note != null : !NOTE_EDEFAULT
-					.equals(note);
-		case MODSPackage.URL_DEFINITION__USAGE:
-			return isSetUsage();
+			case MODSPackage.URL_DEFINITION__VALUE:
+				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
+			case MODSPackage.URL_DEFINITION__ACCESS:
+				return isSetAccess();
+			case MODSPackage.URL_DEFINITION__DATE_LAST_ACCESSED:
+				return DATE_LAST_ACCESSED_EDEFAULT == null ? dateLastAccessed != null : !DATE_LAST_ACCESSED_EDEFAULT
+						.equals(dateLastAccessed);
+			case MODSPackage.URL_DEFINITION__DISPLAY_LABEL:
+				return DISPLAY_LABEL_EDEFAULT == null ? displayLabel != null : !DISPLAY_LABEL_EDEFAULT.equals(displayLabel);
+			case MODSPackage.URL_DEFINITION__NOTE:
+				return NOTE_EDEFAULT == null ? note != null : !NOTE_EDEFAULT.equals(note);
+			case MODSPackage.URL_DEFINITION__USAGE:
+				return isSetUsage();
 		}
 		return super.eIsSet(featureID);
 	}

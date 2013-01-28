@@ -85,26 +85,22 @@ public class MODSAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseAccessConditionDefinition(
-				AccessConditionDefinition object) {
+		public Adapter caseAccessConditionDefinition(AccessConditionDefinition object) {
 			return createAccessConditionDefinitionAdapter();
 		}
 
 		@Override
-		public Adapter caseCartographicsDefinition(
-				CartographicsDefinition object) {
+		public Adapter caseCartographicsDefinition(CartographicsDefinition object) {
 			return createCartographicsDefinitionAdapter();
 		}
 
 		@Override
-		public Adapter caseClassificationDefinition(
-				ClassificationDefinition object) {
+		public Adapter caseClassificationDefinition(ClassificationDefinition object) {
 			return createClassificationDefinitionAdapter();
 		}
 
 		@Override
-		public Adapter caseCopyInformationDefinition(
-				CopyInformationDefinition object) {
+		public Adapter caseCopyInformationDefinition(CopyInformationDefinition object) {
 			return createCopyInformationDefinitionAdapter();
 		}
 
@@ -134,8 +130,7 @@ public class MODSAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseEnumerationAndChronologyDefinition(
-				EnumerationAndChronologyDefinition object) {
+		public Adapter caseEnumerationAndChronologyDefinition(EnumerationAndChronologyDefinition object) {
 			return createEnumerationAndChronologyDefinitionAdapter();
 		}
 
@@ -155,20 +150,17 @@ public class MODSAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseGeographicCodeDefinition(
-				GeographicCodeDefinition object) {
+		public Adapter caseGeographicCodeDefinition(GeographicCodeDefinition object) {
 			return createGeographicCodeDefinitionAdapter();
 		}
 
 		@Override
-		public Adapter caseHierarchicalGeographicDefinition(
-				HierarchicalGeographicDefinition object) {
+		public Adapter caseHierarchicalGeographicDefinition(HierarchicalGeographicDefinition object) {
 			return createHierarchicalGeographicDefinitionAdapter();
 		}
 
 		@Override
-		public Adapter caseHoldingSimpleDefinition(
-				HoldingSimpleDefinition object) {
+		public Adapter caseHoldingSimpleDefinition(HoldingSimpleDefinition object) {
 			return createHoldingSimpleDefinitionAdapter();
 		}
 
@@ -193,8 +185,7 @@ public class MODSAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseModsCollectionDefinition(
-				ModsCollectionDefinition object) {
+		public Adapter caseModsCollectionDefinition(ModsCollectionDefinition object) {
 			return createModsCollectionDefinitionAdapter();
 		}
 
@@ -239,14 +230,12 @@ public class MODSAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter casePhysicalDescriptionDefinition(
-				PhysicalDescriptionDefinition object) {
+		public Adapter casePhysicalDescriptionDefinition(PhysicalDescriptionDefinition object) {
 			return createPhysicalDescriptionDefinitionAdapter();
 		}
 
 		@Override
-		public Adapter casePhysicalLocationDefinition(
-				PhysicalLocationDefinition object) {
+		public Adapter casePhysicalLocationDefinition(PhysicalLocationDefinition object) {
 			return createPhysicalLocationDefinitionAdapter();
 		}
 
@@ -261,8 +250,7 @@ public class MODSAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseRecordIdentifierDefinition(
-				RecordIdentifierDefinition object) {
+		public Adapter caseRecordIdentifierDefinition(RecordIdentifierDefinition object) {
 			return createRecordIdentifierDefinitionAdapter();
 		}
 
@@ -297,14 +285,12 @@ public class MODSAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseStringPlusAuthorityPlusType(
-				StringPlusAuthorityPlusType object) {
+		public Adapter caseStringPlusAuthorityPlusType(StringPlusAuthorityPlusType object) {
 			return createStringPlusAuthorityPlusTypeAdapter();
 		}
 
 		@Override
-		public Adapter caseStringPlusAuthorityPlusTypePlusDisplayLabel(
-				StringPlusAuthorityPlusTypePlusDisplayLabel object) {
+		public Adapter caseStringPlusAuthorityPlusTypePlusDisplayLabel(StringPlusAuthorityPlusTypePlusDisplayLabel object) {
 			return createStringPlusAuthorityPlusTypePlusDisplayLabelAdapter();
 		}
 
@@ -330,20 +316,17 @@ public class MODSAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseSubjectTitleInfoDefinition(
-				SubjectTitleInfoDefinition object) {
+		public Adapter caseSubjectTitleInfoDefinition(SubjectTitleInfoDefinition object) {
 			return createSubjectTitleInfoDefinitionAdapter();
 		}
 
 		@Override
-		public Adapter caseTableOfContentsDefinition(
-				TableOfContentsDefinition object) {
+		public Adapter caseTableOfContentsDefinition(TableOfContentsDefinition object) {
 			return createTableOfContentsDefinitionAdapter();
 		}
 
 		@Override
-		public Adapter caseTargetAudienceDefinition(
-				TargetAudienceDefinition object) {
+		public Adapter caseTargetAudienceDefinition(TargetAudienceDefinition object) {
 			return createTargetAudienceDefinitionAdapter();
 		}
 
@@ -353,8 +336,7 @@ public class MODSAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseTitleInfoBaseDefinition(
-				TitleInfoBaseDefinition object) {
+		public Adapter caseTitleInfoBaseDefinition(TitleInfoBaseDefinition object) {
 			return createTitleInfoBaseDefinitionAdapter();
 		}
 
@@ -364,14 +346,12 @@ public class MODSAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseTypeOfResourceDefinition(
-				TypeOfResourceDefinition object) {
+		public Adapter caseTypeOfResourceDefinition(TypeOfResourceDefinition object) {
 			return createTypeOfResourceDefinitionAdapter();
 		}
 
 		@Override
-		public Adapter caseUnstructuredTextDefinition(
-				UnstructuredTextDefinition object) {
+		public Adapter caseUnstructuredTextDefinition(UnstructuredTextDefinition object) {
 			return createUnstructuredTextDefinitionAdapter();
 		}
 

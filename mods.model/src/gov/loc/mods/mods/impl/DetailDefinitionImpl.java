@@ -56,8 +56,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class DetailDefinitionImpl extends EObjectImpl implements
-		DetailDefinition {
+public class DetailDefinitionImpl extends EObjectImpl implements DetailDefinition {
 	/**
 	 * The cached value of the '{@link #getGroup() <em>Group</em>}' attribute list.
 	 * <!-- begin-user-doc -->
@@ -134,8 +133,7 @@ public class DetailDefinitionImpl extends EObjectImpl implements
 	 */
 	public FeatureMap getGroup() {
 		if (group == null) {
-			group = new BasicFeatureMap(this,
-					MODSPackage.DETAIL_DEFINITION__GROUP);
+			group = new BasicFeatureMap(this, MODSPackage.DETAIL_DEFINITION__GROUP);
 		}
 		return group;
 	}
@@ -146,8 +144,7 @@ public class DetailDefinitionImpl extends EObjectImpl implements
 	 * @generated
 	 */
 	public EList<XsString> getNumber() {
-		return getGroup().list(
-				MODSPackage.eINSTANCE.getDetailDefinition_Number());
+		return getGroup().list(MODSPackage.eINSTANCE.getDetailDefinition_Number());
 	}
 
 	/**
@@ -156,8 +153,7 @@ public class DetailDefinitionImpl extends EObjectImpl implements
 	 * @generated
 	 */
 	public EList<XsString> getCaption() {
-		return getGroup().list(
-				MODSPackage.eINSTANCE.getDetailDefinition_Caption());
+		return getGroup().list(MODSPackage.eINSTANCE.getDetailDefinition_Caption());
 	}
 
 	/**
@@ -166,8 +162,7 @@ public class DetailDefinitionImpl extends EObjectImpl implements
 	 * @generated
 	 */
 	public EList<XsString> getTitle() {
-		return getGroup().list(
-				MODSPackage.eINSTANCE.getDetailDefinition_Title());
+		return getGroup().list(MODSPackage.eINSTANCE.getDetailDefinition_Title());
 	}
 
 	/**
@@ -188,8 +183,7 @@ public class DetailDefinitionImpl extends EObjectImpl implements
 		BigInteger oldLevel = level;
 		level = newLevel;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MODSPackage.DETAIL_DEFINITION__LEVEL, oldLevel, level));
+			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.DETAIL_DEFINITION__LEVEL, oldLevel, level));
 	}
 
 	/**
@@ -210,8 +204,7 @@ public class DetailDefinitionImpl extends EObjectImpl implements
 		String oldType = type;
 		type = newType;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MODSPackage.DETAIL_DEFINITION__TYPE, oldType, type));
+			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.DETAIL_DEFINITION__TYPE, oldType, type));
 	}
 
 	/**
@@ -220,18 +213,16 @@ public class DetailDefinitionImpl extends EObjectImpl implements
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd,
-			int featureID, NotificationChain msgs) {
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case MODSPackage.DETAIL_DEFINITION__GROUP:
-			return ((InternalEList<?>) getGroup()).basicRemove(otherEnd, msgs);
-		case MODSPackage.DETAIL_DEFINITION__NUMBER:
-			return ((InternalEList<?>) getNumber()).basicRemove(otherEnd, msgs);
-		case MODSPackage.DETAIL_DEFINITION__CAPTION:
-			return ((InternalEList<?>) getCaption())
-					.basicRemove(otherEnd, msgs);
-		case MODSPackage.DETAIL_DEFINITION__TITLE:
-			return ((InternalEList<?>) getTitle()).basicRemove(otherEnd, msgs);
+			case MODSPackage.DETAIL_DEFINITION__GROUP:
+				return ((InternalEList<?>) getGroup()).basicRemove(otherEnd, msgs);
+			case MODSPackage.DETAIL_DEFINITION__NUMBER:
+				return ((InternalEList<?>) getNumber()).basicRemove(otherEnd, msgs);
+			case MODSPackage.DETAIL_DEFINITION__CAPTION:
+				return ((InternalEList<?>) getCaption()).basicRemove(otherEnd, msgs);
+			case MODSPackage.DETAIL_DEFINITION__TITLE:
+				return ((InternalEList<?>) getTitle()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -244,20 +235,20 @@ public class DetailDefinitionImpl extends EObjectImpl implements
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case MODSPackage.DETAIL_DEFINITION__GROUP:
-			if (coreType)
-				return getGroup();
-			return ((FeatureMap.Internal) getGroup()).getWrapper();
-		case MODSPackage.DETAIL_DEFINITION__NUMBER:
-			return getNumber();
-		case MODSPackage.DETAIL_DEFINITION__CAPTION:
-			return getCaption();
-		case MODSPackage.DETAIL_DEFINITION__TITLE:
-			return getTitle();
-		case MODSPackage.DETAIL_DEFINITION__LEVEL:
-			return getLevel();
-		case MODSPackage.DETAIL_DEFINITION__TYPE:
-			return getType();
+			case MODSPackage.DETAIL_DEFINITION__GROUP:
+				if (coreType)
+					return getGroup();
+				return ((FeatureMap.Internal) getGroup()).getWrapper();
+			case MODSPackage.DETAIL_DEFINITION__NUMBER:
+				return getNumber();
+			case MODSPackage.DETAIL_DEFINITION__CAPTION:
+				return getCaption();
+			case MODSPackage.DETAIL_DEFINITION__TITLE:
+				return getTitle();
+			case MODSPackage.DETAIL_DEFINITION__LEVEL:
+				return getLevel();
+			case MODSPackage.DETAIL_DEFINITION__TYPE:
+				return getType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -271,27 +262,27 @@ public class DetailDefinitionImpl extends EObjectImpl implements
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case MODSPackage.DETAIL_DEFINITION__GROUP:
-			((FeatureMap.Internal) getGroup()).set(newValue);
-			return;
-		case MODSPackage.DETAIL_DEFINITION__NUMBER:
-			getNumber().clear();
-			getNumber().addAll((Collection<? extends XsString>) newValue);
-			return;
-		case MODSPackage.DETAIL_DEFINITION__CAPTION:
-			getCaption().clear();
-			getCaption().addAll((Collection<? extends XsString>) newValue);
-			return;
-		case MODSPackage.DETAIL_DEFINITION__TITLE:
-			getTitle().clear();
-			getTitle().addAll((Collection<? extends XsString>) newValue);
-			return;
-		case MODSPackage.DETAIL_DEFINITION__LEVEL:
-			setLevel((BigInteger) newValue);
-			return;
-		case MODSPackage.DETAIL_DEFINITION__TYPE:
-			setType((String) newValue);
-			return;
+			case MODSPackage.DETAIL_DEFINITION__GROUP:
+				((FeatureMap.Internal) getGroup()).set(newValue);
+				return;
+			case MODSPackage.DETAIL_DEFINITION__NUMBER:
+				getNumber().clear();
+				getNumber().addAll((Collection<? extends XsString>) newValue);
+				return;
+			case MODSPackage.DETAIL_DEFINITION__CAPTION:
+				getCaption().clear();
+				getCaption().addAll((Collection<? extends XsString>) newValue);
+				return;
+			case MODSPackage.DETAIL_DEFINITION__TITLE:
+				getTitle().clear();
+				getTitle().addAll((Collection<? extends XsString>) newValue);
+				return;
+			case MODSPackage.DETAIL_DEFINITION__LEVEL:
+				setLevel((BigInteger) newValue);
+				return;
+			case MODSPackage.DETAIL_DEFINITION__TYPE:
+				setType((String) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -304,24 +295,24 @@ public class DetailDefinitionImpl extends EObjectImpl implements
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case MODSPackage.DETAIL_DEFINITION__GROUP:
-			getGroup().clear();
-			return;
-		case MODSPackage.DETAIL_DEFINITION__NUMBER:
-			getNumber().clear();
-			return;
-		case MODSPackage.DETAIL_DEFINITION__CAPTION:
-			getCaption().clear();
-			return;
-		case MODSPackage.DETAIL_DEFINITION__TITLE:
-			getTitle().clear();
-			return;
-		case MODSPackage.DETAIL_DEFINITION__LEVEL:
-			setLevel(LEVEL_EDEFAULT);
-			return;
-		case MODSPackage.DETAIL_DEFINITION__TYPE:
-			setType(TYPE_EDEFAULT);
-			return;
+			case MODSPackage.DETAIL_DEFINITION__GROUP:
+				getGroup().clear();
+				return;
+			case MODSPackage.DETAIL_DEFINITION__NUMBER:
+				getNumber().clear();
+				return;
+			case MODSPackage.DETAIL_DEFINITION__CAPTION:
+				getCaption().clear();
+				return;
+			case MODSPackage.DETAIL_DEFINITION__TITLE:
+				getTitle().clear();
+				return;
+			case MODSPackage.DETAIL_DEFINITION__LEVEL:
+				setLevel(LEVEL_EDEFAULT);
+				return;
+			case MODSPackage.DETAIL_DEFINITION__TYPE:
+				setType(TYPE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -334,20 +325,18 @@ public class DetailDefinitionImpl extends EObjectImpl implements
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case MODSPackage.DETAIL_DEFINITION__GROUP:
-			return group != null && !group.isEmpty();
-		case MODSPackage.DETAIL_DEFINITION__NUMBER:
-			return !getNumber().isEmpty();
-		case MODSPackage.DETAIL_DEFINITION__CAPTION:
-			return !getCaption().isEmpty();
-		case MODSPackage.DETAIL_DEFINITION__TITLE:
-			return !getTitle().isEmpty();
-		case MODSPackage.DETAIL_DEFINITION__LEVEL:
-			return LEVEL_EDEFAULT == null ? level != null : !LEVEL_EDEFAULT
-					.equals(level);
-		case MODSPackage.DETAIL_DEFINITION__TYPE:
-			return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT
-					.equals(type);
+			case MODSPackage.DETAIL_DEFINITION__GROUP:
+				return group != null && !group.isEmpty();
+			case MODSPackage.DETAIL_DEFINITION__NUMBER:
+				return !getNumber().isEmpty();
+			case MODSPackage.DETAIL_DEFINITION__CAPTION:
+				return !getCaption().isEmpty();
+			case MODSPackage.DETAIL_DEFINITION__TITLE:
+				return !getTitle().isEmpty();
+			case MODSPackage.DETAIL_DEFINITION__LEVEL:
+				return LEVEL_EDEFAULT == null ? level != null : !LEVEL_EDEFAULT.equals(level);
+			case MODSPackage.DETAIL_DEFINITION__TYPE:
+				return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
 		}
 		return super.eIsSet(featureID);
 	}

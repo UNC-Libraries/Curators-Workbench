@@ -44,9 +44,8 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class CopyInformationDefinitionItemProvider extends ItemProviderAdapter
-		implements IEditingDomainItemProvider, IStructuredItemContentProvider,
-		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class CopyInformationDefinitionItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -81,22 +80,15 @@ public class CopyInformationDefinitionItemProvider extends ItemProviderAdapter
 	 * @generated
 	 */
 	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(
-			Object object) {
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(MODSPackage.eINSTANCE
-					.getCopyInformationDefinition_Form());
-			childrenFeatures.add(MODSPackage.eINSTANCE
-					.getCopyInformationDefinition_SubLocation());
-			childrenFeatures.add(MODSPackage.eINSTANCE
-					.getCopyInformationDefinition_ShelfLocator());
-			childrenFeatures.add(MODSPackage.eINSTANCE
-					.getCopyInformationDefinition_ElectronicLocator());
-			childrenFeatures.add(MODSPackage.eINSTANCE
-					.getCopyInformationDefinition_Note());
-			childrenFeatures.add(MODSPackage.eINSTANCE
-					.getCopyInformationDefinition_EnumerationAndChronology());
+			childrenFeatures.add(MODSPackage.eINSTANCE.getCopyInformationDefinition_Form());
+			childrenFeatures.add(MODSPackage.eINSTANCE.getCopyInformationDefinition_SubLocation());
+			childrenFeatures.add(MODSPackage.eINSTANCE.getCopyInformationDefinition_ShelfLocator());
+			childrenFeatures.add(MODSPackage.eINSTANCE.getCopyInformationDefinition_ElectronicLocator());
+			childrenFeatures.add(MODSPackage.eINSTANCE.getCopyInformationDefinition_Note());
+			childrenFeatures.add(MODSPackage.eINSTANCE.getCopyInformationDefinition_EnumerationAndChronology());
 		}
 		return childrenFeatures;
 	}
@@ -122,10 +114,7 @@ public class CopyInformationDefinitionItemProvider extends ItemProviderAdapter
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(
-				object,
-				getResourceLocator().getImage(
-						"full/obj16/CopyInformationDefinition"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/CopyInformationDefinition"));
 	}
 
 	/**
@@ -161,15 +150,14 @@ public class CopyInformationDefinitionItemProvider extends ItemProviderAdapter
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(CopyInformationDefinition.class)) {
-		case MODSPackage.COPY_INFORMATION_DEFINITION__FORM:
-		case MODSPackage.COPY_INFORMATION_DEFINITION__SUB_LOCATION:
-		case MODSPackage.COPY_INFORMATION_DEFINITION__SHELF_LOCATOR:
-		case MODSPackage.COPY_INFORMATION_DEFINITION__ELECTRONIC_LOCATOR:
-		case MODSPackage.COPY_INFORMATION_DEFINITION__NOTE:
-		case MODSPackage.COPY_INFORMATION_DEFINITION__ENUMERATION_AND_CHRONOLOGY:
-			fireNotifyChanged(new ViewerNotification(notification,
-					notification.getNotifier(), true, false));
-			return;
+			case MODSPackage.COPY_INFORMATION_DEFINITION__FORM:
+			case MODSPackage.COPY_INFORMATION_DEFINITION__SUB_LOCATION:
+			case MODSPackage.COPY_INFORMATION_DEFINITION__SHELF_LOCATOR:
+			case MODSPackage.COPY_INFORMATION_DEFINITION__ELECTRONIC_LOCATOR:
+			case MODSPackage.COPY_INFORMATION_DEFINITION__NOTE:
+			case MODSPackage.COPY_INFORMATION_DEFINITION__ENUMERATION_AND_CHRONOLOGY:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -182,405 +170,313 @@ public class CopyInformationDefinitionItemProvider extends ItemProviderAdapter
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(
-			Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getCopyInformationDefinition_Form(),
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCopyInformationDefinition_Form(),
 				MODSFactory.eINSTANCE.createStringPlusAuthorityPlusType()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_Form(), MODSFactory.eINSTANCE
-				.createStringPlusAuthorityPlusTypePlusDisplayLabel()));
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCopyInformationDefinition_Form(),
+				MODSFactory.eINSTANCE.createStringPlusAuthorityPlusTypePlusDisplayLabel()));
 
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getCopyInformationDefinition_Form(),
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCopyInformationDefinition_Form(),
 				MODSFactory.eINSTANCE.createGenreDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_Form(), MODSFactory.eINSTANCE
-				.createStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink()));
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCopyInformationDefinition_Form(),
+				MODSFactory.eINSTANCE.createStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink()));
 
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getCopyInformationDefinition_Form(),
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCopyInformationDefinition_Form(),
 				MODSFactory.eINSTANCE.createPhysicalLocationDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_SubLocation(),
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCopyInformationDefinition_SubLocation(),
 				MODSFactory.eINSTANCE.createXsString()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_SubLocation(),
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCopyInformationDefinition_SubLocation(),
 				MODSFactory.eINSTANCE.createUnstructuredTextDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_SubLocation(),
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCopyInformationDefinition_SubLocation(),
 				MODSFactory.eINSTANCE.createAbstractDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_SubLocation(),
-				MODSFactory.eINSTANCE.createAccessConditionDefinition()));
-
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_SubLocation(),
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCopyInformationDefinition_SubLocation(),
 				MODSFactory.eINSTANCE.createStringPlusAuthority()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_SubLocation(),
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCopyInformationDefinition_SubLocation(),
 				MODSFactory.eINSTANCE.createClassificationDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_SubLocation(),
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCopyInformationDefinition_SubLocation(),
 				MODSFactory.eINSTANCE.createDateBaseDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_SubLocation(),
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCopyInformationDefinition_SubLocation(),
 				MODSFactory.eINSTANCE.createDateDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_SubLocation(),
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCopyInformationDefinition_SubLocation(),
 				MODSFactory.eINSTANCE.createDateOtherDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_SubLocation(),
-				MODSFactory.eINSTANCE
-						.createEnumerationAndChronologyDefinition()));
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCopyInformationDefinition_SubLocation(),
+				MODSFactory.eINSTANCE.createEnumerationAndChronologyDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_SubLocation(),
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCopyInformationDefinition_SubLocation(),
 				MODSFactory.eINSTANCE.createStringPlusAuthorityPlusType()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_SubLocation(),
-				MODSFactory.eINSTANCE
-						.createStringPlusAuthorityPlusTypePlusDisplayLabel()));
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCopyInformationDefinition_SubLocation(),
+				MODSFactory.eINSTANCE.createStringPlusAuthorityPlusTypePlusDisplayLabel()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_SubLocation(),
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCopyInformationDefinition_SubLocation(),
 				MODSFactory.eINSTANCE.createGenreDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_SubLocation(),
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCopyInformationDefinition_SubLocation(),
 				MODSFactory.eINSTANCE.createGeographicCodeDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_SubLocation(),
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCopyInformationDefinition_SubLocation(),
 				MODSFactory.eINSTANCE.createIdentifierDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_SubLocation(),
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCopyInformationDefinition_SubLocation(),
 				MODSFactory.eINSTANCE.createLanguageTermDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_SubLocation(),
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCopyInformationDefinition_SubLocation(),
 				MODSFactory.eINSTANCE.createNamePartDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_SubLocation(),
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCopyInformationDefinition_SubLocation(),
 				MODSFactory.eINSTANCE.createNoteBaseDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_SubLocation(),
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCopyInformationDefinition_SubLocation(),
 				MODSFactory.eINSTANCE.createNoteDefinition()));
 
-		newChildDescriptors
-				.add(createChildParameter(
-						MODSPackage.eINSTANCE
-								.getCopyInformationDefinition_SubLocation(),
-						MODSFactory.eINSTANCE
-								.createStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink()));
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCopyInformationDefinition_SubLocation(),
+				MODSFactory.eINSTANCE.createStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_SubLocation(),
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCopyInformationDefinition_SubLocation(),
 				MODSFactory.eINSTANCE.createPhysicalLocationDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_SubLocation(),
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCopyInformationDefinition_SubLocation(),
 				MODSFactory.eINSTANCE.createPlaceTermDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_SubLocation(),
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCopyInformationDefinition_SubLocation(),
 				MODSFactory.eINSTANCE.createRecordIdentifierDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_SubLocation(),
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCopyInformationDefinition_SubLocation(),
 				MODSFactory.eINSTANCE.createRoleTermDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_SubLocation(),
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCopyInformationDefinition_SubLocation(),
 				MODSFactory.eINSTANCE.createScriptTermDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_SubLocation(),
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCopyInformationDefinition_SubLocation(),
 				MODSFactory.eINSTANCE.createStringPlusSupplied()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_SubLocation(),
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCopyInformationDefinition_SubLocation(),
 				MODSFactory.eINSTANCE.createTableOfContentsDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_SubLocation(),
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCopyInformationDefinition_SubLocation(),
 				MODSFactory.eINSTANCE.createTargetAudienceDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_SubLocation(),
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCopyInformationDefinition_SubLocation(),
 				MODSFactory.eINSTANCE.createTemporalDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_ShelfLocator(),
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCopyInformationDefinition_ShelfLocator(),
 				MODSFactory.eINSTANCE.createXsString()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_ShelfLocator(),
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCopyInformationDefinition_ShelfLocator(),
 				MODSFactory.eINSTANCE.createUnstructuredTextDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_ShelfLocator(),
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCopyInformationDefinition_ShelfLocator(),
 				MODSFactory.eINSTANCE.createAbstractDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_ShelfLocator(),
-				MODSFactory.eINSTANCE.createAccessConditionDefinition()));
-
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_ShelfLocator(),
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCopyInformationDefinition_ShelfLocator(),
 				MODSFactory.eINSTANCE.createStringPlusAuthority()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_ShelfLocator(),
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCopyInformationDefinition_ShelfLocator(),
 				MODSFactory.eINSTANCE.createClassificationDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_ShelfLocator(),
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCopyInformationDefinition_ShelfLocator(),
 				MODSFactory.eINSTANCE.createDateBaseDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_ShelfLocator(),
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCopyInformationDefinition_ShelfLocator(),
 				MODSFactory.eINSTANCE.createDateDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_ShelfLocator(),
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCopyInformationDefinition_ShelfLocator(),
 				MODSFactory.eINSTANCE.createDateOtherDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_ShelfLocator(),
-				MODSFactory.eINSTANCE
-						.createEnumerationAndChronologyDefinition()));
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCopyInformationDefinition_ShelfLocator(),
+				MODSFactory.eINSTANCE.createEnumerationAndChronologyDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_ShelfLocator(),
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCopyInformationDefinition_ShelfLocator(),
 				MODSFactory.eINSTANCE.createStringPlusAuthorityPlusType()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_ShelfLocator(),
-				MODSFactory.eINSTANCE
-						.createStringPlusAuthorityPlusTypePlusDisplayLabel()));
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCopyInformationDefinition_ShelfLocator(),
+				MODSFactory.eINSTANCE.createStringPlusAuthorityPlusTypePlusDisplayLabel()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_ShelfLocator(),
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCopyInformationDefinition_ShelfLocator(),
 				MODSFactory.eINSTANCE.createGenreDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_ShelfLocator(),
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCopyInformationDefinition_ShelfLocator(),
 				MODSFactory.eINSTANCE.createGeographicCodeDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_ShelfLocator(),
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCopyInformationDefinition_ShelfLocator(),
 				MODSFactory.eINSTANCE.createIdentifierDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_ShelfLocator(),
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCopyInformationDefinition_ShelfLocator(),
 				MODSFactory.eINSTANCE.createLanguageTermDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_ShelfLocator(),
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCopyInformationDefinition_ShelfLocator(),
 				MODSFactory.eINSTANCE.createNamePartDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_ShelfLocator(),
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCopyInformationDefinition_ShelfLocator(),
 				MODSFactory.eINSTANCE.createNoteBaseDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_ShelfLocator(),
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCopyInformationDefinition_ShelfLocator(),
 				MODSFactory.eINSTANCE.createNoteDefinition()));
 
-		newChildDescriptors
-				.add(createChildParameter(
-						MODSPackage.eINSTANCE
-								.getCopyInformationDefinition_ShelfLocator(),
-						MODSFactory.eINSTANCE
-								.createStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink()));
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCopyInformationDefinition_ShelfLocator(),
+				MODSFactory.eINSTANCE.createStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_ShelfLocator(),
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCopyInformationDefinition_ShelfLocator(),
 				MODSFactory.eINSTANCE.createPhysicalLocationDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_ShelfLocator(),
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCopyInformationDefinition_ShelfLocator(),
 				MODSFactory.eINSTANCE.createPlaceTermDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_ShelfLocator(),
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCopyInformationDefinition_ShelfLocator(),
 				MODSFactory.eINSTANCE.createRecordIdentifierDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_ShelfLocator(),
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCopyInformationDefinition_ShelfLocator(),
 				MODSFactory.eINSTANCE.createRoleTermDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_ShelfLocator(),
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCopyInformationDefinition_ShelfLocator(),
 				MODSFactory.eINSTANCE.createScriptTermDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_ShelfLocator(),
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCopyInformationDefinition_ShelfLocator(),
 				MODSFactory.eINSTANCE.createStringPlusSupplied()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_ShelfLocator(),
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCopyInformationDefinition_ShelfLocator(),
 				MODSFactory.eINSTANCE.createTableOfContentsDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_ShelfLocator(),
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCopyInformationDefinition_ShelfLocator(),
 				MODSFactory.eINSTANCE.createTargetAudienceDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_ShelfLocator(),
-				MODSFactory.eINSTANCE.createTemporalDefinition()));
-
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_ElectronicLocator(),
-				MODSFactory.eINSTANCE.createXsString()));
-
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_ElectronicLocator(),
-				MODSFactory.eINSTANCE.createUnstructuredTextDefinition()));
-
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_ElectronicLocator(),
-				MODSFactory.eINSTANCE.createAbstractDefinition()));
-
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_ElectronicLocator(),
-				MODSFactory.eINSTANCE.createAccessConditionDefinition()));
-
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_ElectronicLocator(),
-				MODSFactory.eINSTANCE.createStringPlusAuthority()));
-
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_ElectronicLocator(),
-				MODSFactory.eINSTANCE.createClassificationDefinition()));
-
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_ElectronicLocator(),
-				MODSFactory.eINSTANCE.createDateBaseDefinition()));
-
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_ElectronicLocator(),
-				MODSFactory.eINSTANCE.createDateDefinition()));
-
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_ElectronicLocator(),
-				MODSFactory.eINSTANCE.createDateOtherDefinition()));
-
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_ElectronicLocator(),
-				MODSFactory.eINSTANCE
-						.createEnumerationAndChronologyDefinition()));
-
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_ElectronicLocator(),
-				MODSFactory.eINSTANCE.createStringPlusAuthorityPlusType()));
-
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_ElectronicLocator(),
-				MODSFactory.eINSTANCE
-						.createStringPlusAuthorityPlusTypePlusDisplayLabel()));
-
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_ElectronicLocator(),
-				MODSFactory.eINSTANCE.createGenreDefinition()));
-
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_ElectronicLocator(),
-				MODSFactory.eINSTANCE.createGeographicCodeDefinition()));
-
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_ElectronicLocator(),
-				MODSFactory.eINSTANCE.createIdentifierDefinition()));
-
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_ElectronicLocator(),
-				MODSFactory.eINSTANCE.createLanguageTermDefinition()));
-
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_ElectronicLocator(),
-				MODSFactory.eINSTANCE.createNamePartDefinition()));
-
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_ElectronicLocator(),
-				MODSFactory.eINSTANCE.createNoteBaseDefinition()));
-
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_ElectronicLocator(),
-				MODSFactory.eINSTANCE.createNoteDefinition()));
-
-		newChildDescriptors
-				.add(createChildParameter(
-						MODSPackage.eINSTANCE
-								.getCopyInformationDefinition_ElectronicLocator(),
-						MODSFactory.eINSTANCE
-								.createStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink()));
-
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_ElectronicLocator(),
-				MODSFactory.eINSTANCE.createPhysicalLocationDefinition()));
-
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_ElectronicLocator(),
-				MODSFactory.eINSTANCE.createPlaceTermDefinition()));
-
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_ElectronicLocator(),
-				MODSFactory.eINSTANCE.createRecordIdentifierDefinition()));
-
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_ElectronicLocator(),
-				MODSFactory.eINSTANCE.createRoleTermDefinition()));
-
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_ElectronicLocator(),
-				MODSFactory.eINSTANCE.createScriptTermDefinition()));
-
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_ElectronicLocator(),
-				MODSFactory.eINSTANCE.createStringPlusSupplied()));
-
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_ElectronicLocator(),
-				MODSFactory.eINSTANCE.createTableOfContentsDefinition()));
-
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_ElectronicLocator(),
-				MODSFactory.eINSTANCE.createTargetAudienceDefinition()));
-
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_ElectronicLocator(),
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCopyInformationDefinition_ShelfLocator(),
 				MODSFactory.eINSTANCE.createTemporalDefinition()));
 
 		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getCopyInformationDefinition_Note(),
+				MODSPackage.eINSTANCE.getCopyInformationDefinition_ElectronicLocator(),
+				MODSFactory.eINSTANCE.createXsString()));
+
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCopyInformationDefinition_ElectronicLocator(),
+				MODSFactory.eINSTANCE.createUnstructuredTextDefinition()));
+
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCopyInformationDefinition_ElectronicLocator(),
+				MODSFactory.eINSTANCE.createAbstractDefinition()));
+
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCopyInformationDefinition_ElectronicLocator(),
+				MODSFactory.eINSTANCE.createStringPlusAuthority()));
+
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCopyInformationDefinition_ElectronicLocator(),
+				MODSFactory.eINSTANCE.createClassificationDefinition()));
+
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCopyInformationDefinition_ElectronicLocator(),
+				MODSFactory.eINSTANCE.createDateBaseDefinition()));
+
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCopyInformationDefinition_ElectronicLocator(),
+				MODSFactory.eINSTANCE.createDateDefinition()));
+
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCopyInformationDefinition_ElectronicLocator(),
+				MODSFactory.eINSTANCE.createDateOtherDefinition()));
+
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCopyInformationDefinition_ElectronicLocator(),
+				MODSFactory.eINSTANCE.createEnumerationAndChronologyDefinition()));
+
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCopyInformationDefinition_ElectronicLocator(),
+				MODSFactory.eINSTANCE.createStringPlusAuthorityPlusType()));
+
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCopyInformationDefinition_ElectronicLocator(),
+				MODSFactory.eINSTANCE.createStringPlusAuthorityPlusTypePlusDisplayLabel()));
+
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCopyInformationDefinition_ElectronicLocator(),
+				MODSFactory.eINSTANCE.createGenreDefinition()));
+
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCopyInformationDefinition_ElectronicLocator(),
+				MODSFactory.eINSTANCE.createGeographicCodeDefinition()));
+
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCopyInformationDefinition_ElectronicLocator(),
+				MODSFactory.eINSTANCE.createIdentifierDefinition()));
+
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCopyInformationDefinition_ElectronicLocator(),
+				MODSFactory.eINSTANCE.createLanguageTermDefinition()));
+
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCopyInformationDefinition_ElectronicLocator(),
+				MODSFactory.eINSTANCE.createNamePartDefinition()));
+
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCopyInformationDefinition_ElectronicLocator(),
 				MODSFactory.eINSTANCE.createNoteBaseDefinition()));
 
 		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getCopyInformationDefinition_Note(),
+				MODSPackage.eINSTANCE.getCopyInformationDefinition_ElectronicLocator(),
 				MODSFactory.eINSTANCE.createNoteDefinition()));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_EnumerationAndChronology(),
-				MODSFactory.eINSTANCE
-						.createEnumerationAndChronologyDefinition()));
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCopyInformationDefinition_ElectronicLocator(),
+				MODSFactory.eINSTANCE.createStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink()));
+
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCopyInformationDefinition_ElectronicLocator(),
+				MODSFactory.eINSTANCE.createPhysicalLocationDefinition()));
+
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCopyInformationDefinition_ElectronicLocator(),
+				MODSFactory.eINSTANCE.createPlaceTermDefinition()));
+
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCopyInformationDefinition_ElectronicLocator(),
+				MODSFactory.eINSTANCE.createRecordIdentifierDefinition()));
+
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCopyInformationDefinition_ElectronicLocator(),
+				MODSFactory.eINSTANCE.createRoleTermDefinition()));
+
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCopyInformationDefinition_ElectronicLocator(),
+				MODSFactory.eINSTANCE.createScriptTermDefinition()));
+
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCopyInformationDefinition_ElectronicLocator(),
+				MODSFactory.eINSTANCE.createStringPlusSupplied()));
+
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCopyInformationDefinition_ElectronicLocator(),
+				MODSFactory.eINSTANCE.createTableOfContentsDefinition()));
+
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCopyInformationDefinition_ElectronicLocator(),
+				MODSFactory.eINSTANCE.createTargetAudienceDefinition()));
+
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCopyInformationDefinition_ElectronicLocator(),
+				MODSFactory.eINSTANCE.createTemporalDefinition()));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCopyInformationDefinition_Note(),
+				MODSFactory.eINSTANCE.createNoteBaseDefinition()));
+
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getCopyInformationDefinition_Note(),
+				MODSFactory.eINSTANCE.createNoteDefinition()));
+
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getCopyInformationDefinition_EnumerationAndChronology(),
+				MODSFactory.eINSTANCE.createEnumerationAndChronologyDefinition()));
 	}
 
 	/**
@@ -590,28 +486,20 @@ public class CopyInformationDefinitionItemProvider extends ItemProviderAdapter
 	 * @generated
 	 */
 	@Override
-	public String getCreateChildText(Object owner, Object feature,
-			Object child, Collection<?> selection) {
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
 		Object childFeature = feature;
 		Object childObject = child;
 
-		boolean qualify = childFeature == MODSPackage.eINSTANCE
-				.getCopyInformationDefinition_Form()
-				|| childFeature == MODSPackage.eINSTANCE
-						.getCopyInformationDefinition_SubLocation()
-				|| childFeature == MODSPackage.eINSTANCE
-						.getCopyInformationDefinition_ShelfLocator()
-				|| childFeature == MODSPackage.eINSTANCE
-						.getCopyInformationDefinition_ElectronicLocator()
-				|| childFeature == MODSPackage.eINSTANCE
-						.getCopyInformationDefinition_EnumerationAndChronology()
-				|| childFeature == MODSPackage.eINSTANCE
-						.getCopyInformationDefinition_Note();
+		boolean qualify = childFeature == MODSPackage.eINSTANCE.getCopyInformationDefinition_Form()
+				|| childFeature == MODSPackage.eINSTANCE.getCopyInformationDefinition_SubLocation()
+				|| childFeature == MODSPackage.eINSTANCE.getCopyInformationDefinition_ShelfLocator()
+				|| childFeature == MODSPackage.eINSTANCE.getCopyInformationDefinition_ElectronicLocator()
+				|| childFeature == MODSPackage.eINSTANCE.getCopyInformationDefinition_EnumerationAndChronology()
+				|| childFeature == MODSPackage.eINSTANCE.getCopyInformationDefinition_Note();
 
 		if (qualify) {
-			return getString("_UI_CreateChild_text2", new Object[] {
-					getTypeText(childObject), getFeatureText(childFeature),
-					getTypeText(owner) });
+			return getString("_UI_CreateChild_text2", new Object[] { getTypeText(childObject),
+					getFeatureText(childFeature), getTypeText(owner) });
 		}
 		return super.getCreateChildText(owner, feature, child, selection);
 	}

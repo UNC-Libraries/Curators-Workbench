@@ -31,8 +31,7 @@ package gov.loc.mods.mods;
  * @model extendedMetaData="name='stringPlusAuthorityPlusTypePlusDisplayLabel' kind='simple'"
  * @generated
  */
-public interface StringPlusAuthorityPlusTypePlusDisplayLabel extends
-		StringPlusAuthorityPlusType {
+public interface StringPlusAuthorityPlusTypePlusDisplayLabel extends StringPlusAuthorityPlusType {
 	/**
 	 * Returns the value of the '<em><b>Display Label</b></em>' attribute.
 	 * <!-- begin-user-doc -->

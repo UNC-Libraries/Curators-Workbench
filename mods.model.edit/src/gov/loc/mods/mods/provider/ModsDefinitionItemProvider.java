@@ -49,9 +49,8 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ModsDefinitionItemProvider extends ItemProviderAdapter implements
-		IEditingDomainItemProvider, IStructuredItemContentProvider,
-		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class ModsDefinitionItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -86,16 +85,14 @@ public class ModsDefinitionItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	protected void addIDPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_ModsDefinition_iD_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_ModsDefinition_iD_feature",
-						"_UI_ModsDefinition_type"), MODSPackage.eINSTANCE
-						.getModsDefinition_ID(), true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(
+						((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(),
+						getString("_UI_ModsDefinition_iD_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_ModsDefinition_iD_feature",
+								"_UI_ModsDefinition_type"), MODSPackage.eINSTANCE.getModsDefinition_ID(), true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -106,14 +103,11 @@ public class ModsDefinitionItemProvider extends ItemProviderAdapter implements
 	 */
 	protected void addVersionPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_ModsDefinition_version_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_ModsDefinition_version_feature",
-						"_UI_ModsDefinition_type"), MODSPackage.eINSTANCE
-						.getModsDefinition_Version(), true, false, false,
+				getString("_UI_PropertyDescriptor_description", "_UI_ModsDefinition_version_feature",
+						"_UI_ModsDefinition_type"), MODSPackage.eINSTANCE.getModsDefinition_Version(), true, false, false,
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
@@ -126,12 +120,10 @@ public class ModsDefinitionItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(
-			Object object) {
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(MODSPackage.eINSTANCE
-					.getModsDefinition_ModsGroup());
+			childrenFeatures.add(MODSPackage.eINSTANCE.getModsDefinition_ModsGroup());
 		}
 		return childrenFeatures;
 	}
@@ -157,8 +149,7 @@ public class ModsDefinitionItemProvider extends ItemProviderAdapter implements
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object,
-				getResourceLocator().getImage("full/obj16/ModsDefinition"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ModsDefinition"));
 	}
 
 	/**
@@ -196,15 +187,13 @@ public class ModsDefinitionItemProvider extends ItemProviderAdapter implements
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ModsDefinition.class)) {
-		case MODSPackage.MODS_DEFINITION__ID:
-		case MODSPackage.MODS_DEFINITION__VERSION:
-			fireNotifyChanged(new ViewerNotification(notification,
-					notification.getNotifier(), false, true));
-			return;
-		case MODSPackage.MODS_DEFINITION__MODS_GROUP:
-			fireNotifyChanged(new ViewerNotification(notification,
-					notification.getNotifier(), true, false));
-			return;
+			case MODSPackage.MODS_DEFINITION__ID:
+			case MODSPackage.MODS_DEFINITION__VERSION:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+			case MODSPackage.MODS_DEFINITION__MODS_GROUP:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -217,109 +206,139 @@ public class ModsDefinitionItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(
-			Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getModsDefinition_ModsGroup(), FeatureMapUtil.createEntry(
-				MODSPackage.eINSTANCE.getModsDefinition_Abstract(),
-				MODSFactory.eINSTANCE.createAbstractDefinition())));
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getModsDefinition_ModsGroup(),
+				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getModsDefinition_Abstract(),
+						MODSFactory.eINSTANCE.createAbstractDefinition())));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getModsDefinition_ModsGroup(), FeatureMapUtil.createEntry(
-				MODSPackage.eINSTANCE.getModsDefinition_AccessCondition(),
-				MODSFactory.eINSTANCE.createAccessConditionDefinition())));
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getModsDefinition_ModsGroup(),
+				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getModsDefinition_AccessCondition(),
+						MODSFactory.eINSTANCE.createAccessConditionDefinition())));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getModsDefinition_ModsGroup(), FeatureMapUtil.createEntry(
-				MODSPackage.eINSTANCE.getModsDefinition_Classification(),
-				MODSFactory.eINSTANCE.createClassificationDefinition())));
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getModsDefinition_ModsGroup(),
+				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getModsDefinition_Classification(),
+						MODSFactory.eINSTANCE.createClassificationDefinition())));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getModsDefinition_ModsGroup(), FeatureMapUtil.createEntry(
-				MODSPackage.eINSTANCE.getModsDefinition_Extension(),
-				MODSFactory.eINSTANCE.createExtensionDefinition())));
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getModsDefinition_ModsGroup(),
+				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getModsDefinition_Extension(),
+						MODSFactory.eINSTANCE.createExtensionDefinition())));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getModsDefinition_ModsGroup(), FeatureMapUtil.createEntry(
-				MODSPackage.eINSTANCE.getModsDefinition_Genre(),
-				MODSFactory.eINSTANCE.createGenreDefinition())));
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getModsDefinition_ModsGroup(),
+				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getModsDefinition_Extension(),
+						MODSFactory.eINSTANCE.createAccessConditionDefinition())));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getModsDefinition_ModsGroup(), FeatureMapUtil.createEntry(
-				MODSPackage.eINSTANCE.getModsDefinition_Identifier(),
-				MODSFactory.eINSTANCE.createIdentifierDefinition())));
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getModsDefinition_ModsGroup(),
+				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getModsDefinition_Genre(),
+						MODSFactory.eINSTANCE.createGenreDefinition())));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getModsDefinition_ModsGroup(), FeatureMapUtil.createEntry(
-				MODSPackage.eINSTANCE.getModsDefinition_Language(),
-				MODSFactory.eINSTANCE.createLanguageDefinition())));
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getModsDefinition_ModsGroup(),
+				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getModsDefinition_Identifier(),
+						MODSFactory.eINSTANCE.createIdentifierDefinition())));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getModsDefinition_ModsGroup(), FeatureMapUtil.createEntry(
-				MODSPackage.eINSTANCE.getModsDefinition_Location(),
-				MODSFactory.eINSTANCE.createLocationDefinition())));
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getModsDefinition_ModsGroup(),
+				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getModsDefinition_Language(),
+						MODSFactory.eINSTANCE.createLanguageDefinition())));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getModsDefinition_ModsGroup(), FeatureMapUtil.createEntry(
-				MODSPackage.eINSTANCE.getModsDefinition_Name(),
-				MODSFactory.eINSTANCE.createNameDefinition())));
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getModsDefinition_ModsGroup(),
+				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getModsDefinition_Location(),
+						MODSFactory.eINSTANCE.createLocationDefinition())));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getModsDefinition_ModsGroup(), FeatureMapUtil.createEntry(
-				MODSPackage.eINSTANCE.getModsDefinition_Note(),
-				MODSFactory.eINSTANCE.createNoteDefinition())));
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getModsDefinition_ModsGroup(),
+				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getModsDefinition_Name(),
+						MODSFactory.eINSTANCE.createNameDefinition())));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getModsDefinition_ModsGroup(), FeatureMapUtil.createEntry(
-				MODSPackage.eINSTANCE.getModsDefinition_OriginInfo(),
-				MODSFactory.eINSTANCE.createOriginInfoDefinition())));
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getModsDefinition_ModsGroup(),
+				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getModsDefinition_Note(),
+						MODSFactory.eINSTANCE.createNoteDefinition())));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getModsDefinition_ModsGroup(), FeatureMapUtil.createEntry(
-				MODSPackage.eINSTANCE.getModsDefinition_Part(),
-				MODSFactory.eINSTANCE.createPartDefinition())));
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getModsDefinition_ModsGroup(),
+				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getModsDefinition_OriginInfo(),
+						MODSFactory.eINSTANCE.createOriginInfoDefinition())));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getModsDefinition_ModsGroup(), FeatureMapUtil.createEntry(
-				MODSPackage.eINSTANCE.getModsDefinition_PhysicalDescription(),
-				MODSFactory.eINSTANCE.createPhysicalDescriptionDefinition())));
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getModsDefinition_ModsGroup(),
+				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getModsDefinition_Part(),
+						MODSFactory.eINSTANCE.createPartDefinition())));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getModsDefinition_ModsGroup(), FeatureMapUtil.createEntry(
-				MODSPackage.eINSTANCE.getModsDefinition_RecordInfo(),
-				MODSFactory.eINSTANCE.createRecordInfoDefinition())));
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getModsDefinition_ModsGroup(), FeatureMapUtil
+				.createEntry(MODSPackage.eINSTANCE.getModsDefinition_PhysicalDescription(),
+						MODSFactory.eINSTANCE.createPhysicalDescriptionDefinition())));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getModsDefinition_ModsGroup(), FeatureMapUtil.createEntry(
-				MODSPackage.eINSTANCE.getModsDefinition_RelatedItem(),
-				MODSFactory.eINSTANCE.createRelatedItemDefinition())));
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getModsDefinition_ModsGroup(),
+				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getModsDefinition_RecordInfo(),
+						MODSFactory.eINSTANCE.createRecordInfoDefinition())));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getModsDefinition_ModsGroup(), FeatureMapUtil.createEntry(
-				MODSPackage.eINSTANCE.getModsDefinition_Subject(),
-				MODSFactory.eINSTANCE.createSubjectDefinition())));
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getModsDefinition_ModsGroup(),
+				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getModsDefinition_RelatedItem(),
+						MODSFactory.eINSTANCE.createRelatedItemDefinition())));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getModsDefinition_ModsGroup(), FeatureMapUtil.createEntry(
-				MODSPackage.eINSTANCE.getModsDefinition_TableOfContents(),
-				MODSFactory.eINSTANCE.createTableOfContentsDefinition())));
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getModsDefinition_ModsGroup(),
+				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getModsDefinition_Subject(),
+						MODSFactory.eINSTANCE.createSubjectDefinition())));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getModsDefinition_ModsGroup(), FeatureMapUtil.createEntry(
-				MODSPackage.eINSTANCE.getModsDefinition_TargetAudience(),
-				MODSFactory.eINSTANCE.createTargetAudienceDefinition())));
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getModsDefinition_ModsGroup(),
+				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getModsDefinition_TableOfContents(),
+						MODSFactory.eINSTANCE.createTableOfContentsDefinition())));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getModsDefinition_ModsGroup(), FeatureMapUtil.createEntry(
-				MODSPackage.eINSTANCE.getModsDefinition_TitleInfo(),
-				MODSFactory.eINSTANCE.createTitleInfoDefinition())));
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getModsDefinition_ModsGroup(),
+				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getModsDefinition_TargetAudience(),
+						MODSFactory.eINSTANCE.createTargetAudienceDefinition())));
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getModsDefinition_ModsGroup(), FeatureMapUtil.createEntry(
-				MODSPackage.eINSTANCE.getModsDefinition_TypeOfResource(),
-				MODSFactory.eINSTANCE.createTypeOfResourceDefinition())));
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getModsDefinition_ModsGroup(),
+				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getModsDefinition_TitleInfo(),
+						MODSFactory.eINSTANCE.createTitleInfoDefinition())));
+
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getModsDefinition_ModsGroup(),
+				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getModsDefinition_TypeOfResource(),
+						MODSFactory.eINSTANCE.createTypeOfResourceDefinition())));
+	}
+
+	/**
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+		Object childFeature = feature;
+		Object childObject = child;
+
+		if (childFeature instanceof EStructuralFeature && FeatureMapUtil.isFeatureMap((EStructuralFeature) childFeature)) {
+			FeatureMap.Entry entry = (FeatureMap.Entry) childObject;
+			childFeature = entry.getEStructuralFeature();
+			childObject = entry.getValue();
+		}
+
+		boolean qualify = childFeature == MODSPackage.eINSTANCE.getModsDefinition_AccessCondition()
+				|| childFeature == MODSPackage.eINSTANCE.getModsDefinition_Extension();
+
+		if (qualify) {
+			return getString("_UI_CreateChild_text2", new Object[] { getTypeText(childObject),
+					getFeatureText(childFeature), getTypeText(owner) });
+		}
+		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 	/**

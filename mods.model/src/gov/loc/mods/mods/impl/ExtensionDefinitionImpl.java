@@ -46,8 +46,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class ExtensionDefinitionImpl extends EObjectImpl implements
-		ExtensionDefinition {
+public class ExtensionDefinitionImpl extends EObjectImpl implements ExtensionDefinition {
 	/**
 	 * The cached value of the '{@link #getMixed() <em>Mixed</em>}' attribute list.
 	 * <!-- begin-user-doc -->
@@ -104,8 +103,7 @@ public class ExtensionDefinitionImpl extends EObjectImpl implements
 	 */
 	public FeatureMap getMixed() {
 		if (mixed == null) {
-			mixed = new BasicFeatureMap(this,
-					MODSPackage.EXTENSION_DEFINITION__MIXED);
+			mixed = new BasicFeatureMap(this, MODSPackage.EXTENSION_DEFINITION__MIXED);
 		}
 		return mixed;
 	}
@@ -116,8 +114,7 @@ public class ExtensionDefinitionImpl extends EObjectImpl implements
 	 * @generated
 	 */
 	public FeatureMap getAny() {
-		return (FeatureMap) getMixed().<FeatureMap.Entry> list(
-				MODSPackage.eINSTANCE.getExtensionDefinition_Any());
+		return (FeatureMap) getMixed().<FeatureMap.Entry> list(MODSPackage.eINSTANCE.getExtensionDefinition_Any());
 	}
 
 	/**
@@ -138,8 +135,7 @@ public class ExtensionDefinitionImpl extends EObjectImpl implements
 		String oldDisplayLabel = displayLabel;
 		displayLabel = newDisplayLabel;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MODSPackage.EXTENSION_DEFINITION__DISPLAY_LABEL,
+			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.EXTENSION_DEFINITION__DISPLAY_LABEL,
 					oldDisplayLabel, displayLabel));
 	}
 
@@ -149,13 +145,12 @@ public class ExtensionDefinitionImpl extends EObjectImpl implements
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd,
-			int featureID, NotificationChain msgs) {
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case MODSPackage.EXTENSION_DEFINITION__MIXED:
-			return ((InternalEList<?>) getMixed()).basicRemove(otherEnd, msgs);
-		case MODSPackage.EXTENSION_DEFINITION__ANY:
-			return ((InternalEList<?>) getAny()).basicRemove(otherEnd, msgs);
+			case MODSPackage.EXTENSION_DEFINITION__MIXED:
+				return ((InternalEList<?>) getMixed()).basicRemove(otherEnd, msgs);
+			case MODSPackage.EXTENSION_DEFINITION__ANY:
+				return ((InternalEList<?>) getAny()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -168,16 +163,16 @@ public class ExtensionDefinitionImpl extends EObjectImpl implements
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case MODSPackage.EXTENSION_DEFINITION__MIXED:
-			if (coreType)
-				return getMixed();
-			return ((FeatureMap.Internal) getMixed()).getWrapper();
-		case MODSPackage.EXTENSION_DEFINITION__ANY:
-			if (coreType)
-				return getAny();
-			return ((FeatureMap.Internal) getAny()).getWrapper();
-		case MODSPackage.EXTENSION_DEFINITION__DISPLAY_LABEL:
-			return getDisplayLabel();
+			case MODSPackage.EXTENSION_DEFINITION__MIXED:
+				if (coreType)
+					return getMixed();
+				return ((FeatureMap.Internal) getMixed()).getWrapper();
+			case MODSPackage.EXTENSION_DEFINITION__ANY:
+				if (coreType)
+					return getAny();
+				return ((FeatureMap.Internal) getAny()).getWrapper();
+			case MODSPackage.EXTENSION_DEFINITION__DISPLAY_LABEL:
+				return getDisplayLabel();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -190,15 +185,15 @@ public class ExtensionDefinitionImpl extends EObjectImpl implements
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case MODSPackage.EXTENSION_DEFINITION__MIXED:
-			((FeatureMap.Internal) getMixed()).set(newValue);
-			return;
-		case MODSPackage.EXTENSION_DEFINITION__ANY:
-			((FeatureMap.Internal) getAny()).set(newValue);
-			return;
-		case MODSPackage.EXTENSION_DEFINITION__DISPLAY_LABEL:
-			setDisplayLabel((String) newValue);
-			return;
+			case MODSPackage.EXTENSION_DEFINITION__MIXED:
+				((FeatureMap.Internal) getMixed()).set(newValue);
+				return;
+			case MODSPackage.EXTENSION_DEFINITION__ANY:
+				((FeatureMap.Internal) getAny()).set(newValue);
+				return;
+			case MODSPackage.EXTENSION_DEFINITION__DISPLAY_LABEL:
+				setDisplayLabel((String) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -211,15 +206,15 @@ public class ExtensionDefinitionImpl extends EObjectImpl implements
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case MODSPackage.EXTENSION_DEFINITION__MIXED:
-			getMixed().clear();
-			return;
-		case MODSPackage.EXTENSION_DEFINITION__ANY:
-			getAny().clear();
-			return;
-		case MODSPackage.EXTENSION_DEFINITION__DISPLAY_LABEL:
-			setDisplayLabel(DISPLAY_LABEL_EDEFAULT);
-			return;
+			case MODSPackage.EXTENSION_DEFINITION__MIXED:
+				getMixed().clear();
+				return;
+			case MODSPackage.EXTENSION_DEFINITION__ANY:
+				getAny().clear();
+				return;
+			case MODSPackage.EXTENSION_DEFINITION__DISPLAY_LABEL:
+				setDisplayLabel(DISPLAY_LABEL_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -232,13 +227,12 @@ public class ExtensionDefinitionImpl extends EObjectImpl implements
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case MODSPackage.EXTENSION_DEFINITION__MIXED:
-			return mixed != null && !mixed.isEmpty();
-		case MODSPackage.EXTENSION_DEFINITION__ANY:
-			return !getAny().isEmpty();
-		case MODSPackage.EXTENSION_DEFINITION__DISPLAY_LABEL:
-			return DISPLAY_LABEL_EDEFAULT == null ? displayLabel != null
-					: !DISPLAY_LABEL_EDEFAULT.equals(displayLabel);
+			case MODSPackage.EXTENSION_DEFINITION__MIXED:
+				return mixed != null && !mixed.isEmpty();
+			case MODSPackage.EXTENSION_DEFINITION__ANY:
+				return !getAny().isEmpty();
+			case MODSPackage.EXTENSION_DEFINITION__DISPLAY_LABEL:
+				return DISPLAY_LABEL_EDEFAULT == null ? displayLabel != null : !DISPLAY_LABEL_EDEFAULT.equals(displayLabel);
 		}
 		return super.eIsSet(featureID);
 	}

@@ -77,8 +77,7 @@ import org.w3._1999.xlink.ShowType;
  *
  * @generated
  */
-public class NameBaseDefinitionImpl extends EObjectImpl implements
-		NameBaseDefinition {
+public class NameBaseDefinitionImpl extends EObjectImpl implements NameBaseDefinition {
 	/**
 	 * The cached value of the '{@link #getGroup() <em>Group</em>}' attribute list.
 	 * <!-- begin-user-doc -->
@@ -491,8 +490,7 @@ public class NameBaseDefinitionImpl extends EObjectImpl implements
 	 */
 	public FeatureMap getGroup() {
 		if (group == null) {
-			group = new BasicFeatureMap(this,
-					MODSPackage.NAME_BASE_DEFINITION__GROUP);
+			group = new BasicFeatureMap(this, MODSPackage.NAME_BASE_DEFINITION__GROUP);
 		}
 		return group;
 	}
@@ -503,8 +501,7 @@ public class NameBaseDefinitionImpl extends EObjectImpl implements
 	 * @generated
 	 */
 	public EList<NamePartDefinition> getNamePart() {
-		return getGroup().list(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_NamePart());
+		return getGroup().list(MODSPackage.eINSTANCE.getNameBaseDefinition_NamePart());
 	}
 
 	/**
@@ -513,8 +510,7 @@ public class NameBaseDefinitionImpl extends EObjectImpl implements
 	 * @generated
 	 */
 	public EList<XsString> getDisplayForm() {
-		return getGroup().list(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_DisplayForm());
+		return getGroup().list(MODSPackage.eINSTANCE.getNameBaseDefinition_DisplayForm());
 	}
 
 	/**
@@ -523,8 +519,7 @@ public class NameBaseDefinitionImpl extends EObjectImpl implements
 	 * @generated
 	 */
 	public EList<XsString> getAffiliation() {
-		return getGroup().list(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Affiliation());
+		return getGroup().list(MODSPackage.eINSTANCE.getNameBaseDefinition_Affiliation());
 	}
 
 	/**
@@ -533,8 +528,7 @@ public class NameBaseDefinitionImpl extends EObjectImpl implements
 	 * @generated
 	 */
 	public EList<RoleDefinition> getRole() {
-		return getGroup().list(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Role());
+		return getGroup().list(MODSPackage.eINSTANCE.getNameBaseDefinition_Role());
 	}
 
 	/**
@@ -543,8 +537,7 @@ public class NameBaseDefinitionImpl extends EObjectImpl implements
 	 * @generated
 	 */
 	public EList<XsString> getDescription() {
-		return getGroup().list(
-				MODSPackage.eINSTANCE.getNameBaseDefinition_Description());
+		return getGroup().list(MODSPackage.eINSTANCE.getNameBaseDefinition_Description());
 	}
 
 	/**
@@ -567,8 +560,7 @@ public class NameBaseDefinitionImpl extends EObjectImpl implements
 		boolean oldActuateESet = actuateESet;
 		actuateESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MODSPackage.NAME_BASE_DEFINITION__ACTUATE, oldActuate,
+			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.NAME_BASE_DEFINITION__ACTUATE, oldActuate,
 					actuate, !oldActuateESet));
 	}
 
@@ -583,8 +575,7 @@ public class NameBaseDefinitionImpl extends EObjectImpl implements
 		actuate = ACTUATE_EDEFAULT;
 		actuateESet = false;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET,
-					MODSPackage.NAME_BASE_DEFINITION__ACTUATE, oldActuate,
+			eNotify(new ENotificationImpl(this, Notification.UNSET, MODSPackage.NAME_BASE_DEFINITION__ACTUATE, oldActuate,
 					ACTUATE_EDEFAULT, oldActuateESet));
 	}
 
@@ -615,8 +606,7 @@ public class NameBaseDefinitionImpl extends EObjectImpl implements
 		String oldArcrole = arcrole;
 		arcrole = newArcrole;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MODSPackage.NAME_BASE_DEFINITION__ARCROLE, oldArcrole,
+			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.NAME_BASE_DEFINITION__ARCROLE, oldArcrole,
 					arcrole));
 	}
 
@@ -638,9 +628,8 @@ public class NameBaseDefinitionImpl extends EObjectImpl implements
 		String oldAuthority = authority;
 		authority = newAuthority;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MODSPackage.NAME_BASE_DEFINITION__AUTHORITY, oldAuthority,
-					authority));
+			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.NAME_BASE_DEFINITION__AUTHORITY,
+					oldAuthority, authority));
 	}
 
 	/**
@@ -661,8 +650,7 @@ public class NameBaseDefinitionImpl extends EObjectImpl implements
 		String oldAuthorityURI = authorityURI;
 		authorityURI = newAuthorityURI;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MODSPackage.NAME_BASE_DEFINITION__AUTHORITY_URI,
+			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.NAME_BASE_DEFINITION__AUTHORITY_URI,
 					oldAuthorityURI, authorityURI));
 	}
 
@@ -684,8 +672,7 @@ public class NameBaseDefinitionImpl extends EObjectImpl implements
 		String oldDisplayLabel = displayLabel;
 		displayLabel = newDisplayLabel;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MODSPackage.NAME_BASE_DEFINITION__DISPLAY_LABEL,
+			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.NAME_BASE_DEFINITION__DISPLAY_LABEL,
 					oldDisplayLabel, displayLabel));
 	}
 
@@ -707,8 +694,7 @@ public class NameBaseDefinitionImpl extends EObjectImpl implements
 		String oldHref = href;
 		href = newHref;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MODSPackage.NAME_BASE_DEFINITION__HREF, oldHref, href));
+			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.NAME_BASE_DEFINITION__HREF, oldHref, href));
 	}
 
 	/**
@@ -729,8 +715,7 @@ public class NameBaseDefinitionImpl extends EObjectImpl implements
 		String oldID = iD;
 		iD = newID;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MODSPackage.NAME_BASE_DEFINITION__ID, oldID, iD));
+			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.NAME_BASE_DEFINITION__ID, oldID, iD));
 	}
 
 	/**
@@ -751,8 +736,7 @@ public class NameBaseDefinitionImpl extends EObjectImpl implements
 		String oldLang = lang;
 		lang = newLang;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MODSPackage.NAME_BASE_DEFINITION__LANG, oldLang, lang));
+			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.NAME_BASE_DEFINITION__LANG, oldLang, lang));
 	}
 
 	/**
@@ -773,8 +757,7 @@ public class NameBaseDefinitionImpl extends EObjectImpl implements
 		String oldLang1 = lang1;
 		lang1 = newLang1;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MODSPackage.NAME_BASE_DEFINITION__LANG1, oldLang1, lang1));
+			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.NAME_BASE_DEFINITION__LANG1, oldLang1, lang1));
 	}
 
 	/**
@@ -795,8 +778,7 @@ public class NameBaseDefinitionImpl extends EObjectImpl implements
 		String oldRole1 = role1;
 		role1 = newRole1;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MODSPackage.NAME_BASE_DEFINITION__ROLE1, oldRole1, role1));
+			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.NAME_BASE_DEFINITION__ROLE1, oldRole1, role1));
 	}
 
 	/**
@@ -817,8 +799,8 @@ public class NameBaseDefinitionImpl extends EObjectImpl implements
 		String oldScript = script;
 		script = newScript;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MODSPackage.NAME_BASE_DEFINITION__SCRIPT, oldScript, script));
+			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.NAME_BASE_DEFINITION__SCRIPT, oldScript,
+					script));
 	}
 
 	/**
@@ -841,8 +823,7 @@ public class NameBaseDefinitionImpl extends EObjectImpl implements
 		boolean oldShowESet = showESet;
 		showESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MODSPackage.NAME_BASE_DEFINITION__SHOW, oldShow, show,
+			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.NAME_BASE_DEFINITION__SHOW, oldShow, show,
 					!oldShowESet));
 	}
 
@@ -857,8 +838,7 @@ public class NameBaseDefinitionImpl extends EObjectImpl implements
 		show = SHOW_EDEFAULT;
 		showESet = false;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET,
-					MODSPackage.NAME_BASE_DEFINITION__SHOW, oldShow,
+			eNotify(new ENotificationImpl(this, Notification.UNSET, MODSPackage.NAME_BASE_DEFINITION__SHOW, oldShow,
 					SHOW_EDEFAULT, oldShowESet));
 	}
 
@@ -889,8 +869,7 @@ public class NameBaseDefinitionImpl extends EObjectImpl implements
 		String oldTitle = title;
 		title = newTitle;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MODSPackage.NAME_BASE_DEFINITION__TITLE, oldTitle, title));
+			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.NAME_BASE_DEFINITION__TITLE, oldTitle, title));
 	}
 
 	/**
@@ -911,8 +890,7 @@ public class NameBaseDefinitionImpl extends EObjectImpl implements
 		String oldTransliteration = transliteration;
 		transliteration = newTransliteration;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MODSPackage.NAME_BASE_DEFINITION__TRANSLITERATION,
+			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.NAME_BASE_DEFINITION__TRANSLITERATION,
 					oldTransliteration, transliteration));
 	}
 
@@ -936,8 +914,7 @@ public class NameBaseDefinitionImpl extends EObjectImpl implements
 		boolean oldTypeESet = typeESet;
 		typeESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MODSPackage.NAME_BASE_DEFINITION__TYPE, oldType, type,
+			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.NAME_BASE_DEFINITION__TYPE, oldType, type,
 					!oldTypeESet));
 	}
 
@@ -952,8 +929,7 @@ public class NameBaseDefinitionImpl extends EObjectImpl implements
 		type = TYPE_EDEFAULT;
 		typeESet = false;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET,
-					MODSPackage.NAME_BASE_DEFINITION__TYPE, oldType,
+			eNotify(new ENotificationImpl(this, Notification.UNSET, MODSPackage.NAME_BASE_DEFINITION__TYPE, oldType,
 					TYPE_EDEFAULT, oldTypeESet));
 	}
 
@@ -986,9 +962,8 @@ public class NameBaseDefinitionImpl extends EObjectImpl implements
 		boolean oldType1ESet = type1ESet;
 		type1ESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MODSPackage.NAME_BASE_DEFINITION__TYPE1, oldType1, type1,
-					!oldType1ESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.NAME_BASE_DEFINITION__TYPE1, oldType1,
+					type1, !oldType1ESet));
 	}
 
 	/**
@@ -1002,8 +977,7 @@ public class NameBaseDefinitionImpl extends EObjectImpl implements
 		type1 = TYPE1_EDEFAULT;
 		type1ESet = false;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET,
-					MODSPackage.NAME_BASE_DEFINITION__TYPE1, oldType1,
+			eNotify(new ENotificationImpl(this, Notification.UNSET, MODSPackage.NAME_BASE_DEFINITION__TYPE1, oldType1,
 					TYPE1_EDEFAULT, oldType1ESet));
 	}
 
@@ -1034,9 +1008,8 @@ public class NameBaseDefinitionImpl extends EObjectImpl implements
 		String oldValueURI = valueURI;
 		valueURI = newValueURI;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MODSPackage.NAME_BASE_DEFINITION__VALUE_URI, oldValueURI,
-					valueURI));
+			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.NAME_BASE_DEFINITION__VALUE_URI,
+					oldValueURI, valueURI));
 	}
 
 	/**
@@ -1045,25 +1018,20 @@ public class NameBaseDefinitionImpl extends EObjectImpl implements
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd,
-			int featureID, NotificationChain msgs) {
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case MODSPackage.NAME_BASE_DEFINITION__GROUP:
-			return ((InternalEList<?>) getGroup()).basicRemove(otherEnd, msgs);
-		case MODSPackage.NAME_BASE_DEFINITION__NAME_PART:
-			return ((InternalEList<?>) getNamePart()).basicRemove(otherEnd,
-					msgs);
-		case MODSPackage.NAME_BASE_DEFINITION__DISPLAY_FORM:
-			return ((InternalEList<?>) getDisplayForm()).basicRemove(otherEnd,
-					msgs);
-		case MODSPackage.NAME_BASE_DEFINITION__AFFILIATION:
-			return ((InternalEList<?>) getAffiliation()).basicRemove(otherEnd,
-					msgs);
-		case MODSPackage.NAME_BASE_DEFINITION__ROLE:
-			return ((InternalEList<?>) getRole()).basicRemove(otherEnd, msgs);
-		case MODSPackage.NAME_BASE_DEFINITION__DESCRIPTION:
-			return ((InternalEList<?>) getDescription()).basicRemove(otherEnd,
-					msgs);
+			case MODSPackage.NAME_BASE_DEFINITION__GROUP:
+				return ((InternalEList<?>) getGroup()).basicRemove(otherEnd, msgs);
+			case MODSPackage.NAME_BASE_DEFINITION__NAME_PART:
+				return ((InternalEList<?>) getNamePart()).basicRemove(otherEnd, msgs);
+			case MODSPackage.NAME_BASE_DEFINITION__DISPLAY_FORM:
+				return ((InternalEList<?>) getDisplayForm()).basicRemove(otherEnd, msgs);
+			case MODSPackage.NAME_BASE_DEFINITION__AFFILIATION:
+				return ((InternalEList<?>) getAffiliation()).basicRemove(otherEnd, msgs);
+			case MODSPackage.NAME_BASE_DEFINITION__ROLE:
+				return ((InternalEList<?>) getRole()).basicRemove(otherEnd, msgs);
+			case MODSPackage.NAME_BASE_DEFINITION__DESCRIPTION:
+				return ((InternalEList<?>) getDescription()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -1076,54 +1044,54 @@ public class NameBaseDefinitionImpl extends EObjectImpl implements
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case MODSPackage.NAME_BASE_DEFINITION__GROUP:
-			if (coreType)
-				return getGroup();
-			return ((FeatureMap.Internal) getGroup()).getWrapper();
-		case MODSPackage.NAME_BASE_DEFINITION__NAME_PART:
-			return getNamePart();
-		case MODSPackage.NAME_BASE_DEFINITION__DISPLAY_FORM:
-			return getDisplayForm();
-		case MODSPackage.NAME_BASE_DEFINITION__AFFILIATION:
-			return getAffiliation();
-		case MODSPackage.NAME_BASE_DEFINITION__ROLE:
-			return getRole();
-		case MODSPackage.NAME_BASE_DEFINITION__DESCRIPTION:
-			return getDescription();
-		case MODSPackage.NAME_BASE_DEFINITION__ACTUATE:
-			return getActuate();
-		case MODSPackage.NAME_BASE_DEFINITION__ARCROLE:
-			return getArcrole();
-		case MODSPackage.NAME_BASE_DEFINITION__AUTHORITY:
-			return getAuthority();
-		case MODSPackage.NAME_BASE_DEFINITION__AUTHORITY_URI:
-			return getAuthorityURI();
-		case MODSPackage.NAME_BASE_DEFINITION__DISPLAY_LABEL:
-			return getDisplayLabel();
-		case MODSPackage.NAME_BASE_DEFINITION__HREF:
-			return getHref();
-		case MODSPackage.NAME_BASE_DEFINITION__ID:
-			return getID();
-		case MODSPackage.NAME_BASE_DEFINITION__LANG:
-			return getLang();
-		case MODSPackage.NAME_BASE_DEFINITION__LANG1:
-			return getLang1();
-		case MODSPackage.NAME_BASE_DEFINITION__ROLE1:
-			return getRole1();
-		case MODSPackage.NAME_BASE_DEFINITION__SCRIPT:
-			return getScript();
-		case MODSPackage.NAME_BASE_DEFINITION__SHOW:
-			return getShow();
-		case MODSPackage.NAME_BASE_DEFINITION__TITLE:
-			return getTitle();
-		case MODSPackage.NAME_BASE_DEFINITION__TRANSLITERATION:
-			return getTransliteration();
-		case MODSPackage.NAME_BASE_DEFINITION__TYPE:
-			return getType();
-		case MODSPackage.NAME_BASE_DEFINITION__TYPE1:
-			return getType1();
-		case MODSPackage.NAME_BASE_DEFINITION__VALUE_URI:
-			return getValueURI();
+			case MODSPackage.NAME_BASE_DEFINITION__GROUP:
+				if (coreType)
+					return getGroup();
+				return ((FeatureMap.Internal) getGroup()).getWrapper();
+			case MODSPackage.NAME_BASE_DEFINITION__NAME_PART:
+				return getNamePart();
+			case MODSPackage.NAME_BASE_DEFINITION__DISPLAY_FORM:
+				return getDisplayForm();
+			case MODSPackage.NAME_BASE_DEFINITION__AFFILIATION:
+				return getAffiliation();
+			case MODSPackage.NAME_BASE_DEFINITION__ROLE:
+				return getRole();
+			case MODSPackage.NAME_BASE_DEFINITION__DESCRIPTION:
+				return getDescription();
+			case MODSPackage.NAME_BASE_DEFINITION__ACTUATE:
+				return getActuate();
+			case MODSPackage.NAME_BASE_DEFINITION__ARCROLE:
+				return getArcrole();
+			case MODSPackage.NAME_BASE_DEFINITION__AUTHORITY:
+				return getAuthority();
+			case MODSPackage.NAME_BASE_DEFINITION__AUTHORITY_URI:
+				return getAuthorityURI();
+			case MODSPackage.NAME_BASE_DEFINITION__DISPLAY_LABEL:
+				return getDisplayLabel();
+			case MODSPackage.NAME_BASE_DEFINITION__HREF:
+				return getHref();
+			case MODSPackage.NAME_BASE_DEFINITION__ID:
+				return getID();
+			case MODSPackage.NAME_BASE_DEFINITION__LANG:
+				return getLang();
+			case MODSPackage.NAME_BASE_DEFINITION__LANG1:
+				return getLang1();
+			case MODSPackage.NAME_BASE_DEFINITION__ROLE1:
+				return getRole1();
+			case MODSPackage.NAME_BASE_DEFINITION__SCRIPT:
+				return getScript();
+			case MODSPackage.NAME_BASE_DEFINITION__SHOW:
+				return getShow();
+			case MODSPackage.NAME_BASE_DEFINITION__TITLE:
+				return getTitle();
+			case MODSPackage.NAME_BASE_DEFINITION__TRANSLITERATION:
+				return getTransliteration();
+			case MODSPackage.NAME_BASE_DEFINITION__TYPE:
+				return getType();
+			case MODSPackage.NAME_BASE_DEFINITION__TYPE1:
+				return getType1();
+			case MODSPackage.NAME_BASE_DEFINITION__VALUE_URI:
+				return getValueURI();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -1137,81 +1105,80 @@ public class NameBaseDefinitionImpl extends EObjectImpl implements
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case MODSPackage.NAME_BASE_DEFINITION__GROUP:
-			((FeatureMap.Internal) getGroup()).set(newValue);
-			return;
-		case MODSPackage.NAME_BASE_DEFINITION__NAME_PART:
-			getNamePart().clear();
-			getNamePart().addAll(
-					(Collection<? extends NamePartDefinition>) newValue);
-			return;
-		case MODSPackage.NAME_BASE_DEFINITION__DISPLAY_FORM:
-			getDisplayForm().clear();
-			getDisplayForm().addAll((Collection<? extends XsString>) newValue);
-			return;
-		case MODSPackage.NAME_BASE_DEFINITION__AFFILIATION:
-			getAffiliation().clear();
-			getAffiliation().addAll((Collection<? extends XsString>) newValue);
-			return;
-		case MODSPackage.NAME_BASE_DEFINITION__ROLE:
-			getRole().clear();
-			getRole().addAll((Collection<? extends RoleDefinition>) newValue);
-			return;
-		case MODSPackage.NAME_BASE_DEFINITION__DESCRIPTION:
-			getDescription().clear();
-			getDescription().addAll((Collection<? extends XsString>) newValue);
-			return;
-		case MODSPackage.NAME_BASE_DEFINITION__ACTUATE:
-			setActuate((ActuateType) newValue);
-			return;
-		case MODSPackage.NAME_BASE_DEFINITION__ARCROLE:
-			setArcrole((String) newValue);
-			return;
-		case MODSPackage.NAME_BASE_DEFINITION__AUTHORITY:
-			setAuthority((String) newValue);
-			return;
-		case MODSPackage.NAME_BASE_DEFINITION__AUTHORITY_URI:
-			setAuthorityURI((String) newValue);
-			return;
-		case MODSPackage.NAME_BASE_DEFINITION__DISPLAY_LABEL:
-			setDisplayLabel((String) newValue);
-			return;
-		case MODSPackage.NAME_BASE_DEFINITION__HREF:
-			setHref((String) newValue);
-			return;
-		case MODSPackage.NAME_BASE_DEFINITION__ID:
-			setID((String) newValue);
-			return;
-		case MODSPackage.NAME_BASE_DEFINITION__LANG:
-			setLang((String) newValue);
-			return;
-		case MODSPackage.NAME_BASE_DEFINITION__LANG1:
-			setLang1((String) newValue);
-			return;
-		case MODSPackage.NAME_BASE_DEFINITION__ROLE1:
-			setRole1((String) newValue);
-			return;
-		case MODSPackage.NAME_BASE_DEFINITION__SCRIPT:
-			setScript((String) newValue);
-			return;
-		case MODSPackage.NAME_BASE_DEFINITION__SHOW:
-			setShow((ShowType) newValue);
-			return;
-		case MODSPackage.NAME_BASE_DEFINITION__TITLE:
-			setTitle((String) newValue);
-			return;
-		case MODSPackage.NAME_BASE_DEFINITION__TRANSLITERATION:
-			setTransliteration((String) newValue);
-			return;
-		case MODSPackage.NAME_BASE_DEFINITION__TYPE:
-			setType((NameTypeAttributeDefinition) newValue);
-			return;
-		case MODSPackage.NAME_BASE_DEFINITION__TYPE1:
-			setType1((String) newValue);
-			return;
-		case MODSPackage.NAME_BASE_DEFINITION__VALUE_URI:
-			setValueURI((String) newValue);
-			return;
+			case MODSPackage.NAME_BASE_DEFINITION__GROUP:
+				((FeatureMap.Internal) getGroup()).set(newValue);
+				return;
+			case MODSPackage.NAME_BASE_DEFINITION__NAME_PART:
+				getNamePart().clear();
+				getNamePart().addAll((Collection<? extends NamePartDefinition>) newValue);
+				return;
+			case MODSPackage.NAME_BASE_DEFINITION__DISPLAY_FORM:
+				getDisplayForm().clear();
+				getDisplayForm().addAll((Collection<? extends XsString>) newValue);
+				return;
+			case MODSPackage.NAME_BASE_DEFINITION__AFFILIATION:
+				getAffiliation().clear();
+				getAffiliation().addAll((Collection<? extends XsString>) newValue);
+				return;
+			case MODSPackage.NAME_BASE_DEFINITION__ROLE:
+				getRole().clear();
+				getRole().addAll((Collection<? extends RoleDefinition>) newValue);
+				return;
+			case MODSPackage.NAME_BASE_DEFINITION__DESCRIPTION:
+				getDescription().clear();
+				getDescription().addAll((Collection<? extends XsString>) newValue);
+				return;
+			case MODSPackage.NAME_BASE_DEFINITION__ACTUATE:
+				setActuate((ActuateType) newValue);
+				return;
+			case MODSPackage.NAME_BASE_DEFINITION__ARCROLE:
+				setArcrole((String) newValue);
+				return;
+			case MODSPackage.NAME_BASE_DEFINITION__AUTHORITY:
+				setAuthority((String) newValue);
+				return;
+			case MODSPackage.NAME_BASE_DEFINITION__AUTHORITY_URI:
+				setAuthorityURI((String) newValue);
+				return;
+			case MODSPackage.NAME_BASE_DEFINITION__DISPLAY_LABEL:
+				setDisplayLabel((String) newValue);
+				return;
+			case MODSPackage.NAME_BASE_DEFINITION__HREF:
+				setHref((String) newValue);
+				return;
+			case MODSPackage.NAME_BASE_DEFINITION__ID:
+				setID((String) newValue);
+				return;
+			case MODSPackage.NAME_BASE_DEFINITION__LANG:
+				setLang((String) newValue);
+				return;
+			case MODSPackage.NAME_BASE_DEFINITION__LANG1:
+				setLang1((String) newValue);
+				return;
+			case MODSPackage.NAME_BASE_DEFINITION__ROLE1:
+				setRole1((String) newValue);
+				return;
+			case MODSPackage.NAME_BASE_DEFINITION__SCRIPT:
+				setScript((String) newValue);
+				return;
+			case MODSPackage.NAME_BASE_DEFINITION__SHOW:
+				setShow((ShowType) newValue);
+				return;
+			case MODSPackage.NAME_BASE_DEFINITION__TITLE:
+				setTitle((String) newValue);
+				return;
+			case MODSPackage.NAME_BASE_DEFINITION__TRANSLITERATION:
+				setTransliteration((String) newValue);
+				return;
+			case MODSPackage.NAME_BASE_DEFINITION__TYPE:
+				setType((NameTypeAttributeDefinition) newValue);
+				return;
+			case MODSPackage.NAME_BASE_DEFINITION__TYPE1:
+				setType1((String) newValue);
+				return;
+			case MODSPackage.NAME_BASE_DEFINITION__VALUE_URI:
+				setValueURI((String) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -1224,75 +1191,75 @@ public class NameBaseDefinitionImpl extends EObjectImpl implements
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case MODSPackage.NAME_BASE_DEFINITION__GROUP:
-			getGroup().clear();
-			return;
-		case MODSPackage.NAME_BASE_DEFINITION__NAME_PART:
-			getNamePart().clear();
-			return;
-		case MODSPackage.NAME_BASE_DEFINITION__DISPLAY_FORM:
-			getDisplayForm().clear();
-			return;
-		case MODSPackage.NAME_BASE_DEFINITION__AFFILIATION:
-			getAffiliation().clear();
-			return;
-		case MODSPackage.NAME_BASE_DEFINITION__ROLE:
-			getRole().clear();
-			return;
-		case MODSPackage.NAME_BASE_DEFINITION__DESCRIPTION:
-			getDescription().clear();
-			return;
-		case MODSPackage.NAME_BASE_DEFINITION__ACTUATE:
-			unsetActuate();
-			return;
-		case MODSPackage.NAME_BASE_DEFINITION__ARCROLE:
-			setArcrole(ARCROLE_EDEFAULT);
-			return;
-		case MODSPackage.NAME_BASE_DEFINITION__AUTHORITY:
-			setAuthority(AUTHORITY_EDEFAULT);
-			return;
-		case MODSPackage.NAME_BASE_DEFINITION__AUTHORITY_URI:
-			setAuthorityURI(AUTHORITY_URI_EDEFAULT);
-			return;
-		case MODSPackage.NAME_BASE_DEFINITION__DISPLAY_LABEL:
-			setDisplayLabel(DISPLAY_LABEL_EDEFAULT);
-			return;
-		case MODSPackage.NAME_BASE_DEFINITION__HREF:
-			setHref(HREF_EDEFAULT);
-			return;
-		case MODSPackage.NAME_BASE_DEFINITION__ID:
-			setID(ID_EDEFAULT);
-			return;
-		case MODSPackage.NAME_BASE_DEFINITION__LANG:
-			setLang(LANG_EDEFAULT);
-			return;
-		case MODSPackage.NAME_BASE_DEFINITION__LANG1:
-			setLang1(LANG1_EDEFAULT);
-			return;
-		case MODSPackage.NAME_BASE_DEFINITION__ROLE1:
-			setRole1(ROLE1_EDEFAULT);
-			return;
-		case MODSPackage.NAME_BASE_DEFINITION__SCRIPT:
-			setScript(SCRIPT_EDEFAULT);
-			return;
-		case MODSPackage.NAME_BASE_DEFINITION__SHOW:
-			unsetShow();
-			return;
-		case MODSPackage.NAME_BASE_DEFINITION__TITLE:
-			setTitle(TITLE_EDEFAULT);
-			return;
-		case MODSPackage.NAME_BASE_DEFINITION__TRANSLITERATION:
-			setTransliteration(TRANSLITERATION_EDEFAULT);
-			return;
-		case MODSPackage.NAME_BASE_DEFINITION__TYPE:
-			unsetType();
-			return;
-		case MODSPackage.NAME_BASE_DEFINITION__TYPE1:
-			unsetType1();
-			return;
-		case MODSPackage.NAME_BASE_DEFINITION__VALUE_URI:
-			setValueURI(VALUE_URI_EDEFAULT);
-			return;
+			case MODSPackage.NAME_BASE_DEFINITION__GROUP:
+				getGroup().clear();
+				return;
+			case MODSPackage.NAME_BASE_DEFINITION__NAME_PART:
+				getNamePart().clear();
+				return;
+			case MODSPackage.NAME_BASE_DEFINITION__DISPLAY_FORM:
+				getDisplayForm().clear();
+				return;
+			case MODSPackage.NAME_BASE_DEFINITION__AFFILIATION:
+				getAffiliation().clear();
+				return;
+			case MODSPackage.NAME_BASE_DEFINITION__ROLE:
+				getRole().clear();
+				return;
+			case MODSPackage.NAME_BASE_DEFINITION__DESCRIPTION:
+				getDescription().clear();
+				return;
+			case MODSPackage.NAME_BASE_DEFINITION__ACTUATE:
+				unsetActuate();
+				return;
+			case MODSPackage.NAME_BASE_DEFINITION__ARCROLE:
+				setArcrole(ARCROLE_EDEFAULT);
+				return;
+			case MODSPackage.NAME_BASE_DEFINITION__AUTHORITY:
+				setAuthority(AUTHORITY_EDEFAULT);
+				return;
+			case MODSPackage.NAME_BASE_DEFINITION__AUTHORITY_URI:
+				setAuthorityURI(AUTHORITY_URI_EDEFAULT);
+				return;
+			case MODSPackage.NAME_BASE_DEFINITION__DISPLAY_LABEL:
+				setDisplayLabel(DISPLAY_LABEL_EDEFAULT);
+				return;
+			case MODSPackage.NAME_BASE_DEFINITION__HREF:
+				setHref(HREF_EDEFAULT);
+				return;
+			case MODSPackage.NAME_BASE_DEFINITION__ID:
+				setID(ID_EDEFAULT);
+				return;
+			case MODSPackage.NAME_BASE_DEFINITION__LANG:
+				setLang(LANG_EDEFAULT);
+				return;
+			case MODSPackage.NAME_BASE_DEFINITION__LANG1:
+				setLang1(LANG1_EDEFAULT);
+				return;
+			case MODSPackage.NAME_BASE_DEFINITION__ROLE1:
+				setRole1(ROLE1_EDEFAULT);
+				return;
+			case MODSPackage.NAME_BASE_DEFINITION__SCRIPT:
+				setScript(SCRIPT_EDEFAULT);
+				return;
+			case MODSPackage.NAME_BASE_DEFINITION__SHOW:
+				unsetShow();
+				return;
+			case MODSPackage.NAME_BASE_DEFINITION__TITLE:
+				setTitle(TITLE_EDEFAULT);
+				return;
+			case MODSPackage.NAME_BASE_DEFINITION__TRANSLITERATION:
+				setTransliteration(TRANSLITERATION_EDEFAULT);
+				return;
+			case MODSPackage.NAME_BASE_DEFINITION__TYPE:
+				unsetType();
+				return;
+			case MODSPackage.NAME_BASE_DEFINITION__TYPE1:
+				unsetType1();
+				return;
+			case MODSPackage.NAME_BASE_DEFINITION__VALUE_URI:
+				setValueURI(VALUE_URI_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -1305,64 +1272,53 @@ public class NameBaseDefinitionImpl extends EObjectImpl implements
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case MODSPackage.NAME_BASE_DEFINITION__GROUP:
-			return group != null && !group.isEmpty();
-		case MODSPackage.NAME_BASE_DEFINITION__NAME_PART:
-			return !getNamePart().isEmpty();
-		case MODSPackage.NAME_BASE_DEFINITION__DISPLAY_FORM:
-			return !getDisplayForm().isEmpty();
-		case MODSPackage.NAME_BASE_DEFINITION__AFFILIATION:
-			return !getAffiliation().isEmpty();
-		case MODSPackage.NAME_BASE_DEFINITION__ROLE:
-			return !getRole().isEmpty();
-		case MODSPackage.NAME_BASE_DEFINITION__DESCRIPTION:
-			return !getDescription().isEmpty();
-		case MODSPackage.NAME_BASE_DEFINITION__ACTUATE:
-			return isSetActuate();
-		case MODSPackage.NAME_BASE_DEFINITION__ARCROLE:
-			return ARCROLE_EDEFAULT == null ? arcrole != null
-					: !ARCROLE_EDEFAULT.equals(arcrole);
-		case MODSPackage.NAME_BASE_DEFINITION__AUTHORITY:
-			return AUTHORITY_EDEFAULT == null ? authority != null
-					: !AUTHORITY_EDEFAULT.equals(authority);
-		case MODSPackage.NAME_BASE_DEFINITION__AUTHORITY_URI:
-			return AUTHORITY_URI_EDEFAULT == null ? authorityURI != null
-					: !AUTHORITY_URI_EDEFAULT.equals(authorityURI);
-		case MODSPackage.NAME_BASE_DEFINITION__DISPLAY_LABEL:
-			return DISPLAY_LABEL_EDEFAULT == null ? displayLabel != null
-					: !DISPLAY_LABEL_EDEFAULT.equals(displayLabel);
-		case MODSPackage.NAME_BASE_DEFINITION__HREF:
-			return HREF_EDEFAULT == null ? href != null : !HREF_EDEFAULT
-					.equals(href);
-		case MODSPackage.NAME_BASE_DEFINITION__ID:
-			return ID_EDEFAULT == null ? iD != null : !ID_EDEFAULT.equals(iD);
-		case MODSPackage.NAME_BASE_DEFINITION__LANG:
-			return LANG_EDEFAULT == null ? lang != null : !LANG_EDEFAULT
-					.equals(lang);
-		case MODSPackage.NAME_BASE_DEFINITION__LANG1:
-			return LANG1_EDEFAULT == null ? lang1 != null : !LANG1_EDEFAULT
-					.equals(lang1);
-		case MODSPackage.NAME_BASE_DEFINITION__ROLE1:
-			return ROLE1_EDEFAULT == null ? role1 != null : !ROLE1_EDEFAULT
-					.equals(role1);
-		case MODSPackage.NAME_BASE_DEFINITION__SCRIPT:
-			return SCRIPT_EDEFAULT == null ? script != null : !SCRIPT_EDEFAULT
-					.equals(script);
-		case MODSPackage.NAME_BASE_DEFINITION__SHOW:
-			return isSetShow();
-		case MODSPackage.NAME_BASE_DEFINITION__TITLE:
-			return TITLE_EDEFAULT == null ? title != null : !TITLE_EDEFAULT
-					.equals(title);
-		case MODSPackage.NAME_BASE_DEFINITION__TRANSLITERATION:
-			return TRANSLITERATION_EDEFAULT == null ? transliteration != null
-					: !TRANSLITERATION_EDEFAULT.equals(transliteration);
-		case MODSPackage.NAME_BASE_DEFINITION__TYPE:
-			return isSetType();
-		case MODSPackage.NAME_BASE_DEFINITION__TYPE1:
-			return isSetType1();
-		case MODSPackage.NAME_BASE_DEFINITION__VALUE_URI:
-			return VALUE_URI_EDEFAULT == null ? valueURI != null
-					: !VALUE_URI_EDEFAULT.equals(valueURI);
+			case MODSPackage.NAME_BASE_DEFINITION__GROUP:
+				return group != null && !group.isEmpty();
+			case MODSPackage.NAME_BASE_DEFINITION__NAME_PART:
+				return !getNamePart().isEmpty();
+			case MODSPackage.NAME_BASE_DEFINITION__DISPLAY_FORM:
+				return !getDisplayForm().isEmpty();
+			case MODSPackage.NAME_BASE_DEFINITION__AFFILIATION:
+				return !getAffiliation().isEmpty();
+			case MODSPackage.NAME_BASE_DEFINITION__ROLE:
+				return !getRole().isEmpty();
+			case MODSPackage.NAME_BASE_DEFINITION__DESCRIPTION:
+				return !getDescription().isEmpty();
+			case MODSPackage.NAME_BASE_DEFINITION__ACTUATE:
+				return isSetActuate();
+			case MODSPackage.NAME_BASE_DEFINITION__ARCROLE:
+				return ARCROLE_EDEFAULT == null ? arcrole != null : !ARCROLE_EDEFAULT.equals(arcrole);
+			case MODSPackage.NAME_BASE_DEFINITION__AUTHORITY:
+				return AUTHORITY_EDEFAULT == null ? authority != null : !AUTHORITY_EDEFAULT.equals(authority);
+			case MODSPackage.NAME_BASE_DEFINITION__AUTHORITY_URI:
+				return AUTHORITY_URI_EDEFAULT == null ? authorityURI != null : !AUTHORITY_URI_EDEFAULT.equals(authorityURI);
+			case MODSPackage.NAME_BASE_DEFINITION__DISPLAY_LABEL:
+				return DISPLAY_LABEL_EDEFAULT == null ? displayLabel != null : !DISPLAY_LABEL_EDEFAULT.equals(displayLabel);
+			case MODSPackage.NAME_BASE_DEFINITION__HREF:
+				return HREF_EDEFAULT == null ? href != null : !HREF_EDEFAULT.equals(href);
+			case MODSPackage.NAME_BASE_DEFINITION__ID:
+				return ID_EDEFAULT == null ? iD != null : !ID_EDEFAULT.equals(iD);
+			case MODSPackage.NAME_BASE_DEFINITION__LANG:
+				return LANG_EDEFAULT == null ? lang != null : !LANG_EDEFAULT.equals(lang);
+			case MODSPackage.NAME_BASE_DEFINITION__LANG1:
+				return LANG1_EDEFAULT == null ? lang1 != null : !LANG1_EDEFAULT.equals(lang1);
+			case MODSPackage.NAME_BASE_DEFINITION__ROLE1:
+				return ROLE1_EDEFAULT == null ? role1 != null : !ROLE1_EDEFAULT.equals(role1);
+			case MODSPackage.NAME_BASE_DEFINITION__SCRIPT:
+				return SCRIPT_EDEFAULT == null ? script != null : !SCRIPT_EDEFAULT.equals(script);
+			case MODSPackage.NAME_BASE_DEFINITION__SHOW:
+				return isSetShow();
+			case MODSPackage.NAME_BASE_DEFINITION__TITLE:
+				return TITLE_EDEFAULT == null ? title != null : !TITLE_EDEFAULT.equals(title);
+			case MODSPackage.NAME_BASE_DEFINITION__TRANSLITERATION:
+				return TRANSLITERATION_EDEFAULT == null ? transliteration != null : !TRANSLITERATION_EDEFAULT
+						.equals(transliteration);
+			case MODSPackage.NAME_BASE_DEFINITION__TYPE:
+				return isSetType();
+			case MODSPackage.NAME_BASE_DEFINITION__TYPE1:
+				return isSetType1();
+			case MODSPackage.NAME_BASE_DEFINITION__VALUE_URI:
+				return VALUE_URI_EDEFAULT == null ? valueURI != null : !VALUE_URI_EDEFAULT.equals(valueURI);
 		}
 		return super.eIsSet(featureID);
 	}

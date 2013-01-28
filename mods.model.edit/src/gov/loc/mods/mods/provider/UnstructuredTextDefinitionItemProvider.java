@@ -40,10 +40,8 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class UnstructuredTextDefinitionItemProvider extends
-		XsStringItemProvider implements IEditingDomainItemProvider,
-		IStructuredItemContentProvider, ITreeItemContentProvider,
-		IItemLabelProvider, IItemPropertySource {
+public class UnstructuredTextDefinitionItemProvider extends XsStringItemProvider implements IEditingDomainItemProvider,
+		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -86,16 +84,13 @@ public class UnstructuredTextDefinitionItemProvider extends
 	 */
 	protected void addActuatePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_UnstructuredTextDefinition_actuate_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_UnstructuredTextDefinition_actuate_feature",
+				getString("_UI_PropertyDescriptor_description", "_UI_UnstructuredTextDefinition_actuate_feature",
 						"_UI_UnstructuredTextDefinition_type"),
-				MODSPackage.eINSTANCE.getUnstructuredTextDefinition_Actuate(),
-				true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				getString("_UI_XLinkPropertyCategory"),
+				MODSPackage.eINSTANCE.getUnstructuredTextDefinition_Actuate(), true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString("_UI_XLinkPropertyCategory"),
 				new String[] { "org.eclipse.ui.views.properties.expert" }));
 	}
 
@@ -107,16 +102,13 @@ public class UnstructuredTextDefinitionItemProvider extends
 	 */
 	protected void addArcrolePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_UnstructuredTextDefinition_arcrole_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_UnstructuredTextDefinition_arcrole_feature",
+				getString("_UI_PropertyDescriptor_description", "_UI_UnstructuredTextDefinition_arcrole_feature",
 						"_UI_UnstructuredTextDefinition_type"),
-				MODSPackage.eINSTANCE.getUnstructuredTextDefinition_Arcrole(),
-				true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				getString("_UI_XLinkPropertyCategory"),
+				MODSPackage.eINSTANCE.getUnstructuredTextDefinition_Arcrole(), true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString("_UI_XLinkPropertyCategory"),
 				new String[] { "org.eclipse.ui.views.properties.expert" }));
 	}
 
@@ -127,20 +119,14 @@ public class UnstructuredTextDefinitionItemProvider extends
 	 * @generated
 	 */
 	protected void addDisplayLabelPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(
-						((ComposeableAdapterFactory) adapterFactory)
-								.getRootAdapterFactory(),
-						getResourceLocator(),
-						getString("_UI_UnstructuredTextDefinition_displayLabel_feature"),
-						getString(
-								"_UI_PropertyDescriptor_description",
-								"_UI_UnstructuredTextDefinition_displayLabel_feature",
-								"_UI_UnstructuredTextDefinition_type"),
-						MODSPackage.eINSTANCE
-								.getUnstructuredTextDefinition_DisplayLabel(),
-						true, false, false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				getResourceLocator(),
+				getString("_UI_UnstructuredTextDefinition_displayLabel_feature"),
+				getString("_UI_PropertyDescriptor_description", "_UI_UnstructuredTextDefinition_displayLabel_feature",
+						"_UI_UnstructuredTextDefinition_type"), MODSPackage.eINSTANCE
+						.getUnstructuredTextDefinition_DisplayLabel(), true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -151,16 +137,12 @@ public class UnstructuredTextDefinitionItemProvider extends
 	 */
 	protected void addHrefPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_UnstructuredTextDefinition_href_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_UnstructuredTextDefinition_href_feature",
-						"_UI_UnstructuredTextDefinition_type"),
-				MODSPackage.eINSTANCE.getUnstructuredTextDefinition_Href(),
-				true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				getString("_UI_XLinkPropertyCategory"),
+				getString("_UI_PropertyDescriptor_description", "_UI_UnstructuredTextDefinition_href_feature",
+						"_UI_UnstructuredTextDefinition_type"), MODSPackage.eINSTANCE.getUnstructuredTextDefinition_Href(),
+				true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString("_UI_XLinkPropertyCategory"),
 				new String[] { "org.eclipse.ui.views.properties.expert" }));
 	}
 
@@ -172,16 +154,12 @@ public class UnstructuredTextDefinitionItemProvider extends
 	 */
 	protected void addRolePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_UnstructuredTextDefinition_role_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_UnstructuredTextDefinition_role_feature",
-						"_UI_UnstructuredTextDefinition_type"),
-				MODSPackage.eINSTANCE.getUnstructuredTextDefinition_Role(),
-				true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				getString("_UI_XLinkPropertyCategory"),
+				getString("_UI_PropertyDescriptor_description", "_UI_UnstructuredTextDefinition_role_feature",
+						"_UI_UnstructuredTextDefinition_type"), MODSPackage.eINSTANCE.getUnstructuredTextDefinition_Role(),
+				true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString("_UI_XLinkPropertyCategory"),
 				new String[] { "org.eclipse.ui.views.properties.expert" }));
 	}
 
@@ -193,16 +171,12 @@ public class UnstructuredTextDefinitionItemProvider extends
 	 */
 	protected void addShowPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_UnstructuredTextDefinition_show_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_UnstructuredTextDefinition_show_feature",
-						"_UI_UnstructuredTextDefinition_type"),
-				MODSPackage.eINSTANCE.getUnstructuredTextDefinition_Show(),
-				true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				getString("_UI_XLinkPropertyCategory"),
+				getString("_UI_PropertyDescriptor_description", "_UI_UnstructuredTextDefinition_show_feature",
+						"_UI_UnstructuredTextDefinition_type"), MODSPackage.eINSTANCE.getUnstructuredTextDefinition_Show(),
+				true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString("_UI_XLinkPropertyCategory"),
 				new String[] { "org.eclipse.ui.views.properties.expert" }));
 	}
 
@@ -214,16 +188,12 @@ public class UnstructuredTextDefinitionItemProvider extends
 	 */
 	protected void addTitlePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_UnstructuredTextDefinition_title_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_UnstructuredTextDefinition_title_feature",
-						"_UI_UnstructuredTextDefinition_type"),
-				MODSPackage.eINSTANCE.getUnstructuredTextDefinition_Title(),
-				true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				getString("_UI_XLinkPropertyCategory"),
+				getString("_UI_PropertyDescriptor_description", "_UI_UnstructuredTextDefinition_title_feature",
+						"_UI_UnstructuredTextDefinition_type"), MODSPackage.eINSTANCE.getUnstructuredTextDefinition_Title(),
+				true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString("_UI_XLinkPropertyCategory"),
 				new String[] { "org.eclipse.ui.views.properties.expert" }));
 	}
 
@@ -235,16 +205,12 @@ public class UnstructuredTextDefinitionItemProvider extends
 	 */
 	protected void addTypePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_UnstructuredTextDefinition_type_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_UnstructuredTextDefinition_type_feature",
-						"_UI_UnstructuredTextDefinition_type"),
-				MODSPackage.eINSTANCE.getUnstructuredTextDefinition_Type(),
-				true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				getString("_UI_XLinkPropertyCategory"),
+				getString("_UI_PropertyDescriptor_description", "_UI_UnstructuredTextDefinition_type_feature",
+						"_UI_UnstructuredTextDefinition_type"), MODSPackage.eINSTANCE.getUnstructuredTextDefinition_Type(),
+				true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString("_UI_XLinkPropertyCategory"),
 				new String[] { "org.eclipse.ui.views.properties.expert" }));
 	}
 
@@ -256,16 +222,12 @@ public class UnstructuredTextDefinitionItemProvider extends
 	 */
 	protected void addType1PropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_UnstructuredTextDefinition_type1_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_UnstructuredTextDefinition_type1_feature",
-						"_UI_UnstructuredTextDefinition_type"),
-				MODSPackage.eINSTANCE.getUnstructuredTextDefinition_Type1(),
-				true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				null, null));
+				getString("_UI_PropertyDescriptor_description", "_UI_UnstructuredTextDefinition_type1_feature",
+						"_UI_UnstructuredTextDefinition_type"), MODSPackage.eINSTANCE.getUnstructuredTextDefinition_Type1(),
+				true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -276,10 +238,7 @@ public class UnstructuredTextDefinitionItemProvider extends
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(
-				object,
-				getResourceLocator().getImage(
-						"full/obj16/UnstructuredTextDefinition"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/UnstructuredTextDefinition"));
 	}
 
 	/**
@@ -302,8 +261,7 @@ public class UnstructuredTextDefinitionItemProvider extends
 	public String getText(Object object) {
 		String label = ((UnstructuredTextDefinition) object).getValue();
 		return label == null || label.length() == 0 ? getString("_UI_UnstructuredTextDefinition_type")
-				: getString("_UI_UnstructuredTextDefinition_type") + " "
-						+ label;
+				: getString("_UI_UnstructuredTextDefinition_type") + " " + label;
 	}
 
 	/**
@@ -318,18 +276,17 @@ public class UnstructuredTextDefinitionItemProvider extends
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(UnstructuredTextDefinition.class)) {
-		case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__ACTUATE:
-		case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__ARCROLE:
-		case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__DISPLAY_LABEL:
-		case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__HREF:
-		case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__ROLE:
-		case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__SHOW:
-		case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__TITLE:
-		case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__TYPE:
-		case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__TYPE1:
-			fireNotifyChanged(new ViewerNotification(notification,
-					notification.getNotifier(), false, true));
-			return;
+			case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__ACTUATE:
+			case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__ARCROLE:
+			case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__DISPLAY_LABEL:
+			case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__HREF:
+			case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__ROLE:
+			case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__SHOW:
+			case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__TITLE:
+			case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__TYPE:
+			case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION__TYPE1:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -342,8 +299,7 @@ public class UnstructuredTextDefinitionItemProvider extends
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(
-			Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 

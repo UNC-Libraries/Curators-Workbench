@@ -38,8 +38,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class ScriptTermDefinitionImpl extends StringPlusAuthorityImpl implements
-		ScriptTermDefinition {
+public class ScriptTermDefinitionImpl extends StringPlusAuthorityImpl implements ScriptTermDefinition {
 	/**
 	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -108,8 +107,7 @@ public class ScriptTermDefinitionImpl extends StringPlusAuthorityImpl implements
 		boolean oldTypeESet = typeESet;
 		typeESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MODSPackage.SCRIPT_TERM_DEFINITION__TYPE, oldType, type,
+			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.SCRIPT_TERM_DEFINITION__TYPE, oldType, type,
 					!oldTypeESet));
 	}
 
@@ -124,8 +122,7 @@ public class ScriptTermDefinitionImpl extends StringPlusAuthorityImpl implements
 		type = TYPE_EDEFAULT;
 		typeESet = false;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET,
-					MODSPackage.SCRIPT_TERM_DEFINITION__TYPE, oldType,
+			eNotify(new ENotificationImpl(this, Notification.UNSET, MODSPackage.SCRIPT_TERM_DEFINITION__TYPE, oldType,
 					TYPE_EDEFAULT, oldTypeESet));
 	}
 
@@ -146,8 +143,8 @@ public class ScriptTermDefinitionImpl extends StringPlusAuthorityImpl implements
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case MODSPackage.SCRIPT_TERM_DEFINITION__TYPE:
-			return getType();
+			case MODSPackage.SCRIPT_TERM_DEFINITION__TYPE:
+				return getType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -160,9 +157,9 @@ public class ScriptTermDefinitionImpl extends StringPlusAuthorityImpl implements
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case MODSPackage.SCRIPT_TERM_DEFINITION__TYPE:
-			setType((CodeOrTextDefinition) newValue);
-			return;
+			case MODSPackage.SCRIPT_TERM_DEFINITION__TYPE:
+				setType((CodeOrTextDefinition) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -175,9 +172,9 @@ public class ScriptTermDefinitionImpl extends StringPlusAuthorityImpl implements
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case MODSPackage.SCRIPT_TERM_DEFINITION__TYPE:
-			unsetType();
-			return;
+			case MODSPackage.SCRIPT_TERM_DEFINITION__TYPE:
+				unsetType();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -190,8 +187,8 @@ public class ScriptTermDefinitionImpl extends StringPlusAuthorityImpl implements
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case MODSPackage.SCRIPT_TERM_DEFINITION__TYPE:
-			return isSetType();
+			case MODSPackage.SCRIPT_TERM_DEFINITION__TYPE:
+				return isSetType();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -121,8 +121,8 @@ public enum DateQualifierAttributeDefinition implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final List<DateQualifierAttributeDefinition> VALUES = Collections
-			.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+	public static final List<DateQualifierAttributeDefinition> VALUES = Collections.unmodifiableList(Arrays
+			.asList(VALUES_ARRAY));
 
 	/**
 	 * Returns the '<em><b>Date Qualifier Attribute Definition</b></em>' literal with the specified literal value.
@@ -164,12 +164,12 @@ public enum DateQualifierAttributeDefinition implements Enumerator {
 	 */
 	public static DateQualifierAttributeDefinition get(int value) {
 		switch (value) {
-		case APPROXIMATE_VALUE:
-			return APPROXIMATE;
-		case INFERRED_VALUE:
-			return INFERRED;
-		case QUESTIONABLE_VALUE:
-			return QUESTIONABLE;
+			case APPROXIMATE_VALUE:
+				return APPROXIMATE;
+			case INFERRED_VALUE:
+				return INFERRED;
+			case QUESTIONABLE_VALUE:
+				return QUESTIONABLE;
 		}
 		return null;
 	}
@@ -201,8 +201,7 @@ public enum DateQualifierAttributeDefinition implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private DateQualifierAttributeDefinition(int value, String name,
-			String literal) {
+	private DateQualifierAttributeDefinition(int value, String name, String literal) {
 		this.value = value;
 		this.name = name;
 		this.literal = literal;

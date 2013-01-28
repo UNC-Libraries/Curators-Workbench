@@ -40,9 +40,8 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class StringPlusSuppliedItemProvider extends XsStringItemProvider
-		implements IEditingDomainItemProvider, IStructuredItemContentProvider,
-		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class StringPlusSuppliedItemProvider extends XsStringItemProvider implements IEditingDomainItemProvider,
+		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -77,15 +76,12 @@ public class StringPlusSuppliedItemProvider extends XsStringItemProvider
 	 */
 	protected void addSuppliedPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_StringPlusSupplied_supplied_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_StringPlusSupplied_supplied_feature",
-						"_UI_StringPlusSupplied_type"), MODSPackage.eINSTANCE
-						.getStringPlusSupplied_Supplied(), true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+				getString("_UI_PropertyDescriptor_description", "_UI_StringPlusSupplied_supplied_feature",
+						"_UI_StringPlusSupplied_type"), MODSPackage.eINSTANCE.getStringPlusSupplied_Supplied(), true, false,
+				false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -96,8 +92,7 @@ public class StringPlusSuppliedItemProvider extends XsStringItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object,
-				getResourceLocator().getImage("full/obj16/StringPlusSupplied"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/StringPlusSupplied"));
 	}
 
 	/**
@@ -135,10 +130,9 @@ public class StringPlusSuppliedItemProvider extends XsStringItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(StringPlusSupplied.class)) {
-		case MODSPackage.STRING_PLUS_SUPPLIED__SUPPLIED:
-			fireNotifyChanged(new ViewerNotification(notification,
-					notification.getNotifier(), false, true));
-			return;
+			case MODSPackage.STRING_PLUS_SUPPLIED__SUPPLIED:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -151,8 +145,7 @@ public class StringPlusSuppliedItemProvider extends XsStringItemProvider
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(
-			Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 

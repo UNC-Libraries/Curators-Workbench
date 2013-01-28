@@ -40,10 +40,9 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ClassificationDefinitionItemProvider extends
-		StringPlusAuthorityItemProvider implements IEditingDomainItemProvider,
-		IStructuredItemContentProvider, ITreeItemContentProvider,
-		IItemLabelProvider, IItemPropertySource {
+public class ClassificationDefinitionItemProvider extends StringPlusAuthorityItemProvider implements
+		IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider,
+		IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -80,20 +79,14 @@ public class ClassificationDefinitionItemProvider extends
 	 * @generated
 	 */
 	protected void addAltRepGroupPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(
-						((ComposeableAdapterFactory) adapterFactory)
-								.getRootAdapterFactory(),
-						getResourceLocator(),
-						getString("_UI_ClassificationDefinition_altRepGroup_feature"),
-						getString(
-								"_UI_PropertyDescriptor_description",
-								"_UI_ClassificationDefinition_altRepGroup_feature",
-								"_UI_ClassificationDefinition_type"),
-						MODSPackage.eINSTANCE
-								.getClassificationDefinition_AltRepGroup(),
-						true, false, false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				getResourceLocator(),
+				getString("_UI_ClassificationDefinition_altRepGroup_feature"),
+				getString("_UI_PropertyDescriptor_description", "_UI_ClassificationDefinition_altRepGroup_feature",
+						"_UI_ClassificationDefinition_type"),
+				MODSPackage.eINSTANCE.getClassificationDefinition_AltRepGroup(), true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -104,17 +97,13 @@ public class ClassificationDefinitionItemProvider extends
 	 */
 	protected void addDisplayLabelPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_ClassificationDefinition_displayLabel_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_ClassificationDefinition_displayLabel_feature",
-						"_UI_ClassificationDefinition_type"),
-				MODSPackage.eINSTANCE
-						.getClassificationDefinition_DisplayLabel(), true,
-				false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null,
-				null));
+				getString("_UI_PropertyDescriptor_description", "_UI_ClassificationDefinition_displayLabel_feature",
+						"_UI_ClassificationDefinition_type"), MODSPackage.eINSTANCE
+						.getClassificationDefinition_DisplayLabel(), true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -125,16 +114,12 @@ public class ClassificationDefinitionItemProvider extends
 	 */
 	protected void addEditionPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_ClassificationDefinition_edition_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_ClassificationDefinition_edition_feature",
-						"_UI_ClassificationDefinition_type"),
-				MODSPackage.eINSTANCE.getClassificationDefinition_Edition(),
-				true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				null, null));
+				getString("_UI_PropertyDescriptor_description", "_UI_ClassificationDefinition_edition_feature",
+						"_UI_ClassificationDefinition_type"), MODSPackage.eINSTANCE.getClassificationDefinition_Edition(),
+				true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -145,16 +130,12 @@ public class ClassificationDefinitionItemProvider extends
 	 */
 	protected void addUsagePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_ClassificationDefinition_usage_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_ClassificationDefinition_usage_feature",
-						"_UI_ClassificationDefinition_type"),
-				MODSPackage.eINSTANCE.getClassificationDefinition_Usage(),
-				true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				null, null));
+				getString("_UI_PropertyDescriptor_description", "_UI_ClassificationDefinition_usage_feature",
+						"_UI_ClassificationDefinition_type"), MODSPackage.eINSTANCE.getClassificationDefinition_Usage(),
+				true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -165,10 +146,7 @@ public class ClassificationDefinitionItemProvider extends
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(
-				object,
-				getResourceLocator().getImage(
-						"full/obj16/ClassificationDefinition"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ClassificationDefinition"));
 	}
 
 	/**
@@ -206,13 +184,12 @@ public class ClassificationDefinitionItemProvider extends
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ClassificationDefinition.class)) {
-		case MODSPackage.CLASSIFICATION_DEFINITION__ALT_REP_GROUP:
-		case MODSPackage.CLASSIFICATION_DEFINITION__DISPLAY_LABEL:
-		case MODSPackage.CLASSIFICATION_DEFINITION__EDITION:
-		case MODSPackage.CLASSIFICATION_DEFINITION__USAGE:
-			fireNotifyChanged(new ViewerNotification(notification,
-					notification.getNotifier(), false, true));
-			return;
+			case MODSPackage.CLASSIFICATION_DEFINITION__ALT_REP_GROUP:
+			case MODSPackage.CLASSIFICATION_DEFINITION__DISPLAY_LABEL:
+			case MODSPackage.CLASSIFICATION_DEFINITION__EDITION:
+			case MODSPackage.CLASSIFICATION_DEFINITION__USAGE:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -225,8 +202,7 @@ public class ClassificationDefinitionItemProvider extends
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(
-			Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 

@@ -45,8 +45,8 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * <!-- end-user-doc -->
  * @generated
  */
-public class MODSItemProviderAdapterFactory extends MODSAdapterFactory
-		implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
+public class MODSItemProviderAdapterFactory extends MODSAdapterFactory implements ComposeableAdapterFactory,
+		IChangeNotifier, IDisposable {
 	/**
 	 * This keeps track of the root adapter factory that delegates to this adapter factory.
 	 * <!-- begin-user-doc -->
@@ -102,8 +102,7 @@ public class MODSItemProviderAdapterFactory extends MODSAdapterFactory
 	@Override
 	public Adapter createAbstractDefinitionAdapter() {
 		if (abstractDefinitionItemProvider == null) {
-			abstractDefinitionItemProvider = new AbstractDefinitionItemProvider(
-					this);
+			abstractDefinitionItemProvider = new AbstractDefinitionItemProvider(this);
 		}
 
 		return abstractDefinitionItemProvider;
@@ -126,8 +125,7 @@ public class MODSItemProviderAdapterFactory extends MODSAdapterFactory
 	@Override
 	public Adapter createAccessConditionDefinitionAdapter() {
 		if (accessConditionDefinitionItemProvider == null) {
-			accessConditionDefinitionItemProvider = new AccessConditionDefinitionItemProvider(
-					this);
+			accessConditionDefinitionItemProvider = new AccessConditionDefinitionItemProvider(this);
 		}
 
 		return accessConditionDefinitionItemProvider;
@@ -150,8 +148,7 @@ public class MODSItemProviderAdapterFactory extends MODSAdapterFactory
 	@Override
 	public Adapter createCartographicsDefinitionAdapter() {
 		if (cartographicsDefinitionItemProvider == null) {
-			cartographicsDefinitionItemProvider = new CartographicsDefinitionItemProvider(
-					this);
+			cartographicsDefinitionItemProvider = new CartographicsDefinitionItemProvider(this);
 		}
 
 		return cartographicsDefinitionItemProvider;
@@ -174,8 +171,7 @@ public class MODSItemProviderAdapterFactory extends MODSAdapterFactory
 	@Override
 	public Adapter createClassificationDefinitionAdapter() {
 		if (classificationDefinitionItemProvider == null) {
-			classificationDefinitionItemProvider = new ClassificationDefinitionItemProvider(
-					this);
+			classificationDefinitionItemProvider = new ClassificationDefinitionItemProvider(this);
 		}
 
 		return classificationDefinitionItemProvider;
@@ -198,8 +194,7 @@ public class MODSItemProviderAdapterFactory extends MODSAdapterFactory
 	@Override
 	public Adapter createCopyInformationDefinitionAdapter() {
 		if (copyInformationDefinitionItemProvider == null) {
-			copyInformationDefinitionItemProvider = new CopyInformationDefinitionItemProvider(
-					this);
+			copyInformationDefinitionItemProvider = new CopyInformationDefinitionItemProvider(this);
 		}
 
 		return copyInformationDefinitionItemProvider;
@@ -222,8 +217,7 @@ public class MODSItemProviderAdapterFactory extends MODSAdapterFactory
 	@Override
 	public Adapter createDateBaseDefinitionAdapter() {
 		if (dateBaseDefinitionItemProvider == null) {
-			dateBaseDefinitionItemProvider = new DateBaseDefinitionItemProvider(
-					this);
+			dateBaseDefinitionItemProvider = new DateBaseDefinitionItemProvider(this);
 		}
 
 		return dateBaseDefinitionItemProvider;
@@ -269,8 +263,7 @@ public class MODSItemProviderAdapterFactory extends MODSAdapterFactory
 	@Override
 	public Adapter createDateOtherDefinitionAdapter() {
 		if (dateOtherDefinitionItemProvider == null) {
-			dateOtherDefinitionItemProvider = new DateOtherDefinitionItemProvider(
-					this);
+			dateOtherDefinitionItemProvider = new DateOtherDefinitionItemProvider(this);
 		}
 
 		return dateOtherDefinitionItemProvider;
@@ -293,8 +286,7 @@ public class MODSItemProviderAdapterFactory extends MODSAdapterFactory
 	@Override
 	public Adapter createDetailDefinitionAdapter() {
 		if (detailDefinitionItemProvider == null) {
-			detailDefinitionItemProvider = new DetailDefinitionItemProvider(
-					this);
+			detailDefinitionItemProvider = new DetailDefinitionItemProvider(this);
 		}
 
 		return detailDefinitionItemProvider;
@@ -340,8 +332,7 @@ public class MODSItemProviderAdapterFactory extends MODSAdapterFactory
 	@Override
 	public Adapter createEnumerationAndChronologyDefinitionAdapter() {
 		if (enumerationAndChronologyDefinitionItemProvider == null) {
-			enumerationAndChronologyDefinitionItemProvider = new EnumerationAndChronologyDefinitionItemProvider(
-					this);
+			enumerationAndChronologyDefinitionItemProvider = new EnumerationAndChronologyDefinitionItemProvider(this);
 		}
 
 		return enumerationAndChronologyDefinitionItemProvider;
@@ -364,8 +355,7 @@ public class MODSItemProviderAdapterFactory extends MODSAdapterFactory
 	@Override
 	public Adapter createExtensionDefinitionAdapter() {
 		if (extensionDefinitionItemProvider == null) {
-			extensionDefinitionItemProvider = new ExtensionDefinitionItemProvider(
-					this);
+			extensionDefinitionItemProvider = new ExtensionDefinitionItemProvider(this);
 		}
 
 		return extensionDefinitionItemProvider;
@@ -388,8 +378,7 @@ public class MODSItemProviderAdapterFactory extends MODSAdapterFactory
 	@Override
 	public Adapter createExtentDefinitionAdapter() {
 		if (extentDefinitionItemProvider == null) {
-			extentDefinitionItemProvider = new ExtentDefinitionItemProvider(
-					this);
+			extentDefinitionItemProvider = new ExtentDefinitionItemProvider(this);
 		}
 
 		return extentDefinitionItemProvider;
@@ -435,8 +424,7 @@ public class MODSItemProviderAdapterFactory extends MODSAdapterFactory
 	@Override
 	public Adapter createGeographicCodeDefinitionAdapter() {
 		if (geographicCodeDefinitionItemProvider == null) {
-			geographicCodeDefinitionItemProvider = new GeographicCodeDefinitionItemProvider(
-					this);
+			geographicCodeDefinitionItemProvider = new GeographicCodeDefinitionItemProvider(this);
 		}
 
 		return geographicCodeDefinitionItemProvider;
@@ -459,8 +447,7 @@ public class MODSItemProviderAdapterFactory extends MODSAdapterFactory
 	@Override
 	public Adapter createHierarchicalGeographicDefinitionAdapter() {
 		if (hierarchicalGeographicDefinitionItemProvider == null) {
-			hierarchicalGeographicDefinitionItemProvider = new HierarchicalGeographicDefinitionItemProvider(
-					this);
+			hierarchicalGeographicDefinitionItemProvider = new HierarchicalGeographicDefinitionItemProvider(this);
 		}
 
 		return hierarchicalGeographicDefinitionItemProvider;
@@ -483,8 +470,7 @@ public class MODSItemProviderAdapterFactory extends MODSAdapterFactory
 	@Override
 	public Adapter createHoldingSimpleDefinitionAdapter() {
 		if (holdingSimpleDefinitionItemProvider == null) {
-			holdingSimpleDefinitionItemProvider = new HoldingSimpleDefinitionItemProvider(
-					this);
+			holdingSimpleDefinitionItemProvider = new HoldingSimpleDefinitionItemProvider(this);
 		}
 
 		return holdingSimpleDefinitionItemProvider;
@@ -507,8 +493,7 @@ public class MODSItemProviderAdapterFactory extends MODSAdapterFactory
 	@Override
 	public Adapter createIdentifierDefinitionAdapter() {
 		if (identifierDefinitionItemProvider == null) {
-			identifierDefinitionItemProvider = new IdentifierDefinitionItemProvider(
-					this);
+			identifierDefinitionItemProvider = new IdentifierDefinitionItemProvider(this);
 		}
 
 		return identifierDefinitionItemProvider;
@@ -531,8 +516,7 @@ public class MODSItemProviderAdapterFactory extends MODSAdapterFactory
 	@Override
 	public Adapter createLanguageDefinitionAdapter() {
 		if (languageDefinitionItemProvider == null) {
-			languageDefinitionItemProvider = new LanguageDefinitionItemProvider(
-					this);
+			languageDefinitionItemProvider = new LanguageDefinitionItemProvider(this);
 		}
 
 		return languageDefinitionItemProvider;
@@ -555,8 +539,7 @@ public class MODSItemProviderAdapterFactory extends MODSAdapterFactory
 	@Override
 	public Adapter createLanguageTermDefinitionAdapter() {
 		if (languageTermDefinitionItemProvider == null) {
-			languageTermDefinitionItemProvider = new LanguageTermDefinitionItemProvider(
-					this);
+			languageTermDefinitionItemProvider = new LanguageTermDefinitionItemProvider(this);
 		}
 
 		return languageTermDefinitionItemProvider;
@@ -579,8 +562,7 @@ public class MODSItemProviderAdapterFactory extends MODSAdapterFactory
 	@Override
 	public Adapter createLocationDefinitionAdapter() {
 		if (locationDefinitionItemProvider == null) {
-			locationDefinitionItemProvider = new LocationDefinitionItemProvider(
-					this);
+			locationDefinitionItemProvider = new LocationDefinitionItemProvider(this);
 		}
 
 		return locationDefinitionItemProvider;
@@ -603,8 +585,7 @@ public class MODSItemProviderAdapterFactory extends MODSAdapterFactory
 	@Override
 	public Adapter createModsCollectionDefinitionAdapter() {
 		if (modsCollectionDefinitionItemProvider == null) {
-			modsCollectionDefinitionItemProvider = new ModsCollectionDefinitionItemProvider(
-					this);
+			modsCollectionDefinitionItemProvider = new ModsCollectionDefinitionItemProvider(this);
 		}
 
 		return modsCollectionDefinitionItemProvider;
@@ -650,8 +631,7 @@ public class MODSItemProviderAdapterFactory extends MODSAdapterFactory
 	@Override
 	public Adapter createNameBaseDefinitionAdapter() {
 		if (nameBaseDefinitionItemProvider == null) {
-			nameBaseDefinitionItemProvider = new NameBaseDefinitionItemProvider(
-					this);
+			nameBaseDefinitionItemProvider = new NameBaseDefinitionItemProvider(this);
 		}
 
 		return nameBaseDefinitionItemProvider;
@@ -697,8 +677,7 @@ public class MODSItemProviderAdapterFactory extends MODSAdapterFactory
 	@Override
 	public Adapter createNamePartDefinitionAdapter() {
 		if (namePartDefinitionItemProvider == null) {
-			namePartDefinitionItemProvider = new NamePartDefinitionItemProvider(
-					this);
+			namePartDefinitionItemProvider = new NamePartDefinitionItemProvider(this);
 		}
 
 		return namePartDefinitionItemProvider;
@@ -721,8 +700,7 @@ public class MODSItemProviderAdapterFactory extends MODSAdapterFactory
 	@Override
 	public Adapter createNoteBaseDefinitionAdapter() {
 		if (noteBaseDefinitionItemProvider == null) {
-			noteBaseDefinitionItemProvider = new NoteBaseDefinitionItemProvider(
-					this);
+			noteBaseDefinitionItemProvider = new NoteBaseDefinitionItemProvider(this);
 		}
 
 		return noteBaseDefinitionItemProvider;
@@ -768,8 +746,7 @@ public class MODSItemProviderAdapterFactory extends MODSAdapterFactory
 	@Override
 	public Adapter createOriginInfoDefinitionAdapter() {
 		if (originInfoDefinitionItemProvider == null) {
-			originInfoDefinitionItemProvider = new OriginInfoDefinitionItemProvider(
-					this);
+			originInfoDefinitionItemProvider = new OriginInfoDefinitionItemProvider(this);
 		}
 
 		return originInfoDefinitionItemProvider;
@@ -815,8 +792,7 @@ public class MODSItemProviderAdapterFactory extends MODSAdapterFactory
 	@Override
 	public Adapter createPhysicalDescriptionDefinitionAdapter() {
 		if (physicalDescriptionDefinitionItemProvider == null) {
-			physicalDescriptionDefinitionItemProvider = new PhysicalDescriptionDefinitionItemProvider(
-					this);
+			physicalDescriptionDefinitionItemProvider = new PhysicalDescriptionDefinitionItemProvider(this);
 		}
 
 		return physicalDescriptionDefinitionItemProvider;
@@ -839,8 +815,7 @@ public class MODSItemProviderAdapterFactory extends MODSAdapterFactory
 	@Override
 	public Adapter createPhysicalLocationDefinitionAdapter() {
 		if (physicalLocationDefinitionItemProvider == null) {
-			physicalLocationDefinitionItemProvider = new PhysicalLocationDefinitionItemProvider(
-					this);
+			physicalLocationDefinitionItemProvider = new PhysicalLocationDefinitionItemProvider(this);
 		}
 
 		return physicalLocationDefinitionItemProvider;
@@ -886,8 +861,7 @@ public class MODSItemProviderAdapterFactory extends MODSAdapterFactory
 	@Override
 	public Adapter createPlaceTermDefinitionAdapter() {
 		if (placeTermDefinitionItemProvider == null) {
-			placeTermDefinitionItemProvider = new PlaceTermDefinitionItemProvider(
-					this);
+			placeTermDefinitionItemProvider = new PlaceTermDefinitionItemProvider(this);
 		}
 
 		return placeTermDefinitionItemProvider;
@@ -910,8 +884,7 @@ public class MODSItemProviderAdapterFactory extends MODSAdapterFactory
 	@Override
 	public Adapter createRecordIdentifierDefinitionAdapter() {
 		if (recordIdentifierDefinitionItemProvider == null) {
-			recordIdentifierDefinitionItemProvider = new RecordIdentifierDefinitionItemProvider(
-					this);
+			recordIdentifierDefinitionItemProvider = new RecordIdentifierDefinitionItemProvider(this);
 		}
 
 		return recordIdentifierDefinitionItemProvider;
@@ -934,8 +907,7 @@ public class MODSItemProviderAdapterFactory extends MODSAdapterFactory
 	@Override
 	public Adapter createRecordInfoDefinitionAdapter() {
 		if (recordInfoDefinitionItemProvider == null) {
-			recordInfoDefinitionItemProvider = new RecordInfoDefinitionItemProvider(
-					this);
+			recordInfoDefinitionItemProvider = new RecordInfoDefinitionItemProvider(this);
 		}
 
 		return recordInfoDefinitionItemProvider;
@@ -958,8 +930,7 @@ public class MODSItemProviderAdapterFactory extends MODSAdapterFactory
 	@Override
 	public Adapter createRelatedItemDefinitionAdapter() {
 		if (relatedItemDefinitionItemProvider == null) {
-			relatedItemDefinitionItemProvider = new RelatedItemDefinitionItemProvider(
-					this);
+			relatedItemDefinitionItemProvider = new RelatedItemDefinitionItemProvider(this);
 		}
 
 		return relatedItemDefinitionItemProvider;
@@ -1005,8 +976,7 @@ public class MODSItemProviderAdapterFactory extends MODSAdapterFactory
 	@Override
 	public Adapter createRoleTermDefinitionAdapter() {
 		if (roleTermDefinitionItemProvider == null) {
-			roleTermDefinitionItemProvider = new RoleTermDefinitionItemProvider(
-					this);
+			roleTermDefinitionItemProvider = new RoleTermDefinitionItemProvider(this);
 		}
 
 		return roleTermDefinitionItemProvider;
@@ -1029,8 +999,7 @@ public class MODSItemProviderAdapterFactory extends MODSAdapterFactory
 	@Override
 	public Adapter createScriptTermDefinitionAdapter() {
 		if (scriptTermDefinitionItemProvider == null) {
-			scriptTermDefinitionItemProvider = new ScriptTermDefinitionItemProvider(
-					this);
+			scriptTermDefinitionItemProvider = new ScriptTermDefinitionItemProvider(this);
 		}
 
 		return scriptTermDefinitionItemProvider;
@@ -1053,8 +1022,7 @@ public class MODSItemProviderAdapterFactory extends MODSAdapterFactory
 	@Override
 	public Adapter createStringPlusAuthorityAdapter() {
 		if (stringPlusAuthorityItemProvider == null) {
-			stringPlusAuthorityItemProvider = new StringPlusAuthorityItemProvider(
-					this);
+			stringPlusAuthorityItemProvider = new StringPlusAuthorityItemProvider(this);
 		}
 
 		return stringPlusAuthorityItemProvider;
@@ -1077,8 +1045,7 @@ public class MODSItemProviderAdapterFactory extends MODSAdapterFactory
 	@Override
 	public Adapter createStringPlusAuthorityPlusTypeAdapter() {
 		if (stringPlusAuthorityPlusTypeItemProvider == null) {
-			stringPlusAuthorityPlusTypeItemProvider = new StringPlusAuthorityPlusTypeItemProvider(
-					this);
+			stringPlusAuthorityPlusTypeItemProvider = new StringPlusAuthorityPlusTypeItemProvider(this);
 		}
 
 		return stringPlusAuthorityPlusTypeItemProvider;
@@ -1149,8 +1116,7 @@ public class MODSItemProviderAdapterFactory extends MODSAdapterFactory
 	@Override
 	public Adapter createStringPlusSuppliedAdapter() {
 		if (stringPlusSuppliedItemProvider == null) {
-			stringPlusSuppliedItemProvider = new StringPlusSuppliedItemProvider(
-					this);
+			stringPlusSuppliedItemProvider = new StringPlusSuppliedItemProvider(this);
 		}
 
 		return stringPlusSuppliedItemProvider;
@@ -1173,8 +1139,7 @@ public class MODSItemProviderAdapterFactory extends MODSAdapterFactory
 	@Override
 	public Adapter createSubjectDefinitionAdapter() {
 		if (subjectDefinitionItemProvider == null) {
-			subjectDefinitionItemProvider = new SubjectDefinitionItemProvider(
-					this);
+			subjectDefinitionItemProvider = new SubjectDefinitionItemProvider(this);
 		}
 
 		return subjectDefinitionItemProvider;
@@ -1197,8 +1162,7 @@ public class MODSItemProviderAdapterFactory extends MODSAdapterFactory
 	@Override
 	public Adapter createSubjectNameDefinitionAdapter() {
 		if (subjectNameDefinitionItemProvider == null) {
-			subjectNameDefinitionItemProvider = new SubjectNameDefinitionItemProvider(
-					this);
+			subjectNameDefinitionItemProvider = new SubjectNameDefinitionItemProvider(this);
 		}
 
 		return subjectNameDefinitionItemProvider;
@@ -1221,8 +1185,7 @@ public class MODSItemProviderAdapterFactory extends MODSAdapterFactory
 	@Override
 	public Adapter createSubjectTitleInfoDefinitionAdapter() {
 		if (subjectTitleInfoDefinitionItemProvider == null) {
-			subjectTitleInfoDefinitionItemProvider = new SubjectTitleInfoDefinitionItemProvider(
-					this);
+			subjectTitleInfoDefinitionItemProvider = new SubjectTitleInfoDefinitionItemProvider(this);
 		}
 
 		return subjectTitleInfoDefinitionItemProvider;
@@ -1245,8 +1208,7 @@ public class MODSItemProviderAdapterFactory extends MODSAdapterFactory
 	@Override
 	public Adapter createTableOfContentsDefinitionAdapter() {
 		if (tableOfContentsDefinitionItemProvider == null) {
-			tableOfContentsDefinitionItemProvider = new TableOfContentsDefinitionItemProvider(
-					this);
+			tableOfContentsDefinitionItemProvider = new TableOfContentsDefinitionItemProvider(this);
 		}
 
 		return tableOfContentsDefinitionItemProvider;
@@ -1269,8 +1231,7 @@ public class MODSItemProviderAdapterFactory extends MODSAdapterFactory
 	@Override
 	public Adapter createTargetAudienceDefinitionAdapter() {
 		if (targetAudienceDefinitionItemProvider == null) {
-			targetAudienceDefinitionItemProvider = new TargetAudienceDefinitionItemProvider(
-					this);
+			targetAudienceDefinitionItemProvider = new TargetAudienceDefinitionItemProvider(this);
 		}
 
 		return targetAudienceDefinitionItemProvider;
@@ -1293,8 +1254,7 @@ public class MODSItemProviderAdapterFactory extends MODSAdapterFactory
 	@Override
 	public Adapter createTemporalDefinitionAdapter() {
 		if (temporalDefinitionItemProvider == null) {
-			temporalDefinitionItemProvider = new TemporalDefinitionItemProvider(
-					this);
+			temporalDefinitionItemProvider = new TemporalDefinitionItemProvider(this);
 		}
 
 		return temporalDefinitionItemProvider;
@@ -1317,8 +1277,7 @@ public class MODSItemProviderAdapterFactory extends MODSAdapterFactory
 	@Override
 	public Adapter createTitleInfoBaseDefinitionAdapter() {
 		if (titleInfoBaseDefinitionItemProvider == null) {
-			titleInfoBaseDefinitionItemProvider = new TitleInfoBaseDefinitionItemProvider(
-					this);
+			titleInfoBaseDefinitionItemProvider = new TitleInfoBaseDefinitionItemProvider(this);
 		}
 
 		return titleInfoBaseDefinitionItemProvider;
@@ -1341,8 +1300,7 @@ public class MODSItemProviderAdapterFactory extends MODSAdapterFactory
 	@Override
 	public Adapter createTitleInfoDefinitionAdapter() {
 		if (titleInfoDefinitionItemProvider == null) {
-			titleInfoDefinitionItemProvider = new TitleInfoDefinitionItemProvider(
-					this);
+			titleInfoDefinitionItemProvider = new TitleInfoDefinitionItemProvider(this);
 		}
 
 		return titleInfoDefinitionItemProvider;
@@ -1365,8 +1323,7 @@ public class MODSItemProviderAdapterFactory extends MODSAdapterFactory
 	@Override
 	public Adapter createTypeOfResourceDefinitionAdapter() {
 		if (typeOfResourceDefinitionItemProvider == null) {
-			typeOfResourceDefinitionItemProvider = new TypeOfResourceDefinitionItemProvider(
-					this);
+			typeOfResourceDefinitionItemProvider = new TypeOfResourceDefinitionItemProvider(this);
 		}
 
 		return typeOfResourceDefinitionItemProvider;
@@ -1389,8 +1346,7 @@ public class MODSItemProviderAdapterFactory extends MODSAdapterFactory
 	@Override
 	public Adapter createUnstructuredTextDefinitionAdapter() {
 		if (unstructuredTextDefinitionItemProvider == null) {
-			unstructuredTextDefinitionItemProvider = new UnstructuredTextDefinitionItemProvider(
-					this);
+			unstructuredTextDefinitionItemProvider = new UnstructuredTextDefinitionItemProvider(this);
 		}
 
 		return unstructuredTextDefinitionItemProvider;
@@ -1449,8 +1405,7 @@ public class MODSItemProviderAdapterFactory extends MODSAdapterFactory
 	 * @generated
 	 */
 	public ComposeableAdapterFactory getRootAdapterFactory() {
-		return parentAdapterFactory == null ? this : parentAdapterFactory
-				.getRootAdapterFactory();
+		return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory();
 	}
 
 	/**
@@ -1459,8 +1414,7 @@ public class MODSItemProviderAdapterFactory extends MODSAdapterFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setParentAdapterFactory(
-			ComposedAdapterFactory parentAdapterFactory) {
+	public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory) {
 		this.parentAdapterFactory = parentAdapterFactory;
 	}
 
@@ -1494,8 +1448,7 @@ public class MODSItemProviderAdapterFactory extends MODSAdapterFactory
 	public Object adapt(Object object, Object type) {
 		if (isFactoryForType(type)) {
 			Object adapter = super.adapt(object, type);
-			if (!(type instanceof Class<?>)
-					|| (((Class<?>) type).isInstance(adapter))) {
+			if (!(type instanceof Class<?>) || (((Class<?>) type).isInstance(adapter))) {
 				return adapter;
 			}
 		}
@@ -1631,8 +1584,7 @@ public class MODSItemProviderAdapterFactory extends MODSAdapterFactory
 		if (stringPlusAuthorityPlusTypePlusDisplayLabelItemProvider != null)
 			stringPlusAuthorityPlusTypePlusDisplayLabelItemProvider.dispose();
 		if (stringPlusAuthorityPlusTypePlusDisplayLabelPlusXlinkItemProvider != null)
-			stringPlusAuthorityPlusTypePlusDisplayLabelPlusXlinkItemProvider
-					.dispose();
+			stringPlusAuthorityPlusTypePlusDisplayLabelPlusXlinkItemProvider.dispose();
 		if (stringPlusSuppliedItemProvider != null)
 			stringPlusSuppliedItemProvider.dispose();
 		if (subjectDefinitionItemProvider != null)

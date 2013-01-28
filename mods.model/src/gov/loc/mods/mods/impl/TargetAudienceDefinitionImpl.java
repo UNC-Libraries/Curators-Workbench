@@ -38,8 +38,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class TargetAudienceDefinitionImpl extends StringPlusAuthorityImpl
-		implements TargetAudienceDefinition {
+public class TargetAudienceDefinitionImpl extends StringPlusAuthorityImpl implements TargetAudienceDefinition {
 	/**
 	 * The default value of the '{@link #getAltRepGroup() <em>Alt Rep Group</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -117,8 +116,7 @@ public class TargetAudienceDefinitionImpl extends StringPlusAuthorityImpl
 		String oldAltRepGroup = altRepGroup;
 		altRepGroup = newAltRepGroup;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MODSPackage.TARGET_AUDIENCE_DEFINITION__ALT_REP_GROUP,
+			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.TARGET_AUDIENCE_DEFINITION__ALT_REP_GROUP,
 					oldAltRepGroup, altRepGroup));
 	}
 
@@ -140,8 +138,7 @@ public class TargetAudienceDefinitionImpl extends StringPlusAuthorityImpl
 		String oldDisplayLabel = displayLabel;
 		displayLabel = newDisplayLabel;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MODSPackage.TARGET_AUDIENCE_DEFINITION__DISPLAY_LABEL,
+			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.TARGET_AUDIENCE_DEFINITION__DISPLAY_LABEL,
 					oldDisplayLabel, displayLabel));
 	}
 
@@ -153,10 +150,10 @@ public class TargetAudienceDefinitionImpl extends StringPlusAuthorityImpl
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case MODSPackage.TARGET_AUDIENCE_DEFINITION__ALT_REP_GROUP:
-			return getAltRepGroup();
-		case MODSPackage.TARGET_AUDIENCE_DEFINITION__DISPLAY_LABEL:
-			return getDisplayLabel();
+			case MODSPackage.TARGET_AUDIENCE_DEFINITION__ALT_REP_GROUP:
+				return getAltRepGroup();
+			case MODSPackage.TARGET_AUDIENCE_DEFINITION__DISPLAY_LABEL:
+				return getDisplayLabel();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -169,12 +166,12 @@ public class TargetAudienceDefinitionImpl extends StringPlusAuthorityImpl
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case MODSPackage.TARGET_AUDIENCE_DEFINITION__ALT_REP_GROUP:
-			setAltRepGroup((String) newValue);
-			return;
-		case MODSPackage.TARGET_AUDIENCE_DEFINITION__DISPLAY_LABEL:
-			setDisplayLabel((String) newValue);
-			return;
+			case MODSPackage.TARGET_AUDIENCE_DEFINITION__ALT_REP_GROUP:
+				setAltRepGroup((String) newValue);
+				return;
+			case MODSPackage.TARGET_AUDIENCE_DEFINITION__DISPLAY_LABEL:
+				setDisplayLabel((String) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -187,12 +184,12 @@ public class TargetAudienceDefinitionImpl extends StringPlusAuthorityImpl
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case MODSPackage.TARGET_AUDIENCE_DEFINITION__ALT_REP_GROUP:
-			setAltRepGroup(ALT_REP_GROUP_EDEFAULT);
-			return;
-		case MODSPackage.TARGET_AUDIENCE_DEFINITION__DISPLAY_LABEL:
-			setDisplayLabel(DISPLAY_LABEL_EDEFAULT);
-			return;
+			case MODSPackage.TARGET_AUDIENCE_DEFINITION__ALT_REP_GROUP:
+				setAltRepGroup(ALT_REP_GROUP_EDEFAULT);
+				return;
+			case MODSPackage.TARGET_AUDIENCE_DEFINITION__DISPLAY_LABEL:
+				setDisplayLabel(DISPLAY_LABEL_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -205,12 +202,10 @@ public class TargetAudienceDefinitionImpl extends StringPlusAuthorityImpl
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case MODSPackage.TARGET_AUDIENCE_DEFINITION__ALT_REP_GROUP:
-			return ALT_REP_GROUP_EDEFAULT == null ? altRepGroup != null
-					: !ALT_REP_GROUP_EDEFAULT.equals(altRepGroup);
-		case MODSPackage.TARGET_AUDIENCE_DEFINITION__DISPLAY_LABEL:
-			return DISPLAY_LABEL_EDEFAULT == null ? displayLabel != null
-					: !DISPLAY_LABEL_EDEFAULT.equals(displayLabel);
+			case MODSPackage.TARGET_AUDIENCE_DEFINITION__ALT_REP_GROUP:
+				return ALT_REP_GROUP_EDEFAULT == null ? altRepGroup != null : !ALT_REP_GROUP_EDEFAULT.equals(altRepGroup);
+			case MODSPackage.TARGET_AUDIENCE_DEFINITION__DISPLAY_LABEL:
+				return DISPLAY_LABEL_EDEFAULT == null ? displayLabel != null : !DISPLAY_LABEL_EDEFAULT.equals(displayLabel);
 		}
 		return super.eIsSet(featureID);
 	}

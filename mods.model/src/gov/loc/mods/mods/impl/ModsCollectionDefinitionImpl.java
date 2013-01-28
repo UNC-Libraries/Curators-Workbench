@@ -46,8 +46,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class ModsCollectionDefinitionImpl extends EObjectImpl implements
-		ModsCollectionDefinition {
+public class ModsCollectionDefinitionImpl extends EObjectImpl implements ModsCollectionDefinition {
 	/**
 	 * The cached value of the '{@link #getMods() <em>Mods</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -84,8 +83,7 @@ public class ModsCollectionDefinitionImpl extends EObjectImpl implements
 	 */
 	public EList<ModsDefinition> getMods() {
 		if (mods == null) {
-			mods = new EObjectContainmentEList<ModsDefinition>(
-					ModsDefinition.class, this,
+			mods = new EObjectContainmentEList<ModsDefinition>(ModsDefinition.class, this,
 					MODSPackage.MODS_COLLECTION_DEFINITION__MODS);
 		}
 		return mods;
@@ -97,11 +95,10 @@ public class ModsCollectionDefinitionImpl extends EObjectImpl implements
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd,
-			int featureID, NotificationChain msgs) {
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case MODSPackage.MODS_COLLECTION_DEFINITION__MODS:
-			return ((InternalEList<?>) getMods()).basicRemove(otherEnd, msgs);
+			case MODSPackage.MODS_COLLECTION_DEFINITION__MODS:
+				return ((InternalEList<?>) getMods()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -114,8 +111,8 @@ public class ModsCollectionDefinitionImpl extends EObjectImpl implements
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case MODSPackage.MODS_COLLECTION_DEFINITION__MODS:
-			return getMods();
+			case MODSPackage.MODS_COLLECTION_DEFINITION__MODS:
+				return getMods();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -129,10 +126,10 @@ public class ModsCollectionDefinitionImpl extends EObjectImpl implements
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case MODSPackage.MODS_COLLECTION_DEFINITION__MODS:
-			getMods().clear();
-			getMods().addAll((Collection<? extends ModsDefinition>) newValue);
-			return;
+			case MODSPackage.MODS_COLLECTION_DEFINITION__MODS:
+				getMods().clear();
+				getMods().addAll((Collection<? extends ModsDefinition>) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -145,9 +142,9 @@ public class ModsCollectionDefinitionImpl extends EObjectImpl implements
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case MODSPackage.MODS_COLLECTION_DEFINITION__MODS:
-			getMods().clear();
-			return;
+			case MODSPackage.MODS_COLLECTION_DEFINITION__MODS:
+				getMods().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -160,8 +157,8 @@ public class ModsCollectionDefinitionImpl extends EObjectImpl implements
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case MODSPackage.MODS_COLLECTION_DEFINITION__MODS:
-			return mods != null && !mods.isEmpty();
+			case MODSPackage.MODS_COLLECTION_DEFINITION__MODS:
+				return mods != null && !mods.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

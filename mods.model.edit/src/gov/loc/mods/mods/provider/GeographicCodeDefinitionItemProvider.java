@@ -40,9 +40,8 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class GeographicCodeDefinitionItemProvider extends XsStringItemProvider
-		implements IEditingDomainItemProvider, IStructuredItemContentProvider,
-		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class GeographicCodeDefinitionItemProvider extends XsStringItemProvider implements IEditingDomainItemProvider,
+		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -79,16 +78,12 @@ public class GeographicCodeDefinitionItemProvider extends XsStringItemProvider
 	 */
 	protected void addAuthorityPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_GeographicCodeDefinition_authority_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_GeographicCodeDefinition_authority_feature",
-						"_UI_GeographicCodeDefinition_type"),
-				MODSPackage.eINSTANCE.getGeographicCodeDefinition_Authority(),
-				true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				null, null));
+				getString("_UI_PropertyDescriptor_description", "_UI_GeographicCodeDefinition_authority_feature",
+						"_UI_GeographicCodeDefinition_type"), MODSPackage.eINSTANCE.getGeographicCodeDefinition_Authority(),
+				true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -99,17 +94,13 @@ public class GeographicCodeDefinitionItemProvider extends XsStringItemProvider
 	 */
 	protected void addAuthorityURIPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_GeographicCodeDefinition_authorityURI_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_GeographicCodeDefinition_authorityURI_feature",
-						"_UI_GeographicCodeDefinition_type"),
-				MODSPackage.eINSTANCE
-						.getGeographicCodeDefinition_AuthorityURI(), true,
-				false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null,
-				null));
+				getString("_UI_PropertyDescriptor_description", "_UI_GeographicCodeDefinition_authorityURI_feature",
+						"_UI_GeographicCodeDefinition_type"), MODSPackage.eINSTANCE
+						.getGeographicCodeDefinition_AuthorityURI(), true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -120,16 +111,12 @@ public class GeographicCodeDefinitionItemProvider extends XsStringItemProvider
 	 */
 	protected void addValueURIPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_GeographicCodeDefinition_valueURI_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_GeographicCodeDefinition_valueURI_feature",
-						"_UI_GeographicCodeDefinition_type"),
-				MODSPackage.eINSTANCE.getGeographicCodeDefinition_ValueURI(),
-				true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				null, null));
+				getString("_UI_PropertyDescriptor_description", "_UI_GeographicCodeDefinition_valueURI_feature",
+						"_UI_GeographicCodeDefinition_type"), MODSPackage.eINSTANCE.getGeographicCodeDefinition_ValueURI(),
+				true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -140,10 +127,7 @@ public class GeographicCodeDefinitionItemProvider extends XsStringItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(
-				object,
-				getResourceLocator().getImage(
-						"full/obj16/GeographicCodeDefinition"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/GeographicCodeDefinition"));
 	}
 
 	/**
@@ -181,12 +165,11 @@ public class GeographicCodeDefinitionItemProvider extends XsStringItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(GeographicCodeDefinition.class)) {
-		case MODSPackage.GEOGRAPHIC_CODE_DEFINITION__AUTHORITY:
-		case MODSPackage.GEOGRAPHIC_CODE_DEFINITION__AUTHORITY_URI:
-		case MODSPackage.GEOGRAPHIC_CODE_DEFINITION__VALUE_URI:
-			fireNotifyChanged(new ViewerNotification(notification,
-					notification.getNotifier(), false, true));
-			return;
+			case MODSPackage.GEOGRAPHIC_CODE_DEFINITION__AUTHORITY:
+			case MODSPackage.GEOGRAPHIC_CODE_DEFINITION__AUTHORITY_URI:
+			case MODSPackage.GEOGRAPHIC_CODE_DEFINITION__VALUE_URI:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -199,8 +182,7 @@ public class GeographicCodeDefinitionItemProvider extends XsStringItemProvider
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(
-			Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 

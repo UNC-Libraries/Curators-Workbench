@@ -42,9 +42,8 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class XsStringItemProvider extends ItemProviderAdapter implements
-		IEditingDomainItemProvider, IStructuredItemContentProvider,
-		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class XsStringItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -82,14 +81,10 @@ public class XsStringItemProvider extends ItemProviderAdapter implements
 	 */
 	protected void addValuePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
 				getString("_UI_XsString_value_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_XsString_value_feature", "_UI_XsString_type"),
-				MODSPackage.eINSTANCE.getXsString_Value(), true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				getString("_UI_PropertyDescriptor_description", "_UI_XsString_value_feature", "_UI_XsString_type"),
+				MODSPackage.eINSTANCE.getXsString_Value(), true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				getString("_UI_TextPropertyCategory"), null));
 	}
 
@@ -101,15 +96,11 @@ public class XsStringItemProvider extends ItemProviderAdapter implements
 	 */
 	protected void addLangPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
 				getString("_UI_XsString_lang_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_XsString_lang_feature", "_UI_XsString_type"),
-				MODSPackage.eINSTANCE.getXsString_Lang(), true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null,
-				new String[] { "org.eclipse.ui.views.properties.expert" }));
+				getString("_UI_PropertyDescriptor_description", "_UI_XsString_lang_feature", "_UI_XsString_type"),
+				MODSPackage.eINSTANCE.getXsString_Lang(), true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				null, new String[] { "org.eclipse.ui.views.properties.expert" }));
 	}
 
 	/**
@@ -120,16 +111,11 @@ public class XsStringItemProvider extends ItemProviderAdapter implements
 	 */
 	protected void addScriptPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
 				getString("_UI_XsString_script_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_XsString_script_feature", "_UI_XsString_type"),
-				MODSPackage.eINSTANCE.getXsString_Script(), true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				getString("_UI_TextPropertyCategory"),
-				new String[] { "org.eclipse.ui.views.properties.expert" }));
+				getString("_UI_PropertyDescriptor_description", "_UI_XsString_script_feature", "_UI_XsString_type"),
+				MODSPackage.eINSTANCE.getXsString_Script(), true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				getString("_UI_TextPropertyCategory"), new String[] { "org.eclipse.ui.views.properties.expert" }));
 	}
 
 	/**
@@ -139,18 +125,15 @@ public class XsStringItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	protected void addTransliterationPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_XsString_transliteration_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_XsString_transliteration_feature",
-						"_UI_XsString_type"), MODSPackage.eINSTANCE
-						.getXsString_Transliteration(), true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				getString("_UI_TextPropertyCategory"),
-				new String[] { "org.eclipse.ui.views.properties.expert" }));
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(
+						((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(),
+						getString("_UI_XsString_transliteration_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_XsString_transliteration_feature",
+								"_UI_XsString_type"), MODSPackage.eINSTANCE.getXsString_Transliteration(), true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString("_UI_TextPropertyCategory"),
+						new String[] { "org.eclipse.ui.views.properties.expert" }));
 	}
 
 	/**
@@ -161,8 +144,7 @@ public class XsStringItemProvider extends ItemProviderAdapter implements
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object,
-				getResourceLocator().getImage("full/obj16/XsString"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/XsString"));
 	}
 
 	/**
@@ -184,8 +166,8 @@ public class XsStringItemProvider extends ItemProviderAdapter implements
 	@Override
 	public String getText(Object object) {
 		String label = ((XsString) object).getValue();
-		return label == null || label.length() == 0 ? getString("_UI_XsString_type")
-				: getString("_UI_XsString_type") + " " + label;
+		return label == null || label.length() == 0 ? getString("_UI_XsString_type") : getString("_UI_XsString_type")
+				+ " " + label;
 	}
 
 	/**
@@ -200,14 +182,13 @@ public class XsStringItemProvider extends ItemProviderAdapter implements
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(XsString.class)) {
-		case MODSPackage.XS_STRING__VALUE:
-		case MODSPackage.XS_STRING__LANG:
-		case MODSPackage.XS_STRING__LANG1:
-		case MODSPackage.XS_STRING__SCRIPT:
-		case MODSPackage.XS_STRING__TRANSLITERATION:
-			fireNotifyChanged(new ViewerNotification(notification,
-					notification.getNotifier(), false, true));
-			return;
+			case MODSPackage.XS_STRING__VALUE:
+			case MODSPackage.XS_STRING__LANG:
+			case MODSPackage.XS_STRING__LANG1:
+			case MODSPackage.XS_STRING__SCRIPT:
+			case MODSPackage.XS_STRING__TRANSLITERATION:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -220,8 +201,7 @@ public class XsStringItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(
-			Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 

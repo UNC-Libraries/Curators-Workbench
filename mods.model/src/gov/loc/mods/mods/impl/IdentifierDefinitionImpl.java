@@ -41,8 +41,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class IdentifierDefinitionImpl extends XsStringImpl implements
-		IdentifierDefinition {
+public class IdentifierDefinitionImpl extends XsStringImpl implements IdentifierDefinition {
 	/**
 	 * The default value of the '{@link #getAltRepGroup() <em>Alt Rep Group</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -169,8 +168,7 @@ public class IdentifierDefinitionImpl extends XsStringImpl implements
 		String oldAltRepGroup = altRepGroup;
 		altRepGroup = newAltRepGroup;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MODSPackage.IDENTIFIER_DEFINITION__ALT_REP_GROUP,
+			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.IDENTIFIER_DEFINITION__ALT_REP_GROUP,
 					oldAltRepGroup, altRepGroup));
 	}
 
@@ -192,8 +190,7 @@ public class IdentifierDefinitionImpl extends XsStringImpl implements
 		String oldDisplayLabel = displayLabel;
 		displayLabel = newDisplayLabel;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MODSPackage.IDENTIFIER_DEFINITION__DISPLAY_LABEL,
+			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.IDENTIFIER_DEFINITION__DISPLAY_LABEL,
 					oldDisplayLabel, displayLabel));
 	}
 
@@ -217,8 +214,7 @@ public class IdentifierDefinitionImpl extends XsStringImpl implements
 		boolean oldInvalidESet = invalidESet;
 		invalidESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MODSPackage.IDENTIFIER_DEFINITION__INVALID, oldInvalid,
+			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.IDENTIFIER_DEFINITION__INVALID, oldInvalid,
 					invalid, !oldInvalidESet));
 	}
 
@@ -233,9 +229,8 @@ public class IdentifierDefinitionImpl extends XsStringImpl implements
 		invalid = INVALID_EDEFAULT;
 		invalidESet = false;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET,
-					MODSPackage.IDENTIFIER_DEFINITION__INVALID, oldInvalid,
-					INVALID_EDEFAULT, oldInvalidESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, MODSPackage.IDENTIFIER_DEFINITION__INVALID,
+					oldInvalid, INVALID_EDEFAULT, oldInvalidESet));
 	}
 
 	/**
@@ -265,8 +260,7 @@ public class IdentifierDefinitionImpl extends XsStringImpl implements
 		String oldType = type;
 		type = newType;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MODSPackage.IDENTIFIER_DEFINITION__TYPE, oldType, type));
+			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.IDENTIFIER_DEFINITION__TYPE, oldType, type));
 	}
 
 	/**
@@ -277,14 +271,14 @@ public class IdentifierDefinitionImpl extends XsStringImpl implements
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case MODSPackage.IDENTIFIER_DEFINITION__ALT_REP_GROUP:
-			return getAltRepGroup();
-		case MODSPackage.IDENTIFIER_DEFINITION__DISPLAY_LABEL:
-			return getDisplayLabel();
-		case MODSPackage.IDENTIFIER_DEFINITION__INVALID:
-			return getInvalid();
-		case MODSPackage.IDENTIFIER_DEFINITION__TYPE:
-			return getType();
+			case MODSPackage.IDENTIFIER_DEFINITION__ALT_REP_GROUP:
+				return getAltRepGroup();
+			case MODSPackage.IDENTIFIER_DEFINITION__DISPLAY_LABEL:
+				return getDisplayLabel();
+			case MODSPackage.IDENTIFIER_DEFINITION__INVALID:
+				return getInvalid();
+			case MODSPackage.IDENTIFIER_DEFINITION__TYPE:
+				return getType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -297,18 +291,18 @@ public class IdentifierDefinitionImpl extends XsStringImpl implements
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case MODSPackage.IDENTIFIER_DEFINITION__ALT_REP_GROUP:
-			setAltRepGroup((String) newValue);
-			return;
-		case MODSPackage.IDENTIFIER_DEFINITION__DISPLAY_LABEL:
-			setDisplayLabel((String) newValue);
-			return;
-		case MODSPackage.IDENTIFIER_DEFINITION__INVALID:
-			setInvalid((YesDefinition) newValue);
-			return;
-		case MODSPackage.IDENTIFIER_DEFINITION__TYPE:
-			setType((String) newValue);
-			return;
+			case MODSPackage.IDENTIFIER_DEFINITION__ALT_REP_GROUP:
+				setAltRepGroup((String) newValue);
+				return;
+			case MODSPackage.IDENTIFIER_DEFINITION__DISPLAY_LABEL:
+				setDisplayLabel((String) newValue);
+				return;
+			case MODSPackage.IDENTIFIER_DEFINITION__INVALID:
+				setInvalid((YesDefinition) newValue);
+				return;
+			case MODSPackage.IDENTIFIER_DEFINITION__TYPE:
+				setType((String) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -321,18 +315,18 @@ public class IdentifierDefinitionImpl extends XsStringImpl implements
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case MODSPackage.IDENTIFIER_DEFINITION__ALT_REP_GROUP:
-			setAltRepGroup(ALT_REP_GROUP_EDEFAULT);
-			return;
-		case MODSPackage.IDENTIFIER_DEFINITION__DISPLAY_LABEL:
-			setDisplayLabel(DISPLAY_LABEL_EDEFAULT);
-			return;
-		case MODSPackage.IDENTIFIER_DEFINITION__INVALID:
-			unsetInvalid();
-			return;
-		case MODSPackage.IDENTIFIER_DEFINITION__TYPE:
-			setType(TYPE_EDEFAULT);
-			return;
+			case MODSPackage.IDENTIFIER_DEFINITION__ALT_REP_GROUP:
+				setAltRepGroup(ALT_REP_GROUP_EDEFAULT);
+				return;
+			case MODSPackage.IDENTIFIER_DEFINITION__DISPLAY_LABEL:
+				setDisplayLabel(DISPLAY_LABEL_EDEFAULT);
+				return;
+			case MODSPackage.IDENTIFIER_DEFINITION__INVALID:
+				unsetInvalid();
+				return;
+			case MODSPackage.IDENTIFIER_DEFINITION__TYPE:
+				setType(TYPE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -345,17 +339,14 @@ public class IdentifierDefinitionImpl extends XsStringImpl implements
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case MODSPackage.IDENTIFIER_DEFINITION__ALT_REP_GROUP:
-			return ALT_REP_GROUP_EDEFAULT == null ? altRepGroup != null
-					: !ALT_REP_GROUP_EDEFAULT.equals(altRepGroup);
-		case MODSPackage.IDENTIFIER_DEFINITION__DISPLAY_LABEL:
-			return DISPLAY_LABEL_EDEFAULT == null ? displayLabel != null
-					: !DISPLAY_LABEL_EDEFAULT.equals(displayLabel);
-		case MODSPackage.IDENTIFIER_DEFINITION__INVALID:
-			return isSetInvalid();
-		case MODSPackage.IDENTIFIER_DEFINITION__TYPE:
-			return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT
-					.equals(type);
+			case MODSPackage.IDENTIFIER_DEFINITION__ALT_REP_GROUP:
+				return ALT_REP_GROUP_EDEFAULT == null ? altRepGroup != null : !ALT_REP_GROUP_EDEFAULT.equals(altRepGroup);
+			case MODSPackage.IDENTIFIER_DEFINITION__DISPLAY_LABEL:
+				return DISPLAY_LABEL_EDEFAULT == null ? displayLabel != null : !DISPLAY_LABEL_EDEFAULT.equals(displayLabel);
+			case MODSPackage.IDENTIFIER_DEFINITION__INVALID:
+				return isSetInvalid();
+			case MODSPackage.IDENTIFIER_DEFINITION__TYPE:
+				return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
 		}
 		return super.eIsSet(featureID);
 	}

@@ -39,8 +39,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class AbstractDefinitionImpl extends UnstructuredTextDefinitionImpl
-		implements AbstractDefinition {
+public class AbstractDefinitionImpl extends UnstructuredTextDefinitionImpl implements AbstractDefinition {
 	/**
 	 * The default value of the '{@link #getAltRepGroup() <em>Alt Rep Group</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -127,8 +126,7 @@ public class AbstractDefinitionImpl extends UnstructuredTextDefinitionImpl
 		String oldAltRepGroup = altRepGroup;
 		altRepGroup = newAltRepGroup;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MODSPackage.ABSTRACT_DEFINITION__ALT_REP_GROUP,
+			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.ABSTRACT_DEFINITION__ALT_REP_GROUP,
 					oldAltRepGroup, altRepGroup));
 	}
 
@@ -152,9 +150,8 @@ public class AbstractDefinitionImpl extends UnstructuredTextDefinitionImpl
 		boolean oldShareableESet = shareableESet;
 		shareableESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MODSPackage.ABSTRACT_DEFINITION__SHAREABLE, oldShareable,
-					shareable, !oldShareableESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.ABSTRACT_DEFINITION__SHAREABLE,
+					oldShareable, shareable, !oldShareableESet));
 	}
 
 	/**
@@ -168,9 +165,8 @@ public class AbstractDefinitionImpl extends UnstructuredTextDefinitionImpl
 		shareable = SHAREABLE_EDEFAULT;
 		shareableESet = false;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET,
-					MODSPackage.ABSTRACT_DEFINITION__SHAREABLE, oldShareable,
-					SHAREABLE_EDEFAULT, oldShareableESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, MODSPackage.ABSTRACT_DEFINITION__SHAREABLE,
+					oldShareable, SHAREABLE_EDEFAULT, oldShareableESet));
 	}
 
 	/**
@@ -190,10 +186,10 @@ public class AbstractDefinitionImpl extends UnstructuredTextDefinitionImpl
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case MODSPackage.ABSTRACT_DEFINITION__ALT_REP_GROUP:
-			return getAltRepGroup();
-		case MODSPackage.ABSTRACT_DEFINITION__SHAREABLE:
-			return getShareable();
+			case MODSPackage.ABSTRACT_DEFINITION__ALT_REP_GROUP:
+				return getAltRepGroup();
+			case MODSPackage.ABSTRACT_DEFINITION__SHAREABLE:
+				return getShareable();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -206,12 +202,12 @@ public class AbstractDefinitionImpl extends UnstructuredTextDefinitionImpl
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case MODSPackage.ABSTRACT_DEFINITION__ALT_REP_GROUP:
-			setAltRepGroup((String) newValue);
-			return;
-		case MODSPackage.ABSTRACT_DEFINITION__SHAREABLE:
-			setShareable((NoDefinition) newValue);
-			return;
+			case MODSPackage.ABSTRACT_DEFINITION__ALT_REP_GROUP:
+				setAltRepGroup((String) newValue);
+				return;
+			case MODSPackage.ABSTRACT_DEFINITION__SHAREABLE:
+				setShareable((NoDefinition) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -224,12 +220,12 @@ public class AbstractDefinitionImpl extends UnstructuredTextDefinitionImpl
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case MODSPackage.ABSTRACT_DEFINITION__ALT_REP_GROUP:
-			setAltRepGroup(ALT_REP_GROUP_EDEFAULT);
-			return;
-		case MODSPackage.ABSTRACT_DEFINITION__SHAREABLE:
-			unsetShareable();
-			return;
+			case MODSPackage.ABSTRACT_DEFINITION__ALT_REP_GROUP:
+				setAltRepGroup(ALT_REP_GROUP_EDEFAULT);
+				return;
+			case MODSPackage.ABSTRACT_DEFINITION__SHAREABLE:
+				unsetShareable();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -242,11 +238,10 @@ public class AbstractDefinitionImpl extends UnstructuredTextDefinitionImpl
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case MODSPackage.ABSTRACT_DEFINITION__ALT_REP_GROUP:
-			return ALT_REP_GROUP_EDEFAULT == null ? altRepGroup != null
-					: !ALT_REP_GROUP_EDEFAULT.equals(altRepGroup);
-		case MODSPackage.ABSTRACT_DEFINITION__SHAREABLE:
-			return isSetShareable();
+			case MODSPackage.ABSTRACT_DEFINITION__ALT_REP_GROUP:
+				return ALT_REP_GROUP_EDEFAULT == null ? altRepGroup != null : !ALT_REP_GROUP_EDEFAULT.equals(altRepGroup);
+			case MODSPackage.ABSTRACT_DEFINITION__SHAREABLE:
+				return isSetShareable();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -112,8 +112,8 @@ public enum ReformattingQualityDefinition implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final ReformattingQualityDefinition[] VALUES_ARRAY = new ReformattingQualityDefinition[] {
-			ACCESS, PRESERVATION, REPLACEMENT, };
+	private static final ReformattingQualityDefinition[] VALUES_ARRAY = new ReformattingQualityDefinition[] { ACCESS,
+			PRESERVATION, REPLACEMENT, };
 
 	/**
 	 * A public read-only list of all the '<em><b>Reformatting Quality Definition</b></em>' enumerators.
@@ -121,8 +121,8 @@ public enum ReformattingQualityDefinition implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final List<ReformattingQualityDefinition> VALUES = Collections
-			.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+	public static final List<ReformattingQualityDefinition> VALUES = Collections.unmodifiableList(Arrays
+			.asList(VALUES_ARRAY));
 
 	/**
 	 * Returns the '<em><b>Reformatting Quality Definition</b></em>' literal with the specified literal value.
@@ -164,12 +164,12 @@ public enum ReformattingQualityDefinition implements Enumerator {
 	 */
 	public static ReformattingQualityDefinition get(int value) {
 		switch (value) {
-		case ACCESS_VALUE:
-			return ACCESS;
-		case PRESERVATION_VALUE:
-			return PRESERVATION;
-		case REPLACEMENT_VALUE:
-			return REPLACEMENT;
+			case ACCESS_VALUE:
+				return ACCESS;
+			case PRESERVATION_VALUE:
+				return PRESERVATION;
+			case REPLACEMENT_VALUE:
+				return REPLACEMENT;
 		}
 		return null;
 	}

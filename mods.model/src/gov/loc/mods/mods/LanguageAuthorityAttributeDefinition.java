@@ -146,8 +146,8 @@ public enum LanguageAuthorityAttributeDefinition implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final List<LanguageAuthorityAttributeDefinition> VALUES = Collections
-			.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+	public static final List<LanguageAuthorityAttributeDefinition> VALUES = Collections.unmodifiableList(Arrays
+			.asList(VALUES_ARRAY));
 
 	/**
 	 * Returns the '<em><b>Language Authority Attribute Definition</b></em>' literal with the specified literal value.
@@ -189,14 +189,14 @@ public enum LanguageAuthorityAttributeDefinition implements Enumerator {
 	 */
 	public static LanguageAuthorityAttributeDefinition get(int value) {
 		switch (value) {
-		case RFC3066_VALUE:
-			return RFC3066;
-		case ISO6392B_VALUE:
-			return ISO6392B;
-		case ISO6393_VALUE:
-			return ISO6393;
-		case RFC4646_VALUE:
-			return RFC4646;
+			case RFC3066_VALUE:
+				return RFC3066;
+			case ISO6392B_VALUE:
+				return ISO6392B;
+			case ISO6393_VALUE:
+				return ISO6393;
+			case RFC4646_VALUE:
+				return RFC4646;
 		}
 		return null;
 	}
@@ -228,8 +228,7 @@ public enum LanguageAuthorityAttributeDefinition implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private LanguageAuthorityAttributeDefinition(int value, String name,
-			String literal) {
+	private LanguageAuthorityAttributeDefinition(int value, String name, String literal) {
 		this.value = value;
 		this.name = name;
 		this.literal = literal;

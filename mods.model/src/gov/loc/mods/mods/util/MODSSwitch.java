@@ -21,8 +21,6 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.util.Switch;
 
 /**
  * <!-- begin-user-doc -->
@@ -37,7 +35,7 @@ import org.eclipse.emf.ecore.util.Switch;
  * @see gov.loc.mods.mods.MODSPackage
  * @generated
  */
-public class MODSSwitch<T> extends Switch<T> {
+public class MODSSwitch<T> {
 	/**
 	 * The cached model package
 	 * <!-- begin-user-doc -->
@@ -59,16 +57,14 @@ public class MODSSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Checks whether this is a switch for the given package.
+	 * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @parameter ePackage the package in question.
-	 * @return whether this is a switch for the given package.
+	 * @return the first non-null result returned by a <code>caseXXX</code> call.
 	 * @generated
 	 */
-	@Override
-	protected boolean isSwitchFor(EPackage ePackage) {
-		return ePackage == modelPackage;
+	public T doSwitch(EObject theEObject) {
+		return doSwitch(theEObject.eClass(), theEObject);
 	}
 
 	/**
@@ -78,528 +74,543 @@ public class MODSSwitch<T> extends Switch<T> {
 	 * @return the first non-null result returned by a <code>caseXXX</code> call.
 	 * @generated
 	 */
-	@Override
+	protected T doSwitch(EClass theEClass, EObject theEObject) {
+		if (theEClass.eContainer() == modelPackage) {
+			return doSwitch(theEClass.getClassifierID(), theEObject);
+		} else {
+			List<EClass> eSuperTypes = theEClass.getESuperTypes();
+			return eSuperTypes.isEmpty() ? defaultCase(theEObject) : doSwitch(eSuperTypes.get(0), theEObject);
+		}
+	}
+
+	/**
+	 * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the first non-null result returned by a <code>caseXXX</code> call.
+	 * @generated
+	 */
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-		case MODSPackage.ABSTRACT_DEFINITION: {
-			AbstractDefinition abstractDefinition = (AbstractDefinition) theEObject;
-			T result = caseAbstractDefinition(abstractDefinition);
-			if (result == null)
-				result = caseUnstructuredTextDefinition(abstractDefinition);
-			if (result == null)
-				result = caseXsString(abstractDefinition);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case MODSPackage.ACCESS_CONDITION_DEFINITION: {
-			AccessConditionDefinition accessConditionDefinition = (AccessConditionDefinition) theEObject;
-			T result = caseAccessConditionDefinition(accessConditionDefinition);
-			if (result == null)
-				result = caseXsString(accessConditionDefinition);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case MODSPackage.CARTOGRAPHICS_DEFINITION: {
-			CartographicsDefinition cartographicsDefinition = (CartographicsDefinition) theEObject;
-			T result = caseCartographicsDefinition(cartographicsDefinition);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case MODSPackage.CLASSIFICATION_DEFINITION: {
-			ClassificationDefinition classificationDefinition = (ClassificationDefinition) theEObject;
-			T result = caseClassificationDefinition(classificationDefinition);
-			if (result == null)
-				result = caseStringPlusAuthority(classificationDefinition);
-			if (result == null)
-				result = caseXsString(classificationDefinition);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case MODSPackage.COPY_INFORMATION_DEFINITION: {
-			CopyInformationDefinition copyInformationDefinition = (CopyInformationDefinition) theEObject;
-			T result = caseCopyInformationDefinition(copyInformationDefinition);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case MODSPackage.DATE_BASE_DEFINITION: {
-			DateBaseDefinition dateBaseDefinition = (DateBaseDefinition) theEObject;
-			T result = caseDateBaseDefinition(dateBaseDefinition);
-			if (result == null)
-				result = caseXsString(dateBaseDefinition);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case MODSPackage.DATE_DEFINITION: {
-			DateDefinition dateDefinition = (DateDefinition) theEObject;
-			T result = caseDateDefinition(dateDefinition);
-			if (result == null)
-				result = caseDateBaseDefinition(dateDefinition);
-			if (result == null)
-				result = caseXsString(dateDefinition);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case MODSPackage.DATE_OTHER_DEFINITION: {
-			DateOtherDefinition dateOtherDefinition = (DateOtherDefinition) theEObject;
-			T result = caseDateOtherDefinition(dateOtherDefinition);
-			if (result == null)
-				result = caseDateDefinition(dateOtherDefinition);
-			if (result == null)
-				result = caseDateBaseDefinition(dateOtherDefinition);
-			if (result == null)
-				result = caseXsString(dateOtherDefinition);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case MODSPackage.DETAIL_DEFINITION: {
-			DetailDefinition detailDefinition = (DetailDefinition) theEObject;
-			T result = caseDetailDefinition(detailDefinition);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case MODSPackage.DOCUMENT_ROOT: {
-			DocumentRoot documentRoot = (DocumentRoot) theEObject;
-			T result = caseDocumentRoot(documentRoot);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case MODSPackage.ENUMERATION_AND_CHRONOLOGY_DEFINITION: {
-			EnumerationAndChronologyDefinition enumerationAndChronologyDefinition = (EnumerationAndChronologyDefinition) theEObject;
-			T result = caseEnumerationAndChronologyDefinition(enumerationAndChronologyDefinition);
-			if (result == null)
-				result = caseXsString(enumerationAndChronologyDefinition);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case MODSPackage.EXTENSION_DEFINITION: {
-			ExtensionDefinition extensionDefinition = (ExtensionDefinition) theEObject;
-			T result = caseExtensionDefinition(extensionDefinition);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case MODSPackage.EXTENT_DEFINITION: {
-			ExtentDefinition extentDefinition = (ExtentDefinition) theEObject;
-			T result = caseExtentDefinition(extentDefinition);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case MODSPackage.GENRE_DEFINITION: {
-			GenreDefinition genreDefinition = (GenreDefinition) theEObject;
-			T result = caseGenreDefinition(genreDefinition);
-			if (result == null)
-				result = caseStringPlusAuthorityPlusTypePlusDisplayLabel(genreDefinition);
-			if (result == null)
-				result = caseStringPlusAuthorityPlusType(genreDefinition);
-			if (result == null)
-				result = caseStringPlusAuthority(genreDefinition);
-			if (result == null)
-				result = caseXsString(genreDefinition);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case MODSPackage.GEOGRAPHIC_CODE_DEFINITION: {
-			GeographicCodeDefinition geographicCodeDefinition = (GeographicCodeDefinition) theEObject;
-			T result = caseGeographicCodeDefinition(geographicCodeDefinition);
-			if (result == null)
-				result = caseXsString(geographicCodeDefinition);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION: {
-			HierarchicalGeographicDefinition hierarchicalGeographicDefinition = (HierarchicalGeographicDefinition) theEObject;
-			T result = caseHierarchicalGeographicDefinition(hierarchicalGeographicDefinition);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case MODSPackage.HOLDING_SIMPLE_DEFINITION: {
-			HoldingSimpleDefinition holdingSimpleDefinition = (HoldingSimpleDefinition) theEObject;
-			T result = caseHoldingSimpleDefinition(holdingSimpleDefinition);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case MODSPackage.IDENTIFIER_DEFINITION: {
-			IdentifierDefinition identifierDefinition = (IdentifierDefinition) theEObject;
-			T result = caseIdentifierDefinition(identifierDefinition);
-			if (result == null)
-				result = caseXsString(identifierDefinition);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case MODSPackage.LANGUAGE_DEFINITION: {
-			LanguageDefinition languageDefinition = (LanguageDefinition) theEObject;
-			T result = caseLanguageDefinition(languageDefinition);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case MODSPackage.LANGUAGE_TERM_DEFINITION: {
-			LanguageTermDefinition languageTermDefinition = (LanguageTermDefinition) theEObject;
-			T result = caseLanguageTermDefinition(languageTermDefinition);
-			if (result == null)
-				result = caseXsString(languageTermDefinition);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case MODSPackage.LOCATION_DEFINITION: {
-			LocationDefinition locationDefinition = (LocationDefinition) theEObject;
-			T result = caseLocationDefinition(locationDefinition);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case MODSPackage.MODS_COLLECTION_DEFINITION: {
-			ModsCollectionDefinition modsCollectionDefinition = (ModsCollectionDefinition) theEObject;
-			T result = caseModsCollectionDefinition(modsCollectionDefinition);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case MODSPackage.MODS_DEFINITION: {
-			ModsDefinition modsDefinition = (ModsDefinition) theEObject;
-			T result = caseModsDefinition(modsDefinition);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case MODSPackage.NAME_BASE_DEFINITION: {
-			NameBaseDefinition nameBaseDefinition = (NameBaseDefinition) theEObject;
-			T result = caseNameBaseDefinition(nameBaseDefinition);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case MODSPackage.NAME_DEFINITION: {
-			NameDefinition nameDefinition = (NameDefinition) theEObject;
-			T result = caseNameDefinition(nameDefinition);
-			if (result == null)
-				result = caseNameBaseDefinition(nameDefinition);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case MODSPackage.NAME_PART_DEFINITION: {
-			NamePartDefinition namePartDefinition = (NamePartDefinition) theEObject;
-			T result = caseNamePartDefinition(namePartDefinition);
-			if (result == null)
-				result = caseXsString(namePartDefinition);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case MODSPackage.NOTE_BASE_DEFINITION: {
-			NoteBaseDefinition noteBaseDefinition = (NoteBaseDefinition) theEObject;
-			T result = caseNoteBaseDefinition(noteBaseDefinition);
-			if (result == null)
-				result = caseUnstructuredTextDefinition(noteBaseDefinition);
-			if (result == null)
-				result = caseXsString(noteBaseDefinition);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case MODSPackage.NOTE_DEFINITION: {
-			NoteDefinition noteDefinition = (NoteDefinition) theEObject;
-			T result = caseNoteDefinition(noteDefinition);
-			if (result == null)
-				result = caseNoteBaseDefinition(noteDefinition);
-			if (result == null)
-				result = caseUnstructuredTextDefinition(noteDefinition);
-			if (result == null)
-				result = caseXsString(noteDefinition);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case MODSPackage.ORIGIN_INFO_DEFINITION: {
-			OriginInfoDefinition originInfoDefinition = (OriginInfoDefinition) theEObject;
-			T result = caseOriginInfoDefinition(originInfoDefinition);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case MODSPackage.PART_DEFINITION: {
-			PartDefinition partDefinition = (PartDefinition) theEObject;
-			T result = casePartDefinition(partDefinition);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case MODSPackage.PHYSICAL_DESCRIPTION_DEFINITION: {
-			PhysicalDescriptionDefinition physicalDescriptionDefinition = (PhysicalDescriptionDefinition) theEObject;
-			T result = casePhysicalDescriptionDefinition(physicalDescriptionDefinition);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case MODSPackage.PHYSICAL_LOCATION_DEFINITION: {
-			PhysicalLocationDefinition physicalLocationDefinition = (PhysicalLocationDefinition) theEObject;
-			T result = casePhysicalLocationDefinition(physicalLocationDefinition);
-			if (result == null)
-				result = caseStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink(physicalLocationDefinition);
-			if (result == null)
-				result = caseStringPlusAuthorityPlusTypePlusDisplayLabel(physicalLocationDefinition);
-			if (result == null)
-				result = caseStringPlusAuthorityPlusType(physicalLocationDefinition);
-			if (result == null)
-				result = caseStringPlusAuthority(physicalLocationDefinition);
-			if (result == null)
-				result = caseXsString(physicalLocationDefinition);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case MODSPackage.PLACE_DEFINITION: {
-			PlaceDefinition placeDefinition = (PlaceDefinition) theEObject;
-			T result = casePlaceDefinition(placeDefinition);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case MODSPackage.PLACE_TERM_DEFINITION: {
-			PlaceTermDefinition placeTermDefinition = (PlaceTermDefinition) theEObject;
-			T result = casePlaceTermDefinition(placeTermDefinition);
-			if (result == null)
-				result = caseXsString(placeTermDefinition);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case MODSPackage.RECORD_IDENTIFIER_DEFINITION: {
-			RecordIdentifierDefinition recordIdentifierDefinition = (RecordIdentifierDefinition) theEObject;
-			T result = caseRecordIdentifierDefinition(recordIdentifierDefinition);
-			if (result == null)
-				result = caseXsString(recordIdentifierDefinition);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case MODSPackage.RECORD_INFO_DEFINITION: {
-			RecordInfoDefinition recordInfoDefinition = (RecordInfoDefinition) theEObject;
-			T result = caseRecordInfoDefinition(recordInfoDefinition);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case MODSPackage.RELATED_ITEM_DEFINITION: {
-			RelatedItemDefinition relatedItemDefinition = (RelatedItemDefinition) theEObject;
-			T result = caseRelatedItemDefinition(relatedItemDefinition);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case MODSPackage.ROLE_DEFINITION: {
-			RoleDefinition roleDefinition = (RoleDefinition) theEObject;
-			T result = caseRoleDefinition(roleDefinition);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case MODSPackage.ROLE_TERM_DEFINITION: {
-			RoleTermDefinition roleTermDefinition = (RoleTermDefinition) theEObject;
-			T result = caseRoleTermDefinition(roleTermDefinition);
-			if (result == null)
-				result = caseStringPlusAuthority(roleTermDefinition);
-			if (result == null)
-				result = caseXsString(roleTermDefinition);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case MODSPackage.SCRIPT_TERM_DEFINITION: {
-			ScriptTermDefinition scriptTermDefinition = (ScriptTermDefinition) theEObject;
-			T result = caseScriptTermDefinition(scriptTermDefinition);
-			if (result == null)
-				result = caseStringPlusAuthority(scriptTermDefinition);
-			if (result == null)
-				result = caseXsString(scriptTermDefinition);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case MODSPackage.STRING_PLUS_AUTHORITY: {
-			StringPlusAuthority stringPlusAuthority = (StringPlusAuthority) theEObject;
-			T result = caseStringPlusAuthority(stringPlusAuthority);
-			if (result == null)
-				result = caseXsString(stringPlusAuthority);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE: {
-			StringPlusAuthorityPlusType stringPlusAuthorityPlusType = (StringPlusAuthorityPlusType) theEObject;
-			T result = caseStringPlusAuthorityPlusType(stringPlusAuthorityPlusType);
-			if (result == null)
-				result = caseStringPlusAuthority(stringPlusAuthorityPlusType);
-			if (result == null)
-				result = caseXsString(stringPlusAuthorityPlusType);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL: {
-			StringPlusAuthorityPlusTypePlusDisplayLabel stringPlusAuthorityPlusTypePlusDisplayLabel = (StringPlusAuthorityPlusTypePlusDisplayLabel) theEObject;
-			T result = caseStringPlusAuthorityPlusTypePlusDisplayLabel(stringPlusAuthorityPlusTypePlusDisplayLabel);
-			if (result == null)
-				result = caseStringPlusAuthorityPlusType(stringPlusAuthorityPlusTypePlusDisplayLabel);
-			if (result == null)
-				result = caseStringPlusAuthority(stringPlusAuthorityPlusTypePlusDisplayLabel);
-			if (result == null)
-				result = caseXsString(stringPlusAuthorityPlusTypePlusDisplayLabel);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK: {
-			StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink stringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink = (StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink) theEObject;
-			T result = caseStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink(stringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink);
-			if (result == null)
-				result = caseStringPlusAuthorityPlusTypePlusDisplayLabel(stringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink);
-			if (result == null)
-				result = caseStringPlusAuthorityPlusType(stringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink);
-			if (result == null)
-				result = caseStringPlusAuthority(stringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink);
-			if (result == null)
-				result = caseXsString(stringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case MODSPackage.STRING_PLUS_SUPPLIED: {
-			StringPlusSupplied stringPlusSupplied = (StringPlusSupplied) theEObject;
-			T result = caseStringPlusSupplied(stringPlusSupplied);
-			if (result == null)
-				result = caseXsString(stringPlusSupplied);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case MODSPackage.SUBJECT_DEFINITION: {
-			SubjectDefinition subjectDefinition = (SubjectDefinition) theEObject;
-			T result = caseSubjectDefinition(subjectDefinition);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case MODSPackage.SUBJECT_NAME_DEFINITION: {
-			SubjectNameDefinition subjectNameDefinition = (SubjectNameDefinition) theEObject;
-			T result = caseSubjectNameDefinition(subjectNameDefinition);
-			if (result == null)
-				result = caseNameBaseDefinition(subjectNameDefinition);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case MODSPackage.SUBJECT_TITLE_INFO_DEFINITION: {
-			SubjectTitleInfoDefinition subjectTitleInfoDefinition = (SubjectTitleInfoDefinition) theEObject;
-			T result = caseSubjectTitleInfoDefinition(subjectTitleInfoDefinition);
-			if (result == null)
-				result = caseTitleInfoBaseDefinition(subjectTitleInfoDefinition);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case MODSPackage.TABLE_OF_CONTENTS_DEFINITION: {
-			TableOfContentsDefinition tableOfContentsDefinition = (TableOfContentsDefinition) theEObject;
-			T result = caseTableOfContentsDefinition(tableOfContentsDefinition);
-			if (result == null)
-				result = caseUnstructuredTextDefinition(tableOfContentsDefinition);
-			if (result == null)
-				result = caseXsString(tableOfContentsDefinition);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case MODSPackage.TARGET_AUDIENCE_DEFINITION: {
-			TargetAudienceDefinition targetAudienceDefinition = (TargetAudienceDefinition) theEObject;
-			T result = caseTargetAudienceDefinition(targetAudienceDefinition);
-			if (result == null)
-				result = caseStringPlusAuthority(targetAudienceDefinition);
-			if (result == null)
-				result = caseXsString(targetAudienceDefinition);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case MODSPackage.TEMPORAL_DEFINITION: {
-			TemporalDefinition temporalDefinition = (TemporalDefinition) theEObject;
-			T result = caseTemporalDefinition(temporalDefinition);
-			if (result == null)
-				result = caseDateDefinition(temporalDefinition);
-			if (result == null)
-				result = caseDateBaseDefinition(temporalDefinition);
-			if (result == null)
-				result = caseXsString(temporalDefinition);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case MODSPackage.TITLE_INFO_BASE_DEFINITION: {
-			TitleInfoBaseDefinition titleInfoBaseDefinition = (TitleInfoBaseDefinition) theEObject;
-			T result = caseTitleInfoBaseDefinition(titleInfoBaseDefinition);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case MODSPackage.TITLE_INFO_DEFINITION: {
-			TitleInfoDefinition titleInfoDefinition = (TitleInfoDefinition) theEObject;
-			T result = caseTitleInfoDefinition(titleInfoDefinition);
-			if (result == null)
-				result = caseTitleInfoBaseDefinition(titleInfoDefinition);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case MODSPackage.TYPE_OF_RESOURCE_DEFINITION: {
-			TypeOfResourceDefinition typeOfResourceDefinition = (TypeOfResourceDefinition) theEObject;
-			T result = caseTypeOfResourceDefinition(typeOfResourceDefinition);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION: {
-			UnstructuredTextDefinition unstructuredTextDefinition = (UnstructuredTextDefinition) theEObject;
-			T result = caseUnstructuredTextDefinition(unstructuredTextDefinition);
-			if (result == null)
-				result = caseXsString(unstructuredTextDefinition);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case MODSPackage.URL_DEFINITION: {
-			UrlDefinition urlDefinition = (UrlDefinition) theEObject;
-			T result = caseUrlDefinition(urlDefinition);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case MODSPackage.XS_STRING: {
-			XsString xsString = (XsString) theEObject;
-			T result = caseXsString(xsString);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		default:
-			return defaultCase(theEObject);
+			case MODSPackage.ABSTRACT_DEFINITION: {
+				AbstractDefinition abstractDefinition = (AbstractDefinition) theEObject;
+				T result = caseAbstractDefinition(abstractDefinition);
+				if (result == null)
+					result = caseUnstructuredTextDefinition(abstractDefinition);
+				if (result == null)
+					result = caseXsString(abstractDefinition);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case MODSPackage.ACCESS_CONDITION_DEFINITION: {
+				AccessConditionDefinition accessConditionDefinition = (AccessConditionDefinition) theEObject;
+				T result = caseAccessConditionDefinition(accessConditionDefinition);
+				if (result == null)
+					result = caseExtensionDefinition(accessConditionDefinition);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case MODSPackage.CARTOGRAPHICS_DEFINITION: {
+				CartographicsDefinition cartographicsDefinition = (CartographicsDefinition) theEObject;
+				T result = caseCartographicsDefinition(cartographicsDefinition);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case MODSPackage.CLASSIFICATION_DEFINITION: {
+				ClassificationDefinition classificationDefinition = (ClassificationDefinition) theEObject;
+				T result = caseClassificationDefinition(classificationDefinition);
+				if (result == null)
+					result = caseStringPlusAuthority(classificationDefinition);
+				if (result == null)
+					result = caseXsString(classificationDefinition);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case MODSPackage.COPY_INFORMATION_DEFINITION: {
+				CopyInformationDefinition copyInformationDefinition = (CopyInformationDefinition) theEObject;
+				T result = caseCopyInformationDefinition(copyInformationDefinition);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case MODSPackage.DATE_BASE_DEFINITION: {
+				DateBaseDefinition dateBaseDefinition = (DateBaseDefinition) theEObject;
+				T result = caseDateBaseDefinition(dateBaseDefinition);
+				if (result == null)
+					result = caseXsString(dateBaseDefinition);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case MODSPackage.DATE_DEFINITION: {
+				DateDefinition dateDefinition = (DateDefinition) theEObject;
+				T result = caseDateDefinition(dateDefinition);
+				if (result == null)
+					result = caseDateBaseDefinition(dateDefinition);
+				if (result == null)
+					result = caseXsString(dateDefinition);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case MODSPackage.DATE_OTHER_DEFINITION: {
+				DateOtherDefinition dateOtherDefinition = (DateOtherDefinition) theEObject;
+				T result = caseDateOtherDefinition(dateOtherDefinition);
+				if (result == null)
+					result = caseDateDefinition(dateOtherDefinition);
+				if (result == null)
+					result = caseDateBaseDefinition(dateOtherDefinition);
+				if (result == null)
+					result = caseXsString(dateOtherDefinition);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case MODSPackage.DETAIL_DEFINITION: {
+				DetailDefinition detailDefinition = (DetailDefinition) theEObject;
+				T result = caseDetailDefinition(detailDefinition);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case MODSPackage.DOCUMENT_ROOT: {
+				DocumentRoot documentRoot = (DocumentRoot) theEObject;
+				T result = caseDocumentRoot(documentRoot);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case MODSPackage.ENUMERATION_AND_CHRONOLOGY_DEFINITION: {
+				EnumerationAndChronologyDefinition enumerationAndChronologyDefinition = (EnumerationAndChronologyDefinition) theEObject;
+				T result = caseEnumerationAndChronologyDefinition(enumerationAndChronologyDefinition);
+				if (result == null)
+					result = caseXsString(enumerationAndChronologyDefinition);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case MODSPackage.EXTENSION_DEFINITION: {
+				ExtensionDefinition extensionDefinition = (ExtensionDefinition) theEObject;
+				T result = caseExtensionDefinition(extensionDefinition);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case MODSPackage.EXTENT_DEFINITION: {
+				ExtentDefinition extentDefinition = (ExtentDefinition) theEObject;
+				T result = caseExtentDefinition(extentDefinition);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case MODSPackage.GENRE_DEFINITION: {
+				GenreDefinition genreDefinition = (GenreDefinition) theEObject;
+				T result = caseGenreDefinition(genreDefinition);
+				if (result == null)
+					result = caseStringPlusAuthorityPlusTypePlusDisplayLabel(genreDefinition);
+				if (result == null)
+					result = caseStringPlusAuthorityPlusType(genreDefinition);
+				if (result == null)
+					result = caseStringPlusAuthority(genreDefinition);
+				if (result == null)
+					result = caseXsString(genreDefinition);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case MODSPackage.GEOGRAPHIC_CODE_DEFINITION: {
+				GeographicCodeDefinition geographicCodeDefinition = (GeographicCodeDefinition) theEObject;
+				T result = caseGeographicCodeDefinition(geographicCodeDefinition);
+				if (result == null)
+					result = caseXsString(geographicCodeDefinition);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case MODSPackage.HIERARCHICAL_GEOGRAPHIC_DEFINITION: {
+				HierarchicalGeographicDefinition hierarchicalGeographicDefinition = (HierarchicalGeographicDefinition) theEObject;
+				T result = caseHierarchicalGeographicDefinition(hierarchicalGeographicDefinition);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case MODSPackage.HOLDING_SIMPLE_DEFINITION: {
+				HoldingSimpleDefinition holdingSimpleDefinition = (HoldingSimpleDefinition) theEObject;
+				T result = caseHoldingSimpleDefinition(holdingSimpleDefinition);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case MODSPackage.IDENTIFIER_DEFINITION: {
+				IdentifierDefinition identifierDefinition = (IdentifierDefinition) theEObject;
+				T result = caseIdentifierDefinition(identifierDefinition);
+				if (result == null)
+					result = caseXsString(identifierDefinition);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case MODSPackage.LANGUAGE_DEFINITION: {
+				LanguageDefinition languageDefinition = (LanguageDefinition) theEObject;
+				T result = caseLanguageDefinition(languageDefinition);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case MODSPackage.LANGUAGE_TERM_DEFINITION: {
+				LanguageTermDefinition languageTermDefinition = (LanguageTermDefinition) theEObject;
+				T result = caseLanguageTermDefinition(languageTermDefinition);
+				if (result == null)
+					result = caseXsString(languageTermDefinition);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case MODSPackage.LOCATION_DEFINITION: {
+				LocationDefinition locationDefinition = (LocationDefinition) theEObject;
+				T result = caseLocationDefinition(locationDefinition);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case MODSPackage.MODS_COLLECTION_DEFINITION: {
+				ModsCollectionDefinition modsCollectionDefinition = (ModsCollectionDefinition) theEObject;
+				T result = caseModsCollectionDefinition(modsCollectionDefinition);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case MODSPackage.MODS_DEFINITION: {
+				ModsDefinition modsDefinition = (ModsDefinition) theEObject;
+				T result = caseModsDefinition(modsDefinition);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case MODSPackage.NAME_BASE_DEFINITION: {
+				NameBaseDefinition nameBaseDefinition = (NameBaseDefinition) theEObject;
+				T result = caseNameBaseDefinition(nameBaseDefinition);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case MODSPackage.NAME_DEFINITION: {
+				NameDefinition nameDefinition = (NameDefinition) theEObject;
+				T result = caseNameDefinition(nameDefinition);
+				if (result == null)
+					result = caseNameBaseDefinition(nameDefinition);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case MODSPackage.NAME_PART_DEFINITION: {
+				NamePartDefinition namePartDefinition = (NamePartDefinition) theEObject;
+				T result = caseNamePartDefinition(namePartDefinition);
+				if (result == null)
+					result = caseXsString(namePartDefinition);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case MODSPackage.NOTE_BASE_DEFINITION: {
+				NoteBaseDefinition noteBaseDefinition = (NoteBaseDefinition) theEObject;
+				T result = caseNoteBaseDefinition(noteBaseDefinition);
+				if (result == null)
+					result = caseUnstructuredTextDefinition(noteBaseDefinition);
+				if (result == null)
+					result = caseXsString(noteBaseDefinition);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case MODSPackage.NOTE_DEFINITION: {
+				NoteDefinition noteDefinition = (NoteDefinition) theEObject;
+				T result = caseNoteDefinition(noteDefinition);
+				if (result == null)
+					result = caseNoteBaseDefinition(noteDefinition);
+				if (result == null)
+					result = caseUnstructuredTextDefinition(noteDefinition);
+				if (result == null)
+					result = caseXsString(noteDefinition);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case MODSPackage.ORIGIN_INFO_DEFINITION: {
+				OriginInfoDefinition originInfoDefinition = (OriginInfoDefinition) theEObject;
+				T result = caseOriginInfoDefinition(originInfoDefinition);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case MODSPackage.PART_DEFINITION: {
+				PartDefinition partDefinition = (PartDefinition) theEObject;
+				T result = casePartDefinition(partDefinition);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case MODSPackage.PHYSICAL_DESCRIPTION_DEFINITION: {
+				PhysicalDescriptionDefinition physicalDescriptionDefinition = (PhysicalDescriptionDefinition) theEObject;
+				T result = casePhysicalDescriptionDefinition(physicalDescriptionDefinition);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case MODSPackage.PHYSICAL_LOCATION_DEFINITION: {
+				PhysicalLocationDefinition physicalLocationDefinition = (PhysicalLocationDefinition) theEObject;
+				T result = casePhysicalLocationDefinition(physicalLocationDefinition);
+				if (result == null)
+					result = caseStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink(physicalLocationDefinition);
+				if (result == null)
+					result = caseStringPlusAuthorityPlusTypePlusDisplayLabel(physicalLocationDefinition);
+				if (result == null)
+					result = caseStringPlusAuthorityPlusType(physicalLocationDefinition);
+				if (result == null)
+					result = caseStringPlusAuthority(physicalLocationDefinition);
+				if (result == null)
+					result = caseXsString(physicalLocationDefinition);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case MODSPackage.PLACE_DEFINITION: {
+				PlaceDefinition placeDefinition = (PlaceDefinition) theEObject;
+				T result = casePlaceDefinition(placeDefinition);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case MODSPackage.PLACE_TERM_DEFINITION: {
+				PlaceTermDefinition placeTermDefinition = (PlaceTermDefinition) theEObject;
+				T result = casePlaceTermDefinition(placeTermDefinition);
+				if (result == null)
+					result = caseXsString(placeTermDefinition);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case MODSPackage.RECORD_IDENTIFIER_DEFINITION: {
+				RecordIdentifierDefinition recordIdentifierDefinition = (RecordIdentifierDefinition) theEObject;
+				T result = caseRecordIdentifierDefinition(recordIdentifierDefinition);
+				if (result == null)
+					result = caseXsString(recordIdentifierDefinition);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case MODSPackage.RECORD_INFO_DEFINITION: {
+				RecordInfoDefinition recordInfoDefinition = (RecordInfoDefinition) theEObject;
+				T result = caseRecordInfoDefinition(recordInfoDefinition);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case MODSPackage.RELATED_ITEM_DEFINITION: {
+				RelatedItemDefinition relatedItemDefinition = (RelatedItemDefinition) theEObject;
+				T result = caseRelatedItemDefinition(relatedItemDefinition);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case MODSPackage.ROLE_DEFINITION: {
+				RoleDefinition roleDefinition = (RoleDefinition) theEObject;
+				T result = caseRoleDefinition(roleDefinition);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case MODSPackage.ROLE_TERM_DEFINITION: {
+				RoleTermDefinition roleTermDefinition = (RoleTermDefinition) theEObject;
+				T result = caseRoleTermDefinition(roleTermDefinition);
+				if (result == null)
+					result = caseStringPlusAuthority(roleTermDefinition);
+				if (result == null)
+					result = caseXsString(roleTermDefinition);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case MODSPackage.SCRIPT_TERM_DEFINITION: {
+				ScriptTermDefinition scriptTermDefinition = (ScriptTermDefinition) theEObject;
+				T result = caseScriptTermDefinition(scriptTermDefinition);
+				if (result == null)
+					result = caseStringPlusAuthority(scriptTermDefinition);
+				if (result == null)
+					result = caseXsString(scriptTermDefinition);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case MODSPackage.STRING_PLUS_AUTHORITY: {
+				StringPlusAuthority stringPlusAuthority = (StringPlusAuthority) theEObject;
+				T result = caseStringPlusAuthority(stringPlusAuthority);
+				if (result == null)
+					result = caseXsString(stringPlusAuthority);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE: {
+				StringPlusAuthorityPlusType stringPlusAuthorityPlusType = (StringPlusAuthorityPlusType) theEObject;
+				T result = caseStringPlusAuthorityPlusType(stringPlusAuthorityPlusType);
+				if (result == null)
+					result = caseStringPlusAuthority(stringPlusAuthorityPlusType);
+				if (result == null)
+					result = caseXsString(stringPlusAuthorityPlusType);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL: {
+				StringPlusAuthorityPlusTypePlusDisplayLabel stringPlusAuthorityPlusTypePlusDisplayLabel = (StringPlusAuthorityPlusTypePlusDisplayLabel) theEObject;
+				T result = caseStringPlusAuthorityPlusTypePlusDisplayLabel(stringPlusAuthorityPlusTypePlusDisplayLabel);
+				if (result == null)
+					result = caseStringPlusAuthorityPlusType(stringPlusAuthorityPlusTypePlusDisplayLabel);
+				if (result == null)
+					result = caseStringPlusAuthority(stringPlusAuthorityPlusTypePlusDisplayLabel);
+				if (result == null)
+					result = caseXsString(stringPlusAuthorityPlusTypePlusDisplayLabel);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE_PLUS_DISPLAY_LABEL_PLUS_XLINK: {
+				StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink stringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink = (StringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink) theEObject;
+				T result = caseStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink(stringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink);
+				if (result == null)
+					result = caseStringPlusAuthorityPlusTypePlusDisplayLabel(stringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink);
+				if (result == null)
+					result = caseStringPlusAuthorityPlusType(stringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink);
+				if (result == null)
+					result = caseStringPlusAuthority(stringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink);
+				if (result == null)
+					result = caseXsString(stringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case MODSPackage.STRING_PLUS_SUPPLIED: {
+				StringPlusSupplied stringPlusSupplied = (StringPlusSupplied) theEObject;
+				T result = caseStringPlusSupplied(stringPlusSupplied);
+				if (result == null)
+					result = caseXsString(stringPlusSupplied);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case MODSPackage.SUBJECT_DEFINITION: {
+				SubjectDefinition subjectDefinition = (SubjectDefinition) theEObject;
+				T result = caseSubjectDefinition(subjectDefinition);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case MODSPackage.SUBJECT_NAME_DEFINITION: {
+				SubjectNameDefinition subjectNameDefinition = (SubjectNameDefinition) theEObject;
+				T result = caseSubjectNameDefinition(subjectNameDefinition);
+				if (result == null)
+					result = caseNameBaseDefinition(subjectNameDefinition);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case MODSPackage.SUBJECT_TITLE_INFO_DEFINITION: {
+				SubjectTitleInfoDefinition subjectTitleInfoDefinition = (SubjectTitleInfoDefinition) theEObject;
+				T result = caseSubjectTitleInfoDefinition(subjectTitleInfoDefinition);
+				if (result == null)
+					result = caseTitleInfoBaseDefinition(subjectTitleInfoDefinition);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case MODSPackage.TABLE_OF_CONTENTS_DEFINITION: {
+				TableOfContentsDefinition tableOfContentsDefinition = (TableOfContentsDefinition) theEObject;
+				T result = caseTableOfContentsDefinition(tableOfContentsDefinition);
+				if (result == null)
+					result = caseUnstructuredTextDefinition(tableOfContentsDefinition);
+				if (result == null)
+					result = caseXsString(tableOfContentsDefinition);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case MODSPackage.TARGET_AUDIENCE_DEFINITION: {
+				TargetAudienceDefinition targetAudienceDefinition = (TargetAudienceDefinition) theEObject;
+				T result = caseTargetAudienceDefinition(targetAudienceDefinition);
+				if (result == null)
+					result = caseStringPlusAuthority(targetAudienceDefinition);
+				if (result == null)
+					result = caseXsString(targetAudienceDefinition);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case MODSPackage.TEMPORAL_DEFINITION: {
+				TemporalDefinition temporalDefinition = (TemporalDefinition) theEObject;
+				T result = caseTemporalDefinition(temporalDefinition);
+				if (result == null)
+					result = caseDateDefinition(temporalDefinition);
+				if (result == null)
+					result = caseDateBaseDefinition(temporalDefinition);
+				if (result == null)
+					result = caseXsString(temporalDefinition);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case MODSPackage.TITLE_INFO_BASE_DEFINITION: {
+				TitleInfoBaseDefinition titleInfoBaseDefinition = (TitleInfoBaseDefinition) theEObject;
+				T result = caseTitleInfoBaseDefinition(titleInfoBaseDefinition);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case MODSPackage.TITLE_INFO_DEFINITION: {
+				TitleInfoDefinition titleInfoDefinition = (TitleInfoDefinition) theEObject;
+				T result = caseTitleInfoDefinition(titleInfoDefinition);
+				if (result == null)
+					result = caseTitleInfoBaseDefinition(titleInfoDefinition);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case MODSPackage.TYPE_OF_RESOURCE_DEFINITION: {
+				TypeOfResourceDefinition typeOfResourceDefinition = (TypeOfResourceDefinition) theEObject;
+				T result = caseTypeOfResourceDefinition(typeOfResourceDefinition);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case MODSPackage.UNSTRUCTURED_TEXT_DEFINITION: {
+				UnstructuredTextDefinition unstructuredTextDefinition = (UnstructuredTextDefinition) theEObject;
+				T result = caseUnstructuredTextDefinition(unstructuredTextDefinition);
+				if (result == null)
+					result = caseXsString(unstructuredTextDefinition);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case MODSPackage.URL_DEFINITION: {
+				UrlDefinition urlDefinition = (UrlDefinition) theEObject;
+				T result = caseUrlDefinition(urlDefinition);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case MODSPackage.XS_STRING: {
+				XsString xsString = (XsString) theEObject;
+				T result = caseXsString(xsString);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			default:
+				return defaultCase(theEObject);
 		}
 	}
 
@@ -764,8 +775,7 @@ public class MODSSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseEnumerationAndChronologyDefinition(
-			EnumerationAndChronologyDefinition object) {
+	public T caseEnumerationAndChronologyDefinition(EnumerationAndChronologyDefinition object) {
 		return null;
 	}
 
@@ -840,8 +850,7 @@ public class MODSSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseHierarchicalGeographicDefinition(
-			HierarchicalGeographicDefinition object) {
+	public T caseHierarchicalGeographicDefinition(HierarchicalGeographicDefinition object) {
 		return null;
 	}
 
@@ -1066,8 +1075,7 @@ public class MODSSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePhysicalDescriptionDefinition(
-			PhysicalDescriptionDefinition object) {
+	public T casePhysicalDescriptionDefinition(PhysicalDescriptionDefinition object) {
 		return null;
 	}
 
@@ -1247,8 +1255,7 @@ public class MODSSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseStringPlusAuthorityPlusTypePlusDisplayLabel(
-			StringPlusAuthorityPlusTypePlusDisplayLabel object) {
+	public T caseStringPlusAuthorityPlusTypePlusDisplayLabel(StringPlusAuthorityPlusTypePlusDisplayLabel object) {
 		return null;
 	}
 
@@ -1474,7 +1481,6 @@ public class MODSSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject)
 	 * @generated
 	 */
-	@Override
 	public T defaultCase(EObject object) {
 		return null;
 	}

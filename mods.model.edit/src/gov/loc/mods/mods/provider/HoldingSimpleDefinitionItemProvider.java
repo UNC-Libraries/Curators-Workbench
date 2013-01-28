@@ -44,9 +44,8 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class HoldingSimpleDefinitionItemProvider extends ItemProviderAdapter
-		implements IEditingDomainItemProvider, IStructuredItemContentProvider,
-		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class HoldingSimpleDefinitionItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -81,12 +80,10 @@ public class HoldingSimpleDefinitionItemProvider extends ItemProviderAdapter
 	 * @generated
 	 */
 	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(
-			Object object) {
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(MODSPackage.eINSTANCE
-					.getHoldingSimpleDefinition_CopyInformation());
+			childrenFeatures.add(MODSPackage.eINSTANCE.getHoldingSimpleDefinition_CopyInformation());
 		}
 		return childrenFeatures;
 	}
@@ -112,10 +109,7 @@ public class HoldingSimpleDefinitionItemProvider extends ItemProviderAdapter
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(
-				object,
-				getResourceLocator().getImage(
-						"full/obj16/HoldingSimpleDefinition"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/HoldingSimpleDefinition"));
 	}
 
 	/**
@@ -151,10 +145,9 @@ public class HoldingSimpleDefinitionItemProvider extends ItemProviderAdapter
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(HoldingSimpleDefinition.class)) {
-		case MODSPackage.HOLDING_SIMPLE_DEFINITION__COPY_INFORMATION:
-			fireNotifyChanged(new ViewerNotification(notification,
-					notification.getNotifier(), true, false));
-			return;
+			case MODSPackage.HOLDING_SIMPLE_DEFINITION__COPY_INFORMATION:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -167,12 +160,10 @@ public class HoldingSimpleDefinitionItemProvider extends ItemProviderAdapter
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(
-			Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getHoldingSimpleDefinition_CopyInformation(),
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getHoldingSimpleDefinition_CopyInformation(),
 				MODSFactory.eINSTANCE.createCopyInformationDefinition()));
 	}
 

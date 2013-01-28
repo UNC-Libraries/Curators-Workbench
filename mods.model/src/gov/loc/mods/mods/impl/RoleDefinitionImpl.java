@@ -85,8 +85,7 @@ public class RoleDefinitionImpl extends EObjectImpl implements RoleDefinition {
 	 */
 	public FeatureMap getGroup() {
 		if (group == null) {
-			group = new BasicFeatureMap(this,
-					MODSPackage.ROLE_DEFINITION__GROUP);
+			group = new BasicFeatureMap(this, MODSPackage.ROLE_DEFINITION__GROUP);
 		}
 		return group;
 	}
@@ -97,8 +96,7 @@ public class RoleDefinitionImpl extends EObjectImpl implements RoleDefinition {
 	 * @generated
 	 */
 	public EList<RoleTermDefinition> getRoleTerm() {
-		return getGroup().list(
-				MODSPackage.eINSTANCE.getRoleDefinition_RoleTerm());
+		return getGroup().list(MODSPackage.eINSTANCE.getRoleDefinition_RoleTerm());
 	}
 
 	/**
@@ -107,14 +105,12 @@ public class RoleDefinitionImpl extends EObjectImpl implements RoleDefinition {
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd,
-			int featureID, NotificationChain msgs) {
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case MODSPackage.ROLE_DEFINITION__GROUP:
-			return ((InternalEList<?>) getGroup()).basicRemove(otherEnd, msgs);
-		case MODSPackage.ROLE_DEFINITION__ROLE_TERM:
-			return ((InternalEList<?>) getRoleTerm()).basicRemove(otherEnd,
-					msgs);
+			case MODSPackage.ROLE_DEFINITION__GROUP:
+				return ((InternalEList<?>) getGroup()).basicRemove(otherEnd, msgs);
+			case MODSPackage.ROLE_DEFINITION__ROLE_TERM:
+				return ((InternalEList<?>) getRoleTerm()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -127,12 +123,12 @@ public class RoleDefinitionImpl extends EObjectImpl implements RoleDefinition {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case MODSPackage.ROLE_DEFINITION__GROUP:
-			if (coreType)
-				return getGroup();
-			return ((FeatureMap.Internal) getGroup()).getWrapper();
-		case MODSPackage.ROLE_DEFINITION__ROLE_TERM:
-			return getRoleTerm();
+			case MODSPackage.ROLE_DEFINITION__GROUP:
+				if (coreType)
+					return getGroup();
+				return ((FeatureMap.Internal) getGroup()).getWrapper();
+			case MODSPackage.ROLE_DEFINITION__ROLE_TERM:
+				return getRoleTerm();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -146,14 +142,13 @@ public class RoleDefinitionImpl extends EObjectImpl implements RoleDefinition {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case MODSPackage.ROLE_DEFINITION__GROUP:
-			((FeatureMap.Internal) getGroup()).set(newValue);
-			return;
-		case MODSPackage.ROLE_DEFINITION__ROLE_TERM:
-			getRoleTerm().clear();
-			getRoleTerm().addAll(
-					(Collection<? extends RoleTermDefinition>) newValue);
-			return;
+			case MODSPackage.ROLE_DEFINITION__GROUP:
+				((FeatureMap.Internal) getGroup()).set(newValue);
+				return;
+			case MODSPackage.ROLE_DEFINITION__ROLE_TERM:
+				getRoleTerm().clear();
+				getRoleTerm().addAll((Collection<? extends RoleTermDefinition>) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -166,12 +161,12 @@ public class RoleDefinitionImpl extends EObjectImpl implements RoleDefinition {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case MODSPackage.ROLE_DEFINITION__GROUP:
-			getGroup().clear();
-			return;
-		case MODSPackage.ROLE_DEFINITION__ROLE_TERM:
-			getRoleTerm().clear();
-			return;
+			case MODSPackage.ROLE_DEFINITION__GROUP:
+				getGroup().clear();
+				return;
+			case MODSPackage.ROLE_DEFINITION__ROLE_TERM:
+				getRoleTerm().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -184,10 +179,10 @@ public class RoleDefinitionImpl extends EObjectImpl implements RoleDefinition {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case MODSPackage.ROLE_DEFINITION__GROUP:
-			return group != null && !group.isEmpty();
-		case MODSPackage.ROLE_DEFINITION__ROLE_TERM:
-			return !getRoleTerm().isEmpty();
+			case MODSPackage.ROLE_DEFINITION__GROUP:
+				return group != null && !group.isEmpty();
+			case MODSPackage.ROLE_DEFINITION__ROLE_TERM:
+				return !getRoleTerm().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

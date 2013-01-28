@@ -790,12 +790,10 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public static MODSPackage init() {
 		if (isInited)
-			return (MODSPackage) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI);
+			return (MODSPackage) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI);
 
 		// Obtain or create and register package
-		MODSPackageImpl theMODSPackage = (MODSPackageImpl) (EPackage.Registry.INSTANCE
-				.get(eNS_URI) instanceof MODSPackageImpl ? EPackage.Registry.INSTANCE
+		MODSPackageImpl theMODSPackage = (MODSPackageImpl) (EPackage.Registry.INSTANCE.get(eNS_URI) instanceof MODSPackageImpl ? EPackage.Registry.INSTANCE
 				.get(eNS_URI) : new MODSPackageImpl());
 
 		isInited = true;
@@ -826,8 +824,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public EClass getAbstractDefinition() {
 		if (abstractDefinitionEClass == null) {
-			abstractDefinitionEClass = (EClass) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI).getEClassifiers().get(0);
+			abstractDefinitionEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI)
+					.getEClassifiers().get(0);
 		}
 		return abstractDefinitionEClass;
 	}
@@ -838,8 +836,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getAbstractDefinition_AltRepGroup() {
-		return (EAttribute) getAbstractDefinition().getEStructuralFeatures()
-				.get(0);
+		return (EAttribute) getAbstractDefinition().getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -848,8 +845,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getAbstractDefinition_Shareable() {
-		return (EAttribute) getAbstractDefinition().getEStructuralFeatures()
-				.get(1);
+		return (EAttribute) getAbstractDefinition().getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -859,8 +855,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public EClass getAccessConditionDefinition() {
 		if (accessConditionDefinitionEClass == null) {
-			accessConditionDefinitionEClass = (EClass) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI).getEClassifiers().get(1);
+			accessConditionDefinitionEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI)
+					.getEClassifiers().get(1);
 		}
 		return accessConditionDefinitionEClass;
 	}
@@ -870,9 +866,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAccessConditionDefinition_AltRepGroup() {
-		return (EAttribute) getAccessConditionDefinition()
-				.getEStructuralFeatures().get(0);
+	public EAttribute getAccessConditionDefinition_Actuate() {
+		return (EAttribute) getAccessConditionDefinition().getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -880,9 +875,17 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAccessConditionDefinition_DisplayLabel() {
-		return (EAttribute) getAccessConditionDefinition()
-				.getEStructuralFeatures().get(1);
+	public EAttribute getAccessConditionDefinition_AltRepGroup() {
+		return (EAttribute) getAccessConditionDefinition().getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAccessConditionDefinition_Arcrole() {
+		return (EAttribute) getAccessConditionDefinition().getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -891,8 +894,70 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getAccessConditionDefinition_Href() {
-		return (EAttribute) getAccessConditionDefinition()
-				.getEStructuralFeatures().get(3);
+		return (EAttribute) getAccessConditionDefinition().getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAccessConditionDefinition_Lang() {
+		return (EAttribute) getAccessConditionDefinition().getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAccessConditionDefinition_Lang1() {
+		return (EAttribute) getAccessConditionDefinition().getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAccessConditionDefinition_Role() {
+		return (EAttribute) getAccessConditionDefinition().getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAccessConditionDefinition_Script() {
+		return (EAttribute) getAccessConditionDefinition().getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAccessConditionDefinition_Show() {
+		return (EAttribute) getAccessConditionDefinition().getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAccessConditionDefinition_Title() {
+		return (EAttribute) getAccessConditionDefinition().getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAccessConditionDefinition_Transliteration() {
+		return (EAttribute) getAccessConditionDefinition().getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -901,8 +966,16 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getAccessConditionDefinition_Type() {
-		return (EAttribute) getAccessConditionDefinition()
-				.getEStructuralFeatures().get(2);
+		return (EAttribute) getAccessConditionDefinition().getEStructuralFeatures().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAccessConditionDefinition_Type1() {
+		return (EAttribute) getAccessConditionDefinition().getEStructuralFeatures().get(12);
 	}
 
 	/**
@@ -912,8 +985,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public EClass getCartographicsDefinition() {
 		if (cartographicsDefinitionEClass == null) {
-			cartographicsDefinitionEClass = (EClass) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI).getEClassifiers().get(2);
+			cartographicsDefinitionEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI)
+					.getEClassifiers().get(2);
 		}
 		return cartographicsDefinitionEClass;
 	}
@@ -924,8 +997,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getCartographicsDefinition_Scale() {
-		return (EReference) getCartographicsDefinition()
-				.getEStructuralFeatures().get(0);
+		return (EReference) getCartographicsDefinition().getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -934,8 +1006,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getCartographicsDefinition_Projection() {
-		return (EReference) getCartographicsDefinition()
-				.getEStructuralFeatures().get(1);
+		return (EReference) getCartographicsDefinition().getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -944,8 +1015,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getCartographicsDefinition_Coordinates() {
-		return (EReference) getCartographicsDefinition()
-				.getEStructuralFeatures().get(2);
+		return (EReference) getCartographicsDefinition().getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -954,8 +1024,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getCartographicsDefinition_Authority() {
-		return (EAttribute) getCartographicsDefinition()
-				.getEStructuralFeatures().get(3);
+		return (EAttribute) getCartographicsDefinition().getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -964,8 +1033,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getCartographicsDefinition_AuthorityURI() {
-		return (EAttribute) getCartographicsDefinition()
-				.getEStructuralFeatures().get(4);
+		return (EAttribute) getCartographicsDefinition().getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -974,8 +1042,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getCartographicsDefinition_ValueURI() {
-		return (EAttribute) getCartographicsDefinition()
-				.getEStructuralFeatures().get(5);
+		return (EAttribute) getCartographicsDefinition().getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -985,8 +1052,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public EClass getClassificationDefinition() {
 		if (classificationDefinitionEClass == null) {
-			classificationDefinitionEClass = (EClass) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI).getEClassifiers().get(3);
+			classificationDefinitionEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI)
+					.getEClassifiers().get(3);
 		}
 		return classificationDefinitionEClass;
 	}
@@ -997,8 +1064,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getClassificationDefinition_AltRepGroup() {
-		return (EAttribute) getClassificationDefinition()
-				.getEStructuralFeatures().get(0);
+		return (EAttribute) getClassificationDefinition().getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1007,8 +1073,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getClassificationDefinition_DisplayLabel() {
-		return (EAttribute) getClassificationDefinition()
-				.getEStructuralFeatures().get(1);
+		return (EAttribute) getClassificationDefinition().getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1017,8 +1082,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getClassificationDefinition_Edition() {
-		return (EAttribute) getClassificationDefinition()
-				.getEStructuralFeatures().get(2);
+		return (EAttribute) getClassificationDefinition().getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1027,8 +1091,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getClassificationDefinition_Usage() {
-		return (EAttribute) getClassificationDefinition()
-				.getEStructuralFeatures().get(3);
+		return (EAttribute) getClassificationDefinition().getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -1038,8 +1101,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public EClass getCopyInformationDefinition() {
 		if (copyInformationDefinitionEClass == null) {
-			copyInformationDefinitionEClass = (EClass) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI).getEClassifiers().get(6);
+			copyInformationDefinitionEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI)
+					.getEClassifiers().get(6);
 		}
 		return copyInformationDefinitionEClass;
 	}
@@ -1050,8 +1113,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getCopyInformationDefinition_Form() {
-		return (EReference) getCopyInformationDefinition()
-				.getEStructuralFeatures().get(0);
+		return (EReference) getCopyInformationDefinition().getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1060,8 +1122,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getCopyInformationDefinition_SubLocation() {
-		return (EReference) getCopyInformationDefinition()
-				.getEStructuralFeatures().get(1);
+		return (EReference) getCopyInformationDefinition().getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1070,8 +1131,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getCopyInformationDefinition_ShelfLocator() {
-		return (EReference) getCopyInformationDefinition()
-				.getEStructuralFeatures().get(2);
+		return (EReference) getCopyInformationDefinition().getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1080,8 +1140,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getCopyInformationDefinition_ElectronicLocator() {
-		return (EReference) getCopyInformationDefinition()
-				.getEStructuralFeatures().get(3);
+		return (EReference) getCopyInformationDefinition().getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -1090,8 +1149,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getCopyInformationDefinition_Note() {
-		return (EReference) getCopyInformationDefinition()
-				.getEStructuralFeatures().get(4);
+		return (EReference) getCopyInformationDefinition().getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -1100,8 +1158,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getCopyInformationDefinition_EnumerationAndChronology() {
-		return (EReference) getCopyInformationDefinition()
-				.getEStructuralFeatures().get(5);
+		return (EReference) getCopyInformationDefinition().getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -1111,8 +1168,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public EClass getDateBaseDefinition() {
 		if (dateBaseDefinitionEClass == null) {
-			dateBaseDefinitionEClass = (EClass) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI).getEClassifiers().get(7);
+			dateBaseDefinitionEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI)
+					.getEClassifiers().get(7);
 		}
 		return dateBaseDefinitionEClass;
 	}
@@ -1123,8 +1180,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getDateBaseDefinition_Encoding() {
-		return (EAttribute) getDateBaseDefinition().getEStructuralFeatures()
-				.get(0);
+		return (EAttribute) getDateBaseDefinition().getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1133,8 +1189,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getDateBaseDefinition_Point() {
-		return (EAttribute) getDateBaseDefinition().getEStructuralFeatures()
-				.get(1);
+		return (EAttribute) getDateBaseDefinition().getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1143,8 +1198,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getDateBaseDefinition_Qualifier() {
-		return (EAttribute) getDateBaseDefinition().getEStructuralFeatures()
-				.get(2);
+		return (EAttribute) getDateBaseDefinition().getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1154,8 +1208,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public EClass getDateDefinition() {
 		if (dateDefinitionEClass == null) {
-			dateDefinitionEClass = (EClass) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI).getEClassifiers().get(8);
+			dateDefinitionEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI).getEClassifiers()
+					.get(8);
 		}
 		return dateDefinitionEClass;
 	}
@@ -1176,8 +1230,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public EClass getDateOtherDefinition() {
 		if (dateOtherDefinitionEClass == null) {
-			dateOtherDefinitionEClass = (EClass) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI).getEClassifiers().get(11);
+			dateOtherDefinitionEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI)
+					.getEClassifiers().get(11);
 		}
 		return dateOtherDefinitionEClass;
 	}
@@ -1188,8 +1242,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getDateOtherDefinition_Type() {
-		return (EAttribute) getDateOtherDefinition().getEStructuralFeatures()
-				.get(0);
+		return (EAttribute) getDateOtherDefinition().getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1199,8 +1252,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public EClass getDetailDefinition() {
 		if (detailDefinitionEClass == null) {
-			detailDefinitionEClass = (EClass) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI).getEClassifiers().get(16);
+			detailDefinitionEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI)
+					.getEClassifiers().get(16);
 		}
 		return detailDefinitionEClass;
 	}
@@ -1211,8 +1264,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getDetailDefinition_Group() {
-		return (EAttribute) getDetailDefinition().getEStructuralFeatures().get(
-				0);
+		return (EAttribute) getDetailDefinition().getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1221,8 +1273,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getDetailDefinition_Number() {
-		return (EReference) getDetailDefinition().getEStructuralFeatures().get(
-				1);
+		return (EReference) getDetailDefinition().getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1231,8 +1282,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getDetailDefinition_Caption() {
-		return (EReference) getDetailDefinition().getEStructuralFeatures().get(
-				2);
+		return (EReference) getDetailDefinition().getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1241,8 +1291,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getDetailDefinition_Title() {
-		return (EReference) getDetailDefinition().getEStructuralFeatures().get(
-				3);
+		return (EReference) getDetailDefinition().getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -1251,8 +1300,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getDetailDefinition_Level() {
-		return (EAttribute) getDetailDefinition().getEStructuralFeatures().get(
-				4);
+		return (EAttribute) getDetailDefinition().getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -1261,8 +1309,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getDetailDefinition_Type() {
-		return (EAttribute) getDetailDefinition().getEStructuralFeatures().get(
-				5);
+		return (EAttribute) getDetailDefinition().getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -1272,8 +1319,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public EClass getDocumentRoot() {
 		if (documentRootEClass == null) {
-			documentRootEClass = (EClass) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI).getEClassifiers().get(19);
+			documentRootEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI).getEClassifiers()
+					.get(19);
 		}
 		return documentRootEClass;
 	}
@@ -2224,8 +2271,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getEnumerationAndChronologyDefinition_UnitType() {
-		return (EAttribute) getEnumerationAndChronologyDefinition()
-				.getEStructuralFeatures().get(0);
+		return (EAttribute) getEnumerationAndChronologyDefinition().getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2235,8 +2281,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public EClass getExtensionDefinition() {
 		if (extensionDefinitionEClass == null) {
-			extensionDefinitionEClass = (EClass) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI).getEClassifiers().get(23);
+			extensionDefinitionEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI)
+					.getEClassifiers().get(23);
 		}
 		return extensionDefinitionEClass;
 	}
@@ -2247,8 +2293,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getExtensionDefinition_Mixed() {
-		return (EAttribute) getExtensionDefinition().getEStructuralFeatures()
-				.get(0);
+		return (EAttribute) getExtensionDefinition().getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2257,8 +2302,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getExtensionDefinition_Any() {
-		return (EAttribute) getExtensionDefinition().getEStructuralFeatures()
-				.get(1);
+		return (EAttribute) getExtensionDefinition().getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -2267,8 +2311,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getExtensionDefinition_DisplayLabel() {
-		return (EAttribute) getExtensionDefinition().getEStructuralFeatures()
-				.get(2);
+		return (EAttribute) getExtensionDefinition().getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -2278,8 +2321,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public EClass getExtentDefinition() {
 		if (extentDefinitionEClass == null) {
-			extentDefinitionEClass = (EClass) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI).getEClassifiers().get(24);
+			extentDefinitionEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI)
+					.getEClassifiers().get(24);
 		}
 		return extentDefinitionEClass;
 	}
@@ -2290,8 +2333,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getExtentDefinition_Start() {
-		return (EReference) getExtentDefinition().getEStructuralFeatures().get(
-				0);
+		return (EReference) getExtentDefinition().getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2300,8 +2342,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getExtentDefinition_End() {
-		return (EReference) getExtentDefinition().getEStructuralFeatures().get(
-				1);
+		return (EReference) getExtentDefinition().getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -2310,8 +2351,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getExtentDefinition_Total() {
-		return (EAttribute) getExtentDefinition().getEStructuralFeatures().get(
-				2);
+		return (EAttribute) getExtentDefinition().getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -2320,8 +2360,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getExtentDefinition_List() {
-		return (EReference) getExtentDefinition().getEStructuralFeatures().get(
-				3);
+		return (EReference) getExtentDefinition().getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -2330,8 +2369,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getExtentDefinition_Unit() {
-		return (EAttribute) getExtentDefinition().getEStructuralFeatures().get(
-				4);
+		return (EAttribute) getExtentDefinition().getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -2341,8 +2379,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public EClass getGenreDefinition() {
 		if (genreDefinitionEClass == null) {
-			genreDefinitionEClass = (EClass) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI).getEClassifiers().get(25);
+			genreDefinitionEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI).getEClassifiers()
+					.get(25);
 		}
 		return genreDefinitionEClass;
 	}
@@ -2353,8 +2391,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getGenreDefinition_AltRepGroup() {
-		return (EAttribute) getGenreDefinition().getEStructuralFeatures()
-				.get(0);
+		return (EAttribute) getGenreDefinition().getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2363,8 +2400,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getGenreDefinition_Usage() {
-		return (EAttribute) getGenreDefinition().getEStructuralFeatures()
-				.get(1);
+		return (EAttribute) getGenreDefinition().getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -2374,8 +2410,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public EClass getGeographicCodeDefinition() {
 		if (geographicCodeDefinitionEClass == null) {
-			geographicCodeDefinitionEClass = (EClass) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI).getEClassifiers().get(26);
+			geographicCodeDefinitionEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI)
+					.getEClassifiers().get(26);
 		}
 		return geographicCodeDefinitionEClass;
 	}
@@ -2386,8 +2422,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getGeographicCodeDefinition_Authority() {
-		return (EAttribute) getGeographicCodeDefinition()
-				.getEStructuralFeatures().get(0);
+		return (EAttribute) getGeographicCodeDefinition().getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2396,8 +2431,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getGeographicCodeDefinition_AuthorityURI() {
-		return (EAttribute) getGeographicCodeDefinition()
-				.getEStructuralFeatures().get(1);
+		return (EAttribute) getGeographicCodeDefinition().getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -2406,8 +2440,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getGeographicCodeDefinition_ValueURI() {
-		return (EAttribute) getGeographicCodeDefinition()
-				.getEStructuralFeatures().get(2);
+		return (EAttribute) getGeographicCodeDefinition().getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -2417,8 +2450,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public EClass getHierarchicalGeographicDefinition() {
 		if (hierarchicalGeographicDefinitionEClass == null) {
-			hierarchicalGeographicDefinitionEClass = (EClass) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI).getEClassifiers().get(27);
+			hierarchicalGeographicDefinitionEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI)
+					.getEClassifiers().get(27);
 		}
 		return hierarchicalGeographicDefinitionEClass;
 	}
@@ -2429,8 +2462,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getHierarchicalGeographicDefinition_Group() {
-		return (EAttribute) getHierarchicalGeographicDefinition()
-				.getEStructuralFeatures().get(0);
+		return (EAttribute) getHierarchicalGeographicDefinition().getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2439,8 +2471,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getHierarchicalGeographicDefinition_ExtraterrestrialArea() {
-		return (EReference) getHierarchicalGeographicDefinition()
-				.getEStructuralFeatures().get(1);
+		return (EReference) getHierarchicalGeographicDefinition().getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -2449,8 +2480,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getHierarchicalGeographicDefinition_Continent() {
-		return (EReference) getHierarchicalGeographicDefinition()
-				.getEStructuralFeatures().get(2);
+		return (EReference) getHierarchicalGeographicDefinition().getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -2459,8 +2489,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getHierarchicalGeographicDefinition_Country() {
-		return (EReference) getHierarchicalGeographicDefinition()
-				.getEStructuralFeatures().get(3);
+		return (EReference) getHierarchicalGeographicDefinition().getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -2469,8 +2498,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getHierarchicalGeographicDefinition_Province() {
-		return (EReference) getHierarchicalGeographicDefinition()
-				.getEStructuralFeatures().get(4);
+		return (EReference) getHierarchicalGeographicDefinition().getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -2479,8 +2507,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getHierarchicalGeographicDefinition_Region() {
-		return (EReference) getHierarchicalGeographicDefinition()
-				.getEStructuralFeatures().get(5);
+		return (EReference) getHierarchicalGeographicDefinition().getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -2489,8 +2516,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getHierarchicalGeographicDefinition_State() {
-		return (EReference) getHierarchicalGeographicDefinition()
-				.getEStructuralFeatures().get(6);
+		return (EReference) getHierarchicalGeographicDefinition().getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -2499,8 +2525,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getHierarchicalGeographicDefinition_Territory() {
-		return (EReference) getHierarchicalGeographicDefinition()
-				.getEStructuralFeatures().get(7);
+		return (EReference) getHierarchicalGeographicDefinition().getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -2509,8 +2534,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getHierarchicalGeographicDefinition_County() {
-		return (EReference) getHierarchicalGeographicDefinition()
-				.getEStructuralFeatures().get(8);
+		return (EReference) getHierarchicalGeographicDefinition().getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -2519,8 +2543,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getHierarchicalGeographicDefinition_City() {
-		return (EReference) getHierarchicalGeographicDefinition()
-				.getEStructuralFeatures().get(9);
+		return (EReference) getHierarchicalGeographicDefinition().getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -2529,8 +2552,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getHierarchicalGeographicDefinition_CitySection() {
-		return (EReference) getHierarchicalGeographicDefinition()
-				.getEStructuralFeatures().get(10);
+		return (EReference) getHierarchicalGeographicDefinition().getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -2539,8 +2561,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getHierarchicalGeographicDefinition_Island() {
-		return (EReference) getHierarchicalGeographicDefinition()
-				.getEStructuralFeatures().get(11);
+		return (EReference) getHierarchicalGeographicDefinition().getEStructuralFeatures().get(11);
 	}
 
 	/**
@@ -2549,8 +2570,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getHierarchicalGeographicDefinition_Area() {
-		return (EReference) getHierarchicalGeographicDefinition()
-				.getEStructuralFeatures().get(12);
+		return (EReference) getHierarchicalGeographicDefinition().getEStructuralFeatures().get(12);
 	}
 
 	/**
@@ -2559,8 +2579,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getHierarchicalGeographicDefinition_Authority() {
-		return (EAttribute) getHierarchicalGeographicDefinition()
-				.getEStructuralFeatures().get(13);
+		return (EAttribute) getHierarchicalGeographicDefinition().getEStructuralFeatures().get(13);
 	}
 
 	/**
@@ -2569,8 +2588,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getHierarchicalGeographicDefinition_AuthorityURI() {
-		return (EAttribute) getHierarchicalGeographicDefinition()
-				.getEStructuralFeatures().get(14);
+		return (EAttribute) getHierarchicalGeographicDefinition().getEStructuralFeatures().get(14);
 	}
 
 	/**
@@ -2579,8 +2597,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getHierarchicalGeographicDefinition_ValueURI() {
-		return (EAttribute) getHierarchicalGeographicDefinition()
-				.getEStructuralFeatures().get(15);
+		return (EAttribute) getHierarchicalGeographicDefinition().getEStructuralFeatures().get(15);
 	}
 
 	/**
@@ -2590,8 +2607,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public EClass getHoldingSimpleDefinition() {
 		if (holdingSimpleDefinitionEClass == null) {
-			holdingSimpleDefinitionEClass = (EClass) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI).getEClassifiers().get(28);
+			holdingSimpleDefinitionEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI)
+					.getEClassifiers().get(28);
 		}
 		return holdingSimpleDefinitionEClass;
 	}
@@ -2602,8 +2619,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getHoldingSimpleDefinition_CopyInformation() {
-		return (EReference) getHoldingSimpleDefinition()
-				.getEStructuralFeatures().get(0);
+		return (EReference) getHoldingSimpleDefinition().getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2613,8 +2629,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public EClass getIdentifierDefinition() {
 		if (identifierDefinitionEClass == null) {
-			identifierDefinitionEClass = (EClass) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI).getEClassifiers().get(29);
+			identifierDefinitionEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI)
+					.getEClassifiers().get(29);
 		}
 		return identifierDefinitionEClass;
 	}
@@ -2625,8 +2641,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getIdentifierDefinition_AltRepGroup() {
-		return (EAttribute) getIdentifierDefinition().getEStructuralFeatures()
-				.get(0);
+		return (EAttribute) getIdentifierDefinition().getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2635,8 +2650,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getIdentifierDefinition_DisplayLabel() {
-		return (EAttribute) getIdentifierDefinition().getEStructuralFeatures()
-				.get(1);
+		return (EAttribute) getIdentifierDefinition().getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -2645,8 +2659,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getIdentifierDefinition_Invalid() {
-		return (EAttribute) getIdentifierDefinition().getEStructuralFeatures()
-				.get(2);
+		return (EAttribute) getIdentifierDefinition().getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -2655,8 +2668,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getIdentifierDefinition_Type() {
-		return (EAttribute) getIdentifierDefinition().getEStructuralFeatures()
-				.get(3);
+		return (EAttribute) getIdentifierDefinition().getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -2666,8 +2678,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public EClass getLanguageDefinition() {
 		if (languageDefinitionEClass == null) {
-			languageDefinitionEClass = (EClass) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI).getEClassifiers().get(34);
+			languageDefinitionEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI)
+					.getEClassifiers().get(34);
 		}
 		return languageDefinitionEClass;
 	}
@@ -2678,8 +2690,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getLanguageDefinition_LanguageTerm() {
-		return (EReference) getLanguageDefinition().getEStructuralFeatures()
-				.get(0);
+		return (EReference) getLanguageDefinition().getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2688,8 +2699,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getLanguageDefinition_ScriptTerm() {
-		return (EReference) getLanguageDefinition().getEStructuralFeatures()
-				.get(1);
+		return (EReference) getLanguageDefinition().getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -2698,8 +2708,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getLanguageDefinition_AltRepGroup() {
-		return (EAttribute) getLanguageDefinition().getEStructuralFeatures()
-				.get(2);
+		return (EAttribute) getLanguageDefinition().getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -2708,8 +2717,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getLanguageDefinition_DisplayLabel() {
-		return (EAttribute) getLanguageDefinition().getEStructuralFeatures()
-				.get(3);
+		return (EAttribute) getLanguageDefinition().getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -2718,8 +2726,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getLanguageDefinition_Lang() {
-		return (EAttribute) getLanguageDefinition().getEStructuralFeatures()
-				.get(4);
+		return (EAttribute) getLanguageDefinition().getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -2728,8 +2735,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getLanguageDefinition_Lang1() {
-		return (EAttribute) getLanguageDefinition().getEStructuralFeatures()
-				.get(5);
+		return (EAttribute) getLanguageDefinition().getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -2738,8 +2744,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getLanguageDefinition_ObjectPart() {
-		return (EAttribute) getLanguageDefinition().getEStructuralFeatures()
-				.get(6);
+		return (EAttribute) getLanguageDefinition().getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -2748,8 +2753,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getLanguageDefinition_Script() {
-		return (EAttribute) getLanguageDefinition().getEStructuralFeatures()
-				.get(7);
+		return (EAttribute) getLanguageDefinition().getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -2758,8 +2762,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getLanguageDefinition_Transliteration() {
-		return (EAttribute) getLanguageDefinition().getEStructuralFeatures()
-				.get(8);
+		return (EAttribute) getLanguageDefinition().getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -2768,8 +2771,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getLanguageDefinition_Usage() {
-		return (EAttribute) getLanguageDefinition().getEStructuralFeatures()
-				.get(9);
+		return (EAttribute) getLanguageDefinition().getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -2779,8 +2781,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public EClass getLanguageTermDefinition() {
 		if (languageTermDefinitionEClass == null) {
-			languageTermDefinitionEClass = (EClass) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI).getEClassifiers().get(35);
+			languageTermDefinitionEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI)
+					.getEClassifiers().get(35);
 		}
 		return languageTermDefinitionEClass;
 	}
@@ -2791,8 +2793,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getLanguageTermDefinition_Authority() {
-		return (EAttribute) getLanguageTermDefinition()
-				.getEStructuralFeatures().get(0);
+		return (EAttribute) getLanguageTermDefinition().getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2801,8 +2802,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getLanguageTermDefinition_AuthorityURI() {
-		return (EAttribute) getLanguageTermDefinition()
-				.getEStructuralFeatures().get(1);
+		return (EAttribute) getLanguageTermDefinition().getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -2811,8 +2811,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getLanguageTermDefinition_Type() {
-		return (EAttribute) getLanguageTermDefinition()
-				.getEStructuralFeatures().get(2);
+		return (EAttribute) getLanguageTermDefinition().getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -2821,8 +2820,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getLanguageTermDefinition_ValueURI() {
-		return (EAttribute) getLanguageTermDefinition()
-				.getEStructuralFeatures().get(3);
+		return (EAttribute) getLanguageTermDefinition().getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -2832,8 +2830,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public EClass getLocationDefinition() {
 		if (locationDefinitionEClass == null) {
-			locationDefinitionEClass = (EClass) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI).getEClassifiers().get(36);
+			locationDefinitionEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI)
+					.getEClassifiers().get(36);
 		}
 		return locationDefinitionEClass;
 	}
@@ -2844,8 +2842,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getLocationDefinition_PhysicalLocation() {
-		return (EReference) getLocationDefinition().getEStructuralFeatures()
-				.get(0);
+		return (EReference) getLocationDefinition().getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2854,8 +2851,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getLocationDefinition_ShelfLocator() {
-		return (EReference) getLocationDefinition().getEStructuralFeatures()
-				.get(1);
+		return (EReference) getLocationDefinition().getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -2864,8 +2860,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getLocationDefinition_Url() {
-		return (EReference) getLocationDefinition().getEStructuralFeatures()
-				.get(2);
+		return (EReference) getLocationDefinition().getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -2874,8 +2869,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getLocationDefinition_HoldingSimple() {
-		return (EReference) getLocationDefinition().getEStructuralFeatures()
-				.get(3);
+		return (EReference) getLocationDefinition().getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -2884,8 +2878,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getLocationDefinition_HoldingExternal() {
-		return (EReference) getLocationDefinition().getEStructuralFeatures()
-				.get(4);
+		return (EReference) getLocationDefinition().getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -2894,8 +2887,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getLocationDefinition_AltRepGroup() {
-		return (EAttribute) getLocationDefinition().getEStructuralFeatures()
-				.get(5);
+		return (EAttribute) getLocationDefinition().getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -2904,8 +2896,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getLocationDefinition_DisplayLabel() {
-		return (EAttribute) getLocationDefinition().getEStructuralFeatures()
-				.get(6);
+		return (EAttribute) getLocationDefinition().getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -2914,8 +2905,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getLocationDefinition_Lang() {
-		return (EAttribute) getLocationDefinition().getEStructuralFeatures()
-				.get(7);
+		return (EAttribute) getLocationDefinition().getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -2924,8 +2914,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getLocationDefinition_Lang1() {
-		return (EAttribute) getLocationDefinition().getEStructuralFeatures()
-				.get(8);
+		return (EAttribute) getLocationDefinition().getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -2934,8 +2923,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getLocationDefinition_Script() {
-		return (EAttribute) getLocationDefinition().getEStructuralFeatures()
-				.get(9);
+		return (EAttribute) getLocationDefinition().getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -2944,8 +2932,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getLocationDefinition_Transliteration() {
-		return (EAttribute) getLocationDefinition().getEStructuralFeatures()
-				.get(10);
+		return (EAttribute) getLocationDefinition().getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -2955,8 +2942,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public EClass getModsCollectionDefinition() {
 		if (modsCollectionDefinitionEClass == null) {
-			modsCollectionDefinitionEClass = (EClass) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI).getEClassifiers().get(37);
+			modsCollectionDefinitionEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI)
+					.getEClassifiers().get(37);
 		}
 		return modsCollectionDefinitionEClass;
 	}
@@ -2967,8 +2954,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getModsCollectionDefinition_Mods() {
-		return (EReference) getModsCollectionDefinition()
-				.getEStructuralFeatures().get(0);
+		return (EReference) getModsCollectionDefinition().getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2978,8 +2964,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public EClass getModsDefinition() {
 		if (modsDefinitionEClass == null) {
-			modsDefinitionEClass = (EClass) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI).getEClassifiers().get(38);
+			modsDefinitionEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI).getEClassifiers()
+					.get(38);
 		}
 		return modsDefinitionEClass;
 	}
@@ -3080,8 +3066,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getModsDefinition_Note() {
-		return (EReference) getModsDefinition().getEStructuralFeatures()
-				.get(10);
+		return (EReference) getModsDefinition().getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -3090,8 +3075,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getModsDefinition_OriginInfo() {
-		return (EReference) getModsDefinition().getEStructuralFeatures()
-				.get(11);
+		return (EReference) getModsDefinition().getEStructuralFeatures().get(11);
 	}
 
 	/**
@@ -3100,8 +3084,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getModsDefinition_Part() {
-		return (EReference) getModsDefinition().getEStructuralFeatures()
-				.get(12);
+		return (EReference) getModsDefinition().getEStructuralFeatures().get(12);
 	}
 
 	/**
@@ -3110,8 +3093,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getModsDefinition_PhysicalDescription() {
-		return (EReference) getModsDefinition().getEStructuralFeatures()
-				.get(13);
+		return (EReference) getModsDefinition().getEStructuralFeatures().get(13);
 	}
 
 	/**
@@ -3120,8 +3102,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getModsDefinition_RecordInfo() {
-		return (EReference) getModsDefinition().getEStructuralFeatures()
-				.get(14);
+		return (EReference) getModsDefinition().getEStructuralFeatures().get(14);
 	}
 
 	/**
@@ -3130,8 +3111,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getModsDefinition_RelatedItem() {
-		return (EReference) getModsDefinition().getEStructuralFeatures()
-				.get(15);
+		return (EReference) getModsDefinition().getEStructuralFeatures().get(15);
 	}
 
 	/**
@@ -3140,8 +3120,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getModsDefinition_Subject() {
-		return (EReference) getModsDefinition().getEStructuralFeatures()
-				.get(16);
+		return (EReference) getModsDefinition().getEStructuralFeatures().get(16);
 	}
 
 	/**
@@ -3150,8 +3129,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getModsDefinition_TableOfContents() {
-		return (EReference) getModsDefinition().getEStructuralFeatures()
-				.get(17);
+		return (EReference) getModsDefinition().getEStructuralFeatures().get(17);
 	}
 
 	/**
@@ -3160,8 +3138,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getModsDefinition_TargetAudience() {
-		return (EReference) getModsDefinition().getEStructuralFeatures()
-				.get(18);
+		return (EReference) getModsDefinition().getEStructuralFeatures().get(18);
 	}
 
 	/**
@@ -3170,8 +3147,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getModsDefinition_TitleInfo() {
-		return (EReference) getModsDefinition().getEStructuralFeatures()
-				.get(19);
+		return (EReference) getModsDefinition().getEStructuralFeatures().get(19);
 	}
 
 	/**
@@ -3180,8 +3156,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getModsDefinition_TypeOfResource() {
-		return (EReference) getModsDefinition().getEStructuralFeatures()
-				.get(20);
+		return (EReference) getModsDefinition().getEStructuralFeatures().get(20);
 	}
 
 	/**
@@ -3190,8 +3165,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getModsDefinition_ID() {
-		return (EAttribute) getModsDefinition().getEStructuralFeatures()
-				.get(21);
+		return (EAttribute) getModsDefinition().getEStructuralFeatures().get(21);
 	}
 
 	/**
@@ -3200,8 +3174,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getModsDefinition_Version() {
-		return (EAttribute) getModsDefinition().getEStructuralFeatures()
-				.get(22);
+		return (EAttribute) getModsDefinition().getEStructuralFeatures().get(22);
 	}
 
 	/**
@@ -3211,8 +3184,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public EClass getNameBaseDefinition() {
 		if (nameBaseDefinitionEClass == null) {
-			nameBaseDefinitionEClass = (EClass) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI).getEClassifiers().get(41);
+			nameBaseDefinitionEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI)
+					.getEClassifiers().get(41);
 		}
 		return nameBaseDefinitionEClass;
 	}
@@ -3223,8 +3196,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getNameBaseDefinition_Group() {
-		return (EAttribute) getNameBaseDefinition().getEStructuralFeatures()
-				.get(0);
+		return (EAttribute) getNameBaseDefinition().getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -3233,8 +3205,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getNameBaseDefinition_NamePart() {
-		return (EReference) getNameBaseDefinition().getEStructuralFeatures()
-				.get(1);
+		return (EReference) getNameBaseDefinition().getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -3243,8 +3214,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getNameBaseDefinition_DisplayForm() {
-		return (EReference) getNameBaseDefinition().getEStructuralFeatures()
-				.get(2);
+		return (EReference) getNameBaseDefinition().getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -3253,8 +3223,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getNameBaseDefinition_Affiliation() {
-		return (EReference) getNameBaseDefinition().getEStructuralFeatures()
-				.get(3);
+		return (EReference) getNameBaseDefinition().getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -3263,8 +3232,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getNameBaseDefinition_Role() {
-		return (EReference) getNameBaseDefinition().getEStructuralFeatures()
-				.get(4);
+		return (EReference) getNameBaseDefinition().getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -3273,8 +3241,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getNameBaseDefinition_Description() {
-		return (EReference) getNameBaseDefinition().getEStructuralFeatures()
-				.get(5);
+		return (EReference) getNameBaseDefinition().getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -3283,8 +3250,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getNameBaseDefinition_Actuate() {
-		return (EAttribute) getNameBaseDefinition().getEStructuralFeatures()
-				.get(6);
+		return (EAttribute) getNameBaseDefinition().getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -3293,8 +3259,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getNameBaseDefinition_Arcrole() {
-		return (EAttribute) getNameBaseDefinition().getEStructuralFeatures()
-				.get(7);
+		return (EAttribute) getNameBaseDefinition().getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -3303,8 +3268,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getNameBaseDefinition_Authority() {
-		return (EAttribute) getNameBaseDefinition().getEStructuralFeatures()
-				.get(8);
+		return (EAttribute) getNameBaseDefinition().getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -3313,8 +3277,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getNameBaseDefinition_AuthorityURI() {
-		return (EAttribute) getNameBaseDefinition().getEStructuralFeatures()
-				.get(9);
+		return (EAttribute) getNameBaseDefinition().getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -3323,8 +3286,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getNameBaseDefinition_DisplayLabel() {
-		return (EAttribute) getNameBaseDefinition().getEStructuralFeatures()
-				.get(10);
+		return (EAttribute) getNameBaseDefinition().getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -3333,8 +3295,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getNameBaseDefinition_Href() {
-		return (EAttribute) getNameBaseDefinition().getEStructuralFeatures()
-				.get(11);
+		return (EAttribute) getNameBaseDefinition().getEStructuralFeatures().get(11);
 	}
 
 	/**
@@ -3343,8 +3304,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getNameBaseDefinition_ID() {
-		return (EAttribute) getNameBaseDefinition().getEStructuralFeatures()
-				.get(12);
+		return (EAttribute) getNameBaseDefinition().getEStructuralFeatures().get(12);
 	}
 
 	/**
@@ -3353,8 +3313,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getNameBaseDefinition_Lang() {
-		return (EAttribute) getNameBaseDefinition().getEStructuralFeatures()
-				.get(13);
+		return (EAttribute) getNameBaseDefinition().getEStructuralFeatures().get(13);
 	}
 
 	/**
@@ -3363,8 +3322,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getNameBaseDefinition_Lang1() {
-		return (EAttribute) getNameBaseDefinition().getEStructuralFeatures()
-				.get(14);
+		return (EAttribute) getNameBaseDefinition().getEStructuralFeatures().get(14);
 	}
 
 	/**
@@ -3373,8 +3331,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getNameBaseDefinition_Role1() {
-		return (EAttribute) getNameBaseDefinition().getEStructuralFeatures()
-				.get(15);
+		return (EAttribute) getNameBaseDefinition().getEStructuralFeatures().get(15);
 	}
 
 	/**
@@ -3383,8 +3340,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getNameBaseDefinition_Script() {
-		return (EAttribute) getNameBaseDefinition().getEStructuralFeatures()
-				.get(16);
+		return (EAttribute) getNameBaseDefinition().getEStructuralFeatures().get(16);
 	}
 
 	/**
@@ -3393,8 +3349,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getNameBaseDefinition_Show() {
-		return (EAttribute) getNameBaseDefinition().getEStructuralFeatures()
-				.get(17);
+		return (EAttribute) getNameBaseDefinition().getEStructuralFeatures().get(17);
 	}
 
 	/**
@@ -3403,8 +3358,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getNameBaseDefinition_Title() {
-		return (EAttribute) getNameBaseDefinition().getEStructuralFeatures()
-				.get(18);
+		return (EAttribute) getNameBaseDefinition().getEStructuralFeatures().get(18);
 	}
 
 	/**
@@ -3413,8 +3367,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getNameBaseDefinition_Transliteration() {
-		return (EAttribute) getNameBaseDefinition().getEStructuralFeatures()
-				.get(19);
+		return (EAttribute) getNameBaseDefinition().getEStructuralFeatures().get(19);
 	}
 
 	/**
@@ -3423,8 +3376,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getNameBaseDefinition_Type() {
-		return (EAttribute) getNameBaseDefinition().getEStructuralFeatures()
-				.get(20);
+		return (EAttribute) getNameBaseDefinition().getEStructuralFeatures().get(20);
 	}
 
 	/**
@@ -3433,8 +3385,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getNameBaseDefinition_Type1() {
-		return (EAttribute) getNameBaseDefinition().getEStructuralFeatures()
-				.get(21);
+		return (EAttribute) getNameBaseDefinition().getEStructuralFeatures().get(21);
 	}
 
 	/**
@@ -3443,8 +3394,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getNameBaseDefinition_ValueURI() {
-		return (EAttribute) getNameBaseDefinition().getEStructuralFeatures()
-				.get(22);
+		return (EAttribute) getNameBaseDefinition().getEStructuralFeatures().get(22);
 	}
 
 	/**
@@ -3454,8 +3404,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public EClass getNameDefinition() {
 		if (nameDefinitionEClass == null) {
-			nameDefinitionEClass = (EClass) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI).getEClassifiers().get(42);
+			nameDefinitionEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI).getEClassifiers()
+					.get(42);
 		}
 		return nameDefinitionEClass;
 	}
@@ -3494,8 +3444,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public EClass getNamePartDefinition() {
 		if (namePartDefinitionEClass == null) {
-			namePartDefinitionEClass = (EClass) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI).getEClassifiers().get(43);
+			namePartDefinitionEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI)
+					.getEClassifiers().get(43);
 		}
 		return namePartDefinitionEClass;
 	}
@@ -3506,8 +3456,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getNamePartDefinition_Type() {
-		return (EAttribute) getNamePartDefinition().getEStructuralFeatures()
-				.get(0);
+		return (EAttribute) getNamePartDefinition().getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -3517,8 +3466,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public EClass getNoteBaseDefinition() {
 		if (noteBaseDefinitionEClass == null) {
-			noteBaseDefinitionEClass = (EClass) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI).getEClassifiers().get(50);
+			noteBaseDefinitionEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI)
+					.getEClassifiers().get(50);
 		}
 		return noteBaseDefinitionEClass;
 	}
@@ -3529,8 +3478,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getNoteBaseDefinition_ID() {
-		return (EAttribute) getNoteBaseDefinition().getEStructuralFeatures()
-				.get(0);
+		return (EAttribute) getNoteBaseDefinition().getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -3540,8 +3488,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public EClass getNoteDefinition() {
 		if (noteDefinitionEClass == null) {
-			noteDefinitionEClass = (EClass) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI).getEClassifiers().get(51);
+			noteDefinitionEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI).getEClassifiers()
+					.get(51);
 		}
 		return noteDefinitionEClass;
 	}
@@ -3562,8 +3510,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public EClass getOriginInfoDefinition() {
 		if (originInfoDefinitionEClass == null) {
-			originInfoDefinitionEClass = (EClass) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI).getEClassifiers().get(52);
+			originInfoDefinitionEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI)
+					.getEClassifiers().get(52);
 		}
 		return originInfoDefinitionEClass;
 	}
@@ -3574,8 +3522,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getOriginInfoDefinition_Group() {
-		return (EAttribute) getOriginInfoDefinition().getEStructuralFeatures()
-				.get(0);
+		return (EAttribute) getOriginInfoDefinition().getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -3584,8 +3531,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getOriginInfoDefinition_Place() {
-		return (EReference) getOriginInfoDefinition().getEStructuralFeatures()
-				.get(1);
+		return (EReference) getOriginInfoDefinition().getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -3594,8 +3540,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getOriginInfoDefinition_Publisher() {
-		return (EReference) getOriginInfoDefinition().getEStructuralFeatures()
-				.get(2);
+		return (EReference) getOriginInfoDefinition().getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -3604,8 +3549,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getOriginInfoDefinition_DateIssued() {
-		return (EReference) getOriginInfoDefinition().getEStructuralFeatures()
-				.get(3);
+		return (EReference) getOriginInfoDefinition().getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -3614,8 +3558,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getOriginInfoDefinition_DateCreated() {
-		return (EReference) getOriginInfoDefinition().getEStructuralFeatures()
-				.get(4);
+		return (EReference) getOriginInfoDefinition().getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -3624,8 +3567,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getOriginInfoDefinition_DateCaptured() {
-		return (EReference) getOriginInfoDefinition().getEStructuralFeatures()
-				.get(5);
+		return (EReference) getOriginInfoDefinition().getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -3634,8 +3576,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getOriginInfoDefinition_DateValid() {
-		return (EReference) getOriginInfoDefinition().getEStructuralFeatures()
-				.get(6);
+		return (EReference) getOriginInfoDefinition().getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -3644,8 +3585,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getOriginInfoDefinition_DateModified() {
-		return (EReference) getOriginInfoDefinition().getEStructuralFeatures()
-				.get(7);
+		return (EReference) getOriginInfoDefinition().getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -3654,8 +3594,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getOriginInfoDefinition_CopyrightDate() {
-		return (EReference) getOriginInfoDefinition().getEStructuralFeatures()
-				.get(8);
+		return (EReference) getOriginInfoDefinition().getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -3664,8 +3603,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getOriginInfoDefinition_DateOther() {
-		return (EReference) getOriginInfoDefinition().getEStructuralFeatures()
-				.get(9);
+		return (EReference) getOriginInfoDefinition().getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -3674,8 +3612,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getOriginInfoDefinition_Edition() {
-		return (EReference) getOriginInfoDefinition().getEStructuralFeatures()
-				.get(10);
+		return (EReference) getOriginInfoDefinition().getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -3684,8 +3621,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getOriginInfoDefinition_Issuance() {
-		return (EAttribute) getOriginInfoDefinition().getEStructuralFeatures()
-				.get(11);
+		return (EAttribute) getOriginInfoDefinition().getEStructuralFeatures().get(11);
 	}
 
 	/**
@@ -3694,8 +3630,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getOriginInfoDefinition_Frequency() {
-		return (EReference) getOriginInfoDefinition().getEStructuralFeatures()
-				.get(12);
+		return (EReference) getOriginInfoDefinition().getEStructuralFeatures().get(12);
 	}
 
 	/**
@@ -3704,8 +3639,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getOriginInfoDefinition_AltRepGroup() {
-		return (EAttribute) getOriginInfoDefinition().getEStructuralFeatures()
-				.get(13);
+		return (EAttribute) getOriginInfoDefinition().getEStructuralFeatures().get(13);
 	}
 
 	/**
@@ -3714,8 +3648,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getOriginInfoDefinition_DisplayLabel() {
-		return (EAttribute) getOriginInfoDefinition().getEStructuralFeatures()
-				.get(14);
+		return (EAttribute) getOriginInfoDefinition().getEStructuralFeatures().get(14);
 	}
 
 	/**
@@ -3724,8 +3657,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getOriginInfoDefinition_Lang() {
-		return (EAttribute) getOriginInfoDefinition().getEStructuralFeatures()
-				.get(15);
+		return (EAttribute) getOriginInfoDefinition().getEStructuralFeatures().get(15);
 	}
 
 	/**
@@ -3734,8 +3666,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getOriginInfoDefinition_Lang1() {
-		return (EAttribute) getOriginInfoDefinition().getEStructuralFeatures()
-				.get(16);
+		return (EAttribute) getOriginInfoDefinition().getEStructuralFeatures().get(16);
 	}
 
 	/**
@@ -3744,8 +3675,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getOriginInfoDefinition_Script() {
-		return (EAttribute) getOriginInfoDefinition().getEStructuralFeatures()
-				.get(17);
+		return (EAttribute) getOriginInfoDefinition().getEStructuralFeatures().get(17);
 	}
 
 	/**
@@ -3754,8 +3684,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getOriginInfoDefinition_Transliteration() {
-		return (EAttribute) getOriginInfoDefinition().getEStructuralFeatures()
-				.get(18);
+		return (EAttribute) getOriginInfoDefinition().getEStructuralFeatures().get(18);
 	}
 
 	/**
@@ -3765,8 +3694,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public EClass getPartDefinition() {
 		if (partDefinitionEClass == null) {
-			partDefinitionEClass = (EClass) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI).getEClassifiers().get(53);
+			partDefinitionEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI).getEClassifiers()
+					.get(53);
 		}
 		return partDefinitionEClass;
 	}
@@ -3867,8 +3796,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getPartDefinition_Order() {
-		return (EAttribute) getPartDefinition().getEStructuralFeatures()
-				.get(10);
+		return (EAttribute) getPartDefinition().getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -3877,8 +3805,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getPartDefinition_Script() {
-		return (EAttribute) getPartDefinition().getEStructuralFeatures()
-				.get(11);
+		return (EAttribute) getPartDefinition().getEStructuralFeatures().get(11);
 	}
 
 	/**
@@ -3887,8 +3814,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getPartDefinition_Transliteration() {
-		return (EAttribute) getPartDefinition().getEStructuralFeatures()
-				.get(12);
+		return (EAttribute) getPartDefinition().getEStructuralFeatures().get(12);
 	}
 
 	/**
@@ -3897,8 +3823,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getPartDefinition_Type() {
-		return (EAttribute) getPartDefinition().getEStructuralFeatures()
-				.get(13);
+		return (EAttribute) getPartDefinition().getEStructuralFeatures().get(13);
 	}
 
 	/**
@@ -3908,8 +3833,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public EClass getPhysicalDescriptionDefinition() {
 		if (physicalDescriptionDefinitionEClass == null) {
-			physicalDescriptionDefinitionEClass = (EClass) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI).getEClassifiers().get(54);
+			physicalDescriptionDefinitionEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI)
+					.getEClassifiers().get(54);
 		}
 		return physicalDescriptionDefinitionEClass;
 	}
@@ -3920,8 +3845,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getPhysicalDescriptionDefinition_Group() {
-		return (EAttribute) getPhysicalDescriptionDefinition()
-				.getEStructuralFeatures().get(0);
+		return (EAttribute) getPhysicalDescriptionDefinition().getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -3930,8 +3854,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getPhysicalDescriptionDefinition_Form() {
-		return (EReference) getPhysicalDescriptionDefinition()
-				.getEStructuralFeatures().get(1);
+		return (EReference) getPhysicalDescriptionDefinition().getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -3940,8 +3863,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getPhysicalDescriptionDefinition_ReformattingQuality() {
-		return (EAttribute) getPhysicalDescriptionDefinition()
-				.getEStructuralFeatures().get(2);
+		return (EAttribute) getPhysicalDescriptionDefinition().getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -3950,8 +3872,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getPhysicalDescriptionDefinition_InternetMediaType() {
-		return (EReference) getPhysicalDescriptionDefinition()
-				.getEStructuralFeatures().get(3);
+		return (EReference) getPhysicalDescriptionDefinition().getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -3960,8 +3881,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getPhysicalDescriptionDefinition_Extent() {
-		return (EReference) getPhysicalDescriptionDefinition()
-				.getEStructuralFeatures().get(4);
+		return (EReference) getPhysicalDescriptionDefinition().getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -3970,8 +3890,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getPhysicalDescriptionDefinition_DigitalOrigin() {
-		return (EAttribute) getPhysicalDescriptionDefinition()
-				.getEStructuralFeatures().get(5);
+		return (EAttribute) getPhysicalDescriptionDefinition().getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -3980,8 +3899,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getPhysicalDescriptionDefinition_Note() {
-		return (EReference) getPhysicalDescriptionDefinition()
-				.getEStructuralFeatures().get(6);
+		return (EReference) getPhysicalDescriptionDefinition().getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -3990,8 +3908,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getPhysicalDescriptionDefinition_AltRepGroup() {
-		return (EAttribute) getPhysicalDescriptionDefinition()
-				.getEStructuralFeatures().get(7);
+		return (EAttribute) getPhysicalDescriptionDefinition().getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -4000,8 +3917,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getPhysicalDescriptionDefinition_DisplayLabel() {
-		return (EAttribute) getPhysicalDescriptionDefinition()
-				.getEStructuralFeatures().get(8);
+		return (EAttribute) getPhysicalDescriptionDefinition().getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -4010,8 +3926,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getPhysicalDescriptionDefinition_Lang() {
-		return (EAttribute) getPhysicalDescriptionDefinition()
-				.getEStructuralFeatures().get(9);
+		return (EAttribute) getPhysicalDescriptionDefinition().getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -4020,8 +3935,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getPhysicalDescriptionDefinition_Lang1() {
-		return (EAttribute) getPhysicalDescriptionDefinition()
-				.getEStructuralFeatures().get(10);
+		return (EAttribute) getPhysicalDescriptionDefinition().getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -4030,8 +3944,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getPhysicalDescriptionDefinition_Script() {
-		return (EAttribute) getPhysicalDescriptionDefinition()
-				.getEStructuralFeatures().get(11);
+		return (EAttribute) getPhysicalDescriptionDefinition().getEStructuralFeatures().get(11);
 	}
 
 	/**
@@ -4040,8 +3953,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getPhysicalDescriptionDefinition_Transliteration() {
-		return (EAttribute) getPhysicalDescriptionDefinition()
-				.getEStructuralFeatures().get(12);
+		return (EAttribute) getPhysicalDescriptionDefinition().getEStructuralFeatures().get(12);
 	}
 
 	/**
@@ -4051,8 +3963,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public EClass getPhysicalLocationDefinition() {
 		if (physicalLocationDefinitionEClass == null) {
-			physicalLocationDefinitionEClass = (EClass) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI).getEClassifiers().get(55);
+			physicalLocationDefinitionEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI)
+					.getEClassifiers().get(55);
 		}
 		return physicalLocationDefinitionEClass;
 	}
@@ -4064,8 +3976,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public EClass getPlaceDefinition() {
 		if (placeDefinitionEClass == null) {
-			placeDefinitionEClass = (EClass) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI).getEClassifiers().get(58);
+			placeDefinitionEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI).getEClassifiers()
+					.get(58);
 		}
 		return placeDefinitionEClass;
 	}
@@ -4076,8 +3988,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getPlaceDefinition_PlaceTerm() {
-		return (EReference) getPlaceDefinition().getEStructuralFeatures()
-				.get(0);
+		return (EReference) getPlaceDefinition().getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -4086,8 +3997,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getPlaceDefinition_Supplied() {
-		return (EAttribute) getPlaceDefinition().getEStructuralFeatures()
-				.get(1);
+		return (EAttribute) getPlaceDefinition().getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -4097,8 +4007,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public EClass getPlaceTermDefinition() {
 		if (placeTermDefinitionEClass == null) {
-			placeTermDefinitionEClass = (EClass) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI).getEClassifiers().get(59);
+			placeTermDefinitionEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI)
+					.getEClassifiers().get(59);
 		}
 		return placeTermDefinitionEClass;
 	}
@@ -4109,8 +4019,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getPlaceTermDefinition_Authority() {
-		return (EAttribute) getPlaceTermDefinition().getEStructuralFeatures()
-				.get(0);
+		return (EAttribute) getPlaceTermDefinition().getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -4119,8 +4028,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getPlaceTermDefinition_AuthorityURI() {
-		return (EAttribute) getPlaceTermDefinition().getEStructuralFeatures()
-				.get(1);
+		return (EAttribute) getPlaceTermDefinition().getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -4129,8 +4037,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getPlaceTermDefinition_Type() {
-		return (EAttribute) getPlaceTermDefinition().getEStructuralFeatures()
-				.get(2);
+		return (EAttribute) getPlaceTermDefinition().getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -4139,8 +4046,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getPlaceTermDefinition_ValueURI() {
-		return (EAttribute) getPlaceTermDefinition().getEStructuralFeatures()
-				.get(3);
+		return (EAttribute) getPlaceTermDefinition().getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -4150,8 +4056,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public EClass getRecordIdentifierDefinition() {
 		if (recordIdentifierDefinitionEClass == null) {
-			recordIdentifierDefinitionEClass = (EClass) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI).getEClassifiers().get(60);
+			recordIdentifierDefinitionEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI)
+					.getEClassifiers().get(60);
 		}
 		return recordIdentifierDefinitionEClass;
 	}
@@ -4162,8 +4068,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getRecordIdentifierDefinition_Source() {
-		return (EAttribute) getRecordIdentifierDefinition()
-				.getEStructuralFeatures().get(0);
+		return (EAttribute) getRecordIdentifierDefinition().getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -4173,8 +4078,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public EClass getRecordInfoDefinition() {
 		if (recordInfoDefinitionEClass == null) {
-			recordInfoDefinitionEClass = (EClass) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI).getEClassifiers().get(61);
+			recordInfoDefinitionEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI)
+					.getEClassifiers().get(61);
 		}
 		return recordInfoDefinitionEClass;
 	}
@@ -4185,8 +4090,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getRecordInfoDefinition_Group() {
-		return (EAttribute) getRecordInfoDefinition().getEStructuralFeatures()
-				.get(0);
+		return (EAttribute) getRecordInfoDefinition().getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -4195,8 +4099,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getRecordInfoDefinition_RecordContentSource() {
-		return (EReference) getRecordInfoDefinition().getEStructuralFeatures()
-				.get(1);
+		return (EReference) getRecordInfoDefinition().getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -4205,8 +4108,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getRecordInfoDefinition_RecordCreationDate() {
-		return (EReference) getRecordInfoDefinition().getEStructuralFeatures()
-				.get(2);
+		return (EReference) getRecordInfoDefinition().getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -4215,8 +4117,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getRecordInfoDefinition_RecordChangeDate() {
-		return (EReference) getRecordInfoDefinition().getEStructuralFeatures()
-				.get(3);
+		return (EReference) getRecordInfoDefinition().getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -4225,8 +4126,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getRecordInfoDefinition_RecordIdentifier() {
-		return (EReference) getRecordInfoDefinition().getEStructuralFeatures()
-				.get(4);
+		return (EReference) getRecordInfoDefinition().getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -4235,8 +4135,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getRecordInfoDefinition_LanguageOfCataloging() {
-		return (EReference) getRecordInfoDefinition().getEStructuralFeatures()
-				.get(5);
+		return (EReference) getRecordInfoDefinition().getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -4245,8 +4144,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getRecordInfoDefinition_RecordOrigin() {
-		return (EReference) getRecordInfoDefinition().getEStructuralFeatures()
-				.get(6);
+		return (EReference) getRecordInfoDefinition().getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -4255,8 +4153,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getRecordInfoDefinition_DescriptionStandard() {
-		return (EReference) getRecordInfoDefinition().getEStructuralFeatures()
-				.get(7);
+		return (EReference) getRecordInfoDefinition().getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -4265,8 +4162,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getRecordInfoDefinition_AltRepGroup() {
-		return (EAttribute) getRecordInfoDefinition().getEStructuralFeatures()
-				.get(8);
+		return (EAttribute) getRecordInfoDefinition().getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -4275,8 +4171,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getRecordInfoDefinition_DisplayLabel() {
-		return (EAttribute) getRecordInfoDefinition().getEStructuralFeatures()
-				.get(9);
+		return (EAttribute) getRecordInfoDefinition().getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -4285,8 +4180,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getRecordInfoDefinition_Lang() {
-		return (EAttribute) getRecordInfoDefinition().getEStructuralFeatures()
-				.get(10);
+		return (EAttribute) getRecordInfoDefinition().getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -4295,8 +4189,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getRecordInfoDefinition_Lang1() {
-		return (EAttribute) getRecordInfoDefinition().getEStructuralFeatures()
-				.get(11);
+		return (EAttribute) getRecordInfoDefinition().getEStructuralFeatures().get(11);
 	}
 
 	/**
@@ -4305,8 +4198,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getRecordInfoDefinition_Script() {
-		return (EAttribute) getRecordInfoDefinition().getEStructuralFeatures()
-				.get(12);
+		return (EAttribute) getRecordInfoDefinition().getEStructuralFeatures().get(12);
 	}
 
 	/**
@@ -4315,8 +4207,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getRecordInfoDefinition_Transliteration() {
-		return (EAttribute) getRecordInfoDefinition().getEStructuralFeatures()
-				.get(13);
+		return (EAttribute) getRecordInfoDefinition().getEStructuralFeatures().get(13);
 	}
 
 	/**
@@ -4326,8 +4217,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public EClass getRelatedItemDefinition() {
 		if (relatedItemDefinitionEClass == null) {
-			relatedItemDefinitionEClass = (EClass) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI).getEClassifiers().get(64);
+			relatedItemDefinitionEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI)
+					.getEClassifiers().get(64);
 		}
 		return relatedItemDefinitionEClass;
 	}
@@ -4338,8 +4229,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getRelatedItemDefinition_ModsGroup() {
-		return (EAttribute) getRelatedItemDefinition().getEStructuralFeatures()
-				.get(0);
+		return (EAttribute) getRelatedItemDefinition().getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -4348,8 +4238,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getRelatedItemDefinition_Abstract() {
-		return (EReference) getRelatedItemDefinition().getEStructuralFeatures()
-				.get(1);
+		return (EReference) getRelatedItemDefinition().getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -4358,8 +4247,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getRelatedItemDefinition_AccessCondition() {
-		return (EReference) getRelatedItemDefinition().getEStructuralFeatures()
-				.get(2);
+		return (EReference) getRelatedItemDefinition().getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -4368,8 +4256,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getRelatedItemDefinition_Classification() {
-		return (EReference) getRelatedItemDefinition().getEStructuralFeatures()
-				.get(3);
+		return (EReference) getRelatedItemDefinition().getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -4378,8 +4265,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getRelatedItemDefinition_Extension() {
-		return (EReference) getRelatedItemDefinition().getEStructuralFeatures()
-				.get(4);
+		return (EReference) getRelatedItemDefinition().getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -4388,8 +4274,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getRelatedItemDefinition_Genre() {
-		return (EReference) getRelatedItemDefinition().getEStructuralFeatures()
-				.get(5);
+		return (EReference) getRelatedItemDefinition().getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -4398,8 +4283,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getRelatedItemDefinition_Identifier() {
-		return (EReference) getRelatedItemDefinition().getEStructuralFeatures()
-				.get(6);
+		return (EReference) getRelatedItemDefinition().getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -4408,8 +4292,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getRelatedItemDefinition_Language() {
-		return (EReference) getRelatedItemDefinition().getEStructuralFeatures()
-				.get(7);
+		return (EReference) getRelatedItemDefinition().getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -4418,8 +4301,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getRelatedItemDefinition_Location() {
-		return (EReference) getRelatedItemDefinition().getEStructuralFeatures()
-				.get(8);
+		return (EReference) getRelatedItemDefinition().getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -4428,8 +4310,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getRelatedItemDefinition_Name() {
-		return (EReference) getRelatedItemDefinition().getEStructuralFeatures()
-				.get(9);
+		return (EReference) getRelatedItemDefinition().getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -4438,8 +4319,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getRelatedItemDefinition_Note() {
-		return (EReference) getRelatedItemDefinition().getEStructuralFeatures()
-				.get(10);
+		return (EReference) getRelatedItemDefinition().getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -4448,8 +4328,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getRelatedItemDefinition_OriginInfo() {
-		return (EReference) getRelatedItemDefinition().getEStructuralFeatures()
-				.get(11);
+		return (EReference) getRelatedItemDefinition().getEStructuralFeatures().get(11);
 	}
 
 	/**
@@ -4458,8 +4337,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getRelatedItemDefinition_Part() {
-		return (EReference) getRelatedItemDefinition().getEStructuralFeatures()
-				.get(12);
+		return (EReference) getRelatedItemDefinition().getEStructuralFeatures().get(12);
 	}
 
 	/**
@@ -4468,8 +4346,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getRelatedItemDefinition_PhysicalDescription() {
-		return (EReference) getRelatedItemDefinition().getEStructuralFeatures()
-				.get(13);
+		return (EReference) getRelatedItemDefinition().getEStructuralFeatures().get(13);
 	}
 
 	/**
@@ -4478,8 +4355,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getRelatedItemDefinition_RecordInfo() {
-		return (EReference) getRelatedItemDefinition().getEStructuralFeatures()
-				.get(14);
+		return (EReference) getRelatedItemDefinition().getEStructuralFeatures().get(14);
 	}
 
 	/**
@@ -4488,8 +4364,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getRelatedItemDefinition_RelatedItem() {
-		return (EReference) getRelatedItemDefinition().getEStructuralFeatures()
-				.get(15);
+		return (EReference) getRelatedItemDefinition().getEStructuralFeatures().get(15);
 	}
 
 	/**
@@ -4498,8 +4373,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getRelatedItemDefinition_Subject() {
-		return (EReference) getRelatedItemDefinition().getEStructuralFeatures()
-				.get(16);
+		return (EReference) getRelatedItemDefinition().getEStructuralFeatures().get(16);
 	}
 
 	/**
@@ -4508,8 +4382,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getRelatedItemDefinition_TableOfContents() {
-		return (EReference) getRelatedItemDefinition().getEStructuralFeatures()
-				.get(17);
+		return (EReference) getRelatedItemDefinition().getEStructuralFeatures().get(17);
 	}
 
 	/**
@@ -4518,8 +4391,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getRelatedItemDefinition_TargetAudience() {
-		return (EReference) getRelatedItemDefinition().getEStructuralFeatures()
-				.get(18);
+		return (EReference) getRelatedItemDefinition().getEStructuralFeatures().get(18);
 	}
 
 	/**
@@ -4528,8 +4400,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getRelatedItemDefinition_TitleInfo() {
-		return (EReference) getRelatedItemDefinition().getEStructuralFeatures()
-				.get(19);
+		return (EReference) getRelatedItemDefinition().getEStructuralFeatures().get(19);
 	}
 
 	/**
@@ -4538,8 +4409,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getRelatedItemDefinition_TypeOfResource() {
-		return (EReference) getRelatedItemDefinition().getEStructuralFeatures()
-				.get(20);
+		return (EReference) getRelatedItemDefinition().getEStructuralFeatures().get(20);
 	}
 
 	/**
@@ -4548,8 +4418,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getRelatedItemDefinition_Actuate() {
-		return (EAttribute) getRelatedItemDefinition().getEStructuralFeatures()
-				.get(21);
+		return (EAttribute) getRelatedItemDefinition().getEStructuralFeatures().get(21);
 	}
 
 	/**
@@ -4558,8 +4427,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getRelatedItemDefinition_Arcrole() {
-		return (EAttribute) getRelatedItemDefinition().getEStructuralFeatures()
-				.get(22);
+		return (EAttribute) getRelatedItemDefinition().getEStructuralFeatures().get(22);
 	}
 
 	/**
@@ -4568,8 +4436,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getRelatedItemDefinition_DisplayLabel() {
-		return (EAttribute) getRelatedItemDefinition().getEStructuralFeatures()
-				.get(23);
+		return (EAttribute) getRelatedItemDefinition().getEStructuralFeatures().get(23);
 	}
 
 	/**
@@ -4578,8 +4445,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getRelatedItemDefinition_Href() {
-		return (EAttribute) getRelatedItemDefinition().getEStructuralFeatures()
-				.get(24);
+		return (EAttribute) getRelatedItemDefinition().getEStructuralFeatures().get(24);
 	}
 
 	/**
@@ -4588,8 +4454,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getRelatedItemDefinition_ID() {
-		return (EAttribute) getRelatedItemDefinition().getEStructuralFeatures()
-				.get(25);
+		return (EAttribute) getRelatedItemDefinition().getEStructuralFeatures().get(25);
 	}
 
 	/**
@@ -4598,8 +4463,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getRelatedItemDefinition_Role() {
-		return (EAttribute) getRelatedItemDefinition().getEStructuralFeatures()
-				.get(26);
+		return (EAttribute) getRelatedItemDefinition().getEStructuralFeatures().get(26);
 	}
 
 	/**
@@ -4608,8 +4472,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getRelatedItemDefinition_Show() {
-		return (EAttribute) getRelatedItemDefinition().getEStructuralFeatures()
-				.get(27);
+		return (EAttribute) getRelatedItemDefinition().getEStructuralFeatures().get(27);
 	}
 
 	/**
@@ -4618,8 +4481,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getRelatedItemDefinition_Title() {
-		return (EAttribute) getRelatedItemDefinition().getEStructuralFeatures()
-				.get(28);
+		return (EAttribute) getRelatedItemDefinition().getEStructuralFeatures().get(28);
 	}
 
 	/**
@@ -4628,8 +4490,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getRelatedItemDefinition_Type() {
-		return (EAttribute) getRelatedItemDefinition().getEStructuralFeatures()
-				.get(29);
+		return (EAttribute) getRelatedItemDefinition().getEStructuralFeatures().get(29);
 	}
 
 	/**
@@ -4638,8 +4499,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getRelatedItemDefinition_Type1() {
-		return (EAttribute) getRelatedItemDefinition().getEStructuralFeatures()
-				.get(30);
+		return (EAttribute) getRelatedItemDefinition().getEStructuralFeatures().get(30);
 	}
 
 	/**
@@ -4649,8 +4509,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public EClass getRoleDefinition() {
 		if (roleDefinitionEClass == null) {
-			roleDefinitionEClass = (EClass) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI).getEClassifiers().get(69);
+			roleDefinitionEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI).getEClassifiers()
+					.get(69);
 		}
 		return roleDefinitionEClass;
 	}
@@ -4680,8 +4540,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public EClass getRoleTermDefinition() {
 		if (roleTermDefinitionEClass == null) {
-			roleTermDefinitionEClass = (EClass) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI).getEClassifiers().get(70);
+			roleTermDefinitionEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI)
+					.getEClassifiers().get(70);
 		}
 		return roleTermDefinitionEClass;
 	}
@@ -4692,8 +4552,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getRoleTermDefinition_Type() {
-		return (EAttribute) getRoleTermDefinition().getEStructuralFeatures()
-				.get(0);
+		return (EAttribute) getRoleTermDefinition().getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -4703,8 +4562,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public EClass getScriptTermDefinition() {
 		if (scriptTermDefinitionEClass == null) {
-			scriptTermDefinitionEClass = (EClass) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI).getEClassifiers().get(71);
+			scriptTermDefinitionEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI)
+					.getEClassifiers().get(71);
 		}
 		return scriptTermDefinitionEClass;
 	}
@@ -4715,8 +4574,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getScriptTermDefinition_Type() {
-		return (EAttribute) getScriptTermDefinition().getEStructuralFeatures()
-				.get(0);
+		return (EAttribute) getScriptTermDefinition().getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -4726,8 +4584,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public EClass getStringPlusAuthority() {
 		if (stringPlusAuthorityEClass == null) {
-			stringPlusAuthorityEClass = (EClass) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI).getEClassifiers().get(72);
+			stringPlusAuthorityEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI)
+					.getEClassifiers().get(72);
 		}
 		return stringPlusAuthorityEClass;
 	}
@@ -4738,8 +4596,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getStringPlusAuthority_Authority() {
-		return (EAttribute) getStringPlusAuthority().getEStructuralFeatures()
-				.get(0);
+		return (EAttribute) getStringPlusAuthority().getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -4748,8 +4605,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getStringPlusAuthority_AuthorityURI() {
-		return (EAttribute) getStringPlusAuthority().getEStructuralFeatures()
-				.get(1);
+		return (EAttribute) getStringPlusAuthority().getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -4758,8 +4614,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getStringPlusAuthority_ValueURI() {
-		return (EAttribute) getStringPlusAuthority().getEStructuralFeatures()
-				.get(2);
+		return (EAttribute) getStringPlusAuthority().getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -4769,8 +4624,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public EClass getStringPlusAuthorityPlusType() {
 		if (stringPlusAuthorityPlusTypeEClass == null) {
-			stringPlusAuthorityPlusTypeEClass = (EClass) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI).getEClassifiers().get(73);
+			stringPlusAuthorityPlusTypeEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI)
+					.getEClassifiers().get(73);
 		}
 		return stringPlusAuthorityPlusTypeEClass;
 	}
@@ -4781,8 +4636,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getStringPlusAuthorityPlusType_Type() {
-		return (EAttribute) getStringPlusAuthorityPlusType()
-				.getEStructuralFeatures().get(0);
+		return (EAttribute) getStringPlusAuthorityPlusType().getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -4804,8 +4658,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getStringPlusAuthorityPlusTypePlusDisplayLabel_DisplayLabel() {
-		return (EAttribute) getStringPlusAuthorityPlusTypePlusDisplayLabel()
-				.getEStructuralFeatures().get(0);
+		return (EAttribute) getStringPlusAuthorityPlusTypePlusDisplayLabel().getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -4827,8 +4680,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_Actuate() {
-		return (EAttribute) getStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink()
-				.getEStructuralFeatures().get(0);
+		return (EAttribute) getStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink().getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -4837,8 +4689,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_Arcrole() {
-		return (EAttribute) getStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink()
-				.getEStructuralFeatures().get(1);
+		return (EAttribute) getStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink().getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -4847,8 +4698,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_Href() {
-		return (EAttribute) getStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink()
-				.getEStructuralFeatures().get(2);
+		return (EAttribute) getStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink().getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -4857,8 +4707,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_Role() {
-		return (EAttribute) getStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink()
-				.getEStructuralFeatures().get(3);
+		return (EAttribute) getStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink().getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -4867,8 +4716,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_Show() {
-		return (EAttribute) getStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink()
-				.getEStructuralFeatures().get(4);
+		return (EAttribute) getStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink().getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -4877,8 +4725,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_Title() {
-		return (EAttribute) getStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink()
-				.getEStructuralFeatures().get(5);
+		return (EAttribute) getStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink().getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -4887,8 +4734,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink_Type1() {
-		return (EAttribute) getStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink()
-				.getEStructuralFeatures().get(6);
+		return (EAttribute) getStringPlusAuthorityPlusTypePlusDisplayLabelPlusXlink().getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -4898,8 +4744,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public EClass getStringPlusSupplied() {
 		if (stringPlusSuppliedEClass == null) {
-			stringPlusSuppliedEClass = (EClass) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI).getEClassifiers().get(76);
+			stringPlusSuppliedEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI)
+					.getEClassifiers().get(76);
 		}
 		return stringPlusSuppliedEClass;
 	}
@@ -4910,8 +4756,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getStringPlusSupplied_Supplied() {
-		return (EAttribute) getStringPlusSupplied().getEStructuralFeatures()
-				.get(0);
+		return (EAttribute) getStringPlusSupplied().getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -4921,8 +4766,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public EClass getSubjectDefinition() {
 		if (subjectDefinitionEClass == null) {
-			subjectDefinitionEClass = (EClass) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI).getEClassifiers().get(77);
+			subjectDefinitionEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI)
+					.getEClassifiers().get(77);
 		}
 		return subjectDefinitionEClass;
 	}
@@ -4933,8 +4778,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getSubjectDefinition_Group() {
-		return (EAttribute) getSubjectDefinition().getEStructuralFeatures()
-				.get(0);
+		return (EAttribute) getSubjectDefinition().getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -4943,8 +4787,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getSubjectDefinition_Topic() {
-		return (EReference) getSubjectDefinition().getEStructuralFeatures()
-				.get(1);
+		return (EReference) getSubjectDefinition().getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -4953,8 +4796,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getSubjectDefinition_Geographic() {
-		return (EReference) getSubjectDefinition().getEStructuralFeatures()
-				.get(2);
+		return (EReference) getSubjectDefinition().getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -4963,8 +4805,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getSubjectDefinition_Temporal() {
-		return (EReference) getSubjectDefinition().getEStructuralFeatures()
-				.get(3);
+		return (EReference) getSubjectDefinition().getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -4973,8 +4814,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getSubjectDefinition_TitleInfo() {
-		return (EReference) getSubjectDefinition().getEStructuralFeatures()
-				.get(4);
+		return (EReference) getSubjectDefinition().getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -4983,8 +4823,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getSubjectDefinition_Name() {
-		return (EReference) getSubjectDefinition().getEStructuralFeatures()
-				.get(5);
+		return (EReference) getSubjectDefinition().getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -4993,8 +4832,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getSubjectDefinition_GeographicCode() {
-		return (EReference) getSubjectDefinition().getEStructuralFeatures()
-				.get(6);
+		return (EReference) getSubjectDefinition().getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -5003,8 +4841,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getSubjectDefinition_HierarchicalGeographic() {
-		return (EReference) getSubjectDefinition().getEStructuralFeatures()
-				.get(7);
+		return (EReference) getSubjectDefinition().getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -5013,8 +4850,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getSubjectDefinition_Cartographics() {
-		return (EReference) getSubjectDefinition().getEStructuralFeatures()
-				.get(8);
+		return (EReference) getSubjectDefinition().getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -5023,8 +4859,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getSubjectDefinition_Occupation() {
-		return (EReference) getSubjectDefinition().getEStructuralFeatures()
-				.get(9);
+		return (EReference) getSubjectDefinition().getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -5033,8 +4868,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getSubjectDefinition_Genre() {
-		return (EReference) getSubjectDefinition().getEStructuralFeatures()
-				.get(10);
+		return (EReference) getSubjectDefinition().getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -5043,8 +4877,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getSubjectDefinition_Actuate() {
-		return (EAttribute) getSubjectDefinition().getEStructuralFeatures()
-				.get(11);
+		return (EAttribute) getSubjectDefinition().getEStructuralFeatures().get(11);
 	}
 
 	/**
@@ -5053,8 +4886,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getSubjectDefinition_AltRepGroup() {
-		return (EAttribute) getSubjectDefinition().getEStructuralFeatures()
-				.get(12);
+		return (EAttribute) getSubjectDefinition().getEStructuralFeatures().get(12);
 	}
 
 	/**
@@ -5063,8 +4895,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getSubjectDefinition_Arcrole() {
-		return (EAttribute) getSubjectDefinition().getEStructuralFeatures()
-				.get(13);
+		return (EAttribute) getSubjectDefinition().getEStructuralFeatures().get(13);
 	}
 
 	/**
@@ -5073,8 +4904,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getSubjectDefinition_Authority() {
-		return (EAttribute) getSubjectDefinition().getEStructuralFeatures()
-				.get(14);
+		return (EAttribute) getSubjectDefinition().getEStructuralFeatures().get(14);
 	}
 
 	/**
@@ -5083,8 +4913,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getSubjectDefinition_AuthorityURI() {
-		return (EAttribute) getSubjectDefinition().getEStructuralFeatures()
-				.get(15);
+		return (EAttribute) getSubjectDefinition().getEStructuralFeatures().get(15);
 	}
 
 	/**
@@ -5093,8 +4922,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getSubjectDefinition_DisplayLabel() {
-		return (EAttribute) getSubjectDefinition().getEStructuralFeatures()
-				.get(16);
+		return (EAttribute) getSubjectDefinition().getEStructuralFeatures().get(16);
 	}
 
 	/**
@@ -5103,8 +4931,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getSubjectDefinition_Href() {
-		return (EAttribute) getSubjectDefinition().getEStructuralFeatures()
-				.get(17);
+		return (EAttribute) getSubjectDefinition().getEStructuralFeatures().get(17);
 	}
 
 	/**
@@ -5113,8 +4940,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getSubjectDefinition_ID() {
-		return (EAttribute) getSubjectDefinition().getEStructuralFeatures()
-				.get(18);
+		return (EAttribute) getSubjectDefinition().getEStructuralFeatures().get(18);
 	}
 
 	/**
@@ -5123,8 +4949,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getSubjectDefinition_Lang() {
-		return (EAttribute) getSubjectDefinition().getEStructuralFeatures()
-				.get(19);
+		return (EAttribute) getSubjectDefinition().getEStructuralFeatures().get(19);
 	}
 
 	/**
@@ -5133,8 +4958,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getSubjectDefinition_Lang1() {
-		return (EAttribute) getSubjectDefinition().getEStructuralFeatures()
-				.get(20);
+		return (EAttribute) getSubjectDefinition().getEStructuralFeatures().get(20);
 	}
 
 	/**
@@ -5143,8 +4967,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getSubjectDefinition_Role() {
-		return (EAttribute) getSubjectDefinition().getEStructuralFeatures()
-				.get(21);
+		return (EAttribute) getSubjectDefinition().getEStructuralFeatures().get(21);
 	}
 
 	/**
@@ -5153,8 +4976,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getSubjectDefinition_Script() {
-		return (EAttribute) getSubjectDefinition().getEStructuralFeatures()
-				.get(22);
+		return (EAttribute) getSubjectDefinition().getEStructuralFeatures().get(22);
 	}
 
 	/**
@@ -5163,8 +4985,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getSubjectDefinition_Show() {
-		return (EAttribute) getSubjectDefinition().getEStructuralFeatures()
-				.get(23);
+		return (EAttribute) getSubjectDefinition().getEStructuralFeatures().get(23);
 	}
 
 	/**
@@ -5173,8 +4994,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getSubjectDefinition_Title() {
-		return (EAttribute) getSubjectDefinition().getEStructuralFeatures()
-				.get(24);
+		return (EAttribute) getSubjectDefinition().getEStructuralFeatures().get(24);
 	}
 
 	/**
@@ -5183,8 +5003,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getSubjectDefinition_Transliteration() {
-		return (EAttribute) getSubjectDefinition().getEStructuralFeatures()
-				.get(25);
+		return (EAttribute) getSubjectDefinition().getEStructuralFeatures().get(25);
 	}
 
 	/**
@@ -5193,8 +5012,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getSubjectDefinition_Type() {
-		return (EAttribute) getSubjectDefinition().getEStructuralFeatures()
-				.get(26);
+		return (EAttribute) getSubjectDefinition().getEStructuralFeatures().get(26);
 	}
 
 	/**
@@ -5203,8 +5021,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getSubjectDefinition_Usage() {
-		return (EAttribute) getSubjectDefinition().getEStructuralFeatures()
-				.get(27);
+		return (EAttribute) getSubjectDefinition().getEStructuralFeatures().get(27);
 	}
 
 	/**
@@ -5213,8 +5030,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getSubjectDefinition_ValueURI() {
-		return (EAttribute) getSubjectDefinition().getEStructuralFeatures()
-				.get(28);
+		return (EAttribute) getSubjectDefinition().getEStructuralFeatures().get(28);
 	}
 
 	/**
@@ -5224,8 +5040,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public EClass getSubjectNameDefinition() {
 		if (subjectNameDefinitionEClass == null) {
-			subjectNameDefinitionEClass = (EClass) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI).getEClassifiers().get(78);
+			subjectNameDefinitionEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI)
+					.getEClassifiers().get(78);
 		}
 		return subjectNameDefinitionEClass;
 	}
@@ -5237,8 +5053,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public EClass getSubjectTitleInfoDefinition() {
 		if (subjectTitleInfoDefinitionEClass == null) {
-			subjectTitleInfoDefinitionEClass = (EClass) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI).getEClassifiers().get(79);
+			subjectTitleInfoDefinitionEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI)
+					.getEClassifiers().get(79);
 		}
 		return subjectTitleInfoDefinitionEClass;
 	}
@@ -5249,8 +5065,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getSubjectTitleInfoDefinition_Type1() {
-		return (EAttribute) getSubjectTitleInfoDefinition()
-				.getEStructuralFeatures().get(0);
+		return (EAttribute) getSubjectTitleInfoDefinition().getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -5260,8 +5075,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public EClass getTableOfContentsDefinition() {
 		if (tableOfContentsDefinitionEClass == null) {
-			tableOfContentsDefinitionEClass = (EClass) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI).getEClassifiers().get(80);
+			tableOfContentsDefinitionEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI)
+					.getEClassifiers().get(80);
 		}
 		return tableOfContentsDefinitionEClass;
 	}
@@ -5272,8 +5087,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getTableOfContentsDefinition_AltRepGroup() {
-		return (EAttribute) getTableOfContentsDefinition()
-				.getEStructuralFeatures().get(0);
+		return (EAttribute) getTableOfContentsDefinition().getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -5282,8 +5096,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getTableOfContentsDefinition_Shareable() {
-		return (EAttribute) getTableOfContentsDefinition()
-				.getEStructuralFeatures().get(1);
+		return (EAttribute) getTableOfContentsDefinition().getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -5293,8 +5106,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public EClass getTargetAudienceDefinition() {
 		if (targetAudienceDefinitionEClass == null) {
-			targetAudienceDefinitionEClass = (EClass) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI).getEClassifiers().get(81);
+			targetAudienceDefinitionEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI)
+					.getEClassifiers().get(81);
 		}
 		return targetAudienceDefinitionEClass;
 	}
@@ -5305,8 +5118,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getTargetAudienceDefinition_AltRepGroup() {
-		return (EAttribute) getTargetAudienceDefinition()
-				.getEStructuralFeatures().get(0);
+		return (EAttribute) getTargetAudienceDefinition().getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -5315,8 +5127,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getTargetAudienceDefinition_DisplayLabel() {
-		return (EAttribute) getTargetAudienceDefinition()
-				.getEStructuralFeatures().get(1);
+		return (EAttribute) getTargetAudienceDefinition().getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -5326,8 +5137,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public EClass getTemporalDefinition() {
 		if (temporalDefinitionEClass == null) {
-			temporalDefinitionEClass = (EClass) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI).getEClassifiers().get(82);
+			temporalDefinitionEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI)
+					.getEClassifiers().get(82);
 		}
 		return temporalDefinitionEClass;
 	}
@@ -5338,8 +5149,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getTemporalDefinition_Authority() {
-		return (EAttribute) getTemporalDefinition().getEStructuralFeatures()
-				.get(0);
+		return (EAttribute) getTemporalDefinition().getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -5348,8 +5158,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getTemporalDefinition_AuthorityURI() {
-		return (EAttribute) getTemporalDefinition().getEStructuralFeatures()
-				.get(1);
+		return (EAttribute) getTemporalDefinition().getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -5358,8 +5167,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getTemporalDefinition_ValueURI() {
-		return (EAttribute) getTemporalDefinition().getEStructuralFeatures()
-				.get(2);
+		return (EAttribute) getTemporalDefinition().getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -5369,8 +5177,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public EClass getTitleInfoBaseDefinition() {
 		if (titleInfoBaseDefinitionEClass == null) {
-			titleInfoBaseDefinitionEClass = (EClass) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI).getEClassifiers().get(83);
+			titleInfoBaseDefinitionEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI)
+					.getEClassifiers().get(83);
 		}
 		return titleInfoBaseDefinitionEClass;
 	}
@@ -5381,8 +5189,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getTitleInfoBaseDefinition_Group() {
-		return (EAttribute) getTitleInfoBaseDefinition()
-				.getEStructuralFeatures().get(0);
+		return (EAttribute) getTitleInfoBaseDefinition().getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -5391,8 +5198,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getTitleInfoBaseDefinition_Title() {
-		return (EReference) getTitleInfoBaseDefinition()
-				.getEStructuralFeatures().get(1);
+		return (EReference) getTitleInfoBaseDefinition().getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -5401,8 +5207,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getTitleInfoBaseDefinition_SubTitle() {
-		return (EReference) getTitleInfoBaseDefinition()
-				.getEStructuralFeatures().get(2);
+		return (EReference) getTitleInfoBaseDefinition().getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -5411,8 +5216,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getTitleInfoBaseDefinition_PartNumber() {
-		return (EReference) getTitleInfoBaseDefinition()
-				.getEStructuralFeatures().get(3);
+		return (EReference) getTitleInfoBaseDefinition().getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -5421,8 +5225,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getTitleInfoBaseDefinition_PartName() {
-		return (EReference) getTitleInfoBaseDefinition()
-				.getEStructuralFeatures().get(4);
+		return (EReference) getTitleInfoBaseDefinition().getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -5431,8 +5234,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EReference getTitleInfoBaseDefinition_NonSort() {
-		return (EReference) getTitleInfoBaseDefinition()
-				.getEStructuralFeatures().get(5);
+		return (EReference) getTitleInfoBaseDefinition().getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -5441,8 +5243,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getTitleInfoBaseDefinition_Actuate() {
-		return (EAttribute) getTitleInfoBaseDefinition()
-				.getEStructuralFeatures().get(6);
+		return (EAttribute) getTitleInfoBaseDefinition().getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -5451,8 +5252,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getTitleInfoBaseDefinition_Arcrole() {
-		return (EAttribute) getTitleInfoBaseDefinition()
-				.getEStructuralFeatures().get(7);
+		return (EAttribute) getTitleInfoBaseDefinition().getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -5461,8 +5261,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getTitleInfoBaseDefinition_Authority() {
-		return (EAttribute) getTitleInfoBaseDefinition()
-				.getEStructuralFeatures().get(8);
+		return (EAttribute) getTitleInfoBaseDefinition().getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -5471,8 +5270,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getTitleInfoBaseDefinition_AuthorityURI() {
-		return (EAttribute) getTitleInfoBaseDefinition()
-				.getEStructuralFeatures().get(9);
+		return (EAttribute) getTitleInfoBaseDefinition().getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -5481,8 +5279,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getTitleInfoBaseDefinition_DisplayLabel() {
-		return (EAttribute) getTitleInfoBaseDefinition()
-				.getEStructuralFeatures().get(10);
+		return (EAttribute) getTitleInfoBaseDefinition().getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -5491,8 +5288,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getTitleInfoBaseDefinition_Href() {
-		return (EAttribute) getTitleInfoBaseDefinition()
-				.getEStructuralFeatures().get(11);
+		return (EAttribute) getTitleInfoBaseDefinition().getEStructuralFeatures().get(11);
 	}
 
 	/**
@@ -5501,8 +5297,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getTitleInfoBaseDefinition_ID() {
-		return (EAttribute) getTitleInfoBaseDefinition()
-				.getEStructuralFeatures().get(12);
+		return (EAttribute) getTitleInfoBaseDefinition().getEStructuralFeatures().get(12);
 	}
 
 	/**
@@ -5511,8 +5306,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getTitleInfoBaseDefinition_Lang() {
-		return (EAttribute) getTitleInfoBaseDefinition()
-				.getEStructuralFeatures().get(13);
+		return (EAttribute) getTitleInfoBaseDefinition().getEStructuralFeatures().get(13);
 	}
 
 	/**
@@ -5521,8 +5315,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getTitleInfoBaseDefinition_Lang1() {
-		return (EAttribute) getTitleInfoBaseDefinition()
-				.getEStructuralFeatures().get(14);
+		return (EAttribute) getTitleInfoBaseDefinition().getEStructuralFeatures().get(14);
 	}
 
 	/**
@@ -5531,8 +5324,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getTitleInfoBaseDefinition_Role() {
-		return (EAttribute) getTitleInfoBaseDefinition()
-				.getEStructuralFeatures().get(15);
+		return (EAttribute) getTitleInfoBaseDefinition().getEStructuralFeatures().get(15);
 	}
 
 	/**
@@ -5541,8 +5333,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getTitleInfoBaseDefinition_Script() {
-		return (EAttribute) getTitleInfoBaseDefinition()
-				.getEStructuralFeatures().get(16);
+		return (EAttribute) getTitleInfoBaseDefinition().getEStructuralFeatures().get(16);
 	}
 
 	/**
@@ -5551,8 +5342,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getTitleInfoBaseDefinition_Show() {
-		return (EAttribute) getTitleInfoBaseDefinition()
-				.getEStructuralFeatures().get(17);
+		return (EAttribute) getTitleInfoBaseDefinition().getEStructuralFeatures().get(17);
 	}
 
 	/**
@@ -5561,8 +5351,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getTitleInfoBaseDefinition_Title1() {
-		return (EAttribute) getTitleInfoBaseDefinition()
-				.getEStructuralFeatures().get(18);
+		return (EAttribute) getTitleInfoBaseDefinition().getEStructuralFeatures().get(18);
 	}
 
 	/**
@@ -5571,8 +5360,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getTitleInfoBaseDefinition_Transliteration() {
-		return (EAttribute) getTitleInfoBaseDefinition()
-				.getEStructuralFeatures().get(19);
+		return (EAttribute) getTitleInfoBaseDefinition().getEStructuralFeatures().get(19);
 	}
 
 	/**
@@ -5581,8 +5369,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getTitleInfoBaseDefinition_Type() {
-		return (EAttribute) getTitleInfoBaseDefinition()
-				.getEStructuralFeatures().get(20);
+		return (EAttribute) getTitleInfoBaseDefinition().getEStructuralFeatures().get(20);
 	}
 
 	/**
@@ -5591,8 +5378,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getTitleInfoBaseDefinition_ValueURI() {
-		return (EAttribute) getTitleInfoBaseDefinition()
-				.getEStructuralFeatures().get(21);
+		return (EAttribute) getTitleInfoBaseDefinition().getEStructuralFeatures().get(21);
 	}
 
 	/**
@@ -5602,8 +5388,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public EClass getTitleInfoDefinition() {
 		if (titleInfoDefinitionEClass == null) {
-			titleInfoDefinitionEClass = (EClass) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI).getEClassifiers().get(84);
+			titleInfoDefinitionEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI)
+					.getEClassifiers().get(84);
 		}
 		return titleInfoDefinitionEClass;
 	}
@@ -5614,8 +5400,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getTitleInfoDefinition_AltRepGroup() {
-		return (EAttribute) getTitleInfoDefinition().getEStructuralFeatures()
-				.get(0);
+		return (EAttribute) getTitleInfoDefinition().getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -5624,8 +5409,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getTitleInfoDefinition_NameTitleGroup() {
-		return (EAttribute) getTitleInfoDefinition().getEStructuralFeatures()
-				.get(1);
+		return (EAttribute) getTitleInfoDefinition().getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -5634,8 +5418,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getTitleInfoDefinition_Supplied() {
-		return (EAttribute) getTitleInfoDefinition().getEStructuralFeatures()
-				.get(2);
+		return (EAttribute) getTitleInfoDefinition().getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -5644,8 +5427,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getTitleInfoDefinition_Type1() {
-		return (EAttribute) getTitleInfoDefinition().getEStructuralFeatures()
-				.get(3);
+		return (EAttribute) getTitleInfoDefinition().getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -5654,8 +5436,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getTitleInfoDefinition_Usage() {
-		return (EAttribute) getTitleInfoDefinition().getEStructuralFeatures()
-				.get(4);
+		return (EAttribute) getTitleInfoDefinition().getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -5665,8 +5446,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public EClass getTypeOfResourceDefinition() {
 		if (typeOfResourceDefinitionEClass == null) {
-			typeOfResourceDefinitionEClass = (EClass) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI).getEClassifiers().get(87);
+			typeOfResourceDefinitionEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI)
+					.getEClassifiers().get(87);
 		}
 		return typeOfResourceDefinitionEClass;
 	}
@@ -5677,8 +5458,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getTypeOfResourceDefinition_Value() {
-		return (EAttribute) getTypeOfResourceDefinition()
-				.getEStructuralFeatures().get(0);
+		return (EAttribute) getTypeOfResourceDefinition().getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -5687,8 +5467,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getTypeOfResourceDefinition_AltRepGroup() {
-		return (EAttribute) getTypeOfResourceDefinition()
-				.getEStructuralFeatures().get(1);
+		return (EAttribute) getTypeOfResourceDefinition().getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -5697,8 +5476,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getTypeOfResourceDefinition_Collection() {
-		return (EAttribute) getTypeOfResourceDefinition()
-				.getEStructuralFeatures().get(2);
+		return (EAttribute) getTypeOfResourceDefinition().getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -5707,8 +5485,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getTypeOfResourceDefinition_DisplayLabel() {
-		return (EAttribute) getTypeOfResourceDefinition()
-				.getEStructuralFeatures().get(3);
+		return (EAttribute) getTypeOfResourceDefinition().getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -5717,8 +5494,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getTypeOfResourceDefinition_Manuscript() {
-		return (EAttribute) getTypeOfResourceDefinition()
-				.getEStructuralFeatures().get(4);
+		return (EAttribute) getTypeOfResourceDefinition().getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -5727,8 +5503,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getTypeOfResourceDefinition_Usage() {
-		return (EAttribute) getTypeOfResourceDefinition()
-				.getEStructuralFeatures().get(5);
+		return (EAttribute) getTypeOfResourceDefinition().getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -5738,8 +5513,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public EClass getUnstructuredTextDefinition() {
 		if (unstructuredTextDefinitionEClass == null) {
-			unstructuredTextDefinitionEClass = (EClass) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI).getEClassifiers().get(88);
+			unstructuredTextDefinitionEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI)
+					.getEClassifiers().get(88);
 		}
 		return unstructuredTextDefinitionEClass;
 	}
@@ -5750,8 +5525,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getUnstructuredTextDefinition_Actuate() {
-		return (EAttribute) getUnstructuredTextDefinition()
-				.getEStructuralFeatures().get(0);
+		return (EAttribute) getUnstructuredTextDefinition().getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -5760,8 +5534,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getUnstructuredTextDefinition_Arcrole() {
-		return (EAttribute) getUnstructuredTextDefinition()
-				.getEStructuralFeatures().get(1);
+		return (EAttribute) getUnstructuredTextDefinition().getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -5770,8 +5543,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getUnstructuredTextDefinition_DisplayLabel() {
-		return (EAttribute) getUnstructuredTextDefinition()
-				.getEStructuralFeatures().get(2);
+		return (EAttribute) getUnstructuredTextDefinition().getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -5780,8 +5552,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getUnstructuredTextDefinition_Href() {
-		return (EAttribute) getUnstructuredTextDefinition()
-				.getEStructuralFeatures().get(3);
+		return (EAttribute) getUnstructuredTextDefinition().getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -5790,8 +5561,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getUnstructuredTextDefinition_Role() {
-		return (EAttribute) getUnstructuredTextDefinition()
-				.getEStructuralFeatures().get(4);
+		return (EAttribute) getUnstructuredTextDefinition().getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -5800,8 +5570,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getUnstructuredTextDefinition_Show() {
-		return (EAttribute) getUnstructuredTextDefinition()
-				.getEStructuralFeatures().get(5);
+		return (EAttribute) getUnstructuredTextDefinition().getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -5810,8 +5579,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getUnstructuredTextDefinition_Title() {
-		return (EAttribute) getUnstructuredTextDefinition()
-				.getEStructuralFeatures().get(6);
+		return (EAttribute) getUnstructuredTextDefinition().getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -5820,8 +5588,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getUnstructuredTextDefinition_Type() {
-		return (EAttribute) getUnstructuredTextDefinition()
-				.getEStructuralFeatures().get(7);
+		return (EAttribute) getUnstructuredTextDefinition().getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -5830,8 +5597,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 * @generated
 	 */
 	public EAttribute getUnstructuredTextDefinition_Type1() {
-		return (EAttribute) getUnstructuredTextDefinition()
-				.getEStructuralFeatures().get(8);
+		return (EAttribute) getUnstructuredTextDefinition().getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -5841,8 +5607,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public EClass getUrlDefinition() {
 		if (urlDefinitionEClass == null) {
-			urlDefinitionEClass = (EClass) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI).getEClassifiers().get(91);
+			urlDefinitionEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI).getEClassifiers()
+					.get(91);
 		}
 		return urlDefinitionEClass;
 	}
@@ -5908,8 +5674,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public EClass getXsString() {
 		if (xsStringEClass == null) {
-			xsStringEClass = (EClass) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI).getEClassifiers().get(96);
+			xsStringEClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI).getEClassifiers()
+					.get(96);
 		}
 		return xsStringEClass;
 	}
@@ -5966,8 +5732,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public EEnum getCodeOrTextDefinition() {
 		if (codeOrTextDefinitionEEnum == null) {
-			codeOrTextDefinitionEEnum = (EEnum) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI).getEClassifiers().get(4);
+			codeOrTextDefinitionEEnum = (EEnum) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI)
+					.getEClassifiers().get(4);
 		}
 		return codeOrTextDefinitionEEnum;
 	}
@@ -5979,8 +5745,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public EEnum getDateEncodingAttributeDefinition() {
 		if (dateEncodingAttributeDefinitionEEnum == null) {
-			dateEncodingAttributeDefinitionEEnum = (EEnum) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI).getEClassifiers().get(9);
+			dateEncodingAttributeDefinitionEEnum = (EEnum) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI)
+					.getEClassifiers().get(9);
 		}
 		return dateEncodingAttributeDefinitionEEnum;
 	}
@@ -5992,8 +5758,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public EEnum getDatePointAttributeDefinition() {
 		if (datePointAttributeDefinitionEEnum == null) {
-			datePointAttributeDefinitionEEnum = (EEnum) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI).getEClassifiers().get(12);
+			datePointAttributeDefinitionEEnum = (EEnum) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI)
+					.getEClassifiers().get(12);
 		}
 		return datePointAttributeDefinitionEEnum;
 	}
@@ -6005,8 +5771,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public EEnum getDateQualifierAttributeDefinition() {
 		if (dateQualifierAttributeDefinitionEEnum == null) {
-			dateQualifierAttributeDefinitionEEnum = (EEnum) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI).getEClassifiers().get(14);
+			dateQualifierAttributeDefinitionEEnum = (EEnum) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI)
+					.getEClassifiers().get(14);
 		}
 		return dateQualifierAttributeDefinitionEEnum;
 	}
@@ -6018,8 +5784,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public EEnum getDigitalOriginDefinition() {
 		if (digitalOriginDefinitionEEnum == null) {
-			digitalOriginDefinitionEEnum = (EEnum) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI).getEClassifiers().get(17);
+			digitalOriginDefinitionEEnum = (EEnum) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI)
+					.getEClassifiers().get(17);
 		}
 		return digitalOriginDefinitionEEnum;
 	}
@@ -6044,8 +5810,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public EEnum getIssuanceDefinition() {
 		if (issuanceDefinitionEEnum == null) {
-			issuanceDefinitionEEnum = (EEnum) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI).getEClassifiers().get(30);
+			issuanceDefinitionEEnum = (EEnum) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI)
+					.getEClassifiers().get(30);
 		}
 		return issuanceDefinitionEEnum;
 	}
@@ -6070,8 +5836,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public EEnum getModsVersionAttributeDefinition() {
 		if (modsVersionAttributeDefinitionEEnum == null) {
-			modsVersionAttributeDefinitionEEnum = (EEnum) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI).getEClassifiers().get(39);
+			modsVersionAttributeDefinitionEEnum = (EEnum) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI)
+					.getEClassifiers().get(39);
 		}
 		return modsVersionAttributeDefinitionEEnum;
 	}
@@ -6083,8 +5849,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public EEnum getNamePartTypeAttributeDefinition() {
 		if (namePartTypeAttributeDefinitionEEnum == null) {
-			namePartTypeAttributeDefinitionEEnum = (EEnum) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI).getEClassifiers().get(44);
+			namePartTypeAttributeDefinitionEEnum = (EEnum) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI)
+					.getEClassifiers().get(44);
 		}
 		return namePartTypeAttributeDefinitionEEnum;
 	}
@@ -6096,8 +5862,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public EEnum getNameTypeAttributeDefinition() {
 		if (nameTypeAttributeDefinitionEEnum == null) {
-			nameTypeAttributeDefinitionEEnum = (EEnum) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI).getEClassifiers().get(46);
+			nameTypeAttributeDefinitionEEnum = (EEnum) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI)
+					.getEClassifiers().get(46);
 		}
 		return nameTypeAttributeDefinitionEEnum;
 	}
@@ -6109,8 +5875,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public EEnum getNoDefinition() {
 		if (noDefinitionEEnum == null) {
-			noDefinitionEEnum = (EEnum) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI).getEClassifiers().get(48);
+			noDefinitionEEnum = (EEnum) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI).getEClassifiers()
+					.get(48);
 		}
 		return noDefinitionEEnum;
 	}
@@ -6122,8 +5888,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public EEnum getPlaceAuthorityAttributeDefinition() {
 		if (placeAuthorityAttributeDefinitionEEnum == null) {
-			placeAuthorityAttributeDefinitionEEnum = (EEnum) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI).getEClassifiers().get(56);
+			placeAuthorityAttributeDefinitionEEnum = (EEnum) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI)
+					.getEClassifiers().get(56);
 		}
 		return placeAuthorityAttributeDefinitionEEnum;
 	}
@@ -6135,8 +5901,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public EEnum getReformattingQualityDefinition() {
 		if (reformattingQualityDefinitionEEnum == null) {
-			reformattingQualityDefinitionEEnum = (EEnum) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI).getEClassifiers().get(62);
+			reformattingQualityDefinitionEEnum = (EEnum) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI)
+					.getEClassifiers().get(62);
 		}
 		return reformattingQualityDefinitionEEnum;
 	}
@@ -6148,8 +5914,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public EEnum getRelatedItemTypeAttributeDefinition() {
 		if (relatedItemTypeAttributeDefinitionEEnum == null) {
-			relatedItemTypeAttributeDefinitionEEnum = (EEnum) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI).getEClassifiers().get(65);
+			relatedItemTypeAttributeDefinitionEEnum = (EEnum) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI)
+					.getEClassifiers().get(65);
 		}
 		return relatedItemTypeAttributeDefinitionEEnum;
 	}
@@ -6161,8 +5927,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public EEnum getResourceTypeDefinition() {
 		if (resourceTypeDefinitionEEnum == null) {
-			resourceTypeDefinitionEEnum = (EEnum) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI).getEClassifiers().get(67);
+			resourceTypeDefinitionEEnum = (EEnum) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI)
+					.getEClassifiers().get(67);
 		}
 		return resourceTypeDefinitionEEnum;
 	}
@@ -6174,8 +5940,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public EEnum getTitleInfoTypeAttributeDefinition() {
 		if (titleInfoTypeAttributeDefinitionEEnum == null) {
-			titleInfoTypeAttributeDefinitionEEnum = (EEnum) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI).getEClassifiers().get(85);
+			titleInfoTypeAttributeDefinitionEEnum = (EEnum) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI)
+					.getEClassifiers().get(85);
 		}
 		return titleInfoTypeAttributeDefinitionEEnum;
 	}
@@ -6187,8 +5953,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public EEnum getUrlAccessAttributeDefinition() {
 		if (urlAccessAttributeDefinitionEEnum == null) {
-			urlAccessAttributeDefinitionEEnum = (EEnum) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI).getEClassifiers().get(89);
+			urlAccessAttributeDefinitionEEnum = (EEnum) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI)
+					.getEClassifiers().get(89);
 		}
 		return urlAccessAttributeDefinitionEEnum;
 	}
@@ -6200,8 +5966,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public EEnum getUrlUsageAttributeDefinition() {
 		if (urlUsageAttributeDefinitionEEnum == null) {
-			urlUsageAttributeDefinitionEEnum = (EEnum) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI).getEClassifiers().get(92);
+			urlUsageAttributeDefinitionEEnum = (EEnum) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI)
+					.getEClassifiers().get(92);
 		}
 		return urlUsageAttributeDefinitionEEnum;
 	}
@@ -6213,8 +5979,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public EEnum getUsageAttributeDefinition() {
 		if (usageAttributeDefinitionEEnum == null) {
-			usageAttributeDefinitionEEnum = (EEnum) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI).getEClassifiers().get(94);
+			usageAttributeDefinitionEEnum = (EEnum) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI)
+					.getEClassifiers().get(94);
 		}
 		return usageAttributeDefinitionEEnum;
 	}
@@ -6226,8 +5992,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public EEnum getYesDefinition() {
 		if (yesDefinitionEEnum == null) {
-			yesDefinitionEEnum = (EEnum) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI).getEClassifiers().get(97);
+			yesDefinitionEEnum = (EEnum) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI).getEClassifiers()
+					.get(97);
 		}
 		return yesDefinitionEEnum;
 	}
@@ -6239,8 +6005,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public EDataType getCodeOrTextDefinitionObject() {
 		if (codeOrTextDefinitionObjectEDataType == null) {
-			codeOrTextDefinitionObjectEDataType = (EDataType) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI).getEClassifiers().get(5);
+			codeOrTextDefinitionObjectEDataType = (EDataType) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI)
+					.getEClassifiers().get(5);
 		}
 		return codeOrTextDefinitionObjectEDataType;
 	}
@@ -6317,8 +6083,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public EDataType getIssuanceDefinitionObject() {
 		if (issuanceDefinitionObjectEDataType == null) {
-			issuanceDefinitionObjectEDataType = (EDataType) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI).getEClassifiers().get(31);
+			issuanceDefinitionObjectEDataType = (EDataType) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI)
+					.getEClassifiers().get(31);
 		}
 		return issuanceDefinitionObjectEDataType;
 	}
@@ -6382,8 +6148,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public EDataType getNoDefinitionObject() {
 		if (noDefinitionObjectEDataType == null) {
-			noDefinitionObjectEDataType = (EDataType) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI).getEClassifiers().get(49);
+			noDefinitionObjectEDataType = (EDataType) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI)
+					.getEClassifiers().get(49);
 		}
 		return noDefinitionObjectEDataType;
 	}
@@ -6499,8 +6265,8 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	 */
 	public EDataType getYesDefinitionObject() {
 		if (yesDefinitionObjectEDataType == null) {
-			yesDefinitionObjectEDataType = (EDataType) EPackage.Registry.INSTANCE
-					.getEPackage(MODSPackage.eNS_URI).getEClassifiers().get(98);
+			yesDefinitionObjectEDataType = (EDataType) EPackage.Registry.INSTANCE.getEPackage(MODSPackage.eNS_URI)
+					.getEClassifiers().get(98);
 		}
 		return yesDefinitionObjectEDataType;
 	}
@@ -6534,8 +6300,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 
 		URL url = getClass().getResource(packageFilename);
 		if (url == null) {
-			throw new RuntimeException("Missing serialized package: "
-					+ packageFilename);
+			throw new RuntimeException("Missing serialized package: " + packageFilename);
 		}
 		URI uri = URI.createURI(url.toString());
 		Resource resource = new EcoreResourceFactoryImpl().createResource(uri);
@@ -6544,8 +6309,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 		} catch (IOException exception) {
 			throw new WrappedException(exception);
 		}
-		initializeFromLoadedEPackage(this, (EPackage) resource.getContents()
-				.get(0));
+		initializeFromLoadedEPackage(this, (EPackage) resource.getContents().get(0));
 		createResource(eNS_URI);
 	}
 
@@ -6578,8 +6342,7 @@ public class MODSPackageImpl extends EPackageImpl implements MODSPackage {
 	@Override
 	protected void fixInstanceClass(EClassifier eClassifier) {
 		if (eClassifier.getInstanceClassName() == null) {
-			eClassifier.setInstanceClassName("gov.loc.mods.mods."
-					+ eClassifier.getName());
+			eClassifier.setInstanceClassName("gov.loc.mods.mods." + eClassifier.getName());
 			setGeneratedClassName(eClassifier);
 		}
 	}

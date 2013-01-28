@@ -46,9 +46,8 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class RoleDefinitionItemProvider extends ItemProviderAdapter implements
-		IEditingDomainItemProvider, IStructuredItemContentProvider,
-		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class RoleDefinitionItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -83,12 +82,10 @@ public class RoleDefinitionItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(
-			Object object) {
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(MODSPackage.eINSTANCE
-					.getRoleDefinition_Group());
+			childrenFeatures.add(MODSPackage.eINSTANCE.getRoleDefinition_Group());
 		}
 		return childrenFeatures;
 	}
@@ -114,8 +111,7 @@ public class RoleDefinitionItemProvider extends ItemProviderAdapter implements
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object,
-				getResourceLocator().getImage("full/obj16/RoleDefinition"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/RoleDefinition"));
 	}
 
 	/**
@@ -151,10 +147,9 @@ public class RoleDefinitionItemProvider extends ItemProviderAdapter implements
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(RoleDefinition.class)) {
-		case MODSPackage.ROLE_DEFINITION__GROUP:
-			fireNotifyChanged(new ViewerNotification(notification,
-					notification.getNotifier(), true, false));
-			return;
+			case MODSPackage.ROLE_DEFINITION__GROUP:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -167,14 +162,13 @@ public class RoleDefinitionItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(
-			Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE
-				.getRoleDefinition_Group(), FeatureMapUtil.createEntry(
-				MODSPackage.eINSTANCE.getRoleDefinition_RoleTerm(),
-				MODSFactory.eINSTANCE.createRoleTermDefinition())));
+		newChildDescriptors.add(createChildParameter(
+				MODSPackage.eINSTANCE.getRoleDefinition_Group(),
+				FeatureMapUtil.createEntry(MODSPackage.eINSTANCE.getRoleDefinition_RoleTerm(),
+						MODSFactory.eINSTANCE.createRoleTermDefinition())));
 	}
 
 	/**

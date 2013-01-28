@@ -70,8 +70,7 @@ public enum YesDefinition implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final List<YesDefinition> VALUES = Collections
-			.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+	public static final List<YesDefinition> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
 	 * Returns the '<em><b>Yes Definition</b></em>' literal with the specified literal value.
@@ -113,8 +112,8 @@ public enum YesDefinition implements Enumerator {
 	 */
 	public static YesDefinition get(int value) {
 		switch (value) {
-		case YES_VALUE:
-			return YES;
+			case YES_VALUE:
+				return YES;
 		}
 		return null;
 	}

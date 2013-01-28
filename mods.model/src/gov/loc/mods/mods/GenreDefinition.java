@@ -32,8 +32,7 @@ package gov.loc.mods.mods;
  * @model extendedMetaData="name='genreDefinition' kind='simple'"
  * @generated
  */
-public interface GenreDefinition extends
-		StringPlusAuthorityPlusTypePlusDisplayLabel {
+public interface GenreDefinition extends StringPlusAuthorityPlusTypePlusDisplayLabel {
 	/**
 	 * Returns the value of the '<em><b>Alt Rep Group</b></em>' attribute.
 	 * <!-- begin-user-doc -->

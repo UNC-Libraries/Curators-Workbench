@@ -37,8 +37,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class StringPlusAuthorityPlusTypeImpl extends StringPlusAuthorityImpl
-		implements StringPlusAuthorityPlusType {
+public class StringPlusAuthorityPlusTypeImpl extends StringPlusAuthorityImpl implements StringPlusAuthorityPlusType {
 	/**
 	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -96,9 +95,8 @@ public class StringPlusAuthorityPlusTypeImpl extends StringPlusAuthorityImpl
 		String oldType = type;
 		type = newType;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE__TYPE, oldType,
-					type));
+			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE__TYPE,
+					oldType, type));
 	}
 
 	/**
@@ -109,8 +107,8 @@ public class StringPlusAuthorityPlusTypeImpl extends StringPlusAuthorityImpl
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE__TYPE:
-			return getType();
+			case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE__TYPE:
+				return getType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -123,9 +121,9 @@ public class StringPlusAuthorityPlusTypeImpl extends StringPlusAuthorityImpl
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE__TYPE:
-			setType((String) newValue);
-			return;
+			case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE__TYPE:
+				setType((String) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -138,9 +136,9 @@ public class StringPlusAuthorityPlusTypeImpl extends StringPlusAuthorityImpl
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE__TYPE:
-			setType(TYPE_EDEFAULT);
-			return;
+			case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE__TYPE:
+				setType(TYPE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -153,9 +151,8 @@ public class StringPlusAuthorityPlusTypeImpl extends StringPlusAuthorityImpl
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE__TYPE:
-			return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT
-					.equals(type);
+			case MODSPackage.STRING_PLUS_AUTHORITY_PLUS_TYPE__TYPE:
+				return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
 		}
 		return super.eIsSet(featureID);
 	}

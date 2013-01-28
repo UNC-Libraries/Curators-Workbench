@@ -44,8 +44,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class TitleInfoDefinitionImpl extends TitleInfoBaseDefinitionImpl
-		implements TitleInfoDefinition {
+public class TitleInfoDefinitionImpl extends TitleInfoBaseDefinitionImpl implements TitleInfoDefinition {
 	/**
 	 * The default value of the '{@link #getAltRepGroup() <em>Alt Rep Group</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -210,8 +209,7 @@ public class TitleInfoDefinitionImpl extends TitleInfoBaseDefinitionImpl
 		String oldAltRepGroup = altRepGroup;
 		altRepGroup = newAltRepGroup;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MODSPackage.TITLE_INFO_DEFINITION__ALT_REP_GROUP,
+			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.TITLE_INFO_DEFINITION__ALT_REP_GROUP,
 					oldAltRepGroup, altRepGroup));
 	}
 
@@ -233,8 +231,7 @@ public class TitleInfoDefinitionImpl extends TitleInfoBaseDefinitionImpl
 		String oldNameTitleGroup = nameTitleGroup;
 		nameTitleGroup = newNameTitleGroup;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MODSPackage.TITLE_INFO_DEFINITION__NAME_TITLE_GROUP,
+			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.TITLE_INFO_DEFINITION__NAME_TITLE_GROUP,
 					oldNameTitleGroup, nameTitleGroup));
 	}
 
@@ -258,9 +255,8 @@ public class TitleInfoDefinitionImpl extends TitleInfoBaseDefinitionImpl
 		boolean oldSuppliedESet = suppliedESet;
 		suppliedESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MODSPackage.TITLE_INFO_DEFINITION__SUPPLIED, oldSupplied,
-					supplied, !oldSuppliedESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.TITLE_INFO_DEFINITION__SUPPLIED,
+					oldSupplied, supplied, !oldSuppliedESet));
 	}
 
 	/**
@@ -274,9 +270,8 @@ public class TitleInfoDefinitionImpl extends TitleInfoBaseDefinitionImpl
 		supplied = SUPPLIED_EDEFAULT;
 		suppliedESet = false;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET,
-					MODSPackage.TITLE_INFO_DEFINITION__SUPPLIED, oldSupplied,
-					SUPPLIED_EDEFAULT, oldSuppliedESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, MODSPackage.TITLE_INFO_DEFINITION__SUPPLIED,
+					oldSupplied, SUPPLIED_EDEFAULT, oldSuppliedESet));
 	}
 
 	/**
@@ -308,9 +303,8 @@ public class TitleInfoDefinitionImpl extends TitleInfoBaseDefinitionImpl
 		boolean oldType1ESet = type1ESet;
 		type1ESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MODSPackage.TITLE_INFO_DEFINITION__TYPE1, oldType1, type1,
-					!oldType1ESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.TITLE_INFO_DEFINITION__TYPE1, oldType1,
+					type1, !oldType1ESet));
 	}
 
 	/**
@@ -324,8 +318,7 @@ public class TitleInfoDefinitionImpl extends TitleInfoBaseDefinitionImpl
 		type1 = TYPE1_EDEFAULT;
 		type1ESet = false;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET,
-					MODSPackage.TITLE_INFO_DEFINITION__TYPE1, oldType1,
+			eNotify(new ENotificationImpl(this, Notification.UNSET, MODSPackage.TITLE_INFO_DEFINITION__TYPE1, oldType1,
 					TYPE1_EDEFAULT, oldType1ESet));
 	}
 
@@ -358,9 +351,8 @@ public class TitleInfoDefinitionImpl extends TitleInfoBaseDefinitionImpl
 		boolean oldUsageESet = usageESet;
 		usageESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					MODSPackage.TITLE_INFO_DEFINITION__USAGE, oldUsage, usage,
-					!oldUsageESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, MODSPackage.TITLE_INFO_DEFINITION__USAGE, oldUsage,
+					usage, !oldUsageESet));
 	}
 
 	/**
@@ -374,8 +366,7 @@ public class TitleInfoDefinitionImpl extends TitleInfoBaseDefinitionImpl
 		usage = USAGE_EDEFAULT;
 		usageESet = false;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET,
-					MODSPackage.TITLE_INFO_DEFINITION__USAGE, oldUsage,
+			eNotify(new ENotificationImpl(this, Notification.UNSET, MODSPackage.TITLE_INFO_DEFINITION__USAGE, oldUsage,
 					USAGE_EDEFAULT, oldUsageESet));
 	}
 
@@ -396,16 +387,16 @@ public class TitleInfoDefinitionImpl extends TitleInfoBaseDefinitionImpl
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case MODSPackage.TITLE_INFO_DEFINITION__ALT_REP_GROUP:
-			return getAltRepGroup();
-		case MODSPackage.TITLE_INFO_DEFINITION__NAME_TITLE_GROUP:
-			return getNameTitleGroup();
-		case MODSPackage.TITLE_INFO_DEFINITION__SUPPLIED:
-			return getSupplied();
-		case MODSPackage.TITLE_INFO_DEFINITION__TYPE1:
-			return getType1();
-		case MODSPackage.TITLE_INFO_DEFINITION__USAGE:
-			return getUsage();
+			case MODSPackage.TITLE_INFO_DEFINITION__ALT_REP_GROUP:
+				return getAltRepGroup();
+			case MODSPackage.TITLE_INFO_DEFINITION__NAME_TITLE_GROUP:
+				return getNameTitleGroup();
+			case MODSPackage.TITLE_INFO_DEFINITION__SUPPLIED:
+				return getSupplied();
+			case MODSPackage.TITLE_INFO_DEFINITION__TYPE1:
+				return getType1();
+			case MODSPackage.TITLE_INFO_DEFINITION__USAGE:
+				return getUsage();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -418,21 +409,21 @@ public class TitleInfoDefinitionImpl extends TitleInfoBaseDefinitionImpl
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case MODSPackage.TITLE_INFO_DEFINITION__ALT_REP_GROUP:
-			setAltRepGroup((String) newValue);
-			return;
-		case MODSPackage.TITLE_INFO_DEFINITION__NAME_TITLE_GROUP:
-			setNameTitleGroup((String) newValue);
-			return;
-		case MODSPackage.TITLE_INFO_DEFINITION__SUPPLIED:
-			setSupplied((YesDefinition) newValue);
-			return;
-		case MODSPackage.TITLE_INFO_DEFINITION__TYPE1:
-			setType1((TitleInfoTypeAttributeDefinition) newValue);
-			return;
-		case MODSPackage.TITLE_INFO_DEFINITION__USAGE:
-			setUsage((UsageAttributeDefinition) newValue);
-			return;
+			case MODSPackage.TITLE_INFO_DEFINITION__ALT_REP_GROUP:
+				setAltRepGroup((String) newValue);
+				return;
+			case MODSPackage.TITLE_INFO_DEFINITION__NAME_TITLE_GROUP:
+				setNameTitleGroup((String) newValue);
+				return;
+			case MODSPackage.TITLE_INFO_DEFINITION__SUPPLIED:
+				setSupplied((YesDefinition) newValue);
+				return;
+			case MODSPackage.TITLE_INFO_DEFINITION__TYPE1:
+				setType1((TitleInfoTypeAttributeDefinition) newValue);
+				return;
+			case MODSPackage.TITLE_INFO_DEFINITION__USAGE:
+				setUsage((UsageAttributeDefinition) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -445,21 +436,21 @@ public class TitleInfoDefinitionImpl extends TitleInfoBaseDefinitionImpl
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case MODSPackage.TITLE_INFO_DEFINITION__ALT_REP_GROUP:
-			setAltRepGroup(ALT_REP_GROUP_EDEFAULT);
-			return;
-		case MODSPackage.TITLE_INFO_DEFINITION__NAME_TITLE_GROUP:
-			setNameTitleGroup(NAME_TITLE_GROUP_EDEFAULT);
-			return;
-		case MODSPackage.TITLE_INFO_DEFINITION__SUPPLIED:
-			unsetSupplied();
-			return;
-		case MODSPackage.TITLE_INFO_DEFINITION__TYPE1:
-			unsetType1();
-			return;
-		case MODSPackage.TITLE_INFO_DEFINITION__USAGE:
-			unsetUsage();
-			return;
+			case MODSPackage.TITLE_INFO_DEFINITION__ALT_REP_GROUP:
+				setAltRepGroup(ALT_REP_GROUP_EDEFAULT);
+				return;
+			case MODSPackage.TITLE_INFO_DEFINITION__NAME_TITLE_GROUP:
+				setNameTitleGroup(NAME_TITLE_GROUP_EDEFAULT);
+				return;
+			case MODSPackage.TITLE_INFO_DEFINITION__SUPPLIED:
+				unsetSupplied();
+				return;
+			case MODSPackage.TITLE_INFO_DEFINITION__TYPE1:
+				unsetType1();
+				return;
+			case MODSPackage.TITLE_INFO_DEFINITION__USAGE:
+				unsetUsage();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -472,18 +463,17 @@ public class TitleInfoDefinitionImpl extends TitleInfoBaseDefinitionImpl
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case MODSPackage.TITLE_INFO_DEFINITION__ALT_REP_GROUP:
-			return ALT_REP_GROUP_EDEFAULT == null ? altRepGroup != null
-					: !ALT_REP_GROUP_EDEFAULT.equals(altRepGroup);
-		case MODSPackage.TITLE_INFO_DEFINITION__NAME_TITLE_GROUP:
-			return NAME_TITLE_GROUP_EDEFAULT == null ? nameTitleGroup != null
-					: !NAME_TITLE_GROUP_EDEFAULT.equals(nameTitleGroup);
-		case MODSPackage.TITLE_INFO_DEFINITION__SUPPLIED:
-			return isSetSupplied();
-		case MODSPackage.TITLE_INFO_DEFINITION__TYPE1:
-			return isSetType1();
-		case MODSPackage.TITLE_INFO_DEFINITION__USAGE:
-			return isSetUsage();
+			case MODSPackage.TITLE_INFO_DEFINITION__ALT_REP_GROUP:
+				return ALT_REP_GROUP_EDEFAULT == null ? altRepGroup != null : !ALT_REP_GROUP_EDEFAULT.equals(altRepGroup);
+			case MODSPackage.TITLE_INFO_DEFINITION__NAME_TITLE_GROUP:
+				return NAME_TITLE_GROUP_EDEFAULT == null ? nameTitleGroup != null : !NAME_TITLE_GROUP_EDEFAULT
+						.equals(nameTitleGroup);
+			case MODSPackage.TITLE_INFO_DEFINITION__SUPPLIED:
+				return isSetSupplied();
+			case MODSPackage.TITLE_INFO_DEFINITION__TYPE1:
+				return isSetType1();
+			case MODSPackage.TITLE_INFO_DEFINITION__USAGE:
+				return isSetUsage();
 		}
 		return super.eIsSet(featureID);
 	}

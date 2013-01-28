@@ -113,8 +113,8 @@ public enum UsageAttributeDefinition implements Enumerator {
 	 */
 	public static UsageAttributeDefinition get(int value) {
 		switch (value) {
-		case PRIMARY_VALUE:
-			return PRIMARY;
+			case PRIMARY_VALUE:
+				return PRIMARY;
 		}
 		return null;
 	}

@@ -69,8 +69,7 @@ public enum ResourceTypeDefinition implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SOUND_RECORDING_MUSICAL(3, "soundRecordingMusical",
-			"sound recording-musical"),
+	SOUND_RECORDING_MUSICAL(3, "soundRecordingMusical", "sound recording-musical"),
 
 	/**
 	 * The '<em><b>Sound Recording Nonmusical</b></em>' literal object.
@@ -80,8 +79,7 @@ public enum ResourceTypeDefinition implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SOUND_RECORDING_NONMUSICAL(4, "soundRecordingNonmusical",
-			"sound recording-nonmusical"),
+	SOUND_RECORDING_NONMUSICAL(4, "soundRecordingNonmusical", "sound recording-nonmusical"),
 
 	/**
 	 * The '<em><b>Sound Recording</b></em>' literal object.
@@ -121,8 +119,7 @@ public enum ResourceTypeDefinition implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	THREE_DIMENSIONAL_OBJECT(8, "threeDimensionalObject",
-			"three dimensional object"),
+	THREE_DIMENSIONAL_OBJECT(8, "threeDimensionalObject", "three dimensional object"),
 
 	/**
 	 * The '<em><b>Software Multimedia</b></em>' literal object.
@@ -340,11 +337,9 @@ public enum ResourceTypeDefinition implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final ResourceTypeDefinition[] VALUES_ARRAY = new ResourceTypeDefinition[] {
-			TEXT, CARTOGRAPHIC, NOTATED_MUSIC, SOUND_RECORDING_MUSICAL,
-			SOUND_RECORDING_NONMUSICAL, SOUND_RECORDING, STILL_IMAGE,
-			MOVING_IMAGE, THREE_DIMENSIONAL_OBJECT, SOFTWARE_MULTIMEDIA,
-			MIXED_MATERIAL, _, };
+	private static final ResourceTypeDefinition[] VALUES_ARRAY = new ResourceTypeDefinition[] { TEXT, CARTOGRAPHIC,
+			NOTATED_MUSIC, SOUND_RECORDING_MUSICAL, SOUND_RECORDING_NONMUSICAL, SOUND_RECORDING, STILL_IMAGE,
+			MOVING_IMAGE, THREE_DIMENSIONAL_OBJECT, SOFTWARE_MULTIMEDIA, MIXED_MATERIAL, _, };
 
 	/**
 	 * A public read-only list of all the '<em><b>Resource Type Definition</b></em>' enumerators.
@@ -352,8 +347,7 @@ public enum ResourceTypeDefinition implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final List<ResourceTypeDefinition> VALUES = Collections
-			.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+	public static final List<ResourceTypeDefinition> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
 	 * Returns the '<em><b>Resource Type Definition</b></em>' literal with the specified literal value.
@@ -395,30 +389,30 @@ public enum ResourceTypeDefinition implements Enumerator {
 	 */
 	public static ResourceTypeDefinition get(int value) {
 		switch (value) {
-		case TEXT_VALUE:
-			return TEXT;
-		case CARTOGRAPHIC_VALUE:
-			return CARTOGRAPHIC;
-		case NOTATED_MUSIC_VALUE:
-			return NOTATED_MUSIC;
-		case SOUND_RECORDING_MUSICAL_VALUE:
-			return SOUND_RECORDING_MUSICAL;
-		case SOUND_RECORDING_NONMUSICAL_VALUE:
-			return SOUND_RECORDING_NONMUSICAL;
-		case SOUND_RECORDING_VALUE:
-			return SOUND_RECORDING;
-		case STILL_IMAGE_VALUE:
-			return STILL_IMAGE;
-		case MOVING_IMAGE_VALUE:
-			return MOVING_IMAGE;
-		case THREE_DIMENSIONAL_OBJECT_VALUE:
-			return THREE_DIMENSIONAL_OBJECT;
-		case SOFTWARE_MULTIMEDIA_VALUE:
-			return SOFTWARE_MULTIMEDIA;
-		case MIXED_MATERIAL_VALUE:
-			return MIXED_MATERIAL;
-		case __VALUE:
-			return _;
+			case TEXT_VALUE:
+				return TEXT;
+			case CARTOGRAPHIC_VALUE:
+				return CARTOGRAPHIC;
+			case NOTATED_MUSIC_VALUE:
+				return NOTATED_MUSIC;
+			case SOUND_RECORDING_MUSICAL_VALUE:
+				return SOUND_RECORDING_MUSICAL;
+			case SOUND_RECORDING_NONMUSICAL_VALUE:
+				return SOUND_RECORDING_NONMUSICAL;
+			case SOUND_RECORDING_VALUE:
+				return SOUND_RECORDING;
+			case STILL_IMAGE_VALUE:
+				return STILL_IMAGE;
+			case MOVING_IMAGE_VALUE:
+				return MOVING_IMAGE;
+			case THREE_DIMENSIONAL_OBJECT_VALUE:
+				return THREE_DIMENSIONAL_OBJECT;
+			case SOFTWARE_MULTIMEDIA_VALUE:
+				return SOFTWARE_MULTIMEDIA;
+			case MIXED_MATERIAL_VALUE:
+				return MIXED_MATERIAL;
+			case __VALUE:
+				return _;
 		}
 		return null;
 	}

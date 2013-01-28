@@ -137,8 +137,8 @@ public enum NameTypeAttributeDefinition implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final NameTypeAttributeDefinition[] VALUES_ARRAY = new NameTypeAttributeDefinition[] {
-			PERSONAL, CORPORATE, CONFERENCE, FAMILY, };
+	private static final NameTypeAttributeDefinition[] VALUES_ARRAY = new NameTypeAttributeDefinition[] { PERSONAL,
+			CORPORATE, CONFERENCE, FAMILY, };
 
 	/**
 	 * A public read-only list of all the '<em><b>Name Type Attribute Definition</b></em>' enumerators.
@@ -146,8 +146,8 @@ public enum NameTypeAttributeDefinition implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final List<NameTypeAttributeDefinition> VALUES = Collections
-			.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+	public static final List<NameTypeAttributeDefinition> VALUES = Collections.unmodifiableList(Arrays
+			.asList(VALUES_ARRAY));
 
 	/**
 	 * Returns the '<em><b>Name Type Attribute Definition</b></em>' literal with the specified literal value.
@@ -189,14 +189,14 @@ public enum NameTypeAttributeDefinition implements Enumerator {
 	 */
 	public static NameTypeAttributeDefinition get(int value) {
 		switch (value) {
-		case PERSONAL_VALUE:
-			return PERSONAL;
-		case CORPORATE_VALUE:
-			return CORPORATE;
-		case CONFERENCE_VALUE:
-			return CONFERENCE;
-		case FAMILY_VALUE:
-			return FAMILY;
+			case PERSONAL_VALUE:
+				return PERSONAL;
+			case CORPORATE_VALUE:
+				return CORPORATE;
+			case CONFERENCE_VALUE:
+				return CONFERENCE;
+			case FAMILY_VALUE:
+				return FAMILY;
 		}
 		return null;
 	}

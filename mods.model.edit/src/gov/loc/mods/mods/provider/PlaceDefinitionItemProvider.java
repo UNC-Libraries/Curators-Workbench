@@ -47,9 +47,8 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class PlaceDefinitionItemProvider extends ItemProviderAdapter implements
-		IEditingDomainItemProvider, IStructuredItemContentProvider,
-		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class PlaceDefinitionItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -84,14 +83,11 @@ public class PlaceDefinitionItemProvider extends ItemProviderAdapter implements
 	 */
 	protected void addSuppliedPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
 				getResourceLocator(),
 				getString("_UI_PlaceDefinition_supplied_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_PlaceDefinition_supplied_feature",
-						"_UI_PlaceDefinition_type"), MODSPackage.eINSTANCE
-						.getPlaceDefinition_Supplied(), true, false, false,
+				getString("_UI_PropertyDescriptor_description", "_UI_PlaceDefinition_supplied_feature",
+						"_UI_PlaceDefinition_type"), MODSPackage.eINSTANCE.getPlaceDefinition_Supplied(), true, false, false,
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
@@ -104,12 +100,10 @@ public class PlaceDefinitionItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(
-			Object object) {
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(MODSPackage.eINSTANCE
-					.getPlaceDefinition_PlaceTerm());
+			childrenFeatures.add(MODSPackage.eINSTANCE.getPlaceDefinition_PlaceTerm());
 		}
 		return childrenFeatures;
 	}
@@ -135,8 +129,7 @@ public class PlaceDefinitionItemProvider extends ItemProviderAdapter implements
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object,
-				getResourceLocator().getImage("full/obj16/PlaceDefinition"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/PlaceDefinition"));
 	}
 
 	/**
@@ -175,14 +168,12 @@ public class PlaceDefinitionItemProvider extends ItemProviderAdapter implements
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(PlaceDefinition.class)) {
-		case MODSPackage.PLACE_DEFINITION__SUPPLIED:
-			fireNotifyChanged(new ViewerNotification(notification,
-					notification.getNotifier(), false, true));
-			return;
-		case MODSPackage.PLACE_DEFINITION__PLACE_TERM:
-			fireNotifyChanged(new ViewerNotification(notification,
-					notification.getNotifier(), true, false));
-			return;
+			case MODSPackage.PLACE_DEFINITION__SUPPLIED:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+			case MODSPackage.PLACE_DEFINITION__PLACE_TERM:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -195,12 +186,10 @@ public class PlaceDefinitionItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(
-			Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(
-				MODSPackage.eINSTANCE.getPlaceDefinition_PlaceTerm(),
+		newChildDescriptors.add(createChildParameter(MODSPackage.eINSTANCE.getPlaceDefinition_PlaceTerm(),
 				MODSFactory.eINSTANCE.createPlaceTermDefinition()));
 	}
 

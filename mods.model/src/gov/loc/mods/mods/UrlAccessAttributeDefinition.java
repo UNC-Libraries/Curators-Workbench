@@ -112,8 +112,8 @@ public enum UrlAccessAttributeDefinition implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final UrlAccessAttributeDefinition[] VALUES_ARRAY = new UrlAccessAttributeDefinition[] {
-			PREVIEW, RAW_OBJECT, OBJECT_IN_CONTEXT, };
+	private static final UrlAccessAttributeDefinition[] VALUES_ARRAY = new UrlAccessAttributeDefinition[] { PREVIEW,
+			RAW_OBJECT, OBJECT_IN_CONTEXT, };
 
 	/**
 	 * A public read-only list of all the '<em><b>Url Access Attribute Definition</b></em>' enumerators.
@@ -121,8 +121,8 @@ public enum UrlAccessAttributeDefinition implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final List<UrlAccessAttributeDefinition> VALUES = Collections
-			.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+	public static final List<UrlAccessAttributeDefinition> VALUES = Collections.unmodifiableList(Arrays
+			.asList(VALUES_ARRAY));
 
 	/**
 	 * Returns the '<em><b>Url Access Attribute Definition</b></em>' literal with the specified literal value.
@@ -164,12 +164,12 @@ public enum UrlAccessAttributeDefinition implements Enumerator {
 	 */
 	public static UrlAccessAttributeDefinition get(int value) {
 		switch (value) {
-		case PREVIEW_VALUE:
-			return PREVIEW;
-		case RAW_OBJECT_VALUE:
-			return RAW_OBJECT;
-		case OBJECT_IN_CONTEXT_VALUE:
-			return OBJECT_IN_CONTEXT;
+			case PREVIEW_VALUE:
+				return PREVIEW;
+			case RAW_OBJECT_VALUE:
+				return RAW_OBJECT;
+			case OBJECT_IN_CONTEXT_VALUE:
+				return OBJECT_IN_CONTEXT;
 		}
 		return null;
 	}

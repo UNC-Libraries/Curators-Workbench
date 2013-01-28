@@ -146,8 +146,8 @@ public enum TitleInfoTypeAttributeDefinition implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final List<TitleInfoTypeAttributeDefinition> VALUES = Collections
-			.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+	public static final List<TitleInfoTypeAttributeDefinition> VALUES = Collections.unmodifiableList(Arrays
+			.asList(VALUES_ARRAY));
 
 	/**
 	 * Returns the '<em><b>Title Info Type Attribute Definition</b></em>' literal with the specified literal value.
@@ -189,14 +189,14 @@ public enum TitleInfoTypeAttributeDefinition implements Enumerator {
 	 */
 	public static TitleInfoTypeAttributeDefinition get(int value) {
 		switch (value) {
-		case ABBREVIATED_VALUE:
-			return ABBREVIATED;
-		case TRANSLATED_VALUE:
-			return TRANSLATED;
-		case ALTERNATIVE_VALUE:
-			return ALTERNATIVE;
-		case UNIFORM_VALUE:
-			return UNIFORM;
+			case ABBREVIATED_VALUE:
+				return ABBREVIATED;
+			case TRANSLATED_VALUE:
+				return TRANSLATED;
+			case ALTERNATIVE_VALUE:
+				return ALTERNATIVE;
+			case UNIFORM_VALUE:
+				return UNIFORM;
 		}
 		return null;
 	}
@@ -228,8 +228,7 @@ public enum TitleInfoTypeAttributeDefinition implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private TitleInfoTypeAttributeDefinition(int value, String name,
-			String literal) {
+	private TitleInfoTypeAttributeDefinition(int value, String name, String literal) {
 		this.value = value;
 		this.name = name;
 		this.literal = literal;
