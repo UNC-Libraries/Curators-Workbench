@@ -162,6 +162,24 @@ public class MappedAttributeImpl extends EObjectImpl implements MappedAttribute 
 	protected boolean required = REQUIRED_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #isOmittedWhenBlank() <em>Omitted When Blank</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isOmittedWhenBlank()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean OMITTED_WHEN_BLANK_EDEFAULT = true;
+	/**
+	 * The cached value of the '{@link #isOmittedWhenBlank() <em>Omitted When Blank</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isOmittedWhenBlank()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean omittedWhenBlank = OMITTED_WHEN_BLANK_EDEFAULT;
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -485,6 +503,27 @@ public class MappedAttributeImpl extends EObjectImpl implements MappedAttribute 
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isOmittedWhenBlank() {
+		return omittedWhenBlank;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOmittedWhenBlank(boolean newOmittedWhenBlank) {
+		boolean oldOmittedWhenBlank = omittedWhenBlank;
+		omittedWhenBlank = newOmittedWhenBlank;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.MAPPED_ATTRIBUTE__OMITTED_WHEN_BLANK, oldOmittedWhenBlank, omittedWhenBlank));
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated NOT
@@ -542,10 +581,10 @@ public class MappedAttributeImpl extends EObjectImpl implements MappedAttribute 
 			}
 		}
 
-		// If the value to be set is a blank string use the default value instead.
+		// If the value to be set is a blank string, use the default value instead.
 		// If there is no default value, use null.
 		
-		if (setting != null && setting instanceof String) {
+		if (setting != null && setting instanceof String && this.isOmittedWhenBlank()) {
 			if (((String) setting).length() == 0) {
 				if (isSetDefaultValue())
 					setting = EcoreUtil.createFromString(this.getMappedFeature().getEAttributeType(), getDefaultValue());
@@ -627,6 +666,8 @@ public class MappedAttributeImpl extends EObjectImpl implements MappedAttribute 
 				return getDefaultValue();
 			case CrosswalkPackage.MAPPED_ATTRIBUTE__REQUIRED:
 				return isRequired();
+			case CrosswalkPackage.MAPPED_ATTRIBUTE__OMITTED_WHEN_BLANK:
+				return isOmittedWhenBlank();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -658,6 +699,9 @@ public class MappedAttributeImpl extends EObjectImpl implements MappedAttribute 
 				return;
 			case CrosswalkPackage.MAPPED_ATTRIBUTE__REQUIRED:
 				setRequired((Boolean)newValue);
+				return;
+			case CrosswalkPackage.MAPPED_ATTRIBUTE__OMITTED_WHEN_BLANK:
+				setOmittedWhenBlank((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -691,6 +735,9 @@ public class MappedAttributeImpl extends EObjectImpl implements MappedAttribute 
 			case CrosswalkPackage.MAPPED_ATTRIBUTE__REQUIRED:
 				setRequired(REQUIRED_EDEFAULT);
 				return;
+			case CrosswalkPackage.MAPPED_ATTRIBUTE__OMITTED_WHEN_BLANK:
+				setOmittedWhenBlank(OMITTED_WHEN_BLANK_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -716,6 +763,8 @@ public class MappedAttributeImpl extends EObjectImpl implements MappedAttribute 
 				return isSetDefaultValue();
 			case CrosswalkPackage.MAPPED_ATTRIBUTE__REQUIRED:
 				return required != REQUIRED_EDEFAULT;
+			case CrosswalkPackage.MAPPED_ATTRIBUTE__OMITTED_WHEN_BLANK:
+				return omittedWhenBlank != OMITTED_WHEN_BLANK_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -765,6 +814,8 @@ public class MappedAttributeImpl extends EObjectImpl implements MappedAttribute 
 		if (defaultValueESet) result.append(defaultValue); else result.append("<unset>");
 		result.append(", required: ");
 		result.append(required);
+		result.append(", omittedWhenBlank: ");
+		result.append(omittedWhenBlank);
 		result.append(')');
 		return result.toString();
 	}

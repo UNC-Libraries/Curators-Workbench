@@ -63,6 +63,7 @@ public class MappedAttributeItemProvider extends ItemProviderAdapter implements 
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 			addOutputPropertyDescriptor(object);
+			addOmittedWhenBlankPropertyDescriptor(object);
 			addConversionStrategyPropertyDescriptor(object);
 		}
 		List<IItemPropertyDescriptor> result = new ArrayList<IItemPropertyDescriptor>();
@@ -140,6 +141,28 @@ public class MappedAttributeItemProvider extends ItemProviderAdapter implements 
 				 getString("_UI_MappedAttribute_required_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_MappedAttribute_required_feature", "_UI_MappedAttribute_type"),
 				 CrosswalkPackage.Literals.MAPPED_ATTRIBUTE__REQUIRED,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Omitted When Blank feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addOmittedWhenBlankPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_MappedAttribute_omittedWhenBlank_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_MappedAttribute_omittedWhenBlank_feature", "_UI_MappedAttribute_type"),
+				 CrosswalkPackage.Literals.MAPPED_ATTRIBUTE__OMITTED_WHEN_BLANK,
 				 true,
 				 false,
 				 false,
@@ -286,6 +309,7 @@ public class MappedAttributeItemProvider extends ItemProviderAdapter implements 
 			case CrosswalkPackage.MAPPED_ATTRIBUTE__EXCEPTION:
 			case CrosswalkPackage.MAPPED_ATTRIBUTE__DEFAULT_VALUE:
 			case CrosswalkPackage.MAPPED_ATTRIBUTE__REQUIRED:
+			case CrosswalkPackage.MAPPED_ATTRIBUTE__OMITTED_WHEN_BLANK:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
