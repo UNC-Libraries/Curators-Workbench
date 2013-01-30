@@ -511,7 +511,7 @@ public class MappedAttributeImpl extends EObjectImpl implements MappedAttribute 
 
 		// the value to set
 		Object setting = null;
-
+		
 		// get default
 		if (isSetDefaultValue()) {
 			setting = EcoreUtil.createFromString(this.getMappedFeature().getEAttributeType(), getDefaultValue());
@@ -541,6 +541,19 @@ public class MappedAttributeImpl extends EObjectImpl implements MappedAttribute 
 				// TODO warning here
 			}
 		}
+
+		// If the value to be set is a blank string use the default value instead.
+		// If there is no default value, use null.
+		
+		if (setting != null && setting instanceof String) {
+			if (((String) setting).length() == 0) {
+				if (isSetDefaultValue())
+					setting = EcoreUtil.createFromString(this.getMappedFeature().getEAttributeType(), getDefaultValue());
+				else
+					setting = null;
+			}
+		}
+		
 		if (setting != null) {
 			record.eSet(myAttribute, setting);
 		}
