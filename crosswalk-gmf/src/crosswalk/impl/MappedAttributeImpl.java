@@ -586,7 +586,7 @@ public class MappedAttributeImpl extends EObjectImpl implements MappedAttribute 
 		
 		if (setting != null && setting instanceof String && this.isOmittedWhenBlank()) {
 			if (((String) setting).length() == 0) {
-				if (isSetDefaultValue())
+				if (isSetDefaultValue() && getDefaultValue().length() != 0)
 					setting = EcoreUtil.createFromString(this.getMappedFeature().getEAttributeType(), getDefaultValue());
 				else
 					setting = null;
