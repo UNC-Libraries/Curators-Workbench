@@ -236,7 +236,13 @@ public class MappedAttributeItemProvider extends ItemProviderAdapter implements 
 
 			@Override
 			public void setPropertyValue(Object object, Object value) {
-				String strVal = EcoreUtil.convertToString(ma.getMappedFeature().getEAttributeType(), value);
+				String strVal;
+				
+				if (value instanceof String)
+					strVal = (String) value;
+				else
+					strVal = EcoreUtil.convertToString(ma.getMappedFeature().getEAttributeType(), value);
+				
 				super.setPropertyValue(object, strVal);
 			}
 

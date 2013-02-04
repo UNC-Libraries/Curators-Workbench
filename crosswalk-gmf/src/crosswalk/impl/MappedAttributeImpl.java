@@ -516,7 +516,11 @@ public class MappedAttributeImpl extends EObjectImpl implements MappedAttribute 
 
 		// get default
 		if (isSetDefaultValue()) {
-			setting = EcoreUtil.createFromString(this.getMappedFeature().getEAttributeType(), getDefaultValue());
+			if (EcoreUtil.equals(this.getMappedFeature().getEAttributeType(), EcorePackage.eINSTANCE.getEFeatureMapEntry())) {
+				setting = getDefaultValue().toString();
+			} else {
+				setting = EcoreUtil.createFromString(this.getMappedFeature().getEAttributeType(), getDefaultValue());
+			}
 		}
 
 		Object input = null;
