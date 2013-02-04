@@ -11,6 +11,7 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
@@ -499,13 +500,14 @@ public class MappedAttributeImpl extends EObjectImpl implements MappedAttribute 
 		}
 		return result;
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated NOT
 	 */
-	public void updateRecord(EObject record) {
+	public Object getValue() {
+		
 		EAttribute myAttribute = this.getMappedFeature();
 		LOG.debug("my type: " + myAttribute.toString());
 
@@ -525,6 +527,8 @@ public class MappedAttributeImpl extends EObjectImpl implements MappedAttribute 
 				if (input != null) {
 					if (this.isSetConversionStrategy()) {
 						setting = this.getConversionStrategy().convert(input);
+					} else if (EcoreUtil.equals(this.getMappedFeature().getEAttributeType(), EcorePackage.eINSTANCE.getEFeatureMapEntry())) {
+						setting = EcoreUtil.createFromString(EcorePackage.eINSTANCE.getEString(), input.toString());
 					} else if(input instanceof String){
 						setting = EcoreUtil.createFromString(this.getMappedFeature().getEAttributeType(), (String)input);
 					} else {
@@ -541,10 +545,26 @@ public class MappedAttributeImpl extends EObjectImpl implements MappedAttribute 
 				// TODO warning here
 			}
 		}
-		if (setting != null) {
-			record.eSet(myAttribute, setting);
-		}
+		
+		return setting;
+	
 	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
+	 * @generated NOT
+	 */
+	public void updateRecord(EObject record) {
+
+		Object setting = this.getValue();
+		
+		if (setting != null)
+			record.eSet(this.getMappedFeature(), setting);
+		
+	}
+	
+	
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -186,5 +186,10 @@ public interface MappedAttribute extends OutputElement, Input {
 	 * @generated
 	 */
 	void setRequired(boolean value);
+	
+	/**
+	 * @generated NOT
+	 */
+	Object getValue();
 
 } // MappedAttribute

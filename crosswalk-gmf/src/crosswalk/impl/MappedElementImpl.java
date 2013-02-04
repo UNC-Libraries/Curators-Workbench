@@ -6,6 +6,11 @@
  */
 package crosswalk.impl;
 
+import gov.loc.mods.mods.AccessConditionDefinition;
+import gov.loc.mods.mods.MODSPackage;
+import gov.loc.mods.mods.impl.AccessConditionDefinitionImpl;
+import gov.loc.mods.mods.impl.ExtensionDefinitionImpl;
+
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -15,12 +20,16 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.util.FeatureMap;
+import org.eclipse.emf.ecore.util.FeatureMapUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -285,13 +294,37 @@ public class MappedElementImpl extends EObjectImpl implements MappedElement {
 			LOG.debug("my type: " + mytype.toString());
 			EObject myobject = mytype.getEPackage().getEFactoryInstance().create(mytype);
 			LOG.debug("my object: " + myobject.toString());
+			
 			for (MappedAttribute ma : this.getAttributes()) {
-				ma.updateRecord(myobject);
+				
+				if (EcoreUtil.equals(ma.getMappedFeature().getEAttributeType(), EcorePackage.eINSTANCE.getEFeatureMapEntry())) {
+					
+					EStructuralFeature feature = myobject.eClass().getEStructuralFeature("mixed");
+					
+					if (feature != null) {
+						Object mixed = myobject.eGet(feature);
+					
+						if (mixed instanceof FeatureMap) {
+							Object value = ma.getValue();
+							
+							if (value != null)
+								FeatureMapUtil.addText((FeatureMap) mixed, value.toString());
+						}
+					}
+					
+				} else {
+				
+					ma.updateRecord(myobject);
+					
+				}
+				
 			}
+			
 			for (MappedElement me : this.getChildElements()) {
 				me.updateRecord(myobject);
 			}
-
+			
+			
 			if (!isEmpty(myobject)) {
 				if (getMappedFeature().isMany()) {
 					Object listO = record.eGet(getMappedFeature());
