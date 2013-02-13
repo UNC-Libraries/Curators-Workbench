@@ -931,13 +931,22 @@ public interface CrosswalkPackage extends EPackage {
 	int MAPPED_ATTRIBUTE__REQUIRED = OUTPUT_ELEMENT_FEATURE_COUNT + 4;
 
 								/**
+	 * The feature id for the '<em><b>Omitted When Blank</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAPPED_ATTRIBUTE__OMITTED_WHEN_BLANK = OUTPUT_ELEMENT_FEATURE_COUNT + 5;
+
+								/**
 	 * The number of structural features of the '<em>Mapped Attribute</em>' class.
 	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-        int MAPPED_ATTRIBUTE_FEATURE_COUNT = OUTPUT_ELEMENT_FEATURE_COUNT + 5;
+        int MAPPED_ATTRIBUTE_FEATURE_COUNT = OUTPUT_ELEMENT_FEATURE_COUNT + 6;
 
         /**
 	 * The meta object id for the '{@link crosswalk.ConversionStrategy <em>Conversion Strategy</em>}' class.
@@ -2300,6 +2309,17 @@ public interface CrosswalkPackage extends EPackage {
 	EAttribute getMappedAttribute_Required();
 
 								/**
+	 * Returns the meta object for the attribute '{@link crosswalk.MappedAttribute#isOmittedWhenBlank <em>Omitted When Blank</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Omitted When Blank</em>'.
+	 * @see crosswalk.MappedAttribute#isOmittedWhenBlank()
+	 * @see #getMappedAttribute()
+	 * @generated
+	 */
+	EAttribute getMappedAttribute_OmittedWhenBlank();
+
+								/**
 	 * Returns the meta object for class '{@link crosswalk.ConversionStrategy <em>Conversion Strategy</em>}'.
 	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -3361,6 +3381,14 @@ public interface CrosswalkPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute MAPPED_ATTRIBUTE__REQUIRED = eINSTANCE.getMappedAttribute_Required();
+
+																/**
+		 * The meta object literal for the '<em><b>Omitted When Blank</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MAPPED_ATTRIBUTE__OMITTED_WHEN_BLANK = eINSTANCE.getMappedAttribute_OmittedWhenBlank();
 
 																/**
 		 * The meta object literal for the '{@link crosswalk.ConversionStrategy <em>Conversion Strategy</em>}' class.
