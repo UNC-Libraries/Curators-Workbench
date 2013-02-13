@@ -549,18 +549,30 @@ public class MappedAttributeImpl extends EObjectImpl implements MappedAttribute 
 		
 		EAttribute myAttribute = this.getMappedFeature();
 		LOG.debug("my type: " + myAttribute.toString());
-
-		// the value to set
-		Object setting = null;
 		
-		// get default
+		Object setting = null;
+		Object defaultSetting = null;
+		
+		// Get the default setting.
+		
 		if (isSetDefaultValue()) {
+			
+			// It appears that we can't create a feature map entry from a string with EcoreUtil.createFromString,
+			// so if the mapped feature's attribute type is FeatureMapEntry, use the default value as-is.
+			
 			if (EcoreUtil.equals(this.getMappedFeature().getEAttributeType(), EcorePackage.eINSTANCE.getEFeatureMapEntry())) {
-				setting = getDefaultValue();
+				defaultSetting = getDefaultValue();
 			} else {
-				setting = EcoreUtil.createFromString(this.getMappedFeature().getEAttributeType(), getDefaultValue());
+				defaultSetting = EcoreUtil.createFromString(this.getMappedFeature().getEAttributeType(), getDefaultValue());
 			}
+			
 		}
+		
+		// Start with the default setting.
+		
+		setting = defaultSetting;
+		
+		// Try to get the setting through our Output.
 
 		Object input = null;
 		Output gen = this.getOutput();
@@ -589,13 +601,13 @@ public class MappedAttributeImpl extends EObjectImpl implements MappedAttribute 
 			}
 		}
 		
-		// If the value to be set is a blank string, use the default value instead.
-		// If there is no default value, use null.
+		// If the value to be set is a blank string, use the default setting instead.
+		// If there is no default value or it is blank, use null.
 		
 		if (setting != null && setting instanceof String && this.isOmittedWhenBlank()) {
 			if (((String) setting).length() == 0) {
 				if (isSetDefaultValue() && getDefaultValue().length() != 0)
-					setting = EcoreUtil.createFromString(this.getMappedFeature().getEAttributeType(), getDefaultValue());
+					setting = defaultSetting;
 				else
 					setting = null;
 			}
