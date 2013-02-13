@@ -297,6 +297,10 @@ public class MappedElementImpl extends EObjectImpl implements MappedElement {
 			
 			for (MappedAttribute ma : this.getAttributes()) {
 				
+				// If the mapped attribute's mapped feature is a feature map entry, don't call updateRecord.
+				// Instead, obtain the value that would be set by calling getValue, and add that as text to the
+				// "mixed" feature map of the object we're preparing (if it has such a feature).
+				
 				if (EcoreUtil.equals(ma.getMappedFeature().getEAttributeType(), EcorePackage.eINSTANCE.getEFeatureMapEntry())) {
 					
 					EStructuralFeature feature = myobject.eClass().getEStructuralFeature("mixed");

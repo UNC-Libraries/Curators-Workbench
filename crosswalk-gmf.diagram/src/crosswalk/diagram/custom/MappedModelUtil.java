@@ -132,6 +132,8 @@ public class MappedModelUtil {
 		// FIXME remove the elements that are already full
 		for (EAttribute a : mappedParentType.getEAllAttributes().toArray(new EAttribute[0])) {
 			
+			// Filter out feature map attributes which are not named "mixed" (for example, the "any" feature map).
+			
 			if (EcoreUtil.equals(a.getEAttributeType(), EcorePackage.eINSTANCE.getEFeatureMapEntry()) && !a.getName().equals("mixed")) {
 				continue;
 			}
