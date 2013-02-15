@@ -46,6 +46,7 @@ import edu.unc.lib.schemas.acl.GrantType;
  *
  */
 public class GrantTypeDetailsPage implements IDetailsPage {
+	public static final String[] roles = new String[] { "patron", "metadata-patron", "access-copies-patron", "observer", "ingester", "processor", "curator" };
 	private IManagedForm mform;
 	private GrantType input;
 	private Combo roleCombo;
@@ -221,7 +222,7 @@ public class GrantTypeDetailsPage implements IDetailsPage {
 		toolkit.createLabel(client, "Role"); //$NON-NLS-1$
 		roleCombo = new Combo(client, SWT.SINGLE | SWT.BORDER | SWT.READ_ONLY);
 		//toolkit.createText(client, "", SWT.SINGLE | SWT.BORDER); //$NON-NLS-1$
-		roleCombo.setItems(new String[] { "patron", "curator" });
+		roleCombo.setItems(roles);
 		roleCombo.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
