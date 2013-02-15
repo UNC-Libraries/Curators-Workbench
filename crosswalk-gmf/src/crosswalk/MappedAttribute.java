@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EAttribute;
  *   <li>{@link crosswalk.MappedAttribute#getConversionStrategy <em>Conversion Strategy</em>}</li>
  *   <li>{@link crosswalk.MappedAttribute#getDefaultValue <em>Default Value</em>}</li>
  *   <li>{@link crosswalk.MappedAttribute#isRequired <em>Required</em>}</li>
+ *   <li>{@link crosswalk.MappedAttribute#isOmittedWhenBlank <em>Omitted When Blank</em>}</li>
  * </ul>
  * </p>
  *
@@ -186,5 +187,32 @@ public interface MappedAttribute extends OutputElement, Input {
 	 * @generated
 	 */
 	void setRequired(boolean value);
+
+								/**
+	 * Returns the value of the '<em><b>Omitted When Blank</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Omitted When Blank</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Omitted When Blank</em>' attribute.
+	 * @see #setOmittedWhenBlank(boolean)
+	 * @see crosswalk.CrosswalkPackage#getMappedAttribute_OmittedWhenBlank()
+	 * @model default="true" required="true"
+	 * @generated
+	 */
+	boolean isOmittedWhenBlank();
+
+								/**
+	 * Sets the value of the '{@link crosswalk.MappedAttribute#isOmittedWhenBlank <em>Omitted When Blank</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Omitted When Blank</em>' attribute.
+	 * @see #isOmittedWhenBlank()
+	 * @generated
+	 */
+	void setOmittedWhenBlank(boolean value);
 
 } // MappedAttribute
