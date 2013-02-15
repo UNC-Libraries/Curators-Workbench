@@ -877,6 +877,15 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 
 								/**
 	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMappedAttribute_OmittedWhenBlank() {
+		return (EAttribute)mappedAttributeEClass.getEStructuralFeatures().get(4);
+	}
+
+								/**
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -1490,6 +1499,7 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 		createEReference(mappedAttributeEClass, MAPPED_ATTRIBUTE__CONVERSION_STRATEGY);
 		createEAttribute(mappedAttributeEClass, MAPPED_ATTRIBUTE__DEFAULT_VALUE);
 		createEAttribute(mappedAttributeEClass, MAPPED_ATTRIBUTE__REQUIRED);
+		createEAttribute(mappedAttributeEClass, MAPPED_ATTRIBUTE__OMITTED_WHEN_BLANK);
 
 		conversionStrategyEClass = createEClass(CONVERSION_STRATEGY);
 
@@ -1749,6 +1759,7 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 		initEReference(getMappedAttribute_ConversionStrategy(), this.getConversionStrategy(), null, "conversionStrategy", null, 0, 1, MappedAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMappedAttribute_DefaultValue(), ecorePackage.getEString(), "defaultValue", null, 0, 1, MappedAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMappedAttribute_Required(), ecorePackage.getEBoolean(), "required", "false", 1, 1, MappedAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMappedAttribute_OmittedWhenBlank(), ecorePackage.getEBoolean(), "omittedWhenBlank", "true", 1, 1, MappedAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(conversionStrategyEClass, ConversionStrategy.class, "ConversionStrategy", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
