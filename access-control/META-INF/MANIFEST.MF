@@ -1,10 +1,9 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: %pluginName
+Bundle-Name: access-control
 Bundle-SymbolicName: access-control;singleton:=true
-Bundle-Version: 4.1.1.qualifier
-Bundle-ClassPath: .
-Bundle-Vendor: %providerName
+Bundle-Version: 4.1.1.SNAPSHOT
+Bundle-Vendor: University Libraries, UNC Chapel Hill
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: edu.unc.lib.schemas.acl,
@@ -14,3 +13,4 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport
 Bundle-ActivationPolicy: lazy
+Bundle-ClassPath: .

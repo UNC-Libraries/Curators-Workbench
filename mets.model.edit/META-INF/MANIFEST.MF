@@ -1,11 +1,10 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: %pluginName
+Bundle-Name: mets.model.edit
 Bundle-SymbolicName: mets.model.edit;singleton:=true
-Bundle-Version: 4.1.1.qualifier
-Bundle-ClassPath: .
+Bundle-Version: 4.1.1.SNAPSHOT
 Bundle-Activator: gov.loc.mets.provider.MetsEditPlugin$Implementation
-Bundle-Vendor: %providerName
+Bundle-Vendor: University Libraries, UNC Chapel Hill
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: gov.loc.mets.provider
@@ -14,3 +13,4 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.edit;visibility:=reexport,
  xlink.model.edit;bundle-version="0.0.0";visibility:=reexport
 Bundle-ActivationPolicy: lazy
+Bundle-ClassPath: .

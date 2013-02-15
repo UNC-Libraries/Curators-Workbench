@@ -1,11 +1,10 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: %pluginName
+Bundle-Name: crosswalk-gmf.editor
 Bundle-SymbolicName: crosswalk-gmf.editor;singleton:=true
-Bundle-Version: 4.1.1.qualifier
-Bundle-ClassPath: .
+Bundle-Version: 4.1.1.SNAPSHOT
 Bundle-Activator: crosswalk.presentation.CrosswalkEditorPlugin$Implementation
-Bundle-Vendor: %providerName
+Bundle-Vendor: University Libraries, UNC Chapel Hill
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: crosswalk.presentation
@@ -17,3 +16,5 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.ui.ide;visibility:=reexport,
  mods.model.edit;bundle-version="0.0.0"
 Bundle-ActivationPolicy: lazy
+Bundle-ClassPath: .,
+ opencsv-2.2.jar

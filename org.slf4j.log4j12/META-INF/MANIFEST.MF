@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: SLF4j Log4j 1.2 Code Library Plugin
-Bundle-SymbolicName: org.slf4j.log4j12
-Bundle-Version: 1.6.6
-Bundle-Vendor: org.slf4j
+Bundle-Name: org.slf4j.log4j12
+Bundle-SymbolicName: org.slf4j.log4j12;singleton:=true
+Bundle-Version: 4.1.1.qualifier
+Bundle-Vendor: University Libraries, UNC Chapel Hill
 Export-Package: org.apache.commons.logging,
  org.apache.commons.logging.impl,
  org.slf4j,
@@ -11,4 +11,5 @@ Export-Package: org.apache.commons.logging,
  org.slf4j.impl,
  org.slf4j.spi
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Require-Bundle: org.apache.log4j;bundle-version="1.2.17"
+Require-Bundle: org.apache.log4j;bundle-version="4.1.1"
+Bundle-ClassPath: .

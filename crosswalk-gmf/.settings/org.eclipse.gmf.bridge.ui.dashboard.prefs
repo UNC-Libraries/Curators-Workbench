@@ -1,8 +1,0 @@
-#Fri Aug 06 14:50:11 EDT 2010
-eclipse.preferences.version=1
-gmf_dashboard/domainGenerationModel=platform\:/resource/crosswalk-gmf/model/crosswalk.genmodel
-gmf_dashboard/domainModel=platform\:/resource/crosswalk-gmf/model/crosswalk.ecore
-gmf_dashboard/generationModel=platform\:/resource/crosswalk-gmf/model/crosswalk.gmfgen
-gmf_dashboard/graphicalDefinitionModel=platform\:/resource/crosswalk-gmf/model/crosswalk.gmfgraph
-gmf_dashboard/mappingModel=platform\:/resource/crosswalk-gmf/model/crosswalk.gmfmap
-gmf_dashboard/toolingDefinitionModel=platform\:/resource/crosswalk-gmf/model/crosswalk.gmftool

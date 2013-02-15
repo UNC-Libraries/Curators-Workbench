@@ -1,10 +1,9 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: %pluginName
+Bundle-Name: xlink.model
 Bundle-SymbolicName: xlink.model;singleton:=true
-Bundle-Version: 4.1.1.qualifier
-Bundle-ClassPath: .
-Bundle-Vendor: %providerName
+Bundle-Version: 4.1.1.SNAPSHOT
+Bundle-Vendor: University Libraries, UNC Chapel Hill
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: org.w3._1999.xlink,
@@ -13,3 +12,4 @@ Export-Package: org.w3._1999.xlink,
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport
+Bundle-ClassPath: .

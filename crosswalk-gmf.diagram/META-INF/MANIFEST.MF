@@ -1,11 +1,10 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: %pluginName
-Bundle-SymbolicName: crosswalk-gmf.diagram; singleton:=true
-Bundle-Version: 4.1.1.qualifier
-Bundle-ClassPath: .,juniversalchardet-1.0.3.jar
+Bundle-Name: crosswalk-gmf.diagram
+Bundle-SymbolicName: crosswalk-gmf.diagram;singleton:=true
+Bundle-Version: 4.1.1.SNAPSHOT
 Bundle-Activator: crosswalk.diagram.part.CrosswalkDiagramEditorPlugin
-Bundle-Vendor: %providerName
+Bundle-Vendor: University Libraries, UNC Chapel Hill
 Bundle-Localization: plugin
 Export-Package: crosswalk.diagram.custom,
  crosswalk.diagram.edit.commands,
@@ -53,3 +52,6 @@ Require-Bundle: org.eclipse.core.runtime,
  org.slf4j.log4j12;bundle-version="1.6.6"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ClassPath: .,
+ opencsv-2.2.jar,
+ juniversalchardet-1.0.3.jar

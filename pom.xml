@@ -9,9 +9,8 @@
 	<packaging>pom</packaging>
 	<inceptionYear>2010</inceptionYear>
 	<properties>
-		<tycho-version>0.14.0</tycho-version>
+		<tycho-version>0.14.1</tycho-version>
 		<tycho-groupid>org.eclipse.tycho</tycho-groupid>
-		<eclipse-repository-url>http://download.eclipse.org/eclipse/updates/3.6</eclipse-repository-url>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<spring.version>3.0.6.RELEASE</spring.version>
@@ -85,6 +84,7 @@
 		<module>access-control.edit</module>
 		<module>crosswalk-gmf.custom</module>
 		<module>org.slf4j.log4j12</module>
+		<module>org.slf4j.pde</module>
 		<module>org.apache.log4j</module>
 		<module>forms</module>
 	</modules>
