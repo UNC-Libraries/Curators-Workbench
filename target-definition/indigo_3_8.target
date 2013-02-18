@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?pde version="3.8"?><target name="eclipse 3.8 (indigo)" sequenceNumber="21">
+<?pde version="3.8"?><target name="eclipse 3.8 (indigo)" sequenceNumber="22">
 <locations>
 <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipse.platform.ide" version="3.8.1.M20120914-1540"/>
@@ -13,6 +13,12 @@
 <unit id="org.eclipse.gmf.runtime.notation.sdk.feature.group" version="1.5.0.v20110426-2159-47D08xGD6ExNBM7CIJa3CIKK9t84"/>
 <unit id="org.eclipse.gmf.runtime.sdk.feature.group" version="1.5.0.v20110607-1200-67N09E9QnChoWswz-3wf_rz0kQ8Y"/>
 <repository location="http://download.eclipse.org/releases/indigo"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.gmf.tooling.feature.group" version="3.0.2.201301191623"/>
+<unit id="org.eclipse.gmf.tooling.runtime.feature.group" version="3.0.2.201301191623"/>
+<unit id="org.eclipse.gmf.sdk.feature.group" version="3.0.2.201301191623"/>
+<repository location="http://download.eclipse.org/modeling/gmp/gmf-tooling/updates/releases/"/>
 </location>
 </locations>
 <targetJRE path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
