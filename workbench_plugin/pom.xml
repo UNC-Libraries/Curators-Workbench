@@ -9,7 +9,6 @@
 		<version>4.1.1-SNAPSHOT</version>
 	</parent>
 	<artifactId>workbench_plugin</artifactId>
-	<version>4.1.1-SNAPSHOT</version>
 	<packaging>eclipse-plugin</packaging>
 	<build>
 		<plugins>
