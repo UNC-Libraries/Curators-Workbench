@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: workbench_plugin
 Bundle-SymbolicName: workbench_plugin;singleton:=true
-Bundle-Version: 4.1.1.SNAPSHOT
+Bundle-Version: 4.1.1.qualifier
 Bundle-Activator: unc.lib.cdr.workbench.rcp.Activator
 Bundle-Vendor: University Libraries, UNC Chapel Hill
 Eclipse-RegisterBuddy: org.apache.log4j
