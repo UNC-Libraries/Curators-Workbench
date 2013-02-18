@@ -1,6 +1,7 @@
 package crosswalk.diagram.edit.parts;
 
 import org.eclipse.draw2d.ColorConstants;
+import org.eclipse.draw2d.FlowLayout;
 import org.eclipse.draw2d.GridData;
 import org.eclipse.draw2d.GridLayout;
 import org.eclipse.draw2d.IFigure;
@@ -28,6 +29,7 @@ import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicyWithCustomReparent;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Font;
@@ -68,9 +70,12 @@ public class MetadataBlock2EditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected void createDefaultEditPolicies() {
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicy());
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
+				new CreationEditPolicyWithCustomReparent(
+						CrosswalkVisualIDRegistry.TYPED_INSTANCE));
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new MetadataBlock2ItemSemanticEditPolicy());
+		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
+				new MetadataBlock2ItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
@@ -83,7 +88,8 @@ public class MetadataBlock2EditPart extends ShapeNodeEditPart {
 		org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
 
 			protected EditPolicy createChildEditPolicy(EditPart child) {
-				EditPolicy result = child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
+				EditPolicy result = child
+						.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
 				if (result == null) {
 					result = new NonResizableEditPolicy();
 				}
@@ -120,19 +126,24 @@ public class MetadataBlock2EditPart extends ShapeNodeEditPart {
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof MetadataBlockName2EditPart) {
-			((MetadataBlockName2EditPart) childEditPart).setLabel(getPrimaryShape().getFigureMetadataBlockLabelFigure());
+			((MetadataBlockName2EditPart) childEditPart)
+					.setLabel(getPrimaryShape()
+							.getFigureMetadataBlockLabelFigure());
 			return true;
 		}
 		if (childEditPart instanceof MetadataBlockMetadataBlockInputFieldsCompartment2EditPart) {
-			IFigure pane = getPrimaryShape().getFigureMetadataBlockInputFieldsPane();
+			IFigure pane = getPrimaryShape()
+					.getFigureMetadataBlockInputFieldsPane();
 			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
-			pane.add(((MetadataBlockMetadataBlockInputFieldsCompartment2EditPart) childEditPart).getFigure());
+			pane.add(((MetadataBlockMetadataBlockInputFieldsCompartment2EditPart) childEditPart)
+					.getFigure());
 			return true;
 		}
 		if (childEditPart instanceof MetadataBlockMetadataBlockMappingCompartment2EditPart) {
 			IFigure pane = getPrimaryShape().getFigureMetadataBlockMapping();
 			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
-			pane.add(((MetadataBlockMetadataBlockMappingCompartment2EditPart) childEditPart).getFigure());
+			pane.add(((MetadataBlockMetadataBlockMappingCompartment2EditPart) childEditPart)
+					.getFigure());
 			return true;
 		}
 		return false;
@@ -146,15 +157,16 @@ public class MetadataBlock2EditPart extends ShapeNodeEditPart {
 			return true;
 		}
 		if (childEditPart instanceof MetadataBlockMetadataBlockInputFieldsCompartment2EditPart) {
-			IFigure pane = getPrimaryShape().getFigureMetadataBlockInputFieldsPane();
-			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
-			pane.remove(((MetadataBlockMetadataBlockInputFieldsCompartment2EditPart) childEditPart).getFigure());
+			IFigure pane = getPrimaryShape()
+					.getFigureMetadataBlockInputFieldsPane();
+			pane.remove(((MetadataBlockMetadataBlockInputFieldsCompartment2EditPart) childEditPart)
+					.getFigure());
 			return true;
 		}
 		if (childEditPart instanceof MetadataBlockMetadataBlockMappingCompartment2EditPart) {
 			IFigure pane = getPrimaryShape().getFigureMetadataBlockMapping();
-			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
-			pane.remove(((MetadataBlockMetadataBlockMappingCompartment2EditPart) childEditPart).getFigure());
+			pane.remove(((MetadataBlockMetadataBlockMappingCompartment2EditPart) childEditPart)
+					.getFigure());
 			return true;
 		}
 		return false;
@@ -283,7 +295,8 @@ public class MetadataBlock2EditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	public EditPart getPrimaryChildEditPart() {
-		return getChildBySemanticHint(CrosswalkVisualIDRegistry.getType(MetadataBlockName2EditPart.VISUAL_ID));
+		return getChildBySemanticHint(CrosswalkVisualIDRegistry
+				.getType(MetadataBlockName2EditPart.VISUAL_ID));
 	}
 
 	/**
@@ -291,9 +304,11 @@ public class MetadataBlock2EditPart extends ShapeNodeEditPart {
 	 */
 	public EditPart getTargetEditPart(Request request) {
 		if (request instanceof CreateViewAndElementRequest) {
-			CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request).getViewAndElementDescriptor()
+			CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request)
+					.getViewAndElementDescriptor()
 					.getCreateElementRequestAdapter();
-			IElementType type = (IElementType) adapter.getAdapter(IElementType.class);
+			IElementType type = (IElementType) adapter
+					.getAdapter(IElementType.class);
 			if (type == CrosswalkElementTypes.TextInputField_3023) {
 				return getChildBySemanticHint(CrosswalkVisualIDRegistry
 						.getType(MetadataBlockMetadataBlockInputFieldsCompartment2EditPart.VISUAL_ID));
@@ -336,7 +351,8 @@ public class MetadataBlock2EditPart extends ShapeNodeEditPart {
 
 			this.setLineWidth(3);
 
-			this.setBorder(new MarginBorder(getMapMode().DPtoLP(5), getMapMode().DPtoLP(0), getMapMode().DPtoLP(5),
+			this.setBorder(new MarginBorder(getMapMode().DPtoLP(5),
+					getMapMode().DPtoLP(0), getMapMode().DPtoLP(5),
 					getMapMode().DPtoLP(5)));
 			createContents();
 		}
@@ -347,10 +363,13 @@ public class MetadataBlock2EditPart extends ShapeNodeEditPart {
 		private void createContents() {
 
 			fFigureMetadataBlockLabelFigure = new WrappingLabel();
-			fFigureMetadataBlockLabelFigure.setText("Unknown Widget");
-			fFigureMetadataBlockLabelFigure.setForegroundColor(ColorConstants.darkGray);
 
-			fFigureMetadataBlockLabelFigure.setFont(FFIGUREMETADATABLOCKLABELFIGURE_FONT);
+			fFigureMetadataBlockLabelFigure.setText("Unknown Widget");
+			fFigureMetadataBlockLabelFigure
+					.setForegroundColor(ColorConstants.darkGray);
+
+			fFigureMetadataBlockLabelFigure
+					.setFont(FFIGUREMETADATABLOCKLABELFIGURE_FONT);
 
 			GridData constraintFFigureMetadataBlockLabelFigure = new GridData();
 			constraintFFigureMetadataBlockLabelFigure.verticalAlignment = GridData.BEGINNING;
@@ -360,9 +379,11 @@ public class MetadataBlock2EditPart extends ShapeNodeEditPart {
 			constraintFFigureMetadataBlockLabelFigure.verticalSpan = 1;
 			constraintFFigureMetadataBlockLabelFigure.grabExcessHorizontalSpace = false;
 			constraintFFigureMetadataBlockLabelFigure.grabExcessVerticalSpace = false;
-			this.add(fFigureMetadataBlockLabelFigure, constraintFFigureMetadataBlockLabelFigure);
+			this.add(fFigureMetadataBlockLabelFigure,
+					constraintFFigureMetadataBlockLabelFigure);
 
 			fFigureMetadataBlockInputFieldsPane = new RectangleFigure();
+
 			fFigureMetadataBlockInputFieldsPane.setOutline(false);
 
 			GridData constraintFFigureMetadataBlockInputFieldsPane = new GridData();
@@ -373,20 +394,35 @@ public class MetadataBlock2EditPart extends ShapeNodeEditPart {
 			constraintFFigureMetadataBlockInputFieldsPane.verticalSpan = 1;
 			constraintFFigureMetadataBlockInputFieldsPane.grabExcessHorizontalSpace = false;
 			constraintFFigureMetadataBlockInputFieldsPane.grabExcessVerticalSpace = false;
-			this.add(fFigureMetadataBlockInputFieldsPane, constraintFFigureMetadataBlockInputFieldsPane);
+			this.add(fFigureMetadataBlockInputFieldsPane,
+					constraintFFigureMetadataBlockInputFieldsPane);
 
-			GridLayout layoutFFigureMetadataBlockInputFieldsPane = new GridLayout();
-			layoutFFigureMetadataBlockInputFieldsPane.numColumns = 1;
-			layoutFFigureMetadataBlockInputFieldsPane.makeColumnsEqualWidth = false;
-			fFigureMetadataBlockInputFieldsPane.setLayoutManager(layoutFFigureMetadataBlockInputFieldsPane);
+			FlowLayout layoutFFigureMetadataBlockInputFieldsPane = new FlowLayout();
+			layoutFFigureMetadataBlockInputFieldsPane
+					.setStretchMinorAxis(false);
+			layoutFFigureMetadataBlockInputFieldsPane
+					.setMinorAlignment(FlowLayout.ALIGN_LEFTTOP);
+
+			layoutFFigureMetadataBlockInputFieldsPane
+					.setMajorAlignment(FlowLayout.ALIGN_LEFTTOP);
+			layoutFFigureMetadataBlockInputFieldsPane.setMajorSpacing(5);
+			layoutFFigureMetadataBlockInputFieldsPane.setMinorSpacing(5);
+			layoutFFigureMetadataBlockInputFieldsPane.setHorizontal(false);
+
+			fFigureMetadataBlockInputFieldsPane
+					.setLayoutManager(layoutFFigureMetadataBlockInputFieldsPane);
 
 			fFigureMetadataBlockMapping = new RectangleFigure();
-			fFigureMetadataBlockMapping.setLineWidth(2);
-			fFigureMetadataBlockMapping.setBackgroundColor(ColorConstants.lightGray);
 
-			fFigureMetadataBlockMapping.setBorder(new MarginBorder(getMapMode().DPtoLP(5), getMapMode().DPtoLP(5),
-					getMapMode().DPtoLP(5), getMapMode().DPtoLP(5)));
-			fFigureMetadataBlockMapping.setBorder(new LineBorder(null, getMapMode().DPtoLP(2)));
+			fFigureMetadataBlockMapping.setLineWidth(2);
+			fFigureMetadataBlockMapping
+					.setBackgroundColor(ColorConstants.lightGray);
+
+			fFigureMetadataBlockMapping.setBorder(new MarginBorder(getMapMode()
+					.DPtoLP(5), getMapMode().DPtoLP(5), getMapMode().DPtoLP(5),
+					getMapMode().DPtoLP(5)));
+			fFigureMetadataBlockMapping.setBorder(new LineBorder(null,
+					getMapMode().DPtoLP(2)));
 
 			GridData constraintFFigureMetadataBlockMapping = new GridData();
 			constraintFFigureMetadataBlockMapping.verticalAlignment = GridData.CENTER;
@@ -396,7 +432,8 @@ public class MetadataBlock2EditPart extends ShapeNodeEditPart {
 			constraintFFigureMetadataBlockMapping.verticalSpan = 1;
 			constraintFFigureMetadataBlockMapping.grabExcessHorizontalSpace = false;
 			constraintFFigureMetadataBlockMapping.grabExcessVerticalSpace = false;
-			this.add(fFigureMetadataBlockMapping, constraintFFigureMetadataBlockMapping);
+			this.add(fFigureMetadataBlockMapping,
+					constraintFFigureMetadataBlockMapping);
 
 		}
 
@@ -426,7 +463,8 @@ public class MetadataBlock2EditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	static final Font FFIGUREMETADATABLOCKLABELFIGURE_FONT = new Font(Display.getCurrent(), Display.getDefault()
-			.getSystemFont().getFontData()[0].getName(), 12, SWT.BOLD);
+	static final Font FFIGUREMETADATABLOCKLABELFIGURE_FONT = new Font(
+			Display.getCurrent(), Display.getDefault().getSystemFont()
+					.getFontData()[0].getName(), 12, SWT.BOLD);
 
 }

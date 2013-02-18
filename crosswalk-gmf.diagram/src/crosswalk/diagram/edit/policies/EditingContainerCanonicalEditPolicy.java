@@ -29,6 +29,7 @@ import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 
+import org.eclipse.gmf.tooling.runtime.update.UpdaterLinkDescriptor;
 import crosswalk.CrosswalkPackage;
 import crosswalk.diagram.edit.parts.CrossWalkEditPart;
 import crosswalk.diagram.edit.parts.CurrentDateEditPart;
@@ -98,8 +99,10 @@ public class EditingContainerCanonicalEditPolicy extends CanonicalEditPolicy {
 	/**
 	 * @generated
 	 */
-	protected boolean isOrphaned(Collection<EObject> semanticChildren, final View view) {
-		return isMyDiagramElement(view) && !semanticChildren.contains(view.getElement());
+	protected boolean isOrphaned(Collection<EObject> semanticChildren,
+			final View view) {
+		return isMyDiagramElement(view)
+				&& !semanticChildren.contains(view.getElement());
 	}
 
 	/**
@@ -107,7 +110,8 @@ public class EditingContainerCanonicalEditPolicy extends CanonicalEditPolicy {
 	 */
 	private boolean isMyDiagramElement(View view) {
 		int visualID = CrosswalkVisualIDRegistry.getVisualID(view);
-		return visualID == CrossWalkEditPart.VISUAL_ID || visualID == DictionaryEditPart.VISUAL_ID
+		return visualID == CrossWalkEditPart.VISUAL_ID
+				|| visualID == DictionaryEditPart.VISUAL_ID
 				|| visualID == FormEditPart.VISUAL_ID;
 	}
 
@@ -120,7 +124,8 @@ public class EditingContainerCanonicalEditPolicy extends CanonicalEditPolicy {
 		}
 		LinkedList<IAdaptable> createdViews = new LinkedList<IAdaptable>();
 		List<CrosswalkNodeDescriptor> childDescriptors = CrosswalkDiagramUpdater
-				.getEditingContainer_1000SemanticChildren((View) getHost().getModel());
+				.getEditingContainer_1000SemanticChildren((View) getHost()
+						.getModel());
 		LinkedList<View> orphaned = new LinkedList<View>();
 		// we care to check only views we recognize as ours
 		LinkedList<View> knownViewChildren = new LinkedList<View>();
@@ -134,8 +139,8 @@ public class EditingContainerCanonicalEditPolicy extends CanonicalEditPolicy {
 		// iteration happens over list of desired semantic elements, trying to find best matching View, while original CEP
 		// iterates views, potentially losing view (size/bounds) information - i.e. if there are few views to reference same EObject, only last one 
 		// to answer isOrphaned == true will be used for the domain element representation, see #cleanCanonicalSemanticChildren()
-		for (Iterator<CrosswalkNodeDescriptor> descriptorsIterator = childDescriptors.iterator(); descriptorsIterator
-				.hasNext();) {
+		for (Iterator<CrosswalkNodeDescriptor> descriptorsIterator = childDescriptors
+				.iterator(); descriptorsIterator.hasNext();) {
 			CrosswalkNodeDescriptor next = descriptorsIterator.next();
 			String hint = CrosswalkVisualIDRegistry.getType(next.getVisualID());
 			LinkedList<View> perfectMatch = new LinkedList<View>(); // both semanticElement and hint match that of NodeDescriptor
@@ -164,9 +169,11 @@ public class EditingContainerCanonicalEditPolicy extends CanonicalEditPolicy {
 				childDescriptors.size());
 		for (CrosswalkNodeDescriptor next : childDescriptors) {
 			String hint = CrosswalkVisualIDRegistry.getType(next.getVisualID());
-			IAdaptable elementAdapter = new CanonicalElementAdapter(next.getModelElement(), hint);
-			CreateViewRequest.ViewDescriptor descriptor = new CreateViewRequest.ViewDescriptor(elementAdapter, Node.class,
-					hint, ViewUtil.APPEND, false, host().getDiagramPreferencesHint());
+			IAdaptable elementAdapter = new CanonicalElementAdapter(
+					next.getModelElement(), hint);
+			CreateViewRequest.ViewDescriptor descriptor = new CreateViewRequest.ViewDescriptor(
+					elementAdapter, Node.class, hint, ViewUtil.APPEND, false,
+					host().getDiagramPreferencesHint());
 			viewDescriptors.add(descriptor);
 		}
 
@@ -175,7 +182,8 @@ public class EditingContainerCanonicalEditPolicy extends CanonicalEditPolicy {
 		CreateViewRequest request = getCreateViewRequest(viewDescriptors);
 		Command cmd = getCreateViewCommand(request);
 		if (cmd != null && cmd.canExecute()) {
-			SetViewMutabilityCommand.makeMutable(new EObjectAdapter(host().getNotationView())).execute();
+			SetViewMutabilityCommand.makeMutable(
+					new EObjectAdapter(host().getNotationView())).execute();
 			executeCommand(cmd);
 			@SuppressWarnings("unchecked")
 			List<IAdaptable> nl = (List<IAdaptable>) request.getNewObject();
@@ -189,7 +197,8 @@ public class EditingContainerCanonicalEditPolicy extends CanonicalEditPolicy {
 
 		if (createdViews.size() > 1) {
 			// perform a layout of the container
-			DeferredLayoutCommand layoutCmd = new DeferredLayoutCommand(host().getEditingDomain(), createdViews, host());
+			DeferredLayoutCommand layoutCmd = new DeferredLayoutCommand(host()
+					.getEditingDomain(), createdViews, host());
 			executeCommand(new ICommandProxy(layoutCmd));
 		}
 
@@ -202,14 +211,18 @@ public class EditingContainerCanonicalEditPolicy extends CanonicalEditPolicy {
 	 * @generated
 	 */
 	private Collection<IAdaptable> refreshConnections() {
-		Map<EObject, View> domain2NotationMap = new HashMap<EObject, View>();
-		Collection<CrosswalkLinkDescriptor> linkDescriptors = collectAllLinks(getDiagram(), domain2NotationMap);
+		Domain2Notation domain2NotationMap = new Domain2Notation();
+		Collection<CrosswalkLinkDescriptor> linkDescriptors = collectAllLinks(
+				getDiagram(), domain2NotationMap);
 		Collection existingLinks = new LinkedList(getDiagram().getEdges());
-		for (Iterator linksIterator = existingLinks.iterator(); linksIterator.hasNext();) {
+		for (Iterator linksIterator = existingLinks.iterator(); linksIterator
+				.hasNext();) {
 			Edge nextDiagramLink = (Edge) linksIterator.next();
-			int diagramLinkVisualID = CrosswalkVisualIDRegistry.getVisualID(nextDiagramLink);
+			int diagramLinkVisualID = CrosswalkVisualIDRegistry
+					.getVisualID(nextDiagramLink);
 			if (diagramLinkVisualID == -1) {
-				if (nextDiagramLink.getSource() != null && nextDiagramLink.getTarget() != null) {
+				if (nextDiagramLink.getSource() != null
+						&& nextDiagramLink.getTarget() != null) {
 					linksIterator.remove();
 				}
 				continue;
@@ -217,13 +230,16 @@ public class EditingContainerCanonicalEditPolicy extends CanonicalEditPolicy {
 			EObject diagramLinkObject = nextDiagramLink.getElement();
 			EObject diagramLinkSrc = nextDiagramLink.getSource().getElement();
 			EObject diagramLinkDst = nextDiagramLink.getTarget().getElement();
-			for (Iterator<CrosswalkLinkDescriptor> linkDescriptorsIterator = linkDescriptors.iterator(); linkDescriptorsIterator
-					.hasNext();) {
-				CrosswalkLinkDescriptor nextLinkDescriptor = linkDescriptorsIterator.next();
+			for (Iterator<CrosswalkLinkDescriptor> linkDescriptorsIterator = linkDescriptors
+					.iterator(); linkDescriptorsIterator.hasNext();) {
+				CrosswalkLinkDescriptor nextLinkDescriptor = linkDescriptorsIterator
+						.next();
 				if (diagramLinkObject == nextLinkDescriptor.getModelElement()
 						&& diagramLinkSrc == nextLinkDescriptor.getSource()
-						&& diagramLinkDst == nextLinkDescriptor.getDestination()
-						&& diagramLinkVisualID == nextLinkDescriptor.getVisualID()) {
+						&& diagramLinkDst == nextLinkDescriptor
+								.getDestination()
+						&& diagramLinkVisualID == nextLinkDescriptor
+								.getVisualID()) {
 					linksIterator.remove();
 					linkDescriptorsIterator.remove();
 					break;
@@ -237,207 +253,191 @@ public class EditingContainerCanonicalEditPolicy extends CanonicalEditPolicy {
 	/**
 	 * @generated
 	 */
-	private Collection<CrosswalkLinkDescriptor> collectAllLinks(View view, Map<EObject, View> domain2NotationMap) {
-		if (!EditingContainerEditPart.MODEL_ID.equals(CrosswalkVisualIDRegistry.getModelID(view))) {
+	private Collection<CrosswalkLinkDescriptor> collectAllLinks(View view,
+			Domain2Notation domain2NotationMap) {
+		if (!EditingContainerEditPart.MODEL_ID.equals(CrosswalkVisualIDRegistry
+				.getModelID(view))) {
 			return Collections.emptyList();
 		}
 		LinkedList<CrosswalkLinkDescriptor> result = new LinkedList<CrosswalkLinkDescriptor>();
 		switch (CrosswalkVisualIDRegistry.getVisualID(view)) {
-			case EditingContainerEditPart.VISUAL_ID: {
-				if (!domain2NotationMap.containsKey(view.getElement())) {
-					result.addAll(CrosswalkDiagramUpdater.getEditingContainer_1000ContainedLinks(view));
-				}
-				if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-					domain2NotationMap.put(view.getElement(), view);
-				}
-				break;
+		case EditingContainerEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(CrosswalkDiagramUpdater
+						.getEditingContainer_1000ContainedLinks(view));
 			}
-			case CrossWalkEditPart.VISUAL_ID: {
-				if (!domain2NotationMap.containsKey(view.getElement())) {
-					result.addAll(CrosswalkDiagramUpdater.getCrossWalk_2001ContainedLinks(view));
-				}
-				if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-					domain2NotationMap.put(view.getElement(), view);
-				}
-				break;
-			}
-			case DictionaryEditPart.VISUAL_ID: {
-				if (!domain2NotationMap.containsKey(view.getElement())) {
-					result.addAll(CrosswalkDiagramUpdater.getDictionary_2002ContainedLinks(view));
-				}
-				if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-					domain2NotationMap.put(view.getElement(), view);
-				}
-				break;
-			}
-			case FormEditPart.VISUAL_ID: {
-				if (!domain2NotationMap.containsKey(view.getElement())) {
-					result.addAll(CrosswalkDiagramUpdater.getForm_2003ContainedLinks(view));
-				}
-				if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-					domain2NotationMap.put(view.getElement(), view);
-				}
-				break;
-			}
-			case DelimitedFileEditPart.VISUAL_ID: {
-				if (!domain2NotationMap.containsKey(view.getElement())) {
-					result.addAll(CrosswalkDiagramUpdater.getDelimitedFile_3001ContainedLinks(view));
-				}
-				if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-					domain2NotationMap.put(view.getElement(), view);
-				}
-				break;
-			}
-			case TabbedDataFieldEditPart.VISUAL_ID: {
-				if (!domain2NotationMap.containsKey(view.getElement())) {
-					result.addAll(CrosswalkDiagramUpdater.getTabbedDataField_3002ContainedLinks(view));
-				}
-				if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-					domain2NotationMap.put(view.getElement(), view);
-				}
-				break;
-			}
-			case OriginalNameRecordMatcherEditPart.VISUAL_ID: {
-				if (!domain2NotationMap.containsKey(view.getElement())) {
-					result.addAll(CrosswalkDiagramUpdater.getOriginalNameRecordMatcher_3003ContainedLinks(view));
-				}
-				if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-					domain2NotationMap.put(view.getElement(), view);
-				}
-				break;
-			}
-			case DateRecognizerEditPart.VISUAL_ID: {
-				if (!domain2NotationMap.containsKey(view.getElement())) {
-					result.addAll(CrosswalkDiagramUpdater.getDateRecognizer_3004ContainedLinks(view));
-				}
-				if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-					domain2NotationMap.put(view.getElement(), view);
-				}
-				break;
-			}
-			case TextEditPart.VISUAL_ID: {
-				if (!domain2NotationMap.containsKey(view.getElement())) {
-					result.addAll(CrosswalkDiagramUpdater.getText_3005ContainedLinks(view));
-				}
-				if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-					domain2NotationMap.put(view.getElement(), view);
-				}
-				break;
-			}
-			case TrimWhitespaceEditPart.VISUAL_ID: {
-				if (!domain2NotationMap.containsKey(view.getElement())) {
-					result.addAll(CrosswalkDiagramUpdater.getTrimWhitespace_3006ContainedLinks(view));
-				}
-				if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-					domain2NotationMap.put(view.getElement(), view);
-				}
-				break;
-			}
-			case MappedElementEditPart.VISUAL_ID: {
-				if (!domain2NotationMap.containsKey(view.getElement())) {
-					result.addAll(CrosswalkDiagramUpdater.getMappedElement_3007ContainedLinks(view));
-				}
-				if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-					domain2NotationMap.put(view.getElement(), view);
-				}
-				break;
-			}
-			case MappedElement2EditPart.VISUAL_ID: {
-				if (!domain2NotationMap.containsKey(view.getElement())) {
-					result.addAll(CrosswalkDiagramUpdater.getMappedElement_3008ContainedLinks(view));
-				}
-				if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-					domain2NotationMap.put(view.getElement(), view);
-				}
-				break;
-			}
-			case MappedAttributeEditPart.VISUAL_ID: {
-				if (!domain2NotationMap.containsKey(view.getElement())) {
-					result.addAll(CrosswalkDiagramUpdater.getMappedAttribute_3009ContainedLinks(view));
-				}
-				if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-					domain2NotationMap.put(view.getElement(), view);
-				}
-				break;
-			}
-			case MetadataBlock2EditPart.VISUAL_ID: {
-				if (!domain2NotationMap.containsKey(view.getElement())) {
-					result.addAll(CrosswalkDiagramUpdater.getMetadataBlock_3018ContainedLinks(view));
-				}
-				if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-					domain2NotationMap.put(view.getElement(), view);
-				}
-				break;
-			}
-			case TextInputFieldEditPart.VISUAL_ID: {
-				if (!domain2NotationMap.containsKey(view.getElement())) {
-					result.addAll(CrosswalkDiagramUpdater.getTextInputField_3023ContainedLinks(view));
-				}
-				if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-					domain2NotationMap.put(view.getElement(), view);
-				}
-				break;
-			}
-			case CurrentDateEditPart.VISUAL_ID: {
-				if (!domain2NotationMap.containsKey(view.getElement())) {
-					result.addAll(CrosswalkDiagramUpdater.getCurrentDate_3021ContainedLinks(view));
-				}
-				if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-					domain2NotationMap.put(view.getElement(), view);
-				}
-				break;
-			}
-			case CurrentUsernameEditPart.VISUAL_ID: {
-				if (!domain2NotationMap.containsKey(view.getElement())) {
-					result.addAll(CrosswalkDiagramUpdater.getCurrentUsername_3022ContainedLinks(view));
-				}
-				if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-					domain2NotationMap.put(view.getElement(), view);
-				}
-				break;
-			}
-			case DateInputFieldEditPart.VISUAL_ID: {
-				if (!domain2NotationMap.containsKey(view.getElement())) {
-					result.addAll(CrosswalkDiagramUpdater.getDateInputField_3024ContainedLinks(view));
-				}
-				if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-					domain2NotationMap.put(view.getElement(), view);
-				}
-				break;
-			}
-			case MetadataBlockEditPart.VISUAL_ID: {
-				if (!domain2NotationMap.containsKey(view.getElement())) {
-					result.addAll(CrosswalkDiagramUpdater.getMetadataBlock_3010ContainedLinks(view));
-				}
-				if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-					domain2NotationMap.put(view.getElement(), view);
-				}
-				break;
-			}
-			case MetadataBlock3EditPart.VISUAL_ID: {
-				if (!domain2NotationMap.containsKey(view.getElement())) {
-					result.addAll(CrosswalkDiagramUpdater.getMetadataBlock_3019ContainedLinks(view));
-				}
-				if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-					domain2NotationMap.put(view.getElement(), view);
-				}
-				break;
-			}
-			case ParagraphEditPart.VISUAL_ID: {
-				if (!domain2NotationMap.containsKey(view.getElement())) {
-					result.addAll(CrosswalkDiagramUpdater.getParagraph_3020ContainedLinks(view));
-				}
-				if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-					domain2NotationMap.put(view.getElement(), view);
-				}
-				break;
-			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
 		}
-		for (Iterator children = view.getChildren().iterator(); children.hasNext();) {
-			result.addAll(collectAllLinks((View) children.next(), domain2NotationMap));
+		case CrossWalkEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(CrosswalkDiagramUpdater
+						.getCrossWalk_2001ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case DictionaryEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(CrosswalkDiagramUpdater
+						.getDictionary_2002ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case FormEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(CrosswalkDiagramUpdater
+						.getForm_2003ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case DelimitedFileEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(CrosswalkDiagramUpdater
+						.getDelimitedFile_3001ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case TabbedDataFieldEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(CrosswalkDiagramUpdater
+						.getTabbedDataField_3002ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case OriginalNameRecordMatcherEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(CrosswalkDiagramUpdater
+						.getOriginalNameRecordMatcher_3003ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case DateRecognizerEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(CrosswalkDiagramUpdater
+						.getDateRecognizer_3004ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case TextEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(CrosswalkDiagramUpdater
+						.getText_3005ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case TrimWhitespaceEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(CrosswalkDiagramUpdater
+						.getTrimWhitespace_3006ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case MappedElementEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(CrosswalkDiagramUpdater
+						.getMappedElement_3007ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case MappedElement2EditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(CrosswalkDiagramUpdater
+						.getMappedElement_3008ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case MappedAttributeEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(CrosswalkDiagramUpdater
+						.getMappedAttribute_3009ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case MetadataBlock2EditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(CrosswalkDiagramUpdater
+						.getMetadataBlock_3018ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case TextInputFieldEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(CrosswalkDiagramUpdater
+						.getTextInputField_3023ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case CurrentDateEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(CrosswalkDiagramUpdater
+						.getCurrentDate_3021ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case CurrentUsernameEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(CrosswalkDiagramUpdater
+						.getCurrentUsername_3022ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case DateInputFieldEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(CrosswalkDiagramUpdater
+						.getDateInputField_3024ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case MetadataBlockEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(CrosswalkDiagramUpdater
+						.getMetadataBlock_3010ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case MetadataBlock3EditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(CrosswalkDiagramUpdater
+						.getMetadataBlock_3019ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case ParagraphEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(CrosswalkDiagramUpdater
+						.getParagraph_3020ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		}
+		for (Iterator children = view.getChildren().iterator(); children
+				.hasNext();) {
+			result.addAll(collectAllLinks((View) children.next(),
+					domain2NotationMap));
 		}
 		for (Iterator edges = view.getSourceEdges().iterator(); edges.hasNext();) {
-			result.addAll(collectAllLinks((View) edges.next(), domain2NotationMap));
+			result.addAll(collectAllLinks((View) edges.next(),
+					domain2NotationMap));
 		}
 		return result;
 	}
@@ -445,20 +445,26 @@ public class EditingContainerCanonicalEditPolicy extends CanonicalEditPolicy {
 	/**
 	 * @generated
 	 */
-	private Collection<IAdaptable> createConnections(Collection<CrosswalkLinkDescriptor> linkDescriptors,
-			Map<EObject, View> domain2NotationMap) {
+	private Collection<IAdaptable> createConnections(
+			Collection<CrosswalkLinkDescriptor> linkDescriptors,
+			Domain2Notation domain2NotationMap) {
 		LinkedList<IAdaptable> adapters = new LinkedList<IAdaptable>();
 		for (CrosswalkLinkDescriptor nextLinkDescriptor : linkDescriptors) {
-			EditPart sourceEditPart = getEditPart(nextLinkDescriptor.getSource(), domain2NotationMap);
-			EditPart targetEditPart = getEditPart(nextLinkDescriptor.getDestination(), domain2NotationMap);
+			EditPart sourceEditPart = getSourceEditPart(nextLinkDescriptor,
+					domain2NotationMap);
+			EditPart targetEditPart = getTargetEditPart(nextLinkDescriptor,
+					domain2NotationMap);
 			if (sourceEditPart == null || targetEditPart == null) {
 				continue;
 			}
 			CreateConnectionViewRequest.ConnectionViewDescriptor descriptor = new CreateConnectionViewRequest.ConnectionViewDescriptor(
-					nextLinkDescriptor.getSemanticAdapter(), CrosswalkVisualIDRegistry.getType(nextLinkDescriptor
+					nextLinkDescriptor.getSemanticAdapter(),
+					CrosswalkVisualIDRegistry.getType(nextLinkDescriptor
 							.getVisualID()), ViewUtil.APPEND, false,
-					((IGraphicalEditPart) getHost()).getDiagramPreferencesHint());
-			CreateConnectionViewRequest ccr = new CreateConnectionViewRequest(descriptor);
+					((IGraphicalEditPart) getHost())
+							.getDiagramPreferencesHint());
+			CreateConnectionViewRequest ccr = new CreateConnectionViewRequest(
+					descriptor);
 			ccr.setType(RequestConstants.REQ_CONNECTION_START);
 			ccr.setSourceEditPart(sourceEditPart);
 			sourceEditPart.getCommand(ccr);
@@ -479,10 +485,12 @@ public class EditingContainerCanonicalEditPolicy extends CanonicalEditPolicy {
 	/**
 	 * @generated
 	 */
-	private EditPart getEditPart(EObject domainModelElement, Map<EObject, View> domain2NotationMap) {
+	private EditPart getEditPart(EObject domainModelElement,
+			Domain2Notation domain2NotationMap) {
 		View view = (View) domain2NotationMap.get(domainModelElement);
 		if (view != null) {
-			return (EditPart) getHost().getViewer().getEditPartRegistry().get(view);
+			return (EditPart) getHost().getViewer().getEditPartRegistry()
+					.get(view);
 		}
 		return null;
 	}
@@ -492,5 +500,65 @@ public class EditingContainerCanonicalEditPolicy extends CanonicalEditPolicy {
 	 */
 	private Diagram getDiagram() {
 		return ((View) getHost().getModel()).getDiagram();
+	}
+
+	/**
+	 * @generated
+	 */
+	private EditPart getSourceEditPart(UpdaterLinkDescriptor descriptor,
+			Domain2Notation domain2NotationMap) {
+		return getEditPart(descriptor.getSource(), domain2NotationMap);
+	}
+
+	/**
+	 * @generated
+	 */
+	private EditPart getTargetEditPart(UpdaterLinkDescriptor descriptor,
+			Domain2Notation domain2NotationMap) {
+		return getEditPart(descriptor.getDestination(), domain2NotationMap);
+	}
+
+	/**
+	 * @generated
+	 */
+	protected final EditPart getHintedEditPart(EObject domainModelElement,
+			Domain2Notation domain2NotationMap, int hintVisualId) {
+		View view = (View) domain2NotationMap.getHinted(domainModelElement,
+				CrosswalkVisualIDRegistry.getType(hintVisualId));
+		if (view != null) {
+			return (EditPart) getHost().getViewer().getEditPartRegistry()
+					.get(view);
+		}
+		return null;
+	}
+
+	/**
+	 * @generated
+	 */
+	@SuppressWarnings("serial")
+	protected static class Domain2Notation extends HashMap<EObject, View> {
+		/**
+		 * @generated
+		 */
+		public boolean containsDomainElement(EObject domainElement) {
+			return this.containsKey(domainElement);
+		}
+
+		/**
+		 * @generated
+		 */
+		public View getHinted(EObject domainEObject, String hint) {
+			return this.get(domainEObject);
+		}
+
+		/**
+		 * @generated
+		 */
+		public void putView(EObject domainElement, View view) {
+			if (!containsKey(view.getElement())) {
+				this.put(domainElement, view);
+			}
+		}
+
 	}
 }

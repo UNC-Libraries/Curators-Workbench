@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<genmodel:GenModel xmi:version="2.0"
-    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/crosswalk-gmf/src"
-    modelPluginID="crosswalk-gmf" modelName="Crosswalk" importerID="org.eclipse.emf.importer.ecore"
-    complianceLevel="6.0" copyrightFields="false">
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/crosswalk-gmf/src" modelPluginID="crosswalk-gmf"
+    modelName="Crosswalk" importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0"
+    copyrightFields="false">
   <foreignModel>crosswalk.ecore</foreignModel>
   <genPackages prefix="Crosswalk" disposableProviderFactory="true" ecorePackage="crosswalk.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="crosswalk.ecore#//DatePrecision">
@@ -116,6 +115,7 @@
       <genFeatures createChild="false" propertyCategory="" propertyDescription=""
           ecoreFeature="ecore:EAttribute crosswalk.ecore#//MappedAttribute/defaultValue"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//MappedAttribute/required"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//MappedAttribute/omittedWhenBlank"/>
     </genClasses>
     <genClasses image="false" ecoreClass="crosswalk.ecore#//ConversionStrategy">
       <genOperations ecoreOperation="crosswalk.ecore#//ConversionStrategy/convert">

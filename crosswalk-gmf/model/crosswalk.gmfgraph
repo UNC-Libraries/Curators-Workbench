@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<gmfgraph:Canvas xmi:version="2.0"
+<gmfgraph:Canvas
+    xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:gmfgraph="http://www.eclipse.org/gmf/2006/GraphicalDefinition" name="mappingCanvas">
+    xmlns:gmfgraph="http://www.eclipse.org/gmf/2006/GraphicalDefinition"
+    name="mappingCanvas">
   <figures
       name="Default">
     <descriptors
@@ -242,8 +244,8 @@
               xsi:type="gmfgraph:GridLayoutData"
               horizontalAlignment="BEGINNING"/>
           <layout
-              xsi:type="gmfgraph:GridLayout"
-              equalWidth="false"/>
+              xsi:type="gmfgraph:FlowLayout"
+              vertical="true"/>
         </children>
         <children
             xsi:type="gmfgraph:Rectangle"

@@ -71,7 +71,8 @@ public class MappedAttributeEditPart extends ShapeNodeEditPart {
 	@Override
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new MappedAttributeItemSemanticEditPolicy());
+		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
+				new MappedAttributeItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
@@ -123,7 +124,8 @@ public class MappedAttributeEditPart extends ShapeNodeEditPart {
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof WrappingLabel7EditPart) {
-			((WrappingLabel7EditPart) childEditPart).setLabel(getPrimaryShape().getFigureAttributeLabel());
+			((WrappingLabel7EditPart) childEditPart).setLabel(getPrimaryShape()
+					.getFigureAttributeLabel());
 			return true;
 		}
 		return false;
@@ -214,8 +216,8 @@ public class MappedAttributeEditPart extends ShapeNodeEditPart {
 
 	@Override
 	public ConnectionAnchor getSourceConnectionAnchor(Request request) {
-		return getNodeFigure()
-				.getSourceConnectionAnchorAt(getPrimaryShape().getFigureStringInputEllipsis().getLocation());
+		return getNodeFigure().getSourceConnectionAnchorAt(
+				getPrimaryShape().getFigureStringInputEllipsis().getLocation());
 	}
 
 	/**
@@ -274,7 +276,8 @@ public class MappedAttributeEditPart extends ShapeNodeEditPart {
 	 */
 	@Override
 	public EditPart getPrimaryChildEditPart() {
-		return getChildBySemanticHint(CrosswalkVisualIDRegistry.getType(WrappingLabel7EditPart.VISUAL_ID));
+		return getChildBySemanticHint(CrosswalkVisualIDRegistry
+				.getType(WrappingLabel7EditPart.VISUAL_ID));
 	}
 
 	/**
@@ -289,7 +292,8 @@ public class MappedAttributeEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public List<IElementType> getMARelTypesOnSourceAndTarget(IGraphicalEditPart targetEditPart) {
+	public List<IElementType> getMARelTypesOnSourceAndTarget(
+			IGraphicalEditPart targetEditPart) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
 		if (targetEditPart instanceof TabbedDataFieldEditPart) {
 			types.add(CrosswalkElementTypes.InputOutput_4001);
@@ -372,7 +376,8 @@ public class MappedAttributeEditPart extends ShapeNodeEditPart {
 		}
 
 		private void updateFace() {
-			MappedAttribute att = (MappedAttribute) ((Node) MappedAttributeEditPart.this.getModel()).getElement();
+			MappedAttribute att = (MappedAttribute) ((Node) MappedAttributeEditPart.this
+					.getModel()).getElement();
 			Color c = ColorConstants.red;
 			if (att.getOutput() != null) {
 				c = ColorConstants.darkGreen;
@@ -390,13 +395,17 @@ public class MappedAttributeEditPart extends ShapeNodeEditPart {
 		private void createContents() {
 
 			fFigureStringInputEllipsis = new Ellipse();
+
 			fFigureStringInputEllipsis.setBackgroundColor(ColorConstants.red);
-			fFigureStringInputEllipsis.setPreferredSize(new Dimension(getMapMode().DPtoLP(10), getMapMode().DPtoLP(10)));
-			fFigureStringInputEllipsis.setMaximumSize(new Dimension(getMapMode().DPtoLP(10), getMapMode().DPtoLP(10)));
+			fFigureStringInputEllipsis.setPreferredSize(new Dimension(
+					getMapMode().DPtoLP(10), getMapMode().DPtoLP(10)));
+			fFigureStringInputEllipsis.setMaximumSize(new Dimension(
+					getMapMode().DPtoLP(10), getMapMode().DPtoLP(10)));
 
 			this.add(fFigureStringInputEllipsis);
 
 			fFigureAttributeLabel = new WrappingLabel();
+
 			fFigureAttributeLabel.setText("input");
 
 			this.add(fFigureAttributeLabel);

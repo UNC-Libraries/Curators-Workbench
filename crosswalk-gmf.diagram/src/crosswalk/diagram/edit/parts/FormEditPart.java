@@ -28,6 +28,7 @@ import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicyWithCustomReparent;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Font;
@@ -68,9 +69,12 @@ public class FormEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected void createDefaultEditPolicies() {
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicy());
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
+				new CreationEditPolicyWithCustomReparent(
+						CrosswalkVisualIDRegistry.TYPED_INSTANCE));
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new FormItemSemanticEditPolicy());
+		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
+				new FormItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
@@ -83,7 +87,8 @@ public class FormEditPart extends ShapeNodeEditPart {
 		org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
 
 			protected EditPolicy createChildEditPolicy(EditPart child) {
-				EditPolicy result = child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
+				EditPolicy result = child
+						.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
 				if (result == null) {
 					result = new NonResizableEditPolicy();
 				}
@@ -120,17 +125,20 @@ public class FormEditPart extends ShapeNodeEditPart {
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof FormTitleEditPart) {
-			((FormTitleEditPart) childEditPart).setLabel(getPrimaryShape().getFigureModelLabelFigure());
+			((FormTitleEditPart) childEditPart).setLabel(getPrimaryShape()
+					.getFigureModelLabelFigure());
 			return true;
 		}
 		if (childEditPart instanceof FormDescriptionEditPart) {
-			((FormDescriptionEditPart) childEditPart).setLabel(getPrimaryShape().getFigureModelNotesFigure());
+			((FormDescriptionEditPart) childEditPart)
+					.setLabel(getPrimaryShape().getFigureModelNotesFigure());
 			return true;
 		}
 		if (childEditPart instanceof FormModelBoxCompartmentEditPart) {
 			IFigure pane = getPrimaryShape().getFigureFlowModelBox();
 			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
-			pane.add(((FormModelBoxCompartmentEditPart) childEditPart).getFigure());
+			pane.add(((FormModelBoxCompartmentEditPart) childEditPart)
+					.getFigure());
 			return true;
 		}
 		return false;
@@ -148,8 +156,8 @@ public class FormEditPart extends ShapeNodeEditPart {
 		}
 		if (childEditPart instanceof FormModelBoxCompartmentEditPart) {
 			IFigure pane = getPrimaryShape().getFigureFlowModelBox();
-			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
-			pane.remove(((FormModelBoxCompartmentEditPart) childEditPart).getFigure());
+			pane.remove(((FormModelBoxCompartmentEditPart) childEditPart)
+					.getFigure());
 			return true;
 		}
 		return false;
@@ -275,7 +283,8 @@ public class FormEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	public EditPart getPrimaryChildEditPart() {
-		return getChildBySemanticHint(CrosswalkVisualIDRegistry.getType(FormTitleEditPart.VISUAL_ID));
+		return getChildBySemanticHint(CrosswalkVisualIDRegistry
+				.getType(FormTitleEditPart.VISUAL_ID));
 	}
 
 	/**
@@ -283,14 +292,18 @@ public class FormEditPart extends ShapeNodeEditPart {
 	 */
 	public EditPart getTargetEditPart(Request request) {
 		if (request instanceof CreateViewAndElementRequest) {
-			CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request).getViewAndElementDescriptor()
+			CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request)
+					.getViewAndElementDescriptor()
 					.getCreateElementRequestAdapter();
-			IElementType type = (IElementType) adapter.getAdapter(IElementType.class);
+			IElementType type = (IElementType) adapter
+					.getAdapter(IElementType.class);
 			if (type == CrosswalkElementTypes.MetadataBlock_3019) {
-				return getChildBySemanticHint(CrosswalkVisualIDRegistry.getType(FormModelBoxCompartmentEditPart.VISUAL_ID));
+				return getChildBySemanticHint(CrosswalkVisualIDRegistry
+						.getType(FormModelBoxCompartmentEditPart.VISUAL_ID));
 			}
 			if (type == CrosswalkElementTypes.Paragraph_3020) {
-				return getChildBySemanticHint(CrosswalkVisualIDRegistry.getType(FormModelBoxCompartmentEditPart.VISUAL_ID));
+				return getChildBySemanticHint(CrosswalkVisualIDRegistry
+						.getType(FormModelBoxCompartmentEditPart.VISUAL_ID));
 			}
 		}
 		return super.getTargetEditPart(request);
@@ -325,7 +338,8 @@ public class FormEditPart extends ShapeNodeEditPart {
 			this.setLayoutManager(layoutThis);
 
 			this.setBackgroundColor(ColorConstants.lightGray);
-			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(1000), getMapMode().DPtoLP(1000)));
+			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(1000),
+					getMapMode().DPtoLP(1000)));
 			createContents();
 		}
 
@@ -335,6 +349,7 @@ public class FormEditPart extends ShapeNodeEditPart {
 		private void createContents() {
 
 			fFigureModelLabelFigure = new WrappingLabel();
+
 			fFigureModelLabelFigure.setText("");
 
 			fFigureModelLabelFigure.setFont(FFIGUREMODELLABELFIGURE_FONT);
@@ -350,6 +365,7 @@ public class FormEditPart extends ShapeNodeEditPart {
 			this.add(fFigureModelLabelFigure, constraintFFigureModelLabelFigure);
 
 			fFigureModelNotesFigure = new WrappingLabel();
+
 			fFigureModelNotesFigure.setText("");
 
 			GridData constraintFFigureModelNotesFigure = new GridData();
@@ -376,7 +392,8 @@ public class FormEditPart extends ShapeNodeEditPart {
 
 			ToolbarLayout layoutFFigureFlowModelBox = new ToolbarLayout();
 			layoutFFigureFlowModelBox.setStretchMinorAxis(false);
-			layoutFFigureFlowModelBox.setMinorAlignment(ToolbarLayout.ALIGN_TOPLEFT);
+			layoutFFigureFlowModelBox
+					.setMinorAlignment(ToolbarLayout.ALIGN_TOPLEFT);
 
 			layoutFFigureFlowModelBox.setSpacing(5);
 			layoutFFigureFlowModelBox.setVertical(true);
@@ -411,7 +428,8 @@ public class FormEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	static final Font FFIGUREMODELLABELFIGURE_FONT = new Font(Display.getCurrent(), Display.getDefault().getSystemFont()
-			.getFontData()[0].getName(), 26, SWT.BOLD);
+	static final Font FFIGUREMODELLABELFIGURE_FONT = new Font(
+			Display.getCurrent(), Display.getDefault().getSystemFont()
+					.getFontData()[0].getName(), 26, SWT.BOLD);
 
 }

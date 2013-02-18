@@ -12,7 +12,8 @@ import crosswalk.diagram.providers.CrosswalkElementTypes;
 /**
  * @generated
  */
-public class DelimitedFileDataFieldCompartmentItemSemanticEditPolicy extends CrosswalkBaseItemSemanticEditPolicy {
+public class DelimitedFileDataFieldCompartmentItemSemanticEditPolicy extends
+		CrosswalkBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated

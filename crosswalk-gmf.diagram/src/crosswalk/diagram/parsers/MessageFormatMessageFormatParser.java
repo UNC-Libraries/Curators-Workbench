@@ -50,13 +50,15 @@ public class MessageFormatMessageFormatParser extends AbstractParser {
 	/**
 	 * @generated
 	 */
-	public MessageFormatMessageFormatParser(EAttribute[] features, EAttribute[] editableFeatures) {
+	public MessageFormatMessageFormatParser(EAttribute[] features,
+			EAttribute[] editableFeatures) {
 		super(features, editableFeatures);
 		if (features.length != 1) {
 			throw new IllegalArgumentException(Arrays.toString(features));
 		}
 		if (editableFeatures.length != 1) {
-			throw new IllegalArgumentException(Arrays.toString(editableFeatures));
+			throw new IllegalArgumentException(
+					Arrays.toString(editableFeatures));
 		}
 	}
 
@@ -100,7 +102,9 @@ public class MessageFormatMessageFormatParser extends AbstractParser {
 	 */
 	protected MessageFormat getViewProcessor() {
 		if (viewProcessor == null) {
-			viewProcessor = new MessageFormat(getViewPattern() == null ? getDefaultPattern() : getViewPattern());
+			viewProcessor = new MessageFormat(
+					getViewPattern() == null ? getDefaultPattern()
+							: getViewPattern());
 		}
 		return viewProcessor;
 	}
@@ -110,8 +114,9 @@ public class MessageFormatMessageFormatParser extends AbstractParser {
 	 */
 	protected MessageFormat getEditorProcessor() {
 		if (editorProcessor == null) {
-			editorProcessor = new MessageFormat(getEditorPattern() == null ? getDefaultEditablePattern()
-					: getEditorPattern());
+			editorProcessor = new MessageFormat(
+					getEditorPattern() == null ? getDefaultEditablePattern()
+							: getEditorPattern());
 		}
 		return editorProcessor;
 	}
@@ -140,22 +145,25 @@ public class MessageFormatMessageFormatParser extends AbstractParser {
 	 */
 	public String getEditString(IAdaptable adapter, int flags) {
 		EObject element = (EObject) adapter.getAdapter(EObject.class);
-		return getEditorProcessor().format(getEditableValues(element), new StringBuffer(), new FieldPosition(0))
-				.toString();
+		return getEditorProcessor().format(getEditableValues(element),
+				new StringBuffer(), new FieldPosition(0)).toString();
 	}
 
 	/**
 	 * @generated
 	 */
-	public IParserEditStatus isValidEditString(IAdaptable adapter, String editString) {
+	public IParserEditStatus isValidEditString(IAdaptable adapter,
+			String editString) {
 		return ParserEditStatus.EDITABLE_STATUS;
 	}
 
 	/**
 	 * @generated
 	 */
-	public ICommand getParseCommand(IAdaptable adapter, String newString, int flags) {
-		Object value = EcoreUtil.createFromString(editableFeatures[0].getEAttributeType(), newString);
+	public ICommand getParseCommand(IAdaptable adapter, String newString,
+			int flags) {
+		Object value = EcoreUtil.createFromString(
+				editableFeatures[0].getEAttributeType(), newString);
 		return getParseCommand(adapter, new Object[] { value }, flags);
 	}
 
@@ -164,7 +172,8 @@ public class MessageFormatMessageFormatParser extends AbstractParser {
 	 */
 	public String getPrintString(IAdaptable adapter, int flags) {
 		EObject element = (EObject) adapter.getAdapter(EObject.class);
-		return getViewProcessor().format(getValues(element), new StringBuffer(), new FieldPosition(0)).toString();
+		return getViewProcessor().format(getValues(element),
+				new StringBuffer(), new FieldPosition(0)).toString();
 	}
 
 }

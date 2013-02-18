@@ -43,26 +43,31 @@ public class MappedAttributeLabelExpressionLabelParser implements IParser {
 	/**
 	 * @generated
 	 */
-	public IParserEditStatus isValidEditString(IAdaptable element, String editString) {
+	public IParserEditStatus isValidEditString(IAdaptable element,
+			String editString) {
 		return ParserEditStatus.EDITABLE_STATUS;
 	}
 
 	/**
 	 * @generated
 	 */
-	public ICommand getParseCommand(IAdaptable element, final String newString, int flags) {
+	public ICommand getParseCommand(IAdaptable element, final String newString,
+			int flags) {
 		final EObject target = (EObject) element.getAdapter(EObject.class);
 		if (!validateValues(target, newString)) {
 			return UnexecutableCommand.INSTANCE;
 		}
-		TransactionalEditingDomain editingDomain = TransactionUtil.getEditingDomain(target);
+		TransactionalEditingDomain editingDomain = TransactionUtil
+				.getEditingDomain(target);
 		if (editingDomain == null) {
 			return UnexecutableCommand.INSTANCE;
 		}
 		IFile affectedFile = WorkspaceSynchronizer.getFile(target.eResource());
-		return new AbstractTransactionalCommand(editingDomain,
+		return new AbstractTransactionalCommand(
+				editingDomain,
 				"Set Values", affectedFile == null ? null : Collections.singletonList(affectedFile)) { //$NON-NLS-1$ 
-			protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info)
+			protected CommandResult doExecuteWithResult(
+					IProgressMonitor monitor, IAdaptable info)
 					throws ExecutionException {
 				return new CommandResult(updateValues(target, newString));
 			}
@@ -73,7 +78,8 @@ public class MappedAttributeLabelExpressionLabelParser implements IParser {
 	 * @generated
 	 */
 	public String getPrintString(IAdaptable element, int flags) {
-		return evaluatePrintExpression((EObject) element.getAdapter(EObject.class));
+		return evaluatePrintExpression((EObject) element
+				.getAdapter(EObject.class));
 	}
 
 	/**
@@ -103,10 +109,12 @@ public class MappedAttributeLabelExpressionLabelParser implements IParser {
 	/**
 	 * @generated
 	 */
-	private IStatus updateValues(EObject target, String newString) throws ExecutionException {
+	private IStatus updateValues(EObject target, String newString)
+			throws ExecutionException {
 		// TODO implement this method
 		// DO NOT FORGET to remove @generated tag or mark method @generated NOT
-		throw new ExecutionException("Please implement parsing and value modification");
+		throw new ExecutionException(
+				"Please implement parsing and value modification");
 	}
 
 	/**
@@ -122,7 +130,8 @@ public class MappedAttributeLabelExpressionLabelParser implements IParser {
 			} else if (EClassifier.class.isAssignableFrom(ma.getInputType())) {
 				// do not include in label (probably 
 			} else {
-				sb.append(" (").append(ma.getInputType().getSimpleName()).append(")");
+				sb.append(" (").append(ma.getInputType().getSimpleName())
+						.append(")");
 			}
 		} else {
 			sb.append("Error (Unmapped Attribute)");

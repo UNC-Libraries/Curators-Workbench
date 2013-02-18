@@ -71,7 +71,8 @@ public class TextInputFieldEditPart extends ShapeNodeEditPart {
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new TextInputFieldItemSemanticEditPolicy());
+		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
+				new TextInputFieldItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
@@ -84,7 +85,8 @@ public class TextInputFieldEditPart extends ShapeNodeEditPart {
 		org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
 
 			protected EditPolicy createChildEditPolicy(EditPart child) {
-				EditPolicy result = child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
+				EditPolicy result = child
+						.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
 				if (result == null) {
 					result = new NonResizableEditPolicy();
 				}
@@ -121,7 +123,8 @@ public class TextInputFieldEditPart extends ShapeNodeEditPart {
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof TextInputFieldLabelEditPart) {
-			((TextInputFieldLabelEditPart) childEditPart).setLabel(getPrimaryShape().getFigureInputFieldLabel());
+			((TextInputFieldLabelEditPart) childEditPart)
+					.setLabel(getPrimaryShape().getFigureInputFieldLabel());
 			return true;
 		}
 		return false;
@@ -262,7 +265,8 @@ public class TextInputFieldEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	public EditPart getPrimaryChildEditPart() {
-		return getChildBySemanticHint(CrosswalkVisualIDRegistry.getType(TextInputFieldLabelEditPart.VISUAL_ID));
+		return getChildBySemanticHint(CrosswalkVisualIDRegistry
+				.getType(TextInputFieldLabelEditPart.VISUAL_ID));
 	}
 
 	/**
@@ -277,7 +281,8 @@ public class TextInputFieldEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public List<IElementType> getMARelTypesOnSourceAndTarget(IGraphicalEditPart targetEditPart) {
+	public List<IElementType> getMARelTypesOnSourceAndTarget(
+			IGraphicalEditPart targetEditPart) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
 		if (targetEditPart instanceof TabbedDataFieldEditPart) {
 			types.add(CrosswalkElementTypes.InputOutput_4001);
@@ -386,8 +391,10 @@ public class TextInputFieldEditPart extends ShapeNodeEditPart {
 
 			fFigureInputFieldEllipsis = new Ellipse();
 			fFigureInputFieldEllipsis.setBackgroundColor(ColorConstants.red);
-			fFigureInputFieldEllipsis.setPreferredSize(new Dimension(getMapMode().DPtoLP(10), getMapMode().DPtoLP(10)));
-			fFigureInputFieldEllipsis.setMaximumSize(new Dimension(getMapMode().DPtoLP(10), getMapMode().DPtoLP(10)));
+			fFigureInputFieldEllipsis.setPreferredSize(new Dimension(
+					getMapMode().DPtoLP(10), getMapMode().DPtoLP(10)));
+			fFigureInputFieldEllipsis.setMaximumSize(new Dimension(getMapMode()
+					.DPtoLP(10), getMapMode().DPtoLP(10)));
 
 			GridData constraintFFigureInputFieldEllipsis = new GridData();
 			constraintFFigureInputFieldEllipsis.verticalAlignment = GridData.CENTER;
@@ -397,7 +404,8 @@ public class TextInputFieldEditPart extends ShapeNodeEditPart {
 			constraintFFigureInputFieldEllipsis.verticalSpan = 1;
 			constraintFFigureInputFieldEllipsis.grabExcessHorizontalSpace = false;
 			constraintFFigureInputFieldEllipsis.grabExcessVerticalSpace = false;
-			this.add(fFigureInputFieldEllipsis, constraintFFigureInputFieldEllipsis);
+			this.add(fFigureInputFieldEllipsis,
+					constraintFFigureInputFieldEllipsis);
 
 			fFigureInputFieldLabel = new WrappingLabel();
 			fFigureInputFieldLabel.setText("input");
@@ -428,7 +436,8 @@ public class TextInputFieldEditPart extends ShapeNodeEditPart {
 		}
 
 		private void updateFace() {
-			TextInputField input = (TextInputField) ((Node) TextInputFieldEditPart.this.getModel()).getElement();
+			TextInputField input = (TextInputField) ((Node) TextInputFieldEditPart.this
+					.getModel()).getElement();
 			Color c = ColorConstants.red;
 			if (input.getOutput() != null) {
 				c = ColorConstants.darkGreen;

@@ -32,7 +32,8 @@ import crosswalk.diagram.providers.CrosswalkElementTypes;
 /**
  * @generated
  */
-public class MetadataBlock2ItemSemanticEditPolicy extends CrosswalkBaseItemSemanticEditPolicy {
+public class MetadataBlock2ItemSemanticEditPolicy extends
+		CrosswalkBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
@@ -46,7 +47,8 @@ public class MetadataBlock2ItemSemanticEditPolicy extends CrosswalkBaseItemSeman
 	 */
 	protected Command getDestroyElementCommand(DestroyElementRequest req) {
 		View view = (View) getHost().getModel();
-		CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(getEditingDomain(), null);
+		CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(
+				getEditingDomain(), null);
 		cmd.setTransactionNestingEnabled(false);
 		EAnnotation annotation = view.getEAnnotation("Shortcut"); //$NON-NLS-1$
 		if (annotation == null) {
@@ -69,178 +71,243 @@ public class MetadataBlock2ItemSemanticEditPolicy extends CrosswalkBaseItemSeman
 		for (Iterator<?> nit = view.getChildren().iterator(); nit.hasNext();) {
 			Node node = (Node) nit.next();
 			switch (CrosswalkVisualIDRegistry.getVisualID(node)) {
-				case MetadataBlockMetadataBlockInputFieldsCompartment2EditPart.VISUAL_ID:
-					for (Iterator<?> cit = node.getChildren().iterator(); cit.hasNext();) {
-						Node cnode = (Node) cit.next();
-						switch (CrosswalkVisualIDRegistry.getVisualID(cnode)) {
-							case TextInputFieldEditPart.VISUAL_ID:
-								for (Iterator<?> it = cnode.getTargetEdges().iterator(); it.hasNext();) {
-									Edge incomingLink = (Edge) it.next();
-									if (CrosswalkVisualIDRegistry.getVisualID(incomingLink) == InputOutputEditPart.VISUAL_ID) {
-										DestroyReferenceRequest r = new DestroyReferenceRequest(incomingLink.getSource()
-												.getElement(), null, incomingLink.getTarget().getElement(), false);
-										cmd.add(new DestroyReferenceCommand(r));
-										cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
-										continue;
-									}
-								}
-								for (Iterator<?> it = cnode.getSourceEdges().iterator(); it.hasNext();) {
-									Edge outgoingLink = (Edge) it.next();
-									if (CrosswalkVisualIDRegistry.getVisualID(outgoingLink) == InputOutputEditPart.VISUAL_ID) {
-										DestroyReferenceRequest r = new DestroyReferenceRequest(outgoingLink.getSource()
-												.getElement(), null, outgoingLink.getTarget().getElement(), false);
-										cmd.add(new DestroyReferenceCommand(r));
-										cmd.add(new DeleteCommand(getEditingDomain(), outgoingLink));
-										continue;
-									}
-								}
-								cmd.add(new DestroyElementCommand(new DestroyElementRequest(getEditingDomain(), cnode
-										.getElement(), false))); // directlyOwned: true
-								// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
-								// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
-								break;
-							case DateInputFieldEditPart.VISUAL_ID:
-								for (Iterator<?> it = cnode.getTargetEdges().iterator(); it.hasNext();) {
-									Edge incomingLink = (Edge) it.next();
-									if (CrosswalkVisualIDRegistry.getVisualID(incomingLink) == InputOutputEditPart.VISUAL_ID) {
-										DestroyReferenceRequest r = new DestroyReferenceRequest(incomingLink.getSource()
-												.getElement(), null, incomingLink.getTarget().getElement(), false);
-										cmd.add(new DestroyReferenceCommand(r));
-										cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
-										continue;
-									}
-								}
-								for (Iterator<?> it = cnode.getSourceEdges().iterator(); it.hasNext();) {
-									Edge outgoingLink = (Edge) it.next();
-									if (CrosswalkVisualIDRegistry.getVisualID(outgoingLink) == InputOutputEditPart.VISUAL_ID) {
-										DestroyReferenceRequest r = new DestroyReferenceRequest(outgoingLink.getSource()
-												.getElement(), null, outgoingLink.getTarget().getElement(), false);
-										cmd.add(new DestroyReferenceCommand(r));
-										cmd.add(new DeleteCommand(getEditingDomain(), outgoingLink));
-										continue;
-									}
-								}
-								cmd.add(new DestroyElementCommand(new DestroyElementRequest(getEditingDomain(), cnode
-										.getElement(), false))); // directlyOwned: true
-								// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
-								// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
-								break;
+			case MetadataBlockMetadataBlockInputFieldsCompartment2EditPart.VISUAL_ID:
+				for (Iterator<?> cit = node.getChildren().iterator(); cit
+						.hasNext();) {
+					Node cnode = (Node) cit.next();
+					switch (CrosswalkVisualIDRegistry.getVisualID(cnode)) {
+					case TextInputFieldEditPart.VISUAL_ID:
+						for (Iterator<?> it = cnode.getTargetEdges().iterator(); it
+								.hasNext();) {
+							Edge incomingLink = (Edge) it.next();
+							if (CrosswalkVisualIDRegistry
+									.getVisualID(incomingLink) == InputOutputEditPart.VISUAL_ID) {
+								DestroyReferenceRequest r = new DestroyReferenceRequest(
+										incomingLink.getSource().getElement(),
+										null, incomingLink.getTarget()
+												.getElement(), false);
+								cmd.add(new DestroyReferenceCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										incomingLink));
+								continue;
+							}
 						}
-					}
-					break;
-				case MetadataBlockMetadataBlockMappingCompartment2EditPart.VISUAL_ID:
-					for (Iterator<?> cit = node.getChildren().iterator(); cit.hasNext();) {
-						Node cnode = (Node) cit.next();
-						switch (CrosswalkVisualIDRegistry.getVisualID(cnode)) {
-							case DateRecognizerEditPart.VISUAL_ID:
-								for (Iterator<?> it = cnode.getTargetEdges().iterator(); it.hasNext();) {
-									Edge incomingLink = (Edge) it.next();
-									if (CrosswalkVisualIDRegistry.getVisualID(incomingLink) == InputOutputEditPart.VISUAL_ID) {
-										DestroyReferenceRequest r = new DestroyReferenceRequest(incomingLink.getSource()
-												.getElement(), null, incomingLink.getTarget().getElement(), false);
-										cmd.add(new DestroyReferenceCommand(r));
-										cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
-										continue;
-									}
-								}
-								for (Iterator<?> it = cnode.getSourceEdges().iterator(); it.hasNext();) {
-									Edge outgoingLink = (Edge) it.next();
-									if (CrosswalkVisualIDRegistry.getVisualID(outgoingLink) == InputOutputEditPart.VISUAL_ID) {
-										DestroyReferenceRequest r = new DestroyReferenceRequest(outgoingLink.getSource()
-												.getElement(), null, outgoingLink.getTarget().getElement(), false);
-										cmd.add(new DestroyReferenceCommand(r));
-										cmd.add(new DeleteCommand(getEditingDomain(), outgoingLink));
-										continue;
-									}
-								}
-								cmd.add(new DestroyElementCommand(new DestroyElementRequest(getEditingDomain(), cnode
-										.getElement(), false))); // directlyOwned: true
-								// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
-								// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
-								break;
-							case TextEditPart.VISUAL_ID:
-								for (Iterator<?> it = cnode.getTargetEdges().iterator(); it.hasNext();) {
-									Edge incomingLink = (Edge) it.next();
-									if (CrosswalkVisualIDRegistry.getVisualID(incomingLink) == InputOutputEditPart.VISUAL_ID) {
-										DestroyReferenceRequest r = new DestroyReferenceRequest(incomingLink.getSource()
-												.getElement(), null, incomingLink.getTarget().getElement(), false);
-										cmd.add(new DestroyReferenceCommand(r));
-										cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
-										continue;
-									}
-								}
-								cmd.add(new DestroyElementCommand(new DestroyElementRequest(getEditingDomain(), cnode
-										.getElement(), false))); // directlyOwned: true
-								// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
-								// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
-								break;
-							case TrimWhitespaceEditPart.VISUAL_ID:
-								for (Iterator<?> it = cnode.getTargetEdges().iterator(); it.hasNext();) {
-									Edge incomingLink = (Edge) it.next();
-									if (CrosswalkVisualIDRegistry.getVisualID(incomingLink) == InputOutputEditPart.VISUAL_ID) {
-										DestroyReferenceRequest r = new DestroyReferenceRequest(incomingLink.getSource()
-												.getElement(), null, incomingLink.getTarget().getElement(), false);
-										cmd.add(new DestroyReferenceCommand(r));
-										cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
-										continue;
-									}
-								}
-								for (Iterator<?> it = cnode.getSourceEdges().iterator(); it.hasNext();) {
-									Edge outgoingLink = (Edge) it.next();
-									if (CrosswalkVisualIDRegistry.getVisualID(outgoingLink) == InputOutputEditPart.VISUAL_ID) {
-										DestroyReferenceRequest r = new DestroyReferenceRequest(outgoingLink.getSource()
-												.getElement(), null, outgoingLink.getTarget().getElement(), false);
-										cmd.add(new DestroyReferenceCommand(r));
-										cmd.add(new DeleteCommand(getEditingDomain(), outgoingLink));
-										continue;
-									}
-								}
-								cmd.add(new DestroyElementCommand(new DestroyElementRequest(getEditingDomain(), cnode
-										.getElement(), false))); // directlyOwned: true
-								// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
-								// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
-								break;
-							case MappedElementEditPart.VISUAL_ID:
-								cmd.add(new DestroyElementCommand(new DestroyElementRequest(getEditingDomain(), cnode
-										.getElement(), false))); // directlyOwned: true
-								// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
-								// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
-								break;
-							case CurrentDateEditPart.VISUAL_ID:
-								for (Iterator<?> it = cnode.getTargetEdges().iterator(); it.hasNext();) {
-									Edge incomingLink = (Edge) it.next();
-									if (CrosswalkVisualIDRegistry.getVisualID(incomingLink) == InputOutputEditPart.VISUAL_ID) {
-										DestroyReferenceRequest r = new DestroyReferenceRequest(incomingLink.getSource()
-												.getElement(), null, incomingLink.getTarget().getElement(), false);
-										cmd.add(new DestroyReferenceCommand(r));
-										cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
-										continue;
-									}
-								}
-								cmd.add(new DestroyElementCommand(new DestroyElementRequest(getEditingDomain(), cnode
-										.getElement(), false))); // directlyOwned: true
-								// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
-								// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
-								break;
-							case CurrentUsernameEditPart.VISUAL_ID:
-								for (Iterator<?> it = cnode.getTargetEdges().iterator(); it.hasNext();) {
-									Edge incomingLink = (Edge) it.next();
-									if (CrosswalkVisualIDRegistry.getVisualID(incomingLink) == InputOutputEditPart.VISUAL_ID) {
-										DestroyReferenceRequest r = new DestroyReferenceRequest(incomingLink.getSource()
-												.getElement(), null, incomingLink.getTarget().getElement(), false);
-										cmd.add(new DestroyReferenceCommand(r));
-										cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
-										continue;
-									}
-								}
-								cmd.add(new DestroyElementCommand(new DestroyElementRequest(getEditingDomain(), cnode
-										.getElement(), false))); // directlyOwned: true
-								// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
-								// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
-								break;
+						for (Iterator<?> it = cnode.getSourceEdges().iterator(); it
+								.hasNext();) {
+							Edge outgoingLink = (Edge) it.next();
+							if (CrosswalkVisualIDRegistry
+									.getVisualID(outgoingLink) == InputOutputEditPart.VISUAL_ID) {
+								DestroyReferenceRequest r = new DestroyReferenceRequest(
+										outgoingLink.getSource().getElement(),
+										null, outgoingLink.getTarget()
+												.getElement(), false);
+								cmd.add(new DestroyReferenceCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										outgoingLink));
+								continue;
+							}
 						}
+						cmd.add(new DestroyElementCommand(
+								new DestroyElementRequest(getEditingDomain(),
+										cnode.getElement(), false))); // directlyOwned: true
+						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
+						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
+						break;
+					case DateInputFieldEditPart.VISUAL_ID:
+						for (Iterator<?> it = cnode.getTargetEdges().iterator(); it
+								.hasNext();) {
+							Edge incomingLink = (Edge) it.next();
+							if (CrosswalkVisualIDRegistry
+									.getVisualID(incomingLink) == InputOutputEditPart.VISUAL_ID) {
+								DestroyReferenceRequest r = new DestroyReferenceRequest(
+										incomingLink.getSource().getElement(),
+										null, incomingLink.getTarget()
+												.getElement(), false);
+								cmd.add(new DestroyReferenceCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										incomingLink));
+								continue;
+							}
+						}
+						for (Iterator<?> it = cnode.getSourceEdges().iterator(); it
+								.hasNext();) {
+							Edge outgoingLink = (Edge) it.next();
+							if (CrosswalkVisualIDRegistry
+									.getVisualID(outgoingLink) == InputOutputEditPart.VISUAL_ID) {
+								DestroyReferenceRequest r = new DestroyReferenceRequest(
+										outgoingLink.getSource().getElement(),
+										null, outgoingLink.getTarget()
+												.getElement(), false);
+								cmd.add(new DestroyReferenceCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										outgoingLink));
+								continue;
+							}
+						}
+						cmd.add(new DestroyElementCommand(
+								new DestroyElementRequest(getEditingDomain(),
+										cnode.getElement(), false))); // directlyOwned: true
+						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
+						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
+						break;
 					}
-					break;
+				}
+				break;
+			case MetadataBlockMetadataBlockMappingCompartment2EditPart.VISUAL_ID:
+				for (Iterator<?> cit = node.getChildren().iterator(); cit
+						.hasNext();) {
+					Node cnode = (Node) cit.next();
+					switch (CrosswalkVisualIDRegistry.getVisualID(cnode)) {
+					case DateRecognizerEditPart.VISUAL_ID:
+						for (Iterator<?> it = cnode.getTargetEdges().iterator(); it
+								.hasNext();) {
+							Edge incomingLink = (Edge) it.next();
+							if (CrosswalkVisualIDRegistry
+									.getVisualID(incomingLink) == InputOutputEditPart.VISUAL_ID) {
+								DestroyReferenceRequest r = new DestroyReferenceRequest(
+										incomingLink.getSource().getElement(),
+										null, incomingLink.getTarget()
+												.getElement(), false);
+								cmd.add(new DestroyReferenceCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										incomingLink));
+								continue;
+							}
+						}
+						for (Iterator<?> it = cnode.getSourceEdges().iterator(); it
+								.hasNext();) {
+							Edge outgoingLink = (Edge) it.next();
+							if (CrosswalkVisualIDRegistry
+									.getVisualID(outgoingLink) == InputOutputEditPart.VISUAL_ID) {
+								DestroyReferenceRequest r = new DestroyReferenceRequest(
+										outgoingLink.getSource().getElement(),
+										null, outgoingLink.getTarget()
+												.getElement(), false);
+								cmd.add(new DestroyReferenceCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										outgoingLink));
+								continue;
+							}
+						}
+						cmd.add(new DestroyElementCommand(
+								new DestroyElementRequest(getEditingDomain(),
+										cnode.getElement(), false))); // directlyOwned: true
+						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
+						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
+						break;
+					case TextEditPart.VISUAL_ID:
+						for (Iterator<?> it = cnode.getTargetEdges().iterator(); it
+								.hasNext();) {
+							Edge incomingLink = (Edge) it.next();
+							if (CrosswalkVisualIDRegistry
+									.getVisualID(incomingLink) == InputOutputEditPart.VISUAL_ID) {
+								DestroyReferenceRequest r = new DestroyReferenceRequest(
+										incomingLink.getSource().getElement(),
+										null, incomingLink.getTarget()
+												.getElement(), false);
+								cmd.add(new DestroyReferenceCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										incomingLink));
+								continue;
+							}
+						}
+						cmd.add(new DestroyElementCommand(
+								new DestroyElementRequest(getEditingDomain(),
+										cnode.getElement(), false))); // directlyOwned: true
+						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
+						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
+						break;
+					case TrimWhitespaceEditPart.VISUAL_ID:
+						for (Iterator<?> it = cnode.getTargetEdges().iterator(); it
+								.hasNext();) {
+							Edge incomingLink = (Edge) it.next();
+							if (CrosswalkVisualIDRegistry
+									.getVisualID(incomingLink) == InputOutputEditPart.VISUAL_ID) {
+								DestroyReferenceRequest r = new DestroyReferenceRequest(
+										incomingLink.getSource().getElement(),
+										null, incomingLink.getTarget()
+												.getElement(), false);
+								cmd.add(new DestroyReferenceCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										incomingLink));
+								continue;
+							}
+						}
+						for (Iterator<?> it = cnode.getSourceEdges().iterator(); it
+								.hasNext();) {
+							Edge outgoingLink = (Edge) it.next();
+							if (CrosswalkVisualIDRegistry
+									.getVisualID(outgoingLink) == InputOutputEditPart.VISUAL_ID) {
+								DestroyReferenceRequest r = new DestroyReferenceRequest(
+										outgoingLink.getSource().getElement(),
+										null, outgoingLink.getTarget()
+												.getElement(), false);
+								cmd.add(new DestroyReferenceCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										outgoingLink));
+								continue;
+							}
+						}
+						cmd.add(new DestroyElementCommand(
+								new DestroyElementRequest(getEditingDomain(),
+										cnode.getElement(), false))); // directlyOwned: true
+						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
+						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
+						break;
+					case MappedElementEditPart.VISUAL_ID:
+						cmd.add(new DestroyElementCommand(
+								new DestroyElementRequest(getEditingDomain(),
+										cnode.getElement(), false))); // directlyOwned: true
+						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
+						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
+						break;
+					case CurrentDateEditPart.VISUAL_ID:
+						for (Iterator<?> it = cnode.getTargetEdges().iterator(); it
+								.hasNext();) {
+							Edge incomingLink = (Edge) it.next();
+							if (CrosswalkVisualIDRegistry
+									.getVisualID(incomingLink) == InputOutputEditPart.VISUAL_ID) {
+								DestroyReferenceRequest r = new DestroyReferenceRequest(
+										incomingLink.getSource().getElement(),
+										null, incomingLink.getTarget()
+												.getElement(), false);
+								cmd.add(new DestroyReferenceCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										incomingLink));
+								continue;
+							}
+						}
+						cmd.add(new DestroyElementCommand(
+								new DestroyElementRequest(getEditingDomain(),
+										cnode.getElement(), false))); // directlyOwned: true
+						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
+						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
+						break;
+					case CurrentUsernameEditPart.VISUAL_ID:
+						for (Iterator<?> it = cnode.getTargetEdges().iterator(); it
+								.hasNext();) {
+							Edge incomingLink = (Edge) it.next();
+							if (CrosswalkVisualIDRegistry
+									.getVisualID(incomingLink) == InputOutputEditPart.VISUAL_ID) {
+								DestroyReferenceRequest r = new DestroyReferenceRequest(
+										incomingLink.getSource().getElement(),
+										null, incomingLink.getTarget()
+												.getElement(), false);
+								cmd.add(new DestroyReferenceCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										incomingLink));
+								continue;
+							}
+						}
+						cmd.add(new DestroyElementCommand(
+								new DestroyElementRequest(getEditingDomain(),
+										cnode.getElement(), false))); // directlyOwned: true
+						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
+						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
+						break;
+					}
+				}
+				break;
 			}
 		}
 	}

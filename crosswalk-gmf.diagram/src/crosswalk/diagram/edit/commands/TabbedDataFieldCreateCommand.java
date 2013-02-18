@@ -49,7 +49,8 @@ public class TabbedDataFieldCreateCommand extends EditElementCommand {
 	 */
 	@Override
 	protected EObject getElementToEdit() {
-		EObject container = ((CreateElementRequest) getRequest()).getContainer();
+		EObject container = ((CreateElementRequest) getRequest())
+				.getContainer();
 		if (container instanceof View) {
 			container = ((View) container).getElement();
 		}
@@ -69,8 +70,10 @@ public class TabbedDataFieldCreateCommand extends EditElementCommand {
 	 * @generated
 	 */
 	@Override
-	protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
-		TabbedDataField newElement = CrosswalkFactory.eINSTANCE.createTabbedDataField();
+	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
+			IAdaptable info) throws ExecutionException {
+		TabbedDataField newElement = CrosswalkFactory.eINSTANCE
+				.createTabbedDataField();
 
 		DataSource owner = (DataSource) getElementToEdit();
 		owner.getFields().add(newElement);
@@ -84,13 +87,18 @@ public class TabbedDataFieldCreateCommand extends EditElementCommand {
 	/**
 	 * @generated
 	 */
-	protected void doConfigure(TabbedDataField newElement, IProgressMonitor monitor, IAdaptable info)
+	protected void doConfigure(TabbedDataField newElement,
+			IProgressMonitor monitor, IAdaptable info)
 			throws ExecutionException {
-		IElementType elementType = ((CreateElementRequest) getRequest()).getElementType();
-		ConfigureRequest configureRequest = new ConfigureRequest(getEditingDomain(), newElement, elementType);
-		configureRequest.setClientContext(((CreateElementRequest) getRequest()).getClientContext());
+		IElementType elementType = ((CreateElementRequest) getRequest())
+				.getElementType();
+		ConfigureRequest configureRequest = new ConfigureRequest(
+				getEditingDomain(), newElement, elementType);
+		configureRequest.setClientContext(((CreateElementRequest) getRequest())
+				.getClientContext());
 		configureRequest.addParameters(getRequest().getParameters());
-		ICommand configureCommand = elementType.getEditCommand(configureRequest);
+		ICommand configureCommand = elementType
+				.getEditCommand(configureRequest);
 		if (configureCommand != null && configureCommand.canExecute()) {
 			configureCommand.execute(monitor, info);
 		}

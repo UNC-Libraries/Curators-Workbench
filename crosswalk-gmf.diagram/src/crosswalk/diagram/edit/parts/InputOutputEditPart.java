@@ -16,7 +16,8 @@ import crosswalk.diagram.edit.policies.InputOutputItemSemanticEditPolicy;
 /**
  * @generated
  */
-public class InputOutputEditPart extends ConnectionNodeEditPart implements ITreeBranchEditPart {
+public class InputOutputEditPart extends ConnectionNodeEditPart implements
+		ITreeBranchEditPart {
 
 	/**
 	 * @generated
@@ -35,7 +36,8 @@ public class InputOutputEditPart extends ConnectionNodeEditPart implements ITree
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new InputOutputItemSemanticEditPolicy());
+		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
+				new InputOutputItemSemanticEditPolicy());
 	}
 
 	/**

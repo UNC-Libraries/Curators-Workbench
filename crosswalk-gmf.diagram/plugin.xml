@@ -256,7 +256,24 @@ copyright 2010 University of North Carolina at Chapel Hill
          <object class="crosswalk.diagram.edit.parts.CrossWalkEditPart" id="CrossWalk_2001"/>
          <object class="crosswalk.diagram.edit.parts.DictionaryEditPart" id="Dictionary_2002"/>
          <object class="crosswalk.diagram.edit.parts.FormEditPart" id="Form_2003"/>
-         <context elements="EditingContainer_1000,CrossWalk_2001,Dictionary_2002,Form_2003"/>
+         <object class="crosswalk.diagram.edit.parts.DelimitedFileEditPart" id="DelimitedFile_3001"/>
+         <object class="crosswalk.diagram.edit.parts.TabbedDataFieldEditPart" id="TabbedDataField_3002"/>
+         <object class="crosswalk.diagram.edit.parts.OriginalNameRecordMatcherEditPart" id="OriginalNameRecordMatcher_3003"/>
+         <object class="crosswalk.diagram.edit.parts.DateRecognizerEditPart" id="DateRecognizer_3004"/>
+         <object class="crosswalk.diagram.edit.parts.TextEditPart" id="Text_3005"/>
+         <object class="crosswalk.diagram.edit.parts.TrimWhitespaceEditPart" id="TrimWhitespace_3006"/>
+         <object class="crosswalk.diagram.edit.parts.MappedElementEditPart" id="MappedElement_3007"/>
+         <object class="crosswalk.diagram.edit.parts.MappedElement2EditPart" id="MappedElement_3008"/>
+         <object class="crosswalk.diagram.edit.parts.MappedAttributeEditPart" id="MappedAttribute_3009"/>
+         <object class="crosswalk.diagram.edit.parts.MetadataBlock2EditPart" id="MetadataBlock_3018"/>
+         <object class="crosswalk.diagram.edit.parts.TextInputFieldEditPart" id="TextInputField_3023"/>
+         <object class="crosswalk.diagram.edit.parts.CurrentDateEditPart" id="CurrentDate_3021"/>
+         <object class="crosswalk.diagram.edit.parts.CurrentUsernameEditPart" id="CurrentUsername_3022"/>
+         <object class="crosswalk.diagram.edit.parts.DateInputFieldEditPart" id="DateInputField_3024"/>
+         <object class="crosswalk.diagram.edit.parts.MetadataBlockEditPart" id="MetadataBlock_3010"/>
+         <object class="crosswalk.diagram.edit.parts.MetadataBlock3EditPart" id="MetadataBlock_3019"/>
+         <object class="crosswalk.diagram.edit.parts.ParagraphEditPart" id="Paragraph_3020"/>
+         <context elements="EditingContainer_1000,CrossWalk_2001,Dictionary_2002,Form_2003,DelimitedFile_3001,TabbedDataField_3002,OriginalNameRecordMatcher_3003,DateRecognizer_3004,Text_3005,TrimWhitespace_3006,MappedElement_3007,MappedElement_3008,MappedAttribute_3009,MetadataBlock_3018,TextInputField_3023,CurrentDate_3021,CurrentUsername_3022,DateInputField_3024,MetadataBlock_3010,MetadataBlock_3019,Paragraph_3020"/>
       </modelingAssistantProvider>
    </extension>
 

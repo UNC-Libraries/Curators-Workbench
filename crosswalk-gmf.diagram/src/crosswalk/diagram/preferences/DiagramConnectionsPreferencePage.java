@@ -28,6 +28,7 @@ public class DiagramConnectionsPreferencePage extends ConnectionsPreferencePage 
 	 * @generated
 	 */
 	public DiagramConnectionsPreferencePage() {
-		setPreferenceStore(CrosswalkDiagramEditorPlugin.getInstance().getPreferenceStore());
+		setPreferenceStore(CrosswalkDiagramEditorPlugin.getInstance()
+				.getPreferenceStore());
 	}
 }

@@ -9,14 +9,17 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ResizableCompartmentEditP
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.notation.View;
 
+import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicyWithCustomReparent;
 import crosswalk.diagram.edit.policies.MetadataBlockMetadataBlockMappingCompartment3CanonicalEditPolicy;
 import crosswalk.diagram.edit.policies.MetadataBlockMetadataBlockMappingCompartment3ItemSemanticEditPolicy;
+import crosswalk.diagram.part.CrosswalkVisualIDRegistry;
 import crosswalk.diagram.part.Messages;
 
 /**
  * @generated
  */
-public class MetadataBlockMetadataBlockMappingCompartment3EditPart extends ShapeCompartmentEditPart {
+public class MetadataBlockMetadataBlockMappingCompartment3EditPart extends
+		ShapeCompartmentEditPart {
 
 	/**
 	 * @generated
@@ -42,12 +45,18 @@ public class MetadataBlockMetadataBlockMappingCompartment3EditPart extends Shape
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE, new ResizableCompartmentEditPolicy());
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
+		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
+				new ResizableCompartmentEditPolicy());
+		installEditPolicy(
+				EditPolicyRoles.SEMANTIC_ROLE,
 				new MetadataBlockMetadataBlockMappingCompartment3ItemSemanticEditPolicy());
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicy());
-		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new DragDropEditPolicy());
-		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
+				new CreationEditPolicyWithCustomReparent(
+						CrosswalkVisualIDRegistry.TYPED_INSTANCE));
+		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
+				new DragDropEditPolicy());
+		installEditPolicy(
+				EditPolicyRoles.CANONICAL_ROLE,
 				new MetadataBlockMetadataBlockMappingCompartment3CanonicalEditPolicy());
 	}
 

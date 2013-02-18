@@ -12,17 +12,20 @@ import org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.notation.View;
 
+import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicyWithCustomReparent;
 import crosswalk.CrosswalkPackage;
 import crosswalk.diagram.custom.CompartmentChildCreationEditPolicy;
 import crosswalk.diagram.custom.ReorderCompartmentEditPolicy;
 import crosswalk.diagram.edit.policies.MappedElementChildElementsCompartment2CanonicalEditPolicy;
 import crosswalk.diagram.edit.policies.MappedElementChildElementsCompartment2ItemSemanticEditPolicy;
+import crosswalk.diagram.part.CrosswalkVisualIDRegistry;
 import crosswalk.diagram.part.Messages;
 
 /**
  * @generated
  */
-public class MappedElementChildElementsCompartment2EditPart extends ListCompartmentEditPart {
+public class MappedElementChildElementsCompartment2EditPart extends
+		ListCompartmentEditPart {
 
 	/**
 	 * @generated
@@ -54,7 +57,8 @@ public class MappedElementChildElementsCompartment2EditPart extends ListCompartm
 	 * @generated NOT
 	 */
 	public IFigure createFigure() {
-		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super.createFigure();
+		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super
+				.createFigure();
 		FlowLayout layout = new FlowLayout();
 		layout.setMajorSpacing(getMapMode().DPtoLP(5));
 		layout.setMinorSpacing(getMapMode().DPtoLP(5));
@@ -70,13 +74,19 @@ public class MappedElementChildElementsCompartment2EditPart extends ListCompartm
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
+		installEditPolicy(
+				EditPolicyRoles.SEMANTIC_ROLE,
 				new MappedElementChildElementsCompartment2ItemSemanticEditPolicy());
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CompartmentChildCreationEditPolicy());
-		installEditPolicy(EditPolicy.LAYOUT_ROLE, new ReorderCompartmentEditPolicy(
-				CrosswalkPackage.Literals.MAPPED_ELEMENT__CHILD_ELEMENTS));
-		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new DragDropEditPolicy());
-		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE, new MappedElementChildElementsCompartment2CanonicalEditPolicy());
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
+				new CompartmentChildCreationEditPolicy());
+		installEditPolicy(
+				EditPolicy.LAYOUT_ROLE,
+				new ReorderCompartmentEditPolicy(
+						CrosswalkPackage.Literals.MAPPED_ELEMENT__CHILD_ELEMENTS));
+		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
+				new DragDropEditPolicy());
+		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
+				new MappedElementChildElementsCompartment2CanonicalEditPolicy());
 	}
 
 	/**

@@ -35,7 +35,8 @@ public class MetadataBlock2CreateCommand extends EditElementCommand {
 	 * @generated
 	 */
 	protected EObject getElementToEdit() {
-		EObject container = ((CreateElementRequest) getRequest()).getContainer();
+		EObject container = ((CreateElementRequest) getRequest())
+				.getContainer();
 		if (container instanceof View) {
 			container = ((View) container).getElement();
 		}
@@ -53,18 +54,20 @@ public class MetadataBlock2CreateCommand extends EditElementCommand {
 	/**
 	 * @generated NOT
 	 */
-	protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
+	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
+			IAdaptable info) throws ExecutionException {
 		CreateElementRequest request = ((CreateElementRequest) getRequest());
 		MetadataBlock newElement = null;
 		if (request.getParameters().containsKey("templateElement")) {
-			EObject template = (EObject) request.getParameter("templateElement");
+			EObject template = (EObject) request
+					.getParameter("templateElement");
 			EcoreUtil.Copier copier = new EcoreUtil.Copier(true, true);
-			newElement = (MetadataBlock)copier.copy(template);
+			newElement = (MetadataBlock) copier.copy(template);
 			copier.copyReferences();
 		} else {
 			newElement = CrosswalkFactory.eINSTANCE.createMetadataBlock();
 		}
-		
+
 		MappingContainer owner = (MappingContainer) getElementToEdit();
 		owner.getElements().add(newElement);
 
@@ -77,14 +80,18 @@ public class MetadataBlock2CreateCommand extends EditElementCommand {
 	/**
 	 * @generated
 	 */
-	protected void doConfigure(MetadataBlock newElement, IProgressMonitor monitor, IAdaptable info)
+	protected void doConfigure(MetadataBlock newElement,
+			IProgressMonitor monitor, IAdaptable info)
 			throws ExecutionException {
-		IElementType elementType = ((CreateElementRequest) getRequest()).getElementType();
-		System.err.println("MappingContainer/Crosswalk hosted MB: "+elementType);
-		ConfigureRequest configureRequest = new ConfigureRequest(getEditingDomain(), newElement, elementType);
-		configureRequest.setClientContext(((CreateElementRequest) getRequest()).getClientContext());
+		IElementType elementType = ((CreateElementRequest) getRequest())
+				.getElementType();
+		ConfigureRequest configureRequest = new ConfigureRequest(
+				getEditingDomain(), newElement, elementType);
+		configureRequest.setClientContext(((CreateElementRequest) getRequest())
+				.getClientContext());
 		configureRequest.addParameters(getRequest().getParameters());
-		ICommand configureCommand = elementType.getEditCommand(configureRequest);
+		ICommand configureCommand = elementType
+				.getEditCommand(configureRequest);
 		if (configureCommand != null && configureCommand.canExecute()) {
 			configureCommand.execute(monitor, info);
 		}
