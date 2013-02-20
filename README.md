@@ -9,8 +9,12 @@ Developer Eclipse IDE Setup
 ---------------------------
 
 1. Install Eclipse bundles:
- * the m2eclipse plugin
- * the Tycho Configurator m2eclipse connector (see Maven > Discovery in preferences)
- * the Eclipse Modelling Project feature (includes RCP/PDE bundles)
-1. Import Maven Projects
+ * Eclipse Modelling Project feature or product (download) (this includes RCP/PDE bundles)
+ * m2eclipse plugin and connectors, see Maven > Discovery in preferences
+  * Tycho Configurator m2eclipse connector
+  * m2e-egit Maven SCM Handler for EGit 
+1. Import Maven Projects from SCM
+1. Select git and this project URL.
+1. Open the current target-definition file. (As on this writing, target-definition\indigo_3_8.target)
+1. Click on "Set as Target Platform" in the upper right.
 1. PDE > Update Project Classpath..
