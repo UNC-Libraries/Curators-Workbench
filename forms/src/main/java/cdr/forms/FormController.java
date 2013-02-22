@@ -212,44 +212,69 @@ public class FormController {
 	@RequestMapping(value = "/{formId}.form", method = RequestMethod.POST)
 	public String processForm(@PathVariable String formId, @Valid @ModelAttribute("form") Form form, BindingResult errors,
 			Principal user, @RequestParam("file") MultipartFile mpfile, SessionStatus sessionStatus, HttpServletRequest request) throws PermissionDeniedException {
+		
+		LOG.debug("in POST for form " + formId);
+		
+		// Try to set the character encoding to UTF-8
+		
 		try {
 			request.setCharacterEncoding("UTF-8");
 		} catch (UnsupportedEncodingException e) {
 			LOG.error("Failed to set character encoding", e);
 		}
-		LOG.debug("in POST for form " + formId);
+		
+		// Check permissions for this form
+		
 		this.getAuthorizationHandler().checkPermission(formId, form, request);
-		if (user != null) form.setCurrentUser(user.getName());
+		
+		// Set the current user, if applicable
+		
+		if (user != null)
+			form.setCurrentUser(user.getName());
+		
+		// Create the MODS record from the form
+		
 		String mods = makeMods(form);
 		LOG.debug(mods);
+		
+		// Save the submitted file to a temporary location and scan for viruses
+		// If there is no file, record an error
+		
 		File depositFile = null;
-		if(mpfile.isEmpty()) {
-			errors.addError( new FieldError("form", "file", "You must select a file for upload."));
+		
+		if (mpfile.isEmpty()) {
+			errors.addError(new FieldError("form", "file", "You must select a file for upload."));
 		} else {
 			depositFile = handleUpload(mpfile);
 			String scanResult = virusScan(depositFile);
-			if(scanResult != null) {
-				errors.addError( new FieldError("form", "file", scanResult));
+			if (scanResult != null) {
+				errors.addError(new FieldError("form", "file", scanResult));
 				depositFile.delete();
 				depositFile = null;
 			}
 		}
+		
+		// If there are any errors, report them; otherwise, continue
+		
 		if (errors.hasErrors()) {
 			LOG.debug(errors.getErrorCount() + " errors");
 			return "form";
 		}
 		
-		LOG.debug("mpfile.getOriginalFilename(): "+mpfile.getOriginalFilename());
+		// 
+
+		LOG.debug("mpfile.getOriginalFilename(): " + mpfile.getOriginalFilename());
 		
-		// perform a deposit with the default handler.
 		String filename = mpfile.getOriginalFilename();
 		filename = filename.replaceAll(Pattern.quote("\""), "");
+		
+		// Create the AtomPub entry for the deposit
 		
 		Abdera abdera = Abdera.getInstance();
 		Factory factory = abdera.getFactory();
 		Entry entry = factory.newEntry();
 		String pid = "uuid:" + UUID.randomUUID().toString();
-		// id is the identify of the Atom POST
+		// id is the identifier of the Atom POST
 		entry.setId("urn:uuid:" + UUID.randomUUID().toString());
 		entry.setSummary("mods and binary deposit", Type.TEXT);
 		entry.setTitle(filename);
@@ -258,23 +283,32 @@ public class FormController {
 		Document<FOMExtensibleElement> doc = parser.parse(new ByteArrayInputStream(mods.getBytes()));
 		entry.addExtension(doc.getRoot());
 		
-		if (form.isReviewBeforePublication()) {
-			// add RELS-EXT triple to block publication
-			addPublicationBlockingRELSEXT(entry, pid);
-		}
+		// If the deposit must be reviewed before publication, add a RELS-EXT triple to block publication
 
+		if (form.isReviewBeforePublication())
+			addPublicationBlockingRELSEXT(entry, pid);
+		
+		// Create HTTP request part for AtomPub entry...
+		
 		StringWriter swEntry = new StringWriter();
+		
 		try {
 			entry.writeTo(swEntry);
-		} catch (IOException e2) {
-			throw new Error(e2);
+		} catch (IOException e) {
+			throw new Error(e);
 		}
-
+		
+		FilePart atomPart = new FilePart("atom", new ByteArrayPartSource("atom", swEntry.toString().getBytes()),
+				"application/atom+xml", "utf-8");
+		
+		// ...and for the payload
+		
 		FilePart payloadPart;
+		
 		try {
 			payloadPart = new FilePart("payload", filename, depositFile);
-		} catch (FileNotFoundException e1) {
-			throw new Error(e1);
+		} catch (FileNotFoundException e) {
+			throw new Error(e);
 		}
 		
 		if (mpfile.getContentType() == null)
@@ -283,25 +317,32 @@ public class FormController {
 			payloadPart.setContentType(mpfile.getContentType());
 		
 		payloadPart.setTransferEncoding("binary");
-
-		FilePart atomPart = new FilePart("atom", new ByteArrayPartSource("atom", swEntry.toString().getBytes()),
-				"application/atom+xml", "utf-8");
+		
+		// Issue the deposit request
 		
 		DepositResult result = this.getDepositHandler().depositMultipart(form.getDepositContainerId(), pid, atomPart, payloadPart);
 		
-		if(result.getStatus() == Status.FAILED) {
+		// If the deposit failed, record an error
+		
+		if (result.getStatus() == Status.FAILED) {
 			LOG.error("deposit failed");
-			errors.addError( new FieldError("form","file", "Deposit failed with response code: "+result.getStatus()));
+			errors.addError(new FieldError("form", "file", "Deposit failed with response code: " + result.getStatus()));
 			return "form";
 		}
 		getNotificationHandler().notifyDeposit(form, result, user.getName());
 		
-		// delete files
-		if(depositFile != null) depositFile.delete();
-		// clear session
+		// Delete submitted file from its temporary location
+
+		if (depositFile != null)
+			depositFile.delete();
+		
+		// Done! Clear the session.
+		
 		sessionStatus.setComplete();
 		request.setAttribute("formId", formId);
+		
 		return "success";
+		
 	}
 
 	private synchronized String virusScan(File depositFile) {
