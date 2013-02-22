@@ -218,6 +218,7 @@ public class FormController {
 		File file;
 		String pid;
 		String filename;
+		String filetype;
 		
 		Entry entry;
 		FilePart atomPart, payloadPart;
@@ -239,12 +240,18 @@ public class FormController {
 		
 		file = null;
 		filename = null;
+		filetype = null;
 		
 		if (mpfile.isEmpty()) {
 			errors.addError(new FieldError("form", "file", "You must select a file for upload."));
 		} else {
 			file = handleUpload(mpfile);
 			filename = mpfile.getOriginalFilename().replaceAll(Pattern.quote("\""), "");
+			
+			if (mpfile.getContentType() == null)
+				filetype = "application/octet-stream";
+			else
+				filetype = mpfile.getContentType();
 			
 			String scanResult = virusScan(file);
 			if (scanResult != null) {
@@ -284,11 +291,7 @@ public class FormController {
 			throw new Error(e);
 		}
 		
-		if (mpfile.getContentType() == null)
-			payloadPart.setContentType("application/octet-stream");
-		else
-			payloadPart.setContentType(mpfile.getContentType());
-		
+		payloadPart.setContentType(filetype);
 		payloadPart.setTransferEncoding("binary");
 		
 		
