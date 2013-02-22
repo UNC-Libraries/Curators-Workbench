@@ -242,9 +242,6 @@ public class FormController {
 		LOG.debug("mpfile.getOriginalFilename(): "+mpfile.getOriginalFilename());
 		
 		// perform a deposit with the default handler.
-		Map<String, Object> depositOptions = new HashMap<String, Object>();
-		depositOptions.put("publish", new Boolean(!form.isReviewBeforePublication()));
-		depositOptions.put("mime-type", mpfile.getContentType());
 		String filename = mpfile.getOriginalFilename();
 		filename = filename.replaceAll(Pattern.quote("\""), "");
 		
@@ -261,7 +258,7 @@ public class FormController {
 		Document<FOMExtensibleElement> doc = parser.parse(new ByteArrayInputStream(mods.getBytes()));
 		entry.addExtension(doc.getRoot());
 		
-		if(depositOptions.containsKey("publish") && !(Boolean)depositOptions.get("publish")) {
+		if (form.isReviewBeforePublication()) {
 			// add RELS-EXT triple to block publication
 			addPublicationBlockingRELSEXT(entry, pid);
 		}
@@ -279,9 +276,12 @@ public class FormController {
 		} catch (FileNotFoundException e1) {
 			throw new Error(e1);
 		}
-		if (depositOptions.get("mime-type") == null)
+		
+		if (mpfile.getContentType() == null)
 			payloadPart.setContentType("application/octet-stream");
-		else payloadPart.setContentType((String)depositOptions.get("mime-type"));
+		else
+			payloadPart.setContentType(mpfile.getContentType());
+		
 		payloadPart.setTransferEncoding("binary");
 
 		FilePart atomPart = new FilePart("atom", new ByteArrayPartSource("atom", swEntry.toString().getBytes()),
