@@ -163,5 +163,10 @@
 			<artifactId>freemarker</artifactId>
 			<version>2.3.19</version>
 		</dependency>
+		<dependency>
+			<groupId>curators.workbench</groupId>
+			<artifactId>mets.model</artifactId>
+			<version>4.1.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 </project>
