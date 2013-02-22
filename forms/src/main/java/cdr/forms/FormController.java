@@ -52,6 +52,7 @@ import org.apache.abdera.parser.Parser;
 import org.apache.abdera.parser.stax.FOMExtensibleElement;
 import org.apache.commons.httpclient.methods.multipart.ByteArrayPartSource;
 import org.apache.commons.httpclient.methods.multipart.FilePart;
+import org.apache.commons.httpclient.methods.multipart.Part;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
@@ -213,9 +214,14 @@ public class FormController {
 	public String processForm(@PathVariable String formId, @Valid @ModelAttribute("form") Form form, BindingResult errors,
 			Principal user, @RequestParam("file") MultipartFile mpfile, SessionStatus sessionStatus, HttpServletRequest request) throws PermissionDeniedException {
 		
-		LOG.debug("in POST for form " + formId);
+		String mods;
+		File file;
+		String pid;
+		String filename;
 		
-		// Try to set the character encoding to UTF-8
+		Entry entry;
+		FilePart atomPart, payloadPart;
+
 		
 		try {
 			request.setCharacterEncoding("UTF-8");
@@ -223,90 +229,57 @@ public class FormController {
 			LOG.error("Failed to set character encoding", e);
 		}
 		
-		// Check permissions for this form
-		
-		this.getAuthorizationHandler().checkPermission(formId, form, request);
-		
-		// Set the current user, if applicable
-		
 		if (user != null)
 			form.setCurrentUser(user.getName());
 		
-		// Create the MODS record from the form
+		this.getAuthorizationHandler().checkPermission(formId, form, request);
 		
-		String mods = makeMods(form);
-		LOG.debug(mods);
 		
-		// Save the submitted file to a temporary location and scan for viruses
-		// If there is no file, record an error
+		// Handle uploaded files, exiting to report errors if we find any
 		
-		File depositFile = null;
+		file = null;
+		filename = null;
 		
 		if (mpfile.isEmpty()) {
 			errors.addError(new FieldError("form", "file", "You must select a file for upload."));
 		} else {
-			depositFile = handleUpload(mpfile);
-			String scanResult = virusScan(depositFile);
+			file = handleUpload(mpfile);
+			filename = mpfile.getOriginalFilename().replaceAll(Pattern.quote("\""), "");
+			
+			String scanResult = virusScan(file);
 			if (scanResult != null) {
 				errors.addError(new FieldError("form", "file", scanResult));
-				depositFile.delete();
-				depositFile = null;
+				file.delete();
+				file = null;
 			}
 		}
-		
-		// If there are any errors, report them; otherwise, continue
 		
 		if (errors.hasErrors()) {
 			LOG.debug(errors.getErrorCount() + " errors");
 			return "form";
 		}
 		
-		// 
-
-		LOG.debug("mpfile.getOriginalFilename(): " + mpfile.getOriginalFilename());
 		
-		String filename = mpfile.getOriginalFilename();
-		filename = filename.replaceAll(Pattern.quote("\""), "");
+		// Create deposit parts
 		
-		// Create the AtomPub entry for the deposit
+		pid = "uuid:" + UUID.randomUUID().toString();
+		mods = makeMods(form);
+		entry = makeAtomPubEntry(pid, filename, mods, form.isReviewBeforePublication());
 		
-		Abdera abdera = Abdera.getInstance();
-		Factory factory = abdera.getFactory();
-		Entry entry = factory.newEntry();
-		String pid = "uuid:" + UUID.randomUUID().toString();
-		// id is the identifier of the Atom POST
-		entry.setId("urn:uuid:" + UUID.randomUUID().toString());
-		entry.setSummary("mods and binary deposit", Type.TEXT);
-		entry.setTitle(filename);
-		entry.setUpdated(new Date(System.currentTimeMillis()));
-		Parser parser = abdera.getParser();
-		Document<FOMExtensibleElement> doc = parser.parse(new ByteArrayInputStream(mods.getBytes()));
-		entry.addExtension(doc.getRoot());
-		
-		// If the deposit must be reviewed before publication, add a RELS-EXT triple to block publication
-
-		if (form.isReviewBeforePublication())
-			addPublicationBlockingRELSEXT(entry, pid);
-		
-		// Create HTTP request part for AtomPub entry...
-		
-		StringWriter swEntry = new StringWriter();
+		// atomPart
 		
 		try {
-			entry.writeTo(swEntry);
+			StringWriter writer = new StringWriter();
+			entry.writeTo(writer);
+			atomPart = new FilePart("atom", new ByteArrayPartSource("atom", writer.toString().getBytes()), "application/atom+xml", "utf-8");
 		} catch (IOException e) {
 			throw new Error(e);
 		}
 		
-		FilePart atomPart = new FilePart("atom", new ByteArrayPartSource("atom", swEntry.toString().getBytes()),
-				"application/atom+xml", "utf-8");
-		
-		// ...and for the payload
-		
-		FilePart payloadPart;
+		// payloadPart
 		
 		try {
-			payloadPart = new FilePart("payload", filename, depositFile);
+			payloadPart = new FilePart("payload", filename, file);
 		} catch (FileNotFoundException e) {
 			throw new Error(e);
 		}
@@ -318,11 +291,10 @@ public class FormController {
 		
 		payloadPart.setTransferEncoding("binary");
 		
-		// Issue the deposit request
+		
+		// Make the deposit
 		
 		DepositResult result = this.getDepositHandler().depositMultipart(form.getDepositContainerId(), pid, atomPart, payloadPart);
-		
-		// If the deposit failed, record an error
 		
 		if (result.getStatus() == Status.FAILED) {
 			LOG.error("deposit failed");
@@ -331,16 +303,15 @@ public class FormController {
 		}
 		getNotificationHandler().notifyDeposit(form, result, user.getName());
 		
-		// Delete submitted file from its temporary location
-
-		if (depositFile != null)
-			depositFile.delete();
 		
-		// Done! Clear the session.
+		// Clean up: delete the temporary file, clear the session
+		
+		if (file != null)
+			file.delete();
 		
 		sessionStatus.setComplete();
 		request.setAttribute("formId", formId);
-		
+
 		return "success";
 		
 	}
@@ -430,6 +401,29 @@ public class FormController {
 			throw new Error("failed to serialize XML for model object", e);
 		}
 		return sw.toString();
+	}
+	
+	private Entry makeAtomPubEntry(String pid, String filename, String mods, boolean isReviewBeforePublication) {
+		
+		Abdera abdera = Abdera.getInstance();
+		Factory factory = abdera.getFactory();
+		Entry entry = factory.newEntry();
+		// id is the identifier of the Atom POST
+		entry.setId("urn:uuid:" + UUID.randomUUID().toString());
+		entry.setSummary("mods and binary deposit", Type.TEXT);
+		entry.setTitle(filename);
+		entry.setUpdated(new Date(System.currentTimeMillis()));
+		Parser parser = abdera.getParser();
+		Document<FOMExtensibleElement> doc = parser.parse(new ByteArrayInputStream(mods.getBytes()));
+		entry.addExtension(doc.getRoot());
+		
+		// If the deposit must be reviewed before publication, add a RELS-EXT triple to block publication
+
+		if (isReviewBeforePublication)
+			addPublicationBlockingRELSEXT(entry, pid);
+		
+		return entry;
+		
 	}
 
 	/**
