@@ -15,9 +15,9 @@
  */
 package cdr.forms;
 
-import java.io.File;
-import java.util.Map;
+import org.apache.commons.httpclient.methods.multipart.Part;
 
 public interface DepositHandler {
-	DepositResult deposit(String containerPid, String modsXml, String title, File depositData, Map<String, Object> options);
+	DepositResult depositMultipart(String containerPid, String pid, Part atomPart, Part payloadPart);
+	DepositResult depositPackaged(String containerPid, String pid, Part packagePart, String packageType);
 }

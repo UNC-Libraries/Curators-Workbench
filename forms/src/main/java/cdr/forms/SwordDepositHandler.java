@@ -111,53 +111,11 @@ public class SwordDepositHandler implements DepositHandler {
 		this.defaultContainer = defaultContainer;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see cdr.forms.DepositHandler#deposit(java.lang.String, java.lang.String, java.io.InputStream)
-	 */
-	@Override
-	public DepositResult deposit(String containerId, String modsXml, String title, File depositData, Map<String, Object> options) {
-		if(containerId == null || "".equals(containerId.trim())) containerId = this.getDefaultContainer();
-		Abdera abdera = Abdera.getInstance();
-		Factory factory = abdera.getFactory();
-		Entry entry = factory.newEntry();
-		String pid = "uuid:" + UUID.randomUUID().toString();
-		// id is the identify of the Atom POST
-		entry.setId("urn:uuid:" + UUID.randomUUID().toString());
-		entry.setSummary("mods and binary deposit", Type.TEXT);
-		entry.setTitle(title);
-		entry.setUpdated(new Date(System.currentTimeMillis()));
-		Parser parser = abdera.getParser();
-		Document<FOMExtensibleElement> doc = parser.parse(new ByteArrayInputStream(modsXml.getBytes()));
-		entry.addExtension(doc.getRoot());
+	public DepositResult depositMultipart(String containerId, String pid, Part atomPart, Part payloadPart) {
 		
-		if(options.containsKey("publish") && !(Boolean)options.get("publish")) {
-			// add RELS-EXT triple to block publication
-			addPublicationBlockingRELSEXT(entry, pid);
-		}
-
-		StringWriter swEntry = new StringWriter();
-		try {
-			entry.writeTo(swEntry);
-		} catch (IOException e2) {
-			throw new Error(e2);
-		}
-
-		FilePart payloadPart;
-		try {
-			payloadPart = new FilePart("payload", title, depositData);
-		} catch (FileNotFoundException e1) {
-			throw new Error(e1);
-		}
-		if (options.get("mime-type") == null)
-			payloadPart.setContentType("application/octet-stream");
-		else payloadPart.setContentType((String)options.get("mime-type"));
-		payloadPart.setTransferEncoding("binary");
-
-		FilePart atomPart = new FilePart("atom", new ByteArrayPartSource("atom", swEntry.toString().getBytes()),
-				"application/atom+xml", "utf-8");
-
+		if (containerId == null || "".equals(containerId.trim()))
+			containerId = this.getDefaultContainer();
+		
 		Part[] parts = { payloadPart, atomPart };
 
 		String depositPath = getServiceUrl() + "collection/" + containerId;
@@ -211,30 +169,11 @@ public class SwordDepositHandler implements DepositHandler {
 		}
 		return result;
 	}
-
-	/**
-	 * Add a RELS-EXT datastream with an entry that blocks publication. (assuming a review work flow)
-	 * @param entry
-	 * @param pid
-	 */
-	private void addPublicationBlockingRELSEXT(Entry entry, String pid) {
-		Parser parser = Abdera.getInstance().getParser();
-		Element dsEl = new Element("datastream", "cdr", "http://cdr.lib.unc.edu/");
-		dsEl.setAttribute("id", "RELS-EXT");
-		Namespace rdfNS = Namespace.getNamespace("rdf", "http://www.w3.org/1999/02/22-rdf-syntax-ns#");
-		dsEl.addContent(
-				new Element("RDF", rdfNS).addContent(
-						new Element("Description", rdfNS)
-							.setAttribute("about", "info:fedora/"+pid, rdfNS)
-							.addContent(
-								new Element("isPublished", "cdr-model", "http://cdr.unc.edu/definitions/1.0/base-model.xml#")
-									.setText("no")
-						)
-				)
-		);
-		String rels = new XMLOutputter().outputString(dsEl);
-		Document<FOMExtensibleElement> doc = parser.parse(new ByteArrayInputStream(rels.getBytes()));
-		entry.addExtension(doc.getRoot());
+	
+	public DepositResult depositPackaged(String containerPid, String pid, Part packagePart, String packageType) {
+		
+		return null;
+		
 	}
 
 	/**
