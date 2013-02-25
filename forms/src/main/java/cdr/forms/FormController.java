@@ -15,6 +15,30 @@
  */
 package cdr.forms;
 
+import gov.loc.mets.AgentType;
+import gov.loc.mets.DivType;
+import gov.loc.mets.FLocatType;
+import gov.loc.mets.FileGrpType;
+import gov.loc.mets.FileGrpType1;
+import gov.loc.mets.FileSecType;
+import gov.loc.mets.FileType;
+import gov.loc.mets.FptrType;
+import gov.loc.mets.LOCTYPEType;
+import gov.loc.mets.MDTYPEType;
+import gov.loc.mets.MdSecType;
+import gov.loc.mets.MdWrapType;
+import gov.loc.mets.MetsFactory;
+import gov.loc.mets.MetsHdrType;
+import gov.loc.mets.MetsPackage;
+import gov.loc.mets.MetsType;
+import gov.loc.mets.MetsType1;
+import gov.loc.mets.ROLEType;
+import gov.loc.mets.StructMapType;
+import gov.loc.mets.TYPEType;
+import gov.loc.mets.XmlDataType1;
+import gov.loc.mets.impl.MetsFactoryImpl;
+import gov.loc.mets.util.METSConstants;
+import gov.loc.mets.util.MetsResourceFactoryImpl;
 import gov.loc.mods.mods.DocumentRoot;
 import gov.loc.mods.mods.MODSFactory;
 import gov.loc.mods.mods.MODSPackage;
@@ -56,7 +80,9 @@ import org.apache.commons.httpclient.methods.multipart.Part;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.emf.ecore.xmi.XMLResource;
+import org.eclipse.emf.ecore.xml.type.internal.XMLCalendar;
 import org.jdom.Element;
 import org.jdom.Namespace;
 import org.jdom.output.XMLOutputter;
@@ -114,7 +140,9 @@ public class FormController {
 	public FormController() {
 		rs = new ResourceSetImpl();
 		rs.getResourceFactoryRegistry().getExtensionToFactoryMap().put("mods", new MODSResourceFactoryImpl());
+		rs.getResourceFactoryRegistry().getExtensionToFactoryMap().put("mets", new MetsResourceFactoryImpl());
 		rs.getPackageRegistry().put(MODSPackage.eNS_URI, MODSPackage.eINSTANCE);
+		rs.getPackageRegistry().put(MetsPackage.eNS_URI, MetsPackage.eINSTANCE);
 		rs.getPackageRegistry().put(XlinkPackage.eNS_URI, XlinkPackage.eINSTANCE);
 		LOG.debug("FormController created");
 	}
@@ -214,7 +242,9 @@ public class FormController {
 	public String processForm(@PathVariable String formId, @Valid @ModelAttribute("form") Form form, BindingResult errors,
 			Principal user, @RequestParam("file") MultipartFile mpfile, SessionStatus sessionStatus, HttpServletRequest request) throws PermissionDeniedException {
 		
-		String mods;
+		gov.loc.mods.mods.DocumentRoot modsDocumentRoot;
+		String modsXml;
+		
 		File file;
 		String pid;
 		String filename;
@@ -270,8 +300,11 @@ public class FormController {
 		// Create deposit parts
 		
 		pid = "uuid:" + UUID.randomUUID().toString();
-		mods = makeMods(form);
-		entry = makeAtomPubEntry(pid, filename, mods, form.isReviewBeforePublication());
+		
+		modsDocumentRoot = makeMods(form);
+		modsXml = serializeMods(modsDocumentRoot);
+		
+		entry = makeAtomPubEntry(pid, filename, modsXml, form.isReviewBeforePublication());
 		
 		// atomPart
 		
@@ -368,7 +401,7 @@ public class FormController {
 		return modelview;
 	}
 	
-	private String makeMods(Form form) {
+	private gov.loc.mods.mods.DocumentRoot makeMods(Form form) {
 		// run the mapping and get a MODS record. (report any errors)
 		ModsDefinition mods = MODSFactory.eINSTANCE.createModsDefinition();
 		DocumentRoot root = MODSFactory.eINSTANCE.createDocumentRoot();
@@ -381,28 +414,153 @@ public class FormController {
 				}
 			}
 		}
+		return root;
+	}
+	
+	private String serializeMods(gov.loc.mods.mods.DocumentRoot root) {
+		
+		gov.loc.mods.mods.ModsDefinition mods = root.getMods();
+		
 		File tmp;
 		try {
 			tmp = File.createTempFile("tmp", ".mods");
 		} catch (IOException e1) {
 			throw new Error(e1);
 		}
+		
 		URI uri = URI.createURI(tmp.toURI().toString());
 		XMLResource res = (XMLResource) rs.createResource(uri);
 		res.getContents().add(root);
 		
 		StringWriter sw = new StringWriter();
 		Map<Object, Object> options = new HashMap<Object, Object>();
+		
 		options.put(XMLResource.OPTION_ENCODING, "utf-8");
-
 		options.put(XMLResource.OPTION_DECLARE_XML, "");
 		options.put(XMLResource.OPTION_LINE_WIDTH, new Integer(80));
 		options.put(XMLResource.OPTION_ROOT_OBJECTS, Collections.singletonList(mods));
+		
 		try {
 			res.save(sw, options);
 		} catch (IOException e) {
 			throw new Error("failed to serialize XML for model object", e);
 		}
+		return sw.toString();
+	}
+	
+	private gov.loc.mets.DocumentRoot makeMets(gov.loc.mods.mods.DocumentRoot modsDocumentRoot, String filename, String filetype) {
+		
+		gov.loc.mets.DocumentRoot root = MetsFactory.eINSTANCE.createDocumentRoot();
+		root.setMets(MetsFactory.eINSTANCE.createMetsType1());
+		MetsType mets = root.getMets();
+		
+		mets.setPROFILE("http://cdr.unc.edu/METS/profiles/Simple");
+		
+		// Header
+		
+		MetsHdrType head = MetsFactory.eINSTANCE.createMetsHdrType();
+		Date currentTime = new Date(System.currentTimeMillis());
+		head.setCREATEDATE(new XMLCalendar(currentTime, XMLCalendar.DATETIME));
+		head.setLASTMODDATE(new XMLCalendar(currentTime, XMLCalendar.DATETIME));
+		
+		AgentType agent = MetsFactory.eINSTANCE.createAgentType();
+		agent.setROLE(ROLEType.CREATOR);
+		agent.setTYPE(TYPEType.INDIVIDUAL);
+		agent.setName("Someone");
+		head.getAgent().add(agent);
+
+		mets.setMetsHdr(head);
+		
+		// Metadata section
+		
+		// Blank MODS
+		
+		MdSecType mdSec = MetsFactory.eINSTANCE.createMdSecType();
+		mdSec.setID("mods");
+		
+		MdWrapType mdWrap = MetsFactory.eINSTANCE.createMdWrapType();
+		mdWrap.setMDTYPE(MDTYPEType.MODS);
+		
+		XmlDataType1 xmlData = MetsFactory.eINSTANCE.createXmlDataType1();
+
+		xmlData.getAny().add(MODSPackage.eINSTANCE.getDocumentRoot_Mods(), modsDocumentRoot.getMods());
+		
+		mdWrap.setXmlData(xmlData);
+		mdSec.setMdWrap(mdWrap);
+		
+		mets.getDmdSec().add(mdSec);
+		
+		// Files section
+		
+		FileSecType fileSec = MetsFactory.eINSTANCE.createFileSecType();
+		mets.setFileSec(fileSec);
+		
+		FileGrpType1 fileGrp = MetsFactory.eINSTANCE.createFileGrpType1();
+		
+		FileType file = MetsFactory.eINSTANCE.createFileType();
+		file.setID("f1");
+		file.setMIMETYPE(filetype);
+		
+		FLocatType fLocat = MetsFactory.eINSTANCE.createFLocatType();
+		fLocat.setLOCTYPE(LOCTYPEType.URL);
+		fLocat.setHref(filename);
+
+		file.getFLocat().add(fLocat);
+		fileGrp.getFile().add(file);
+		fileSec.getFileGrp().add(fileGrp);
+		
+		// Structural map
+
+		StructMapType structMap = MetsFactory.eINSTANCE.createStructMapType();
+		
+		DivType folderDiv = MetsFactory.eINSTANCE.createDivType();
+		folderDiv.setTYPE(METSConstants.Div_Folder);
+		folderDiv.getDmdSec().add(mdSec);
+
+		DivType fileDiv = MetsFactory.eINSTANCE.createDivType();
+		fileDiv.setTYPE(METSConstants.Div_File);
+		FptrType fptr = MetsFactory.eINSTANCE.createFptrType();
+		fptr.setFILEID("f1");
+		fileDiv.getFptr().add(fptr);
+		folderDiv.getDiv().add(fileDiv);
+
+		structMap.setDiv(folderDiv);
+
+		mets.getStructMap().add(structMap);
+		
+		return root;
+		
+	}
+	
+	private String serializeMets(gov.loc.mets.DocumentRoot root) {
+		
+		gov.loc.mets.MetsType mets = root.getMets();
+		
+		File tmp;
+		try {
+			tmp = File.createTempFile("tmp", ".mets");
+		} catch (IOException e1) {
+			throw new Error(e1);
+		}
+		
+		URI uri = URI.createURI(tmp.toURI().toString());
+		XMLResource res = (XMLResource) rs.createResource(uri);
+		res.getContents().add(root);
+		
+		StringWriter sw = new StringWriter();
+		Map<Object, Object> options = new HashMap<Object, Object>();
+		
+		options.put(XMLResource.OPTION_ENCODING, "utf-8");
+		options.put(XMLResource.OPTION_DECLARE_XML, "");
+		options.put(XMLResource.OPTION_LINE_WIDTH, new Integer(80));
+		options.put(XMLResource.OPTION_ROOT_OBJECTS, Collections.singletonList(mets));
+		
+		try {
+			res.save(sw, options);
+		} catch (IOException e) {
+			throw new Error("failed to serialize XML for model object", e);
+		}
+		
 		return sw.toString();
 	}
 	
