@@ -54,6 +54,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.io.PrintStream;
 import java.io.StringWriter;
 import java.io.UnsupportedEncodingException;
 import java.security.Principal;
@@ -63,6 +64,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 import java.util.regex.Pattern;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipOutputStream;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -124,7 +127,6 @@ import crosswalk.OutputElement;
 @SessionAttributes("form")
 public class FormController {
 	ResourceSet rs = null;
-	
 	
 	@Autowired
 	ClamScan clamScan = null;
@@ -245,13 +247,15 @@ public class FormController {
 		gov.loc.mods.mods.DocumentRoot modsDocumentRoot;
 		String modsXml;
 		
+		gov.loc.mets.DocumentRoot metsDocumentRoot;
+		String metsXml;
+		
 		File file;
 		String pid;
 		String filename;
 		String filetype;
 		
-		Entry entry;
-		FilePart atomPart, payloadPart;
+		DepositResult result;
 
 		
 		try {
@@ -297,41 +301,118 @@ public class FormController {
 		}
 		
 		
-		// Create deposit parts
+		// Deposit
+		
+		boolean depositMultipart = false;
 		
 		pid = "uuid:" + UUID.randomUUID().toString();
 		
 		modsDocumentRoot = makeMods(form);
-		modsXml = serializeMods(modsDocumentRoot);
 		
-		entry = makeAtomPubEntry(pid, filename, modsXml, form.isReviewBeforePublication());
+		if (depositMultipart) {
+			
+			Entry entry;
+			FilePart atomPart, payloadPart;
+			
+			// Make the AtomPub entry
+
+			modsXml = serializeMods(modsDocumentRoot);
+			entry = makeAtomPubEntry(pid, filename, modsXml, form.isReviewBeforePublication());
+			
+			// atomPart
+			
+			try {
+				StringWriter writer = new StringWriter();
+				entry.writeTo(writer);
+				atomPart = new FilePart("atom", new ByteArrayPartSource("atom", writer.toString().getBytes()), "application/atom+xml", "utf-8");
+			} catch (IOException e) {
+				throw new Error(e);
+			}
+			
+			// payloadPart
+			
+			try {
+				payloadPart = new FilePart("payload", filename, file);
+			} catch (FileNotFoundException e) {
+				throw new Error(e);
+			}
+			
+			payloadPart.setContentType(filetype);
+			payloadPart.setTransferEncoding("binary");
+			
+			// Make the deposit
 		
-		// atomPart
-		
-		try {
-			StringWriter writer = new StringWriter();
-			entry.writeTo(writer);
-			atomPart = new FilePart("atom", new ByteArrayPartSource("atom", writer.toString().getBytes()), "application/atom+xml", "utf-8");
-		} catch (IOException e) {
-			throw new Error(e);
+			result = this.getDepositHandler().depositMultipart(form.getDepositContainerId(), pid, atomPart, payloadPart);
+			
+		} else {
+			
+			metsDocumentRoot = makeMets(modsDocumentRoot, filename, filetype);
+			metsXml = serializeMets(metsDocumentRoot);
+
+			// Create the zipped package part
+
+			File tmp;
+			try {
+				tmp = File.createTempFile("tmp", ".zip");
+			} catch (IOException e) {
+				throw new Error(e);
+			}
+
+			FileOutputStream fileOutput;
+
+			try {
+				fileOutput = new FileOutputStream(tmp);
+			} catch (FileNotFoundException e) {
+				throw new Error(e);
+			}
+
+			ZipOutputStream zipOutput = new ZipOutputStream(fileOutput);
+			
+			try {
+
+				ZipEntry entry;
+				
+				// Write the METS
+				
+				entry = new ZipEntry("mets.xml");
+				zipOutput.putNextEntry(entry);
+				
+				PrintStream xmlPrintStream = new PrintStream(zipOutput);
+				xmlPrintStream.print(metsXml);
+				
+				// Write the file
+				
+				entry = new ZipEntry(filename);
+				zipOutput.putNextEntry(entry);
+			
+				FileInputStream fileInput = new FileInputStream(file);
+
+				byte[] buffer = new byte[1024];
+
+				while (fileInput.read(buffer) != -1)
+					zipOutput.write(buffer, 0, buffer.length);
+
+				zipOutput.finish();
+				zipOutput.close();
+				
+				fileOutput.close();
+				fileInput.close();
+				
+			} catch (IOException e) {
+				
+				throw new Error(e);
+				
+			}
+
+			// Make the deposit
+
+			result = this.getDepositHandler().depositPackaged(form.getDepositContainerId(), pid, tmp, "application/zip", "http://cdr.unc.edu/METS/profiles/Simple");
+
 		}
 		
-		// payloadPart
 		
-		try {
-			payloadPart = new FilePart("payload", filename, file);
-		} catch (FileNotFoundException e) {
-			throw new Error(e);
-		}
-		
-		payloadPart.setContentType(filetype);
-		payloadPart.setTransferEncoding("binary");
-		
-		
-		// Make the deposit
-		
-		DepositResult result = this.getDepositHandler().depositMultipart(form.getDepositContainerId(), pid, atomPart, payloadPart);
-		
+		// Handle a failed deposit response
+
 		if (result.getStatus() == Status.FAILED) {
 			LOG.error("deposit failed");
 			errors.addError(new FieldError("form", "file", "Deposit failed with response code: " + result.getStatus()));
@@ -472,8 +553,6 @@ public class FormController {
 		mets.setMetsHdr(head);
 		
 		// Metadata section
-		
-		// Blank MODS
 		
 		MdSecType mdSec = MetsFactory.eINSTANCE.createMdSecType();
 		mdSec.setID("mods");
