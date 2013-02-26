@@ -239,6 +239,38 @@ public class FormController {
 		}
 		return "form";
 	}
+	
+	public static class SubmittedFile {
+		
+		private File file;
+		private String filename;
+		private String contentType;
+		
+		public File getFile() {
+			return file;
+		}
+		
+		public void setFile(File file) {
+			this.file = file;
+		}
+		
+		public String getFilename() {
+			return filename;
+		}
+		
+		public void setFilename(String filename) {
+			this.filename = filename;
+		}
+		
+		public String getContentType() {
+			return contentType;
+		}
+		
+		public void setContentType(String contentType) {
+			this.contentType = contentType;
+		}
+		
+	}
 
 	@RequestMapping(value = "/{formId}.form", method = RequestMethod.POST)
 	public String processForm(@PathVariable String formId, @Valid @ModelAttribute("form") Form form, BindingResult errors,
@@ -249,11 +281,9 @@ public class FormController {
 		
 		gov.loc.mets.DocumentRoot metsDocumentRoot;
 		String metsXml;
-		
-		File file;
+
 		String pid;
-		String filename;
-		String filetype;
+		SubmittedFile submittedFile;
 		
 		DepositResult result;
 
@@ -272,27 +302,41 @@ public class FormController {
 		
 		// Handle uploaded files, exiting to report errors if we find any
 		
-		file = null;
-		filename = null;
-		filetype = null;
+		submittedFile = null;
 		
 		if (mpfile.isEmpty()) {
+			
 			errors.addError(new FieldError("form", "file", "You must select a file for upload."));
+			
 		} else {
-			file = handleUpload(mpfile);
-			filename = mpfile.getOriginalFilename().replaceAll(Pattern.quote("\""), "");
+			
+			submittedFile = new SubmittedFile();
+			
+			try {
+				File temp = File.createTempFile("form", ".data");
+				mpfile.transferTo(temp);
+				submittedFile.setFile(temp);
+			} catch (IOException e) {
+				throw new Error(e);
+			} catch (IllegalStateException e) {
+				throw new Error(e);
+			}
+			
+			submittedFile.setFilename(mpfile.getOriginalFilename().replaceAll(Pattern.quote("\""), ""));
 			
 			if (mpfile.getContentType() == null)
-				filetype = "application/octet-stream";
+				submittedFile.setContentType("application/octet-stream");
 			else
-				filetype = mpfile.getContentType();
+				submittedFile.setContentType(mpfile.getContentType());
 			
-			String scanResult = virusScan(file);
+			String scanResult = virusScan(submittedFile.getFile());
+			
 			if (scanResult != null) {
 				errors.addError(new FieldError("form", "file", scanResult));
-				file.delete();
-				file = null;
+				submittedFile.getFile().delete();
+				submittedFile.setFile(null);
 			}
+			
 		}
 		
 		if (errors.hasErrors()) {
@@ -317,7 +361,7 @@ public class FormController {
 			// Make the AtomPub entry
 
 			modsXml = serializeMods(modsDocumentRoot);
-			entry = makeAtomPubEntry(pid, filename, modsXml, form.isReviewBeforePublication());
+			entry = makeAtomPubEntry(pid, submittedFile.getFilename(), modsXml, form.isReviewBeforePublication());
 			
 			// atomPart
 			
@@ -332,12 +376,12 @@ public class FormController {
 			// payloadPart
 			
 			try {
-				payloadPart = new FilePart("payload", filename, file);
+				payloadPart = new FilePart("payload", submittedFile.getFilename(), submittedFile.getFile());
 			} catch (FileNotFoundException e) {
 				throw new Error(e);
 			}
 			
-			payloadPart.setContentType(filetype);
+			payloadPart.setContentType(submittedFile.getContentType());
 			payloadPart.setTransferEncoding("binary");
 			
 			// Make the deposit
@@ -346,7 +390,7 @@ public class FormController {
 			
 		} else {
 			
-			metsDocumentRoot = makeMets(modsDocumentRoot, filename, filetype);
+			metsDocumentRoot = makeMets(modsDocumentRoot, submittedFile.getFilename(), submittedFile.getContentType());
 			metsXml = serializeMets(metsDocumentRoot);
 
 			// Create the zipped package part
@@ -382,10 +426,10 @@ public class FormController {
 				
 				// Write the file
 				
-				entry = new ZipEntry(filename);
+				entry = new ZipEntry(submittedFile.getFilename());
 				zipOutput.putNextEntry(entry);
 			
-				FileInputStream fileInput = new FileInputStream(file);
+				FileInputStream fileInput = new FileInputStream(submittedFile.getFile());
 
 				byte[] buffer = new byte[1024];
 
@@ -423,8 +467,8 @@ public class FormController {
 		
 		// Clean up: delete the temporary file, clear the session
 		
-		if (file != null)
-			file.delete();
+		if (submittedFile.getFile() != null)
+			submittedFile.getFile().delete();
 		
 		sessionStatus.setComplete();
 		request.setAttribute("formId", formId);
@@ -448,29 +492,6 @@ public class FormController {
 			throw new Error("There was a problem finding the uploaded file: "+depositFile.getName(), e);
 		}
 		return null;
-	}
-
-	private File handleUpload(MultipartFile file) {
-		File result = null;
-		OutputStream out = null;
-		try {
-			result = File.createTempFile("form", ".data");
-			InputStream stream = file.getInputStream();
-			out = new BufferedOutputStream(new FileOutputStream(result));
-			for(int i = stream.read(); i >= 0; i = stream.read()) {
-				out.write(i);
-			}
-			out.flush();
-		} catch(IOException e) {
-			throw new Error(e);
-		} finally {
-			if(out != null) {
-				try {
-					out.close();
-				} catch(IOException ignored) {}
-			}
-		}
-		return result;
 	}
 
 	@ExceptionHandler(PermissionDeniedException.class)
