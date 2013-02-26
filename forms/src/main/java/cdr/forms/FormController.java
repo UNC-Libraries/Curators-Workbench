@@ -409,9 +409,7 @@ public class FormController {
 			
 		} else {
 			
-			SubmittedFile submittedFile = submittedFiles.get(0);
-			
-			metsDocumentRoot = makeMets(modsDocumentRoot, submittedFile.getFilename(), submittedFile.getContentType());
+			metsDocumentRoot = makeMets(modsDocumentRoot, submittedFiles);
 			metsXml = serializeMets(metsDocumentRoot);
 
 			// Create the zipped package part
@@ -447,21 +445,26 @@ public class FormController {
 				
 				// Write the file
 				
-				entry = new ZipEntry(submittedFile.getFilename());
-				zipOutput.putNextEntry(entry);
-			
-				FileInputStream fileInput = new FileInputStream(submittedFile.getFile());
+				for (SubmittedFile submittedFile : submittedFiles) {
+				
+					entry = new ZipEntry(submittedFile.getFilename());
+					zipOutput.putNextEntry(entry);
 
-				byte[] buffer = new byte[1024];
+					FileInputStream fileInput = new FileInputStream(submittedFile.getFile());
 
-				while (fileInput.read(buffer) != -1)
-					zipOutput.write(buffer, 0, buffer.length);
+					byte[] buffer = new byte[1024];
+
+					while (fileInput.read(buffer) != -1)
+						zipOutput.write(buffer, 0, buffer.length);
+
+					fileInput.close();
+					
+				}
 
 				zipOutput.finish();
 				zipOutput.close();
 				
 				fileOutput.close();
-				fileInput.close();
 				
 			} catch (IOException e) {
 				
@@ -573,7 +576,9 @@ public class FormController {
 		return sw.toString();
 	}
 	
-	private gov.loc.mets.DocumentRoot makeMets(gov.loc.mods.mods.DocumentRoot modsDocumentRoot, String filename, String filetype) {
+	private gov.loc.mets.DocumentRoot makeMets(gov.loc.mods.mods.DocumentRoot modsDocumentRoot, List<SubmittedFile> submittedFiles) {
+		
+		int fileIndex;
 		
 		gov.loc.mets.DocumentRoot root = MetsFactory.eINSTANCE.createDocumentRoot();
 		root.setMets(MetsFactory.eINSTANCE.createMetsType1());
@@ -620,16 +625,25 @@ public class FormController {
 		
 		FileGrpType1 fileGrp = MetsFactory.eINSTANCE.createFileGrpType1();
 		
-		FileType file = MetsFactory.eINSTANCE.createFileType();
-		file.setID("f1");
-		file.setMIMETYPE(filetype);
+		fileIndex = 0;
 		
-		FLocatType fLocat = MetsFactory.eINSTANCE.createFLocatType();
-		fLocat.setLOCTYPE(LOCTYPEType.URL);
-		fLocat.setHref(filename);
+		for (SubmittedFile submittedFile : submittedFiles) {
 
-		file.getFLocat().add(fLocat);
-		fileGrp.getFile().add(file);
+			FileType file = MetsFactory.eINSTANCE.createFileType();
+			file.setID("f" + fileIndex);
+			file.setMIMETYPE(submittedFile.getContentType());
+
+			FLocatType fLocat = MetsFactory.eINSTANCE.createFLocatType();
+			fLocat.setLOCTYPE(LOCTYPEType.URL);
+			fLocat.setHref(submittedFile.getFilename());
+
+			file.getFLocat().add(fLocat);
+			fileGrp.getFile().add(file);
+			
+			fileIndex++;
+			
+		}
+		
 		fileSec.getFileGrp().add(fileGrp);
 		
 		// Structural map
@@ -640,12 +654,20 @@ public class FormController {
 		folderDiv.setTYPE(METSConstants.Div_Folder);
 		folderDiv.getDmdSec().add(mdSec);
 
-		DivType fileDiv = MetsFactory.eINSTANCE.createDivType();
-		fileDiv.setTYPE(METSConstants.Div_File);
-		FptrType fptr = MetsFactory.eINSTANCE.createFptrType();
-		fptr.setFILEID("f1");
-		fileDiv.getFptr().add(fptr);
-		folderDiv.getDiv().add(fileDiv);
+		fileIndex = 0;
+		
+		for (@SuppressWarnings("unused") SubmittedFile submittedFile : submittedFiles) {
+
+			DivType fileDiv = MetsFactory.eINSTANCE.createDivType();
+			fileDiv.setTYPE(METSConstants.Div_File);
+			FptrType fptr = MetsFactory.eINSTANCE.createFptrType();
+			fptr.setFILEID("f" + fileIndex);
+			fileDiv.getFptr().add(fptr);
+			folderDiv.getDiv().add(fileDiv);
+			
+			fileIndex++;
+			
+		}
 
 		structMap.setDiv(folderDiv);
 
