@@ -545,37 +545,6 @@ public class FormController {
 		return root;
 	}
 	
-	private String serializeMods(gov.loc.mods.mods.DocumentRoot root) {
-		
-		gov.loc.mods.mods.ModsDefinition mods = root.getMods();
-		
-		File tmp;
-		try {
-			tmp = File.createTempFile("tmp", ".mods");
-		} catch (IOException e1) {
-			throw new Error(e1);
-		}
-		
-		URI uri = URI.createURI(tmp.toURI().toString());
-		XMLResource res = (XMLResource) rs.createResource(uri);
-		res.getContents().add(root);
-		
-		StringWriter sw = new StringWriter();
-		Map<Object, Object> options = new HashMap<Object, Object>();
-		
-		options.put(XMLResource.OPTION_ENCODING, "utf-8");
-		options.put(XMLResource.OPTION_DECLARE_XML, "");
-		options.put(XMLResource.OPTION_LINE_WIDTH, new Integer(80));
-		options.put(XMLResource.OPTION_ROOT_OBJECTS, Collections.singletonList(mods));
-		
-		try {
-			res.save(sw, options);
-		} catch (IOException e) {
-			throw new Error("failed to serialize XML for model object", e);
-		}
-		return sw.toString();
-	}
-	
 	private gov.loc.mets.DocumentRoot makeMets(gov.loc.mods.mods.DocumentRoot modsDocumentRoot, List<SubmittedFile> submittedFiles) {
 		
 		int fileIndex;
@@ -677,6 +646,39 @@ public class FormController {
 		
 	}
 	
+	private String serializeMods(gov.loc.mods.mods.DocumentRoot root) {
+		
+		gov.loc.mods.mods.ModsDefinition mods = root.getMods();
+		
+		File tmp;
+		try {
+			tmp = File.createTempFile("tmp", ".mods");
+		} catch (IOException e1) {
+			throw new Error(e1);
+		}
+		
+		URI uri = URI.createURI(tmp.toURI().toString());
+		XMLResource res = (XMLResource) rs.createResource(uri);
+		res.getContents().add(root);
+		
+		StringWriter sw = new StringWriter();
+		Map<Object, Object> options = new HashMap<Object, Object>();
+		
+		options.put(XMLResource.OPTION_ENCODING, "utf-8");
+		options.put(XMLResource.OPTION_DECLARE_XML, "");
+		options.put(XMLResource.OPTION_LINE_WIDTH, new Integer(80));
+		options.put(XMLResource.OPTION_ROOT_OBJECTS, Collections.singletonList(mods));
+		
+		try {
+			res.save(sw, options);
+		} catch (IOException e) {
+			throw new Error("failed to serialize XML for model object", e);
+		}
+		
+		return sw.toString();
+		
+	}
+	
 	private String serializeMets(gov.loc.mets.DocumentRoot root) {
 		
 		gov.loc.mets.MetsType mets = root.getMets();
@@ -707,6 +709,7 @@ public class FormController {
 		}
 		
 		return sw.toString();
+		
 	}
 	
 	private Entry makeAtomPubEntry(String pid, String filename, String mods, boolean isReviewBeforePublication) {
