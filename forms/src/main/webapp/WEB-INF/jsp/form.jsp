@@ -331,6 +331,9 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 		<div class="form_field file_field">
 			<label>&nbsp;</label><input name="file" type="file" size="40"/> <span class="red">*</span>
 		</div>
+		<div class="form_field file_field">
+			<label>&nbsp;</label><input name="file" type="file" size="40"/> <span class="red">*</span>
+		</div>
 	</div>
 	<div class="submit_container">
 		<input type="submit" value="submit deposit" />

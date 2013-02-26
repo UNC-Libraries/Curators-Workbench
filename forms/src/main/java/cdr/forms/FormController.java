@@ -58,9 +58,11 @@ import java.io.PrintStream;
 import java.io.StringWriter;
 import java.io.UnsupportedEncodingException;
 import java.security.Principal;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import java.util.regex.Pattern;
@@ -274,7 +276,7 @@ public class FormController {
 
 	@RequestMapping(value = "/{formId}.form", method = RequestMethod.POST)
 	public String processForm(@PathVariable String formId, @Valid @ModelAttribute("form") Form form, BindingResult errors,
-			Principal user, @RequestParam("file") MultipartFile mpfile, SessionStatus sessionStatus, HttpServletRequest request) throws PermissionDeniedException {
+			Principal user, @RequestParam("file") MultipartFile[] mpfiles, SessionStatus sessionStatus, HttpServletRequest request) throws PermissionDeniedException {
 		
 		gov.loc.mods.mods.DocumentRoot modsDocumentRoot;
 		String modsXml;
@@ -283,7 +285,7 @@ public class FormController {
 		String metsXml;
 
 		String pid;
-		SubmittedFile submittedFile;
+		List<SubmittedFile> submittedFiles;
 		
 		DepositResult result;
 
@@ -302,42 +304,57 @@ public class FormController {
 		
 		// Handle uploaded files, exiting to report errors if we find any
 		
-		submittedFile = null;
+		submittedFiles = new ArrayList<SubmittedFile>();
 		
-		if (mpfile.isEmpty()) {
+		for (MultipartFile mpfile : mpfiles) {
+		
+			if (!mpfile.isEmpty()) {
+				
+				SubmittedFile submittedFile = new SubmittedFile();
+				
+				try {
+					
+					// Copy or save the uploaded file to the temporary directory
+					
+					File temp = File.createTempFile("form", ".data");
+					mpfile.transferTo(temp);
+					
+					// Run the virus scan on the file, adding an error and moving on to
+					// the next one if there's a non-null result
+					
+					String scanResult = virusScan(temp);
+					
+					if (scanResult != null) {
+						errors.addError(new FieldError("form", "file", scanResult));
+						temp.delete();
+						temp = null;
+						
+						continue;
+					}
+					
+					submittedFile.setFile(temp);
+					
+				} catch (IOException e) {
+					throw new Error(e);
+				} catch (IllegalStateException e) {
+					throw new Error(e);
+				}
+				
+				submittedFile.setFilename(mpfile.getOriginalFilename().replaceAll(Pattern.quote("\""), ""));
+				
+				if (mpfile.getContentType() == null)
+					submittedFile.setContentType("application/octet-stream");
+				else
+					submittedFile.setContentType(mpfile.getContentType());
+				
+				submittedFiles.add(submittedFile);
 			
-			errors.addError(new FieldError("form", "file", "You must select a file for upload."));
-			
-		} else {
-			
-			submittedFile = new SubmittedFile();
-			
-			try {
-				File temp = File.createTempFile("form", ".data");
-				mpfile.transferTo(temp);
-				submittedFile.setFile(temp);
-			} catch (IOException e) {
-				throw new Error(e);
-			} catch (IllegalStateException e) {
-				throw new Error(e);
-			}
-			
-			submittedFile.setFilename(mpfile.getOriginalFilename().replaceAll(Pattern.quote("\""), ""));
-			
-			if (mpfile.getContentType() == null)
-				submittedFile.setContentType("application/octet-stream");
-			else
-				submittedFile.setContentType(mpfile.getContentType());
-			
-			String scanResult = virusScan(submittedFile.getFile());
-			
-			if (scanResult != null) {
-				errors.addError(new FieldError("form", "file", scanResult));
-				submittedFile.getFile().delete();
-				submittedFile.setFile(null);
 			}
 			
 		}
+		
+		if (submittedFiles.size() == 0)
+			errors.addError(new FieldError("form", "file", "You must select a file for upload."));
 		
 		if (errors.hasErrors()) {
 			LOG.debug(errors.getErrorCount() + " errors");
@@ -357,6 +374,8 @@ public class FormController {
 			
 			Entry entry;
 			FilePart atomPart, payloadPart;
+			
+			SubmittedFile submittedFile = submittedFiles.get(0);
 			
 			// Make the AtomPub entry
 
@@ -389,6 +408,8 @@ public class FormController {
 			result = this.getDepositHandler().depositMultipart(form.getDepositContainerId(), pid, atomPart, payloadPart);
 			
 		} else {
+			
+			SubmittedFile submittedFile = submittedFiles.get(0);
 			
 			metsDocumentRoot = makeMets(modsDocumentRoot, submittedFile.getFilename(), submittedFile.getContentType());
 			metsXml = serializeMets(metsDocumentRoot);
@@ -467,8 +488,10 @@ public class FormController {
 		
 		// Clean up: delete the temporary file, clear the session
 		
-		if (submittedFile.getFile() != null)
-			submittedFile.getFile().delete();
+		for (SubmittedFile submittedFile : submittedFiles) {
+			if (submittedFile.getFile() != null)
+				submittedFile.getFile().delete();
+		}
 		
 		sessionStatus.setComplete();
 		request.setAttribute("formId", formId);
