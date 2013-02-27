@@ -104,7 +104,8 @@ public class MappedElementChildElementsCompartmentCanonicalEditPolicy extends
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
+	 * Changed to make child views persistent, fixes #115
 	 */
 	protected void refreshSemantic() {
 		if (resolveSemanticElement() == null) {
@@ -160,7 +161,7 @@ public class MappedElementChildElementsCompartmentCanonicalEditPolicy extends
 			IAdaptable elementAdapter = new CanonicalElementAdapter(
 					next.getModelElement(), hint);
 			CreateViewRequest.ViewDescriptor descriptor = new CreateViewRequest.ViewDescriptor(
-					elementAdapter, Node.class, hint, ViewUtil.APPEND, false,
+					elementAdapter, Node.class, hint, ViewUtil.APPEND, true,
 					host().getDiagramPreferencesHint());
 			viewDescriptors.add(descriptor);
 		}
