@@ -331,10 +331,22 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 		<div class="form_field file_field">
 			<label>&nbsp;</label><input name="file" type="file" size="40"/> <span class="red">*</span>
 		</div>
-		<div class="form_field file_field">
-			<label>&nbsp;</label><input name="file" type="file" size="40"/> <span class="red">*</span>
-		</div>
 	</div>
+	<c:if test="${form.canAddSupplementalFiles}">
+		<br/><h3>Supplemental Files</h3>
+		<div class="indented_block">
+			<div class="form_field file_field">
+				<label>&nbsp;</label><input name="supplementalFile" type="file" size="40"/>
+			</div>
+			<div class="form_field file_field">
+				<label>&nbsp;</label><input name="supplementalFile" type="file" size="40"/>
+			</div>
+			<div class="form_field file_field">
+				<label>&nbsp;</label><input name="supplementalFile" type="file" size="40"/>
+			</div>
+		</div>
+	</c:if>
+	
 	<div class="submit_container">
 		<input type="submit" value="submit deposit" />
 	</div>
