@@ -208,15 +208,19 @@ public class FormController {
 		submittedFile = handleUploadedFile(file, errors);
 		
 		
-		supplementalSubmittedFiles = new ArrayList<SubmittedFile>();
-		
 		if (form.isCanAddSupplementalFiles()) {
+			
+			supplementalSubmittedFiles = new ArrayList<SubmittedFile>();
 			
 			for (MultipartFile supplementalFile : supplementalFiles) {
 				SubmittedFile sf = handleUploadedFile(supplementalFile, errors);
 				if (sf != null)
 					supplementalSubmittedFiles.add(sf);
 			}
+			
+		} else {
+			
+			supplementalSubmittedFiles = null;
 			
 		}
 
@@ -237,7 +241,10 @@ public class FormController {
 		modsDocumentRoot = makeMods(form);
 		aclDocumentRoot = makeAcl(form);
 		
-		result = this.getDepositHandler().deposit(form.getDepositContainerId(), pid, modsDocumentRoot, aclDocumentRoot, submittedFile, supplementalSubmittedFiles);
+		if (form.isCanAddSupplementalFiles())
+			result = this.getDepositHandler().depositAggregate(form.getDepositContainerId(), pid, modsDocumentRoot, aclDocumentRoot, submittedFile, supplementalSubmittedFiles);
+		else
+			result = this.getDepositHandler().depositFile(form.getDepositContainerId(), pid, modsDocumentRoot, aclDocumentRoot, submittedFile);
 		
 		
 		// Handle a failed deposit response
@@ -255,9 +262,11 @@ public class FormController {
 		if (submittedFile.getFile() != null)
 			submittedFile.getFile().delete();
 		
-		for (SubmittedFile sf : supplementalSubmittedFiles) {
-			if (sf.getFile() != null)
-				sf.getFile().delete();
+		if (supplementalSubmittedFiles != null) {
+			for (SubmittedFile sf : supplementalSubmittedFiles) {
+				if (sf.getFile() != null)
+					sf.getFile().delete();
+			}
 		}
 		
 		sessionStatus.setComplete();

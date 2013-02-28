@@ -19,6 +19,8 @@ import java.util.List;
 
 public interface DepositHandler {
 	
-	DepositResult deposit(String containerPid, String pid, gov.loc.mods.mods.DocumentRoot mods, edu.unc.lib.schemas.acl.DocumentRoot acl, SubmittedFile file, List<SubmittedFile> supplementaryFiles);
+	DepositResult depositAggregate(String containerPid, String pid, gov.loc.mods.mods.DocumentRoot mods, edu.unc.lib.schemas.acl.DocumentRoot acl,
+			SubmittedFile file, List<SubmittedFile> supplementaryFiles);
+	DepositResult depositFile(String containerPid, String pid, gov.loc.mods.mods.DocumentRoot mods, edu.unc.lib.schemas.acl.DocumentRoot acl, SubmittedFile file);
 	
 }

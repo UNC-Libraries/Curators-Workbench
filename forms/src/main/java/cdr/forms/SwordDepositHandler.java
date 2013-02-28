@@ -136,17 +136,36 @@ public class SwordDepositHandler implements DepositHandler {
 	public void setDefaultContainer(String defaultContainer) {
 		this.defaultContainer = defaultContainer;
 	}
+	
+	public DepositResult depositAggregate(String containerId, String pid, gov.loc.mods.mods.DocumentRoot mods, edu.unc.lib.schemas.acl.DocumentRoot acl,
+			SubmittedFile mainFile, List<SubmittedFile> supplementaryFiles) {
 
-	public DepositResult deposit(String containerId, String pid, gov.loc.mods.mods.DocumentRoot mods, edu.unc.lib.schemas.acl.DocumentRoot acl, SubmittedFile mainFile, List<SubmittedFile> supplementaryFiles) {
+		gov.loc.mets.DocumentRoot metsDocumentRoot = makeAggregateMets(mods, acl, mainFile, supplementaryFiles);
 		
-		// Prepare METS and the zip file
+		List<SubmittedFile> files = new ArrayList<SubmittedFile>();
+		files.add(mainFile);
+		files.addAll(supplementaryFiles);
 		
-		gov.loc.mets.DocumentRoot metsDocumentRoot = makeMets(mods, acl, mainFile, supplementaryFiles);
+		File zipFile = makeZipFile(metsDocumentRoot, files);
+
+		return depositZip(containerId, pid, zipFile);
 		
-		File zipFile = makeZipFile(metsDocumentRoot, mainFile, supplementaryFiles);
+	}
+
+	public DepositResult depositFile(String containerId, String pid, gov.loc.mods.mods.DocumentRoot mods, edu.unc.lib.schemas.acl.DocumentRoot acl, SubmittedFile file) {
 		
+		gov.loc.mets.DocumentRoot metsDocumentRoot = makeSingleFileMets(mods, acl, file);
 		
-		// Make the SWORD deposit
+		List<SubmittedFile> files = new ArrayList<SubmittedFile>();
+		files.add(file);
+		
+		File zipFile = makeZipFile(metsDocumentRoot, files);
+		
+		return depositZip(containerId, pid, zipFile);
+		
+	}
+
+	private DepositResult depositZip(String containerId, String pid, File zipFile) {
 		
 		if (containerId == null || "".equals(containerId.trim()))
 			containerId = this.getDefaultContainer();
@@ -213,14 +232,112 @@ public class SwordDepositHandler implements DepositHandler {
 		return result;
 		
 	}
+	
+	private gov.loc.mets.DocumentRoot makeSingleFileMets(gov.loc.mods.mods.DocumentRoot modsDocumentRoot, edu.unc.lib.schemas.acl.DocumentRoot acl, SubmittedFile submittedFile) {
+		
+		gov.loc.mets.DocumentRoot root = MetsFactory.eINSTANCE.createDocumentRoot();
+		root.setMets(MetsFactory.eINSTANCE.createMetsType1());
+		MetsType mets = root.getMets();
 
-	private gov.loc.mets.DocumentRoot makeMets(gov.loc.mods.mods.DocumentRoot modsDocumentRoot, edu.unc.lib.schemas.acl.DocumentRoot acl, SubmittedFile mainFile, List<SubmittedFile> supplementalFiles) {
+		mets.setPROFILE("http://cdr.unc.edu/METS/profiles/Simple");
+		
+		// Header
+
+		MetsHdrType head = MetsFactory.eINSTANCE.createMetsHdrType();
+		Date currentTime = new Date(System.currentTimeMillis());
+		head.setCREATEDATE(new XMLCalendar(currentTime, XMLCalendar.DATETIME));
+		head.setLASTMODDATE(new XMLCalendar(currentTime, XMLCalendar.DATETIME));
+
+		AgentType agent = MetsFactory.eINSTANCE.createAgentType();
+		agent.setROLE(ROLEType.CREATOR);
+		agent.setTYPE(TYPEType.INDIVIDUAL);
+		agent.setName("Someone");
+		head.getAgent().add(agent);
+
+		mets.setMetsHdr(head);
+
+		// Administrative metadata section
+
+		{
+
+			AmdSecType amdSec = MetsFactory.eINSTANCE.createAmdSecType();
+
+			MdSecType rightsMD = MetsFactory.eINSTANCE.createMdSecType();
+
+			MdWrapType mdWrap = MetsFactory.eINSTANCE.createMdWrapType();
+			mdWrap.setMDTYPE(MDTYPEType.OTHER);
+
+			XmlDataType1 xmlData = MetsFactory.eINSTANCE.createXmlDataType1();
+
+			xmlData.getAny().add(AclPackage.eINSTANCE.getDocumentRoot_AccessControl(), acl.getAccessControl());
+
+			mdWrap.setXmlData(xmlData);
+			rightsMD.setMdWrap(mdWrap);
+
+			amdSec.getRightsMD().add(rightsMD);
+
+			mets.getAmdSec().add(amdSec);
+
+		}
+
+		// Metadata section
+
+		MdSecType mdSec = MetsFactory.eINSTANCE.createMdSecType();
+		mdSec.setID("mods");
+
+		MdWrapType mdWrap = MetsFactory.eINSTANCE.createMdWrapType();
+		mdWrap.setMDTYPE(MDTYPEType.MODS);
+
+		XmlDataType1 xmlData = MetsFactory.eINSTANCE.createXmlDataType1();
+
+		xmlData.getAny().add(MODSPackage.eINSTANCE.getDocumentRoot_Mods(), modsDocumentRoot.getMods());
+
+		mdWrap.setXmlData(xmlData);
+		mdSec.setMdWrap(mdWrap);
+
+		mets.getDmdSec().add(mdSec);
+		
+		// Files section
+
+		FileSecType fileSec = MetsFactory.eINSTANCE.createFileSecType();
+		mets.setFileSec(fileSec);
+
+		FileGrpType1 fileGrp = MetsFactory.eINSTANCE.createFileGrpType1();
+
+		FileType file = MetsFactory.eINSTANCE.createFileType();
+		file.setID("f0");
+		file.setMIMETYPE(submittedFile.getContentType());
+
+		FLocatType fLocat = MetsFactory.eINSTANCE.createFLocatType();
+		fLocat.setLOCTYPE(LOCTYPEType.URL);
+		fLocat.setHref(submittedFile.getFilename());
+
+		file.getFLocat().add(fLocat);
+		fileGrp.getFile().add(file);
+
+		fileSec.getFileGrp().add(fileGrp);
+
+		// Structural map
+
+		StructMapType structMap = MetsFactory.eINSTANCE.createStructMapType();
+
+		DivType fileDiv = MetsFactory.eINSTANCE.createDivType();
+		fileDiv.setTYPE(METSConstants.Div_File);
+		FptrType fptr = MetsFactory.eINSTANCE.createFptrType();
+		fptr.setFILEID("f0");
+		fileDiv.getFptr().add(fptr);
+
+		structMap.setDiv(fileDiv);
+
+		mets.getStructMap().add(structMap);
+
+		return root;
+		
+	}
+
+	private gov.loc.mets.DocumentRoot makeAggregateMets(gov.loc.mods.mods.DocumentRoot modsDocumentRoot, edu.unc.lib.schemas.acl.DocumentRoot acl, SubmittedFile mainFile, List<SubmittedFile> supplementalFiles) {
 
 		int fileIndex;
-		
-		List<SubmittedFile> files = new ArrayList<SubmittedFile>();
-		files.add(mainFile);
-		files.addAll(supplementalFiles);
 
 		gov.loc.mets.DocumentRoot root = MetsFactory.eINSTANCE.createDocumentRoot();
 		root.setMets(MetsFactory.eINSTANCE.createMetsType1());
@@ -290,10 +407,25 @@ public class SwordDepositHandler implements DepositHandler {
 		mets.setFileSec(fileSec);
 
 		FileGrpType1 fileGrp = MetsFactory.eINSTANCE.createFileGrpType1();
+		
+		{
 
-		fileIndex = 0;
+			FileType file = MetsFactory.eINSTANCE.createFileType();
+			file.setID("f0");
+			file.setMIMETYPE(mainFile.getContentType());
 
-		for (SubmittedFile f : files) {
+			FLocatType fLocat = MetsFactory.eINSTANCE.createFLocatType();
+			fLocat.setLOCTYPE(LOCTYPEType.URL);
+			fLocat.setHref(mainFile.getFilename());
+
+			file.getFLocat().add(fLocat);
+			fileGrp.getFile().add(file);
+
+		}
+
+		fileIndex = 1;
+
+		for (SubmittedFile f : supplementalFiles) {
 
 			FileType file = MetsFactory.eINSTANCE.createFileType();
 			file.setID("f" + fileIndex);
@@ -317,12 +449,23 @@ public class SwordDepositHandler implements DepositHandler {
 		StructMapType structMap = MetsFactory.eINSTANCE.createStructMapType();
 
 		DivType folderDiv = MetsFactory.eINSTANCE.createDivType();
-		folderDiv.setTYPE(METSConstants.Div_Folder);
+		folderDiv.setTYPE(METSConstants.Div_AggregateWork);
 		folderDiv.getDmdSec().add(mdSec);
 
-		fileIndex = 0;
+		{
 
-		for (@SuppressWarnings("unused") SubmittedFile f : files) {
+			DivType fileDiv = MetsFactory.eINSTANCE.createDivType();
+			fileDiv.setTYPE(METSConstants.Div_File);
+			FptrType fptr = MetsFactory.eINSTANCE.createFptrType();
+			fptr.setFILEID("f0");
+			fileDiv.getFptr().add(fptr);
+			folderDiv.getDiv().add(fileDiv);
+			
+		}
+		
+		fileIndex = 1;
+
+		for (@SuppressWarnings("unused") SubmittedFile f : supplementalFiles) {
 
 			DivType fileDiv = MetsFactory.eINSTANCE.createDivType();
 			fileDiv.setTYPE(METSConstants.Div_File);
@@ -383,14 +526,9 @@ public class SwordDepositHandler implements DepositHandler {
 
 	}
 	
-	private File makeZipFile(gov.loc.mets.DocumentRoot metsDocumentRoot, SubmittedFile mainFile, List<SubmittedFile> supplementalFiles) {
+	private File makeZipFile(gov.loc.mets.DocumentRoot metsDocumentRoot, List<SubmittedFile> files) {
 		
 		String metsXml = serializeMets(metsDocumentRoot);
-		
-		List<SubmittedFile> files = new ArrayList<SubmittedFile>();
-		
-		files.add(mainFile);
-		files.addAll(supplementalFiles);
 
 		// Create the zipped package part
 
@@ -427,6 +565,7 @@ public class SwordDepositHandler implements DepositHandler {
 			// Write the files
 			
 			for (SubmittedFile f : files) {
+				
 				entry = new ZipEntry(f.getFilename());
 				zipOutput.putNextEntry(entry);
 
@@ -438,6 +577,7 @@ public class SwordDepositHandler implements DepositHandler {
 					zipOutput.write(buffer, 0, buffer.length);
 
 				fileInput.close();
+				
 			}
 
 			zipOutput.finish();
