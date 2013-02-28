@@ -15,11 +15,10 @@
  */
 package cdr.forms;
 
-import java.io.File;
-
-import org.apache.commons.httpclient.methods.multipart.Part;
+import java.util.List;
 
 public interface DepositHandler {
-	DepositResult depositMultipart(String containerPid, String pid, Part atomPart, Part payloadPart);
-	DepositResult depositPackaged(String containerPid, String pid, File file, String contentType, String packageType);
+	
+	DepositResult deposit(String containerPid, String pid, gov.loc.mods.mods.DocumentRoot mods, edu.unc.lib.schemas.acl.DocumentRoot acl, List<SubmittedFile> files);
+	
 }

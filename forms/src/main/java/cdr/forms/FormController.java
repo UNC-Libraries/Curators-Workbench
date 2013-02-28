@@ -15,74 +15,25 @@
  */
 package cdr.forms;
 
-import gov.loc.mets.AgentType;
-import gov.loc.mets.DivType;
-import gov.loc.mets.FLocatType;
-import gov.loc.mets.FileGrpType1;
-import gov.loc.mets.FileSecType;
-import gov.loc.mets.FileType;
-import gov.loc.mets.FptrType;
-import gov.loc.mets.LOCTYPEType;
-import gov.loc.mets.MDTYPEType;
-import gov.loc.mets.MdSecType;
-import gov.loc.mets.MdWrapType;
-import gov.loc.mets.MetsFactory;
-import gov.loc.mets.MetsHdrType;
-import gov.loc.mets.MetsPackage;
-import gov.loc.mets.MetsType;
-import gov.loc.mets.ROLEType;
-import gov.loc.mets.StructMapType;
-import gov.loc.mets.TYPEType;
-import gov.loc.mets.XmlDataType1;
-import gov.loc.mets.util.METSConstants;
-import gov.loc.mets.util.MetsResourceFactoryImpl;
+import edu.unc.lib.schemas.acl.AclFactory;
 import gov.loc.mods.mods.DocumentRoot;
 import gov.loc.mods.mods.MODSFactory;
-import gov.loc.mods.mods.MODSPackage;
 import gov.loc.mods.mods.ModsDefinition;
-import gov.loc.mods.mods.util.MODSResourceFactoryImpl;
 
-import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.PrintStream;
-import java.io.StringWriter;
 import java.io.UnsupportedEncodingException;
 import java.security.Principal;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.UUID;
 import java.util.regex.Pattern;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipOutputStream;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
-import org.apache.abdera.Abdera;
-import org.apache.abdera.factory.Factory;
-import org.apache.abdera.model.Document;
-import org.apache.abdera.model.Entry;
-import org.apache.abdera.model.Text.Type;
-import org.apache.abdera.parser.Parser;
-import org.apache.abdera.parser.stax.FOMExtensibleElement;
-import org.apache.commons.httpclient.methods.multipart.ByteArrayPartSource;
-import org.apache.commons.httpclient.methods.multipart.FilePart;
-import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.emf.ecore.xmi.XMLResource;
-import org.eclipse.emf.ecore.xml.type.internal.XMLCalendar;
-import org.jdom.Element;
-import org.jdom.Namespace;
-import org.jdom.output.XMLOutputter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -102,7 +53,6 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
-import org.w3._1999.xlink.XlinkPackage;
 
 import cdr.forms.DepositResult.Status;
 
@@ -118,8 +68,7 @@ import crosswalk.OutputElement;
 @RequestMapping(value = { "/*", "/**" })
 @SessionAttributes("form")
 public class FormController {
-	ResourceSet rs = null;
-	
+
 	@Autowired
 	ClamScan clamScan = null;
 	
@@ -132,12 +81,6 @@ public class FormController {
 	}
 
 	public FormController() {
-		rs = new ResourceSetImpl();
-		rs.getResourceFactoryRegistry().getExtensionToFactoryMap().put("mods", new MODSResourceFactoryImpl());
-		rs.getResourceFactoryRegistry().getExtensionToFactoryMap().put("mets", new MetsResourceFactoryImpl());
-		rs.getPackageRegistry().put(MODSPackage.eNS_URI, MODSPackage.eINSTANCE);
-		rs.getPackageRegistry().put(MetsPackage.eNS_URI, MetsPackage.eINSTANCE);
-		rs.getPackageRegistry().put(XlinkPackage.eNS_URI, XlinkPackage.eINSTANCE);
 		LOG.debug("FormController created");
 	}
 
@@ -231,48 +174,13 @@ public class FormController {
 		}
 		return "form";
 	}
-	
-	public static class SubmittedFile {
-		
-		private File file;
-		private String filename;
-		private String contentType;
-		
-		public File getFile() {
-			return file;
-		}
-		
-		public void setFile(File file) {
-			this.file = file;
-		}
-		
-		public String getFilename() {
-			return filename;
-		}
-		
-		public void setFilename(String filename) {
-			this.filename = filename;
-		}
-		
-		public String getContentType() {
-			return contentType;
-		}
-		
-		public void setContentType(String contentType) {
-			this.contentType = contentType;
-		}
-		
-	}
 
 	@RequestMapping(value = "/{formId}.form", method = RequestMethod.POST)
 	public String processForm(@PathVariable String formId, @Valid @ModelAttribute("form") Form form, BindingResult errors,
 			Principal user, @RequestParam("file") MultipartFile[] mpfiles, SessionStatus sessionStatus, HttpServletRequest request) throws PermissionDeniedException {
 		
 		gov.loc.mods.mods.DocumentRoot modsDocumentRoot;
-		String modsXml;
-		
-		gov.loc.mets.DocumentRoot metsDocumentRoot;
-		String metsXml;
+		edu.unc.lib.schemas.acl.DocumentRoot aclDocumentRoot;
 
 		String pid;
 		List<SubmittedFile> submittedFiles;
@@ -354,119 +262,11 @@ public class FormController {
 		
 		// Deposit
 		
-		boolean depositMultipart = false;
-		
 		pid = "uuid:" + UUID.randomUUID().toString();
-		
 		modsDocumentRoot = makeMods(form);
+		aclDocumentRoot = makeAcl();
 		
-		if (depositMultipart) {
-			
-			Entry entry;
-			FilePart atomPart, payloadPart;
-			
-			SubmittedFile submittedFile = submittedFiles.get(0);
-			
-			// Make the AtomPub entry
-
-			modsXml = serializeMods(modsDocumentRoot);
-			entry = makeAtomPubEntry(pid, submittedFile.getFilename(), modsXml, form.isReviewBeforePublication());
-			
-			// atomPart
-			
-			try {
-				StringWriter writer = new StringWriter();
-				entry.writeTo(writer);
-				atomPart = new FilePart("atom", new ByteArrayPartSource("atom", writer.toString().getBytes()), "application/atom+xml", "utf-8");
-			} catch (IOException e) {
-				throw new Error(e);
-			}
-			
-			// payloadPart
-			
-			try {
-				payloadPart = new FilePart("payload", submittedFile.getFilename(), submittedFile.getFile());
-			} catch (FileNotFoundException e) {
-				throw new Error(e);
-			}
-			
-			payloadPart.setContentType(submittedFile.getContentType());
-			payloadPart.setTransferEncoding("binary");
-			
-			// Make the deposit
-		
-			result = this.getDepositHandler().depositMultipart(form.getDepositContainerId(), pid, atomPart, payloadPart);
-			
-		} else {
-			
-			metsDocumentRoot = makeMets(modsDocumentRoot, submittedFiles);
-			metsXml = serializeMets(metsDocumentRoot);
-
-			// Create the zipped package part
-
-			File tmp;
-			try {
-				tmp = File.createTempFile("tmp", ".zip");
-			} catch (IOException e) {
-				throw new Error(e);
-			}
-
-			FileOutputStream fileOutput;
-
-			try {
-				fileOutput = new FileOutputStream(tmp);
-			} catch (FileNotFoundException e) {
-				throw new Error(e);
-			}
-
-			ZipOutputStream zipOutput = new ZipOutputStream(fileOutput);
-			
-			try {
-
-				ZipEntry entry;
-				
-				// Write the METS
-				
-				entry = new ZipEntry("mets.xml");
-				zipOutput.putNextEntry(entry);
-				
-				PrintStream xmlPrintStream = new PrintStream(zipOutput);
-				xmlPrintStream.print(metsXml);
-				
-				// Write the file
-				
-				for (SubmittedFile submittedFile : submittedFiles) {
-				
-					entry = new ZipEntry(submittedFile.getFilename());
-					zipOutput.putNextEntry(entry);
-
-					FileInputStream fileInput = new FileInputStream(submittedFile.getFile());
-
-					byte[] buffer = new byte[1024];
-
-					while (fileInput.read(buffer) != -1)
-						zipOutput.write(buffer, 0, buffer.length);
-
-					fileInput.close();
-					
-				}
-
-				zipOutput.finish();
-				zipOutput.close();
-				
-				fileOutput.close();
-				
-			} catch (IOException e) {
-				
-				throw new Error(e);
-				
-			}
-
-			// Make the deposit
-
-			result = this.getDepositHandler().depositPackaged(form.getDepositContainerId(), pid, tmp, "application/zip", "http://cdr.unc.edu/METS/profiles/Simple");
-
-		}
+		result = this.getDepositHandler().deposit(form.getDepositContainerId(), pid, modsDocumentRoot, aclDocumentRoot, submittedFiles);
 		
 		
 		// Handle a failed deposit response
@@ -535,219 +335,13 @@ public class FormController {
 		return root;
 	}
 	
-	private gov.loc.mets.DocumentRoot makeMets(gov.loc.mods.mods.DocumentRoot modsDocumentRoot, List<SubmittedFile> submittedFiles) {
+	private edu.unc.lib.schemas.acl.DocumentRoot makeAcl() {
 		
-		int fileIndex;
-		
-		gov.loc.mets.DocumentRoot root = MetsFactory.eINSTANCE.createDocumentRoot();
-		root.setMets(MetsFactory.eINSTANCE.createMetsType1());
-		MetsType mets = root.getMets();
-		
-		mets.setPROFILE("http://cdr.unc.edu/METS/profiles/Simple");
-		
-		// Header
-		
-		MetsHdrType head = MetsFactory.eINSTANCE.createMetsHdrType();
-		Date currentTime = new Date(System.currentTimeMillis());
-		head.setCREATEDATE(new XMLCalendar(currentTime, XMLCalendar.DATETIME));
-		head.setLASTMODDATE(new XMLCalendar(currentTime, XMLCalendar.DATETIME));
-		
-		AgentType agent = MetsFactory.eINSTANCE.createAgentType();
-		agent.setROLE(ROLEType.CREATOR);
-		agent.setTYPE(TYPEType.INDIVIDUAL);
-		agent.setName("Someone");
-		head.getAgent().add(agent);
-
-		mets.setMetsHdr(head);
-		
-		// Metadata section
-		
-		MdSecType mdSec = MetsFactory.eINSTANCE.createMdSecType();
-		mdSec.setID("mods");
-		
-		MdWrapType mdWrap = MetsFactory.eINSTANCE.createMdWrapType();
-		mdWrap.setMDTYPE(MDTYPEType.MODS);
-		
-		XmlDataType1 xmlData = MetsFactory.eINSTANCE.createXmlDataType1();
-
-		xmlData.getAny().add(MODSPackage.eINSTANCE.getDocumentRoot_Mods(), modsDocumentRoot.getMods());
-		
-		mdWrap.setXmlData(xmlData);
-		mdSec.setMdWrap(mdWrap);
-		
-		mets.getDmdSec().add(mdSec);
-		
-		// Files section
-		
-		FileSecType fileSec = MetsFactory.eINSTANCE.createFileSecType();
-		mets.setFileSec(fileSec);
-		
-		FileGrpType1 fileGrp = MetsFactory.eINSTANCE.createFileGrpType1();
-		
-		fileIndex = 0;
-		
-		for (SubmittedFile submittedFile : submittedFiles) {
-
-			FileType file = MetsFactory.eINSTANCE.createFileType();
-			file.setID("f" + fileIndex);
-			file.setMIMETYPE(submittedFile.getContentType());
-
-			FLocatType fLocat = MetsFactory.eINSTANCE.createFLocatType();
-			fLocat.setLOCTYPE(LOCTYPEType.URL);
-			fLocat.setHref(submittedFile.getFilename());
-
-			file.getFLocat().add(fLocat);
-			fileGrp.getFile().add(file);
-			
-			fileIndex++;
-			
-		}
-		
-		fileSec.getFileGrp().add(fileGrp);
-		
-		// Structural map
-
-		StructMapType structMap = MetsFactory.eINSTANCE.createStructMapType();
-		
-		DivType folderDiv = MetsFactory.eINSTANCE.createDivType();
-		folderDiv.setTYPE(METSConstants.Div_Folder);
-		folderDiv.getDmdSec().add(mdSec);
-
-		fileIndex = 0;
-		
-		for (@SuppressWarnings("unused") SubmittedFile submittedFile : submittedFiles) {
-
-			DivType fileDiv = MetsFactory.eINSTANCE.createDivType();
-			fileDiv.setTYPE(METSConstants.Div_File);
-			FptrType fptr = MetsFactory.eINSTANCE.createFptrType();
-			fptr.setFILEID("f" + fileIndex);
-			fileDiv.getFptr().add(fptr);
-			folderDiv.getDiv().add(fileDiv);
-			
-			fileIndex++;
-			
-		}
-
-		structMap.setDiv(folderDiv);
-
-		mets.getStructMap().add(structMap);
+		edu.unc.lib.schemas.acl.DocumentRoot root = AclFactory.eINSTANCE.createDocumentRoot();
+		root.setAccessControl(AclFactory.eINSTANCE.createAccessControlType());
 		
 		return root;
 		
-	}
-	
-	private String serializeMods(gov.loc.mods.mods.DocumentRoot root) {
-		
-		gov.loc.mods.mods.ModsDefinition mods = root.getMods();
-		
-		File tmp;
-		try {
-			tmp = File.createTempFile("tmp", ".mods");
-		} catch (IOException e1) {
-			throw new Error(e1);
-		}
-		
-		URI uri = URI.createURI(tmp.toURI().toString());
-		XMLResource res = (XMLResource) rs.createResource(uri);
-		res.getContents().add(root);
-		
-		StringWriter sw = new StringWriter();
-		Map<Object, Object> options = new HashMap<Object, Object>();
-		
-		options.put(XMLResource.OPTION_ENCODING, "utf-8");
-		options.put(XMLResource.OPTION_DECLARE_XML, "");
-		options.put(XMLResource.OPTION_LINE_WIDTH, new Integer(80));
-		options.put(XMLResource.OPTION_ROOT_OBJECTS, Collections.singletonList(mods));
-		
-		try {
-			res.save(sw, options);
-		} catch (IOException e) {
-			throw new Error("failed to serialize XML for model object", e);
-		}
-		
-		return sw.toString();
-		
-	}
-	
-	private String serializeMets(gov.loc.mets.DocumentRoot root) {
-		
-		gov.loc.mets.MetsType mets = root.getMets();
-		
-		File tmp;
-		try {
-			tmp = File.createTempFile("tmp", ".mets");
-		} catch (IOException e1) {
-			throw new Error(e1);
-		}
-		
-		URI uri = URI.createURI(tmp.toURI().toString());
-		XMLResource res = (XMLResource) rs.createResource(uri);
-		res.getContents().add(root);
-		
-		StringWriter sw = new StringWriter();
-		Map<Object, Object> options = new HashMap<Object, Object>();
-		
-		options.put(XMLResource.OPTION_ENCODING, "utf-8");
-		options.put(XMLResource.OPTION_DECLARE_XML, "");
-		options.put(XMLResource.OPTION_LINE_WIDTH, new Integer(80));
-		options.put(XMLResource.OPTION_ROOT_OBJECTS, Collections.singletonList(mets));
-		
-		try {
-			res.save(sw, options);
-		} catch (IOException e) {
-			throw new Error("failed to serialize XML for model object", e);
-		}
-		
-		return sw.toString();
-		
-	}
-	
-	private Entry makeAtomPubEntry(String pid, String filename, String mods, boolean isReviewBeforePublication) {
-		
-		Abdera abdera = Abdera.getInstance();
-		Factory factory = abdera.getFactory();
-		Entry entry = factory.newEntry();
-		// id is the identifier of the Atom POST
-		entry.setId("urn:uuid:" + UUID.randomUUID().toString());
-		entry.setSummary("mods and binary deposit", Type.TEXT);
-		entry.setTitle(filename);
-		entry.setUpdated(new Date(System.currentTimeMillis()));
-		Parser parser = abdera.getParser();
-		Document<FOMExtensibleElement> doc = parser.parse(new ByteArrayInputStream(mods.getBytes()));
-		entry.addExtension(doc.getRoot());
-		
-		// If the deposit must be reviewed before publication, add a RELS-EXT triple to block publication
-
-		if (isReviewBeforePublication)
-			addPublicationBlockingRELSEXT(entry, pid);
-		
-		return entry;
-		
-	}
-
-	/**
-	 * Add a RELS-EXT datastream with an entry that blocks publication. (assuming a review work flow)
-	 * @param entry
-	 * @param pid
-	 */
-	private void addPublicationBlockingRELSEXT(Entry entry, String pid) {
-		Parser parser = Abdera.getInstance().getParser();
-		Element dsEl = new Element("datastream", "cdr", "http://cdr.lib.unc.edu/");
-		dsEl.setAttribute("id", "RELS-EXT");
-		Namespace rdfNS = Namespace.getNamespace("rdf", "http://www.w3.org/1999/02/22-rdf-syntax-ns#");
-		dsEl.addContent(
-				new Element("RDF", rdfNS).addContent(
-						new Element("Description", rdfNS)
-							.setAttribute("about", "info:fedora/"+pid, rdfNS)
-							.addContent(
-								new Element("isPublished", "cdr-model", "http://cdr.unc.edu/definitions/1.0/base-model.xml#")
-									.setText("no")
-						)
-				)
-		);
-		String rels = new XMLOutputter().outputString(dsEl);
-		Document<FOMExtensibleElement> doc = parser.parse(new ByteArrayInputStream(rels.getBytes()));
-		entry.addExtension(doc.getRoot());
 	}
 
 }
