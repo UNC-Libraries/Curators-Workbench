@@ -177,13 +177,15 @@ public class FormController {
 
 	@RequestMapping(value = "/{formId}.form", method = RequestMethod.POST)
 	public String processForm(@PathVariable String formId, @Valid @ModelAttribute("form") Form form, BindingResult errors,
-			Principal user, @RequestParam("file") MultipartFile[] mpfiles, SessionStatus sessionStatus, HttpServletRequest request) throws PermissionDeniedException {
+			Principal user, @RequestParam("file") MultipartFile file, @RequestParam("supplementalFile") MultipartFile[] supplementalFiles, SessionStatus sessionStatus, HttpServletRequest request) throws PermissionDeniedException {
 		
 		gov.loc.mods.mods.DocumentRoot modsDocumentRoot;
 		edu.unc.lib.schemas.acl.DocumentRoot aclDocumentRoot;
 
 		String pid;
-		List<SubmittedFile> submittedFiles;
+		
+		SubmittedFile submittedFile;
+		List<SubmittedFile> supplementalSubmittedFiles;
 		
 		DepositResult result;
 
@@ -202,58 +204,19 @@ public class FormController {
 		
 		// Handle uploaded files, exiting to report errors if we find any
 		
-		submittedFiles = new ArrayList<SubmittedFile>();
-		
-		for (MultipartFile mpfile : mpfiles) {
-		
-			if (!mpfile.isEmpty()) {
-				
-				SubmittedFile submittedFile = new SubmittedFile();
-				
-				try {
-					
-					// Copy or save the uploaded file to the temporary directory
-					
-					File temp = File.createTempFile("form", ".data");
-					mpfile.transferTo(temp);
-					
-					// Run the virus scan on the file, adding an error and moving on to
-					// the next one if there's a non-null result
-					
-					String scanResult = virusScan(temp);
-					
-					if (scanResult != null) {
-						errors.addError(new FieldError("form", "file", scanResult));
-						temp.delete();
-						temp = null;
-						
-						continue;
-					}
-					
-					submittedFile.setFile(temp);
-					
-				} catch (IOException e) {
-					throw new Error(e);
-				} catch (IllegalStateException e) {
-					throw new Error(e);
-				}
-				
-				submittedFile.setFilename(mpfile.getOriginalFilename().replaceAll(Pattern.quote("\""), ""));
-				
-				if (mpfile.getContentType() == null)
-					submittedFile.setContentType("application/octet-stream");
-				else
-					submittedFile.setContentType(mpfile.getContentType());
-				
-				submittedFiles.add(submittedFile);
-			
-			}
-			
-		}
-		
-		if (submittedFiles.size() == 0)
+		submittedFile = handleUploadedFile(file, errors);
+
+		if (submittedFile == null)
 			errors.addError(new FieldError("form", "file", "You must select a file for upload."));
 		
+		supplementalSubmittedFiles = new ArrayList<SubmittedFile>();
+		
+		for (MultipartFile supplementalFile : supplementalFiles) {
+			SubmittedFile sf = handleUploadedFile(supplementalFile, errors);
+			if (sf != null)
+				supplementalSubmittedFiles.add(sf);
+		}
+
 		if (errors.hasErrors()) {
 			LOG.debug(errors.getErrorCount() + " errors");
 			return "form";
@@ -266,7 +229,7 @@ public class FormController {
 		modsDocumentRoot = makeMods(form);
 		aclDocumentRoot = makeAcl();
 		
-		result = this.getDepositHandler().deposit(form.getDepositContainerId(), pid, modsDocumentRoot, aclDocumentRoot, submittedFiles);
+		result = this.getDepositHandler().deposit(form.getDepositContainerId(), pid, modsDocumentRoot, aclDocumentRoot, submittedFile, supplementalSubmittedFiles);
 		
 		
 		// Handle a failed deposit response
@@ -281,15 +244,64 @@ public class FormController {
 		
 		// Clean up: delete the temporary file, clear the session
 		
-		for (SubmittedFile submittedFile : submittedFiles) {
-			if (submittedFile.getFile() != null)
-				submittedFile.getFile().delete();
+		if (submittedFile.getFile() != null)
+			submittedFile.getFile().delete();
+		
+		for (SubmittedFile sf : supplementalSubmittedFiles) {
+			if (sf.getFile() != null)
+				sf.getFile().delete();
 		}
 		
 		sessionStatus.setComplete();
 		request.setAttribute("formId", formId);
 
 		return "success";
+		
+	}
+	
+	private SubmittedFile handleUploadedFile(MultipartFile file, BindingResult errors) {
+		
+		if (file.isEmpty())
+			return null;
+			
+		SubmittedFile submittedFile = new SubmittedFile();
+
+		try {
+
+			// Copy or save the uploaded file to the temporary directory
+
+			File temp = File.createTempFile("form", ".data");
+			file.transferTo(temp);
+
+			// Run the virus scan on the file, adding an error and moving on to
+			// the next one if there's a non-null result
+
+			String scanResult = virusScan(temp);
+
+			if (scanResult != null) {
+				errors.addError(new FieldError("form", "file", scanResult));
+				temp.delete();
+				temp = null;
+
+				return null;
+			}
+
+			submittedFile.setFile(temp);
+
+		} catch (IOException e) {
+			throw new Error(e);
+		} catch (IllegalStateException e) {
+			throw new Error(e);
+		}
+
+		submittedFile.setFilename(file.getOriginalFilename().replaceAll(Pattern.quote("\""), ""));
+
+		if (file.getContentType() == null)
+			submittedFile.setContentType("application/octet-stream");
+		else
+			submittedFile.setContentType(file.getContentType());
+
+		return submittedFile;
 		
 	}
 

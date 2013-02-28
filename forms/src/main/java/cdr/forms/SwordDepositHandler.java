@@ -49,6 +49,7 @@ import java.io.PrintStream;
 import java.io.StringWriter;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
@@ -136,13 +137,13 @@ public class SwordDepositHandler implements DepositHandler {
 		this.defaultContainer = defaultContainer;
 	}
 
-	public DepositResult deposit(String containerId, String pid, gov.loc.mods.mods.DocumentRoot mods, edu.unc.lib.schemas.acl.DocumentRoot acl, List<SubmittedFile> files) {
+	public DepositResult deposit(String containerId, String pid, gov.loc.mods.mods.DocumentRoot mods, edu.unc.lib.schemas.acl.DocumentRoot acl, SubmittedFile mainFile, List<SubmittedFile> supplementaryFiles) {
 		
 		// Prepare METS and the zip file
 		
-		gov.loc.mets.DocumentRoot metsDocumentRoot = makeMets(mods, acl, files);
+		gov.loc.mets.DocumentRoot metsDocumentRoot = makeMets(mods, acl, mainFile, supplementaryFiles);
 		
-		File zipFile = makeZipFile(metsDocumentRoot, files);
+		File zipFile = makeZipFile(metsDocumentRoot, mainFile, supplementaryFiles);
 		
 		
 		// Make the SWORD deposit
@@ -213,9 +214,13 @@ public class SwordDepositHandler implements DepositHandler {
 		
 	}
 
-	private gov.loc.mets.DocumentRoot makeMets(gov.loc.mods.mods.DocumentRoot modsDocumentRoot, edu.unc.lib.schemas.acl.DocumentRoot acl, List<SubmittedFile> submittedFiles) {
+	private gov.loc.mets.DocumentRoot makeMets(gov.loc.mods.mods.DocumentRoot modsDocumentRoot, edu.unc.lib.schemas.acl.DocumentRoot acl, SubmittedFile mainFile, List<SubmittedFile> supplementalFiles) {
 
 		int fileIndex;
+		
+		List<SubmittedFile> files = new ArrayList<SubmittedFile>();
+		files.add(mainFile);
+		files.addAll(supplementalFiles);
 
 		gov.loc.mets.DocumentRoot root = MetsFactory.eINSTANCE.createDocumentRoot();
 		root.setMets(MetsFactory.eINSTANCE.createMetsType1());
@@ -288,15 +293,15 @@ public class SwordDepositHandler implements DepositHandler {
 
 		fileIndex = 0;
 
-		for (SubmittedFile submittedFile : submittedFiles) {
+		for (SubmittedFile f : files) {
 
 			FileType file = MetsFactory.eINSTANCE.createFileType();
 			file.setID("f" + fileIndex);
-			file.setMIMETYPE(submittedFile.getContentType());
+			file.setMIMETYPE(f.getContentType());
 
 			FLocatType fLocat = MetsFactory.eINSTANCE.createFLocatType();
 			fLocat.setLOCTYPE(LOCTYPEType.URL);
-			fLocat.setHref(submittedFile.getFilename());
+			fLocat.setHref(f.getFilename());
 
 			file.getFLocat().add(fLocat);
 			fileGrp.getFile().add(file);
@@ -317,7 +322,7 @@ public class SwordDepositHandler implements DepositHandler {
 
 		fileIndex = 0;
 
-		for (@SuppressWarnings("unused") SubmittedFile submittedFile : submittedFiles) {
+		for (@SuppressWarnings("unused") SubmittedFile f : files) {
 
 			DivType fileDiv = MetsFactory.eINSTANCE.createDivType();
 			fileDiv.setTYPE(METSConstants.Div_File);
@@ -378,16 +383,21 @@ public class SwordDepositHandler implements DepositHandler {
 
 	}
 	
-	private File makeZipFile(gov.loc.mets.DocumentRoot metsDocumentRoot, List<SubmittedFile> submittedFiles) {
+	private File makeZipFile(gov.loc.mets.DocumentRoot metsDocumentRoot, SubmittedFile mainFile, List<SubmittedFile> supplementalFiles) {
 		
 		String metsXml = serializeMets(metsDocumentRoot);
+		
+		List<SubmittedFile> files = new ArrayList<SubmittedFile>();
+		
+		files.add(mainFile);
+		files.addAll(supplementalFiles);
 
 		// Create the zipped package part
 
-		File file;
+		File zipFile;
 		
 		try {
-			file = File.createTempFile("tmp", ".zip");
+			zipFile = File.createTempFile("tmp", ".zip");
 		} catch (IOException e) {
 			throw new Error(e);
 		}
@@ -395,7 +405,7 @@ public class SwordDepositHandler implements DepositHandler {
 		FileOutputStream fileOutput;
 
 		try {
-			fileOutput = new FileOutputStream(file);
+			fileOutput = new FileOutputStream(zipFile);
 		} catch (FileNotFoundException e) {
 			throw new Error(e);
 		}
@@ -416,12 +426,11 @@ public class SwordDepositHandler implements DepositHandler {
 			
 			// Write the files
 			
-			for (SubmittedFile submittedFile : submittedFiles) {
-			
-				entry = new ZipEntry(submittedFile.getFilename());
+			for (SubmittedFile f : files) {
+				entry = new ZipEntry(f.getFilename());
 				zipOutput.putNextEntry(entry);
 
-				FileInputStream fileInput = new FileInputStream(submittedFile.getFile());
+				FileInputStream fileInput = new FileInputStream(f.getFile());
 
 				byte[] buffer = new byte[1024];
 
@@ -429,7 +438,6 @@ public class SwordDepositHandler implements DepositHandler {
 					zipOutput.write(buffer, 0, buffer.length);
 
 				fileInput.close();
-				
 			}
 
 			zipOutput.finish();
@@ -443,7 +451,7 @@ public class SwordDepositHandler implements DepositHandler {
 			
 		}
 		
-		return file;
+		return zipFile;
 		
 	}
 
