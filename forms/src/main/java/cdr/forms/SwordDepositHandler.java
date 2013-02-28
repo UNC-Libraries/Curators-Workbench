@@ -254,8 +254,8 @@ public class SwordDepositHandler implements DepositHandler {
 
 		AgentType agent = MetsFactory.eINSTANCE.createAgentType();
 		agent.setROLE(ROLEType.CREATOR);
-		agent.setTYPE(TYPEType.INDIVIDUAL);
-		agent.setName("Someone");
+		agent.setTYPE(TYPEType.OTHER);
+		agent.setName("CDR Forms");
 		head.getAgent().add(agent);
 
 		mets.setMetsHdr(head);
@@ -358,8 +358,8 @@ public class SwordDepositHandler implements DepositHandler {
 
 		AgentType agent = MetsFactory.eINSTANCE.createAgentType();
 		agent.setROLE(ROLEType.CREATOR);
-		agent.setTYPE(TYPEType.INDIVIDUAL);
-		agent.setName("Someone");
+		agent.setTYPE(TYPEType.OTHER);
+		agent.setName("CDR Forms");
 		head.getAgent().add(agent);
 
 		mets.setMetsHdr(head);
