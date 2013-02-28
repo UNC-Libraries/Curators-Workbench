@@ -175,6 +175,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//Form/authorizedGroups"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//Form/reviewBeforePublication"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//Form/promptForMultipleSubmissions"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//Form/canAddSupplementalFiles"/>
     </genClasses>
     <genClasses image="false" ecoreClass="crosswalk.ecore#//FormElement"/>
     <genClasses ecoreClass="crosswalk.ecore#//Paragraph">

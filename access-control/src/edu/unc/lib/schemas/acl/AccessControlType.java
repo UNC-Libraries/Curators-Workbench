@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link edu.unc.lib.schemas.acl.AccessControlType#getGrant <em>Grant</em>}</li>
  *   <li>{@link edu.unc.lib.schemas.acl.AccessControlType#isDiscoverable <em>Discoverable</em>}</li>
+ *   <li>{@link edu.unc.lib.schemas.acl.AccessControlType#isPublished <em>Published</em>}</li>
  *   <li>{@link edu.unc.lib.schemas.acl.AccessControlType#getEmbargoUntil <em>Embargo Until</em>}</li>
  *   <li>{@link edu.unc.lib.schemas.acl.AccessControlType#isInherit <em>Inherit</em>}</li>
  * </ul>
@@ -103,6 +104,61 @@ public interface AccessControlType extends EObject {
 	 * @generated
 	 */
 	boolean isSetDiscoverable();
+
+								/**
+	 * Returns the value of the '<em><b>Published</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Published</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Published</em>' attribute.
+	 * @see #isSetPublished()
+	 * @see #unsetPublished()
+	 * @see #setPublished(boolean)
+	 * @see edu.unc.lib.schemas.acl.AclPackage#getAccessControlType_Published()
+	 * @model default="true" unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Boolean"
+	 *        extendedMetaData="kind='attribute' name='published' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	boolean isPublished();
+
+								/**
+	 * Sets the value of the '{@link edu.unc.lib.schemas.acl.AccessControlType#isPublished <em>Published</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Published</em>' attribute.
+	 * @see #isSetPublished()
+	 * @see #unsetPublished()
+	 * @see #isPublished()
+	 * @generated
+	 */
+	void setPublished(boolean value);
+
+								/**
+	 * Unsets the value of the '{@link edu.unc.lib.schemas.acl.AccessControlType#isPublished <em>Published</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSetPublished()
+	 * @see #isPublished()
+	 * @see #setPublished(boolean)
+	 * @generated
+	 */
+	void unsetPublished();
+
+								/**
+	 * Returns whether the value of the '{@link edu.unc.lib.schemas.acl.AccessControlType#isPublished <em>Published</em>}' attribute is set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return whether the value of the '<em>Published</em>' attribute is set.
+	 * @see #unsetPublished()
+	 * @see #isPublished()
+	 * @see #setPublished(boolean)
+	 * @generated
+	 */
+	boolean isSetPublished();
 
 								/**
 	 * Returns the value of the '<em><b>Embargo Until</b></em>' attribute.

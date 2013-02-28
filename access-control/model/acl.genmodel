@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<genmodel:GenModel xmi:version="2.0"
-    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/access-control/src"
-    modelPluginID="access-control" modelName="Acl" importerID="org.eclipse.xsd.ecore.importer"
-    complianceLevel="6.0" copyrightFields="false">
-  <foreignModel>../../curators-workbench/etc/acl.xsd</foreignModel>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/access-control/src" modelPluginID="access-control"
+    modelName="Acl" importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0"
+    copyrightFields="false">
+  <foreignModel>acl.ecore</foreignModel>
   <genPackages prefix="Acl" basePackage="edu.unc.lib.schemas" resource="XML" disposableProviderFactory="true"
       ecorePackage="acl.ecore#/">
     <genClasses ecoreClass="acl.ecore#//AccessControlType">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference acl.ecore#//AccessControlType/grant"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute acl.ecore#//AccessControlType/discoverable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute acl.ecore#//AccessControlType/published"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute acl.ecore#//AccessControlType/embargoUntil"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute acl.ecore#//AccessControlType/inherit"/>
     </genClasses>

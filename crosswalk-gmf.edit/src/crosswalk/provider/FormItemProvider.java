@@ -74,6 +74,7 @@ public class FormItemProvider
 			addAuthorizedGroupsPropertyDescriptor(object);
 			addReviewBeforePublicationPropertyDescriptor(object);
 			addPromptForMultipleSubmissionsPropertyDescriptor(object);
+			addCanAddSupplementalFilesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -233,6 +234,28 @@ public class FormItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Can Add Supplemental Files feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCanAddSupplementalFilesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Form_canAddSupplementalFiles_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Form_canAddSupplementalFiles_feature", "_UI_Form_type"),
+				 CrosswalkPackage.Literals.FORM__CAN_ADD_SUPPLEMENTAL_FILES,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -307,6 +330,7 @@ public class FormItemProvider
 			case CrosswalkPackage.FORM__AUTHORIZED_GROUPS:
 			case CrosswalkPackage.FORM__REVIEW_BEFORE_PUBLICATION:
 			case CrosswalkPackage.FORM__PROMPT_FOR_MULTIPLE_SUBMISSIONS:
+			case CrosswalkPackage.FORM__CAN_ADD_SUPPLEMENTAL_FILES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case CrosswalkPackage.FORM__ELEMENTS:

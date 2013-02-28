@@ -52,6 +52,7 @@ public class AccessControlFormPage extends FormPage {
 	protected AccessControlType model;
 	private Button inheritFlag;
 	private Button discoverableFlag;
+	private Button publishedFlag;
 	private Button embargoFlag;
 	private DateTime untilDate;
 	private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -76,6 +77,7 @@ public class AccessControlFormPage extends FormPage {
 
 		// first block
 		createInheritContent(parent, toolkit);
+		createIsPublishedContent(parent, toolkit);
 		createDiscoverableContent(parent, toolkit);
 		createEmbargoContent(parent, toolkit);
 		// form.setBackgroundImage(FormArticlePlugin.getDefault().getImage(
@@ -223,5 +225,36 @@ public class AccessControlFormPage extends FormPage {
 		// gd.heightHint
 		discoverableFlag.setLayoutData(gd);
 		s1.setClient(discoverableFlag);
+	}
+	
+	/**
+	 * @param parent
+	 * @param toolkit
+	 */
+	private void createIsPublishedContent(Composite parent, FormToolkit toolkit) {
+		TableWrapData gd = new TableWrapData(TableWrapData.FILL_GRAB, TableWrapData.MIDDLE);
+		Section s1 = toolkit.createSection(parent, Section.DESCRIPTION | Section.TITLE_BAR);
+		s1.setText("Publication"); //$NON-NLS-1$
+		s1.setDescription("Do you want this object to be listed and viewed by patrons?"); //$NON-NLS-1$
+		s1.marginWidth = 10;
+		s1.marginHeight = 5;
+		s1.setLayoutData(gd);
+		publishedFlag = toolkit.createButton(s1, "Yes, publish this item.", SWT.CHECK); //$NON-NLS-1$
+		if(model != null) publishedFlag.setSelection(model.isPublished());
+		publishedFlag.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				if (model != null) {
+					Command cmd = SetCommand.create(MetsProjectNature.getEditingDomain(model), model, AclPackage.eINSTANCE.getAccessControlType_Published(), publishedFlag.getSelection());
+					if(cmd.canExecute()) {
+						MetsProjectNature.getNatureForMetsObject(model).getCommandStack().execute(cmd);
+					}
+				}
+			}
+		});
+		gd = new TableWrapData(TableWrapData.FILL, TableWrapData.MIDDLE);
+		// gd.heightHint
+		publishedFlag.setLayoutData(gd);
+		s1.setClient(publishedFlag);
 	}
 }

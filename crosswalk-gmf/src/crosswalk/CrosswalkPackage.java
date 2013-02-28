@@ -1571,13 +1571,22 @@ public interface CrosswalkPackage extends EPackage {
 	int FORM__PROMPT_FOR_MULTIPLE_SUBMISSIONS = EDITABLE_FEATURE_COUNT + 9;
 
 								/**
+	 * The feature id for the '<em><b>Can Add Supplemental Files</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORM__CAN_ADD_SUPPLEMENTAL_FILES = EDITABLE_FEATURE_COUNT + 10;
+
+								/**
 	 * The number of structural features of the '<em>Form</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FORM_FEATURE_COUNT = EDITABLE_FEATURE_COUNT + 10;
+	int FORM_FEATURE_COUNT = EDITABLE_FEATURE_COUNT + 11;
 
 								/**
 	 * The meta object id for the '{@link crosswalk.FormElement <em>Form Element</em>}' class.
@@ -2782,6 +2791,17 @@ public interface CrosswalkPackage extends EPackage {
 	EAttribute getForm_PromptForMultipleSubmissions();
 
 								/**
+	 * Returns the meta object for the attribute '{@link crosswalk.Form#isCanAddSupplementalFiles <em>Can Add Supplemental Files</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Can Add Supplemental Files</em>'.
+	 * @see crosswalk.Form#isCanAddSupplementalFiles()
+	 * @see #getForm()
+	 * @generated
+	 */
+	EAttribute getForm_CanAddSupplementalFiles();
+
+								/**
 	 * Returns the meta object for class '{@link crosswalk.FormElement <em>Form Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3755,6 +3775,14 @@ public interface CrosswalkPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute FORM__PROMPT_FOR_MULTIPLE_SUBMISSIONS = eINSTANCE.getForm_PromptForMultipleSubmissions();
+
+																/**
+		 * The meta object literal for the '<em><b>Can Add Supplemental Files</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FORM__CAN_ADD_SUPPLEMENTAL_FILES = eINSTANCE.getForm_CanAddSupplementalFiles();
 
 																/**
 		 * The meta object literal for the '{@link crosswalk.FormElement <em>Form Element</em>}' class.

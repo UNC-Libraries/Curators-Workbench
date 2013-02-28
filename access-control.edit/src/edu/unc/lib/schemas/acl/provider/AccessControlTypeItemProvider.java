@@ -70,6 +70,7 @@ public class AccessControlTypeItemProvider
 			super.getPropertyDescriptors(object);
 
 			addDiscoverablePropertyDescriptor(object);
+			addPublishedPropertyDescriptor(object);
 			addEmbargoUntilPropertyDescriptor(object);
 			addInheritPropertyDescriptor(object);
 		}
@@ -90,6 +91,28 @@ public class AccessControlTypeItemProvider
 				 getString("_UI_AccessControlType_discoverable_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_AccessControlType_discoverable_feature", "_UI_AccessControlType_type"),
 				 AclPackage.Literals.ACCESS_CONTROL_TYPE__DISCOVERABLE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+								/**
+	 * This adds a property descriptor for the Published feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPublishedPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_AccessControlType_published_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AccessControlType_published_feature", "_UI_AccessControlType_type"),
+				 AclPackage.Literals.ACCESS_CONTROL_TYPE__PUBLISHED,
 				 true,
 				 false,
 				 false,
@@ -208,6 +231,7 @@ public class AccessControlTypeItemProvider
 
 		switch (notification.getFeatureID(AccessControlType.class)) {
 			case AclPackage.ACCESS_CONTROL_TYPE__DISCOVERABLE:
+			case AclPackage.ACCESS_CONTROL_TYPE__PUBLISHED:
 			case AclPackage.ACCESS_CONTROL_TYPE__EMBARGO_UNTIL:
 			case AclPackage.ACCESS_CONTROL_TYPE__INHERIT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

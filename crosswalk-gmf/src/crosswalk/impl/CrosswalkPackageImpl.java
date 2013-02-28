@@ -1276,6 +1276,15 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getForm_CanAddSupplementalFiles() {
+		return (EAttribute)formEClass.getEStructuralFeatures().get(8);
+	}
+
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getFormElement() {
 		return formElementEClass;
 	}
@@ -1554,6 +1563,7 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 		createEAttribute(formEClass, FORM__AUTHORIZED_GROUPS);
 		createEAttribute(formEClass, FORM__REVIEW_BEFORE_PUBLICATION);
 		createEAttribute(formEClass, FORM__PROMPT_FOR_MULTIPLE_SUBMISSIONS);
+		createEAttribute(formEClass, FORM__CAN_ADD_SUPPLEMENTAL_FILES);
 
 		formElementEClass = createEClass(FORM_ELEMENT);
 
@@ -1825,6 +1835,7 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 		initEAttribute(getForm_AuthorizedGroups(), ecorePackage.getEString(), "authorizedGroups", "public", 0, -1, Form.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getForm_ReviewBeforePublication(), ecorePackage.getEBoolean(), "reviewBeforePublication", "true", 1, 1, Form.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getForm_PromptForMultipleSubmissions(), ecorePackage.getEBoolean(), "promptForMultipleSubmissions", "false", 1, 1, Form.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getForm_CanAddSupplementalFiles(), ecorePackage.getEBoolean(), "canAddSupplementalFiles", "false", 1, 1, Form.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(formElementEClass, FormElement.class, "FormElement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

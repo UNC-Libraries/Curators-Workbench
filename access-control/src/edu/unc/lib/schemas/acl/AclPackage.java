@@ -88,13 +88,22 @@ public interface AclPackage extends EPackage {
 	int ACCESS_CONTROL_TYPE__DISCOVERABLE = 1;
 
 								/**
+	 * The feature id for the '<em><b>Published</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACCESS_CONTROL_TYPE__PUBLISHED = 2;
+
+								/**
 	 * The feature id for the '<em><b>Embargo Until</b></em>' attribute.
 	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-        int ACCESS_CONTROL_TYPE__EMBARGO_UNTIL = 2;
+        int ACCESS_CONTROL_TYPE__EMBARGO_UNTIL = 3;
 
         /**
 	 * The feature id for the '<em><b>Inherit</b></em>' attribute.
@@ -103,7 +112,7 @@ public interface AclPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-        int ACCESS_CONTROL_TYPE__INHERIT = 3;
+        int ACCESS_CONTROL_TYPE__INHERIT = 4;
 
         /**
 	 * The number of structural features of the '<em>Access Control Type</em>' class.
@@ -112,7 +121,7 @@ public interface AclPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-        int ACCESS_CONTROL_TYPE_FEATURE_COUNT = 4;
+        int ACCESS_CONTROL_TYPE_FEATURE_COUNT = 5;
 
         /**
 	 * The meta object id for the '{@link edu.unc.lib.schemas.acl.impl.DocumentRootImpl <em>Document Root</em>}' class.
@@ -238,6 +247,17 @@ public interface AclPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getAccessControlType_Discoverable();
+
+								/**
+	 * Returns the meta object for the attribute '{@link edu.unc.lib.schemas.acl.AccessControlType#isPublished <em>Published</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Published</em>'.
+	 * @see edu.unc.lib.schemas.acl.AccessControlType#isPublished()
+	 * @see #getAccessControlType()
+	 * @generated
+	 */
+	EAttribute getAccessControlType_Published();
 
 								/**
 	 * Returns the meta object for the attribute '{@link edu.unc.lib.schemas.acl.AccessControlType#getEmbargoUntil <em>Embargo Until</em>}'.
@@ -394,6 +414,14 @@ public interface AclPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ACCESS_CONTROL_TYPE__DISCOVERABLE = eINSTANCE.getAccessControlType_Discoverable();
+
+																/**
+		 * The meta object literal for the '<em><b>Published</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ACCESS_CONTROL_TYPE__PUBLISHED = eINSTANCE.getAccessControlType_Published();
 
 																/**
 		 * The meta object literal for the '<em><b>Embargo Until</b></em>' attribute feature.

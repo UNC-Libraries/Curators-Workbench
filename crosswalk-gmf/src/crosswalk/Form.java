@@ -25,6 +25,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link crosswalk.Form#getAuthorizedGroups <em>Authorized Groups</em>}</li>
  *   <li>{@link crosswalk.Form#isReviewBeforePublication <em>Review Before Publication</em>}</li>
  *   <li>{@link crosswalk.Form#isPromptForMultipleSubmissions <em>Prompt For Multiple Submissions</em>}</li>
+ *   <li>{@link crosswalk.Form#isCanAddSupplementalFiles <em>Can Add Supplemental Files</em>}</li>
  * </ul>
  * </p>
  *
@@ -212,5 +213,32 @@ public interface Form extends Editable, ContextProvider {
 	 * @generated
 	 */
 	void setPromptForMultipleSubmissions(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Can Add Supplemental Files</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Can Add Supplemental Files</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Can Add Supplemental Files</em>' attribute.
+	 * @see #setCanAddSupplementalFiles(boolean)
+	 * @see crosswalk.CrosswalkPackage#getForm_CanAddSupplementalFiles()
+	 * @model default="false" required="true"
+	 * @generated
+	 */
+	boolean isCanAddSupplementalFiles();
+
+	/**
+	 * Sets the value of the '{@link crosswalk.Form#isCanAddSupplementalFiles <em>Can Add Supplemental Files</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Can Add Supplemental Files</em>' attribute.
+	 * @see #isCanAddSupplementalFiles()
+	 * @generated
+	 */
+	void setCanAddSupplementalFiles(boolean value);
 
 } // Form
