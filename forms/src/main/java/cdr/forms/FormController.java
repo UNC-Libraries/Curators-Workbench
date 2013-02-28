@@ -178,7 +178,7 @@ public class FormController {
 
 	@RequestMapping(value = "/{formId}.form", method = RequestMethod.POST)
 	public String processForm(@PathVariable String formId, @Valid @ModelAttribute("form") Form form, BindingResult errors,
-			Principal user, @RequestParam("file") MultipartFile file, @RequestParam("supplementalFile") MultipartFile[] supplementalFiles, SessionStatus sessionStatus, HttpServletRequest request) throws PermissionDeniedException {
+			Principal user, @RequestParam("file") MultipartFile file, @RequestParam(value="supplementalFile", required=false) MultipartFile[] supplementalFiles, SessionStatus sessionStatus, HttpServletRequest request) throws PermissionDeniedException {
 		
 		gov.loc.mods.mods.DocumentRoot modsDocumentRoot;
 		edu.unc.lib.schemas.acl.DocumentRoot aclDocumentRoot;
