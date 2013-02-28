@@ -33,9 +33,12 @@ import gov.loc.mets.MetsHdrType;
 import gov.loc.mets.MetsPackage;
 import gov.loc.mets.MetsType;
 import gov.loc.mets.ROLEType;
+import gov.loc.mets.SmLinkType;
+import gov.loc.mets.StructLinkType1;
 import gov.loc.mets.StructMapType;
 import gov.loc.mets.TYPEType;
 import gov.loc.mets.XmlDataType1;
+import gov.loc.mets.util.Link;
 import gov.loc.mets.util.METSConstants;
 import gov.loc.mets.util.MetsResourceFactoryImpl;
 import gov.loc.mods.mods.MODSPackage;
@@ -69,6 +72,7 @@ import org.apache.commons.httpclient.methods.RequestEntity;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.xml.type.internal.XMLCalendar;
 import org.jdom.Element;
@@ -451,14 +455,20 @@ public class SwordDepositHandler implements DepositHandler {
 		DivType folderDiv = MetsFactory.eINSTANCE.createDivType();
 		folderDiv.setTYPE(METSConstants.Div_AggregateWork);
 		folderDiv.getDmdSec().add(mdSec);
+		
+		folderDiv.setID("a");
 
 		{
 
 			DivType fileDiv = MetsFactory.eINSTANCE.createDivType();
+			
 			fileDiv.setTYPE(METSConstants.Div_File);
+			
 			FptrType fptr = MetsFactory.eINSTANCE.createFptrType();
 			fptr.setFILEID("f0");
 			fileDiv.getFptr().add(fptr);
+			fileDiv.setID("d0");
+			
 			folderDiv.getDiv().add(fileDiv);
 			
 		}
@@ -472,6 +482,7 @@ public class SwordDepositHandler implements DepositHandler {
 			FptrType fptr = MetsFactory.eINSTANCE.createFptrType();
 			fptr.setFILEID("f" + fileIndex);
 			fileDiv.getFptr().add(fptr);
+			fileDiv.setID("d" + fileIndex);
 			folderDiv.getDiv().add(fileDiv);
 
 			fileIndex++;
@@ -481,6 +492,36 @@ public class SwordDepositHandler implements DepositHandler {
 		structMap.setDiv(folderDiv);
 
 		mets.getStructMap().add(structMap);
+		
+		// Structural Links
+		
+		StructLinkType1 structLink = MetsFactory.eINSTANCE.createStructLinkType1();
+		
+		SmLinkType smLink;
+		
+		smLink = MetsFactory.eINSTANCE.createSmLinkType();
+		smLink.setArcrole(Link.DEFAULTACCESS.uri);
+		smLink.setXlinkFrom(folderDiv);
+		smLink.setXlinkTo(folderDiv.getDiv().get(0));
+
+		structLink.getSmLink().add(smLink);
+		
+
+		fileIndex = 1;
+
+		for (@SuppressWarnings("unused") SubmittedFile f : supplementalFiles) {
+			
+			smLink = MetsFactory.eINSTANCE.createSmLinkType();
+			smLink.setArcrole(Link.SUPPLEMENTAL.uri);
+			smLink.setXlinkFrom(folderDiv);
+			smLink.setXlinkTo(folderDiv.getDiv().get(fileIndex));
+
+			structLink.getSmLink().add(smLink);
+			
+		}
+		
+		mets.setStructLink(structLink);
+		
 
 		return root;
 
