@@ -261,12 +261,15 @@ public class SwordDepositHandler implements DepositHandler {
 		mets.setMetsHdr(head);
 
 		// Administrative metadata section
+		
+		MdSecType rightsMD;
 
 		{
 
 			AmdSecType amdSec = MetsFactory.eINSTANCE.createAmdSecType();
 
-			MdSecType rightsMD = MetsFactory.eINSTANCE.createMdSecType();
+			rightsMD = MetsFactory.eINSTANCE.createMdSecType();
+			rightsMD.setID("acl");
 
 			MdWrapType mdWrap = MetsFactory.eINSTANCE.createMdWrapType();
 			mdWrap.setMDTYPE(MDTYPEType.OTHER);
@@ -326,7 +329,11 @@ public class SwordDepositHandler implements DepositHandler {
 		StructMapType structMap = MetsFactory.eINSTANCE.createStructMapType();
 
 		DivType fileDiv = MetsFactory.eINSTANCE.createDivType();
+		
 		fileDiv.setTYPE(METSConstants.Div_File);
+		fileDiv.getDmdSec().add(mdSec);
+		fileDiv.getMdSec().add(rightsMD);
+		
 		FptrType fptr = MetsFactory.eINSTANCE.createFptrType();
 		fptr.setFILEID("f0");
 		fileDiv.getFptr().add(fptr);
@@ -366,11 +373,14 @@ public class SwordDepositHandler implements DepositHandler {
 		
 		// Administrative metadata section
 		
+		MdSecType rightsMD;
+		
 		{
 
 			AmdSecType amdSec = MetsFactory.eINSTANCE.createAmdSecType();
 			
-			MdSecType rightsMD = MetsFactory.eINSTANCE.createMdSecType();
+			rightsMD = MetsFactory.eINSTANCE.createMdSecType();
+			rightsMD.setID("acl");
 
 			MdWrapType mdWrap = MetsFactory.eINSTANCE.createMdWrapType();
 			mdWrap.setMDTYPE(MDTYPEType.OTHER);
@@ -455,6 +465,7 @@ public class SwordDepositHandler implements DepositHandler {
 		DivType folderDiv = MetsFactory.eINSTANCE.createDivType();
 		folderDiv.setTYPE(METSConstants.Div_AggregateWork);
 		folderDiv.getDmdSec().add(mdSec);
+		folderDiv.getMdSec().add(rightsMD);
 		
 		folderDiv.setID("a");
 
