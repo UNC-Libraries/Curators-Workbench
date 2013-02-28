@@ -318,7 +318,7 @@ public class SwordDepositHandler implements DepositHandler {
 
 		FLocatType fLocat = MetsFactory.eINSTANCE.createFLocatType();
 		fLocat.setLOCTYPE(LOCTYPEType.URL);
-		fLocat.setHref(submittedFile.getFilename());
+		fLocat.setHref("f0.data");
 
 		file.getFLocat().add(fLocat);
 		fileGrp.getFile().add(file);
@@ -331,6 +331,7 @@ public class SwordDepositHandler implements DepositHandler {
 
 		DivType fileDiv = MetsFactory.eINSTANCE.createDivType();
 		
+		fileDiv.setLABEL1(submittedFile.getFilename());
 		fileDiv.setTYPE(METSConstants.Div_File);
 		fileDiv.getDmdSec().add(mdSec);
 		fileDiv.getMdSec().add(rightsMD);
@@ -427,12 +428,13 @@ public class SwordDepositHandler implements DepositHandler {
 		{
 
 			FileType file = MetsFactory.eINSTANCE.createFileType();
+			
 			file.setID("f0");
 			file.setMIMETYPE(mainFile.getContentType());
 
 			FLocatType fLocat = MetsFactory.eINSTANCE.createFLocatType();
 			fLocat.setLOCTYPE(LOCTYPEType.URL);
-			fLocat.setHref(mainFile.getFilename());
+			fLocat.setHref("f0.data");
 
 			file.getFLocat().add(fLocat);
 			fileGrp.getFile().add(file);
@@ -449,7 +451,7 @@ public class SwordDepositHandler implements DepositHandler {
 
 			FLocatType fLocat = MetsFactory.eINSTANCE.createFLocatType();
 			fLocat.setLOCTYPE(LOCTYPEType.URL);
-			fLocat.setHref(f.getFilename());
+			fLocat.setHref("f" + fileIndex + ".data");
 
 			file.getFLocat().add(fLocat);
 			fileGrp.getFile().add(file);
@@ -476,6 +478,7 @@ public class SwordDepositHandler implements DepositHandler {
 			DivType fileDiv = MetsFactory.eINSTANCE.createDivType();
 			
 			fileDiv.setTYPE(METSConstants.Div_File);
+			fileDiv.setLABEL1(mainFile.getFilename());
 			
 			FptrType fptr = MetsFactory.eINSTANCE.createFptrType();
 			fptr.setFILEID("f0");
@@ -488,14 +491,18 @@ public class SwordDepositHandler implements DepositHandler {
 		
 		fileIndex = 1;
 
-		for (@SuppressWarnings("unused") SubmittedFile f : supplementalFiles) {
+		for (SubmittedFile f : supplementalFiles) {
 
 			DivType fileDiv = MetsFactory.eINSTANCE.createDivType();
+			
 			fileDiv.setTYPE(METSConstants.Div_File);
+			fileDiv.setLABEL1(f.getFilename());
+			
 			FptrType fptr = MetsFactory.eINSTANCE.createFptrType();
 			fptr.setFILEID("f" + fileIndex);
 			fileDiv.getFptr().add(fptr);
 			fileDiv.setID("d" + fileIndex);
+			
 			folderDiv.getDiv().add(fileDiv);
 
 			fileIndex++;
@@ -618,9 +625,11 @@ public class SwordDepositHandler implements DepositHandler {
 			
 			// Write the files
 			
+			int fileIndex = 0;
+			
 			for (SubmittedFile f : files) {
 				
-				entry = new ZipEntry(f.getFilename());
+				entry = new ZipEntry("f" + fileIndex + ".data");
 				zipOutput.putNextEntry(entry);
 
 				FileInputStream fileInput = new FileInputStream(f.getFile());
@@ -631,6 +640,8 @@ public class SwordDepositHandler implements DepositHandler {
 					zipOutput.write(buffer, 0, buffer.length);
 
 				fileInput.close();
+				
+				fileIndex++;
 				
 			}
 
