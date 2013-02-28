@@ -237,7 +237,8 @@ public class SwordDepositHandler implements DepositHandler {
 		
 	}
 	
-	private gov.loc.mets.DocumentRoot makeSingleFileMets(gov.loc.mods.mods.DocumentRoot modsDocumentRoot, edu.unc.lib.schemas.acl.DocumentRoot acl, SubmittedFile submittedFile) {
+	private gov.loc.mets.DocumentRoot makeSingleFileMets(gov.loc.mods.mods.DocumentRoot modsDocumentRoot, edu.unc.lib.schemas.acl.DocumentRoot acl,
+			SubmittedFile submittedFile) {
 		
 		gov.loc.mets.DocumentRoot root = MetsFactory.eINSTANCE.createDocumentRoot();
 		root.setMets(MetsFactory.eINSTANCE.createMetsType1());
@@ -346,7 +347,8 @@ public class SwordDepositHandler implements DepositHandler {
 		
 	}
 
-	private gov.loc.mets.DocumentRoot makeAggregateMets(gov.loc.mods.mods.DocumentRoot modsDocumentRoot, edu.unc.lib.schemas.acl.DocumentRoot acl, SubmittedFile mainFile, List<SubmittedFile> supplementalFiles) {
+	private gov.loc.mets.DocumentRoot makeAggregateMets(gov.loc.mods.mods.DocumentRoot modsDocumentRoot, edu.unc.lib.schemas.acl.DocumentRoot acl,
+			SubmittedFile mainFile, List<SubmittedFile> supplementalFiles) {
 
 		int fileIndex;
 
