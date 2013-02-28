@@ -15,6 +15,7 @@
  */
 package cdr.forms;
 
+import edu.unc.lib.schemas.acl.AccessControlType;
 import edu.unc.lib.schemas.acl.AclFactory;
 import gov.loc.mods.mods.DocumentRoot;
 import gov.loc.mods.mods.MODSFactory;
@@ -227,7 +228,7 @@ public class FormController {
 		
 		pid = "uuid:" + UUID.randomUUID().toString();
 		modsDocumentRoot = makeMods(form);
-		aclDocumentRoot = makeAcl();
+		aclDocumentRoot = makeAcl(form);
 		
 		result = this.getDepositHandler().deposit(form.getDepositContainerId(), pid, modsDocumentRoot, aclDocumentRoot, submittedFile, supplementalSubmittedFiles);
 		
@@ -334,7 +335,7 @@ public class FormController {
 	private gov.loc.mods.mods.DocumentRoot makeMods(Form form) {
 		// run the mapping and get a MODS record. (report any errors)
 		ModsDefinition mods = MODSFactory.eINSTANCE.createModsDefinition();
-		DocumentRoot root = MODSFactory.eINSTANCE.createDocumentRoot();
+		gov.loc.mods.mods.DocumentRoot root = MODSFactory.eINSTANCE.createDocumentRoot();
 		root.setMods(mods);
 		for (FormElement fe : form.getElements()) {
 			if(MetadataBlock.class.isInstance(fe)) {
@@ -347,10 +348,17 @@ public class FormController {
 		return root;
 	}
 	
-	private edu.unc.lib.schemas.acl.DocumentRoot makeAcl() {
+	private edu.unc.lib.schemas.acl.DocumentRoot makeAcl(Form form) {
 		
+		AccessControlType accessControl = AclFactory.eINSTANCE.createAccessControlType();
 		edu.unc.lib.schemas.acl.DocumentRoot root = AclFactory.eINSTANCE.createDocumentRoot();
-		root.setAccessControl(AclFactory.eINSTANCE.createAccessControlType());
+		root.setAccessControl(accessControl);
+		
+		// If the form specifies that the object should be reviewed before publication,
+		// the ACL should specify that it is not published.
+		
+		if (form.isReviewBeforePublication())
+			accessControl.setPublished(false);
 		
 		return root;
 		
