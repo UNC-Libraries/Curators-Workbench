@@ -257,7 +257,7 @@ public class FormController {
 		getNotificationHandler().notifyDeposit(form, result, user.getName());
 		
 		
-		// Clean up: delete the temporary file, clear the session
+		// Clean up: delete temporary files, clear the session
 		
 		if (submittedFile.getFile() != null)
 			submittedFile.getFile().delete();
