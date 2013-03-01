@@ -64,5 +64,32 @@
 		</list>
 		</property>
 	</bean>
+	
+	<bean id="emailNotificationHandler" class="cdr.forms.EmailNotificationHandler">
+		<property name="mailSender" ref="javaMailSender"/>
+		<property name="urlTemplate"
+			value="http://${repository.host}/record?id={0}"/>
+		<property name="freemarkerConfiguration" ref="freemarkerConfiguration"/>
+		<property name="administratorAddress" value="${forms.administrator.email}"/>
+		<property name="fromAddress" value="${forms.from.email}"/>
+	</bean>
+
+	<bean id="freemarkerConfiguration" class="freemarker.template.Configuration">
+		<property name="templateLoader">
+			<bean class="freemarker.cache.FileTemplateLoader">
+				<constructor-arg index="0" type="java.io.File">
+					<bean class="java.io.File">
+						<constructor-arg value="${forms.email.template.dir}" />
+					</bean>
+				</constructor-arg>
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="javaMailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="${smtp.host}"/>
+		<property name="port" value="${smtp.port}"/>
+		<property name="defaultEncoding" value="UTF-8"/>
+	</bean>
 
 </beans>

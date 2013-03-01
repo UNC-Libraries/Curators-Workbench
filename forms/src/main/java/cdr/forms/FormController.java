@@ -148,6 +148,17 @@ public class FormController {
 	public void setAuthorizationHandler(AuthorizationHandler authorizationHandler) {
 		this.authorizationHandler = authorizationHandler;
 	}
+	
+	@Autowired
+	private NotificationHandler notificationHandler = null;
+
+	public NotificationHandler getNotificationHandler() {
+		return notificationHandler;
+	}
+
+	public void setNotificationHandler(NotificationHandler notificationHandler) {
+		this.notificationHandler = notificationHandler;
+	}
 
 	@InitBinder
    protected void initBinder(WebDataBinder binder) {
@@ -228,6 +239,7 @@ public class FormController {
 			errors.addError( new FieldError("form","file", "Deposit failed with response code: "+result.getStatus()));
 			return "form";
 		}
+		getNotificationHandler().notifyDeposit(form, result, user.getName());
 		
 		// delete files
 		if(depositFile != null) depositFile.delete();
