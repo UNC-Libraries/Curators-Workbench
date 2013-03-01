@@ -144,13 +144,8 @@ public class SwordDepositHandler implements DepositHandler {
 	public DepositResult depositAggregate(String containerId, String pid, gov.loc.mods.mods.DocumentRoot mods, edu.unc.lib.schemas.acl.DocumentRoot acl,
 			SubmittedFile mainFile, List<SubmittedFile> supplementaryFiles) {
 
-		gov.loc.mets.DocumentRoot metsDocumentRoot = makeAggregateMets(mods, acl, mainFile, supplementaryFiles);
-		
-		List<SubmittedFile> files = new ArrayList<SubmittedFile>();
-		files.add(mainFile);
-		files.addAll(supplementaryFiles);
-		
-		File zipFile = makeZipFile(metsDocumentRoot, files);
+		gov.loc.mets.DocumentRoot metsDocumentRoot = makeMets(mods, acl, mainFile, supplementaryFiles);
+		File zipFile = makeZipFile(metsDocumentRoot, mainFile, supplementaryFiles);
 
 		return depositZip(containerId, pid, zipFile);
 		
@@ -158,12 +153,8 @@ public class SwordDepositHandler implements DepositHandler {
 
 	public DepositResult depositFile(String containerId, String pid, gov.loc.mods.mods.DocumentRoot mods, edu.unc.lib.schemas.acl.DocumentRoot acl, SubmittedFile file) {
 		
-		gov.loc.mets.DocumentRoot metsDocumentRoot = makeSingleFileMets(mods, acl, file);
-		
-		List<SubmittedFile> files = new ArrayList<SubmittedFile>();
-		files.add(file);
-		
-		File zipFile = makeZipFile(metsDocumentRoot, files);
+		gov.loc.mets.DocumentRoot metsDocumentRoot = makeMets(mods, acl, file, null);
+		File zipFile = makeZipFile(metsDocumentRoot, file, null);
 		
 		return depositZip(containerId, pid, zipFile);
 		
@@ -237,153 +228,76 @@ public class SwordDepositHandler implements DepositHandler {
 		
 	}
 	
-	private gov.loc.mets.DocumentRoot makeSingleFileMets(gov.loc.mods.mods.DocumentRoot modsDocumentRoot, edu.unc.lib.schemas.acl.DocumentRoot acl,
-			SubmittedFile submittedFile) {
-		
-		gov.loc.mets.DocumentRoot root = MetsFactory.eINSTANCE.createDocumentRoot();
-		root.setMets(MetsFactory.eINSTANCE.createMetsType1());
-		MetsType mets = root.getMets();
+	/**
+	 * Prepare a METS document.
+	 * 
+	 * This takes care of both the single file and aggregate work cases. If
+	 * supplementalFiles is null, the generated structMap will contain a single
+	 * div of type "File". Otherwise, the structMap will contain a div of type
+	 * "Aggregate Work" at its root, and a structLink element will be generated.
+	 * 
+	 * Because the zip file we will prepare in makeZipFile cannot have duplicate
+	 * paths and there may be issues with spaces in file names, FLocat elements
+	 * have their href attributes "f{index}.data". mainFile has index 0, and the
+	 * elements of supplementalFiles have indices 1, 2, ... (if supplementalFiles
+	 * is not null).
+	 */
 
-		mets.setPROFILE("http://cdr.unc.edu/METS/profiles/Simple");
-		
-		// Header
-
-		MetsHdrType head = MetsFactory.eINSTANCE.createMetsHdrType();
-		Date currentTime = new Date(System.currentTimeMillis());
-		head.setCREATEDATE(new XMLCalendar(currentTime, XMLCalendar.DATETIME));
-		head.setLASTMODDATE(new XMLCalendar(currentTime, XMLCalendar.DATETIME));
-
-		AgentType agent = MetsFactory.eINSTANCE.createAgentType();
-		agent.setROLE(ROLEType.CREATOR);
-		agent.setTYPE(TYPEType.OTHER);
-		agent.setName("CDR Forms");
-		head.getAgent().add(agent);
-
-		mets.setMetsHdr(head);
-
-		// Administrative metadata section
-		
-		MdSecType rightsMD;
-
-		{
-
-			AmdSecType amdSec = MetsFactory.eINSTANCE.createAmdSecType();
-
-			rightsMD = MetsFactory.eINSTANCE.createMdSecType();
-			rightsMD.setID("acl");
-
-			MdWrapType mdWrap = MetsFactory.eINSTANCE.createMdWrapType();
-			mdWrap.setMDTYPE(MDTYPEType.OTHER);
-
-			XmlDataType1 xmlData = MetsFactory.eINSTANCE.createXmlDataType1();
-
-			xmlData.getAny().add(AclPackage.eINSTANCE.getDocumentRoot_AccessControl(), acl.getAccessControl());
-
-			mdWrap.setXmlData(xmlData);
-			rightsMD.setMdWrap(mdWrap);
-
-			amdSec.getRightsMD().add(rightsMD);
-
-			mets.getAmdSec().add(amdSec);
-
-		}
-
-		// Metadata section
-
-		MdSecType mdSec = MetsFactory.eINSTANCE.createMdSecType();
-		mdSec.setID("mods");
-
-		MdWrapType mdWrap = MetsFactory.eINSTANCE.createMdWrapType();
-		mdWrap.setMDTYPE(MDTYPEType.MODS);
-
-		XmlDataType1 xmlData = MetsFactory.eINSTANCE.createXmlDataType1();
-
-		xmlData.getAny().add(MODSPackage.eINSTANCE.getDocumentRoot_Mods(), modsDocumentRoot.getMods());
-
-		mdWrap.setXmlData(xmlData);
-		mdSec.setMdWrap(mdWrap);
-
-		mets.getDmdSec().add(mdSec);
-		
-		// Files section
-
-		FileSecType fileSec = MetsFactory.eINSTANCE.createFileSecType();
-		mets.setFileSec(fileSec);
-
-		FileGrpType1 fileGrp = MetsFactory.eINSTANCE.createFileGrpType1();
-
-		FileType file = MetsFactory.eINSTANCE.createFileType();
-		file.setID("f0");
-		file.setMIMETYPE(submittedFile.getContentType());
-
-		FLocatType fLocat = MetsFactory.eINSTANCE.createFLocatType();
-		fLocat.setLOCTYPE(LOCTYPEType.URL);
-		fLocat.setHref("f0.data");
-
-		file.getFLocat().add(fLocat);
-		fileGrp.getFile().add(file);
-
-		fileSec.getFileGrp().add(fileGrp);
-
-		// Structural map
-
-		StructMapType structMap = MetsFactory.eINSTANCE.createStructMapType();
-
-		DivType fileDiv = MetsFactory.eINSTANCE.createDivType();
-		
-		fileDiv.setLABEL1(submittedFile.getFilename());
-		fileDiv.setTYPE(METSConstants.Div_File);
-		fileDiv.getDmdSec().add(mdSec);
-		fileDiv.getMdSec().add(rightsMD);
-		
-		FptrType fptr = MetsFactory.eINSTANCE.createFptrType();
-		fptr.setFILEID("f0");
-		fileDiv.getFptr().add(fptr);
-
-		structMap.setDiv(fileDiv);
-
-		mets.getStructMap().add(structMap);
-
-		return root;
-		
-	}
-
-	private gov.loc.mets.DocumentRoot makeAggregateMets(gov.loc.mods.mods.DocumentRoot modsDocumentRoot, edu.unc.lib.schemas.acl.DocumentRoot acl,
+	private gov.loc.mets.DocumentRoot makeMets(gov.loc.mods.mods.DocumentRoot modsDocumentRoot, edu.unc.lib.schemas.acl.DocumentRoot acl,
 			SubmittedFile mainFile, List<SubmittedFile> supplementalFiles) {
+		
+		gov.loc.mets.DocumentRoot root;
+		MetsType mets;
+		MdSecType rightsMdSec;
+		MdSecType modsMdSec;
+		DivType aggregateWorkDiv = null;
+		
+		int totalFiles;
+		
+		if (supplementalFiles == null)
+			totalFiles = 1;
+		else
+			totalFiles = 1 + supplementalFiles.size();
+		
+		// Document root
+		
+		{
 
-		int fileIndex;
+			root = MetsFactory.eINSTANCE.createDocumentRoot();
+			root.setMets(MetsFactory.eINSTANCE.createMetsType1());
+			mets = root.getMets();
 
-		gov.loc.mets.DocumentRoot root = MetsFactory.eINSTANCE.createDocumentRoot();
-		root.setMets(MetsFactory.eINSTANCE.createMetsType1());
-		MetsType mets = root.getMets();
-
-		mets.setPROFILE("http://cdr.unc.edu/METS/profiles/Simple");
+			mets.setPROFILE("http://cdr.unc.edu/METS/profiles/Simple");
+			
+		}
 
 		// Header
+		
+		{
 
-		MetsHdrType head = MetsFactory.eINSTANCE.createMetsHdrType();
-		Date currentTime = new Date(System.currentTimeMillis());
-		head.setCREATEDATE(new XMLCalendar(currentTime, XMLCalendar.DATETIME));
-		head.setLASTMODDATE(new XMLCalendar(currentTime, XMLCalendar.DATETIME));
+			MetsHdrType head = MetsFactory.eINSTANCE.createMetsHdrType();
+			Date currentTime = new Date(System.currentTimeMillis());
+			head.setCREATEDATE(new XMLCalendar(currentTime, XMLCalendar.DATETIME));
+			head.setLASTMODDATE(new XMLCalendar(currentTime, XMLCalendar.DATETIME));
+	
+			AgentType agent = MetsFactory.eINSTANCE.createAgentType();
+			agent.setROLE(ROLEType.CREATOR);
+			agent.setTYPE(TYPEType.OTHER);
+			agent.setName("CDR Forms");
+			head.getAgent().add(agent);
 
-		AgentType agent = MetsFactory.eINSTANCE.createAgentType();
-		agent.setROLE(ROLEType.CREATOR);
-		agent.setTYPE(TYPEType.OTHER);
-		agent.setName("CDR Forms");
-		head.getAgent().add(agent);
-
-		mets.setMetsHdr(head);
+			mets.setMetsHdr(head);
+			
+		}
 		
 		// Administrative metadata section
-		
-		MdSecType rightsMD;
 		
 		{
 
 			AmdSecType amdSec = MetsFactory.eINSTANCE.createAmdSecType();
 			
-			rightsMD = MetsFactory.eINSTANCE.createMdSecType();
-			rightsMD.setID("acl");
+			rightsMdSec = MetsFactory.eINSTANCE.createMdSecType();
+			rightsMdSec.setID("acl");
 
 			MdWrapType mdWrap = MetsFactory.eINSTANCE.createMdWrapType();
 			mdWrap.setMDTYPE(MDTYPEType.OTHER);
@@ -393,156 +307,137 @@ public class SwordDepositHandler implements DepositHandler {
 			xmlData.getAny().add(AclPackage.eINSTANCE.getDocumentRoot_AccessControl(), acl.getAccessControl());
 			
 			mdWrap.setXmlData(xmlData);
-			rightsMD.setMdWrap(mdWrap);
+			rightsMdSec.setMdWrap(mdWrap);
 			
-			amdSec.getRightsMD().add(rightsMD);
+			amdSec.getRightsMD().add(rightsMdSec);
 			
 			mets.getAmdSec().add(amdSec);
 		
 		}
 
-		// Metadata section
+		// Descriptive metadata section
+		
+		{
 
-		MdSecType mdSec = MetsFactory.eINSTANCE.createMdSecType();
-		mdSec.setID("mods");
-
-		MdWrapType mdWrap = MetsFactory.eINSTANCE.createMdWrapType();
-		mdWrap.setMDTYPE(MDTYPEType.MODS);
-
-		XmlDataType1 xmlData = MetsFactory.eINSTANCE.createXmlDataType1();
-
-		xmlData.getAny().add(MODSPackage.eINSTANCE.getDocumentRoot_Mods(), modsDocumentRoot.getMods());
-
-		mdWrap.setXmlData(xmlData);
-		mdSec.setMdWrap(mdWrap);
-
-		mets.getDmdSec().add(mdSec);
+			modsMdSec = MetsFactory.eINSTANCE.createMdSecType();
+			modsMdSec.setID("mods");
+	
+			MdWrapType mdWrap = MetsFactory.eINSTANCE.createMdWrapType();
+			mdWrap.setMDTYPE(MDTYPEType.MODS);
+	
+			XmlDataType1 xmlData = MetsFactory.eINSTANCE.createXmlDataType1();
+	
+			xmlData.getAny().add(MODSPackage.eINSTANCE.getDocumentRoot_Mods(), modsDocumentRoot.getMods());
+	
+			mdWrap.setXmlData(xmlData);
+			modsMdSec.setMdWrap(mdWrap);
+	
+			mets.getDmdSec().add(modsMdSec);
+			
+		}
 
 		// Files section
-
-		FileSecType fileSec = MetsFactory.eINSTANCE.createFileSecType();
-		mets.setFileSec(fileSec);
-
-		FileGrpType1 fileGrp = MetsFactory.eINSTANCE.createFileGrpType1();
 		
 		{
 
-			FileType file = MetsFactory.eINSTANCE.createFileType();
+			FileSecType fileSec = MetsFactory.eINSTANCE.createFileSecType();
+			FileGrpType1 fileGrp = MetsFactory.eINSTANCE.createFileGrpType1();
 			
-			file.setID("f0");
-			file.setMIMETYPE(mainFile.getContentType());
-
-			FLocatType fLocat = MetsFactory.eINSTANCE.createFLocatType();
-			fLocat.setLOCTYPE(LOCTYPEType.URL);
-			fLocat.setHref("f0.data");
-
-			file.getFLocat().add(fLocat);
-			fileGrp.getFile().add(file);
-
-		}
-
-		fileIndex = 1;
-
-		for (SubmittedFile f : supplementalFiles) {
-
-			FileType file = MetsFactory.eINSTANCE.createFileType();
-			file.setID("f" + fileIndex);
-			file.setMIMETYPE(f.getContentType());
-
-			FLocatType fLocat = MetsFactory.eINSTANCE.createFLocatType();
-			fLocat.setLOCTYPE(LOCTYPEType.URL);
-			fLocat.setHref("f" + fileIndex + ".data");
-
-			file.getFLocat().add(fLocat);
-			fileGrp.getFile().add(file);
-
-			fileIndex++;
-
-		}
-
-		fileSec.getFileGrp().add(fileGrp);
-
-		// Structural map
-
-		StructMapType structMap = MetsFactory.eINSTANCE.createStructMapType();
-
-		DivType folderDiv = MetsFactory.eINSTANCE.createDivType();
-		folderDiv.setTYPE(METSConstants.Div_AggregateWork);
-		folderDiv.getDmdSec().add(mdSec);
-		folderDiv.getMdSec().add(rightsMD);
+			for (int i = 0; i < totalFiles; i++) {
+				
+				SubmittedFile submittedFile = i == 0 ? mainFile : supplementalFiles.get(i - 1);
+				
+				FileType file = MetsFactory.eINSTANCE.createFileType();
+				file.setID("f" + i);
+				file.setMIMETYPE(submittedFile.getContentType());
+	
+				FLocatType fLocat = MetsFactory.eINSTANCE.createFLocatType();
+				fLocat.setLOCTYPE(LOCTYPEType.URL);
+				fLocat.setHref("f" + i + ".data");
+	
+				file.getFLocat().add(fLocat);
+				fileGrp.getFile().add(file);
+				
+			}
+			
+			fileSec.getFileGrp().add(fileGrp);
+			mets.setFileSec(fileSec);
 		
-		folderDiv.setID("a");
+		}
 
-		{
+		// Structural map and structural links
+		
+		if (supplementalFiles == null) {
+			
+			StructMapType structMap = MetsFactory.eINSTANCE.createStructMapType();
 
 			DivType fileDiv = MetsFactory.eINSTANCE.createDivType();
 			
-			fileDiv.setTYPE(METSConstants.Div_File);
 			fileDiv.setLABEL1(mainFile.getFilename());
+			fileDiv.setTYPE(METSConstants.Div_File);
+			fileDiv.getDmdSec().add(modsMdSec);
+			fileDiv.getMdSec().add(rightsMdSec);
 			
 			FptrType fptr = MetsFactory.eINSTANCE.createFptrType();
 			fptr.setFILEID("f0");
 			fileDiv.getFptr().add(fptr);
-			fileDiv.setID("d0");
+
+			structMap.setDiv(fileDiv);
+
+			mets.getStructMap().add(structMap);
 			
-			folderDiv.getDiv().add(fileDiv);
+		} else {
+
+			StructMapType structMap = MetsFactory.eINSTANCE.createStructMapType();
+
+			aggregateWorkDiv = MetsFactory.eINSTANCE.createDivType();
+			aggregateWorkDiv.setTYPE(METSConstants.Div_AggregateWork);
+			aggregateWorkDiv.getDmdSec().add(modsMdSec);
+			aggregateWorkDiv.getMdSec().add(rightsMdSec);
+			aggregateWorkDiv.setID("a");
+			
+			for (int i = 0; i < totalFiles; i++) {
+			
+				DivType fileDiv = MetsFactory.eINSTANCE.createDivType();
+				
+				fileDiv.setTYPE(METSConstants.Div_File);
+				fileDiv.setLABEL1(mainFile.getFilename());
+				
+				FptrType fptr = MetsFactory.eINSTANCE.createFptrType();
+				fptr.setFILEID("f" + i);
+				fileDiv.getFptr().add(fptr);
+				fileDiv.setID("d" + i);
+				
+				aggregateWorkDiv.getDiv().add(fileDiv);
+				
+			}
+	
+			structMap.setDiv(aggregateWorkDiv);
+			mets.getStructMap().add(structMap);
 			
 		}
-		
-		fileIndex = 1;
-
-		for (SubmittedFile f : supplementalFiles) {
-
-			DivType fileDiv = MetsFactory.eINSTANCE.createDivType();
-			
-			fileDiv.setTYPE(METSConstants.Div_File);
-			fileDiv.setLABEL1(f.getFilename());
-			
-			FptrType fptr = MetsFactory.eINSTANCE.createFptrType();
-			fptr.setFILEID("f" + fileIndex);
-			fileDiv.getFptr().add(fptr);
-			fileDiv.setID("d" + fileIndex);
-			
-			folderDiv.getDiv().add(fileDiv);
-
-			fileIndex++;
-
-		}
-
-		structMap.setDiv(folderDiv);
-
-		mets.getStructMap().add(structMap);
 		
 		// Structural Links
 		
-		StructLinkType1 structLink = MetsFactory.eINSTANCE.createStructLinkType1();
+		if (supplementalFiles != null) {
 		
-		SmLinkType smLink;
-		
-		smLink = MetsFactory.eINSTANCE.createSmLinkType();
-		smLink.setArcrole(Link.DEFAULTACCESS.uri);
-		smLink.setXlinkFrom(folderDiv);
-		smLink.setXlinkTo(folderDiv.getDiv().get(0));
+			StructLinkType1 structLink = MetsFactory.eINSTANCE.createStructLinkType1();
 
-		structLink.getSmLink().add(smLink);
-		
-
-		fileIndex = 1;
-
-		for (@SuppressWarnings("unused") SubmittedFile f : supplementalFiles) {
+			for (int i = 0; i < totalFiles; i++) {
+				
+				SmLinkType smLink = MetsFactory.eINSTANCE.createSmLinkType();
+				smLink.setArcrole(i == 0 ? Link.DEFAULTACCESS.uri : Link.SUPPLEMENTAL.uri);
+				smLink.setXlinkFrom(aggregateWorkDiv);
+				smLink.setXlinkTo(aggregateWorkDiv.getDiv().get(i));
+	
+				structLink.getSmLink().add(smLink);
+				
+			}
 			
-			smLink = MetsFactory.eINSTANCE.createSmLinkType();
-			smLink.setArcrole(Link.SUPPLEMENTAL.uri);
-			smLink.setXlinkFrom(folderDiv);
-			smLink.setXlinkTo(folderDiv.getDiv().get(fileIndex));
-
-			structLink.getSmLink().add(smLink);
+			mets.setStructLink(structLink);
 			
 		}
 		
-		mets.setStructLink(structLink);
-		
-
 		return root;
 
 	}
@@ -587,11 +482,20 @@ public class SwordDepositHandler implements DepositHandler {
 
 	}
 	
-	private File makeZipFile(gov.loc.mets.DocumentRoot metsDocumentRoot, List<SubmittedFile> files) {
+	private File makeZipFile(gov.loc.mets.DocumentRoot metsDocumentRoot, SubmittedFile mainFile, List<SubmittedFile> supplementaryFiles) {
+		
+		// Assemble a list of files to write (see comment for makeMets)
+		
+		List<SubmittedFile> files = new ArrayList<SubmittedFile>();
+		files.add(mainFile);
+		if (supplementaryFiles != null)
+			files.addAll(supplementaryFiles);
+		
+		// Get the METS XML
 		
 		String metsXml = serializeMets(metsDocumentRoot);
 
-		// Create the zipped package part
+		// Create the zip file
 
 		File zipFile;
 		
@@ -623,25 +527,22 @@ public class SwordDepositHandler implements DepositHandler {
 			PrintStream xmlPrintStream = new PrintStream(zipOutput);
 			xmlPrintStream.print(metsXml);
 			
-			// Write the files
+			// Write files using the paths "f{index}.data"
 			
-			int fileIndex = 0;
-			
-			for (SubmittedFile f : files) {
+			for (int i = 0; i < files.size(); i++) {
 				
-				entry = new ZipEntry("f" + fileIndex + ".data");
+				entry = new ZipEntry("f" + i + ".data");
 				zipOutput.putNextEntry(entry);
 
-				FileInputStream fileInput = new FileInputStream(f.getFile());
+				FileInputStream fileInput = new FileInputStream(files.get(i).getFile());
 
 				byte[] buffer = new byte[1024];
+				int length;
 
-				while (fileInput.read(buffer) != -1)
-					zipOutput.write(buffer, 0, buffer.length);
+				while ((length = fileInput.read(buffer)) != -1)
+					zipOutput.write(buffer, 0, length);
 
 				fileInput.close();
-				
-				fileIndex++;
 				
 			}
 
