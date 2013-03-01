@@ -353,7 +353,15 @@ public class SwordDepositHandler implements DepositHandler {
 	
 				FLocatType fLocat = MetsFactory.eINSTANCE.createFLocatType();
 				fLocat.setLOCTYPE(LOCTYPEType.URL);
-				fLocat.setHref("f" + i + ".data");
+				
+				// FIXME: Don't use extension, don't calculate in two places
+				
+				String extension = "";
+				int index = submittedFile.getFilename().lastIndexOf('.');
+				if (index > 0)
+					extension = submittedFile.getFilename().substring(index);
+				
+				fLocat.setHref("f" + i + extension);
 	
 				file.getFLocat().add(fLocat);
 				fileGrp.getFile().add(file);
@@ -529,10 +537,18 @@ public class SwordDepositHandler implements DepositHandler {
 			
 			for (int i = 0; i < files.size(); i++) {
 				
-				entry = new ZipEntry("f" + i + ".data");
+				SubmittedFile submittedFile = files.get(i);
+				
+				String extension = "";
+				int index = submittedFile.getFilename().lastIndexOf('.');
+				if (index > 0)
+					extension = submittedFile.getFilename().substring(index);
+				
+				entry = new ZipEntry("f" + i + extension);
+				
 				zipOutput.putNextEntry(entry);
 
-				FileInputStream fileInput = new FileInputStream(files.get(i).getFile());
+				FileInputStream fileInput = new FileInputStream(submittedFile.getFile());
 
 				byte[] buffer = new byte[1024];
 				int length;
