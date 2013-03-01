@@ -397,11 +397,13 @@ public class SwordDepositHandler implements DepositHandler {
 			aggregateWorkDiv.setID("a");
 			
 			for (int i = 0; i < totalFiles; i++) {
+
+				SubmittedFile submittedFile = i == 0 ? mainFile : supplementalFiles.get(i - 1);
 			
 				DivType fileDiv = MetsFactory.eINSTANCE.createDivType();
 				
 				fileDiv.setTYPE(METSConstants.Div_File);
-				fileDiv.setLABEL1(mainFile.getFilename());
+				fileDiv.setLABEL1(submittedFile.getFilename());
 				
 				FptrType fptr = MetsFactory.eINSTANCE.createFptrType();
 				fptr.setFILEID("f" + i);
