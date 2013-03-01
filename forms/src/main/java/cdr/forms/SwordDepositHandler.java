@@ -425,16 +425,12 @@ public class SwordDepositHandler implements DepositHandler {
 		
 			StructLinkType1 structLink = MetsFactory.eINSTANCE.createStructLinkType1();
 
-			for (int i = 0; i < totalFiles; i++) {
-				
-				SmLinkType smLink = MetsFactory.eINSTANCE.createSmLinkType();
-				smLink.setArcrole(i == 0 ? Link.DEFAULTACCESS.uri : Link.SUPPLEMENTAL.uri);
-				smLink.setXlinkFrom(aggregateWorkDiv);
-				smLink.setXlinkTo(aggregateWorkDiv.getDiv().get(i));
-	
-				structLink.getSmLink().add(smLink);
-				
-			}
+			SmLinkType smLink = MetsFactory.eINSTANCE.createSmLinkType();
+			smLink.setArcrole(Link.DEFAULTACCESS.uri);
+			smLink.setXlinkFrom(aggregateWorkDiv);
+			smLink.setXlinkTo(aggregateWorkDiv.getDiv().get(0));
+
+			structLink.getSmLink().add(smLink);
 			
 			mets.setStructLink(structLink);
 			
