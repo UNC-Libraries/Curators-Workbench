@@ -97,15 +97,6 @@ import cdr.forms.DepositResult.Status;
 
 
 public class SwordDepositHandler implements DepositHandler {
-	/**
-	 * This option takes a Boolean object indicate if publication is desired.
-	 */
-	public static final String OPTION_PUBLISH = "publish";
-	
-	/**
-	 * This option takes a string, indicating the observed mime-type.
-	 */
-	public static final String OPTION_MIMETYPE = "mime-type";
 
 	private static final Logger LOG = LoggerFactory.getLogger(SwordDepositHandler.class);
 
