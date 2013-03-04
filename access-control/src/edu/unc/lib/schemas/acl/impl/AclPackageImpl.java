@@ -142,11 +142,20 @@ public class AclPackageImpl extends EPackageImpl implements AclPackage {
 
 								/**
 	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAccessControlType_Published() {
+		return (EAttribute)accessControlTypeEClass.getEStructuralFeatures().get(2);
+	}
+
+								/**
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
 	 * @generated
 	 */
         public EAttribute getAccessControlType_EmbargoUntil() {
-		return (EAttribute)accessControlTypeEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)accessControlTypeEClass.getEStructuralFeatures().get(3);
 	}
 
         /**
@@ -155,7 +164,7 @@ public class AclPackageImpl extends EPackageImpl implements AclPackage {
 	 * @generated
 	 */
         public EAttribute getAccessControlType_Inherit() {
-		return (EAttribute)accessControlTypeEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)accessControlTypeEClass.getEStructuralFeatures().get(4);
 	}
 
         /**
@@ -261,6 +270,7 @@ public class AclPackageImpl extends EPackageImpl implements AclPackage {
 		accessControlTypeEClass = createEClass(ACCESS_CONTROL_TYPE);
 		createEReference(accessControlTypeEClass, ACCESS_CONTROL_TYPE__GRANT);
 		createEAttribute(accessControlTypeEClass, ACCESS_CONTROL_TYPE__DISCOVERABLE);
+		createEAttribute(accessControlTypeEClass, ACCESS_CONTROL_TYPE__PUBLISHED);
 		createEAttribute(accessControlTypeEClass, ACCESS_CONTROL_TYPE__EMBARGO_UNTIL);
 		createEAttribute(accessControlTypeEClass, ACCESS_CONTROL_TYPE__INHERIT);
 
@@ -311,6 +321,7 @@ public class AclPackageImpl extends EPackageImpl implements AclPackage {
 		initEClass(accessControlTypeEClass, AccessControlType.class, "AccessControlType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAccessControlType_Grant(), this.getGrantType(), null, "grant", null, 0, -1, AccessControlType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAccessControlType_Discoverable(), theXMLTypePackage.getBoolean(), "discoverable", "true", 0, 1, AccessControlType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAccessControlType_Published(), theXMLTypePackage.getBoolean(), "published", "true", 0, 1, AccessControlType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAccessControlType_EmbargoUntil(), theXMLTypePackage.getDate(), "embargoUntil", null, 0, 1, AccessControlType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAccessControlType_Inherit(), theXMLTypePackage.getBoolean(), "inherit", "true", 0, 1, AccessControlType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -361,6 +372,14 @@ public class AclPackageImpl extends EPackageImpl implements AclPackage {
 		   new String[] {
 			 "kind", "attribute",
 			 "name", "discoverable",
+			 "namespace", "##targetNamespace"
+		   });		
+		addAnnotation
+		  (getAccessControlType_Published(), 
+		   source, 
+		   new String[] {
+			 "kind", "attribute",
+			 "name", "published",
 			 "namespace", "##targetNamespace"
 		   });		
 		addAnnotation

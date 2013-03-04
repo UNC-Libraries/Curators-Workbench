@@ -15,9 +15,12 @@
  */
 package cdr.forms;
 
-import java.io.File;
-import java.util.Map;
+import java.util.List;
+import crosswalk.Form;
 
 public interface DepositHandler {
-	DepositResult deposit(String containerPid, String modsXml, String title, File depositData, Map<String, Object> options);
+	
+	DepositResult depositAggregate(Form form, SubmittedFile file, List<SubmittedFile> supplementaryFiles);
+	DepositResult depositFile(Form form, SubmittedFile file);
+	
 }

@@ -41,6 +41,7 @@ import crosswalk.FormElement;
  *   <li>{@link crosswalk.impl.FormImpl#getAuthorizedGroups <em>Authorized Groups</em>}</li>
  *   <li>{@link crosswalk.impl.FormImpl#isReviewBeforePublication <em>Review Before Publication</em>}</li>
  *   <li>{@link crosswalk.impl.FormImpl#isPromptForMultipleSubmissions <em>Prompt For Multiple Submissions</em>}</li>
+ *   <li>{@link crosswalk.impl.FormImpl#isCanAddSupplementalFiles <em>Can Add Supplemental Files</em>}</li>
  * </ul>
  * </p>
  *
@@ -206,6 +207,26 @@ public class FormImpl extends EObjectImpl implements Form {
 	 * @ordered
 	 */
 	protected boolean promptForMultipleSubmissions = PROMPT_FOR_MULTIPLE_SUBMISSIONS_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isCanAddSupplementalFiles() <em>Can Add Supplemental Files</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isCanAddSupplementalFiles()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean CAN_ADD_SUPPLEMENTAL_FILES_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isCanAddSupplementalFiles() <em>Can Add Supplemental Files</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isCanAddSupplementalFiles()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean canAddSupplementalFiles = CAN_ADD_SUPPLEMENTAL_FILES_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -431,6 +452,27 @@ public class FormImpl extends EObjectImpl implements Form {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isCanAddSupplementalFiles() {
+		return canAddSupplementalFiles;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCanAddSupplementalFiles(boolean newCanAddSupplementalFiles) {
+		boolean oldCanAddSupplementalFiles = canAddSupplementalFiles;
+		canAddSupplementalFiles = newCanAddSupplementalFiles;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.FORM__CAN_ADD_SUPPLEMENTAL_FILES, oldCanAddSupplementalFiles, canAddSupplementalFiles));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -469,6 +511,8 @@ public class FormImpl extends EObjectImpl implements Form {
 				return isReviewBeforePublication();
 			case CrosswalkPackage.FORM__PROMPT_FOR_MULTIPLE_SUBMISSIONS:
 				return isPromptForMultipleSubmissions();
+			case CrosswalkPackage.FORM__CAN_ADD_SUPPLEMENTAL_FILES:
+				return isCanAddSupplementalFiles();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -515,6 +559,9 @@ public class FormImpl extends EObjectImpl implements Form {
 			case CrosswalkPackage.FORM__PROMPT_FOR_MULTIPLE_SUBMISSIONS:
 				setPromptForMultipleSubmissions((Boolean)newValue);
 				return;
+			case CrosswalkPackage.FORM__CAN_ADD_SUPPLEMENTAL_FILES:
+				setCanAddSupplementalFiles((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -557,6 +604,9 @@ public class FormImpl extends EObjectImpl implements Form {
 			case CrosswalkPackage.FORM__PROMPT_FOR_MULTIPLE_SUBMISSIONS:
 				setPromptForMultipleSubmissions(PROMPT_FOR_MULTIPLE_SUBMISSIONS_EDEFAULT);
 				return;
+			case CrosswalkPackage.FORM__CAN_ADD_SUPPLEMENTAL_FILES:
+				setCanAddSupplementalFiles(CAN_ADD_SUPPLEMENTAL_FILES_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -589,6 +639,8 @@ public class FormImpl extends EObjectImpl implements Form {
 				return reviewBeforePublication != REVIEW_BEFORE_PUBLICATION_EDEFAULT;
 			case CrosswalkPackage.FORM__PROMPT_FOR_MULTIPLE_SUBMISSIONS:
 				return promptForMultipleSubmissions != PROMPT_FOR_MULTIPLE_SUBMISSIONS_EDEFAULT;
+			case CrosswalkPackage.FORM__CAN_ADD_SUPPLEMENTAL_FILES:
+				return canAddSupplementalFiles != CAN_ADD_SUPPLEMENTAL_FILES_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -653,6 +705,8 @@ public class FormImpl extends EObjectImpl implements Form {
 		result.append(reviewBeforePublication);
 		result.append(", promptForMultipleSubmissions: ");
 		result.append(promptForMultipleSubmissions);
+		result.append(", canAddSupplementalFiles: ");
+		result.append(canAddSupplementalFiles);
 		result.append(')');
 		return result.toString();
 	}

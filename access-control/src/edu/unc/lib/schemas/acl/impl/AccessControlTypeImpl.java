@@ -37,6 +37,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link edu.unc.lib.schemas.acl.impl.AccessControlTypeImpl#getGrant <em>Grant</em>}</li>
  *   <li>{@link edu.unc.lib.schemas.acl.impl.AccessControlTypeImpl#isDiscoverable <em>Discoverable</em>}</li>
+ *   <li>{@link edu.unc.lib.schemas.acl.impl.AccessControlTypeImpl#isPublished <em>Published</em>}</li>
  *   <li>{@link edu.unc.lib.schemas.acl.impl.AccessControlTypeImpl#getEmbargoUntil <em>Embargo Until</em>}</li>
  *   <li>{@link edu.unc.lib.schemas.acl.impl.AccessControlTypeImpl#isInherit <em>Inherit</em>}</li>
  * </ul>
@@ -83,6 +84,35 @@ public class AccessControlTypeImpl extends EObjectImpl implements AccessControlT
 	 * @ordered
 	 */
 	protected boolean discoverableESet;
+
+								/**
+	 * The default value of the '{@link #isPublished() <em>Published</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isPublished()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean PUBLISHED_EDEFAULT = true;
+
+								/**
+	 * The cached value of the '{@link #isPublished() <em>Published</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isPublished()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean published = PUBLISHED_EDEFAULT;
+
+								/**
+	 * This is true if the Published attribute has been set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean publishedESet;
 
 								/**
 	 * The default value of the '{@link #getEmbargoUntil() <em>Embargo Until</em>}' attribute.
@@ -221,6 +251,52 @@ public class AccessControlTypeImpl extends EObjectImpl implements AccessControlT
 
 								/**
 	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isPublished() {
+		return published;
+	}
+
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPublished(boolean newPublished) {
+		boolean oldPublished = published;
+		published = newPublished;
+		boolean oldPublishedESet = publishedESet;
+		publishedESet = true;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AclPackage.ACCESS_CONTROL_TYPE__PUBLISHED, oldPublished, published, !oldPublishedESet));
+	}
+
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void unsetPublished() {
+		boolean oldPublished = published;
+		boolean oldPublishedESet = publishedESet;
+		published = PUBLISHED_EDEFAULT;
+		publishedESet = false;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, AclPackage.ACCESS_CONTROL_TYPE__PUBLISHED, oldPublished, PUBLISHED_EDEFAULT, oldPublishedESet));
+	}
+
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSetPublished() {
+		return publishedESet;
+	}
+
+								/**
+	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -337,6 +413,8 @@ public class AccessControlTypeImpl extends EObjectImpl implements AccessControlT
 				return getGrant();
 			case AclPackage.ACCESS_CONTROL_TYPE__DISCOVERABLE:
 				return isDiscoverable();
+			case AclPackage.ACCESS_CONTROL_TYPE__PUBLISHED:
+				return isPublished();
 			case AclPackage.ACCESS_CONTROL_TYPE__EMBARGO_UNTIL:
 				return getEmbargoUntil();
 			case AclPackage.ACCESS_CONTROL_TYPE__INHERIT:
@@ -360,6 +438,9 @@ public class AccessControlTypeImpl extends EObjectImpl implements AccessControlT
 				return;
 			case AclPackage.ACCESS_CONTROL_TYPE__DISCOVERABLE:
 				setDiscoverable((Boolean)newValue);
+				return;
+			case AclPackage.ACCESS_CONTROL_TYPE__PUBLISHED:
+				setPublished((Boolean)newValue);
 				return;
 			case AclPackage.ACCESS_CONTROL_TYPE__EMBARGO_UNTIL:
 				setEmbargoUntil((XMLGregorianCalendar)newValue);
@@ -385,6 +466,9 @@ public class AccessControlTypeImpl extends EObjectImpl implements AccessControlT
 			case AclPackage.ACCESS_CONTROL_TYPE__DISCOVERABLE:
 				unsetDiscoverable();
 				return;
+			case AclPackage.ACCESS_CONTROL_TYPE__PUBLISHED:
+				unsetPublished();
+				return;
 			case AclPackage.ACCESS_CONTROL_TYPE__EMBARGO_UNTIL:
 				unsetEmbargoUntil();
 				return;
@@ -407,6 +491,8 @@ public class AccessControlTypeImpl extends EObjectImpl implements AccessControlT
 				return grant != null && !grant.isEmpty();
 			case AclPackage.ACCESS_CONTROL_TYPE__DISCOVERABLE:
 				return isSetDiscoverable();
+			case AclPackage.ACCESS_CONTROL_TYPE__PUBLISHED:
+				return isSetPublished();
 			case AclPackage.ACCESS_CONTROL_TYPE__EMBARGO_UNTIL:
 				return isSetEmbargoUntil();
 			case AclPackage.ACCESS_CONTROL_TYPE__INHERIT:
@@ -427,6 +513,8 @@ public class AccessControlTypeImpl extends EObjectImpl implements AccessControlT
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (discoverable: ");
 		if (discoverableESet) result.append(discoverable); else result.append("<unset>");
+		result.append(", published: ");
+		if (publishedESet) result.append(published); else result.append("<unset>");
 		result.append(", embargoUntil: ");
 		if (embargoUntilESet) result.append(embargoUntil); else result.append("<unset>");
 		result.append(", inherit: ");
