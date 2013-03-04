@@ -168,12 +168,8 @@ public class SwordDepositHandler implements DepositHandler {
 
 		gov.loc.mets.DocumentRoot metsDocumentRoot = makeMets(form.getCurrentUser(), mods, acl, mainFile, supplementalFiles, filenames);
 		File zipFile = makeZipFile(metsDocumentRoot, mainFile, supplementalFiles, filenames);
-
-		return depositZip(form.getDepositContainerId(), pid, zipFile);
 		
-	}
-	
-	private DepositResult depositZip(String containerId, String pid, File zipFile) {
+		String containerId = form.getDepositContainerId();
 		
 		if (containerId == null || "".equals(containerId.trim()))
 			containerId = this.getDefaultContainer();
