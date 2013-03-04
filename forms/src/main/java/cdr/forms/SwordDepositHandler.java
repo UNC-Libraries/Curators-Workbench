@@ -240,30 +240,17 @@ public class SwordDepositHandler implements DepositHandler {
 		return result;
 		
 	}
-	
-	private String buildFilenameExtension(String filename) {
-		
-		String extension = "";
-		int index = filename.lastIndexOf('.');
-		
-		if (index > 0)
-			extension = filename.substring(index);
-		
-		return extension;
-		
-	}
 
 	private IdentityHashMap<SubmittedFile, String> buildFilenameMap(SubmittedFile mainFile, List<SubmittedFile> supplementalFiles) {
 		
 		IdentityHashMap<SubmittedFile, String> filenames = new IdentityHashMap<SubmittedFile, String>();
+		
+		filenames.put(mainFile, "f" + mainFile.getExtension());
+
 		int index = 0;
-		
-		filenames.put(mainFile, "f" + index + buildFilenameExtension(mainFile.getFilename()));
-		index++;
-		
 		if (supplementalFiles != null) {
-			for (SubmittedFile f : supplementalFiles) {
-				filenames.put(f, "f" + index + buildFilenameExtension(mainFile.getFilename()));
+			for (SubmittedFile supplementalFile : supplementalFiles) {
+				filenames.put(supplementalFile, "sf" + index + supplementalFile.getExtension());
 				index++;
 			}
 		}

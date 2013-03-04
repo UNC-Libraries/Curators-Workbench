@@ -24,6 +24,14 @@ public class SubmittedFile {
 		this.filename = filename;
 	}
 	
+	public String getExtension() {
+		String extension = "";
+		int index = filename.lastIndexOf('.');
+		if (index > 0)
+			extension = filename.substring(index);
+		return extension;
+	}
+	
 	public String getContentType() {
 		return contentType;
 	}
