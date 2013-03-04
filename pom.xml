@@ -46,10 +46,6 @@
 		</snapshotRepository>
 	</distributionManagement>
 	<repositories>
-		<!--repository> <id>update36</id> <url>${eclipse-repository-url}</url> 
-			<layout>p2</layout> </repository -->
-		<!--repository> <id>helios</id> <layout>p2</layout> <url>http://download.eclipse.org/releases/helios/</url> 
-			</repository -->
 		<repository>
 			<id>eclipse-indigo</id>
 			<layout>p2</layout>
@@ -59,6 +55,11 @@
 			<id>eclipse-indigo-updates</id>
 			<layout>p2</layout>
 			<url>http://download.eclipse.org/eclipse/updates/3.8</url>
+		</repository>
+		<repository>
+			<id>eclipse-gmp</id>
+			<layout>p2</layout>
+			<url>http://download.eclipse.org/modeling/gmp/gmf-tooling/updates/releases/</url>
 		</repository>
 	</repositories>
 	<modules>
