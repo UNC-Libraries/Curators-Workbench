@@ -1,6 +1,7 @@
 package cdr.forms;
 
 import java.io.File;
+import java.util.regex.Pattern;
 
 public class SubmittedFile {
 	
@@ -29,6 +30,8 @@ public class SubmittedFile {
 		int index = filename.lastIndexOf('.');
 		if (index > 0)
 			extension = filename.substring(index);
+		if (!Pattern.matches("^\\.[a-zA-Z0-9]+$", extension))
+			extension = "";
 		return extension;
 	}
 	
