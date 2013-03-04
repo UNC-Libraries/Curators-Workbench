@@ -60,6 +60,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
@@ -77,7 +78,6 @@ import org.apache.commons.httpclient.methods.RequestEntity;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.xml.type.internal.XMLCalendar;
 import org.jdom.Element;
@@ -151,32 +151,28 @@ public class SwordDepositHandler implements DepositHandler {
 		this.defaultContainer = defaultContainer;
 	}
 	
-	public DepositResult depositAggregate(Form form, SubmittedFile mainFile, List<SubmittedFile> supplementaryFiles) {
-
-		String pid = "uuid:" + UUID.randomUUID().toString();
-		gov.loc.mods.mods.DocumentRoot mods = makeMods(form);
-		edu.unc.lib.schemas.acl.DocumentRoot acl = makeAcl(form);
-
-		gov.loc.mets.DocumentRoot metsDocumentRoot = makeMets(form.getCurrentUser(), mods, acl, mainFile, supplementaryFiles);
-		File zipFile = makeZipFile(metsDocumentRoot, mainFile, supplementaryFiles);
-
-		return depositZip(form.getDepositContainerId(), pid, zipFile);
-		
-	}
+	public DepositResult depositAggregate(Form form, SubmittedFile mainFile, List<SubmittedFile> supplementalFiles) {
+		return deposit(form, mainFile, supplementalFiles);
+	}	
 
 	public DepositResult depositFile(Form form, SubmittedFile file) {
+		return deposit(form, file, null);
+	}
+	
+	private DepositResult deposit(Form form, SubmittedFile mainFile, List<SubmittedFile> supplementalFiles) {
 
 		String pid = "uuid:" + UUID.randomUUID().toString();
 		gov.loc.mods.mods.DocumentRoot mods = makeMods(form);
 		edu.unc.lib.schemas.acl.DocumentRoot acl = makeAcl(form);
-		
-		gov.loc.mets.DocumentRoot metsDocumentRoot = makeMets(form.getCurrentUser(), mods, acl, file, null);
-		File zipFile = makeZipFile(metsDocumentRoot, file, null);
-		
+		IdentityHashMap<SubmittedFile, String> filenames = buildFilenameMap(mainFile, supplementalFiles);
+
+		gov.loc.mets.DocumentRoot metsDocumentRoot = makeMets(form.getCurrentUser(), mods, acl, mainFile, supplementalFiles, filenames);
+		File zipFile = makeZipFile(metsDocumentRoot, mainFile, supplementalFiles, filenames);
+
 		return depositZip(form.getDepositContainerId(), pid, zipFile);
 		
 	}
-
+	
 	private DepositResult depositZip(String containerId, String pid, File zipFile) {
 		
 		if (containerId == null || "".equals(containerId.trim()))
@@ -245,6 +241,37 @@ public class SwordDepositHandler implements DepositHandler {
 		
 	}
 	
+	private String buildFilenameExtension(String filename) {
+		
+		String extension = "";
+		int index = filename.lastIndexOf('.');
+		
+		if (index > 0)
+			extension = filename.substring(index);
+		
+		return extension;
+		
+	}
+
+	private IdentityHashMap<SubmittedFile, String> buildFilenameMap(SubmittedFile mainFile, List<SubmittedFile> supplementalFiles) {
+		
+		IdentityHashMap<SubmittedFile, String> filenames = new IdentityHashMap<SubmittedFile, String>();
+		int index = 0;
+		
+		filenames.put(mainFile, "f" + index + buildFilenameExtension(mainFile.getFilename()));
+		index++;
+		
+		if (supplementalFiles != null) {
+			for (SubmittedFile f : supplementalFiles) {
+				filenames.put(f, "f" + index + buildFilenameExtension(mainFile.getFilename()));
+				index++;
+			}
+		}
+		
+		return filenames;
+		
+	}
+	
 	private gov.loc.mods.mods.DocumentRoot makeMods(Form form) {
 		// run the mapping and get a MODS record. (report any errors)
 		ModsDefinition mods = MODSFactory.eINSTANCE.createModsDefinition();
@@ -284,15 +311,9 @@ public class SwordDepositHandler implements DepositHandler {
 	 * supplementalFiles is null, the generated structMap will contain a single
 	 * div of type "File". Otherwise, the structMap will contain a div of type
 	 * "Aggregate Work" at its root, and a structLink element will be generated.
-	 * 
-	 * Because the zip file we will prepare in makeZipFile cannot have duplicate
-	 * paths and there may be issues with spaces in file names, FLocat elements
-	 * have their href attributes "f{index}.data". mainFile has index 0, and the
-	 * elements of supplementalFiles have indices 1, 2, ... (if supplementalFiles
-	 * is not null).
 	 */
 	private gov.loc.mets.DocumentRoot makeMets(String user, gov.loc.mods.mods.DocumentRoot modsDocumentRoot, edu.unc.lib.schemas.acl.DocumentRoot acl,
-			SubmittedFile mainFile, List<SubmittedFile> supplementalFiles) {
+			SubmittedFile mainFile, List<SubmittedFile> supplementalFiles, IdentityHashMap<SubmittedFile, String> filenames) {
 		
 		gov.loc.mets.DocumentRoot root;
 		MetsType mets;
@@ -411,15 +432,7 @@ public class SwordDepositHandler implements DepositHandler {
 	
 				FLocatType fLocat = MetsFactory.eINSTANCE.createFLocatType();
 				fLocat.setLOCTYPE(LOCTYPEType.URL);
-				
-				// FIXME: Don't use extension, don't calculate in two places
-				
-				String extension = "";
-				int index = submittedFile.getFilename().lastIndexOf('.');
-				if (index > 0)
-					extension = submittedFile.getFilename().substring(index);
-				
-				fLocat.setHref("f" + i + extension);
+				fLocat.setHref(filenames.get(submittedFile));
 	
 				file.getFLocat().add(fLocat);
 				fileGrp.getFile().add(file);
@@ -546,7 +559,7 @@ public class SwordDepositHandler implements DepositHandler {
 
 	}
 	
-	private File makeZipFile(gov.loc.mets.DocumentRoot metsDocumentRoot, SubmittedFile mainFile, List<SubmittedFile> supplementaryFiles) {
+	private File makeZipFile(gov.loc.mets.DocumentRoot metsDocumentRoot, SubmittedFile mainFile, List<SubmittedFile> supplementaryFiles, IdentityHashMap<SubmittedFile, String> filenames) {
 		
 		// Assemble a list of files to write (see comment for makeMets)
 		
@@ -591,19 +604,13 @@ public class SwordDepositHandler implements DepositHandler {
 			PrintStream xmlPrintStream = new PrintStream(zipOutput);
 			xmlPrintStream.print(metsXml);
 			
-			// Write files using the paths "f{index}.data"
+			// Write files
 			
 			for (int i = 0; i < files.size(); i++) {
 				
 				SubmittedFile submittedFile = files.get(i);
 				
-				String extension = "";
-				int index = submittedFile.getFilename().lastIndexOf('.');
-				if (index > 0)
-					extension = submittedFile.getFilename().substring(index);
-				
-				entry = new ZipEntry("f" + i + extension);
-				
+				entry = new ZipEntry(filenames.get(submittedFile));
 				zipOutput.putNextEntry(entry);
 
 				FileInputStream fileInput = new FileInputStream(submittedFile.getFile());
