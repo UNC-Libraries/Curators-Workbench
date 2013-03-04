@@ -157,7 +157,7 @@ public class SwordDepositHandler implements DepositHandler {
 		gov.loc.mods.mods.DocumentRoot mods = makeMods(form);
 		edu.unc.lib.schemas.acl.DocumentRoot acl = makeAcl(form);
 
-		gov.loc.mets.DocumentRoot metsDocumentRoot = makeMets(mods, acl, mainFile, supplementaryFiles);
+		gov.loc.mets.DocumentRoot metsDocumentRoot = makeMets(form.getCurrentUser(), mods, acl, mainFile, supplementaryFiles);
 		File zipFile = makeZipFile(metsDocumentRoot, mainFile, supplementaryFiles);
 
 		return depositZip(form.getDepositContainerId(), pid, zipFile);
@@ -170,7 +170,7 @@ public class SwordDepositHandler implements DepositHandler {
 		gov.loc.mods.mods.DocumentRoot mods = makeMods(form);
 		edu.unc.lib.schemas.acl.DocumentRoot acl = makeAcl(form);
 		
-		gov.loc.mets.DocumentRoot metsDocumentRoot = makeMets(mods, acl, file, null);
+		gov.loc.mets.DocumentRoot metsDocumentRoot = makeMets(form.getCurrentUser(), mods, acl, file, null);
 		File zipFile = makeZipFile(metsDocumentRoot, file, null);
 		
 		return depositZip(form.getDepositContainerId(), pid, zipFile);
@@ -291,8 +291,7 @@ public class SwordDepositHandler implements DepositHandler {
 	 * elements of supplementalFiles have indices 1, 2, ... (if supplementalFiles
 	 * is not null).
 	 */
-
-	private gov.loc.mets.DocumentRoot makeMets(gov.loc.mods.mods.DocumentRoot modsDocumentRoot, edu.unc.lib.schemas.acl.DocumentRoot acl,
+	private gov.loc.mets.DocumentRoot makeMets(String user, gov.loc.mods.mods.DocumentRoot modsDocumentRoot, edu.unc.lib.schemas.acl.DocumentRoot acl,
 			SubmittedFile mainFile, List<SubmittedFile> supplementalFiles) {
 		
 		gov.loc.mets.DocumentRoot root;
@@ -329,7 +328,17 @@ public class SwordDepositHandler implements DepositHandler {
 			head.setCREATEDATE(new XMLCalendar(currentTime, XMLCalendar.DATETIME));
 			head.setLASTMODDATE(new XMLCalendar(currentTime, XMLCalendar.DATETIME));
 	
-			AgentType agent = MetsFactory.eINSTANCE.createAgentType();
+			AgentType agent;
+			
+			if (user != null) {
+				agent = MetsFactory.eINSTANCE.createAgentType();
+				agent.setROLE(ROLEType.CREATOR);
+				agent.setTYPE(TYPEType.INDIVIDUAL);
+				agent.setName(user);
+				head.getAgent().add(agent);
+			}
+			
+			agent = MetsFactory.eINSTANCE.createAgentType();
 			agent.setROLE(ROLEType.CREATOR);
 			agent.setTYPE(TYPEType.OTHER);
 			agent.setName("CDR Forms");
