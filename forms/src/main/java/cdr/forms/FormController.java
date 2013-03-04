@@ -121,7 +121,7 @@ public class FormController {
 		this.authorizationHandler = authorizationHandler;
 	}
 	
-	@Autowired
+	@Autowired(required=false)
 	private NotificationHandler notificationHandler = null;
 
 	public NotificationHandler getNotificationHandler() {
@@ -192,9 +192,7 @@ public class FormController {
 		
 		submittedFile = handleUploadedFile(file, errors);
 		
-		
 		if (form.isCanAddSupplementalFiles()) {
-			
 			supplementalSubmittedFiles = new ArrayList<SubmittedFile>();
 			
 			for (MultipartFile supplementalFile : supplementalFiles) {
@@ -202,18 +200,13 @@ public class FormController {
 				if (sf != null)
 					supplementalSubmittedFiles.add(sf);
 			}
-			
 		} else {
-			
 			supplementalSubmittedFiles = null;
-			
 		}
 
-		
 		if (submittedFile == null)
 			errors.addError(new FieldError("form", "file", "You must select a file for upload."));
 		
-
 		if (errors.hasErrors()) {
 			LOG.debug(errors.getErrorCount() + " errors");
 			return "form";
@@ -235,7 +228,12 @@ public class FormController {
 			errors.addError(new FieldError("form", "file", "Deposit failed with response code: " + result.getStatus()));
 			return "form";
 		}
-		getNotificationHandler().notifyDeposit(form, result, user.getName());
+		
+		
+		// Otherwise, if the deposit was successful, send a notification
+		
+		if (getNotificationHandler() != null)
+			getNotificationHandler().notifyDeposit(form, result, user != null ? user.getName() : null);
 		
 		
 		// Clean up: delete temporary files, clear the session
