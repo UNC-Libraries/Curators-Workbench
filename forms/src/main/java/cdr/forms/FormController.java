@@ -121,7 +121,7 @@ public class FormController {
 		this.authorizationHandler = authorizationHandler;
 	}
 	
-	@Autowired
+	@Autowired(required=false)
 	private NotificationHandler notificationHandler = null;
 
 	public NotificationHandler getNotificationHandler() {
@@ -235,7 +235,12 @@ public class FormController {
 			errors.addError(new FieldError("form", "file", "Deposit failed with response code: " + result.getStatus()));
 			return "form";
 		}
-		getNotificationHandler().notifyDeposit(form, result, user.getName());
+		
+		
+		// Otherwise, if the deposit was successful, send a notification
+		
+		if (getNotificationHandler() != null)
+			getNotificationHandler().notifyDeposit(form, result, user.getName());
 		
 		
 		// Clean up: delete temporary files, clear the session
