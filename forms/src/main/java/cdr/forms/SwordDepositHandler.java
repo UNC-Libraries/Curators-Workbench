@@ -15,6 +15,8 @@
  */
 package cdr.forms;
 
+import edu.unc.lib.schemas.acl.AccessControlType;
+import edu.unc.lib.schemas.acl.AclFactory;
 import edu.unc.lib.schemas.acl.AclPackage;
 import gov.loc.mets.AgentType;
 import gov.loc.mets.AmdSecType;
@@ -41,7 +43,9 @@ import gov.loc.mets.XmlDataType1;
 import gov.loc.mets.util.Link;
 import gov.loc.mets.util.METSConstants;
 import gov.loc.mets.util.MetsResourceFactoryImpl;
+import gov.loc.mods.mods.MODSFactory;
 import gov.loc.mods.mods.MODSPackage;
+import gov.loc.mods.mods.ModsDefinition;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -58,6 +62,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
@@ -82,6 +87,11 @@ import org.jdom.input.SAXBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.w3._1999.xlink.XlinkPackage;
+
+import crosswalk.Form;
+import crosswalk.FormElement;
+import crosswalk.MetadataBlock;
+import crosswalk.OutputElement;
 
 import cdr.forms.DepositResult.Status;
 
@@ -141,22 +151,29 @@ public class SwordDepositHandler implements DepositHandler {
 		this.defaultContainer = defaultContainer;
 	}
 	
-	public DepositResult depositAggregate(String containerId, String pid, gov.loc.mods.mods.DocumentRoot mods, edu.unc.lib.schemas.acl.DocumentRoot acl,
-			SubmittedFile mainFile, List<SubmittedFile> supplementaryFiles) {
+	public DepositResult depositAggregate(Form form, SubmittedFile mainFile, List<SubmittedFile> supplementaryFiles) {
+
+		String pid = "uuid:" + UUID.randomUUID().toString();
+		gov.loc.mods.mods.DocumentRoot mods = makeMods(form);
+		edu.unc.lib.schemas.acl.DocumentRoot acl = makeAcl(form);
 
 		gov.loc.mets.DocumentRoot metsDocumentRoot = makeMets(mods, acl, mainFile, supplementaryFiles);
 		File zipFile = makeZipFile(metsDocumentRoot, mainFile, supplementaryFiles);
 
-		return depositZip(containerId, pid, zipFile);
+		return depositZip(form.getDepositContainerId(), pid, zipFile);
 		
 	}
 
-	public DepositResult depositFile(String containerId, String pid, gov.loc.mods.mods.DocumentRoot mods, edu.unc.lib.schemas.acl.DocumentRoot acl, SubmittedFile file) {
+	public DepositResult depositFile(Form form, SubmittedFile file) {
+
+		String pid = "uuid:" + UUID.randomUUID().toString();
+		gov.loc.mods.mods.DocumentRoot mods = makeMods(form);
+		edu.unc.lib.schemas.acl.DocumentRoot acl = makeAcl(form);
 		
 		gov.loc.mets.DocumentRoot metsDocumentRoot = makeMets(mods, acl, file, null);
 		File zipFile = makeZipFile(metsDocumentRoot, file, null);
 		
-		return depositZip(containerId, pid, zipFile);
+		return depositZip(form.getDepositContainerId(), pid, zipFile);
 		
 	}
 
@@ -225,6 +242,38 @@ public class SwordDepositHandler implements DepositHandler {
 			throw new Error(e);
 		}
 		return result;
+		
+	}
+	
+	private gov.loc.mods.mods.DocumentRoot makeMods(Form form) {
+		// run the mapping and get a MODS record. (report any errors)
+		ModsDefinition mods = MODSFactory.eINSTANCE.createModsDefinition();
+		gov.loc.mods.mods.DocumentRoot root = MODSFactory.eINSTANCE.createDocumentRoot();
+		root.setMods(mods);
+		for (FormElement fe : form.getElements()) {
+			if(MetadataBlock.class.isInstance(fe)) {
+				MetadataBlock mb = (MetadataBlock)fe;
+				for(OutputElement oe : mb.getElements()) {
+					oe.updateRecord(mods);
+				}
+			}
+		}
+		return root;
+	}
+	
+	private edu.unc.lib.schemas.acl.DocumentRoot makeAcl(Form form) {
+		
+		AccessControlType accessControl = AclFactory.eINSTANCE.createAccessControlType();
+		edu.unc.lib.schemas.acl.DocumentRoot root = AclFactory.eINSTANCE.createDocumentRoot();
+		root.setAccessControl(accessControl);
+		
+		// If the form specifies that the object should be reviewed before publication,
+		// the ACL should specify that it is not published.
+		
+		if (form.isReviewBeforePublication())
+			accessControl.setPublished(false);
+		
+		return root;
 		
 	}
 	

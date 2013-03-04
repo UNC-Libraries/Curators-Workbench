@@ -16,11 +16,11 @@
 package cdr.forms;
 
 import java.util.List;
+import crosswalk.Form;
 
 public interface DepositHandler {
 	
-	DepositResult depositAggregate(String containerPid, String pid, gov.loc.mods.mods.DocumentRoot mods, edu.unc.lib.schemas.acl.DocumentRoot acl,
-			SubmittedFile file, List<SubmittedFile> supplementaryFiles);
-	DepositResult depositFile(String containerPid, String pid, gov.loc.mods.mods.DocumentRoot mods, edu.unc.lib.schemas.acl.DocumentRoot acl, SubmittedFile file);
+	DepositResult depositAggregate(Form form, SubmittedFile file, List<SubmittedFile> supplementaryFiles);
+	DepositResult depositFile(Form form, SubmittedFile file);
 	
 }

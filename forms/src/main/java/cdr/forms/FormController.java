@@ -15,12 +15,6 @@
  */
 package cdr.forms;
 
-import edu.unc.lib.schemas.acl.AccessControlType;
-import edu.unc.lib.schemas.acl.AclFactory;
-import gov.loc.mods.mods.DocumentRoot;
-import gov.loc.mods.mods.MODSFactory;
-import gov.loc.mods.mods.ModsDefinition;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -29,7 +23,6 @@ import java.io.UnsupportedEncodingException;
 import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 import java.util.regex.Pattern;
 
 import javax.servlet.http.HttpServletRequest;
@@ -61,9 +54,6 @@ import com.philvarner.clamavj.ClamScan;
 import com.philvarner.clamavj.ScanResult;
 
 import crosswalk.Form;
-import crosswalk.FormElement;
-import crosswalk.MetadataBlock;
-import crosswalk.OutputElement;
 
 @Controller
 @RequestMapping(value = { "/*", "/**" })
@@ -180,11 +170,6 @@ public class FormController {
 	public String processForm(@PathVariable String formId, @Valid @ModelAttribute("form") Form form, BindingResult errors,
 			Principal user, @RequestParam("file") MultipartFile file, @RequestParam(value="supplementalFile", required=false) MultipartFile[] supplementalFiles, SessionStatus sessionStatus, HttpServletRequest request) throws PermissionDeniedException {
 		
-		gov.loc.mods.mods.DocumentRoot modsDocumentRoot;
-		edu.unc.lib.schemas.acl.DocumentRoot aclDocumentRoot;
-
-		String pid;
-		
 		SubmittedFile submittedFile;
 		List<SubmittedFile> supplementalSubmittedFiles;
 		
@@ -237,14 +222,10 @@ public class FormController {
 		
 		// Deposit
 		
-		pid = "uuid:" + UUID.randomUUID().toString();
-		modsDocumentRoot = makeMods(form);
-		aclDocumentRoot = makeAcl(form);
-		
 		if (form.isCanAddSupplementalFiles())
-			result = this.getDepositHandler().depositAggregate(form.getDepositContainerId(), pid, modsDocumentRoot, aclDocumentRoot, submittedFile, supplementalSubmittedFiles);
+			result = this.getDepositHandler().depositAggregate(form, submittedFile, supplementalSubmittedFiles);
 		else
-			result = this.getDepositHandler().depositFile(form.getDepositContainerId(), pid, modsDocumentRoot, aclDocumentRoot, submittedFile);
+			result = this.getDepositHandler().depositFile(form, submittedFile);
 		
 		
 		// Handle a failed deposit response
@@ -346,38 +327,6 @@ public class FormController {
 		modelview.addObject("form", e.getForm());
 		modelview.addObject("message", e.getMessage()+" \nSend email to "+this.getAdministratorEmail()+" to request access.");
 		return modelview;
-	}
-	
-	private gov.loc.mods.mods.DocumentRoot makeMods(Form form) {
-		// run the mapping and get a MODS record. (report any errors)
-		ModsDefinition mods = MODSFactory.eINSTANCE.createModsDefinition();
-		gov.loc.mods.mods.DocumentRoot root = MODSFactory.eINSTANCE.createDocumentRoot();
-		root.setMods(mods);
-		for (FormElement fe : form.getElements()) {
-			if(MetadataBlock.class.isInstance(fe)) {
-				MetadataBlock mb = (MetadataBlock)fe;
-				for(OutputElement oe : mb.getElements()) {
-					oe.updateRecord(mods);
-				}
-			}
-		}
-		return root;
-	}
-	
-	private edu.unc.lib.schemas.acl.DocumentRoot makeAcl(Form form) {
-		
-		AccessControlType accessControl = AclFactory.eINSTANCE.createAccessControlType();
-		edu.unc.lib.schemas.acl.DocumentRoot root = AclFactory.eINSTANCE.createDocumentRoot();
-		root.setAccessControl(accessControl);
-		
-		// If the form specifies that the object should be reviewed before publication,
-		// the ACL should specify that it is not published.
-		
-		if (form.isReviewBeforePublication())
-			accessControl.setPublished(false);
-		
-		return root;
-		
 	}
 
 }
