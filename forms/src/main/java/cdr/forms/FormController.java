@@ -192,9 +192,7 @@ public class FormController {
 		
 		submittedFile = handleUploadedFile(file, errors);
 		
-		
 		if (form.isCanAddSupplementalFiles()) {
-			
 			supplementalSubmittedFiles = new ArrayList<SubmittedFile>();
 			
 			for (MultipartFile supplementalFile : supplementalFiles) {
@@ -202,18 +200,13 @@ public class FormController {
 				if (sf != null)
 					supplementalSubmittedFiles.add(sf);
 			}
-			
 		} else {
-			
 			supplementalSubmittedFiles = null;
-			
 		}
 
-		
 		if (submittedFile == null)
 			errors.addError(new FieldError("form", "file", "You must select a file for upload."));
 		
-
 		if (errors.hasErrors()) {
 			LOG.debug(errors.getErrorCount() + " errors");
 			return "form";
