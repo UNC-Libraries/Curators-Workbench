@@ -233,7 +233,7 @@ public class FormController {
 		// Otherwise, if the deposit was successful, send a notification
 		
 		if (getNotificationHandler() != null)
-			getNotificationHandler().notifyDeposit(form, result, user.getName());
+			getNotificationHandler().notifyDeposit(form, result, user != null ? user.getName() : null);
 		
 		
 		// Clean up: delete temporary files, clear the session
