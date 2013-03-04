@@ -11,6 +11,7 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
@@ -538,23 +539,40 @@ public class MappedAttributeImpl extends EObjectImpl implements MappedAttribute 
 		}
 		return result;
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated NOT
 	 */
-	public void updateRecord(EObject record) {
+	public Object getValue() {
+		
 		EAttribute myAttribute = this.getMappedFeature();
 		LOG.debug("my type: " + myAttribute.toString());
-
-		// the value to set
-		Object setting = null;
 		
-		// get default
+		Object setting = null;
+		Object defaultSetting = null;
+		
+		// Get the default setting.
+		
 		if (isSetDefaultValue()) {
-			setting = EcoreUtil.createFromString(this.getMappedFeature().getEAttributeType(), getDefaultValue());
+			
+			// It appears that we can't create a feature map entry from a string with EcoreUtil.createFromString,
+			// so if the mapped feature's attribute type is FeatureMapEntry, use the default value as-is.
+			
+			if (EcoreUtil.equals(this.getMappedFeature().getEAttributeType(), EcorePackage.eINSTANCE.getEFeatureMapEntry())) {
+				defaultSetting = getDefaultValue();
+			} else {
+				defaultSetting = EcoreUtil.createFromString(this.getMappedFeature().getEAttributeType(), getDefaultValue());
+			}
+			
 		}
+		
+		// Start with the default setting.
+		
+		setting = defaultSetting;
+		
+		// Try to get the setting through our Output.
 
 		Object input = null;
 		Output gen = this.getOutput();
@@ -564,6 +582,8 @@ public class MappedAttributeImpl extends EObjectImpl implements MappedAttribute 
 				if (input != null) {
 					if (this.isSetConversionStrategy()) {
 						setting = this.getConversionStrategy().convert(input);
+					} else if (EcoreUtil.equals(this.getMappedFeature().getEAttributeType(), EcorePackage.eINSTANCE.getEFeatureMapEntry())) {
+						setting = EcoreUtil.createFromString(EcorePackage.eINSTANCE.getEString(), input.toString());
 					} else if(input instanceof String){
 						setting = EcoreUtil.createFromString(this.getMappedFeature().getEAttributeType(), (String)input);
 					} else {
@@ -580,23 +600,38 @@ public class MappedAttributeImpl extends EObjectImpl implements MappedAttribute 
 				// TODO warning here
 			}
 		}
-
-		// If the value to be set is a blank string, use the default value instead.
-		// If there is no default value, use null.
+		
+		// If the value to be set is a blank string, use the default setting instead.
+		// If there is no default value or it is blank, use null.
 		
 		if (setting != null && setting instanceof String && this.isOmittedWhenBlank()) {
 			if (((String) setting).length() == 0) {
 				if (isSetDefaultValue() && getDefaultValue().length() != 0)
-					setting = EcoreUtil.createFromString(this.getMappedFeature().getEAttributeType(), getDefaultValue());
+					setting = defaultSetting;
 				else
 					setting = null;
 			}
 		}
 		
-		if (setting != null) {
-			record.eSet(myAttribute, setting);
-		}
+		return setting;
+		
 	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
+	 * @generated NOT
+	 */
+	public void updateRecord(EObject record) {
+
+		Object setting = this.getValue();
+		
+		if (setting != null)
+			record.eSet(this.getMappedFeature(), setting);
+		
+	}
+	
+	
 
 	/**
 	 * <!-- begin-user-doc -->

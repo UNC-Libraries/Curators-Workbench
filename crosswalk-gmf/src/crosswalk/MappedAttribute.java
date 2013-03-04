@@ -187,6 +187,11 @@ public interface MappedAttribute extends OutputElement, Input {
 	 * @generated
 	 */
 	void setRequired(boolean value);
+	
+	/**
+	 * @generated NOT
+	 */
+	Object getValue();
 
 								/**
 	 * Returns the value of the '<em><b>Omitted When Blank</b></em>' attribute.

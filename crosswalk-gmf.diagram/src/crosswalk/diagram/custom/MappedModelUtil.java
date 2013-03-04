@@ -26,6 +26,8 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.EcorePackage;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -125,8 +127,17 @@ public class MappedModelUtil {
 			throw new Error("No feature was mapped on the given parent");
 		}
 		List<EStructuralFeature> result = new ArrayList<EStructuralFeature>();
+		
+		
 		// FIXME remove the elements that are already full
 		for (EAttribute a : mappedParentType.getEAllAttributes().toArray(new EAttribute[0])) {
+			
+			// Filter out feature map attributes which are not named "mixed" (for example, the "any" feature map).
+			
+			if (EcoreUtil.equals(a.getEAttributeType(), EcorePackage.eINSTANCE.getEFeatureMapEntry()) && !a.getName().equals("mixed")) {
+				continue;
+			}
+			
 			int count = 0;
 			for (MappedAttribute m : attsMappedAlready) {
 				if (m.getMappedFeature().equals(a))
