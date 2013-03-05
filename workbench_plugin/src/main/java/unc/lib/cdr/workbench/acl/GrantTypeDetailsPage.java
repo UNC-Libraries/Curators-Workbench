@@ -52,6 +52,7 @@ public class GrantTypeDetailsPage implements IDetailsPage {
 	private Combo roleCombo;
 	private Text groupText;
 	private boolean isDirty = false;
+	private boolean updating = false;
 
 	public GrantTypeDetailsPage() {
 		// editor.getSite().getPage().addPartListener(this);
@@ -169,6 +170,7 @@ public class GrantTypeDetailsPage implements IDetailsPage {
 	 * Update form from model
 	 */
 	private void update() {
+		updating = true;
 		if (this.input != null) {
 			if (this.input.getGroup() != null) {
 				this.groupText.setText(this.input.getGroup());
@@ -185,6 +187,7 @@ public class GrantTypeDetailsPage implements IDetailsPage {
 			}
 		}
 		isDirty = false;
+		updating = false;
 	}
 
 	/*
@@ -226,8 +229,11 @@ public class GrantTypeDetailsPage implements IDetailsPage {
 		roleCombo.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
+				if(!updating) {
 				isDirty = true;
 				mform.dirtyStateChanged();
+				commit(false);
+				}
 			}
 		});
 
@@ -241,8 +247,11 @@ public class GrantTypeDetailsPage implements IDetailsPage {
 		groupText = toolkit.createText(client, "", SWT.SINGLE | SWT.BORDER); //$NON-NLS-1$
 		groupText.addModifyListener(new ModifyListener() {
 			public void modifyText(ModifyEvent e) {
+				if(!updating) {
 				isDirty = true;
 				mform.dirtyStateChanged();
+				commit(false);
+				}
 			}
 		});
 		groupText.setLayoutData(gd);

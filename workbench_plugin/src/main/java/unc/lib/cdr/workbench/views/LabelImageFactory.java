@@ -47,7 +47,8 @@ import unc.lib.cdr.workbench.stage.StagedFilesProjectElement;
  */
 public class LabelImageFactory {
 	public static String iconPath = "icons/";
-	private static final int DEFAULT_ICON_SIZE = 24;
+	private static final int DEFAULT_ICON_SIZE = 32;
+	private static final int DEFAULT_DECOR_SIZE = 18;
 	public static Map<String, Icon> diskImages = new HashMap<String, Icon>();
 
 	static {
@@ -60,7 +61,7 @@ public class LabelImageFactory {
 	}
 
 	public static enum Size {
-		ORIGINAL(0, 0), DEFAULT_ICON(DEFAULT_ICON_SIZE, DEFAULT_ICON_SIZE);
+		ORIGINAL(0, 0), DEFAULT_ICON(DEFAULT_ICON_SIZE, DEFAULT_ICON_SIZE), DEFAULT_DECOR(DEFAULT_DECOR_SIZE, DEFAULT_DECOR_SIZE);
 		int width;
 		int height;
 
@@ -71,14 +72,14 @@ public class LabelImageFactory {
 	}
 
 	public enum Icon {
-		OpenProject("24px-Crystal_Clear_app_ark.png", Size.DEFAULT_ICON), ClosedProject(
-				"24px-Crystal_Clear_app_kthememgr.png", Size.DEFAULT_ICON), HardDisk(
-				"24px-Crystal_Clear_app_harddrive.png", Size.DEFAULT_ICON), Folder(
-				"24px-Crystal_Clear_filesystem_folder_grey.png",
+		OpenProject("48px-Crystal_Clear_app_ark.png", Size.DEFAULT_ICON), ClosedProject(
+				"48px-Crystal_Clear_app_kthememgr.png", Size.DEFAULT_ICON), HardDisk(
+				"48px-Crystal_Clear_app_harddrive.png", Size.DEFAULT_ICON), Folder(
+				"48px-Crystal_Clear_filesystem_folder_grey.png",
 				Size.DEFAULT_ICON), File(
-				"24px-Crystal_Clear_action_filenew.png", Size.DEFAULT_ICON), Collection(
-				"24px-Crystal_Clear_app_file-manager.png", Size.DEFAULT_ICON), AggregateWork(
-				"24px-Crystal_Clear_filesystem_folder_txt.png",
+				"48px-Crystal_Clear_action_filenew.png", Size.DEFAULT_ICON), Collection(
+				"48px-Crystal_Clear_app_file-manager.png", Size.DEFAULT_ICON), AggregateWork(
+				"48px-Crystal_Clear_filesystem_folder_txt.png",
 				Size.DEFAULT_ICON), ArrangementEl("edtsrclkup_co.gif",
 				Size.ORIGINAL), CrosswalkEl("filter_tsk.gif", Size.ORIGINAL), OriginalsEl(
 				"access_restriction_attrib.gif", Size.ORIGINAL), StageEl(
@@ -86,8 +87,8 @@ public class LabelImageFactory {
 				"waiting_ovr.gif", Size.ORIGINAL), StagedDecor(
 				"version_controlled.gif", Size.ORIGINAL), UserEditedDecor(
 				"write_obj.gif", Size.ORIGINAL), CrosswalkedDecor(
-				"crosswalk_decor.gif", Size.ORIGINAL), ACLDecor("key_sm.gif",
-				Size.ORIGINAL), CrosswalkedRecord("property_obj.gif",
+				"crosswalk_decor.gif", Size.ORIGINAL), ACLDecor("lockedstate.gif",
+				Size.DEFAULT_DECOR), CrosswalkedRecord("property_obj.gif",
 				Size.ORIGINAL), LinkedObject("link_obj.gif", Size.ORIGINAL), EjectedDecore(
 				"ejected1.gif", Size.ORIGINAL), Loading("loading.png",
 				Size.ORIGINAL), NoPreview("no_preview.png", Size.ORIGINAL);

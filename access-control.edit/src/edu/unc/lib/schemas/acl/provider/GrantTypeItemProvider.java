@@ -135,11 +135,11 @@ public class GrantTypeItemProvider
         public String getText(Object object) {
             GrantType g = (GrantType)object;
             StringBuilder label = new StringBuilder();
-            label.append("'").append(g.getRole())
-            .append("' to '").append(g.getGroup()).append("'");
+            label.append(g.getRole())
+            .append(" \u2192 ").append(g.getGroup());
                 return label == null || label.length() == 0 ?
                         getString("_UI_GrantType_type") :
-                        getString("_UI_GrantType_type") + " " + label.toString();
+                        label.toString();
         }
 
         /**

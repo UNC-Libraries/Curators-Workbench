@@ -60,7 +60,6 @@ public class AccessControlFormPage extends FormPage {
 
 	public AccessControlFormPage(AccessControlFormEditor editor) {
 		super(editor, "fourth", "Access Controls");
-		block = new ScrolledPropertiesBlock(this);
 		model = editor.model;
 		this.acleditor = editor;
 	}
@@ -86,6 +85,7 @@ public class AccessControlFormPage extends FormPage {
 		Composite masterBlock = toolkit.createComposite(parent);
 		TableWrapData mbtd = new TableWrapData(TableWrapData.FILL_GRAB, TableWrapData.FILL_GRAB);
 		masterBlock.setLayoutData(mbtd);
+		block = new ScrolledPropertiesBlock(this);
 		block.createContent(managedForm, masterBlock);
 	}
 
