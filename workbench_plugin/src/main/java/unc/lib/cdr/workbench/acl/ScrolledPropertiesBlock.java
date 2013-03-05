@@ -74,8 +74,8 @@ public class ScrolledPropertiesBlock extends MasterDetailsBlock implements ISele
 	protected void createMasterPart(final IManagedForm managedForm, Composite parent) {
 		FormToolkit toolkit = managedForm.getToolkit();
 		Section section = toolkit.createSection(parent, Section.DESCRIPTION | Section.TITLE_BAR);
-		section.setText("Roles Granted (Inheritable)"); //$NON-NLS-1$
-		section.setDescription("Add, edit or remove roles granted to groups."); //$NON-NLS-1$
+		section.setText("Roles Granted"); //$NON-NLS-1$
+		section.setDescription("Add, edit or remove the roles granted at this level."); //$NON-NLS-1$
 		section.marginWidth = 10;
 		section.marginHeight = 5;
 		Composite client = toolkit.createComposite(section, SWT.WRAP);

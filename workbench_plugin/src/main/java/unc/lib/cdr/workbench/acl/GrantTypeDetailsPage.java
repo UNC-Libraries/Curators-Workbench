@@ -46,7 +46,7 @@ import edu.unc.lib.schemas.acl.GrantType;
  *
  */
 public class GrantTypeDetailsPage implements IDetailsPage {
-	public static final String[] roles = new String[] { "patron", "metadata-patron", "access-copies-patron", "observer", "ingester", "processor", "curator" };
+	public static final String[] roles = new String[] { "metadata-patron", "access-copies-patron", "patron", "observer", "ingester", "processor", "curator" };
 	private IManagedForm mform;
 	private GrantType input;
 	private Combo roleCombo;

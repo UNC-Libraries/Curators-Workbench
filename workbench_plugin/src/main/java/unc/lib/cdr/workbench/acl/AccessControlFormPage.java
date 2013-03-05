@@ -75,10 +75,10 @@ public class AccessControlFormPage extends FormPage {
 		parent.setLayout(layout);
 
 		// first block
-		createInheritContent(parent, toolkit);
 		createIsPublishedContent(parent, toolkit);
 		createDiscoverableContent(parent, toolkit);
 		createEmbargoContent(parent, toolkit);
+		createInheritContent(parent, toolkit);
 		// form.setBackgroundImage(FormArticlePlugin.getDefault().getImage(
 		// FormArticlePlugin.IMG_FORM_BG));
 
@@ -97,7 +97,7 @@ public class AccessControlFormPage extends FormPage {
 		TableWrapData gd = new TableWrapData(TableWrapData.FILL_GRAB, TableWrapData.MIDDLE);
 		Section s1 = toolkit.createSection(parent, Section.DESCRIPTION | Section.TITLE_BAR);
 		s1.setText("Embargo"); //$NON-NLS-1$
-		s1.setDescription("You may embargo this object (and its contents) until a specified date."); //$NON-NLS-1$
+		s1.setDescription("You may embargo this object and its contents until a specified date."); //$NON-NLS-1$
 		s1.marginWidth = 10;
 		s1.marginHeight = 5;
 		s1.setLayoutData(gd);
@@ -167,13 +167,13 @@ public class AccessControlFormPage extends FormPage {
 	private void createInheritContent(Composite parent, FormToolkit toolkit) {
 		TableWrapData gd = new TableWrapData(TableWrapData.FILL_GRAB, TableWrapData.MIDDLE);
 		Section s1 = toolkit.createSection(parent, Section.DESCRIPTION | Section.TITLE_BAR);
-		s1.setText("Inherited Roles"); //$NON-NLS-1$
-		s1.setDescription("Roles may have been granted to groups above this object. Do you want those groups to retain roles inherited in this way?"); //$NON-NLS-1$
+		s1.setText("Roles Inherited"); //$NON-NLS-1$
+		s1.setDescription("Roles may have been granted above this level. You may retain those roles here or uncheck the box to block their inheritance."); //$NON-NLS-1$
 		s1.marginWidth = 10;
 		s1.marginHeight = 5;
 		s1.setLayoutData(gd);
 
-		inheritFlag = toolkit.createButton(s1, "Yes, groups may retain roles granted above this level.", SWT.CHECK); //$NON-NLS-1$
+		inheritFlag = toolkit.createButton(s1, "Yes, retain roles granted above this level.", SWT.CHECK); //$NON-NLS-1$
 		if(model != null) {
 			inheritFlag.setSelection(model.isInherit());
 		} else {
@@ -203,12 +203,12 @@ public class AccessControlFormPage extends FormPage {
 	private void createDiscoverableContent(Composite parent, FormToolkit toolkit) {
 		TableWrapData gd = new TableWrapData(TableWrapData.FILL_GRAB, TableWrapData.MIDDLE);
 		Section s1 = toolkit.createSection(parent, Section.DESCRIPTION | Section.TITLE_BAR);
-		s1.setText("Allow Discovery"); //$NON-NLS-1$
-		s1.setDescription("Do you want this object to be discovered by repository search and browse functions?"); //$NON-NLS-1$
+		s1.setText("Discovery"); //$NON-NLS-1$
+		s1.setDescription("Do you want this object to be discovered through search and browse functions?"); //$NON-NLS-1$
 		s1.marginWidth = 10;
 		s1.marginHeight = 5;
 		s1.setLayoutData(gd);
-		discoverableFlag = toolkit.createButton(s1, "Yes, allow discovery via search and browse.", SWT.CHECK); //$NON-NLS-1$
+		discoverableFlag = toolkit.createButton(s1, "Yes, enable discovery via search and browse.", SWT.CHECK); //$NON-NLS-1$
 		if(model != null) discoverableFlag.setSelection(model.isDiscoverable());
 		discoverableFlag.addSelectionListener(new SelectionAdapter() {
 			@Override
