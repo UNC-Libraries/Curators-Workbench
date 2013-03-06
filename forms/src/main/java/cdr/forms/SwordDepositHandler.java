@@ -153,6 +153,10 @@ public class SwordDepositHandler implements DepositHandler {
 	private DepositResult deposit(Form form, SubmittedFile mainFile, List<SubmittedFile> supplementalFiles) {
 
 		String pid = "uuid:" + UUID.randomUUID().toString();
+		
+		
+		// Prepare the zip file for deposit
+		
 		gov.loc.mods.mods.DocumentRoot mods = makeMods(form);
 		edu.unc.lib.schemas.acl.DocumentRoot acl = makeAcl(form);
 		IdentityHashMap<SubmittedFile, String> filenames = buildFilenameMap(mainFile, supplementalFiles);
@@ -160,12 +164,18 @@ public class SwordDepositHandler implements DepositHandler {
 		gov.loc.mets.DocumentRoot metsDocumentRoot = makeMets(form.getCurrentUser(), mods, acl, mainFile, supplementalFiles, filenames);
 		File zipFile = makeZipFile(metsDocumentRoot, mainFile, supplementalFiles, filenames);
 		
+		
+		// Obtain the path for the collection in which we'll attempt to make the deposit
+		
 		String containerId = form.getDepositContainerId();
 		
 		if (containerId == null || "".equals(containerId.trim()))
 			containerId = this.getDefaultContainer();
 
 		String depositPath = getServiceUrl() + "collection/" + containerId;
+		
+		
+		// Make the SWORD request
 		
 		HttpClient client = new HttpClient();
 		
@@ -188,13 +198,13 @@ public class SwordDepositHandler implements DepositHandler {
 		
 		post.setRequestEntity(fileRequestEntity);
 		
-		int responseCode;
-
+		
+		// Interpret the response from the SWORD endpoint
+		
 		DepositResult result = new DepositResult();
 		
-		// result.setObjectPid(pid);
 		try {
-			responseCode = client.executeMethod(post);
+			int responseCode = client.executeMethod(post);
 			if (responseCode >= 300) {
 				LOG.error(String.valueOf(responseCode));
 				LOG.error(post.getResponseBodyAsString());
@@ -231,13 +241,15 @@ public class SwordDepositHandler implements DepositHandler {
 	private IdentityHashMap<SubmittedFile, String> buildFilenameMap(SubmittedFile mainFile, List<SubmittedFile> supplementalFiles) {
 		
 		IdentityHashMap<SubmittedFile, String> filenames = new IdentityHashMap<SubmittedFile, String>();
-		
-		filenames.put(mainFile, "f" + mainFile.getExtension());
 
 		int index = 0;
+		
+		filenames.put(mainFile, "data_" + index + mainFile.getExtension());
+		index++;
+
 		if (supplementalFiles != null) {
 			for (SubmittedFile supplementalFile : supplementalFiles) {
-				filenames.put(supplementalFile, "sf" + index + supplementalFile.getExtension());
+				filenames.put(supplementalFile, "data_" + index + supplementalFile.getExtension());
 				index++;
 			}
 		}
@@ -284,7 +296,12 @@ public class SwordDepositHandler implements DepositHandler {
 	 * This takes care of both the single file and aggregate work cases. If
 	 * supplementalFiles is null, the generated structMap will contain a single
 	 * div of type "File". Otherwise, the structMap will contain a div of type
-	 * "Aggregate Work" at its root, and a structLink element will be generated.
+	 * "Aggregate Work" at its root, and a structLink element will be generated,
+	 * assigning the main file as the defaultWebObject.
+	 * 
+	 * file and div elements are given ID attributes of the form "f_{index}" and
+	 * "d_{index}" respectively, where index is 0 for the main file, and 1, 2, ...
+	 * for each supplemental file.
 	 */
 	private gov.loc.mets.DocumentRoot makeMets(String user, gov.loc.mods.mods.DocumentRoot modsDocumentRoot, edu.unc.lib.schemas.acl.DocumentRoot acl,
 			SubmittedFile mainFile, List<SubmittedFile> supplementalFiles, IdentityHashMap<SubmittedFile, String> filenames) {
@@ -401,7 +418,7 @@ public class SwordDepositHandler implements DepositHandler {
 				SubmittedFile submittedFile = i == 0 ? mainFile : supplementalFiles.get(i - 1);
 				
 				FileType file = MetsFactory.eINSTANCE.createFileType();
-				file.setID("f" + i);
+				file.setID("f_" + i);
 				file.setMIMETYPE(submittedFile.getContentType());
 	
 				FLocatType fLocat = MetsFactory.eINSTANCE.createFLocatType();
@@ -432,7 +449,7 @@ public class SwordDepositHandler implements DepositHandler {
 			fileDiv.getMdSec().add(rightsMdSec);
 			
 			FptrType fptr = MetsFactory.eINSTANCE.createFptrType();
-			fptr.setFILEID("f0");
+			fptr.setFILEID("f_0");
 			fileDiv.getFptr().add(fptr);
 
 			structMap.setDiv(fileDiv);
@@ -459,9 +476,9 @@ public class SwordDepositHandler implements DepositHandler {
 				fileDiv.setLABEL1(submittedFile.getFilename());
 				
 				FptrType fptr = MetsFactory.eINSTANCE.createFptrType();
-				fptr.setFILEID("f" + i);
+				fptr.setFILEID("f_" + i);
 				fileDiv.getFptr().add(fptr);
-				fileDiv.setID("d" + i);
+				fileDiv.setID("d_" + i);
 				
 				aggregateWorkDiv.getDiv().add(fileDiv);
 				
