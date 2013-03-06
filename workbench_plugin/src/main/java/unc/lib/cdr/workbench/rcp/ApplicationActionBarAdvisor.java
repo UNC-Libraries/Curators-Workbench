@@ -43,6 +43,7 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
 
 	private IContributionItem newWizardMenu;
 	private IWorkbenchAction saveAction;
+	private IWorkbenchAction saveAsAction;
 	private IWorkbenchAction deleteAction;
 
 	public ApplicationActionBarAdvisor(IActionBarConfigurer configurer) {
@@ -74,6 +75,8 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
 		register(newWizardDropDownAction);
 		saveAction = ActionFactory.SAVE.create(window);
 		register(saveAction);
+		saveAsAction = ActionFactory.SAVE_AS.create(window);
+		register(saveAsAction);
 		deleteAction = ActionFactory.DELETE.create(window);
 		register(deleteAction);
 
@@ -112,6 +115,7 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
 		ToolBarManager toolbar = new ToolBarManager(SWT.FLAT);
 		toolbar.add(newWizardDropDownAction);
 		toolbar.add(saveAction);
+		toolbar.add(saveAsAction);
 		coolBar.add(toolbar);
 	}
 
