@@ -153,6 +153,10 @@ public class SwordDepositHandler implements DepositHandler {
 	private DepositResult deposit(Form form, SubmittedFile mainFile, List<SubmittedFile> supplementalFiles) {
 
 		String pid = "uuid:" + UUID.randomUUID().toString();
+		
+		
+		// Prepare the zip file for deposit
+		
 		gov.loc.mods.mods.DocumentRoot mods = makeMods(form);
 		edu.unc.lib.schemas.acl.DocumentRoot acl = makeAcl(form);
 		IdentityHashMap<SubmittedFile, String> filenames = buildFilenameMap(mainFile, supplementalFiles);
@@ -160,12 +164,18 @@ public class SwordDepositHandler implements DepositHandler {
 		gov.loc.mets.DocumentRoot metsDocumentRoot = makeMets(form.getCurrentUser(), mods, acl, mainFile, supplementalFiles, filenames);
 		File zipFile = makeZipFile(metsDocumentRoot, mainFile, supplementalFiles, filenames);
 		
+		
+		// Obtain the path for the collection in which we'll attempt to make the deposit
+		
 		String containerId = form.getDepositContainerId();
 		
 		if (containerId == null || "".equals(containerId.trim()))
 			containerId = this.getDefaultContainer();
 
 		String depositPath = getServiceUrl() + "collection/" + containerId;
+		
+		
+		// Make the SWORD request
 		
 		HttpClient client = new HttpClient();
 		
@@ -188,13 +198,13 @@ public class SwordDepositHandler implements DepositHandler {
 		
 		post.setRequestEntity(fileRequestEntity);
 		
-		int responseCode;
-
+		
+		// Interpret the response from the SWORD endpoint
+		
 		DepositResult result = new DepositResult();
 		
-		// result.setObjectPid(pid);
 		try {
-			responseCode = client.executeMethod(post);
+			int responseCode = client.executeMethod(post);
 			if (responseCode >= 300) {
 				LOG.error(String.valueOf(responseCode));
 				LOG.error(post.getResponseBodyAsString());
