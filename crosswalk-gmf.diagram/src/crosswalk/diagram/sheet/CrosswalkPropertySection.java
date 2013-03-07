@@ -34,6 +34,8 @@ import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.views.properties.IPropertySource;
 import org.eclipse.ui.views.properties.IPropertySourceProvider;
 
+import crosswalk.DelimitedFile;
+
 /**
  * @generated
  */
@@ -41,7 +43,7 @@ public class CrosswalkPropertySection extends AdvancedPropertySection implements
 		IPropertySourceProvider {
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	public IPropertySource getPropertySource(Object object) {
 		if (object instanceof IPropertySource) {
@@ -51,6 +53,9 @@ public class CrosswalkPropertySection extends AdvancedPropertySection implements
 		if (af != null) {
 			IItemPropertySource ips = (IItemPropertySource) af.adapt(object,
 					IItemPropertySource.class);
+			if(object instanceof DelimitedFile) {
+				return new MyFileURLPropertySource(object, ips);
+			}
 			if (ips != null) {
 				return new PropertySource(object, ips);
 			}

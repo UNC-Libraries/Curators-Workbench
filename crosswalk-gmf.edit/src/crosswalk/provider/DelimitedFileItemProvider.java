@@ -81,22 +81,16 @@ public class DelimitedFileItemProvider
 	 * This adds a property descriptor for the Source File feature.
 	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
         protected void addSourceFilePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+			(new MyFileURLItemPropertyDescriptor(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
 				 getString("_UI_DelimitedFile_SourceFile_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DelimitedFile_SourceFile_feature", "_UI_DelimitedFile_type"),
-				 CrosswalkPackage.Literals.DELIMITED_FILE__SOURCE_FILE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+				 getString("_UI_PropertyDescriptor_description"), 
+						 CrosswalkPackage.Literals.DELIMITED_FILE__SOURCE_FILE,
+						 true, null));
 	}
 
         /**

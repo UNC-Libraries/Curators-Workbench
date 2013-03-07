@@ -616,7 +616,12 @@ public class DelimitedFileImpl extends EObjectImpl implements DelimitedFile {
 		try {
 			TabbedDataField tdf = (TabbedDataField) field;
 			int index = tdf.getColumnNumber() - 1;
-			return this.lines.get(currentRowNumber - this.getFirstDataRow())[index];
+			String[] row = this.lines.get(currentRowNumber - this.getFirstDataRow());
+			if(row != null && index < row.length) {
+				return row[index];
+			} else {
+				return null;
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
