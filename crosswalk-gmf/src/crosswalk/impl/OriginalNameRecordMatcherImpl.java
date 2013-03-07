@@ -469,6 +469,7 @@ public class OriginalNameRecordMatcherImpl extends WalkWidgetImpl implements Ori
 				break;
 			}
 		}
+		if(uriencoded == null) return result;
 		try {
 			result = URLDecoder.decode(uriencoded, "utf-8");
 		} catch (UnsupportedEncodingException e) {
