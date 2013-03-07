@@ -33,6 +33,7 @@ import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Tree;
 import org.eclipse.ui.forms.DetailsPart;
 import org.eclipse.ui.forms.IManagedForm;
@@ -73,11 +74,15 @@ public class ScrolledPropertiesBlock extends MasterDetailsBlock implements ISele
 	@Override
 	protected void createMasterPart(final IManagedForm managedForm, Composite parent) {
 		FormToolkit toolkit = managedForm.getToolkit();
-		Section section = toolkit.createSection(parent, Section.DESCRIPTION | Section.TITLE_BAR);
+		Section section = toolkit.createSection(parent, Section.TITLE_BAR);
 		section.setText("Roles Granted"); //$NON-NLS-1$
-		section.setDescription("Add, edit or remove the roles granted at this level."); //$NON-NLS-1$
 		section.marginWidth = 10;
 		section.marginHeight = 5;
+		
+		Label descriptionLabel = new Label(section, SWT.WRAP);
+		descriptionLabel.setText("Add, edit or remove the roles granted at this level."); //$NON-NLS-1$
+		section.setDescriptionControl(descriptionLabel);
+		
 		Composite client = toolkit.createComposite(section, SWT.WRAP);
 		GridLayout layout = new GridLayout();
 		layout.numColumns = 2;

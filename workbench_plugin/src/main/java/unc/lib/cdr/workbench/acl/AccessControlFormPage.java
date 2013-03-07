@@ -31,6 +31,7 @@ import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.DateTime;
+import org.eclipse.swt.widgets.Label;
 import org.eclipse.ui.forms.IManagedForm;
 import org.eclipse.ui.forms.editor.FormPage;
 import org.eclipse.ui.forms.widgets.FormToolkit;
@@ -95,12 +96,15 @@ public class AccessControlFormPage extends FormPage {
 	 */
 	private void createEmbargoContent(Composite parent, FormToolkit toolkit) {
 		TableWrapData gd = new TableWrapData(TableWrapData.FILL_GRAB, TableWrapData.MIDDLE);
-		Section s1 = toolkit.createSection(parent, Section.DESCRIPTION | Section.TITLE_BAR);
+		Section s1 = toolkit.createSection(parent, Section.TITLE_BAR);
 		s1.setText("Embargo"); //$NON-NLS-1$
-		s1.setDescription("You may embargo this object and its contents until a specified date."); //$NON-NLS-1$
 		s1.marginWidth = 10;
 		s1.marginHeight = 5;
 		s1.setLayoutData(gd);
+
+		Label descriptionLabel = new Label(s1, SWT.WRAP);
+		descriptionLabel.setText("You may embargo this object and its contents until a specified date."); //$NON-NLS-1$
+		s1.setDescriptionControl(descriptionLabel);
 
 		Composite client = toolkit.createComposite(s1);
 		TableWrapLayout twl = new TableWrapLayout();
@@ -166,12 +170,15 @@ public class AccessControlFormPage extends FormPage {
 	 */
 	private void createInheritContent(Composite parent, FormToolkit toolkit) {
 		TableWrapData gd = new TableWrapData(TableWrapData.FILL_GRAB, TableWrapData.MIDDLE);
-		Section s1 = toolkit.createSection(parent, Section.DESCRIPTION | Section.TITLE_BAR);
+		Section s1 = toolkit.createSection(parent, Section.TITLE_BAR);
 		s1.setText("Roles Inherited"); //$NON-NLS-1$
-		s1.setDescription("Roles may have been granted above this level. You may retain those roles here or uncheck the box to block their inheritance."); //$NON-NLS-1$
 		s1.marginWidth = 10;
 		s1.marginHeight = 5;
 		s1.setLayoutData(gd);
+
+		Label descriptionLabel = new Label(s1, SWT.WRAP);
+		descriptionLabel.setText("Roles may have been granted above this level. You may retain those roles here or uncheck the box to block their inheritance."); //$NON-NLS-1$
+		s1.setDescriptionControl(descriptionLabel);
 
 		inheritFlag = toolkit.createButton(s1, "Yes, retain roles granted above this level.", SWT.CHECK); //$NON-NLS-1$
 		if(model != null) {
@@ -202,12 +209,16 @@ public class AccessControlFormPage extends FormPage {
 	 */
 	private void createDiscoverableContent(Composite parent, FormToolkit toolkit) {
 		TableWrapData gd = new TableWrapData(TableWrapData.FILL_GRAB, TableWrapData.MIDDLE);
-		Section s1 = toolkit.createSection(parent, Section.DESCRIPTION | Section.TITLE_BAR);
+		Section s1 = toolkit.createSection(parent, Section.TITLE_BAR);
 		s1.setText("Discovery"); //$NON-NLS-1$
-		s1.setDescription("Do you want this object to be discovered through search and browse functions?"); //$NON-NLS-1$
 		s1.marginWidth = 10;
 		s1.marginHeight = 5;
 		s1.setLayoutData(gd);
+
+		Label descriptionLabel = new Label(s1, SWT.WRAP);
+		descriptionLabel.setText("Do you want this object to be discovered through search and browse functions?"); //$NON-NLS-1$
+		s1.setDescriptionControl(descriptionLabel);
+		
 		discoverableFlag = toolkit.createButton(s1, "Yes, enable discovery via search and browse.", SWT.CHECK); //$NON-NLS-1$
 		if(model != null) discoverableFlag.setSelection(model.isDiscoverable());
 		discoverableFlag.addSelectionListener(new SelectionAdapter() {
@@ -233,12 +244,16 @@ public class AccessControlFormPage extends FormPage {
 	 */
 	private void createIsPublishedContent(Composite parent, FormToolkit toolkit) {
 		TableWrapData gd = new TableWrapData(TableWrapData.FILL_GRAB, TableWrapData.MIDDLE);
-		Section s1 = toolkit.createSection(parent, Section.DESCRIPTION | Section.TITLE_BAR);
+		Section s1 = toolkit.createSection(parent, Section.TITLE_BAR);
 		s1.setText("Publication"); //$NON-NLS-1$
-		s1.setDescription("Do you want this object to be listed and viewed by patrons?"); //$NON-NLS-1$
 		s1.marginWidth = 10;
 		s1.marginHeight = 5;
 		s1.setLayoutData(gd);
+
+		Label descriptionLabel = new Label(s1, SWT.WRAP);
+		descriptionLabel.setText("Do you want this object to be listed and viewed by patrons?"); //$NON-NLS-1$
+		s1.setDescriptionControl(descriptionLabel);
+		
 		publishedFlag = toolkit.createButton(s1, "Yes, publish this item.", SWT.CHECK); //$NON-NLS-1$
 		if(model != null) publishedFlag.setSelection(model.isPublished());
 		publishedFlag.addSelectionListener(new SelectionAdapter() {
