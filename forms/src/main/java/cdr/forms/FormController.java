@@ -302,18 +302,14 @@ public class FormController {
 	}
 
 	private synchronized String virusScan(File depositFile) {
-		try {
-			ScanResult result = this.getClamScan().scan(new FileInputStream(depositFile));
-			switch(result.getStatus()) {
-				case PASSED:
-					return null;
-				case FAILED:
-					return "A virus was detected in your file. Please scan your computer for viruses or report this issue to technical support.";
-				case ERROR:
-					throw new Error("There was a problem running the virus scan.", result.getException());
-			}
-		} catch (FileNotFoundException e) {
-			throw new Error("There was a problem finding the uploaded file: "+depositFile.getName(), e);
+		ScanResult result = this.getClamScan().scan(depositFile);
+		switch(result.getStatus()) {
+			case PASSED:
+				return null;
+			case FAILED:
+				return "A virus was detected in your file. Please scan your computer for viruses or report this issue to technical support.";
+			case ERROR:
+				throw new Error("There was a problem running the virus scan.", result.getException());
 		}
 		return null;
 	}
