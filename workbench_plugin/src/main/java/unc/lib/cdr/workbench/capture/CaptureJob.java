@@ -24,6 +24,12 @@ import gov.loc.mets.MetsType;
 import gov.loc.mets.util.METSConstants;
 import gov.loc.mets.util.METSUtils;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.attribute.BasicFileAttributes;
+import java.nio.file.attribute.FileTime;
 import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -310,11 +316,18 @@ public class CaptureJob extends Job {
 			// calc size and checksum.
 			IFileInfo sourceFileInfo = original.fetchInfo();
 			long size = sourceFileInfo.getLength();
-
+			//long lastModifiedTimestamp = sourceFileInfo.getLastModified();
+			Long createTimestamp = null;
+			Path path = Paths.get(original.getWrapped().toURI());
+			try {
+				BasicFileAttributes attr = Files.readAttributes(path, BasicFileAttributes.class);
+				FileTime create = attr.creationTime();
+				if(create != null) createTimestamp = new Long(create.toMillis());
+			} catch(IOException ignored) {}
 			// find File section (for previously captured) or make one
 			FileType ft = original.getMetsFileType();
 			if (ft == null) {
-				ft = METSUtils.addFile(m, original.getWrapped().toURI(), original.getFileID(), size, null);
+				ft = METSUtils.addFile(m, original.getWrapped().toURI(), original.getFileID(), size, createTimestamp, null);
 			}
 
 			FptrType fptr = MetsFactory.eINSTANCE.createFptrType();

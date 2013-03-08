@@ -40,11 +40,14 @@ import java.net.URI;
 import java.net.URLConnection;
 import java.util.Collection;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 
 import javax.activation.MimetypesFileTypeMap;
+import javax.xml.datatype.DatatypeFactory;
+import javax.xml.datatype.XMLGregorianCalendar;
 
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
@@ -204,13 +207,23 @@ public class METSUtils {
 	 *           the original IFile
 	 * @return the file element
 	 */
-	public static FileType addFile(MetsType mets, URI originalData, String xmlid, long size, String md5) {
+	public static FileType addFile(MetsType mets, URI originalData, String xmlid, long size, Long createdTimestamp, String md5) {
 		FileType f = MetsFactory.eINSTANCE.createFileType();
 		f.setID(xmlid);
 
 		if (md5 != null) {
 			f.setCHECKSUMTYPE(CHECKSUMTYPEType.MD5);
 			f.setCHECKSUM(md5);
+		}
+		if(createdTimestamp != null) {
+			GregorianCalendar cal= (GregorianCalendar) GregorianCalendar.getInstance();
+			cal.setTimeInMillis(createdTimestamp.longValue());
+			try {
+				XMLGregorianCalendar createdCal = DatatypeFactory.newInstance().newXMLGregorianCalendar(cal);
+				f.setCREATED(createdCal);
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
 		}
 		f.setSIZE(size);
 		FileNameMap fileNameMap = URLConnection.getFileNameMap();

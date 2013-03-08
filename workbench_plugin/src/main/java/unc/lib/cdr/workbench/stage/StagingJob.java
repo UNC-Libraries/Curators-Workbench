@@ -107,9 +107,9 @@ public class StagingJob extends Job {
 					FLocatType loc = original.getStagingLocatorType();
 					if (loc == null) {
 						toStage.add(original);
-						System.err.println(" queued");
+						//System.err.println(" queued");
 					} else {
-						System.err.println(" found stage flocat");
+						//System.err.println(" found stage flocat");
 					}
 				} else {
 					System.err.println(" cannot find original");
