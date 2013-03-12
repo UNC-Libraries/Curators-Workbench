@@ -21,6 +21,23 @@
 		http://www.springframework.org/schema/mvc
 		http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 
+	<bean name="propertiesURI" class="java.lang.System"
+		factory-method="getProperty">
+		<constructor-arg index="0" value="server.properties.uri" />
+		<!-- property name for properties URI location -->
+		<constructor-arg index="1" value="classpath:server.properties" />
+		<!-- default location for testing -->
+	</bean>
+	<bean id="serverProperties"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<ref bean="propertiesURI" />
+			</list>
+		</property>
+		<property name="ignoreResourceNotFound" value="false" />
+	</bean>
+
 	<!-- Scans the classpath of this application for @Components to deploy as 
 		beans -->
 	<context:component-scan base-package="cdr.forms" />
@@ -38,6 +55,6 @@
 	<bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<!-- one of the properties available; the maximum file size in bytes -->
-		<property name="maxUploadSize" value="5000000" />
+		<property name="maxUploadSize" value="${forms.maxuploadsize}" />
 	</bean>
 </beans>

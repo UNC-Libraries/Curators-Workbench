@@ -100,6 +100,17 @@ public class FormController {
 	public void setAdministratorEmail(String administratorEmail) {
 		this.administratorEmail = administratorEmail;
 	}
+	
+	@Autowired
+	Long maxUploadSize = null;
+	
+	public Long getMaxUploadSize() {
+		return maxUploadSize;
+	}
+	
+	public void setMaxUploadSize(Long maxUploadSize) {
+		this.maxUploadSize = maxUploadSize;
+	}
 
 	@Autowired
 	AbstractFormFactory factory = null;

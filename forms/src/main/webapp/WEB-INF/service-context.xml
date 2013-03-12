@@ -91,5 +91,9 @@
 		<property name="port" value="${smtp.port}"/>
 		<property name="defaultEncoding" value="UTF-8"/>
 	</bean>
+	
+	<bean id="maxUploadSize" class="java.lang.Long">
+		<constructor-arg value="${forms.maxuploadsize}"/>
+	</bean>
 
 </beans>
