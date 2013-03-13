@@ -35,6 +35,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.InitBinder;
@@ -225,8 +226,8 @@ public class FormController {
 
 		if (result.getStatus() == Status.FAILED) {
 			LOG.error("deposit failed");
-			errors.addError(new FieldError("form", "file", "Deposit failed with response code: " + result.getStatus()));
-			return "form";
+			errors.addError(new ObjectError("form", result.getStatus().toString()));
+			return "failed";
 		}
 		
 		
