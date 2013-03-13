@@ -204,7 +204,11 @@ public class SwordDepositHandler implements DepositHandler {
 		DepositResult result = new DepositResult();
 		
 		try {
+			
+			// Set the result's status based on the HTTP response code
+			
 			int responseCode = client.executeMethod(post);
+			
 			if (responseCode >= 300) {
 				LOG.error(String.valueOf(responseCode));
 				LOG.error(post.getResponseBodyAsString());
@@ -212,21 +216,50 @@ public class SwordDepositHandler implements DepositHandler {
 			} else {
 				result.setStatus(Status.COMPLETE);
 			}
-			SAXBuilder sx = new SAXBuilder();
+			
+			// Save the response body
+			
+			result.setResponseBody(post.getResponseBodyAsString());
+			
+			// Assign additional attributes based on the response body.
+			
 			try {
+				
+			    Namespace atom = Namespace.getNamespace("http://www.w3.org/2005/Atom");
+			    Namespace sword = Namespace.getNamespace("http://purl.org/net/sword/terms/");
+
+				SAXBuilder sx = new SAXBuilder();
 				org.jdom.Document d = sx.build(post.getResponseBodyAsStream());
-				Namespace atom = d.getRootElement().getNamespace();
-				List<Element> links = d.getRootElement().getChildren("link", atom);
-				for (Element el : links) {
-					if ("alternate".equals(el.getAttributeValue("rel"))) {
-						String accessURL = el.getAttributeValue("href");
-						result.setAccessURL(accessURL);
+				
+				// Set accessURL to the href of the first <link rel="alternate"> inside an Atom entry
+
+				if (d.getRootElement().getNamespace().equals(atom) && d.getRootElement().getName().equals("entry")) {
+					@SuppressWarnings("unchecked")
+					List<Element> links = d.getRootElement().getChildren("link", atom);
+
+					for (Element link : links) {
+						if ("alternate".equals(link.getAttributeValue("rel"))) {
+							result.setAccessURL(link.getAttributeValue("href"));
+							break;
+						}
 					}
 				}
+				
+				// Set summary to the content of the first <summary> inside a SWORD error element
+
+				if (d.getRootElement().getNamespace().equals(sword) && d.getRootElement().getName().equals("error")) {
+					Element summary = d.getRootElement().getChild("summary", atom);
+
+					if (summary != null)
+						result.setSummary(summary.getText());
+				}
+
 			} catch (JDOMException e) {
 				LOG.error("There was a problem parsing the SWORD response.", e);
 			}
+			
 			LOG.debug("response was: \n" + post.getResponseBodyAsString());
+			
 		} catch (HttpException e) {
 			LOG.error("Exception during SWORD deposit", e);
 			throw new Error(e);
@@ -234,6 +267,7 @@ public class SwordDepositHandler implements DepositHandler {
 			LOG.error("Exception during SWORD deposit", e);
 			throw new Error(e);
 		}
+		
 		return result;
 		
 	}

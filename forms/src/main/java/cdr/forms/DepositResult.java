@@ -16,19 +16,56 @@
 package cdr.forms;
 
 public class DepositResult {
-	public static enum Status {COMPLETE, PENDING, UNKNOWN, FAILED};
-	private String accessURL;
-	public String getAccessURL() {
-		return accessURL;
-	}
-	public void setAccessURL(String accessURL) {
-		this.accessURL = accessURL;
-	}
+	
+	public static enum Status { COMPLETE, PENDING, UNKNOWN, FAILED };
+	
+	private Status status = Status.UNKNOWN;
+	
 	public Status getStatus() {
 		return status;
 	}
+	
 	public void setStatus(Status status) {
 		this.status = status;
 	}
-	private Status status = Status.UNKNOWN;
+
+	private String accessURL;
+
+	/**
+	 * @return The URL at which the deposited object can be found.
+	 **/
+	public String getAccessURL() {
+		return accessURL;
+	}
+	
+	public void setAccessURL(String accessURL) {
+		this.accessURL = accessURL;
+	}
+	
+	private String summary;
+
+	/**
+	 * @return A summary of the deposit result. If the status is FAILED, this should be an informative error message.
+	 **/
+	public String getSummary() {
+		return summary;
+	}
+	
+	public void setSummary(String summary) {
+		this.summary = summary;
+	}
+	
+	private String responseBody;
+
+	/**
+	 * @return The response body for the request associated with this deposit.
+	 **/
+	public String getResponseBody() {
+		return responseBody;
+	}
+	
+	public void setResponseBody(String responseBody) {
+		this.responseBody = responseBody;
+	}
+	
 }

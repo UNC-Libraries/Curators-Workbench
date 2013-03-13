@@ -226,7 +226,7 @@ public class FormController {
 
 		if (result.getStatus() == Status.FAILED) {
 			LOG.error("deposit failed");
-			errors.addError(new ObjectError("form", result.getStatus().toString()));
+			errors.addError(new ObjectError("form", result.getSummary()));
 			return "failed";
 		}
 		
