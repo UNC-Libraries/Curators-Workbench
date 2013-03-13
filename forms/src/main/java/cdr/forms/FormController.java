@@ -26,6 +26,7 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import org.slf4j.Logger;
@@ -169,7 +170,7 @@ public class FormController {
 
 	@RequestMapping(value = "/{formId}.form", method = RequestMethod.POST)
 	public String processForm(@PathVariable String formId, @Valid @ModelAttribute("form") Form form, BindingResult errors,
-			Principal user, @RequestParam(required=false,value="receiptEmailAddress") String receiptEmailAddress, @RequestParam("file") MultipartFile file, @RequestParam(value="supplementalFile", required=false) MultipartFile[] supplementalFiles, SessionStatus sessionStatus, HttpServletRequest request) throws PermissionDeniedException {
+			Principal user, @RequestParam(required=false,value="receiptEmailAddress") String receiptEmailAddress, @RequestParam("file") MultipartFile file, @RequestParam(value = "supplementalFile", required = false) MultipartFile[] supplementalFiles, SessionStatus sessionStatus, HttpServletRequest request, HttpServletResponse response) throws PermissionDeniedException {
 		
 		SubmittedFile submittedFile;
 		List<SubmittedFile> supplementalSubmittedFiles;
@@ -227,6 +228,7 @@ public class FormController {
 		if (result.getStatus() == Status.FAILED) {
 			LOG.error("deposit failed");
 			errors.addError(new ObjectError("form", result.getSummary()));
+			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
 			return "failed";
 		}
 		
