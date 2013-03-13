@@ -168,7 +168,7 @@ public class FormController {
 
 	@RequestMapping(value = "/{formId}.form", method = RequestMethod.POST)
 	public String processForm(@PathVariable String formId, @Valid @ModelAttribute("form") Form form, BindingResult errors,
-			Principal user, @RequestParam("file") MultipartFile file, @RequestParam(value="supplementalFile", required=false) MultipartFile[] supplementalFiles, SessionStatus sessionStatus, HttpServletRequest request) throws PermissionDeniedException {
+			Principal user, @RequestParam(required=false,value="receiptEmailAddress") String receiptEmailAddress, @RequestParam("file") MultipartFile file, @RequestParam(value="supplementalFile", required=false) MultipartFile[] supplementalFiles, SessionStatus sessionStatus, HttpServletRequest request) throws PermissionDeniedException {
 		
 		SubmittedFile submittedFile;
 		List<SubmittedFile> supplementalSubmittedFiles;
@@ -232,8 +232,8 @@ public class FormController {
 		
 		// Otherwise, if the deposit was successful, send a notification
 		
-		if (getNotificationHandler() != null)
-			getNotificationHandler().notifyDeposit(form, result, user != null ? user.getName() : null);
+		if (getNotificationHandler() != null && receiptEmailAddress != null)
+			getNotificationHandler().notifyDeposit(form, result, receiptEmailAddress, formId);
 		
 		
 		// Clean up: delete temporary files, clear the session

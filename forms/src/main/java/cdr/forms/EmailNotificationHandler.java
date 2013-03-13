@@ -2,6 +2,7 @@ package cdr.forms;
 
 import java.io.IOException;
 import java.io.StringWriter;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Locale;
 
@@ -21,8 +22,12 @@ import freemarker.template.TemplateException;
 public class EmailNotificationHandler implements NotificationHandler {
 	private static final Logger LOG = LoggerFactory
 			.getLogger(EmailNotificationHandler.class);
-	private Template depositHtmlTemplate = null;
-	private Template depositTextTemplate = null;
+	private Template depositReceiptHtmlTemplate = null;
+	private Template depositReceiptTextTemplate = null;
+	private Template depositNoticeHtmlTemplate = null;
+	private Template depositNoticeTextTemplate = null;
+	private Template depositErrorHtmlTemplate = null;
+	private Template depositErrorTextTemplate = null;
 
 	private JavaMailSender mailSender = null;
 
@@ -53,13 +58,51 @@ public class EmailNotificationHandler implements NotificationHandler {
 	private Configuration freemarkerConfiguration = null;
 
 	private String fromAddress = null;
+	
+	private String administratorAddress = null;
+	
+	private String siteUrl = null;
+	
+	private String siteName = null;
+
+	public String getSiteName() {
+		return siteName;
+	}
+
+	public void setSiteName(String siteName) {
+		this.siteName = siteName;
+	}
+
+	public String getSiteUrl() {
+		return siteUrl;
+	}
+
+	public void setSiteUrl(String siteUrl) {
+		this.siteUrl = siteUrl;
+	}
+
+	public String getAdministratorAddress() {
+		return administratorAddress;
+	}
+
+	public void setAdministratorAddress(String administratorAddress) {
+		this.administratorAddress = administratorAddress;
+	}
 
 	public void init() {
 		try {
-			depositHtmlTemplate = getFreemarkerConfiguration().getTemplate(
-					"depositHtml.ftl", Locale.getDefault(), "utf-8");
-			depositTextTemplate = getFreemarkerConfiguration().getTemplate(
-					"depositText.ftl", Locale.getDefault(), "utf-8");
+			depositReceiptHtmlTemplate = getFreemarkerConfiguration().getTemplate(
+					"DepositReceiptHtml.ftl", Locale.getDefault(), "utf-8");
+			depositReceiptTextTemplate = getFreemarkerConfiguration().getTemplate(
+					"DepositReceiptText.ftl", Locale.getDefault(), "utf-8");
+			depositNoticeHtmlTemplate = getFreemarkerConfiguration().getTemplate(
+					"DepositNoticeHtml.ftl", Locale.getDefault(), "utf-8");
+			depositNoticeTextTemplate = getFreemarkerConfiguration().getTemplate(
+					"DepositNoticeText.ftl", Locale.getDefault(), "utf-8");
+			depositErrorHtmlTemplate = getFreemarkerConfiguration().getTemplate(
+					"DepositErrorHtml.ftl", Locale.getDefault(), "utf-8");
+			depositErrorTextTemplate = getFreemarkerConfiguration().getTemplate(
+					"DepositErrorText.ftl", Locale.getDefault(), "utf-8");
 		} catch (IOException e) {
 			throw new Error("Cannot load email templates", e);
 		}
@@ -67,17 +110,37 @@ public class EmailNotificationHandler implements NotificationHandler {
 
 	@Override
 	public void notifyDeposit(Form form, DepositResult result,
-			String depositorEmail) {
+			String depositorEmail, String formId) {
 		// put data into the model
 		HashMap<String, Object> model = new HashMap<String, Object>();
 		model.put("form", form);
+		model.put("formId", formId);
 		model.put("result", result);
-
+		model.put("siteUrl", this.getSiteUrl());
+		model.put("siteName", this.getSiteName());
+		model.put("receivedDate", new Date(System.currentTimeMillis()));
+		sendReceipt(model, depositorEmail, form);
+		sendNotice(model, form);
+	}
+	
+	@Override
+	public void notifyError(Form form, DepositResult result,
+			String depositorEmail, String formId) {
+		if(administratorAddress == null || administratorAddress.trim().length() == 0) return;
+		// put data into the model
+		HashMap<String, Object> model = new HashMap<String, Object>();
+		model.put("form", form);
+		model.put("formId", formId);
+		model.put("result", result);
+		model.put("depositorEmail", depositorEmail);
+		model.put("siteUrl", this.getSiteUrl());
+		model.put("siteName", this.getSiteName());
+		model.put("receivedDate", new Date(System.currentTimeMillis()));
 		StringWriter htmlsw = new StringWriter();
 		StringWriter textsw = new StringWriter();
 		try {
-			depositHtmlTemplate.process(model, htmlsw);
-			depositTextTemplate.process(model, textsw);
+			depositErrorHtmlTemplate.process(model, htmlsw);
+			depositErrorTextTemplate.process(model, textsw);
 		} catch (TemplateException e) {
 			LOG.error("cannot process email template", e);
 			return;
@@ -90,14 +153,70 @@ public class EmailNotificationHandler implements NotificationHandler {
 			MimeMessage mimeMessage = mailSender.createMimeMessage();
 			MimeMessageHelper message = new MimeMessageHelper(mimeMessage,
 					MimeMessageHelper.MULTIPART_MODE_MIXED);
+			message.addTo(this.administratorAddress);
+			message.setSubject("Deposit Error for " + form.getTitle());
+			message.setFrom(this.getFromAddress());
+			message.setText(textsw.toString() , htmlsw.toString());
+			this.mailSender.send(mimeMessage);
+		} catch (MessagingException e) {
+			LOG.error("problem sending deposit message", e);
+		}
+	}
+	
+	private void sendReceipt(HashMap<String, Object> model, String email, Form form) {
+		if(email == null || email.trim().length() == 0) return;
+		StringWriter htmlsw = new StringWriter();
+		StringWriter textsw = new StringWriter();
+		try {
+			depositReceiptHtmlTemplate.process(model, htmlsw);
+			depositReceiptTextTemplate.process(model, textsw);
+		} catch (TemplateException e) {
+			LOG.error("cannot process email template", e);
+			return;
+		} catch (IOException e) {
+			LOG.error("cannot process email template", e);
+			return;
+		}
 
-			for (String addy : form.getEmailDepositNoticeTo()) {
+		try {
+			MimeMessage mimeMessage = mailSender.createMimeMessage();
+			MimeMessageHelper message = new MimeMessageHelper(mimeMessage,
+					MimeMessageHelper.MULTIPART_MODE_MIXED);
+			message.addTo(email);
+			message.setSubject("Deposit Receipt for " + form.getTitle());
+			message.setFrom(this.getFromAddress());
+			message.setText(textsw.toString() , htmlsw.toString());
+			this.mailSender.send(mimeMessage);
+		} catch (MessagingException e) {
+			LOG.error("problem sending deposit message", e);
+		}
+	}
+	
+	private void sendNotice(HashMap<String, Object> model, Form form) {
+		if(form.getEmailDepositNoticeTo() == null || form.getEmailDepositNoticeTo().isEmpty()) return;
+		StringWriter htmlsw = new StringWriter();
+		StringWriter textsw = new StringWriter();
+		try {
+			depositNoticeHtmlTemplate.process(model, htmlsw);
+			depositNoticeTextTemplate.process(model, textsw);
+		} catch (TemplateException e) {
+			LOG.error("cannot process email template", e);
+			return;
+		} catch (IOException e) {
+			LOG.error("cannot process email template", e);
+			return;
+		}
+
+		try {
+			MimeMessage mimeMessage = mailSender.createMimeMessage();
+			MimeMessageHelper message = new MimeMessageHelper(mimeMessage,
+					MimeMessageHelper.MULTIPART_MODE_MIXED);
+			for(String addy : form.getEmailDepositNoticeTo()) {
 				message.addTo(addy);
 			}
-			message.setSubject("Deposit to " + form.getTitle());
-
+			message.setSubject("Deposit to " + form.getTitle() + " by "+form.getCurrentUser());
 			message.setFrom(this.getFromAddress());
-			message.setText(textsw.toString(), htmlsw.toString());
+			message.setText(textsw.toString() , htmlsw.toString());
 			this.mailSender.send(mimeMessage);
 		} catch (MessagingException e) {
 			LOG.error("problem sending deposit message", e);

@@ -218,6 +218,10 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="canAddSupplementalFiles"
         lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="contactName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        unsettable="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="contactEmail" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        unsettable="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FormElement" abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EDataType" name="URI" instanceClassName="java.net.URI"/>

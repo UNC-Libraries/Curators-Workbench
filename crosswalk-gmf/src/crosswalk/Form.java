@@ -26,6 +26,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link crosswalk.Form#isReviewBeforePublication <em>Review Before Publication</em>}</li>
  *   <li>{@link crosswalk.Form#isPromptForMultipleSubmissions <em>Prompt For Multiple Submissions</em>}</li>
  *   <li>{@link crosswalk.Form#isCanAddSupplementalFiles <em>Can Add Supplemental Files</em>}</li>
+ *   <li>{@link crosswalk.Form#getContactName <em>Contact Name</em>}</li>
+ *   <li>{@link crosswalk.Form#getContactEmail <em>Contact Email</em>}</li>
  * </ul>
  * </p>
  *
@@ -240,5 +242,111 @@ public interface Form extends Editable, ContextProvider {
 	 * @generated
 	 */
 	void setCanAddSupplementalFiles(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Contact Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Contact Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Contact Name</em>' attribute.
+	 * @see #isSetContactName()
+	 * @see #unsetContactName()
+	 * @see #setContactName(String)
+	 * @see crosswalk.CrosswalkPackage#getForm_ContactName()
+	 * @model unsettable="true"
+	 * @generated
+	 */
+	String getContactName();
+
+	/**
+	 * Sets the value of the '{@link crosswalk.Form#getContactName <em>Contact Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Contact Name</em>' attribute.
+	 * @see #isSetContactName()
+	 * @see #unsetContactName()
+	 * @see #getContactName()
+	 * @generated
+	 */
+	void setContactName(String value);
+
+	/**
+	 * Unsets the value of the '{@link crosswalk.Form#getContactName <em>Contact Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSetContactName()
+	 * @see #getContactName()
+	 * @see #setContactName(String)
+	 * @generated
+	 */
+	void unsetContactName();
+
+	/**
+	 * Returns whether the value of the '{@link crosswalk.Form#getContactName <em>Contact Name</em>}' attribute is set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return whether the value of the '<em>Contact Name</em>' attribute is set.
+	 * @see #unsetContactName()
+	 * @see #getContactName()
+	 * @see #setContactName(String)
+	 * @generated
+	 */
+	boolean isSetContactName();
+
+	/**
+	 * Returns the value of the '<em><b>Contact Email</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Contact Email</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Contact Email</em>' attribute.
+	 * @see #isSetContactEmail()
+	 * @see #unsetContactEmail()
+	 * @see #setContactEmail(String)
+	 * @see crosswalk.CrosswalkPackage#getForm_ContactEmail()
+	 * @model unsettable="true"
+	 * @generated
+	 */
+	String getContactEmail();
+
+	/**
+	 * Sets the value of the '{@link crosswalk.Form#getContactEmail <em>Contact Email</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Contact Email</em>' attribute.
+	 * @see #isSetContactEmail()
+	 * @see #unsetContactEmail()
+	 * @see #getContactEmail()
+	 * @generated
+	 */
+	void setContactEmail(String value);
+
+	/**
+	 * Unsets the value of the '{@link crosswalk.Form#getContactEmail <em>Contact Email</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSetContactEmail()
+	 * @see #getContactEmail()
+	 * @see #setContactEmail(String)
+	 * @generated
+	 */
+	void unsetContactEmail();
+
+	/**
+	 * Returns whether the value of the '{@link crosswalk.Form#getContactEmail <em>Contact Email</em>}' attribute is set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return whether the value of the '<em>Contact Email</em>' attribute is set.
+	 * @see #unsetContactEmail()
+	 * @see #getContactEmail()
+	 * @see #setContactEmail(String)
+	 * @generated
+	 */
+	boolean isSetContactEmail();
 
 } // Form

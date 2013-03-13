@@ -1580,13 +1580,31 @@ public interface CrosswalkPackage extends EPackage {
 	int FORM__CAN_ADD_SUPPLEMENTAL_FILES = EDITABLE_FEATURE_COUNT + 10;
 
 								/**
+	 * The feature id for the '<em><b>Contact Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORM__CONTACT_NAME = EDITABLE_FEATURE_COUNT + 11;
+
+								/**
+	 * The feature id for the '<em><b>Contact Email</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORM__CONTACT_EMAIL = EDITABLE_FEATURE_COUNT + 12;
+
+								/**
 	 * The number of structural features of the '<em>Form</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FORM_FEATURE_COUNT = EDITABLE_FEATURE_COUNT + 11;
+	int FORM_FEATURE_COUNT = EDITABLE_FEATURE_COUNT + 13;
 
 								/**
 	 * The meta object id for the '{@link crosswalk.FormElement <em>Form Element</em>}' class.
@@ -2802,6 +2820,28 @@ public interface CrosswalkPackage extends EPackage {
 	EAttribute getForm_CanAddSupplementalFiles();
 
 								/**
+	 * Returns the meta object for the attribute '{@link crosswalk.Form#getContactName <em>Contact Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Contact Name</em>'.
+	 * @see crosswalk.Form#getContactName()
+	 * @see #getForm()
+	 * @generated
+	 */
+	EAttribute getForm_ContactName();
+
+								/**
+	 * Returns the meta object for the attribute '{@link crosswalk.Form#getContactEmail <em>Contact Email</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Contact Email</em>'.
+	 * @see crosswalk.Form#getContactEmail()
+	 * @see #getForm()
+	 * @generated
+	 */
+	EAttribute getForm_ContactEmail();
+
+								/**
 	 * Returns the meta object for class '{@link crosswalk.FormElement <em>Form Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3783,6 +3823,22 @@ public interface CrosswalkPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute FORM__CAN_ADD_SUPPLEMENTAL_FILES = eINSTANCE.getForm_CanAddSupplementalFiles();
+
+																/**
+		 * The meta object literal for the '<em><b>Contact Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FORM__CONTACT_NAME = eINSTANCE.getForm_ContactName();
+
+																/**
+		 * The meta object literal for the '<em><b>Contact Email</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FORM__CONTACT_EMAIL = eINSTANCE.getForm_ContactEmail();
 
 																/**
 		 * The meta object literal for the '{@link crosswalk.FormElement <em>Form Element</em>}' class.

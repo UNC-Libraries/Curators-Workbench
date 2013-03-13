@@ -32,37 +32,9 @@
 		</property>
 		<property name="ignoreResourceNotFound" value="false" />
 	</bean>
-	
-	<bean id="clamScan" class="com.philvarner.clamavj.ClamScan">
-		<property name="host" value="${clamd.host}"/>
-		<property name="port" value="${clamd.port}"/>
-		<property name="timeout" value="${clamd.timeout}"/>
-	</bean>
 
 	<bean id="formFactory" class="cdr.forms.CachedXMIFormFactory">
 		<property name="formPath" value="${forms.dir}" />
-	</bean>
-	
-	<bean id="administratorEmail" class="java.lang.String">
-		<constructor-arg value="${administrator.email}"/>
-	</bean>
-
-	<bean id="depositHandler" class="cdr.forms.SwordDepositHandler">
-		<property name="serviceUrl"
-			value="${admin.services.url}${services.context}/sword/" />
-		<property name="username" value="${forms.sword.username}" />
-		<property name="password" value="${forms.sword.password}" />
-		<property name="defaultContainer" value="${forms.default.container.pid}"/>
-	</bean>
-	
-	<bean id="authorizationHandler" class="cdr.forms.RequestHeaderAuthorizationHandler">
-		<property name="groupsHeaderName" value="isMemberOf"/>
-		<property name="splitCharacter" value=";"/>
-		<property name="groupsAlwaysPermitted">
-		<list>
-			<value>${admin.access.groups}</value>
-		</list>
-		</property>
 	</bean>
 	
 	<bean id="emailNotificationHandler" class="cdr.forms.EmailNotificationHandler" init-method="init">
@@ -86,7 +58,11 @@
 		</property>
 	</bean>
 	
-	<bean id="javaMailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+	<bean id="javaMailSender" class="org.mockito.Mockito" factory-method="spy">
+		<constructor-arg ref="realJavaMailSender"/>
+	</bean>
+
+	<bean id="realJavaMailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
 		<property name="host" value="${smtp.host}"/>
 		<property name="port" value="${smtp.port}"/>
 		<property name="defaultEncoding" value="UTF-8"/>

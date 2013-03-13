@@ -1285,6 +1285,24 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getForm_ContactName() {
+		return (EAttribute)formEClass.getEStructuralFeatures().get(9);
+	}
+
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getForm_ContactEmail() {
+		return (EAttribute)formEClass.getEStructuralFeatures().get(10);
+	}
+
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getFormElement() {
 		return formElementEClass;
 	}
@@ -1564,6 +1582,8 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 		createEAttribute(formEClass, FORM__REVIEW_BEFORE_PUBLICATION);
 		createEAttribute(formEClass, FORM__PROMPT_FOR_MULTIPLE_SUBMISSIONS);
 		createEAttribute(formEClass, FORM__CAN_ADD_SUPPLEMENTAL_FILES);
+		createEAttribute(formEClass, FORM__CONTACT_NAME);
+		createEAttribute(formEClass, FORM__CONTACT_EMAIL);
 
 		formElementEClass = createEClass(FORM_ELEMENT);
 
@@ -1836,6 +1856,8 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 		initEAttribute(getForm_ReviewBeforePublication(), ecorePackage.getEBoolean(), "reviewBeforePublication", "true", 1, 1, Form.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getForm_PromptForMultipleSubmissions(), ecorePackage.getEBoolean(), "promptForMultipleSubmissions", "false", 1, 1, Form.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getForm_CanAddSupplementalFiles(), ecorePackage.getEBoolean(), "canAddSupplementalFiles", "false", 1, 1, Form.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getForm_ContactName(), ecorePackage.getEString(), "contactName", null, 0, 1, Form.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getForm_ContactEmail(), ecorePackage.getEString(), "contactEmail", null, 0, 1, Form.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(formElementEClass, FormElement.class, "FormElement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

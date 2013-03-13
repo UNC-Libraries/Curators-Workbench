@@ -42,6 +42,8 @@ import crosswalk.FormElement;
  *   <li>{@link crosswalk.impl.FormImpl#isReviewBeforePublication <em>Review Before Publication</em>}</li>
  *   <li>{@link crosswalk.impl.FormImpl#isPromptForMultipleSubmissions <em>Prompt For Multiple Submissions</em>}</li>
  *   <li>{@link crosswalk.impl.FormImpl#isCanAddSupplementalFiles <em>Can Add Supplemental Files</em>}</li>
+ *   <li>{@link crosswalk.impl.FormImpl#getContactName <em>Contact Name</em>}</li>
+ *   <li>{@link crosswalk.impl.FormImpl#getContactEmail <em>Contact Email</em>}</li>
  * </ul>
  * </p>
  *
@@ -227,6 +229,64 @@ public class FormImpl extends EObjectImpl implements Form {
 	 * @ordered
 	 */
 	protected boolean canAddSupplementalFiles = CAN_ADD_SUPPLEMENTAL_FILES_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getContactName() <em>Contact Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getContactName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String CONTACT_NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getContactName() <em>Contact Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getContactName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String contactName = CONTACT_NAME_EDEFAULT;
+
+	/**
+	 * This is true if the Contact Name attribute has been set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean contactNameESet;
+
+	/**
+	 * The default value of the '{@link #getContactEmail() <em>Contact Email</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getContactEmail()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String CONTACT_EMAIL_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getContactEmail() <em>Contact Email</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getContactEmail()
+	 * @generated
+	 * @ordered
+	 */
+	protected String contactEmail = CONTACT_EMAIL_EDEFAULT;
+
+	/**
+	 * This is true if the Contact Email attribute has been set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean contactEmailESet;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -473,6 +533,98 @@ public class FormImpl extends EObjectImpl implements Form {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getContactName() {
+		return contactName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setContactName(String newContactName) {
+		String oldContactName = contactName;
+		contactName = newContactName;
+		boolean oldContactNameESet = contactNameESet;
+		contactNameESet = true;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.FORM__CONTACT_NAME, oldContactName, contactName, !oldContactNameESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void unsetContactName() {
+		String oldContactName = contactName;
+		boolean oldContactNameESet = contactNameESet;
+		contactName = CONTACT_NAME_EDEFAULT;
+		contactNameESet = false;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CrosswalkPackage.FORM__CONTACT_NAME, oldContactName, CONTACT_NAME_EDEFAULT, oldContactNameESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSetContactName() {
+		return contactNameESet;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getContactEmail() {
+		return contactEmail;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setContactEmail(String newContactEmail) {
+		String oldContactEmail = contactEmail;
+		contactEmail = newContactEmail;
+		boolean oldContactEmailESet = contactEmailESet;
+		contactEmailESet = true;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.FORM__CONTACT_EMAIL, oldContactEmail, contactEmail, !oldContactEmailESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void unsetContactEmail() {
+		String oldContactEmail = contactEmail;
+		boolean oldContactEmailESet = contactEmailESet;
+		contactEmail = CONTACT_EMAIL_EDEFAULT;
+		contactEmailESet = false;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CrosswalkPackage.FORM__CONTACT_EMAIL, oldContactEmail, CONTACT_EMAIL_EDEFAULT, oldContactEmailESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSetContactEmail() {
+		return contactEmailESet;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -513,6 +665,10 @@ public class FormImpl extends EObjectImpl implements Form {
 				return isPromptForMultipleSubmissions();
 			case CrosswalkPackage.FORM__CAN_ADD_SUPPLEMENTAL_FILES:
 				return isCanAddSupplementalFiles();
+			case CrosswalkPackage.FORM__CONTACT_NAME:
+				return getContactName();
+			case CrosswalkPackage.FORM__CONTACT_EMAIL:
+				return getContactEmail();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -562,6 +718,12 @@ public class FormImpl extends EObjectImpl implements Form {
 			case CrosswalkPackage.FORM__CAN_ADD_SUPPLEMENTAL_FILES:
 				setCanAddSupplementalFiles((Boolean)newValue);
 				return;
+			case CrosswalkPackage.FORM__CONTACT_NAME:
+				setContactName((String)newValue);
+				return;
+			case CrosswalkPackage.FORM__CONTACT_EMAIL:
+				setContactEmail((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -607,6 +769,12 @@ public class FormImpl extends EObjectImpl implements Form {
 			case CrosswalkPackage.FORM__CAN_ADD_SUPPLEMENTAL_FILES:
 				setCanAddSupplementalFiles(CAN_ADD_SUPPLEMENTAL_FILES_EDEFAULT);
 				return;
+			case CrosswalkPackage.FORM__CONTACT_NAME:
+				unsetContactName();
+				return;
+			case CrosswalkPackage.FORM__CONTACT_EMAIL:
+				unsetContactEmail();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -641,6 +809,10 @@ public class FormImpl extends EObjectImpl implements Form {
 				return promptForMultipleSubmissions != PROMPT_FOR_MULTIPLE_SUBMISSIONS_EDEFAULT;
 			case CrosswalkPackage.FORM__CAN_ADD_SUPPLEMENTAL_FILES:
 				return canAddSupplementalFiles != CAN_ADD_SUPPLEMENTAL_FILES_EDEFAULT;
+			case CrosswalkPackage.FORM__CONTACT_NAME:
+				return isSetContactName();
+			case CrosswalkPackage.FORM__CONTACT_EMAIL:
+				return isSetContactEmail();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -707,6 +879,10 @@ public class FormImpl extends EObjectImpl implements Form {
 		result.append(promptForMultipleSubmissions);
 		result.append(", canAddSupplementalFiles: ");
 		result.append(canAddSupplementalFiles);
+		result.append(", contactName: ");
+		if (contactNameESet) result.append(contactName); else result.append("<unset>");
+		result.append(", contactEmail: ");
+		if (contactEmailESet) result.append(contactEmail); else result.append("<unset>");
 		result.append(')');
 		return result.toString();
 	}
