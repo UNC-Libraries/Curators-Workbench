@@ -232,21 +232,25 @@ public class SwordDepositHandler implements DepositHandler {
 				org.jdom.Document d = sx.build(post.getResponseBodyAsStream());
 				
 				// Set accessURL to the href of the first <link rel="alternate"> inside an Atom entry
+				
+				if (result.getStatus() == Status.COMPLETE) {
 
-				if (d.getRootElement().getNamespace().equals(atom) && d.getRootElement().getName().equals("entry")) {
-					@SuppressWarnings("unchecked")
-					List<Element> links = d.getRootElement().getChildren("link", atom);
-
-					for (Element link : links) {
-						if ("alternate".equals(link.getAttributeValue("rel"))) {
-							result.setAccessURL(link.getAttributeValue("href"));
-							break;
+					if (d.getRootElement().getNamespace().equals(atom) && d.getRootElement().getName().equals("entry")) {
+						@SuppressWarnings("unchecked")
+						List<Element> links = d.getRootElement().getChildren("link", atom);
+	
+						for (Element link : links) {
+							if ("alternate".equals(link.getAttributeValue("rel"))) {
+								result.setAccessURL(link.getAttributeValue("href"));
+								break;
+							}
 						}
 					}
+					
 				}
 				
 				// Set summary to the content of the first <summary> inside a SWORD error element
-
+					
 				if (d.getRootElement().getNamespace().equals(sword) && d.getRootElement().getName().equals("error")) {
 					Element summary = d.getRootElement().getChild("summary", atom);
 
