@@ -229,8 +229,6 @@ public class FormController {
 			
 			LOG.error("deposit failed");
 			
-			errors.addError(new ObjectError("form", result.getSummary()));
-			
 			if (getNotificationHandler() != null && receiptEmailAddress != null)
 				getNotificationHandler().notifyError(form, result, receiptEmailAddress, formId);
 			

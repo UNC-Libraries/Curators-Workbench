@@ -226,7 +226,6 @@ public class SwordDepositHandler implements DepositHandler {
 			try {
 				
 			    Namespace atom = Namespace.getNamespace("http://www.w3.org/2005/Atom");
-			    Namespace sword = Namespace.getNamespace("http://purl.org/net/sword/terms/");
 
 				SAXBuilder sx = new SAXBuilder();
 				org.jdom.Document d = sx.build(post.getResponseBodyAsStream());
@@ -247,15 +246,6 @@ public class SwordDepositHandler implements DepositHandler {
 						}
 					}
 					
-				}
-				
-				// Set summary to the content of the first <summary> inside a SWORD error element
-					
-				if (d.getRootElement().getNamespace().equals(sword) && d.getRootElement().getName().equals("error")) {
-					Element summary = d.getRootElement().getChild("summary", atom);
-
-					if (summary != null)
-						result.setSummary(summary.getText());
 				}
 
 			} catch (JDOMException e) {

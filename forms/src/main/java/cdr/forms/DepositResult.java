@@ -42,19 +42,6 @@ public class DepositResult {
 		this.accessURL = accessURL;
 	}
 	
-	private String summary;
-
-	/**
-	 * @return A summary of the deposit result. If the status is FAILED, this should be an informative error message.
-	 **/
-	public String getSummary() {
-		return summary;
-	}
-	
-	public void setSummary(String summary) {
-		this.summary = summary;
-	}
-	
 	private String responseBody;
 
 	/**

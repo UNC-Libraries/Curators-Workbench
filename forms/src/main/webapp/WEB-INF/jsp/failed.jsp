@@ -55,11 +55,6 @@
 <h2><c:out value="${form.title}"/></h2>
 <p><c:out value="${form.description}"/></p>
 <h3>Deposit Failed</h3>
-<spring:hasBindErrors name="form">
-<% if (errors.getGlobalError() != null) { %>
-<p><%= errors.getGlobalError().getDefaultMessage() %></p>
-<% } %>
-</spring:hasBindErrors>
 </div>
 </div>
 <div id="footer" class="darkest">
