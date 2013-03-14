@@ -229,7 +229,7 @@ public class FormController {
 			
 			LOG.error("deposit failed");
 			
-			if (getNotificationHandler() != null && receiptEmailAddress != null)
+			if (getNotificationHandler() != null)
 				getNotificationHandler().notifyError(form, result, receiptEmailAddress, formId);
 			
 			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
