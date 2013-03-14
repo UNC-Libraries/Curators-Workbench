@@ -15,8 +15,12 @@
     limitations under the License.
 
 -->
-An unrecoverable error occurred on ${form.title} at ${receivedDate?datetime}.
-Please do not reply to this message.
+An unrecoverable error occurred on ${form.title} at ${receivedDate?datetime}:
+
+response body____________________________
+${result.getResponseBody()!"no response body"}
+=========================================
+
 The following information was entered on ${siteUrl}/forms/${formId}.form
  * Depositor Username: ${form.currentUser}
  * Depositor Email: ${depositorEmail!"not available"}

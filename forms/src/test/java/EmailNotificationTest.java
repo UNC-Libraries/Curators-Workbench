@@ -1,16 +1,17 @@
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.doAnswer;
+import static org.mockito.Mockito.reset;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import static org.mockito.Mockito.reset;
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.util.Date;
 
 import javax.annotation.Resource;
 import javax.mail.internet.MimeMessage;
 
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.invocation.InvocationOnMock;
@@ -91,6 +92,11 @@ public class EmailNotificationTest {
 		DepositResult result = new DepositResult();
 		result.setAccessURL("http://example.org/the/deposit/url");
 		result.setStatus(Status.FAILED);
+		Throwable exception = new Exception("example error trace").fillInStackTrace();
+		StringWriter sw = new StringWriter();
+		exception.printStackTrace(new PrintWriter(sw));
+		result.setResponseBody(sw.toString());
+		
 		emailNotificationHandler.notifyError(form, result, "test@example.org", "test");
 		verify(this.javaMailSender, times(1)).send(any(MimeMessage.class));
 	}

@@ -24,8 +24,10 @@
 <body>
   <img style="float: right;" alt="UNC Libraries logo" src="${siteUrl}/static/images/email_logo.png"/>
   <h3>${siteName}</h3>
-  <p>An unrecoverable error occurred on ${form.title} at ${receivedDate?datetime}.
-  Please do not reply to this message.
+  <p>An unrecoverable error occurred on ${form.title} at ${receivedDate?datetime}:</p>
+  <pre>
+${result.getResponseBody()!"no response body"}
+  </pre>
   <p>The following information was entered on <a href="${siteUrl}/forms/${formId}.form">${form.title}</a>:
   <ul>
     <li>Depositor Username: ${form.currentUser}</li>
