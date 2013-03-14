@@ -226,10 +226,17 @@ public class FormController {
 		// Handle a failed deposit response
 
 		if (result.getStatus() == Status.FAILED) {
+			
 			LOG.error("deposit failed");
+			
 			errors.addError(new ObjectError("form", result.getSummary()));
+			
+			if (getNotificationHandler() != null && receiptEmailAddress != null)
+				getNotificationHandler().notifyError(form, result, receiptEmailAddress, formId);
+			
 			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
 			return "failed";
+			
 		}
 		
 		
