@@ -59,7 +59,7 @@
 Your deposit for <b><c:out value="${form.title}"/></b> failed because of an internal error or misconfiguration.
 The administrator
 <c:choose>
-	<c:when test="${form.contactName != null}">and <c:out value="${form.contactName}"/> have</c:when>
+	<c:when test="${form.emailDepositNoticeTo != null}">and <a href="mailto:${form.emailDepositNoticeTo}"><c:out value="${form.emailDepositNoticeTo}"/></a> have</c:when>
 	<c:otherwise>has</c:otherwise>
 </c:choose>
 been notified and will address the problem as soon as possible.

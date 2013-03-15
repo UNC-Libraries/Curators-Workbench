@@ -66,14 +66,14 @@
 <c:if test="${receiptEmailAddress != null && form.contactEmail != null}">
 <p>An email notification confirming your deposit has been sent to
 <c:choose>
-	<c:when test="${receiptEmailAddress != null && form.contactEmail != null}">
-		<c:out value="${receiptEmailAddress}"/> and <c:out value="${form.contactName}"/> at <a href="mailto:${form.contactEmail}"><c:out value="${form.contactEmail}"/></a>
+	<c:when test="${receiptEmailAddress != null && form.emailDepositNoticeTo != null}">
+		<c:out value="${receiptEmailAddress}"/> and <a href="mailto:${form.emailDepositNoticeTo}"><c:out value="${form.emailDepositNoticeTo}"/></a>
 	</c:when>
 	<c:when test="${receiptEmailAddress != null}">
 		<c:out value="${receiptEmailAddress}"/>
 	</c:when>
 	<c:when test="${form.contactEmail != null}">
-		<c:out value="${form.contactName}"/> at <a href="mailto:${form.contactEmail}"><c:out value="${form.contactEmail}"/></a>
+		<a href="mailto:${form.emailDepositNoticeTo}"><c:out value="${form.emailDepositNoticeTo}"/></a>
 	</c:when>
 </c:choose>
 .</p>
