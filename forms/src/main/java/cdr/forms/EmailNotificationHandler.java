@@ -126,7 +126,6 @@ public class EmailNotificationHandler implements NotificationHandler {
 	@Override
 	public void notifyError(Form form, DepositResult result,
 			String depositorEmail, String formId) {
-		if(administratorAddress == null || administratorAddress.trim().length() == 0) return;
 		// put data into the model
 		HashMap<String, Object> model = new HashMap<String, Object>();
 		model.put("form", form);
@@ -153,7 +152,15 @@ public class EmailNotificationHandler implements NotificationHandler {
 			MimeMessage mimeMessage = mailSender.createMimeMessage();
 			MimeMessageHelper message = new MimeMessageHelper(mimeMessage,
 					MimeMessageHelper.MULTIPART_MODE_MIXED);
-			message.addTo(this.administratorAddress);
+			if(administratorAddress != null && administratorAddress.trim().length() > 0) {
+				message.addTo(this.administratorAddress);
+			}
+			if(!form.getEmailDepositNoticeTo().isEmpty()) {
+				for(String addy : form.getEmailDepositNoticeTo()) {
+					message.addTo(addy);
+				}
+			}
+			if(depositorEmail != null && depositorEmail.trim().length() > 0) message.addTo(depositorEmail);
 			message.setSubject("Deposit Error for " + form.getTitle());
 			message.setFrom(this.getFromAddress());
 			message.setText(textsw.toString() , htmlsw.toString());
