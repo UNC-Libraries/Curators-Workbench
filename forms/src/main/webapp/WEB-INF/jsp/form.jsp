@@ -351,9 +351,7 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 	<p>Your deposit receipt will be emailed to the address below.</p>
 	<div class="indented_block">
 		<div class="form_field receipt_email_address_field">
-<% String email = request.getHeader("mail") == null ? "" : request.getHeader("mail"); 
-   if(email.endsWith("_UNC")) email = email.substring(0, email.length()-4); %>
-			<label>&nbsp;</label><input name="receiptEmailAddress" type="text" size="40" value="<%= email %>"/>
+			<label>&nbsp;</label><input name="receiptEmailAddress" type="text" size="40" value="${receiptEmailAddress}"/>
 		</div>
 	</div>
 	

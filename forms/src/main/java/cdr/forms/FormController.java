@@ -210,7 +210,14 @@ public class FormController {
 		
 		this.getAuthorizationHandler().checkPermission(formId, form, request);
 
+		if (receiptEmailAddress == null) {
+			receiptEmailAddress = request.getHeader("mail") == null ? "" : request.getHeader("mail"); 
+			if (receiptEmailAddress.endsWith("_UNC"))
+				receiptEmailAddress = receiptEmailAddress.substring(0, receiptEmailAddress.length()-4);
+		}
+		
 		model.addAttribute("receiptEmailAddress", receiptEmailAddress);
+		
 		model.addAttribute("administratorEmail", getAdministratorEmail());
 		
 		
