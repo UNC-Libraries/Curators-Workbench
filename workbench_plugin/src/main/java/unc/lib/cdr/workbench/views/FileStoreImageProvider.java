@@ -5,6 +5,7 @@ import java.io.InputStream;
 
 import org.eclipse.core.filesystem.EFS;
 import org.eclipse.core.filesystem.IFileStore;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.SWTException;
@@ -38,6 +39,8 @@ public class FileStoreImageProvider implements ImageProvider {
 		} catch (SWTException e) {
 			if (e.code != SWT.ERROR_UNSUPPORTED_FORMAT)
 				LOG.info("unsupported image format", e);
+		} catch (CoreException e) {
+			//LOG.error("unexpected error", e);
 		} catch (Exception e) {
 			LOG.error("unexpected error", e);
 		} finally {

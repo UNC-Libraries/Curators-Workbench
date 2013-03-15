@@ -26,10 +26,11 @@ public class ViewPartPreviewFile extends ViewPart {
 		public PreviewToggleAction() {
 			super("Disable Preview");
 		}
+
 		@Override
 		public void run() {
 			enabled = !enabled;
-			if(enabled) {
+			if (enabled) {
 				this.setText("Disable Preview");
 			} else {
 				this.setText("Enable Preview");
@@ -47,11 +48,15 @@ public class ViewPartPreviewFile extends ViewPart {
 
 	ISelectionListener selectionListener = new ISelectionListener() {
 		@Override
-		public void selectionChanged(IWorkbenchPart part, final ISelection selection) {
+		public void selectionChanged(IWorkbenchPart part,
+				final ISelection selection) {
 			Job load = new Job("Loading image preview") {
 				@Override
 				protected IStatus run(IProgressMonitor monitor) {
-					handleSelection(selection);
+					try {
+						handleSelection(selection);
+					} catch (NullPointerException ignored) {
+					}
 					return Status.OK_STATUS;
 				}
 			};
@@ -61,7 +66,7 @@ public class ViewPartPreviewFile extends ViewPart {
 	};
 
 	private void handleSelection(ISelection selection) {
-		if(!enabled) {
+		if (!enabled) {
 			viewer.setImage(null);
 			return;
 		}
@@ -86,12 +91,14 @@ public class ViewPartPreviewFile extends ViewPart {
 		// Second, if the object is adaptable, ask it to get an adapter.
 		ImageProvider provider = null;
 		if (object instanceof IAdaptable)
-			provider = (ImageProvider) ((IAdaptable) object).getAdapter(ImageProvider.class);
+			provider = (ImageProvider) ((IAdaptable) object)
+					.getAdapter(ImageProvider.class);
 
 		// If we haven't found an adapter yet, try asking the AdapterManager.
 		try {
 			if (provider == null)
-				provider = (ImageProvider) Platform.getAdapterManager().loadAdapter(object, ImageProvider.class.getName());
+				provider = (ImageProvider) Platform.getAdapterManager()
+						.loadAdapter(object, ImageProvider.class.getName());
 		} catch (NullPointerException ignored) {
 		}
 		return provider;
@@ -103,11 +110,11 @@ public class ViewPartPreviewFile extends ViewPart {
 		handleSelection(getSelectionService().getSelection());
 		viewer = new ImageViewer(parent, SWT.NONE);
 		Action action = new PreviewToggleAction();
-	   IActionBars actionBars = getViewSite().getActionBars();
-	   IMenuManager dropDownMenu = actionBars.getMenuManager();
-	   //IToolBarManager toolBar = actionBars.getToolBarManager();
-	   dropDownMenu.add(action);
-	   //toolBar.add(action);
+		IActionBars actionBars = getViewSite().getActionBars();
+		IMenuManager dropDownMenu = actionBars.getMenuManager();
+		// IToolBarManager toolBar = actionBars.getToolBarManager();
+		dropDownMenu.add(action);
+		// toolBar.add(action);
 	}
 
 	protected void setImageProvider(final ImageProvider newprovider) {
@@ -117,7 +124,8 @@ public class ViewPartPreviewFile extends ViewPart {
 		if (newimage != null) {
 			viewer.setImage(newimage);
 		} else {
-			viewer.setImage(LabelImageFactory.getImage(LabelImageFactory.Icon.NoPreview));
+			viewer.setImage(LabelImageFactory
+					.getImage(LabelImageFactory.Icon.NoPreview));
 		}
 		disposeImage();
 		provider = newprovider;
