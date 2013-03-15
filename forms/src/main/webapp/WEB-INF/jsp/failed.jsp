@@ -52,9 +52,31 @@
 		</div>
 		<div id="content">
 			<div class="contentarea">
-<h2><c:out value="${form.title}"/></h2>
-<p><c:out value="${form.description}"/></p>
-<h3>Deposit Failed</h3>
+
+<h2>Deposit Failed</h2>
+
+<p>
+Your deposit for <b><c:out value="${form.title}"/></b> failed because of an internal error or misconfiguration.
+The administrator
+<c:choose>
+	<c:when test="${form.contactName != null}">and <c:out value="${form.contactName}"/> have</c:when>
+	<c:otherwise>has</c:otherwise>
+</c:choose>
+been notified and will address the problem as soon as possible.
+</p>
+
+<c:if test="${receiptEmailAddress != null}">
+<p>An email notification has also been sent to <c:out value="${receiptEmailAddress}"/>.</p>
+</c:if>
+
+<p>
+If you have any questions, please contact
+<c:if test="${form.contactName != null}">
+<c:out value="${form.contactName}"/> at <a href="mailto:${form.contactEmail}"><c:out value="${form.contactName}"/></a> or
+</c:if>
+the administrator at <a href="mailto:${administratorEmail}"><c:out value="${administratorEmail}"/></a>.
+</p>
+
 </div>
 </div>
 <div id="footer" class="darkest">

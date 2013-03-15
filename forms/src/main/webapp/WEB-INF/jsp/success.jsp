@@ -58,12 +58,38 @@
 		</div>
 		<div id="content">
 			<div class="contentarea">
-<h2><c:out value="${form.title}"/></h2>
-<p><c:out value="${form.description}"/></p>
-<h3>Thank you for your deposit!</h3>
+			
+<h2>Deposit successful</h2>
+
+<p>Your deposit for <b><c:out value="${form.title}"/></b> was successful. Thank you!</p>
+
+<c:if test="${receiptEmailAddress != null && form.contactEmail != null}">
+<p>An email notification confirming your deposit has been sent to
+<c:choose>
+	<c:when test="${receiptEmailAddress != null && form.contactEmail != null}">
+		<c:out value="${receiptEmailAddress}"/> and <c:out value="${form.contactName}"/> at <a href="mailto:${form.contactEmail}"><c:out value="${form.contactEmail}"/></a>
+	</c:when>
+	<c:when test="${receiptEmailAddress != null}">
+		<c:out value="${receiptEmailAddress}"/>
+	</c:when>
+	<c:when test="${form.contactEmail != null}">
+		<c:out value="${form.contactName}"/> at <a href="mailto:${form.contactEmail}"><c:out value="${form.contactEmail}"/></a>
+	</c:when>
+</c:choose>
+.</p>
+</c:if>
+
+<p>
+If you have any questions, please contact
+<c:if test="${form.contactName != null}">
+<c:out value="${form.contactName}"/> at <a href="mailto:${form.contactEmail}"><c:out value="${form.contactName}"/></a> or
+</c:if>
+the administrator at <a href="mailto:${administratorEmail}"><c:out value="${administratorEmail}"/></a>.
+</p>
+
 	<c:choose>
 		<c:when test="${form.promptForMultipleSubmissions}">
-			<a href="<%= request.getAttribute("formId") %>.form">Click here to submit another deposit.</a>
+			<p><a href="<%= request.getAttribute("formId") %>.form">Click here to submit another deposit.</a></p>
 		</c:when>
 		<c:otherwise>
 		</c:otherwise>

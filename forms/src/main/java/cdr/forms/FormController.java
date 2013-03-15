@@ -33,6 +33,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
@@ -180,8 +181,17 @@ public class FormController {
 	}
 
 	@RequestMapping(value = "/{formId}.form", method = RequestMethod.POST)
-	public String processForm(@PathVariable String formId, @Valid @ModelAttribute("form") Form form, BindingResult errors,
-			Principal user, @RequestParam(required=false,value="receiptEmailAddress") String receiptEmailAddress, @RequestParam("file") MultipartFile file, @RequestParam(value = "supplementalFile", required = false) MultipartFile[] supplementalFiles, SessionStatus sessionStatus, HttpServletRequest request, HttpServletResponse response) throws PermissionDeniedException {
+	public String processForm(
+			Model model,
+			@PathVariable String formId,
+			@Valid @ModelAttribute("form") Form form,
+			BindingResult errors,
+			Principal user,
+			@RequestParam(required = false, value = "receiptEmailAddress") String receiptEmailAddress,
+			@RequestParam("file") MultipartFile file,
+			@RequestParam(value = "supplementalFile", required = false) MultipartFile[] supplementalFiles,
+			SessionStatus sessionStatus, HttpServletRequest request,
+			HttpServletResponse response) throws PermissionDeniedException {
 		
 		SubmittedFile submittedFile;
 		List<SubmittedFile> supplementalSubmittedFiles;
@@ -199,6 +209,9 @@ public class FormController {
 			form.setCurrentUser(user.getName());
 		
 		this.getAuthorizationHandler().checkPermission(formId, form, request);
+
+		model.addAttribute("receiptEmailAddress", receiptEmailAddress);
+		model.addAttribute("administratorEmail", getAdministratorEmail());
 		
 		
 		// Handle uploaded files, exiting to report errors if we find any
