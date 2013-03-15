@@ -81,9 +81,14 @@
 
 <p>
 If you have any questions, please contact
-<c:if test="${form.contactName != null}">
-<c:out value="${form.contactName}"/> at <a href="mailto:${form.contactEmail}"><c:out value="${form.contactName}"/></a> or
-</c:if>
+<c:choose>
+	<c:when test="${form.contactEmail != null && form.contactName != null}">
+		<c:out value="${form.contactName}"/> at <a href="mailto:${form.contactEmail}"><c:out value="${form.contactEmail}"/></a> or
+	</c:when>
+	<c:when test="${form.contactEmail != null}">
+		<a href="mailto:${form.contactEmail}"><c:out value="${form.contactEmail}"/></a> or
+	</c:when>
+</c:choose>
 the administrator at <a href="mailto:${administratorEmail}"><c:out value="${administratorEmail}"/></a>.
 </p>
 
