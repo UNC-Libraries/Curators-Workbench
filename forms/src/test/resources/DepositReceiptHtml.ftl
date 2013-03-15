@@ -30,15 +30,15 @@
   please contact ${form.contactName!}: ${form.contactEmail}</#if></p>
   <p>You entered the following information on <a href="${siteUrl}/forms/${formId}.form">${form.title}</a>:
   <ul>
-    <li>User: ${form.currentUser}</li>
+    <li>User: ${form.currentUser!""}</li>
   <#list form.elements as element>
   	<#if element.ports??>
     <#list element.ports as input>
-    	<#attempt>
-    <li>${input.label}: ${input.enteredValue}</li>
-    	<#recover>
-    <li>${input.label}: ${input.enteredValue?datetime}</li>
-    	</#attempt>
+    	<#if input.class.name == "crosswalk.impl.DateInputFieldImpl">
+    <li>${input.label}: ${input.enteredValue?datetime!""}</li>
+    	<#else>
+    <li>${input.label}: ${input.enteredValue!""}</li>
+    	</#if>
     </#list>
     </#if>
   </#list>

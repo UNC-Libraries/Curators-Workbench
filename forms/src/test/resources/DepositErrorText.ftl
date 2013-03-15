@@ -22,16 +22,16 @@ ${result.getResponseBody()!"no response body"}
 =========================================
 
 The following information was entered on ${siteUrl}/forms/${formId}.form
- * Depositor Username: ${form.currentUser}
+ * Depositor Username: ${form.currentUser!""}
  * Depositor Email: ${depositorEmail!"not available"}
   <#list form.elements as element>
   	<#if element.ports??>
     <#list element.ports as input>
-    	<#attempt>
- * ${input.label}: ${input.enteredValue}
-    	<#recover>
- * ${input.label}: ${input.enteredValue?datetime}
-    	</#attempt>
+    	<#if input.class.name == "crosswalk.impl.DateInputFieldImpl">
+ * ${input.label}: ${input.enteredValue?datetime!""}
+    	<#else>
+ * ${input.label}: ${input.enteredValue!""}
+    	</#if>
     </#list>
     </#if>
   </#list>

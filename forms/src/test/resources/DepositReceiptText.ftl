@@ -20,15 +20,15 @@ Your submission was received by the ${siteName} at ${receivedDate?datetime}.
 Please do not reply to this message.<#if form.contactEmail??> If you have any questions or concerns about your submission, please contact ${form.contactName!}: ${form.contactEmail}</#if>
 
 You entered the following information on ${form.title} at ${siteUrl}/forms/${formId}.form:
- * User: ${form.currentUser}
+ * User: ${form.currentUser!""}
   <#list form.elements as element>
   	<#if element.ports??>
     <#list element.ports as input>
-    	<#attempt>
- * ${input.label}: ${input.enteredValue}
-    	<#recover>
- * ${input.label}: ${input.enteredValue?datetime}
-    	</#attempt>
+    	<#if input.class.name == "crosswalk.impl.DateInputFieldImpl">
+ * ${input.label}: ${input.enteredValue?datetime!""}
+    	<#else>
+ * ${input.label}: ${input.enteredValue!""}
+    	</#if>
     </#list>
     </#if>
   </#list>

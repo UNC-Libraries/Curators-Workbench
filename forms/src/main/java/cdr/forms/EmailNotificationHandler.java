@@ -159,7 +159,7 @@ public class EmailNotificationHandler implements NotificationHandler {
 			message.setText(textsw.toString() , htmlsw.toString());
 			this.mailSender.send(mimeMessage);
 		} catch (MessagingException e) {
-			LOG.error("problem sending deposit message", e);
+			LOG.error("problem sending error notification message", e);
 		}
 	}
 	
