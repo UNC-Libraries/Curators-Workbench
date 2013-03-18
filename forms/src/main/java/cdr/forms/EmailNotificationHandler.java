@@ -3,8 +3,10 @@ package cdr.forms;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
 
@@ -122,8 +124,18 @@ public class EmailNotificationHandler implements NotificationHandler {
 		model.put("siteUrl", this.getSiteUrl());
 		model.put("siteName", this.getSiteName());
 		model.put("receivedDate", new Date(System.currentTimeMillis()));
-		sendReceipt(model, depositorEmail, form);
-		return sendNotice(model, form);
+		
+		List<String> receiptNotified = sendReceipt(model, depositorEmail, form);
+		List<String> noticeNotified = sendNotice(model, form);
+		
+		if (receiptNotified == null || noticeNotified == null)
+			return null;
+		
+		HashSet<String> notified = new HashSet<String>();
+		notified.addAll(receiptNotified);
+		notified.addAll(noticeNotified);
+		
+		return new ArrayList<String>(notified);
 	}
 	
 	@Override
@@ -180,8 +192,8 @@ public class EmailNotificationHandler implements NotificationHandler {
 		
 	}
 	
-	private void sendReceipt(HashMap<String, Object> model, String email, Form form) {
-		if(email == null || email.trim().length() == 0) return;
+	private List<String> sendReceipt(HashMap<String, Object> model, String email, Form form) {
+		if(email == null || email.trim().length() == 0) return null;
 		StringWriter htmlsw = new StringWriter();
 		StringWriter textsw = new StringWriter();
 		try {
@@ -189,10 +201,10 @@ public class EmailNotificationHandler implements NotificationHandler {
 			depositReceiptTextTemplate.process(model, textsw);
 		} catch (TemplateException e) {
 			LOG.error("cannot process email template", e);
-			return;
+			return null;
 		} catch (IOException e) {
 			LOG.error("cannot process email template", e);
-			return;
+			return null;
 		}
 
 		try {
@@ -204,8 +216,11 @@ public class EmailNotificationHandler implements NotificationHandler {
 			message.setFrom(this.getFromAddress());
 			message.setText(textsw.toString() , htmlsw.toString());
 			this.mailSender.send(mimeMessage);
+			
+			return Arrays.asList(email);
 		} catch (MessagingException e) {
 			LOG.error("problem sending deposit message", e);
+			return null;
 		}
 	}
 	

@@ -1,3 +1,4 @@
+import static org.junit.Assert.*;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.doAnswer;
 import static org.mockito.Mockito.reset;
@@ -8,6 +9,7 @@ import static org.mockito.Mockito.when;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.Date;
+import java.util.List;
 
 import javax.annotation.Resource;
 import javax.mail.internet.MimeMessage;
@@ -80,8 +82,13 @@ public class EmailNotificationTest {
 		DepositResult result = new DepositResult();
 		result.setAccessURL("http://example.org/the/deposit/url");
 		result.setStatus(Status.PENDING);
-		emailNotificationHandler.notifyDeposit(form, result, "test@example.org", "test");
+		
+		List<String> notified = emailNotificationHandler.notifyDeposit(form, result, "test@example.org", "test");
 		verify(this.javaMailSender, times(2)).send(any(MimeMessage.class));
+		
+		assertEquals("The correct number of email addresses should have been notified", 2, notified.size());
+		assertTrue(notified.contains("count0@email.unc.edu"));
+		assertTrue(notified.contains("test@example.org"));
 	}
 	
 	@Test
@@ -97,8 +104,13 @@ public class EmailNotificationTest {
 		exception.printStackTrace(new PrintWriter(sw));
 		result.setResponseBody(sw.toString());
 		
-		emailNotificationHandler.notifyError(form, result, "test@example.org", "test");
+		List<String> notified = emailNotificationHandler.notifyError(form, result, "test@example.org", "test");
 		verify(this.javaMailSender, times(1)).send(any(MimeMessage.class));
+		
+		assertEquals("The correct number of email addresses should have been notified", 3, notified.size());
+		assertTrue(notified.contains("count0@email.unc.edu"));
+		assertTrue(notified.contains("support@example.org"));
+		assertTrue(notified.contains("test@example.org"));
 	}
 	
 	private void fillForm(Form form) {
