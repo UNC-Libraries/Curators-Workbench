@@ -195,7 +195,12 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 		<div id="content">
 			<div class="contentarea">
 <h2><c:out value="${form.title}"/></h2>
-<spring:hasBindErrors name="form"><span class="red"><%= errors.getFieldError("file") == null ? "" : errors.getFieldError("file").getDefaultMessage() %></span><br/><br/></spring:hasBindErrors>
+<spring:hasBindErrors name="form">
+	<% if (errors.getFieldError("file") != null) { %>
+	<span class="red"><%= errors.getFieldError("file").getDefaultMessage() %></span>
+	<br/><br/>
+	<% } %>
+</spring:hasBindErrors>
 <p><c:out value="${form.description}"/></p>
 <form:form modelAttribute="form" enctype="multipart/form-data" acceptCharset="UTF-8">
 	<c:forEach items="${form.elements}" varStatus="elementRow">
