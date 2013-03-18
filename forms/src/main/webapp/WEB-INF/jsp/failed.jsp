@@ -53,7 +53,7 @@
 		<div id="content">
 			<div class="contentarea">
 
-<h2>Deposit Failed</h2>
+<h2 style="color:red;">Deposit Failed</h2>
 
 <p>
 Your deposit for <b><c:out value="${form.title}"/></b> failed because of an internal error or misconfiguration.
