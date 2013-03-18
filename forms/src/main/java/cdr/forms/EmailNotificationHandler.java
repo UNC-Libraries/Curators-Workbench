@@ -128,12 +128,13 @@ public class EmailNotificationHandler implements NotificationHandler {
 		List<String> receiptNotified = sendReceipt(model, depositorEmail, form);
 		List<String> noticeNotified = sendNotice(model, form);
 		
-		if (receiptNotified == null || noticeNotified == null)
-			return null;
-		
 		HashSet<String> notified = new HashSet<String>();
-		notified.addAll(receiptNotified);
-		notified.addAll(noticeNotified);
+		
+		if (receiptNotified != null)
+			notified.addAll(receiptNotified);
+
+		if (noticeNotified != null)
+			notified.addAll(noticeNotified);
 		
 		return new ArrayList<String>(notified);
 	}
@@ -170,7 +171,7 @@ public class EmailNotificationHandler implements NotificationHandler {
 			if(administratorAddress != null && administratorAddress.trim().length() > 0) {
 				message.addTo(this.administratorAddress);
 			}
-			if(!form.getEmailDepositNoticeTo().isEmpty()) {
+			if(form.getEmailDepositNoticeTo() != null && !form.getEmailDepositNoticeTo().isEmpty()) {
 				for(String addy : form.getEmailDepositNoticeTo()) {
 					message.addTo(addy);
 				}
@@ -193,7 +194,13 @@ public class EmailNotificationHandler implements NotificationHandler {
 	}
 	
 	private List<String> sendReceipt(HashMap<String, Object> model, String email, Form form) {
-		if(email == null || email.trim().length() == 0) return null;
+		
+		// The receipt is only sent to the depositor's address, given by the "email" parameter,
+		// so if that is blank, just return an empty list.
+		
+		if (email == null || email.trim().length() == 0)
+			return new ArrayList<String>(0);
+		
 		StringWriter htmlsw = new StringWriter();
 		StringWriter textsw = new StringWriter();
 		try {
@@ -216,8 +223,11 @@ public class EmailNotificationHandler implements NotificationHandler {
 			message.setFrom(this.getFromAddress());
 			message.setText(textsw.toString() , htmlsw.toString());
 			this.mailSender.send(mimeMessage);
-			
-			return Arrays.asList(email);
+
+			ArrayList<String> notified = new ArrayList<String>();
+			for (Address address : mimeMessage.getAllRecipients())
+				notified.add(address.toString());
+			return notified;
 		} catch (MessagingException e) {
 			LOG.error("problem sending deposit message", e);
 			return null;
@@ -225,8 +235,10 @@ public class EmailNotificationHandler implements NotificationHandler {
 	}
 	
 	private List<String> sendNotice(HashMap<String, Object> model, Form form) {
-		if(form.getEmailDepositNoticeTo() == null || form.getEmailDepositNoticeTo().isEmpty())
-			return null;
+		
+		if (form.getEmailDepositNoticeTo() == null || form.getEmailDepositNoticeTo().isEmpty())
+			return new ArrayList<String>(0);
+		
 		StringWriter htmlsw = new StringWriter();
 		StringWriter textsw = new StringWriter();
 		try {
