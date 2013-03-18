@@ -62,7 +62,7 @@ The administrator has been notified and will address the problem as soon as poss
 
 <c:if test="${notified != null && !(empty notified)}">
 <p>
-An email notification has also been sent to
+An email notification has been sent to
 <c:forEach items="${notified}" var="address" varStatus="status">
 <a href="mailto:${address}"><c:out value="${address}"/></a><c:if test="${not status.last}">, </c:if></c:forEach>.
 </p>
