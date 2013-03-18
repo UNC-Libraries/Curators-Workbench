@@ -25,6 +25,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
@@ -224,7 +226,23 @@ public class FormController {
 		
 		this.getAuthorizationHandler().checkPermission(formId, form, request);
 		
+		
+		// Ensure that recipientEmailAddress is either blank or is a valid email address
+		
+		if (receiptEmailAddress == null)
+			receiptEmailAddress = "";
+		
+		if (receiptEmailAddress.trim().length() > 0) {
+			try {
+				InternetAddress address = new InternetAddress(receiptEmailAddress);
+				address.validate();
+			} catch (AddressException e) {
+				errors.addError(new FieldError("form", "receiptEmailAddress", "You must enter a valid email address."));
+			}
+		}
+		
 		model.addAttribute("receiptEmailAddress", receiptEmailAddress);
+		
 		
 		model.addAttribute("administratorEmail", getAdministratorEmail());
 		
