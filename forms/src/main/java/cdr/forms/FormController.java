@@ -176,6 +176,20 @@ public class FormController {
 			this.getAuthorizationHandler().checkPermission(formId, form, request);
 			modelmap.put("form", form);
 			modelmap.put("formId", formId);
+
+			String receiptEmailAddress = null;
+			
+			// Pre-fill receipt email from header if available, stripping _UNC suffix if present
+			
+			if (request.getHeader("mail") != null) {
+				receiptEmailAddress = request.getHeader("mail");
+				
+				if (receiptEmailAddress.endsWith("_UNC"))
+					receiptEmailAddress = receiptEmailAddress.substring(0, receiptEmailAddress.length() - 4);
+			}
+			
+			modelmap.put("receiptEmailAddress", receiptEmailAddress);
+			
 		}
 		return "form";
 	}
@@ -209,12 +223,6 @@ public class FormController {
 			form.setCurrentUser(user.getName());
 		
 		this.getAuthorizationHandler().checkPermission(formId, form, request);
-
-		if (receiptEmailAddress == null) {
-			receiptEmailAddress = request.getHeader("mail") == null ? "" : request.getHeader("mail"); 
-			if (receiptEmailAddress.endsWith("_UNC"))
-				receiptEmailAddress = receiptEmailAddress.substring(0, receiptEmailAddress.length()-4);
-		}
 		
 		model.addAttribute("receiptEmailAddress", receiptEmailAddress);
 		
