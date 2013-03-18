@@ -57,16 +57,15 @@
 
 <p>
 Your deposit for <b><c:out value="${form.title}"/></b> failed because of an internal error or misconfiguration.
-The administrator
-<c:choose>
-	<c:when test="${form.emailDepositNoticeTo != null}">and <a href="mailto:${form.emailDepositNoticeTo}"><c:out value="${form.emailDepositNoticeTo}"/></a> have</c:when>
-	<c:otherwise>has</c:otherwise>
-</c:choose>
-been notified and will address the problem as soon as possible.
+The administrator has been notified and will address the problem as soon as possible.
 </p>
 
-<c:if test="${receiptEmailAddress != null}">
-<p>An email notification has also been sent to <c:out value="${receiptEmailAddress}"/>.</p>
+<c:if test="${notified != null && !(empty notified)}">
+<p>
+An email notification has also been sent to
+<c:forEach items="${notified}" var="address" varStatus="status">
+<a href="mailto:${address}"><c:out value="${address}"/></a><c:if test="${not status.last}">, </c:if></c:forEach>.
+</p>
 </c:if>
 
 <p>

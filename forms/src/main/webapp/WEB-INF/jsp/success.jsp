@@ -63,20 +63,12 @@
 
 <p>Your deposit for <b><c:out value="${form.title}"/></b> was successful. Thank you!</p>
 
-<c:if test="${receiptEmailAddress != null && form.contactEmail != null}">
-<p>An email notification confirming your deposit has been sent to
-<c:choose>
-	<c:when test="${receiptEmailAddress != null && form.emailDepositNoticeTo != null}">
-		<c:out value="${receiptEmailAddress}"/> and <a href="mailto:${form.emailDepositNoticeTo}"><c:out value="${form.emailDepositNoticeTo}"/></a>
-	</c:when>
-	<c:when test="${receiptEmailAddress != null}">
-		<c:out value="${receiptEmailAddress}"/>
-	</c:when>
-	<c:when test="${form.contactEmail != null}">
-		<a href="mailto:${form.emailDepositNoticeTo}"><c:out value="${form.emailDepositNoticeTo}"/></a>
-	</c:when>
-</c:choose>
-.</p>
+<c:if test="${notified != null && !(empty notified)}">
+<p>
+An email notification has been sent to
+<c:forEach items="${notified}" var="address" varStatus="status">
+<a href="mailto:${address}"><c:out value="${address}"/></a><c:if test="${not status.last}">, </c:if></c:forEach>.
+</p>
 </c:if>
 
 <p>

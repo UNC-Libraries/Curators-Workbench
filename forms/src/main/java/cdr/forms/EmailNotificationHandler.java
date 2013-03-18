@@ -2,10 +2,13 @@ package cdr.forms;
 
 import java.io.IOException;
 import java.io.StringWriter;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
 
+import javax.mail.Address;
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 
@@ -109,7 +112,7 @@ public class EmailNotificationHandler implements NotificationHandler {
 	}
 
 	@Override
-	public void notifyDeposit(Form form, DepositResult result,
+	public List<String> notifyDeposit(Form form, DepositResult result,
 			String depositorEmail, String formId) {
 		// put data into the model
 		HashMap<String, Object> model = new HashMap<String, Object>();
@@ -120,11 +123,11 @@ public class EmailNotificationHandler implements NotificationHandler {
 		model.put("siteName", this.getSiteName());
 		model.put("receivedDate", new Date(System.currentTimeMillis()));
 		sendReceipt(model, depositorEmail, form);
-		sendNotice(model, form);
+		return sendNotice(model, form);
 	}
 	
 	@Override
-	public void notifyError(Form form, DepositResult result,
+	public List<String> notifyError(Form form, DepositResult result,
 			String depositorEmail, String formId) {
 		// put data into the model
 		HashMap<String, Object> model = new HashMap<String, Object>();
@@ -142,10 +145,10 @@ public class EmailNotificationHandler implements NotificationHandler {
 			depositErrorTextTemplate.process(model, textsw);
 		} catch (TemplateException e) {
 			LOG.error("cannot process email template", e);
-			return;
+			return null;
 		} catch (IOException e) {
 			LOG.error("cannot process email template", e);
-			return;
+			return null;
 		}
 
 		try {
@@ -165,9 +168,16 @@ public class EmailNotificationHandler implements NotificationHandler {
 			message.setFrom(this.getFromAddress());
 			message.setText(textsw.toString() , htmlsw.toString());
 			this.mailSender.send(mimeMessage);
+			
+			ArrayList<String> notified = new ArrayList<String>();
+			for (Address address : mimeMessage.getAllRecipients())
+				notified.add(address.toString());
+			return notified;
 		} catch (MessagingException e) {
 			LOG.error("problem sending error notification message", e);
+			return null;
 		}
+		
 	}
 	
 	private void sendReceipt(HashMap<String, Object> model, String email, Form form) {
@@ -199,8 +209,9 @@ public class EmailNotificationHandler implements NotificationHandler {
 		}
 	}
 	
-	private void sendNotice(HashMap<String, Object> model, Form form) {
-		if(form.getEmailDepositNoticeTo() == null || form.getEmailDepositNoticeTo().isEmpty()) return;
+	private List<String> sendNotice(HashMap<String, Object> model, Form form) {
+		if(form.getEmailDepositNoticeTo() == null || form.getEmailDepositNoticeTo().isEmpty())
+			return null;
 		StringWriter htmlsw = new StringWriter();
 		StringWriter textsw = new StringWriter();
 		try {
@@ -208,10 +219,10 @@ public class EmailNotificationHandler implements NotificationHandler {
 			depositNoticeTextTemplate.process(model, textsw);
 		} catch (TemplateException e) {
 			LOG.error("cannot process email template", e);
-			return;
+			return null;
 		} catch (IOException e) {
 			LOG.error("cannot process email template", e);
-			return;
+			return null;
 		}
 
 		try {
@@ -225,8 +236,14 @@ public class EmailNotificationHandler implements NotificationHandler {
 			message.setFrom(this.getFromAddress());
 			message.setText(textsw.toString() , htmlsw.toString());
 			this.mailSender.send(mimeMessage);
+			
+			ArrayList<String> notified = new ArrayList<String>();
+			for (Address address : mimeMessage.getAllRecipients())
+				notified.add(address.toString());
+			return notified;
 		} catch (MessagingException e) {
 			LOG.error("problem sending deposit message", e);
+			return null;
 		}
 	}
 

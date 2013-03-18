@@ -268,8 +268,10 @@ public class FormController {
 			
 			LOG.error("deposit failed");
 			
-			if (getNotificationHandler() != null)
-				getNotificationHandler().notifyError(form, result, receiptEmailAddress, formId);
+			if (getNotificationHandler() != null) {
+				List<String> notified = getNotificationHandler().notifyError(form, result, receiptEmailAddress, formId);
+				model.addAttribute("notified", notified);
+			}
 			
 			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
 			return "failed";
@@ -279,8 +281,10 @@ public class FormController {
 		
 		// Otherwise, if the deposit was successful, send a notification
 		
-		if (getNotificationHandler() != null && receiptEmailAddress != null)
-			getNotificationHandler().notifyDeposit(form, result, receiptEmailAddress, formId);
+		if (getNotificationHandler() != null) {
+			List<String> notified = getNotificationHandler().notifyDeposit(form, result, receiptEmailAddress, formId);
+			model.addAttribute("notified", notified);
+		}
 		
 		
 		// Clean up: delete temporary files, clear the session
