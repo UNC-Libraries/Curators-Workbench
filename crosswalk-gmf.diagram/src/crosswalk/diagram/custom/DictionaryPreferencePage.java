@@ -210,6 +210,7 @@ public class DictionaryPreferencePage extends PreferencePage implements IWorkben
 			}
 		}
 		DictionaryPreference.setLocations(locs);
+		CrosswalkDiagramEditorPlugin.getInstance().loadDictionaries();
 		return super.performOk();
 	}
 

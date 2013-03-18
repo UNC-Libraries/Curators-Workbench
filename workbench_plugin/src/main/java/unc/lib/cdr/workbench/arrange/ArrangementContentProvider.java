@@ -206,6 +206,7 @@ public class ArrangementContentProvider extends AdapterFactoryContentProvider /*
 				DivType d = (DivType) notification.getNotifier();
 				if (METSConstants.Div_Bag.equals(d.getTYPE())) {
 					updates.add(MetsProjectNature.getNatureForMetsObject(d).getArrangementElement());
+					updates.add(d);
 				} else if (METSConstants.Div_File.equals(d.getTYPE())) {
 					updates.add(d);
 					updates.add(MetsProjectNature.getOriginal(d));

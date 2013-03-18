@@ -45,6 +45,7 @@ import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.impl.NotificationImpl;
+import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
@@ -284,6 +285,13 @@ public class CrosswalkJob extends Job {
 		}
 		// LOG.debug("created record: " + r.toString());
 
+		// validate
+//		Diagnostic diag = org.eclipse.emf.ecore.util.Diagnostician.INSTANCE.validate(r);
+//		if(diag.getSeverity() > Diagnostic.ERROR) {
+//			System.err.println("found error: "+diag.getCode()+" "+diag.getMessage());
+//			setProblemMarker(diag.getMessage(), file);
+//		}
+		
 		// detect if ID already present.
 		MdSecType md = MetsFactory.eINSTANCE.createMdSecType();
 		md.setGROUPID(file.getName());
