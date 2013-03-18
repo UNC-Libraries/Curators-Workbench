@@ -14,7 +14,7 @@ public interface NotificationHandler {
 	 * @param depositorEmail depositor email address or null
 	 * @param formId the form id (file name without extension)
 	 */
-	public List<String> notifyDeposit(Form form, DepositResult result, String depositorEmail, String formId);
+	public void notifyDeposit(Form form, DepositResult result, String depositorEmail, String formId);
 
 	/**
 	 * Send unrecoverable error notification to the administrator.
@@ -23,7 +23,7 @@ public interface NotificationHandler {
 	 * @param depositorEmail depositor email address or null
 	 * @param formId the form id (file name without extension)
 	 */
-	public List<String> notifyError(Form form, DepositResult result, String depositorEmail,
+	public void notifyError(Form form, DepositResult result, String depositorEmail,
 			String formId);
 
 }

@@ -83,12 +83,8 @@ public class EmailNotificationTest {
 		result.setAccessURL("http://example.org/the/deposit/url");
 		result.setStatus(Status.PENDING);
 		
-		List<String> notified = emailNotificationHandler.notifyDeposit(form, result, "test@example.org", "test");
+		emailNotificationHandler.notifyDeposit(form, result, "test@example.org", "test");
 		verify(this.javaMailSender, times(2)).send(any(MimeMessage.class));
-		
-		assertEquals("The correct number of email addresses should have been notified", 2, notified.size());
-		assertTrue(notified.contains("count0@email.unc.edu"));
-		assertTrue(notified.contains("test@example.org"));
 	}
 	
 	@Test
@@ -104,13 +100,8 @@ public class EmailNotificationTest {
 		exception.printStackTrace(new PrintWriter(sw));
 		result.setResponseBody(sw.toString());
 		
-		List<String> notified = emailNotificationHandler.notifyError(form, result, "test@example.org", "test");
+		emailNotificationHandler.notifyError(form, result, "test@example.org", "test");
 		verify(this.javaMailSender, times(1)).send(any(MimeMessage.class));
-		
-		assertEquals("The correct number of email addresses should have been notified", 3, notified.size());
-		assertTrue(notified.contains("count0@email.unc.edu"));
-		assertTrue(notified.contains("support@example.org"));
-		assertTrue(notified.contains("test@example.org"));
 	}
 	
 	private void fillForm(Form form) {

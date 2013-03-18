@@ -60,25 +60,19 @@ Your deposit for <b><c:out value="${form.title}"/></b> failed because of an inte
 The administrator has been notified and will address the problem as soon as possible.
 </p>
 
-<c:if test="${notified != null && !(empty notified)}">
-<p>
-An email notification has been sent to
-<c:forEach items="${notified}" var="address" varStatus="status">
-<a href="mailto:${address}"><c:out value="${address}"/></a><c:if test="${not status.last}">, </c:if></c:forEach>.
-</p>
-</c:if>
-
 <p>
 If you have any questions, please contact
 <c:choose>
 	<c:when test="${form.contactEmail != null && form.contactName != null}">
-		<c:out value="${form.contactName}"/> at <a href="mailto:${form.contactEmail}"><c:out value="${form.contactEmail}"/></a> or
+		<c:out value="${form.contactName}"/> at <a href="mailto:${form.contactEmail}"><c:out value="${form.contactEmail}"/></a>.
 	</c:when>
 	<c:when test="${form.contactEmail != null}">
-		<a href="mailto:${form.contactEmail}"><c:out value="${form.contactEmail}"/></a> or
+		<a href="mailto:${form.contactEmail}"><c:out value="${form.contactEmail}"/></a>.
 	</c:when>
+	<c:otherwise>
+		the administrator at <a href="mailto:${administratorEmail}"><c:out value="${administratorEmail}"/></a>.
+	</c:otherwise>
 </c:choose>
-the administrator at <a href="mailto:${administratorEmail}"><c:out value="${administratorEmail}"/></a>.
 </p>
 
 </div>
