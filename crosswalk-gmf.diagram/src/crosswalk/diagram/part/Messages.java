@@ -388,6 +388,16 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String Addafileblock5CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Addafileblock5CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
 	public static String CrossWalkModelBoxCompartmentEditPart_title;
 
 	/**

@@ -85,6 +85,7 @@ public class CrosswalkPaletteFactory {
 		paletteContainer.add(createTextField2CreationTool());
 		paletteContainer.add(createDateField3CreationTool());
 		paletteContainer.add(createParagraph4CreationTool());
+		paletteContainer.add(createAddafileblock5CreationTool());
 		return paletteContainer;
 	}
 
@@ -312,6 +313,18 @@ public class CrosswalkPaletteFactory {
 		entry.setSmallIcon(CrosswalkElementTypes
 				.getImageDescriptor(CrosswalkElementTypes.Paragraph_3020));
 		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createAddafileblock5CreationTool() {
+		ToolEntry entry = new ToolEntry(
+				Messages.Addafileblock5CreationTool_title,
+				Messages.Addafileblock5CreationTool_desc, null, null) {
+		};
+		entry.setId("createAddafileblock5CreationTool"); //$NON-NLS-1$
 		return entry;
 	}
 

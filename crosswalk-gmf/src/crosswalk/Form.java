@@ -37,6 +37,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link crosswalk.Form#isCanAddSupplementalFiles <em>Can Add Supplemental Files</em>}</li>
  *   <li>{@link crosswalk.Form#getContactName <em>Contact Name</em>}</li>
  *   <li>{@link crosswalk.Form#getContactEmail <em>Contact Email</em>}</li>
+ *   <li>{@link crosswalk.Form#getMainFileBlock <em>Main File Block</em>}</li>
  * </ul>
  * </p>
  *
@@ -357,5 +358,31 @@ public interface Form extends Editable, ContextProvider {
 	 * @generated
 	 */
 	boolean isSetContactEmail();
+
+	/**
+	 * Returns the value of the '<em><b>Main File Block</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Main File Block</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Main File Block</em>' reference.
+	 * @see #setMainFileBlock(FileBlock)
+	 * @see crosswalk.CrosswalkPackage#getForm_MainFileBlock()
+	 * @model
+	 * @generated
+	 */
+	FileBlock getMainFileBlock();
+
+	/**
+	 * Sets the value of the '{@link crosswalk.Form#getMainFileBlock <em>Main File Block</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Main File Block</em>' reference.
+	 * @see #getMainFileBlock()
+	 * @generated
+	 */
+	void setMainFileBlock(FileBlock value);
 
 } // Form

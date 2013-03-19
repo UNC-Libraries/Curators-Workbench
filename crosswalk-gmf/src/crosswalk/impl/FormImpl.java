@@ -30,6 +30,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import crosswalk.ContextProvider;
 import crosswalk.CrosswalkPackage;
+import crosswalk.FileBlock;
 import crosswalk.Form;
 import crosswalk.FormElement;
 
@@ -53,6 +54,7 @@ import crosswalk.FormElement;
  *   <li>{@link crosswalk.impl.FormImpl#isCanAddSupplementalFiles <em>Can Add Supplemental Files</em>}</li>
  *   <li>{@link crosswalk.impl.FormImpl#getContactName <em>Contact Name</em>}</li>
  *   <li>{@link crosswalk.impl.FormImpl#getContactEmail <em>Contact Email</em>}</li>
+ *   <li>{@link crosswalk.impl.FormImpl#getMainFileBlock <em>Main File Block</em>}</li>
  * </ul>
  * </p>
  *
@@ -296,6 +298,16 @@ public class FormImpl extends EObjectImpl implements Form {
 	 * @ordered
 	 */
 	protected boolean contactEmailESet;
+
+	/**
+	 * The cached value of the '{@link #getMainFileBlock() <em>Main File Block</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMainFileBlock()
+	 * @generated
+	 * @ordered
+	 */
+	protected FileBlock mainFileBlock;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -634,6 +646,44 @@ public class FormImpl extends EObjectImpl implements Form {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public FileBlock getMainFileBlock() {
+		if (mainFileBlock != null && mainFileBlock.eIsProxy()) {
+			InternalEObject oldMainFileBlock = (InternalEObject)mainFileBlock;
+			mainFileBlock = (FileBlock)eResolveProxy(oldMainFileBlock);
+			if (mainFileBlock != oldMainFileBlock) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CrosswalkPackage.FORM__MAIN_FILE_BLOCK, oldMainFileBlock, mainFileBlock));
+			}
+		}
+		return mainFileBlock;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FileBlock basicGetMainFileBlock() {
+		return mainFileBlock;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMainFileBlock(FileBlock newMainFileBlock) {
+		FileBlock oldMainFileBlock = mainFileBlock;
+		mainFileBlock = newMainFileBlock;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.FORM__MAIN_FILE_BLOCK, oldMainFileBlock, mainFileBlock));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -678,6 +728,9 @@ public class FormImpl extends EObjectImpl implements Form {
 				return getContactName();
 			case CrosswalkPackage.FORM__CONTACT_EMAIL:
 				return getContactEmail();
+			case CrosswalkPackage.FORM__MAIN_FILE_BLOCK:
+				if (resolve) return getMainFileBlock();
+				return basicGetMainFileBlock();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -733,6 +786,9 @@ public class FormImpl extends EObjectImpl implements Form {
 			case CrosswalkPackage.FORM__CONTACT_EMAIL:
 				setContactEmail((String)newValue);
 				return;
+			case CrosswalkPackage.FORM__MAIN_FILE_BLOCK:
+				setMainFileBlock((FileBlock)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -784,6 +840,9 @@ public class FormImpl extends EObjectImpl implements Form {
 			case CrosswalkPackage.FORM__CONTACT_EMAIL:
 				unsetContactEmail();
 				return;
+			case CrosswalkPackage.FORM__MAIN_FILE_BLOCK:
+				setMainFileBlock((FileBlock)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -822,6 +881,8 @@ public class FormImpl extends EObjectImpl implements Form {
 				return isSetContactName();
 			case CrosswalkPackage.FORM__CONTACT_EMAIL:
 				return isSetContactEmail();
+			case CrosswalkPackage.FORM__MAIN_FILE_BLOCK:
+				return mainFileBlock != null;
 		}
 		return super.eIsSet(featureID);
 	}

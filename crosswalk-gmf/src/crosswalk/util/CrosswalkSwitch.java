@@ -302,6 +302,13 @@ public class CrosswalkSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case CrosswalkPackage.FILE_BLOCK: {
+				FileBlock fileBlock = (FileBlock)theEObject;
+				T result = caseFileBlock(fileBlock);
+				if (result == null) result = caseFormElement(fileBlock);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case CrosswalkPackage.PARAGRAPH: {
 				Paragraph paragraph = (Paragraph)theEObject;
 				T result = caseParagraph(paragraph);
@@ -769,6 +776,21 @@ public class CrosswalkSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseFormElement(FormElement object) {
+		return null;
+	}
+
+								/**
+	 * Returns the result of interpreting the object as an instance of '<em>File Block</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>File Block</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseFileBlock(FileBlock object) {
 		return null;
 	}
 

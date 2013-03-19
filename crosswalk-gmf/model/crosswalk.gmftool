@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<gmftool:ToolRegistry xmi:version="2.0"
+<gmftool:ToolRegistry
+    xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:gmftool="http://www.eclipse.org/gmf/2005/ToolDefinition">
@@ -71,6 +72,10 @@
           xsi:type="gmftool:CreationTool"
           title="Paragraph"
           description="A block of text with optional header used in forms."/>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Add a file block"
+          description="File Block"/>
     </tools>
   </palette>
 </gmftool:ToolRegistry>

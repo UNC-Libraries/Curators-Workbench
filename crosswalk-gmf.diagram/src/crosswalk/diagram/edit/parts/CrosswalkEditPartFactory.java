@@ -177,6 +177,15 @@ public class CrosswalkEditPartFactory implements EditPartFactory {
 			case ParagraphTextEditPart.VISUAL_ID:
 				return new ParagraphTextEditPart(view);
 
+			case FileBlockEditPart.VISUAL_ID:
+				return new FileBlockEditPart(view);
+
+			case FileBlockNameEditPart.VISUAL_ID:
+				return new FileBlockNameEditPart(view);
+
+			case FileBlockDescriptionEditPart.VISUAL_ID:
+				return new FileBlockDescriptionEditPart(view);
+
 			case CrossWalkModelBoxCompartmentEditPart.VISUAL_ID:
 				return new CrossWalkModelBoxCompartmentEditPart(view);
 

@@ -27,11 +27,13 @@ import org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.notation.View;
 
+import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicyWithCustomReparent;
 import crosswalk.CrosswalkPackage;
 import crosswalk.diagram.custom.CompartmentChildCreationEditPolicy;
 import crosswalk.diagram.custom.ReorderCompartmentEditPolicy;
 import crosswalk.diagram.edit.policies.MetadataBlockMetadataBlockInputFieldsCompartmentCanonicalEditPolicy;
 import crosswalk.diagram.edit.policies.MetadataBlockMetadataBlockInputFieldsCompartmentItemSemanticEditPolicy;
+import crosswalk.diagram.part.CrosswalkVisualIDRegistry;
 import crosswalk.diagram.part.Messages;
 
 /**
@@ -78,8 +80,7 @@ public class MetadataBlockMetadataBlockInputFieldsCompartmentEditPart extends
 				new MetadataBlockMetadataBlockInputFieldsCompartmentItemSemanticEditPolicy());
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
 				new CompartmentChildCreationEditPolicy());
-		installEditPolicy(
-				EditPolicy.LAYOUT_ROLE,
+		installEditPolicy(EditPolicy.LAYOUT_ROLE,
 				new ReorderCompartmentEditPolicy(
 						CrosswalkPackage.Literals.METADATA_BLOCK__PORTS));
 		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
@@ -97,7 +98,7 @@ public class MetadataBlockMetadataBlockInputFieldsCompartmentEditPart extends
 			super.setRatio(ratio);
 		}
 	}
-	
+
 	/**
 	 * @generated NOT
 	 */
