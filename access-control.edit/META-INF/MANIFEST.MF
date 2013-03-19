@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: access-control.edit
 Bundle-SymbolicName: access-control.edit;singleton:=true
-Bundle-Version: 4.1.1.qualifier
+Bundle-Version: 4.1.2.qualifier
 Bundle-Activator: edu.unc.lib.schemas.acl.provider.AclEditPlugin$Implementation
 Bundle-Vendor: University Libraries, UNC Chapel Hill
 Bundle-Localization: plugin
