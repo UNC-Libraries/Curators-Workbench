@@ -206,13 +206,28 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 	<c:forEach items="${form.elements}" varStatus="elementRow">
 		<spring:bind path="form.elements[${elementRow.index}]" ignoreNestedPath="true">
 			<% if(Paragraph.class.isInstance(status.getValue())) { 
-					Paragraph p = (Paragraph)status.getValue(); 
-					if(p.getHeading() != null) { %>
-					<br/><h3><%= p.getHeading() %></h3>
-					<% }
-					if(p.getText() != null) { %>
-					<p><%= ((Paragraph)status.getValue()).getText() %></p>
-					<% } %>
+				Paragraph p = (Paragraph)status.getValue(); 
+				if(p.getHeading() != null) { %>
+				<br/><h3><%= p.getHeading() %></h3>
+				<% }
+				if(p.getText() != null) { %>
+				<p><%= ((Paragraph)status.getValue()).getText() %></p>
+				<% } %>
+			<% } else if(FileBlock.class.isInstance(status.getValue())) { 
+				FileBlock f = (FileBlock)status.getValue(); 
+				if(f.getName() != null) { %>
+				<br/><h3><%= f.getName() %></h3>
+				<% }
+				if(f.getDescription() != null) { %>
+				<p><%= ((FileBlock)status.getValue()).getDescription() %></p>
+				<% } %>
+				<div class="indented_block">
+					<div class="form_field file_field">
+						<label>&nbsp;</label>
+						<form:input type="file" path="elements[${elementRow.index}].enteredValue" size="40"/>
+						<% if (f.isRequired()) { %><span class="red">*</span><% } %>
+					</div>
+				</div>
 			<% } else if(MetadataBlock.class.isInstance(status.getValue())) { 
 					MetadataBlock mb = (MetadataBlock)status.getValue(); %>
 					<div class="metadata_block">
@@ -331,12 +346,7 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 			<% } %>
 		</spring:bind>
 	</c:forEach>
-	<br/><h3>File for Deposit</h3>
-	<div class="indented_block">
-		<div class="form_field file_field">
-			<label>&nbsp;</label><input name="file" type="file" size="40"/> <span class="red">*</span>
-		</div>
-	</div>
+
 	<c:if test="${form.canAddSupplementalFiles}">
 		<br/><h3>Supplemental Files</h3>
 		<div class="indented_block">
