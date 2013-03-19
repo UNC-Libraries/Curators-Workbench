@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: xlink.model
 Bundle-SymbolicName: xlink.model;singleton:=true
-Bundle-Version: 4.1.1.qualifier
+Bundle-Version: 4.1.1
 Bundle-Vendor: University Libraries, UNC Chapel Hill
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
