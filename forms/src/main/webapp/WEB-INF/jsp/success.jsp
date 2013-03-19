@@ -67,15 +67,15 @@
 If you have any questions, please contact
 <c:choose>
 	<c:when test="${form.contactEmail != null && form.contactName != null}">
-		<c:out value="${form.contactName}"/> at <a href="mailto:${form.contactEmail}"><c:out value="${form.contactEmail}"/></a>
+		<c:out value="${form.contactName}"/> at <a href="mailto:${form.contactEmail}"><c:out value="${form.contactEmail}"/></a>.
 	</c:when>
 	<c:when test="${form.contactEmail != null}">
-		<a href="mailto:${form.contactEmail}"><c:out value="${form.contactEmail}"/></a>
+		<a href="mailto:${form.contactEmail}"><c:out value="${form.contactEmail}"/></a>.
 	</c:when>
 	<c:otherwise>
-		the administrator at <a href="mailto:${administratorEmail}"><c:out value="${administratorEmail}"/></a>
+		<a href="mailto:${administratorEmail}"><c:out value="${administratorEmail}"/></a>.
 	</c:otherwise>
-</c:choose>.
+</c:choose>
 </p>
 
 <c:if test="${form.promptForMultipleSubmissions}">

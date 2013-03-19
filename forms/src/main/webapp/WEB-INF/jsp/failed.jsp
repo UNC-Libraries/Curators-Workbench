@@ -70,7 +70,7 @@ If you have any questions, please contact
 		<a href="mailto:${form.contactEmail}"><c:out value="${form.contactEmail}"/></a>.
 	</c:when>
 	<c:otherwise>
-		the administrator at <a href="mailto:${administratorEmail}"><c:out value="${administratorEmail}"/></a>.
+		<a href="mailto:${administratorEmail}"><c:out value="${administratorEmail}"/></a>.
 	</c:otherwise>
 </c:choose>
 </p>
