@@ -225,6 +225,7 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 					<div class="form_field file_field">
 						<label>&nbsp;</label>
 						<input name="file" type="file" size="40"/>
+						<input name="fileElementRowIndex" value="${elementRow.index}" type="hidden"/>
 						<% if (f.isRequired()) { %><span class="red">*</span><% } %>
 					</div>
 				</div>

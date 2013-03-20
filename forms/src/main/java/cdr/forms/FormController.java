@@ -152,8 +152,8 @@ public class FormController {
    protected void initBinder(WebDataBinder binder) {
        binder.setValidator(new FormValidator());
        binder.registerCustomEditor(java.util.Date.class, new DateEditor());
-       //binder.setBindEmptyMultipartFiles(false);
        binder.registerCustomEditor(java.lang.String.class, new StringCleanerTrimmerEditor(true));
+       binder.setBindEmptyMultipartFiles(true);
    }
 	
 //	@ModelAttribute("form")
@@ -205,8 +205,10 @@ public class FormController {
 			Principal user,
 			@RequestParam(required = false, value = "receiptEmailAddress") String receiptEmailAddress,
 			@RequestParam("file") MultipartFile[] files,
+			@RequestParam("fileElementRowIndex") int[] fileElementRowIndices,
 			SessionStatus sessionStatus, HttpServletRequest request,
 			HttpServletResponse response) throws PermissionDeniedException {
+		
 		
 		List<SubmittedFile> submittedFiles;
 		
@@ -240,7 +242,6 @@ public class FormController {
 		}
 		
 		model.addAttribute("receiptEmailAddress", receiptEmailAddress);
-		
 		
 		model.addAttribute("administratorEmail", getAdministratorEmail());
 		
