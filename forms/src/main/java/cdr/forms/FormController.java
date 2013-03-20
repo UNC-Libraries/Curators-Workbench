@@ -204,13 +204,11 @@ public class FormController {
 			BindingResult errors,
 			Principal user,
 			@RequestParam(required = false, value = "receiptEmailAddress") String receiptEmailAddress,
-			@RequestParam("file") MultipartFile file,
-			@RequestParam(value = "supplementalFile", required = false) MultipartFile[] supplementalFiles,
+			@RequestParam("file") MultipartFile[] files,
 			SessionStatus sessionStatus, HttpServletRequest request,
 			HttpServletResponse response) throws PermissionDeniedException {
 		
-		SubmittedFile submittedFile;
-		List<SubmittedFile> supplementalSubmittedFiles;
+		List<SubmittedFile> submittedFiles;
 		
 		DepositResult result;
 
@@ -248,24 +246,15 @@ public class FormController {
 		
 		
 		// Handle uploaded files, exiting to report errors if we find any
+
+		submittedFiles = new ArrayList<SubmittedFile>();
 		
-		submittedFile = handleUploadedFile(file, errors);
-		
-		if (form.isCanAddSupplementalFiles()) {
-			supplementalSubmittedFiles = new ArrayList<SubmittedFile>();
-			
-			for (MultipartFile supplementalFile : supplementalFiles) {
-				SubmittedFile sf = handleUploadedFile(supplementalFile, errors);
-				if (sf != null)
-					supplementalSubmittedFiles.add(sf);
-			}
-		} else {
-			supplementalSubmittedFiles = null;
+		for (MultipartFile file : files) {
+			SubmittedFile sf = handleUploadedFile(file, errors);
+			if (sf != null)
+				submittedFiles.add(sf);
 		}
 
-		if (submittedFile == null)
-			errors.addError(new FieldError("form", "file", "You must select a file for upload."));
-		
 		if (errors.hasErrors()) {
 			LOG.debug(errors.getErrorCount() + " errors");
 			return "form";
@@ -274,10 +263,7 @@ public class FormController {
 		
 		// Deposit
 		
-		if (form.isCanAddSupplementalFiles())
-			result = this.getDepositHandler().depositAggregate(form, submittedFile, supplementalSubmittedFiles);
-		else
-			result = this.getDepositHandler().depositFile(form, submittedFile);
+		result = this.getDepositHandler().deposit(form, submittedFiles);
 		
 		
 		// Handle a failed deposit response
@@ -302,15 +288,10 @@ public class FormController {
 		
 		
 		// Clean up: delete temporary files, clear the session
-		
-		if (submittedFile.getFile() != null)
-			submittedFile.getFile().delete();
-		
-		if (supplementalSubmittedFiles != null) {
-			for (SubmittedFile sf : supplementalSubmittedFiles) {
-				if (sf.getFile() != null)
-					sf.getFile().delete();
-			}
+
+		for (SubmittedFile sf : submittedFiles) {
+			if (sf.getFile() != null)
+				sf.getFile().delete();
 		}
 		
 		sessionStatus.setComplete();

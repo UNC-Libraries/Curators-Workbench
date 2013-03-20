@@ -224,7 +224,7 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 				<div class="indented_block">
 					<div class="form_field file_field">
 						<label>&nbsp;</label>
-						<form:input type="file" path="elements[${elementRow.index}].enteredValue" size="40"/>
+						<input name="file" type="file" size="40"/>
 						<% if (f.isRequired()) { %><span class="red">*</span><% } %>
 					</div>
 				</div>
@@ -351,13 +351,13 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 		<br/><h3>Supplemental Files</h3>
 		<div class="indented_block">
 			<div class="form_field file_field">
-				<label>&nbsp;</label><input name="supplementalFile" type="file" size="40"/>
+				<label>&nbsp;</label><input name="file" type="file" size="40"/>
 			</div>
 			<div class="form_field file_field">
-				<label>&nbsp;</label><input name="supplementalFile" type="file" size="40"/>
+				<label>&nbsp;</label><input name="file" type="file" size="40"/>
 			</div>
 			<div class="form_field file_field">
-				<label>&nbsp;</label><input name="supplementalFile" type="file" size="40"/>
+				<label>&nbsp;</label><input name="file" type="file" size="40"/>
 			</div>
 		</div>
 	</c:if>

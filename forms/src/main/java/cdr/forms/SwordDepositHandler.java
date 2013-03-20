@@ -142,15 +142,7 @@ public class SwordDepositHandler implements DepositHandler {
 		this.defaultContainer = defaultContainer;
 	}
 	
-	public DepositResult depositAggregate(Form form, SubmittedFile mainFile, List<SubmittedFile> supplementalFiles) {
-		return deposit(form, mainFile, supplementalFiles);
-	}	
-
-	public DepositResult depositFile(Form form, SubmittedFile file) {
-		return deposit(form, file, null);
-	}
-	
-	private DepositResult deposit(Form form, SubmittedFile mainFile, List<SubmittedFile> supplementalFiles) {
+	public DepositResult deposit(Form form, List<SubmittedFile> files) {
 
 		String pid = "uuid:" + UUID.randomUUID().toString();
 		
@@ -159,10 +151,10 @@ public class SwordDepositHandler implements DepositHandler {
 		
 		gov.loc.mods.mods.DocumentRoot mods = makeMods(form);
 		edu.unc.lib.schemas.acl.DocumentRoot acl = makeAcl(form);
-		IdentityHashMap<SubmittedFile, String> filenames = buildFilenameMap(mainFile, supplementalFiles);
+		IdentityHashMap<SubmittedFile, String> filenames = buildFilenameMap(files);
 
-		gov.loc.mets.DocumentRoot metsDocumentRoot = makeMets(form.getCurrentUser(), mods, acl, mainFile, supplementalFiles, filenames);
-		File zipFile = makeZipFile(metsDocumentRoot, mainFile, supplementalFiles, filenames);
+		gov.loc.mets.DocumentRoot metsDocumentRoot = makeMets(form.getCurrentUser(), mods, acl, files, filenames);
+		File zipFile = makeZipFile(metsDocumentRoot, files, filenames);
 		
 		
 		// Obtain the path for the collection in which we'll attempt to make the deposit
@@ -266,20 +258,15 @@ public class SwordDepositHandler implements DepositHandler {
 		
 	}
 
-	private IdentityHashMap<SubmittedFile, String> buildFilenameMap(SubmittedFile mainFile, List<SubmittedFile> supplementalFiles) {
+	private IdentityHashMap<SubmittedFile, String> buildFilenameMap(List<SubmittedFile> files) {
 		
 		IdentityHashMap<SubmittedFile, String> filenames = new IdentityHashMap<SubmittedFile, String>();
 
 		int index = 0;
-		
-		filenames.put(mainFile, "data_" + index + mainFile.getExtension());
-		index++;
 
-		if (supplementalFiles != null) {
-			for (SubmittedFile supplementalFile : supplementalFiles) {
-				filenames.put(supplementalFile, "data_" + index + supplementalFile.getExtension());
-				index++;
-			}
+		for (SubmittedFile file : files) {
+			filenames.put(file, "data_" + index + file.getExtension());
+			index++;
 		}
 		
 		return filenames;
@@ -332,20 +319,13 @@ public class SwordDepositHandler implements DepositHandler {
 	 * for each supplemental file.
 	 */
 	private gov.loc.mets.DocumentRoot makeMets(String user, gov.loc.mods.mods.DocumentRoot modsDocumentRoot, edu.unc.lib.schemas.acl.DocumentRoot acl,
-			SubmittedFile mainFile, List<SubmittedFile> supplementalFiles, IdentityHashMap<SubmittedFile, String> filenames) {
+			List<SubmittedFile> files, IdentityHashMap<SubmittedFile, String> filenames) {
 		
 		gov.loc.mets.DocumentRoot root;
 		MetsType mets;
 		MdSecType rightsMdSec;
 		MdSecType modsMdSec;
 		DivType aggregateWorkDiv = null;
-		
-		int totalFiles;
-		
-		if (supplementalFiles == null)
-			totalFiles = 1;
-		else
-			totalFiles = 1 + supplementalFiles.size();
 		
 		// Document root
 		
@@ -441,9 +421,9 @@ public class SwordDepositHandler implements DepositHandler {
 			FileSecType fileSec = MetsFactory.eINSTANCE.createFileSecType();
 			FileGrpType1 fileGrp = MetsFactory.eINSTANCE.createFileGrpType1();
 			
-			for (int i = 0; i < totalFiles; i++) {
+			for (int i = 0; i < files.size(); i++) {
 				
-				SubmittedFile submittedFile = i == 0 ? mainFile : supplementalFiles.get(i - 1);
+				SubmittedFile submittedFile = files.get(i);
 				
 				FileType file = MetsFactory.eINSTANCE.createFileType();
 				file.setID("f_" + i);
@@ -465,26 +445,7 @@ public class SwordDepositHandler implements DepositHandler {
 
 		// Structural map and structural links
 		
-		if (supplementalFiles == null) {
-			
-			StructMapType structMap = MetsFactory.eINSTANCE.createStructMapType();
-
-			DivType fileDiv = MetsFactory.eINSTANCE.createDivType();
-			
-			fileDiv.setLABEL1(mainFile.getFilename());
-			fileDiv.setTYPE(METSConstants.Div_File);
-			fileDiv.getDmdSec().add(modsMdSec);
-			fileDiv.getMdSec().add(rightsMdSec);
-			
-			FptrType fptr = MetsFactory.eINSTANCE.createFptrType();
-			fptr.setFILEID("f_0");
-			fileDiv.getFptr().add(fptr);
-
-			structMap.setDiv(fileDiv);
-
-			mets.getStructMap().add(structMap);
-			
-		} else {
+		{
 
 			StructMapType structMap = MetsFactory.eINSTANCE.createStructMapType();
 
@@ -494,9 +455,9 @@ public class SwordDepositHandler implements DepositHandler {
 			aggregateWorkDiv.getMdSec().add(rightsMdSec);
 			aggregateWorkDiv.setID("a");
 			
-			for (int i = 0; i < totalFiles; i++) {
+			for (int i = 0; i < files.size(); i++) {
 
-				SubmittedFile submittedFile = i == 0 ? mainFile : supplementalFiles.get(i - 1);
+				SubmittedFile submittedFile = files.get(i);
 			
 				DivType fileDiv = MetsFactory.eINSTANCE.createDivType();
 				
@@ -519,20 +480,20 @@ public class SwordDepositHandler implements DepositHandler {
 		
 		// Structural Links
 		
-		if (supplementalFiles != null) {
-		
-			StructLinkType1 structLink = MetsFactory.eINSTANCE.createStructLinkType1();
-
-			SmLinkType smLink = MetsFactory.eINSTANCE.createSmLinkType();
-			smLink.setArcrole(Link.DEFAULTACCESS.uri);
-			smLink.setXlinkFrom(aggregateWorkDiv);
-			smLink.setXlinkTo(aggregateWorkDiv.getDiv().get(0));
-
-			structLink.getSmLink().add(smLink);
-			
-			mets.setStructLink(structLink);
-			
-		}
+//		if (supplementalFiles != null) {
+//		
+//			StructLinkType1 structLink = MetsFactory.eINSTANCE.createStructLinkType1();
+//
+//			SmLinkType smLink = MetsFactory.eINSTANCE.createSmLinkType();
+//			smLink.setArcrole(Link.DEFAULTACCESS.uri);
+//			smLink.setXlinkFrom(aggregateWorkDiv);
+//			smLink.setXlinkTo(aggregateWorkDiv.getDiv().get(0));
+//
+//			structLink.getSmLink().add(smLink);
+//			
+//			mets.setStructLink(structLink);
+//			
+//		}
 		
 		return root;
 
@@ -578,14 +539,7 @@ public class SwordDepositHandler implements DepositHandler {
 
 	}
 	
-	private File makeZipFile(gov.loc.mets.DocumentRoot metsDocumentRoot, SubmittedFile mainFile, List<SubmittedFile> supplementaryFiles, IdentityHashMap<SubmittedFile, String> filenames) {
-		
-		// Assemble a list of files to write (see comment for makeMets)
-		
-		List<SubmittedFile> files = new ArrayList<SubmittedFile>();
-		files.add(mainFile);
-		if (supplementaryFiles != null)
-			files.addAll(supplementaryFiles);
+	private File makeZipFile(gov.loc.mets.DocumentRoot metsDocumentRoot, List<SubmittedFile> files, IdentityHashMap<SubmittedFile, String> filenames) {
 		
 		// Get the METS XML
 		
