@@ -64,7 +64,6 @@ public class FileBlockItemProvider
 			addDescriptionPropertyDescriptor(object);
 			addLabelPropertyDescriptor(object);
 			addRequiredPropertyDescriptor(object);
-			addEnteredValuePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -158,28 +157,6 @@ public class FileBlockItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Entered Value feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addEnteredValuePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_FileBlock_enteredValue_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_FileBlock_enteredValue_feature", "_UI_FileBlock_type"),
-				 CrosswalkPackage.Literals.FILE_BLOCK__ENTERED_VALUE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This returns FileBlock.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -220,7 +197,6 @@ public class FileBlockItemProvider
 			case CrosswalkPackage.FILE_BLOCK__DESCRIPTION:
 			case CrosswalkPackage.FILE_BLOCK__LABEL:
 			case CrosswalkPackage.FILE_BLOCK__REQUIRED:
-			case CrosswalkPackage.FILE_BLOCK__ENTERED_VALUE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

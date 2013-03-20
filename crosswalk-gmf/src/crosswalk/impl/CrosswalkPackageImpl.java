@@ -1374,15 +1374,6 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getFileBlock_EnteredValue() {
-		return (EAttribute)fileBlockEClass.getEStructuralFeatures().get(4);
-	}
-
-								/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getParagraph() {
 		return paragraphEClass;
 	}
@@ -1664,7 +1655,6 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 		createEAttribute(fileBlockEClass, FILE_BLOCK__DESCRIPTION);
 		createEAttribute(fileBlockEClass, FILE_BLOCK__LABEL);
 		createEAttribute(fileBlockEClass, FILE_BLOCK__REQUIRED);
-		createEAttribute(fileBlockEClass, FILE_BLOCK__ENTERED_VALUE);
 
 		paragraphEClass = createEClass(PARAGRAPH);
 		createEAttribute(paragraphEClass, PARAGRAPH__HEADING);
@@ -1947,7 +1937,6 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 		initEAttribute(getFileBlock_Description(), ecorePackage.getEString(), "description", null, 0, 1, FileBlock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFileBlock_Label(), ecorePackage.getEString(), "label", null, 0, 1, FileBlock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFileBlock_Required(), ecorePackage.getEBoolean(), "required", null, 1, 1, FileBlock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getFileBlock_EnteredValue(), ecorePackage.getEJavaObject(), "enteredValue", null, 0, 1, FileBlock.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(paragraphEClass, Paragraph.class, "Paragraph", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getParagraph_Heading(), ecorePackage.getEString(), "heading", null, 0, 1, Paragraph.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

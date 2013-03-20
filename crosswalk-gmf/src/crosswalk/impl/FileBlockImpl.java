@@ -23,7 +23,6 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *   <li>{@link crosswalk.impl.FileBlockImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link crosswalk.impl.FileBlockImpl#getLabel <em>Label</em>}</li>
  *   <li>{@link crosswalk.impl.FileBlockImpl#isRequired <em>Required</em>}</li>
- *   <li>{@link crosswalk.impl.FileBlockImpl#getEnteredValue <em>Entered Value</em>}</li>
  * </ul>
  * </p>
  *
@@ -109,35 +108,6 @@ public class FileBlockImpl extends EObjectImpl implements FileBlock {
 	 * @ordered
 	 */
 	protected boolean required = REQUIRED_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getEnteredValue() <em>Entered Value</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getEnteredValue()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Object ENTERED_VALUE_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getEnteredValue() <em>Entered Value</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getEnteredValue()
-	 * @generated
-	 * @ordered
-	 */
-	protected Object enteredValue = ENTERED_VALUE_EDEFAULT;
-
-	/**
-	 * This is true if the Entered Value attribute has been set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean enteredValueESet;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -247,52 +217,6 @@ public class FileBlockImpl extends EObjectImpl implements FileBlock {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Object getEnteredValue() {
-		return enteredValue;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setEnteredValue(Object newEnteredValue) {
-		Object oldEnteredValue = enteredValue;
-		enteredValue = newEnteredValue;
-		boolean oldEnteredValueESet = enteredValueESet;
-		enteredValueESet = true;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.FILE_BLOCK__ENTERED_VALUE, oldEnteredValue, enteredValue, !oldEnteredValueESet));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void unsetEnteredValue() {
-		Object oldEnteredValue = enteredValue;
-		boolean oldEnteredValueESet = enteredValueESet;
-		enteredValue = ENTERED_VALUE_EDEFAULT;
-		enteredValueESet = false;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, CrosswalkPackage.FILE_BLOCK__ENTERED_VALUE, oldEnteredValue, ENTERED_VALUE_EDEFAULT, oldEnteredValueESet));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean isSetEnteredValue() {
-		return enteredValueESet;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -304,8 +228,6 @@ public class FileBlockImpl extends EObjectImpl implements FileBlock {
 				return getLabel();
 			case CrosswalkPackage.FILE_BLOCK__REQUIRED:
 				return isRequired();
-			case CrosswalkPackage.FILE_BLOCK__ENTERED_VALUE:
-				return getEnteredValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -329,9 +251,6 @@ public class FileBlockImpl extends EObjectImpl implements FileBlock {
 				return;
 			case CrosswalkPackage.FILE_BLOCK__REQUIRED:
 				setRequired((Boolean)newValue);
-				return;
-			case CrosswalkPackage.FILE_BLOCK__ENTERED_VALUE:
-				setEnteredValue(newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -357,9 +276,6 @@ public class FileBlockImpl extends EObjectImpl implements FileBlock {
 			case CrosswalkPackage.FILE_BLOCK__REQUIRED:
 				setRequired(REQUIRED_EDEFAULT);
 				return;
-			case CrosswalkPackage.FILE_BLOCK__ENTERED_VALUE:
-				unsetEnteredValue();
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -380,8 +296,6 @@ public class FileBlockImpl extends EObjectImpl implements FileBlock {
 				return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT.equals(label);
 			case CrosswalkPackage.FILE_BLOCK__REQUIRED:
 				return required != REQUIRED_EDEFAULT;
-			case CrosswalkPackage.FILE_BLOCK__ENTERED_VALUE:
-				return isSetEnteredValue();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -404,8 +318,6 @@ public class FileBlockImpl extends EObjectImpl implements FileBlock {
 		result.append(label);
 		result.append(", required: ");
 		result.append(required);
-		result.append(", enteredValue: ");
-		if (enteredValueESet) result.append(enteredValue); else result.append("<unset>");
 		result.append(')');
 		return result.toString();
 	}

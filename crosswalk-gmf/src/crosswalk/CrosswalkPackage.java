@@ -1681,22 +1681,13 @@ public interface CrosswalkPackage extends EPackage {
 	int FILE_BLOCK__REQUIRED = FORM_ELEMENT_FEATURE_COUNT + 3;
 
 								/**
-	 * The feature id for the '<em><b>Entered Value</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FILE_BLOCK__ENTERED_VALUE = FORM_ELEMENT_FEATURE_COUNT + 4;
-
-								/**
 	 * The number of structural features of the '<em>File Block</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FILE_BLOCK_FEATURE_COUNT = FORM_ELEMENT_FEATURE_COUNT + 5;
+	int FILE_BLOCK_FEATURE_COUNT = FORM_ELEMENT_FEATURE_COUNT + 4;
 
 								/**
 	 * The meta object id for the '{@link crosswalk.impl.ParagraphImpl <em>Paragraph</em>}' class.
@@ -2990,17 +2981,6 @@ public interface CrosswalkPackage extends EPackage {
 	EAttribute getFileBlock_Required();
 
 								/**
-	 * Returns the meta object for the attribute '{@link crosswalk.FileBlock#getEnteredValue <em>Entered Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Entered Value</em>'.
-	 * @see crosswalk.FileBlock#getEnteredValue()
-	 * @see #getFileBlock()
-	 * @generated
-	 */
-	EAttribute getFileBlock_EnteredValue();
-
-								/**
 	 * Returns the meta object for class '{@link crosswalk.Paragraph <em>Paragraph</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4048,14 +4028,6 @@ public interface CrosswalkPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute FILE_BLOCK__REQUIRED = eINSTANCE.getFileBlock_Required();
-
-																/**
-		 * The meta object literal for the '<em><b>Entered Value</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute FILE_BLOCK__ENTERED_VALUE = eINSTANCE.getFileBlock_EnteredValue();
 
 																/**
 		 * The meta object literal for the '{@link crosswalk.impl.ParagraphImpl <em>Paragraph</em>}' class.
