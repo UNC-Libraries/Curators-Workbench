@@ -13,6 +13,7 @@ package crosswalk;
  * <ul>
  *   <li>{@link crosswalk.FileBlock#getName <em>Name</em>}</li>
  *   <li>{@link crosswalk.FileBlock#getDescription <em>Description</em>}</li>
+ *   <li>{@link crosswalk.FileBlock#getUsage <em>Usage</em>}</li>
  *   <li>{@link crosswalk.FileBlock#getLabel <em>Label</em>}</li>
  *   <li>{@link crosswalk.FileBlock#isRequired <em>Required</em>}</li>
  * </ul>
@@ -74,6 +75,32 @@ public interface FileBlock extends FormElement {
 	 * @generated
 	 */
 	void setDescription(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Usage</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Usage</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Usage</em>' attribute.
+	 * @see #setUsage(String)
+	 * @see crosswalk.CrosswalkPackage#getFileBlock_Usage()
+	 * @model
+	 * @generated
+	 */
+	String getUsage();
+
+	/**
+	 * Sets the value of the '{@link crosswalk.FileBlock#getUsage <em>Usage</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Usage</em>' attribute.
+	 * @see #getUsage()
+	 * @generated
+	 */
+	void setUsage(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Label</b></em>' attribute.

@@ -184,6 +184,7 @@
     <genClasses ecoreClass="crosswalk.ecore#//FileBlock">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//FileBlock/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//FileBlock/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//FileBlock/usage"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//FileBlock/label"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//FileBlock/required"/>
     </genClasses>

@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <ul>
  *   <li>{@link crosswalk.impl.FileBlockImpl#getName <em>Name</em>}</li>
  *   <li>{@link crosswalk.impl.FileBlockImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link crosswalk.impl.FileBlockImpl#getUsage <em>Usage</em>}</li>
  *   <li>{@link crosswalk.impl.FileBlockImpl#getLabel <em>Label</em>}</li>
  *   <li>{@link crosswalk.impl.FileBlockImpl#isRequired <em>Required</em>}</li>
  * </ul>
@@ -68,6 +69,26 @@ public class FileBlockImpl extends EObjectImpl implements FileBlock {
 	 * @ordered
 	 */
 	protected String description = DESCRIPTION_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getUsage() <em>Usage</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUsage()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String USAGE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getUsage() <em>Usage</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUsage()
+	 * @generated
+	 * @ordered
+	 */
+	protected String usage = USAGE_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getLabel() <em>Label</em>}' attribute.
@@ -175,6 +196,27 @@ public class FileBlockImpl extends EObjectImpl implements FileBlock {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getUsage() {
+		return usage;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setUsage(String newUsage) {
+		String oldUsage = usage;
+		usage = newUsage;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.FILE_BLOCK__USAGE, oldUsage, usage));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public String getLabel() {
 		return label;
 	}
@@ -224,6 +266,8 @@ public class FileBlockImpl extends EObjectImpl implements FileBlock {
 				return getName();
 			case CrosswalkPackage.FILE_BLOCK__DESCRIPTION:
 				return getDescription();
+			case CrosswalkPackage.FILE_BLOCK__USAGE:
+				return getUsage();
 			case CrosswalkPackage.FILE_BLOCK__LABEL:
 				return getLabel();
 			case CrosswalkPackage.FILE_BLOCK__REQUIRED:
@@ -245,6 +289,9 @@ public class FileBlockImpl extends EObjectImpl implements FileBlock {
 				return;
 			case CrosswalkPackage.FILE_BLOCK__DESCRIPTION:
 				setDescription((String)newValue);
+				return;
+			case CrosswalkPackage.FILE_BLOCK__USAGE:
+				setUsage((String)newValue);
 				return;
 			case CrosswalkPackage.FILE_BLOCK__LABEL:
 				setLabel((String)newValue);
@@ -270,6 +317,9 @@ public class FileBlockImpl extends EObjectImpl implements FileBlock {
 			case CrosswalkPackage.FILE_BLOCK__DESCRIPTION:
 				setDescription(DESCRIPTION_EDEFAULT);
 				return;
+			case CrosswalkPackage.FILE_BLOCK__USAGE:
+				setUsage(USAGE_EDEFAULT);
+				return;
 			case CrosswalkPackage.FILE_BLOCK__LABEL:
 				setLabel(LABEL_EDEFAULT);
 				return;
@@ -292,6 +342,8 @@ public class FileBlockImpl extends EObjectImpl implements FileBlock {
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case CrosswalkPackage.FILE_BLOCK__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
+			case CrosswalkPackage.FILE_BLOCK__USAGE:
+				return USAGE_EDEFAULT == null ? usage != null : !USAGE_EDEFAULT.equals(usage);
 			case CrosswalkPackage.FILE_BLOCK__LABEL:
 				return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT.equals(label);
 			case CrosswalkPackage.FILE_BLOCK__REQUIRED:
@@ -314,6 +366,8 @@ public class FileBlockImpl extends EObjectImpl implements FileBlock {
 		result.append(name);
 		result.append(", description: ");
 		result.append(description);
+		result.append(", usage: ");
+		result.append(usage);
 		result.append(", label: ");
 		result.append(label);
 		result.append(", required: ");

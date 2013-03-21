@@ -1356,7 +1356,7 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getFileBlock_Label() {
+	public EAttribute getFileBlock_Usage() {
 		return (EAttribute)fileBlockEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -1365,8 +1365,17 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getFileBlock_Required() {
+	public EAttribute getFileBlock_Label() {
 		return (EAttribute)fileBlockEClass.getEStructuralFeatures().get(3);
+	}
+
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getFileBlock_Required() {
+		return (EAttribute)fileBlockEClass.getEStructuralFeatures().get(4);
 	}
 
 								/**
@@ -1653,6 +1662,7 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 		fileBlockEClass = createEClass(FILE_BLOCK);
 		createEAttribute(fileBlockEClass, FILE_BLOCK__NAME);
 		createEAttribute(fileBlockEClass, FILE_BLOCK__DESCRIPTION);
+		createEAttribute(fileBlockEClass, FILE_BLOCK__USAGE);
 		createEAttribute(fileBlockEClass, FILE_BLOCK__LABEL);
 		createEAttribute(fileBlockEClass, FILE_BLOCK__REQUIRED);
 
@@ -1935,6 +1945,7 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 		initEClass(fileBlockEClass, FileBlock.class, "FileBlock", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getFileBlock_Name(), ecorePackage.getEString(), "name", null, 1, 1, FileBlock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFileBlock_Description(), ecorePackage.getEString(), "description", null, 0, 1, FileBlock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFileBlock_Usage(), ecorePackage.getEString(), "usage", null, 0, 1, FileBlock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFileBlock_Label(), ecorePackage.getEString(), "label", null, 0, 1, FileBlock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFileBlock_Required(), ecorePackage.getEBoolean(), "required", null, 1, 1, FileBlock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

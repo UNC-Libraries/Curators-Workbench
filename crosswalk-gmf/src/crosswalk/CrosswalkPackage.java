@@ -1663,13 +1663,22 @@ public interface CrosswalkPackage extends EPackage {
 	int FILE_BLOCK__DESCRIPTION = FORM_ELEMENT_FEATURE_COUNT + 1;
 
 								/**
+	 * The feature id for the '<em><b>Usage</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_BLOCK__USAGE = FORM_ELEMENT_FEATURE_COUNT + 2;
+
+								/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FILE_BLOCK__LABEL = FORM_ELEMENT_FEATURE_COUNT + 2;
+	int FILE_BLOCK__LABEL = FORM_ELEMENT_FEATURE_COUNT + 3;
 
 								/**
 	 * The feature id for the '<em><b>Required</b></em>' attribute.
@@ -1678,7 +1687,7 @@ public interface CrosswalkPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILE_BLOCK__REQUIRED = FORM_ELEMENT_FEATURE_COUNT + 3;
+	int FILE_BLOCK__REQUIRED = FORM_ELEMENT_FEATURE_COUNT + 4;
 
 								/**
 	 * The number of structural features of the '<em>File Block</em>' class.
@@ -1687,7 +1696,7 @@ public interface CrosswalkPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILE_BLOCK_FEATURE_COUNT = FORM_ELEMENT_FEATURE_COUNT + 4;
+	int FILE_BLOCK_FEATURE_COUNT = FORM_ELEMENT_FEATURE_COUNT + 5;
 
 								/**
 	 * The meta object id for the '{@link crosswalk.impl.ParagraphImpl <em>Paragraph</em>}' class.
@@ -2959,6 +2968,17 @@ public interface CrosswalkPackage extends EPackage {
 	EAttribute getFileBlock_Description();
 
 								/**
+	 * Returns the meta object for the attribute '{@link crosswalk.FileBlock#getUsage <em>Usage</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Usage</em>'.
+	 * @see crosswalk.FileBlock#getUsage()
+	 * @see #getFileBlock()
+	 * @generated
+	 */
+	EAttribute getFileBlock_Usage();
+
+								/**
 	 * Returns the meta object for the attribute '{@link crosswalk.FileBlock#getLabel <em>Label</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4012,6 +4032,14 @@ public interface CrosswalkPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute FILE_BLOCK__DESCRIPTION = eINSTANCE.getFileBlock_Description();
+
+																/**
+		 * The meta object literal for the '<em><b>Usage</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FILE_BLOCK__USAGE = eINSTANCE.getFileBlock_Usage();
 
 																/**
 		 * The meta object literal for the '<em><b>Label</b></em>' attribute feature.

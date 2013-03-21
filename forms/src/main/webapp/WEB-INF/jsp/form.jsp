@@ -203,7 +203,7 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 </spring:hasBindErrors>
 <p><c:out value="${form.description}"/></p>
 <form:form modelAttribute="form" enctype="multipart/form-data" acceptCharset="UTF-8">
-	<c:forEach items="${form.elements}" varStatus="elementRow">
+	<c:forEach items="${form.elements}" var="element" varStatus="elementRow">
 		<spring:bind path="form.elements[${elementRow.index}]" ignoreNestedPath="true">
 			<% if(Paragraph.class.isInstance(status.getValue())) { 
 				Paragraph p = (Paragraph)status.getValue(); 
@@ -223,7 +223,7 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 				<% } %>
 				<div class="indented_block">
 					<div class="form_field file_field">
-						<label>&nbsp;</label>
+						<label><c:if test="${not empty element.usage}"><a title="${element.usage}">(i)</a></c:if>&nbsp;</label>
 						<input name="file" type="file" size="40"/>
 						<% if (f.isRequired()) { %><span class="red">*</span><% } %>
 					</div>
