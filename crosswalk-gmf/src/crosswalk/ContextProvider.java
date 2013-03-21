@@ -15,6 +15,7 @@
  */
 package crosswalk;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 
@@ -37,30 +38,20 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface ContextProvider extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Output Type</b></em>' reference.
+	 * Returns the value of the '<em><b>Output Type</b></em>' reference list.
+	 * The list contents are of type {@link org.eclipse.emf.ecore.EClass}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Output Type</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Output Type</em>' reference.
-	 * @see #setOutputType(EClass)
+	 * @return the value of the '<em>Output Type</em>' reference list.
 	 * @see crosswalk.CrosswalkPackage#getContextProvider_OutputType()
 	 * @model required="true"
 	 * @generated
 	 */
-	EClass getOutputType();
-
-	/**
-	 * Sets the value of the '{@link crosswalk.ContextProvider#getOutputType <em>Output Type</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Output Type</em>' reference.
-	 * @see #getOutputType()
-	 * @generated
-	 */
-	void setOutputType(EClass value);
+	EList<EClass> getOutputType();
 
 	/**
 	 * Returns the value of the '<em><b>Current User</b></em>' attribute.

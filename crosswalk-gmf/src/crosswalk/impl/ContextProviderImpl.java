@@ -16,13 +16,16 @@
 package crosswalk.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import crosswalk.ContextProvider;
 import crosswalk.CrosswalkPackage;
+import java.util.Collection;
 
 /**
  * <!-- begin-user-doc -->
@@ -40,14 +43,14 @@ import crosswalk.CrosswalkPackage;
  */
 public abstract class ContextProviderImpl extends EObjectImpl implements ContextProvider {
 	/**
-	 * The cached value of the '{@link #getOutputType() <em>Output Type</em>}' reference.
+	 * The cached value of the '{@link #getOutputType() <em>Output Type</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getOutputType()
 	 * @generated
 	 * @ordered
 	 */
-	protected EClass outputType;
+	protected EList<EClass> outputType;
 
 	/**
 	 * The default value of the '{@link #getCurrentUser() <em>Current User</em>}' attribute.
@@ -93,37 +96,11 @@ public abstract class ContextProviderImpl extends EObjectImpl implements Context
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getOutputType() {
-		if (outputType != null && outputType.eIsProxy()) {
-			InternalEObject oldOutputType = (InternalEObject)outputType;
-			outputType = (EClass)eResolveProxy(oldOutputType);
-			if (outputType != oldOutputType) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CrosswalkPackage.CONTEXT_PROVIDER__OUTPUT_TYPE, oldOutputType, outputType));
-			}
+	public EList<EClass> getOutputType() {
+		if (outputType == null) {
+			outputType = new EObjectResolvingEList<EClass>(EClass.class, this, CrosswalkPackage.CONTEXT_PROVIDER__OUTPUT_TYPE);
 		}
 		return outputType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass basicGetOutputType() {
-		return outputType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setOutputType(EClass newOutputType) {
-		EClass oldOutputType = outputType;
-		outputType = newOutputType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.CONTEXT_PROVIDER__OUTPUT_TYPE, oldOutputType, outputType));
 	}
 
 	/**
@@ -156,8 +133,7 @@ public abstract class ContextProviderImpl extends EObjectImpl implements Context
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case CrosswalkPackage.CONTEXT_PROVIDER__OUTPUT_TYPE:
-				if (resolve) return getOutputType();
-				return basicGetOutputType();
+				return getOutputType();
 			case CrosswalkPackage.CONTEXT_PROVIDER__CURRENT_USER:
 				return getCurrentUser();
 		}
@@ -169,11 +145,13 @@ public abstract class ContextProviderImpl extends EObjectImpl implements Context
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case CrosswalkPackage.CONTEXT_PROVIDER__OUTPUT_TYPE:
-				setOutputType((EClass)newValue);
+				getOutputType().clear();
+				getOutputType().addAll((Collection<? extends EClass>)newValue);
 				return;
 			case CrosswalkPackage.CONTEXT_PROVIDER__CURRENT_USER:
 				setCurrentUser((String)newValue);
@@ -191,7 +169,7 @@ public abstract class ContextProviderImpl extends EObjectImpl implements Context
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case CrosswalkPackage.CONTEXT_PROVIDER__OUTPUT_TYPE:
-				setOutputType((EClass)null);
+				getOutputType().clear();
 				return;
 			case CrosswalkPackage.CONTEXT_PROVIDER__CURRENT_USER:
 				setCurrentUser(CURRENT_USER_EDEFAULT);
@@ -209,7 +187,7 @@ public abstract class ContextProviderImpl extends EObjectImpl implements Context
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case CrosswalkPackage.CONTEXT_PROVIDER__OUTPUT_TYPE:
-				return outputType != null;
+				return outputType != null && !outputType.isEmpty();
 			case CrosswalkPackage.CONTEXT_PROVIDER__CURRENT_USER:
 				return CURRENT_USER_EDEFAULT == null ? currentUser != null : !CURRENT_USER_EDEFAULT.equals(currentUser);
 		}

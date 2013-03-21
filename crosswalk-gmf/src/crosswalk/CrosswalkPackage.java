@@ -348,7 +348,7 @@ public interface CrosswalkPackage extends EPackage {
 	int CONTEXT_PROVIDER = 24;
 
 								/**
-	 * The feature id for the '<em><b>Output Type</b></em>' reference.
+	 * The feature id for the '<em><b>Output Type</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -375,7 +375,7 @@ public interface CrosswalkPackage extends EPackage {
 	int CONTEXT_PROVIDER_FEATURE_COUNT = 2;
 
 								/**
-	 * The feature id for the '<em><b>Output Type</b></em>' reference.
+	 * The feature id for the '<em><b>Output Type</b></em>' reference list.
 	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
 	 * @generated
@@ -997,7 +997,7 @@ public interface CrosswalkPackage extends EPackage {
 	int DICTIONARY = 20;
 
 								/**
-	 * The feature id for the '<em><b>Output Type</b></em>' reference.
+	 * The feature id for the '<em><b>Output Type</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1079,7 +1079,7 @@ public interface CrosswalkPackage extends EPackage {
 	int METADATA_BLOCK__EXCEPTION = OUTPUT_ELEMENT__EXCEPTION;
 
 								/**
-	 * The feature id for the '<em><b>Output Type</b></em>' reference.
+	 * The feature id for the '<em><b>Output Type</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1370,7 +1370,7 @@ public interface CrosswalkPackage extends EPackage {
 	int MAPPING_CONTAINER = 25;
 
 								/**
-	 * The feature id for the '<em><b>Output Type</b></em>' reference.
+	 * The feature id for the '<em><b>Output Type</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1481,7 +1481,7 @@ public interface CrosswalkPackage extends EPackage {
 	int FORM = 28;
 
 								/**
-	 * The feature id for the '<em><b>Output Type</b></em>' reference.
+	 * The feature id for the '<em><b>Output Type</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2615,10 +2615,10 @@ public interface CrosswalkPackage extends EPackage {
 	EClass getContextProvider();
 
 								/**
-	 * Returns the meta object for the reference '{@link crosswalk.ContextProvider#getOutputType <em>Output Type</em>}'.
+	 * Returns the meta object for the reference list '{@link crosswalk.ContextProvider#getOutputType <em>Output Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Output Type</em>'.
+	 * @return the meta object for the reference list '<em>Output Type</em>'.
 	 * @see crosswalk.ContextProvider#getOutputType()
 	 * @see #getContextProvider()
 	 * @generated
@@ -3665,7 +3665,7 @@ public interface CrosswalkPackage extends EPackage {
 		EClass CONTEXT_PROVIDER = eINSTANCE.getContextProvider();
 
 																/**
-		 * The meta object literal for the '<em><b>Output Type</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Output Type</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

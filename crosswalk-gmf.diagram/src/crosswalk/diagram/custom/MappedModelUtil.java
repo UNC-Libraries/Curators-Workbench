@@ -28,11 +28,11 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.gmf.runtime.emf.core.util.Util;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import crosswalk.ContextProvider;
-import crosswalk.CrossWalk;
 import crosswalk.CrosswalkFactory;
 import crosswalk.MappedAttribute;
 import crosswalk.MappedElement;
@@ -45,31 +45,35 @@ import crosswalk.impl.MappedElementImpl;
  * 
  */
 public class MappedModelUtil {
-	
+
 	@SuppressWarnings("unused")
-	private static final Logger LOG = LoggerFactory.getLogger(MappedModelUtil.class);
+	private static final Logger LOG = LoggerFactory
+			.getLogger(MappedModelUtil.class);
 
 	/**
-	 * For the given mappable parent object, looks up the possible element children
+	 * For the given mappable parent object, looks up the possible element
+	 * children
 	 * 
 	 * @param parent
-	 *           a CrossWalk or MappedElement eObject
+	 *            a CrossWalk or MappedElement eObject
 	 * @return a list of possible child reference types
 	 */
-	public static List<EStructuralFeature> getChildElementFeatures(EObject parent) {
+	public static List<EStructuralFeature> getChildElementFeatures(
+			EObject parent) {
 		LOG.debug("model parent:" + parent);
-		EClass mappedParentType = null;
+		List<EClass> mappedParentType = new ArrayList<EClass>();
 		List<MappedElement> elementsMappedAlready = new ArrayList<MappedElement>();
 		if (parent instanceof MappingContainer) {
 			MappingContainer mapContainer = (MappingContainer) parent;
-			for(OutputElement e : mapContainer.getElements()) {
-				if(e instanceof MappedElement) elementsMappedAlready.add((MappedElement)e);
+			for (OutputElement e : mapContainer.getElements()) {
+				if (e instanceof MappedElement)
+					elementsMappedAlready.add((MappedElement) e);
 			}
 			for (EObject next = parent; next != null; next = next.eContainer()) {
 				if (next instanceof ContextProvider) {
-					EClass aMappedParentType = ((ContextProvider) next).getOutputType();
-					if(aMappedParentType != null) {
-						mappedParentType = aMappedParentType;
+					if (!((ContextProvider) next).getOutputType().isEmpty()) {
+						mappedParentType.addAll(((ContextProvider) next)
+								.getOutputType());
 						break;
 					}
 				}
@@ -78,10 +82,11 @@ public class MappedModelUtil {
 			MappedElement pe = (MappedElement) parent;
 			elementsMappedAlready.addAll(pe.getChildElements());
 			if (pe.getMappedFeature() != null) {
-				mappedParentType = (EClass) pe.getMappedFeature().getEType();
+				mappedParentType.add((EClass) pe.getMappedFeature().getEType());
 			}
 		} else {
-			throw new IllegalArgumentException("Expecting a CrossWalk or MappedElement");
+			throw new IllegalArgumentException(
+					"Expecting a CrossWalk or MappedElement");
 		}
 		LOG.debug("mappedParentType:" + mappedParentType);
 		if (mappedParentType == null) {
@@ -90,14 +95,25 @@ public class MappedModelUtil {
 		List<EStructuralFeature> result = new ArrayList<EStructuralFeature>();
 		// result.addAll(mappedParentType.getEAllReferences());
 		// FIXME remove the elements that are already full
-		for (EStructuralFeature a : mappedParentType.getEAllReferences().toArray(new EStructuralFeature[0])) {
-			int count = 0;
-			for (MappedElement m : elementsMappedAlready) {
-				if (m.getMappedFeature() != null && m.getMappedFeature().equals(a))
-					count++;
-			}
-			if (a.getUpperBound() < 0 || count < a.getUpperBound()) {
-				result.add(a);
+		for (EClass parentType : mappedParentType) {
+			System.out.println(parentType.eIsProxy());
+//			if(parentType.eIsProxy()) {
+//				System.err.println(Util.resolve(domain, proxy)resolve(parentType, parent));
+//				parentType = (EClass)Util.resolve(parentType, parent);
+//			}
+			//if(parentType instanceof IProxyEObject) parentType = (EClass)((IProxyEObject)parentType).resolve();
+			for (EStructuralFeature a : parentType.getEAllReferences().toArray(
+					new EStructuralFeature[0])) {
+				System.err.println(a.getName());
+				int count = 0;
+				for (MappedElement m : elementsMappedAlready) {
+					if (m.getMappedFeature() != null
+							&& m.getMappedFeature().equals(a))
+						count++;
+				}
+				if (a.getUpperBound() < 0 || count < a.getUpperBound()) {
+					result.add(a);
+				}
 			}
 		}
 		return result;
@@ -111,33 +127,37 @@ public class MappedModelUtil {
 		// System.out.println("get attributes for: "+parent);
 		EClass mappedParentType = null;
 		List<MappedAttribute> attsMappedAlready = new ArrayList<MappedAttribute>();
-		if (parent instanceof CrossWalk) {
-			CrossWalk cw = (CrossWalk) parent;
-			mappedParentType = cw.getOutputType();
-		} else if (parent instanceof MappedElement) {
+//		if (parent instanceof CrossWalk) {
+//			CrossWalk cw = (CrossWalk) parent;
+//			mappedParentType = cw.getOutputType();
+//		} else if (parent instanceof MappedElement) {
 			MappedElement pe = (MappedElement) parent;
 			attsMappedAlready.addAll(pe.getAttributes());
 			if (pe.getMappedFeature() != null) {
 				mappedParentType = (EClass) pe.getMappedFeature().getEType();
 			}
-		} else {
-			throw new IllegalArgumentException("Expecting a CrossWalk or MappedElement");
-		}
+//		} else {
+//			throw new IllegalArgumentException(
+//					"Expecting a CrossWalk or MappedElement");
+//		}
 		if (mappedParentType == null) {
 			throw new Error("No feature was mapped on the given parent");
 		}
 		List<EStructuralFeature> result = new ArrayList<EStructuralFeature>();
-		
-		
+
 		// FIXME remove the elements that are already full
-		for (EAttribute a : mappedParentType.getEAllAttributes().toArray(new EAttribute[0])) {
-			
-			// Filter out feature map attributes which are not named "mixed" (for example, the "any" feature map).
-			
-			if (EcoreUtil.equals(a.getEAttributeType(), EcorePackage.eINSTANCE.getEFeatureMapEntry()) && !a.getName().equals("mixed")) {
+		for (EAttribute a : mappedParentType.getEAllAttributes().toArray(
+				new EAttribute[0])) {
+
+			// Filter out feature map attributes which are not named "mixed"
+			// (for example, the "any" feature map).
+
+			if (EcoreUtil.equals(a.getEAttributeType(),
+					EcorePackage.eINSTANCE.getEFeatureMapEntry())
+					&& !a.getName().equals("mixed")) {
 				continue;
 			}
-			
+
 			int count = 0;
 			for (MappedAttribute m : attsMappedAlready) {
 				if (m.getMappedFeature().equals(a))
@@ -156,31 +176,37 @@ public class MappedModelUtil {
 	public static void setMODSDateEncodingAttribute(MappedElementImpl me) {
 		MappedAttribute encodingAttr = null;
 		for (MappedAttribute ma : me.getAttributes()) {
-			if (MODSPackage.eINSTANCE.getDateBaseDefinition_Encoding().equals(ma.getMappedFeature())) {
+			if (MODSPackage.eINSTANCE.getDateBaseDefinition_Encoding().equals(
+					ma.getMappedFeature())) {
 				encodingAttr = ma;
 				break;
 			}
 		}
 		if (encodingAttr == null) {
 			encodingAttr = CrosswalkFactory.eINSTANCE.createMappedAttribute();
-			encodingAttr.setMappedFeature(MODSPackage.eINSTANCE.getDateBaseDefinition_Encoding());
+			encodingAttr.setMappedFeature(MODSPackage.eINSTANCE
+					.getDateBaseDefinition_Encoding());
 			me.getAttributes().add(encodingAttr);
 		}
-		encodingAttr.setDefaultValue(DateEncodingAttributeDefinition.ISO8601.getLiteral());
+		encodingAttr.setDefaultValue(DateEncodingAttributeDefinition.ISO8601
+				.getLiteral());
 	}
 
 	/**
 	 * @param me
 	 * @param textAttr
 	 */
-	public static void setEDateToStringConversionStrategyAttribute(MappedElementImpl me, EAttribute textAttr) {
+	public static void setEDateToStringConversionStrategyAttribute(
+			MappedElementImpl me, EAttribute textAttr) {
 		MappedAttribute mappedTextAttribute = getXMLTextMappedAttribute(me);
 		if (mappedTextAttribute == null) {
-			mappedTextAttribute = CrosswalkFactory.eINSTANCE.createMappedAttribute();
+			mappedTextAttribute = CrosswalkFactory.eINSTANCE
+					.createMappedAttribute();
 			mappedTextAttribute.setMappedFeature(textAttr);
 			me.getAttributes().add(mappedTextAttribute);
 		}
-		mappedTextAttribute.setConversionStrategy(CrosswalkFactory.eINSTANCE.createDateToISO8601StringConversion());
+		mappedTextAttribute.setConversionStrategy(CrosswalkFactory.eINSTANCE
+				.createDateToISO8601StringConversion());
 	}
 
 	public static EAttribute getXMLTextAttributeInReferenceType(MappedElement me) {
@@ -189,38 +215,46 @@ public class MappedModelUtil {
 		// source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
 		// <details key="name" value=":0"/>
 		// find the value attribute of type String with Annotation kind=simple
-		for (EAttribute a : me.getMappedFeature().getEReferenceType().getEAllAttributes()) {
+		for (EAttribute a : me.getMappedFeature().getEReferenceType()
+				.getEAllAttributes()) {
 			if (MappedModelUtil.isXMLTextValueEAttribute(a)) {
 				return a;
 			}
 		}
 		return result;
 	}
-	
+
 	/**
 	 * @param me
 	 */
-	public static void setTextAttribute(MappedElementImpl me, EAttribute textValue) {
+	public static void setTextAttribute(MappedElementImpl me,
+			EAttribute textValue) {
 		MappedAttribute mappedTextAttribute = getXMLTextMappedAttribute(me);
 		if (mappedTextAttribute == null) {
-			mappedTextAttribute = CrosswalkFactory.eINSTANCE.createMappedAttribute();
+			mappedTextAttribute = CrosswalkFactory.eINSTANCE
+					.createMappedAttribute();
 			mappedTextAttribute.setMappedFeature(textValue);
 			me.getAttributes().add(mappedTextAttribute);
 		}
 		mappedTextAttribute.unsetConversionStrategy();
 	}
-	
+
 	public static boolean isXMLTextValueEAttribute(EAttribute att) {
 		boolean result = false;
 		if (att != null) {
 			if ("value".equals(att.getName())) {
 				System.out.println("found an attribute named value: " + att);
-				EAnnotation note = att.getEAnnotation("http:///org/eclipse/emf/ecore/util/ExtendedMetaData");
+				EAnnotation note = att
+						.getEAnnotation("http:///org/eclipse/emf/ecore/util/ExtendedMetaData");
 				if (note != null && note.getDetails() != null) {
-					System.out.println("found value attribute details: " + note.getDetails());
-					if (note.getDetails().get("name") != null && ":0".equals(note.getDetails().get("name"))) {
+					System.out.println("found value attribute details: "
+							+ note.getDetails());
+					if (note.getDetails().get("name") != null
+							&& ":0".equals(note.getDetails().get("name"))) {
 						System.out.println("attribute name details match");
-						if (note.getDetails().get("kind") != null && "simple".equals(note.getDetails().get("kind"))) {
+						if (note.getDetails().get("kind") != null
+								&& "simple".equals(note.getDetails()
+										.get("kind"))) {
 							System.out.println("attribute kind details match");
 							return true;
 						}
@@ -230,7 +264,7 @@ public class MappedModelUtil {
 		}
 		return result;
 	}
- 
+
 	public static MappedAttribute getXMLTextMappedAttribute(MappedElement me) {
 		MappedAttribute result = null;
 		for (MappedAttribute ma : me.getAttributes()) {

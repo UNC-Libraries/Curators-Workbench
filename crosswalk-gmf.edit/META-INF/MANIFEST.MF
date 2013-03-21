@@ -13,7 +13,8 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.edit;visibility:=reexport,
  org.eclipse.core.resources,
  mods.model.edit;bundle-version="0.0.0",
- org.eclipse.ui.views
+ org.eclipse.ui.views,
+ access-control.edit;bundle-version="4.1.2"
 Bundle-ActivationPolicy: lazy
 Bundle-ClassPath: .,
  opencsv-2.2.jar

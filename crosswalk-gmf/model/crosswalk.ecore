@@ -180,7 +180,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ContextProvider" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="outputType" lowerBound="1"
-        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+        upperBound="-1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="currentUser" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>

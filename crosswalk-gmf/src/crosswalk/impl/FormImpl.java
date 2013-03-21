@@ -26,6 +26,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import crosswalk.ContextProvider;
@@ -60,14 +61,14 @@ import crosswalk.FormElement;
  */
 public class FormImpl extends EObjectImpl implements Form {
 	/**
-	 * The cached value of the '{@link #getOutputType() <em>Output Type</em>}' reference.
+	 * The cached value of the '{@link #getOutputType() <em>Output Type</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getOutputType()
 	 * @generated
 	 * @ordered
 	 */
-	protected EClass outputType;
+	protected EList<EClass> outputType;
 
 	/**
 	 * The default value of the '{@link #getCurrentUser() <em>Current User</em>}' attribute.
@@ -321,37 +322,11 @@ public class FormImpl extends EObjectImpl implements Form {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getOutputType() {
-		if (outputType != null && outputType.eIsProxy()) {
-			InternalEObject oldOutputType = (InternalEObject)outputType;
-			outputType = (EClass)eResolveProxy(oldOutputType);
-			if (outputType != oldOutputType) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CrosswalkPackage.FORM__OUTPUT_TYPE, oldOutputType, outputType));
-			}
+	public EList<EClass> getOutputType() {
+		if (outputType == null) {
+			outputType = new EObjectResolvingEList<EClass>(EClass.class, this, CrosswalkPackage.FORM__OUTPUT_TYPE);
 		}
 		return outputType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass basicGetOutputType() {
-		return outputType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setOutputType(EClass newOutputType) {
-		EClass oldOutputType = outputType;
-		outputType = newOutputType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.FORM__OUTPUT_TYPE, oldOutputType, outputType));
 	}
 
 	/**
@@ -652,8 +627,7 @@ public class FormImpl extends EObjectImpl implements Form {
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case CrosswalkPackage.FORM__OUTPUT_TYPE:
-				if (resolve) return getOutputType();
-				return basicGetOutputType();
+				return getOutputType();
 			case CrosswalkPackage.FORM__CURRENT_USER:
 				return getCurrentUser();
 			case CrosswalkPackage.FORM__ELEMENTS:
@@ -692,7 +666,8 @@ public class FormImpl extends EObjectImpl implements Form {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case CrosswalkPackage.FORM__OUTPUT_TYPE:
-				setOutputType((EClass)newValue);
+				getOutputType().clear();
+				getOutputType().addAll((Collection<? extends EClass>)newValue);
 				return;
 			case CrosswalkPackage.FORM__CURRENT_USER:
 				setCurrentUser((String)newValue);
@@ -746,7 +721,7 @@ public class FormImpl extends EObjectImpl implements Form {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case CrosswalkPackage.FORM__OUTPUT_TYPE:
-				setOutputType((EClass)null);
+				getOutputType().clear();
 				return;
 			case CrosswalkPackage.FORM__CURRENT_USER:
 				setCurrentUser(CURRENT_USER_EDEFAULT);
@@ -797,7 +772,7 @@ public class FormImpl extends EObjectImpl implements Form {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case CrosswalkPackage.FORM__OUTPUT_TYPE:
-				return outputType != null;
+				return outputType != null && !outputType.isEmpty();
 			case CrosswalkPackage.FORM__CURRENT_USER:
 				return CURRENT_USER_EDEFAULT == null ? currentUser != null : !CURRENT_USER_EDEFAULT.equals(currentUser);
 			case CrosswalkPackage.FORM__ELEMENTS:

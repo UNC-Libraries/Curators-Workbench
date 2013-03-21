@@ -240,7 +240,7 @@ public class CrosswalkDocumentProvider extends AbstractDocumentProvider
 						Map options = new HashMap(
 								GMFResourceFactory.getDefaultLoadOptions());
 						// @see 171060 
-						// options.put(org.eclipse.emf.ecore.xmi.XMLResource.OPTION_RECORD_UNKNOWN_FEATURE, Boolean.TRUE);
+						options.put(org.eclipse.emf.ecore.xmi.XMLResource.OPTION_RECORD_UNKNOWN_FEATURE, Boolean.TRUE);
 						resource.load(options);
 					} catch (IOException e) {
 						resource.unload();
@@ -680,24 +680,27 @@ public class CrosswalkDocumentProvider extends AbstractDocumentProvider
 								0,
 								"Incorrect document used: " + document + " instead of org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.IDiagramDocument", null)); //$NON-NLS-1$ //$NON-NLS-2$
 			}
-			
+
 			IDiagramDocument diagramDocument = (IDiagramDocument) document;
-			
-			final Resource newResource = diagramDocument.getEditingDomain().getResourceSet().createResource(newResoruceURI);
-			
+
+			final Resource newResource = diagramDocument.getEditingDomain()
+					.getResourceSet().createResource(newResoruceURI);
+
 			// Copy objects, keeping a reference to diagramCopy so we can refer to it in the command below.
-			
+
 			Copier copier = new Copier();
 			final ArrayList<EObject> copies = new ArrayList<EObject>();
-			
-			EObject elementCopy = copier.copy(diagramDocument.getDiagram().getElement());
+
+			EObject elementCopy = copier.copy(diagramDocument.getDiagram()
+					.getElement());
 			copies.add(elementCopy);
-			
-			final Diagram diagramCopy = (Diagram) copier.copy((EObject) diagramDocument.getDiagram());
+
+			final Diagram diagramCopy = (Diagram) copier
+					.copy((EObject) diagramDocument.getDiagram());
 			copies.add(diagramCopy);
-			
+
 			copier.copyReferences();
-			
+
 			try {
 				new AbstractTransactionalCommand(
 						diagramDocument.getEditingDomain(),
@@ -707,9 +710,10 @@ public class CrosswalkDocumentProvider extends AbstractDocumentProvider
 					protected CommandResult doExecuteWithResult(
 							IProgressMonitor monitor, IAdaptable info)
 							throws ExecutionException {
-						
-						newResource.getContents().addAll((Collection<EObject>) copies);
-						
+
+						newResource.getContents().addAll(
+								(Collection<EObject>) copies);
+
 						return CommandResult.newOKCommandResult();
 					}
 				}.execute(monitor, null);

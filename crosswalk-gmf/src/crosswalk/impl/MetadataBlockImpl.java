@@ -28,6 +28,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -86,14 +87,14 @@ public class MetadataBlockImpl extends EObjectImpl implements MetadataBlock {
 	protected Throwable exception = EXCEPTION_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getOutputType() <em>Output Type</em>}' reference.
+	 * The cached value of the '{@link #getOutputType() <em>Output Type</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getOutputType()
 	 * @generated
 	 * @ordered
 	 */
-	protected EClass outputType;
+	protected EList<EClass> outputType;
 
 	/**
 	 * The default value of the '{@link #getCurrentUser() <em>Current User</em>}' attribute.
@@ -321,37 +322,11 @@ public class MetadataBlockImpl extends EObjectImpl implements MetadataBlock {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getOutputType() {
-		if (outputType != null && outputType.eIsProxy()) {
-			InternalEObject oldOutputType = (InternalEObject)outputType;
-			outputType = (EClass)eResolveProxy(oldOutputType);
-			if (outputType != oldOutputType) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CrosswalkPackage.METADATA_BLOCK__OUTPUT_TYPE, oldOutputType, outputType));
-			}
+	public EList<EClass> getOutputType() {
+		if (outputType == null) {
+			outputType = new EObjectResolvingEList<EClass>(EClass.class, this, CrosswalkPackage.METADATA_BLOCK__OUTPUT_TYPE);
 		}
 		return outputType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass basicGetOutputType() {
-		return outputType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setOutputType(EClass newOutputType) {
-		EClass oldOutputType = outputType;
-		outputType = newOutputType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.METADATA_BLOCK__OUTPUT_TYPE, oldOutputType, outputType));
 	}
 
 	/**
@@ -586,8 +561,7 @@ public class MetadataBlockImpl extends EObjectImpl implements MetadataBlock {
 			case CrosswalkPackage.METADATA_BLOCK__EXCEPTION:
 				return getException();
 			case CrosswalkPackage.METADATA_BLOCK__OUTPUT_TYPE:
-				if (resolve) return getOutputType();
-				return basicGetOutputType();
+				return getOutputType();
 			case CrosswalkPackage.METADATA_BLOCK__CURRENT_USER:
 				return getCurrentUser();
 			case CrosswalkPackage.METADATA_BLOCK__WIDGETS:
@@ -626,7 +600,8 @@ public class MetadataBlockImpl extends EObjectImpl implements MetadataBlock {
 				setException((Throwable)newValue);
 				return;
 			case CrosswalkPackage.METADATA_BLOCK__OUTPUT_TYPE:
-				setOutputType((EClass)newValue);
+				getOutputType().clear();
+				getOutputType().addAll((Collection<? extends EClass>)newValue);
 				return;
 			case CrosswalkPackage.METADATA_BLOCK__CURRENT_USER:
 				setCurrentUser((String)newValue);
@@ -678,7 +653,7 @@ public class MetadataBlockImpl extends EObjectImpl implements MetadataBlock {
 				setException(EXCEPTION_EDEFAULT);
 				return;
 			case CrosswalkPackage.METADATA_BLOCK__OUTPUT_TYPE:
-				setOutputType((EClass)null);
+				getOutputType().clear();
 				return;
 			case CrosswalkPackage.METADATA_BLOCK__CURRENT_USER:
 				setCurrentUser(CURRENT_USER_EDEFAULT);
@@ -724,7 +699,7 @@ public class MetadataBlockImpl extends EObjectImpl implements MetadataBlock {
 			case CrosswalkPackage.METADATA_BLOCK__EXCEPTION:
 				return EXCEPTION_EDEFAULT == null ? exception != null : !EXCEPTION_EDEFAULT.equals(exception);
 			case CrosswalkPackage.METADATA_BLOCK__OUTPUT_TYPE:
-				return outputType != null;
+				return outputType != null && !outputType.isEmpty();
 			case CrosswalkPackage.METADATA_BLOCK__CURRENT_USER:
 				return CURRENT_USER_EDEFAULT == null ? currentUser != null : !CURRENT_USER_EDEFAULT.equals(currentUser);
 			case CrosswalkPackage.METADATA_BLOCK__WIDGETS:

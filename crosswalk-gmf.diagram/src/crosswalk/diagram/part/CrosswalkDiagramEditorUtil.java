@@ -15,6 +15,7 @@
  */
 package crosswalk.diagram.part;
 
+import edu.unc.lib.schemas.acl.AclPackage;
 import gov.loc.mods.mods.MODSPackage;
 
 import java.io.IOException;
@@ -40,6 +41,7 @@ import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.SubProgressMonitor;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
@@ -322,7 +324,10 @@ public class CrosswalkDiagramEditorUtil {
 	private static CrossWalk createCrosswalkModel(DataSource source)
 			throws ExecutionException {
 		CrossWalk result = CrosswalkFactory.eINSTANCE.createCrossWalk();
-		result.setOutputType(MODSPackage.eINSTANCE.getModsDefinition());
+		result.getOutputType().add(AclPackage.eINSTANCE.getDocumentRoot());
+		result.getOutputType().add(MODSPackage.eINSTANCE.getModsDefinition());
+		System.err.println(AclPackage.eINSTANCE.getDocumentRoot());
+		for(EReference ref : AclPackage.eINSTANCE.getDocumentRoot().getEAllReferences()) System.err.println(ref);
 		if (source != null) {
 			result.setDataSource(source);
 			try {
@@ -540,7 +545,8 @@ public class CrosswalkDiagramEditorUtil {
 				Dictionary dict = CrosswalkFactory.eINSTANCE.createDictionary();
 				dict.setName("Dictionary Title");
 				dict.setDescription("This is the dictionary description. Click on this text or the title to edit.");
-				dict.setOutputType(MODSPackage.eINSTANCE.getModsDefinition());
+				dict.getOutputType().add(MODSPackage.eINSTANCE.getModsDefinition());
+				dict.getOutputType().add(AclPackage.eINSTANCE.getDocumentRoot());
 				model.setModel(dict);
 				attachModelToResource(model, diagramResource);
 
@@ -596,7 +602,8 @@ public class CrosswalkDiagramEditorUtil {
 				Form form = CrosswalkFactory.eINSTANCE.createForm();
 				form.setTitle("Form Title");
 				form.setDescription("This is a description of the form. Click on this text or the title to edit.");
-				form.setOutputType(MODSPackage.eINSTANCE.getModsDefinition());
+				form.getOutputType().add(MODSPackage.eINSTANCE.getModsDefinition());
+				form.getOutputType().add(AclPackage.eINSTANCE.getDocumentRoot());
 				model.setModel(form);
 				attachModelToResource(model, diagramResource);
 
