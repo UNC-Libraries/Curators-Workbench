@@ -320,11 +320,14 @@ public class CrosswalkPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createAddafileblock5CreationTool() {
-		ToolEntry entry = new ToolEntry(
+		NodeToolEntry entry = new NodeToolEntry(
 				Messages.Addafileblock5CreationTool_title,
-				Messages.Addafileblock5CreationTool_desc, null, null) {
-		};
+				Messages.Addafileblock5CreationTool_desc,
+				Collections.singletonList(CrosswalkElementTypes.FileBlock_3025));
 		entry.setId("createAddafileblock5CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(CrosswalkElementTypes
+				.getImageDescriptor(CrosswalkElementTypes.FileBlock_3025));
+		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
 

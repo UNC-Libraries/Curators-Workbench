@@ -1487,7 +1487,8 @@
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Add a file block"
-            description="File Block"/>
+            description="File Block"
+            genNodes="//@diagram/@childNodes.17"/>
       </groups>
     </palette>
     <preferencePages

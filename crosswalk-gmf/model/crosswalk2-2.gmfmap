@@ -539,6 +539,9 @@
             <editableFeatures
                 href="crosswalk.ecore#//FileBlock/description"/>
           </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="crosswalk.gmftool#//@palette/@tools.1/@tools.4"/>
           <diagramNode
               href="crosswalk.gmfgraph#FileBlockNode"/>
         </ownedChild>
