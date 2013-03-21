@@ -18,12 +18,14 @@ package cdr.forms;
 import java.io.File;
 import java.util.regex.Pattern;
 
+import crosswalk.FileBlock;
+
 public class SubmittedFile {
 	
 	private File file;
 	private String filename;
 	private String contentType;
-	private String label;
+	private FileBlock fileBlock;
 	
 	public File getFile() {
 		return file;
@@ -59,12 +61,12 @@ public class SubmittedFile {
 		this.contentType = contentType;
 	}
 	
-	public String getLabel() {
-		return label;
+	public FileBlock getFileBlock() {
+		return fileBlock;
 	}
 	
-	public void setLabel(String label) {
-		this.label = label;
+	public void setFileBlock(FileBlock fileBlock) {
+		this.fileBlock = fileBlock;
 	}
 
 }

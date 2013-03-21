@@ -270,7 +270,7 @@ public class FormController {
 					} else {
 						
 						SubmittedFile sf = handleUploadedFile(file, errors);
-						sf.setLabel(fileBlock.getLabel());
+						sf.setFileBlock(fileBlock);
 												
 						if (sf != null)
 							submittedFiles.add(sf);

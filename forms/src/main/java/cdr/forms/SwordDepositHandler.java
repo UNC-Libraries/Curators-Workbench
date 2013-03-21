@@ -143,9 +143,23 @@ public class SwordDepositHandler implements DepositHandler {
 	}
 	
 	public DepositResult deposit(Form form, List<SubmittedFile> files) {
+		
+		// Generate a PID
 
 		String pid = "uuid:" + UUID.randomUUID().toString();
+
+		// Identify the "main file" within the form
 		
+		SubmittedFile mainFile = null;
+		
+		if (form.getMainFileBlock() != null) {
+			for (SubmittedFile file : files) {
+				if (file.getFileBlock() == form.getMainFileBlock()) {
+					mainFile = file;
+					break;
+				}
+			}
+		}
 		
 		// Prepare the zip file for deposit
 		
@@ -153,7 +167,7 @@ public class SwordDepositHandler implements DepositHandler {
 		edu.unc.lib.schemas.acl.DocumentRoot acl = makeAcl(form);
 		IdentityHashMap<SubmittedFile, String> filenames = buildFilenameMap(files);
 
-		gov.loc.mets.DocumentRoot metsDocumentRoot = makeMets(form.getCurrentUser(), mods, acl, files, filenames);
+		gov.loc.mets.DocumentRoot metsDocumentRoot = makeMets(form.getCurrentUser(), mods, acl, files, mainFile, filenames);
 		File zipFile = makeZipFile(metsDocumentRoot, files, filenames);
 		
 		
@@ -319,7 +333,7 @@ public class SwordDepositHandler implements DepositHandler {
 	 * for each supplemental file.
 	 */
 	private gov.loc.mets.DocumentRoot makeMets(String user, gov.loc.mods.mods.DocumentRoot modsDocumentRoot, edu.unc.lib.schemas.acl.DocumentRoot acl,
-			List<SubmittedFile> files, IdentityHashMap<SubmittedFile, String> filenames) {
+			List<SubmittedFile> files, SubmittedFile mainFile, IdentityHashMap<SubmittedFile, String> filenames) {
 		
 		gov.loc.mets.DocumentRoot root;
 		MetsType mets;
@@ -445,6 +459,8 @@ public class SwordDepositHandler implements DepositHandler {
 
 		// Structural map and structural links
 		
+		DivType mainFileDiv = null;
+		
 		{
 
 			StructMapType structMap = MetsFactory.eINSTANCE.createStructMapType();
@@ -463,17 +479,21 @@ public class SwordDepositHandler implements DepositHandler {
 				
 				fileDiv.setTYPE(METSConstants.Div_File);
 				
-				if (submittedFile.getLabel() != null)
-					fileDiv.setLABEL1(submittedFile.getLabel());
+				if (submittedFile.getFileBlock() != null && submittedFile.getFileBlock().getLabel() != null)
+					fileDiv.setLABEL1(submittedFile.getFileBlock().getLabel());
 				else
 					fileDiv.setLABEL1(submittedFile.getFilename());
 				
 				FptrType fptr = MetsFactory.eINSTANCE.createFptrType();
 				fptr.setFILEID("f_" + i);
 				fileDiv.getFptr().add(fptr);
+				
 				fileDiv.setID("d_" + i);
 				
 				aggregateWorkDiv.getDiv().add(fileDiv);
+				
+				if (submittedFile == mainFile)
+					mainFileDiv = fileDiv;
 				
 			}
 	
@@ -484,20 +504,24 @@ public class SwordDepositHandler implements DepositHandler {
 		
 		// Structural Links
 		
-//		if (supplementalFiles != null) {
-//		
-//			StructLinkType1 structLink = MetsFactory.eINSTANCE.createStructLinkType1();
-//
-//			SmLinkType smLink = MetsFactory.eINSTANCE.createSmLinkType();
-//			smLink.setArcrole(Link.DEFAULTACCESS.uri);
-//			smLink.setXlinkFrom(aggregateWorkDiv);
-//			smLink.setXlinkTo(aggregateWorkDiv.getDiv().get(0));
-//
-//			structLink.getSmLink().add(smLink);
-//			
-//			mets.setStructLink(structLink);
-//			
-//		}
+		{
+		
+			StructLinkType1 structLink = MetsFactory.eINSTANCE.createStructLinkType1();
+			
+			if (mainFileDiv != null) {
+	
+				SmLinkType smLink = MetsFactory.eINSTANCE.createSmLinkType();
+				smLink.setArcrole(Link.DEFAULTACCESS.uri);
+				smLink.setXlinkFrom(aggregateWorkDiv);
+				smLink.setXlinkTo(mainFileDiv);
+		
+				structLink.getSmLink().add(smLink);
+				
+			}
+			
+			mets.setStructLink(structLink);
+		
+		}
 		
 		return root;
 
