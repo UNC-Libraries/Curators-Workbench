@@ -58,7 +58,9 @@ import cdr.forms.DepositResult.Status;
 import com.philvarner.clamavj.ClamScan;
 import com.philvarner.clamavj.ScanResult;
 
+import crosswalk.FileBlock;
 import crosswalk.Form;
+import crosswalk.FormElement;
 
 @Controller
 @RequestMapping(value = { "/*", "/**" })
@@ -205,7 +207,6 @@ public class FormController {
 			Principal user,
 			@RequestParam(required = false, value = "receiptEmailAddress") String receiptEmailAddress,
 			@RequestParam("file") MultipartFile[] files,
-			@RequestParam("fileElementRowIndex") int[] fileElementRowIndices,
 			SessionStatus sessionStatus, HttpServletRequest request,
 			HttpServletResponse response) throws PermissionDeniedException {
 		
@@ -247,13 +248,52 @@ public class FormController {
 		
 		
 		// Handle uploaded files, exiting to report errors if we find any
-
-		submittedFiles = new ArrayList<SubmittedFile>();
 		
-		for (MultipartFile file : files) {
-			SubmittedFile sf = handleUploadedFile(file, errors);
-			if (sf != null)
-				submittedFiles.add(sf);
+		{
+			
+			submittedFiles = new ArrayList<SubmittedFile>();
+			
+			int i = 0;
+			
+			for (FormElement element : form.getElements()) {
+				
+				if (FileBlock.class.isInstance(element)) {
+					
+					FileBlock fileBlock = (FileBlock) element;
+					MultipartFile file = files[i];
+					
+					if (file.getOriginalFilename().length() == 0) {
+						
+						if (fileBlock.isRequired())
+							errors.addError(new FieldError("form", "file", "A required file was not selected."));
+						
+					} else {
+						
+						SubmittedFile sf = handleUploadedFile(file, errors);
+						sf.setLabel(fileBlock.getLabel());
+												
+						if (sf != null)
+							submittedFiles.add(sf);
+						
+					}
+					
+					i++;
+					
+				}
+				
+			}
+			
+			// Supplemental files
+			
+			for (; i < files.length; i++) {
+				
+				SubmittedFile sf = handleUploadedFile(files[i], errors);
+										
+				if (sf != null)
+					submittedFiles.add(sf);
+				
+			}
+		
 		}
 
 		if (errors.hasErrors()) {

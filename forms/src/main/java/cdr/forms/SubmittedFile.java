@@ -23,6 +23,7 @@ public class SubmittedFile {
 	private File file;
 	private String filename;
 	private String contentType;
+	private String label;
 	
 	public File getFile() {
 		return file;
@@ -56,6 +57,14 @@ public class SubmittedFile {
 	
 	public void setContentType(String contentType) {
 		this.contentType = contentType;
+	}
+	
+	public String getLabel() {
+		return label;
+	}
+	
+	public void setLabel(String label) {
+		this.label = label;
 	}
 
 }

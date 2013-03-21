@@ -462,7 +462,11 @@ public class SwordDepositHandler implements DepositHandler {
 				DivType fileDiv = MetsFactory.eINSTANCE.createDivType();
 				
 				fileDiv.setTYPE(METSConstants.Div_File);
-				fileDiv.setLABEL1(submittedFile.getFilename());
+				
+				if (submittedFile.getLabel() != null)
+					fileDiv.setLABEL1(submittedFile.getLabel());
+				else
+					fileDiv.setLABEL1(submittedFile.getFilename());
 				
 				FptrType fptr = MetsFactory.eINSTANCE.createFptrType();
 				fptr.setFILEID("f_" + i);
