@@ -1486,8 +1486,8 @@
             genNodes="//@diagram/@childNodes.16"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
-            title="Add a file block"
-            description="File Block"
+            title="File Block"
+            description="Add a file block"
             genNodes="//@diagram/@childNodes.17"/>
       </groups>
     </palette>

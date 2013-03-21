@@ -74,8 +74,8 @@
           description="A block of text with optional header used in forms."/>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="Add a file block"
-          description="File Block"/>
+          title="File Block"
+          description="Add a file block"/>
     </tools>
   </palette>
 </gmftool:ToolRegistry>

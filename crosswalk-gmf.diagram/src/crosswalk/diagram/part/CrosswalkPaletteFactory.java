@@ -85,7 +85,7 @@ public class CrosswalkPaletteFactory {
 		paletteContainer.add(createTextField2CreationTool());
 		paletteContainer.add(createDateField3CreationTool());
 		paletteContainer.add(createParagraph4CreationTool());
-		paletteContainer.add(createAddafileblock5CreationTool());
+		paletteContainer.add(createFileBlock5CreationTool());
 		return paletteContainer;
 	}
 
@@ -319,12 +319,12 @@ public class CrosswalkPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createAddafileblock5CreationTool() {
+	private ToolEntry createFileBlock5CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.Addafileblock5CreationTool_title,
-				Messages.Addafileblock5CreationTool_desc,
+				Messages.FileBlock5CreationTool_title,
+				Messages.FileBlock5CreationTool_desc,
 				Collections.singletonList(CrosswalkElementTypes.FileBlock_3025));
-		entry.setId("createAddafileblock5CreationTool"); //$NON-NLS-1$
+		entry.setId("createFileBlock5CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(CrosswalkElementTypes
 				.getImageDescriptor(CrosswalkElementTypes.FileBlock_3025));
 		entry.setLargeIcon(entry.getSmallIcon());
