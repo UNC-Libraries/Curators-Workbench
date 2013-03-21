@@ -548,6 +548,17 @@ public class FormImpl extends EObjectImpl implements Form {
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.FORM__CAN_ADD_SUPPLEMENTAL_FILES, oldCanAddSupplementalFiles, canAddSupplementalFiles));
 	}
+	
+	/**
+	 * @generated NOT
+	 */
+	public boolean isHasFileBlocks() {
+		for (FormElement element : this.getElements()) {
+			if (FileBlock.class.isInstance(element))
+				return true;
+		}
+		return false;
+	}
 
 	/**
 	 * <!-- begin-user-doc -->

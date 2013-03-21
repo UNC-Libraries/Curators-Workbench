@@ -148,17 +148,29 @@ public class SwordDepositHandler implements DepositHandler {
 
 		String pid = "uuid:" + UUID.randomUUID().toString();
 
-		// Identify the "main file" within the form
+		// Identify the "main file" within the list of submitted files.
+		// If the form has file blocks, this is the form's mainFileBlock reference.
+		// If the form doesn't have file blocks, this is the first file
+		// in the list of submitted files (if any).
 		
 		SubmittedFile mainFile = null;
 		
-		if (form.getMainFileBlock() != null) {
-			for (SubmittedFile file : files) {
-				if (file.getFileBlock() == form.getMainFileBlock()) {
-					mainFile = file;
-					break;
+		if (form.isHasFileBlocks()) {
+		
+			if (form.getMainFileBlock() != null) {
+				for (SubmittedFile file : files) {
+					if (file.getFileBlock() == form.getMainFileBlock()) {
+						mainFile = file;
+						break;
+					}
 				}
 			}
+			
+		} else {
+			
+			if (files.size() > 0)
+				mainFile = files.get(0);
+			
 		}
 		
 		// Prepare the zip file for deposit

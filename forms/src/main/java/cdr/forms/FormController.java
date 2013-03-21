@@ -58,6 +58,7 @@ import cdr.forms.DepositResult.Status;
 import com.philvarner.clamavj.ClamScan;
 import com.philvarner.clamavj.ScanResult;
 
+import crosswalk.CrosswalkPackage;
 import crosswalk.FileBlock;
 import crosswalk.Form;
 import crosswalk.FormElement;
@@ -283,18 +284,32 @@ public class FormController {
 				
 			}
 			
-			// Supplemental files
+			// Handle the remaining files as supplemental files. If we didn't find any file blocks,
+			// consider the first file to be the main file for deposit, and require that it be
+			// selected.
 			
 			for (; i < files.length; i++) {
 				
-				SubmittedFile sf = handleUploadedFile(files[i], errors);
-										
-				if (sf != null)
-					submittedFiles.add(sf);
+				MultipartFile file = files[i];
+				
+				if (file.getOriginalFilename().length() == 0) {
+					
+					if (i == 0)
+						errors.addError(new FieldError("form", "file", "A file for deposit must be selected."));
+					
+				} else {
+				
+					SubmittedFile sf = handleUploadedFile(file, errors);
+											
+					if (sf != null)
+						submittedFiles.add(sf);
+					
+				}
 				
 			}
 		
 		}
+		
 
 		if (errors.hasErrors()) {
 			LOG.debug(errors.getErrorCount() + " errors");

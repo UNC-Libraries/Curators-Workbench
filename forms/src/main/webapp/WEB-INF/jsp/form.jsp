@@ -346,6 +346,17 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 			<% } %>
 		</spring:bind>
 	</c:forEach>
+	
+	<c:if test="${not form.hasFileBlocks}">
+		<br/><h3>File for Deposit</h3>
+		<div class="indented_block">
+			<div class="form_field file_field">
+				<label>&nbsp;</label>
+				<input name="file" type="file" size="40"/>
+				<span class="red">*</span>
+			</div>
+		</div>
+	</c:if>
 
 	<c:if test="${form.canAddSupplementalFiles}">
 		<br/><h3>Supplemental Files</h3>

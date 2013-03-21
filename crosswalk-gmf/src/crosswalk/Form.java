@@ -252,6 +252,11 @@ public interface Form extends Editable, ContextProvider {
 	 * @generated
 	 */
 	void setCanAddSupplementalFiles(boolean value);
+	
+	/**
+	 * @generated NOT
+	 */
+	boolean isHasFileBlocks();
 
 	/**
 	 * Returns the value of the '<em><b>Contact Name</b></em>' attribute.
