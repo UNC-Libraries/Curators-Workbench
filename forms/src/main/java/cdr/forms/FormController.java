@@ -62,7 +62,7 @@ import crosswalk.Form;
 
 @Controller
 @RequestMapping(value = { "/*", "/**" })
-@SessionAttributes("form")
+@SessionAttributes({"form","formId"})
 public class FormController {
 
 	@Autowired
@@ -214,6 +214,13 @@ public class FormController {
 		
 		DepositResult result;
 
+		// The form (instance) in the session may not match the (HTML) form which was submitted
+		// by the user in some cases. For example, if a user had two forms open at the same time,
+		// and submitted the one not corresponding to the form instance in the session. So, check
+		// that the value of formId from the session is the same as the value from the request path.
+
+		if (!formId.equals(model.asMap().get("formId")))
+			throw new Error("Form ID in session did not match form ID in request path");
 		
 		try {
 			request.setCharacterEncoding("UTF-8");

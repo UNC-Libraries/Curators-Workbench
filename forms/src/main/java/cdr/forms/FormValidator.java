@@ -28,14 +28,21 @@ import crosswalk.MetadataBlock;
 
 public class FormValidator implements Validator {
 	private static final Logger LOG = LoggerFactory.getLogger(FormValidator.class);
+	
+	// Since formId is a SessionAttribute as well as the form in FormController, say
+	// that we will validate strings as well. (And say they're always valid.)
 
 	@Override
 	public boolean supports(Class clazz) {
-		 return Form.class.isAssignableFrom(clazz);
+		 return Form.class.isAssignableFrom(clazz) || String.class.isAssignableFrom(clazz);
 	}
 
 	@Override
 	public void validate(Object target, Errors errors) {
+		
+		if (String.class.isInstance(target))
+			return;
+		
 		Form form = (Form)target;
 		for (FormElement el : form.getElements()) {
 			if (MetadataBlock.class.isInstance(el)) {
