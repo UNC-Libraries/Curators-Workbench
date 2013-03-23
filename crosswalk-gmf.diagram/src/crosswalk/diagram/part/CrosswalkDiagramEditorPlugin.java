@@ -52,6 +52,8 @@ import crosswalk.diagram.edit.policies.CrosswalkBaseItemSemanticEditPolicy;
 import crosswalk.diagram.expressions.CrosswalkOCLFactory;
 import crosswalk.diagram.providers.ElementInitializers;
 import crosswalk.provider.CrosswalkItemProviderAdapterFactory;
+import edu.unc.lib.schemas.acl.provider.AclItemProviderAdapterFactory;
+import gov.loc.mods.mods.provider.MODSItemProviderAdapterFactory;
 
 /**
  * @generated

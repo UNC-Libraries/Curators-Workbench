@@ -16,15 +16,22 @@
 package crosswalk.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import crosswalk.ContextProvider;
 import crosswalk.CrosswalkPackage;
+import crosswalk.OutputProfile;
+import edu.unc.lib.schemas.acl.DocumentRoot;
+import gov.loc.mods.mods.ModsDefinition;
 import java.util.Collection;
 
 /**
@@ -34,7 +41,7 @@ import java.util.Collection;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link crosswalk.impl.ContextProviderImpl#getOutputType <em>Output Type</em>}</li>
+ *   <li>{@link crosswalk.impl.ContextProviderImpl#getOutputProfiles <em>Output Profiles</em>}</li>
  *   <li>{@link crosswalk.impl.ContextProviderImpl#getCurrentUser <em>Current User</em>}</li>
  * </ul>
  * </p>
@@ -43,14 +50,14 @@ import java.util.Collection;
  */
 public abstract class ContextProviderImpl extends EObjectImpl implements ContextProvider {
 	/**
-	 * The cached value of the '{@link #getOutputType() <em>Output Type</em>}' reference list.
+	 * The cached value of the '{@link #getOutputProfiles() <em>Output Profiles</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getOutputType()
+	 * @see #getOutputProfiles()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<EClass> outputType;
+	protected EList<OutputProfile> outputProfiles;
 
 	/**
 	 * The default value of the '{@link #getCurrentUser() <em>Current User</em>}' attribute.
@@ -96,11 +103,11 @@ public abstract class ContextProviderImpl extends EObjectImpl implements Context
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<EClass> getOutputType() {
-		if (outputType == null) {
-			outputType = new EObjectResolvingEList<EClass>(EClass.class, this, CrosswalkPackage.CONTEXT_PROVIDER__OUTPUT_TYPE);
+	public EList<OutputProfile> getOutputProfiles() {
+		if (outputProfiles == null) {
+			outputProfiles = new EObjectContainmentEList<OutputProfile>(OutputProfile.class, this, CrosswalkPackage.CONTEXT_PROVIDER__OUTPUT_PROFILES);
 		}
-		return outputType;
+		return outputProfiles;
 	}
 
 	/**
@@ -130,10 +137,24 @@ public abstract class ContextProviderImpl extends EObjectImpl implements Context
 	 * @generated
 	 */
 	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case CrosswalkPackage.CONTEXT_PROVIDER__OUTPUT_PROFILES:
+				return ((InternalEList<?>)getOutputProfiles()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CrosswalkPackage.CONTEXT_PROVIDER__OUTPUT_TYPE:
-				return getOutputType();
+			case CrosswalkPackage.CONTEXT_PROVIDER__OUTPUT_PROFILES:
+				return getOutputProfiles();
 			case CrosswalkPackage.CONTEXT_PROVIDER__CURRENT_USER:
 				return getCurrentUser();
 		}
@@ -149,9 +170,9 @@ public abstract class ContextProviderImpl extends EObjectImpl implements Context
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CrosswalkPackage.CONTEXT_PROVIDER__OUTPUT_TYPE:
-				getOutputType().clear();
-				getOutputType().addAll((Collection<? extends EClass>)newValue);
+			case CrosswalkPackage.CONTEXT_PROVIDER__OUTPUT_PROFILES:
+				getOutputProfiles().clear();
+				getOutputProfiles().addAll((Collection<? extends OutputProfile>)newValue);
 				return;
 			case CrosswalkPackage.CONTEXT_PROVIDER__CURRENT_USER:
 				setCurrentUser((String)newValue);
@@ -168,8 +189,8 @@ public abstract class ContextProviderImpl extends EObjectImpl implements Context
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CrosswalkPackage.CONTEXT_PROVIDER__OUTPUT_TYPE:
-				getOutputType().clear();
+			case CrosswalkPackage.CONTEXT_PROVIDER__OUTPUT_PROFILES:
+				getOutputProfiles().clear();
 				return;
 			case CrosswalkPackage.CONTEXT_PROVIDER__CURRENT_USER:
 				setCurrentUser(CURRENT_USER_EDEFAULT);
@@ -186,8 +207,8 @@ public abstract class ContextProviderImpl extends EObjectImpl implements Context
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CrosswalkPackage.CONTEXT_PROVIDER__OUTPUT_TYPE:
-				return outputType != null && !outputType.isEmpty();
+			case CrosswalkPackage.CONTEXT_PROVIDER__OUTPUT_PROFILES:
+				return outputProfiles != null && !outputProfiles.isEmpty();
 			case CrosswalkPackage.CONTEXT_PROVIDER__CURRENT_USER:
 				return CURRENT_USER_EDEFAULT == null ? currentUser != null : !CURRENT_USER_EDEFAULT.equals(currentUser);
 		}

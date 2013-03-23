@@ -60,6 +60,8 @@ import crosswalk.MetadataBlock;
 import crosswalk.OriginalNameRecordMatcher;
 import crosswalk.Output;
 import crosswalk.OutputElement;
+import crosswalk.OutputMetadataSections;
+import crosswalk.OutputProfile;
 import crosswalk.Paragraph;
 import crosswalk.RecordMatcherStrategy;
 import crosswalk.RecordMatches;
@@ -70,6 +72,8 @@ import crosswalk.TextInputField;
 import crosswalk.TextInputType;
 import crosswalk.TrimWhitespace;
 import crosswalk.WalkWidget;
+import edu.unc.lib.schemas.acl.AclPackage;
+import gov.loc.mods.mods.MODSPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -324,6 +328,13 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass outputProfileEClass = null;
+
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum datePrecisionEEnum = null;
 
 								/**
@@ -339,6 +350,13 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 	 * @generated
 	 */
 	private EEnum textInputTypeEEnum = null;
+
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum outputMetadataSectionsEEnum = null;
 
 								/**
 	 * <!-- begin-user-doc -->
@@ -1114,7 +1132,7 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getContextProvider_OutputType() {
+	public EReference getContextProvider_OutputProfiles() {
 		return (EReference)contextProviderEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -1357,6 +1375,78 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getOutputProfile() {
+		return outputProfileEClass;
+	}
+
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getOutputProfile_MetadataSection() {
+		return (EAttribute)outputProfileEClass.getEStructuralFeatures().get(6);
+	}
+
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getOutputProfile_ParentMappedElement() {
+		return (EReference)outputProfileEClass.getEStructuralFeatures().get(0);
+	}
+
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getOutputProfile_StartMappingAtChildren() {
+		return (EAttribute)outputProfileEClass.getEStructuralFeatures().get(1);
+	}
+
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getOutputProfile_Name() {
+		return (EAttribute)outputProfileEClass.getEStructuralFeatures().get(2);
+	}
+
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getOutputProfile_Description() {
+		return (EAttribute)outputProfileEClass.getEStructuralFeatures().get(3);
+	}
+
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getOutputProfile_MetadataLabel() {
+		return (EAttribute)outputProfileEClass.getEStructuralFeatures().get(4);
+	}
+
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getOutputProfile_MetadataType() {
+		return (EAttribute)outputProfileEClass.getEStructuralFeatures().get(5);
+	}
+
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getDatePrecision() {
 		return datePrecisionEEnum;
 	}
@@ -1377,6 +1467,15 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 	 */
 	public EEnum getTextInputType() {
 		return textInputTypeEEnum;
+	}
+
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getOutputMetadataSections() {
+		return outputMetadataSectionsEEnum;
 	}
 
 								/**
@@ -1559,7 +1658,7 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 		createEAttribute(textInputFieldEClass, TEXT_INPUT_FIELD__TYPE);
 
 		contextProviderEClass = createEClass(CONTEXT_PROVIDER);
-		createEReference(contextProviderEClass, CONTEXT_PROVIDER__OUTPUT_TYPE);
+		createEReference(contextProviderEClass, CONTEXT_PROVIDER__OUTPUT_PROFILES);
 		createEAttribute(contextProviderEClass, CONTEXT_PROVIDER__CURRENT_USER);
 
 		mappingContainerEClass = createEClass(MAPPING_CONTAINER);
@@ -1594,10 +1693,20 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 		dateInputFieldEClass = createEClass(DATE_INPUT_FIELD);
 		createEAttribute(dateInputFieldEClass, DATE_INPUT_FIELD__DATE_PRECISION);
 
+		outputProfileEClass = createEClass(OUTPUT_PROFILE);
+		createEReference(outputProfileEClass, OUTPUT_PROFILE__PARENT_MAPPED_ELEMENT);
+		createEAttribute(outputProfileEClass, OUTPUT_PROFILE__START_MAPPING_AT_CHILDREN);
+		createEAttribute(outputProfileEClass, OUTPUT_PROFILE__NAME);
+		createEAttribute(outputProfileEClass, OUTPUT_PROFILE__DESCRIPTION);
+		createEAttribute(outputProfileEClass, OUTPUT_PROFILE__METADATA_LABEL);
+		createEAttribute(outputProfileEClass, OUTPUT_PROFILE__METADATA_TYPE);
+		createEAttribute(outputProfileEClass, OUTPUT_PROFILE__METADATA_SECTION);
+
 		// Create enums
 		datePrecisionEEnum = createEEnum(DATE_PRECISION);
 		fieldWidthEEnum = createEEnum(FIELD_WIDTH);
 		textInputTypeEEnum = createEEnum(TEXT_INPUT_TYPE);
+		outputMetadataSectionsEEnum = createEEnum(OUTPUT_METADATA_SECTIONS);
 
 		// Create data types
 		dataExceptionEDataType = createEDataType(DATA_EXCEPTION);
@@ -1833,7 +1942,7 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 		initEAttribute(getTextInputField_Type(), this.getTextInputType(), "type", "SingleLine", 1, 1, TextInputField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(contextProviderEClass, ContextProvider.class, "ContextProvider", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getContextProvider_OutputType(), ecorePackage.getEClass(), null, "outputType", null, 1, -1, ContextProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getContextProvider_OutputProfiles(), this.getOutputProfile(), null, "outputProfiles", null, 1, -1, ContextProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getContextProvider_CurrentUser(), ecorePackage.getEString(), "currentUser", null, 1, 1, ContextProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(mappingContainerEClass, MappingContainer.class, "MappingContainer", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1868,6 +1977,15 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 		initEClass(dateInputFieldEClass, DateInputField.class, "DateInputField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDateInputField_DatePrecision(), this.getDatePrecision(), "datePrecision", "Day", 1, 1, DateInputField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(outputProfileEClass, OutputProfile.class, "OutputProfile", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getOutputProfile_ParentMappedElement(), ecorePackage.getEObject(), null, "parentMappedElement", null, 1, 1, OutputProfile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOutputProfile_StartMappingAtChildren(), ecorePackage.getEBoolean(), "startMappingAtChildren", "true", 1, 1, OutputProfile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOutputProfile_Name(), ecorePackage.getEString(), "name", "Profile Name", 1, 1, OutputProfile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOutputProfile_Description(), ecorePackage.getEString(), "description", "Description", 1, 1, OutputProfile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOutputProfile_MetadataLabel(), ecorePackage.getEString(), "metadataLabel", null, 1, 1, OutputProfile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOutputProfile_MetadataType(), ecorePackage.getEString(), "metadataType", "OTHER", 1, 1, OutputProfile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOutputProfile_MetadataSection(), this.getOutputMetadataSections(), "metadataSection", null, 1, 1, OutputProfile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		// Initialize enums and add enum literals
 		initEEnum(datePrecisionEEnum, DatePrecision.class, "DatePrecision");
 		addEEnumLiteral(datePrecisionEEnum, DatePrecision.YEAR);
@@ -1886,6 +2004,13 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 		initEEnum(textInputTypeEEnum, TextInputType.class, "TextInputType");
 		addEEnumLiteral(textInputTypeEEnum, TextInputType.SINGLE_LINE);
 		addEEnumLiteral(textInputTypeEEnum, TextInputType.MULTIPLE_LINES);
+
+		initEEnum(outputMetadataSectionsEEnum, OutputMetadataSections.class, "OutputMetadataSections");
+		addEEnumLiteral(outputMetadataSectionsEEnum, OutputMetadataSections.RIGHTS_MD);
+		addEEnumLiteral(outputMetadataSectionsEEnum, OutputMetadataSections.DMD_SEC);
+		addEEnumLiteral(outputMetadataSectionsEEnum, OutputMetadataSections.TECH_MD);
+		addEEnumLiteral(outputMetadataSectionsEEnum, OutputMetadataSections.DIGIPROV_MD);
+		addEEnumLiteral(outputMetadataSectionsEEnum, OutputMetadataSections.SOURCE_MD);
 
 		// Initialize data types
 		initEDataType(dataExceptionEDataType, DataException.class, "DataException", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

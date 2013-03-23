@@ -322,6 +322,7 @@ public class FormItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
+			childrenFeatures.add(CrosswalkPackage.Literals.CONTEXT_PROVIDER__OUTPUT_PROFILES);
 			childrenFeatures.add(CrosswalkPackage.Literals.FORM__ELEMENTS);
 		}
 		return childrenFeatures;
@@ -390,6 +391,7 @@ public class FormItemProvider
 			case CrosswalkPackage.FORM__CONTACT_EMAIL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
+			case CrosswalkPackage.FORM__OUTPUT_PROFILES:
 			case CrosswalkPackage.FORM__ELEMENTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -407,6 +409,11 @@ public class FormItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CrosswalkPackage.Literals.CONTEXT_PROVIDER__OUTPUT_PROFILES,
+				 CrosswalkFactory.eINSTANCE.createOutputProfile()));
 
 		newChildDescriptors.add
 			(createChildParameter

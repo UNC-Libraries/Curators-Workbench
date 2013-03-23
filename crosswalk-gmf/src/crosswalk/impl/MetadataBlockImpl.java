@@ -39,7 +39,10 @@ import crosswalk.InputField;
 import crosswalk.MappingContainer;
 import crosswalk.MetadataBlock;
 import crosswalk.OutputElement;
+import crosswalk.OutputProfile;
 import crosswalk.WalkWidget;
+import edu.unc.lib.schemas.acl.DocumentRoot;
+import gov.loc.mods.mods.ModsDefinition;
 
 /**
  * <!-- begin-user-doc -->
@@ -50,7 +53,7 @@ import crosswalk.WalkWidget;
  * <ul>
  *   <li>{@link crosswalk.impl.MetadataBlockImpl#getWalk <em>Walk</em>}</li>
  *   <li>{@link crosswalk.impl.MetadataBlockImpl#getException <em>Exception</em>}</li>
- *   <li>{@link crosswalk.impl.MetadataBlockImpl#getOutputType <em>Output Type</em>}</li>
+ *   <li>{@link crosswalk.impl.MetadataBlockImpl#getOutputProfiles <em>Output Profiles</em>}</li>
  *   <li>{@link crosswalk.impl.MetadataBlockImpl#getCurrentUser <em>Current User</em>}</li>
  *   <li>{@link crosswalk.impl.MetadataBlockImpl#getWidgets <em>Widgets</em>}</li>
  *   <li>{@link crosswalk.impl.MetadataBlockImpl#getElements <em>Elements</em>}</li>
@@ -87,14 +90,14 @@ public class MetadataBlockImpl extends EObjectImpl implements MetadataBlock {
 	protected Throwable exception = EXCEPTION_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getOutputType() <em>Output Type</em>}' reference list.
+	 * The cached value of the '{@link #getOutputProfiles() <em>Output Profiles</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getOutputType()
+	 * @see #getOutputProfiles()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<EClass> outputType;
+	protected EList<OutputProfile> outputProfiles;
 
 	/**
 	 * The default value of the '{@link #getCurrentUser() <em>Current User</em>}' attribute.
@@ -322,11 +325,11 @@ public class MetadataBlockImpl extends EObjectImpl implements MetadataBlock {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<EClass> getOutputType() {
-		if (outputType == null) {
-			outputType = new EObjectResolvingEList<EClass>(EClass.class, this, CrosswalkPackage.METADATA_BLOCK__OUTPUT_TYPE);
+	public EList<OutputProfile> getOutputProfiles() {
+		if (outputProfiles == null) {
+			outputProfiles = new EObjectContainmentEList<OutputProfile>(OutputProfile.class, this, CrosswalkPackage.METADATA_BLOCK__OUTPUT_PROFILES);
 		}
-		return outputType;
+		return outputProfiles;
 	}
 
 	/**
@@ -524,6 +527,8 @@ public class MetadataBlockImpl extends EObjectImpl implements MetadataBlock {
 		switch (featureID) {
 			case CrosswalkPackage.METADATA_BLOCK__WALK:
 				return basicSetWalk(null, msgs);
+			case CrosswalkPackage.METADATA_BLOCK__OUTPUT_PROFILES:
+				return ((InternalEList<?>)getOutputProfiles()).basicRemove(otherEnd, msgs);
 			case CrosswalkPackage.METADATA_BLOCK__WIDGETS:
 				return ((InternalEList<?>)getWidgets()).basicRemove(otherEnd, msgs);
 			case CrosswalkPackage.METADATA_BLOCK__ELEMENTS:
@@ -560,8 +565,8 @@ public class MetadataBlockImpl extends EObjectImpl implements MetadataBlock {
 				return getWalk();
 			case CrosswalkPackage.METADATA_BLOCK__EXCEPTION:
 				return getException();
-			case CrosswalkPackage.METADATA_BLOCK__OUTPUT_TYPE:
-				return getOutputType();
+			case CrosswalkPackage.METADATA_BLOCK__OUTPUT_PROFILES:
+				return getOutputProfiles();
 			case CrosswalkPackage.METADATA_BLOCK__CURRENT_USER:
 				return getCurrentUser();
 			case CrosswalkPackage.METADATA_BLOCK__WIDGETS:
@@ -599,9 +604,9 @@ public class MetadataBlockImpl extends EObjectImpl implements MetadataBlock {
 			case CrosswalkPackage.METADATA_BLOCK__EXCEPTION:
 				setException((Throwable)newValue);
 				return;
-			case CrosswalkPackage.METADATA_BLOCK__OUTPUT_TYPE:
-				getOutputType().clear();
-				getOutputType().addAll((Collection<? extends EClass>)newValue);
+			case CrosswalkPackage.METADATA_BLOCK__OUTPUT_PROFILES:
+				getOutputProfiles().clear();
+				getOutputProfiles().addAll((Collection<? extends OutputProfile>)newValue);
 				return;
 			case CrosswalkPackage.METADATA_BLOCK__CURRENT_USER:
 				setCurrentUser((String)newValue);
@@ -652,8 +657,8 @@ public class MetadataBlockImpl extends EObjectImpl implements MetadataBlock {
 			case CrosswalkPackage.METADATA_BLOCK__EXCEPTION:
 				setException(EXCEPTION_EDEFAULT);
 				return;
-			case CrosswalkPackage.METADATA_BLOCK__OUTPUT_TYPE:
-				getOutputType().clear();
+			case CrosswalkPackage.METADATA_BLOCK__OUTPUT_PROFILES:
+				getOutputProfiles().clear();
 				return;
 			case CrosswalkPackage.METADATA_BLOCK__CURRENT_USER:
 				setCurrentUser(CURRENT_USER_EDEFAULT);
@@ -698,8 +703,8 @@ public class MetadataBlockImpl extends EObjectImpl implements MetadataBlock {
 				return getWalk() != null;
 			case CrosswalkPackage.METADATA_BLOCK__EXCEPTION:
 				return EXCEPTION_EDEFAULT == null ? exception != null : !EXCEPTION_EDEFAULT.equals(exception);
-			case CrosswalkPackage.METADATA_BLOCK__OUTPUT_TYPE:
-				return outputType != null && !outputType.isEmpty();
+			case CrosswalkPackage.METADATA_BLOCK__OUTPUT_PROFILES:
+				return outputProfiles != null && !outputProfiles.isEmpty();
 			case CrosswalkPackage.METADATA_BLOCK__CURRENT_USER:
 				return CURRENT_USER_EDEFAULT == null ? currentUser != null : !CURRENT_USER_EDEFAULT.equals(currentUser);
 			case CrosswalkPackage.METADATA_BLOCK__WIDGETS:
@@ -731,7 +736,7 @@ public class MetadataBlockImpl extends EObjectImpl implements MetadataBlock {
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == ContextProvider.class) {
 			switch (derivedFeatureID) {
-				case CrosswalkPackage.METADATA_BLOCK__OUTPUT_TYPE: return CrosswalkPackage.CONTEXT_PROVIDER__OUTPUT_TYPE;
+				case CrosswalkPackage.METADATA_BLOCK__OUTPUT_PROFILES: return CrosswalkPackage.CONTEXT_PROVIDER__OUTPUT_PROFILES;
 				case CrosswalkPackage.METADATA_BLOCK__CURRENT_USER: return CrosswalkPackage.CONTEXT_PROVIDER__CURRENT_USER;
 				default: return -1;
 			}
@@ -761,7 +766,7 @@ public class MetadataBlockImpl extends EObjectImpl implements MetadataBlock {
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == ContextProvider.class) {
 			switch (baseFeatureID) {
-				case CrosswalkPackage.CONTEXT_PROVIDER__OUTPUT_TYPE: return CrosswalkPackage.METADATA_BLOCK__OUTPUT_TYPE;
+				case CrosswalkPackage.CONTEXT_PROVIDER__OUTPUT_PROFILES: return CrosswalkPackage.METADATA_BLOCK__OUTPUT_PROFILES;
 				case CrosswalkPackage.CONTEXT_PROVIDER__CURRENT_USER: return CrosswalkPackage.METADATA_BLOCK__CURRENT_USER;
 				default: return -1;
 			}

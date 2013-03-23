@@ -179,8 +179,8 @@
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ContextProvider" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="outputType" lowerBound="1"
-        upperBound="-1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outputProfiles" lowerBound="1"
+        upperBound="-1" eType="#//OutputProfile" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="currentUser" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
@@ -255,5 +255,29 @@
   <eClassifiers xsi:type="ecore:EEnum" name="TextInputType">
     <eLiterals name="SingleLine"/>
     <eLiterals name="MultipleLines" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OutputProfile">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parentMappedElement" lowerBound="1"
+        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="startMappingAtChildren"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="Profile Name"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="Description"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="metadataLabel" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="metadataType" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="OTHER"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="metadataSection" lowerBound="1"
+        eType="#//OutputMetadataSections"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="OutputMetadataSections">
+    <eLiterals name="rightsMD"/>
+    <eLiterals name="dmdSec" value="1"/>
+    <eLiterals name="techMD" value="2"/>
+    <eLiterals name="digiprovMD" value="3"/>
+    <eLiterals name="sourceMD" value="4"/>
   </eClassifiers>
 </ecore:EPackage>

@@ -15,6 +15,8 @@
  */
 package crosswalk;
 
+import edu.unc.lib.schemas.acl.DocumentRoot;
+import gov.loc.mods.mods.ModsDefinition;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -27,7 +29,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link crosswalk.ContextProvider#getOutputType <em>Output Type</em>}</li>
+ *   <li>{@link crosswalk.ContextProvider#getOutputProfiles <em>Output Profiles</em>}</li>
  *   <li>{@link crosswalk.ContextProvider#getCurrentUser <em>Current User</em>}</li>
  * </ul>
  * </p>
@@ -38,20 +40,20 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface ContextProvider extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Output Type</b></em>' reference list.
-	 * The list contents are of type {@link org.eclipse.emf.ecore.EClass}.
+	 * Returns the value of the '<em><b>Output Profiles</b></em>' containment reference list.
+	 * The list contents are of type {@link crosswalk.OutputProfile}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Output Type</em>' reference isn't clear,
+	 * If the meaning of the '<em>Output Profiles</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Output Type</em>' reference list.
-	 * @see crosswalk.CrosswalkPackage#getContextProvider_OutputType()
-	 * @model required="true"
+	 * @return the value of the '<em>Output Profiles</em>' containment reference list.
+	 * @see crosswalk.CrosswalkPackage#getContextProvider_OutputProfiles()
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	EList<EClass> getOutputType();
+	EList<OutputProfile> getOutputProfiles();
 
 	/**
 	 * Returns the value of the '<em><b>Current User</b></em>' attribute.

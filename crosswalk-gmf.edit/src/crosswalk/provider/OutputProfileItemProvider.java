@@ -1,24 +1,12 @@
 /**
- * Copyright 2010 The University of North Carolina at Chapel Hill
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *         http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
  */
 package crosswalk.provider;
 
 
 import crosswalk.CrosswalkFactory;
 import crosswalk.CrosswalkPackage;
-import crosswalk.MetadataBlock;
+import crosswalk.OutputMetadataSections;
+import crosswalk.OutputProfile;
 
 import java.util.Collection;
 import java.util.List;
@@ -42,12 +30,12 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link crosswalk.MetadataBlock} object.
+ * This is the item provider adapter for a {@link crosswalk.OutputProfile} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class MetadataBlockItemProvider
+public class OutputProfileItemProvider
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -61,7 +49,7 @@ public class MetadataBlockItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MetadataBlockItemProvider(AdapterFactory adapterFactory) {
+	public OutputProfileItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -76,12 +64,58 @@ public class MetadataBlockItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addParentMappedElementPropertyDescriptor(object);
+			addStartMappingAtChildrenPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
-			addRequiredPropertyDescriptor(object);
-			addMaxRepeatPropertyDescriptor(object);
+			addMetadataLabelPropertyDescriptor(object);
+			addMetadataTypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Parent Mapped Element feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addParentMappedElementPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_OutputProfile_parentMappedElement_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_OutputProfile_parentMappedElement_feature", "_UI_OutputProfile_type"),
+				 CrosswalkPackage.Literals.OUTPUT_PROFILE__PARENT_MAPPED_ELEMENT,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Start Mapping At Children feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addStartMappingAtChildrenPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_OutputProfile_startMappingAtChildren_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_OutputProfile_startMappingAtChildren_feature", "_UI_OutputProfile_type"),
+				 CrosswalkPackage.Literals.OUTPUT_PROFILE__START_MAPPING_AT_CHILDREN,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -95,9 +129,9 @@ public class MetadataBlockItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_MetadataBlock_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_MetadataBlock_name_feature", "_UI_MetadataBlock_type"),
-				 CrosswalkPackage.Literals.METADATA_BLOCK__NAME,
+				 getString("_UI_OutputProfile_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_OutputProfile_name_feature", "_UI_OutputProfile_type"),
+				 CrosswalkPackage.Literals.OUTPUT_PROFILE__NAME,
 				 true,
 				 false,
 				 false,
@@ -117,9 +151,9 @@ public class MetadataBlockItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_MetadataBlock_description_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_MetadataBlock_description_feature", "_UI_MetadataBlock_type"),
-				 CrosswalkPackage.Literals.METADATA_BLOCK__DESCRIPTION,
+				 getString("_UI_OutputProfile_description_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_OutputProfile_description_feature", "_UI_OutputProfile_type"),
+				 CrosswalkPackage.Literals.OUTPUT_PROFILE__DESCRIPTION,
 				 true,
 				 false,
 				 false,
@@ -129,45 +163,45 @@ public class MetadataBlockItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Required feature.
+	 * This adds a property descriptor for the Metadata Label feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addRequiredPropertyDescriptor(Object object) {
+	protected void addMetadataLabelPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_MetadataBlock_required_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_MetadataBlock_required_feature", "_UI_MetadataBlock_type"),
-				 CrosswalkPackage.Literals.METADATA_BLOCK__REQUIRED,
+				 getString("_UI_OutputProfile_metadataLabel_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_OutputProfile_metadataLabel_feature", "_UI_OutputProfile_type"),
+				 CrosswalkPackage.Literals.OUTPUT_PROFILE__METADATA_LABEL,
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Max Repeat feature.
+	 * This adds a property descriptor for the Metadata Type feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addMaxRepeatPropertyDescriptor(Object object) {
+	protected void addMetadataTypePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_MetadataBlock_maxRepeat_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_MetadataBlock_maxRepeat_feature", "_UI_MetadataBlock_type"),
-				 CrosswalkPackage.Literals.METADATA_BLOCK__MAX_REPEAT,
+				 getString("_UI_OutputProfile_metadataType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_OutputProfile_metadataType_feature", "_UI_OutputProfile_type"),
+				 CrosswalkPackage.Literals.OUTPUT_PROFILE__METADATA_TYPE,
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -184,10 +218,7 @@ public class MetadataBlockItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(CrosswalkPackage.Literals.CONTEXT_PROVIDER__OUTPUT_PROFILES);
-			childrenFeatures.add(CrosswalkPackage.Literals.MAPPING_CONTAINER__WIDGETS);
-			childrenFeatures.add(CrosswalkPackage.Literals.MAPPING_CONTAINER__ELEMENTS);
-			childrenFeatures.add(CrosswalkPackage.Literals.METADATA_BLOCK__PORTS);
+			childrenFeatures.add(CrosswalkPackage.Literals.OUTPUT_PROFILE__METADATA_SECTION);
 		}
 		return childrenFeatures;
 	}
@@ -206,14 +237,14 @@ public class MetadataBlockItemProvider
 	}
 
 	/**
-	 * This returns MetadataBlock.gif.
+	 * This returns OutputProfile.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/MetadataBlock"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/OutputProfile"));
 	}
 
 	/**
@@ -224,10 +255,10 @@ public class MetadataBlockItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((MetadataBlock)object).getName();
+		String label = ((OutputProfile)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_MetadataBlock_type") :
-			getString("_UI_MetadataBlock_type") + " " + label;
+			getString("_UI_OutputProfile_type") :
+			getString("_UI_OutputProfile_type") + " " + label;
 	}
 
 	/**
@@ -241,20 +272,15 @@ public class MetadataBlockItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(MetadataBlock.class)) {
-			case CrosswalkPackage.METADATA_BLOCK__EXCEPTION:
-			case CrosswalkPackage.METADATA_BLOCK__CURRENT_USER:
-			case CrosswalkPackage.METADATA_BLOCK__EXCEPTIONS:
-			case CrosswalkPackage.METADATA_BLOCK__NAME:
-			case CrosswalkPackage.METADATA_BLOCK__DESCRIPTION:
-			case CrosswalkPackage.METADATA_BLOCK__REQUIRED:
-			case CrosswalkPackage.METADATA_BLOCK__MAX_REPEAT:
+		switch (notification.getFeatureID(OutputProfile.class)) {
+			case CrosswalkPackage.OUTPUT_PROFILE__START_MAPPING_AT_CHILDREN:
+			case CrosswalkPackage.OUTPUT_PROFILE__NAME:
+			case CrosswalkPackage.OUTPUT_PROFILE__DESCRIPTION:
+			case CrosswalkPackage.OUTPUT_PROFILE__METADATA_LABEL:
+			case CrosswalkPackage.OUTPUT_PROFILE__METADATA_TYPE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case CrosswalkPackage.METADATA_BLOCK__OUTPUT_PROFILES:
-			case CrosswalkPackage.METADATA_BLOCK__WIDGETS:
-			case CrosswalkPackage.METADATA_BLOCK__ELEMENTS:
-			case CrosswalkPackage.METADATA_BLOCK__PORTS:
+			case CrosswalkPackage.OUTPUT_PROFILE__METADATA_SECTION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -274,68 +300,8 @@ public class MetadataBlockItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CrosswalkPackage.Literals.CONTEXT_PROVIDER__OUTPUT_PROFILES,
-				 CrosswalkFactory.eINSTANCE.createOutputProfile()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CrosswalkPackage.Literals.MAPPING_CONTAINER__WIDGETS,
-				 CrosswalkFactory.eINSTANCE.createTrimWhitespace()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CrosswalkPackage.Literals.MAPPING_CONTAINER__WIDGETS,
-				 CrosswalkFactory.eINSTANCE.createCurrentUsername()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CrosswalkPackage.Literals.MAPPING_CONTAINER__WIDGETS,
-				 CrosswalkFactory.eINSTANCE.createCurrentDate()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CrosswalkPackage.Literals.MAPPING_CONTAINER__WIDGETS,
-				 CrosswalkFactory.eINSTANCE.createOriginalNameRecordMatcher()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CrosswalkPackage.Literals.MAPPING_CONTAINER__WIDGETS,
-				 CrosswalkFactory.eINSTANCE.createDateRecognizer()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CrosswalkPackage.Literals.MAPPING_CONTAINER__WIDGETS,
-				 CrosswalkFactory.eINSTANCE.createText()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CrosswalkPackage.Literals.MAPPING_CONTAINER__ELEMENTS,
-				 CrosswalkFactory.eINSTANCE.createMappedElement()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CrosswalkPackage.Literals.MAPPING_CONTAINER__ELEMENTS,
-				 CrosswalkFactory.eINSTANCE.createMappedAttribute()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CrosswalkPackage.Literals.MAPPING_CONTAINER__ELEMENTS,
-				 CrosswalkFactory.eINSTANCE.createMetadataBlock()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CrosswalkPackage.Literals.METADATA_BLOCK__PORTS,
-				 CrosswalkFactory.eINSTANCE.createInputField()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CrosswalkPackage.Literals.METADATA_BLOCK__PORTS,
-				 CrosswalkFactory.eINSTANCE.createTextInputField()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CrosswalkPackage.Literals.METADATA_BLOCK__PORTS,
-				 CrosswalkFactory.eINSTANCE.createDateInputField()));
+				(CrosswalkPackage.Literals.OUTPUT_PROFILE__METADATA_SECTION,
+				 OutputMetadataSections.RIGHTS_MD));
 	}
 
 	/**

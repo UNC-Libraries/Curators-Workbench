@@ -28,7 +28,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.gmf.runtime.emf.core.util.Util;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -38,6 +37,7 @@ import crosswalk.MappedAttribute;
 import crosswalk.MappedElement;
 import crosswalk.MappingContainer;
 import crosswalk.OutputElement;
+import crosswalk.OutputProfile;
 import crosswalk.impl.MappedElementImpl;
 
 /**
@@ -61,7 +61,8 @@ public class MappedModelUtil {
 	public static List<EStructuralFeature> getChildElementFeatures(
 			EObject parent) {
 		LOG.debug("model parent:" + parent);
-		List<EClass> mappedParentType = new ArrayList<EClass>();
+		List<EStructuralFeature> result = new ArrayList<EStructuralFeature>();
+		List<EClass> mappedParentTypes = new ArrayList<EClass>();
 		List<MappedElement> elementsMappedAlready = new ArrayList<MappedElement>();
 		if (parent instanceof MappingContainer) {
 			MappingContainer mapContainer = (MappingContainer) parent;
@@ -71,9 +72,23 @@ public class MappedModelUtil {
 			}
 			for (EObject next = parent; next != null; next = next.eContainer()) {
 				if (next instanceof ContextProvider) {
-					if (!((ContextProvider) next).getOutputType().isEmpty()) {
-						mappedParentType.addAll(((ContextProvider) next)
-								.getOutputType());
+					ContextProvider cp = (ContextProvider) next;
+					if (!cp.getOutputProfiles().isEmpty()) {
+						for (OutputProfile profile : cp.getOutputProfiles()) {
+							if (profile.isStartMappingAtChildren()) {
+								System.out
+										.println("mapping child features from profile: "
+												+ profile.getName());
+								mappedParentTypes.add(profile
+										.getParentMappedElement().eClass());
+							} else {
+								System.out
+										.println("mapping parent feature from profile: "
+												+ profile.getName());
+								result.add(profile.getParentMappedElement()
+										.eContainmentFeature());
+							}
+						}
 						break;
 					}
 				}
@@ -82,37 +97,31 @@ public class MappedModelUtil {
 			MappedElement pe = (MappedElement) parent;
 			elementsMappedAlready.addAll(pe.getChildElements());
 			if (pe.getMappedFeature() != null) {
-				mappedParentType.add((EClass) pe.getMappedFeature().getEType());
+				mappedParentTypes
+						.add((EClass) pe.getMappedFeature().getEType());
 			}
 		} else {
 			throw new IllegalArgumentException(
 					"Expecting a CrossWalk or MappedElement");
 		}
-		LOG.debug("mappedParentType:" + mappedParentType);
-		if (mappedParentType == null) {
-			throw new Error("No feature was mapped on the given parent");
-		}
-		List<EStructuralFeature> result = new ArrayList<EStructuralFeature>();
-		// result.addAll(mappedParentType.getEAllReferences());
-		// FIXME remove the elements that are already full
-		for (EClass parentType : mappedParentType) {
-			System.out.println(parentType.eIsProxy());
-//			if(parentType.eIsProxy()) {
-//				System.err.println(Util.resolve(domain, proxy)resolve(parentType, parent));
-//				parentType = (EClass)Util.resolve(parentType, parent);
-//			}
-			//if(parentType instanceof IProxyEObject) parentType = (EClass)((IProxyEObject)parentType).resolve();
-			for (EStructuralFeature a : parentType.getEAllReferences().toArray(
-					new EStructuralFeature[0])) {
-				System.err.println(a.getName());
-				int count = 0;
-				for (MappedElement m : elementsMappedAlready) {
-					if (m.getMappedFeature() != null
-							&& m.getMappedFeature().equals(a))
-						count++;
+		if (mappedParentTypes != null) {
+			// FIXME remove the elements that are already full
+			for (EClass parentType : mappedParentTypes) {
+				if (parentType.eIsProxy()) {
+					parentType = (EClass) EcoreUtil.resolve(parentType, parent);
 				}
-				if (a.getUpperBound() < 0 || count < a.getUpperBound()) {
-					result.add(a);
+				for (EStructuralFeature a : parentType.getEAllReferences()
+						.toArray(new EStructuralFeature[0])) {
+					System.err.println(a.getName());
+					int count = 0;
+					for (MappedElement m : elementsMappedAlready) {
+						if (m.getMappedFeature() != null
+								&& m.getMappedFeature().equals(a))
+							count++;
+					}
+					if (a.getUpperBound() < 0 || count < a.getUpperBound()) {
+						result.add(a);
+					}
 				}
 			}
 		}
@@ -127,19 +136,19 @@ public class MappedModelUtil {
 		// System.out.println("get attributes for: "+parent);
 		EClass mappedParentType = null;
 		List<MappedAttribute> attsMappedAlready = new ArrayList<MappedAttribute>();
-//		if (parent instanceof CrossWalk) {
-//			CrossWalk cw = (CrossWalk) parent;
-//			mappedParentType = cw.getOutputType();
-//		} else if (parent instanceof MappedElement) {
-			MappedElement pe = (MappedElement) parent;
-			attsMappedAlready.addAll(pe.getAttributes());
-			if (pe.getMappedFeature() != null) {
-				mappedParentType = (EClass) pe.getMappedFeature().getEType();
-			}
-//		} else {
-//			throw new IllegalArgumentException(
-//					"Expecting a CrossWalk or MappedElement");
-//		}
+		// if (parent instanceof CrossWalk) {
+		// CrossWalk cw = (CrossWalk) parent;
+		// mappedParentType = cw.getOutputType();
+		// } else if (parent instanceof MappedElement) {
+		MappedElement pe = (MappedElement) parent;
+		attsMappedAlready.addAll(pe.getAttributes());
+		if (pe.getMappedFeature() != null) {
+			mappedParentType = (EClass) pe.getMappedFeature().getEType();
+		}
+		// } else {
+		// throw new IllegalArgumentException(
+		// "Expecting a CrossWalk or MappedElement");
+		// }
 		if (mappedParentType == null) {
 			throw new Error("No feature was mapped on the given parent");
 		}

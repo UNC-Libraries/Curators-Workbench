@@ -552,6 +552,29 @@ public class CrosswalkItemProviderAdapterFactory extends CrosswalkAdapterFactory
 	}
 
 								/**
+	 * This keeps track of the one adapter used for all {@link crosswalk.OutputProfile} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected OutputProfileItemProvider outputProfileItemProvider;
+
+								/**
+	 * This creates an adapter for a {@link crosswalk.OutputProfile}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createOutputProfileAdapter() {
+		if (outputProfileItemProvider == null) {
+			outputProfileItemProvider = new OutputProfileItemProvider(this);
+		}
+
+		return outputProfileItemProvider;
+	}
+
+								/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->

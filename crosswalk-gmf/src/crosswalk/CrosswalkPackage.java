@@ -348,13 +348,13 @@ public interface CrosswalkPackage extends EPackage {
 	int CONTEXT_PROVIDER = 24;
 
 								/**
-	 * The feature id for the '<em><b>Output Type</b></em>' reference list.
+	 * The feature id for the '<em><b>Output Profiles</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTEXT_PROVIDER__OUTPUT_TYPE = 0;
+	int CONTEXT_PROVIDER__OUTPUT_PROFILES = 0;
 
 								/**
 	 * The feature id for the '<em><b>Current User</b></em>' attribute.
@@ -375,13 +375,13 @@ public interface CrosswalkPackage extends EPackage {
 	int CONTEXT_PROVIDER_FEATURE_COUNT = 2;
 
 								/**
-	 * The feature id for the '<em><b>Output Type</b></em>' reference list.
+	 * The feature id for the '<em><b>Output Profiles</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-        int CROSS_WALK__OUTPUT_TYPE = CONTEXT_PROVIDER__OUTPUT_TYPE;
+	int CROSS_WALK__OUTPUT_PROFILES = CONTEXT_PROVIDER__OUTPUT_PROFILES;
 
 								/**
 	 * The feature id for the '<em><b>Current User</b></em>' attribute.
@@ -997,13 +997,13 @@ public interface CrosswalkPackage extends EPackage {
 	int DICTIONARY = 20;
 
 								/**
-	 * The feature id for the '<em><b>Output Type</b></em>' reference list.
+	 * The feature id for the '<em><b>Output Profiles</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DICTIONARY__OUTPUT_TYPE = CONTEXT_PROVIDER__OUTPUT_TYPE;
+	int DICTIONARY__OUTPUT_PROFILES = CONTEXT_PROVIDER__OUTPUT_PROFILES;
 
 								/**
 	 * The feature id for the '<em><b>Current User</b></em>' attribute.
@@ -1079,13 +1079,13 @@ public interface CrosswalkPackage extends EPackage {
 	int METADATA_BLOCK__EXCEPTION = OUTPUT_ELEMENT__EXCEPTION;
 
 								/**
-	 * The feature id for the '<em><b>Output Type</b></em>' reference list.
+	 * The feature id for the '<em><b>Output Profiles</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int METADATA_BLOCK__OUTPUT_TYPE = OUTPUT_ELEMENT_FEATURE_COUNT + 0;
+	int METADATA_BLOCK__OUTPUT_PROFILES = OUTPUT_ELEMENT_FEATURE_COUNT + 0;
 
 								/**
 	 * The feature id for the '<em><b>Current User</b></em>' attribute.
@@ -1370,13 +1370,13 @@ public interface CrosswalkPackage extends EPackage {
 	int MAPPING_CONTAINER = 25;
 
 								/**
-	 * The feature id for the '<em><b>Output Type</b></em>' reference list.
+	 * The feature id for the '<em><b>Output Profiles</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MAPPING_CONTAINER__OUTPUT_TYPE = CONTEXT_PROVIDER__OUTPUT_TYPE;
+	int MAPPING_CONTAINER__OUTPUT_PROFILES = CONTEXT_PROVIDER__OUTPUT_PROFILES;
 
 								/**
 	 * The feature id for the '<em><b>Current User</b></em>' attribute.
@@ -1481,13 +1481,13 @@ public interface CrosswalkPackage extends EPackage {
 	int FORM = 28;
 
 								/**
-	 * The feature id for the '<em><b>Output Type</b></em>' reference list.
+	 * The feature id for the '<em><b>Output Profiles</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FORM__OUTPUT_TYPE = EDITABLE_FEATURE_COUNT + 0;
+	int FORM__OUTPUT_PROFILES = EDITABLE_FEATURE_COUNT + 0;
 
 								/**
 	 * The feature id for the '<em><b>Current User</b></em>' attribute.
@@ -1736,6 +1736,88 @@ public interface CrosswalkPackage extends EPackage {
 	int DATE_INPUT_FIELD_FEATURE_COUNT = INPUT_FIELD_FEATURE_COUNT + 1;
 
 								/**
+	 * The meta object id for the '{@link crosswalk.impl.OutputProfileImpl <em>Output Profile</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see crosswalk.impl.OutputProfileImpl
+	 * @see crosswalk.impl.CrosswalkPackageImpl#getOutputProfile()
+	 * @generated
+	 */
+	int OUTPUT_PROFILE = 32;
+
+								/**
+	 * The feature id for the '<em><b>Parent Mapped Element</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT_PROFILE__PARENT_MAPPED_ELEMENT = 0;
+
+								/**
+	 * The feature id for the '<em><b>Start Mapping At Children</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT_PROFILE__START_MAPPING_AT_CHILDREN = 1;
+
+								/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT_PROFILE__NAME = 2;
+
+								/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT_PROFILE__DESCRIPTION = 3;
+
+								/**
+	 * The feature id for the '<em><b>Metadata Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT_PROFILE__METADATA_LABEL = 4;
+
+								/**
+	 * The feature id for the '<em><b>Metadata Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT_PROFILE__METADATA_TYPE = 5;
+
+								/**
+	 * The feature id for the '<em><b>Metadata Section</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT_PROFILE__METADATA_SECTION = 6;
+
+								/**
+	 * The number of structural features of the '<em>Output Profile</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT_PROFILE_FEATURE_COUNT = 7;
+
+								/**
 	 * The meta object id for the '{@link crosswalk.DatePrecision <em>Date Precision</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1743,7 +1825,7 @@ public interface CrosswalkPackage extends EPackage {
 	 * @see crosswalk.impl.CrosswalkPackageImpl#getDatePrecision()
 	 * @generated
 	 */
-	int DATE_PRECISION = 32;
+	int DATE_PRECISION = 33;
 
 								/**
 	 * The meta object id for the '{@link crosswalk.FieldWidth <em>Field Width</em>}' enum.
@@ -1753,7 +1835,7 @@ public interface CrosswalkPackage extends EPackage {
 	 * @see crosswalk.impl.CrosswalkPackageImpl#getFieldWidth()
 	 * @generated
 	 */
-	int FIELD_WIDTH = 33;
+	int FIELD_WIDTH = 34;
 
 								/**
 	 * The meta object id for the '{@link crosswalk.TextInputType <em>Text Input Type</em>}' enum.
@@ -1763,7 +1845,17 @@ public interface CrosswalkPackage extends EPackage {
 	 * @see crosswalk.impl.CrosswalkPackageImpl#getTextInputType()
 	 * @generated
 	 */
-	int TEXT_INPUT_TYPE = 34;
+	int TEXT_INPUT_TYPE = 35;
+
+								/**
+	 * The meta object id for the '{@link crosswalk.OutputMetadataSections <em>Output Metadata Sections</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see crosswalk.OutputMetadataSections
+	 * @see crosswalk.impl.CrosswalkPackageImpl#getOutputMetadataSections()
+	 * @generated
+	 */
+	int OUTPUT_METADATA_SECTIONS = 36;
 
 								/**
 	 * The meta object id for the '<em>Data Exception</em>' data type.
@@ -1773,7 +1865,7 @@ public interface CrosswalkPackage extends EPackage {
 	 * @see crosswalk.impl.CrosswalkPackageImpl#getDataException()
 	 * @generated
 	 */
-        int DATA_EXCEPTION = 35;
+        int DATA_EXCEPTION = 37;
 
         /**
 	 * The meta object id for the '<em>Record Matches</em>' data type.
@@ -1783,7 +1875,7 @@ public interface CrosswalkPackage extends EPackage {
 	 * @see crosswalk.impl.CrosswalkPackageImpl#getRecordMatches()
 	 * @generated
 	 */
-        int RECORD_MATCHES = 36;
+        int RECORD_MATCHES = 38;
 
         /**
 	 * The meta object id for the '<em>Record Out Of Range Exception</em>' data type.
@@ -1793,7 +1885,7 @@ public interface CrosswalkPackage extends EPackage {
 	 * @see crosswalk.impl.CrosswalkPackageImpl#getRecordOutOfRangeException()
 	 * @generated
 	 */
-        int RECORD_OUT_OF_RANGE_EXCEPTION = 37;
+        int RECORD_OUT_OF_RANGE_EXCEPTION = 39;
 
         /**
 	 * The meta object id for the '<em>URI</em>' data type.
@@ -1803,7 +1895,7 @@ public interface CrosswalkPackage extends EPackage {
 	 * @see crosswalk.impl.CrosswalkPackageImpl#getURI()
 	 * @generated
 	 */
-	int URI = 38;
+	int URI = 40;
 
 								/**
 	 * The meta object id for the '<em>Exception</em>' data type.
@@ -1813,7 +1905,7 @@ public interface CrosswalkPackage extends EPackage {
 	 * @see crosswalk.impl.CrosswalkPackageImpl#getException()
 	 * @generated
 	 */
-	int EXCEPTION = 39;
+	int EXCEPTION = 41;
 
 								/**
 	 * The meta object id for the '<em>Clazz</em>' data type.
@@ -1823,7 +1915,7 @@ public interface CrosswalkPackage extends EPackage {
 	 * @see crosswalk.impl.CrosswalkPackageImpl#getClazz()
 	 * @generated
 	 */
-	int CLAZZ = 40;
+	int CLAZZ = 42;
 
 								/**
 	 * Returns the meta object for class '{@link crosswalk.TabbedDataField <em>Tabbed Data Field</em>}'.
@@ -2615,15 +2707,15 @@ public interface CrosswalkPackage extends EPackage {
 	EClass getContextProvider();
 
 								/**
-	 * Returns the meta object for the reference list '{@link crosswalk.ContextProvider#getOutputType <em>Output Type</em>}'.
+	 * Returns the meta object for the containment reference list '{@link crosswalk.ContextProvider#getOutputProfiles <em>Output Profiles</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Output Type</em>'.
-	 * @see crosswalk.ContextProvider#getOutputType()
+	 * @return the meta object for the containment reference list '<em>Output Profiles</em>'.
+	 * @see crosswalk.ContextProvider#getOutputProfiles()
 	 * @see #getContextProvider()
 	 * @generated
 	 */
-	EReference getContextProvider_OutputType();
+	EReference getContextProvider_OutputProfiles();
 
 								/**
 	 * Returns the meta object for the attribute '{@link crosswalk.ContextProvider#getCurrentUser <em>Current User</em>}'.
@@ -2905,6 +2997,93 @@ public interface CrosswalkPackage extends EPackage {
 	EAttribute getDateInputField_DatePrecision();
 
 								/**
+	 * Returns the meta object for class '{@link crosswalk.OutputProfile <em>Output Profile</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Output Profile</em>'.
+	 * @see crosswalk.OutputProfile
+	 * @generated
+	 */
+	EClass getOutputProfile();
+
+								/**
+	 * Returns the meta object for the attribute '{@link crosswalk.OutputProfile#getMetadataSection <em>Metadata Section</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Metadata Section</em>'.
+	 * @see crosswalk.OutputProfile#getMetadataSection()
+	 * @see #getOutputProfile()
+	 * @generated
+	 */
+	EAttribute getOutputProfile_MetadataSection();
+
+								/**
+	 * Returns the meta object for the reference '{@link crosswalk.OutputProfile#getParentMappedElement <em>Parent Mapped Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Parent Mapped Element</em>'.
+	 * @see crosswalk.OutputProfile#getParentMappedElement()
+	 * @see #getOutputProfile()
+	 * @generated
+	 */
+	EReference getOutputProfile_ParentMappedElement();
+
+								/**
+	 * Returns the meta object for the attribute '{@link crosswalk.OutputProfile#isStartMappingAtChildren <em>Start Mapping At Children</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Start Mapping At Children</em>'.
+	 * @see crosswalk.OutputProfile#isStartMappingAtChildren()
+	 * @see #getOutputProfile()
+	 * @generated
+	 */
+	EAttribute getOutputProfile_StartMappingAtChildren();
+
+								/**
+	 * Returns the meta object for the attribute '{@link crosswalk.OutputProfile#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see crosswalk.OutputProfile#getName()
+	 * @see #getOutputProfile()
+	 * @generated
+	 */
+	EAttribute getOutputProfile_Name();
+
+								/**
+	 * Returns the meta object for the attribute '{@link crosswalk.OutputProfile#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see crosswalk.OutputProfile#getDescription()
+	 * @see #getOutputProfile()
+	 * @generated
+	 */
+	EAttribute getOutputProfile_Description();
+
+								/**
+	 * Returns the meta object for the attribute '{@link crosswalk.OutputProfile#getMetadataLabel <em>Metadata Label</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Metadata Label</em>'.
+	 * @see crosswalk.OutputProfile#getMetadataLabel()
+	 * @see #getOutputProfile()
+	 * @generated
+	 */
+	EAttribute getOutputProfile_MetadataLabel();
+
+								/**
+	 * Returns the meta object for the attribute '{@link crosswalk.OutputProfile#getMetadataType <em>Metadata Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Metadata Type</em>'.
+	 * @see crosswalk.OutputProfile#getMetadataType()
+	 * @see #getOutputProfile()
+	 * @generated
+	 */
+	EAttribute getOutputProfile_MetadataType();
+
+								/**
 	 * Returns the meta object for enum '{@link crosswalk.DatePrecision <em>Date Precision</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2933,6 +3112,16 @@ public interface CrosswalkPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getTextInputType();
+
+								/**
+	 * Returns the meta object for enum '{@link crosswalk.OutputMetadataSections <em>Output Metadata Sections</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Output Metadata Sections</em>'.
+	 * @see crosswalk.OutputMetadataSections
+	 * @generated
+	 */
+	EEnum getOutputMetadataSections();
 
 								/**
 	 * Returns the meta object for data type '{@link crosswalk.DataException <em>Data Exception</em>}'.
@@ -3665,12 +3854,12 @@ public interface CrosswalkPackage extends EPackage {
 		EClass CONTEXT_PROVIDER = eINSTANCE.getContextProvider();
 
 																/**
-		 * The meta object literal for the '<em><b>Output Type</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Output Profiles</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CONTEXT_PROVIDER__OUTPUT_TYPE = eINSTANCE.getContextProvider_OutputType();
+		EReference CONTEXT_PROVIDER__OUTPUT_PROFILES = eINSTANCE.getContextProvider_OutputProfiles();
 
 																/**
 		 * The meta object literal for the '<em><b>Current User</b></em>' attribute feature.
@@ -3895,6 +4084,72 @@ public interface CrosswalkPackage extends EPackage {
 		EAttribute DATE_INPUT_FIELD__DATE_PRECISION = eINSTANCE.getDateInputField_DatePrecision();
 
 																/**
+		 * The meta object literal for the '{@link crosswalk.impl.OutputProfileImpl <em>Output Profile</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see crosswalk.impl.OutputProfileImpl
+		 * @see crosswalk.impl.CrosswalkPackageImpl#getOutputProfile()
+		 * @generated
+		 */
+		EClass OUTPUT_PROFILE = eINSTANCE.getOutputProfile();
+
+																/**
+		 * The meta object literal for the '<em><b>Metadata Section</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OUTPUT_PROFILE__METADATA_SECTION = eINSTANCE.getOutputProfile_MetadataSection();
+
+																/**
+		 * The meta object literal for the '<em><b>Parent Mapped Element</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OUTPUT_PROFILE__PARENT_MAPPED_ELEMENT = eINSTANCE.getOutputProfile_ParentMappedElement();
+
+																/**
+		 * The meta object literal for the '<em><b>Start Mapping At Children</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OUTPUT_PROFILE__START_MAPPING_AT_CHILDREN = eINSTANCE.getOutputProfile_StartMappingAtChildren();
+
+																/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OUTPUT_PROFILE__NAME = eINSTANCE.getOutputProfile_Name();
+
+																/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OUTPUT_PROFILE__DESCRIPTION = eINSTANCE.getOutputProfile_Description();
+
+																/**
+		 * The meta object literal for the '<em><b>Metadata Label</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OUTPUT_PROFILE__METADATA_LABEL = eINSTANCE.getOutputProfile_MetadataLabel();
+
+																/**
+		 * The meta object literal for the '<em><b>Metadata Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OUTPUT_PROFILE__METADATA_TYPE = eINSTANCE.getOutputProfile_MetadataType();
+
+																/**
 		 * The meta object literal for the '{@link crosswalk.DatePrecision <em>Date Precision</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3923,6 +4178,16 @@ public interface CrosswalkPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum TEXT_INPUT_TYPE = eINSTANCE.getTextInputType();
+
+																/**
+		 * The meta object literal for the '{@link crosswalk.OutputMetadataSections <em>Output Metadata Sections</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see crosswalk.OutputMetadataSections
+		 * @see crosswalk.impl.CrosswalkPackageImpl#getOutputMetadataSections()
+		 * @generated
+		 */
+		EEnum OUTPUT_METADATA_SECTIONS = eINSTANCE.getOutputMetadataSections();
 
 																/**
 		 * The meta object literal for the '<em>Data Exception</em>' data type.

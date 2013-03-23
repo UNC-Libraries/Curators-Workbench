@@ -21,6 +21,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
@@ -33,6 +34,9 @@ import crosswalk.ContextProvider;
 import crosswalk.CrosswalkPackage;
 import crosswalk.Form;
 import crosswalk.FormElement;
+import crosswalk.OutputProfile;
+import edu.unc.lib.schemas.acl.DocumentRoot;
+import gov.loc.mods.mods.ModsDefinition;
 
 /**
  * <!-- begin-user-doc -->
@@ -41,7 +45,7 @@ import crosswalk.FormElement;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link crosswalk.impl.FormImpl#getOutputType <em>Output Type</em>}</li>
+ *   <li>{@link crosswalk.impl.FormImpl#getOutputProfiles <em>Output Profiles</em>}</li>
  *   <li>{@link crosswalk.impl.FormImpl#getCurrentUser <em>Current User</em>}</li>
  *   <li>{@link crosswalk.impl.FormImpl#getElements <em>Elements</em>}</li>
  *   <li>{@link crosswalk.impl.FormImpl#getTitle <em>Title</em>}</li>
@@ -61,14 +65,14 @@ import crosswalk.FormElement;
  */
 public class FormImpl extends EObjectImpl implements Form {
 	/**
-	 * The cached value of the '{@link #getOutputType() <em>Output Type</em>}' reference list.
+	 * The cached value of the '{@link #getOutputProfiles() <em>Output Profiles</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getOutputType()
+	 * @see #getOutputProfiles()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<EClass> outputType;
+	protected EList<OutputProfile> outputProfiles;
 
 	/**
 	 * The default value of the '{@link #getCurrentUser() <em>Current User</em>}' attribute.
@@ -322,11 +326,11 @@ public class FormImpl extends EObjectImpl implements Form {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<EClass> getOutputType() {
-		if (outputType == null) {
-			outputType = new EObjectResolvingEList<EClass>(EClass.class, this, CrosswalkPackage.FORM__OUTPUT_TYPE);
+	public EList<OutputProfile> getOutputProfiles() {
+		if (outputProfiles == null) {
+			outputProfiles = new EObjectContainmentEList<OutputProfile>(OutputProfile.class, this, CrosswalkPackage.FORM__OUTPUT_PROFILES);
 		}
-		return outputType;
+		return outputProfiles;
 	}
 
 	/**
@@ -612,6 +616,8 @@ public class FormImpl extends EObjectImpl implements Form {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case CrosswalkPackage.FORM__OUTPUT_PROFILES:
+				return ((InternalEList<?>)getOutputProfiles()).basicRemove(otherEnd, msgs);
 			case CrosswalkPackage.FORM__ELEMENTS:
 				return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
 		}
@@ -626,8 +632,8 @@ public class FormImpl extends EObjectImpl implements Form {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CrosswalkPackage.FORM__OUTPUT_TYPE:
-				return getOutputType();
+			case CrosswalkPackage.FORM__OUTPUT_PROFILES:
+				return getOutputProfiles();
 			case CrosswalkPackage.FORM__CURRENT_USER:
 				return getCurrentUser();
 			case CrosswalkPackage.FORM__ELEMENTS:
@@ -665,9 +671,9 @@ public class FormImpl extends EObjectImpl implements Form {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CrosswalkPackage.FORM__OUTPUT_TYPE:
-				getOutputType().clear();
-				getOutputType().addAll((Collection<? extends EClass>)newValue);
+			case CrosswalkPackage.FORM__OUTPUT_PROFILES:
+				getOutputProfiles().clear();
+				getOutputProfiles().addAll((Collection<? extends OutputProfile>)newValue);
 				return;
 			case CrosswalkPackage.FORM__CURRENT_USER:
 				setCurrentUser((String)newValue);
@@ -720,8 +726,8 @@ public class FormImpl extends EObjectImpl implements Form {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CrosswalkPackage.FORM__OUTPUT_TYPE:
-				getOutputType().clear();
+			case CrosswalkPackage.FORM__OUTPUT_PROFILES:
+				getOutputProfiles().clear();
 				return;
 			case CrosswalkPackage.FORM__CURRENT_USER:
 				setCurrentUser(CURRENT_USER_EDEFAULT);
@@ -771,8 +777,8 @@ public class FormImpl extends EObjectImpl implements Form {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CrosswalkPackage.FORM__OUTPUT_TYPE:
-				return outputType != null && !outputType.isEmpty();
+			case CrosswalkPackage.FORM__OUTPUT_PROFILES:
+				return outputProfiles != null && !outputProfiles.isEmpty();
 			case CrosswalkPackage.FORM__CURRENT_USER:
 				return CURRENT_USER_EDEFAULT == null ? currentUser != null : !CURRENT_USER_EDEFAULT.equals(currentUser);
 			case CrosswalkPackage.FORM__ELEMENTS:
@@ -810,7 +816,7 @@ public class FormImpl extends EObjectImpl implements Form {
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == ContextProvider.class) {
 			switch (derivedFeatureID) {
-				case CrosswalkPackage.FORM__OUTPUT_TYPE: return CrosswalkPackage.CONTEXT_PROVIDER__OUTPUT_TYPE;
+				case CrosswalkPackage.FORM__OUTPUT_PROFILES: return CrosswalkPackage.CONTEXT_PROVIDER__OUTPUT_PROFILES;
 				case CrosswalkPackage.FORM__CURRENT_USER: return CrosswalkPackage.CONTEXT_PROVIDER__CURRENT_USER;
 				default: return -1;
 			}
@@ -827,7 +833,7 @@ public class FormImpl extends EObjectImpl implements Form {
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == ContextProvider.class) {
 			switch (baseFeatureID) {
-				case CrosswalkPackage.CONTEXT_PROVIDER__OUTPUT_TYPE: return CrosswalkPackage.FORM__OUTPUT_TYPE;
+				case CrosswalkPackage.CONTEXT_PROVIDER__OUTPUT_PROFILES: return CrosswalkPackage.FORM__OUTPUT_PROFILES;
 				case CrosswalkPackage.CONTEXT_PROVIDER__CURRENT_USER: return CrosswalkPackage.FORM__CURRENT_USER;
 				default: return -1;
 			}
