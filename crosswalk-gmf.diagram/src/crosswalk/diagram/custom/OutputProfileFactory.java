@@ -1,7 +1,7 @@
 package crosswalk.diagram.custom;
 
-import edu.unc.lib.schemas.acl.AclFactory;
-import gov.loc.mods.mods.MODSFactory;
+import edu.unc.lib.schemas.acl.AclPackage;
+import gov.loc.mods.mods.MODSPackage;
 import crosswalk.CrosswalkFactory;
 import crosswalk.OutputMetadataSections;
 import crosswalk.OutputProfile;
@@ -15,7 +15,7 @@ public class OutputProfileFactory {
 		result.setMetadataLabel("Crosswalked Description");
 		result.setMetadataType("MODS");
 		result.setMetadataSection(OutputMetadataSections.DMD_SEC);
-		result.setParentMappedElement(MODSFactory.eINSTANCE.createModsDefinition());
+		result.setParentMappedFeature(MODSPackage.eINSTANCE.getDocumentRoot_Mods());
 		result.setStartMappingAtChildren(true);
 		return result;
 	}
@@ -27,7 +27,7 @@ public class OutputProfileFactory {
 		result.setMetadataLabel("Crosswalked Access Control");
 		result.setMetadataType("CDRACL");
 		result.setMetadataSection(OutputMetadataSections.RIGHTS_MD);
-		result.setParentMappedElement(AclFactory.eINSTANCE.createAccessControlType());
+		result.setParentMappedFeature(AclPackage.eINSTANCE.getDocumentRoot_AccessControl());
 		result.setStartMappingAtChildren(false);
 		return result;
 	}

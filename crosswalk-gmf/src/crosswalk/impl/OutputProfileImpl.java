@@ -10,6 +10,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -23,7 +24,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link crosswalk.impl.OutputProfileImpl#getParentMappedElement <em>Parent Mapped Element</em>}</li>
+ *   <li>{@link crosswalk.impl.OutputProfileImpl#getParentMappedFeature <em>Parent Mapped Feature</em>}</li>
  *   <li>{@link crosswalk.impl.OutputProfileImpl#isStartMappingAtChildren <em>Start Mapping At Children</em>}</li>
  *   <li>{@link crosswalk.impl.OutputProfileImpl#getName <em>Name</em>}</li>
  *   <li>{@link crosswalk.impl.OutputProfileImpl#getDescription <em>Description</em>}</li>
@@ -37,14 +38,14 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  */
 public class OutputProfileImpl extends EObjectImpl implements OutputProfile {
 	/**
-	 * The cached value of the '{@link #getParentMappedElement() <em>Parent Mapped Element</em>}' reference.
+	 * The cached value of the '{@link #getParentMappedFeature() <em>Parent Mapped Feature</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getParentMappedElement()
+	 * @see #getParentMappedFeature()
 	 * @generated
 	 * @ordered
 	 */
-	protected EObject parentMappedElement;
+	protected EReference parentMappedFeature;
 
 	/**
 	 * The default value of the '{@link #isStartMappingAtChildren() <em>Start Mapping At Children</em>}' attribute.
@@ -190,6 +191,44 @@ public class OutputProfileImpl extends EObjectImpl implements OutputProfile {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getParentMappedFeature() {
+		if (parentMappedFeature != null && parentMappedFeature.eIsProxy()) {
+			InternalEObject oldParentMappedFeature = (InternalEObject)parentMappedFeature;
+			parentMappedFeature = (EReference)eResolveProxy(oldParentMappedFeature);
+			if (parentMappedFeature != oldParentMappedFeature) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CrosswalkPackage.OUTPUT_PROFILE__PARENT_MAPPED_FEATURE, oldParentMappedFeature, parentMappedFeature));
+			}
+		}
+		return parentMappedFeature;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference basicGetParentMappedFeature() {
+		return parentMappedFeature;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setParentMappedFeature(EReference newParentMappedFeature) {
+		EReference oldParentMappedFeature = parentMappedFeature;
+		parentMappedFeature = newParentMappedFeature;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.OUTPUT_PROFILE__PARENT_MAPPED_FEATURE, oldParentMappedFeature, parentMappedFeature));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public OutputMetadataSections getMetadataSection() {
 		return metadataSection;
 	}
@@ -204,44 +243,6 @@ public class OutputProfileImpl extends EObjectImpl implements OutputProfile {
 		metadataSection = newMetadataSection == null ? METADATA_SECTION_EDEFAULT : newMetadataSection;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.OUTPUT_PROFILE__METADATA_SECTION, oldMetadataSection, metadataSection));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EObject getParentMappedElement() {
-		if (parentMappedElement != null && parentMappedElement.eIsProxy()) {
-			InternalEObject oldParentMappedElement = (InternalEObject)parentMappedElement;
-			parentMappedElement = eResolveProxy(oldParentMappedElement);
-			if (parentMappedElement != oldParentMappedElement) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CrosswalkPackage.OUTPUT_PROFILE__PARENT_MAPPED_ELEMENT, oldParentMappedElement, parentMappedElement));
-			}
-		}
-		return parentMappedElement;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EObject basicGetParentMappedElement() {
-		return parentMappedElement;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setParentMappedElement(EObject newParentMappedElement) {
-		EObject oldParentMappedElement = parentMappedElement;
-		parentMappedElement = newParentMappedElement;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.OUTPUT_PROFILE__PARENT_MAPPED_ELEMENT, oldParentMappedElement, parentMappedElement));
 	}
 
 	/**
@@ -357,9 +358,9 @@ public class OutputProfileImpl extends EObjectImpl implements OutputProfile {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CrosswalkPackage.OUTPUT_PROFILE__PARENT_MAPPED_ELEMENT:
-				if (resolve) return getParentMappedElement();
-				return basicGetParentMappedElement();
+			case CrosswalkPackage.OUTPUT_PROFILE__PARENT_MAPPED_FEATURE:
+				if (resolve) return getParentMappedFeature();
+				return basicGetParentMappedFeature();
 			case CrosswalkPackage.OUTPUT_PROFILE__START_MAPPING_AT_CHILDREN:
 				return isStartMappingAtChildren();
 			case CrosswalkPackage.OUTPUT_PROFILE__NAME:
@@ -384,8 +385,8 @@ public class OutputProfileImpl extends EObjectImpl implements OutputProfile {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CrosswalkPackage.OUTPUT_PROFILE__PARENT_MAPPED_ELEMENT:
-				setParentMappedElement((EObject)newValue);
+			case CrosswalkPackage.OUTPUT_PROFILE__PARENT_MAPPED_FEATURE:
+				setParentMappedFeature((EReference)newValue);
 				return;
 			case CrosswalkPackage.OUTPUT_PROFILE__START_MAPPING_AT_CHILDREN:
 				setStartMappingAtChildren((Boolean)newValue);
@@ -417,8 +418,8 @@ public class OutputProfileImpl extends EObjectImpl implements OutputProfile {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CrosswalkPackage.OUTPUT_PROFILE__PARENT_MAPPED_ELEMENT:
-				setParentMappedElement((EObject)null);
+			case CrosswalkPackage.OUTPUT_PROFILE__PARENT_MAPPED_FEATURE:
+				setParentMappedFeature((EReference)null);
 				return;
 			case CrosswalkPackage.OUTPUT_PROFILE__START_MAPPING_AT_CHILDREN:
 				setStartMappingAtChildren(START_MAPPING_AT_CHILDREN_EDEFAULT);
@@ -450,8 +451,8 @@ public class OutputProfileImpl extends EObjectImpl implements OutputProfile {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CrosswalkPackage.OUTPUT_PROFILE__PARENT_MAPPED_ELEMENT:
-				return parentMappedElement != null;
+			case CrosswalkPackage.OUTPUT_PROFILE__PARENT_MAPPED_FEATURE:
+				return parentMappedFeature != null;
 			case CrosswalkPackage.OUTPUT_PROFILE__START_MAPPING_AT_CHILDREN:
 				return startMappingAtChildren != START_MAPPING_AT_CHILDREN_EDEFAULT;
 			case CrosswalkPackage.OUTPUT_PROFILE__NAME:

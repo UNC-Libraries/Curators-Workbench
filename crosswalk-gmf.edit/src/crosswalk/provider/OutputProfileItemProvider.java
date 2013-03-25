@@ -64,7 +64,6 @@ public class OutputProfileItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addParentMappedElementPropertyDescriptor(object);
 			addStartMappingAtChildrenPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
@@ -72,28 +71,6 @@ public class OutputProfileItemProvider
 			addMetadataTypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Parent Mapped Element feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addParentMappedElementPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_OutputProfile_parentMappedElement_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_OutputProfile_parentMappedElement_feature", "_UI_OutputProfile_type"),
-				 CrosswalkPackage.Literals.OUTPUT_PROFILE__PARENT_MAPPED_ELEMENT,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**
@@ -218,6 +195,7 @@ public class OutputProfileItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
+			childrenFeatures.add(CrosswalkPackage.Literals.OUTPUT_PROFILE__PARENT_MAPPED_FEATURE);
 			childrenFeatures.add(CrosswalkPackage.Literals.OUTPUT_PROFILE__METADATA_SECTION);
 		}
 		return childrenFeatures;
@@ -280,6 +258,7 @@ public class OutputProfileItemProvider
 			case CrosswalkPackage.OUTPUT_PROFILE__METADATA_TYPE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
+			case CrosswalkPackage.OUTPUT_PROFILE__PARENT_MAPPED_FEATURE:
 			case CrosswalkPackage.OUTPUT_PROFILE__METADATA_SECTION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;

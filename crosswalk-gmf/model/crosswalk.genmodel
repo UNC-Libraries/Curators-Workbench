@@ -194,7 +194,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//DateInputField/datePrecision"/>
     </genClasses>
     <genClasses ecoreClass="crosswalk.ecore#//OutputProfile">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference crosswalk.ecore#//OutputProfile/parentMappedElement"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference crosswalk.ecore#//OutputProfile/parentMappedFeature"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//OutputProfile/startMappingAtChildren"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//OutputProfile/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//OutputProfile/description"/>

@@ -24,6 +24,7 @@ import java.util.List;
 import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.EcorePackage;
@@ -75,18 +76,12 @@ public class MappedModelUtil {
 					ContextProvider cp = (ContextProvider) next;
 					if (!cp.getOutputProfiles().isEmpty()) {
 						for (OutputProfile profile : cp.getOutputProfiles()) {
-							if (profile.isStartMappingAtChildren()) {
-								System.out
-										.println("mapping child features from profile: "
-												+ profile.getName());
+							if(profile.isStartMappingAtChildren()) {
 								mappedParentTypes.add(profile
-										.getParentMappedElement().eClass());
+										.getParentMappedFeature().getEReferenceType());
 							} else {
-								System.out
-										.println("mapping parent feature from profile: "
-												+ profile.getName());
-								result.add(profile.getParentMappedElement()
-										.eContainmentFeature());
+								mappedParentTypes.add(profile
+										.getParentMappedFeature().getEContainingClass());
 							}
 						}
 						break;
@@ -112,7 +107,12 @@ public class MappedModelUtil {
 				}
 				for (EStructuralFeature a : parentType.getEAllReferences()
 						.toArray(new EStructuralFeature[0])) {
-					System.err.println(a.getName());
+					if ("attribute"
+							.equals(a
+									.getEAnnotation(
+											"http:///org/eclipse/emf/ecore/util/ExtendedMetaData")
+									.getDetails().get("kind")))
+						continue;
 					int count = 0;
 					for (MappedElement m : elementsMappedAlready) {
 						if (m.getMappedFeature() != null

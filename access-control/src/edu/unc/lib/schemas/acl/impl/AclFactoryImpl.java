@@ -40,7 +40,7 @@ public class AclFactoryImpl extends EFactoryImpl implements AclFactory {
 	 */
         public static AclFactory init() {
 		try {
-			AclFactory theAclFactory = (AclFactory)EPackage.Registry.INSTANCE.getEFactory("http://cdr.unc.edu/definitions/acl#"); 
+			AclFactory theAclFactory = (AclFactory)EPackage.Registry.INSTANCE.getEFactory("http://cdr.unc.edu/definitions/acl"); 
 			if (theAclFactory != null) {
 				return theAclFactory;
 			}

@@ -1746,13 +1746,13 @@ public interface CrosswalkPackage extends EPackage {
 	int OUTPUT_PROFILE = 32;
 
 								/**
-	 * The feature id for the '<em><b>Parent Mapped Element</b></em>' reference.
+	 * The feature id for the '<em><b>Parent Mapped Feature</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OUTPUT_PROFILE__PARENT_MAPPED_ELEMENT = 0;
+	int OUTPUT_PROFILE__PARENT_MAPPED_FEATURE = 0;
 
 								/**
 	 * The feature id for the '<em><b>Start Mapping At Children</b></em>' attribute.
@@ -3007,6 +3007,17 @@ public interface CrosswalkPackage extends EPackage {
 	EClass getOutputProfile();
 
 								/**
+	 * Returns the meta object for the reference '{@link crosswalk.OutputProfile#getParentMappedFeature <em>Parent Mapped Feature</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Parent Mapped Feature</em>'.
+	 * @see crosswalk.OutputProfile#getParentMappedFeature()
+	 * @see #getOutputProfile()
+	 * @generated
+	 */
+	EReference getOutputProfile_ParentMappedFeature();
+
+								/**
 	 * Returns the meta object for the attribute '{@link crosswalk.OutputProfile#getMetadataSection <em>Metadata Section</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3016,17 +3027,6 @@ public interface CrosswalkPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getOutputProfile_MetadataSection();
-
-								/**
-	 * Returns the meta object for the reference '{@link crosswalk.OutputProfile#getParentMappedElement <em>Parent Mapped Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Parent Mapped Element</em>'.
-	 * @see crosswalk.OutputProfile#getParentMappedElement()
-	 * @see #getOutputProfile()
-	 * @generated
-	 */
-	EReference getOutputProfile_ParentMappedElement();
 
 								/**
 	 * Returns the meta object for the attribute '{@link crosswalk.OutputProfile#isStartMappingAtChildren <em>Start Mapping At Children</em>}'.
@@ -4094,20 +4094,20 @@ public interface CrosswalkPackage extends EPackage {
 		EClass OUTPUT_PROFILE = eINSTANCE.getOutputProfile();
 
 																/**
+		 * The meta object literal for the '<em><b>Parent Mapped Feature</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OUTPUT_PROFILE__PARENT_MAPPED_FEATURE = eINSTANCE.getOutputProfile_ParentMappedFeature();
+
+																/**
 		 * The meta object literal for the '<em><b>Metadata Section</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute OUTPUT_PROFILE__METADATA_SECTION = eINSTANCE.getOutputProfile_MetadataSection();
-
-																/**
-		 * The meta object literal for the '<em><b>Parent Mapped Element</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference OUTPUT_PROFILE__PARENT_MAPPED_ELEMENT = eINSTANCE.getOutputProfile_ParentMappedElement();
 
 																/**
 		 * The meta object literal for the '<em><b>Start Mapping At Children</b></em>' attribute feature.

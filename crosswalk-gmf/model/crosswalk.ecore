@@ -257,8 +257,8 @@
     <eLiterals name="MultipleLines" value="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OutputProfile">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parentMappedElement" lowerBound="1"
-        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parentMappedFeature" lowerBound="1"
+        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="startMappingAtChildren"
         lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="true"/>

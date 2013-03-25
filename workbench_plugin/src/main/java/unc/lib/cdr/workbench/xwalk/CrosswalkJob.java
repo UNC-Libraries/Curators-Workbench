@@ -15,6 +15,7 @@
  */
 package unc.lib.cdr.workbench.xwalk;
 
+import edu.unc.lib.schemas.acl.AclPackage;
 import gov.loc.mets.AmdSecType;
 import gov.loc.mets.DivType;
 import gov.loc.mets.MDTYPEType;
@@ -43,16 +44,15 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
+import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CompoundCommand;
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.impl.NotificationImpl;
-import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xml.type.internal.XMLCalendar;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.RemoveCommand;
@@ -94,14 +94,12 @@ public class CrosswalkJob extends Job {
 	private CrossWalk cw = null;
 	private String groupId;
 
-	private Map<String, MdSecType> oldMdSecs;
+	// private Map<String, MdSecType> oldMdSecs;
 
 	/**
 	 * For each profile, a list of the objects to be added to the METS root.
 	 */
 	private HashMap<OutputProfile, Map<String, MdSecType>> profile2MetsAdditions;
-
-	private Set<String> newMdSecIDs = new HashSet<String>();
 
 	public CrosswalkJob(IFile crosswalkFile) {
 		super("Running " + crosswalkFile.getName());
@@ -121,30 +119,27 @@ public class CrosswalkJob extends Job {
 			return e.getStatus();
 		}
 
-		// build a list of the old mdSecs for this crosswalk
-		this.oldMdSecs = getCrosswalkMdSecs();
+		// setup profile to record map
 		this.profile2MetsAdditions = new HashMap<OutputProfile, Map<String, MdSecType>>();
 		for (OutputProfile profile : cw.getOutputProfiles())
 			profile2MetsAdditions
 					.put(profile, new HashMap<String, MdSecType>());
 
-		generateNewMetadataRecords(monitor);
-		for (OutputProfile profile : cw.getOutputProfiles())
-			this.newMdSecIDs
-					.addAll(profile2MetsAdditions.get(profile).keySet());
+		try {
+			generateNewMetadataRecords(monitor);
+		} catch (CoreException e) {
+			return e.getStatus();
+		}
 
-		execCleanUpDivLinksCommand();
+		nature.getCommandStack().execute(getLinkCleanupCommand());
 
-		// remove all the old mdSecs
+		// remove the old mdSecs for this crosswalk
 		nature.getCommandStack().execute(
 				RemoveCommand.create(nature.getEditingDomain(),
-						oldMdSecs.values()));
+						getCurrentCrosswalkMdSecs()));
 
 		// add the new records to mets
-		nature.getCommandStack().execute(
-				AddCommand.create(nature.getEditingDomain(), mets,
-						MetsPackage.eINSTANCE.getMetsType_DmdSec(),
-						newCwDmds.values()));
+		nature.getCommandStack().execute(getRecordAddCommand());
 
 		try {
 			nature.save();
@@ -152,6 +147,18 @@ public class CrosswalkJob extends Job {
 			return e1.getStatus();
 		}
 
+		nature.getCommandStack().execute(getMatcherLinkComand());
+
+		try {
+			nature.save();
+		} catch (CoreException e1) {
+			return e1.getStatus();
+		}
+
+		return Status.OK_STATUS;
+	}
+
+	private Command getMatcherLinkComand() {
 		// find the matcher strategies
 		CompoundCommand autoLinkCommand = new CompoundCommand();
 		for (WalkWidget w : cw.getWidgets()) {
@@ -167,63 +174,75 @@ public class CrosswalkJob extends Job {
 							+ matches.getResourceCollisions().size()
 							+ " resource collisions.");
 					// TODO set warnings for collisions
-					// TODO set links and status for matches
+					// set links and status for matches
 					for (Map.Entry<DivType, String> match : matches
 							.getMatches().entrySet()) {
-						String divID = match.getKey().getID();
-						System.out.println("got id " + divID + " for resource "
-								+ match.getKey());
-						if (divID != null) {
-							String dmdID = makeMdSecID(file, match.getValue());
-							if (newCwDmds.containsKey(dmdID)) {
-								MdSecType md = newCwDmds.get(dmdID);
-								md.setSTATUS(METSConstants.MD_STATUS_CROSSWALK_LINKED);
-								// remove any remaining link to this DMDID.
-								for (TreeIterator<EObject> ti = METSUtils
-										.findBagDiv(mets).eAllContents(); ti
-										.hasNext();) {
-									EObject e = ti.next();
-									if (e instanceof DivType) {
-										DivType divL = (DivType) e;
-										for (MdSecType linked : divL
-												.getDmdSec()) {
-											if (dmdID.equals(linked.getID())) {
-												autoLinkCommand
-														.append(RemoveCommand.create(
-																nature.getEditingDomain(),
-																divL,
-																MetsPackage.eINSTANCE
-																		.getDivType_DmdSec(),
-																md));
-											}
-										}
-									}
-								}
-								// add the CW link
-								DivType div = (DivType) mets.eResource()
-										.getEObject(divID);
-								autoLinkCommand.append(AddCommand.create(nature
-										.getEditingDomain(), div,
-										MetsPackage.eINSTANCE
-												.getDivType_DmdSec(), md));
-							}
+						String divID = match.getKey().getID();						
+						// for each profile, add links to matched records
+						for(OutputProfile profile : this.cw.getOutputProfiles()) {
+							String mdID = makeMdSecID(file, profile, match.getValue());
+							MdSecType md = this.profile2MetsAdditions.get(profile).get(mdID);
+							if(md == null) continue;
+							md.setSTATUS(METSConstants.MD_STATUS_CROSSWALK_LINKED);
+							// old links should have been removed earlier
+							// add the CW link
+							autoLinkCommand.append(AddCommand.create(
+									nature.getEditingDomain(), match.getKey(),
+									profile.getMetadataSection().getDivReference(),
+									md));
 						}
 					}
-					nature.getCommandStack().execute(autoLinkCommand);
-					MetsProjectNature.getAdapterFactory().fireNotifyChanged(
-							new NotificationImpl(Notification.ADD, null, null));
 				} catch (Exception e) {
 					setProblemMarker(e.getLocalizedMessage(), file);
 					LOG.error("failure in record matcher", e);
 				}
 			}
 		}
-		return Status.OK_STATUS;
+		return autoLinkCommand;
 	}
 
-	private void execCleanUpDivLinksCommand() {
+	private Command getRecordAddCommand() {
+		CompoundCommand result = new CompoundCommand();
+		for (OutputProfile profile : cw.getOutputProfiles()) {
+			if (profile.getMetadataSection().equals(
+					OutputMetadataSections.DMD_SEC)) {
+				result.append(AddCommand.create(nature.getEditingDomain(),
+						mets, MetsPackage.eINSTANCE.getMetsType_DmdSec(),
+						this.profile2MetsAdditions.get(profile).values()));
+			} else {
+				for (MdSecType md : this.profile2MetsAdditions.get(profile)
+						.values()) {
+					AmdSecType amd = MetsFactory.eINSTANCE.createAmdSecType();
+					switch (profile.getMetadataSection()) {
+					case DIGIPROV_MD:
+						amd.getDigiprovMD().add(md);
+						break;
+					case RIGHTS_MD:
+						amd.getRightsMD().add(md);
+						break;
+					case SOURCE_MD:
+						amd.getSourceMD().add(md);
+						break;
+					case TECH_MD:
+						amd.getTechMD().add(md);
+						break;
+					}
+					result.append(AddCommand.create(nature.getEditingDomain(),
+							mets, MetsPackage.eINSTANCE.getMetsType_AmdSec(),
+							amd));
+				}
+			}
+		}
+		return result;
+	}
+
+	private CompoundCommand getLinkCleanupCommand() {
 		// cleanup links
-		CompoundCommand removeLinksCommand = new CompoundCommand();
+		CompoundCommand result = new CompoundCommand();
+		// build set of new mdSec elements
+		Map<String, MdSecType> newMdSecIDs = new HashMap<String, MdSecType>();
+		for (OutputProfile profile : cw.getOutputProfiles())
+			newMdSecIDs.putAll(profile2MetsAdditions.get(profile));
 		DivType bag = METSUtils.findBagDiv(mets);
 		Iterator<EObject> bagChildren = bag.eAllContents();
 		while (bagChildren.hasNext()) {
@@ -232,57 +251,55 @@ public class CrosswalkJob extends Job {
 				DivType div = (DivType) o;
 
 				for (MdSecType md : div.getDmdSec()) {
-					if (!this.newMdSecIDs.contains(md.getID()) || METSConstants.MD_STATUS_CROSSWALK_LINKED.equals(md
-							.getSTATUS())) {
-						removeLinksCommand.append(RemoveCommand.create(
-								nature.getEditingDomain(), div,
-								MetsPackage.eINSTANCE.getDivType_DmdSec(), md));
+					if (groupId.equals(md.getGROUPID())) {
+						updateCrosswalkLink(div, md, newMdSecIDs, result,
+								MetsPackage.eINSTANCE.getDivType_DmdSec());
 					}
 				}
 				for (MdSecType md : div.getMdSec()) {
-					if (!this.newMdSecIDs.contains(md.getID())) {
-						removeLinksCommand.append(RemoveCommand.create(
-								nature.getEditingDomain(), div,
-								MetsPackage.eINSTANCE.getDivType_MdSec(), md));
-					}
-				}
-				
-				// 
-				
-				
-				
-				for (MdSecType md : div.getDmdSec()) {
 					if (groupId.equals(md.getGROUPID())) {
-						if () {
-							// remove all links established by this CW
-							removeLinksCommand.append(RemoveCommand.create(
-									nature.getEditingDomain(), div,
-									MetsPackage.eINSTANCE.getDivType_DmdSec(),
-									md));
-						} else if (!newCwDmds.containsKey(md.getID())) {
-							// remove all links to mdSecs that no longer
-							// exist
-							removeLinksCommand.append(RemoveCommand.create(
-									nature.getEditingDomain(), div,
-									MetsPackage.eINSTANCE.getDivType_DmdSec(),
-									md));
-						} else { // migrate links you want to keep to new
-									// mds
-							removeLinksCommand.append(RemoveCommand.create(
-									nature.getEditingDomain(), div,
-									MetsPackage.eINSTANCE.getDivType_DmdSec(),
-									md));
-							MdSecType newMd = newCwDmds.get(md.getID());
-							removeLinksCommand.append(AddCommand.create(
-									nature.getEditingDomain(), div,
-									MetsPackage.eINSTANCE.getDivType_DmdSec(),
-									newMd));
-						}
+						updateCrosswalkLink(div, md, newMdSecIDs, result,
+								MetsPackage.eINSTANCE.getDivType_MdSec());
 					}
 				}
 			}
 		}
-		nature.getCommandStack().execute(removeLinksCommand);
+		return result;
+	}
+
+	/**
+	 * Determines link update behavior prior to matcher run. Only pass links to
+	 * mdSecs created by this crosswalk.
+	 * 
+	 * @param md
+	 * @param newMdSecIDs
+	 * @param removeLinksCommand
+	 * @param linkReference
+	 */
+	private void updateCrosswalkLink(DivType div, MdSecType md,
+			Map<String, MdSecType> newMdSecIDs,
+			CompoundCommand removeLinksCommand, EReference linkReference) {
+		if (METSConstants.MD_STATUS_CROSSWALK_LINKED.equals(md.getSTATUS())) {
+			// remove links established by the CW
+			removeLinksCommand.append(RemoveCommand.create(
+					nature.getEditingDomain(), div, linkReference, md));
+		} else if (!newMdSecIDs.containsKey(md.getID())) {
+			// remove links to mdSecs that no longer exist
+			removeLinksCommand.append(RemoveCommand.create(
+					nature.getEditingDomain(), div, linkReference, md));
+		} else {
+			// migrate links you want to keep to new mds
+			MdSecType newMd = newMdSecIDs.get(md.getID());
+			// preserve user linked status
+			if (md.getSTATUS().equals(
+					METSConstants.MD_STATUS_CROSSWALK_USER_LINKED)) {
+				newMd.setSTATUS(METSConstants.MD_STATUS_CROSSWALK_USER_LINKED);
+			}
+			removeLinksCommand.append(RemoveCommand.create(
+					nature.getEditingDomain(), div, linkReference, md));
+			removeLinksCommand.append(AddCommand.create(
+					nature.getEditingDomain(), div, linkReference, newMd));
+		}
 	}
 
 	private void generateNewMetadataRecords(IProgressMonitor monitor)
@@ -291,19 +308,15 @@ public class CrosswalkJob extends Job {
 		try {
 			while (true) {
 				for (OutputProfile profile : cw.getOutputProfiles()) {
+					//System.out.println("in profile: "+profile.getName());
 					if (monitor.isCanceled())
 						throw new CoreException(Status.CANCEL_STATUS);
 					MdSecType md = processRecord(profile);
-					profile2MetsAdditions.get(profile).put(md.getID(), md);
-					if (oldMdSecs.containsKey(md.getID())) {
-						MdSecType oldMd = oldMdSecs.get(md.getID());
-						if (METSConstants.MD_STATUS_CROSSWALK_USER_LINKED
-								.equals(oldMd.getSTATUS())) {
-							md.setSTATUS(oldMd.getSTATUS());
-						}
+					if (md != null) {
+						profile2MetsAdditions.get(profile).put(md.getID(), md);
 					}
-					cw.getDataSource().NextRecord();
 				}
+				cw.getDataSource().NextRecord();
 			}
 		} catch (RecordOutOfRangeException ignored) {
 		} catch (DataException e) {
@@ -313,8 +326,14 @@ public class CrosswalkJob extends Job {
 
 	private void setupCrosswalk() throws CoreException {
 		ResourceSet resourceSet = new ResourceSetImpl();
+		AclPackage.eINSTANCE.eClass();
+		MODSPackage.eINSTANCE.eClass();
 		resourceSet.getPackageRegistry().put(CrosswalkPackage.eNS_URI,
 				CrosswalkPackage.eINSTANCE);
+		resourceSet.getPackageRegistry().put(MODSPackage.eNS_URI,
+				MODSPackage.eINSTANCE);
+		resourceSet.getPackageRegistry().put(AclPackage.eNS_URI,
+				AclPackage.eINSTANCE);
 		@SuppressWarnings("rawtypes")
 		Map xmlOptions = new HashMap();
 		java.net.URI uri = file.getLocationURI();
@@ -370,18 +389,22 @@ public class CrosswalkJob extends Job {
 	 * @param mets
 	 */
 	private MdSecType processRecord(OutputProfile profile) {
-		EObject outputElement = EcoreUtil
-				.copy(profile.getParentMappedElement());
+		EClass outputElementClass = null;
+		if(profile.isStartMappingAtChildren()) {
+			outputElementClass = profile.getParentMappedFeature().getEReferenceType();	
+		} else {
+			outputElementClass = profile.getParentMappedFeature().getEContainingClass();
+		}
+		EObject outputElement = outputElementClass.getEPackage().getEFactoryInstance().create(outputElementClass);
+		
 		for (OutputElement e : cw.getElements()) {
 			e.updateRecord(outputElement);
 		}
-		// validate
-		// Diagnostic diag =
-		// org.eclipse.emf.ecore.util.Diagnostician.INSTANCE.validate(r);
-		// if(diag.getSeverity() > Diagnostic.ERROR) {
-		// System.err.println("found error: "+diag.getCode()+" "+diag.getMessage());
-		// setProblemMarker(diag.getMessage(), file);
-		// }
+		//for(EObject child : outputElement.eContents()) System.out.println(child);
+		if (outputElement.eContents() == null
+				|| outputElement.eContents().isEmpty()) {
+			return null;
+		}
 
 		// detect if ID already present.
 		MdSecType md = MetsFactory.eINSTANCE.createMdSecType();
@@ -402,19 +425,24 @@ public class CrosswalkJob extends Job {
 		wrap.setLABEL(recordID + " (" + profile.getMetadataLabel() + ")");
 		XmlDataType1 xml = MetsFactory.eINSTANCE.createXmlDataType1();
 
-		xml.getAny().add(MODSPackage.eINSTANCE.getDocumentRoot_Mods(), r);
+		// root was mapped, grab nested feature
+		if(!profile.isStartMappingAtChildren()) {
+			outputElement = outputElement.eContents().get(0);
+		}
+		
+		xml.getAny().add(profile.getParentMappedFeature(), outputElement);
 		wrap.setXmlData(xml);
 		md.setMdWrap(wrap);
 		return md;
 	}
 
-	private Map<String, MdSecType> getCrosswalkMdSecs() {
+	private Set<EObject> getCurrentCrosswalkMdSecs() {
 		// build a list of the old mdSecs for this crosswalk
-		Map<String, MdSecType> result = new HashMap<String, MdSecType>();
+		Set<EObject> result = new HashSet<EObject>();
 		if (mets.getDmdSec() != null) {
 			for (MdSecType md : mets.getDmdSec()) {
 				if (groupId.equals(md.getGROUPID())) {
-					result.put(md.getID(), md);
+					result.add(md);
 				}
 			}
 		}
@@ -423,28 +451,28 @@ public class CrosswalkJob extends Job {
 				if (amd.getDigiprovMD() != null) {
 					for (MdSecType md : amd.getDigiprovMD()) {
 						if (groupId.equals(md.getGROUPID())) {
-							result.put(md.getID(), md);
+							result.add(amd);
 						}
 					}
 				}
 				if (amd.getRightsMD() != null) {
 					for (MdSecType md : amd.getRightsMD()) {
 						if (groupId.equals(md.getGROUPID())) {
-							result.put(md.getID(), md);
+							result.add(amd);
 						}
 					}
 				}
 				if (amd.getSourceMD() != null) {
 					for (MdSecType md : amd.getSourceMD()) {
 						if (groupId.equals(md.getGROUPID())) {
-							result.put(md.getID(), md);
+							result.add(amd);
 						}
 					}
 				}
 				if (amd.getTechMD() != null) {
 					for (MdSecType md : amd.getTechMD()) {
 						if (groupId.equals(md.getGROUPID())) {
-							result.put(md.getID(), md);
+							result.add(amd);
 						}
 					}
 				}

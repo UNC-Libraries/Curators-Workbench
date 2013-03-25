@@ -21,6 +21,7 @@ import java.util.Map;
 import java.util.Set;
 
 /**
+ * Captures the outcome of a record to div matching operation.
  * @author Gregory Jansen
  *
  */
@@ -41,14 +42,26 @@ public class RecordMatches {
 	this.divCollisions = divCollisions;
     }
 
+    /**
+     * The div and the record id that was matched to it.
+     * @return
+     */
     public Map<DivType, String> getMatches() {
         return matches;
     }
 
+    /**
+     * The record ids that had overlap in their match patterns.
+     * @return
+     */
     public Map<String, Set<String>> getRecordCollisions() {
         return recordCollisions;
     }
 
+    /**
+     * The divs that had overlap in their match patterns.
+     * @return
+     */
     public Map<String, Set<DivType>> getResourceCollisions() {
         return divCollisions;
     }

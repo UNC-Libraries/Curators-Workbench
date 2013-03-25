@@ -1384,8 +1384,8 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getOutputProfile_MetadataSection() {
-		return (EAttribute)outputProfileEClass.getEStructuralFeatures().get(6);
+	public EReference getOutputProfile_ParentMappedFeature() {
+		return (EReference)outputProfileEClass.getEStructuralFeatures().get(0);
 	}
 
 								/**
@@ -1393,8 +1393,8 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getOutputProfile_ParentMappedElement() {
-		return (EReference)outputProfileEClass.getEStructuralFeatures().get(0);
+	public EAttribute getOutputProfile_MetadataSection() {
+		return (EAttribute)outputProfileEClass.getEStructuralFeatures().get(6);
 	}
 
 								/**
@@ -1694,7 +1694,7 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 		createEAttribute(dateInputFieldEClass, DATE_INPUT_FIELD__DATE_PRECISION);
 
 		outputProfileEClass = createEClass(OUTPUT_PROFILE);
-		createEReference(outputProfileEClass, OUTPUT_PROFILE__PARENT_MAPPED_ELEMENT);
+		createEReference(outputProfileEClass, OUTPUT_PROFILE__PARENT_MAPPED_FEATURE);
 		createEAttribute(outputProfileEClass, OUTPUT_PROFILE__START_MAPPING_AT_CHILDREN);
 		createEAttribute(outputProfileEClass, OUTPUT_PROFILE__NAME);
 		createEAttribute(outputProfileEClass, OUTPUT_PROFILE__DESCRIPTION);
@@ -1978,7 +1978,7 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 		initEAttribute(getDateInputField_DatePrecision(), this.getDatePrecision(), "datePrecision", "Day", 1, 1, DateInputField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(outputProfileEClass, OutputProfile.class, "OutputProfile", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getOutputProfile_ParentMappedElement(), ecorePackage.getEObject(), null, "parentMappedElement", null, 1, 1, OutputProfile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOutputProfile_ParentMappedFeature(), ecorePackage.getEReference(), null, "parentMappedFeature", null, 1, 1, OutputProfile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOutputProfile_StartMappingAtChildren(), ecorePackage.getEBoolean(), "startMappingAtChildren", "true", 1, 1, OutputProfile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOutputProfile_Name(), ecorePackage.getEString(), "name", "Profile Name", 1, 1, OutputProfile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOutputProfile_Description(), ecorePackage.getEString(), "description", "Description", 1, 1, OutputProfile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

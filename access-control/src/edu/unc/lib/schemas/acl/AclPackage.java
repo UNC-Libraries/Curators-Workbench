@@ -50,7 +50,7 @@ public interface AclPackage extends EPackage {
          * <!-- end-user-doc -->
 	 * @generated
 	 */
-        String eNS_URI = "http://cdr.unc.edu/definitions/acl#";
+        String eNS_URI = "http://cdr.unc.edu/definitions/acl";
 
         /**
 	 * The package namespace name.

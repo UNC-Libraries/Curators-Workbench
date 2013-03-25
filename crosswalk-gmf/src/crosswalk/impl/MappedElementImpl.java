@@ -15,11 +15,6 @@
  */
 package crosswalk.impl;
 
-import gov.loc.mods.mods.AccessConditionDefinition;
-import gov.loc.mods.mods.MODSPackage;
-import gov.loc.mods.mods.impl.AccessConditionDefinitionImpl;
-import gov.loc.mods.mods.impl.ExtensionDefinitionImpl;
-
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -41,7 +36,7 @@ import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.emf.ecore.util.FeatureMapUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;  
+import org.slf4j.LoggerFactory;
 
 import crosswalk.CrosswalkPackage;
 import crosswalk.MappedAttribute;
@@ -300,9 +295,10 @@ public class MappedElementImpl extends EObjectImpl implements MappedElement {
 	public void updateRecord(EObject record) {
 		if (this.getMappedFeature() != null && this.getMappedFeature().getEReferenceType() != null) {
 			EClass mytype = this.getMappedFeature().getEReferenceType();
-			LOG.debug("my type: " + mytype.toString());
+			//System.out.println("my type: " + mytype.toString());
+			if(!record.eClass().getEAllContainments().contains(this.getMappedFeature())) return;
 			EObject myobject = mytype.getEPackage().getEFactoryInstance().create(mytype);
-			LOG.debug("my object: " + myobject.toString());
+			//System.out.println("my object: " + myobject.toString());
 			
 			for (MappedAttribute ma : this.getAttributes()) {
 				

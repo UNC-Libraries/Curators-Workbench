@@ -15,10 +15,6 @@
  */
 package crosswalk.diagram.part;
 
-import edu.unc.lib.schemas.acl.AclPackage;
-import gov.loc.mods.mods.MODSFactory;
-import gov.loc.mods.mods.MODSPackage;
-
 import java.io.IOException;
 import java.util.Collections;
 import java.util.HashMap;
@@ -544,8 +540,10 @@ public class CrosswalkDiagramEditorUtil {
 				Dictionary dict = CrosswalkFactory.eINSTANCE.createDictionary();
 				dict.setName("Dictionary Title");
 				dict.setDescription("This is the dictionary description. Click on this text or the title to edit.");
-				dict.getOutputProfiles().add(OutputProfileFactory.getMODSProfile());
-				dict.getOutputProfiles().add(OutputProfileFactory.getACLProfile());
+				dict.getOutputProfiles().add(
+						OutputProfileFactory.getMODSProfile());
+				dict.getOutputProfiles().add(
+						OutputProfileFactory.getACLProfile());
 				model.setModel(dict);
 				attachModelToResource(model, diagramResource);
 
@@ -601,8 +599,10 @@ public class CrosswalkDiagramEditorUtil {
 				Form form = CrosswalkFactory.eINSTANCE.createForm();
 				form.setTitle("Form Title");
 				form.setDescription("This is a description of the form. Click on this text or the title to edit.");
-				form.getOutputProfiles().add(OutputProfileFactory.getMODSProfile());
-				form.getOutputProfiles().add(OutputProfileFactory.getACLProfile());
+				form.getOutputProfiles().add(
+						OutputProfileFactory.getMODSProfile());
+				form.getOutputProfiles().add(
+						OutputProfileFactory.getACLProfile());
 				model.setModel(form);
 				attachModelToResource(model, diagramResource);
 

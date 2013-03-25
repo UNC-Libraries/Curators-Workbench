@@ -2,11 +2,14 @@
  */
 package crosswalk;
 
+import gov.loc.mets.MetsPackage;
+
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
 import org.eclipse.emf.common.util.Enumerator;
+import org.eclipse.emf.ecore.EReference;
 
 /**
  * <!-- begin-user-doc -->
@@ -284,6 +287,21 @@ public enum OutputMetadataSections implements Enumerator {
 	@Override
 	public String toString() {
 		return literal;
+	}
+	
+	public EReference getDivReference() {
+		EReference result = null;
+		switch(this) {
+		case DIGIPROV_MD:
+		case RIGHTS_MD:
+		case SOURCE_MD:
+		case TECH_MD:
+			result = MetsPackage.eINSTANCE.getDivType_MdSec();
+			break;
+		case DMD_SEC:
+			result = MetsPackage.eINSTANCE.getDivType_DmdSec();
+		}
+		return result;
 	}
 	
 } //OutputMetadataSections

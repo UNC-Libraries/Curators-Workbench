@@ -3,6 +3,7 @@
 package crosswalk;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
 
 /**
  * <!-- begin-user-doc -->
@@ -12,7 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link crosswalk.OutputProfile#getParentMappedElement <em>Parent Mapped Element</em>}</li>
+ *   <li>{@link crosswalk.OutputProfile#getParentMappedFeature <em>Parent Mapped Feature</em>}</li>
  *   <li>{@link crosswalk.OutputProfile#isStartMappingAtChildren <em>Start Mapping At Children</em>}</li>
  *   <li>{@link crosswalk.OutputProfile#getName <em>Name</em>}</li>
  *   <li>{@link crosswalk.OutputProfile#getDescription <em>Description</em>}</li>
@@ -27,6 +28,32 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface OutputProfile extends EObject {
+	/**
+	 * Returns the value of the '<em><b>Parent Mapped Feature</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Parent Mapped Feature</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Parent Mapped Feature</em>' reference.
+	 * @see #setParentMappedFeature(EReference)
+	 * @see crosswalk.CrosswalkPackage#getOutputProfile_ParentMappedFeature()
+	 * @model required="true"
+	 * @generated
+	 */
+	EReference getParentMappedFeature();
+
+	/**
+	 * Sets the value of the '{@link crosswalk.OutputProfile#getParentMappedFeature <em>Parent Mapped Feature</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Parent Mapped Feature</em>' reference.
+	 * @see #getParentMappedFeature()
+	 * @generated
+	 */
+	void setParentMappedFeature(EReference value);
+
 	/**
 	 * Returns the value of the '<em><b>Metadata Section</b></em>' attribute.
 	 * The literals are from the enumeration {@link crosswalk.OutputMetadataSections}.
@@ -55,32 +82,6 @@ public interface OutputProfile extends EObject {
 	 * @generated
 	 */
 	void setMetadataSection(OutputMetadataSections value);
-
-	/**
-	 * Returns the value of the '<em><b>Parent Mapped Element</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Parent Mapped Element</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Parent Mapped Element</em>' reference.
-	 * @see #setParentMappedElement(EObject)
-	 * @see crosswalk.CrosswalkPackage#getOutputProfile_ParentMappedElement()
-	 * @model required="true"
-	 * @generated
-	 */
-	EObject getParentMappedElement();
-
-	/**
-	 * Sets the value of the '{@link crosswalk.OutputProfile#getParentMappedElement <em>Parent Mapped Element</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Parent Mapped Element</em>' reference.
-	 * @see #getParentMappedElement()
-	 * @generated
-	 */
-	void setParentMappedElement(EObject value);
 
 	/**
 	 * Returns the value of the '<em><b>Start Mapping At Children</b></em>' attribute.

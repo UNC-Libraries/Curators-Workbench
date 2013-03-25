@@ -342,7 +342,11 @@ public class OriginalNameRecordMatcherImpl extends WalkWidgetImpl implements Ori
 
 		LOG.debug("Running the original name record matcher.");
 		Map<DivType, String> matches = new HashMap<DivType, String>();
+		
+		// pattern to set of divs
 		Map<String, Set<DivType>> divPatterns = new HashMap<String, Set<DivType>>();
+		
+		// pattern to set of record ids
 		Map<String, Set<String>> recordPatterns = new HashMap<String, Set<String>>();
 
 		try {
@@ -355,10 +359,9 @@ public class OriginalNameRecordMatcherImpl extends WalkWidgetImpl implements Ori
 		DataSource ds = crosswalk.getDataSource();
 		ds.Reset();
 		try {
-			processRecord(ds, recordPatterns);
 			while (true) {
-				ds.NextRecord();
 				processRecord(ds, recordPatterns);
+				ds.NextRecord();
 			}
 		} catch (RecordOutOfRangeException e) {
 			// expected
