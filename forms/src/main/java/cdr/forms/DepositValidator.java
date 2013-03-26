@@ -15,9 +15,13 @@
  */
 package cdr.forms;
 
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.validation.Errors;
+import org.springframework.validation.FieldError;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
@@ -36,7 +40,22 @@ public class DepositValidator implements Validator {
 
 	@Override
 	public void validate(Object target, Errors errors) {
+		
 		Deposit deposit = (Deposit) target;
+		
+		// Validate receipt email address
+		
+		if (deposit.getReceiptEmailAddress() != null && deposit.getReceiptEmailAddress().trim().length() > 0) {
+			try {
+				InternetAddress address = new InternetAddress(deposit.getReceiptEmailAddress());
+				address.validate();
+			} catch (AddressException e) {
+				errors.rejectValue("receiptEmailAddress", "invalidEmailAddress", "You must enter a valid email address.");
+			}
+		}
+		
+		// Validate the form
+		
 		Form form = deposit.getForm();
 		
 		for (FormElement el : form.getElements()) {
@@ -54,6 +73,7 @@ public class DepositValidator implements Validator {
 				}
 			}
 		}
+		
 	}
 
 }

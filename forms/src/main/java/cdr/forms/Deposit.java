@@ -6,7 +6,8 @@ public class Deposit {
 	
 	private Form form;
 	private String formId;
-	
+	private String receiptEmailAddress;
+
 	public Form getForm() {
 		return form;
 	}
@@ -21,6 +22,14 @@ public class Deposit {
 	
 	public void setFormId(String formId) {
 		this.formId = formId;
+	}
+	
+	public String getReceiptEmailAddress() {
+		return receiptEmailAddress;
+	}
+
+	public void setReceiptEmailAddress(String receiptEmailAddress) {
+		this.receiptEmailAddress = receiptEmailAddress;
 	}
 
 }

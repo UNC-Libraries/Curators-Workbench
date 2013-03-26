@@ -180,7 +180,7 @@ public class FormController {
 			return "form";
 		
 		
-		// Otherwise, create a new form and deposit object.
+		// Otherwise, create a new deposit object with a new form.
 		
 		Form form = factory.getForm(formId);
 		
@@ -188,14 +188,7 @@ public class FormController {
 			return "404";
 		
 		this.getAuthorizationHandler().checkPermission(formId, form, request);
-		
-		deposit = new Deposit();
-		deposit.setForm(form);
-		deposit.setFormId(formId);
-		
-		modelmap.put("deposit", deposit);
-		
-		
+
 		// Pre-fill receipt email from header if available, stripping _UNC suffix if present
 
 		String receiptEmailAddress = null;
@@ -207,7 +200,12 @@ public class FormController {
 				receiptEmailAddress = receiptEmailAddress.substring(0, receiptEmailAddress.length() - 4);
 		}
 		
-		modelmap.put("receiptEmailAddress", receiptEmailAddress);
+		deposit = new Deposit();
+		deposit.setForm(form);
+		deposit.setFormId(formId);
+		deposit.setReceiptEmailAddress(receiptEmailAddress);
+		
+		modelmap.put("deposit", deposit);
 		
 		return "form";
 		
@@ -241,23 +239,6 @@ public class FormController {
 			deposit.getForm().setCurrentUser(user.getName());
 		
 		this.getAuthorizationHandler().checkPermission(formId, deposit.getForm(), request);
-		
-		
-		// Ensure that recipientEmailAddress is either blank or is a valid email address
-		
-		if (receiptEmailAddress == null)
-			receiptEmailAddress = "";
-		
-		if (receiptEmailAddress.trim().length() > 0) {
-			try {
-				InternetAddress address = new InternetAddress(receiptEmailAddress);
-				address.validate();
-			} catch (AddressException e) {
-				errors.addError(new FieldError("form", "receiptEmailAddress", "You must enter a valid email address."));
-			}
-		}
-		
-		model.addAttribute("receiptEmailAddress", receiptEmailAddress);
 		
 		model.addAttribute("administratorEmail", getAdministratorEmail());
 		
@@ -343,7 +324,7 @@ public class FormController {
 			LOG.error("deposit failed");
 			
 			if (getNotificationHandler() != null)
-				getNotificationHandler().notifyError(deposit.getForm(), result, receiptEmailAddress, formId);
+				getNotificationHandler().notifyError(deposit.getForm(), result, deposit.getReceiptEmailAddress(), formId);
 			
 			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
 			return "failed";

@@ -378,12 +378,9 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 	<p>Your deposit receipt will be emailed to the address below.</p>
 	<div class="indented_block">
 		<div class="form_field receipt_email_address_field">
-			<label>&nbsp;</label><input name="receiptEmailAddress" type="text" size="40" value="${receiptEmailAddress}"/>
-			<spring:hasBindErrors name="form">
-				<% if (errors.getFieldError("receiptEmailAddress") != null) { %>
-				<span class="red"><%= errors.getFieldError("receiptEmailAddress").getDefaultMessage() %></span>
-				<% } %>
-    		</spring:hasBindErrors>
+			<label>&nbsp;</label>
+    		<form:input path="receiptEmailAddress" />
+    		<form:errors cssClass="red" path="receiptEmailAddress" />
 		</div>
 	</div>
 	
