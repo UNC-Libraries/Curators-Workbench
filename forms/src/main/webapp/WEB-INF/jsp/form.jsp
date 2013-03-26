@@ -105,14 +105,12 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 			changeYear: true,
 			showButtonPanel: false,
 			onChangeMonthYear : function(year, month, inst) {
-				console.log("change moth");
 				var newDate = new Date(year, month - 1, 1);
 				$(this).datepicker("setDate", newDate);
 				$(this).val($.datepicker.formatDate('yy-mm', newDate));
 				$(".ui-datepicker-calendar").hide();
 			}, yearRange: "-200:+5"
 		}).focus(function () {
-			console.log("monthpicker focus");
 			$(".ui-datepicker-calendar").hide();
 		}).attr("readonly", true).each(function(){
 			if (!$(this).val()) {
@@ -127,10 +125,8 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 	        dateFormat: 'yy-mm-dd',
 	        yearRange: "-200:+5",
 	        beforeShow: function() {
-				console.log("before show d");
 			}
 		}).focus(function () {
-			console.log("datepicker focus");
 			$(".ui-datepicker-calendar").show();
 			$(".ui-datepicker-month").show();
 		}).each(function(){
