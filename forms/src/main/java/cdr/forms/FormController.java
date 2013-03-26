@@ -65,7 +65,7 @@ import crosswalk.FormElement;
 
 @Controller
 @RequestMapping(value = { "/*", "/**" })
-@SessionAttributes("form")
+@SessionAttributes("deposit")
 public class FormController {
 
 	@Autowired
@@ -153,7 +153,7 @@ public class FormController {
 
 	@InitBinder
    protected void initBinder(WebDataBinder binder) {
-       binder.setValidator(new FormValidator());
+       binder.setValidator(new DepositValidator());
        binder.registerCustomEditor(java.util.Date.class, new DateEditor());
        binder.registerCustomEditor(java.lang.String.class, new StringCleanerTrimmerEditor(true));
        binder.setBindEmptyMultipartFiles(true);
@@ -170,40 +170,54 @@ public class FormController {
 
 	@RequestMapping(value = "/{formId}.form", method = RequestMethod.GET)
 	public String showForm(@PathVariable String formId, ModelMap modelmap, HttpServletRequest request) throws PermissionDeniedException {
-		LOG.debug("in GET for form " + formId);
-		String sessionFormId = (String)modelmap.get("formId");
-		Form form = null;
-		if(sessionFormId == null || !sessionFormId.equals(formId)) {
-			form = factory.getForm(formId);
-			if(form == null) {
-				return "404";
-			}
-			this.getAuthorizationHandler().checkPermission(formId, form, request);
-			modelmap.put("form", form);
-			modelmap.put("formId", formId);
+		
+		// If we already have a deposit object, and it has a form, and its formId matches the
+		// one in the path, render the form.
+		
+		Deposit deposit = (Deposit) modelmap.get("deposit");
+		
+		if (deposit != null && deposit.getForm() != null && deposit.getFormId().equals(formId))
+			return "form";
+		
+		
+		// Otherwise, create a new form and deposit object.
+		
+		Form form = factory.getForm(formId);
+		
+		if (form == null)
+			return "404";
+		
+		this.getAuthorizationHandler().checkPermission(formId, form, request);
+		
+		deposit = new Deposit();
+		deposit.setForm(form);
+		deposit.setFormId(formId);
+		
+		modelmap.put("deposit", deposit);
+		
+		
+		// Pre-fill receipt email from header if available, stripping _UNC suffix if present
 
-			String receiptEmailAddress = null;
+		String receiptEmailAddress = null;
+		
+		if (request.getHeader("mail") != null) {
+			receiptEmailAddress = request.getHeader("mail");
 			
-			// Pre-fill receipt email from header if available, stripping _UNC suffix if present
-			
-			if (request.getHeader("mail") != null) {
-				receiptEmailAddress = request.getHeader("mail");
-				
-				if (receiptEmailAddress.endsWith("_UNC"))
-					receiptEmailAddress = receiptEmailAddress.substring(0, receiptEmailAddress.length() - 4);
-			}
-			
-			modelmap.put("receiptEmailAddress", receiptEmailAddress);
-			
+			if (receiptEmailAddress.endsWith("_UNC"))
+				receiptEmailAddress = receiptEmailAddress.substring(0, receiptEmailAddress.length() - 4);
 		}
+		
+		modelmap.put("receiptEmailAddress", receiptEmailAddress);
+		
 		return "form";
+		
 	}
 
 	@RequestMapping(value = "/{formId}.form", method = RequestMethod.POST)
 	public String processForm(
 			Model model,
 			@PathVariable String formId,
-			@Valid @ModelAttribute("form") Form form,
+			@Valid @ModelAttribute("deposit") Deposit deposit,
 			BindingResult errors,
 			Principal user,
 			@RequestParam(required = false, value = "receiptEmailAddress") String receiptEmailAddress,
@@ -224,9 +238,9 @@ public class FormController {
 		}
 		
 		if (user != null)
-			form.setCurrentUser(user.getName());
+			deposit.getForm().setCurrentUser(user.getName());
 		
-		this.getAuthorizationHandler().checkPermission(formId, form, request);
+		this.getAuthorizationHandler().checkPermission(formId, deposit.getForm(), request);
 		
 		
 		// Ensure that recipientEmailAddress is either blank or is a valid email address
@@ -256,7 +270,7 @@ public class FormController {
 			
 			int i = 0;
 			
-			for (FormElement element : form.getElements()) {
+			for (FormElement element : deposit.getForm().getElements()) {
 				
 				if (FileBlock.class.isInstance(element)) {
 					
@@ -319,7 +333,7 @@ public class FormController {
 		
 		// Deposit
 		
-		result = this.getDepositHandler().deposit(form, submittedFiles);
+		result = this.getDepositHandler().deposit(deposit.getForm(), submittedFiles);
 		
 		
 		// Handle a failed deposit response
@@ -329,7 +343,7 @@ public class FormController {
 			LOG.error("deposit failed");
 			
 			if (getNotificationHandler() != null)
-				getNotificationHandler().notifyError(form, result, receiptEmailAddress, formId);
+				getNotificationHandler().notifyError(deposit.getForm(), result, receiptEmailAddress, formId);
 			
 			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
 			return "failed";
@@ -340,7 +354,7 @@ public class FormController {
 		// Otherwise, if the deposit was successful, send a notification
 		
 		if (getNotificationHandler() != null)
-			getNotificationHandler().notifyDeposit(form, result, receiptEmailAddress, formId);
+			getNotificationHandler().notifyDeposit(deposit.getForm(), result, receiptEmailAddress, formId);
 		
 		
 		// Clean up: delete temporary files, clear the session

@@ -24,6 +24,7 @@
 <%@ page import="crosswalk.impl.*"%>
 <%@ page import="java.net.URL"%>
 <%@ page import="java.io.*"%>
+<%@ page import="cdr.forms.Deposit"%>
 <!doctype html>
 <html>
 <head>
@@ -46,7 +47,7 @@ pageContext.setAttribute("currentYear", new Integer(year));
 Map<String,List<String>> vocabURLMap = new HashMap<String,List<String>>();
 Set<String> freeTextKeys = new HashSet<String>();
 int elementNum = 0;
-for (Object element: ((FormImpl)request.getAttribute("form")).getElements()) {
+for (Object element: ((Deposit) request.getAttribute("deposit")).getForm().getElements()) {
 	if (element instanceof MetadataBlockImpl) {
 		String vocabKey = null;
 		MetadataBlockImpl mdBlock = (MetadataBlockImpl)element;
@@ -173,7 +174,7 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 <meta name="keywords" content="Carolina Digital Repository, deposit" />
 <meta name="robots" content="index, nofollow" />
 <link rel="shortcut icon" href="/static/images/favicon.ico" type="image/x-icon" />
-<title><c:out value="${form.title}"/></title>
+<title><c:out value="${deposit.form.title}"/></title>
 </head>
 <body>
 <div id="pagewrap">
@@ -194,17 +195,17 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 		</div>
 		<div id="content">
 			<div class="contentarea">
-<h2><c:out value="${form.title}"/></h2>
+<h2><c:out value="${deposit.form.title}"/></h2>
 <spring:hasBindErrors name="form">
 	<% if (errors.getFieldError("file") != null) { %>
 	<span class="red"><%= errors.getFieldError("file").getDefaultMessage() %></span>
 	<br/><br/>
 	<% } %>
 </spring:hasBindErrors>
-<p><c:out value="${form.description}"/></p>
-<form:form modelAttribute="form" enctype="multipart/form-data" acceptCharset="UTF-8">
-	<c:forEach items="${form.elements}" var="element" varStatus="elementRow">
-		<spring:bind path="form.elements[${elementRow.index}]" ignoreNestedPath="true">
+<p><c:out value="${deposit.form.description}"/></p>
+<form:form modelAttribute="deposit" enctype="multipart/form-data" acceptCharset="UTF-8">
+	<c:forEach items="${deposit.form.elements}" var="element" varStatus="elementRow">
+		<spring:bind path="deposit.form.elements[${elementRow.index}]" ignoreNestedPath="true">
 			<% if(Paragraph.class.isInstance(status.getValue())) { 
 				Paragraph p = (Paragraph)status.getValue(); 
 				if(p.getHeading() != null) { %>
@@ -236,26 +237,26 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 						<p><%= ((MetadataBlock)status.getValue()).getDescription() %></p>
 						<% } %>
 						<div class="indented_block">
-							<c:forEach items="${form.elements[elementRow.index].ports}" var="port" varStatus="portRow">
-								<spring:bind path="form.elements[${elementRow.index}].ports[${portRow.index}]" ignoreNestedPath="true">
+							<c:forEach items="${deposit.form.elements[elementRow.index].ports}" var="port" varStatus="portRow">
+								<spring:bind path="deposit.form.elements[${elementRow.index}].ports[${portRow.index}]" ignoreNestedPath="true">
 									<% if(status.getValue() instanceof DateInputField) { %>
 										<div class="form_field">
 											<label><c:if test="${not empty port.usage}"><a title="${port.usage}">(i)</a>&nbsp;</c:if><c:out value="${port.label}"/></label>
 											<c:choose>
 												<c:when test="${port.datePrecision.name == 'month'}">
-													<form:input cssClass="monthpicker" path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}" />
+													<form:input cssClass="monthpicker" path="form.elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}" />
 												</c:when>
 												<c:when test="${port.datePrecision.name == 'day'}">
-													<form:input cssClass="datepicker" path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}" />
+													<form:input cssClass="datepicker" path="form.elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}" />
 												</c:when>
 												<c:when test="${port.datePrecision.name == 'year'}">
-													<form:select path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}">
+													<form:select path="form.elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}">
 														<%-- Display a select of years, from 190 in the past to 10 in the future --%>
 														<c:forEach var="i" begin="0" end="200">
 															<%-- Select the year from the form bean or the current year if none is provided --%>
 															<c:choose>
-																<c:when test="${(form.elements[elementRow.index].ports[portRow.index].enteredValue != null && form.elements[elementRow.index].ports[portRow.index].enteredValue.year == (currentYear - i + 10 - 1900))  
-																		|| (form.elements[elementRow.index].ports[portRow.index].enteredValue == null && i == 10)}">
+																<c:when test="${(deposit.form.elements[elementRow.index].ports[portRow.index].enteredValue != null && form.elements[elementRow.index].ports[portRow.index].enteredValue.year == (currentYear - i + 10 - 1900))  
+																		|| (deposit.form.elements[elementRow.index].ports[portRow.index].enteredValue == null && i == 10)}">
 																	<form:option value="${currentYear - i + 10}" selected="true"/>
 																</c:when>
 																<c:otherwise>
@@ -267,7 +268,7 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 												</c:when>
 											</c:choose>
 											<c:if test="${port.required}"><span class="red">*</span></c:if>
-											<form:errors cssClass="red" path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" />
+											<form:errors cssClass="red" path="form.elements[${elementRow.index}].ports[${portRow.index}].enteredValue" />
 											<br/>
 										</div>
 									<% } else if(status.getValue() instanceof TextInputField) { %>
@@ -280,17 +281,17 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 												<c:when test="${port.type.name == 'MultipleLines'}">
 													<div class="multi_notes">
 														<c:if test="${port.required}"><span class="red">*</span></c:if>
-														<form:errors cssClass="red" path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" />
+														<form:errors cssClass="red" path="form.elements[${elementRow.index}].ports[${portRow.index}].enteredValue" />
 													</div>
 													<c:if test="${port.width.name == 'FullLine'}">
 														<br/>
 													</c:if>													
 													<c:choose>
 														<c:when test="${port.maxCharacters != null}">
-															<form:textarea path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}" placeholder="${port.usage}" maxlength="${port.maxCharacters}"/>
+															<form:textarea path="form.elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}" placeholder="${port.usage}" maxlength="${port.maxCharacters}"/>
 														</c:when>
 														<c:otherwise>
-															<form:textarea path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}" placeholder="${port.usage}"/>
+															<form:textarea path="form.elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}" placeholder="${port.usage}"/>
 														</c:otherwise>
 													</c:choose>
 													<br/>
@@ -302,15 +303,15 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 																<c:when test="${port.allowFreeText}">
 																	<c:choose>
 																		<c:when test="${port.validValues == null || port.validValues.size() == 0}">
-																			<form:input path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}" placeholder="${port.usage}" maxlength="${port.maxCharacters}" cssClass="cv_${port.vocabularyURL.hashCode()}"/>
+																			<form:input path="form.elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}" placeholder="${port.usage}" maxlength="${port.maxCharacters}" cssClass="cv_${port.vocabularyURL.hashCode()}"/>
 																		</c:when>
 																		<c:otherwise>
-																			<form:input path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}" placeholder="${port.usage}" maxlength="${port.maxCharacters}" cssClass="cv_${port.vocabularyURL.hashCode()}_elements${elementRow.index}.ports${portRow.index}.enteredValue"/>
+																			<form:input path="form.elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}" placeholder="${port.usage}" maxlength="${port.maxCharacters}" cssClass="cv_${port.vocabularyURL.hashCode()}_elements${elementRow.index}.ports${portRow.index}.enteredValue"/>
 																		</c:otherwise>
 																	</c:choose>
 																</c:when>
 																<c:otherwise>
-																	<form:select path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}">
+																	<form:select path="form.elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}">
 																		<form:options items="${vocabURLMap[port.vocabularyURL.hashCode().toString()]}"/>
 																		<form:options items="${port.validValues}"/>
 																	</form:select>
@@ -320,10 +321,10 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 														<c:otherwise>
 															<c:choose>
 																<c:when test="${port.validValues == null || port.validValues.size() == 0}">
-																	<form:input path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}" placeholder="${port.usage}" maxlength="${port.maxCharacters}"/>
+																	<form:input path="form.elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}" placeholder="${port.usage}" maxlength="${port.maxCharacters}"/>
 																</c:when>
 																<c:otherwise>
-																	<form:select path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}">
+																	<form:select path="form.elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}">
 																		<form:options items="${port.validValues}"/>
 																	</form:select>
 																</c:otherwise>
@@ -331,13 +332,13 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 														</c:otherwise>
 													</c:choose>
 													<c:if test="${port.required}"><span class="red">*</span></c:if>
-													<form:errors cssClass="red" path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" />
+													<form:errors cssClass="red" path="form.elements[${elementRow.index}].ports[${portRow.index}].enteredValue" />
 													<br/>
 												</c:otherwise>
 											</c:choose>
 										</div>
 									<% } else { %>
-									<form:input path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}" />
+									<form:input path="form.elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}" />
 									<% } %>
 								</spring:bind>
 							</c:forEach>
@@ -347,7 +348,7 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 		</spring:bind>
 	</c:forEach>
 	
-	<c:if test="${not form.hasFileBlocks}">
+	<c:if test="${not deposit.form.hasFileBlocks}">
 		<br/><h3>File for Deposit</h3>
 		<div class="indented_block">
 			<div class="form_field file_field">
@@ -358,7 +359,7 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 		</div>
 	</c:if>
 
-	<c:if test="${form.canAddSupplementalFiles}">
+	<c:if test="${deposit.form.canAddSupplementalFiles}">
 		<br/><h3>Supplemental Files</h3>
 		<div class="indented_block">
 			<div class="form_field file_field">

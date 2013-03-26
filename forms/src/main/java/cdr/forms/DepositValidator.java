@@ -26,25 +26,27 @@ import crosswalk.FormElement;
 import crosswalk.InputField;
 import crosswalk.MetadataBlock;
 
-public class FormValidator implements Validator {
-	private static final Logger LOG = LoggerFactory.getLogger(FormValidator.class);
+public class DepositValidator implements Validator {
+	private static final Logger LOG = LoggerFactory.getLogger(DepositValidator.class);
 
 	@Override
-	public boolean supports(Class clazz) {
-		 return Form.class.isAssignableFrom(clazz);
+	public boolean supports(Class<?> clazz) {
+		 return Deposit.class.isAssignableFrom(clazz);
 	}
 
 	@Override
 	public void validate(Object target, Errors errors) {
-		Form form = (Form)target;
+		Deposit deposit = (Deposit) target;
+		Form form = deposit.getForm();
+		
 		for (FormElement el : form.getElements()) {
 			if (MetadataBlock.class.isInstance(el)) {
 				MetadataBlock mb = (MetadataBlock) el;
 				int mbIdx = form.getElements().indexOf(mb);
-				for (InputField in : mb.getPorts()) {
+				for (InputField<?> in : mb.getPorts()) {
 					int inIdx = mb.getPorts().indexOf(in);
 					if(in.isRequired()) {
-						StringBuilder path = new StringBuilder().append("elements[").append(mbIdx)
+						StringBuilder path = new StringBuilder().append("form.elements[").append(mbIdx)
 								.append("].ports[").append(inIdx).append("].enteredValue");
 						LOG.debug(in.getLabel()+ " | " + path+ " is a required field");
 						ValidationUtils.rejectIfEmptyOrWhitespace(errors, path.toString(), "field.required", "This field is required.");
