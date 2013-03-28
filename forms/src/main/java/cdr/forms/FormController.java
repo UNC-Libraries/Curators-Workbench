@@ -166,13 +166,16 @@ public class FormController {
 	@RequestMapping(value = "/{formId}.form", method = RequestMethod.GET)
 	public String showForm(@PathVariable String formId, Model model, HttpServletRequest request) throws PermissionDeniedException {
 		
-		Deposit deposit = new Deposit();
 		Form form = factory.getForm(formId);
 		
 		if (form == null)
 			return "404";
 		
 		this.getAuthorizationHandler().checkPermission(formId, form, request);
+		
+		//
+
+		Deposit deposit = new Deposit();
 
 		deposit.setForm(form);
 		deposit.setFormId(formId);
@@ -207,10 +210,6 @@ public class FormController {
 		}
 		
 		deposit.setReceiptEmailAddress(receiptEmailAddress);
-		
-		//
-		
-		deposit.setSupplementalFiles(new DepositFile[3]);
 		
 		
 		model.addAttribute("deposit", deposit);
