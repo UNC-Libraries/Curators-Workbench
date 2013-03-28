@@ -1,5 +1,6 @@
 package cdr.forms;
 
+import java.util.ArrayList;
 import java.util.IdentityHashMap;
 import java.util.List;
 
@@ -75,22 +76,33 @@ public class Deposit {
 	}
 	
 	public void deleteAllFiles() {
+		for (DepositFile depositFile : this.getAllFiles()) {
+			if (depositFile.getFile() != null)
+				depositFile.getFile().delete();
+		}
+	}
+	
+	public List<DepositFile> getAllFiles() {
+		List<DepositFile> files = new ArrayList<DepositFile>();
+		
 		if (this.getFiles() != null) {
 			for (DepositFile depositFile : this.getFiles()) {
-				if (depositFile != null && depositFile.getFile() != null)
-					depositFile.getFile().delete();
+				if (depositFile != null)
+					files.add(depositFile);
 			}
 		}
 		
-		if (this.getMainFile() != null && this.getMainFile().getFile() != null)
-			this.getMainFile().getFile().delete();
+		if (this.getMainFile() != null)
+			files.add(this.getMainFile());
 		
 		if (this.getSupplementalFiles() != null) {
 			for (DepositFile depositFile : this.getSupplementalFiles()) {
-				if (depositFile != null && depositFile.getFile() != null)
-					depositFile.getFile().delete();
+				if (depositFile != null)
+					files.add(depositFile);
 			}
 		}
+		
+		return files;
 	}
 
 }

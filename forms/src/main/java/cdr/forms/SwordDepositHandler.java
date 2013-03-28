@@ -152,6 +152,7 @@ public class SwordDepositHandler implements DepositHandler {
 
 		String pid = "uuid:" + UUID.randomUUID().toString();
 		
+		
 		// Identify the "main file".
 		// If the form has file blocks, this is the file corresponding to the form's main file block.
 		// If the form doesn't have file blocks, this is the mainFile attribute of the deposit.
@@ -167,6 +168,7 @@ public class SwordDepositHandler implements DepositHandler {
 			mainFile = deposit.getMainFile();
 		}
 		
+		
 		// Establish a mapping between files and the form's FileBlocks
 		
 		IdentityHashMap<DepositFile, FileBlock> fileBlockMap = new IdentityHashMap<DepositFile, FileBlock>();
@@ -178,30 +180,16 @@ public class SwordDepositHandler implements DepositHandler {
 				fileBlockMap.put(depositFile, entry.getKey());
 		}
 		
+		
 		// Get all the files as a big list
 		
-		List<DepositFile> files = new ArrayList<DepositFile>();
+		List<DepositFile> files = deposit.getAllFiles();
 		
-		if (deposit.getFiles() != null) {
-			for (DepositFile file : deposit.getFiles()) {
-				if (file != null)
-					files.add(file);
-			}
-		}
-		
-		if (deposit.getMainFile() != null)
-			files.add(deposit.getMainFile());
-		
-		if (deposit.getSupplementalFiles() != null) {
-			for (DepositFile file : deposit.getSupplementalFiles()) {
-				if (file != null)
-					files.add(file);
-			}
-		}
 		
 		// Establish a mapping between files and filenames (give each file a unique, indexed name)
 		
 		IdentityHashMap<DepositFile, String> fileFilenameMap = buildFilenameMap(files);
+		
 		
 		// Prepare the zip file for deposit
 		
