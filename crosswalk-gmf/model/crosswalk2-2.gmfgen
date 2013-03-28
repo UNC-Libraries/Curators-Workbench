@@ -916,7 +916,8 @@
           visualID="5031"
           editPartClassName="FileBlockNameEditPart"
           itemSemanticEditPolicyClassName="FileBlockNameItemSemanticEditPolicy"
-          notationViewFactoryClassName="FileBlockNameViewFactory">
+          notationViewFactoryClassName="FileBlockNameViewFactory"
+          elementIcon="true">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <viewmap

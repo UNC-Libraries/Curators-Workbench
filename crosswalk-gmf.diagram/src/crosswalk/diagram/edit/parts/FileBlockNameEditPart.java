@@ -196,7 +196,11 @@ public class FileBlockNameEditPart extends CompartmentEditPart implements
 	 * @generated
 	 */
 	protected Image getLabelIcon() {
-		return null;
+		EObject parserElement = getParserElement();
+		if (parserElement == null) {
+			return null;
+		}
+		return CrosswalkElementTypes.getImage(parserElement.eClass());
 	}
 
 	/**

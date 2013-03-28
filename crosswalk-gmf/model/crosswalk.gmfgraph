@@ -625,7 +625,6 @@
   <labels
       name="FileBlockNameLabel"
       figure="FileBlockFigure"
-      elementIcon="false"
       accessor="//@figures.0/@descriptors.11/@accessors.0"/>
   <labels
       name="FileBlockDescriptionLabel"
