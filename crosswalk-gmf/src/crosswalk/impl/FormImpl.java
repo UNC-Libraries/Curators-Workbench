@@ -33,6 +33,7 @@ import crosswalk.CrosswalkPackage;
 import crosswalk.FileBlock;
 import crosswalk.Form;
 import crosswalk.FormElement;
+import java.net.URI;
 
 /**
  * <!-- begin-user-doc -->
@@ -55,6 +56,7 @@ import crosswalk.FormElement;
  *   <li>{@link crosswalk.impl.FormImpl#getContactName <em>Contact Name</em>}</li>
  *   <li>{@link crosswalk.impl.FormImpl#getContactEmail <em>Contact Email</em>}</li>
  *   <li>{@link crosswalk.impl.FormImpl#getMainFileBlock <em>Main File Block</em>}</li>
+ *   <li>{@link crosswalk.impl.FormImpl#getLogo <em>Logo</em>}</li>
  * </ul>
  * </p>
  *
@@ -308,6 +310,26 @@ public class FormImpl extends EObjectImpl implements Form {
 	 * @ordered
 	 */
 	protected FileBlock mainFileBlock;
+
+	/**
+	 * The default value of the '{@link #getLogo() <em>Logo</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLogo()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final URI LOGO_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getLogo() <em>Logo</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLogo()
+	 * @generated
+	 * @ordered
+	 */
+	protected URI logo = LOGO_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -695,6 +717,27 @@ public class FormImpl extends EObjectImpl implements Form {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public URI getLogo() {
+		return logo;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLogo(URI newLogo) {
+		URI oldLogo = logo;
+		logo = newLogo;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.FORM__LOGO, oldLogo, logo));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -742,6 +785,8 @@ public class FormImpl extends EObjectImpl implements Form {
 			case CrosswalkPackage.FORM__MAIN_FILE_BLOCK:
 				if (resolve) return getMainFileBlock();
 				return basicGetMainFileBlock();
+			case CrosswalkPackage.FORM__LOGO:
+				return getLogo();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -800,6 +845,9 @@ public class FormImpl extends EObjectImpl implements Form {
 			case CrosswalkPackage.FORM__MAIN_FILE_BLOCK:
 				setMainFileBlock((FileBlock)newValue);
 				return;
+			case CrosswalkPackage.FORM__LOGO:
+				setLogo((URI)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -854,6 +902,9 @@ public class FormImpl extends EObjectImpl implements Form {
 			case CrosswalkPackage.FORM__MAIN_FILE_BLOCK:
 				setMainFileBlock((FileBlock)null);
 				return;
+			case CrosswalkPackage.FORM__LOGO:
+				setLogo(LOGO_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -894,6 +945,8 @@ public class FormImpl extends EObjectImpl implements Form {
 				return isSetContactEmail();
 			case CrosswalkPackage.FORM__MAIN_FILE_BLOCK:
 				return mainFileBlock != null;
+			case CrosswalkPackage.FORM__LOGO:
+				return LOGO_EDEFAULT == null ? logo != null : !LOGO_EDEFAULT.equals(logo);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -964,6 +1017,8 @@ public class FormImpl extends EObjectImpl implements Form {
 		if (contactNameESet) result.append(contactName); else result.append("<unset>");
 		result.append(", contactEmail: ");
 		if (contactEmailESet) result.append(contactEmail); else result.append("<unset>");
+		result.append(", logo: ");
+		result.append(logo);
 		result.append(')');
 		return result.toString();
 	}

@@ -223,6 +223,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="contactEmail" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         unsettable="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="mainFileBlock" eType="#//FileBlock"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="logo" lowerBound="1" eType="#//URI"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FormElement" abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="FileBlock" eSuperTypes="#//FormElement">

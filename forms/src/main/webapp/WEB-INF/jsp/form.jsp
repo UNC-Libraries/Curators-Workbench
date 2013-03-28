@@ -209,6 +209,11 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 		</div>
 		<div id="content">
 			<div class="contentarea">
+
+<c:if test="${not empty deposit.form.logo}">
+<img src="${deposit.form.logo}" class="form_logo"/>
+</c:if>
+
 <h2><c:out value="${deposit.form.title}"/></h2>
 <spring:hasBindErrors name="form">
 	<% if (errors.getFieldError("file") != null) { %>

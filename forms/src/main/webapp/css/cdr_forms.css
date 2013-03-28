@@ -173,6 +173,11 @@ input[readonly] {
 	display: none;
 }
 
+.form_logo {
+	display: block;
+	margin-bottom: 10px;
+}
+
 
 /* Autocomplete
 ----------------------------------*/
