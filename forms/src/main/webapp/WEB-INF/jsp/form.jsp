@@ -386,8 +386,8 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 						<input type="submit" name="_mainFile" value="Remove file" class="remove"/>
 					</span>
 				</c:if>
-				<form:errors cssClass="red" path="mainFile" />
 				<span class="red">*</span>
+				<form:errors cssClass="red" path="mainFile" />
 			</div>
 		</div>
 	</c:if>
