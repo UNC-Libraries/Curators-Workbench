@@ -288,7 +288,6 @@ public class FileBlockEditPart extends ShapeNodeEditPart {
 			this.setBorder(new MarginBorder(getMapMode().DPtoLP(0),
 					getMapMode().DPtoLP(0), getMapMode().DPtoLP(0),
 					getMapMode().DPtoLP(0)));
-			this.setBorder(new LineBorder(THIS_BORDER, getMapMode().DPtoLP(1)));
 			createContents();
 		}
 
@@ -328,11 +327,6 @@ public class FileBlockEditPart extends ShapeNodeEditPart {
 		}
 
 	}
-
-	/**
-	 * @generated
-	 */
-	static final Color THIS_BORDER = new Color(null, 255, 255, 0);
 
 	/**
 	 * @generated

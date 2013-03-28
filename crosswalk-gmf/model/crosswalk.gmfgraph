@@ -461,13 +461,6 @@
         <layout
             xsi:type="gmfgraph:GridLayout"/>
         <insets/>
-        <border
-            xsi:type="gmfgraph:LineBorder">
-          <color
-              xsi:type="gmfgraph:RGBColor"
-              red="255"
-              green="255"/>
-        </border>
         <children
             xsi:type="gmfgraph:Label"
             name="FileBlockNameLabel">
