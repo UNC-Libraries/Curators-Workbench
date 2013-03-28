@@ -162,20 +162,11 @@ public class FormController {
 		binder.registerCustomEditor(DepositFile.class, new DepositFileEditor());
 		binder.setBindEmptyMultipartFiles(false);
 	}
-	
-	@ModelAttribute("deposit")
-	private Deposit getDeposit() {
-		return new Deposit();
-	}
 
 	@RequestMapping(value = "/{formId}.form", method = RequestMethod.GET)
-	public String showForm(@PathVariable String formId, @ModelAttribute Deposit deposit, HttpServletRequest request) throws PermissionDeniedException {
+	public String showForm(@PathVariable String formId, Model model, HttpServletRequest request) throws PermissionDeniedException {
 		
-		if (deposit != null && deposit.getForm() != null && deposit.getFormId().equals(formId))
-			return "form";
-		
-		// 
-		
+		Deposit deposit = new Deposit();
 		Form form = factory.getForm(formId);
 		
 		if (form == null)
@@ -221,6 +212,8 @@ public class FormController {
 		
 		deposit.setSupplementalFiles(new DepositFile[3]);
 		
+		
+		model.addAttribute("deposit", deposit);
 		
 		return "form";
 		
