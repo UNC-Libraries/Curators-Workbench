@@ -8,6 +8,7 @@ public class DepositFile {
 	private File file;
 	private String filename;
 	private String contentType;
+	private long size;
 	
 	public File getFile() {
 		return file;
@@ -31,6 +32,14 @@ public class DepositFile {
 	
 	public void setContentType(String contentType) {
 		this.contentType = contentType;
+	}
+	
+	public long getSize() {
+		return size;
+	}
+	
+	public void setSize(long size) {
+		this.size = size;
 	}
 	
 	public String getExtension() {

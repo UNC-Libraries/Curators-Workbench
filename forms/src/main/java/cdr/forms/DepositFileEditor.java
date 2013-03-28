@@ -19,6 +19,7 @@ public class DepositFileEditor extends PropertyEditorSupport {
 				depositFile.setFile(temp);
 				depositFile.setFilename(multipartFile.getOriginalFilename());
 				depositFile.setContentType(multipartFile.getContentType());
+				depositFile.setSize(multipartFile.getSize());
 				
 				super.setValue(depositFile);
 			} catch (IOException e) {
