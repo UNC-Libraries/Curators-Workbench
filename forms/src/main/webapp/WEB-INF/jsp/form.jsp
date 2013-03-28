@@ -24,7 +24,7 @@
 <%@ page import="crosswalk.impl.*"%>
 <%@ page import="java.net.URL"%>
 <%@ page import="java.io.*"%>
-<%@ page import="cdr.forms.Deposit"%>
+<%@ page import="cdr.forms.*"%>
 <!doctype html>
 <html>
 <head>
@@ -214,7 +214,7 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 				if(p.getText() != null) { %>
 				<p><%= ((Paragraph)status.getValue()).getText() %></p>
 				<% } %>
-			<% } else if(FileBlock.class.isInstance(status.getValue())) { 
+			<% } else if(FileBlock.class.isInstance(status.getValue())) {
 				FileBlock f = (FileBlock)status.getValue(); 
 				if(f.getName() != null) { %>
 				<br/><h3><%= f.getName() %></h3>
@@ -225,8 +225,17 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 				<div class="indented_block">
 					<div class="form_field file_field">
 						<label><c:if test="${not empty element.usage}"><a title="${element.usage}">(i)</a></c:if>&nbsp;</label>
-						<input name="file" type="file" size="40"/>
+						<c:choose>
+							<c:when test="${empty deposit.files[deposit.blockFileIndexMap[element]]}">
+								<input name="files[${deposit.blockFileIndexMap[element]}]" type="file" size="40"/>
+							</c:when>
+							<c:otherwise>
+								<c:out value="${deposit.files[deposit.blockFileIndexMap[element]].filename}"/>
+								<label><input type="checkbox" name="_files[${deposit.blockFileIndexMap[element]}]" value="true"/> Remove file</label>
+							</c:otherwise>
+						</c:choose>
 						<% if (f.isRequired()) { %><span class="red">*</span><% } %>
+						<form:errors cssClass="red" path="files[${deposit.blockFileIndexMap[element]}]" />
 					</div>
 				</div>
 			<% } else if(MetadataBlock.class.isInstance(status.getValue())) { 
@@ -353,7 +362,16 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 		<div class="indented_block">
 			<div class="form_field file_field">
 				<label>&nbsp;</label>
-				<input name="file" type="file" size="40"/>
+				<c:choose>
+					<c:when test="${empty mainFile}">
+						<input name="mainFile" type="file" size="40"/>
+					</c:when>
+					<c:otherwise>
+						<c:out value="${mainFile.filename}"/>
+						<label><input type="checkbox" name="_mainFile" value="true"/> Remove file</label>
+					</c:otherwise>
+				</c:choose>
+				<form:errors cssClass="red" path="mainFile" />
 				<span class="red">*</span>
 			</div>
 		</div>
@@ -362,15 +380,20 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 	<c:if test="${deposit.form.canAddSupplementalFiles}">
 		<br/><h3>Supplemental Files</h3>
 		<div class="indented_block">
-			<div class="form_field file_field">
-				<label>&nbsp;</label><input name="file" type="file" size="40"/>
-			</div>
-			<div class="form_field file_field">
-				<label>&nbsp;</label><input name="file" type="file" size="40"/>
-			</div>
-			<div class="form_field file_field">
-				<label>&nbsp;</label><input name="file" type="file" size="40"/>
-			</div>
+			<c:forEach items="${deposit.supplementalFiles}" var="file" varStatus="fileRow">
+				<div class="form_field file_field">
+					<label>&nbsp;</label>
+					<c:choose>
+						<c:when test="${empty file}">
+							<input name="supplementalFiles[${fileRow.index}]" type="file" size="40"/>
+						</c:when>
+						<c:otherwise>
+							<c:out value="${file.filename}"/>
+							<label><input type="checkbox" name="_supplementalFiles[${fileRow.index}]" value="true"/> Remove file</label>
+						</c:otherwise>
+					</c:choose>
+				</div>
+			</c:forEach>
 		</div>
 	</c:if>
 	

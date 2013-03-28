@@ -15,6 +15,8 @@
  */
 package cdr.forms;
 
+import java.util.Map.Entry;
+
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 
@@ -24,7 +26,9 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
+import org.springframework.web.multipart.MultipartFile;
 
+import crosswalk.FileBlock;
 import crosswalk.Form;
 import crosswalk.FormElement;
 import crosswalk.InputField;
@@ -42,6 +46,7 @@ public class DepositValidator implements Validator {
 	public void validate(Object target, Errors errors) {
 		
 		Deposit deposit = (Deposit) target;
+		Form form = deposit.getForm();
 		
 		// Validate receipt email address
 		
@@ -54,9 +59,24 @@ public class DepositValidator implements Validator {
 			}
 		}
 		
-		// Validate the form
+		// Validate presence of required files
 		
-		Form form = deposit.getForm();
+		for (Entry<FileBlock, Integer> entry : deposit.getBlockFileIndexMap().entrySet()) {
+			FileBlock block = entry.getKey();
+			int index = entry.getValue().intValue();
+			
+			if (block.isRequired() && deposit.getFiles()[index] == null)
+				errors.rejectValue("files[" + index + "]", "file.required", "This file is required.");
+		}
+		
+		// The main file is required if there are no FileBlock elements
+		
+		if (!form.isHasFileBlocks()) {
+			if (deposit.getMainFile() == null)
+				errors.rejectValue("mainFile", "file.required", "This file is required.");
+		}
+		
+		// Validate the form
 		
 		for (FormElement el : form.getElements()) {
 			if (MetadataBlock.class.isInstance(el)) {

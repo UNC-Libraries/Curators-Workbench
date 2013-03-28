@@ -20,6 +20,6 @@ import crosswalk.Form;
 
 public interface DepositHandler {
 	
-	DepositResult deposit(Form form, List<SubmittedFile> files);
+	DepositResult deposit(Deposit deposit);
 	
 }

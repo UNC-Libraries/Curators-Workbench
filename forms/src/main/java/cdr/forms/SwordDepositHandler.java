@@ -63,6 +63,7 @@ import java.util.HashMap;
 import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.UUID;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
@@ -88,6 +89,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.w3._1999.xlink.XlinkPackage;
 
+import crosswalk.FileBlock;
 import crosswalk.Form;
 import crosswalk.FormElement;
 import crosswalk.MetadataBlock;
@@ -142,45 +144,72 @@ public class SwordDepositHandler implements DepositHandler {
 		this.defaultContainer = defaultContainer;
 	}
 	
-	public DepositResult deposit(Form form, List<SubmittedFile> files) {
+	public DepositResult deposit(Deposit deposit) {
+		
+		Form form = deposit.getForm();
 		
 		// Generate a PID
 
 		String pid = "uuid:" + UUID.randomUUID().toString();
-
-		// Identify the "main file" within the list of submitted files.
-		// If the form has file blocks, this is the form's mainFileBlock reference.
-		// If the form doesn't have file blocks, this is the first file
-		// in the list of submitted files (if any).
 		
-		SubmittedFile mainFile = null;
+		// Identify the "main file".
+		// If the form has file blocks, this is the file corresponding to the form's main file block.
+		// If the form doesn't have file blocks, this is the mainFile attribute of the deposit.
+		
+		DepositFile mainFile = null;
 		
 		if (form.isHasFileBlocks()) {
-		
-			if (form.getMainFileBlock() != null) {
-				for (SubmittedFile file : files) {
-					if (file.getFileBlock() == form.getMainFileBlock()) {
-						mainFile = file;
-						break;
-					}
-				}
-			}
+			Integer index = deposit.getBlockFileIndexMap().get(form.getMainFileBlock());
 			
+			if (index != null)
+				mainFile = deposit.getFiles()[index];
 		} else {
-			
-			if (files.size() > 0)
-				mainFile = files.get(0);
-			
+			mainFile = deposit.getMainFile();
 		}
+		
+		// Establish a mapping between files and the form's FileBlocks
+		
+		IdentityHashMap<DepositFile, FileBlock> fileBlockMap = new IdentityHashMap<DepositFile, FileBlock>();
+		
+		for (Entry<FileBlock, Integer> entry : deposit.getBlockFileIndexMap().entrySet()) {
+			DepositFile depositFile = deposit.getFiles()[entry.getValue()];
+			
+			if (depositFile != null)
+				fileBlockMap.put(depositFile, entry.getKey());
+		}
+		
+		// Get all the files as a big list
+		
+		List<DepositFile> files = new ArrayList<DepositFile>();
+		
+		if (deposit.getFiles() != null) {
+			for (DepositFile file : deposit.getFiles()) {
+				if (file != null)
+					files.add(file);
+			}
+		}
+		
+		if (deposit.getMainFile() != null)
+			files.add(deposit.getMainFile());
+		
+		if (deposit.getSupplementalFiles() != null) {
+			for (DepositFile file : deposit.getSupplementalFiles()) {
+				if (file != null)
+					files.add(file);
+			}
+		}
+		
+		// Establish a mapping between files and filenames (give each file a unique, indexed name)
+		
+		IdentityHashMap<DepositFile, String> fileFilenameMap = buildFilenameMap(files);
 		
 		// Prepare the zip file for deposit
 		
 		gov.loc.mods.mods.DocumentRoot mods = makeMods(form);
 		edu.unc.lib.schemas.acl.DocumentRoot acl = makeAcl(form);
-		IdentityHashMap<SubmittedFile, String> filenames = buildFilenameMap(files);
 
-		gov.loc.mets.DocumentRoot metsDocumentRoot = makeMets(form.getCurrentUser(), mods, acl, files, mainFile, filenames);
-		File zipFile = makeZipFile(metsDocumentRoot, files, filenames);
+		gov.loc.mets.DocumentRoot metsDocumentRoot = makeMets(form.getCurrentUser(), mods, acl, files, mainFile, fileFilenameMap, fileBlockMap);
+		File zipFile = makeZipFile(metsDocumentRoot, files, fileFilenameMap);
 		
 		
 		// Obtain the path for the collection in which we'll attempt to make the deposit
@@ -284,13 +313,13 @@ public class SwordDepositHandler implements DepositHandler {
 		
 	}
 
-	private IdentityHashMap<SubmittedFile, String> buildFilenameMap(List<SubmittedFile> files) {
+	private IdentityHashMap<DepositFile, String> buildFilenameMap(List<DepositFile> files) {
 		
-		IdentityHashMap<SubmittedFile, String> filenames = new IdentityHashMap<SubmittedFile, String>();
+		IdentityHashMap<DepositFile, String> filenames = new IdentityHashMap<DepositFile, String>();
 
 		int index = 0;
 
-		for (SubmittedFile file : files) {
+		for (DepositFile file : files) {
 			filenames.put(file, "data_" + index + file.getExtension());
 			index++;
 		}
@@ -344,8 +373,12 @@ public class SwordDepositHandler implements DepositHandler {
 	 * "d_{index}" respectively, where index is 0 for the main file, and 1, 2, ...
 	 * for each supplemental file.
 	 */
-	private gov.loc.mets.DocumentRoot makeMets(String user, gov.loc.mods.mods.DocumentRoot modsDocumentRoot, edu.unc.lib.schemas.acl.DocumentRoot acl,
-			List<SubmittedFile> files, SubmittedFile mainFile, IdentityHashMap<SubmittedFile, String> filenames) {
+	private gov.loc.mets.DocumentRoot makeMets(String user,
+			gov.loc.mods.mods.DocumentRoot modsDocumentRoot,
+			edu.unc.lib.schemas.acl.DocumentRoot acl, List<DepositFile> files,
+			DepositFile mainFile,
+			IdentityHashMap<DepositFile, String> filenames,
+			IdentityHashMap<DepositFile, FileBlock> fileBlockMap) {
 		
 		gov.loc.mets.DocumentRoot root;
 		MetsType mets;
@@ -449,15 +482,15 @@ public class SwordDepositHandler implements DepositHandler {
 			
 			for (int i = 0; i < files.size(); i++) {
 				
-				SubmittedFile submittedFile = files.get(i);
+				DepositFile depositFile = files.get(i);
 				
 				FileType file = MetsFactory.eINSTANCE.createFileType();
 				file.setID("f_" + i);
-				file.setMIMETYPE(submittedFile.getContentType());
+				file.setMIMETYPE(depositFile.getContentType());
 	
 				FLocatType fLocat = MetsFactory.eINSTANCE.createFLocatType();
 				fLocat.setLOCTYPE(LOCTYPEType.URL);
-				fLocat.setHref(filenames.get(submittedFile));
+				fLocat.setHref(filenames.get(depositFile));
 	
 				file.getFLocat().add(fLocat);
 				fileGrp.getFile().add(file);
@@ -485,16 +518,18 @@ public class SwordDepositHandler implements DepositHandler {
 			
 			for (int i = 0; i < files.size(); i++) {
 
-				SubmittedFile submittedFile = files.get(i);
+				DepositFile depositFile = files.get(i);
 			
 				DivType fileDiv = MetsFactory.eINSTANCE.createDivType();
 				
 				fileDiv.setTYPE(METSConstants.Div_File);
 				
-				if (submittedFile.getFileBlock() != null && submittedFile.getFileBlock().getLabel() != null)
-					fileDiv.setLABEL1(submittedFile.getFileBlock().getLabel());
+				FileBlock fileBlock = fileBlockMap.get(depositFile);
+				
+				if (fileBlock != null && fileBlock.getLabel() != null)
+					fileDiv.setLABEL1(fileBlock.getLabel());
 				else
-					fileDiv.setLABEL1(submittedFile.getFilename());
+					fileDiv.setLABEL1(depositFile.getFilename());
 				
 				FptrType fptr = MetsFactory.eINSTANCE.createFptrType();
 				fptr.setFILEID("f_" + i);
@@ -504,7 +539,7 @@ public class SwordDepositHandler implements DepositHandler {
 				
 				aggregateWorkDiv.getDiv().add(fileDiv);
 				
-				if (submittedFile == mainFile)
+				if (depositFile == mainFile)
 					mainFileDiv = fileDiv;
 				
 			}
@@ -579,7 +614,7 @@ public class SwordDepositHandler implements DepositHandler {
 
 	}
 	
-	private File makeZipFile(gov.loc.mets.DocumentRoot metsDocumentRoot, List<SubmittedFile> files, IdentityHashMap<SubmittedFile, String> filenames) {
+	private File makeZipFile(gov.loc.mets.DocumentRoot metsDocumentRoot, List<DepositFile> files, IdentityHashMap<DepositFile, String> filenames) {
 		
 		// Get the METS XML
 		
@@ -621,12 +656,12 @@ public class SwordDepositHandler implements DepositHandler {
 			
 			for (int i = 0; i < files.size(); i++) {
 				
-				SubmittedFile submittedFile = files.get(i);
+				DepositFile file = files.get(i);
 				
-				entry = new ZipEntry(filenames.get(submittedFile));
+				entry = new ZipEntry(filenames.get(file));
 				zipOutput.putNextEntry(entry);
 
-				FileInputStream fileInput = new FileInputStream(submittedFile.getFile());
+				FileInputStream fileInput = new FileInputStream(file.getFile());
 
 				byte[] buffer = new byte[1024];
 				int length;
