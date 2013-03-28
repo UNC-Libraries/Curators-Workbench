@@ -15,6 +15,7 @@
  */
 package unc.lib.cdr.workbench.arrange;
 
+import gov.loc.mets.AmdSecType;
 import gov.loc.mets.DivType;
 import gov.loc.mets.MdSecType;
 import gov.loc.mets.MetsPackage;
@@ -31,6 +32,8 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CompoundCommand;
+import org.eclipse.emf.edit.command.AddCommand;
+import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.jface.util.LocalSelectionTransfer;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -46,6 +49,7 @@ import org.slf4j.LoggerFactory;
 import unc.lib.cdr.workbench.capture.CaptureJob;
 import unc.lib.cdr.workbench.originals.OriginalFileStore;
 import unc.lib.cdr.workbench.project.MetsProjectNature;
+import unc.lib.cdr.workbench.xwalk.MetadataCompartment;
 
 public class ArrangementCommonDropAdapterAssistant extends CommonDropAdapterAssistant {
 
@@ -123,7 +127,10 @@ public class ArrangementCommonDropAdapterAssistant extends CommonDropAdapterAssi
 				} else if (items.get(0) instanceof DivType) {
 					return dropDivs(items);
 				} else if (items.get(0) instanceof MdSecType) {
-					return dropMdSecs(items);
+					return dropMdSec((MdSecType)items.get(0));
+				} else if (items.get(0) instanceof MetadataCompartment) {
+					MetadataCompartment mc = (MetadataCompartment)items.get(0);
+					for(MdSecType mdSec : mc.metadataSections) dropMdSec(mdSec);
 				}
 			}
 		}
@@ -135,10 +142,9 @@ public class ArrangementCommonDropAdapterAssistant extends CommonDropAdapterAssi
 	 * @param mdSecs
 	 * @return
 	 */
-	private IStatus dropMdSecs(List mdSecs) {
+	private IStatus dropMdSec(MdSecType md) {
 		//LOG.debug("dropMdSecs called");
 		if (getCommonDropAdapter().getCurrentTarget() instanceof DivType) {
-			MdSecType md = (MdSecType) mdSecs.get(0); // can only drop one
 			// record at a time
 			MetsProjectNature mpn = MetsProjectNature.getNatureForMetsObject(md);
 			DivType bag = METSUtils.findBagDiv(mpn.getMets());
@@ -154,8 +160,15 @@ public class ArrangementCommonDropAdapterAssistant extends CommonDropAdapterAssi
 						List<MdSecType> dmdSecs = new ArrayList<MdSecType>();
 						dmdSecs.addAll(d.getDmdSec());
 						dmdSecs.remove(md);
-						Command removeDMDID = SetCommand.create(mpn.getEditingDomain(), d,
-								MetsPackage.eINSTANCE.getDivType_DmdSec(), dmdSecs);
+						Command removeDMDID = RemoveCommand.create(mpn.getEditingDomain(), d,
+								MetsPackage.eINSTANCE.getDivType_DmdSec(), md);
+						comboCommand.append(removeDMDID);
+					} else if (d.getMdSec().contains(md)) {
+						List<MdSecType> newMdSecs = new ArrayList<MdSecType>();
+						newMdSecs.addAll(d.getMdSec());
+						newMdSecs.remove(md);
+						Command removeDMDID = RemoveCommand.create(mpn.getEditingDomain(), d,
+								MetsPackage.eINSTANCE.getDivType_MdSec(), md);
 						comboCommand.append(removeDMDID);
 					}
 				}
@@ -172,9 +185,11 @@ public class ArrangementCommonDropAdapterAssistant extends CommonDropAdapterAssi
 			List<MdSecType> newDMDIDs = new ArrayList<MdSecType>();
 			newDMDIDs.addAll(div.getDmdSec());
 			newDMDIDs.add(md);
-			Command dmdidCmd = SetCommand.create(mpn.getEditingDomain(), div, MetsPackage.eINSTANCE.getDivType_DmdSec(),
-					newDMDIDs);
-			comboCommand.append(dmdidCmd);
+			if(md.eContainer() instanceof AmdSecType) {
+				comboCommand.append(AddCommand.create(mpn.getEditingDomain(), div, MetsPackage.eINSTANCE.getDivType_MdSec(), md));				
+			} else {
+				comboCommand.append(AddCommand.create(mpn.getEditingDomain(), div, MetsPackage.eINSTANCE.getDivType_DmdSec(), md));
+			}
 
 			if (comboCommand.canExecute()) {
 				comboCommand.execute();

@@ -44,6 +44,7 @@ import crosswalk.DateInputField;
 import crosswalk.DatePrecision;
 import crosswalk.DateRecognizer;
 import crosswalk.DateToISO8601StringConversion;
+import crosswalk.DateToXMLGregorianCalenderConversion;
 import crosswalk.DelimitedFile;
 import crosswalk.Dictionary;
 import crosswalk.Editable;
@@ -329,6 +330,13 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 	 * @generated
 	 */
 	private EClass outputProfileEClass = null;
+
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dateToXMLGregorianCalenderConversionEClass = null;
 
 								/**
 	 * <!-- begin-user-doc -->
@@ -1402,6 +1410,15 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getDateToXMLGregorianCalenderConversion() {
+		return dateToXMLGregorianCalenderConversionEClass;
+	}
+
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EAttribute getOutputProfile_StartMappingAtChildren() {
 		return (EAttribute)outputProfileEClass.getEStructuralFeatures().get(1);
 	}
@@ -1702,6 +1719,8 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 		createEAttribute(outputProfileEClass, OUTPUT_PROFILE__METADATA_TYPE);
 		createEAttribute(outputProfileEClass, OUTPUT_PROFILE__METADATA_SECTION);
 
+		dateToXMLGregorianCalenderConversionEClass = createEClass(DATE_TO_XML_GREGORIAN_CALENDER_CONVERSION);
+
 		// Create enums
 		datePrecisionEEnum = createEEnum(DATE_PRECISION);
 		fieldWidthEEnum = createEEnum(FIELD_WIDTH);
@@ -1790,6 +1809,7 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 		g2 = createEGenericType(ecorePackage.getEDate());
 		g1.getETypeArguments().add(g2);
 		dateInputFieldEClass.getEGenericSuperTypes().add(g1);
+		dateToXMLGregorianCalenderConversionEClass.getESuperTypes().add(this.getConversionStrategy());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(tabbedDataFieldEClass, TabbedDataField.class, "TabbedDataField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1985,6 +2005,8 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 		initEAttribute(getOutputProfile_MetadataLabel(), ecorePackage.getEString(), "metadataLabel", null, 1, 1, OutputProfile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOutputProfile_MetadataType(), ecorePackage.getEString(), "metadataType", "OTHER", 1, 1, OutputProfile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOutputProfile_MetadataSection(), this.getOutputMetadataSections(), "metadataSection", null, 1, 1, OutputProfile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(dateToXMLGregorianCalenderConversionEClass, DateToXMLGregorianCalenderConversion.class, "DateToXMLGregorianCalenderConversion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(datePrecisionEEnum, DatePrecision.class, "DatePrecision");

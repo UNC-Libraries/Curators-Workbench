@@ -204,7 +204,6 @@ public class MappedAttributeItemProvider extends ItemProviderAdapter implements 
 			EClass containerClass = ma.getMappedFeature().getEContainingClass();
 			AdapterFactory rootFactory = ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory();
 			EObject o = containerClass.getEPackage().getEFactoryInstance().create(containerClass);
-			System.out.println("Container class: " + containerClass.getName());
 			IEditingDomainItemProvider ip = (IEditingDomainItemProvider) rootFactory.adapt(o,
 					IEditingDomainItemProvider.class);
 			ItemProviderAdapter ipa = null;

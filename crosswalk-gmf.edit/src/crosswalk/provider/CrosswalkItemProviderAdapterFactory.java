@@ -575,6 +575,29 @@ public class CrosswalkItemProviderAdapterFactory extends CrosswalkAdapterFactory
 	}
 
 								/**
+	 * This keeps track of the one adapter used for all {@link crosswalk.DateToXMLGregorianCalenderConversion} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DateToXMLGregorianCalenderConversionItemProvider dateToXMLGregorianCalenderConversionItemProvider;
+
+								/**
+	 * This creates an adapter for a {@link crosswalk.DateToXMLGregorianCalenderConversion}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDateToXMLGregorianCalenderConversionAdapter() {
+		if (dateToXMLGregorianCalenderConversionItemProvider == null) {
+			dateToXMLGregorianCalenderConversionItemProvider = new DateToXMLGregorianCalenderConversionItemProvider(this);
+		}
+
+		return dateToXMLGregorianCalenderConversionItemProvider;
+	}
+
+								/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->

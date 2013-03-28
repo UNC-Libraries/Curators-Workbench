@@ -1461,6 +1461,9 @@
                <instanceof
                      value="gov.loc.mets.SmLinkType">
                </instanceof>
+               <instanceof
+                     value="unc.lib.cdr.workbench.xwalk.MetadataCompartment">
+               </instanceof>
             </or></possibleChildren>
          <commonSorter
                class="unc.lib.cdr.workbench.arrange.ArrangementViewerSorter"
@@ -1503,6 +1506,29 @@
                </instanceof>
             </or>
          </possibleChildren>
+         <commonSorter
+               class="unc.lib.cdr.workbench.xwalk.CrosswalkViewerSorter"
+               id="cdr-workbench.crosswalkSorter">
+            <parentExpression>
+               <or>
+                  <instanceof
+                        value="unc.lib.cdr.workbench.xwalk.MetadataCompartment">
+                  </instanceof>
+                  <instanceof
+                        value="gov.loc.mets.MdSecType">
+                  </instanceof>
+                  <and>
+                     <instanceof
+                           value="org.eclipse.core.resources.IFile">
+                     </instanceof>
+                     <test
+                           property="cdr-workbench.isCrosswalkFile"
+                           value="true">
+                     </test>
+                  </and>
+               </or>
+            </parentExpression>
+         </commonSorter>
       </navigatorContent>
       <commonFilter
             activeByDefault="false"
@@ -1598,6 +1624,19 @@
                      name="org.eclipse.core.resources.IFolder">
                </objectClass>
             </or>
+         </enablement>
+      </decorator>
+      <decorator
+            class="unc.lib.cdr.workbench.xwalk.MetadataCompartmentDecorator"
+            id="workbench_plugin.decoratorMdCompartmentType"
+            label="Metadata Compartment Decoration"
+            lightweight="true"
+            location="BOTTOM_RIGHT"
+            state="true">
+         <enablement>
+            <objectClass
+                  name="unc.lib.cdr.workbench.xwalk.CrosswalkContentProvider$MetadataCompartment">
+            </objectClass>
          </enablement>
       </decorator>
    </extension>

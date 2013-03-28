@@ -123,6 +123,7 @@ public class CrosswalkFactoryImpl extends EFactoryImpl implements CrosswalkFacto
 			case CrosswalkPackage.PARAGRAPH: return createParagraph();
 			case CrosswalkPackage.DATE_INPUT_FIELD: return createDateInputField();
 			case CrosswalkPackage.OUTPUT_PROFILE: return createOutputProfile();
+			case CrosswalkPackage.DATE_TO_XML_GREGORIAN_CALENDER_CONVERSION: return createDateToXMLGregorianCalenderConversion();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -407,6 +408,16 @@ public class CrosswalkFactoryImpl extends EFactoryImpl implements CrosswalkFacto
 	public OutputProfile createOutputProfile() {
 		OutputProfileImpl outputProfile = new OutputProfileImpl();
 		return outputProfile;
+	}
+
+/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DateToXMLGregorianCalenderConversion createDateToXMLGregorianCalenderConversion() {
+		DateToXMLGregorianCalenderConversionImpl dateToXMLGregorianCalenderConversion = new DateToXMLGregorianCalenderConversionImpl();
+		return dateToXMLGregorianCalenderConversion;
 	}
 
 /**

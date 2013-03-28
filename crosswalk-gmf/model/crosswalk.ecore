@@ -280,4 +280,6 @@
     <eLiterals name="digiprovMD" value="3"/>
     <eLiterals name="sourceMD" value="4"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DateToXMLGregorianCalenderConversion"
+      eSuperTypes="#//ConversionStrategy"/>
 </ecore:EPackage>

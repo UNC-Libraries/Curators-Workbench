@@ -22,6 +22,7 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
+import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
@@ -139,7 +140,13 @@ public class MappedAttributeLabelExpressionLabelParser implements IParser {
 		StringBuilder sb = new StringBuilder();
 		MappedAttribute ma = (MappedAttribute) self;
 		if (ma.getMappedFeature() != null) {
-			sb.append(ma.getMappedFeature().getName());
+			String attrName = ma.getMappedFeature().getName();
+			EAnnotation ann = ma.getMappedFeature().getEAnnotation("http:///org/eclipse/emf/ecore/util/ExtendedMetaData");
+			if(ann != null && ann.getDetails() != null && ann.getDetails().get("name") != null) {
+				String tempName = ann.getDetails().get("name");
+				if(!":0".equals(tempName) && !":mixed".equals(tempName)) attrName = tempName;
+			}
+			sb.append(attrName);
 			if (String.class.equals(ma.getInputType())) {
 				// do nothing for now
 			} else if (EClassifier.class.isAssignableFrom(ma.getInputType())) {

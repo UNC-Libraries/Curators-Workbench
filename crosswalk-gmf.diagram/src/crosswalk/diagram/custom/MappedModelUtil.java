@@ -93,7 +93,7 @@ public class MappedModelUtil {
 			elementsMappedAlready.addAll(pe.getChildElements());
 			if (pe.getMappedFeature() != null) {
 				mappedParentTypes
-						.add((EClass) pe.getMappedFeature().getEType());
+					.add((EClass) pe.getMappedFeature().getEType());
 			}
 		} else {
 			throw new IllegalArgumentException(

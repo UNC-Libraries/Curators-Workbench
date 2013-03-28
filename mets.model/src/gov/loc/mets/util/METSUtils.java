@@ -16,6 +16,7 @@
 package gov.loc.mets.util;
 
 import gov.loc.mets.AgentType;
+import gov.loc.mets.AmdSecType;
 import gov.loc.mets.CHECKSUMTYPEType;
 import gov.loc.mets.DivType;
 import gov.loc.mets.DocumentRoot;
@@ -29,6 +30,7 @@ import gov.loc.mets.MdSecType;
 import gov.loc.mets.MetsFactory;
 import gov.loc.mets.MetsHdrType;
 import gov.loc.mets.MetsType;
+import gov.loc.mets.MetsType1;
 import gov.loc.mets.ROLEType;
 import gov.loc.mets.SmLinkType;
 import gov.loc.mets.StructMapType;
@@ -364,6 +366,18 @@ public class METSUtils {
 					}
 				}
 			}
+		}
+		return result;
+	}
+
+	public static Collection<MdSecType> getAllMdSecTypes(MetsType1 mets) {
+		Set<MdSecType> result = new HashSet<MdSecType>();
+		for (MdSecType dmd : mets.getDmdSec()) result.add(dmd);
+		for(AmdSecType amd : mets.getAmdSec()) {
+			if(amd.getDigiprovMD() != null) result.addAll(amd.getDigiprovMD());
+			if(amd.getRightsMD() != null) result.addAll(amd.getRightsMD());
+			if(amd.getSourceMD() != null) result.addAll(amd.getSourceMD());
+			if(amd.getTechMD() != null) result.addAll(amd.getTechMD());
 		}
 		return result;
 	}

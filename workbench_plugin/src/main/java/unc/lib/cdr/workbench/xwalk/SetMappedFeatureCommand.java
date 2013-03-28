@@ -15,9 +15,14 @@
  */
 package unc.lib.cdr.workbench.xwalk;
 
+import edu.unc.lib.schemas.acl.AclFactory;
+import edu.unc.lib.schemas.acl.AclPackage;
+import gov.loc.mods.mods.MODSFactory;
 import gov.loc.mods.mods.MODSPackage;
 
 import java.util.Collections;
+
+import javax.xml.datatype.XMLGregorianCalendar;
 
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.runtime.IAdaptable;
@@ -26,10 +31,14 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.EcoreFactory;
+import org.eclipse.emf.ecore.EcorePackage;
+import org.eclipse.emf.ecore.impl.EDataTypeImpl;
 import org.eclipse.gmf.runtime.common.core.command.CommandResult;
 import org.eclipse.gmf.runtime.emf.commands.core.command.AbstractTransactionalCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 
+import crosswalk.CrosswalkFactory;
 import crosswalk.MappedAttribute;
 import crosswalk.MappedElement;
 import crosswalk.diagram.custom.MappedModelUtil;
@@ -66,10 +75,17 @@ public class SetMappedFeatureCommand extends AbstractTransactionalCommand {
 					System.out.println("No element value text attribute found.");
 				}
 			}
+			// TODO handle :mixed elements, adding a text value attribute.
 			return CommandResult.newOKCommandResult();
 		} else if (o instanceof MappedAttribute) {
 			MappedAttribute ma = (MappedAttribute) request.getNewElement();
-			ma.setMappedFeature((EAttribute) feature);
+			EAttribute eattr = (EAttribute)feature;
+			ma.setMappedFeature(eattr);
+			// handle date attributes
+			if(XMLGregorianCalendar.class.equals(eattr.getEType().getInstanceClass())) {
+				ma.setConversionStrategy(CrosswalkFactory.eINSTANCE
+						.createDateToXMLGregorianCalenderConversion());
+			}
 			return CommandResult.newOKCommandResult();
 		} else {
 			return CommandResult.newErrorCommandResult("Could not find mapped feature param.");

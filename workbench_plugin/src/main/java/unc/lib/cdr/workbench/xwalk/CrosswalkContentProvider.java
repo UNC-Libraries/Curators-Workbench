@@ -16,9 +16,11 @@
 package unc.lib.cdr.workbench.xwalk;
 
 import gov.loc.mets.MdSecType;
+import gov.loc.mets.util.METSUtils;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
@@ -42,7 +44,7 @@ public class CrosswalkContentProvider implements ITreeContentProvider, IResource
 	Viewer viewer = null;
 
 	private static Object[] EMPTY_ARRAY = new Object[] {};
-
+	
 	public CrosswalkContentProvider() {
 		ResourcesPlugin.getWorkspace().addResourceChangeListener(this, IResourceChangeEvent.POST_CHANGE);
 	}
@@ -74,16 +76,31 @@ public class CrosswalkContentProvider implements ITreeContentProvider, IResource
 			if (parent instanceof IFile) {
 				IFile f = (IFile) parent;
 				if (IResourceConstants.CROSSWALK_EXTENSION.equals(f.getFileExtension())) {
-					List<Object> results = new ArrayList<Object>();
+					Map<Integer, MetadataCompartment> results = new HashMap<Integer, MetadataCompartment>();
 					IProject p = f.getProject();
 					MetsProjectNature n = (MetsProjectNature) p.getNature(MetsProjectNature.NATURE_ID);
-					for (MdSecType dmd : n.getMets().getDmdSec()) {
-						if (f.getName().equals(dmd.getGROUPID())) {
-							results.add(dmd);
+					Collection<MdSecType> mdSecs = METSUtils.getAllMdSecTypes(n.getMets());
+					for (MdSecType mdSec : mdSecs) {
+						if (f.getName().equals(mdSec.getGROUPID())) {
+							// crosswalk record IDs end in underscore and row number
+							String row = mdSec.getID().substring(mdSec.getID().lastIndexOf("_")+1);
+							Integer r = Integer.valueOf(Integer.parseInt(row));
+							MetadataCompartment mc = null;
+							if(results.get(Integer.valueOf(r)) == null) {
+								mc = new MetadataCompartment();
+								mc.row = r.intValue();
+								results.put(r, mc);
+							} else {
+								mc = results.get(r);
+							}
+							mc.metadataSections.add(mdSec);
 						}
 					}
-					return results.toArray();
+					return results.values().toArray();
 				}
+			} else if(parent instanceof MetadataCompartment) {
+				MetadataCompartment mc = (MetadataCompartment)parent;
+				return mc.metadataSections.toArray();
 			}
 		} catch (CoreException e) {
 			throw new Error(e);
@@ -106,7 +123,7 @@ public class CrosswalkContentProvider implements ITreeContentProvider, IResource
 
 	@Override
 	public boolean hasChildren(Object element) {
-		if (element instanceof IFile) {
+		if (element instanceof IFile || element instanceof MetadataCompartment) {
 			return true;
 		}
 		return false;

@@ -22,6 +22,7 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
+import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.util.TransactionUtil;
@@ -138,7 +139,13 @@ public class MappedElementLabelExpressionLabelParser implements IParser {
 		StringBuilder sb = new StringBuilder();
 		MappedElement me = (MappedElement) self;
 		if (me.getMappedFeature() != null) {
-			sb.append("<").append(me.getMappedFeature().getName()).append(">");
+			String prefix = me.getMappedFeature().getEContainingClass().getEPackage().getNsPrefix();
+			String elName = me.getMappedFeature().getName();
+			EAnnotation ann = me.getMappedFeature().getEAnnotation("http:///org/eclipse/emf/ecore/util/ExtendedMetaData");
+			if(ann != null && ann.getDetails() != null && ann.getDetails().get("name") != null) {
+				elName = ann.getDetails().get("name");
+			}
+			sb.append("<").append(prefix).append(":").append(elName).append(">");
 		} else {
 			sb.append("unmapped element");
 		}

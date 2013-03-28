@@ -1818,6 +1818,25 @@ public interface CrosswalkPackage extends EPackage {
 	int OUTPUT_PROFILE_FEATURE_COUNT = 7;
 
 								/**
+	 * The meta object id for the '{@link crosswalk.impl.DateToXMLGregorianCalenderConversionImpl <em>Date To XML Gregorian Calender Conversion</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see crosswalk.impl.DateToXMLGregorianCalenderConversionImpl
+	 * @see crosswalk.impl.CrosswalkPackageImpl#getDateToXMLGregorianCalenderConversion()
+	 * @generated
+	 */
+	int DATE_TO_XML_GREGORIAN_CALENDER_CONVERSION = 33;
+
+								/**
+	 * The number of structural features of the '<em>Date To XML Gregorian Calender Conversion</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_TO_XML_GREGORIAN_CALENDER_CONVERSION_FEATURE_COUNT = CONVERSION_STRATEGY_FEATURE_COUNT + 0;
+
+								/**
 	 * The meta object id for the '{@link crosswalk.DatePrecision <em>Date Precision</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1825,7 +1844,7 @@ public interface CrosswalkPackage extends EPackage {
 	 * @see crosswalk.impl.CrosswalkPackageImpl#getDatePrecision()
 	 * @generated
 	 */
-	int DATE_PRECISION = 33;
+	int DATE_PRECISION = 34;
 
 								/**
 	 * The meta object id for the '{@link crosswalk.FieldWidth <em>Field Width</em>}' enum.
@@ -1835,7 +1854,7 @@ public interface CrosswalkPackage extends EPackage {
 	 * @see crosswalk.impl.CrosswalkPackageImpl#getFieldWidth()
 	 * @generated
 	 */
-	int FIELD_WIDTH = 34;
+	int FIELD_WIDTH = 35;
 
 								/**
 	 * The meta object id for the '{@link crosswalk.TextInputType <em>Text Input Type</em>}' enum.
@@ -1845,7 +1864,7 @@ public interface CrosswalkPackage extends EPackage {
 	 * @see crosswalk.impl.CrosswalkPackageImpl#getTextInputType()
 	 * @generated
 	 */
-	int TEXT_INPUT_TYPE = 35;
+	int TEXT_INPUT_TYPE = 36;
 
 								/**
 	 * The meta object id for the '{@link crosswalk.OutputMetadataSections <em>Output Metadata Sections</em>}' enum.
@@ -1855,7 +1874,7 @@ public interface CrosswalkPackage extends EPackage {
 	 * @see crosswalk.impl.CrosswalkPackageImpl#getOutputMetadataSections()
 	 * @generated
 	 */
-	int OUTPUT_METADATA_SECTIONS = 36;
+	int OUTPUT_METADATA_SECTIONS = 37;
 
 								/**
 	 * The meta object id for the '<em>Data Exception</em>' data type.
@@ -1865,7 +1884,7 @@ public interface CrosswalkPackage extends EPackage {
 	 * @see crosswalk.impl.CrosswalkPackageImpl#getDataException()
 	 * @generated
 	 */
-        int DATA_EXCEPTION = 37;
+        int DATA_EXCEPTION = 38;
 
         /**
 	 * The meta object id for the '<em>Record Matches</em>' data type.
@@ -1875,7 +1894,7 @@ public interface CrosswalkPackage extends EPackage {
 	 * @see crosswalk.impl.CrosswalkPackageImpl#getRecordMatches()
 	 * @generated
 	 */
-        int RECORD_MATCHES = 38;
+        int RECORD_MATCHES = 39;
 
         /**
 	 * The meta object id for the '<em>Record Out Of Range Exception</em>' data type.
@@ -1885,7 +1904,7 @@ public interface CrosswalkPackage extends EPackage {
 	 * @see crosswalk.impl.CrosswalkPackageImpl#getRecordOutOfRangeException()
 	 * @generated
 	 */
-        int RECORD_OUT_OF_RANGE_EXCEPTION = 39;
+        int RECORD_OUT_OF_RANGE_EXCEPTION = 40;
 
         /**
 	 * The meta object id for the '<em>URI</em>' data type.
@@ -1895,7 +1914,7 @@ public interface CrosswalkPackage extends EPackage {
 	 * @see crosswalk.impl.CrosswalkPackageImpl#getURI()
 	 * @generated
 	 */
-	int URI = 40;
+	int URI = 41;
 
 								/**
 	 * The meta object id for the '<em>Exception</em>' data type.
@@ -1905,7 +1924,7 @@ public interface CrosswalkPackage extends EPackage {
 	 * @see crosswalk.impl.CrosswalkPackageImpl#getException()
 	 * @generated
 	 */
-	int EXCEPTION = 41;
+	int EXCEPTION = 42;
 
 								/**
 	 * The meta object id for the '<em>Clazz</em>' data type.
@@ -1915,7 +1934,7 @@ public interface CrosswalkPackage extends EPackage {
 	 * @see crosswalk.impl.CrosswalkPackageImpl#getClazz()
 	 * @generated
 	 */
-	int CLAZZ = 42;
+	int CLAZZ = 43;
 
 								/**
 	 * Returns the meta object for class '{@link crosswalk.TabbedDataField <em>Tabbed Data Field</em>}'.
@@ -3029,6 +3048,16 @@ public interface CrosswalkPackage extends EPackage {
 	EAttribute getOutputProfile_MetadataSection();
 
 								/**
+	 * Returns the meta object for class '{@link crosswalk.DateToXMLGregorianCalenderConversion <em>Date To XML Gregorian Calender Conversion</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Date To XML Gregorian Calender Conversion</em>'.
+	 * @see crosswalk.DateToXMLGregorianCalenderConversion
+	 * @generated
+	 */
+	EClass getDateToXMLGregorianCalenderConversion();
+
+								/**
 	 * Returns the meta object for the attribute '{@link crosswalk.OutputProfile#isStartMappingAtChildren <em>Start Mapping At Children</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4108,6 +4137,16 @@ public interface CrosswalkPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute OUTPUT_PROFILE__METADATA_SECTION = eINSTANCE.getOutputProfile_MetadataSection();
+
+																/**
+		 * The meta object literal for the '{@link crosswalk.impl.DateToXMLGregorianCalenderConversionImpl <em>Date To XML Gregorian Calender Conversion</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see crosswalk.impl.DateToXMLGregorianCalenderConversionImpl
+		 * @see crosswalk.impl.CrosswalkPackageImpl#getDateToXMLGregorianCalenderConversion()
+		 * @generated
+		 */
+		EClass DATE_TO_XML_GREGORIAN_CALENDER_CONVERSION = eINSTANCE.getDateToXMLGregorianCalenderConversion();
 
 																/**
 		 * The meta object literal for the '<em><b>Start Mapping At Children</b></em>' attribute feature.

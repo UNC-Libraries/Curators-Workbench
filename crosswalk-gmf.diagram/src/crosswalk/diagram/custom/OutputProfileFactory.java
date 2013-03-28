@@ -25,7 +25,7 @@ public class OutputProfileFactory {
 		result.setName("Access Controls Profile");
 		result.setDescription("Allows mapping of an Access Control element to a rights metadata section (rightsMD).");
 		result.setMetadataLabel("Crosswalked Access Control");
-		result.setMetadataType("CDRACL");
+		result.setMetadataType("ACL");
 		result.setMetadataSection(OutputMetadataSections.RIGHTS_MD);
 		result.setParentMappedFeature(AclPackage.eINSTANCE.getDocumentRoot_AccessControl());
 		result.setStartMappingAtChildren(false);

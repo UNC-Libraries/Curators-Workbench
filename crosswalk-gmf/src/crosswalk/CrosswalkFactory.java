@@ -233,6 +233,15 @@ public interface CrosswalkFactory extends EFactory {
 	OutputProfile createOutputProfile();
 
 								/**
+	 * Returns a new object of class '<em>Date To XML Gregorian Calender Conversion</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Date To XML Gregorian Calender Conversion</em>'.
+	 * @generated
+	 */
+	DateToXMLGregorianCalenderConversion createDateToXMLGregorianCalenderConversion();
+
+								/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->

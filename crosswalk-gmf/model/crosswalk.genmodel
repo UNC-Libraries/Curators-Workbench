@@ -202,5 +202,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//OutputProfile/metadataType"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute crosswalk.ecore#//OutputProfile/metadataSection"/>
     </genClasses>
+    <genClasses ecoreClass="crosswalk.ecore#//DateToXMLGregorianCalenderConversion"/>
   </genPackages>
 </genmodel:GenModel>

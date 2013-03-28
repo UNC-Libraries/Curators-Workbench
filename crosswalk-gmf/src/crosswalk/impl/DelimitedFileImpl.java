@@ -590,14 +590,7 @@ public class DelimitedFileImpl extends EObjectImpl implements DelimitedFile {
 	 * @generated NOT
 	 */
 	public String getRecordID() {
-		int zeroDigits = String.valueOf(getFirstDataRow() + this.lines.size()).length()
-				- String.valueOf(this.currentRowNumber).length();
-		StringBuilder result = new StringBuilder();
-		for (; zeroDigits > 0; zeroDigits--) {
-			result.append("0");
-		}
-		result.append(this.currentRowNumber);
-		return result.toString();
+		return String.valueOf(this.currentRowNumber);
 	}
 
 	/**

@@ -201,7 +201,9 @@ public class MdSecTypeItemProvider extends ItemProviderAdapter implements IEditi
 				labels.append(sec.getMdWrap().getLABEL());
 			}
 			if(sec.getMdWrap().getMDTYPE() != null) {
-				labels.append(" (").append(sec.getMdWrap().getMDTYPE()).append(")");
+				String type = sec.getMdWrap().getMDTYPE().getName();
+				if("OTHER".equals(type)) type = sec.getMdWrap().getOTHERMDTYPE();
+				labels.append(" (").append(type).append(")");
 			}
 		}
 		String label = labels.toString();

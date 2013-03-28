@@ -238,7 +238,7 @@ public class CrosswalkJob extends Job {
 
 	private CompoundCommand getLinkCleanupCommand() {
 		// cleanup links
-		CompoundCommand result = new CompoundCommand();
+		CompoundCommand command = new CompoundCommand();
 		// build set of new mdSec elements
 		Map<String, MdSecType> newMdSecIDs = new HashMap<String, MdSecType>();
 		for (OutputProfile profile : cw.getOutputProfiles())
@@ -252,19 +252,19 @@ public class CrosswalkJob extends Job {
 
 				for (MdSecType md : div.getDmdSec()) {
 					if (groupId.equals(md.getGROUPID())) {
-						updateCrosswalkLink(div, md, newMdSecIDs, result,
+						updateCrosswalkLink(div, md, newMdSecIDs, command,
 								MetsPackage.eINSTANCE.getDivType_DmdSec());
 					}
 				}
 				for (MdSecType md : div.getMdSec()) {
 					if (groupId.equals(md.getGROUPID())) {
-						updateCrosswalkLink(div, md, newMdSecIDs, result,
+						updateCrosswalkLink(div, md, newMdSecIDs, command,
 								MetsPackage.eINSTANCE.getDivType_MdSec());
 					}
 				}
 			}
 		}
-		return result;
+		return command;
 	}
 
 	/**
@@ -273,19 +273,19 @@ public class CrosswalkJob extends Job {
 	 * 
 	 * @param md
 	 * @param newMdSecIDs
-	 * @param removeLinksCommand
+	 * @param updateLinksCommand
 	 * @param linkReference
 	 */
 	private void updateCrosswalkLink(DivType div, MdSecType md,
 			Map<String, MdSecType> newMdSecIDs,
-			CompoundCommand removeLinksCommand, EReference linkReference) {
+			CompoundCommand updateLinksCommand, EReference linkReference) {
 		if (METSConstants.MD_STATUS_CROSSWALK_LINKED.equals(md.getSTATUS())) {
 			// remove links established by the CW
-			removeLinksCommand.append(RemoveCommand.create(
+			updateLinksCommand.append(RemoveCommand.create(
 					nature.getEditingDomain(), div, linkReference, md));
 		} else if (!newMdSecIDs.containsKey(md.getID())) {
 			// remove links to mdSecs that no longer exist
-			removeLinksCommand.append(RemoveCommand.create(
+			updateLinksCommand.append(RemoveCommand.create(
 					nature.getEditingDomain(), div, linkReference, md));
 		} else {
 			// migrate links you want to keep to new mds
@@ -295,9 +295,9 @@ public class CrosswalkJob extends Job {
 					METSConstants.MD_STATUS_CROSSWALK_USER_LINKED)) {
 				newMd.setSTATUS(METSConstants.MD_STATUS_CROSSWALK_USER_LINKED);
 			}
-			removeLinksCommand.append(RemoveCommand.create(
+			updateLinksCommand.append(RemoveCommand.create(
 					nature.getEditingDomain(), div, linkReference, md));
-			removeLinksCommand.append(AddCommand.create(
+			updateLinksCommand.append(AddCommand.create(
 					nature.getEditingDomain(), div, linkReference, newMd));
 		}
 	}
@@ -422,7 +422,7 @@ public class CrosswalkJob extends Job {
 		wrap.setMDTYPE(t);
 		if (MDTYPEType.OTHER.equals(t))
 			wrap.setOTHERMDTYPE(profile.getMetadataType());
-		wrap.setLABEL(recordID + " (" + profile.getMetadataLabel() + ")");
+		wrap.setLABEL(profile.getMetadataLabel() +" "+ recordID);
 		XmlDataType1 xml = MetsFactory.eINSTANCE.createXmlDataType1();
 
 		// root was mapped, grab nested feature
