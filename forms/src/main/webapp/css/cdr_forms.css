@@ -161,6 +161,18 @@ input[readonly] {
 	border: 0px;
 }
 
+.file_field.filled input.file {
+	display: none;
+}
+
+.file_field.removed input.file {
+	display: inline;
+}
+
+.file_field.removed .description {
+	display: none;
+}
+
 
 /* Autocomplete
 ----------------------------------*/

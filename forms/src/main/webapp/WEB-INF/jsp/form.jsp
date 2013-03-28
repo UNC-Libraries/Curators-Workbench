@@ -161,6 +161,20 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 		}
 		%>
 		
+		<%-- Instead of submitting the form when a "Remove file" input is clicked, set the class of
+		the containing div to "removed", which will hide the description and button and display the
+		file input. Then, append a hidden field with the same name as the "Remove file" input, which
+		will cause the file to be removed on submission of the form (or it will be replaced by
+		another file). --%>
+		
+		$(".file_field .remove").each(function() {
+			var button = $(this);
+			$(this).on("click", function(e) {
+				button.closest(".file_field").addClass("removed");
+ 				button.parent().append("<input type=\"hidden\" name=\"" + button.attr("name") + "\" value=\"true\">");
+				return false;
+			});
+		});
 		
 	});
 </script>
@@ -204,6 +218,9 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 </spring:hasBindErrors>
 <p><c:out value="${deposit.form.description}"/></p>
 <form:form modelAttribute="deposit" enctype="multipart/form-data" acceptCharset="UTF-8">
+	
+	<%-- Because we have other submit buttons within the form, include a hidden submit button at
+	the top to act as the default. --%>
 	<input type="submit" value="submit deposit" class="hidden_top_submit"/>
 	
 	<c:forEach items="${deposit.form.elements}" var="element" varStatus="elementRow">
@@ -225,17 +242,15 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 				<p><%= ((FileBlock)status.getValue()).getDescription() %></p>
 				<% } %>
 				<div class="indented_block">
-					<div class="form_field file_field">
+					<div class="form_field file_field ${not empty deposit.files[deposit.blockFileIndexMap[element]] ? "filled" : ""}">
 						<label><c:if test="${not empty element.usage}"><a title="${element.usage}">(i)</a></c:if>&nbsp;</label>
-						<c:choose>
-							<c:when test="${empty deposit.files[deposit.blockFileIndexMap[element]]}">
-								<input name="files[${deposit.blockFileIndexMap[element]}]" type="file" size="40"/>
-							</c:when>
-							<c:otherwise>
+						<input name="files[${deposit.blockFileIndexMap[element]}]" type="file" class="file" size="40"/>
+						<c:if test="${not empty deposit.files[deposit.blockFileIndexMap[element]]}">
+							<span class="description">
 								<b><c:out value="${deposit.files[deposit.blockFileIndexMap[element]].filename}"/></b>
-								<input type="submit" name="_files[${deposit.blockFileIndexMap[element]}]" value="Remove file"/>
-							</c:otherwise>
-						</c:choose>
+								<input type="submit" name="_files[${deposit.blockFileIndexMap[element]}]" value="Remove file" class="remove"/>
+							</span>
+						</c:if>
 						<% if (f.isRequired()) { %><span class="red">*</span><% } %>
 						<form:errors cssClass="red" path="files[${deposit.blockFileIndexMap[element]}]" />
 					</div>
@@ -362,17 +377,15 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 	<c:if test="${not deposit.form.hasFileBlocks}">
 		<br/><h3>File for Deposit</h3>
 		<div class="indented_block">
-			<div class="form_field file_field">
+			<div class="form_field file_field ${not empty mainFile ? "filled" : ""}">
 				<label>&nbsp;</label>
-				<c:choose>
-					<c:when test="${empty mainFile}">
-						<input name="mainFile" type="file" size="40"/>
-					</c:when>
-					<c:otherwise>
+				<input name="mainFile" type="file" class="file" size="40"/>
+				<c:if test="${not empty mainFile}">
+					<span class="description">
 						<b><c:out value="${mainFile.filename}"/></b>
-						<input type="submit" name="_mainFile" value="Remove file"/>
-					</c:otherwise>
-				</c:choose>
+						<input type="submit" name="_mainFile" value="Remove file" class="remove"/>
+					</span>
+				</c:if>
 				<form:errors cssClass="red" path="mainFile" />
 				<span class="red">*</span>
 			</div>
@@ -383,17 +396,15 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 		<br/><h3>Supplemental Files</h3>
 		<div class="indented_block">
 			<c:forEach items="${deposit.supplementalFiles}" var="file" varStatus="fileRow">
-				<div class="form_field file_field">
+				<div class="form_field file_field ${not empty file ? "filled" : ""}">
 					<label>&nbsp;</label>
-					<c:choose>
-						<c:when test="${empty file}">
-							<input name="supplementalFiles[${fileRow.index}]" type="file" size="40"/>
-						</c:when>
-						<c:otherwise>
+					<input name="supplementalFiles[${fileRow.index}]" type="file" class="file" size="40"/>
+					<c:if test="${not empty file}">
+						<span class="description">
 							<b><c:out value="${file.filename}"/></b>
-							<input type="submit" name="_supplementalFiles[${fileRow.index}]" value="Remove file"/>
-						</c:otherwise>
-					</c:choose>
+							<input type="submit" name="_supplementalFiles[${fileRow.index}]" value="Remove file" class="remove"/>
+						</span>
+					</c:if>
 				</div>
 			</c:forEach>
 		</div>
