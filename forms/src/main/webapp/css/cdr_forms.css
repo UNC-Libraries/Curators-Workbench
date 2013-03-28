@@ -152,6 +152,15 @@ input[readonly] {
 	background-color: #fff;
 }
 
+.hidden_top_submit {
+	width: 0px;
+	height: 0px;
+	margin: 0px;
+	padding: 0px;
+	outline: none;
+	border: 0px;
+}
+
 
 /* Autocomplete
 ----------------------------------*/

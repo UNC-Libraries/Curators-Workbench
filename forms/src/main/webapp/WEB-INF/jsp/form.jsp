@@ -204,6 +204,8 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 </spring:hasBindErrors>
 <p><c:out value="${deposit.form.description}"/></p>
 <form:form modelAttribute="deposit" enctype="multipart/form-data" acceptCharset="UTF-8">
+	<input type="submit" value="submit deposit" class="hidden_top_submit"/>
+	
 	<c:forEach items="${deposit.form.elements}" var="element" varStatus="elementRow">
 		<spring:bind path="deposit.form.elements[${elementRow.index}]" ignoreNestedPath="true">
 			<% if(Paragraph.class.isInstance(status.getValue())) { 
@@ -230,8 +232,8 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 								<input name="files[${deposit.blockFileIndexMap[element]}]" type="file" size="40"/>
 							</c:when>
 							<c:otherwise>
-								<c:out value="${deposit.files[deposit.blockFileIndexMap[element]].filename}"/>
-								<label><input type="checkbox" name="_files[${deposit.blockFileIndexMap[element]}]" value="true"/> Remove file</label>
+								<b><c:out value="${deposit.files[deposit.blockFileIndexMap[element]].filename}"/></b>
+								<input type="submit" name="_files[${deposit.blockFileIndexMap[element]}]" value="Remove file"/>
 							</c:otherwise>
 						</c:choose>
 						<% if (f.isRequired()) { %><span class="red">*</span><% } %>
@@ -367,8 +369,8 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 						<input name="mainFile" type="file" size="40"/>
 					</c:when>
 					<c:otherwise>
-						<c:out value="${mainFile.filename}"/>
-						<label><input type="checkbox" name="_mainFile" value="true"/> Remove file</label>
+						<b><c:out value="${mainFile.filename}"/></b>
+						<input type="submit" name="_mainFile" value="Remove file"/>
 					</c:otherwise>
 				</c:choose>
 				<form:errors cssClass="red" path="mainFile" />
@@ -388,8 +390,8 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 							<input name="supplementalFiles[${fileRow.index}]" type="file" size="40"/>
 						</c:when>
 						<c:otherwise>
-							<c:out value="${file.filename}"/>
-							<label><input type="checkbox" name="_supplementalFiles[${fileRow.index}]" value="true"/> Remove file</label>
+							<b><c:out value="${file.filename}"/></b>
+							<input type="submit" name="_supplementalFiles[${fileRow.index}]" value="Remove file"/>
 						</c:otherwise>
 					</c:choose>
 				</div>
