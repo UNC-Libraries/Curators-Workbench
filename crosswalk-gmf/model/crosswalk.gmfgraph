@@ -459,8 +459,9 @@
       <actualFigure
           xsi:type="gmfgraph:Rectangle">
         <layout
-            xsi:type="gmfgraph:GridLayout"/>
-        <insets/>
+            xsi:type="gmfgraph:GridLayout"
+            numColumns="2"
+            equalWidth="false"/>
         <children
             xsi:type="gmfgraph:Label"
             name="FileBlockNameLabel">
@@ -471,11 +472,34 @@
         </children>
         <children
             xsi:type="gmfgraph:Label"
-            name="FileBlockDescriptionLabel"/>
+            name="FileBlockRequiredLabel"
+            text="*">
+          <layoutData
+              xsi:type="gmfgraph:GridLayoutData"
+              horizontalAlignment="BEGINNING"/>
+          <foregroundColor
+              xsi:type="gmfgraph:ConstantColor"
+              value="red"/>
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              height="12"
+              style="BOLD"/>
+        </children>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="FileBlockDescriptionLabel">
+          <layoutData
+              xsi:type="gmfgraph:GridLayoutData"
+              horizontalAlignment="BEGINNING"
+              horizontalSpan="2"/>
+        </children>
       </actualFigure>
       <accessors
           figure="//@figures.0/@descriptors.11/@actualFigure/@children.0"/>
       <accessors
+          figure="//@figures.0/@descriptors.11/@actualFigure/@children.2"/>
+      <accessors
+          accessor="getFigureFileBlockRequiredLabel"
           figure="//@figures.0/@descriptors.11/@actualFigure/@children.1"/>
     </descriptors>
   </figures>
