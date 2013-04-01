@@ -382,13 +382,15 @@ public class DivTypeItemProvider
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
 	 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
         @Override
         public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(DivType.class)) {
+			case MetsPackage.DIV_TYPE__MD_SEC:
+			case MetsPackage.DIV_TYPE__DMD_SEC:
 			case MetsPackage.DIV_TYPE__CONTENTIDS:
 			case MetsPackage.DIV_TYPE__ID:
 			case MetsPackage.DIV_TYPE__LABEL:

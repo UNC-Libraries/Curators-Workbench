@@ -1728,12 +1728,14 @@
          <propertyTab
                category="workbench"
                id="workbench_plugin.propertyTabStorageProperties"
+               image="icons/storage.gif"
                label="Storage">
          </propertyTab>
          <propertyTab
                afterTab="workbench_plugin.propertyTabCrosswalkedDescription"
                category="metadataSections"
                id="workbench_plugin.propertyTabMdSecContent"
+               image="icons/property_obj.gif"
                label="Metadata Sections">
          </propertyTab>
          <propertyTab
@@ -1752,14 +1754,14 @@
                afterTab="workbench_plugin.propertyTabRights"
                category="metadataSections"
                id="workbench_plugin.propertyTabTechnical"
-               image="icons/binary_co.gif"
+               image="icons/techmd_doc.gif"
                label="Technical">
          </propertyTab>
          <propertyTab
                afterTab="workbench_plugin.propertyTabTechnical"
                category="metadataSections"
                id="workbench_plugin.propertyTabProvenance"
-               image="icons/info_tsk.gif"
+               image="icons/provmd_who.gif"
                label="Provenance">
          </propertyTab>
       </propertyTabs>

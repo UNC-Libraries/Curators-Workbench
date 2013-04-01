@@ -44,11 +44,13 @@ public class OriginalAndDivDecorator implements ILightweightLabelDecorator {
 	Set<ILabelProviderListener> listeners = new HashSet<ILabelProviderListener>();
 
 	public OriginalAndDivDecorator() {
-		// TODO register as listener to capture and staging changes (less granular this time)
+		// TODO register as listener to capture and staging changes (less
+		// granular this time)
 	}
 
 	@SuppressWarnings("unused")
-	private static final Logger LOG = LoggerFactory.getLogger(OriginalAndDivDecorator.class);
+	private static final Logger LOG = LoggerFactory
+			.getLogger(OriginalAndDivDecorator.class);
 
 	@Override
 	public void addListener(ILabelProviderListener listener) {
@@ -85,7 +87,8 @@ public class OriginalAndDivDecorator implements ILightweightLabelDecorator {
 			// add prefix of "../" to these when not under volume root
 			if (r.getWrapped().getParent() != null) {
 				if (r.getOriginalStub().getStores().contains(r)) {
-					if (!r.getOriginalStub().getVolumeRootStore().getWrapped().equals(r.getWrapped().getParent())) {
+					if (!r.getOriginalStub().getVolumeRootStore().getWrapped()
+							.equals(r.getWrapped().getParent())) {
 						decoration.addPrefix(".../");
 					}
 				}
@@ -93,31 +96,59 @@ public class OriginalAndDivDecorator implements ILightweightLabelDecorator {
 		} else if (element instanceof DivType) {
 			isDiv = true;
 			DivType d = (DivType) element;
-			Object adapted = Platform.getAdapterManager().getAdapter(d, OriginalFileStore.class);
+			Object adapted = Platform.getAdapterManager().getAdapter(d,
+					OriginalFileStore.class);
 			if (adapted != null && adapted instanceof OriginalFileStore) {
 				r = (OriginalFileStore) adapted;
 			}
-			// described, crosswalked
-			// MetsProjectNature n = MetsProjectNature.getNatureForMetsObject(d);
+			
+			// Descriptions Decor
+			boolean hasUserEdited = false;
+			boolean hasCrosswalked = false;
 			for (MdSecType md : d.getDmdSec()) {
-				if (md != null) {
-					String st = md.getSTATUS();
-					if (METSConstants.MD_STATUS_CROSSWALK_LINKED.equals(st)) {
-						decoration.addOverlay(Icon.CrosswalkedDecor.getImageDescriptor(), IDecoration.BOTTOM_LEFT);
-					} else if (METSConstants.MD_STATUS_USER_EDITED.equals(st)) {
-						decoration.addOverlay(Icon.UserEditedDecor.getImageDescriptor(), IDecoration.TOP_RIGHT);
-					} else if (METSConstants.MD_STATUS_CROSSWALK_USER_LINKED.equals(st)) {
-						decoration.addOverlay(Icon.CrosswalkedDecor.getImageDescriptor(), IDecoration.BOTTOM_LEFT);
-					}
+				String st = md.getSTATUS();
+				if (METSConstants.MD_STATUS_CROSSWALK_LINKED.equals(st) || 
+						METSConstants.MD_STATUS_CROSSWALK_USER_LINKED.equals(st)) {
+					hasCrosswalked = true;
+				} else if (METSConstants.MD_STATUS_USER_EDITED.equals(st)) {
+					hasUserEdited = true;
 				}
 			}
-			for (MdSecType md : d.getMdSec()) { // process admin metadata overlays
-				if (md != null) {
-					if (MetsPackage.eINSTANCE.getAmdSecType_RightsMD().equals(md.eContainingFeature())) {
-						decoration.addOverlay(Icon.ACLDecor.getImageDescriptor(), IDecoration.TOP_LEFT);
-					}
-				}
+			if(hasUserEdited) {
+				decoration.addOverlay(
+						Icon.UserEditedDecor.getImageDescriptor(),
+						IDecoration.TOP_RIGHT);
+			} else if(hasCrosswalked) {
+				decoration.addOverlay(
+						Icon.CrosswalkedDecor.getImageDescriptor(),
+						IDecoration.TOP_RIGHT);
 			}
+			
+			// ACL Decor
+			boolean hasCrosswalkedACL = false;
+			boolean hasUserACL = false;
+			for (MdSecType md : d.getMdSec()) {
+					if (MetsPackage.eINSTANCE.getAmdSecType_RightsMD().equals(
+							md.eContainingFeature())) {
+						String st = md.getSTATUS();
+						if (METSConstants.MD_STATUS_CROSSWALK_LINKED.equals(st) || 
+								METSConstants.MD_STATUS_CROSSWALK_USER_LINKED.equals(st)) {
+							hasCrosswalkedACL = true;
+						} else if (METSConstants.MD_STATUS_USER_EDITED.equals(st)) {
+							hasUserACL = true;
+						}
+					}
+			}
+			if(hasUserACL) {
+				decoration.addOverlay(
+						Icon.ACLDecor.getImageDescriptor(),
+						IDecoration.TOP_LEFT);
+			} else if(hasCrosswalkedACL) {
+				decoration.addOverlay(
+						Icon.ACLGrayDecor.getImageDescriptor(),
+						IDecoration.TOP_LEFT);
+			}
+			
 			// add labels for links of which this div is the object
 			for (SmLinkType sml : METSUtils.getObjectLinks(d)) {
 				labels.add(METSConstants.getLinkForArcRole(sml.getArcrole()).label);
@@ -134,7 +165,8 @@ public class OriginalAndDivDecorator implements ILightweightLabelDecorator {
 					labels.add("captured");
 				}
 			}
-			URI prestage = r.getOriginalStub().getPrestageBase(r.getWrapped().toURI());
+			URI prestage = r.getOriginalStub().getPrestageBase(
+					r.getWrapped().toURI());
 			if (prestage != null) {
 				labels.add("pre-staged=>" + prestage.toString());
 			}
@@ -174,7 +206,8 @@ public class OriginalAndDivDecorator implements ILightweightLabelDecorator {
 		List<String> labels = new ArrayList<String>();
 		// ejected overlay for detached disks
 		if (!stub.isAttached()) {
-			decoration.addOverlay(Icon.EjectedDecore.getImageDescriptor(), IDecoration.TOP_RIGHT);
+			decoration.addOverlay(Icon.EjectedDecore.getImageDescriptor(),
+					IDecoration.TOP_RIGHT);
 		}
 		labels.add(stub.getVolumeType());
 		if (labels.size() > 0) {

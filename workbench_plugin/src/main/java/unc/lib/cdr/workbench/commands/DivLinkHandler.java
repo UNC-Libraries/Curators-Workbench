@@ -35,6 +35,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.impl.NotificationImpl;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.SetCommand;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.handlers.HandlerUtil;
 
@@ -90,7 +91,7 @@ public class DivLinkHandler extends AbstractHandler implements IHandler {
 			if(l[0] != null) l[0].eNotify(new NotificationImpl(Notification.ADD, null, null));
 			if(l[1] != null) l[1].eNotify(new NotificationImpl(Notification.ADD, null, null));
 		}
-		//MetsProjectNature.getAdapterFactory().fireNotifyChanged(new NotificationImpl(Notification.ADD, null, null));
+		//MetsProjectNature.getAdapterFactory().fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 		return null;
 	}
 

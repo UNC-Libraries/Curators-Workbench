@@ -29,7 +29,6 @@ import org.eclipse.swt.dnd.DND;
 import org.eclipse.swt.dnd.Transfer;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Menu;
-import org.eclipse.ui.part.ResourceTransfer;
 import org.eclipse.ui.part.ViewPart;
 
 public class ArrangementTreeViewPart extends ViewPart {
@@ -40,14 +39,6 @@ public class ArrangementTreeViewPart extends ViewPart {
 	@Override
 	public void createPartControl(Composite parent) {
 		createViewer(parent);
-		// clipboard = new Clipboard(getSite().getShell().getDisplay());
-		// IActionBars bars = getViewSite().getActionBars();
-		// bars.setGlobalActionHandler(ActionFactory.CUT, new
-		// CutGadgetAction(viewer, clipboard));
-		// bars.setGlobalActionHandler(IWorkbenchActionConstants.COPY, new
-		// CopyGadgetAction(viewer, clipboard));
-		// bars.setGlobalActionHandler(IWorkbenchActionConstants.PASTE, new
-		// PasteTreeGadgetAction(viewer, clipboard));
 		viewer.setInput(ResourcesPlugin.getWorkspace().getRoot());
 	}
 
@@ -59,11 +50,6 @@ public class ArrangementTreeViewPart extends ViewPart {
 		createColumns(viewer);
 		viewer.setContentProvider(new ArrangementContentProvider());
 		viewer.setLabelProvider(new ArrangementTableLabelProvider());
-		// viewer.setLabelProvider(WorkbenchLabelProvider.getDecoratingWorkbenchLabelProvider());
-
-		Transfer[] transferTypes = new Transfer[] { ResourceTransfer.getInstance(), LocalSelectionTransfer.getTransfer() };
-		ArrangementDropListener lis = new ArrangementDropListener(viewer);
-		viewer.addDropSupport(DND.DROP_COPY | DND.DROP_MOVE, transferTypes, lis);
 
 		Transfer[] ttypes = new Transfer[] { LocalSelectionTransfer.getTransfer() };
 		viewer.addDragSupport(DND.DROP_MOVE, ttypes, new ArrangementDragSourceListener(viewer));

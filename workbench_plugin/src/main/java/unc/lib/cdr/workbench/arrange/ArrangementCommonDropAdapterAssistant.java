@@ -134,6 +134,7 @@ public class ArrangementCommonDropAdapterAssistant extends CommonDropAdapterAssi
 				}
 			}
 		}
+		
 		return Status.CANCEL_STATUS;
 
 	}
@@ -196,6 +197,7 @@ public class ArrangementCommonDropAdapterAssistant extends CommonDropAdapterAssi
 			} else {
 				LOG.debug("Cannot execute drop command: " + comboCommand.toString());
 			}
+			// refresh
 			return Status.OK_STATUS;
 		}
 		return Status.CANCEL_STATUS;

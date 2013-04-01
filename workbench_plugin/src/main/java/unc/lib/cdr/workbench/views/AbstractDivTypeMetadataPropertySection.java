@@ -116,7 +116,7 @@ public abstract class AbstractDivTypeMetadataPropertySection extends AbstractPro
 	@Override
 	public void refresh() {
 		if (folder != null) {
-			CTabItem first = null;
+			CTabItem showTab = null;
 			for (CTabItem i : folder.getItems()) {
 				i.dispose();
 			}
@@ -137,15 +137,15 @@ public abstract class AbstractDivTypeMetadataPropertySection extends AbstractPro
 				}
 				String mods = getXMLText(md);
 				CTabItem i = addTabItem(title, mods);
-				if (first == null) {
-					first = i;
+				if (showTab == null || METSConstants.MD_STATUS_USER_EDITED.equals(md.getSTATUS())) {
+					showTab = i;
 				}
 			}
-			if(first == null) {
-				first = addTabItem("no records","");
+			if(showTab == null) {
+				showTab = addTabItem("no records","");
 			}
-			folder.setSelection(first);
-			// folder.showItem(first);
+			folder.setSelection(showTab);
+			folder.showItem(showTab);
 		}
 	}
 
