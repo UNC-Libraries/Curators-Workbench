@@ -154,8 +154,9 @@ public class SwordDepositHandler implements DepositHandler {
 		
 		
 		// Identify the "main file".
-		// If the form has file blocks, this is the file corresponding to the form's main file block.
-		// If the form doesn't have file blocks, this is the mainFile attribute of the deposit.
+		// If the form has file blocks, this is the file corresponding to the FileBlock the
+		// form declares as its main FileBlock. If the form doesn't have file blocks, this
+		// is the mainFile attribute of the deposit.
 		
 		DepositFile mainFile = null;
 		
@@ -196,7 +197,7 @@ public class SwordDepositHandler implements DepositHandler {
 		gov.loc.mods.mods.DocumentRoot mods = makeMods(form);
 		edu.unc.lib.schemas.acl.DocumentRoot acl = makeAcl(form);
 
-		gov.loc.mets.DocumentRoot metsDocumentRoot = makeMets(form.getCurrentUser(), mods, acl, files, mainFile, fileFilenameMap, fileBlockMap);
+		gov.loc.mets.DocumentRoot metsDocumentRoot = makeMets(form, mods, acl, files, mainFile, fileFilenameMap, fileBlockMap);
 		File zipFile = makeZipFile(metsDocumentRoot, files, fileFilenameMap);
 		
 		
@@ -351,17 +352,24 @@ public class SwordDepositHandler implements DepositHandler {
 	/**
 	 * Prepare a METS document.
 	 * 
-	 * This takes care of both the single file and aggregate work cases. If
-	 * supplementalFiles is null, the generated structMap will contain a single
-	 * div of type "File". Otherwise, the structMap will contain a div of type
-	 * "Aggregate Work" at its root, and a structLink element will be generated,
-	 * assigning the main file as the defaultWebObject.
+	 * This takes care of three cases:
+	 * 
+	 * 1. The form has no file blocks and no supplemental files
+	 * 2. The form has no file blocks but does have supplemental files
+	 * 3. The form has file blocks and may have supplemental files
+	 * 
+	 * In the first case, the generated structMap will contain a single
+	 * div of type "File". In the other two cases, the generated structMap
+	 * will contain an "Aggregate Work" div, and a structLink element will
+	 * be generated which declares the div corresponding to the main file
+	 * given by mainFile to be the default access object of the aggregate
+	 * work div.
 	 * 
 	 * file and div elements are given ID attributes of the form "f_{index}" and
 	 * "d_{index}" respectively, where index is 0 for the main file, and 1, 2, ...
 	 * for each supplemental file.
 	 */
-	private gov.loc.mets.DocumentRoot makeMets(String user,
+	private gov.loc.mets.DocumentRoot makeMets(Form form,
 			gov.loc.mods.mods.DocumentRoot modsDocumentRoot,
 			edu.unc.lib.schemas.acl.DocumentRoot acl, List<DepositFile> files,
 			DepositFile mainFile,
@@ -397,11 +405,11 @@ public class SwordDepositHandler implements DepositHandler {
 	
 			AgentType agent;
 			
-			if (user != null) {
+			if (form.getCurrentUser() != null) {
 				agent = MetsFactory.eINSTANCE.createAgentType();
 				agent.setROLE(ROLEType.CREATOR);
 				agent.setTYPE(TYPEType.INDIVIDUAL);
-				agent.setName(user);
+				agent.setName(form.getCurrentUser());
 				head.getAgent().add(agent);
 			}
 			
@@ -490,11 +498,38 @@ public class SwordDepositHandler implements DepositHandler {
 		
 		}
 
-		// Structural map and structural links
+		// Structural map
+		
+		// If the form does not allow supplemental files and does not have explicit
+		// file blocks, there will be exactly one file, the main file. If this is the
+		// case, create a structural map with a file div at the root. Otherwise,
+		// create a structural map with an aggregate work div at the root, and save
+		// a reference to the main file div.
 		
 		DivType mainFileDiv = null;
 		
-		{
+		if (form.isCanAddSupplementalFiles() == false && form.isHasFileBlocks() == false) {
+
+			StructMapType structMap = MetsFactory.eINSTANCE.createStructMapType();
+
+			DivType fileDiv = MetsFactory.eINSTANCE.createDivType();
+			
+			fileDiv.setTYPE(METSConstants.Div_File);
+			fileDiv.setLABEL1(mainFile.getFilename());
+			fileDiv.getDmdSec().add(modsMdSec);
+			fileDiv.getMdSec().add(rightsMdSec);
+			
+			// In this case there is exactly one file, and so we know that its index is 0.
+			
+			FptrType fptr = MetsFactory.eINSTANCE.createFptrType();
+			fptr.setFILEID("f_0");
+			fileDiv.getFptr().add(fptr);
+
+			structMap.setDiv(fileDiv);
+
+			mets.getStructMap().add(structMap);
+		
+		} else {
 
 			StructMapType structMap = MetsFactory.eINSTANCE.createStructMapType();
 
