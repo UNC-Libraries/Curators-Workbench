@@ -228,6 +228,8 @@ public class FormController {
 			SessionStatus sessionStatus, HttpServletRequest request,
 			HttpServletResponse response) throws PermissionDeniedException {
 		
+		// Check that the form submitted by the user matches the one in the session
+		
 		if (!deposit.getFormId().equals(formId))
 			throw new Error("Form ID in session doesn't match form ID in path");
 		
@@ -248,32 +250,23 @@ public class FormController {
 		if (user != null)
 			deposit.getForm().setCurrentUser(user.getName());
 		
-		//
+		// Check the deposit's files for virus signatures
 		
 		IdentityHashMap<DepositFile, String> signatures = new IdentityHashMap<DepositFile, String>();
-
-		if (deposit.getFiles() != null) {
-			for (DepositFile depositFile : deposit.getFiles()) {
-				scanDepositFile(depositFile, signatures);
-			}
-		}
 		
-		scanDepositFile(deposit.getMainFile(), signatures);
+		for (DepositFile depositFile : deposit.getAllFiles())
+			scanDepositFile(depositFile, signatures);
 		
-		if (deposit.getSupplementalFiles() != null) {
-			for (DepositFile depositFile : deposit.getSupplementalFiles()) {
-				scanDepositFile(depositFile, signatures);
-			}
-		}
-		
-		//
+		// If the deposit has validation errors and no virus signatures were detected, display errors
 		
 		if (errors.hasErrors() && signatures.size() == 0) {
 			LOG.debug(errors.getErrorCount() + " errors");
 			return "form";
 		}
 		
-		//
+		// Otherwise, display one of the result pages: if we detected a virus signature, display
+		// the virus warning; otherwise, try to submit the deposit and display results. In each
+		// case, we want to do the same cleanup.
 		
 		String view;
 		
@@ -311,7 +304,7 @@ public class FormController {
 			
 		}
 		
-		//
+		// Clean up
 		
 		deposit.deleteAllFiles();
 		
