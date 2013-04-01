@@ -382,12 +382,12 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 	<c:if test="${not deposit.form.hasFileBlocks}">
 		<br/><h3>File for Deposit</h3>
 		<div class="indented_block">
-			<div class="form_field file_field ${not empty mainFile ? "filled" : ""}">
+			<div class="form_field file_field ${not empty deposit.mainFile ? "filled" : ""}">
 				<label>&nbsp;</label>
 				<input name="mainFile" type="file" class="file" size="40"/>
-				<c:if test="${not empty mainFile}">
+				<c:if test="${not empty deposit.mainFile}">
 					<span class="description">
-						<b><c:out value="${mainFile.filename}"/></b>
+						<b><c:out value="${deposit.mainFile.filename}"/></b>
 						<input type="submit" name="_mainFile" value="Remove file" class="remove"/>
 					</span>
 				</c:if>
