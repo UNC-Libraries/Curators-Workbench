@@ -250,13 +250,6 @@ public class FormController {
 		
 		//
 		
-		if (errors.hasErrors()) {
-			LOG.debug(errors.getErrorCount() + " errors");
-			return "form";
-		}
-		
-		//
-		
 		IdentityHashMap<DepositFile, String> signatures = new IdentityHashMap<DepositFile, String>();
 
 		if (deposit.getFiles() != null) {
@@ -271,6 +264,13 @@ public class FormController {
 			for (DepositFile depositFile : deposit.getSupplementalFiles()) {
 				scanDepositFile(depositFile, signatures);
 			}
+		}
+		
+		//
+		
+		if (errors.hasErrors() && signatures.size() == 0) {
+			LOG.debug(errors.getErrorCount() + " errors");
+			return "form";
 		}
 		
 		//
