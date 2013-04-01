@@ -1720,25 +1720,47 @@
       <propertyTabs
             contributorId="cdr-workbench.projectview">
          <propertyTab
-               category="description"
+               category="metadataSections"
                id="workbench_plugin.propertyTabDescriptions"
-               label="Descriptions">
+               image="icons/write_obj.gif"
+               label="Description">
          </propertyTab>
          <propertyTab
-               category="technical"
+               category="workbench"
                id="workbench_plugin.propertyTabStorageProperties"
                label="Storage">
          </propertyTab>
          <propertyTab
                afterTab="workbench_plugin.propertyTabCrosswalkedDescription"
-               category="description"
+               category="metadataSections"
                id="workbench_plugin.propertyTabMdSecContent"
-               label="Metadata Content">
+               label="Metadata Sections">
          </propertyTab>
          <propertyTab
-               category="description"
+               category="workbench"
                id="workbench_plugin.propertyTabGeneral"
                label="General">
+         </propertyTab>
+         <propertyTab
+               afterTab="workbench_plugin.propertyTabDescriptions"
+               category="metadataSections"
+               id="workbench_plugin.propertyTabRights"
+               image="icons/lockedstate.gif"
+               label="Rights">
+         </propertyTab>
+         <propertyTab
+               afterTab="workbench_plugin.propertyTabRights"
+               category="metadataSections"
+               id="workbench_plugin.propertyTabTechnical"
+               image="icons/binary_co.gif"
+               label="Technical">
+         </propertyTab>
+         <propertyTab
+               afterTab="workbench_plugin.propertyTabTechnical"
+               category="metadataSections"
+               id="workbench_plugin.propertyTabProvenance"
+               image="icons/info_tsk.gif"
+               label="Provenance">
          </propertyTab>
       </propertyTabs>
    </extension>
@@ -1747,9 +1769,9 @@
       <propertyContributor
             contributorId="cdr-workbench.projectview">
          <propertyCategory
-               category="description"></propertyCategory>
+               category="metadataSections"></propertyCategory>
          <propertyCategory
-               category="technical">
+               category="workbench">
          </propertyCategory>
       </propertyContributor>
    </extension>
@@ -1758,11 +1780,13 @@
       <propertySections
             contributorId="cdr-workbench.projectview">
          <propertySection
-               class="unc.lib.cdr.workbench.views.CrosswalkedDescriptionPropertySection"
+               class="unc.lib.cdr.workbench.views.DescriptionPropertySection"
                enablesFor="1"
-               filter="unc.lib.cdr.workbench.views.HasDescriptionsDivTypeFilter"
-               id="workbench_plugin.propertySectionCrosswalkedDescription"
+               id="workbench_plugin.propertySectionDescription"
                tab="workbench_plugin.propertyTabDescriptions">
+            <input
+                  type="gov.loc.mets.DivType">
+            </input>
          </propertySection>
          <propertySection
                class="unc.lib.cdr.workbench.views.OriginalFingerprintSection"
@@ -1794,6 +1818,33 @@
                filter="unc.lib.cdr.workbench.views.HasMetsProjectNatureFilter"
                id="workbench_plugin.propertySectionProject"
                tab="workbench_plugin.propertyTabGeneral">
+         </propertySection>
+         <propertySection
+               class="unc.lib.cdr.workbench.views.RightsPropertySection"
+               enablesFor="1"
+               id="workbench_plugin.propertySectionRights"
+               tab="workbench_plugin.propertyTabRights">
+            <input
+                  type="gov.loc.mets.DivType">
+            </input>
+         </propertySection>
+         <propertySection
+               class="unc.lib.cdr.workbench.views.ProvenancePropertySection"
+               enablesFor="1"
+               id="workbench_plugin.propertySectionProvenance"
+               tab="workbench_plugin.propertyTabProvenance">
+            <input
+                  type="gov.loc.mets.DivType">
+            </input>
+         </propertySection>
+         <propertySection
+               class="unc.lib.cdr.workbench.views.TechnicalPropertySection"
+               enablesFor="1"
+               id="workbench_plugin.propertySectionTechnical"
+               tab="workbench_plugin.propertyTabTechnical">
+            <input
+                  type="gov.loc.mets.DivType">
+            </input>
          </propertySection>
       </propertySections>
    </extension>

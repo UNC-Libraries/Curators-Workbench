@@ -20,7 +20,6 @@ import gov.loc.mets.MdSecType;
 import gov.loc.mets.util.METSConstants;
 
 import java.io.StringWriter;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -44,14 +43,14 @@ import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class CrosswalkedDescriptionPropertySection extends AbstractPropertySection {
+public abstract class AbstractDivTypeMetadataPropertySection extends AbstractPropertySection {
 
 	@SuppressWarnings("unused")
-	private static final Logger LOG = LoggerFactory.getLogger(CrosswalkedDescriptionPropertySection.class);
+	private static final Logger LOG = LoggerFactory.getLogger(AbstractDivTypeMetadataPropertySection.class);
 
 	// private ISelection input = null;
-	private DivType div = null;
-	CTabFolder folder = null;
+	DivType div = null;
+	private CTabFolder folder = null;
 
 	/**
 	 * @see org.eclipse.ui.views.properties.tabbed.ISection#setInput(org.eclipse.ui.IWorkbenchPart,
@@ -74,10 +73,7 @@ public class CrosswalkedDescriptionPropertySection extends AbstractPropertySecti
 		return true;
 	}
 
-	List<MdSecType> getCrosswalkedMdSecs() {
-		List<MdSecType> result = new ArrayList<MdSecType>();
-		return result;
-	}
+	abstract List<MdSecType> getMdSecs();
 
 	String getXMLText(MdSecType mdSec) {
 		StringWriter sw = new StringWriter();
@@ -109,45 +105,44 @@ public class CrosswalkedDescriptionPropertySection extends AbstractPropertySecti
 		folder.setLayoutData(data);
 	}
 
-	public CTabItem addTabItem(String title, String mods, boolean userLinked) {
+	public CTabItem addTabItem(String title, String metadataText) {
 		CTabItem item = getWidgetFactory().createTabItem(folder, SWT.NULL);
 		item.setText(title);
-		Text modsTxt = getWidgetFactory().createText(folder, mods, SWT.MULTI | SWT.READ_ONLY | SWT.WRAP | SWT.BORDER);
-		item.setControl(modsTxt);
+		Text text = getWidgetFactory().createText(folder, metadataText, SWT.MULTI | SWT.READ_ONLY | SWT.WRAP | SWT.BORDER);
+		item.setControl(text);
 		return item;
 	}
 
 	@Override
 	public void refresh() {
-		// LOG.debug("folder: " +folder);
-		// LOG.debug("div: "+div);
 		if (folder != null) {
 			CTabItem first = null;
 			for (CTabItem i : folder.getItems()) {
 				i.dispose();
 			}
-			List<MdSecType> cwMdSecs = new ArrayList<MdSecType>();
-			if (this.div != null) {
-				for (MdSecType md : this.div.getDmdSec()) {
-					// LOG.debug(md.toString());
-					//if (METSConstants.MD_STATUS_CROSSWALK_LINKED.equals(md.getSTATUS())) {
-					//	cwMdSecs.add(md);
-					//} else if (METSConstants.MD_STATUS_CROSSWALK_USER_LINKED.equals(md.getSTATUS())) {
-						cwMdSecs.add(md);
-					//}
-				}
-			}
+			List<MdSecType> cwMdSecs = this.getMdSecs();
 			for (MdSecType md : cwMdSecs) {
-				String title = "User Edited";
-				if(md.getGROUPID() != null) {
-					title = md.getGROUPID() + " (" + md.getMdWrap().getLABEL() + ")";
+				String title = md.getMdWrap().getLABEL();
+				if(title == null) {
+					if(METSConstants.MD_STATUS_USER_EDITED.equals(md.getSTATUS())) {
+						title = "User Edited";
+					} else if(METSConstants.MD_STATUS_CROSSWALK_USER_LINKED.equals(md.getSTATUS())) {
+						title = "User Linked";
+					} else {
+						title = "weird title";
+					}
 				}
-				boolean userLinked = METSConstants.MD_STATUS_CROSSWALK_USER_LINKED.equals(md.getSTATUS()) ? true : false;
+				if(md.getGROUPID() != null) {
+					title = title + " ("+md.getGROUPID()+")";
+				}
 				String mods = getXMLText(md);
-				CTabItem i = addTabItem(title, mods, userLinked);
+				CTabItem i = addTabItem(title, mods);
 				if (first == null) {
 					first = i;
 				}
+			}
+			if(first == null) {
+				first = addTabItem("no records","");
 			}
 			folder.setSelection(first);
 			// folder.showItem(first);

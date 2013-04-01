@@ -102,11 +102,11 @@ public class MdSecTypePropertySection extends AbstractPropertySection {
 		folder.setLayoutData(data);
 	}
 
-	public CTabItem addTabItem(String title, String mods, boolean userLinked) {
+	public CTabItem addTabItem(String title, String metadataText) {
 		CTabItem item = getWidgetFactory().createTabItem(folder, SWT.NULL);
 		item.setText(title);
-		Text modsTxt = getWidgetFactory().createText(folder, mods, SWT.MULTI | SWT.READ_ONLY | SWT.WRAP | SWT.BORDER);
-		item.setControl(modsTxt);
+		Text text = getWidgetFactory().createText(folder, metadataText, SWT.MULTI | SWT.READ_ONLY | SWT.WRAP | SWT.BORDER);
+		item.setControl(text);
 		return item;
 	}
 
@@ -117,10 +117,10 @@ public class MdSecTypePropertySection extends AbstractPropertySection {
 			for (CTabItem i : folder.getItems()) {
 				i.dispose();
 			}
-			String title = mdsec.getGROUPID() + " (" + mdsec.getMdWrap().getLABEL() + ")";
+			String title = mdsec.getMdWrap().getLABEL() + " (" + mdsec.getGROUPID() + ")";
 			boolean userLinked = METSConstants.MD_STATUS_CROSSWALK_USER_LINKED.equals(mdsec.getSTATUS()) ? true : false;
-			String mods = getXMLText(mdsec);
-			CTabItem i = addTabItem(title, mods, userLinked);
+			String metadataText = getXMLText(mdsec);
+			CTabItem i = addTabItem(title, metadataText);
 			if (first == null) {
 				first = i;
 			}
