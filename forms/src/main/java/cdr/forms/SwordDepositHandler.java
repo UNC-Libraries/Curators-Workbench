@@ -504,9 +504,9 @@ public class SwordDepositHandler implements DepositHandler {
 		// file blocks, there will be exactly one file, the main file. If this is the
 		// case, create a structural map with a file div at the root. Otherwise,
 		// create a structural map with an aggregate work div at the root, and save
-		// a reference to the main file div.
+		// a reference to the main file's div so a link can be created.
 		
-		DivType mainFileDiv = null;
+		DivType defaultAccessDiv = null;
 		
 		if (form.isCanAddSupplementalFiles() == false && form.isHasFileBlocks() == false) {
 
@@ -563,7 +563,7 @@ public class SwordDepositHandler implements DepositHandler {
 				aggregateWorkDiv.getDiv().add(fileDiv);
 				
 				if (depositFile == mainFile)
-					mainFileDiv = fileDiv;
+					defaultAccessDiv = fileDiv;
 				
 			}
 	
@@ -574,20 +574,16 @@ public class SwordDepositHandler implements DepositHandler {
 		
 		// Structural Links
 		
-		{
+		if (defaultAccessDiv != null) {
 		
 			StructLinkType1 structLink = MetsFactory.eINSTANCE.createStructLinkType1();
 			
-			if (mainFileDiv != null) {
-	
-				SmLinkType smLink = MetsFactory.eINSTANCE.createSmLinkType();
-				smLink.setArcrole(Link.DEFAULTACCESS.uri);
-				smLink.setXlinkFrom(aggregateWorkDiv);
-				smLink.setXlinkTo(mainFileDiv);
+			SmLinkType smLink = MetsFactory.eINSTANCE.createSmLinkType();
+			smLink.setArcrole(Link.DEFAULTACCESS.uri);
+			smLink.setXlinkFrom(aggregateWorkDiv);
+			smLink.setXlinkTo(defaultAccessDiv);
 		
-				structLink.getSmLink().add(smLink);
-				
-			}
+			structLink.getSmLink().add(smLink);
 			
 			mets.setStructLink(structLink);
 		
