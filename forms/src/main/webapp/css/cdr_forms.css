@@ -152,6 +152,32 @@ input[readonly] {
 	background-color: #fff;
 }
 
+.hidden_top_submit {
+	width: 0px;
+	height: 0px;
+	margin: 0px;
+	padding: 0px;
+	outline: none;
+	border: 0px;
+}
+
+.file_field.filled input.file {
+	display: none;
+}
+
+.file_field.removed input.file {
+	display: inline;
+}
+
+.file_field.removed .description {
+	display: none;
+}
+
+.form_logo {
+	display: block;
+	margin-bottom: 10px;
+}
+
 
 /* Autocomplete
 ----------------------------------*/

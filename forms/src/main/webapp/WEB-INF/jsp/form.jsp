@@ -24,6 +24,7 @@
 <%@ page import="crosswalk.impl.*"%>
 <%@ page import="java.net.URL"%>
 <%@ page import="java.io.*"%>
+<%@ page import="cdr.forms.*"%>
 <!doctype html>
 <html>
 <head>
@@ -46,7 +47,7 @@ pageContext.setAttribute("currentYear", new Integer(year));
 Map<String,List<String>> vocabURLMap = new HashMap<String,List<String>>();
 Set<String> freeTextKeys = new HashSet<String>();
 int elementNum = 0;
-for (Object element: ((FormImpl)request.getAttribute("form")).getElements()) {
+for (Object element: ((Deposit) request.getAttribute("deposit")).getForm().getElements()) {
 	if (element instanceof MetadataBlockImpl) {
 		String vocabKey = null;
 		MetadataBlockImpl mdBlock = (MetadataBlockImpl)element;
@@ -156,6 +157,20 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 		}
 		%>
 		
+		<%-- Instead of submitting the form when a "Remove file" input is clicked, set the class of
+		the containing div to "removed", which will hide the description and button and display the
+		file input. Then, append a hidden field with the same name as the "Remove file" input, which
+		will cause the file to be removed on submission of the form (or it will be replaced by
+		another file). --%>
+		
+		$(".file_field .remove").each(function() {
+			var button = $(this);
+			$(this).on("click", function(e) {
+				button.closest(".file_field").addClass("removed");
+ 				button.parent().append("<input type=\"hidden\" name=\"" + button.attr("name") + "\" value=\"true\">");
+				return false;
+			});
+		});
 		
 	});
 </script>
@@ -169,7 +184,7 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 <meta name="keywords" content="Carolina Digital Repository, deposit" />
 <meta name="robots" content="index, nofollow" />
 <link rel="shortcut icon" href="/static/images/favicon.ico" type="image/x-icon" />
-<title><c:out value="${form.title}"/></title>
+<title><c:out value="${deposit.form.title}"/></title>
 </head>
 <body>
 <div id="pagewrap">
@@ -190,25 +205,57 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 		</div>
 		<div id="content">
 			<div class="contentarea">
-<h2><c:out value="${form.title}"/></h2>
+
+<c:if test="${not empty deposit.form.logo}">
+<img src="${deposit.form.logo}" class="form_logo"/>
+</c:if>
+
+<h2><c:out value="${deposit.form.title}"/></h2>
 <spring:hasBindErrors name="form">
 	<% if (errors.getFieldError("file") != null) { %>
 	<span class="red"><%= errors.getFieldError("file").getDefaultMessage() %></span>
 	<br/><br/>
 	<% } %>
 </spring:hasBindErrors>
-<p><c:out value="${form.description}"/></p>
-<form:form modelAttribute="form" enctype="multipart/form-data" acceptCharset="UTF-8">
-	<c:forEach items="${form.elements}" varStatus="elementRow">
-		<spring:bind path="form.elements[${elementRow.index}]" ignoreNestedPath="true">
+<p><c:out value="${deposit.form.description}"/></p>
+<form:form modelAttribute="deposit" enctype="multipart/form-data" acceptCharset="UTF-8">
+	
+	<%-- Because we have other submit buttons within the form, include a hidden submit button at
+	the top to act as the default. --%>
+	<input type="submit" value="submit deposit" class="hidden_top_submit"/>
+	
+	<c:forEach items="${deposit.form.elements}" var="element" varStatus="elementRow">
+		<spring:bind path="deposit.form.elements[${elementRow.index}]" ignoreNestedPath="true">
 			<% if(Paragraph.class.isInstance(status.getValue())) { 
-					Paragraph p = (Paragraph)status.getValue(); 
-					if(p.getHeading() != null) { %>
-					<br/><h3><%= p.getHeading() %></h3>
-					<% }
-					if(p.getText() != null) { %>
-					<p><%= ((Paragraph)status.getValue()).getText() %></p>
-					<% } %>
+				Paragraph p = (Paragraph)status.getValue(); 
+				if(p.getHeading() != null) { %>
+				<br/><h3><%= p.getHeading() %></h3>
+				<% }
+				if(p.getText() != null) { %>
+				<p><%= ((Paragraph)status.getValue()).getText() %></p>
+				<% } %>
+			<% } else if(FileBlock.class.isInstance(status.getValue())) {
+				FileBlock f = (FileBlock)status.getValue(); 
+				if(f.getName() != null) { %>
+				<br/><h3><%= f.getName() %></h3>
+				<% }
+				if(f.getDescription() != null) { %>
+				<p><%= ((FileBlock)status.getValue()).getDescription() %></p>
+				<% } %>
+				<div class="indented_block">
+					<div class="form_field file_field ${not empty deposit.files[deposit.blockFileIndexMap[element]] ? "filled" : ""}">
+						<label><c:if test="${not empty element.usage}"><a title="${element.usage}">(i)</a></c:if>&nbsp;</label>
+						<input name="files[${deposit.blockFileIndexMap[element]}]" type="file" class="file" size="40"/>
+						<c:if test="${not empty deposit.files[deposit.blockFileIndexMap[element]]}">
+							<span class="description">
+								<b><c:out value="${deposit.files[deposit.blockFileIndexMap[element]].filename}"/></b>
+								<input type="submit" name="_files[${deposit.blockFileIndexMap[element]}]" value="Remove file" class="remove"/>
+							</span>
+						</c:if>
+						<% if (f.isRequired()) { %><span class="red">*</span><% } %>
+						<form:errors cssClass="red" path="files[${deposit.blockFileIndexMap[element]}]" />
+					</div>
+				</div>
 			<% } else if(MetadataBlock.class.isInstance(status.getValue())) { 
 					MetadataBlock mb = (MetadataBlock)status.getValue(); %>
 					<div class="metadata_block">
@@ -217,26 +264,26 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 						<p><%= ((MetadataBlock)status.getValue()).getDescription() %></p>
 						<% } %>
 						<div class="indented_block">
-							<c:forEach items="${form.elements[elementRow.index].ports}" var="port" varStatus="portRow">
-								<spring:bind path="form.elements[${elementRow.index}].ports[${portRow.index}]" ignoreNestedPath="true">
+							<c:forEach items="${deposit.form.elements[elementRow.index].ports}" var="port" varStatus="portRow">
+								<spring:bind path="deposit.form.elements[${elementRow.index}].ports[${portRow.index}]" ignoreNestedPath="true">
 									<% if(status.getValue() instanceof DateInputField) { %>
 										<div class="form_field">
 											<label><c:if test="${not empty port.usage}"><a title="${port.usage}">(i)</a>&nbsp;</c:if><c:out value="${port.label}"/></label>
 											<c:choose>
 												<c:when test="${port.datePrecision.name == 'month'}">
-													<form:input cssClass="monthpicker" path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}" />
+													<form:input cssClass="monthpicker" path="form.elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}" />
 												</c:when>
 												<c:when test="${port.datePrecision.name == 'day'}">
-													<form:input cssClass="datepicker" path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}" />
+													<form:input cssClass="datepicker" path="form.elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}" />
 												</c:when>
 												<c:when test="${port.datePrecision.name == 'year'}">
-													<form:select path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}">
+													<form:select path="form.elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}">
 														<%-- Display a select of years, from 190 in the past to 10 in the future --%>
 														<c:forEach var="i" begin="0" end="200">
 															<%-- Select the year from the form bean or the current year if none is provided --%>
 															<c:choose>
-																<c:when test="${(form.elements[elementRow.index].ports[portRow.index].enteredValue != null && form.elements[elementRow.index].ports[portRow.index].enteredValue.year == (currentYear - i + 10 - 1900))  
-																		|| (form.elements[elementRow.index].ports[portRow.index].enteredValue == null && i == 10)}">
+																<c:when test="${(deposit.form.elements[elementRow.index].ports[portRow.index].enteredValue != null && form.elements[elementRow.index].ports[portRow.index].enteredValue.year == (currentYear - i + 10 - 1900))  
+																		|| (deposit.form.elements[elementRow.index].ports[portRow.index].enteredValue == null && i == 10)}">
 																	<form:option value="${currentYear - i + 10}" selected="true"/>
 																</c:when>
 																<c:otherwise>
@@ -248,7 +295,7 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 												</c:when>
 											</c:choose>
 											<c:if test="${port.required}"><span class="red">*</span></c:if>
-											<form:errors cssClass="red" path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" />
+											<form:errors cssClass="red" path="form.elements[${elementRow.index}].ports[${portRow.index}].enteredValue" />
 											<br/>
 										</div>
 									<% } else if(status.getValue() instanceof TextInputField) { %>
@@ -261,17 +308,17 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 												<c:when test="${port.type.name == 'MultipleLines'}">
 													<div class="multi_notes">
 														<c:if test="${port.required}"><span class="red">*</span></c:if>
-														<form:errors cssClass="red" path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" />
+														<form:errors cssClass="red" path="form.elements[${elementRow.index}].ports[${portRow.index}].enteredValue" />
 													</div>
 													<c:if test="${port.width.name == 'FullLine'}">
 														<br/>
 													</c:if>													
 													<c:choose>
 														<c:when test="${port.maxCharacters != null}">
-															<form:textarea path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}" placeholder="${port.usage}" maxlength="${port.maxCharacters}"/>
+															<form:textarea path="form.elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}" placeholder="${port.usage}" maxlength="${port.maxCharacters}"/>
 														</c:when>
 														<c:otherwise>
-															<form:textarea path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}" placeholder="${port.usage}"/>
+															<form:textarea path="form.elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}" placeholder="${port.usage}"/>
 														</c:otherwise>
 													</c:choose>
 													<br/>
@@ -283,15 +330,15 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 																<c:when test="${port.allowFreeText}">
 																	<c:choose>
 																		<c:when test="${port.validValues == null || port.validValues.size() == 0}">
-																			<form:input path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}" placeholder="${port.usage}" maxlength="${port.maxCharacters}" cssClass="cv_${port.vocabularyURL.hashCode()}"/>
+																			<form:input path="form.elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}" placeholder="${port.usage}" maxlength="${port.maxCharacters}" cssClass="cv_${port.vocabularyURL.hashCode()}"/>
 																		</c:when>
 																		<c:otherwise>
-																			<form:input path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}" placeholder="${port.usage}" maxlength="${port.maxCharacters}" cssClass="cv_${port.vocabularyURL.hashCode()}_elements${elementRow.index}.ports${portRow.index}.enteredValue"/>
+																			<form:input path="form.elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}" placeholder="${port.usage}" maxlength="${port.maxCharacters}" cssClass="cv_${port.vocabularyURL.hashCode()}_elements${elementRow.index}.ports${portRow.index}.enteredValue"/>
 																		</c:otherwise>
 																	</c:choose>
 																</c:when>
 																<c:otherwise>
-																	<form:select path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}">
+																	<form:select path="form.elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}">
 																		<form:options items="${vocabURLMap[port.vocabularyURL.hashCode().toString()]}"/>
 																		<form:options items="${port.validValues}"/>
 																	</form:select>
@@ -301,10 +348,10 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 														<c:otherwise>
 															<c:choose>
 																<c:when test="${port.validValues == null || port.validValues.size() == 0}">
-																	<form:input path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}" placeholder="${port.usage}" maxlength="${port.maxCharacters}"/>
+																	<form:input path="form.elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}" placeholder="${port.usage}" maxlength="${port.maxCharacters}"/>
 																</c:when>
 																<c:otherwise>
-																	<form:select path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}">
+																	<form:select path="form.elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}">
 																		<form:options items="${port.validValues}"/>
 																	</form:select>
 																</c:otherwise>
@@ -312,13 +359,13 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 														</c:otherwise>
 													</c:choose>
 													<c:if test="${port.required}"><span class="red">*</span></c:if>
-													<form:errors cssClass="red" path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" />
+													<form:errors cssClass="red" path="form.elements[${elementRow.index}].ports[${portRow.index}].enteredValue" />
 													<br/>
 												</c:otherwise>
 											</c:choose>
 										</div>
 									<% } else { %>
-									<form:input path="elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}" />
+									<form:input path="form.elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}" />
 									<% } %>
 								</spring:bind>
 							</c:forEach>
@@ -327,24 +374,40 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 			<% } %>
 		</spring:bind>
 	</c:forEach>
-	<br/><h3>File for Deposit</h3>
-	<div class="indented_block">
-		<div class="form_field file_field">
-			<label>&nbsp;</label><input name="file" type="file" size="40"/> <span class="red">*</span>
+	
+	<c:if test="${not deposit.form.hasFileBlocks}">
+		<br/><h3>File for Deposit</h3>
+		<div class="indented_block">
+			<div class="form_field file_field ${not empty deposit.mainFile ? "filled" : ""}">
+				<label>&nbsp;</label>
+				<input name="mainFile" type="file" class="file" size="40"/>
+				<c:if test="${not empty deposit.mainFile}">
+					<span class="description">
+						<b><c:out value="${deposit.mainFile.filename}"/></b>
+						<input type="submit" name="_mainFile" value="Remove file" class="remove"/>
+					</span>
+				</c:if>
+				<span class="red">*</span>
+				<form:errors cssClass="red" path="mainFile" />
+			</div>
 		</div>
-	</div>
-	<c:if test="${form.canAddSupplementalFiles}">
+	</c:if>
+
+	<c:if test="${deposit.form.canAddSupplementalFiles}">
 		<br/><h3>Supplemental Files</h3>
 		<div class="indented_block">
-			<div class="form_field file_field">
-				<label>&nbsp;</label><input name="supplementalFile" type="file" size="40"/>
-			</div>
-			<div class="form_field file_field">
-				<label>&nbsp;</label><input name="supplementalFile" type="file" size="40"/>
-			</div>
-			<div class="form_field file_field">
-				<label>&nbsp;</label><input name="supplementalFile" type="file" size="40"/>
-			</div>
+			<c:forEach items="${deposit.supplementalFiles}" var="file" varStatus="fileRow">
+				<div class="form_field file_field ${not empty file ? "filled" : ""}">
+					<label>&nbsp;</label>
+					<input name="supplementalFiles[${fileRow.index}]" type="file" class="file" size="40"/>
+					<c:if test="${not empty file}">
+						<span class="description">
+							<b><c:out value="${file.filename}"/></b>
+							<input type="submit" name="_supplementalFiles[${fileRow.index}]" value="Remove file" class="remove"/>
+						</span>
+					</c:if>
+				</div>
+			</c:forEach>
 		</div>
 	</c:if>
 	
@@ -352,12 +415,9 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 	<p>Your deposit receipt will be emailed to the address below.</p>
 	<div class="indented_block">
 		<div class="form_field receipt_email_address_field">
-			<label>&nbsp;</label><input name="receiptEmailAddress" type="text" size="40" value="${receiptEmailAddress}"/>
-			<spring:hasBindErrors name="form">
-				<% if (errors.getFieldError("receiptEmailAddress") != null) { %>
-				<span class="red"><%= errors.getFieldError("receiptEmailAddress").getDefaultMessage() %></span>
-				<% } %>
-    		</spring:hasBindErrors>
+			<label>&nbsp;</label>
+    		<form:input path="receiptEmailAddress" />
+    		<form:errors cssClass="red" path="receiptEmailAddress" />
 		</div>
 	</div>
 	

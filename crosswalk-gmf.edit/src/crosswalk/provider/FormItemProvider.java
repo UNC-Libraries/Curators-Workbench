@@ -86,6 +86,8 @@ public class FormItemProvider
 			addCanAddSupplementalFilesPropertyDescriptor(object);
 			addContactNamePropertyDescriptor(object);
 			addContactEmailPropertyDescriptor(object);
+			addMainFileBlockPropertyDescriptor(object);
+			addLogoPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -311,6 +313,50 @@ public class FormItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Main File Block feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMainFileBlockPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Form_mainFileBlock_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Form_mainFileBlock_feature", "_UI_Form_type"),
+				 CrosswalkPackage.Literals.FORM__MAIN_FILE_BLOCK,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Logo feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addLogoPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Form_logo_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Form_logo_feature", "_UI_Form_type"),
+				 CrosswalkPackage.Literals.FORM__LOGO,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -388,6 +434,7 @@ public class FormItemProvider
 			case CrosswalkPackage.FORM__CAN_ADD_SUPPLEMENTAL_FILES:
 			case CrosswalkPackage.FORM__CONTACT_NAME:
 			case CrosswalkPackage.FORM__CONTACT_EMAIL:
+			case CrosswalkPackage.FORM__LOGO:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case CrosswalkPackage.FORM__ELEMENTS:
@@ -412,6 +459,11 @@ public class FormItemProvider
 			(createChildParameter
 				(CrosswalkPackage.Literals.FORM__ELEMENTS,
 				 CrosswalkFactory.eINSTANCE.createMetadataBlock()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CrosswalkPackage.Literals.FORM__ELEMENTS,
+				 CrosswalkFactory.eINSTANCE.createFileBlock()));
 
 		newChildDescriptors.add
 			(createChildParameter

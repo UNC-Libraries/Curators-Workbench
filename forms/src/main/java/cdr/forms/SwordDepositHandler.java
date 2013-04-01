@@ -63,6 +63,7 @@ import java.util.HashMap;
 import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.UUID;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
@@ -88,6 +89,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.w3._1999.xlink.XlinkPackage;
 
+import crosswalk.FileBlock;
 import crosswalk.Form;
 import crosswalk.FormElement;
 import crosswalk.MetadataBlock;
@@ -142,27 +144,61 @@ public class SwordDepositHandler implements DepositHandler {
 		this.defaultContainer = defaultContainer;
 	}
 	
-	public DepositResult depositAggregate(Form form, SubmittedFile mainFile, List<SubmittedFile> supplementalFiles) {
-		return deposit(form, mainFile, supplementalFiles);
-	}	
-
-	public DepositResult depositFile(Form form, SubmittedFile file) {
-		return deposit(form, file, null);
-	}
-	
-	private DepositResult deposit(Form form, SubmittedFile mainFile, List<SubmittedFile> supplementalFiles) {
+	public DepositResult deposit(Deposit deposit) {
+		
+		Form form = deposit.getForm();
+		
+		// Generate a PID
 
 		String pid = "uuid:" + UUID.randomUUID().toString();
+		
+		
+		// Identify the "main file".
+		// If the form has file blocks, this is the file corresponding to the FileBlock the
+		// form declares as its main FileBlock. If the form doesn't have file blocks, this
+		// is the mainFile attribute of the deposit.
+		
+		DepositFile mainFile = null;
+		
+		if (form.isHasFileBlocks()) {
+			Integer index = deposit.getBlockFileIndexMap().get(form.getMainFileBlock());
+			
+			if (index != null)
+				mainFile = deposit.getFiles()[index];
+		} else {
+			mainFile = deposit.getMainFile();
+		}
+		
+		
+		// Establish a mapping between files and the form's FileBlocks
+		
+		IdentityHashMap<DepositFile, FileBlock> fileBlockMap = new IdentityHashMap<DepositFile, FileBlock>();
+		
+		for (Entry<FileBlock, Integer> entry : deposit.getBlockFileIndexMap().entrySet()) {
+			DepositFile depositFile = deposit.getFiles()[entry.getValue()];
+			
+			if (depositFile != null)
+				fileBlockMap.put(depositFile, entry.getKey());
+		}
+		
+		
+		// Get all the files as a big list
+		
+		List<DepositFile> files = deposit.getAllFiles();
+		
+		
+		// Establish a mapping between files and filenames (give each file a unique, indexed name)
+		
+		IdentityHashMap<DepositFile, String> fileFilenameMap = buildFilenameMap(files);
 		
 		
 		// Prepare the zip file for deposit
 		
 		gov.loc.mods.mods.DocumentRoot mods = makeMods(form);
 		edu.unc.lib.schemas.acl.DocumentRoot acl = makeAcl(form);
-		IdentityHashMap<SubmittedFile, String> filenames = buildFilenameMap(mainFile, supplementalFiles);
 
-		gov.loc.mets.DocumentRoot metsDocumentRoot = makeMets(form.getCurrentUser(), mods, acl, mainFile, supplementalFiles, filenames);
-		File zipFile = makeZipFile(metsDocumentRoot, mainFile, supplementalFiles, filenames);
+		gov.loc.mets.DocumentRoot metsDocumentRoot = makeMets(form, mods, acl, files, mainFile, fileFilenameMap, fileBlockMap);
+		File zipFile = makeZipFile(metsDocumentRoot, files, fileFilenameMap);
 		
 		
 		// Obtain the path for the collection in which we'll attempt to make the deposit
@@ -266,20 +302,15 @@ public class SwordDepositHandler implements DepositHandler {
 		
 	}
 
-	private IdentityHashMap<SubmittedFile, String> buildFilenameMap(SubmittedFile mainFile, List<SubmittedFile> supplementalFiles) {
+	private IdentityHashMap<DepositFile, String> buildFilenameMap(List<DepositFile> files) {
 		
-		IdentityHashMap<SubmittedFile, String> filenames = new IdentityHashMap<SubmittedFile, String>();
+		IdentityHashMap<DepositFile, String> filenames = new IdentityHashMap<DepositFile, String>();
 
 		int index = 0;
-		
-		filenames.put(mainFile, "data_" + index + mainFile.getExtension());
-		index++;
 
-		if (supplementalFiles != null) {
-			for (SubmittedFile supplementalFile : supplementalFiles) {
-				filenames.put(supplementalFile, "data_" + index + supplementalFile.getExtension());
-				index++;
-			}
+		for (DepositFile file : files) {
+			filenames.put(file, "data_" + index + file.getExtension());
+			index++;
 		}
 		
 		return filenames;
@@ -321,31 +352,35 @@ public class SwordDepositHandler implements DepositHandler {
 	/**
 	 * Prepare a METS document.
 	 * 
-	 * This takes care of both the single file and aggregate work cases. If
-	 * supplementalFiles is null, the generated structMap will contain a single
-	 * div of type "File". Otherwise, the structMap will contain a div of type
-	 * "Aggregate Work" at its root, and a structLink element will be generated,
-	 * assigning the main file as the defaultWebObject.
+	 * This takes care of three cases:
+	 * 
+	 * 1. The form has no file blocks and no supplemental files
+	 * 2. The form has no file blocks but does have supplemental files
+	 * 3. The form has file blocks and may have supplemental files
+	 * 
+	 * In the first case, the generated structMap will contain a single
+	 * div of type "File". In the other two cases, the generated structMap
+	 * will contain an "Aggregate Work" div, and a structLink element will
+	 * be generated which declares the div corresponding to the main file
+	 * given by mainFile to be the default access object of the aggregate
+	 * work div.
 	 * 
 	 * file and div elements are given ID attributes of the form "f_{index}" and
 	 * "d_{index}" respectively, where index is 0 for the main file, and 1, 2, ...
 	 * for each supplemental file.
 	 */
-	private gov.loc.mets.DocumentRoot makeMets(String user, gov.loc.mods.mods.DocumentRoot modsDocumentRoot, edu.unc.lib.schemas.acl.DocumentRoot acl,
-			SubmittedFile mainFile, List<SubmittedFile> supplementalFiles, IdentityHashMap<SubmittedFile, String> filenames) {
+	private gov.loc.mets.DocumentRoot makeMets(Form form,
+			gov.loc.mods.mods.DocumentRoot modsDocumentRoot,
+			edu.unc.lib.schemas.acl.DocumentRoot acl, List<DepositFile> files,
+			DepositFile mainFile,
+			IdentityHashMap<DepositFile, String> filenames,
+			IdentityHashMap<DepositFile, FileBlock> fileBlockMap) {
 		
 		gov.loc.mets.DocumentRoot root;
 		MetsType mets;
 		MdSecType rightsMdSec;
 		MdSecType modsMdSec;
 		DivType aggregateWorkDiv = null;
-		
-		int totalFiles;
-		
-		if (supplementalFiles == null)
-			totalFiles = 1;
-		else
-			totalFiles = 1 + supplementalFiles.size();
 		
 		// Document root
 		
@@ -370,11 +405,11 @@ public class SwordDepositHandler implements DepositHandler {
 	
 			AgentType agent;
 			
-			if (user != null) {
+			if (form.getCurrentUser() != null) {
 				agent = MetsFactory.eINSTANCE.createAgentType();
 				agent.setROLE(ROLEType.CREATOR);
 				agent.setTYPE(TYPEType.INDIVIDUAL);
-				agent.setName(user);
+				agent.setName(form.getCurrentUser());
 				head.getAgent().add(agent);
 			}
 			
@@ -441,17 +476,17 @@ public class SwordDepositHandler implements DepositHandler {
 			FileSecType fileSec = MetsFactory.eINSTANCE.createFileSecType();
 			FileGrpType1 fileGrp = MetsFactory.eINSTANCE.createFileGrpType1();
 			
-			for (int i = 0; i < totalFiles; i++) {
+			for (int i = 0; i < files.size(); i++) {
 				
-				SubmittedFile submittedFile = i == 0 ? mainFile : supplementalFiles.get(i - 1);
+				DepositFile depositFile = files.get(i);
 				
 				FileType file = MetsFactory.eINSTANCE.createFileType();
 				file.setID("f_" + i);
-				file.setMIMETYPE(submittedFile.getContentType());
+				file.setMIMETYPE(depositFile.getContentType());
 	
 				FLocatType fLocat = MetsFactory.eINSTANCE.createFLocatType();
 				fLocat.setLOCTYPE(LOCTYPEType.URL);
-				fLocat.setHref(filenames.get(submittedFile));
+				fLocat.setHref(filenames.get(depositFile));
 	
 				file.getFLocat().add(fLocat);
 				fileGrp.getFile().add(file);
@@ -463,18 +498,28 @@ public class SwordDepositHandler implements DepositHandler {
 		
 		}
 
-		// Structural map and structural links
+		// Structural map
 		
-		if (supplementalFiles == null) {
-			
+		// If the form does not allow supplemental files and does not have explicit
+		// file blocks, there will be exactly one file, the main file. If this is the
+		// case, create a structural map with a file div at the root. Otherwise,
+		// create a structural map with an aggregate work div at the root, and save
+		// a reference to the main file's div so a link can be created.
+		
+		DivType defaultAccessDiv = null;
+		
+		if (form.isCanAddSupplementalFiles() == false && form.isHasFileBlocks() == false) {
+
 			StructMapType structMap = MetsFactory.eINSTANCE.createStructMapType();
 
 			DivType fileDiv = MetsFactory.eINSTANCE.createDivType();
 			
-			fileDiv.setLABEL1(mainFile.getFilename());
 			fileDiv.setTYPE(METSConstants.Div_File);
+			fileDiv.setLABEL1(mainFile.getFilename());
 			fileDiv.getDmdSec().add(modsMdSec);
 			fileDiv.getMdSec().add(rightsMdSec);
+			
+			// In this case there is exactly one file, and so we know that its index is 0.
 			
 			FptrType fptr = MetsFactory.eINSTANCE.createFptrType();
 			fptr.setFILEID("f_0");
@@ -483,7 +528,7 @@ public class SwordDepositHandler implements DepositHandler {
 			structMap.setDiv(fileDiv);
 
 			mets.getStructMap().add(structMap);
-			
+		
 		} else {
 
 			StructMapType structMap = MetsFactory.eINSTANCE.createStructMapType();
@@ -494,21 +539,31 @@ public class SwordDepositHandler implements DepositHandler {
 			aggregateWorkDiv.getMdSec().add(rightsMdSec);
 			aggregateWorkDiv.setID("a");
 			
-			for (int i = 0; i < totalFiles; i++) {
+			for (int i = 0; i < files.size(); i++) {
 
-				SubmittedFile submittedFile = i == 0 ? mainFile : supplementalFiles.get(i - 1);
+				DepositFile depositFile = files.get(i);
 			
 				DivType fileDiv = MetsFactory.eINSTANCE.createDivType();
 				
 				fileDiv.setTYPE(METSConstants.Div_File);
-				fileDiv.setLABEL1(submittedFile.getFilename());
+				
+				FileBlock fileBlock = fileBlockMap.get(depositFile);
+				
+				if (fileBlock != null && fileBlock.getLabel() != null)
+					fileDiv.setLABEL1(fileBlock.getLabel());
+				else
+					fileDiv.setLABEL1(depositFile.getFilename());
 				
 				FptrType fptr = MetsFactory.eINSTANCE.createFptrType();
 				fptr.setFILEID("f_" + i);
 				fileDiv.getFptr().add(fptr);
+				
 				fileDiv.setID("d_" + i);
 				
 				aggregateWorkDiv.getDiv().add(fileDiv);
+				
+				if (depositFile == mainFile)
+					defaultAccessDiv = fileDiv;
 				
 			}
 	
@@ -519,19 +574,19 @@ public class SwordDepositHandler implements DepositHandler {
 		
 		// Structural Links
 		
-		if (supplementalFiles != null) {
+		if (defaultAccessDiv != null) {
 		
 			StructLinkType1 structLink = MetsFactory.eINSTANCE.createStructLinkType1();
-
+			
 			SmLinkType smLink = MetsFactory.eINSTANCE.createSmLinkType();
 			smLink.setArcrole(Link.DEFAULTACCESS.uri);
 			smLink.setXlinkFrom(aggregateWorkDiv);
-			smLink.setXlinkTo(aggregateWorkDiv.getDiv().get(0));
-
+			smLink.setXlinkTo(defaultAccessDiv);
+		
 			structLink.getSmLink().add(smLink);
 			
 			mets.setStructLink(structLink);
-			
+		
 		}
 		
 		return root;
@@ -578,14 +633,7 @@ public class SwordDepositHandler implements DepositHandler {
 
 	}
 	
-	private File makeZipFile(gov.loc.mets.DocumentRoot metsDocumentRoot, SubmittedFile mainFile, List<SubmittedFile> supplementaryFiles, IdentityHashMap<SubmittedFile, String> filenames) {
-		
-		// Assemble a list of files to write (see comment for makeMets)
-		
-		List<SubmittedFile> files = new ArrayList<SubmittedFile>();
-		files.add(mainFile);
-		if (supplementaryFiles != null)
-			files.addAll(supplementaryFiles);
+	private File makeZipFile(gov.loc.mets.DocumentRoot metsDocumentRoot, List<DepositFile> files, IdentityHashMap<DepositFile, String> filenames) {
 		
 		// Get the METS XML
 		
@@ -627,12 +675,12 @@ public class SwordDepositHandler implements DepositHandler {
 			
 			for (int i = 0; i < files.size(); i++) {
 				
-				SubmittedFile submittedFile = files.get(i);
+				DepositFile file = files.get(i);
 				
-				entry = new ZipEntry(filenames.get(submittedFile));
+				entry = new ZipEntry(filenames.get(file));
 				zipOutput.putNextEntry(entry);
 
-				FileInputStream fileInput = new FileInputStream(submittedFile.getFile());
+				FileInputStream fileInput = new FileInputStream(file.getFile());
 
 				byte[] buffer = new byte[1024];
 				int length;

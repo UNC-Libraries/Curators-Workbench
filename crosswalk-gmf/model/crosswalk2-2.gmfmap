@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<gmfmap:Mapping xmi:version="2.0"
+<gmfmap:Mapping
+    xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
@@ -511,8 +512,42 @@
               href="crosswalk.gmfgraph#ParagraphNode"/>
         </ownedChild>
       </children>
+      <children
+          compartment="//@nodes.2/@ownedChild/@compartments.0">
+        <containmentFeature
+            href="crosswalk.ecore#//Form/elements"/>
+        <childrenFeature
+            href="crosswalk.ecore#//Form/elements"/>
+        <ownedChild>
+          <domainMetaElement
+              href="crosswalk.ecore#//FileBlock"/>
+          <labelMappings
+              xsi:type="gmfmap:FeatureLabelMapping">
+            <diagramLabel
+                href="crosswalk.gmfgraph#FileBlockNameLabel"/>
+            <features
+                href="crosswalk.ecore#//FileBlock/name"/>
+            <editableFeatures
+                href="crosswalk.ecore#//FileBlock/name"/>
+          </labelMappings>
+          <labelMappings
+              xsi:type="gmfmap:FeatureLabelMapping">
+            <diagramLabel
+                href="crosswalk.gmfgraph#FileBlockDescriptionLabel"/>
+            <features
+                href="crosswalk.ecore#//FileBlock/description"/>
+            <editableFeatures
+                href="crosswalk.ecore#//FileBlock/description"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="crosswalk.gmftool#//@palette/@tools.1/@tools.4"/>
+          <diagramNode
+              href="crosswalk.gmfgraph#FileBlockNode"/>
+        </ownedChild>
+      </children>
       <compartments
-          children="//@nodes.2/@ownedChild/@children.0 //@nodes.2/@ownedChild/@children.1">
+          children="//@nodes.2/@ownedChild/@children.0 //@nodes.2/@ownedChild/@children.1 //@nodes.2/@ownedChild/@children.2">
         <compartment
             href="crosswalk.gmfgraph#FlowModelBoxCompartment"/>
       </compartments>

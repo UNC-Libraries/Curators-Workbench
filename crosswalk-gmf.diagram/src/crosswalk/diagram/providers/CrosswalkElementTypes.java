@@ -40,6 +40,7 @@ import crosswalk.diagram.edit.parts.DateRecognizerEditPart;
 import crosswalk.diagram.edit.parts.DelimitedFileEditPart;
 import crosswalk.diagram.edit.parts.DictionaryEditPart;
 import crosswalk.diagram.edit.parts.EditingContainerEditPart;
+import crosswalk.diagram.edit.parts.FileBlockEditPart;
 import crosswalk.diagram.edit.parts.FormEditPart;
 import crosswalk.diagram.edit.parts.InputOutputEditPart;
 import crosswalk.diagram.edit.parts.MappedAttributeEditPart;
@@ -171,6 +172,11 @@ public class CrosswalkElementTypes {
 	 * @generated
 	 */
 	public static final IElementType Paragraph_3020 = getElementType("crosswalk-gmf.diagram.Paragraph_3020"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType FileBlock_3025 = getElementType("crosswalk-gmf.diagram.FileBlock_3025"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -364,6 +370,9 @@ public class CrosswalkElementTypes {
 			elements.put(Paragraph_3020,
 					CrosswalkPackage.eINSTANCE.getParagraph());
 
+			elements.put(FileBlock_3025,
+					CrosswalkPackage.eINSTANCE.getFileBlock());
+
 			elements.put(InputOutput_4001,
 					CrosswalkPackage.eINSTANCE.getInput_Output());
 		}
@@ -404,6 +413,7 @@ public class CrosswalkElementTypes {
 			KNOWN_ELEMENT_TYPES.add(MetadataBlock_3010);
 			KNOWN_ELEMENT_TYPES.add(MetadataBlock_3019);
 			KNOWN_ELEMENT_TYPES.add(Paragraph_3020);
+			KNOWN_ELEMENT_TYPES.add(FileBlock_3025);
 			KNOWN_ELEMENT_TYPES.add(InputOutput_4001);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
@@ -456,6 +466,8 @@ public class CrosswalkElementTypes {
 			return MetadataBlock_3019;
 		case ParagraphEditPart.VISUAL_ID:
 			return Paragraph_3020;
+		case FileBlockEditPart.VISUAL_ID:
+			return FileBlock_3025;
 		case InputOutputEditPart.VISUAL_ID:
 			return InputOutput_4001;
 		}

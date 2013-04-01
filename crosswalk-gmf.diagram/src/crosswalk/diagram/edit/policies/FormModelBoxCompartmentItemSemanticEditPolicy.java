@@ -18,6 +18,7 @@ package crosswalk.diagram.edit.policies;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 
+import crosswalk.diagram.edit.commands.FileBlockCreateCommand;
 import crosswalk.diagram.edit.commands.MetadataBlock3CreateCommand;
 import crosswalk.diagram.edit.commands.ParagraphCreateCommand;
 import crosswalk.diagram.providers.CrosswalkElementTypes;
@@ -44,6 +45,9 @@ public class FormModelBoxCompartmentItemSemanticEditPolicy extends
 		}
 		if (CrosswalkElementTypes.Paragraph_3020 == req.getElementType()) {
 			return getGEFWrapper(new ParagraphCreateCommand(req));
+		}
+		if (CrosswalkElementTypes.FileBlock_3025 == req.getElementType()) {
+			return getGEFWrapper(new FileBlockCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}

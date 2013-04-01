@@ -320,6 +320,10 @@ public class FormEditPart extends ShapeNodeEditPart {
 				return getChildBySemanticHint(CrosswalkVisualIDRegistry
 						.getType(FormModelBoxCompartmentEditPart.VISUAL_ID));
 			}
+			if (type == CrosswalkElementTypes.FileBlock_3025) {
+				return getChildBySemanticHint(CrosswalkVisualIDRegistry
+						.getType(FormModelBoxCompartmentEditPart.VISUAL_ID));
+			}
 		}
 		return super.getTargetEditPart(request);
 	}

@@ -454,6 +454,30 @@
       <accessors
           figure="//@figures.0/@descriptors.10/@actualFigure/@children.1"/>
     </descriptors>
+    <descriptors
+        name="FileBlockFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Rectangle">
+        <layout
+            xsi:type="gmfgraph:GridLayout"/>
+        <insets/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="FileBlockNameLabel">
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              height="12"
+              style="BOLD"/>
+        </children>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="FileBlockDescriptionLabel"/>
+      </actualFigure>
+      <accessors
+          figure="//@figures.0/@descriptors.11/@actualFigure/@children.0"/>
+      <accessors
+          figure="//@figures.0/@descriptors.11/@actualFigure/@children.1"/>
+    </descriptors>
   </figures>
   <nodes
       name="DataSource"
@@ -496,6 +520,9 @@
       name="FlowEditableModelNode"
       figure="FlowEditableModelFigure"
       contentPane="//@figures.0/@descriptors.10/@accessors.0"/>
+  <nodes
+      name="FileBlockNode"
+      figure="FileBlockFigure"/>
   <connections
       name="InputConnection"
       figure="InputConnectionFigure"/>
@@ -588,4 +615,13 @@
       figure="EditableModelFigure"
       elementIcon="false"
       accessor="//@figures.0/@descriptors.8/@accessors.2"/>
+  <labels
+      name="FileBlockNameLabel"
+      figure="FileBlockFigure"
+      accessor="//@figures.0/@descriptors.11/@accessors.0"/>
+  <labels
+      name="FileBlockDescriptionLabel"
+      figure="FileBlockFigure"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.11/@accessors.1"/>
 </gmfgraph:Canvas>

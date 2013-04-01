@@ -15,6 +15,7 @@
  */
 package crosswalk;
 
+import java.net.URI;
 import java.util.Map;
 import org.eclipse.emf.common.util.EList;
 
@@ -37,6 +38,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link crosswalk.Form#isCanAddSupplementalFiles <em>Can Add Supplemental Files</em>}</li>
  *   <li>{@link crosswalk.Form#getContactName <em>Contact Name</em>}</li>
  *   <li>{@link crosswalk.Form#getContactEmail <em>Contact Email</em>}</li>
+ *   <li>{@link crosswalk.Form#getMainFileBlock <em>Main File Block</em>}</li>
+ *   <li>{@link crosswalk.Form#getLogo <em>Logo</em>}</li>
  * </ul>
  * </p>
  *
@@ -251,6 +254,11 @@ public interface Form extends Editable, ContextProvider {
 	 * @generated
 	 */
 	void setCanAddSupplementalFiles(boolean value);
+	
+	/**
+	 * @generated NOT
+	 */
+	boolean isHasFileBlocks();
 
 	/**
 	 * Returns the value of the '<em><b>Contact Name</b></em>' attribute.
@@ -357,5 +365,57 @@ public interface Form extends Editable, ContextProvider {
 	 * @generated
 	 */
 	boolean isSetContactEmail();
+
+	/**
+	 * Returns the value of the '<em><b>Main File Block</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Main File Block</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Main File Block</em>' reference.
+	 * @see #setMainFileBlock(FileBlock)
+	 * @see crosswalk.CrosswalkPackage#getForm_MainFileBlock()
+	 * @model
+	 * @generated
+	 */
+	FileBlock getMainFileBlock();
+
+	/**
+	 * Sets the value of the '{@link crosswalk.Form#getMainFileBlock <em>Main File Block</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Main File Block</em>' reference.
+	 * @see #getMainFileBlock()
+	 * @generated
+	 */
+	void setMainFileBlock(FileBlock value);
+
+	/**
+	 * Returns the value of the '<em><b>Logo</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Logo</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Logo</em>' attribute.
+	 * @see #setLogo(URI)
+	 * @see crosswalk.CrosswalkPackage#getForm_Logo()
+	 * @model dataType="crosswalk.URI" required="true"
+	 * @generated
+	 */
+	URI getLogo();
+
+	/**
+	 * Sets the value of the '{@link crosswalk.Form#getLogo <em>Logo</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Logo</em>' attribute.
+	 * @see #getLogo()
+	 * @generated
+	 */
+	void setLogo(URI value);
 
 } // Form

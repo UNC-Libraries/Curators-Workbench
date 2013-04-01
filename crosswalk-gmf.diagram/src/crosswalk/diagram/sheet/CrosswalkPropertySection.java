@@ -53,7 +53,7 @@ public class CrosswalkPropertySection extends AdvancedPropertySection implements
 		if (af != null) {
 			IItemPropertySource ips = (IItemPropertySource) af.adapt(object,
 					IItemPropertySource.class);
-			if(object instanceof DelimitedFile) {
+			if (object instanceof DelimitedFile) {
 				return new MyFileURLPropertySource(object, ips);
 			}
 			if (ips != null) {

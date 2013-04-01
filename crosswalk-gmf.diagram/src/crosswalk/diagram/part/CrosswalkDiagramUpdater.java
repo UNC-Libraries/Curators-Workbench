@@ -66,6 +66,7 @@ import crosswalk.diagram.edit.parts.DelimitedFileEditPart;
 import crosswalk.diagram.edit.parts.DictionaryEditPart;
 import crosswalk.diagram.edit.parts.DictionaryModelBoxCompartmentEditPart;
 import crosswalk.diagram.edit.parts.EditingContainerEditPart;
+import crosswalk.diagram.edit.parts.FileBlockEditPart;
 import crosswalk.diagram.edit.parts.FormEditPart;
 import crosswalk.diagram.edit.parts.FormModelBoxCompartmentEditPart;
 import crosswalk.diagram.edit.parts.InputOutputEditPart;
@@ -567,6 +568,10 @@ public class CrosswalkDiagramUpdater {
 				result.add(new CrosswalkNodeDescriptor(childElement, visualID));
 				continue;
 			}
+			if (visualID == FileBlockEditPart.VISUAL_ID) {
+				result.add(new CrosswalkNodeDescriptor(childElement, visualID));
+				continue;
+			}
 		}
 		return result;
 	}
@@ -701,6 +706,8 @@ public class CrosswalkDiagramUpdater {
 			return getMetadataBlock_3019ContainedLinks(view);
 		case ParagraphEditPart.VISUAL_ID:
 			return getParagraph_3020ContainedLinks(view);
+		case FileBlockEditPart.VISUAL_ID:
+			return getFileBlock_3025ContainedLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -750,6 +757,8 @@ public class CrosswalkDiagramUpdater {
 			return getMetadataBlock_3019IncomingLinks(view);
 		case ParagraphEditPart.VISUAL_ID:
 			return getParagraph_3020IncomingLinks(view);
+		case FileBlockEditPart.VISUAL_ID:
+			return getFileBlock_3025IncomingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -799,6 +808,8 @@ public class CrosswalkDiagramUpdater {
 			return getMetadataBlock_3019OutgoingLinks(view);
 		case ParagraphEditPart.VISUAL_ID:
 			return getParagraph_3020OutgoingLinks(view);
+		case FileBlockEditPart.VISUAL_ID:
+			return getFileBlock_3025OutgoingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -959,6 +970,14 @@ public class CrosswalkDiagramUpdater {
 	 * @generated
 	 */
 	public static List<CrosswalkLinkDescriptor> getParagraph_3020ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<CrosswalkLinkDescriptor> getFileBlock_3025ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -1159,6 +1178,14 @@ public class CrosswalkDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<CrosswalkLinkDescriptor> getFileBlock_3025IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<CrosswalkLinkDescriptor> getCurrentDate_3021IncomingLinks(
 			View view) {
 		CurrentDate modelElement = (CurrentDate) view.getElement();
@@ -1346,6 +1373,14 @@ public class CrosswalkDiagramUpdater {
 	 * @generated
 	 */
 	public static List<CrosswalkLinkDescriptor> getParagraph_3020OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<CrosswalkLinkDescriptor> getFileBlock_3025OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}

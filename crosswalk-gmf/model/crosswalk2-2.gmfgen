@@ -886,6 +886,78 @@
         </modelFacet>
       </labels>
     </childNodes>
+    <childNodes
+        visualID="3025"
+        editPartClassName="FileBlockEditPart"
+        itemSemanticEditPolicyClassName="FileBlockItemSemanticEditPolicy"
+        notationViewFactoryClassName="FileBlockViewFactory"
+        canonicalEditPolicyClassName="FileBlockCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="FileBlockGraphicalNodeEditPolicy"
+        createCommandClassName="FileBlockCreateCommand"
+        containers="//@diagram/@compartments.9">
+      <diagramRunTimeClass
+          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="FileBlockEditHelper"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="FileBlockFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class FileBlockFigure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureFileBlockNameLabel; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureFileBlockDescriptionLabel; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public FileBlockFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.GridLayout layoutThis = new org.eclipse.draw2d.GridLayout();&#xA;&#x9;layoutThis.numColumns = 1;&#xA;&#x9;layoutThis.makeColumnsEqualWidth = true;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(0)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureFileBlockNameLabel = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureFileBlockNameLabel.setText(&quot;&quot;);&#xA;&#xA;fFigureFileBlockNameLabel.setFont(FFIGUREFILEBLOCKNAMELABEL_FONT);&#xA;&#xA;&#xA;&#xA;this.add(fFigureFileBlockNameLabel);&#xA;&#xA;&#xA;&#xA;fFigureFileBlockDescriptionLabel = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureFileBlockDescriptionLabel.setText(&quot;&quot;);&#xA;&#xA;this.add(fFigureFileBlockDescriptionLabel);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureFileBlockNameLabel() {&#xA;&#x9;&#x9;return fFigureFileBlockNameLabel;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureFileBlockDescriptionLabel() {&#xA;&#x9;&#x9;return fFigureFileBlockDescriptionLabel;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGUREFILEBLOCKNAMELABEL_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), org.eclipse.swt.widgets.Display.getDefault().getSystemFont().getFontData()[0].getName(), 12, org.eclipse.swt.SWT.BOLD);&#xA;&#xA;"/>
+      <modelFacet>
+        <metaClass
+            href="crosswalk.genmodel#//crosswalk/FileBlock"/>
+        <containmentMetaFeature
+            href="crosswalk.genmodel#//crosswalk/Form/elements"/>
+        <childMetaFeature
+            href="crosswalk.genmodel#//crosswalk/Form/elements"/>
+      </modelFacet>
+      <labels
+          visualID="5031"
+          editPartClassName="FileBlockNameEditPart"
+          itemSemanticEditPolicyClassName="FileBlockNameItemSemanticEditPolicy"
+          notationViewFactoryClassName="FileBlockNameViewFactory"
+          elementIcon="true">
+        <diagramRunTimeClass
+            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:ParentAssignedViewmap"
+            getterName="getFigureFileBlockNameLabel"
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
+          <attributes
+              xsi:type="gmfgen:StyleAttributes"
+              fixedFont="true"/>
+        </viewmap>
+        <modelFacet
+            xsi:type="gmfgen:FeatureLabelModelFacet"
+            parser="//@labelParsers/@implementations.1">
+          <metaFeatures
+              href="crosswalk.genmodel#//crosswalk/FileBlock/name"/>
+          <editableMetaFeatures
+              href="crosswalk.genmodel#//crosswalk/FileBlock/name"/>
+        </modelFacet>
+      </labels>
+      <labels
+          visualID="5032"
+          editPartClassName="FileBlockDescriptionEditPart"
+          itemSemanticEditPolicyClassName="FileBlockDescriptionItemSemanticEditPolicy"
+          notationViewFactoryClassName="FileBlockDescriptionViewFactory">
+        <diagramRunTimeClass
+            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:ParentAssignedViewmap"
+            getterName="getFigureFileBlockDescriptionLabel"
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+        <modelFacet
+            xsi:type="gmfgen:FeatureLabelModelFacet"
+            parser="//@labelParsers/@implementations.1">
+          <metaFeatures
+              href="crosswalk.genmodel#//crosswalk/FileBlock/description"/>
+          <editableMetaFeatures
+              href="crosswalk.genmodel#//crosswalk/FileBlock/description"/>
+        </modelFacet>
+      </labels>
+    </childNodes>
     <topLevelNodes
         visualID="2001"
         editPartClassName="CrossWalkEditPart"
@@ -1291,7 +1363,7 @@
         itemSemanticEditPolicyClassName="FormModelBoxCompartmentItemSemanticEditPolicy"
         notationViewFactoryClassName="FormModelBoxCompartmentViewFactory"
         canonicalEditPolicyClassName="FormModelBoxCompartmentCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.15 //@diagram/@childNodes.16"
+        childNodes="//@diagram/@childNodes.15 //@diagram/@childNodes.16 //@diagram/@childNodes.17"
         title="FlowModelBoxCompartment"
         canCollapse="false"
         needsTitle="false"
@@ -1413,6 +1485,11 @@
             title="Paragraph"
             description="A block of text with optional header used in forms."
             genNodes="//@diagram/@childNodes.16"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="File Block"
+            description="Add a file block"
+            genNodes="//@diagram/@childNodes.17"/>
       </groups>
     </palette>
     <preferencePages
@@ -1581,6 +1658,9 @@
     <childReferences
         parent="//@diagram/@topLevelNodes.2"
         child="//@diagram/@childNodes.16"/>
+    <childReferences
+        parent="//@diagram/@topLevelNodes.2"
+        child="//@diagram/@childNodes.17"/>
     <childReferences
         parent="//@diagram"
         child="//@diagram/@topLevelNodes.2"/>
@@ -1823,7 +1903,7 @@
     </implementations>
     <implementations
         xsi:type="gmfgen:PredefinedParser"
-        uses="//@diagram/@childNodes.1/@labels.1/@modelFacet //@diagram/@childNodes.4/@labels.0/@modelFacet"/>
+        uses="//@diagram/@childNodes.1/@labels.1/@modelFacet //@diagram/@childNodes.4/@labels.0/@modelFacet //@diagram/@childNodes.17/@labels.0/@modelFacet //@diagram/@childNodes.17/@labels.1/@modelFacet"/>
     <implementations
         xsi:type="gmfgen:ExpressionLabelParser"
         uses="//@diagram/@childNodes.0/@labels.0/@modelFacet"

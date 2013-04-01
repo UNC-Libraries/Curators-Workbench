@@ -37,6 +37,7 @@ import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 
 import crosswalk.CrosswalkPackage;
+import crosswalk.diagram.edit.parts.FileBlockEditPart;
 import crosswalk.diagram.edit.parts.MetadataBlock3EditPart;
 import crosswalk.diagram.edit.parts.ParagraphEditPart;
 import crosswalk.diagram.part.CrosswalkDiagramUpdater;
@@ -98,7 +99,8 @@ public class FormModelBoxCompartmentCanonicalEditPolicy extends
 	private boolean isMyDiagramElement(View view) {
 		int visualID = CrosswalkVisualIDRegistry.getVisualID(view);
 		return visualID == MetadataBlock3EditPart.VISUAL_ID
-				|| visualID == ParagraphEditPart.VISUAL_ID;
+				|| visualID == ParagraphEditPart.VISUAL_ID
+				|| visualID == FileBlockEditPart.VISUAL_ID;
 	}
 
 	/**

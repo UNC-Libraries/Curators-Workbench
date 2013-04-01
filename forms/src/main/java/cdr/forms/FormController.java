@@ -22,7 +22,10 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.security.Principal;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.IdentityHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.regex.Pattern;
 
 import javax.mail.internet.AddressException;
@@ -58,11 +61,14 @@ import cdr.forms.DepositResult.Status;
 import com.philvarner.clamavj.ClamScan;
 import com.philvarner.clamavj.ScanResult;
 
+import crosswalk.CrosswalkPackage;
+import crosswalk.FileBlock;
 import crosswalk.Form;
+import crosswalk.FormElement;
 
 @Controller
 @RequestMapping(value = { "/*", "/**" })
-@SessionAttributes({"form","formId"})
+@SessionAttributes("deposit")
 public class FormController {
 
 	@Autowired
@@ -149,78 +155,89 @@ public class FormController {
 	}
 
 	@InitBinder
-   protected void initBinder(WebDataBinder binder) {
-       binder.setValidator(new FormValidator());
-       binder.registerCustomEditor(java.util.Date.class, new DateEditor());
-       //binder.setBindEmptyMultipartFiles(false);
-       binder.registerCustomEditor(java.lang.String.class, new StringCleanerTrimmerEditor(true));
-   }
-	
-//	@ModelAttribute("form")
-//	protected Form getForm(@PathVariable String formId) {
-//		return factory.getForm(formId);
-//	}
-	
-	// get always loads the form model into modelmap as just "form"
-	// also sets modelmap "formId"
-	// successful save will destroy the specific model?
+	protected void initBinder(WebDataBinder binder) {
+		binder.setValidator(new DepositValidator());
+		binder.registerCustomEditor(java.util.Date.class, new DateEditor());
+		binder.registerCustomEditor(java.lang.String.class, new StringCleanerTrimmerEditor(true));
+		binder.registerCustomEditor(DepositFile.class, new DepositFileEditor());
+		binder.setBindEmptyMultipartFiles(false);
+	}
 
 	@RequestMapping(value = "/{formId}.form", method = RequestMethod.GET)
-	public String showForm(@PathVariable String formId, ModelMap modelmap, HttpServletRequest request) throws PermissionDeniedException {
-		LOG.debug("in GET for form " + formId);
-		String sessionFormId = (String)modelmap.get("formId");
-		Form form = null;
-		if(sessionFormId == null || !sessionFormId.equals(formId)) {
-			form = factory.getForm(formId);
-			if(form == null) {
-				return "404";
-			}
-			this.getAuthorizationHandler().checkPermission(formId, form, request);
-			modelmap.put("form", form);
-			modelmap.put("formId", formId);
+	public String showForm(@PathVariable String formId, Model model, HttpServletRequest request) throws PermissionDeniedException {
+		
+		Form form = factory.getForm(formId);
+		
+		if (form == null)
+			return "404";
+		
+		this.getAuthorizationHandler().checkPermission(formId, form, request);
+		
+		//
 
-			String receiptEmailAddress = null;
-			
-			// Pre-fill receipt email from header if available, stripping _UNC suffix if present
-			
-			if (request.getHeader("mail") != null) {
-				receiptEmailAddress = request.getHeader("mail");
-				
-				if (receiptEmailAddress.endsWith("_UNC"))
-					receiptEmailAddress = receiptEmailAddress.substring(0, receiptEmailAddress.length() - 4);
+		Deposit deposit = new Deposit();
+
+		deposit.setForm(form);
+		deposit.setFormId(formId);
+		
+		//
+		
+		IdentityHashMap<FileBlock, Integer> blockFileIndexMap = new IdentityHashMap<FileBlock, Integer>();
+
+		int index = 0;
+		
+		for (FormElement element : form.getElements()) {
+			if (element instanceof FileBlock) {
+				blockFileIndexMap.put((FileBlock) element, new Integer(index));
+				index++;
 			}
-			
-			modelmap.put("receiptEmailAddress", receiptEmailAddress);
-			
 		}
+	    
+	    deposit.setFiles(new DepositFile[index]);
+	    deposit.setBlockFileIndexMap(blockFileIndexMap);
+	    
+	    deposit.setSupplementalFiles(new DepositFile[3]);
+	    
+	    //
+	    
+	    String receiptEmailAddress = null;
+		
+		if (request.getHeader("mail") != null) {
+			receiptEmailAddress = request.getHeader("mail");
+			
+			if (receiptEmailAddress.endsWith("_UNC"))
+				receiptEmailAddress = receiptEmailAddress.substring(0, receiptEmailAddress.length() - 4);
+		}
+		
+		deposit.setReceiptEmailAddress(receiptEmailAddress);
+		
+		
+		model.addAttribute("deposit", deposit);
+		
 		return "form";
+		
 	}
 
 	@RequestMapping(value = "/{formId}.form", method = RequestMethod.POST)
 	public String processForm(
 			Model model,
-			@PathVariable String formId,
-			@Valid @ModelAttribute("form") Form form,
+			@PathVariable(value="formId") String formId,
+			@Valid @ModelAttribute("deposit") Deposit deposit,
 			BindingResult errors,
 			Principal user,
-			@RequestParam(required = false, value = "receiptEmailAddress") String receiptEmailAddress,
-			@RequestParam("file") MultipartFile file,
-			@RequestParam(value = "supplementalFile", required = false) MultipartFile[] supplementalFiles,
 			SessionStatus sessionStatus, HttpServletRequest request,
 			HttpServletResponse response) throws PermissionDeniedException {
 		
-		SubmittedFile submittedFile;
-		List<SubmittedFile> supplementalSubmittedFiles;
+		// Check that the form submitted by the user matches the one in the session
 		
-		DepositResult result;
-
-		// The form (instance) in the session may not match the (HTML) form which was submitted
-		// by the user in some cases. For example, if a user had two forms open at the same time,
-		// and submitted the one not corresponding to the form instance in the session. So, check
-		// that the value of formId from the session is the same as the value from the request path.
-
-		if (!formId.equals(model.asMap().get("formId")))
-			throw new Error("Form ID in session did not match form ID in request path");
+		if (!deposit.getFormId().equals(formId))
+			throw new Error("Form ID in session doesn't match form ID in path");
+		
+		//
+		
+		this.getAuthorizationHandler().checkPermission(formId, deposit.getForm(), request);
+		
+		//
 		
 		try {
 			request.setCharacterEncoding("UTF-8");
@@ -228,162 +245,91 @@ public class FormController {
 			LOG.error("Failed to set character encoding", e);
 		}
 		
+		//
+		
 		if (user != null)
-			form.setCurrentUser(user.getName());
+			deposit.getForm().setCurrentUser(user.getName());
 		
-		this.getAuthorizationHandler().checkPermission(formId, form, request);
+		// Check the deposit's files for virus signatures
 		
+		IdentityHashMap<DepositFile, String> signatures = new IdentityHashMap<DepositFile, String>();
 		
-		// Ensure that recipientEmailAddress is either blank or is a valid email address
+		for (DepositFile depositFile : deposit.getAllFiles())
+			scanDepositFile(depositFile, signatures);
 		
-		if (receiptEmailAddress == null)
-			receiptEmailAddress = "";
+		// If the deposit has validation errors and no virus signatures were detected, display errors
 		
-		if (receiptEmailAddress.trim().length() > 0) {
-			try {
-				InternetAddress address = new InternetAddress(receiptEmailAddress);
-				address.validate();
-			} catch (AddressException e) {
-				errors.addError(new FieldError("form", "receiptEmailAddress", "You must enter a valid email address."));
-			}
-		}
-		
-		model.addAttribute("receiptEmailAddress", receiptEmailAddress);
-		
-		
-		model.addAttribute("administratorEmail", getAdministratorEmail());
-		
-		
-		// Handle uploaded files, exiting to report errors if we find any
-		
-		submittedFile = handleUploadedFile(file, errors);
-		
-		if (form.isCanAddSupplementalFiles()) {
-			supplementalSubmittedFiles = new ArrayList<SubmittedFile>();
-			
-			for (MultipartFile supplementalFile : supplementalFiles) {
-				SubmittedFile sf = handleUploadedFile(supplementalFile, errors);
-				if (sf != null)
-					supplementalSubmittedFiles.add(sf);
-			}
-		} else {
-			supplementalSubmittedFiles = null;
-		}
-
-		if (submittedFile == null)
-			errors.addError(new FieldError("form", "file", "You must select a file for upload."));
-		
-		if (errors.hasErrors()) {
+		if (errors.hasErrors() && signatures.size() == 0) {
 			LOG.debug(errors.getErrorCount() + " errors");
 			return "form";
 		}
 		
+		// Otherwise, display one of the result pages: if we detected a virus signature, display
+		// the virus warning; otherwise, try to submit the deposit and display results. In each
+		// case, we want to do the same cleanup.
 		
-		// Deposit
+		String view;
 		
-		if (form.isCanAddSupplementalFiles())
-			result = this.getDepositHandler().depositAggregate(form, submittedFile, supplementalSubmittedFiles);
-		else
-			result = this.getDepositHandler().depositFile(form, submittedFile);
-		
-		
-		// Handle a failed deposit response
+		if (signatures.size() > 0) {
+			
+			model.addAttribute("signatures", signatures);
 
-		if (result.getStatus() == Status.FAILED) {
+			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
 			
-			LOG.error("deposit failed");
+			view = "virus";
 			
-			if (getNotificationHandler() != null)
-				getNotificationHandler().notifyError(form, result, receiptEmailAddress, formId);
+		} else {
+		
+			DepositResult result = this.getDepositHandler().deposit(deposit);
+		
+			if (result.getStatus() == Status.FAILED) {
 			
-			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-			return "failed";
+				LOG.error("deposit failed");
+				
+				if (getNotificationHandler() != null)
+					getNotificationHandler().notifyError(deposit.getForm(), result, deposit.getReceiptEmailAddress(), formId);
+				
+				response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+				
+				view = "failed";
 			
-		}
+			} else {
 		
-		
-		// Otherwise, if the deposit was successful, send a notification
-		
-		if (getNotificationHandler() != null)
-			getNotificationHandler().notifyDeposit(form, result, receiptEmailAddress, formId);
-		
-		
-		// Clean up: delete temporary files, clear the session
-		
-		if (submittedFile.getFile() != null)
-			submittedFile.getFile().delete();
-		
-		if (supplementalSubmittedFiles != null) {
-			for (SubmittedFile sf : supplementalSubmittedFiles) {
-				if (sf.getFile() != null)
-					sf.getFile().delete();
+				if (getNotificationHandler() != null)
+					getNotificationHandler().notifyDeposit(deposit.getForm(), result, deposit.getReceiptEmailAddress(), formId);
+				
+				view = "success";
+				
 			}
+			
 		}
+		
+		// Clean up
+		
+		deposit.deleteAllFiles();
 		
 		sessionStatus.setComplete();
 		request.setAttribute("formId", formId);
+		request.setAttribute("administratorEmail", getAdministratorEmail());
 
-		return "success";
+		return view;
 		
 	}
 	
-	private SubmittedFile handleUploadedFile(MultipartFile file, BindingResult errors) {
-		
-		if (file.isEmpty())
-			return null;
+	private void scanDepositFile(DepositFile depositFile, IdentityHashMap<DepositFile, String> signatures) {
+		if (depositFile != null && depositFile.getFile() != null) {
+			ScanResult result = this.getClamScan().scan(depositFile.getFile());
 			
-		SubmittedFile submittedFile = new SubmittedFile();
-
-		try {
-
-			// Copy or save the uploaded file to the temporary directory
-
-			File temp = File.createTempFile("form", ".data");
-			file.transferTo(temp);
-
-			// Run the virus scan on the file, adding an error and moving on to
-			// the next one if there's a non-null result
-
-			String scanResult = virusScan(temp);
-
-			if (scanResult != null) {
-				errors.addError(new FieldError("form", "file", scanResult));
-				temp.delete();
-				temp = null;
-
-				return null;
+			switch(result.getStatus()) {
+				case PASSED:
+					return;
+				case FAILED:
+					signatures.put(depositFile, result.getSignature());
+					return;
+				case ERROR:
+					throw new Error("There was a problem running the virus scan.", result.getException());
 			}
-
-			submittedFile.setFile(temp);
-
-		} catch (IOException e) {
-			throw new Error(e);
-		} catch (IllegalStateException e) {
-			throw new Error(e);
 		}
-
-		submittedFile.setFilename(file.getOriginalFilename().replaceAll(Pattern.quote("\""), ""));
-
-		if (file.getContentType() == null)
-			submittedFile.setContentType("application/octet-stream");
-		else
-			submittedFile.setContentType(file.getContentType());
-
-		return submittedFile;
-		
-	}
-
-	private synchronized String virusScan(File depositFile) {
-		ScanResult result = this.getClamScan().scan(depositFile);
-		switch(result.getStatus()) {
-			case PASSED:
-				return null;
-			case FAILED:
-				return "A virus was detected in your file. Please scan your computer for viruses or report this issue to technical support.";
-			case ERROR:
-				throw new Error("There was a problem running the virus scan.", result.getException());
-		}
-		return null;
 	}
 
 	@ExceptionHandler(PermissionDeniedException.class)

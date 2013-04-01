@@ -39,6 +39,9 @@ import crosswalk.diagram.edit.parts.DictionaryEditPart;
 import crosswalk.diagram.edit.parts.DictionaryModelBoxCompartmentEditPart;
 import crosswalk.diagram.edit.parts.DictionaryNameEditPart;
 import crosswalk.diagram.edit.parts.EditingContainerEditPart;
+import crosswalk.diagram.edit.parts.FileBlockDescriptionEditPart;
+import crosswalk.diagram.edit.parts.FileBlockEditPart;
+import crosswalk.diagram.edit.parts.FileBlockNameEditPart;
 import crosswalk.diagram.edit.parts.FormDescriptionEditPart;
 import crosswalk.diagram.edit.parts.FormEditPart;
 import crosswalk.diagram.edit.parts.FormModelBoxCompartmentEditPart;
@@ -355,6 +358,10 @@ public class CrosswalkVisualIDRegistry {
 					domainElement.eClass())) {
 				return ParagraphEditPart.VISUAL_ID;
 			}
+			if (CrosswalkPackage.eINSTANCE.getFileBlock().isSuperTypeOf(
+					domainElement.eClass())) {
+				return FileBlockEditPart.VISUAL_ID;
+			}
 			break;
 		case MetadataBlockMetadataBlockInputFieldsCompartment3EditPart.VISUAL_ID:
 			if (CrosswalkPackage.eINSTANCE.getTextInputField().isSuperTypeOf(
@@ -579,6 +586,14 @@ public class CrosswalkVisualIDRegistry {
 				return true;
 			}
 			break;
+		case FileBlockEditPart.VISUAL_ID:
+			if (FileBlockNameEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (FileBlockDescriptionEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
 		case CrossWalkModelBoxCompartmentEditPart.VISUAL_ID:
 			if (DelimitedFileEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
@@ -691,6 +706,9 @@ public class CrosswalkVisualIDRegistry {
 			if (ParagraphEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (FileBlockEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			break;
 		case MetadataBlockMetadataBlockInputFieldsCompartment3EditPart.VISUAL_ID:
 			if (TextInputFieldEditPart.VISUAL_ID == nodeVisualID) {
@@ -799,6 +817,7 @@ public class CrosswalkVisualIDRegistry {
 		case CurrentUsernameEditPart.VISUAL_ID:
 		case TextInputFieldEditPart.VISUAL_ID:
 		case DateInputFieldEditPart.VISUAL_ID:
+		case FileBlockEditPart.VISUAL_ID:
 			return true;
 		default:
 			break;
