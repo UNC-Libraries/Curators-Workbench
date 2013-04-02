@@ -153,23 +153,6 @@ public class SwordDepositHandler implements DepositHandler {
 		String pid = "uuid:" + UUID.randomUUID().toString();
 		
 		
-		// Identify the "main file".
-		// If the form has file blocks, this is the file corresponding to the FileBlock the
-		// form declares as its main FileBlock. If the form doesn't have file blocks, this
-		// is the mainFile attribute of the deposit.
-		
-		DepositFile mainFile = null;
-		
-		if (form.isHasFileBlocks()) {
-			Integer index = deposit.getBlockFileIndexMap().get(form.getMainFileBlock());
-			
-			if (index != null)
-				mainFile = deposit.getFiles()[index];
-		} else {
-			mainFile = deposit.getMainFile();
-		}
-		
-		
 		// Establish a mapping between files and the form's FileBlocks
 		
 		IdentityHashMap<DepositFile, FileBlock> fileBlockMap = new IdentityHashMap<DepositFile, FileBlock>();
@@ -197,7 +180,7 @@ public class SwordDepositHandler implements DepositHandler {
 		gov.loc.mods.mods.DocumentRoot mods = makeMods(form);
 		edu.unc.lib.schemas.acl.DocumentRoot acl = makeAcl(form);
 
-		gov.loc.mets.DocumentRoot metsDocumentRoot = makeMets(form, mods, acl, files, mainFile, fileFilenameMap, fileBlockMap);
+		gov.loc.mets.DocumentRoot metsDocumentRoot = makeMets(form, mods, acl, files, deposit.getMainFile(), fileFilenameMap, fileBlockMap);
 		File zipFile = makeZipFile(metsDocumentRoot, files, fileFilenameMap);
 		
 		
@@ -360,10 +343,7 @@ public class SwordDepositHandler implements DepositHandler {
 	 * 
 	 * In the first case, the generated structMap will contain a single
 	 * div of type "File". In the other two cases, the generated structMap
-	 * will contain an "Aggregate Work" div, and a structLink element will
-	 * be generated which declares the div corresponding to the main file
-	 * given by mainFile to be the default access object of the aggregate
-	 * work div.
+	 * will contain an "Aggregate Work" div.
 	 * 
 	 * file and div elements are given ID attributes of the form "f_{index}" and
 	 * "d_{index}" respectively, where index is 0 for the main file, and 1, 2, ...
@@ -371,7 +351,8 @@ public class SwordDepositHandler implements DepositHandler {
 	 */
 	private gov.loc.mets.DocumentRoot makeMets(Form form,
 			gov.loc.mods.mods.DocumentRoot modsDocumentRoot,
-			edu.unc.lib.schemas.acl.DocumentRoot acl, List<DepositFile> files,
+			edu.unc.lib.schemas.acl.DocumentRoot acl,
+			List<DepositFile> files,
 			DepositFile mainFile,
 			IdentityHashMap<DepositFile, String> filenames,
 			IdentityHashMap<DepositFile, FileBlock> fileBlockMap) {
@@ -503,10 +484,9 @@ public class SwordDepositHandler implements DepositHandler {
 		// If the form does not allow supplemental files and does not have explicit
 		// file blocks, there will be exactly one file, the main file. If this is the
 		// case, create a structural map with a file div at the root. Otherwise,
-		// create a structural map with an aggregate work div at the root, and save
-		// a reference to the main file's div so a link can be created.
+		// create a structural map with an aggregate work div at the root.
 		
-		DivType defaultAccessDiv = null;
+		List<DivType> fileDivs = null;
 		
 		if (form.isCanAddSupplementalFiles() == false && form.isHasFileBlocks() == false) {
 
@@ -530,6 +510,8 @@ public class SwordDepositHandler implements DepositHandler {
 			mets.getStructMap().add(structMap);
 		
 		} else {
+
+			fileDivs = new ArrayList<DivType>();
 
 			StructMapType structMap = MetsFactory.eINSTANCE.createStructMapType();
 
@@ -560,10 +542,8 @@ public class SwordDepositHandler implements DepositHandler {
 				
 				fileDiv.setID("d_" + i);
 				
+				fileDivs.add(fileDiv);
 				aggregateWorkDiv.getDiv().add(fileDiv);
-				
-				if (depositFile == mainFile)
-					defaultAccessDiv = fileDiv;
 				
 			}
 	
@@ -574,18 +554,39 @@ public class SwordDepositHandler implements DepositHandler {
 		
 		// Structural Links
 		
-		if (defaultAccessDiv != null) {
+		// Add "default access" links from the Aggregate Work div to File divs
+		// if their corresponding FileBlock has "default access role" set or if
+		// their corresponding file is the "main file" on a form without FileBlock
+		// elements but with supplemental files.
+		
+		if (aggregateWorkDiv != null && fileDivs != null) {
 		
 			StructLinkType1 structLink = MetsFactory.eINSTANCE.createStructLinkType1();
 			
-			SmLinkType smLink = MetsFactory.eINSTANCE.createSmLinkType();
-			smLink.setArcrole(Link.DEFAULTACCESS.uri);
-			smLink.setXlinkFrom(aggregateWorkDiv);
-			smLink.setXlinkTo(defaultAccessDiv);
-		
-			structLink.getSmLink().add(smLink);
+			for (int i = 0; i < files.size(); i++) {
+
+				DepositFile depositFile = files.get(i);
+				FileBlock fileBlock = fileBlockMap.get(depositFile);
+				
+				if ((fileBlock != null && fileBlock.isDefaultAccess()) || (depositFile == mainFile)) {
+					
+					DivType fileDiv = fileDivs.get(i);
 			
-			mets.setStructLink(structLink);
+					SmLinkType smLink = MetsFactory.eINSTANCE.createSmLinkType();
+					smLink.setArcrole(Link.DEFAULTACCESS.uri);
+					smLink.setXlinkFrom(aggregateWorkDiv);
+					smLink.setXlinkTo(fileDiv);
+					
+					structLink.getSmLink().add(smLink);
+					
+				}
+				
+			}
+			
+			// Only add the structLink section if there are actually links
+			
+			if (structLink.getSmLink().size() > 0)
+				mets.setStructLink(structLink);
 		
 		}
 		

@@ -1311,17 +1311,8 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getForm_MainFileBlock() {
-		return (EReference)formEClass.getEStructuralFeatures().get(11);
-	}
-
-								/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getForm_Logo() {
-		return (EAttribute)formEClass.getEStructuralFeatures().get(12);
+		return (EAttribute)formEClass.getEStructuralFeatures().get(11);
 	}
 
 								/**
@@ -1385,6 +1376,15 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 	 */
 	public EAttribute getFileBlock_Required() {
 		return (EAttribute)fileBlockEClass.getEStructuralFeatures().get(4);
+	}
+
+								/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getFileBlock_DefaultAccess() {
+		return (EAttribute)fileBlockEClass.getEStructuralFeatures().get(5);
 	}
 
 								/**
@@ -1664,7 +1664,6 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 		createEAttribute(formEClass, FORM__CAN_ADD_SUPPLEMENTAL_FILES);
 		createEAttribute(formEClass, FORM__CONTACT_NAME);
 		createEAttribute(formEClass, FORM__CONTACT_EMAIL);
-		createEReference(formEClass, FORM__MAIN_FILE_BLOCK);
 		createEAttribute(formEClass, FORM__LOGO);
 
 		formElementEClass = createEClass(FORM_ELEMENT);
@@ -1675,6 +1674,7 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 		createEAttribute(fileBlockEClass, FILE_BLOCK__USAGE);
 		createEAttribute(fileBlockEClass, FILE_BLOCK__LABEL);
 		createEAttribute(fileBlockEClass, FILE_BLOCK__REQUIRED);
+		createEAttribute(fileBlockEClass, FILE_BLOCK__DEFAULT_ACCESS);
 
 		paragraphEClass = createEClass(PARAGRAPH);
 		createEAttribute(paragraphEClass, PARAGRAPH__HEADING);
@@ -1948,7 +1948,6 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 		initEAttribute(getForm_CanAddSupplementalFiles(), ecorePackage.getEBoolean(), "canAddSupplementalFiles", "false", 1, 1, Form.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getForm_ContactName(), ecorePackage.getEString(), "contactName", null, 0, 1, Form.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getForm_ContactEmail(), ecorePackage.getEString(), "contactEmail", null, 0, 1, Form.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getForm_MainFileBlock(), this.getFileBlock(), null, "mainFileBlock", null, 0, 1, Form.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getForm_Logo(), this.getURI(), "logo", null, 1, 1, Form.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(formElementEClass, FormElement.class, "FormElement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1959,6 +1958,7 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 		initEAttribute(getFileBlock_Usage(), ecorePackage.getEString(), "usage", null, 0, 1, FileBlock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFileBlock_Label(), ecorePackage.getEString(), "label", null, 0, 1, FileBlock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFileBlock_Required(), ecorePackage.getEBoolean(), "required", null, 1, 1, FileBlock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFileBlock_DefaultAccess(), ecorePackage.getEBoolean(), "defaultAccess", "false", 1, 1, FileBlock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(paragraphEClass, Paragraph.class, "Paragraph", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getParagraph_Heading(), ecorePackage.getEString(), "heading", null, 0, 1, Paragraph.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

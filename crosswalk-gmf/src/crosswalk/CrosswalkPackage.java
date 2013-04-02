@@ -1598,22 +1598,13 @@ public interface CrosswalkPackage extends EPackage {
 	int FORM__CONTACT_EMAIL = EDITABLE_FEATURE_COUNT + 12;
 
 								/**
-	 * The feature id for the '<em><b>Main File Block</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FORM__MAIN_FILE_BLOCK = EDITABLE_FEATURE_COUNT + 13;
-
-								/**
 	 * The feature id for the '<em><b>Logo</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FORM__LOGO = EDITABLE_FEATURE_COUNT + 14;
+	int FORM__LOGO = EDITABLE_FEATURE_COUNT + 13;
 
 								/**
 	 * The number of structural features of the '<em>Form</em>' class.
@@ -1622,7 +1613,7 @@ public interface CrosswalkPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FORM_FEATURE_COUNT = EDITABLE_FEATURE_COUNT + 15;
+	int FORM_FEATURE_COUNT = EDITABLE_FEATURE_COUNT + 14;
 
 								/**
 	 * The meta object id for the '{@link crosswalk.FormElement <em>Form Element</em>}' class.
@@ -1699,13 +1690,22 @@ public interface CrosswalkPackage extends EPackage {
 	int FILE_BLOCK__REQUIRED = FORM_ELEMENT_FEATURE_COUNT + 4;
 
 								/**
+	 * The feature id for the '<em><b>Default Access</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_BLOCK__DEFAULT_ACCESS = FORM_ELEMENT_FEATURE_COUNT + 5;
+
+								/**
 	 * The number of structural features of the '<em>File Block</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FILE_BLOCK_FEATURE_COUNT = FORM_ELEMENT_FEATURE_COUNT + 5;
+	int FILE_BLOCK_FEATURE_COUNT = FORM_ELEMENT_FEATURE_COUNT + 6;
 
 								/**
 	 * The meta object id for the '{@link crosswalk.impl.ParagraphImpl <em>Paragraph</em>}' class.
@@ -2924,17 +2924,6 @@ public interface CrosswalkPackage extends EPackage {
 	EAttribute getForm_ContactEmail();
 
 								/**
-	 * Returns the meta object for the reference '{@link crosswalk.Form#getMainFileBlock <em>Main File Block</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Main File Block</em>'.
-	 * @see crosswalk.Form#getMainFileBlock()
-	 * @see #getForm()
-	 * @generated
-	 */
-	EReference getForm_MainFileBlock();
-
-								/**
 	 * Returns the meta object for the attribute '{@link crosswalk.Form#getLogo <em>Logo</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3019,6 +3008,17 @@ public interface CrosswalkPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getFileBlock_Required();
+
+								/**
+	 * Returns the meta object for the attribute '{@link crosswalk.FileBlock#isDefaultAccess <em>Default Access</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Default Access</em>'.
+	 * @see crosswalk.FileBlock#isDefaultAccess()
+	 * @see #getFileBlock()
+	 * @generated
+	 */
+	EAttribute getFileBlock_DefaultAccess();
 
 								/**
 	 * Returns the meta object for class '{@link crosswalk.Paragraph <em>Paragraph</em>}'.
@@ -4010,14 +4010,6 @@ public interface CrosswalkPackage extends EPackage {
 		EAttribute FORM__CONTACT_EMAIL = eINSTANCE.getForm_ContactEmail();
 
 																/**
-		 * The meta object literal for the '<em><b>Main File Block</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference FORM__MAIN_FILE_BLOCK = eINSTANCE.getForm_MainFileBlock();
-
-																/**
 		 * The meta object literal for the '<em><b>Logo</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4084,6 +4076,14 @@ public interface CrosswalkPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute FILE_BLOCK__REQUIRED = eINSTANCE.getFileBlock_Required();
+
+																/**
+		 * The meta object literal for the '<em><b>Default Access</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FILE_BLOCK__DEFAULT_ACCESS = eINSTANCE.getFileBlock_DefaultAccess();
 
 																/**
 		 * The meta object literal for the '{@link crosswalk.impl.ParagraphImpl <em>Paragraph</em>}' class.

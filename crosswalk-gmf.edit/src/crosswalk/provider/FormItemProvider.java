@@ -18,6 +18,7 @@ package crosswalk.provider;
 
 import crosswalk.CrosswalkFactory;
 import crosswalk.CrosswalkPackage;
+import crosswalk.FileBlock;
 import crosswalk.Form;
 
 import java.util.Collection;
@@ -86,7 +87,6 @@ public class FormItemProvider
 			addCanAddSupplementalFilesPropertyDescriptor(object);
 			addContactNamePropertyDescriptor(object);
 			addContactEmailPropertyDescriptor(object);
-			addMainFileBlockPropertyDescriptor(object);
 			addLogoPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -313,28 +313,6 @@ public class FormItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Main File Block feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addMainFileBlockPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Form_mainFileBlock_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Form_mainFileBlock_feature", "_UI_Form_type"),
-				 CrosswalkPackage.Literals.FORM__MAIN_FILE_BLOCK,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This adds a property descriptor for the Logo feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -416,7 +394,7 @@ public class FormItemProvider
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void notifyChanged(Notification notification) {

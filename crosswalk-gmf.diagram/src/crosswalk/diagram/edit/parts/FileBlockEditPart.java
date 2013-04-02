@@ -1,6 +1,7 @@
 package crosswalk.diagram.edit.parts;
 
 import org.eclipse.draw2d.ColorConstants;
+import org.eclipse.draw2d.FlowLayout;
 import org.eclipse.draw2d.GridData;
 import org.eclipse.draw2d.GridLayout;
 import org.eclipse.draw2d.IFigure;
@@ -33,6 +34,7 @@ import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.widgets.Display;
 
 import crosswalk.FileBlock;
+import crosswalk.Form;
 import crosswalk.MappedAttribute;
 import crosswalk.diagram.edit.policies.FileBlockItemSemanticEditPolicy;
 import crosswalk.diagram.part.CrosswalkVisualIDRegistry;
@@ -296,12 +298,17 @@ public class FileBlockEditPart extends ShapeNodeEditPart {
 		private WrappingLabel fFigureFileBlockRequiredLabel;
 
 		/**
+		 * @generated
+		 */
+		private WrappingLabel fFigureFileBlockDefaultLabel;
+
+		/**
 		 * @generated NOT
 		 */
 		public FileBlockFigure() {
 
 			GridLayout layoutThis = new GridLayout();
-			layoutThis.numColumns = 2;
+			layoutThis.numColumns = 3;
 			layoutThis.makeColumnsEqualWidth = false;
 			this.setLayoutManager(layoutThis);
 
@@ -317,14 +324,24 @@ public class FileBlockEditPart extends ShapeNodeEditPart {
 			fFigureFileBlockNameLabel = new WrappingLabel();
 
 			fFigureFileBlockNameLabel.setText("");
+			fFigureFileBlockNameLabel.setForegroundColor(ColorConstants.black);
 
 			fFigureFileBlockNameLabel.setFont(FFIGUREFILEBLOCKNAMELABEL_FONT);
 
-			this.add(fFigureFileBlockNameLabel);
+			GridData constraintFFigureFileBlockNameLabel = new GridData();
+			constraintFFigureFileBlockNameLabel.verticalAlignment = GridData.CENTER;
+			constraintFFigureFileBlockNameLabel.horizontalAlignment = GridData.BEGINNING;
+			constraintFFigureFileBlockNameLabel.horizontalIndent = 0;
+			constraintFFigureFileBlockNameLabel.horizontalSpan = 1;
+			constraintFFigureFileBlockNameLabel.verticalSpan = 1;
+			constraintFFigureFileBlockNameLabel.grabExcessHorizontalSpace = false;
+			constraintFFigureFileBlockNameLabel.grabExcessVerticalSpace = false;
+			this.add(fFigureFileBlockNameLabel,
+					constraintFFigureFileBlockNameLabel);
 
 			fFigureFileBlockRequiredLabel = new WrappingLabel();
 
-			fFigureFileBlockRequiredLabel.setText("*");
+			fFigureFileBlockRequiredLabel.setText("required");
 			fFigureFileBlockRequiredLabel
 					.setForegroundColor(ColorConstants.red);
 
@@ -342,6 +359,26 @@ public class FileBlockEditPart extends ShapeNodeEditPart {
 			this.add(fFigureFileBlockRequiredLabel,
 					constraintFFigureFileBlockRequiredLabel);
 
+			fFigureFileBlockDefaultLabel = new WrappingLabel();
+
+			fFigureFileBlockDefaultLabel.setText("default access");
+			fFigureFileBlockDefaultLabel
+					.setForegroundColor(ColorConstants.gray);
+
+			fFigureFileBlockDefaultLabel
+					.setFont(FFIGUREFILEBLOCKDEFAULTLABEL_FONT);
+
+			GridData constraintFFigureFileBlockDefaultLabel = new GridData();
+			constraintFFigureFileBlockDefaultLabel.verticalAlignment = GridData.CENTER;
+			constraintFFigureFileBlockDefaultLabel.horizontalAlignment = GridData.BEGINNING;
+			constraintFFigureFileBlockDefaultLabel.horizontalIndent = 0;
+			constraintFFigureFileBlockDefaultLabel.horizontalSpan = 1;
+			constraintFFigureFileBlockDefaultLabel.verticalSpan = 1;
+			constraintFFigureFileBlockDefaultLabel.grabExcessHorizontalSpace = false;
+			constraintFFigureFileBlockDefaultLabel.grabExcessVerticalSpace = false;
+			this.add(fFigureFileBlockDefaultLabel,
+					constraintFFigureFileBlockDefaultLabel);
+
 			fFigureFileBlockDescriptionLabel = new WrappingLabel();
 
 			fFigureFileBlockDescriptionLabel.setText("");
@@ -350,7 +387,7 @@ public class FileBlockEditPart extends ShapeNodeEditPart {
 			constraintFFigureFileBlockDescriptionLabel.verticalAlignment = GridData.CENTER;
 			constraintFFigureFileBlockDescriptionLabel.horizontalAlignment = GridData.BEGINNING;
 			constraintFFigureFileBlockDescriptionLabel.horizontalIndent = 0;
-			constraintFFigureFileBlockDescriptionLabel.horizontalSpan = 2;
+			constraintFFigureFileBlockDescriptionLabel.horizontalSpan = 3;
 			constraintFFigureFileBlockDescriptionLabel.verticalSpan = 1;
 			constraintFFigureFileBlockDescriptionLabel.grabExcessHorizontalSpace = false;
 			constraintFFigureFileBlockDescriptionLabel.grabExcessVerticalSpace = false;
@@ -358,13 +395,16 @@ public class FileBlockEditPart extends ShapeNodeEditPart {
 					constraintFFigureFileBlockDescriptionLabel);
 
 		}
-		
+
 		private void updateFace() {
-			
-			FileBlock fileBlock = (FileBlock) ((Node) FileBlockEditPart.this.getModel()).getElement();
-			
+
+			FileBlock fileBlock = (FileBlock) ((Node) FileBlockEditPart.this
+					.getModel()).getElement();
+
 			fFigureFileBlockRequiredLabel.setVisible(fileBlock.isRequired());
-			
+			fFigureFileBlockDefaultLabel.setVisible(fileBlock
+					.isDefaultAccess());
+
 		}
 
 		/**
@@ -388,6 +428,13 @@ public class FileBlockEditPart extends ShapeNodeEditPart {
 			return fFigureFileBlockRequiredLabel;
 		}
 
+		/**
+		 * @generated
+		 */
+		public WrappingLabel getFigureFileBlockDefaultLabel() {
+			return fFigureFileBlockDefaultLabel;
+		}
+
 	}
 
 	/**
@@ -402,6 +449,13 @@ public class FileBlockEditPart extends ShapeNodeEditPart {
 	 */
 	static final Font FFIGUREFILEBLOCKREQUIREDLABEL_FONT = new Font(
 			Display.getCurrent(), Display.getDefault().getSystemFont()
-					.getFontData()[0].getName(), 12, SWT.BOLD);
+					.getFontData()[0].getName(), 12, SWT.NORMAL);
+
+	/**
+	 * @generated
+	 */
+	static final Font FFIGUREFILEBLOCKDEFAULTLABEL_FONT = new Font(
+			Display.getCurrent(), Display.getDefault().getSystemFont()
+					.getFontData()[0].getName(), 12, SWT.NORMAL);
 
 }

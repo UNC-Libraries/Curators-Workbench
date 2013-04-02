@@ -5,12 +5,16 @@ package crosswalk.impl;
 import crosswalk.CrosswalkPackage;
 import crosswalk.FileBlock;
 
+import crosswalk.Form;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,6 +28,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *   <li>{@link crosswalk.impl.FileBlockImpl#getUsage <em>Usage</em>}</li>
  *   <li>{@link crosswalk.impl.FileBlockImpl#getLabel <em>Label</em>}</li>
  *   <li>{@link crosswalk.impl.FileBlockImpl#isRequired <em>Required</em>}</li>
+ *   <li>{@link crosswalk.impl.FileBlockImpl#isDefaultAccess <em>Default Access</em>}</li>
  * </ul>
  * </p>
  *
@@ -129,6 +134,26 @@ public class FileBlockImpl extends EObjectImpl implements FileBlock {
 	 * @ordered
 	 */
 	protected boolean required = REQUIRED_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isDefaultAccess() <em>Default Access</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isDefaultAccess()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean DEFAULT_ACCESS_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isDefaultAccess() <em>Default Access</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isDefaultAccess()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean defaultAccess = DEFAULT_ACCESS_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -259,6 +284,27 @@ public class FileBlockImpl extends EObjectImpl implements FileBlock {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isDefaultAccess() {
+		return defaultAccess;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDefaultAccess(boolean newDefaultAccess) {
+		boolean oldDefaultAccess = defaultAccess;
+		defaultAccess = newDefaultAccess;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.FILE_BLOCK__DEFAULT_ACCESS, oldDefaultAccess, defaultAccess));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -272,6 +318,8 @@ public class FileBlockImpl extends EObjectImpl implements FileBlock {
 				return getLabel();
 			case CrosswalkPackage.FILE_BLOCK__REQUIRED:
 				return isRequired();
+			case CrosswalkPackage.FILE_BLOCK__DEFAULT_ACCESS:
+				return isDefaultAccess();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -298,6 +346,9 @@ public class FileBlockImpl extends EObjectImpl implements FileBlock {
 				return;
 			case CrosswalkPackage.FILE_BLOCK__REQUIRED:
 				setRequired((Boolean)newValue);
+				return;
+			case CrosswalkPackage.FILE_BLOCK__DEFAULT_ACCESS:
+				setDefaultAccess((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -326,6 +377,9 @@ public class FileBlockImpl extends EObjectImpl implements FileBlock {
 			case CrosswalkPackage.FILE_BLOCK__REQUIRED:
 				setRequired(REQUIRED_EDEFAULT);
 				return;
+			case CrosswalkPackage.FILE_BLOCK__DEFAULT_ACCESS:
+				setDefaultAccess(DEFAULT_ACCESS_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -348,6 +402,8 @@ public class FileBlockImpl extends EObjectImpl implements FileBlock {
 				return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT.equals(label);
 			case CrosswalkPackage.FILE_BLOCK__REQUIRED:
 				return required != REQUIRED_EDEFAULT;
+			case CrosswalkPackage.FILE_BLOCK__DEFAULT_ACCESS:
+				return defaultAccess != DEFAULT_ACCESS_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -372,6 +428,8 @@ public class FileBlockImpl extends EObjectImpl implements FileBlock {
 		result.append(label);
 		result.append(", required: ");
 		result.append(required);
+		result.append(", defaultAccess: ");
+		result.append(defaultAccess);
 		result.append(')');
 		return result.toString();
 	}

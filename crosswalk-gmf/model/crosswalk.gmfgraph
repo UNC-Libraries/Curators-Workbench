@@ -460,11 +460,17 @@
           xsi:type="gmfgraph:Rectangle">
         <layout
             xsi:type="gmfgraph:GridLayout"
-            numColumns="2"
+            numColumns="3"
             equalWidth="false"/>
         <children
             xsi:type="gmfgraph:Label"
             name="FileBlockNameLabel">
+          <layoutData
+              xsi:type="gmfgraph:GridLayoutData"
+              horizontalAlignment="BEGINNING"/>
+          <foregroundColor
+              xsi:type="gmfgraph:ConstantColor"
+              value="black"/>
           <font
               xsi:type="gmfgraph:BasicFont"
               height="12"
@@ -473,7 +479,7 @@
         <children
             xsi:type="gmfgraph:Label"
             name="FileBlockRequiredLabel"
-            text="*">
+            text="required">
           <layoutData
               xsi:type="gmfgraph:GridLayoutData"
               horizontalAlignment="BEGINNING"/>
@@ -482,8 +488,21 @@
               value="red"/>
           <font
               xsi:type="gmfgraph:BasicFont"
-              height="12"
-              style="BOLD"/>
+              height="12"/>
+        </children>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="FileBlockDefaultLabel"
+            text="default access">
+          <layoutData
+              xsi:type="gmfgraph:GridLayoutData"
+              horizontalAlignment="BEGINNING"/>
+          <foregroundColor
+              xsi:type="gmfgraph:ConstantColor"
+              value="gray"/>
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              height="12"/>
         </children>
         <children
             xsi:type="gmfgraph:Label"
@@ -491,16 +510,19 @@
           <layoutData
               xsi:type="gmfgraph:GridLayoutData"
               horizontalAlignment="BEGINNING"
-              horizontalSpan="2"/>
+              horizontalSpan="3"/>
         </children>
       </actualFigure>
       <accessors
           figure="//@figures.0/@descriptors.11/@actualFigure/@children.0"/>
       <accessors
-          figure="//@figures.0/@descriptors.11/@actualFigure/@children.2"/>
+          figure="//@figures.0/@descriptors.11/@actualFigure/@children.3"/>
       <accessors
           accessor="getFigureFileBlockRequiredLabel"
           figure="//@figures.0/@descriptors.11/@actualFigure/@children.1"/>
+      <accessors
+          accessor="getFigureFileBlockDefaultLabel"
+          figure="//@figures.0/@descriptors.11/@actualFigure/@children.2"/>
     </descriptors>
   </figures>
   <nodes

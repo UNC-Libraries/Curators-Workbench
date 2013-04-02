@@ -33,6 +33,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import crosswalk.ContextProvider;
 import crosswalk.CrosswalkPackage;
+import crosswalk.Form;
 import crosswalk.FormElement;
 import crosswalk.InputField;
 import crosswalk.MappingContainer;

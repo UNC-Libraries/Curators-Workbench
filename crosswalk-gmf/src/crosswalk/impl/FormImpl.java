@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -55,7 +56,6 @@ import java.net.URI;
  *   <li>{@link crosswalk.impl.FormImpl#isCanAddSupplementalFiles <em>Can Add Supplemental Files</em>}</li>
  *   <li>{@link crosswalk.impl.FormImpl#getContactName <em>Contact Name</em>}</li>
  *   <li>{@link crosswalk.impl.FormImpl#getContactEmail <em>Contact Email</em>}</li>
- *   <li>{@link crosswalk.impl.FormImpl#getMainFileBlock <em>Main File Block</em>}</li>
  *   <li>{@link crosswalk.impl.FormImpl#getLogo <em>Logo</em>}</li>
  * </ul>
  * </p>
@@ -300,16 +300,6 @@ public class FormImpl extends EObjectImpl implements Form {
 	 * @ordered
 	 */
 	protected boolean contactEmailESet;
-
-	/**
-	 * The cached value of the '{@link #getMainFileBlock() <em>Main File Block</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMainFileBlock()
-	 * @generated
-	 * @ordered
-	 */
-	protected FileBlock mainFileBlock;
 
 	/**
 	 * The default value of the '{@link #getLogo() <em>Logo</em>}' attribute.
@@ -679,44 +669,6 @@ public class FormImpl extends EObjectImpl implements Form {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public FileBlock getMainFileBlock() {
-		if (mainFileBlock != null && mainFileBlock.eIsProxy()) {
-			InternalEObject oldMainFileBlock = (InternalEObject)mainFileBlock;
-			mainFileBlock = (FileBlock)eResolveProxy(oldMainFileBlock);
-			if (mainFileBlock != oldMainFileBlock) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CrosswalkPackage.FORM__MAIN_FILE_BLOCK, oldMainFileBlock, mainFileBlock));
-			}
-		}
-		return mainFileBlock;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public FileBlock basicGetMainFileBlock() {
-		return mainFileBlock;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setMainFileBlock(FileBlock newMainFileBlock) {
-		FileBlock oldMainFileBlock = mainFileBlock;
-		mainFileBlock = newMainFileBlock;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.FORM__MAIN_FILE_BLOCK, oldMainFileBlock, mainFileBlock));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public URI getLogo() {
 		return logo;
 	}
@@ -782,9 +734,6 @@ public class FormImpl extends EObjectImpl implements Form {
 				return getContactName();
 			case CrosswalkPackage.FORM__CONTACT_EMAIL:
 				return getContactEmail();
-			case CrosswalkPackage.FORM__MAIN_FILE_BLOCK:
-				if (resolve) return getMainFileBlock();
-				return basicGetMainFileBlock();
 			case CrosswalkPackage.FORM__LOGO:
 				return getLogo();
 		}
@@ -842,9 +791,6 @@ public class FormImpl extends EObjectImpl implements Form {
 			case CrosswalkPackage.FORM__CONTACT_EMAIL:
 				setContactEmail((String)newValue);
 				return;
-			case CrosswalkPackage.FORM__MAIN_FILE_BLOCK:
-				setMainFileBlock((FileBlock)newValue);
-				return;
 			case CrosswalkPackage.FORM__LOGO:
 				setLogo((URI)newValue);
 				return;
@@ -899,9 +845,6 @@ public class FormImpl extends EObjectImpl implements Form {
 			case CrosswalkPackage.FORM__CONTACT_EMAIL:
 				unsetContactEmail();
 				return;
-			case CrosswalkPackage.FORM__MAIN_FILE_BLOCK:
-				setMainFileBlock((FileBlock)null);
-				return;
 			case CrosswalkPackage.FORM__LOGO:
 				setLogo(LOGO_EDEFAULT);
 				return;
@@ -943,8 +886,6 @@ public class FormImpl extends EObjectImpl implements Form {
 				return isSetContactName();
 			case CrosswalkPackage.FORM__CONTACT_EMAIL:
 				return isSetContactEmail();
-			case CrosswalkPackage.FORM__MAIN_FILE_BLOCK:
-				return mainFileBlock != null;
 			case CrosswalkPackage.FORM__LOGO:
 				return LOGO_EDEFAULT == null ? logo != null : !LOGO_EDEFAULT.equals(logo);
 		}

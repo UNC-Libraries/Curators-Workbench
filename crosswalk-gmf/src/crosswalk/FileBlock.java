@@ -16,6 +16,7 @@ package crosswalk;
  *   <li>{@link crosswalk.FileBlock#getUsage <em>Usage</em>}</li>
  *   <li>{@link crosswalk.FileBlock#getLabel <em>Label</em>}</li>
  *   <li>{@link crosswalk.FileBlock#isRequired <em>Required</em>}</li>
+ *   <li>{@link crosswalk.FileBlock#isDefaultAccess <em>Default Access</em>}</li>
  * </ul>
  * </p>
  *
@@ -153,5 +154,32 @@ public interface FileBlock extends FormElement {
 	 * @generated
 	 */
 	void setRequired(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Default Access</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Default Access</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Default Access</em>' attribute.
+	 * @see #setDefaultAccess(boolean)
+	 * @see crosswalk.CrosswalkPackage#getFileBlock_DefaultAccess()
+	 * @model default="false" required="true"
+	 * @generated
+	 */
+	boolean isDefaultAccess();
+
+	/**
+	 * Sets the value of the '{@link crosswalk.FileBlock#isDefaultAccess <em>Default Access</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Default Access</em>' attribute.
+	 * @see #isDefaultAccess()
+	 * @generated
+	 */
+	void setDefaultAccess(boolean value);
 
 } // FileBlock
