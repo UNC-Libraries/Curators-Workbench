@@ -50,13 +50,21 @@ public class FileBlockCreateCommand extends EditElementCommand {
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
 			IAdaptable info) throws ExecutionException {
 		FileBlock newElement = CrosswalkFactory.eINSTANCE.createFileBlock();
 
 		Form owner = (Form) getElementToEdit();
+
+		// The first file block added to the form is required and is a default access file
+
+		if (!owner.isHasFileBlocks()) {
+			newElement.setRequired(true);
+			newElement.setDefaultAccess(true);
+		}
+
 		owner.getElements().add(newElement);
 
 		doConfigure(newElement, monitor, info);
