@@ -33,6 +33,8 @@ import crosswalk.diagram.edit.parts.DateInputFieldLabelEditPart;
 import crosswalk.diagram.edit.parts.DelimitedFileSourceFileEditPart;
 import crosswalk.diagram.edit.parts.DictionaryDescriptionEditPart;
 import crosswalk.diagram.edit.parts.DictionaryNameEditPart;
+import crosswalk.diagram.edit.parts.FileBlockDescriptionEditPart;
+import crosswalk.diagram.edit.parts.FileBlockNameEditPart;
 import crosswalk.diagram.edit.parts.FormDescriptionEditPart;
 import crosswalk.diagram.edit.parts.FormTitleEditPart;
 import crosswalk.diagram.edit.parts.MetadataBlockName2EditPart;
@@ -434,6 +436,48 @@ public class CrosswalkParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
+	private IParser fileBlockName_5031Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getFileBlockName_5031Parser() {
+		if (fileBlockName_5031Parser == null) {
+			EAttribute[] features = new EAttribute[] { CrosswalkPackage.eINSTANCE
+					.getFileBlock_Name() };
+			EAttribute[] editableFeatures = new EAttribute[] { CrosswalkPackage.eINSTANCE
+					.getFileBlock_Name() };
+			MessageFormatParser parser = new MessageFormatParser(features,
+					editableFeatures);
+			fileBlockName_5031Parser = parser;
+		}
+		return fileBlockName_5031Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser fileBlockDescription_5032Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getFileBlockDescription_5032Parser() {
+		if (fileBlockDescription_5032Parser == null) {
+			EAttribute[] features = new EAttribute[] { CrosswalkPackage.eINSTANCE
+					.getFileBlock_Description() };
+			EAttribute[] editableFeatures = new EAttribute[] { CrosswalkPackage.eINSTANCE
+					.getFileBlock_Description() };
+			MessageFormatParser parser = new MessageFormatParser(features,
+					editableFeatures);
+			fileBlockDescription_5032Parser = parser;
+		}
+		return fileBlockDescription_5032Parser;
+	}
+
+	/**
+	 * @generated
+	 */
 	private CurrentDateLabelExpressionLabelParser currentDateLabel_5027Parser;
 
 	/**
@@ -535,6 +579,10 @@ public class CrosswalkParserProvider extends AbstractProvider implements
 			return getParagraphHeading_5021Parser();
 		case ParagraphTextEditPart.VISUAL_ID:
 			return getParagraphText_5022Parser();
+		case FileBlockNameEditPart.VISUAL_ID:
+			return getFileBlockName_5031Parser();
+		case FileBlockDescriptionEditPart.VISUAL_ID:
+			return getFileBlockDescription_5032Parser();
 		}
 		return null;
 	}

@@ -201,6 +201,10 @@ public class CrosswalkAdapterFactory extends AdapterFactoryImpl {
 				return createFormElementAdapter();
 			}
 			@Override
+			public Adapter caseFileBlock(FileBlock object) {
+				return createFileBlockAdapter();
+			}
+			@Override
 			public Adapter caseParagraph(Paragraph object) {
 				return createParagraphAdapter();
 			}
@@ -653,6 +657,20 @@ public class CrosswalkAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createFormElementAdapter() {
+		return null;
+	}
+
+								/**
+	 * Creates a new adapter for an object of class '{@link crosswalk.FileBlock <em>File Block</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see crosswalk.FileBlock
+	 * @generated
+	 */
+	public Adapter createFileBlockAdapter() {
 		return null;
 	}
 

@@ -184,8 +184,17 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//Form/canAddSupplementalFiles"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//Form/contactName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//Form/contactEmail"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//Form/logo"/>
     </genClasses>
     <genClasses image="false" ecoreClass="crosswalk.ecore#//FormElement"/>
+    <genClasses ecoreClass="crosswalk.ecore#//FileBlock">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//FileBlock/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//FileBlock/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//FileBlock/usage"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//FileBlock/label"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//FileBlock/required"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//FileBlock/defaultAccess"/>
+    </genClasses>
     <genClasses ecoreClass="crosswalk.ecore#//Paragraph">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//Paragraph/heading"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crosswalk.ecore#//Paragraph/text"/>

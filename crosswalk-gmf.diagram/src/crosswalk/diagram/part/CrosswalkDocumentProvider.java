@@ -213,7 +213,7 @@ public class CrosswalkDocumentProvider extends AbstractDocumentProvider
 			}
 
 		});
-		
+
 		AclPackage.eINSTANCE.eClass();
 		MODSPackage.eINSTANCE.eClass();
 

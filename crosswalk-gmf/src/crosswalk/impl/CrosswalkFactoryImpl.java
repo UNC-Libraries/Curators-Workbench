@@ -120,6 +120,7 @@ public class CrosswalkFactoryImpl extends EFactoryImpl implements CrosswalkFacto
 			case CrosswalkPackage.TEXT_INPUT_FIELD: return createTextInputField();
 			case CrosswalkPackage.EDITING_CONTAINER: return createEditingContainer();
 			case CrosswalkPackage.FORM: return createForm();
+			case CrosswalkPackage.FILE_BLOCK: return createFileBlock();
 			case CrosswalkPackage.PARAGRAPH: return createParagraph();
 			case CrosswalkPackage.DATE_INPUT_FIELD: return createDateInputField();
 			case CrosswalkPackage.OUTPUT_PROFILE: return createOutputProfile();
@@ -378,6 +379,16 @@ public class CrosswalkFactoryImpl extends EFactoryImpl implements CrosswalkFacto
 	public Form createForm() {
 		FormImpl form = new FormImpl();
 		return form;
+	}
+
+/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FileBlock createFileBlock() {
+		FileBlockImpl fileBlock = new FileBlockImpl();
+		return fileBlock;
 	}
 
 /**

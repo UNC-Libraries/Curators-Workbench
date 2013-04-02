@@ -141,10 +141,13 @@ public class MappedAttributeLabelExpressionLabelParser implements IParser {
 		MappedAttribute ma = (MappedAttribute) self;
 		if (ma.getMappedFeature() != null) {
 			String attrName = ma.getMappedFeature().getName();
-			EAnnotation ann = ma.getMappedFeature().getEAnnotation("http:///org/eclipse/emf/ecore/util/ExtendedMetaData");
-			if(ann != null && ann.getDetails() != null && ann.getDetails().get("name") != null) {
+			EAnnotation ann = ma.getMappedFeature().getEAnnotation(
+					"http:///org/eclipse/emf/ecore/util/ExtendedMetaData");
+			if (ann != null && ann.getDetails() != null
+					&& ann.getDetails().get("name") != null) {
 				String tempName = ann.getDetails().get("name");
-				if(!":0".equals(tempName) && !":mixed".equals(tempName)) attrName = tempName;
+				if (!":0".equals(tempName) && !":mixed".equals(tempName))
+					attrName = tempName;
 			}
 			sb.append(attrName);
 			if (String.class.equals(ma.getInputType())) {

@@ -43,6 +43,8 @@ import crosswalk.diagram.edit.parts.DelimitedFileSourceFileEditPart;
 import crosswalk.diagram.edit.parts.DictionaryEditPart;
 import crosswalk.diagram.edit.parts.DictionaryNameEditPart;
 import crosswalk.diagram.edit.parts.EditingContainerEditPart;
+import crosswalk.diagram.edit.parts.FileBlockEditPart;
+import crosswalk.diagram.edit.parts.FileBlockNameEditPart;
 import crosswalk.diagram.edit.parts.FormEditPart;
 import crosswalk.diagram.edit.parts.FormTitleEditPart;
 import crosswalk.diagram.edit.parts.InputOutputEditPart;
@@ -138,69 +140,72 @@ public class CrosswalkNavigatorLabelProvider extends LabelProvider implements
 	 */
 	public Image getImage(View view) {
 		switch (CrosswalkVisualIDRegistry.getVisualID(view)) {
-		case TextEditPart.VISUAL_ID:
+		case DictionaryEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://lib.unc.edu/schemas/crosswalk?Text", CrosswalkElementTypes.Text_3005); //$NON-NLS-1$
-		case InputOutputEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?http://lib.unc.edu/schemas/crosswalk?Input?Output", CrosswalkElementTypes.InputOutput_4001); //$NON-NLS-1$
-		case DelimitedFileEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://lib.unc.edu/schemas/crosswalk?DelimitedFile", CrosswalkElementTypes.DelimitedFile_3001); //$NON-NLS-1$
+					"Navigator?TopLevelNode?http://lib.unc.edu/schemas/crosswalk?Dictionary", CrosswalkElementTypes.Dictionary_2002); //$NON-NLS-1$
 		case CrossWalkEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?TopLevelNode?http://lib.unc.edu/schemas/crosswalk?CrossWalk", CrosswalkElementTypes.CrossWalk_2001); //$NON-NLS-1$
-		case OriginalNameRecordMatcherEditPart.VISUAL_ID:
+		case MetadataBlock2EditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://lib.unc.edu/schemas/crosswalk?OriginalNameRecordMatcher", CrosswalkElementTypes.OriginalNameRecordMatcher_3003); //$NON-NLS-1$
-		case FormEditPart.VISUAL_ID:
+					"Navigator?Node?http://lib.unc.edu/schemas/crosswalk?MetadataBlock", CrosswalkElementTypes.MetadataBlock_3018); //$NON-NLS-1$
+		case ParagraphEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?TopLevelNode?http://lib.unc.edu/schemas/crosswalk?Form", CrosswalkElementTypes.Form_2003); //$NON-NLS-1$
-		case EditingContainerEditPart.VISUAL_ID:
+					"Navigator?Node?http://lib.unc.edu/schemas/crosswalk?Paragraph", CrosswalkElementTypes.Paragraph_3020); //$NON-NLS-1$
+		case MetadataBlockEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Diagram?http://lib.unc.edu/schemas/crosswalk?EditingContainer", CrosswalkElementTypes.EditingContainer_1000); //$NON-NLS-1$
+					"Navigator?Node?http://lib.unc.edu/schemas/crosswalk?MetadataBlock", CrosswalkElementTypes.MetadataBlock_3010); //$NON-NLS-1$
+		case MetadataBlock3EditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://lib.unc.edu/schemas/crosswalk?MetadataBlock", CrosswalkElementTypes.MetadataBlock_3019); //$NON-NLS-1$
 		case DateInputFieldEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://lib.unc.edu/schemas/crosswalk?DateInputField", CrosswalkElementTypes.DateInputField_3024); //$NON-NLS-1$
 		case DateRecognizerEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://lib.unc.edu/schemas/crosswalk?DateRecognizer", CrosswalkElementTypes.DateRecognizer_3004); //$NON-NLS-1$
-		case CurrentUsernameEditPart.VISUAL_ID:
+		case FormEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://lib.unc.edu/schemas/crosswalk?CurrentUsername", CrosswalkElementTypes.CurrentUsername_3022); //$NON-NLS-1$
-		case CurrentDateEditPart.VISUAL_ID:
+					"Navigator?TopLevelNode?http://lib.unc.edu/schemas/crosswalk?Form", CrosswalkElementTypes.Form_2003); //$NON-NLS-1$
+		case FileBlockEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://lib.unc.edu/schemas/crosswalk?CurrentDate", CrosswalkElementTypes.CurrentDate_3021); //$NON-NLS-1$
-		case TabbedDataFieldEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://lib.unc.edu/schemas/crosswalk?TabbedDataField", CrosswalkElementTypes.TabbedDataField_3002); //$NON-NLS-1$
-		case MetadataBlockEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://lib.unc.edu/schemas/crosswalk?MetadataBlock", CrosswalkElementTypes.MetadataBlock_3010); //$NON-NLS-1$
+					"Navigator?Node?http://lib.unc.edu/schemas/crosswalk?FileBlock", CrosswalkElementTypes.FileBlock_3025); //$NON-NLS-1$
 		case MappedAttributeEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://lib.unc.edu/schemas/crosswalk?MappedAttribute", CrosswalkElementTypes.MappedAttribute_3009); //$NON-NLS-1$
+		case InputOutputEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://lib.unc.edu/schemas/crosswalk?Input?Output", CrosswalkElementTypes.InputOutput_4001); //$NON-NLS-1$
 		case TrimWhitespaceEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://lib.unc.edu/schemas/crosswalk?TrimWhitespace", CrosswalkElementTypes.TrimWhitespace_3006); //$NON-NLS-1$
-		case ParagraphEditPart.VISUAL_ID:
+		case CurrentDateEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://lib.unc.edu/schemas/crosswalk?Paragraph", CrosswalkElementTypes.Paragraph_3020); //$NON-NLS-1$
-		case DictionaryEditPart.VISUAL_ID:
+					"Navigator?Node?http://lib.unc.edu/schemas/crosswalk?CurrentDate", CrosswalkElementTypes.CurrentDate_3021); //$NON-NLS-1$
+		case OriginalNameRecordMatcherEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?TopLevelNode?http://lib.unc.edu/schemas/crosswalk?Dictionary", CrosswalkElementTypes.Dictionary_2002); //$NON-NLS-1$
+					"Navigator?Node?http://lib.unc.edu/schemas/crosswalk?OriginalNameRecordMatcher", CrosswalkElementTypes.OriginalNameRecordMatcher_3003); //$NON-NLS-1$
+		case EditingContainerEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Diagram?http://lib.unc.edu/schemas/crosswalk?EditingContainer", CrosswalkElementTypes.EditingContainer_1000); //$NON-NLS-1$
+		case TabbedDataFieldEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://lib.unc.edu/schemas/crosswalk?TabbedDataField", CrosswalkElementTypes.TabbedDataField_3002); //$NON-NLS-1$
 		case MappedElement2EditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://lib.unc.edu/schemas/crosswalk?MappedElement", CrosswalkElementTypes.MappedElement_3008); //$NON-NLS-1$
-		case MetadataBlock3EditPart.VISUAL_ID:
+		case DelimitedFileEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://lib.unc.edu/schemas/crosswalk?MetadataBlock", CrosswalkElementTypes.MetadataBlock_3019); //$NON-NLS-1$
+					"Navigator?Node?http://lib.unc.edu/schemas/crosswalk?DelimitedFile", CrosswalkElementTypes.DelimitedFile_3001); //$NON-NLS-1$
 		case TextInputFieldEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://lib.unc.edu/schemas/crosswalk?TextInputField", CrosswalkElementTypes.TextInputField_3023); //$NON-NLS-1$
-		case MetadataBlock2EditPart.VISUAL_ID:
+		case CurrentUsernameEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://lib.unc.edu/schemas/crosswalk?MetadataBlock", CrosswalkElementTypes.MetadataBlock_3018); //$NON-NLS-1$
+					"Navigator?Node?http://lib.unc.edu/schemas/crosswalk?CurrentUsername", CrosswalkElementTypes.CurrentUsername_3022); //$NON-NLS-1$
+		case TextEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://lib.unc.edu/schemas/crosswalk?Text", CrosswalkElementTypes.Text_3005); //$NON-NLS-1$
 		case MappedElementEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://lib.unc.edu/schemas/crosswalk?MappedElement", CrosswalkElementTypes.MappedElement_3007); //$NON-NLS-1$
@@ -257,48 +262,50 @@ public class CrosswalkNavigatorLabelProvider extends LabelProvider implements
 			return getUnresolvedDomainElementProxyText(view);
 		}
 		switch (CrosswalkVisualIDRegistry.getVisualID(view)) {
-		case TextEditPart.VISUAL_ID:
-			return getText_3005Text(view);
-		case InputOutputEditPart.VISUAL_ID:
-			return getInputOutput_4001Text(view);
-		case DelimitedFileEditPart.VISUAL_ID:
-			return getDelimitedFile_3001Text(view);
+		case DictionaryEditPart.VISUAL_ID:
+			return getDictionary_2002Text(view);
 		case CrossWalkEditPart.VISUAL_ID:
 			return getCrossWalk_2001Text(view);
-		case OriginalNameRecordMatcherEditPart.VISUAL_ID:
-			return getOriginalNameRecordMatcher_3003Text(view);
-		case FormEditPart.VISUAL_ID:
-			return getForm_2003Text(view);
-		case EditingContainerEditPart.VISUAL_ID:
-			return getEditingContainer_1000Text(view);
+		case MetadataBlock2EditPart.VISUAL_ID:
+			return getMetadataBlock_3018Text(view);
+		case ParagraphEditPart.VISUAL_ID:
+			return getParagraph_3020Text(view);
+		case MetadataBlockEditPart.VISUAL_ID:
+			return getMetadataBlock_3010Text(view);
+		case MetadataBlock3EditPart.VISUAL_ID:
+			return getMetadataBlock_3019Text(view);
 		case DateInputFieldEditPart.VISUAL_ID:
 			return getDateInputField_3024Text(view);
 		case DateRecognizerEditPart.VISUAL_ID:
 			return getDateRecognizer_3004Text(view);
-		case CurrentUsernameEditPart.VISUAL_ID:
-			return getCurrentUsername_3022Text(view);
-		case CurrentDateEditPart.VISUAL_ID:
-			return getCurrentDate_3021Text(view);
-		case TabbedDataFieldEditPart.VISUAL_ID:
-			return getTabbedDataField_3002Text(view);
-		case MetadataBlockEditPart.VISUAL_ID:
-			return getMetadataBlock_3010Text(view);
+		case FormEditPart.VISUAL_ID:
+			return getForm_2003Text(view);
+		case FileBlockEditPart.VISUAL_ID:
+			return getFileBlock_3025Text(view);
 		case MappedAttributeEditPart.VISUAL_ID:
 			return getMappedAttribute_3009Text(view);
+		case InputOutputEditPart.VISUAL_ID:
+			return getInputOutput_4001Text(view);
 		case TrimWhitespaceEditPart.VISUAL_ID:
 			return getTrimWhitespace_3006Text(view);
-		case ParagraphEditPart.VISUAL_ID:
-			return getParagraph_3020Text(view);
-		case DictionaryEditPart.VISUAL_ID:
-			return getDictionary_2002Text(view);
+		case CurrentDateEditPart.VISUAL_ID:
+			return getCurrentDate_3021Text(view);
+		case OriginalNameRecordMatcherEditPart.VISUAL_ID:
+			return getOriginalNameRecordMatcher_3003Text(view);
+		case EditingContainerEditPart.VISUAL_ID:
+			return getEditingContainer_1000Text(view);
+		case TabbedDataFieldEditPart.VISUAL_ID:
+			return getTabbedDataField_3002Text(view);
 		case MappedElement2EditPart.VISUAL_ID:
 			return getMappedElement_3008Text(view);
-		case MetadataBlock3EditPart.VISUAL_ID:
-			return getMetadataBlock_3019Text(view);
+		case DelimitedFileEditPart.VISUAL_ID:
+			return getDelimitedFile_3001Text(view);
 		case TextInputFieldEditPart.VISUAL_ID:
 			return getTextInputField_3023Text(view);
-		case MetadataBlock2EditPart.VISUAL_ID:
-			return getMetadataBlock_3018Text(view);
+		case CurrentUsernameEditPart.VISUAL_ID:
+			return getCurrentUsername_3022Text(view);
+		case TextEditPart.VISUAL_ID:
+			return getText_3005Text(view);
 		case MappedElementEditPart.VISUAL_ID:
 			return getMappedElement_3007Text(view);
 		}
@@ -688,6 +695,26 @@ public class CrosswalkNavigatorLabelProvider extends LabelProvider implements
 		} else {
 			CrosswalkDiagramEditorPlugin.getInstance().logError(
 					"Parser was not found for label " + 5023); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getFileBlock_3025Text(View view) {
+		IParser parser = CrosswalkParserProvider.getParser(
+				CrosswalkElementTypes.FileBlock_3025,
+				view.getElement() != null ? view.getElement() : view,
+				CrosswalkVisualIDRegistry
+						.getType(FileBlockNameEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			CrosswalkDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 5031); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}

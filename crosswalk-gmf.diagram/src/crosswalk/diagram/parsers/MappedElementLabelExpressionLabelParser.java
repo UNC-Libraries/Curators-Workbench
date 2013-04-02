@@ -139,13 +139,17 @@ public class MappedElementLabelExpressionLabelParser implements IParser {
 		StringBuilder sb = new StringBuilder();
 		MappedElement me = (MappedElement) self;
 		if (me.getMappedFeature() != null) {
-			String prefix = me.getMappedFeature().getEContainingClass().getEPackage().getNsPrefix();
+			String prefix = me.getMappedFeature().getEContainingClass()
+					.getEPackage().getNsPrefix();
 			String elName = me.getMappedFeature().getName();
-			EAnnotation ann = me.getMappedFeature().getEAnnotation("http:///org/eclipse/emf/ecore/util/ExtendedMetaData");
-			if(ann != null && ann.getDetails() != null && ann.getDetails().get("name") != null) {
+			EAnnotation ann = me.getMappedFeature().getEAnnotation(
+					"http:///org/eclipse/emf/ecore/util/ExtendedMetaData");
+			if (ann != null && ann.getDetails() != null
+					&& ann.getDetails().get("name") != null) {
 				elName = ann.getDetails().get("name");
 			}
-			sb.append("<").append(prefix).append(":").append(elName).append(">");
+			sb.append("<").append(prefix).append(":").append(elName)
+					.append(">");
 		} else {
 			sb.append("unmapped element");
 		}

@@ -188,6 +188,16 @@
         visualID="5030"
         queryText="true"/>
   </childNodeTraces>
+  <childNodeTraces
+      visualID="3025"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://lib.unc.edu/schemas/crosswalk' and _eClass_.name = 'FileBlock') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://lib.unc.edu/schemas/crosswalk' and _eClass_.name = 'Form') and _containmentMF_.name = 'elements')">
+    <nodeLabelTraces
+        visualID="5031"
+        queryText="true"/>
+    <nodeLabelTraces
+        visualID="5032"
+        queryText="true"/>
+  </childNodeTraces>
   <linkTraces
       visualID="4001"
       queryText="modelFacet.oclIsKindOf(gmfgen::FeatureLinkModelFacet) and (let _feature_:ecore::EStructuralFeature = modelFacet.oclAsType(gmfgen::FeatureLinkModelFacet).metaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _feature_.eContainingClass in _eClass_.ePackage.nsURI = 'http://lib.unc.edu/schemas/crosswalk' and _eClass_.name = 'Input') and _feature_.name = 'Output')"/>

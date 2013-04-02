@@ -29,6 +29,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.util.Assert;
 
 import crosswalk.CrosswalkPackage;
+import crosswalk.FormElement;
 
 public class CompartmentChildCreateCommand extends CreateCommand {
 	int index;
@@ -47,6 +48,11 @@ public class CompartmentChildCreateCommand extends CreateCommand {
 				viewDescriptor.isPersisted(), viewDescriptor.getPreferencesHint());
 		Assert.isNotNull(view, "failed to create a view"); //$NON-NLS-1$
 		viewDescriptor.setView(view);
+		
+		if (index > -1) {
+			EList nodes = (EList) getContainerView().getElement().eGet(CrosswalkPackage.Literals.FORM__ELEMENTS);
+			nodes.add(index, nodes.remove(nodes.size() - 1));
+		}
 		
 		return CommandResult.newOKCommandResult(viewDescriptor);
 	}

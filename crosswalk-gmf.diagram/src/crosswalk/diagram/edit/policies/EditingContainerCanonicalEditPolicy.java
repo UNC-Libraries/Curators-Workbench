@@ -54,6 +54,7 @@ import crosswalk.diagram.edit.parts.DateRecognizerEditPart;
 import crosswalk.diagram.edit.parts.DelimitedFileEditPart;
 import crosswalk.diagram.edit.parts.DictionaryEditPart;
 import crosswalk.diagram.edit.parts.EditingContainerEditPart;
+import crosswalk.diagram.edit.parts.FileBlockEditPart;
 import crosswalk.diagram.edit.parts.FormEditPart;
 import crosswalk.diagram.edit.parts.MappedAttributeEditPart;
 import crosswalk.diagram.edit.parts.MappedElement2EditPart;
@@ -440,6 +441,14 @@ public class EditingContainerCanonicalEditPolicy extends CanonicalEditPolicy {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(CrosswalkDiagramUpdater
 						.getParagraph_3020ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case FileBlockEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(CrosswalkDiagramUpdater
+						.getFileBlock_3025ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;

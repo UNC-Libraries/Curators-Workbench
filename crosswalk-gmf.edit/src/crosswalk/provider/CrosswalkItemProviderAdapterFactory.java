@@ -506,6 +506,29 @@ public class CrosswalkItemProviderAdapterFactory extends CrosswalkAdapterFactory
 	}
 
 								/**
+	 * This keeps track of the one adapter used for all {@link crosswalk.FileBlock} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected FileBlockItemProvider fileBlockItemProvider;
+
+								/**
+	 * This creates an adapter for a {@link crosswalk.FileBlock}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createFileBlockAdapter() {
+		if (fileBlockItemProvider == null) {
+			fileBlockItemProvider = new FileBlockItemProvider(this);
+		}
+
+		return fileBlockItemProvider;
+	}
+
+								/**
 	 * This keeps track of the one adapter used for all {@link crosswalk.Paragraph} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

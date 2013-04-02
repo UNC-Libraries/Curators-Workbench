@@ -90,9 +90,10 @@ public class CrosswalkModelingAssistantProvider extends
 			return types;
 		}
 		if (editPart instanceof FormEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList<IElementType> types = new ArrayList<IElementType>(3);
 			types.add(CrosswalkElementTypes.MetadataBlock_3019);
 			types.add(CrosswalkElementTypes.Paragraph_3020);
+			types.add(CrosswalkElementTypes.FileBlock_3025);
 			return types;
 		}
 		if (editPart instanceof DelimitedFileEditPart) {
