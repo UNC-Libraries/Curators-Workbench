@@ -69,5 +69,11 @@
             name="Dictionaries">
       </page>
    </extension>
+   <extension
+         point="org.eclipse.help.contexts">
+      <contexts
+            file="context.xml">
+      </contexts>
+   </extension>
 
 </plugin>

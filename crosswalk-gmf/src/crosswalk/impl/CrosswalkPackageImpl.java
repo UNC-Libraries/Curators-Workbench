@@ -2044,6 +2044,26 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 
 		// Create resource
 		createResource(eNS_URI);
+
+		// Create annotations
+		// org.eclipse.help.contexts
+		createOrgAnnotations();
+	}
+
+								/**
+	 * Initializes the annotations for <b>org.eclipse.help.contexts</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createOrgAnnotations() {
+		String source = "org.eclipse.help.contexts";		
+		addAnnotation
+		  (getDateRecognizer_Formats(), 
+		   source, 
+		   new String[] {
+			 "contextID", "DateRecognizer.Formats"
+		   });
 	}
 
 } //CrosswalkPackageImpl

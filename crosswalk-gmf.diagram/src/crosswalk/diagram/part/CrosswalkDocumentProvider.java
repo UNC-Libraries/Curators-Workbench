@@ -72,6 +72,9 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.part.FileEditorInput;
 
+import edu.unc.lib.schemas.acl.AclPackage;
+import gov.loc.mods.mods.MODSPackage;
+
 /**
  * @generated
  */
@@ -173,7 +176,7 @@ public class CrosswalkDocumentProvider extends AbstractDocumentProvider
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	private TransactionalEditingDomain createEditingDomain() {
 		TransactionalEditingDomain editingDomain = DiagramEditingDomainFactory
@@ -210,6 +213,9 @@ public class CrosswalkDocumentProvider extends AbstractDocumentProvider
 			}
 
 		});
+		
+		AclPackage.eINSTANCE.eClass();
+		MODSPackage.eINSTANCE.eClass();
 
 		return editingDomain;
 	}

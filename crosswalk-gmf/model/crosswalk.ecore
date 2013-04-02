@@ -74,7 +74,11 @@
   <eClassifiers xsi:type="ecore:EClass" name="DateRecognizer" eSuperTypes="#//WalkWidget #//Output #//Input">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Formats" lowerBound="1"
         upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        defaultValueLiteral="yy-MM-dd"/>
+        defaultValueLiteral="yy-MM-dd">
+      <eAnnotations source="org.eclipse.help.contexts">
+        <details key="contextID" value="DateRecognizer.Formats"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Text" eSuperTypes="#//Output #//WalkWidget">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
