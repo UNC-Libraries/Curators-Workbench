@@ -565,7 +565,7 @@ public class SwordDepositHandler implements DepositHandler {
 				fileDiv.setTYPE(METSConstants.Div_File);
 				
 				FileBlock fileBlock = fileBlockMap.get(depositFile);
-				if (fileBlock != null && fileBlock.getLabel() != null)
+				if (fileBlock != null && fileBlock.getLabel() != null && fileBlock.getLabel().trim().length() > 0)
 					fileDiv.setLABEL1(fileBlock.getLabel());
 				else
 					fileDiv.setLABEL1(depositFile.getFilename());
@@ -606,7 +606,7 @@ public class SwordDepositHandler implements DepositHandler {
 		// if its corresponding FileBlock has "default access role" set, or
 		// if its corresponding DepositFile is the main file (if set).
 		
-		{
+		if (aggregateWorkDiv != null) {
 		
 			StructLinkType1 structLink = MetsFactory.eINSTANCE.createStructLinkType1();
 			
