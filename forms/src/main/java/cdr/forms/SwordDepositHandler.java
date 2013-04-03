@@ -181,7 +181,7 @@ public class SwordDepositHandler implements DepositHandler {
 		
 		// Prepare the zip file for deposit
 		
-		gov.loc.mets.DocumentRoot metsDocumentRoot = makeMets(form, files, fileFilenameMap, fileBlockMap);
+		gov.loc.mets.DocumentRoot metsDocumentRoot = makeMets(form, deposit.getMainFile(), files, fileFilenameMap, fileBlockMap);
 		File zipFile = makeZipFile(metsDocumentRoot, files, fileFilenameMap);
 		
 		
@@ -349,6 +349,7 @@ public class SwordDepositHandler implements DepositHandler {
 	}
 	
 	private gov.loc.mets.DocumentRoot makeMets(Form form,
+			DepositFile mainFile,
 			List<DepositFile> files,
 			IdentityHashMap<DepositFile, String> filenames,
 			IdentityHashMap<DepositFile, FileBlock> fileBlockMap) {
@@ -490,14 +491,16 @@ public class SwordDepositHandler implements DepositHandler {
 
 		// Files section
 		
+		IdentityHashMap<DepositFile, FileType> filesFiles = new IdentityHashMap<DepositFile, FileType>();
+		
 		{
 
 			FileSecType fileSec = MetsFactory.eINSTANCE.createFileSecType();
 			FileGrpType1 fileGrp = MetsFactory.eINSTANCE.createFileGrpType1();
-			
-			for (int i = 0; i < files.size(); i++) {
-				
-				DepositFile depositFile = files.get(i);
+
+			int i = 0;
+
+			for (DepositFile depositFile : files) {
 				
 				FileType file = MetsFactory.eINSTANCE.createFileType();
 				file.setID("f_" + i);
@@ -510,6 +513,10 @@ public class SwordDepositHandler implements DepositHandler {
 				file.getFLocat().add(fLocat);
 				fileGrp.getFile().add(file);
 				
+				filesFiles.put(depositFile, file);
+				
+				i++;
+				
 			}
 			
 			fileSec.getFileGrp().add(fileGrp);
@@ -519,75 +526,97 @@ public class SwordDepositHandler implements DepositHandler {
 
 		// Structural map
 		
-		List<DivType> fileDivs = new ArrayList<DivType>();
+		IdentityHashMap<DepositFile, DivType> fileDivs = new IdentityHashMap<DepositFile, DivType>();
+		DivType rootDiv; 
 		
-		{
+		if (mainFile != null && files.size() == 1) {
+			
+			StructMapType structMap = MetsFactory.eINSTANCE.createStructMapType();
 
-			fileDivs = new ArrayList<DivType>();
+			DivType fileDiv = MetsFactory.eINSTANCE.createDivType();
+			
+			fileDiv.setTYPE(METSConstants.Div_File);
+			fileDiv.setID("d_0");
+			fileDiv.setLABEL1(mainFile.getFilename());
+			
+			FptrType fptr = MetsFactory.eINSTANCE.createFptrType();
+			fptr.setFILEID(filesFiles.get(mainFile).getID());
+			fileDiv.getFptr().add(fptr);
+
+			structMap.setDiv(fileDiv);
+			mets.getStructMap().add(structMap);
+
+			fileDivs.put(mainFile, fileDiv);
+			rootDiv = fileDiv;
+			
+		} else {
 
 			StructMapType structMap = MetsFactory.eINSTANCE.createStructMapType();
 
 			aggregateWorkDiv = MetsFactory.eINSTANCE.createDivType();
 			aggregateWorkDiv.setTYPE(METSConstants.Div_AggregateWork);
+			aggregateWorkDiv.setID("d_0");
 			
-			if (dmdSec != null)
-				aggregateWorkDiv.getDmdSec().add(dmdSec);
-			
-			aggregateWorkDiv.getMdSec().addAll(amdSec.getDigiprovMD());
-			aggregateWorkDiv.getMdSec().addAll(amdSec.getRightsMD());
-			aggregateWorkDiv.getMdSec().addAll(amdSec.getSourceMD());
-			aggregateWorkDiv.getMdSec().addAll(amdSec.getTechMD());
-			
-			aggregateWorkDiv.setID("a");
-			
-			for (int i = 0; i < files.size(); i++) {
+			int i = 1;
 
-				DepositFile depositFile = files.get(i);
+			for (DepositFile depositFile : files) {
 			
 				DivType fileDiv = MetsFactory.eINSTANCE.createDivType();
-				
 				fileDiv.setTYPE(METSConstants.Div_File);
 				
 				FileBlock fileBlock = fileBlockMap.get(depositFile);
-				
 				if (fileBlock != null && fileBlock.getLabel() != null)
 					fileDiv.setLABEL1(fileBlock.getLabel());
 				else
 					fileDiv.setLABEL1(depositFile.getFilename());
 				
 				FptrType fptr = MetsFactory.eINSTANCE.createFptrType();
-				fptr.setFILEID("f_" + i);
+				fptr.setFILEID(filesFiles.get(depositFile).getID());
 				fileDiv.getFptr().add(fptr);
-				
 				fileDiv.setID("d_" + i);
 				
-				fileDivs.add(fileDiv);
 				aggregateWorkDiv.getDiv().add(fileDiv);
+				
+				fileDivs.put(depositFile, fileDiv);
+				
+				i++;
 				
 			}
 	
 			structMap.setDiv(aggregateWorkDiv);
 			mets.getStructMap().add(structMap);
+
+			rootDiv = aggregateWorkDiv;
 			
 		}
 		
+		// Add metadata
+		
+		if (dmdSec != null)
+			rootDiv.getDmdSec().add(dmdSec);
+		
+		rootDiv.getMdSec().addAll(amdSec.getDigiprovMD());
+		rootDiv.getMdSec().addAll(amdSec.getRightsMD());
+		rootDiv.getMdSec().addAll(amdSec.getSourceMD());
+		rootDiv.getMdSec().addAll(amdSec.getTechMD());
+		
 		// Structural Links
 		
-		// Add "default access" links from the Aggregate Work div to File divs
-		// if their corresponding FileBlock has "default access role" set.
+		// Add "default access" links from the Aggregate Work div to each File div
+		// if its corresponding FileBlock has "default access role" set, or
+		// if its corresponding DepositFile is the main file (if set).
 		
 		{
 		
 			StructLinkType1 structLink = MetsFactory.eINSTANCE.createStructLinkType1();
 			
-			for (int i = 0; i < files.size(); i++) {
-
-				DepositFile depositFile = files.get(i);
+			for (DepositFile depositFile : files) {
+				
 				FileBlock fileBlock = fileBlockMap.get(depositFile);
 				
-				if (fileBlock != null && fileBlock.isDefaultAccess()) {
+				if ((fileBlock != null && fileBlock.isDefaultAccess()) || (depositFile == mainFile)) {
 					
-					DivType fileDiv = fileDivs.get(i);
+					DivType fileDiv = fileDivs.get(depositFile);
 			
 					SmLinkType smLink = MetsFactory.eINSTANCE.createSmLinkType();
 					smLink.setArcrole(Link.DEFAULTACCESS.uri);
