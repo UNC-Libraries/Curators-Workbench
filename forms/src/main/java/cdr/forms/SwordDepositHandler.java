@@ -442,33 +442,49 @@ public class SwordDepositHandler implements DepositHandler {
 			
 		}
 		
-		// Acl for published status
+		// If the form specifies that the object should be reviewed before publication,
+		// the ACL should specify that it is not published.
 		
-		{
+		if (form.isReviewBeforePublication()) {
 			
-			AccessControlType accessControl = AclFactory.eINSTANCE.createAccessControlType();
+			AccessControlType accessControl = null;
 			
-			// If the form specifies that the object should be reviewed before publication,
-			// the ACL should specify that it is not published.
+			for (MdSecType mdSec : amdSec.getRightsMD()) {
+				
+				if (mdSec.getMdWrap() != null &&
+						mdSec.getMdWrap().getMDTYPE().equals(MDTYPEType.OTHER) &&
+						mdSec.getMdWrap().getOTHERMDTYPE().equals("ACL")) {
+					accessControl = (AccessControlType) mdSec.getMdWrap().getXmlData().getAny().list(AclPackage.eINSTANCE.getDocumentRoot_AccessControl()).get(0);
+					break;
+				}
+				
+			}
 			
-			if (form.isReviewBeforePublication())
+			if (accessControl != null) {
+				
 				accessControl.setPublished(false);
-			
-			MdSecType rightsMdSec = MetsFactory.eINSTANCE.createMdSecType();
-			rightsMdSec.setID("md_review");
+				
+			} else {
+				
+				accessControl = AclFactory.eINSTANCE.createAccessControlType();
+				accessControl.setPublished(false);
+				
+				MdSecType rightsMdSec = MetsFactory.eINSTANCE.createMdSecType();
+				rightsMdSec.setID("md_review");
 
-			MdWrapType mdWrap = MetsFactory.eINSTANCE.createMdWrapType();
-			mdWrap.setMDTYPE(MDTYPEType.OTHER);
-			mdWrap.setOTHERMDTYPE("ACL");
+				MdWrapType mdWrap = MetsFactory.eINSTANCE.createMdWrapType();
+				mdWrap.setMDTYPE(MDTYPEType.OTHER);
+				mdWrap.setOTHERMDTYPE("ACL");
 
-			XmlDataType1 xmlData = MetsFactory.eINSTANCE.createXmlDataType1();
+				XmlDataType1 xmlData = MetsFactory.eINSTANCE.createXmlDataType1();
+				xmlData.getAny().add(AclPackage.eINSTANCE.getDocumentRoot_AccessControl(), accessControl);
 
-			xmlData.getAny().add(AclPackage.eINSTANCE.getDocumentRoot_AccessControl(), accessControl);
+				mdWrap.setXmlData(xmlData);
+				rightsMdSec.setMdWrap(mdWrap);
 
-			mdWrap.setXmlData(xmlData);
-			rightsMdSec.setMdWrap(mdWrap);
-
-			amdSec.getRightsMD().add(rightsMdSec);
+				amdSec.getRightsMD().add(rightsMdSec);
+				
+			}
 			
 		}
 
