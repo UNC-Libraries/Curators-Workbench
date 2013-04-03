@@ -277,13 +277,20 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 													<form:input cssClass="datepicker" path="form.elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}" />
 												</c:when>
 												<c:when test="${port.datePrecision.name == 'year'}">
+													<%-- Display a select of years, from 190 in the past to 10 in the future --%>
 													<form:select path="form.elements[${elementRow.index}].ports[${portRow.index}].enteredValue" title="${port.usage}">
-														<%-- Display a select of years, from 190 in the past to 10 in the future --%>
+														<%-- Select the year from the form bean or the current year if none is provided --%>
+														<c:choose>
+															<c:when test="${deposit.form.elements[elementRow.index].ports[portRow.index].enteredValue != null}">
+																<c:set var="selectedIndex" value="${currentYear + 10 - (deposit.form.elements[elementRow.index].ports[portRow.index].enteredValue.year + 1900)}"/>
+															</c:when>
+															<c:otherwise>
+																<c:set var="selectedIndex" value="${10}"/>
+															</c:otherwise>
+														</c:choose>
 														<c:forEach var="i" begin="0" end="200">
-															<%-- Select the year from the form bean or the current year if none is provided --%>
 															<c:choose>
-																<c:when test="${(deposit.form.elements[elementRow.index].ports[portRow.index].enteredValue != null && form.elements[elementRow.index].ports[portRow.index].enteredValue.year == (currentYear - i + 10 - 1900))  
-																		|| (deposit.form.elements[elementRow.index].ports[portRow.index].enteredValue == null && i == 10)}">
+																<c:when test="${i == selectedIndex}">
 																	<form:option value="${currentYear - i + 10}" selected="true"/>
 																</c:when>
 																<c:otherwise>
