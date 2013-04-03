@@ -77,6 +77,8 @@ import org.apache.commons.httpclient.methods.FileRequestEntity;
 import org.apache.commons.httpclient.methods.PostMethod;
 import org.apache.commons.httpclient.methods.RequestEntity;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.XMLResource;
@@ -94,6 +96,8 @@ import crosswalk.Form;
 import crosswalk.FormElement;
 import crosswalk.MetadataBlock;
 import crosswalk.OutputElement;
+import crosswalk.OutputMetadataSections;
+import crosswalk.OutputProfile;
 
 import cdr.forms.DepositResult.Status;
 
@@ -177,10 +181,7 @@ public class SwordDepositHandler implements DepositHandler {
 		
 		// Prepare the zip file for deposit
 		
-		gov.loc.mods.mods.DocumentRoot mods = makeMods(form);
-		edu.unc.lib.schemas.acl.DocumentRoot acl = makeAcl(form);
-
-		gov.loc.mets.DocumentRoot metsDocumentRoot = makeMets(form, mods, acl, files, deposit.getMainFile(), fileFilenameMap, fileBlockMap);
+		gov.loc.mets.DocumentRoot metsDocumentRoot = makeMets(form, files, fileFilenameMap, fileBlockMap);
 		File zipFile = makeZipFile(metsDocumentRoot, files, fileFilenameMap);
 		
 		
@@ -300,67 +301,62 @@ public class SwordDepositHandler implements DepositHandler {
 		
 	}
 	
-	private gov.loc.mods.mods.DocumentRoot makeMods(Form form) {
-		// run the mapping and get a MODS record. (report any errors)
-		ModsDefinition mods = MODSFactory.eINSTANCE.createModsDefinition();
-		gov.loc.mods.mods.DocumentRoot root = MODSFactory.eINSTANCE.createDocumentRoot();
-		root.setMods(mods);
+	private MdSecType makeMetadata(OutputProfile profile, Form form) {
+		
+		EClass outputElementClass = null;
+		
+		if (profile.isStartMappingAtChildren())
+			outputElementClass = profile.getParentMappedFeature().getEReferenceType();	
+		else
+			outputElementClass = profile.getParentMappedFeature().getEContainingClass();
+		
+		EObject outputElement = outputElementClass.getEPackage().getEFactoryInstance().create(outputElementClass);
+		
 		for (FormElement fe : form.getElements()) {
-			if(MetadataBlock.class.isInstance(fe)) {
-				MetadataBlock mb = (MetadataBlock)fe;
-				for(OutputElement oe : mb.getElements()) {
-					oe.updateRecord(mods);
+			if (fe instanceof MetadataBlock) {
+				MetadataBlock mb = (MetadataBlock) fe;
+				for (OutputElement oe : mb.getElements()) {
+					oe.updateRecord(outputElement);
 				}
 			}
 		}
-		return root;
+		
+		if (outputElement.eContents() == null || outputElement.eContents().isEmpty())
+			return null;
+		
+		if (!profile.isStartMappingAtChildren())
+			outputElement = outputElement.eContents().get(0);
+		
+		MdWrapType mdWrap = MetsFactory.eINSTANCE.createMdWrapType();
+		
+		MDTYPEType mdType = MDTYPEType.get(profile.getMetadataType());
+		if (mdType == null) {
+			mdWrap.setMDTYPE(MDTYPEType.OTHER);
+			mdWrap.setOTHERMDTYPE(profile.getMetadataType());
+		} else {
+			mdWrap.setMDTYPE(mdType);
+		}	
+		
+		XmlDataType1 xml = MetsFactory.eINSTANCE.createXmlDataType1();
+		xml.getAny().add(profile.getParentMappedFeature(), outputElement);
+		mdWrap.setXmlData(xml);
+
+		MdSecType mdSec = MetsFactory.eINSTANCE.createMdSecType();
+		mdSec.setMdWrap(mdWrap);
+		
+		return mdSec;
+		
 	}
 	
-	private edu.unc.lib.schemas.acl.DocumentRoot makeAcl(Form form) {
-		
-		AccessControlType accessControl = AclFactory.eINSTANCE.createAccessControlType();
-		edu.unc.lib.schemas.acl.DocumentRoot root = AclFactory.eINSTANCE.createDocumentRoot();
-		root.setAccessControl(accessControl);
-		
-		// If the form specifies that the object should be reviewed before publication,
-		// the ACL should specify that it is not published.
-		
-		if (form.isReviewBeforePublication())
-			accessControl.setPublished(false);
-		
-		return root;
-		
-	}
-	
-	/**
-	 * Prepare a METS document.
-	 * 
-	 * This takes care of three cases:
-	 * 
-	 * 1. The form has no file blocks and no supplemental files
-	 * 2. The form has no file blocks but does have supplemental files
-	 * 3. The form has file blocks and may have supplemental files
-	 * 
-	 * In the first case, the generated structMap will contain a single
-	 * div of type "File". In the other two cases, the generated structMap
-	 * will contain an "Aggregate Work" div.
-	 * 
-	 * file and div elements are given ID attributes of the form "f_{index}" and
-	 * "d_{index}" respectively, where index is 0 for the main file, and 1, 2, ...
-	 * for each supplemental file.
-	 */
 	private gov.loc.mets.DocumentRoot makeMets(Form form,
-			gov.loc.mods.mods.DocumentRoot modsDocumentRoot,
-			edu.unc.lib.schemas.acl.DocumentRoot acl,
 			List<DepositFile> files,
-			DepositFile mainFile,
 			IdentityHashMap<DepositFile, String> filenames,
 			IdentityHashMap<DepositFile, FileBlock> fileBlockMap) {
 		
 		gov.loc.mets.DocumentRoot root;
 		MetsType mets;
-		MdSecType rightsMdSec;
-		MdSecType modsMdSec;
+		AmdSecType amdSec;
+		MdSecType dmdSec;
 		DivType aggregateWorkDiv = null;
 		
 		// Document root
@@ -404,49 +400,75 @@ public class SwordDepositHandler implements DepositHandler {
 			
 		}
 		
-		// Administrative metadata section
+		// Metadata sections
+		
+		dmdSec = null;
+		amdSec = MetsFactory.eINSTANCE.createAmdSecType();
 		
 		{
-
-			AmdSecType amdSec = MetsFactory.eINSTANCE.createAmdSecType();
 			
-			rightsMdSec = MetsFactory.eINSTANCE.createMdSecType();
-			rightsMdSec.setID("acl");
+			int i = 0;
+		
+			for (OutputProfile profile : form.getOutputProfiles()) {
+				MdSecType mdSec = makeMetadata(profile, form);
+				
+				if (mdSec != null) {
+					mdSec.setID("md_" + i);
+					
+					switch (profile.getMetadataSection()) {
+					case DIGIPROV_MD:
+						amdSec.getDigiprovMD().add(mdSec);
+						break;
+					case RIGHTS_MD:
+						amdSec.getRightsMD().add(mdSec);
+						break;
+					case SOURCE_MD:
+						amdSec.getSourceMD().add(mdSec);
+						break;
+					case TECH_MD:
+						amdSec.getTechMD().add(mdSec);
+						break;
+					case DMD_SEC:
+						dmdSec = mdSec;
+						mets.getDmdSec().add(mdSec);
+						break;
+					}
+					
+					i++;
+				}
+			}
+			
+			mets.getAmdSec().add(amdSec);
+			
+		}
+		
+		// Acl for published status
+		
+		{
+			
+			AccessControlType accessControl = AclFactory.eINSTANCE.createAccessControlType();
+			
+			// If the form specifies that the object should be reviewed before publication,
+			// the ACL should specify that it is not published.
+			
+			if (form.isReviewBeforePublication())
+				accessControl.setPublished(false);
+			
+			MdSecType rightsMdSec = MetsFactory.eINSTANCE.createMdSecType();
+			rightsMdSec.setID("md_review");
 
 			MdWrapType mdWrap = MetsFactory.eINSTANCE.createMdWrapType();
 			mdWrap.setMDTYPE(MDTYPEType.OTHER);
-		
+			mdWrap.setOTHERMDTYPE("ACL");
+
 			XmlDataType1 xmlData = MetsFactory.eINSTANCE.createXmlDataType1();
-			
-			xmlData.getAny().add(AclPackage.eINSTANCE.getDocumentRoot_AccessControl(), acl.getAccessControl());
-			
+
+			xmlData.getAny().add(AclPackage.eINSTANCE.getDocumentRoot_AccessControl(), accessControl);
+
 			mdWrap.setXmlData(xmlData);
 			rightsMdSec.setMdWrap(mdWrap);
-			
+
 			amdSec.getRightsMD().add(rightsMdSec);
-			
-			mets.getAmdSec().add(amdSec);
-		
-		}
-
-		// Descriptive metadata section
-		
-		{
-
-			modsMdSec = MetsFactory.eINSTANCE.createMdSecType();
-			modsMdSec.setID("mods");
-	
-			MdWrapType mdWrap = MetsFactory.eINSTANCE.createMdWrapType();
-			mdWrap.setMDTYPE(MDTYPEType.MODS);
-	
-			XmlDataType1 xmlData = MetsFactory.eINSTANCE.createXmlDataType1();
-	
-			xmlData.getAny().add(MODSPackage.eINSTANCE.getDocumentRoot_Mods(), modsDocumentRoot.getMods());
-	
-			mdWrap.setXmlData(xmlData);
-			modsMdSec.setMdWrap(mdWrap);
-	
-			mets.getDmdSec().add(modsMdSec);
 			
 		}
 
@@ -481,35 +503,9 @@ public class SwordDepositHandler implements DepositHandler {
 
 		// Structural map
 		
-		// If the form does not allow supplemental files and does not have explicit
-		// file blocks, there will be exactly one file, the main file. If this is the
-		// case, create a structural map with a file div at the root. Otherwise,
-		// create a structural map with an aggregate work div at the root.
+		List<DivType> fileDivs = new ArrayList<DivType>();
 		
-		List<DivType> fileDivs = null;
-		
-		if (form.isCanAddSupplementalFiles() == false && form.isHasFileBlocks() == false) {
-
-			StructMapType structMap = MetsFactory.eINSTANCE.createStructMapType();
-
-			DivType fileDiv = MetsFactory.eINSTANCE.createDivType();
-			
-			fileDiv.setTYPE(METSConstants.Div_File);
-			fileDiv.setLABEL1(mainFile.getFilename());
-			fileDiv.getDmdSec().add(modsMdSec);
-			fileDiv.getMdSec().add(rightsMdSec);
-			
-			// In this case there is exactly one file, and so we know that its index is 0.
-			
-			FptrType fptr = MetsFactory.eINSTANCE.createFptrType();
-			fptr.setFILEID("f_0");
-			fileDiv.getFptr().add(fptr);
-
-			structMap.setDiv(fileDiv);
-
-			mets.getStructMap().add(structMap);
-		
-		} else {
+		{
 
 			fileDivs = new ArrayList<DivType>();
 
@@ -517,8 +513,15 @@ public class SwordDepositHandler implements DepositHandler {
 
 			aggregateWorkDiv = MetsFactory.eINSTANCE.createDivType();
 			aggregateWorkDiv.setTYPE(METSConstants.Div_AggregateWork);
-			aggregateWorkDiv.getDmdSec().add(modsMdSec);
-			aggregateWorkDiv.getMdSec().add(rightsMdSec);
+			
+			if (dmdSec != null)
+				aggregateWorkDiv.getDmdSec().add(dmdSec);
+			
+			aggregateWorkDiv.getMdSec().addAll(amdSec.getDigiprovMD());
+			aggregateWorkDiv.getMdSec().addAll(amdSec.getRightsMD());
+			aggregateWorkDiv.getMdSec().addAll(amdSec.getSourceMD());
+			aggregateWorkDiv.getMdSec().addAll(amdSec.getTechMD());
+			
 			aggregateWorkDiv.setID("a");
 			
 			for (int i = 0; i < files.size(); i++) {
@@ -555,11 +558,9 @@ public class SwordDepositHandler implements DepositHandler {
 		// Structural Links
 		
 		// Add "default access" links from the Aggregate Work div to File divs
-		// if their corresponding FileBlock has "default access role" set or if
-		// their corresponding file is the "main file" on a form without FileBlock
-		// elements but with supplemental files.
+		// if their corresponding FileBlock has "default access role" set.
 		
-		if (aggregateWorkDiv != null && fileDivs != null) {
+		{
 		
 			StructLinkType1 structLink = MetsFactory.eINSTANCE.createStructLinkType1();
 			
@@ -568,7 +569,7 @@ public class SwordDepositHandler implements DepositHandler {
 				DepositFile depositFile = files.get(i);
 				FileBlock fileBlock = fileBlockMap.get(depositFile);
 				
-				if ((fileBlock != null && fileBlock.isDefaultAccess()) || (depositFile == mainFile)) {
+				if (fileBlock != null && fileBlock.isDefaultAccess()) {
 					
 					DivType fileDiv = fileDivs.get(i);
 			

@@ -15,6 +15,7 @@
  */
 package cdr.forms;
 
+import edu.unc.lib.schemas.acl.AclPackage;
 import gov.loc.mods.mods.MODSPackage;
 
 import java.io.File;
@@ -48,6 +49,7 @@ public class CachedXMIFormFactory extends AbstractFormFactory {
 	String formPath = null;
 	CrosswalkPackage crosswalkPackage = null;
 	MODSPackage modsPackage = null;
+	AclPackage aclPackage = null;
 	NotationPackage notationPackage = null;
 
 	public CachedXMIFormFactory() {
@@ -56,6 +58,7 @@ public class CachedXMIFormFactory extends AbstractFormFactory {
 		rs.getResourceFactoryRegistry().getExtensionToFactoryMap().put("xml", new XMLResourceFactoryImpl());
 		crosswalkPackage = CrosswalkPackage.eINSTANCE;
 		modsPackage = MODSPackage.eINSTANCE;
+		aclPackage = AclPackage.eINSTANCE;
 		notationPackage = NotationPackage.eINSTANCE;
 	}
 
