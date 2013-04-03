@@ -2,7 +2,12 @@
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:walk="http://lib.unc.edu/schemas/crosswalk">
   <walk:EditingContainer>
     <model xsi:type="walk:Form" title="Test Form" description="This form is for testing deposit form capabilities." depositContainerId="" promptForMultipleSubmissions="true">
-      <outputType href="http://www.loc.gov/mods/v3#//ModsDefinition"/>
+      <outputProfiles name="MODS Profile" description="Allows the mapping of MODS elements to a descriptive metadata section (dmdSec)." metadataLabel="Crosswalked Description" metadataType="MODS" metadataSection="dmdSec">
+        <parentMappedFeature href="http://www.loc.gov/mods/v3#//DocumentRoot/mods"/>
+      </outputProfiles>
+      <outputProfiles startMappingAtChildren="false" name="Access Controls Profile" description="Allows mapping of an Access Control element to a rights metadata section (rightsMD)." metadataLabel="Crosswalked Access Control" metadataType="ACL">
+        <parentMappedFeature href="http://cdr.unc.edu/definitions/acl#//DocumentRoot/accessControl"/>
+      </outputProfiles>
       <elements xsi:type="walk:MetadataBlock" name="Vocabulary Text Input Tests">
         <elements xsi:type="walk:MappedElement">
           <attributes Output="/0/@model/@elements.0/@ports.0">
