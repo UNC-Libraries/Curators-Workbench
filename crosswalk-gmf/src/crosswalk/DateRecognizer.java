@@ -48,7 +48,7 @@ public interface DateRecognizer extends WalkWidget, Output, Input {
 	 * @return the value of the '<em>Formats</em>' attribute list.
 	 * @see crosswalk.CrosswalkPackage#getDateRecognizer_Formats()
 	 * @model default="yy-MM-dd" required="true"
-	 *        annotation="org.eclipse.help.contexts contextID='DateRecognizer.Formats'"
+	 *        annotation="org.eclipse.help.contexts contextID='crosswalk-gmf.DateRecognizer_Formats'"
 	 * @generated
 	 */
 	EList<String> getFormats();

@@ -16,5 +16,11 @@
             class="crosswalk.CrosswalkPackage"
             genModel="model/crosswalk.genmodel"/>
    </extension>
+   <extension
+         point="org.eclipse.help.contexts">
+      <contexts
+            file="context.xml">
+      </contexts>
+   </extension>
 
 </plugin>
