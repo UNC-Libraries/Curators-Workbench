@@ -2161,7 +2161,7 @@ public class CrosswalkPackageImpl extends EPackageImpl implements CrosswalkPacka
 		  (getDateRecognizer_Formats(), 
 		   source, 
 		   new String[] {
-			 "contextID", "DateRecognizer.Formats"
+			 "contextID", "crosswalk-gmf.DateRecognizer_Formats"
 		   });
 	}
 

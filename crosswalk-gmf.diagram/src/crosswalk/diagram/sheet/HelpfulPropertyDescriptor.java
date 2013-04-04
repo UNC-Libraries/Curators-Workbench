@@ -66,13 +66,18 @@ public class HelpfulPropertyDescriptor extends PropertyDescriptor implements
 			final EClassifier eType = feature.getEType();
 			final Collection<?> choiceOfValues = itemPropertyDescriptor
 					.getChoiceOfValues(object);
+			
 			// get help context from annotation on model
 			String helpId = null;
-			EAnnotation ann = feature.getEAnnotation("org.eclipse.help");
+			EAnnotation ann = feature.getEAnnotation("org.eclipse.help.contexts");
 			if(ann != null && ann.getDetails() != null) {
 				helpId = ann.getDetails().get("contextID");
+				
+				// FIXME 
+				//feature.getEContainingClass().getEPackage().get
 			}
 			final String helpContextID = helpId;
+			
 			if (choiceOfValues != null) {
 				if (itemPropertyDescriptor.isMany(object)) {
 					boolean valid = true;

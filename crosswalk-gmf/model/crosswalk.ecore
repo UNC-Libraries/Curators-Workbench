@@ -76,7 +76,7 @@
         upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="yy-MM-dd">
       <eAnnotations source="org.eclipse.help.contexts">
-        <details key="contextID" value="DateRecognizer.Formats"/>
+        <details key="contextID" value="crosswalk-gmf.DateRecognizer_Formats"/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>

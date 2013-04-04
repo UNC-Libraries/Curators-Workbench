@@ -1,0 +1,6 @@
+<contexts>
+   <context id="DateRecognizer_Format" title="override of default title">
+      <description>This is the sample context-sensitive help. There is a link to the help content below.</description>
+      <topic href="../workbench_help/html/gettingstarted/add_originals.html" label="Add Originals" />
+   </context>
+</contexts>
