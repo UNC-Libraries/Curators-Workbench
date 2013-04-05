@@ -72,9 +72,6 @@ public class HelpfulPropertyDescriptor extends PropertyDescriptor implements
 			EAnnotation ann = feature.getEAnnotation("org.eclipse.help.contexts");
 			if(ann != null && ann.getDetails() != null) {
 				helpId = ann.getDetails().get("contextID");
-				
-				// FIXME 
-				//feature.getEContainingClass().getEPackage().get
 			}
 			final String helpContextID = helpId;
 			

@@ -36,6 +36,7 @@ import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.IDocument;
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.IDocumentProvider;
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.parts.DiagramDocumentEditor;
 import org.eclipse.gmf.runtime.notation.Diagram;
+import org.eclipse.help.IContextProvider;
 import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.jface.dialogs.IMessageProvider;
 import org.eclipse.jface.dialogs.MessageDialog;
@@ -112,7 +113,7 @@ public class CrosswalkDiagramEditor extends DiagramDocumentEditor implements
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	@SuppressWarnings("rawtypes")
 	public Object getAdapter(Class type) {
@@ -122,6 +123,8 @@ public class CrosswalkDiagramEditor extends DiagramDocumentEditor implements
 					return new String[] { ProjectExplorer.VIEW_ID };
 				}
 			};
+		} else if (type.equals(IContextProvider.class)) {
+			return new AnnotatedEcoreContextProvider(this);
 		}
 		return super.getAdapter(type);
 	}

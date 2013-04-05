@@ -36,10 +36,10 @@ public class HelpfulFeatureEditorDialog extends FeatureEditorDialog {
 
 	@Override
 	protected Control createDialogArea(Composite parent) {
-		Control result = super.createDialogArea(parent);
 		if(this.helpContextId != null && this.helpContextId instanceof String) {
-			PlatformUI.getWorkbench().getHelpSystem().setHelp(result, this.helpContextId);
+			PlatformUI.getWorkbench().getHelpSystem().setHelp(parent, this.helpContextId);
 		}
+		Control result = super.createDialogArea(parent);
 		return result;
 	}
 	

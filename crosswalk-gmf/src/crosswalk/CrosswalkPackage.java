@@ -42,6 +42,13 @@ import org.eclipse.emf.ecore.EReference;
 public interface CrosswalkPackage extends EPackage {
 
     public List<EClass> getDataSourceImplementations();
+    
+    /**
+     * There may be help context IDs store in annotations on crosswalk classes.
+     */
+    String HELP_CONTEXT_ANNOTATION_SOURCE = "org.eclipse.help.contexts";
+    String HELP_CONTEXT_ANNOTATION_DETAILS_KEY = "contextID";
+    
         /**
 	 * The package name.
 	 * <!-- begin-user-doc -->
