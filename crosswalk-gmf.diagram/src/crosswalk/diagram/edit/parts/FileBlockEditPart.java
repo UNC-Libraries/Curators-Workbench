@@ -1,6 +1,7 @@
 package crosswalk.diagram.edit.parts;
 
 import org.eclipse.draw2d.ColorConstants;
+import org.eclipse.draw2d.FlowLayout;
 import org.eclipse.draw2d.GridData;
 import org.eclipse.draw2d.GridLayout;
 import org.eclipse.draw2d.IFigure;
@@ -300,7 +301,7 @@ public class FileBlockEditPart extends ShapeNodeEditPart {
 		 * @generated NOT
 		 */
 		public FileBlockFigure() {
-
+			
 			GridLayout layoutThis = new GridLayout();
 			layoutThis.numColumns = 3;
 			layoutThis.makeColumnsEqualWidth = false;
@@ -308,6 +309,7 @@ public class FileBlockEditPart extends ShapeNodeEditPart {
 
 			createContents();
 			updateFace();
+			
 		}
 
 		/**
@@ -332,7 +334,7 @@ public class FileBlockEditPart extends ShapeNodeEditPart {
 			constraintFFigureFileBlockNameLabel.grabExcessVerticalSpace = false;
 			this.add(fFigureFileBlockNameLabel,
 					constraintFFigureFileBlockNameLabel);
-
+			
 			fFigureFileBlockRequiredLabel = new WrappingLabel();
 
 			fFigureFileBlockRequiredLabel.setText("required");
@@ -394,10 +396,22 @@ public class FileBlockEditPart extends ShapeNodeEditPart {
 
 			FileBlock fileBlock = (FileBlock) ((Node) FileBlockEditPart.this
 					.getModel()).getElement();
+			
+			// Remove "tag" labels if present
+			
+			if (fFigureFileBlockRequiredLabel.getParent() == this)
+				this.remove(fFigureFileBlockRequiredLabel);
 
-			fFigureFileBlockRequiredLabel.setVisible(fileBlock.isRequired());
-			fFigureFileBlockDefaultLabel
-					.setVisible(fileBlock.isDefaultAccess());
+			if (fFigureFileBlockDefaultLabel.getParent() == this)
+				this.remove(fFigureFileBlockDefaultLabel);
+
+			// Add "tag" labels if necessary, right to left
+			
+			if (fileBlock.isDefaultAccess())
+				this.add(fFigureFileBlockDefaultLabel, 1);
+			
+			if (fileBlock.isRequired())
+				this.add(fFigureFileBlockRequiredLabel, 1);
 
 		}
 
