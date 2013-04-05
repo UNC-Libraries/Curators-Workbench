@@ -60,7 +60,11 @@ public class RequestHeaderAuthorizationHandler implements AuthorizationHandler {
 
 	@Override
 	public void checkPermission(String formId, Form form, HttpServletRequest request) throws PermissionDeniedException {
+		// if groups are not specified or the form is public, then no further checks
 		if(form.getAuthorizedGroups() == null || form.getAuthorizedGroups().contains("public")) return;
+		
+		// any user is considered authenticated
+		if(form.getAuthorizedGroups().contains("authenticated") && request.getRemoteUser() != null) return;
 		
 		// get header string
 		String groupsHeader = request.getHeader(getGroupsHeaderName());

@@ -201,9 +201,12 @@
 				</executions>
 				<configuration>
 					<doCheck>true</doCheck>
-					<doUpdate>true</doUpdate>
+					<doUpdate>false</doUpdate>
 				</configuration>
 			</plugin>
 		</plugins>
 	</build>
+	<scm>
+		<connection>scm:git:ssh://github.com/UNC-Libraries/Curators-Workbench.git</connection>
+	</scm>
 </project>
