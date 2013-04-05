@@ -46,8 +46,9 @@ public interface CrosswalkPackage extends EPackage {
     /**
      * There may be help context IDs store in annotations on crosswalk classes.
      */
-    String HELP_CONTEXT_ANNOTATION_SOURCE = "org.eclipse.help.contexts";
-    String HELP_CONTEXT_ANNOTATION_DETAILS_KEY = "contextID";
+    public static final String HELP_CONTEXT_ANNOTATION_SOURCE = "org.eclipse.help.contexts";
+    public static final String HELP_CONTEXT_ANNOTATION_DETAILS_KEY = "contextID";
+    public static final String HELP_CONTEXT_ID_GENERIC = "MetadataMapping_Generic";
     
         /**
 	 * The package name.
