@@ -36,6 +36,7 @@ import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.jface.util.LocalSelectionTransfer;
+import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.ViewerDropAdapter;
 import org.eclipse.swt.dnd.DND;
@@ -77,26 +78,65 @@ public class ArrangementCommonDropAdapterAssistant extends CommonDropAdapterAssi
 
 	private static final Logger LOG = LoggerFactory.getLogger(ArrangementCommonDropAdapterAssistant.class);
 
+	
+	
 	@Override
 	public IStatus validateDrop(Object target, int operation, TransferData transferType) {
-		//LOG.debug("validateDrop with: " + transferType + "|" + target);
-		boolean foo = LocalSelectionTransfer.getTransfer().isSupportedType(transferType);
-		//LOG.debug("local selection? :" + foo);
-		IStatus result = Status.CANCEL_STATUS;
+
+		ISelection selection = LocalSelectionTransfer.getTransfer().getSelection();
+		int location = getCommonDropAdapter().getCurrentLocation();
+		
 		if (target instanceof DivType) {
-			DivType d = (DivType) target;
-			// if (this.getCommonDropAdapter().getCurrentLocation() ==
-			// ViewerDropAdapter.LOCATION_ON
-			// && METSConstants.Div_File.equals(d.getTYPE())) {
-			// result = Status.CANCEL_STATUS;
-			// } else {
-			result = Status.OK_STATUS;
-			// }
+			
+			DivType targetDiv = (DivType) target;
+			
+			if (selection instanceof IStructuredSelection) {
+				for (Object selected : ((IStructuredSelection) selection).toList()) {
+					
+					if (selected instanceof DivType) {
+						
+						DivType selectedDiv = (DivType) selected;
+						
+						// Invalidate the drop if the target is not a container and the location is "on"
+						
+						if (!METSUtils.isContainer(targetDiv) && location == ViewerDropAdapter.LOCATION_ON)
+							return Status.CANCEL_STATUS;
+						
+						// Invalidate the drop if a selected item is the same object as the target and the location is "on"
+
+						if (selectedDiv == targetDiv && location == ViewerDropAdapter.LOCATION_ON)
+							return Status.CANCEL_STATUS;
+						
+						// Invalidate the drop if a selected item is an ancestor of the target
+						
+						DivType div = targetDiv;
+						
+						while (div.eContainer() instanceof DivType) {
+							if (selectedDiv == div)
+								return Status.CANCEL_STATUS;
+							
+							div = (DivType) div.eContainer();
+						}
+						
+					}
+					
+				}
+			}
+			
+			return Status.OK_STATUS;
+			
 		} else if (target instanceof ArrangementProjectElement) {
-			result = Status.OK_STATUS;
+			
+			// Validate the drop only if the location is "on", since it doesn't make sense to put something
+			// before or after the root.
+			
+			if (location == ViewerDropAdapter.LOCATION_ON)
+				return Status.OK_STATUS;
+			
 		}
-		//LOG.debug("result:" + result.getMessage());
-		return result;
+		
+		return Status.CANCEL_STATUS;
+		
 	}
 
 	@Override
