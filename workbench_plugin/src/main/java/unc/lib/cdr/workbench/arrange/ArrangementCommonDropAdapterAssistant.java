@@ -24,8 +24,10 @@ import gov.loc.mets.util.METSConstants;
 import gov.loc.mets.util.METSUtils;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
@@ -85,6 +87,34 @@ public class ArrangementCommonDropAdapterAssistant extends CommonDropAdapterAssi
 
 		ISelection selection = LocalSelectionTransfer.getTransfer().getSelection();
 		int location = getCommonDropAdapter().getCurrentLocation();
+		
+		// Invalidate the drop if there is more than one type of object in the selection
+		// as handled in handleDrop
+		
+		if (selection instanceof IStructuredSelection) {
+			
+			int seen = 0;
+			
+			for (Object selected : ((IStructuredSelection) selection).toList()) {
+				
+				if (selected instanceof OriginalFileStore)
+					seen |= 1 << 0;
+				else if (selected instanceof DivType)
+					seen |= 1 << 1;
+				else if (selected instanceof MdSecType)
+					seen |= 1 << 2;
+				else if (selected instanceof MetadataCompartment)
+					seen |= 1 << 3;
+				
+				// http://graphics.stanford.edu/~seander/bithacks.html#CountBitsSetKernighan
+				if ((seen & (seen - 1)) != 0)
+					return Status.CANCEL_STATUS;
+				
+			}
+			
+		}
+		
+		// Validate drop based on the type of the target
 		
 		if (target instanceof DivType) {
 			
