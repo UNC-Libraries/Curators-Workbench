@@ -30,6 +30,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import crosswalk.CrosswalkFactory;
 import crosswalk.DateRecognizer;
 import crosswalk.MappingContainer;
+import crosswalk.impl.DateRecognizerImpl;
 
 /**
  * @generated
@@ -67,13 +68,17 @@ public class DateRecognizerCreateCommand extends EditElementCommand {
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
 			IAdaptable info) throws ExecutionException {
 		DateRecognizer newElement = CrosswalkFactory.eINSTANCE
 				.createDateRecognizer();
+		
+		// setting up default formats
+		newElement.getFormats().add(DateRecognizerImpl.murkanFormat);
+		newElement.getFormats().add(DateRecognizerImpl.isoFormat);
 
 		MappingContainer owner = (MappingContainer) getElementToEdit();
 		owner.getWidgets().add(newElement);

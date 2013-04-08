@@ -15,14 +15,15 @@
  */
 package unc.lib.cdr.workbench.arrange;
 
+import gov.loc.mets.DivType;
+import gov.loc.mets.MetsFactory;
+import gov.loc.mets.MetsPackage;
+import gov.loc.mets.util.METSConstants;
+import gov.loc.mets.util.METSUtils;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
-
-import gov.loc.mets.DivType;
-import gov.loc.mets.MetsFactory;
-import gov.loc.mets.util.METSConstants;
-import gov.loc.mets.util.METSUtils;
 
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
@@ -30,7 +31,7 @@ import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.common.command.Command;
-import org.eclipse.emf.edit.command.AddCommand;
+import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.jface.dialogs.IInputValidator;
 import org.eclipse.jface.dialogs.InputDialog;
@@ -112,11 +113,14 @@ public class AddFolderDivHandler extends AbstractHandler {
 
 				div.setTYPE(METSConstants.Div_Folder);
 
+				ArrayList<DivType> newlist = new ArrayList<DivType>();
+				newlist.add(div);
+				newlist.addAll(within.getDiv());
 				EditingDomain ed = MetsProjectNature.getEditingDomain(within);
-				Command cmd = AddCommand.create(ed, within, null, div);
+				Command cmd = SetCommand.create(ed, within, MetsPackage.eINSTANCE.getDivType_Div(), newlist);
 				ed.getCommandStack().execute(cmd);
 				// select it in navigator
-				view.getSite().getSelectionProvider().setSelection(new StructuredSelection(div));
+				view.getViewSite().getSelectionProvider().setSelection(new StructuredSelection(div));
 			}
 		}
 		return null;

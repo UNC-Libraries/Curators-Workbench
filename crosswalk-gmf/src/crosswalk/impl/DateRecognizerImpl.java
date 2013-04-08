@@ -80,7 +80,8 @@ public class DateRecognizerImpl extends WalkWidgetImpl implements DateRecognizer
 	 * @ordered
 	 */
 	protected EList<String> formats;
-	private static final SimpleDateFormat isoFormat = new SimpleDateFormat("yyyy-MM-dd");
+	public static final String isoFormat = "yyyy-MM-dd";
+	public static final String murkanFormat = "MM/dd/yy";
 	private SimpleDateFormat inFormat = null;
 
 	private static String[] inputNames = { "input" };
