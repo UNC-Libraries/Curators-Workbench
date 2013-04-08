@@ -65,27 +65,34 @@ public class DateToXMLGregorianCalenderConversionImpl extends EObjectImpl implem
     		  throw new Error(e);
     	  }
 
-    	  GregorianCalendar gcal = new GregorianCalendar();
-    	  gcal.setTime((Date)input);
+    	  GregorianCalendar gregcal = new GregorianCalendar();
+    	  gregcal.setTime((Date)input);
+    	  XMLGregorianCalendar gcal = tf.newXMLGregorianCalendar(gregcal);
       	  if(input instanceof ImpreciseDate) {
         	  result = tf.newXMLGregorianCalendar();
       		  ImpreciseDate date = (ImpreciseDate)input;
       		  switch(date.getPrecision()) {
       		  case SECOND:
-      			  result.setSecond(gcal.get(Calendar.SECOND));
+      			  result.setSecond(gcal.getSecond());
       		  case MINUTE:
-      			  result.setMinute(gcal.get(Calendar.MINUTE));
+      			  result.setMinute(gcal.getMinute());
       		  case HOUR:
-      			  result.setHour(gcal.get(Calendar.HOUR));
+      			  result.setHour(gcal.getHour());
       		  case DAY:
-      			  result.setDay(gcal.get(Calendar.DAY_OF_MONTH));
+      			  result.setDay(gcal.getDay());
       		  case MONTH:
-      			  result.setMonth(gcal.get(Calendar.MONTH));
+      			  try {
+      			  result.setMonth(gcal.getMonth());
+      			  } catch(IllegalArgumentException e) {
+      				  System.err.println(input);
+      				  System.err.println(date.getPrecision());
+      				  System.err.println(gcal);
+      			  }
       		  case YEAR:
-      			result.setYear(gcal.get(Calendar.YEAR));
+      			result.setYear(gcal.getYear());
       		  }
       	  } else {
-      		  result = tf.newXMLGregorianCalendar(gcal);
+      		  result = gcal;
       	  }
       	  return result;
 	}
