@@ -45,8 +45,9 @@ import org.eclipse.swt.widgets.Shell;
 import unc.lib.cdr.workbench.originals.OriginalFileStore;
 
 public class SelectFileExtensionsDialog extends TitleAreaDialog {
-	
-	public SelectFileExtensionsDialog(Shell parentShell, List<OriginalFileStore> tocapture) {
+
+	public SelectFileExtensionsDialog(Shell parentShell,
+			List<OriginalFileStore> tocapture) {
 		super(parentShell);
 		this.tocapture = tocapture;
 	}
@@ -57,22 +58,23 @@ public class SelectFileExtensionsDialog extends TitleAreaDialog {
 		// Set the title
 		setTitle("Select File Extensions");
 		// Set the message
-		setMessage("Looking for file extensions..", IMessageProvider.INFORMATION);
+		setMessage("Looking for file extensions..",
+				IMessageProvider.INFORMATION);
 	}
 
 	Set<String> fileExtensions = new HashSet<String>();
 	Set<String> selectedExtensions = new HashSet<String>();
 	List<OriginalFileStore> tocapture = null;
-	
+
 	public Set<String> getSelectedFileExtensions() {
 		return this.selectedExtensions;
 	}
-	
+
 	@Override
 	protected void okPressed() {
 		Object[] checked = this.extCheckBox.getCheckedElements();
-		for(Object o : checked) {
-			this.selectedExtensions.add((String)o);
+		for (Object o : checked) {
+			this.selectedExtensions.add((String) o);
 		}
 		super.okPressed();
 	}
@@ -98,24 +100,26 @@ public class SelectFileExtensionsDialog extends TitleAreaDialog {
 		extCheckBox.getTable().setLayoutData(new GridData(GridData.FILL_BOTH));
 		extCheckBox.setContentProvider(new ExtContentProvider());
 		extCheckBox.setSorter(new ViewerSorter());
-		
+
 		Job findExtensions = new Job("Finding file extensions") {
 			IProgressMonitor mon = new NullProgressMonitor();
+
 			@Override
 			protected IStatus run(IProgressMonitor monitor) {
 				visit(tocapture.toArray(new IFileStore[] {}));
 				return Status.OK_STATUS;
 			}
+
 			private void visit(IFileStore[] ofs) {
-				for(final IFileStore s : ofs) {
+				for (final IFileStore s : ofs) {
 					boolean isdir = s.fetchInfo().isDirectory();
-					if(isdir) {
+					if (isdir) {
 						IFileStore[] children = null;
 						try {
 							children = s.childStores(EFS.NONE, mon);
-						} catch(CoreException e) {
+						} catch (CoreException e) {
 						}
-						if(children != null && children.length > 0) {
+						if (children != null && children.length > 0) {
 							visit(children);
 						}
 					} else {
@@ -123,11 +127,17 @@ public class SelectFileExtensionsDialog extends TitleAreaDialog {
 							@Override
 							public void run() {
 								String ext = null;
-								String[] parts = s.getName().split(Pattern.quote("."));
-								if(parts.length > 1) ext = parts[parts.length-1];
-								final boolean added = fileExtensions.add(ext);
-								if(added) extCheckBox.add(ext);
-							}});
+								String[] parts = s.getName().split(
+										Pattern.quote("."));
+								if (parts.length > 1) {
+									ext = parts[parts.length - 1];
+									final boolean added = fileExtensions
+											.add(ext);
+									if (added)
+										extCheckBox.add(ext);
+								}
+							}
+						});
 					}
 				}
 			}
@@ -136,18 +146,20 @@ public class SelectFileExtensionsDialog extends TitleAreaDialog {
 		findExtensions.schedule();
 		return parent;
 	}
-	
+
 	public void addExtensionToTable(String ext) {
 		this.extCheckBox.add(ext);
 	}
-	
+
 	class ExtContentProvider implements IStructuredContentProvider {
 		public Object[] getElements(Object arg0) {
 			return fileExtensions.toArray();
 		}
+
 		@Override
 		public void dispose() {
 		}
+
 		@Override
 		public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
 		}

@@ -1,57 +1,40 @@
-/**
- * Copyright 2010 The University of North Carolina at Chapel Hill
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *         http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 package crosswalk.diagram.edit.parts;
 
 import org.eclipse.draw2d.FlowLayout;
 import org.eclipse.draw2d.IFigure;
-import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ListCompartmentEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.notation.View;
-
 import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicyWithCustomReparent;
+
 import crosswalk.CrosswalkPackage;
 import crosswalk.diagram.custom.CompartmentChildCreationEditPolicy;
 import crosswalk.diagram.custom.ReorderCompartmentEditPolicy;
-import crosswalk.diagram.edit.policies.FormModelBoxCompartmentCanonicalEditPolicy;
-import crosswalk.diagram.edit.policies.FormModelBoxCompartmentItemSemanticEditPolicy;
+import crosswalk.diagram.edit.policies.MappedElementChildAttributesCompartmentCanonicalEditPolicy;
+import crosswalk.diagram.edit.policies.MappedElementChildAttributesCompartmentItemSemanticEditPolicy;
 import crosswalk.diagram.part.CrosswalkVisualIDRegistry;
 import crosswalk.diagram.part.Messages;
 
 /**
  * @generated
  */
-public class FormModelBoxCompartmentEditPart extends ListCompartmentEditPart {
+public class MappedElementChildAttributesCompartmentEditPart extends
+		ListCompartmentEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 7011;
+	public static final int VISUAL_ID = 7014;
 
 	/**
 	 * @generated
 	 */
-	public FormModelBoxCompartmentEditPart(View view) {
+	public MappedElementChildAttributesCompartmentEditPart(View view) {
 		super(view);
 	}
 
@@ -66,7 +49,7 @@ public class FormModelBoxCompartmentEditPart extends ListCompartmentEditPart {
 	 * @generated
 	 */
 	public String getCompartmentName() {
-		return Messages.FormModelBoxCompartmentEditPart_title;
+		return Messages.MappedElementChildAttributesCompartmentEditPart_title;
 	}
 
 	/**
@@ -90,19 +73,22 @@ public class FormModelBoxCompartmentEditPart extends ListCompartmentEditPart {
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new FormModelBoxCompartmentItemSemanticEditPolicy());
-		//installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicy());
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
+		installEditPolicy(
+				EditPolicyRoles.SEMANTIC_ROLE,
+				new MappedElementChildAttributesCompartmentItemSemanticEditPolicy());
+		installEditPolicy(
+				EditPolicyRoles.CREATION_ROLE,
 				new CompartmentChildCreationEditPolicy(
-						CrosswalkPackage.Literals.FORM__ELEMENTS));
-		installEditPolicy(EditPolicy.LAYOUT_ROLE,
+						CrosswalkPackage.Literals.MAPPED_ELEMENT__ATTRIBUTES));
+		installEditPolicy(
+				EditPolicy.LAYOUT_ROLE,
 				new ReorderCompartmentEditPolicy(
-						CrosswalkPackage.Literals.FORM__ELEMENTS));
+						CrosswalkPackage.Literals.MAPPED_ELEMENT__ATTRIBUTES));
 		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
 				new DragDropEditPolicy());
-		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
-				new FormModelBoxCompartmentCanonicalEditPolicy());
+		installEditPolicy(
+				EditPolicyRoles.CANONICAL_ROLE,
+				new MappedElementChildAttributesCompartmentCanonicalEditPolicy());
 	}
 
 	/**

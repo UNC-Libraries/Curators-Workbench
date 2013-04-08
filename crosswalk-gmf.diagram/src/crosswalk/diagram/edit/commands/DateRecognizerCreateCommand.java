@@ -75,7 +75,7 @@ public class DateRecognizerCreateCommand extends EditElementCommand {
 			IAdaptable info) throws ExecutionException {
 		DateRecognizer newElement = CrosswalkFactory.eINSTANCE
 				.createDateRecognizer();
-		
+
 		// setting up default formats
 		newElement.getFormats().add(DateRecognizerImpl.murkanFormat);
 		newElement.getFormats().add(DateRecognizerImpl.isoFormat);

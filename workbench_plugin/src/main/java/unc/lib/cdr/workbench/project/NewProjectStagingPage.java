@@ -152,12 +152,12 @@ public class NewProjectStagingPage extends WizardPage {
 	 * @return staging URI
 	 */
 	URI computeStageLocation(URI projectLocation, String projectName) {
-		System.out.println("computeStageLocation: projectLocation=" + projectLocation);
-		System.out.println("computeStageLocation: projectName=" + projectName);
+		//System.out.println("computeStageLocation: projectLocation=" + projectLocation);
+		//System.out.println("computeStageLocation: projectName=" + projectName);
 		try {
 			projectName = new URI("file", projectName, null).toString();
 			projectName = projectName.substring(projectName.indexOf(":") + 1);
-			System.out.println("computeStageLocation: projectNameEncoded=" + projectName);
+			//System.out.println("computeStageLocation: projectNameEncoded=" + projectName);
 		} catch (URISyntaxException e) {
 			throw new Error(e);
 		}
@@ -167,7 +167,7 @@ public class NewProjectStagingPage extends WizardPage {
 		stageLocation = stagingLocationTemplate.replaceAll("\\$\\{PROJECT_NAME\\}", projectName);
 		stageLocation = stageLocation.replaceAll("\\$\\{PROJECT_LOC\\}", projectLocation.toString());
 		stageLocation = stageLocation.replaceAll("\\$\\{USER_NAME\\}", userName);
-		System.out.println("stageLocation str before new URI call: " + stageLocation);
+		//System.out.println("stageLocation str before new URI call: " + stageLocation);
 		try {
 			result = new URI(stageLocation);
 		} catch (URISyntaxException e) {

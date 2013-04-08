@@ -1,27 +1,10 @@
-/**
- * Copyright 2010 The University of North Carolina at Chapel Hill
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *         http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 package crosswalk.diagram.edit.policies;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Set;
 
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.emf.ecore.EObject;
@@ -40,7 +23,6 @@ import org.eclipse.gmf.runtime.notation.View;
 
 import crosswalk.CrosswalkPackage;
 import crosswalk.diagram.edit.parts.MappedAttributeEditPart;
-import crosswalk.diagram.edit.parts.MappedElement2EditPart;
 import crosswalk.diagram.part.CrosswalkDiagramUpdater;
 import crosswalk.diagram.part.CrosswalkNodeDescriptor;
 import crosswalk.diagram.part.CrosswalkVisualIDRegistry;
@@ -48,7 +30,7 @@ import crosswalk.diagram.part.CrosswalkVisualIDRegistry;
 /**
  * @generated
  */
-public class MappedElementChildElementsCompartmentCanonicalEditPolicy extends
+public class MappedElementChildAttributesCompartment2CanonicalEditPolicy extends
 		CanonicalEditPolicy {
 
 	/**
@@ -67,7 +49,7 @@ public class MappedElementChildElementsCompartmentCanonicalEditPolicy extends
 	 * @generated
 	 */
 	protected EStructuralFeature getFeatureToSynchronize() {
-		return CrosswalkPackage.eINSTANCE.getMappedElement_ChildElements();
+		return CrosswalkPackage.eINSTANCE.getMappedElement_Attributes();
 	}
 
 	/**
@@ -78,7 +60,7 @@ public class MappedElementChildElementsCompartmentCanonicalEditPolicy extends
 		View viewObject = (View) getHost().getModel();
 		LinkedList<EObject> result = new LinkedList<EObject>();
 		List<CrosswalkNodeDescriptor> childDescriptors = CrosswalkDiagramUpdater
-				.getMappedElementChildElementsCompartment_7003SemanticChildren(viewObject);
+				.getMappedElementChildAttributesCompartment_7015SemanticChildren(viewObject);
 		for (CrosswalkNodeDescriptor d : childDescriptors) {
 			result.add(d.getModelElement());
 		}
@@ -98,13 +80,12 @@ public class MappedElementChildElementsCompartmentCanonicalEditPolicy extends
 	 * @generated
 	 */
 	private boolean isMyDiagramElement(View view) {
-		return MappedElement2EditPart.VISUAL_ID == CrosswalkVisualIDRegistry
+		return MappedAttributeEditPart.VISUAL_ID == CrosswalkVisualIDRegistry
 				.getVisualID(view);
 	}
 
 	/**
-	 * @generated NOT
-	 * Changed to make child views persistent, fixes #115
+	 * @generated
 	 */
 	protected void refreshSemantic() {
 		if (resolveSemanticElement() == null) {
@@ -112,7 +93,7 @@ public class MappedElementChildElementsCompartmentCanonicalEditPolicy extends
 		}
 		LinkedList<IAdaptable> createdViews = new LinkedList<IAdaptable>();
 		List<CrosswalkNodeDescriptor> childDescriptors = CrosswalkDiagramUpdater
-				.getMappedElementChildElementsCompartment_7003SemanticChildren((View) getHost()
+				.getMappedElementChildAttributesCompartment_7015SemanticChildren((View) getHost()
 						.getModel());
 		LinkedList<View> orphaned = new LinkedList<View>();
 		// we care to check only views we recognize as ours
@@ -160,7 +141,7 @@ public class MappedElementChildElementsCompartmentCanonicalEditPolicy extends
 			IAdaptable elementAdapter = new CanonicalElementAdapter(
 					next.getModelElement(), hint);
 			CreateViewRequest.ViewDescriptor descriptor = new CreateViewRequest.ViewDescriptor(
-					elementAdapter, Node.class, hint, ViewUtil.APPEND, true,
+					elementAdapter, Node.class, hint, ViewUtil.APPEND, false,
 					host().getDiagramPreferencesHint());
 			viewDescriptors.add(descriptor);
 		}

@@ -81,6 +81,8 @@ import crosswalk.diagram.edit.parts.FormTitleEditPart;
 import crosswalk.diagram.edit.parts.InputOutputEditPart;
 import crosswalk.diagram.edit.parts.MappedAttributeEditPart;
 import crosswalk.diagram.edit.parts.MappedElement2EditPart;
+import crosswalk.diagram.edit.parts.MappedElementChildAttributesCompartment2EditPart;
+import crosswalk.diagram.edit.parts.MappedElementChildAttributesCompartmentEditPart;
 import crosswalk.diagram.edit.parts.MappedElementChildElementsCompartment2EditPart;
 import crosswalk.diagram.edit.parts.MappedElementChildElementsCompartmentEditPart;
 import crosswalk.diagram.edit.parts.MappedElementEditPart;
@@ -887,6 +889,11 @@ public class CrosswalkViewProvider extends AbstractProvider implements
 				CrosswalkVisualIDRegistry
 						.getType(MappedElementChildElementsCompartmentEditPart.VISUAL_ID),
 				false, false, true, true);
+		createCompartment(
+				node,
+				CrosswalkVisualIDRegistry
+						.getType(MappedElementChildAttributesCompartmentEditPart.VISUAL_ID),
+				false, false, true, true);
 		return node;
 	}
 
@@ -937,6 +944,11 @@ public class CrosswalkViewProvider extends AbstractProvider implements
 				node,
 				CrosswalkVisualIDRegistry
 						.getType(MappedElementChildElementsCompartment2EditPart.VISUAL_ID),
+				false, false, true, true);
+		createCompartment(
+				node,
+				CrosswalkVisualIDRegistry
+						.getType(MappedElementChildAttributesCompartment2EditPart.VISUAL_ID),
 				false, false, true, true);
 		return node;
 	}

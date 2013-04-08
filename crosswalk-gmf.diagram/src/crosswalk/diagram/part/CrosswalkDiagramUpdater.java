@@ -72,6 +72,8 @@ import crosswalk.diagram.edit.parts.FormModelBoxCompartmentEditPart;
 import crosswalk.diagram.edit.parts.InputOutputEditPart;
 import crosswalk.diagram.edit.parts.MappedAttributeEditPart;
 import crosswalk.diagram.edit.parts.MappedElement2EditPart;
+import crosswalk.diagram.edit.parts.MappedElementChildAttributesCompartment2EditPart;
+import crosswalk.diagram.edit.parts.MappedElementChildAttributesCompartmentEditPart;
 import crosswalk.diagram.edit.parts.MappedElementChildElementsCompartment2EditPart;
 import crosswalk.diagram.edit.parts.MappedElementChildElementsCompartmentEditPart;
 import crosswalk.diagram.edit.parts.MappedElementEditPart;
@@ -112,8 +114,12 @@ public class CrosswalkDiagramUpdater {
 			return getDelimitedFileDataFieldCompartment_7002SemanticChildren(view);
 		case MappedElementChildElementsCompartmentEditPart.VISUAL_ID:
 			return getMappedElementChildElementsCompartment_7003SemanticChildren(view);
+		case MappedElementChildAttributesCompartmentEditPart.VISUAL_ID:
+			return getMappedElementChildAttributesCompartment_7014SemanticChildren(view);
 		case MappedElementChildElementsCompartment2EditPart.VISUAL_ID:
 			return getMappedElementChildElementsCompartment_7004SemanticChildren(view);
+		case MappedElementChildAttributesCompartment2EditPart.VISUAL_ID:
+			return getMappedElementChildAttributesCompartment_7015SemanticChildren(view);
 		case MetadataBlockMetadataBlockInputFieldsCompartment2EditPart.VISUAL_ID:
 			return getMetadataBlockMetadataBlockInputFieldsCompartment_7009SemanticChildren(view);
 		case MetadataBlockMetadataBlockMappingCompartment2EditPart.VISUAL_ID:
@@ -299,6 +305,23 @@ public class CrosswalkDiagramUpdater {
 				continue;
 			}
 		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<CrosswalkNodeDescriptor> getMappedElementChildAttributesCompartment_7014SemanticChildren(
+			View view) {
+		if (false == view.eContainer() instanceof View) {
+			return Collections.emptyList();
+		}
+		View containerView = (View) view.eContainer();
+		if (!containerView.isSetElement()) {
+			return Collections.emptyList();
+		}
+		MappedElement modelElement = (MappedElement) containerView.getElement();
+		LinkedList<CrosswalkNodeDescriptor> result = new LinkedList<CrosswalkNodeDescriptor>();
 		for (Iterator<?> it = modelElement.getAttributes().iterator(); it
 				.hasNext();) {
 			MappedAttribute childElement = (MappedAttribute) it.next();
@@ -336,6 +359,23 @@ public class CrosswalkDiagramUpdater {
 				continue;
 			}
 		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<CrosswalkNodeDescriptor> getMappedElementChildAttributesCompartment_7015SemanticChildren(
+			View view) {
+		if (false == view.eContainer() instanceof View) {
+			return Collections.emptyList();
+		}
+		View containerView = (View) view.eContainer();
+		if (!containerView.isSetElement()) {
+			return Collections.emptyList();
+		}
+		MappedElement modelElement = (MappedElement) containerView.getElement();
+		LinkedList<CrosswalkNodeDescriptor> result = new LinkedList<CrosswalkNodeDescriptor>();
 		for (Iterator<?> it = modelElement.getAttributes().iterator(); it
 				.hasNext();) {
 			MappedAttribute childElement = (MappedAttribute) it.next();

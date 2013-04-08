@@ -191,7 +191,7 @@
                 href="crosswalk.ecore#//MappedElement/childElements"/>
           </children>
           <children
-              compartment="//@nodes.0/@ownedChild/@children.5/@ownedChild/@compartments.0">
+              compartment="//@nodes.0/@ownedChild/@children.5/@ownedChild/@compartments.1">
             <containmentFeature
                 href="crosswalk.ecore#//MappedElement/attributes"/>
             <ownedChild>
@@ -214,9 +214,14 @@
             </ownedChild>
           </children>
           <compartments
-              children="//@nodes.0/@ownedChild/@children.5/@ownedChild/@children.0 //@nodes.0/@ownedChild/@children.5/@ownedChild/@children.1">
+              children="//@nodes.0/@ownedChild/@children.5/@ownedChild/@children.0">
             <compartment
                 href="crosswalk.gmfgraph#ChildElementsCompartment"/>
+          </compartments>
+          <compartments
+              children="//@nodes.0/@ownedChild/@children.5/@ownedChild/@children.1">
+            <compartment
+                href="crosswalk.gmfgraph#ChildAttributesCompartment"/>
           </compartments>
         </ownedChild>
       </children>

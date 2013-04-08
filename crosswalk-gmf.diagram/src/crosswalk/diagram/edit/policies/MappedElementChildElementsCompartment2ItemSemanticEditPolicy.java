@@ -42,9 +42,6 @@ public class MappedElementChildElementsCompartment2ItemSemanticEditPolicy
 		if (CrosswalkElementTypes.MappedElement_3008 == req.getElementType()) {
 			return getGEFWrapper(new MappedElement2CreateCommand(req));
 		}
-		if (CrosswalkElementTypes.MappedAttribute_3009 == req.getElementType()) {
-			return getGEFWrapper(new MappedAttributeCreateCommand(req));
-		}
 		return super.getCreateCommand(req);
 	}
 

@@ -48,6 +48,8 @@ import crosswalk.diagram.edit.parts.FormModelBoxCompartmentEditPart;
 import crosswalk.diagram.edit.parts.FormTitleEditPart;
 import crosswalk.diagram.edit.parts.MappedAttributeEditPart;
 import crosswalk.diagram.edit.parts.MappedElement2EditPart;
+import crosswalk.diagram.edit.parts.MappedElementChildAttributesCompartment2EditPart;
+import crosswalk.diagram.edit.parts.MappedElementChildAttributesCompartmentEditPart;
 import crosswalk.diagram.edit.parts.MappedElementChildElementsCompartment2EditPart;
 import crosswalk.diagram.edit.parts.MappedElementChildElementsCompartmentEditPart;
 import crosswalk.diagram.edit.parts.MappedElementEditPart;
@@ -256,6 +258,8 @@ public class CrosswalkVisualIDRegistry {
 					domainElement.eClass())) {
 				return MappedElement2EditPart.VISUAL_ID;
 			}
+			break;
+		case MappedElementChildAttributesCompartmentEditPart.VISUAL_ID:
 			if (CrosswalkPackage.eINSTANCE.getMappedAttribute().isSuperTypeOf(
 					domainElement.eClass())) {
 				return MappedAttributeEditPart.VISUAL_ID;
@@ -266,6 +270,8 @@ public class CrosswalkVisualIDRegistry {
 					domainElement.eClass())) {
 				return MappedElement2EditPart.VISUAL_ID;
 			}
+			break;
+		case MappedElementChildAttributesCompartment2EditPart.VISUAL_ID:
 			if (CrosswalkPackage.eINSTANCE.getMappedAttribute().isSuperTypeOf(
 					domainElement.eClass())) {
 				return MappedAttributeEditPart.VISUAL_ID;
@@ -511,12 +517,18 @@ public class CrosswalkVisualIDRegistry {
 			if (MappedElementChildElementsCompartmentEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (MappedElementChildAttributesCompartmentEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			break;
 		case MappedElement2EditPart.VISUAL_ID:
 			if (WrappingLabel6EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (MappedElementChildElementsCompartment2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (MappedElementChildAttributesCompartment2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -626,6 +638,8 @@ public class CrosswalkVisualIDRegistry {
 			if (MappedElement2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			break;
+		case MappedElementChildAttributesCompartmentEditPart.VISUAL_ID:
 			if (MappedAttributeEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -634,6 +648,8 @@ public class CrosswalkVisualIDRegistry {
 			if (MappedElement2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			break;
+		case MappedElementChildAttributesCompartment2EditPart.VISUAL_ID:
 			if (MappedAttributeEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -783,7 +799,9 @@ public class CrosswalkVisualIDRegistry {
 		case CrossWalkModelBoxCompartmentEditPart.VISUAL_ID:
 		case DelimitedFileDataFieldCompartmentEditPart.VISUAL_ID:
 		case MappedElementChildElementsCompartmentEditPart.VISUAL_ID:
+		case MappedElementChildAttributesCompartmentEditPart.VISUAL_ID:
 		case MappedElementChildElementsCompartment2EditPart.VISUAL_ID:
+		case MappedElementChildAttributesCompartment2EditPart.VISUAL_ID:
 		case MetadataBlockMetadataBlockInputFieldsCompartment2EditPart.VISUAL_ID:
 		case MetadataBlockMetadataBlockMappingCompartment2EditPart.VISUAL_ID:
 		case DictionaryModelBoxCompartmentEditPart.VISUAL_ID:

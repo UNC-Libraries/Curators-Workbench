@@ -33,6 +33,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import crosswalk.diagram.edit.parts.InputOutputEditPart;
 import crosswalk.diagram.edit.parts.MappedAttributeEditPart;
 import crosswalk.diagram.edit.parts.MappedElement2EditPart;
+import crosswalk.diagram.edit.parts.MappedElementChildAttributesCompartment2EditPart;
 import crosswalk.diagram.edit.parts.MappedElementChildElementsCompartment2EditPart;
 import crosswalk.diagram.part.CrosswalkVisualIDRegistry;
 import crosswalk.diagram.providers.CrosswalkElementTypes;
@@ -91,6 +92,14 @@ public class MappedElement2ItemSemanticEditPolicy extends
 						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
 						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
 						break;
+					}
+				}
+				break;
+			case MappedElementChildAttributesCompartment2EditPart.VISUAL_ID:
+				for (Iterator<?> cit = node.getChildren().iterator(); cit
+						.hasNext();) {
+					Node cnode = (Node) cit.next();
+					switch (CrosswalkVisualIDRegistry.getVisualID(cnode)) {
 					case MappedAttributeEditPart.VISUAL_ID:
 						for (Iterator<?> it = cnode.getSourceEdges().iterator(); it
 								.hasNext();) {

@@ -59,7 +59,6 @@ public class CrosswalkLabelProvider implements ILabelProvider {
 				String type = !"OTHER".equals(mdSec.getMdWrap().getMDTYPE().getName()) ? 
 						mdSec.getMdWrap().getMDTYPE().getName() :
 							mdSec.getMdWrap().getOTHERMDTYPE();
-						System.err.println(type);
 				switch(type) {
 				case "ACL":
 					return LabelImageFactory.getImage(Icon.ACLDecor);

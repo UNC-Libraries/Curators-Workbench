@@ -19,7 +19,7 @@ import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gmf.runtime.common.core.command.CommandResult;
 import org.eclipse.gmf.runtime.diagram.core.services.ViewService;
@@ -28,16 +28,15 @@ import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewRequest.ViewDescrip
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.util.Assert;
 
-import crosswalk.CrosswalkPackage;
-import crosswalk.FormElement;
-
 public class CompartmentChildCreateCommand extends CreateCommand {
 	int index;
+	private EStructuralFeature feature;
 
 	public CompartmentChildCreateCommand(TransactionalEditingDomain editingDomain, ViewDescriptor viewDescriptor,
-			View containerView, int index) {
+			View containerView, int index, EStructuralFeature feature) {
 		super(editingDomain, viewDescriptor, containerView);
 		this.index = index;
+		this.feature = feature;
 	}
 
 	@Override
@@ -50,8 +49,9 @@ public class CompartmentChildCreateCommand extends CreateCommand {
 		viewDescriptor.setView(view);
 		
 		if (index > -1) {
-			EList nodes = (EList) getContainerView().getElement().eGet(CrosswalkPackage.Literals.FORM__ELEMENTS);
-			nodes.add(index, nodes.remove(nodes.size() - 1));
+			EList nodes = (EList) getContainerView().getElement().eGet(feature);
+			Object o = nodes.remove(nodes.size() - 1);
+			nodes.add(index, o);
 		}
 		
 		return CommandResult.newOKCommandResult(viewDescriptor);

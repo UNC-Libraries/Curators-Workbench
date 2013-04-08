@@ -195,7 +195,7 @@
         canonicalEditPolicyClassName="DateRecognizerCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="DateRecognizerGraphicalNodeEditPolicy"
         createCommandClassName="DateRecognizerCreateCommand"
-        containers="//@diagram/@compartments.0 //@diagram/@compartments.5 //@diagram/@compartments.8 //@diagram/@compartments.11">
+        containers="//@diagram/@compartments.0 //@diagram/@compartments.7 //@diagram/@compartments.10 //@diagram/@compartments.13">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -239,7 +239,7 @@
         canonicalEditPolicyClassName="TextCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="TextGraphicalNodeEditPolicy"
         createCommandClassName="TextCreateCommand"
-        containers="//@diagram/@compartments.0 //@diagram/@compartments.5 //@diagram/@compartments.8 //@diagram/@compartments.11">
+        containers="//@diagram/@compartments.0 //@diagram/@compartments.7 //@diagram/@compartments.10 //@diagram/@compartments.13">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -287,7 +287,7 @@
         canonicalEditPolicyClassName="TrimWhitespaceCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="TrimWhitespaceGraphicalNodeEditPolicy"
         createCommandClassName="TrimWhitespaceCreateCommand"
-        containers="//@diagram/@compartments.0 //@diagram/@compartments.5 //@diagram/@compartments.8 //@diagram/@compartments.11">
+        containers="//@diagram/@compartments.0 //@diagram/@compartments.7 //@diagram/@compartments.10 //@diagram/@compartments.13">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -329,10 +329,10 @@
         itemSemanticEditPolicyClassName="MappedElementItemSemanticEditPolicy"
         notationViewFactoryClassName="MappedElementViewFactory"
         canonicalEditPolicyClassName="MappedElementCanonicalEditPolicy"
-        compartments="//@diagram/@compartments.2"
+        compartments="//@diagram/@compartments.2 //@diagram/@compartments.3"
         graphicalNodeEditPolicyClassName="MappedElementGraphicalNodeEditPolicy"
         createCommandClassName="MappedElementCreateCommand"
-        containers="//@diagram/@compartments.0 //@diagram/@compartments.5 //@diagram/@compartments.8 //@diagram/@compartments.11">
+        containers="//@diagram/@compartments.0 //@diagram/@compartments.7 //@diagram/@compartments.10 //@diagram/@compartments.13">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -341,7 +341,7 @@
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="MappedElementFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class MappedElementFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fChildPane; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fLabel; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public MappedElementFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.GridLayout layoutThis = new org.eclipse.draw2d.GridLayout();&#xA;&#x9;layoutThis.numColumns = 1;&#xA;&#x9;layoutThis.makeColumnsEqualWidth = true;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(20)&#xA;, getMapMode().DPtoLP(20)&#xA;));&#xA;&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fLabel = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fLabel.setText(&quot;Unknown MODS Element&quot;);&#xA;&#xA;&#xA;org.eclipse.draw2d.GridData constraintFLabel = new org.eclipse.draw2d.GridData();&#xA;constraintFLabel.verticalAlignment = org.eclipse.draw2d.GridData.BEGINNING;&#xA;constraintFLabel.horizontalAlignment = org.eclipse.draw2d.GridData.BEGINNING;&#xA;constraintFLabel.horizontalIndent = 5;&#xA;constraintFLabel.horizontalSpan = 1;&#xA;constraintFLabel.verticalSpan = 1;&#xA;constraintFLabel.grabExcessHorizontalSpace = false;&#xA;constraintFLabel.grabExcessVerticalSpace = false;&#xA;this.add(fLabel, constraintFLabel);&#xA;&#xA;&#xA;&#xA;&#xA;fChildPane = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;fChildPane.setOutline(false);&#xA;&#xA;&#xA;org.eclipse.draw2d.GridData constraintFChildPane = new org.eclipse.draw2d.GridData();&#xA;constraintFChildPane.verticalAlignment = org.eclipse.draw2d.GridData.FILL;&#xA;constraintFChildPane.horizontalAlignment = org.eclipse.draw2d.GridData.FILL;&#xA;constraintFChildPane.horizontalIndent = 10;&#xA;constraintFChildPane.horizontalSpan = 1;&#xA;constraintFChildPane.verticalSpan = 1;&#xA;constraintFChildPane.grabExcessHorizontalSpace = true;&#xA;constraintFChildPane.grabExcessVerticalSpace = true;&#xA;this.add(fChildPane, constraintFChildPane);&#xA;&#xA;&#xA;&#x9;org.eclipse.draw2d.ToolbarLayout layoutFChildPane = new org.eclipse.draw2d.ToolbarLayout();&#xA;&#x9;layoutFChildPane.setStretchMinorAxis(false);&#xA;&#x9;layoutFChildPane.setMinorAlignment(org.eclipse.draw2d.ToolbarLayout.ALIGN_CENTER&#xA;);&#xA;&#xA;&#x9;layoutFChildPane.setSpacing(3);&#xA;&#x9;layoutFChildPane.setVertical(true);&#xA;&#xA;&#x9;fChildPane.setLayoutManager(layoutFChildPane);&#xA;&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getChildPane() {&#xA;&#x9;&#x9;return fChildPane;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getLabel() {&#xA;&#x9;&#x9;return fLabel;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class MappedElementFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fChildPane; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fLabel; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fFigureElementPane; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public MappedElementFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.GridLayout layoutThis = new org.eclipse.draw2d.GridLayout();&#xA;&#x9;layoutThis.numColumns = 1;&#xA;&#x9;layoutThis.makeColumnsEqualWidth = true;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(20)&#xA;, getMapMode().DPtoLP(20)&#xA;));&#xA;&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fLabel = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fLabel.setText(&quot;Unknown MODS Element&quot;);&#xA;&#xA;&#xA;org.eclipse.draw2d.GridData constraintFLabel = new org.eclipse.draw2d.GridData();&#xA;constraintFLabel.verticalAlignment = org.eclipse.draw2d.GridData.BEGINNING;&#xA;constraintFLabel.horizontalAlignment = org.eclipse.draw2d.GridData.BEGINNING;&#xA;constraintFLabel.horizontalIndent = 5;&#xA;constraintFLabel.horizontalSpan = 1;&#xA;constraintFLabel.verticalSpan = 1;&#xA;constraintFLabel.grabExcessHorizontalSpace = false;&#xA;constraintFLabel.grabExcessVerticalSpace = false;&#xA;this.add(fLabel, constraintFLabel);&#xA;&#xA;&#xA;&#xA;&#xA;fChildPane = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;fChildPane.setOutline(false);&#xA;&#xA;&#xA;org.eclipse.draw2d.GridData constraintFChildPane = new org.eclipse.draw2d.GridData();&#xA;constraintFChildPane.verticalAlignment = org.eclipse.draw2d.GridData.FILL;&#xA;constraintFChildPane.horizontalAlignment = org.eclipse.draw2d.GridData.FILL;&#xA;constraintFChildPane.horizontalIndent = 10;&#xA;constraintFChildPane.horizontalSpan = 1;&#xA;constraintFChildPane.verticalSpan = 1;&#xA;constraintFChildPane.grabExcessHorizontalSpace = true;&#xA;constraintFChildPane.grabExcessVerticalSpace = true;&#xA;this.add(fChildPane, constraintFChildPane);&#xA;&#xA;&#xA;&#x9;org.eclipse.draw2d.ToolbarLayout layoutFChildPane = new org.eclipse.draw2d.ToolbarLayout();&#xA;&#x9;layoutFChildPane.setStretchMinorAxis(false);&#xA;&#x9;layoutFChildPane.setMinorAlignment(org.eclipse.draw2d.ToolbarLayout.ALIGN_CENTER&#xA;);&#xA;&#xA;&#x9;layoutFChildPane.setSpacing(3);&#xA;&#x9;layoutFChildPane.setVertical(true);&#xA;&#xA;&#x9;fChildPane.setLayoutManager(layoutFChildPane);&#xA;&#xA;&#xA;&#xA;&#xA;fFigureElementPane = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;fFigureElementPane.setOutline(false);&#xA;&#xA;&#xA;org.eclipse.draw2d.GridData constraintFFigureElementPane = new org.eclipse.draw2d.GridData();&#xA;constraintFFigureElementPane.verticalAlignment = org.eclipse.draw2d.GridData.FILL;&#xA;constraintFFigureElementPane.horizontalAlignment = org.eclipse.draw2d.GridData.FILL;&#xA;constraintFFigureElementPane.horizontalIndent = 10;&#xA;constraintFFigureElementPane.horizontalSpan = 1;&#xA;constraintFFigureElementPane.verticalSpan = 1;&#xA;constraintFFigureElementPane.grabExcessHorizontalSpace = true;&#xA;constraintFFigureElementPane.grabExcessVerticalSpace = true;&#xA;this.add(fFigureElementPane, constraintFFigureElementPane);&#xA;&#xA;&#xA;&#x9;org.eclipse.draw2d.ToolbarLayout layoutFFigureElementPane = new org.eclipse.draw2d.ToolbarLayout();&#xA;&#x9;layoutFFigureElementPane.setStretchMinorAxis(false);&#xA;&#x9;layoutFFigureElementPane.setMinorAlignment(org.eclipse.draw2d.ToolbarLayout.ALIGN_CENTER&#xA;);&#xA;&#xA;&#x9;layoutFFigureElementPane.setSpacing(3);&#xA;&#x9;layoutFFigureElementPane.setVertical(true);&#xA;&#xA;&#x9;fFigureElementPane.setLayoutManager(layoutFFigureElementPane);&#xA;&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getChildPane() {&#xA;&#x9;&#x9;return fChildPane;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getLabel() {&#xA;&#x9;&#x9;return fLabel;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getFigureElementPane() {&#xA;&#x9;&#x9;return fFigureElementPane;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
       <modelFacet>
         <metaClass
             href="crosswalk.genmodel#//crosswalk/MappedElement"/>
@@ -373,10 +373,10 @@
         itemSemanticEditPolicyClassName="MappedElement2ItemSemanticEditPolicy"
         notationViewFactoryClassName="MappedElementViewFactory"
         canonicalEditPolicyClassName="MappedElement2CanonicalEditPolicy"
-        compartments="//@diagram/@compartments.3"
+        compartments="//@diagram/@compartments.4 //@diagram/@compartments.5"
         graphicalNodeEditPolicyClassName="MappedElement2GraphicalNodeEditPolicy"
         createCommandClassName="MappedElement2CreateCommand"
-        containers="//@diagram/@compartments.3 //@diagram/@compartments.2">
+        containers="//@diagram/@compartments.4 //@diagram/@compartments.2">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -385,7 +385,7 @@
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="MappedElementFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class MappedElementFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fChildPane; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fLabel; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public MappedElementFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.GridLayout layoutThis = new org.eclipse.draw2d.GridLayout();&#xA;&#x9;layoutThis.numColumns = 1;&#xA;&#x9;layoutThis.makeColumnsEqualWidth = true;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(20)&#xA;, getMapMode().DPtoLP(20)&#xA;));&#xA;&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fLabel = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fLabel.setText(&quot;Unknown MODS Element&quot;);&#xA;&#xA;&#xA;org.eclipse.draw2d.GridData constraintFLabel = new org.eclipse.draw2d.GridData();&#xA;constraintFLabel.verticalAlignment = org.eclipse.draw2d.GridData.BEGINNING;&#xA;constraintFLabel.horizontalAlignment = org.eclipse.draw2d.GridData.BEGINNING;&#xA;constraintFLabel.horizontalIndent = 5;&#xA;constraintFLabel.horizontalSpan = 1;&#xA;constraintFLabel.verticalSpan = 1;&#xA;constraintFLabel.grabExcessHorizontalSpace = false;&#xA;constraintFLabel.grabExcessVerticalSpace = false;&#xA;this.add(fLabel, constraintFLabel);&#xA;&#xA;&#xA;&#xA;&#xA;fChildPane = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;fChildPane.setOutline(false);&#xA;&#xA;&#xA;org.eclipse.draw2d.GridData constraintFChildPane = new org.eclipse.draw2d.GridData();&#xA;constraintFChildPane.verticalAlignment = org.eclipse.draw2d.GridData.FILL;&#xA;constraintFChildPane.horizontalAlignment = org.eclipse.draw2d.GridData.FILL;&#xA;constraintFChildPane.horizontalIndent = 10;&#xA;constraintFChildPane.horizontalSpan = 1;&#xA;constraintFChildPane.verticalSpan = 1;&#xA;constraintFChildPane.grabExcessHorizontalSpace = true;&#xA;constraintFChildPane.grabExcessVerticalSpace = true;&#xA;this.add(fChildPane, constraintFChildPane);&#xA;&#xA;&#xA;&#x9;org.eclipse.draw2d.ToolbarLayout layoutFChildPane = new org.eclipse.draw2d.ToolbarLayout();&#xA;&#x9;layoutFChildPane.setStretchMinorAxis(false);&#xA;&#x9;layoutFChildPane.setMinorAlignment(org.eclipse.draw2d.ToolbarLayout.ALIGN_CENTER&#xA;);&#xA;&#xA;&#x9;layoutFChildPane.setSpacing(3);&#xA;&#x9;layoutFChildPane.setVertical(true);&#xA;&#xA;&#x9;fChildPane.setLayoutManager(layoutFChildPane);&#xA;&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getChildPane() {&#xA;&#x9;&#x9;return fChildPane;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getLabel() {&#xA;&#x9;&#x9;return fLabel;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class MappedElementFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fChildPane; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fLabel; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fFigureElementPane; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public MappedElementFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.GridLayout layoutThis = new org.eclipse.draw2d.GridLayout();&#xA;&#x9;layoutThis.numColumns = 1;&#xA;&#x9;layoutThis.makeColumnsEqualWidth = true;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(20)&#xA;, getMapMode().DPtoLP(20)&#xA;));&#xA;&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fLabel = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fLabel.setText(&quot;Unknown MODS Element&quot;);&#xA;&#xA;&#xA;org.eclipse.draw2d.GridData constraintFLabel = new org.eclipse.draw2d.GridData();&#xA;constraintFLabel.verticalAlignment = org.eclipse.draw2d.GridData.BEGINNING;&#xA;constraintFLabel.horizontalAlignment = org.eclipse.draw2d.GridData.BEGINNING;&#xA;constraintFLabel.horizontalIndent = 5;&#xA;constraintFLabel.horizontalSpan = 1;&#xA;constraintFLabel.verticalSpan = 1;&#xA;constraintFLabel.grabExcessHorizontalSpace = false;&#xA;constraintFLabel.grabExcessVerticalSpace = false;&#xA;this.add(fLabel, constraintFLabel);&#xA;&#xA;&#xA;&#xA;&#xA;fChildPane = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;fChildPane.setOutline(false);&#xA;&#xA;&#xA;org.eclipse.draw2d.GridData constraintFChildPane = new org.eclipse.draw2d.GridData();&#xA;constraintFChildPane.verticalAlignment = org.eclipse.draw2d.GridData.FILL;&#xA;constraintFChildPane.horizontalAlignment = org.eclipse.draw2d.GridData.FILL;&#xA;constraintFChildPane.horizontalIndent = 10;&#xA;constraintFChildPane.horizontalSpan = 1;&#xA;constraintFChildPane.verticalSpan = 1;&#xA;constraintFChildPane.grabExcessHorizontalSpace = true;&#xA;constraintFChildPane.grabExcessVerticalSpace = true;&#xA;this.add(fChildPane, constraintFChildPane);&#xA;&#xA;&#xA;&#x9;org.eclipse.draw2d.ToolbarLayout layoutFChildPane = new org.eclipse.draw2d.ToolbarLayout();&#xA;&#x9;layoutFChildPane.setStretchMinorAxis(false);&#xA;&#x9;layoutFChildPane.setMinorAlignment(org.eclipse.draw2d.ToolbarLayout.ALIGN_CENTER&#xA;);&#xA;&#xA;&#x9;layoutFChildPane.setSpacing(3);&#xA;&#x9;layoutFChildPane.setVertical(true);&#xA;&#xA;&#x9;fChildPane.setLayoutManager(layoutFChildPane);&#xA;&#xA;&#xA;&#xA;&#xA;fFigureElementPane = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;fFigureElementPane.setOutline(false);&#xA;&#xA;&#xA;org.eclipse.draw2d.GridData constraintFFigureElementPane = new org.eclipse.draw2d.GridData();&#xA;constraintFFigureElementPane.verticalAlignment = org.eclipse.draw2d.GridData.FILL;&#xA;constraintFFigureElementPane.horizontalAlignment = org.eclipse.draw2d.GridData.FILL;&#xA;constraintFFigureElementPane.horizontalIndent = 10;&#xA;constraintFFigureElementPane.horizontalSpan = 1;&#xA;constraintFFigureElementPane.verticalSpan = 1;&#xA;constraintFFigureElementPane.grabExcessHorizontalSpace = true;&#xA;constraintFFigureElementPane.grabExcessVerticalSpace = true;&#xA;this.add(fFigureElementPane, constraintFFigureElementPane);&#xA;&#xA;&#xA;&#x9;org.eclipse.draw2d.ToolbarLayout layoutFFigureElementPane = new org.eclipse.draw2d.ToolbarLayout();&#xA;&#x9;layoutFFigureElementPane.setStretchMinorAxis(false);&#xA;&#x9;layoutFFigureElementPane.setMinorAlignment(org.eclipse.draw2d.ToolbarLayout.ALIGN_CENTER&#xA;);&#xA;&#xA;&#x9;layoutFFigureElementPane.setSpacing(3);&#xA;&#x9;layoutFFigureElementPane.setVertical(true);&#xA;&#xA;&#x9;fFigureElementPane.setLayoutManager(layoutFFigureElementPane);&#xA;&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getChildPane() {&#xA;&#x9;&#x9;return fChildPane;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getLabel() {&#xA;&#x9;&#x9;return fLabel;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getFigureElementPane() {&#xA;&#x9;&#x9;return fFigureElementPane;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
       <modelFacet>
         <metaClass
             href="crosswalk.genmodel#//crosswalk/MappedElement"/>
@@ -419,7 +419,7 @@
         canonicalEditPolicyClassName="MappedAttributeCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="MappedAttributeGraphicalNodeEditPolicy"
         createCommandClassName="MappedAttributeCreateCommand"
-        containers="//@diagram/@compartments.3 //@diagram/@compartments.2">
+        containers="//@diagram/@compartments.5 //@diagram/@compartments.3">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -465,7 +465,7 @@
         itemSemanticEditPolicyClassName="MetadataBlock2ItemSemanticEditPolicy"
         notationViewFactoryClassName="MetadataBlockViewFactory"
         canonicalEditPolicyClassName="MetadataBlock2CanonicalEditPolicy"
-        compartments="//@diagram/@compartments.4 //@diagram/@compartments.5"
+        compartments="//@diagram/@compartments.6 //@diagram/@compartments.7"
         graphicalNodeEditPolicyClassName="MetadataBlock2GraphicalNodeEditPolicy"
         createCommandClassName="MetadataBlock2CreateCommand"
         containers="//@diagram/@compartments.0">
@@ -522,7 +522,7 @@
         canonicalEditPolicyClassName="TextInputFieldCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="TextInputFieldGraphicalNodeEditPolicy"
         createCommandClassName="TextInputFieldCreateCommand"
-        containers="//@diagram/@compartments.4 //@diagram/@compartments.7 //@diagram/@compartments.10">
+        containers="//@diagram/@compartments.6 //@diagram/@compartments.9 //@diagram/@compartments.12">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -571,7 +571,7 @@
         canonicalEditPolicyClassName="CurrentDateCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="CurrentDateGraphicalNodeEditPolicy"
         createCommandClassName="CurrentDateCreateCommand"
-        containers="//@diagram/@compartments.5 //@diagram/@topLevelNodes.0 //@diagram/@compartments.8 //@diagram/@compartments.11">
+        containers="//@diagram/@compartments.7 //@diagram/@topLevelNodes.0 //@diagram/@compartments.10 //@diagram/@compartments.13">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -615,7 +615,7 @@
         canonicalEditPolicyClassName="CurrentUsernameCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="CurrentUsernameGraphicalNodeEditPolicy"
         createCommandClassName="CurrentUsernameCreateCommand"
-        containers="//@diagram/@compartments.5 //@diagram/@topLevelNodes.0 //@diagram/@compartments.8 //@diagram/@compartments.11">
+        containers="//@diagram/@compartments.7 //@diagram/@topLevelNodes.0 //@diagram/@compartments.10 //@diagram/@compartments.13">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -659,7 +659,7 @@
         canonicalEditPolicyClassName="DateInputFieldCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="DateInputFieldGraphicalNodeEditPolicy"
         createCommandClassName="DateInputFieldCreateCommand"
-        containers="//@diagram/@compartments.4 //@diagram/@compartments.7 //@diagram/@compartments.10">
+        containers="//@diagram/@compartments.6 //@diagram/@compartments.9 //@diagram/@compartments.12">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -707,10 +707,10 @@
         itemSemanticEditPolicyClassName="MetadataBlockItemSemanticEditPolicy"
         notationViewFactoryClassName="MetadataBlockViewFactory"
         canonicalEditPolicyClassName="MetadataBlockCanonicalEditPolicy"
-        compartments="//@diagram/@compartments.7 //@diagram/@compartments.8"
+        compartments="//@diagram/@compartments.9 //@diagram/@compartments.10"
         graphicalNodeEditPolicyClassName="MetadataBlockGraphicalNodeEditPolicy"
         createCommandClassName="MetadataBlockCreateCommand"
-        containers="//@diagram/@compartments.6">
+        containers="//@diagram/@compartments.8">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -762,10 +762,10 @@
         itemSemanticEditPolicyClassName="MetadataBlock3ItemSemanticEditPolicy"
         notationViewFactoryClassName="MetadataBlockViewFactory"
         canonicalEditPolicyClassName="MetadataBlock3CanonicalEditPolicy"
-        compartments="//@diagram/@compartments.10 //@diagram/@compartments.11"
+        compartments="//@diagram/@compartments.12 //@diagram/@compartments.13"
         graphicalNodeEditPolicyClassName="MetadataBlock3GraphicalNodeEditPolicy"
         createCommandClassName="MetadataBlock3CreateCommand"
-        containers="//@diagram/@compartments.9">
+        containers="//@diagram/@compartments.11">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -819,7 +819,7 @@
         canonicalEditPolicyClassName="ParagraphCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="ParagraphGraphicalNodeEditPolicy"
         createCommandClassName="ParagraphCreateCommand"
-        containers="//@diagram/@compartments.9">
+        containers="//@diagram/@compartments.11">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -894,7 +894,7 @@
         canonicalEditPolicyClassName="FileBlockCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="FileBlockGraphicalNodeEditPolicy"
         createCommandClassName="FileBlockCreateCommand"
-        containers="//@diagram/@compartments.9">
+        containers="//@diagram/@compartments.11">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -1001,7 +1001,7 @@
         itemSemanticEditPolicyClassName="DictionaryItemSemanticEditPolicy"
         notationViewFactoryClassName="DictionaryViewFactory"
         canonicalEditPolicyClassName="DictionaryCanonicalEditPolicy"
-        compartments="//@diagram/@compartments.6"
+        compartments="//@diagram/@compartments.8"
         graphicalNodeEditPolicyClassName="DictionaryGraphicalNodeEditPolicy"
         createCommandClassName="DictionaryCreateCommand">
       <diagramRunTimeClass
@@ -1084,7 +1084,7 @@
         itemSemanticEditPolicyClassName="FormItemSemanticEditPolicy"
         notationViewFactoryClassName="FormViewFactory"
         canonicalEditPolicyClassName="FormCanonicalEditPolicy"
-        compartments="//@diagram/@compartments.9"
+        compartments="//@diagram/@compartments.11"
         graphicalNodeEditPolicyClassName="FormGraphicalNodeEditPolicy"
         createCommandClassName="FormCreateCommand">
       <diagramRunTimeClass
@@ -1231,8 +1231,25 @@
         itemSemanticEditPolicyClassName="MappedElementChildElementsCompartmentItemSemanticEditPolicy"
         notationViewFactoryClassName="MappedElementChildElementsCompartmentViewFactory"
         canonicalEditPolicyClassName="MappedElementChildElementsCompartmentCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.7 //@diagram/@childNodes.8"
+        childNodes="//@diagram/@childNodes.7"
         title="ChildElementsCompartment"
+        canCollapse="false"
+        needsTitle="false"
+        node="//@diagram/@childNodes.6">
+      <diagramRunTimeClass
+          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <viewmap
+          xsi:type="gmfgen:ParentAssignedViewmap"
+          getterName="getFigureElementPane"
+          figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
+    </compartments>
+    <compartments
+        visualID="7014"
+        editPartClassName="MappedElementChildAttributesCompartmentEditPart"
+        itemSemanticEditPolicyClassName="MappedElementChildAttributesCompartmentItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="MappedElementChildAttributesCompartmentCanonicalEditPolicy"
+        childNodes="//@diagram/@childNodes.8"
+        title="ChildAttributesCompartment"
         canCollapse="false"
         needsTitle="false"
         node="//@diagram/@childNodes.6">
@@ -1249,8 +1266,25 @@
         itemSemanticEditPolicyClassName="MappedElementChildElementsCompartment2ItemSemanticEditPolicy"
         notationViewFactoryClassName="MappedElementChildElementsCompartmentViewFactory"
         canonicalEditPolicyClassName="MappedElementChildElementsCompartment2CanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.7 //@diagram/@childNodes.8"
+        childNodes="//@diagram/@childNodes.7"
         title="ChildElementsCompartment"
+        canCollapse="false"
+        needsTitle="false"
+        node="//@diagram/@childNodes.7">
+      <diagramRunTimeClass
+          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <viewmap
+          xsi:type="gmfgen:ParentAssignedViewmap"
+          getterName="getFigureElementPane"
+          figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
+    </compartments>
+    <compartments
+        visualID="7015"
+        editPartClassName="MappedElementChildAttributesCompartment2EditPart"
+        itemSemanticEditPolicyClassName="MappedElementChildAttributesCompartment2ItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="MappedElementChildAttributesCompartment2CanonicalEditPolicy"
+        childNodes="//@diagram/@childNodes.8"
+        title="ChildAttributesCompartment"
         canCollapse="false"
         needsTitle="false"
         node="//@diagram/@childNodes.7">

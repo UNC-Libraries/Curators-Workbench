@@ -23,6 +23,7 @@ import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.draw2d.geometry.Transposer;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.GraphicalEditPart;
@@ -39,6 +40,14 @@ import org.eclipse.gmf.runtime.emf.commands.core.command.CompositeTransactionalC
 import org.eclipse.gmf.runtime.notation.View;
 
 public class CompartmentChildCreationEditPolicy extends CreationEditPolicy {
+	
+	private EStructuralFeature feature;
+
+	public CompartmentChildCreationEditPolicy(EStructuralFeature feature) {
+		super();
+		this.feature = feature;
+	}
+	
 	@Override
 	protected Command getCreateCommand(CreateViewRequest request) {
 		TransactionalEditingDomain editingDomain = ((IGraphicalEditPart) getHost()).getEditingDomain();
@@ -50,7 +59,7 @@ public class CompartmentChildCreationEditPolicy extends CreationEditPolicy {
 		while (descriptors.hasNext()) {
 			CreateViewRequest.ViewDescriptor descriptor = (CreateViewRequest.ViewDescriptor) descriptors.next();
 			CreateCommand createCommand = new CompartmentChildCreateCommand(editingDomain, descriptor,
-					(View) (getHost().getModel()), getFeedbackIndexFor(request));
+					(View) (getHost().getModel()), getFeedbackIndexFor(request), feature);
 
 			cc.compose(createCommand);
 		}

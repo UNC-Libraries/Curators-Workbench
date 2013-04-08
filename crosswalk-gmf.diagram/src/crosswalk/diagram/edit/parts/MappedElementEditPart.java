@@ -143,9 +143,16 @@ public class MappedElementEditPart extends ShapeNodeEditPart {
 			return true;
 		}
 		if (childEditPart instanceof MappedElementChildElementsCompartmentEditPart) {
-			IFigure pane = getPrimaryShape().getChildPane();
+			IFigure pane = getPrimaryShape().getFigureElementPane();
 			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
 			pane.add(((MappedElementChildElementsCompartmentEditPart) childEditPart)
+					.getFigure());
+			return true;
+		}
+		if (childEditPart instanceof MappedElementChildAttributesCompartmentEditPart) {
+			IFigure pane = getPrimaryShape().getChildPane();
+			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
+			pane.add(((MappedElementChildAttributesCompartmentEditPart) childEditPart)
 					.getFigure());
 			return true;
 		}
@@ -160,8 +167,14 @@ public class MappedElementEditPart extends ShapeNodeEditPart {
 			return true;
 		}
 		if (childEditPart instanceof MappedElementChildElementsCompartmentEditPart) {
-			IFigure pane = getPrimaryShape().getChildPane();
+			IFigure pane = getPrimaryShape().getFigureElementPane();
 			pane.remove(((MappedElementChildElementsCompartmentEditPart) childEditPart)
+					.getFigure());
+			return true;
+		}
+		if (childEditPart instanceof MappedElementChildAttributesCompartmentEditPart) {
+			IFigure pane = getPrimaryShape().getChildPane();
+			pane.remove(((MappedElementChildAttributesCompartmentEditPart) childEditPart)
 					.getFigure());
 			return true;
 		}
@@ -193,6 +206,9 @@ public class MappedElementEditPart extends ShapeNodeEditPart {
 	 */
 	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
 		if (editPart instanceof MappedElementChildElementsCompartmentEditPart) {
+			return getPrimaryShape().getFigureElementPane();
+		}
+		if (editPart instanceof MappedElementChildAttributesCompartmentEditPart) {
 			return getPrimaryShape().getChildPane();
 		}
 		return getContentPane();
@@ -308,7 +324,7 @@ public class MappedElementEditPart extends ShapeNodeEditPart {
 			}
 			if (type == CrosswalkElementTypes.MappedAttribute_3009) {
 				return getChildBySemanticHint(CrosswalkVisualIDRegistry
-						.getType(MappedElementChildElementsCompartmentEditPart.VISUAL_ID));
+						.getType(MappedElementChildAttributesCompartmentEditPart.VISUAL_ID));
 			}
 		}
 		return super.getTargetEditPart(request);
@@ -327,6 +343,11 @@ public class MappedElementEditPart extends ShapeNodeEditPart {
 		 * @generated
 		 */
 		private WrappingLabel fLabel;
+
+		/**
+		 * @generated
+		 */
+		private RectangleFigure fFigureElementPane;
 
 		/**
 		 * @generated
@@ -389,6 +410,30 @@ public class MappedElementEditPart extends ShapeNodeEditPart {
 
 			fChildPane.setLayoutManager(layoutFChildPane);
 
+			fFigureElementPane = new RectangleFigure();
+
+			fFigureElementPane.setOutline(false);
+
+			GridData constraintFFigureElementPane = new GridData();
+			constraintFFigureElementPane.verticalAlignment = GridData.FILL;
+			constraintFFigureElementPane.horizontalAlignment = GridData.FILL;
+			constraintFFigureElementPane.horizontalIndent = 10;
+			constraintFFigureElementPane.horizontalSpan = 1;
+			constraintFFigureElementPane.verticalSpan = 1;
+			constraintFFigureElementPane.grabExcessHorizontalSpace = true;
+			constraintFFigureElementPane.grabExcessVerticalSpace = true;
+			this.add(fFigureElementPane, constraintFFigureElementPane);
+
+			ToolbarLayout layoutFFigureElementPane = new ToolbarLayout();
+			layoutFFigureElementPane.setStretchMinorAxis(false);
+			layoutFFigureElementPane
+					.setMinorAlignment(ToolbarLayout.ALIGN_CENTER);
+
+			layoutFFigureElementPane.setSpacing(3);
+			layoutFFigureElementPane.setVertical(true);
+
+			fFigureElementPane.setLayoutManager(layoutFFigureElementPane);
+
 		}
 
 		/**
@@ -403,6 +448,13 @@ public class MappedElementEditPart extends ShapeNodeEditPart {
 		 */
 		public WrappingLabel getLabel() {
 			return fLabel;
+		}
+
+		/**
+		 * @generated
+		 */
+		public RectangleFigure getFigureElementPane() {
+			return fFigureElementPane;
 		}
 
 	}

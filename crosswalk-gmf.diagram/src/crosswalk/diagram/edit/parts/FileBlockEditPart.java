@@ -301,7 +301,7 @@ public class FileBlockEditPart extends ShapeNodeEditPart {
 		 * @generated NOT
 		 */
 		public FileBlockFigure() {
-			
+
 			GridLayout layoutThis = new GridLayout();
 			layoutThis.numColumns = 3;
 			layoutThis.makeColumnsEqualWidth = false;
@@ -309,7 +309,7 @@ public class FileBlockEditPart extends ShapeNodeEditPart {
 
 			createContents();
 			updateFace();
-			
+
 		}
 
 		/**
@@ -334,7 +334,7 @@ public class FileBlockEditPart extends ShapeNodeEditPart {
 			constraintFFigureFileBlockNameLabel.grabExcessVerticalSpace = false;
 			this.add(fFigureFileBlockNameLabel,
 					constraintFFigureFileBlockNameLabel);
-			
+
 			fFigureFileBlockRequiredLabel = new WrappingLabel();
 
 			fFigureFileBlockRequiredLabel.setText("required");
@@ -396,9 +396,9 @@ public class FileBlockEditPart extends ShapeNodeEditPart {
 
 			FileBlock fileBlock = (FileBlock) ((Node) FileBlockEditPart.this
 					.getModel()).getElement();
-			
+
 			// Remove "tag" labels if present
-			
+
 			if (fFigureFileBlockRequiredLabel.getParent() == this)
 				this.remove(fFigureFileBlockRequiredLabel);
 
@@ -406,10 +406,10 @@ public class FileBlockEditPart extends ShapeNodeEditPart {
 				this.remove(fFigureFileBlockDefaultLabel);
 
 			// Add "tag" labels if necessary, right to left
-			
+
 			if (fileBlock.isDefaultAccess())
 				this.add(fFigureFileBlockDefaultLabel, 1);
-			
+
 			if (fileBlock.isRequired())
 				this.add(fFigureFileBlockRequiredLabel, 1);
 

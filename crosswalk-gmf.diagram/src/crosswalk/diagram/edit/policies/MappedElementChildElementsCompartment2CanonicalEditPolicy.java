@@ -54,11 +54,6 @@ public class MappedElementChildElementsCompartment2CanonicalEditPolicy extends
 	/**
 	 * @generated
 	 */
-	private Set<EStructuralFeature> myFeaturesToSynchronize;
-
-	/**
-	 * @generated
-	 */
 	protected void refreshOnActivate() {
 		// Need to activate editpart children before invoking the canonical refresh for EditParts to add event listeners
 		List<?> c = getHost().getChildren();
@@ -71,15 +66,8 @@ public class MappedElementChildElementsCompartment2CanonicalEditPolicy extends
 	/**
 	 * @generated
 	 */
-	protected Set getFeaturesToSynchronize() {
-		if (myFeaturesToSynchronize == null) {
-			myFeaturesToSynchronize = new HashSet<EStructuralFeature>();
-			myFeaturesToSynchronize.add(CrosswalkPackage.eINSTANCE
-					.getMappedElement_ChildElements());
-			myFeaturesToSynchronize.add(CrosswalkPackage.eINSTANCE
-					.getMappedElement_Attributes());
-		}
-		return myFeaturesToSynchronize;
+	protected EStructuralFeature getFeatureToSynchronize() {
+		return CrosswalkPackage.eINSTANCE.getMappedElement_ChildElements();
 	}
 
 	/**
@@ -110,9 +98,8 @@ public class MappedElementChildElementsCompartment2CanonicalEditPolicy extends
 	 * @generated
 	 */
 	private boolean isMyDiagramElement(View view) {
-		int visualID = CrosswalkVisualIDRegistry.getVisualID(view);
-		return visualID == MappedElement2EditPart.VISUAL_ID
-				|| visualID == MappedAttributeEditPart.VISUAL_ID;
+		return MappedElement2EditPart.VISUAL_ID == CrosswalkVisualIDRegistry
+				.getVisualID(view);
 	}
 
 	/**

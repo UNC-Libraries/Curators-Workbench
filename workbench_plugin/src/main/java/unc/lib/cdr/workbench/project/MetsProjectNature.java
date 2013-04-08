@@ -151,7 +151,6 @@ public class MetsProjectNature implements IProjectNature {
 
 	@Override
 	public void configure() throws CoreException {
-		System.err.println("IN CONFIGURE!!");
 		try {
 			// set up builders
 			IProjectDescription desc = this.getProject().getDescription();
@@ -402,7 +401,6 @@ public class MetsProjectNature implements IProjectNature {
 	}
 
 	public static void setupBuildSpec(IProjectDescription desc, boolean autostage) {
-		System.err.println("setting autostage to: " + autostage);
 
 		// create staging builder
 		ICommand stagingCommand = desc.newCommand();

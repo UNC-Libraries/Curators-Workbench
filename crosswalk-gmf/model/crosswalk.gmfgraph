@@ -172,6 +172,26 @@
               majorSpacing="3"
               minorSpacing="3"/>
         </children>
+        <children
+            xsi:type="gmfgraph:Rectangle"
+            name="ElementPane"
+            outline="false">
+          <layoutData
+              xsi:type="gmfgraph:GridLayoutData"
+              grabExcessHorizontalSpace="true"
+              grabExcessVerticalSpace="true"
+              verticalAlignment="FILL"
+              horizontalAlignment="FILL"
+              horizontalIndent="10"/>
+          <layout
+              xsi:type="gmfgraph:FlowLayout"
+              vertical="true"
+              forceSingleLine="true"
+              majorAlignment="FILL"
+              minorAlignment="FILL"
+              majorSpacing="3"
+              minorSpacing="3"/>
+        </children>
       </actualFigure>
       <accessors
           accessor="getChildPane"
@@ -179,6 +199,8 @@
       <accessors
           accessor="getLabel"
           figure="//@figures.0/@descriptors.4/@actualFigure/@children.0"/>
+      <accessors
+          figure="//@figures.0/@descriptors.4/@actualFigure/@children.2"/>
     </descriptors>
     <descriptors
         name="WidgetFigure">
@@ -578,6 +600,10 @@
       accessor="//@figures.0/@descriptors.1/@accessors.1"/>
   <compartments
       name="ChildElementsCompartment"
+      figure="MappedElementFigure"
+      accessor="//@figures.0/@descriptors.4/@accessors.2"/>
+  <compartments
+      name="ChildAttributesCompartment"
       figure="MappedElementFigure"
       accessor="//@figures.0/@descriptors.4/@accessors.0"/>
   <compartments

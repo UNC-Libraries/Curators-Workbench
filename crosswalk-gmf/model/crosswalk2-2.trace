@@ -93,6 +93,9 @@
     <compartmentTraces
         visualID="7003"
         queryText="true"/>
+    <compartmentTraces
+        visualID="7014"
+        queryText="true"/>
   </childNodeTraces>
   <childNodeTraces
       visualID="3008"
@@ -102,6 +105,9 @@
         queryText="true"/>
     <compartmentTraces
         visualID="7004"
+        queryText="true"/>
+    <compartmentTraces
+        visualID="7015"
         queryText="true"/>
   </childNodeTraces>
   <childNodeTraces

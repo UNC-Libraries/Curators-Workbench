@@ -34,36 +34,41 @@ public class AnnotatedEcoreContextProvider implements IContextProvider {
 	public int getContextChangeMask() {
 		return SELECTION;
 	}
-	
+
 	private String getDiagramContextId() {
 		Editable ed = getDiagramEditableObject();
-		EAnnotation ann = ed.eClass().getEAnnotation(CrosswalkPackage.HELP_CONTEXT_ANNOTATION_SOURCE);
+		EAnnotation ann = ed.eClass().getEAnnotation(
+				CrosswalkPackage.HELP_CONTEXT_ANNOTATION_SOURCE);
 		String helpId = null;
-		if(ann != null) {
-			helpId = ann.getDetails().get(CrosswalkPackage.HELP_CONTEXT_ANNOTATION_DETAILS_KEY);
+		if (ann != null
+				&& ann.getDetails() != null
+				&& ann.getDetails().get(
+						CrosswalkPackage.HELP_CONTEXT_ANNOTATION_DETAILS_KEY) != null) {
+			helpId = ann.getDetails().get(
+					CrosswalkPackage.HELP_CONTEXT_ANNOTATION_DETAILS_KEY);
 		} else {
 			helpId = CrosswalkPackage.HELP_CONTEXT_ID_GENERIC;
 		}
 		return helpId;
 	}
-	
+
 	private String getDiagramType() {
 		Editable ed = getDiagramEditableObject();
-		if(ed instanceof Form) {
+		if (ed instanceof Form) {
 			return "Form";
-		} else if(ed instanceof CrossWalk) {
+		} else if (ed instanceof CrossWalk) {
 			return "Crosswalk";
-		} else if(ed instanceof Dictionary) {
+		} else if (ed instanceof Dictionary) {
 			return "Dictionary";
 		} else {
 			return "Metadata Mapping";
 		}
 	}
-	
+
 	private Editable getDiagramEditableObject() {
 		EObject diagramElement = this.editor.getDiagram().getElement();
-		if(diagramElement instanceof EditingContainer) {
-			EditingContainer cont = (EditingContainer)diagramElement;
+		if (diagramElement instanceof EditingContainer) {
+			EditingContainer cont = (EditingContainer) diagramElement;
 			Editable ed = cont.getModel();
 			return ed;
 		} else {
@@ -75,17 +80,20 @@ public class AnnotatedEcoreContextProvider implements IContextProvider {
 	public IContext getContext(Object target) {
 		// get help context from annotation on model
 		IContext result = null;
-		for(Object opart : editor.getDiagramEditPart().getViewer().getSelectedEditParts()) {
-			EditPart part = (EditPart)opart;
-			if(part.getModel() != null || part.getModel() instanceof View) {
-				View v = (View)part.getModel();
+		for (Object opart : editor.getDiagramEditPart().getViewer()
+				.getSelectedEditParts()) {
+			EditPart part = (EditPart) opart;
+			if (part.getModel() != null || part.getModel() instanceof View) {
+				View v = (View) part.getModel();
 				EObject eobject = v.getElement();
 				String helpId = doGetContextId(eobject);
-				if(helpId != null) result = HelpSystem.getContext(helpId);
-				if(result != null) break;
+				if (helpId != null)
+					result = HelpSystem.getContext(helpId);
+				if (result != null)
+					break;
 			}
 		}
-		if(result == null) {
+		if (result == null) {
 			// get some general metadata mapping help context
 			result = HelpSystem.getContext("general diagram help context ID");
 		}
@@ -95,32 +103,35 @@ public class AnnotatedEcoreContextProvider implements IContextProvider {
 	@Override
 	public String getSearchExpression(Object target) {
 		StringBuilder result = new StringBuilder();
-		for(Object opart : editor.getDiagramEditPart().getViewer().getSelectedEditParts()) {
-			EditPart part = (EditPart)opart;
-			if(part.getModel() != null || part.getModel() instanceof View) {
-				View v = (View)part.getModel();
+		for (Object opart : editor.getDiagramEditPart().getViewer()
+				.getSelectedEditParts()) {
+			EditPart part = (EditPart) opart;
+			if (part.getModel() != null || part.getModel() instanceof View) {
+				View v = (View) part.getModel();
 				EObject eobject = v.getElement();
-				for(String keyword : doGetKeywords(eobject)) {
-					if(result.length() > 0) result.append(" OR ");
+				for (String keyword : doGetKeywords(eobject)) {
+					if (result.length() > 0)
+						result.append(" OR ");
 					result.append(keyword);
 				}
 			}
 		}
 		return (result.length() > 0) ? result.toString() : null;
 	}
-	
+
 	private Set<String> doGetKeywords(EObject obj) {
 		Set<String> result = new HashSet<String>();
-		if(CrosswalkPackage.eINSTANCE.getMappedElement().isInstance(obj)) {
-			EReference feature = ((MappedElement)obj).getMappedFeature();
+		if (CrosswalkPackage.eINSTANCE.getMappedElement().isInstance(obj)) {
+			EReference feature = ((MappedElement) obj).getMappedFeature();
 			result.add("MappedElement");
-			if(feature != null) {
+			if (feature != null) {
 				result.add(feature.getName());
 			}
-		} else if(CrosswalkPackage.eINSTANCE.getMappedAttribute().isInstance(obj)) {
-			EAttribute attr = ((MappedAttribute)obj).getMappedFeature();
+		} else if (CrosswalkPackage.eINSTANCE.getMappedAttribute().isInstance(
+				obj)) {
+			EAttribute attr = ((MappedAttribute) obj).getMappedFeature();
 			result.add("MappedAttribute");
-			if(attr != null) {
+			if (attr != null) {
 				result.add(attr.getName());
 			}
 		} else {
@@ -132,21 +143,26 @@ public class AnnotatedEcoreContextProvider implements IContextProvider {
 	private String doGetContextId(EObject obj) {
 		String result = null;
 		EAnnotation ann = null;
-		if(CrosswalkPackage.eINSTANCE.getMappedElement().isInstance(obj)) {
-			EReference feature = ((MappedElement)obj).getMappedFeature();
-			if(feature != null) {
-				ann = feature.getEAnnotation(CrosswalkPackage.HELP_CONTEXT_ANNOTATION_SOURCE);
+		if (CrosswalkPackage.eINSTANCE.getMappedElement().isInstance(obj)) {
+			EReference feature = ((MappedElement) obj).getMappedFeature();
+			if (feature != null) {
+				ann = feature
+						.getEAnnotation(CrosswalkPackage.HELP_CONTEXT_ANNOTATION_SOURCE);
 			}
-		} else if(CrosswalkPackage.eINSTANCE.getMappedAttribute().isInstance(obj)) {
-			EAttribute attr = ((MappedAttribute)obj).getMappedFeature();
-			if(attr != null) {
-				ann = attr.getEAnnotation(CrosswalkPackage.HELP_CONTEXT_ANNOTATION_SOURCE);
+		} else if (CrosswalkPackage.eINSTANCE.getMappedAttribute().isInstance(
+				obj)) {
+			EAttribute attr = ((MappedAttribute) obj).getMappedFeature();
+			if (attr != null) {
+				ann = attr
+						.getEAnnotation(CrosswalkPackage.HELP_CONTEXT_ANNOTATION_SOURCE);
 			}
 		} else {
-			ann = obj.eClass().getEAnnotation(CrosswalkPackage.HELP_CONTEXT_ANNOTATION_SOURCE);
+			ann = obj.eClass().getEAnnotation(
+					CrosswalkPackage.HELP_CONTEXT_ANNOTATION_SOURCE);
 		}
-		if(ann != null) {
-			result = ann.getDetails().get(CrosswalkPackage.HELP_CONTEXT_ANNOTATION_DETAILS_KEY);
+		if (ann != null) {
+			result = ann.getDetails().get(
+					CrosswalkPackage.HELP_CONTEXT_ANNOTATION_DETAILS_KEY);
 		}
 		return result;
 	}

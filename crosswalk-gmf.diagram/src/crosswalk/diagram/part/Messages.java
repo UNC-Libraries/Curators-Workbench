@@ -413,7 +413,17 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String MappedElementChildAttributesCompartmentEditPart_title;
+
+	/**
+	 * @generated
+	 */
 	public static String MappedElementChildElementsCompartment2EditPart_title;
+
+	/**
+	 * @generated
+	 */
+	public static String MappedElementChildAttributesCompartment2EditPart_title;
 
 	/**
 	 * @generated

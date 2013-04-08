@@ -195,8 +195,15 @@ public class CrosswalkEditPartFactory implements EditPartFactory {
 			case MappedElementChildElementsCompartmentEditPart.VISUAL_ID:
 				return new MappedElementChildElementsCompartmentEditPart(view);
 
+			case MappedElementChildAttributesCompartmentEditPart.VISUAL_ID:
+				return new MappedElementChildAttributesCompartmentEditPart(view);
+
 			case MappedElementChildElementsCompartment2EditPart.VISUAL_ID:
 				return new MappedElementChildElementsCompartment2EditPart(view);
+
+			case MappedElementChildAttributesCompartment2EditPart.VISUAL_ID:
+				return new MappedElementChildAttributesCompartment2EditPart(
+						view);
 
 			case MetadataBlockMetadataBlockInputFieldsCompartment2EditPart.VISUAL_ID:
 				return new MetadataBlockMetadataBlockInputFieldsCompartment2EditPart(
