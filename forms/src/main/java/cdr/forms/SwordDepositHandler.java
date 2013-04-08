@@ -222,6 +222,7 @@ public class SwordDepositHandler implements DepositHandler {
 		// Interpret the response from the SWORD endpoint
 		
 		DepositResult result = new DepositResult();
+		result.setPid(pid);
 		
 		try {
 			

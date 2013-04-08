@@ -11,6 +11,12 @@ public class DepositFileEditor extends PropertyEditorSupport {
 	public void setValue(Object value) {
 		if (value instanceof MultipartFile) {
 			MultipartFile multipartFile = (MultipartFile) value;
+			
+			if (multipartFile.getOriginalFilename().length() == 0) {
+				super.setValue(null);
+				return;
+			}
+			
 			try {
 				File temp = File.createTempFile("temp", ".tmp");
 				multipartFile.transferTo(temp);

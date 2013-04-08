@@ -322,6 +322,8 @@ public class FormController {
 				if (getNotificationHandler() != null)
 					getNotificationHandler().notifyDeposit(deposit.getForm(), result, deposit.getReceiptEmailAddress(), formId);
 				
+				request.getSession(true).setAttribute("supplementalContainerPid", result.getPid());
+				
 				view = "success";
 				
 			}
@@ -332,11 +334,13 @@ public class FormController {
 		
 		deposit.deleteAllFiles();
 		
-		sessionStatus.setComplete();
-		request.setAttribute("formId", formId);
-		request.setAttribute("administratorEmail", getAdministratorEmail());
-
-		return view;
+//		sessionStatus.setComplete();
+//		request.setAttribute("formId", formId);
+//		request.setAttribute("administratorEmail", getAdministratorEmail());
+//
+//		return view;
+		
+		return "redirect:/supplemental";
 		
 	}
 	

@@ -50,6 +50,11 @@
 		<servlet-name>forms</servlet-name>
 		<url-pattern>*.form</url-pattern>
 	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>forms</servlet-name>
+		<url-pattern>/supplemental/*</url-pattern>
+	</servlet-mapping>
 	
 	<filter>  
 		<filter-name>encodingFilter</filter-name>  

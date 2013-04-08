@@ -17,6 +17,16 @@ package cdr.forms;
 
 public class DepositResult {
 	
+	private String pid;
+	
+	public String getPid() {
+		return pid;
+	}
+	
+	public void setPid(String pid) {
+		this.pid = pid;
+	}
+	
 	public static enum Status { COMPLETE, PENDING, UNKNOWN, FAILED };
 	
 	private Status status = Status.UNKNOWN;
