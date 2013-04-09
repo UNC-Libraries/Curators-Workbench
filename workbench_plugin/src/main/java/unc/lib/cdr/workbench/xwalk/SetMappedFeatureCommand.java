@@ -81,11 +81,12 @@ public class SetMappedFeatureCommand extends AbstractTransactionalCommand {
 			MappedAttribute ma = (MappedAttribute) request.getNewElement();
 			EAttribute eattr = (EAttribute)feature;
 			ma.setMappedFeature(eattr);
-			// handle date attributes
+			// handle Date attributes
 			if(XMLGregorianCalendar.class.equals(eattr.getEType().getInstanceClass())) {
 				ma.setConversionStrategy(CrosswalkFactory.eINSTANCE
 						.createDateToXMLGregorianCalenderConversion());
 			}
+			// TODO handle Date vs DateTime
 			return CommandResult.newOKCommandResult();
 		} else {
 			return CommandResult.newErrorCommandResult("Could not find mapped feature param.");

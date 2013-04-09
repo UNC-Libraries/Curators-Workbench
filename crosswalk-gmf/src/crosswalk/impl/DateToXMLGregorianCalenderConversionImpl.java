@@ -70,14 +70,17 @@ public class DateToXMLGregorianCalenderConversionImpl extends EObjectImpl implem
     	  XMLGregorianCalendar gcal = tf.newXMLGregorianCalendar(gregcal);
       	  if(input instanceof ImpreciseDate) {
         	  result = tf.newXMLGregorianCalendar();
+        	  result.setDay(1);
+        	  result.setMonth(1);
       		  ImpreciseDate date = (ImpreciseDate)input;
       		  switch(date.getPrecision()) {
+      		  // discarding time at the moment (xs:Date)
       		  case SECOND:
-      			  result.setSecond(gcal.getSecond());
+      			  // result.setSecond(gcal.getSecond());
       		  case MINUTE:
-      			  result.setMinute(gcal.getMinute());
+      			  // result.setMinute(gcal.getMinute());
       		  case HOUR:
-      			  result.setHour(gcal.getHour());
+      			  // result.setHour(gcal.getHour());
       		  case DAY:
       			  result.setDay(gcal.getDay());
       		  case MONTH:
