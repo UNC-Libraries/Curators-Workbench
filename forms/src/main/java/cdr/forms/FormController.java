@@ -302,6 +302,13 @@ public class FormController {
 			
 			view = "virus";
 			
+		} else if (formId.equals("studio-art")) {
+			
+			// Temporary special case for the studio art form: redirect to the supplemental controller,
+			// keeping the session and uploaded files intact.
+			
+			return "redirect:/supplemental";
+			
 		} else {
 		
 			DepositResult result = this.getDepositHandler().deposit(deposit);
@@ -334,13 +341,11 @@ public class FormController {
 		
 		deposit.deleteAllFiles();
 		
-//		sessionStatus.setComplete();
-//		request.setAttribute("formId", formId);
-//		request.setAttribute("administratorEmail", getAdministratorEmail());
-//
-//		return view;
-		
-		return "redirect:/supplemental";
+		sessionStatus.setComplete();
+		request.setAttribute("formId", formId);
+		request.setAttribute("administratorEmail", getAdministratorEmail());
+
+		return view;
 		
 	}
 	

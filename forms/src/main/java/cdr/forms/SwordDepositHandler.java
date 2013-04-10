@@ -43,9 +43,18 @@ import gov.loc.mets.XmlDataType1;
 import gov.loc.mets.util.Link;
 import gov.loc.mets.util.METSConstants;
 import gov.loc.mets.util.MetsResourceFactoryImpl;
+import gov.loc.mods.mods.AbstractDefinition;
+import gov.loc.mods.mods.DateDefinition;
+import gov.loc.mods.mods.DateEncodingAttributeDefinition;
 import gov.loc.mods.mods.MODSFactory;
 import gov.loc.mods.mods.MODSPackage;
 import gov.loc.mods.mods.ModsDefinition;
+import gov.loc.mods.mods.OriginInfoDefinition;
+import gov.loc.mods.mods.PhysicalDescriptionDefinition;
+import gov.loc.mods.mods.StringPlusAuthorityPlusType;
+import gov.loc.mods.mods.StringPlusSupplied;
+import gov.loc.mods.mods.TitleInfoDefinition;
+import gov.loc.mods.mods.XsString;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -56,7 +65,9 @@ import java.io.PrintStream;
 import java.io.StringWriter;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
@@ -286,6 +297,150 @@ public class SwordDepositHandler implements DepositHandler {
 		return result;
 		
 	}
+
+	public DepositResult deposit(Deposit deposit, SupplementalDeposit supplemental) {
+		
+		Form form = deposit.getForm();
+		
+		// Generate a PID
+
+		String pid = "uuid:" + UUID.randomUUID().toString();
+		
+		
+		// Establish a mapping between files and the form's FileBlocks
+		
+		IdentityHashMap<DepositFile, FileBlock> fileBlockMap = new IdentityHashMap<DepositFile, FileBlock>();
+		
+		for (Entry<FileBlock, Integer> entry : deposit.getBlockFileIndexMap().entrySet()) {
+			DepositFile depositFile = deposit.getFiles()[entry.getValue()];
+			
+			if (depositFile != null)
+				fileBlockMap.put(depositFile, entry.getKey());
+		}
+		
+		
+		// Get all the files as a big list
+		
+		List<DepositFile> files = new ArrayList<DepositFile>();
+
+		files.addAll(deposit.getAllFiles());
+		files.addAll(supplemental.getAllFiles());
+		
+		
+		// Establish a mapping between files and filenames (give each file a unique, indexed name)
+		
+		IdentityHashMap<DepositFile, String> fileFilenameMap = buildFilenameMap(files);
+		
+		
+		// Prepare the zip file for deposit
+		
+		gov.loc.mets.DocumentRoot metsDocumentRoot = makeSupplementalMets(form, supplemental.getFiles(), deposit.getMainFile(), files, fileFilenameMap, fileBlockMap);
+		File zipFile = makeZipFile(metsDocumentRoot, files, fileFilenameMap);
+		
+		
+		// Obtain the path for the collection in which we'll attempt to make the deposit
+		
+		String containerId = form.getDepositContainerId();
+		
+		if (containerId == null || "".equals(containerId.trim()))
+			containerId = this.getDefaultContainer();
+
+		String depositPath = getServiceUrl() + "collection/" + containerId;
+		
+		
+		// Make the SWORD request
+		
+		HttpClient client = new HttpClient();
+		
+		UsernamePasswordCredentials creds = new UsernamePasswordCredentials(this.getUsername(), this.getPassword());
+		client.getState().setCredentials(getAuthenticationScope(depositPath), creds);
+		client.getParams().setAuthenticationPreemptive(true);
+		
+		PostMethod post = new PostMethod(depositPath);
+		
+		RequestEntity fileRequestEntity = new FileRequestEntity(zipFile, "application/zip");
+		
+		Header contentDispositionHeader = new Header("Content-Disposition", "attachment; filename=package.zip");
+		post.addRequestHeader(contentDispositionHeader);
+		
+		Header packagingHeader = new Header("Packaging", "http://cdr.unc.edu/METS/profiles/Simple");
+		post.addRequestHeader(packagingHeader);
+		
+		Header slugHeader = new Header("Slug", pid);
+		post.addRequestHeader(slugHeader);
+		
+		post.setRequestEntity(fileRequestEntity);
+		
+		
+		// Interpret the response from the SWORD endpoint
+		
+		DepositResult result = new DepositResult();
+		result.setPid(pid);
+		
+		try {
+			
+			// Set the result's status based on the HTTP response code
+			
+			int responseCode = client.executeMethod(post);
+			
+			if (responseCode >= 300) {
+				LOG.error(String.valueOf(responseCode));
+				LOG.error(post.getResponseBodyAsString());
+				result.setStatus(Status.FAILED);
+			} else {
+				result.setStatus(Status.COMPLETE);
+			}
+			
+			// Save the response body
+			
+			result.setResponseBody(post.getResponseBodyAsString());
+			
+			// Assign additional attributes based on the response body.
+			
+			try {
+				
+			    Namespace atom = Namespace.getNamespace("http://www.w3.org/2005/Atom");
+
+				SAXBuilder sx = new SAXBuilder();
+				org.jdom.Document d = sx.build(post.getResponseBodyAsStream());
+				
+				// Set accessURL to the href of the first <link rel="alternate"> inside an Atom entry
+				
+				if (result.getStatus() == Status.COMPLETE) {
+
+					if (d.getRootElement().getNamespace().equals(atom) && d.getRootElement().getName().equals("entry")) {
+						@SuppressWarnings("unchecked")
+						List<Element> links = d.getRootElement().getChildren("link", atom);
+	
+						for (Element link : links) {
+							if ("alternate".equals(link.getAttributeValue("rel"))) {
+								result.setAccessURL(link.getAttributeValue("href"));
+								break;
+							}
+						}
+					}
+					
+				}
+
+			} catch (JDOMException e) {
+				LOG.error("There was a problem parsing the SWORD response.", e);
+			}
+			
+			LOG.debug("response was: \n" + post.getResponseBodyAsString());
+			
+		} catch (HttpException e) {
+			LOG.error("Exception during SWORD deposit", e);
+			throw new Error(e);
+		} catch (IOException e) {
+			LOG.error("Exception during SWORD deposit", e);
+			throw new Error(e);
+		}
+		
+		return result;
+		
+	}
+	
+	
 
 	private IdentityHashMap<DepositFile, String> buildFilenameMap(List<DepositFile> files) {
 		
@@ -570,6 +725,372 @@ public class SwordDepositHandler implements DepositHandler {
 					fileDiv.setLABEL1(fileBlock.getLabel());
 				else
 					fileDiv.setLABEL1(depositFile.getFilename());
+				
+				FptrType fptr = MetsFactory.eINSTANCE.createFptrType();
+				fptr.setFILEID(filesFiles.get(depositFile).getID());
+				fileDiv.getFptr().add(fptr);
+				fileDiv.setID("d_" + i);
+				
+				aggregateWorkDiv.getDiv().add(fileDiv);
+				
+				fileDivs.put(depositFile, fileDiv);
+				
+				i++;
+				
+			}
+	
+			structMap.setDiv(aggregateWorkDiv);
+			mets.getStructMap().add(structMap);
+
+			rootDiv = aggregateWorkDiv;
+			
+		}
+		
+		// Add metadata
+		
+		if (dmdSec != null)
+			rootDiv.getDmdSec().add(dmdSec);
+		
+		rootDiv.getMdSec().addAll(amdSec.getDigiprovMD());
+		rootDiv.getMdSec().addAll(amdSec.getRightsMD());
+		rootDiv.getMdSec().addAll(amdSec.getSourceMD());
+		rootDiv.getMdSec().addAll(amdSec.getTechMD());
+		
+		// Structural Links
+		
+		// Add "default access" links from the Aggregate Work div to each File div
+		// if its corresponding FileBlock has "default access role" set, or
+		// if its corresponding DepositFile is the main file (if set).
+		
+		if (aggregateWorkDiv != null) {
+		
+			StructLinkType1 structLink = MetsFactory.eINSTANCE.createStructLinkType1();
+			
+			for (DepositFile depositFile : files) {
+				
+				FileBlock fileBlock = fileBlockMap.get(depositFile);
+				
+				if ((fileBlock != null && fileBlock.isDefaultAccess()) || (depositFile == mainFile)) {
+					
+					DivType fileDiv = fileDivs.get(depositFile);
+			
+					SmLinkType smLink = MetsFactory.eINSTANCE.createSmLinkType();
+					smLink.setArcrole(Link.DEFAULTACCESS.uri);
+					smLink.setXlinkFrom(aggregateWorkDiv);
+					smLink.setXlinkTo(fileDiv);
+					
+					structLink.getSmLink().add(smLink);
+					
+				}
+				
+			}
+			
+			// Only add the structLink section if there are actually links
+			
+			if (structLink.getSmLink().size() > 0)
+				mets.setStructLink(structLink);
+		
+		}
+		
+		return root;
+
+	}
+	
+	private gov.loc.mets.DocumentRoot makeSupplementalMets(Form form,
+			List<SupplementalFile> supplementalFiles,
+			DepositFile mainFile,
+			List<DepositFile> files,
+			IdentityHashMap<DepositFile, String> filenames,
+			IdentityHashMap<DepositFile, FileBlock> fileBlockMap) {
+		
+		gov.loc.mets.DocumentRoot root;
+		MetsType mets;
+		AmdSecType amdSec;
+		MdSecType dmdSec;
+		DivType aggregateWorkDiv = null;
+		
+		// Document root
+		
+		{
+
+			root = MetsFactory.eINSTANCE.createDocumentRoot();
+			root.setMets(MetsFactory.eINSTANCE.createMetsType1());
+			mets = root.getMets();
+
+			mets.setPROFILE("http://cdr.unc.edu/METS/profiles/Simple");
+			
+		}
+
+		// Header
+		
+		{
+
+			MetsHdrType head = MetsFactory.eINSTANCE.createMetsHdrType();
+			Date currentTime = new Date(System.currentTimeMillis());
+			head.setCREATEDATE(new XMLCalendar(currentTime, XMLCalendar.DATETIME));
+			head.setLASTMODDATE(new XMLCalendar(currentTime, XMLCalendar.DATETIME));
+	
+			AgentType agent;
+			
+			if (form.getCurrentUser() != null) {
+				agent = MetsFactory.eINSTANCE.createAgentType();
+				agent.setROLE(ROLEType.CREATOR);
+				agent.setTYPE(TYPEType.INDIVIDUAL);
+				agent.setName(form.getCurrentUser());
+				head.getAgent().add(agent);
+			}
+			
+			agent = MetsFactory.eINSTANCE.createAgentType();
+			agent.setROLE(ROLEType.CREATOR);
+			agent.setTYPE(TYPEType.OTHER);
+			agent.setName("CDR Forms");
+			head.getAgent().add(agent);
+
+			mets.setMetsHdr(head);
+			
+		}
+		
+		// Metadata sections
+
+		IdentityHashMap<DepositFile, MdSecType> filesMetadataSections = new IdentityHashMap<DepositFile, MdSecType>();
+		
+		dmdSec = null;
+		amdSec = MetsFactory.eINSTANCE.createAmdSecType();
+		
+		{
+			
+			int i = 0;
+		
+			for (OutputProfile profile : form.getOutputProfiles()) {
+				MdSecType mdSec = makeMetadata(profile, form);
+				
+				if (mdSec != null) {
+					mdSec.setID("md_" + i);
+					
+					switch (profile.getMetadataSection()) {
+					case DIGIPROV_MD:
+						amdSec.getDigiprovMD().add(mdSec);
+						break;
+					case RIGHTS_MD:
+						amdSec.getRightsMD().add(mdSec);
+						break;
+					case SOURCE_MD:
+						amdSec.getSourceMD().add(mdSec);
+						break;
+					case TECH_MD:
+						amdSec.getTechMD().add(mdSec);
+						break;
+					case DMD_SEC:
+						dmdSec = mdSec;
+						mets.getDmdSec().add(mdSec);
+						break;
+					}
+					
+					i++;
+				}
+			}
+			
+			for (SupplementalFile supplementalFile : supplementalFiles) {
+				
+				MdSecType mdSec = MetsFactory.eINSTANCE.createMdSecType();
+				mdSec.setID("md_" + i);
+				
+				MdWrapType mdWrap = MetsFactory.eINSTANCE.createMdWrapType();
+				mdWrap.setMDTYPE(MDTYPEType.MODS);
+				mdSec.setMdWrap(mdWrap);
+				
+				XmlDataType1 xmlData = MetsFactory.eINSTANCE.createXmlDataType1();
+				mdWrap.setXmlData(xmlData);
+				
+				ModsDefinition modsDefinition = MODSFactory.eINSTANCE.createModsDefinition();
+				xmlData.getAny().add(MODSPackage.eINSTANCE.getDocumentRoot_Mods(), modsDefinition);
+				
+				// Title
+				
+				TitleInfoDefinition titleInfo = MODSFactory.eINSTANCE.createTitleInfoDefinition();
+				modsDefinition.getTitleInfo().add(titleInfo);
+				
+				XsString title = MODSFactory.eINSTANCE.createXsString();
+				title.setValue(supplementalFile.getTitle());
+				titleInfo.getTitle().add(title);
+				
+				// Year
+				
+				OriginInfoDefinition originInfo = MODSFactory.eINSTANCE.createOriginInfoDefinition();
+				modsDefinition.getOriginInfo().add(originInfo);
+				
+				DateDefinition dateCreated = MODSFactory.eINSTANCE.createDateDefinition();
+				dateCreated.setEncoding(DateEncodingAttributeDefinition.ISO8601);
+				dateCreated.setValue(new SimpleDateFormat("yyyy").format(supplementalFile.getDate()));
+				originInfo.getDateCreated().add(dateCreated);
+				
+				// Material and dimensions
+				
+				PhysicalDescriptionDefinition physicalDescription = MODSFactory.eINSTANCE.createPhysicalDescriptionDefinition();
+				modsDefinition.getPhysicalDescription().add(physicalDescription);
+				
+				StringPlusAuthorityPlusType materialForm = MODSFactory.eINSTANCE.createStringPlusAuthorityPlusType();
+				materialForm.setType("material");
+				materialForm.setValue(supplementalFile.getMedium());
+				physicalDescription.getForm().add(materialForm);
+				
+				StringPlusSupplied dimensionsExtent = MODSFactory.eINSTANCE.createStringPlusSupplied();
+				dimensionsExtent.setValue(supplementalFile.getDimensions());
+				physicalDescription.getExtent().add(dimensionsExtent);
+				
+				// Narrative
+				
+				if (supplementalFile.getNarrative() != null && supplementalFile.getNarrative().trim().length() > 0) {
+				
+					AbstractDefinition narrative = MODSFactory.eINSTANCE.createAbstractDefinition();
+					narrative.setValue(supplementalFile.getNarrative());
+					modsDefinition.getAbstract().add(narrative);
+					
+				}
+				
+				
+				mets.getDmdSec().add(mdSec);
+				filesMetadataSections.put(supplementalFile.getDepositFile(), mdSec);
+				i++;
+				
+			}
+			
+			mets.getAmdSec().add(amdSec);
+			
+		}
+		
+		// If the form specifies that the object should be reviewed before publication,
+		// the ACL should specify that it is not published.
+		
+		if (form.isReviewBeforePublication()) {
+			
+			AccessControlType accessControl = null;
+			
+			for (MdSecType mdSec : amdSec.getRightsMD()) {
+				
+				if (mdSec.getMdWrap() != null &&
+						mdSec.getMdWrap().getMDTYPE().equals(MDTYPEType.OTHER) &&
+						mdSec.getMdWrap().getOTHERMDTYPE().equals("ACL")) {
+					accessControl = (AccessControlType) mdSec.getMdWrap().getXmlData().getAny().list(AclPackage.eINSTANCE.getDocumentRoot_AccessControl()).get(0);
+					break;
+				}
+				
+			}
+			
+			if (accessControl != null) {
+				
+				accessControl.setPublished(false);
+				
+			} else {
+				
+				accessControl = AclFactory.eINSTANCE.createAccessControlType();
+				accessControl.setPublished(false);
+				
+				MdSecType rightsMdSec = MetsFactory.eINSTANCE.createMdSecType();
+				rightsMdSec.setID("md_review");
+
+				MdWrapType mdWrap = MetsFactory.eINSTANCE.createMdWrapType();
+				mdWrap.setMDTYPE(MDTYPEType.OTHER);
+				mdWrap.setOTHERMDTYPE("ACL");
+
+				XmlDataType1 xmlData = MetsFactory.eINSTANCE.createXmlDataType1();
+				xmlData.getAny().add(AclPackage.eINSTANCE.getDocumentRoot_AccessControl(), accessControl);
+
+				mdWrap.setXmlData(xmlData);
+				rightsMdSec.setMdWrap(mdWrap);
+
+				amdSec.getRightsMD().add(rightsMdSec);
+				
+			}
+			
+		}
+
+		// Files section
+		
+		IdentityHashMap<DepositFile, FileType> filesFiles = new IdentityHashMap<DepositFile, FileType>();
+		
+		{
+
+			FileSecType fileSec = MetsFactory.eINSTANCE.createFileSecType();
+			FileGrpType1 fileGrp = MetsFactory.eINSTANCE.createFileGrpType1();
+
+			int i = 0;
+
+			for (DepositFile depositFile : files) {
+				
+				FileType file = MetsFactory.eINSTANCE.createFileType();
+				file.setID("f_" + i);
+				file.setMIMETYPE(depositFile.getContentType());
+	
+				FLocatType fLocat = MetsFactory.eINSTANCE.createFLocatType();
+				fLocat.setLOCTYPE(LOCTYPEType.URL);
+				fLocat.setHref(filenames.get(depositFile));
+	
+				file.getFLocat().add(fLocat);
+				fileGrp.getFile().add(file);
+				
+				filesFiles.put(depositFile, file);
+				
+				i++;
+				
+			}
+			
+			fileSec.getFileGrp().add(fileGrp);
+			mets.setFileSec(fileSec);
+		
+		}
+
+		// Structural map
+		
+		IdentityHashMap<DepositFile, DivType> fileDivs = new IdentityHashMap<DepositFile, DivType>();
+		DivType rootDiv; 
+		
+		if (mainFile != null && files.size() == 1) {
+			
+			StructMapType structMap = MetsFactory.eINSTANCE.createStructMapType();
+
+			DivType fileDiv = MetsFactory.eINSTANCE.createDivType();
+			
+			fileDiv.setTYPE(METSConstants.Div_File);
+			fileDiv.setID("d_0");
+			fileDiv.setLABEL1(mainFile.getFilename());
+			
+			FptrType fptr = MetsFactory.eINSTANCE.createFptrType();
+			fptr.setFILEID(filesFiles.get(mainFile).getID());
+			fileDiv.getFptr().add(fptr);
+
+			structMap.setDiv(fileDiv);
+			mets.getStructMap().add(structMap);
+
+			fileDivs.put(mainFile, fileDiv);
+			rootDiv = fileDiv;
+			
+		} else {
+
+			StructMapType structMap = MetsFactory.eINSTANCE.createStructMapType();
+
+			aggregateWorkDiv = MetsFactory.eINSTANCE.createDivType();
+			aggregateWorkDiv.setTYPE(METSConstants.Div_AggregateWork);
+			aggregateWorkDiv.setID("d_0");
+			
+			int i = 1;
+
+			for (DepositFile depositFile : files) {
+			
+				DivType fileDiv = MetsFactory.eINSTANCE.createDivType();
+				fileDiv.setTYPE(METSConstants.Div_File);
+				
+				FileBlock fileBlock = fileBlockMap.get(depositFile);
+				
+				if (fileBlock != null && fileBlock.getLabel() != null && fileBlock.getLabel().trim().length() > 0)
+					fileDiv.setLABEL1(fileBlock.getLabel());
+				else
+					fileDiv.setLABEL1(depositFile.getFilename());
+				
+				MdSecType mdSec = filesMetadataSections.get(depositFile);
+				
+				if (mdSec != null)
+					fileDiv.getDmdSec().add(mdSec);
 				
 				FptrType fptr = MetsFactory.eINSTANCE.createFptrType();
 				fptr.setFILEID(filesFiles.get(depositFile).getID());

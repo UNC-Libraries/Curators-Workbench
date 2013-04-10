@@ -12,11 +12,13 @@ import java.util.Map.Entry;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import javax.xml.ws.BindingType;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -32,6 +34,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import cdr.forms.DepositResult.Status;
+
+import com.philvarner.clamavj.ClamScan;
+
 import crosswalk.FileBlock;
 import crosswalk.Form;
 import crosswalk.FormElement;
@@ -42,75 +48,6 @@ import crosswalk.MetadataBlock;
 @RequestMapping(value = { "/*", "/**" })
 @SessionAttributes("supplemental")
 public class SupplementalController {
-	
-	public class SupplementalFile {
-		private DepositFile depositFile;
-		private String title;
-		private String medium;
-		private String dimensions;
-		private Date date;
-		private String narrative;
-		
-		public DepositFile getDepositFile() {
-			return depositFile;
-		}
-		
-		public void setDepositFile(DepositFile depositFile) {
-			this.depositFile = depositFile;
-		}
-		
-		public String getTitle() {
-			return title;
-		}
-		
-		public void setTitle(String title) {
-			this.title = title;
-		}
-		
-		public String getMedium() {
-			return medium;
-		}
-		
-		public void setMedium(String medium) {
-			this.medium = medium;
-		}
-
-		public String getDimensions() {
-			return dimensions;
-		}
-
-		public void setDimensions(String dimensions) {
-			this.dimensions = dimensions;
-		}
-
-		public Date getDate() {
-			return date;
-		}
-
-		public void setDate(Date date) {
-			this.date = date;
-		}
-
-		public String getNarrative() {
-			return narrative;
-		}
-
-		public void setNarrative(String narrative) {
-			this.narrative = narrative;
-		}
-	}
-	
-	public class SupplementalDeposit {
-		private List<SupplementalFile> files;
-
-		public List<SupplementalFile> getFiles() {
-			return files;
-		}
-
-		public void setFiles(List<SupplementalFile> files) {
-			this.files = files;
-		}
-	}
 	
 	public class SupplementalDepositValidator implements Validator {
 
@@ -137,6 +74,74 @@ public class SupplementalController {
 		}
 
 	}
+	
+	private static final Logger LOG = LoggerFactory.getLogger(SupplementalController.class);
+
+	@Autowired
+	ClamScan clamScan = null;
+	
+	public ClamScan getClamScan() {
+		return clamScan;
+	}
+
+	public void setClamScan(ClamScan clamScan) {
+		this.clamScan = clamScan;
+	}
+	
+	@Autowired
+	private DepositHandler depositHandler;
+	
+	public DepositHandler getDepositHandler() {
+		return depositHandler;
+	}
+
+	public void setDepositHandler(DepositHandler depositHandler) {
+		this.depositHandler = depositHandler;
+	}
+	
+	@Autowired
+	public String administratorEmail = null;
+
+	public String getAdministratorEmail() {
+		return administratorEmail;
+	}
+
+	public void setAdministratorEmail(String administratorEmail) {
+		this.administratorEmail = administratorEmail;
+	}
+	
+	@Autowired
+	Long maxUploadSize = null;
+	
+	public Long getMaxUploadSize() {
+		return maxUploadSize;
+	}
+	
+	public void setMaxUploadSize(Long maxUploadSize) {
+		this.maxUploadSize = maxUploadSize;
+	}
+	
+	@Autowired
+	private AuthorizationHandler authorizationHandler = null;
+
+	public AuthorizationHandler getAuthorizationHandler() {
+		return authorizationHandler;
+	}
+
+	public void setAuthorizationHandler(AuthorizationHandler authorizationHandler) {
+		this.authorizationHandler = authorizationHandler;
+	}
+	
+	@Autowired(required=false)
+	private NotificationHandler notificationHandler = null;
+
+	public NotificationHandler getNotificationHandler() {
+		return notificationHandler;
+	}
+
+	public void setNotificationHandler(NotificationHandler notificationHandler) {
+		this.notificationHandler = notificationHandler;
+	}
 
 	@InitBinder
 	protected void initBinder(WebDataBinder binder) {
@@ -150,8 +155,8 @@ public class SupplementalController {
 			Model model,
 			HttpServletRequest request) {
 		
-		if (request.getSession(true).getAttribute("supplementalContainerPid") == null) {
-			System.out.println("No container PID");
+		if (request.getSession(true).getAttribute("deposit") == null) {
+			throw new Error("No deposit in session");
 		}
 		
 		if (!model.containsAttribute("supplemental")) {
@@ -169,16 +174,38 @@ public class SupplementalController {
 			@ModelAttribute("supplemental") SupplementalDeposit supplemental,
 			BindingResult errors,
 			@RequestParam(value="added", required=false) DepositFile[] addedDepositFiles,
-			@RequestParam(value="deposit", required=false) String submitDepositAction) {
+			@RequestParam(value="deposit", required=false) String submitDepositAction,
+			HttpServletRequest request,
+			HttpServletResponse response) {
 		
-		// If the "ready to submit" button was clicked, validate
+		Deposit deposit = (Deposit) request.getSession(true).getAttribute("deposit");
+		
+		// If the "ready to submit" button was clicked, validate and submit
 		
 		if (submitDepositAction != null) {
+			
 			Validator validator = new SupplementalDepositValidator();
 			validator.validate(supplemental, errors);
 			
-			if (!errors.hasErrors())
-				return "supplemental/success";
+			if (!errors.hasErrors()) {
+				
+				DepositResult result = this.getDepositHandler().deposit(deposit, supplemental);
+				
+				String view;
+				
+				if (result.getStatus() == Status.FAILED) {
+					LOG.error("deposit failed");
+					response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+					
+					view = "failed";
+				} else {
+					view = "success";
+				}
+				
+				return view;
+				
+			}
+			
 		}
 		
 		// Remove file instances set to null by binder

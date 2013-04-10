@@ -34,7 +34,7 @@ pageContext.setAttribute("currentYear", new Integer(year));
 </head>
 <body>
 
-	<form action="/forms/supplemental" method="post" enctype="multipart/form-data">
+	<form id="supplemental" action="/forms/supplemental" method="post" enctype="multipart/form-data">
 		
 		<h1>Add a File</h1>
 		
