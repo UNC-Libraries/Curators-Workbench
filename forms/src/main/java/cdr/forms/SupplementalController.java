@@ -46,7 +46,7 @@ import crosswalk.MetadataBlock;
 
 @Controller
 @RequestMapping(value = { "/*", "/**" })
-@SessionAttributes("supplemental")
+@SessionAttributes("deposit")
 public class SupplementalController {
 	
 	public class SupplementalObjectValidator implements Validator {
@@ -143,18 +143,11 @@ public class SupplementalController {
 	
 	@RequestMapping(value = "/supplemental", method = RequestMethod.GET)
 	public String show(
-			Model model,
+			@ModelAttribute("deposit") Deposit deposit,
 			HttpServletRequest request) {
 		
-		if (request.getSession(true).getAttribute("deposit") == null) {
-			throw new Error("No deposit in session");
-		}
-		
-		if (!model.containsAttribute("supplemental")) {
-			SupplementalDeposit supplemental = new SupplementalDeposit();
-			supplemental.setFiles(new ArrayList<SupplementalObject>());
-			model.addAttribute("supplemental", supplemental);
-		}
+		if (deposit.getSupplementalObjects() == null)
+			deposit.setSupplementalObjects(new ArrayList<SupplementalObject>());
 		
 		return "supplemental";
 		
@@ -162,14 +155,12 @@ public class SupplementalController {
 	
 	@RequestMapping(value = "/supplemental", method = RequestMethod.POST)
 	public String update(
-			@ModelAttribute("supplemental") SupplementalDeposit supplemental,
+			@ModelAttribute("deposit") Deposit deposit,
 			BindingResult errors,
 			@RequestParam(value="added", required=false) DepositFile[] addedDepositFiles,
 			@RequestParam(value="deposit", required=false) String submitDepositAction,
 			HttpServletRequest request,
 			HttpServletResponse response) {
-		
-		Deposit deposit = (Deposit) request.getSession(true).getAttribute("deposit");
 		
 		// If the "ready to submit" button was clicked, validate and submit
 		
@@ -179,8 +170,8 @@ public class SupplementalController {
 			
 			int i = 0;
 			
-			for (SupplementalObject object : supplemental.getFiles()) {
-				errors.pushNestedPath("files[" + i + "]");
+			for (SupplementalObject object : deposit.getSupplementalObjects()) {
+				errors.pushNestedPath("supplementalObjects[" + i + "]");
 				validator.validate(object, errors);
 				errors.popNestedPath();
 				
@@ -189,7 +180,7 @@ public class SupplementalController {
 			
 			if (!errors.hasErrors()) {
 				
-				DepositResult result = this.getDepositHandler().deposit(deposit, supplemental);
+				DepositResult result = this.getDepositHandler().deposit(deposit);
 				
 				String view;
 				
@@ -210,7 +201,7 @@ public class SupplementalController {
 		
 		// Remove file instances set to null by binder
 		
-		Iterator<SupplementalObject> iterator = supplemental.getFiles().iterator();
+		Iterator<SupplementalObject> iterator = deposit.getSupplementalObjects().iterator();
 		
 		while (iterator.hasNext()) {
 			SupplementalObject file = iterator.next();
@@ -226,14 +217,14 @@ public class SupplementalController {
 					SupplementalObject file = new SupplementalObject();
 					file.setDepositFile(depositFile);
 					
-					supplemental.getFiles().add(0, file);
+					deposit.getSupplementalObjects().add(0, file);
 				}
 			}
 		}
 		
 		// Sort files by name
 		
-		Collections.sort(supplemental.getFiles(), new Comparator<SupplementalObject>() {
+		Collections.sort(deposit.getSupplementalObjects(), new Comparator<SupplementalObject>() {
 			public int compare(SupplementalObject sf1, SupplementalObject sf2) {
 		        return sf1.getDepositFile().getFilename().compareTo(sf2.getDepositFile().getFilename());
 			}

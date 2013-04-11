@@ -158,14 +158,8 @@ public class SwordDepositHandler implements DepositHandler {
 	public void setDefaultContainer(String defaultContainer) {
 		this.defaultContainer = defaultContainer;
 	}
-	
-	public DepositResult deposit(Deposit deposit) {
-		
-		return this.deposit(deposit, null);
-		
-	}
 
-	public DepositResult deposit(Deposit deposit, SupplementalDeposit supplemental) {
+	public DepositResult deposit(Deposit deposit) {
 		
 		Form form = deposit.getForm();
 		
@@ -176,15 +170,12 @@ public class SwordDepositHandler implements DepositHandler {
 		
 		// Build the METS and zip file
 		
-		List<DepositFile> files = new ArrayList<DepositFile>();
-		
-		files.addAll(deposit.getAllFiles());
-		files.addAll(supplemental.getAllFiles());
+		List<DepositFile> files = deposit.getAllFiles();
 		
 		Map<DepositFile, String> fileNames = buildFileNameMap(files);
 		Map<DepositFile, FileBlock> fileBlocks = buildFileBlockMap(deposit);
 		Map<OutputMetadataSections, List<MdSecType>> rootMetadata = buildRootMetadataMap(form);
-		Map<DepositFile, MdSecType> fileDescriptiveMetadata = buildFileDescriptiveMetadataMap(supplemental.getFiles());
+		Map<DepositFile, MdSecType> fileDescriptiveMetadata = buildFileDescriptiveMetadataMap(deposit.getSupplementalObjects());
 		
 		gov.loc.mets.DocumentRoot metsDocumentRoot =
 				makeMets(files, deposit.getMainFile(),
@@ -396,13 +387,13 @@ public class SwordDepositHandler implements DepositHandler {
 		
 	}
 	
-	private Map<DepositFile, MdSecType> buildFileDescriptiveMetadataMap(List<SupplementalObject> files) {
+	private Map<DepositFile, MdSecType> buildFileDescriptiveMetadataMap(List<SupplementalObject> objects) {
 		
 		IdentityHashMap<DepositFile, MdSecType> fileDescriptiveMetadata = new IdentityHashMap<DepositFile, MdSecType>();
 		
-		if (files != null) {
-			for (SupplementalObject file : files)
-				fileDescriptiveMetadata.put(file.getDepositFile(), file.getDescriptiveMetadata());
+		if (objects != null) {
+			for (SupplementalObject object : objects)
+				fileDescriptiveMetadata.put(object.getDepositFile(), object.getDescriptiveMetadata());
 		}
 		
 		return fileDescriptiveMetadata;

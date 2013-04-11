@@ -103,7 +103,7 @@ $(document).ready(function() {
 
 <h2><c:out value="${deposit.form.title}" /></h2>
 
-<form:form modelAttribute="supplemental" method="post" enctype="multipart/form-data">
+<form:form modelAttribute="deposit" method="post" enctype="multipart/form-data">
 
 	<br />
 	<h3>Add a File</h3>
@@ -117,58 +117,58 @@ $(document).ready(function() {
 	</div>
 
 
-	<c:if test="${not empty supplemental.files}">
+	<c:if test="${not empty deposit.supplementalObjects}">
 
 		<br />
 		<h3>Files to Deposit</h3>
 
-		<c:forEach items="${supplemental.files}" var="file" varStatus="status">
+		<c:forEach items="${deposit.supplementalObjects}" var="object" varStatus="status">
 			<div class="metadata_block">
 				<h4 class="supplemental">
-					<c:out value="${file.depositFile.filename}" />
+					<c:out value="${object.depositFile.filename}" />
 					<input type="submit" name="_files[${status.index}]" value="Remove" />
 				</h4>
 				<div class="indented_block">
 
 					<div class="form_field width_Normal">
 						<label>Title</label>
-						<form:input path="files[${status.index}].title" />
+						<form:input path="supplementalObjects[${status.index}].title" />
 						<span class="red">*</span>
-						<form:errors cssClass="red" path="files[${status.index}].title" />
+						<form:errors cssClass="red" path="supplementalObjects[${status.index}].title" />
 						<br />
 					</div>
 
 					<div class="form_field width_Normal">
 						<label>Medium</label>
-						<form:input path="files[${status.index}].medium" />
+						<form:input path="supplementalObjects[${status.index}].medium" />
 						<span class="red">*</span>
-						<form:errors cssClass="red" path="files[${status.index}].medium" />
+						<form:errors cssClass="red" path="supplementalObjects[${status.index}].medium" />
 						<br />
 					</div>
 
 					<div class="form_field width_Normal">
 						<label>Dimensions</label>
-						<form:input path="files[${status.index}].dimensions" />
+						<form:input path="supplementalObjects[${status.index}].dimensions" />
 						<span class="red">*</span>
-						<form:errors cssClass="red" path="files[${status.index}].dimensions" />
+						<form:errors cssClass="red" path="supplementalObjects[${status.index}].dimensions" />
 						<br />
 					</div>
 
 					<div class="form_field">
 						<label>Year</label>
-						<form:select path="files[${status.index}].date">
+						<form:select path="supplementalObjects[${status.index}].date">
 							<c:forEach var="i" begin="0" end="9">
-								<form:option value="${currentYear - i}" selected="${(currentYear - i) == file.date.year + 1900 ? true : null }" />
+								<form:option value="${currentYear - i}" selected="${(currentYear - i) == object.date.year + 1900 ? true : null }" />
 							</c:forEach>
 						</form:select>
 						<span class="red">*</span>
-						<form:errors cssClass="red" path="files[${status.index}].date" />
+						<form:errors cssClass="red" path="supplementalObjects[${status.index}].date" />
 					</div>
 
 					<div class="form_field width_Normal">
 						<label>Brief Narrative</label>
 						<div class="multi_notes"></div>
-						<form:textarea path="files[${status.index}].narrative" />
+						<form:textarea path="supplementalObjects[${status.index}].narrative" />
 					</div>
 				</div>
 			</div>

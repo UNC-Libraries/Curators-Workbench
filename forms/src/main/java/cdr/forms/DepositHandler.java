@@ -21,6 +21,5 @@ import crosswalk.Form;
 public interface DepositHandler {
 	
 	DepositResult deposit(Deposit deposit);
-	DepositResult deposit(Deposit deposit, SupplementalDeposit supplemental);
 	
 }

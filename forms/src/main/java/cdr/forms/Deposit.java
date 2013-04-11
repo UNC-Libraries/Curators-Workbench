@@ -18,6 +18,7 @@ public class Deposit {
 	private IdentityHashMap<FileBlock, Integer> blockFileIndexMap;
 	private DepositFile mainFile;
 	private DepositFile[] supplementalFiles;
+	private List<SupplementalObject> supplementalObjects;
 
 	public Form getForm() {
 		return form;
@@ -74,6 +75,14 @@ public class Deposit {
 	public void setSupplementalFiles(DepositFile[] supplementalFiles) {
 		this.supplementalFiles = supplementalFiles;
 	}
+
+	public List<SupplementalObject> getSupplementalObjects() {
+		return supplementalObjects;
+	}
+
+	public void setSupplementalObjects(List<SupplementalObject> supplementalObjects) {
+		this.supplementalObjects = supplementalObjects;
+	}
 	
 	public void deleteAllFiles() {
 		for (DepositFile depositFile : this.getAllFiles()) {
@@ -99,6 +108,13 @@ public class Deposit {
 			for (DepositFile depositFile : this.getSupplementalFiles()) {
 				if (depositFile != null)
 					files.add(depositFile);
+			}
+		}
+		
+		if (this.getSupplementalObjects() != null) {
+			for (SupplementalObject object : this.getSupplementalObjects()) {
+				if (object != null && object.getDepositFile() != null)
+					files.add(object.getDepositFile());
 			}
 		}
 		
