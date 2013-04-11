@@ -28,6 +28,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.IdentityHashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
@@ -47,6 +48,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.ObjectError;
+import org.springframework.validation.Validator;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.InitBinder;
@@ -188,7 +190,7 @@ public class FormController {
 	}
 
 	@RequestMapping(value = "/{formId}.form", method = RequestMethod.GET)
-	public String showForm(@PathVariable String formId, Model model, HttpServletRequest request) throws PermissionDeniedException {
+	public String showForm(@PathVariable String formId, Model model, Principal user, HttpServletRequest request) throws PermissionDeniedException {
 		
 		Form form = factory.getForm(formId);
 		
@@ -220,7 +222,13 @@ public class FormController {
 	    deposit.setFiles(new DepositFile[index]);
 	    deposit.setBlockFileIndexMap(blockFileIndexMap);
 	    
+	    //
+	    
 	    deposit.setSupplementalFiles(new DepositFile[3]);
+	    
+	    //
+	    
+	    deposit.setSupplementalObjects(new ArrayList<SupplementalObject>());
 	    
 	    //
 	    
@@ -235,6 +243,11 @@ public class FormController {
 		
 		deposit.setReceiptEmailAddress(receiptEmailAddress);
 		
+		//
+		
+		if (user != null)
+			deposit.getForm().setCurrentUser(user.getName());
+		
 		
 		model.addAttribute("deposit", deposit);
 		
@@ -243,25 +256,21 @@ public class FormController {
 	}
 
 	@RequestMapping(value = "/{formId}.form", method = RequestMethod.POST)
-	public String processForm(
+	public String collectDeposit(
 			Model model,
 			@PathVariable(value="formId") String formId,
 			@Valid @ModelAttribute("deposit") Deposit deposit,
 			BindingResult errors,
-			Principal user,
-			SessionStatus sessionStatus, HttpServletRequest request,
+			SessionStatus sessionStatus,
+			HttpServletRequest request,
 			HttpServletResponse response) throws PermissionDeniedException {
 		
-		// Check that the form submitted by the user matches the one in the session
+		// Validate request and ensure character encoding is set
 		
 		if (!deposit.getFormId().equals(formId))
 			throw new Error("Form ID in session doesn't match form ID in path");
 		
-		//
-		
 		this.getAuthorizationHandler().checkPermission(formId, deposit.getForm(), request);
-		
-		//
 		
 		try {
 			request.setCharacterEncoding("UTF-8");
@@ -269,100 +278,231 @@ public class FormController {
 			LOG.error("Failed to set character encoding", e);
 		}
 		
-		//
-		
-		if (user != null)
-			deposit.getForm().setCurrentUser(user.getName());
 		
 		// Check the deposit's files for virus signatures
 		
-		IdentityHashMap<DepositFile, String> signatures = new IdentityHashMap<DepositFile, String>();
+		IdentityHashMap<DepositFile, String> signatures = scanDepositFiles(deposit.getAllFiles());
 		
-		for (DepositFile depositFile : deposit.getAllFiles())
-			scanDepositFile(depositFile, signatures);
 		
-		// If the deposit has validation errors and no virus signatures were detected, display errors
-		
-		if (errors.hasErrors() && signatures.size() == 0) {
-			LOG.debug(errors.getErrorCount() + " errors");
-			return "form";
-		}
-		
-		// Otherwise, display one of the result pages: if we detected a virus signature, display
-		// the virus warning; otherwise, try to submit the deposit and display results. In each
-		// case, we want to do the same cleanup.
-		
-		String view;
+		// Handle viruses, errors, and the supplemental files form
+
+		request.setAttribute("formId", formId);
+		request.setAttribute("administratorEmail", getAdministratorEmail());
 		
 		if (signatures.size() > 0) {
 			
-			model.addAttribute("signatures", signatures);
-
+			request.setAttribute("signatures", signatures);
 			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
 			
-			view = "virus";
+			deposit.deleteAllFiles();
+			sessionStatus.setComplete();
 			
-		} else if (formId.equals("studio-art")) {
+			return "virus";
 			
-			// Temporary special case for the studio art form: redirect to the supplemental controller,
-			// keeping the session and uploaded files intact.
+		}
+		
+		if (errors.hasErrors()) {
+			
+			return "form";
+			
+		}
+		
+		if (formId.equals("studio-art")) {
 			
 			return "redirect:/supplemental";
 			
-		} else {
-		
-			DepositResult result = this.getDepositHandler().deposit(deposit);
-		
-			if (result.getStatus() == Status.FAILED) {
-			
-				LOG.error("deposit failed");
-				
-				if (getNotificationHandler() != null)
-					getNotificationHandler().notifyError(deposit.getForm(), result, deposit.getReceiptEmailAddress(), formId);
-				
-				response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-				
-				view = "failed";
-			
-			} else {
-		
-				if (getNotificationHandler() != null)
-					getNotificationHandler().notifyDeposit(deposit.getForm(), result, deposit.getReceiptEmailAddress(), formId);
-				
-				request.getSession(true).setAttribute("supplementalContainerPid", result.getPid());
-				
-				view = "success";
-				
-			}
-			
 		}
 		
-		// Clean up
 		
-		deposit.deleteAllFiles();
+		// Try to deposit
 		
-		sessionStatus.setComplete();
-		request.setAttribute("formId", formId);
-		request.setAttribute("administratorEmail", getAdministratorEmail());
+		DepositResult result = this.getDepositHandler().deposit(deposit);
+	
+		if (result.getStatus() == Status.FAILED) {
+		
+			LOG.error("deposit failed");
+			
+			if (getNotificationHandler() != null)
+				getNotificationHandler().notifyError(deposit.getForm(), result, deposit.getReceiptEmailAddress(), formId);
+			
+			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
 
-		return view;
+			deposit.deleteAllFiles();
+			sessionStatus.setComplete();
+			
+			return "failed";
+		
+		} else {
+	
+			if (getNotificationHandler() != null)
+				getNotificationHandler().notifyDeposit(deposit.getForm(), result, deposit.getReceiptEmailAddress(), formId);
+
+			deposit.deleteAllFiles();
+			sessionStatus.setComplete();
+			
+			return "success";
+			
+		}
 		
 	}
 	
-	private void scanDepositFile(DepositFile depositFile, IdentityHashMap<DepositFile, String> signatures) {
-		if (depositFile != null && depositFile.getFile() != null) {
-			ScanResult result = this.getClamScan().scan(depositFile.getFile());
-			
-			switch(result.getStatus()) {
-				case PASSED:
-					return;
-				case FAILED:
-					signatures.put(depositFile, result.getSignature());
-					return;
-				case ERROR:
-					throw new Error("There was a problem running the virus scan.", result.getException());
+	@RequestMapping(value = "/supplemental")
+	public String collectSupplementalObjects(
+			@Valid @ModelAttribute("deposit") Deposit deposit,
+			BindingResult errors,
+			SessionStatus sessionStatus,
+			@RequestParam(value="added", required=false) DepositFile[] addedDepositFiles,
+			@RequestParam(value="deposit", required=false) String submitDepositAction,
+			HttpServletRequest request,
+			HttpServletResponse response) {
+		
+		// Validate request and ensure character encoding is set
+		
+		this.getAuthorizationHandler().checkPermission(deposit.getFormId(), deposit.getForm(), request);
+		
+		try {
+			request.setCharacterEncoding("UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			LOG.error("Failed to set character encoding", e);
+		}
+		
+		
+		// Update supplemental objects
+		
+		Iterator<SupplementalObject> iterator = deposit.getSupplementalObjects().iterator();
+		
+		while (iterator.hasNext()) {
+			SupplementalObject file = iterator.next();
+			if (file == null)
+				iterator.remove();
+		}
+		
+		if (addedDepositFiles != null) {
+			for (DepositFile depositFile : addedDepositFiles) {
+				if (depositFile != null) {
+					SupplementalObject object = new SupplementalObject();
+					object.setDepositFile(depositFile);
+					
+					deposit.getSupplementalObjects().add(0, object);
+				}
 			}
 		}
+		
+		Collections.sort(deposit.getSupplementalObjects(), new Comparator<SupplementalObject>() {
+			public int compare(SupplementalObject sf1, SupplementalObject sf2) {
+		        return sf1.getDepositFile().getFilename().compareTo(sf2.getDepositFile().getFilename());
+			}
+		});
+		
+		
+		// Check the deposit's files for virus signatures
+		
+		IdentityHashMap<DepositFile, String> signatures = scanDepositFiles(deposit.getAllFiles());
+		
+		
+		// Validate supplemental objects
+		
+		if (submitDepositAction != null) {
+			Validator validator = new SupplementalObjectValidator();
+			
+			int i = 0;
+			
+			for (SupplementalObject object : deposit.getSupplementalObjects()) {
+				errors.pushNestedPath("supplementalObjects[" + i + "]");
+				validator.validate(object, errors);
+				errors.popNestedPath();
+				
+				i++;
+			}
+		}
+		
+		
+		// Handle viruses, validation errors, and the deposit not having been finally submitted
+
+		request.setAttribute("formId", deposit.getFormId());
+		request.setAttribute("administratorEmail", getAdministratorEmail());
+		
+		if (signatures.size() > 0) {
+			
+			request.setAttribute("signatures", signatures);
+			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+			
+			deposit.deleteAllFiles();
+			sessionStatus.setComplete();
+			
+			return "virus";
+			
+		}
+		
+		if (errors.hasErrors()) {	
+			
+			return "supplemental";
+			
+		}
+		
+		if (submitDepositAction == null) {
+			
+			return "supplemental";
+			
+		}
+		
+		
+		// Try to deposit
+		
+		DepositResult result = this.getDepositHandler().deposit(deposit);
+	
+		if (result.getStatus() == Status.FAILED) {
+		
+			LOG.error("deposit failed");
+			
+			if (getNotificationHandler() != null)
+				getNotificationHandler().notifyError(deposit.getForm(), result, deposit.getReceiptEmailAddress(), deposit.getFormId());
+			
+			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+
+			deposit.deleteAllFiles();
+			sessionStatus.setComplete();
+			
+			return "failed";
+		
+		} else {
+	
+			if (getNotificationHandler() != null)
+				getNotificationHandler().notifyDeposit(deposit.getForm(), result, deposit.getReceiptEmailAddress(), deposit.getFormId());
+
+			deposit.deleteAllFiles();
+			sessionStatus.setComplete();
+			
+			return "success";
+			
+		}
+		
+	}
+	
+	private IdentityHashMap<DepositFile, String> scanDepositFiles(List<DepositFile> files) {
+		
+		IdentityHashMap<DepositFile, String> signatures = new IdentityHashMap<DepositFile, String>();
+			
+		for (DepositFile depositFile : files) {
+		
+			if (depositFile != null && depositFile.getFile() != null) {
+				ScanResult result = this.getClamScan().scan(depositFile.getFile());
+				
+				switch(result.getStatus()) {
+					case PASSED:
+						continue;
+					case FAILED:
+						signatures.put(depositFile, result.getSignature());
+						continue;
+					case ERROR:
+						throw new Error("There was a problem running the virus scan.", result.getException());
+				}
+			}
+			
+		}
+		
+		return signatures;
+		
 	}
 
 	@ExceptionHandler(PermissionDeniedException.class)
