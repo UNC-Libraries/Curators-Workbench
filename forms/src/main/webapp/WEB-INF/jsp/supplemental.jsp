@@ -101,8 +101,12 @@ $(document).ready(function() {
 		<div id="content">
 			<div class="contentarea">
 
-<h2><c:out value="${deposit.form.title}" /></h2>
+<c:if test="${not empty deposit.form.logo}">
+<img src="${deposit.form.logo}" class="form_logo"/>
+</c:if>
 
+<h2><c:out value="${deposit.form.title}" /></h2>
+<p><c:out value="${deposit.form.description}"/></p>
 <form:form modelAttribute="deposit" method="post" enctype="multipart/form-data">
 
 	<br />
