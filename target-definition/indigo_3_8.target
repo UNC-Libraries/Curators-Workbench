@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?pde version="3.8"?><target name="eclipse 3.8 (indigo)" sequenceNumber="22">
+<?pde version="3.8"?><target name="eclipse 3.8 (indigo)" sequenceNumber="25">
 <locations>
 <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipse.platform.ide" version="3.8.1.M20120914-1540"/>
@@ -20,6 +20,9 @@
 <unit id="org.eclipse.gmf.sdk.feature.group" version="3.0.2.201301191623"/>
 <repository location="http://download.eclipse.org/modeling/gmp/gmf-tooling/updates/releases/"/>
 </location>
+<location path="${project_loc}/../org.slf4j.pde/target" type="Directory"/>
+<location path="${project_loc}/../org.slf4j.log4j12/target" type="Directory"/>
+<location path="${project_loc}/../org.apache.log4j/target" type="Directory"/>
 </locations>
 <targetJRE path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
 </target>

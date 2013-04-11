@@ -14,7 +14,6 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources,
  mods.model;bundle-version="0.0.0";visibility:=reexport,
  mets.model;bundle-version="0.0.0";visibility:=reexport,
- org.slf4j.log4j12,
  access-control;bundle-version="4.1.2";visibility:=reexport,
  org.slf4j.pde;visibility:=reexport,
  org.eclipse.help

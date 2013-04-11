@@ -32,6 +32,8 @@ import org.eclipse.ui.commands.ICommandService;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.ui.progress.UIJob;
 import org.osgi.framework.BundleContext;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import unc.lib.cdr.workbench.stage.StagingJob;
 import unc.lib.cdr.workbench.xwalk.CrosswalkJob;
@@ -40,6 +42,7 @@ import unc.lib.cdr.workbench.xwalk.CrosswalkJob;
  * The activator class controls the plug-in life cycle
  */
 public class Activator extends AbstractUIPlugin {
+	private static final Logger LOG = LoggerFactory.getLogger(Activator.class);
 
 	// The plug-in ID
 	public static final String PLUGIN_ID = "workbench_plugin";
@@ -89,6 +92,7 @@ public class Activator extends AbstractUIPlugin {
 
 		};
 		job.schedule();
+		LOG.info("SLF4J is logging here.");
 	}
 
 	/*
