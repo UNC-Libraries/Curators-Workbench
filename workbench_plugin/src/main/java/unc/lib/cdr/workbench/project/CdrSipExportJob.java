@@ -56,6 +56,7 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.command.BasicCommandStack;
 import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -158,8 +159,8 @@ public class CdrSipExportJob extends Job {
 		metsResource.getContents().add(root);
 
 		// remove workbench cruft
-		removeUnlinkedDescriptiveMetadata(cdr);
-		removeExtraLinkedDescriptions(cdr);
+		removeUnlinkedOrUnsupportedMdSecTypes(cdr);
+		removeExtraLinkedMdSecTypes(cdr);
 		removeNonStageFLocat(cdr);
 		removeNonObjectsFileGroups(cdr);
 		removeEmptyStructLink(cdr);
@@ -192,6 +193,35 @@ public class CdrSipExportJob extends Job {
 		}
 
 		return Status.OK_STATUS;
+	}
+
+	private void removeUnlinkedOrUnsupportedMdSecTypes(MetsType1 m) {
+		final Set<MdSecType> remove = new HashSet<MdSecType>();
+
+		MdSecListWork removeUnlinked = new MdSecListWork() {
+			@Override
+			public void run(EList<MdSecType> list) {										
+				for(MdSecType md : list) {
+					if (METSConstants.MD_STATUS_CROSSWALK_NOT_LINKED.equals(md.getSTATUS())) {
+						remove.add(md);
+					}
+				}
+			}
+		};
+		
+		for(AmdSecType amd : m.getAmdSec()) {
+			// these sections not currently supported by CDR submission profile
+			if(amd.getDigiprovMD() != null) remove.addAll(amd.getDigiprovMD());
+			if(amd.getSourceMD() != null) remove.addAll(amd.getSourceMD());
+			if(amd.getTechMD() != null) remove.addAll(amd.getTechMD());
+			removeUnlinked.run(amd.getRightsMD());
+		}
+		removeUnlinked.run(m.getDmdSec());
+		
+		Command c = RemoveCommand.create(editingDomain, remove);
+		if (c.canExecute()) {
+			c.execute();
+		}
 	}
 
 	private void removeEmptyAmdSecTypes(MetsType1 cdr) {
@@ -305,64 +335,58 @@ public class CdrSipExportJob extends Job {
 		}
 	}
 
+	interface MdSecListWork {
+		void run(EList<MdSecType> list);
+	};
+	
 	/**
 	 * @param cdr
 	 */
-	private void removeExtraLinkedDescriptions(MetsType m) {
-		HashSet<MdSecType> remove = new HashSet<MdSecType>();
-		DivType bag = METSUtils.findBagDiv(m);
-		Iterator<EObject> bagChildren = bag.eAllContents();
+	private void removeExtraLinkedMdSecTypes(MetsType m) {
+		final HashSet<MdSecType> remove = new HashSet<MdSecType>();
+		Iterator<EObject> bagChildren = METSUtils.findBagDiv(m).eAllContents();
 		while (bagChildren.hasNext()) {
 			EObject eo = bagChildren.next();
 			if (eo instanceof DivType) {
 				DivType d = (DivType) eo;
-				if (d.getDmdSec().size() > 1) {
-					MdSecType userCreated = null;
-					Set<MdSecType> others = new HashSet<MdSecType>();
-					for (MdSecType md : d.getDmdSec()) {
-						if (METSConstants.MD_STATUS_USER_EDITED.equals(md.getSTATUS())) {
-							if (userCreated != null) {
-								others.add(md);
-								LOG.error("found more than one user created dmdSec for the same div: " + d);
-							} else {
-								userCreated = md;
+				MdSecListWork prune = new MdSecListWork() {
+					@Override
+					public void run(EList<MdSecType> list) {
+						if (list.size() > 1) {
+							MdSecType userCreated = null;
+							Set<MdSecType> others = new HashSet<MdSecType>();
+							for (MdSecType md : list) {
+								if (METSConstants.MD_STATUS_USER_EDITED.equals(md.getSTATUS())) {
+									if (userCreated != null) {
+										others.add(md);
+										LOG.error("found more than one user created mdSec for the same div: " + list);
+									} else {
+										userCreated = md;
+									}
+								} else {
+									others.add(md);
+								}
 							}
-						} else {
-							others.add(md);
+							// if userCreate not null, use it. otherwise combine the others
+							List<MdSecType> mdSecs = new ArrayList<MdSecType>();
+							if (userCreated != null) {
+								remove.addAll(others);
+								mdSecs.add(userCreated);
+							} else {
+								// FIXME merge all crosswalks together into one dmdSec
+								Iterator<MdSecType> i = others.iterator();
+								mdSecs.add(i.next());
+								while (i.hasNext()) {
+									remove.add(i.next());
+								}
+							}
+							list.clear();
+							list.addAll(mdSecs);
 						}
 					}
-					// if userCreate not null, use it. otherwise combine the others
-					List<MdSecType> dmdids = new ArrayList<MdSecType>();
-					if (userCreated != null) {
-						remove.addAll(others);
-						dmdids.add(userCreated);
-					} else {
-						// FIXME merge all crosswalks together into one dmdSec
-						Iterator<MdSecType> i = others.iterator();
-						dmdids.add(i.next());
-						while (i.hasNext()) {
-							remove.add(i.next());
-						}
-					}
-					d.getDmdSec().clear();
-					d.getDmdSec().addAll(dmdids);
-				}
-			}
-		}
-		Command c = RemoveCommand.create(editingDomain, remove);
-		if (c.canExecute()) {
-			c.execute();
-		}
-	}
-
-	/**
-	 * @param cdr
-	 */
-	private void removeUnlinkedDescriptiveMetadata(MetsType m) {
-		Set<MdSecType> remove = new HashSet<MdSecType>();
-		for (MdSecType md : m.getDmdSec()) {
-			if (METSConstants.MD_STATUS_CROSSWALK_NOT_LINKED.equals(md.getSTATUS())) {
-				remove.add(md);
+				};
+				prune.run(d.getDmdSec());
+				prune.run(d.getMdSec());
 			}
 		}
 		Command c = RemoveCommand.create(editingDomain, remove);
