@@ -105,7 +105,7 @@ $(document).ready(function() {
 <img src="${deposit.form.logo}" class="form_logo"/>
 </c:if>
 
-<h2><c:out value="${deposit.form.title}" /></h2>
+<h2><c:out value="${deposit.form.title}" /> (Step 2 of 2)</h2>
 <p><c:out value="${deposit.form.description}"/></p>
 <form:form modelAttribute="deposit" method="post" enctype="multipart/form-data">
 
@@ -119,7 +119,6 @@ $(document).ready(function() {
 			<input type="submit" value="Add to Deposit" />
 		</div>
 	</div>
-
 
 	<c:if test="${not empty deposit.supplementalObjects}">
 

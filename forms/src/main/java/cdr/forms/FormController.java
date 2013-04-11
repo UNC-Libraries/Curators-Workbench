@@ -76,6 +76,8 @@ import crosswalk.FormElement;
 @RequestMapping(value = { "/*", "/**" })
 @SessionAttributes("deposit")
 public class FormController {
+	
+	private static final String SUPPLEMENTAL_OBJECTS_FORM_ID = "studio-art";
 
 	@Autowired
 	ClamScan clamScan = null;
@@ -192,6 +194,10 @@ public class FormController {
 	@RequestMapping(value = "/{formId}.form", method = RequestMethod.GET)
 	public String showForm(@PathVariable String formId, Model model, Principal user, HttpServletRequest request) throws PermissionDeniedException {
 		
+		request.setAttribute("hasSupplementalObjectsStep", formId.equals(SUPPLEMENTAL_OBJECTS_FORM_ID));
+		
+		//
+		
 		Form form = factory.getForm(formId);
 		
 		if (form == null)
@@ -265,6 +271,9 @@ public class FormController {
 			HttpServletRequest request,
 			HttpServletResponse response) throws PermissionDeniedException {
 		
+		request.setAttribute("hasSupplementalObjectsStep", formId.equals(SUPPLEMENTAL_OBJECTS_FORM_ID));
+		
+		
 		// Validate request and ensure character encoding is set
 		
 		if (!deposit.getFormId().equals(formId))
@@ -307,7 +316,7 @@ public class FormController {
 			
 		}
 		
-		if (formId.equals("studio-art")) {
+		if (formId.equals(SUPPLEMENTAL_OBJECTS_FORM_ID)) {
 			
 			return "redirect:/supplemental";
 			

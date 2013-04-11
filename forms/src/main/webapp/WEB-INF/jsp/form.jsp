@@ -210,7 +210,13 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 <img src="${deposit.form.logo}" class="form_logo"/>
 </c:if>
 
-<h2><c:out value="${deposit.form.title}"/></h2>
+<h2>
+<c:out value="${deposit.form.title}"/>
+<c:if test="${hasSupplementalObjectsStep}">
+	(Step 1 of 2)
+</c:if>
+</h2>
+
 <spring:hasBindErrors name="form">
 	<% if (errors.getFieldError("file") != null) { %>
 	<span class="red"><%= errors.getFieldError("file").getDefaultMessage() %></span>
@@ -429,8 +435,16 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 	</div>
 	
 	<div class="submit_container">
-		<input type="submit" value="submit deposit" />
+		<c:choose>
+			<c:when test="${hasSupplementalObjectsStep}">
+				<input type="submit" value="Next Step" />
+			</c:when>
+			<c:otherwise>
+				<input type="submit" value="Submit Deposit" />
+			</c:otherwise>
+		</c:choose>
 	</div>
+	
 </form:form>
 </div>
 </div>
