@@ -21,7 +21,7 @@ import gov.loc.mods.mods.XsString;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class SupplementalFile {
+public class SupplementalObject {
 	private DepositFile depositFile;
 	private String title;
 	private String medium;

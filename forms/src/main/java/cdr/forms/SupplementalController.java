@@ -60,7 +60,7 @@ public class SupplementalController {
 		public void validate(Object target, Errors errors) {
 			SupplementalDeposit deposit = (SupplementalDeposit) target;
 			
-			for (SupplementalFile file : deposit.getFiles()) {
+			for (SupplementalObject file : deposit.getFiles()) {
 				if (file == null)
 					continue;
 				
@@ -161,7 +161,7 @@ public class SupplementalController {
 		
 		if (!model.containsAttribute("supplemental")) {
 			SupplementalDeposit supplemental = new SupplementalDeposit();
-			supplemental.setFiles(new ArrayList<SupplementalFile>());
+			supplemental.setFiles(new ArrayList<SupplementalObject>());
 			model.addAttribute("supplemental", supplemental);
 		}
 		
@@ -210,10 +210,10 @@ public class SupplementalController {
 		
 		// Remove file instances set to null by binder
 		
-		Iterator<SupplementalFile> iterator = supplemental.getFiles().iterator();
+		Iterator<SupplementalObject> iterator = supplemental.getFiles().iterator();
 		
 		while (iterator.hasNext()) {
-			SupplementalFile file = iterator.next();
+			SupplementalObject file = iterator.next();
 			if (file == null)
 				iterator.remove();
 		}
@@ -223,7 +223,7 @@ public class SupplementalController {
 		if (addedDepositFiles != null) {
 			for (DepositFile depositFile : addedDepositFiles) {
 				if (depositFile != null) {
-					SupplementalFile file = new SupplementalFile();
+					SupplementalObject file = new SupplementalObject();
 					file.setDepositFile(depositFile);
 					
 					supplemental.getFiles().add(0, file);
@@ -233,8 +233,8 @@ public class SupplementalController {
 		
 		// Sort files by name
 		
-		Collections.sort(supplemental.getFiles(), new Comparator<SupplementalFile>() {
-			public int compare(SupplementalFile sf1, SupplementalFile sf2) {
+		Collections.sort(supplemental.getFiles(), new Comparator<SupplementalObject>() {
+			public int compare(SupplementalObject sf1, SupplementalObject sf2) {
 		        return sf1.getDepositFile().getFilename().compareTo(sf2.getDepositFile().getFilename());
 			}
 		});

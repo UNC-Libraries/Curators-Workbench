@@ -396,12 +396,12 @@ public class SwordDepositHandler implements DepositHandler {
 		
 	}
 	
-	private Map<DepositFile, MdSecType> buildFileDescriptiveMetadataMap(List<SupplementalFile> files) {
+	private Map<DepositFile, MdSecType> buildFileDescriptiveMetadataMap(List<SupplementalObject> files) {
 		
 		IdentityHashMap<DepositFile, MdSecType> fileDescriptiveMetadata = new IdentityHashMap<DepositFile, MdSecType>();
 		
 		if (files != null) {
-			for (SupplementalFile file : files)
+			for (SupplementalObject file : files)
 				fileDescriptiveMetadata.put(file.getDepositFile(), file.getDescriptiveMetadata());
 		}
 		

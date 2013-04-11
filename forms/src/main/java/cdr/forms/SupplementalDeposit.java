@@ -5,13 +5,13 @@ import java.util.List;
 
 public class SupplementalDeposit {
 	
-	private List<SupplementalFile> files;
+	private List<SupplementalObject> files;
 
-	public List<SupplementalFile> getFiles() {
+	public List<SupplementalObject> getFiles() {
 		return files;
 	}
 
-	public void setFiles(List<SupplementalFile> files) {
+	public void setFiles(List<SupplementalObject> files) {
 		this.files = files;
 	}
 	
@@ -27,9 +27,9 @@ public class SupplementalDeposit {
 		List<DepositFile> files = new ArrayList<DepositFile>();
 		
 		if (this.getFiles() != null) {
-			for (SupplementalFile supplementalFile : this.getFiles()) {
-				if (supplementalFile != null && supplementalFile.getDepositFile() != null) {
-					files.add(supplementalFile.getDepositFile());
+			for (SupplementalObject supplementalObject : this.getFiles()) {
+				if (supplementalObject != null && supplementalObject.getDepositFile() != null) {
+					files.add(supplementalObject.getDepositFile());
 				}
 			}
 		}
