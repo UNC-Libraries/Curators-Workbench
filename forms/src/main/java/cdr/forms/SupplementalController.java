@@ -49,28 +49,19 @@ import crosswalk.MetadataBlock;
 @SessionAttributes("supplemental")
 public class SupplementalController {
 	
-	public class SupplementalDepositValidator implements Validator {
+	public class SupplementalObjectValidator implements Validator {
 
 		@Override
 		public boolean supports(Class<?> clazz) {
-			 return SupplementalDeposit.class.isAssignableFrom(clazz);
+			 return SupplementalObject.class.isAssignableFrom(clazz);
 		}
 
 		@Override
 		public void validate(Object target, Errors errors) {
-			SupplementalDeposit deposit = (SupplementalDeposit) target;
-			
-			for (SupplementalObject file : deposit.getFiles()) {
-				if (file == null)
-					continue;
-				
-				String base = "files[" + deposit.getFiles().indexOf(file) + "]"; 
-				
-				ValidationUtils.rejectIfEmptyOrWhitespace(errors, base + ".title", "field.required", "This field is required.");
-				ValidationUtils.rejectIfEmptyOrWhitespace(errors, base + ".medium", "field.required", "This field is required.");
-				ValidationUtils.rejectIfEmptyOrWhitespace(errors, base + ".dimensions", "field.required", "This field is required.");
-				ValidationUtils.rejectIfEmptyOrWhitespace(errors, base + ".date", "field.required", "This field is required.");
-			}
+			ValidationUtils.rejectIfEmptyOrWhitespace(errors, "title", "field.required", "This field is required.");
+			ValidationUtils.rejectIfEmptyOrWhitespace(errors, "medium", "field.required", "This field is required.");
+			ValidationUtils.rejectIfEmptyOrWhitespace(errors, "dimensions", "field.required", "This field is required.");
+			ValidationUtils.rejectIfEmptyOrWhitespace(errors, "date", "field.required", "This field is required.");
 		}
 
 	}
@@ -184,8 +175,17 @@ public class SupplementalController {
 		
 		if (submitDepositAction != null) {
 			
-			Validator validator = new SupplementalDepositValidator();
-			validator.validate(supplemental, errors);
+			Validator validator = new SupplementalObjectValidator();
+			
+			int i = 0;
+			
+			for (SupplementalObject object : supplemental.getFiles()) {
+				errors.pushNestedPath("files[" + i + "]");
+				validator.validate(object, errors);
+				errors.popNestedPath();
+				
+				i++;
+			}
 			
 			if (!errors.hasErrors()) {
 				
