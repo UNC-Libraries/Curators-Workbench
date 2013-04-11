@@ -110,7 +110,7 @@ $(document).ready(function() {
 <form:form modelAttribute="deposit" method="post" enctype="multipart/form-data">
 
 	<br />
-	<h3>Add a File</h3>
+	<h3>Add Files</h3>
 
 	<div class="indented_block">
 		<div class="form_field file_field">
@@ -119,72 +119,75 @@ $(document).ready(function() {
 			<input type="submit" value="Add to Deposit" />
 		</div>
 	</div>
+	
+	<br />
+	<h3>Files to Deposit</h3>
 
-	<c:if test="${not empty deposit.supplementalObjects}">
+	<c:forEach items="${deposit.supplementalObjects}" var="object" varStatus="status">
+		<div class="metadata_block">
+			<h4 class="supplemental">
+				<c:out value="${object.depositFile.filename}" />
+				<input type="submit" name="_supplementalObjects[${status.index}]" value="Remove" />
+			</h4>
+			<div class="indented_block">
 
-		<br />
-		<h3>Files to Deposit</h3>
+				<div class="form_field width_Normal">
+					<label>Title</label>
+					<form:input path="supplementalObjects[${status.index}].title" />
+					<span class="red">*</span>
+					<form:errors cssClass="red" path="supplementalObjects[${status.index}].title" />
+					<br />
+				</div>
 
-		<c:forEach items="${deposit.supplementalObjects}" var="object" varStatus="status">
-			<div class="metadata_block">
-				<h4 class="supplemental">
-					<c:out value="${object.depositFile.filename}" />
-					<input type="submit" name="_supplementalObjects[${status.index}]" value="Remove" />
-				</h4>
-				<div class="indented_block">
+				<div class="form_field width_Normal">
+					<label>Medium</label>
+					<form:input path="supplementalObjects[${status.index}].medium" />
+					<span class="red">*</span>
+					<form:errors cssClass="red" path="supplementalObjects[${status.index}].medium" />
+					<br />
+				</div>
 
-					<div class="form_field width_Normal">
-						<label>Title</label>
-						<form:input path="supplementalObjects[${status.index}].title" />
-						<span class="red">*</span>
-						<form:errors cssClass="red" path="supplementalObjects[${status.index}].title" />
-						<br />
-					</div>
+				<div class="form_field width_Normal">
+					<label>Dimensions</label>
+					<form:input path="supplementalObjects[${status.index}].dimensions" />
+					<span class="red">*</span>
+					<form:errors cssClass="red" path="supplementalObjects[${status.index}].dimensions" />
+					<br />
+				</div>
 
-					<div class="form_field width_Normal">
-						<label>Medium</label>
-						<form:input path="supplementalObjects[${status.index}].medium" />
-						<span class="red">*</span>
-						<form:errors cssClass="red" path="supplementalObjects[${status.index}].medium" />
-						<br />
-					</div>
+				<div class="form_field">
+					<label>Year</label>
+					<form:select path="supplementalObjects[${status.index}].date">
+						<c:forEach var="i" begin="0" end="9">
+							<form:option value="${currentYear - i}" selected="${(currentYear - i) == object.date.year + 1900 ? true : null }" />
+						</c:forEach>
+					</form:select>
+					<span class="red">*</span>
+					<form:errors cssClass="red" path="supplementalObjects[${status.index}].date" />
+				</div>
 
-					<div class="form_field width_Normal">
-						<label>Dimensions</label>
-						<form:input path="supplementalObjects[${status.index}].dimensions" />
-						<span class="red">*</span>
-						<form:errors cssClass="red" path="supplementalObjects[${status.index}].dimensions" />
-						<br />
-					</div>
-
-					<div class="form_field">
-						<label>Year</label>
-						<form:select path="supplementalObjects[${status.index}].date">
-							<c:forEach var="i" begin="0" end="9">
-								<form:option value="${currentYear - i}" selected="${(currentYear - i) == object.date.year + 1900 ? true : null }" />
-							</c:forEach>
-						</form:select>
-						<span class="red">*</span>
-						<form:errors cssClass="red" path="supplementalObjects[${status.index}].date" />
-					</div>
-
-					<div class="form_field width_Normal">
-						<label>Brief Narrative</label>
-						<div class="multi_notes"></div>
-						<form:textarea path="supplementalObjects[${status.index}].narrative" />
-					</div>
+				<div class="form_field width_Normal">
+					<label>Brief Narrative</label>
+					<div class="multi_notes"></div>
+					<form:textarea path="supplementalObjects[${status.index}].narrative" />
 				</div>
 			</div>
-		</c:forEach>
-
-		<br />
-		<h3>Submit Deposit</h3>
-
-		<div class="submit_container">
-			<input type="submit" name="deposit" value="Submit Deposit" />
 		</div>
+	</c:forEach>
 
-	</c:if>
+	<br />
+	<h3>Submit Deposit</h3>
+
+	<div class="submit_container">
+		<c:choose>
+			<c:when test="${empty deposit.supplementalObjects}">
+				<input type="submit" name="deposit" value="Submit Deposit" disabled="disabled" />
+			</c:when>
+			<c:otherwise>
+				<input type="submit" name="deposit" value="Submit Deposit"/>
+			</c:otherwise>
+		</c:choose>
+	</div>
 
 </form:form>
 
