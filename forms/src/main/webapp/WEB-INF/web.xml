@@ -53,7 +53,7 @@
 
 	<servlet-mapping>
 		<servlet-name>forms</servlet-name>
-		<url-pattern>/supplemental/*</url-pattern>
+		<url-pattern>/supplemental</url-pattern>
 	</servlet-mapping>
 	
 	<filter>  
