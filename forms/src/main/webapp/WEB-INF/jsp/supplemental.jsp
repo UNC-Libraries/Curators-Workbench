@@ -126,7 +126,7 @@ $(document).ready(function() {
 			<div class="metadata_block">
 				<h4 class="supplemental">
 					<c:out value="${object.depositFile.filename}" />
-					<input type="submit" name="_files[${status.index}]" value="Remove" />
+					<input type="submit" name="_supplementalObjects[${status.index}]" value="Remove" />
 				</h4>
 				<div class="indented_block">
 
