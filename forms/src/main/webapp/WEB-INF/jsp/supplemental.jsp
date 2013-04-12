@@ -49,26 +49,168 @@ $(document).ready(function() {
 	$("textarea").expandingTextarea().css("position", "static").outerWidth();
 	$("textarea").css("position", "absolute");
 	
+	
+	var multipleFileSupport = (function() {
+		
+		try {
+
+			if (window.FormData === undefined || window.FileList === undefined)
+				return false;
+			
+			var testInputElement = document.createElement("input");
+			testInputElement.setAttribute("type", "file");
+			testInputElement.setAttribute("multiple", "multiple");
+			
+			if (testInputElement.multiple !== true)
+				return false;
+			
+		} catch (e) {
+			
+			return false;
+			
+		}
+		
+		return true;
+	
+	})();
+	
+	if (multipleFileSupport) {
+		
+		(function() {
+	
+			var queue;
+			var count;
+			
+			function submitNextFile() {
+				
+				try {
+				
+					if (queue.length > 0) {
+						
+						var file = queue.pop();
+						
+						var xhr = new XMLHttpRequest();
+						var fd = new FormData();
+						
+						fd.append("file", file);
+						  
+						xhr.upload.addEventListener("progress", function(e) {
+							if (e.total) {
+								var f = e.loaded / e.total;
+								var c = (count - queue.length) - 1;
+								var r = (c / count) + (f / count);
+								
+								console.log(f, c, r);
+								
+								$("#progress_bar").css("width", (r * 100) + "%");
+							}
+						}, false);
+						  
+						xhr.addEventListener("loadend", function() {
+							submitNextFile();
+						}, false);
+						
+						xhr.open("POST", "/forms/supplemental/files");
+						xhr.send(fd);
+						
+						return;
+						
+					}
+					
+				} catch (e) {
+					
+				}
+				
+				$("#progress_bar").css("width", "100%");
+				$("#deposit").get(0).submit();
+				
+			}
+			
+			$("#add_sample_submit").on("click", function() {
+				
+				var files = $("#add_sample_file").get(0).files;
+				
+				if (files.length > 0) {
+					count = files.length;
+					queue = [];
+					for (var i = 0; i < files.length; i++)
+						queue.push(files[i]);
+					
+					$("#add_sample_file").get(0).value = "";
+					$("#multiple_submit").addClass("progress");
+					$("#deposit input, #deposit select, #deposit textarea").attr("disabled", "disabled");
+					
+					submitNextFile();
+				}
+				
+				return false;
+				
+			});
+			
+			$("#deposit").addClass("multiple");
+			
+		})();
+		
+	}
+	
 });
 
 </script>
 
 <style type="text/css">
   
-  h3 {
-    color: #335;
-    font-size: 14px;
-    border-bottom: 1px dotted #A0D0D0;
-  }
+	h3 {
+		color: #335;
+		font-size: 14px;
+		border-bottom: 1px dotted #A0D0D0;
+	}
   
-  h4 {
-    font-size: 14px;
-    font-weight: bold;
-  }
+	h4 {
+		font-size: 14px;
+		font-weight: bold;
+	}
   
-  h4.supplemental input {
-  	margin-left: 0.5em;
-  }
+	h4.supplemental input {
+		margin-left: 0.5em;
+	}
+	
+	#deposit #multiple_submit {
+		display: none;
+	}
+	
+	#deposit.multiple #multiple_submit {
+		display: block;
+	}
+	
+	#deposit.multiple #single_submit {
+		display: none;
+	}
+	
+	#multiple_submit.progress #add_sample {
+		display: none;
+	}
+	
+	#multiple_submit.progress #progress {
+		display: block;
+	}
+
+	#progress {
+		display: none;
+		width: 100%;
+		background: #eee;
+	}
+	
+	#progress_bar {
+		background: #446;
+		width: 0;
+		height: 14px;
+	}
+	
+	#deposit #single_submit_empty_list { display: block; }
+	#deposit.multiple #single_submit_empty_list { display: none; }
+	
+	#deposit #multiple_submit_empty_list { display: none; }
+	#deposit.multiple #multiple_submit_empty_list { display: block; }
   
 </style>
 
@@ -107,16 +249,28 @@ $(document).ready(function() {
 
 <h2><c:out value="${deposit.form.title}" /></h2>
 <p><c:out value="${deposit.form.description}"/></p>
-<form:form modelAttribute="deposit" method="post" enctype="multipart/form-data">
+<form:form modelAttribute="deposit" method="post" enctype="multipart/form-data" id="deposit">
 
 	<br />
 	<h2>Add Work Samples</h2>
 
-	<div class="indented_block">
+	<div class="indented_block" id="single_submit">
 		<div class="form_field file_field">
 			<label>&nbsp;</label>
-			<input type="file" name="added" />
+			<input type="file" name="added"/>
 			<input type="submit" value="Add Work Sample" />
+		</div>
+	</div>
+
+	<div class="indented_block" id="multiple_submit">
+		<div class="form_field file_field" id="add_sample">
+			<label>&nbsp;</label>
+			<input type="file" name="added" multiple="multiple" id="add_sample_file" />
+			<input type="submit" value="Add Work Samples" id="add_sample_submit" />
+		</div>
+		
+		<div id="progress">
+			<div id="progress_bar"></div>
 		</div>
 	</div>
 	
@@ -124,7 +278,8 @@ $(document).ready(function() {
 	<h3>Work Samples</h3>
 	
 	<c:if test="${empty deposit.supplementalObjects}">
-		<p>No work samples added. To add a work sample, choose a file above and click &quot;Add Work Sample&quot;.</p>
+		<p id="single_submit_empty_list">No work samples added. To add a work sample, choose a file above and click &quot;Add Work Sample&quot;.</p>
+		<p id="multiple_submit_empty_list">No work samples added. To add work samples, choose files above and click &quot;Add Work Samples&quot;.</p>
 	</c:if>
 
 	<c:forEach items="${deposit.supplementalObjects}" var="object" varStatus="status">
