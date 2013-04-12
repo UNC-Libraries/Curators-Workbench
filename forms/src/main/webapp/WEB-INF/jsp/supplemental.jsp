@@ -105,23 +105,27 @@ $(document).ready(function() {
 <img src="${deposit.form.logo}" class="form_logo"/>
 </c:if>
 
-<h2><c:out value="${deposit.form.title}" /> (Step 2 of 2)</h2>
+<h2><c:out value="${deposit.form.title}" /></h2>
 <p><c:out value="${deposit.form.description}"/></p>
 <form:form modelAttribute="deposit" method="post" enctype="multipart/form-data">
 
 	<br />
-	<h3>Add Files</h3>
+	<h2>Add Work Samples</h2>
 
 	<div class="indented_block">
 		<div class="form_field file_field">
 			<label>&nbsp;</label>
-			<input type="file" name="added" multiple="multiple" />
-			<input type="submit" value="Add to Deposit" />
+			<input type="file" name="added" />
+			<input type="submit" value="Add Work Sample" />
 		</div>
 	</div>
 	
 	<br />
-	<h3>Files to Deposit</h3>
+	<h3>Work Samples</h3>
+	
+	<c:if test="${empty deposit.supplementalObjects}">
+		<p>No work samples added. To add a work sample, choose a file above and click &quot;Add Work Sample&quot;.</p>
+	</c:if>
 
 	<c:forEach items="${deposit.supplementalObjects}" var="object" varStatus="status">
 		<div class="metadata_block">
@@ -176,7 +180,7 @@ $(document).ready(function() {
 	</c:forEach>
 
 	<br />
-	<h3>Submit Deposit</h3>
+	<h2>Submit Deposit</h2>
 
 	<div class="submit_container">
 		<c:choose>

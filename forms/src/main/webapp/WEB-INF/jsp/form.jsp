@@ -210,12 +210,7 @@ pageContext.setAttribute("vocabURLMap", vocabURLMap);
 <img src="${deposit.form.logo}" class="form_logo"/>
 </c:if>
 
-<h2>
-<c:out value="${deposit.form.title}"/>
-<c:if test="${hasSupplementalObjectsStep}">
-	(Step 1 of 2)
-</c:if>
-</h2>
+<h2><c:out value="${deposit.form.title}"/></h2>
 
 <spring:hasBindErrors name="form">
 	<% if (errors.getFieldError("file") != null) { %>
