@@ -70,7 +70,7 @@ If you have any questions, please contact
 		<c:out value="${deposit.form.contactName}"/> at <a href="mailto:${deposit.form.contactEmail}"><c:out value="${deposit.form.contactEmail}"/></a>.
 	</c:when>
 	<c:when test="${deposit.form.contactEmail != null}">
-		<a href="mailto:${deposit.form.contactEmail}"><c:out value="${form.contactEmail}"/></a>.
+		<a href="mailto:${deposit.form.contactEmail}"><c:out value="${deposit.form.contactEmail}"/></a>.
 	</c:when>
 	<c:otherwise>
 		<a href="mailto:${administratorEmail}"><c:out value="${administratorEmail}"/></a>.
