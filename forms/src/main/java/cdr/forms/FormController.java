@@ -357,7 +357,7 @@ public class FormController {
 		
 	}
 	
-	@RequestMapping(value = "/supplemental")
+	@RequestMapping(value = "/supplemental", method = { RequestMethod.POST, RequestMethod.GET })
 	public String collectSupplementalObjects(
 			@Valid @ModelAttribute("deposit") Deposit deposit,
 			BindingResult errors,
