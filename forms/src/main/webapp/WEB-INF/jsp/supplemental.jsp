@@ -51,9 +51,7 @@ $(document).ready(function() {
 	
 	
 	var multipleFileSupport = (function() {
-		
 		try {
-
 			if (window.FormData === undefined || window.FileList === undefined)
 				return false;
 			
@@ -63,15 +61,11 @@ $(document).ready(function() {
 			
 			if (testInputElement.multiple !== true)
 				return false;
-			
 		} catch (e) {
-			
 			return false;
-			
 		}
 		
 		return true;
-	
 	})();
 	
 	if (multipleFileSupport) {
@@ -95,15 +89,18 @@ $(document).ready(function() {
 						fd.append("file", file);
 						  
 						xhr.upload.addEventListener("progress", function(e) {
-							if (e.total) {
-								var f = e.loaded / e.total;
-								var c = (count - queue.length) - 1;
-								var r = (c / count) + (f / count);
+							var f;
+							
+							if (e.total)
+								f = e.loaded / e.total;
+							else
+								f = 0.0;
 								
-								console.log(f, c, r);
+							var c = (count - queue.length) - 1;
+							var r = (c / count) + (f / count);
 								
-								$("#progress_bar").css("width", (r * 100) + "%");
-							}
+							$("#add_sample_progress").attr("value", r * 100);
+							$("#add_sample_progress").attr("max", 100);
 						}, false);
 						  
 						xhr.addEventListener("loadend", function() {
@@ -120,8 +117,10 @@ $(document).ready(function() {
 				} catch (e) {
 					
 				}
+
+				$("#add_sample_progress").removeAttr("value");
+				$("#add_sample_progress").removeAttr("max");
 				
-				$("#progress_bar").css("width", "100%");
 				$("#deposit").get(0).submit();
 				
 			}
@@ -152,6 +151,13 @@ $(document).ready(function() {
 		})();
 		
 	}
+	
+	$("#deposit").on("submit", function() {
+		setTimeout(function() {
+			$("#deposit input, #deposit select, #deposit textarea").attr("disabled", "disabled");
+			$("#deposit").addClass("submit");
+		}, 1);
+	});
 	
 });
 
@@ -190,20 +196,12 @@ $(document).ready(function() {
 		display: none;
 	}
 	
-	#multiple_submit.progress #progress {
+	#multiple_submit.progress #add_sample_progress {
 		display: block;
 	}
 
-	#progress {
+	#add_sample_progress {
 		display: none;
-		width: 100%;
-		background: #eee;
-	}
-	
-	#progress_bar {
-		background: #446;
-		width: 0;
-		height: 14px;
 	}
 	
 	#deposit #single_submit_empty_list { display: block; }
@@ -211,6 +209,17 @@ $(document).ready(function() {
 	
 	#deposit #multiple_submit_empty_list { display: none; }
 	#deposit.multiple #multiple_submit_empty_list { display: block; }
+	
+	#deposit #submit { display: block; }
+	#deposit.submit #submit { display: none; }
+	
+	#deposit #submit_progress { display: none; }
+	#deposit.submit #submit_progress { display: block; }
+	
+	#submit_progress {
+		text-align: center;
+		margin: 2em;
+	}
   
 </style>
 
@@ -269,9 +278,7 @@ $(document).ready(function() {
 			<input type="submit" value="Add Work Samples" id="add_sample_submit" />
 		</div>
 		
-		<div id="progress">
-			<div id="progress_bar"></div>
-		</div>
+		<progress id="add_sample_progress"></progress>
 	</div>
 	
 	<br />
@@ -337,15 +344,19 @@ $(document).ready(function() {
 	<br />
 	<h2>Submit Deposit</h2>
 
-	<div class="submit_container">
+	<div class="submit_container" id="submit">
 		<c:choose>
 			<c:when test="${empty deposit.supplementalObjects}">
-				<input type="submit" name="deposit" value="Submit Deposit" disabled="disabled" />
+				<input type="submit" id="submit_deposit" name="deposit" value="Submit Deposit" disabled="disabled" />
 			</c:when>
 			<c:otherwise>
-				<input type="submit" name="deposit" value="Submit Deposit"/>
+				<input type="submit" id="submit_deposit" name="deposit" value="Submit Deposit"/>
 			</c:otherwise>
 		</c:choose>
+	</div>
+	
+	<div id="submit_progress">
+		<img src="images/loading-large.gif">
 	</div>
 
 </form:form>
