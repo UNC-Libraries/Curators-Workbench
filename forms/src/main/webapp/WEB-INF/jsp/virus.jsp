@@ -15,10 +15,10 @@
     limitations under the License.
 
 --%>
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" session="true"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page import="crosswalk.*" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" session="true"%>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -63,20 +63,7 @@
 </c:forEach>
 </ul>
 
-<p>
-If you have any questions, please contact
-<c:choose>
-	<c:when test="${deposit.form.contactEmail != null && deposit.form.contactName != null}">
-		<c:out value="${deposit.form.contactName}"/> at <a href="mailto:${deposit.form.contactEmail}"><c:out value="${deposit.form.contactEmail}"/></a>.
-	</c:when>
-	<c:when test="${deposit.form.contactEmail != null}">
-		<a href="mailto:${deposit.form.contactEmail}"><c:out value="${deposit.form.contactEmail}"/></a>.
-	</c:when>
-	<c:otherwise>
-		<a href="mailto:${administratorEmail}"><c:out value="${administratorEmail}"/></a>.
-	</c:otherwise>
-</c:choose>
-</p>
+<c:import url="_contact.jsp"/>
 
 </div>
 </div>
