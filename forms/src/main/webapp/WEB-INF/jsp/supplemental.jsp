@@ -310,7 +310,7 @@ $(document).ready(function() {
 				</div>
 
 				<div class="form_field width_Normal">
-					<label>Medium</label>
+					<label>Medium/Materials</label>
 					<form:input path="supplementalObjects[${status.index}].medium" />
 					<span class="red">*</span>
 					<form:errors cssClass="red" path="supplementalObjects[${status.index}].medium" />
@@ -347,6 +347,10 @@ $(document).ready(function() {
 
 	<br />
 	<h2>Submit Deposit</h2>
+	
+	<c:if test="${not empty deposit.supplementalObjects}">
+		<p>NOTE: Please be sure to include all of your work samples before hitting submit. You will not be able to go back and revise your submission after you hit submit.</p>
+	</c:if>
 
 	<div class="submit_container" id="submit">
 		<c:choose>
