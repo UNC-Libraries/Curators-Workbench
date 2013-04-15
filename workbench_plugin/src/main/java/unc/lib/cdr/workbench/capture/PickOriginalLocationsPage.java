@@ -66,6 +66,8 @@ import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Widget;
 import org.osgi.service.prefs.BackingStoreException;
 
+import unc.lib.cdr.workbench.originals.OriginalFileStore;
+import unc.lib.cdr.workbench.originals.OriginalStub;
 import unc.lib.cdr.workbench.rcp.Activator;
 
 /**
@@ -91,6 +93,7 @@ public class PickOriginalLocationsPage extends WizardPage implements Listener {
 	private Combo locationField;
 	private Button drivesBrowseButton;
 	private Button irodsBrowseButton;
+	private Button removeableButton;
 	private Button preStagedButton;
 	private Combo preStagedCombo;
 	private Label preStageSuffixLabel;
@@ -192,7 +195,7 @@ public class PickOriginalLocationsPage extends WizardPage implements Listener {
 
 		createRootDirectoryGroup(composite);
 		createFileSelectionGroup(composite);
-		// createButtonsGroup(composite);
+		createRemoveableGroup(composite);
 
 		createDestinationGroup(composite);
 
@@ -205,6 +208,31 @@ public class PickOriginalLocationsPage extends WizardPage implements Listener {
 
 		composite.pack();
 		setControl(composite);
+	}
+
+	private void createRemoveableGroup(Composite composite) {
+		Group optionsGroup = new Group(composite, SWT.NONE);
+		//optionsGroup.setText("Pre-Staged Location");
+		GridLayout layout = new GridLayout();
+		layout.numColumns = 2;
+		optionsGroup.setLayout(layout);
+		optionsGroup.setFont(composite.getFont());
+		optionsGroup.setLayoutData(new GridData(GridData.HORIZONTAL_ALIGN_FILL | GridData.GRAB_HORIZONTAL));
+
+		Label lab = new Label(optionsGroup, SWT.WRAP);
+		GridData labdata = new GridData();
+		// labdata.verticalSpan = 2;
+		labdata.horizontalAlignment = GridData.FILL;
+		labdata.horizontalSpan = 1;
+		lab.setLayoutData(labdata);
+		lab.setText("Removeable media, such as optical discs and flash drives, are not always reachable.");
+
+		this.removeableButton = new Button(optionsGroup, SWT.CHECK);
+		GridData data = new GridData(GridData.HORIZONTAL_ALIGN_BEGINNING);
+		data.horizontalSpan = 3;
+		this.removeableButton.setLayoutData(data);
+		this.removeableButton.setText("This is removeable media.");
+
 	}
 
 	/**
@@ -587,11 +615,19 @@ public class PickOriginalLocationsPage extends WizardPage implements Listener {
 		}
 		projectCombo.setItems(openProjects.toArray(new String[] {}));
 
+		IProject p = null;
+		
 		if (IProject.class.isInstance(selection.getFirstElement())) {
-			IProject p = (IProject) selection.getFirstElement();
-			if (p.isOpen()) {
-				projectCombo.select(openProjects.indexOf(p.getName()));
-			}
+			p = (IProject) selection.getFirstElement();
+		} else if(OriginalStub.class.isInstance(selection.getFirstElement())) {
+			OriginalStub stub = (OriginalStub)selection.getFirstElement();
+			p = (IProject)stub.getProject();
+		} else if(OriginalFileStore.class.isInstance(selection.getFirstElement())) {
+			OriginalFileStore store = (OriginalFileStore)selection.getFirstElement();
+			p = store.getProject();
+		}
+		if (p != null && p.isOpen()) {
+			projectCombo.select(openProjects.indexOf(p.getName()));
 		} else {
 			projectCombo.select(0);
 		}
@@ -669,6 +705,7 @@ public class PickOriginalLocationsPage extends WizardPage implements Listener {
 	 */
 	public boolean finish() {
 		List<URI> selected = getCheckedLocations();
+		boolean removeable = this.removeableButton.getSelection();
 		URI prestageBase = null;
 		try {
 			if (this.preStagedButton.getSelection()) {
@@ -682,7 +719,7 @@ public class PickOriginalLocationsPage extends WizardPage implements Listener {
 			return false;
 		}
 		Job linkJob = new OriginalsLinkJob(this.location, selected, getProject(), this.preStagedButton.getSelection(),
-				prestageBase);
+				prestageBase, removeable);
 		// linkJob.addJobChangeListener(this);
 		linkJob.schedule();
 		// SNAPSHOT MAY NOT BE NEEDED ANY MORE and takes time

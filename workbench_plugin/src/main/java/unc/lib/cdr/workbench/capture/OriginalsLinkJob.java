@@ -49,15 +49,17 @@ public class OriginalsLinkJob extends Job {
 	URI baselocation = null;
 	List<URI> locations = null;
 	String name = null;
+	boolean removeable = false;
 	IProject project = null;
 	private boolean prestaged;
 	private URI prestagedBase;
 
-	OriginalsLinkJob(URI baselocation, List<URI> locations, IProject project, boolean prestaged, URI prestagedBase) {
+	OriginalsLinkJob(URI baselocation, List<URI> locations, IProject project, boolean prestaged, URI prestagedBase, boolean removeable) {
 		super("creating link to " + locations.size() + " location(s)");
 		this.baselocation = baselocation;
 		this.locations = locations;
 		this.project = project;
+		this.removeable = removeable;
 		this.prestaged = prestaged;
 		this.prestagedBase = prestagedBase;
 	}
@@ -123,7 +125,7 @@ public class OriginalsLinkJob extends Job {
 				if(existingStub != null && existingStub.isAttached()) {
 					existingStub.addLocations(volumeToLocations.get(volumeRoot), volumeToPrestageLocations.get(volumeRoot));
 				} else {
-					OriginalStub original = new OriginalStub(volumeRoot, volumeToLocations.get(volumeRoot), volumeToPrestageLocations.get(volumeRoot), this.project);
+					OriginalStub original = new OriginalStub(volumeRoot, volumeToLocations.get(volumeRoot), volumeToPrestageLocations.get(volumeRoot), this.project, this.removeable);
 					n.addOriginal(original);
 				}
 			}
