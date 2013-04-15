@@ -61,16 +61,16 @@
 			
 <h2>Deposit successful</h2>
 
-<p>Your deposit for <b><c:out value="${form.title}"/></b> was successful. Thank you!</p>
+<p>Your deposit for <b><c:out value="${deposit.form.title}"/></b> was successful. Thank you!</p>
 
 <p>
 If you have any questions, please contact
 <c:choose>
-	<c:when test="${form.contactEmail != null && form.contactName != null}">
-		<c:out value="${form.contactName}"/> at <a href="mailto:${form.contactEmail}"><c:out value="${form.contactEmail}"/></a>.
+	<c:when test="${deposit.form.contactEmail != null && deposit.form.contactName != null}">
+		<c:out value="${deposit.form.contactName}"/> at <a href="mailto:${deposit.form.contactEmail}"><c:out value="${deposit.form.contactEmail}"/></a>.
 	</c:when>
-	<c:when test="${form.contactEmail != null}">
-		<a href="mailto:${form.contactEmail}"><c:out value="${form.contactEmail}"/></a>.
+	<c:when test="${deposit.form.contactEmail != null}">
+		<a href="mailto:${deposit.form.contactEmail}"><c:out value="${form.contactEmail}"/></a>.
 	</c:when>
 	<c:otherwise>
 		<a href="mailto:${administratorEmail}"><c:out value="${administratorEmail}"/></a>.
@@ -78,7 +78,7 @@ If you have any questions, please contact
 </c:choose>
 </p>
 
-<c:if test="${form.promptForMultipleSubmissions}">
+<c:if test="${deposit.form.promptForMultipleSubmissions}">
 	<p><a href="<%= request.getAttribute("formId") %>.form">Click here to submit another deposit.</a></p>
 </c:if>
 	
