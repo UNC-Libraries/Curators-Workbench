@@ -511,6 +511,14 @@ public class FormController {
 		
 	}
 	
+	@RequestMapping(value = "/supplemental/ping", method = RequestMethod.GET)
+	@ResponseBody
+	public String ping(@ModelAttribute("deposit") Deposit deposit, BindingResult errors) {
+		
+		return "pong";
+		
+	}
+	
 	private IdentityHashMap<DepositFile, String> scanDepositFiles(List<DepositFile> files) {
 		
 		IdentityHashMap<DepositFile, String> signatures = new IdentityHashMap<DepositFile, String>();

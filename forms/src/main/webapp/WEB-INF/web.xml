@@ -60,6 +60,11 @@
 		<servlet-name>forms</servlet-name>
 		<url-pattern>/supplemental/files</url-pattern>
 	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>forms</servlet-name>
+		<url-pattern>/supplemental/ping</url-pattern>
+	</servlet-mapping>
 	
 	<filter>  
 		<filter-name>encodingFilter</filter-name>  

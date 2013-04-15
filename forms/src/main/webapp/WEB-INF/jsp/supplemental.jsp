@@ -159,6 +159,10 @@ $(document).ready(function() {
 		}, 1);
 	});
 	
+	setInterval(function() {
+		jQuery.ajax("/forms/supplemental/ping");
+	}, 60000);
+	
 });
 
 </script>
