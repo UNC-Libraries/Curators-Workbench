@@ -162,6 +162,11 @@ public class FormController {
 		binder.registerCustomEditor(DepositFile.class, new DepositFileEditor());
 		binder.setBindEmptyMultipartFiles(false);
 	}
+	
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public String index(Model model) {
+		return "redirect:../";
+	}
 
 	@RequestMapping(value = "/{formId}.form", method = RequestMethod.GET)
 	public String showForm(@PathVariable String formId, Model model, HttpServletRequest request) throws PermissionDeniedException {
