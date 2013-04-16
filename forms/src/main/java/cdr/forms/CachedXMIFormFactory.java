@@ -95,7 +95,9 @@ public class CachedXMIFormFactory extends AbstractFormFactory {
 				String id = name.substring(0, name.length() - 5);
 				
 				loadForm(id);
-				forms.put(id, cache.get(id));
+				
+				if (cache.containsKey(id))
+					forms.put(id, cache.get(id));
 			}
 		}
 		
