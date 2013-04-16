@@ -116,15 +116,15 @@ public class OriginalsLinkJob extends Job {
 				}
 			}
 			for(URI volumeRoot : volumes) {
-				OriginalStub existingStub = null;
+				boolean foundStub = false;
 				for(OriginalStub s :n.getOriginals()) {
-					if(s.getVolumeRoot().equals(volumeRoot)) {
-						existingStub = s;
+					if(s.getVolumeRoot().equals(volumeRoot) && s.isAttached()) {
+						s.addLocations(volumeToLocations.get(volumeRoot), volumeToPrestageLocations.get(volumeRoot));
+						foundStub = true;
+						break;
 					}
 				}
-				if(existingStub != null && existingStub.isAttached()) {
-					existingStub.addLocations(volumeToLocations.get(volumeRoot), volumeToPrestageLocations.get(volumeRoot));
-				} else {
+				if(!foundStub) {
 					OriginalStub original = new OriginalStub(volumeRoot, volumeToLocations.get(volumeRoot), volumeToPrestageLocations.get(volumeRoot), this.project, this.removeable);
 					n.addOriginal(original);
 				}

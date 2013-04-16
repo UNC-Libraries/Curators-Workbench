@@ -291,7 +291,6 @@ public class PickOriginalLocationsPage extends WizardPage implements Listener {
 						}
 					}
 				}
-				updateWidgets();
 			}
 		});
 	}
