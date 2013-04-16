@@ -125,7 +125,7 @@ $(document).ready(function() {
 				
 			}
 			
-			$("#add_sample_submit").on("click", function() {
+			$("#add_sample_file").on("change", function() {
 				
 				var files = $("#add_sample_file").get(0).files;
 				
@@ -184,46 +184,44 @@ $(document).ready(function() {
 		margin-left: 0.5em;
 	}
 	
-	#deposit #multiple_submit {
-		display: none;
+	#single_submit p {
+		margin: 0.8em 1em 0 1em;
 	}
 	
-	#deposit.multiple #multiple_submit {
-		display: block;
+	#add_sample_choose {
+		margin: 0.8em auto 0 auto;
 	}
 	
-	#deposit.multiple #single_submit {
-		display: none;
-	}
-	
-	#multiple_submit.progress #add_sample {
-		display: none;
-	}
-	
-	#multiple_submit.progress #add_sample_progress {
-		display: block;
+	#add_sample_choose p {
+		margin: 0.8em 1em 0 1em;
 	}
 
 	#add_sample_progress {
-		display: none;
+		margin: 0.8em 1em 0 1em;
+		width: 300px;
 	}
 	
-	#deposit #single_submit_empty_list { display: block; }
-	#deposit.multiple #single_submit_empty_list { display: none; }
+	#deposit #single_submit { display: block; }
+	#deposit #multiple_submit { display: none; }
 	
-	#deposit #multiple_submit_empty_list { display: none; }
-	#deposit.multiple #multiple_submit_empty_list { display: block; }
+	#deposit.multiple #single_submit { display: none; }
+	#deposit.multiple #multiple_submit { display: block; }
+	
+	#multiple_submit #add_sample_choose { display: block; }
+	#multiple_submit #add_sample_progress { display: none; }
+	#multiple_submit.progress #add_sample_choose { display: none; }
+	#multiple_submit.progress #add_sample_progress { display: block; }
+	
+	#submit_progress {
+		text-align: center;
+		margin: 2em;
+	}
 	
 	#deposit #submit { display: block; }
 	#deposit.submit #submit { display: none; }
 	
 	#deposit #submit_progress { display: none; }
 	#deposit.submit #submit_progress { display: block; }
-	
-	#submit_progress {
-		text-align: center;
-		margin: 2em;
-	}
   
 </style>
 
@@ -266,31 +264,24 @@ $(document).ready(function() {
 
 	<br />
 	<h2>Add Work Samples</h2>
-
-	<div class="indented_block" id="single_submit">
-		<div class="form_field file_field">
-			<label>&nbsp;</label>
-			<input type="file" name="added"/>
-			<input type="submit" value="Add Work Sample" />
-		</div>
+	
+	<div id="single_submit">
+		<p><input type="file" name="added"/> <input type="submit" value="Add Work Sample" /></p>
+		<p>File size limit: 500MB per file.</p>
 	</div>
 
-	<div class="indented_block" id="multiple_submit">
-		<div class="form_field file_field" id="add_sample">
-			<label>&nbsp;</label>
-			<input type="file" name="added" multiple="multiple" id="add_sample_file" />
-			<input type="submit" value="Add Work Samples" id="add_sample_submit" />
+	<div id="multiple_submit">
+	  <div id="add_sample_choose">
+		  <p><input type="file" name="added" multiple="multiple" id="add_sample_file" /></p>
+		  <p>File size limit: 500MB per file.</p>
 		</div>
 		
 		<progress id="add_sample_progress"></progress>
 	</div>
 	
-	<br />
-	<h3>Work Samples</h3>
-	
-	<c:if test="${empty deposit.supplementalObjects}">
-		<p id="single_submit_empty_list">No work samples added. To add a work sample, choose a file above and click &quot;Add Work Sample&quot;.</p>
-		<p id="multiple_submit_empty_list">No work samples added. To add work samples, choose files above and click &quot;Add Work Samples&quot;.</p>
+	<c:if test="${not empty deposit.supplementalObjects}">
+		<br />
+		<h3>Work Samples</h3>
 	</c:if>
 
 	<c:forEach items="${deposit.supplementalObjects}" var="object" varStatus="status">
@@ -345,22 +336,17 @@ $(document).ready(function() {
 		</div>
 	</c:forEach>
 
-	<br />
-	<h2>Submit Deposit</h2>
-	
 	<c:if test="${not empty deposit.supplementalObjects}">
+		<br />
+		<h2>Submit Deposit</h2>
+	
 		<p>NOTE: Please be sure to include all of your work samples before hitting submit. You will not be able to go back and revise your submission after you hit submit.</p>
 	</c:if>
 
 	<div class="submit_container" id="submit">
-		<c:choose>
-			<c:when test="${empty deposit.supplementalObjects}">
-				<input type="submit" id="submit_deposit" name="deposit" value="Submit Deposit" disabled="disabled" />
-			</c:when>
-			<c:otherwise>
-				<input type="submit" id="submit_deposit" name="deposit" value="Submit Deposit"/>
-			</c:otherwise>
-		</c:choose>
+		<c:if test="${not empty deposit.supplementalObjects}">
+			<input type="submit" id="submit_deposit" name="deposit" value="Submit Deposit"/>
+		</c:if>
 	</div>
 	
 	<div id="submit_progress">
