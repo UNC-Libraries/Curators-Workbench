@@ -440,7 +440,7 @@ public class FormController {
 			request.setAttribute("signatures", signatures);
 			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
 			
-			deposit.deleteAllFiles();
+			deposit.deleteAllFiles(true);
 			sessionStatus.setComplete();
 			
 			return "virus";
@@ -473,7 +473,7 @@ public class FormController {
 			
 			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
 
-			deposit.deleteAllFiles();
+			deposit.deleteAllFiles(true);
 			sessionStatus.setComplete();
 			
 			return "failed";
@@ -483,7 +483,7 @@ public class FormController {
 			if (getNotificationHandler() != null)
 				getNotificationHandler().notifyDeposit(deposit.getForm(), result, deposit.getReceiptEmailAddress(), deposit.getFormId());
 
-			deposit.deleteAllFiles();
+			deposit.deleteAllFiles(false);
 			sessionStatus.setComplete();
 			
 			return "success";
