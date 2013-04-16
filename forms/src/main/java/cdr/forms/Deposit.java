@@ -85,9 +85,15 @@ public class Deposit {
 	}
 	
 	public void deleteAllFiles() {
+		deleteAllFiles(false);
+	}
+	
+	public void deleteAllFiles(boolean deleteExternal) {
 		for (DepositFile depositFile : this.getAllFiles()) {
-			if (depositFile.getFile() != null)
-				depositFile.getFile().delete();
+			if (depositFile.getFile() != null) {
+				if (deleteExternal || !depositFile.isExternal())
+					depositFile.getFile().delete();
+			}
 		}
 	}
 	
