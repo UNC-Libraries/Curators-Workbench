@@ -366,6 +366,10 @@ public class FormController {
 			@RequestParam(value="deposit", required=false) String submitDepositAction,
 			HttpServletRequest request,
 			HttpServletResponse response) {
+
+		request.setAttribute("formattedMaxUploadSize", (getMaxUploadSize()/1000000) + "MB");
+		request.setAttribute("maxUploadSize", getMaxUploadSize());
+		
 		
 		// Validate request and ensure character encoding is set
 		

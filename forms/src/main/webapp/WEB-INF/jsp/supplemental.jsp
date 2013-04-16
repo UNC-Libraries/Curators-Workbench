@@ -71,7 +71,8 @@ $(document).ready(function() {
 	if (multipleFileSupport) {
 		
 		(function() {
-	
+			
+			var MAX_UPLOAD_SIZE = <c:out value="${maxUploadSize}"/>;
 			var queue;
 			var count;
 			
@@ -79,7 +80,7 @@ $(document).ready(function() {
 				
 				try {
 				
-					if (queue.length > 0) {
+					if (queue && queue.length > 0) {
 						
 						var file = queue.pop();
 						
@@ -127,19 +128,38 @@ $(document).ready(function() {
 			
 			$("#add_sample_file").on("change", function() {
 				
-				var files = $("#add_sample_file").get(0).files;
+				var files = this.files;
 				
 				if (files.length > 0) {
-					count = files.length;
-					queue = [];
-					for (var i = 0; i < files.length; i++)
-						queue.push(files[i]);
 					
-					$("#add_sample_file").get(0).value = "";
+					var bigger = [];
+					
+					for (var i = 0; i < files.length; i++) {
+						if (files[i].size > MAX_UPLOAD_SIZE) {
+							bigger.push(files[i].name);
+						}
+					}
+					
+					if (bigger.length > 0) {
+						if (bigger.length == 1)
+							alert("One of the files you selected is larger than the file size limit: " + bigger.join(", ") + ". Please omit this file from your submission.");
+						else
+							alert("Some of the files you selected are larger than the file size limit: " + bigger.join(", ") + ". Please omit these files from your submission.");
+						
+						this.value = "";
+						return false;
+					}
+					
+					count = files.length;
+					queue = Array.prototype.slice.apply(files);
+					failed = [];
+					
+					this.value = "";
 					$("#multiple_submit").addClass("progress");
 					$("#deposit input, #deposit select, #deposit textarea").attr("disabled", "disabled");
 					
 					submitNextFile();
+					
 				}
 				
 				return false;
@@ -264,21 +284,21 @@ $(document).ready(function() {
 
 	<br />
 	<h2>Add Work Samples</h2>
-	
+
 	<div id="single_submit">
-		<p><input type="file" name="added"/> <input type="submit" value="Add Work Sample" /></p>
-		<p>File size limit: 500MB per file.</p>
+		<p><input type="file" name="added" /> <input type="submit" value="Add Work Sample" /></p>
+		<p>File size limit: <c:out value="${formattedMaxUploadSize}"/> per file. If any of your work samples are larger than this, please omit them from your submission and contact <a href="mailto:cdr@unc.edu">cdr@unc.edu</a>.</p>
 	</div>
 
 	<div id="multiple_submit">
-	  <div id="add_sample_choose">
-		  <p><input type="file" name="added" multiple="multiple" id="add_sample_file" /></p>
-		  <p>File size limit: 500MB per file.</p>
+		<div id="add_sample_choose">
+			<p><input type="file" name="added" multiple="multiple" id="add_sample_file" /></p>
+			<p>File size limit: <c:out value="${formattedMaxUploadSize}"/> per file. If any of your work samples are larger than this, please omit them from your submission and contact <a href="mailto:cdr@unc.edu">cdr@unc.edu</a>.</p>
 		</div>
-		
+
 		<progress id="add_sample_progress"></progress>
 	</div>
-	
+
 	<c:if test="${not empty deposit.supplementalObjects}">
 		<br />
 		<h3>Work Samples</h3>
