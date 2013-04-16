@@ -391,6 +391,8 @@ public class FormController {
 		if (addedDepositFiles != null) {
 			for (DepositFile depositFile : addedDepositFiles) {
 				if (depositFile != null) {
+					depositFile.setExternal(true);
+					
 					SupplementalObject object = new SupplementalObject();
 					object.setDepositFile(depositFile);
 					
@@ -498,8 +500,11 @@ public class FormController {
 			@RequestParam(value="file") DepositFile depositFile) {
 		
 		if (depositFile != null) {
+			depositFile.setExternal(true);
+			
 			SupplementalObject object = new SupplementalObject();
 			object.setDepositFile(depositFile);
+			
 			deposit.getSupplementalObjects().add(object);
 	
 			Collections.sort(deposit.getSupplementalObjects(), new Comparator<SupplementalObject>() {
