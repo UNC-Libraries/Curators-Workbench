@@ -44,29 +44,28 @@ pageContext.setAttribute("currentYear", new Integer(year));
 
 <script type="text/javascript">
 
+var multipleFileSupport = (function() {
+	try {
+		if (window.FormData === undefined || window.FileList === undefined)
+			return false;
+		
+		var testInputElement = document.createElement("input");
+		testInputElement.setAttribute("type", "file");
+		testInputElement.setAttribute("multiple", "multiple");
+		
+		if (testInputElement.multiple !== true)
+			return false;
+	} catch (e) {
+		return false;
+	}
+	
+	return true;
+})();
+
 $(document).ready(function() {
 
 	$("textarea").expandingTextarea().css("position", "static").outerWidth();
 	$("textarea").css("position", "absolute");
-	
-	
-	var multipleFileSupport = (function() {
-		try {
-			if (window.FormData === undefined || window.FileList === undefined)
-				return false;
-			
-			var testInputElement = document.createElement("input");
-			testInputElement.setAttribute("type", "file");
-			testInputElement.setAttribute("multiple", "multiple");
-			
-			if (testInputElement.multiple !== true)
-				return false;
-		} catch (e) {
-			return false;
-		}
-		
-		return true;
-	})();
 	
 	if (multipleFileSupport) {
 		
@@ -166,8 +165,6 @@ $(document).ready(function() {
 				
 			});
 			
-			$("#deposit").addClass("multiple");
-			
 		})();
 		
 	}
@@ -221,27 +218,27 @@ $(document).ready(function() {
 		width: 300px;
 	}
 	
-	#deposit #single_submit { display: block; }
-	#deposit #multiple_submit { display: none; }
+	#single_submit { display: block; }
+	#multiple_submit { display: none; }
 	
-	#deposit.multiple #single_submit { display: none; }
-	#deposit.multiple #multiple_submit { display: block; }
+	.multiple #single_submit { display: none; }
+	.multiple #multiple_submit { display: block; }
 	
-	#multiple_submit #add_sample_choose { display: block; }
-	#multiple_submit #add_sample_progress { display: none; }
-	#multiple_submit.progress #add_sample_choose { display: none; }
-	#multiple_submit.progress #add_sample_progress { display: block; }
+	#add_sample_choose { display: block; }
+	#add_sample_progress { display: none; }
+	.progress #add_sample_choose { display: none; }
+	.progress #add_sample_progress { display: block; }
 	
 	#submit_progress {
 		text-align: center;
 		margin: 2em;
 	}
 	
-	#deposit #submit { display: block; }
-	#deposit.submit #submit { display: none; }
+	#submit { display: block; }
+	.submit #submit { display: none; }
 	
-	#deposit #submit_progress { display: none; }
-	#deposit.submit #submit_progress { display: block; }
+	#submit_progress { display: none; }
+	.submit #submit_progress { display: block; }
   
 </style>
 
@@ -255,6 +252,14 @@ $(document).ready(function() {
 <title><c:out value="${deposit.form.title}"/></title>
 </head>
 <body>
+
+<script>
+
+if (multipleFileSupport)
+	document.body.className = "multiple";
+	
+</script>
+
 <div id="pagewrap">
 	<div id="pagewrap_inside">
 		<div class="darkest shadowbottom" id="header">
