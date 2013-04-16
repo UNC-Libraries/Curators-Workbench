@@ -67,9 +67,14 @@
 	<bean id="depositHandler" class="cdr.forms.SwordDepositHandler">
 		<property name="serviceUrl"
 			value="${admin.services.url}${services.context}/sword/" />
+			
 		<property name="username" value="${forms.sword.username}" />
 		<property name="password" value="${forms.sword.password}" />
 		<property name="defaultContainer" value="${forms.default.container.pid}"/>
+		
+		<property name="externalPath" value="${forms.external.dir}" />
+		<property name="externalScheme" value="${forms.external.scheme}" />
+		<property name="externalAuthority" value="${forms.external.authority}" />
 	</bean>
 	
 	<bean id="authorizationHandler" class="cdr.forms.RequestHeaderAuthorizationHandler">
