@@ -181,7 +181,7 @@ public class FormController {
 		});
 		
 		model.addAttribute("ids", ids);
-		model.addAttribute("forms", factory.getForms());
+		model.addAttribute("forms", forms);
 		
 		return "index";
 		
