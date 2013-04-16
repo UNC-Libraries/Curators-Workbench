@@ -19,7 +19,9 @@ import edu.unc.lib.schemas.acl.AclPackage;
 import gov.loc.mods.mods.MODSPackage;
 
 import java.io.File;
+import java.io.FilenameFilter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
@@ -80,6 +82,24 @@ public class CachedXMIFormFactory extends AbstractFormFactory {
 		EObject copy = copier.copy(template);
 		copier.copyReferences();
 		return (Form)copy;
+	}
+	
+	public Map<String, Form> getForms() {
+		File[] files = new File(getFormPath()).listFiles();
+		HashMap<String, Form> forms = new HashMap<String, Form>(); 
+		
+		for (File f : files) {
+			String name = f.getName();
+			
+			if (name.endsWith(".form")) {
+				String id = name.substring(0, name.length() - 5);
+				
+				loadForm(id);
+				forms.put(id, cache.get(id));
+			}
+		}
+		
+		return forms;
 	}
 
 	private void loadForm(String id) {

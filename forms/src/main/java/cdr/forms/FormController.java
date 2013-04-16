@@ -22,6 +22,10 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.security.Principal;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.IdentityHashMap;
 import java.util.List;
@@ -165,7 +169,22 @@ public class FormController {
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String index(Model model) {
-		return "redirect:../";
+		
+		final Map<String, Form> forms = factory.getForms();
+		
+		List<String> ids = new ArrayList<String>(forms.keySet());
+		
+		Collections.sort(ids, new Comparator<String>() {
+			public int compare(String a, String b) {
+				return forms.get(a).getTitle().compareTo(forms.get(b).getTitle());
+			}
+		});
+		
+		model.addAttribute("ids", ids);
+		model.addAttribute("forms", factory.getForms());
+		
+		return "index";
+		
 	}
 
 	@RequestMapping(value = "/{formId}.form", method = RequestMethod.GET)

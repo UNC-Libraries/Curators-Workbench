@@ -15,6 +15,8 @@
  */
 package cdr.forms;
 
+import java.util.Map;
+
 import crosswalk.Form;
 
 public abstract class AbstractFormFactory {
@@ -25,4 +27,7 @@ public abstract class AbstractFormFactory {
 	 * @return the form ecore model
 	 */
 	abstract public Form getForm(String id);
+	
+	abstract public Map<String, Form> getForms();
+	
 }
