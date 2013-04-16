@@ -49,7 +49,8 @@ public class OriginalStub implements java.io.Serializable {
 	private Map<URI, URI> prestageLocations = new HashMap<URI, URI>();
 	private transient IProject project;
 	private String projectName;
-	private int volumeHash;
+	private int volumeHash = -1;
+	private boolean removeable = false;
 	private String volumeType;
 	private String name;
 
@@ -59,7 +60,9 @@ public class OriginalStub implements java.io.Serializable {
 
 	private transient List<OriginalFileStore> stores = new ArrayList<OriginalFileStore>();
 
-	public OriginalStub(URI volumeRoot, List<URI> locations, Map<URI, URI> prestageLocations, IProject project) {
+	public OriginalStub(URI volumeRoot, List<URI> locations,
+			Map<URI, URI> prestageLocations, IProject project,
+			boolean removeable) {
 		this.volumeRoot = volumeRoot;
 		this.locations = locations;
 		this.project = project;
@@ -67,6 +70,7 @@ public class OriginalStub implements java.io.Serializable {
 		if (prestageLocations != null)
 			this.prestageLocations = prestageLocations;
 		init();
+		this.removeable = removeable;
 		try {
 			this.volumeHash = VolumeUtil.makeVolumeFingerprint(volumeRoot);
 			this.volumeType = VolumeUtil.getFileStore(volumeRoot).type();
@@ -103,10 +107,12 @@ public class OriginalStub implements java.io.Serializable {
 			this.stores = new ArrayList<OriginalFileStore>();
 			if (isAttached()) {
 				for (URI base : locations) {
-					this.stores.add((OriginalFileStore) OriginalsFileSystem.wrapStore(base, this));
+					this.stores.add((OriginalFileStore) OriginalsFileSystem
+							.wrapStore(base, this));
 				}
 			}
-			this.project = ResourcesPlugin.getWorkspace().getRoot().getProject(projectName);
+			this.project = ResourcesPlugin.getWorkspace().getRoot()
+					.getProject(projectName);
 		} catch (CoreException e) {
 			throw new Error(e);
 		}
@@ -137,14 +143,16 @@ public class OriginalStub implements java.io.Serializable {
 		return locations;
 	}
 
-	public void addLocations(Collection<URI> newLocations, Map<URI, URI> prestageLocations) {
+	public void addLocations(Collection<URI> newLocations,
+			Map<URI, URI> prestageLocations) {
 		if (this.isAttached()) {
 			this.locations.addAll(newLocations);
 			if (prestageLocations != null)
 				this.prestageLocations.putAll(prestageLocations);
 			init();
 		} else {
-			throw new Error("cannot add locations to an original stub when it is not attached.");
+			throw new Error(
+					"cannot add locations to an original stub when it is not attached.");
 		}
 	}
 
@@ -154,16 +162,22 @@ public class OriginalStub implements java.io.Serializable {
 
 	public OriginalFileStore getVolumeRootStore() {
 		try {
-			return (OriginalFileStore) OriginalsFileSystem.wrapStore(this.volumeRoot, this);
+			return (OriginalFileStore) OriginalsFileSystem.wrapStore(
+					this.volumeRoot, this);
 		} catch (CoreException e) {
 			throw new Error(e);
 		}
 	}
 
 	public boolean isAttached() {
+		if(!this.removeable) {
+			return this.getVolumeRootStore().fetchInfo().exists();
+		}
 		try {
-			int currentHash = VolumeUtil.makeVolumeFingerprint(this.getVolumeRoot());
-			// System.err.println("hashes " + currentHash + " " + this.getVolumeHash());
+			int currentHash = VolumeUtil.makeVolumeFingerprint(this
+					.getVolumeRoot());
+			// System.err.println("hashes " + currentHash + " " +
+			// this.getVolumeHash());
 			return (currentHash == this.getVolumeHash());
 		} catch (NoSuchFileException e) {
 			return false;

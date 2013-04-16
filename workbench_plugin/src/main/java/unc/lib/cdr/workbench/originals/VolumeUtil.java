@@ -38,11 +38,12 @@ import org.slf4j.LoggerFactory;
 import unc.lib.cdr.workbench.rcp.Activator;
 
 public class VolumeUtil {
-	
+
 	@SuppressWarnings("unused")
 	private static final Logger LOG = LoggerFactory.getLogger(VolumeUtil.class);
-	
-	public static final QualifiedName VOLUME_FINGERPRINT = new QualifiedName(Activator.PLUGIN_ID, "volume-fingerprint");
+
+	public static final QualifiedName VOLUME_FINGERPRINT = new QualifiedName(
+			Activator.PLUGIN_ID, "volume-fingerprint");
 	public static Set<String> removableFileStoreTypes = new HashSet<String>();
 
 	static {
@@ -56,12 +57,14 @@ public class VolumeUtil {
 	}
 
 	/**
-	 * Computes a fingerprint for the volume (FileStore) containing this resource based on the names and dates in the
-	 * root directory. The fingerprint will include: volume root creation time (if available) volume root name volume
-	 * root file key (if available) volume root's oldest constituent file's timestamp
+	 * Computes a fingerprint for the volume (FileStore) containing this
+	 * resource based on the names and dates in the root directory. The
+	 * fingerprint will include: volume root creation time (if available) volume
+	 * root name volume root file key (if available) volume root's oldest
+	 * constituent file's timestamp
 	 * 
 	 * @param resource
-	 *           a resource
+	 *            a resource
 	 */
 	public static int makeVolumeFingerprint(URI uri) throws IOException {
 		FileStore fstore = getFileStore(uri);
@@ -69,11 +72,12 @@ public class VolumeUtil {
 		Path volumeRoot = findTopResourceInVolume(fstore, path);
 		File fr = volumeRoot.toFile();
 		String s1 = FileSystemView.getFileSystemView().getSystemDisplayName(fr);
-      String s2 = FileSystemView.getFileSystemView().getSystemTypeDescription(fr);
-      LOG.debug("getSystemDisplayName : " + s1);
-      LOG.debug("getSystemTypeDescription : " + s2);
-		
-		if("/".equals(volumeRoot.toFile().getPath())) {
+		String s2 = FileSystemView.getFileSystemView()
+				.getSystemTypeDescription(fr);
+		LOG.debug("getSystemDisplayName : " + s1);
+		LOG.debug("getSystemTypeDescription : " + s2);
+
+		if ("/".equals(volumeRoot.toFile().getPath())) {
 			return -1; // fake hash key for root linux filesystem
 		}
 		LOG.debug("Found volume root: " + volumeRoot);
@@ -81,8 +85,12 @@ public class VolumeUtil {
 		File[] files = volumeRoot.toFile().listFiles();
 		if (files != null) {
 			for (File f : files) {
-				BasicFileAttributeView v = FileSystems.getDefault().provider()
-						.getFileAttributeView(f.toPath(), BasicFileAttributeView.class, LinkOption.NOFOLLOW_LINKS);
+				BasicFileAttributeView v = FileSystems
+						.getDefault()
+						.provider()
+						.getFileAttributeView(f.toPath(),
+								BasicFileAttributeView.class,
+								LinkOption.NOFOLLOW_LINKS);
 				BasicFileAttributes basic = v.readAttributes();
 				long test = basic.creationTime().toMillis();
 				if (test > oldestFileCreation) {
@@ -92,19 +100,7 @@ public class VolumeUtil {
 		}
 		String name = volumeRoot.toString();
 		LOG.debug("Found volume root name: " + name);
-		if (fstore.supportsFileAttributeView("basic")) {
-			BasicFileAttributeView v = FileSystems.getDefault().provider()
-					.getFileAttributeView(volumeRoot, BasicFileAttributeView.class, LinkOption.NOFOLLOW_LINKS);
-			BasicFileAttributes basic = v.readAttributes();
-			LOG.debug("Found volume root file key: " + basic.fileKey());
-			LOG.debug("Found volume root create time: " + basic.creationTime());
-			LOG.debug("Oldest file create time: " + basic.creationTime());
-			int result = name.hashCode() ^ (int) basic.creationTime().toMillis()
-					^ (int) oldestFileCreation;
-			return result;
-		} else {
-			return name.hashCode() ^ (int) oldestFileCreation;
-		}
+		return name.hashCode() ^ (int) oldestFileCreation;
 	}
 
 	public static URI getTopResourceInVolume(URI location) throws IOException {
@@ -112,19 +108,24 @@ public class VolumeUtil {
 		FileStore fstore = getFileStore(location);
 		Path p = findTopResourceInVolume(fstore, path);
 		try {
-			URI result = new URI(location.getScheme(), location.getUserInfo(), location.getHost(), location.getPort(), p.toUri().getPath(), location.getQuery(), location.getFragment());
+			URI result = new URI(location.getScheme(), location.getUserInfo(),
+					location.getHost(), location.getPort(),
+					p.toUri().getPath(), location.getQuery(),
+					location.getFragment());
 			return result;
-		} catch(URISyntaxException e) {
+		} catch (URISyntaxException e) {
 			throw new Error(e);
 		}
 	}
 
-	private static Path findTopResourceInVolume(FileStore fstore, Path path) throws IOException {
+	private static Path findTopResourceInVolume(FileStore fstore, Path path)
+			throws IOException {
 		Path parent = path.getParent();
 		if (parent == null) {
 			return path; // root will do for default file system
 		} else {
-			FileStore parentStore = FileSystems.getDefault().provider().getFileStore(parent);
+			FileStore parentStore = FileSystems.getDefault().provider()
+					.getFileStore(parent);
 			if (fstore.equals(parentStore)) {
 				return findTopResourceInVolume(fstore, parent);
 			} else {
