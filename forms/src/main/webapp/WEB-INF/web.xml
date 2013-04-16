@@ -34,6 +34,7 @@
         <servlet-name>default</servlet-name>
         <url-pattern>/css/*</url-pattern>
         <url-pattern>/js/*</url-pattern>
+        <url-pattern>/images/*</url-pattern>
     </servlet-mapping>
 
 	<servlet>
@@ -44,11 +45,6 @@
 	<servlet-mapping>
 		<servlet-name>forms</servlet-name>
 		<url-pattern>/</url-pattern>
-	</servlet-mapping>
-
-	<servlet-mapping>
-		<servlet-name>forms</servlet-name>
-		<url-pattern>*.form</url-pattern>
 	</servlet-mapping>
 	
 	<filter>  
