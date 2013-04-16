@@ -64,6 +64,7 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.io.StringWriter;
 import java.net.MalformedURLException;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -199,6 +200,8 @@ public class SwordDepositHandler implements DepositHandler {
 		
 		List<DepositFile> files = deposit.getAllFiles();
 		
+		moveExternalFiles(files);
+		
 		Map<DepositFile, String> fileNames = buildFileNameMap(files);
 		Map<DepositFile, FileBlock> fileBlocks = buildFileBlockMap(deposit);
 		Map<OutputMetadataSections, List<MdSecType>> rootMetadata = buildRootMetadataMap(form);
@@ -314,6 +317,29 @@ public class SwordDepositHandler implements DepositHandler {
 		
 	}
 	
+	private void moveExternalFiles(List<DepositFile> files) {
+		
+		for (DepositFile depositFile : files) {
+			
+			if (depositFile.isExternal()) {
+				
+				try {
+					File temp = File.createTempFile("data", depositFile.getExtension(), new File(getExternalPath()));
+					
+					if (depositFile.getFile().renameTo(temp))
+						depositFile.setFile(temp);
+					else
+						throw new Error("Couldn't move external file to external files directory.");
+				} catch (IOException e) {
+					throw new Error(e);
+				}
+				
+			}
+			
+		}
+		
+	}
+	
 	private IdentityHashMap<DepositFile, String> buildFileNameMap(List<DepositFile> files) {
 		
 		IdentityHashMap<DepositFile, String> filenames = new IdentityHashMap<DepositFile, String>();
@@ -321,8 +347,27 @@ public class SwordDepositHandler implements DepositHandler {
 		int index = 0;
 
 		for (DepositFile file : files) {
-			filenames.put(file, "data_" + index + file.getExtension());
+			
+			if (file.isExternal()) {
+				String path = file.getFile().getAbsolutePath();
+				
+				if (path.startsWith(getExternalPath()))
+					path = path.substring(getExternalPath().length());
+				else
+					throw new Error("External file's path doesn't start with configured external directory path.");
+				
+				try {
+					java.net.URI uri = new java.net.URI(getExternalScheme(), getExternalAuthority(), path, null);
+					filenames.put(file, uri.toString());
+				} catch (URISyntaxException e) {
+					throw new Error(e);
+				}
+			} else {
+				filenames.put(file, "data_" + index + file.getExtension());
+			}
+			
 			index++;
+			
 		}
 		
 		return filenames;
@@ -831,18 +876,22 @@ public class SwordDepositHandler implements DepositHandler {
 				
 				DepositFile file = files.get(i);
 				
-				entry = new ZipEntry(filenames.get(file));
-				zipOutput.putNextEntry(entry);
-
-				FileInputStream fileInput = new FileInputStream(file.getFile());
-
-				byte[] buffer = new byte[1024];
-				int length;
-
-				while ((length = fileInput.read(buffer)) != -1)
-					zipOutput.write(buffer, 0, length);
-
-				fileInput.close();
+				if (!file.isExternal()) {
+				
+					entry = new ZipEntry(filenames.get(file));
+					zipOutput.putNextEntry(entry);
+	
+					FileInputStream fileInput = new FileInputStream(file.getFile());
+	
+					byte[] buffer = new byte[1024];
+					int length;
+	
+					while ((length = fileInput.read(buffer)) != -1)
+						zipOutput.write(buffer, 0, length);
+	
+					fileInput.close();
+					
+				}
 				
 			}
 
