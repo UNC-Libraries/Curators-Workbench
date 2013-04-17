@@ -40,12 +40,9 @@ import org.eclipse.gmf.runtime.emf.commands.core.command.CompositeTransactionalC
 import org.eclipse.gmf.runtime.notation.View;
 
 public class CompartmentChildCreationEditPolicy extends CreationEditPolicy {
-	
-	private EStructuralFeature feature;
 
-	public CompartmentChildCreationEditPolicy(EStructuralFeature feature) {
+	public CompartmentChildCreationEditPolicy() {
 		super();
-		this.feature = feature;
 	}
 	
 	@Override
@@ -59,7 +56,7 @@ public class CompartmentChildCreationEditPolicy extends CreationEditPolicy {
 		while (descriptors.hasNext()) {
 			CreateViewRequest.ViewDescriptor descriptor = (CreateViewRequest.ViewDescriptor) descriptors.next();
 			CreateCommand createCommand = new CompartmentChildCreateCommand(editingDomain, descriptor,
-					(View) (getHost().getModel()), getFeedbackIndexFor(request), feature);
+					(View) (getHost().getModel()), getFeedbackIndexFor(request));
 
 			cc.compose(createCommand);
 		}

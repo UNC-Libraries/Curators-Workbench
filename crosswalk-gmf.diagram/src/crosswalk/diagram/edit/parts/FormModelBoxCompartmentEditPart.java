@@ -94,11 +94,9 @@ public class FormModelBoxCompartmentEditPart extends ListCompartmentEditPart {
 				new FormModelBoxCompartmentItemSemanticEditPolicy());
 		//installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicy());
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
-				new CompartmentChildCreationEditPolicy(
-						CrosswalkPackage.Literals.FORM__ELEMENTS));
+				new CompartmentChildCreationEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE,
-				new ReorderCompartmentEditPolicy(
-						CrosswalkPackage.Literals.FORM__ELEMENTS));
+				new ReorderCompartmentEditPolicy());
 		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
 				new DragDropEditPolicy());
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,

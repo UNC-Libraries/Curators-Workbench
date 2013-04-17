@@ -79,11 +79,9 @@ public class MetadataBlockMetadataBlockInputFieldsCompartment2EditPart extends
 				EditPolicyRoles.SEMANTIC_ROLE,
 				new MetadataBlockMetadataBlockInputFieldsCompartment2ItemSemanticEditPolicy());
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
-				new CompartmentChildCreationEditPolicy(
-						CrosswalkPackage.Literals.METADATA_BLOCK__PORTS));
+				new CompartmentChildCreationEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE,
-				new ReorderCompartmentEditPolicy(
-						CrosswalkPackage.Literals.METADATA_BLOCK__PORTS));
+				new ReorderCompartmentEditPolicy());
 		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
 				new DragDropEditPolicy());
 		installEditPolicy(

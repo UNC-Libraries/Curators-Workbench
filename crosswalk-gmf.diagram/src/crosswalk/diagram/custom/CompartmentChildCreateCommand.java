@@ -33,10 +33,9 @@ public class CompartmentChildCreateCommand extends CreateCommand {
 	private EStructuralFeature feature;
 
 	public CompartmentChildCreateCommand(TransactionalEditingDomain editingDomain, ViewDescriptor viewDescriptor,
-			View containerView, int index, EStructuralFeature feature) {
+			View containerView, int index) {
 		super(editingDomain, viewDescriptor, containerView);
 		this.index = index;
-		this.feature = feature;
 	}
 
 	@Override
@@ -49,7 +48,7 @@ public class CompartmentChildCreateCommand extends CreateCommand {
 		viewDescriptor.setView(view);
 		
 		if (index > -1) {
-			EList nodes = (EList) getContainerView().getElement().eGet(feature);
+			EList nodes = (EList) getContainerView().getElement().eGet(view.getElement().eContainingFeature());
 			Object o = nodes.remove(nodes.size() - 1);
 			nodes.add(index, o);
 		}
