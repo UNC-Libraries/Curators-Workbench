@@ -107,16 +107,15 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
 			menu.add(new Separator());
 			menuBar.add(menu);
 		}
-
 	}
 
 	@Override
 	protected void fillCoolBar(ICoolBarManager coolBar) {
 		ToolBarManager toolbar = new ToolBarManager(SWT.FLAT);
+		coolBar.add(toolbar);
 		toolbar.add(newWizardDropDownAction);
 		toolbar.add(saveAction);
 		toolbar.add(saveAsAction);
-		coolBar.add(toolbar);
 	}
 
 }

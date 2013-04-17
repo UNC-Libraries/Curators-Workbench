@@ -94,12 +94,10 @@ public class MappedElementChildElementsCompartmentEditPart extends
 				new MappedElementChildElementsCompartmentItemSemanticEditPolicy());
 		installEditPolicy(
 				EditPolicyRoles.CREATION_ROLE,
-				new CompartmentChildCreationEditPolicy(
-						CrosswalkPackage.Literals.MAPPED_ELEMENT__CHILD_ELEMENTS));
+				new CompartmentChildCreationEditPolicy());
 		installEditPolicy(
 				EditPolicy.LAYOUT_ROLE,
-				new ReorderCompartmentEditPolicy(
-						CrosswalkPackage.Literals.MAPPED_ELEMENT__CHILD_ELEMENTS));
+				new ReorderCompartmentEditPolicy());
 		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
 				new DragDropEditPolicy());
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,

@@ -18,6 +18,7 @@ package crosswalk.diagram.edit.parts;
 import org.eclipse.draw2d.FlowLayout;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ListCompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
@@ -94,12 +95,10 @@ public class MappedElementChildElementsCompartment2EditPart extends
 				new MappedElementChildElementsCompartment2ItemSemanticEditPolicy());
 		installEditPolicy(
 				EditPolicyRoles.CREATION_ROLE,
-				new CompartmentChildCreationEditPolicy(
-						CrosswalkPackage.Literals.MAPPED_ELEMENT__CHILD_ELEMENTS));
+				new CompartmentChildCreationEditPolicy());
 		installEditPolicy(
 				EditPolicy.LAYOUT_ROLE,
-				new ReorderCompartmentEditPolicy(
-						CrosswalkPackage.Literals.MAPPED_ELEMENT__CHILD_ELEMENTS));
+				new ReorderCompartmentEditPolicy());
 		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
 				new DragDropEditPolicy());
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,

@@ -33,11 +33,9 @@ import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.notation.View;
 
 public class ReorderCompartmentEditPolicy extends FlowLayoutEditPolicy {
-	private EStructuralFeature feature = null;
 	
-	public ReorderCompartmentEditPolicy(EStructuralFeature feature) {
+	public ReorderCompartmentEditPolicy() {
 		super();
-		this.feature = feature;
 	}
 	
 	@Override
@@ -73,6 +71,8 @@ public class ReorderCompartmentEditPolicy extends FlowLayoutEditPolicy {
 
 		TransactionalEditingDomain editingDomain = ((IGraphicalEditPart) getHost()).getEditingDomain();
 
+		EStructuralFeature feature = ((View)child.getModel()).getElement().eContainingFeature();
+		
 		RepositionEObjectCommand command = new CompartmentRepositionEObjectCommand(child, editingDomain, "", 
 				(EList)((View)child.getParent().getModel()).getElement().eGet(feature), 
 				((View)child.getModel()).getElement(), 
