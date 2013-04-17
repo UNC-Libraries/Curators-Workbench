@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: irods-efs.plugin
 Bundle-SymbolicName: irods-efs.plugin;singleton:=true
-Bundle-Version: 4.1.2.qualifier
+Bundle-Version: 4.1.2
 Bundle-Activator: irods.efs.plugin.Activator
 Bundle-Vendor: University Libraries, UNC Chapel Hill
 Require-Bundle: org.eclipse.ui,

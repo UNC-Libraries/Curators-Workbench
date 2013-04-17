@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: mods.model.edit
 Bundle-SymbolicName: mods.model.edit;singleton:=true
-Bundle-Version: 4.1.2.qualifier
+Bundle-Version: 4.1.2
 Bundle-Activator: gov.loc.mods.mods.provider.ModsEditPlugin$Implementation
 Bundle-Vendor: University Libraries, UNC Chapel Hill
 Bundle-Localization: plugin
