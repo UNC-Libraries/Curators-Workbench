@@ -1,3 +1,3 @@
 instructions.configure=\
-	addRepository(type:0,location:http${#58}//www.lib.unc.edu/software/workbench/3.0/repository);\
-	addRepository(type:1,location:http${#58}//www.lib.unc.edu/software/workbench/3.0/repository);
+	addRepository(type:0,location:http${#58}//www.lib.unc.edu/software/workbench/repository);\
+	addRepository(type:1,location:http${#58}//www.lib.unc.edu/software/workbench/repository);

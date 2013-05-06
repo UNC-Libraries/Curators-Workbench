@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
-	xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
->
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>curators.workbench</groupId>
@@ -14,8 +12,9 @@
 	<packaging>eclipse-repository</packaging>
 	<build>
 		<plugins>
-			<!-- <plugin> <groupId>${tycho-groupid}</groupId> <artifactId>tycho-p2-publisher-plugin</artifactId> <version>${tycho-version}</version> 
-				<configuration> <publishArtifacts>true</publishArtifacts> </configuration> </plugin> -->
+			<!-- <plugin> <groupId>${tycho-groupid}</groupId> <artifactId>tycho-p2-publisher-plugin</artifactId> 
+				<version>${tycho-version}</version> <configuration> <publishArtifacts>true</publishArtifacts> 
+				</configuration> </plugin> -->
 			<plugin>
 				<groupId>${tycho-groupid}</groupId>
 				<artifactId>tycho-p2-director-plugin</artifactId>
@@ -57,6 +56,26 @@
 				</executions>
 			</plugin>
 			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<descriptors>
+						<descriptor>macosx/macosx-app-assemble.xml</descriptor>
+					</descriptors>
+					<outputDirectory>${project.build.directory}/products</outputDirectory>
+					<finalName>curators-workbench-macosx.cocoa.x86_64</finalName>
+				</configuration>
+				<executions>
+					<execution>
+						<id>make-assembly</id> <!-- this is used for inheritance merges -->
+						<phase>package</phase> <!-- bind to the packaging phase -->
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
 				<artifactId>maven-antrun-plugin</artifactId>
 				<dependencies>
 					<dependency>
@@ -72,8 +91,9 @@
 				</dependencies>
 				<executions>
 					<execution>
-						<!-- Installs the ZIPs and repository to versioned folder on web server: Should replaces snapshot versions. Fails if 
-							you try to post the same final version twice. -->
+						<!-- Installs the ZIPs and repository to versioned folder on web server: 
+							Should replaces snapshot versions. Fails if you try to post the same final 
+							version twice. -->
 						<id>deploy</id>
 						<phase>install-disabled</phase>
 						<goals>
@@ -81,72 +101,42 @@
 						</goals>
 						<configuration>
 							<tasks>
-								<taskdef
-									name="if"
-									classname="net.sf.antcontrib.logic.IfTask"
+								<taskdef name="if" classname="net.sf.antcontrib.logic.IfTask"
 									classpathref="maven.plugin.classpath" />
 								<if>
-									<contains
-										string="${project.version}"
-										substring="-SNAPSHOT" />
+									<contains string="${project.version}" substring="-SNAPSHOT" />
 									<then>
-										<sshexec
-											host="${cw.deploy.host}"
-											username="${cw.deploy.username}"
-											passphrase="${cw.deploy.passphrase}"
-											keyfile="${cw.deploy.keyfile}"
+										<sshexec host="${cw.deploy.host}" username="${cw.deploy.username}"
+											passphrase="${cw.deploy.passphrase}" keyfile="${cw.deploy.keyfile}"
 											trust="true"
 											command="rm -rf --preserve-root ${cw.deploy.basedir}/${project.version}"
-											verbose="true"
-											failonerror="false" />
+											verbose="true" failonerror="false" />
 									</then>
 								</if>
-								<sshexec
-									host="${cw.deploy.host}"
-									username="${cw.deploy.username}"
-									passphrase="${cw.deploy.passphrase}"
-									keyfile="${cw.deploy.keyfile}"
-									trust="true"
-									verbose="true"
+								<sshexec host="${cw.deploy.host}" username="${cw.deploy.username}"
+									passphrase="${cw.deploy.passphrase}" keyfile="${cw.deploy.keyfile}"
+									trust="true" verbose="true"
 									command="mkdir ${cw.deploy.basedir}/${project.version}" />
-								<sshexec
-									host="${cw.deploy.host}"
-									username="${cw.deploy.username}"
-									passphrase="${cw.deploy.passphrase}"
-									keyfile="${cw.deploy.keyfile}"
-									trust="true"
-									verbose="true"
+								<sshexec host="${cw.deploy.host}" username="${cw.deploy.username}"
+									passphrase="${cw.deploy.passphrase}" keyfile="${cw.deploy.keyfile}"
+									trust="true" verbose="true"
 									command="mkdir ${cw.deploy.basedir}/${project.version}/repository" />
 								<scp
 									todir="${cw.deploy.username}@${cw.deploy.host}:${cw.deploy.basedir}/${project.version}/repository"
-									passphrase="${cw.deploy.passphrase}"
-									keyfile="${cw.deploy.keyfile}"
-									verbose="true"
-									trust="true"
-								>
-									<fileset
-										dir="target/repository" />
+									passphrase="${cw.deploy.passphrase}" keyfile="${cw.deploy.keyfile}"
+									verbose="true" trust="true">
+									<fileset dir="target/repository" />
 								</scp>
-								<sshexec
-									host="${cw.deploy.host}"
-									username="${cw.deploy.username}"
-									passphrase="${cw.deploy.passphrase}"
-									keyfile="${cw.deploy.keyfile}"
-									trust="true"
-									verbose="true"
+								<sshexec host="${cw.deploy.host}" username="${cw.deploy.username}"
+									passphrase="${cw.deploy.passphrase}" keyfile="${cw.deploy.keyfile}"
+									trust="true" verbose="true"
 									command="mkdir ${cw.deploy.basedir}/${project.version}/products" />
 								<scp
 									todir="${cw.deploy.username}@${cw.deploy.host}:${cw.deploy.basedir}/${project.version}/products"
-									passphrase="${cw.deploy.passphrase}"
-									keyfile="${cw.deploy.keyfile}"
-									verbose="true"
-									trust="true"
-								>
-									<fileset
-										dir="target/products"
-									>
-										<include
-											name="*.zip" />
+									passphrase="${cw.deploy.passphrase}" keyfile="${cw.deploy.keyfile}"
+									verbose="true" trust="true">
+									<fileset dir="target/products">
+										<include name="*.zip" />
 									</fileset>
 								</scp>
 							</tasks>

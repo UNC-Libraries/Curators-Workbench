@@ -1,0 +1,19 @@
+#!/bin/sh
+#
+
+DIR=`dirname $0`/../
+export JAVA_HOME=$DIR/Resources/${macosx.jre.name}/Contents/Home
+LAUNCHER_JAR=$( find $DIR/Resources/plugins -name org.eclipse.equinox.launcher_*.jar | tail -n1)
+
+$JAVA_HOME/bin/java \
+-showversion \
+-XX:MaxPermSize=256m \
+-Xms1024m \
+-Xmx1024m \
+-XstartOnFirstThread \
+-Dorg.eclipse.swt.internal.carbon.smallFonts \
+-Dosgi.requiredJavaVersion=1.7 \
+-Dosgi.instance.area=@user.home/curators-workspace \
+-Djargon.debug=0 \
+-Dlog4j.configuration=file:$DIR/Resources/log4j.properties \
+-jar $LAUNCHER_JAR
