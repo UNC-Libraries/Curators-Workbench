@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: xlink.model.edit
 Bundle-SymbolicName: xlink.model.edit;singleton:=true
-Bundle-Version: 4.1.3.qualifier
+Bundle-Version: 4.1.3
 Bundle-Activator: org.w3._1999.xlink.provider.XlinkEditPlugin$Implementation
 Bundle-Vendor: University Libraries, UNC Chapel Hill
 Bundle-Localization: plugin
