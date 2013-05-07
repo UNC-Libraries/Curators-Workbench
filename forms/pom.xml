@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>curators.workbench</groupId>
 		<artifactId>parent</artifactId>
-		<version>4.1.3-SNAPSHOT</version>
+		<version>4.1.4-SNAPSHOT</version>
 	</parent>
 	<artifactId>forms</artifactId>
 	<packaging>war</packaging>
@@ -91,7 +91,7 @@
 		<dependency>
 			<groupId>curators.workbench</groupId>
 			<artifactId>crosswalk-gmf</artifactId>
-			<version>4.1.3-SNAPSHOT</version>
+			<version>4.1.4-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -101,12 +101,12 @@
 		<dependency>
 			<groupId>curators.workbench</groupId>
 			<artifactId>mods.model</artifactId>
-			<version>4.1.3-SNAPSHOT</version>
+			<version>4.1.4-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>curators.workbench</groupId>
 			<artifactId>xlink.model</artifactId>
-			<version>4.1.3-SNAPSHOT</version>
+			<version>4.1.4-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>org.eclipse.gmf</groupId>
@@ -178,12 +178,12 @@
 		<dependency>
 			<groupId>curators.workbench</groupId>
 			<artifactId>mets.model</artifactId>
-			<version>4.1.3-SNAPSHOT</version>
+			<version>4.1.4-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>curators.workbench</groupId>
 			<artifactId>access-control</artifactId>
-			<version>4.1.3-SNAPSHOT</version>
+			<version>4.1.4-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>org.mockito</groupId>
