@@ -15,7 +15,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<spring.version>3.0.6.RELEASE</spring.version>
 		<spring.ws.version>2.0.1.RELEASE</spring.ws.version>
-		<macosx.jre.dir>/tmp</macosx.jre.dir>
+		<macosx.jre.dir>${user.home}/macjre</macosx.jre.dir>
 		<macosx.jre.name>jre1.7.0_21.jre</macosx.jre.name>
 	</properties>
 	<developers>
@@ -62,6 +62,11 @@
 			<id>eclipse-gmp</id>
 			<layout>p2</layout>
 			<url>http://download.eclipse.org/modeling/gmp/gmf-tooling/updates/releases/</url>
+		</repository>
+		<repository>
+			<id>epsilon-updates</id>
+			<layout>p2</layout>
+			<url>http://download.eclipse.org/epsilon/updates/</url>
 		</repository>
 	</repositories>
 	<modules>

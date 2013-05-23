@@ -121,6 +121,15 @@ public class MetadataBlockImpl extends EObjectImpl implements MetadataBlock {
 	protected String currentUser = CURRENT_USER_EDEFAULT;
 
 	/**
+	 * This is true if the Current User attribute has been set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean currentUserESet;
+
+	/**
 	 * The cached value of the '{@link #getWidgets() <em>Widgets</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -350,8 +359,33 @@ public class MetadataBlockImpl extends EObjectImpl implements MetadataBlock {
 	public void setCurrentUser(String newCurrentUser) {
 		String oldCurrentUser = currentUser;
 		currentUser = newCurrentUser;
+		boolean oldCurrentUserESet = currentUserESet;
+		currentUserESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.METADATA_BLOCK__CURRENT_USER, oldCurrentUser, currentUser));
+			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.METADATA_BLOCK__CURRENT_USER, oldCurrentUser, currentUser, !oldCurrentUserESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void unsetCurrentUser() {
+		String oldCurrentUser = currentUser;
+		boolean oldCurrentUserESet = currentUserESet;
+		currentUser = CURRENT_USER_EDEFAULT;
+		currentUserESet = false;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CrosswalkPackage.METADATA_BLOCK__CURRENT_USER, oldCurrentUser, CURRENT_USER_EDEFAULT, oldCurrentUserESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSetCurrentUser() {
+		return currentUserESet;
 	}
 
 	/**
@@ -662,7 +696,7 @@ public class MetadataBlockImpl extends EObjectImpl implements MetadataBlock {
 				getOutputProfiles().clear();
 				return;
 			case CrosswalkPackage.METADATA_BLOCK__CURRENT_USER:
-				setCurrentUser(CURRENT_USER_EDEFAULT);
+				unsetCurrentUser();
 				return;
 			case CrosswalkPackage.METADATA_BLOCK__WIDGETS:
 				getWidgets().clear();
@@ -707,7 +741,7 @@ public class MetadataBlockImpl extends EObjectImpl implements MetadataBlock {
 			case CrosswalkPackage.METADATA_BLOCK__OUTPUT_PROFILES:
 				return outputProfiles != null && !outputProfiles.isEmpty();
 			case CrosswalkPackage.METADATA_BLOCK__CURRENT_USER:
-				return CURRENT_USER_EDEFAULT == null ? currentUser != null : !CURRENT_USER_EDEFAULT.equals(currentUser);
+				return isSetCurrentUser();
 			case CrosswalkPackage.METADATA_BLOCK__WIDGETS:
 				return widgets != null && !widgets.isEmpty();
 			case CrosswalkPackage.METADATA_BLOCK__ELEMENTS:
@@ -801,7 +835,7 @@ public class MetadataBlockImpl extends EObjectImpl implements MetadataBlock {
 		result.append(" (exception: ");
 		result.append(exception);
 		result.append(", currentUser: ");
-		result.append(currentUser);
+		if (currentUserESet) result.append(currentUser); else result.append("<unset>");
 		result.append(", exceptions: ");
 		result.append(exceptions);
 		result.append(", name: ");

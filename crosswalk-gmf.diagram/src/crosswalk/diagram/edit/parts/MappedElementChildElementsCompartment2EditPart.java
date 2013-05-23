@@ -93,11 +93,9 @@ public class MappedElementChildElementsCompartment2EditPart extends
 		installEditPolicy(
 				EditPolicyRoles.SEMANTIC_ROLE,
 				new MappedElementChildElementsCompartment2ItemSemanticEditPolicy());
-		installEditPolicy(
-				EditPolicyRoles.CREATION_ROLE,
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
 				new CompartmentChildCreationEditPolicy());
-		installEditPolicy(
-				EditPolicy.LAYOUT_ROLE,
+		installEditPolicy(EditPolicy.LAYOUT_ROLE,
 				new ReorderCompartmentEditPolicy());
 		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
 				new DragDropEditPolicy());

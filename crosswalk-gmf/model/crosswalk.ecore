@@ -175,7 +175,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="allowFreeText" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="validValues" upperBound="-1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" unsettable="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="#//TextInputType"
         defaultValueLiteral="SingleLine"/>
     <eGenericSuperTypes eClassifier="#//InputField">
@@ -183,10 +183,10 @@
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ContextProvider" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="outputProfiles" lowerBound="1"
-        upperBound="-1" eType="#//OutputProfile" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="currentUser" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outputProfiles" upperBound="-1"
+        eType="#//OutputProfile" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="currentUser" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        unsettable="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MappingContainer" abstract="true" interface="true"
       eSuperTypes="#//ContextProvider">
@@ -226,7 +226,7 @@
         unsettable="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="contactEmail" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         unsettable="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="logo" lowerBound="1" eType="#//URI"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="logo" eType="#//URI"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FormElement" abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="FileBlock" eSuperTypes="#//FormElement">

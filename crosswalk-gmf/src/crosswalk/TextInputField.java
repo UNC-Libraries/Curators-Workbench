@@ -213,11 +213,34 @@ public interface TextInputField extends InputField<String> {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Valid Values</em>' attribute list.
+	 * @see #isSetValidValues()
+	 * @see #unsetValidValues()
 	 * @see crosswalk.CrosswalkPackage#getTextInputField_ValidValues()
-	 * @model
+	 * @model unsettable="true"
 	 * @generated
 	 */
 	EList<String> getValidValues();
+
+	/**
+	 * Unsets the value of the '{@link crosswalk.TextInputField#getValidValues <em>Valid Values</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSetValidValues()
+	 * @see #getValidValues()
+	 * @generated
+	 */
+	void unsetValidValues();
+
+	/**
+	 * Returns whether the value of the '{@link crosswalk.TextInputField#getValidValues <em>Valid Values</em>}' attribute list is set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return whether the value of the '<em>Valid Values</em>' attribute list is set.
+	 * @see #unsetValidValues()
+	 * @see #getValidValues()
+	 * @generated
+	 */
+	boolean isSetValidValues();
 
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' attribute.

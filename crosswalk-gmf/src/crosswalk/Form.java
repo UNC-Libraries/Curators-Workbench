@@ -376,7 +376,7 @@ public interface Form extends Editable, ContextProvider {
 	 * @return the value of the '<em>Logo</em>' attribute.
 	 * @see #setLogo(URI)
 	 * @see crosswalk.CrosswalkPackage#getForm_Logo()
-	 * @model dataType="crosswalk.URI" required="true"
+	 * @model dataType="crosswalk.URI"
 	 * @generated
 	 */
 	URI getLogo();

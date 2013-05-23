@@ -80,6 +80,15 @@ public abstract class ContextProviderImpl extends EObjectImpl implements Context
 	protected String currentUser = CURRENT_USER_EDEFAULT;
 
 	/**
+	 * This is true if the Current User attribute has been set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean currentUserESet;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -127,8 +136,33 @@ public abstract class ContextProviderImpl extends EObjectImpl implements Context
 	public void setCurrentUser(String newCurrentUser) {
 		String oldCurrentUser = currentUser;
 		currentUser = newCurrentUser;
+		boolean oldCurrentUserESet = currentUserESet;
+		currentUserESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.CONTEXT_PROVIDER__CURRENT_USER, oldCurrentUser, currentUser));
+			eNotify(new ENotificationImpl(this, Notification.SET, CrosswalkPackage.CONTEXT_PROVIDER__CURRENT_USER, oldCurrentUser, currentUser, !oldCurrentUserESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void unsetCurrentUser() {
+		String oldCurrentUser = currentUser;
+		boolean oldCurrentUserESet = currentUserESet;
+		currentUser = CURRENT_USER_EDEFAULT;
+		currentUserESet = false;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CrosswalkPackage.CONTEXT_PROVIDER__CURRENT_USER, oldCurrentUser, CURRENT_USER_EDEFAULT, oldCurrentUserESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSetCurrentUser() {
+		return currentUserESet;
 	}
 
 	/**
@@ -193,7 +227,7 @@ public abstract class ContextProviderImpl extends EObjectImpl implements Context
 				getOutputProfiles().clear();
 				return;
 			case CrosswalkPackage.CONTEXT_PROVIDER__CURRENT_USER:
-				setCurrentUser(CURRENT_USER_EDEFAULT);
+				unsetCurrentUser();
 				return;
 		}
 		super.eUnset(featureID);
@@ -210,7 +244,7 @@ public abstract class ContextProviderImpl extends EObjectImpl implements Context
 			case CrosswalkPackage.CONTEXT_PROVIDER__OUTPUT_PROFILES:
 				return outputProfiles != null && !outputProfiles.isEmpty();
 			case CrosswalkPackage.CONTEXT_PROVIDER__CURRENT_USER:
-				return CURRENT_USER_EDEFAULT == null ? currentUser != null : !CURRENT_USER_EDEFAULT.equals(currentUser);
+				return isSetCurrentUser();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -226,7 +260,7 @@ public abstract class ContextProviderImpl extends EObjectImpl implements Context
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (currentUser: ");
-		result.append(currentUser);
+		if (currentUserESet) result.append(currentUser); else result.append("<unset>");
 		result.append(')');
 		return result.toString();
 	}

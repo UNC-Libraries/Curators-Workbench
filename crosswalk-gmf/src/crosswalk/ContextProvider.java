@@ -50,7 +50,7 @@ public interface ContextProvider extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Output Profiles</em>' containment reference list.
 	 * @see crosswalk.CrosswalkPackage#getContextProvider_OutputProfiles()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<OutputProfile> getOutputProfiles();
@@ -64,9 +64,11 @@ public interface ContextProvider extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Current User</em>' attribute.
+	 * @see #isSetCurrentUser()
+	 * @see #unsetCurrentUser()
 	 * @see #setCurrentUser(String)
 	 * @see crosswalk.CrosswalkPackage#getContextProvider_CurrentUser()
-	 * @model required="true"
+	 * @model unsettable="true"
 	 * @generated
 	 */
 	String getCurrentUser();
@@ -76,9 +78,34 @@ public interface ContextProvider extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Current User</em>' attribute.
+	 * @see #isSetCurrentUser()
+	 * @see #unsetCurrentUser()
 	 * @see #getCurrentUser()
 	 * @generated
 	 */
 	void setCurrentUser(String value);
+
+	/**
+	 * Unsets the value of the '{@link crosswalk.ContextProvider#getCurrentUser <em>Current User</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSetCurrentUser()
+	 * @see #getCurrentUser()
+	 * @see #setCurrentUser(String)
+	 * @generated
+	 */
+	void unsetCurrentUser();
+
+	/**
+	 * Returns whether the value of the '{@link crosswalk.ContextProvider#getCurrentUser <em>Current User</em>}' attribute is set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return whether the value of the '<em>Current User</em>' attribute is set.
+	 * @see #unsetCurrentUser()
+	 * @see #getCurrentUser()
+	 * @see #setCurrentUser(String)
+	 * @generated
+	 */
+	boolean isSetCurrentUser();
 
 } // ContextProvider

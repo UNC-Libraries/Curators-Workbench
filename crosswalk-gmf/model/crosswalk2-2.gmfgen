@@ -12,7 +12,11 @@
       itemSemanticEditPolicyClassName="EditingContainerItemSemanticEditPolicy"
       canonicalEditPolicyClassName="EditingContainerCanonicalEditPolicy"
       iconProviderPriority="Low"
-      validationProviderPriority="Low">
+      validationProviderPriority="Low"
+      validationEnabled="true"
+      validationDecorators="true"
+      validationDecoratorProviderPriority="Highest"
+      liveValidationUIFeedback="true">
     <diagramRunTimeClass
         href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Diagram"/>
     <elementType

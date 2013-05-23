@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 
+import org.eclipse.emf.ecore.util.InternalEList;
 import crosswalk.CrosswalkPackage;
 import crosswalk.FieldWidth;
 import crosswalk.TextInputField;
@@ -335,9 +336,27 @@ public class TextInputFieldImpl extends InputFieldImpl<String> implements TextIn
 	 */
 	public EList<String> getValidValues() {
 		if (validValues == null) {
-			validValues = new EDataTypeUniqueEList<String>(String.class, this, CrosswalkPackage.TEXT_INPUT_FIELD__VALID_VALUES);
+			validValues = new EDataTypeUniqueEList.Unsettable<String>(String.class, this, CrosswalkPackage.TEXT_INPUT_FIELD__VALID_VALUES);
 		}
 		return validValues;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void unsetValidValues() {
+		if (validValues != null) ((InternalEList.Unsettable<?>)validValues).unset();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSetValidValues() {
+		return validValues != null && ((InternalEList.Unsettable<?>)validValues).isSet();
 	}
 
 	/**
@@ -438,7 +457,7 @@ public class TextInputFieldImpl extends InputFieldImpl<String> implements TextIn
 				setAllowFreeText(ALLOW_FREE_TEXT_EDEFAULT);
 				return;
 			case CrosswalkPackage.TEXT_INPUT_FIELD__VALID_VALUES:
-				getValidValues().clear();
+				unsetValidValues();
 				return;
 			case CrosswalkPackage.TEXT_INPUT_FIELD__TYPE:
 				setType(TYPE_EDEFAULT);
@@ -464,7 +483,7 @@ public class TextInputFieldImpl extends InputFieldImpl<String> implements TextIn
 			case CrosswalkPackage.TEXT_INPUT_FIELD__ALLOW_FREE_TEXT:
 				return allowFreeText != ALLOW_FREE_TEXT_EDEFAULT;
 			case CrosswalkPackage.TEXT_INPUT_FIELD__VALID_VALUES:
-				return validValues != null && !validValues.isEmpty();
+				return isSetValidValues();
 			case CrosswalkPackage.TEXT_INPUT_FIELD__TYPE:
 				return type != TYPE_EDEFAULT;
 		}

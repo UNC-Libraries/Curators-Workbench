@@ -16,6 +16,14 @@ copyright 2010 University of North Carolina at Chapel Hill
          type="crosswalk"
          class="org.eclipse.gmf.runtime.emf.core.resources.GMFResourceFactory">
       </parser>
+      <parser
+            class="org.eclipse.gmf.runtime.emf.core.resources.GMFResourceFactory"
+            type="form">
+      </parser>
+      <parser
+            class="org.eclipse.gmf.runtime.emf.core.resources.GMFResourceFactory"
+            type="dictionary">
+      </parser>
    </extension>
 
    <extension point="org.eclipse.ui.editors" id="gmf-editor">
@@ -722,6 +730,46 @@ copyright 2010 University of North Carolina at Chapel Hill
    <extension point="org.eclipse.ui.handlers" id="menu-handlers">
       <?gmfgen generated="true"?>
    </extension>
+   <extension
+         point="org.eclipse.epsilon.evl.emf.validation">
+      <constraintsBinding
+            constraints="validation/mapping.evl"
+            namespaceURI="http://lib.unc.edu/schemas/crosswalk">
+      </constraintsBinding>
+   </extension>
+   <extension
+         point="org.eclipse.ui.ide.markerResolution">
+      <markerResolutionGenerator
+            class="org.eclipse.epsilon.evl.emf.validation.EvlMarkerResolutionGenerator"
+            markerType="org.eclipse.emf.ecore.diagnostic">
+      </markerResolutionGenerator>
+      <markerResolutionGenerator
+            class="org.eclipse.epsilon.evl.emf.validation.EvlMarkerResolutionGenerator"
+            markerType="crosswalk-gmf.diagram.diagnostic">
+      </markerResolutionGenerator>
+   </extension>
+<extension point="org.eclipse.gmf.runtime.common.ui.services.markerNavigationProviders" id="markers-navigation">
+      <?gmfgen generated="true"?>
+      <MarkerNavigationProvider class="crosswalk.diagram.providers.CrosswalkMarkerNavigationProvider">
+         <MarkerType name="crosswalk-gmf.diagram.diagnostic"/>
+         <Priority name="Lowest"/>
+      </MarkerNavigationProvider>
+   </extension>
+
+<extension id="diagnostic" name="Crosswalk Plugin problems" point="org.eclipse.core.resources.markers">
+      <?gmfgen generated="true"?>
+      <super type="org.eclipse.core.resources.problemmarker"/>
+      <super type="org.eclipse.gmf.runtime.common.ui.services.marker"/>
+      <persistent value="true"/>
+   </extension><extension id="validationDecoratorProvider" name="ValidationDecorations" point="org.eclipse.gmf.runtime.diagram.ui.decoratorProviders">
+      <?gmfgen generated="true"?>
+      <decoratorProvider class="crosswalk.diagram.providers.CrosswalkValidationDecoratorProvider">
+         <Priority name="Highest"/>
+         <object class="org.eclipse.gmf.runtime.diagram.ui.editparts.IPrimaryEditPart(org.eclipse.gmf.runtime.diagram.ui)" id="PRIMARY_VIEW"/>
+         <context decoratorTargets="PRIMARY_VIEW"/>
+      </decoratorProvider>
+   </extension>
+
 
    <!-- optionally, specify keybindings -->
 </plugin>
