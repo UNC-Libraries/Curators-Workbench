@@ -14,7 +14,6 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<spring.version>3.0.6.RELEASE</spring.version>
-		<spring.ws.version>2.0.1.RELEASE</spring.ws.version>
 		<macosx.jre.dir>${user.home}/macjre</macosx.jre.dir>
 		<macosx.jre.name>jre1.7.0_21.jre</macosx.jre.name>
 	</properties>
@@ -70,31 +69,15 @@
 		</repository>
 	</repositories>
 	<modules>
-		<module>crosswalk-gmf</module>
-		<module>crosswalk-gmf.diagram</module>
-		<module>crosswalk-gmf.edit</module>
-		<module>crosswalk-gmf.editor</module>
 		<module>workbench_help</module>
 		<module>workbench_feature</module>
 		<module>workbench_plugin</module>
 		<module>eclipse-repository</module>
-		<!--<module>workbench_updatesite</module> -->
 		<module>irods-efs.plugin</module>
-		<module>mets.model</module>
-		<module>mets.model.edit</module>
-		<module>mods.model</module>
-		<module>mods.model.edit</module>
-		<module>mods.model.editor</module>
-		<module>xlink.model</module>
-		<module>xlink.model.edit</module>
 		<module>target-definition</module>
-		<module>access-control</module>
-		<module>access-control.edit</module>
-		<module>crosswalk-gmf.custom</module>
 		<module>org.slf4j.log4j12</module>
 		<module>org.slf4j.pde</module>
 		<module>org.apache.log4j</module>
-		<module>forms</module>
 	</modules>
 	<build>
 		<pluginManagement>
