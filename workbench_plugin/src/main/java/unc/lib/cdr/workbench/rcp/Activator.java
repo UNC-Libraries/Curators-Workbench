@@ -65,7 +65,6 @@ public class Activator extends AbstractUIPlugin {
 	@Override
 	protected void initializeImageRegistry(ImageRegistry reg) {
 		super.initializeImageRegistry(reg);
-		// LabelImageFactory.initializeImageRegistry(reg);
 	}
 
 	/*

@@ -1,0 +1,20 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: staging.plugin
+Bundle-SymbolicName: staging.plugin;singleton:=true
+Bundle-Version: 4.1.4.qualifier
+Bundle-Activator: staging.plugin.StagingPlugin
+Bundle-Vendor: University Libraries, UNC Chapel Hill
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.core.resources,
+ org.eclipse.core.filesystem,
+ org.slf4j.log4j12;bundle-version="1.6.6"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy
+Import-Package: org.eclipse.core.filesystem
+Bundle-ClassPath: .,
+ staging-areas-0.0.1-SNAPSHOT.jar,
+ jackson-annotations-2.2.2.jar,
+ jackson-core-2.2.2.jar,
+ jackson-databind-2.2.2.jar

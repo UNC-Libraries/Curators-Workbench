@@ -15,7 +15,11 @@
  */
 package unc.lib.cdr.workbench.preferences;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,6 +36,20 @@ public class Initializer extends AbstractPreferenceInitializer {
 
 	@Override
 	public void initializeDefaultPreferences() {
+		URL cUrl = Activator.getDefault().getBundle().getResource("initialStagingAreasConfig.json");
+		StringBuilder sb = new StringBuilder();
+		try(BufferedReader r = new BufferedReader(new InputStreamReader(cUrl.openStream()))) {
+			for(String line = r.readLine(); line != null; line = r.readLine()) {
+				sb.append(line).append('\n');
+			}
+		} catch(IOException e) {
+			throw new Error("Unexpected issue loading JSON file", e);
+		}
+		String localStagingConfig = sb.toString();
+		
+		IEclipsePreferences prefs = DefaultScope.INSTANCE.getNode(Activator.PLUGIN_ID);
+		prefs.put(Activator.LOCAL_STAGING_CONFIG_JSON, localStagingConfig);
+		
 		List<String[]> locs = new ArrayList<String[]>();
 		
 		locs.add(new String[] { "CDR Staging iRODS Grid",
@@ -44,16 +62,12 @@ public class Initializer extends AbstractPreferenceInitializer {
 		File dir = new File(osUserHome + "/workbench_staging");
 		locs.add(new String[] { "Staging folder in home directory", dir.toURI().toString() + "${PROJECT_NAME}" });
 		
-		
-		
 		// add the relative to project folder option (using dynamic path variable for PROJECT_PATH)
 		locs.add(new String[] { "Data folder within project (Bag-It style)", "${PROJECT_LOC}/data" });
 		
 		String str = Activator.convertLocationsToPref(locs);
 		// Activator.getDefault().getLog().log(new Status(IStatus.INFO, Activator.PLUGIN_ID, "setting defaults: "+str));
 
-		IEclipsePreferences prefs = new DefaultScope().getNode(Activator.PLUGIN_ID);
 		prefs.put(Activator.STAGE_LOCATIONS, str);
 	}
-
 }
