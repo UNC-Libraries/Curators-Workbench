@@ -10,7 +10,7 @@ Full build requires:
 
 Building without bundling the Java Runtime Environment is easy:
 
-    mvn install
+    mvn package
 
 The Java Runtime Environment (JRE) can be bundled within each distribution package. To perform a bundled build, you must first download and unpack the JRE folder for all the platforms into a directory structure as follows:
 
@@ -28,7 +28,11 @@ The Java Runtime Environment (JRE) can be bundled within each distribution packa
 
 Then the distribution packages and update site are all created in one maven command:
 
-    mvn -DbundleJREs=true -DbundleJREs.dir=<full path of bundledJREs dir> install
+    mvn -DbundleJREs=true -DbundleJREs.dir=<full path of bundledJREs dir> package
+    
+The distribution packages can be found here after the build:
+
+    <project base dir>/eclipse-repository/target/products
 
 Developer Eclipse IDE Setup
 ---------------------------
