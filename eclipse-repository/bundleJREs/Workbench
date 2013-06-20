@@ -2,7 +2,7 @@
 #
 
 DIR=`dirname $0`/../
-export JAVA_HOME=$DIR/Resources/${macosx.jre.name}/Contents/Home
+export JAVA_HOME=$DIR/Resources/jre${jre.version}.jre/Contents/Home
 LAUNCHER_JAR=$( find $DIR/Resources/plugins -name org.eclipse.equinox.launcher_*.jar | tail -n1)
 
 $JAVA_HOME/bin/java \
