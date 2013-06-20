@@ -1,7 +1,7 @@
 <assembly xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2 http://maven.apache.org/xsd/assembly-1.1.2.xsd">
-  <id>app</id>
+  <id>macosx.cocoa.x86_64-app</id>
   <formats>
     <format>tar.gz</format>
   </formats>
@@ -31,23 +31,23 @@
     
     <fileSet>
       <outputDirectory>/Contents/Resources</outputDirectory>
-      <directory>${macosx.jre.dir}</directory>
+      <directory>${bundleJREs.dir}/macosx-x64</directory>
       <includes>
-        <include>${macosx.jre.name}/**</include>
+        <include>jre${jre.version}.jre/**</include>
       </includes>
     </fileSet>
   </fileSets>
   
   <files>
     <file>
-      <source>${basedir}/macosx/Workbench</source>
+      <source>${basedir}/bundleJREs/Workbench</source>
       <outputDirectory>/Contents/MacOS</outputDirectory>
       <filtered>true</filtered>
       <fileMode>755</fileMode>
     </file>
     <file>
-      <source>${macosx.jre.dir}/${macosx.jre.name}/Contents/Home/bin/java</source>
-      <outputDirectory>/Contents/Resources/${macosx.jre.name}/Contents/Home/bin</outputDirectory>
+      <source>${bundleJREs.dir}/macosx-x64/jre${jre.version}.jre/Contents/Home/bin/java</source>
+      <outputDirectory>/Contents/Resources/jre${jre.version}.jre/Contents/Home/bin</outputDirectory>
       <filtered>false</filtered>
       <fileMode>755</fileMode>
     </file>

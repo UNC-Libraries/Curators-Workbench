@@ -9,7 +9,8 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.core.resources,
  org.eclipse.core.filesystem,
- org.slf4j.log4j12;bundle-version="1.6.6"
+ org.slf4j.log4j12;bundle-version="4.1.4",
+ org.apache.log4j;bundle-version="4.1.4"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
 Import-Package: org.eclipse.core.filesystem

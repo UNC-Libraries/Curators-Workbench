@@ -14,8 +14,7 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<spring.version>3.0.6.RELEASE</spring.version>
-		<macosx.jre.dir>${user.home}/macjre</macosx.jre.dir>
-		<macosx.jre.name>jre1.7.0_21.jre</macosx.jre.name>
+		<jre.version>1.7.0_25</jre.version>
 	</properties>
 	<developers>
 		<developer>
