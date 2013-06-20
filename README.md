@@ -9,7 +9,8 @@ Full build requires:
  * Java 7 packages for each target platform (optional, for bundling JRE)
 
 Building without bundling the Java Runtime Environment is easy:
- * mvn install
+
+    mvn install
 
 The Java Runtime Environment (JRE) can be bundled within each distribution package. To perform a bundled build, you must first download and unpack the JRE folder for all the platforms into a directory structure as follows:
 
@@ -26,7 +27,8 @@ The Java Runtime Environment (JRE) can be bundled within each distribution packa
           \jre1.7.0_25.jre
 
 Then the distribution packages and update site are all created in one maven command:
- * mvn -DbundleJREs=true -DbundleJREs.dir=<full path of bundledJREs dir> install
+
+    mvn -DbundleJREs=true -DbundleJREs.dir=<full path of bundledJREs dir> install
 
 Developer Eclipse IDE Setup
 ---------------------------
