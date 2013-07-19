@@ -16,9 +16,8 @@
 package unc.lib.cdr.workbench.project;
 
 import java.net.URI;
-import java.net.URISyntaxException;
+import java.net.URL;
 
-import org.eclipse.core.filesystem.URIUtil;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
@@ -35,21 +34,23 @@ import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.dialogs.WizardNewProjectCreationPage;
 
-import unc.lib.cdr.workbench.rcp.Activator;
+import staging.plugin.StagingPlugin;
+import edu.unc.lib.staging.SharedStagingArea;
+import edu.unc.lib.staging.Stages;
 
 /**
  * @author Gregory Jansen
- *
+ * 
  */
 public class NewProjectStagingPage extends WizardPage {
 	WizardNewProjectCreationPage mainPage = null;
 	Table stageTable = null;
 
-	Text rawStageText = null;
+	Text manifestReferencesText = null;
 	Text stageText = null;
 	Button autoStageButton = null;
 	boolean autoStage = true;
-	String stagingLocationTemplate = null;
+	SharedStagingArea stagingArea = null;
 
 	// boolean
 
@@ -62,8 +63,10 @@ public class NewProjectStagingPage extends WizardPage {
 
 	/*
 	 * (non-Javadoc)
-	 *
-	 * @see org.eclipse.jface.dialogs.IDialogPage#createControl(org.eclipse.swt.widgets .Composite)
+	 * 
+	 * @see
+	 * org.eclipse.jface.dialogs.IDialogPage#createControl(org.eclipse.swt.widgets
+	 * .Composite)
 	 */
 	@Override
 	public void createControl(Composite parent) {
@@ -80,15 +83,26 @@ public class NewProjectStagingPage extends WizardPage {
 		stageTable.setLinesVisible(true);
 		stageTable.setHeaderVisible(true);
 		TableColumn cName = new TableColumn(stageTable, SWT.NULL);
-		cName.setText("Name");
+		cName.setText("Staging Area");
 		TableColumn cUri = new TableColumn(stageTable, SWT.NULL);
-		cUri.setText("Location");
-		for (String[] pair : Activator.getDefault().getStagingLocationsPreference()) {
-			TableItem item = new TableItem(stageTable, SWT.NULL);
-			item.setText(pair);
+		cUri.setText("Repository");
+		TableColumn cConn = new TableColumn(stageTable, SWT.NULL);
+		cConn.setText("Connected");
+
+		Stages stages = StagingPlugin.getDefault().getStages();
+		for (SharedStagingArea area : stages.getAllAreas().values()) {
+			URL repo = area.getConfigURL();
+			TableItem add = new TableItem(stageTable, SWT.NULL);
+			add.setText(0, area.getName());
+			add.setText(1, repo.getHost());
+			add.setText(2, area.isConnected() ? "yes" : "no");
+			add.setData(area);
 		}
+		cUri.pack();
 		cName.pack();
-		// cUri.pack();
+		cConn.pack();
+		
+
 		stageTable.addSelectionListener(new SelectionListener() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
@@ -102,18 +116,20 @@ public class NewProjectStagingPage extends WizardPage {
 		});
 
 		Label txtLabel = new Label(composite, SWT.NULL);
-		txtLabel.setText("Template");
-		rawStageText = new Text(composite, SWT.NULL);
-		rawStageText.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
+		txtLabel.setText("Manifest Base Identifier");
+		manifestReferencesText = new Text(composite, SWT.NULL);
+		manifestReferencesText.setLayoutData(new GridData(
+				GridData.FILL_HORIZONTAL));
 
 		Label txt2Label = new Label(composite, SWT.NULL);
-		txt2Label.setText("Location");
+		txt2Label.setText("Staging Base Location");
 		stageText = new Text(composite, SWT.NULL);
 		stageText.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
 
 		// checkbox - automatically stage captured files?
 		autoStageButton = new Button(composite, SWT.CHECK | SWT.RIGHT);
-		autoStageButton.setText("Automatically stage files as you capture them.");
+		autoStageButton
+				.setText("Automatically stage files as you capture them.");
 		autoStageButton.setSelection(true);
 		GridData buttonData = new GridData();
 		buttonData.horizontalSpan = 2;
@@ -130,50 +146,21 @@ public class NewProjectStagingPage extends WizardPage {
 
 	private void stageSelectionChanged() {
 		if (stageTable.getSelectionIndex() != -1) {
-			this.stagingLocationTemplate = stageTable.getSelection()[0].getText(1);
+			this.stagingArea = (SharedStagingArea) stageTable.getSelection()[0]
+					.getData();
+			if (!this.stagingArea.isConnected()) {
+				this.stagingArea.connect();
+			}
+			URI projectManifestBase = this.stagingArea.makeURI(mainPage.getProjectName());
+			manifestReferencesText.setText(projectManifestBase.toString());
+			if (this.stagingArea.isConnected()) {
+				URL projectStagedBase = this.stagingArea.getStagedURL(projectManifestBase);
+				stageText.setText(projectStagedBase.toString());
+				this.setPageComplete(this.stagingArea != null);
+			} else {
+				stageText.setText("Cannot connect to this staging area");
+			}
 		}
-		URI projectLocation = null;
-		if (!mainPage.useDefaults()) {
-			projectLocation = mainPage.getLocationURI();
-		} else {
-			projectLocation = URIUtil.toURI(mainPage.getLocationPath().append(mainPage.getProjectName()));
-		}
-		URI location = computeStageLocation(projectLocation, mainPage.getProjectName());
-		rawStageText.setText(stagingLocationTemplate);
-		stageText.setText(location.toString());
-		this.setPageComplete(this.stagingLocationTemplate != null);
-	}
-
-	/**
-	 * @param projectLocation
-	 *           Project Location URI
-	 * @param projectName
-	 *           Project Name
-	 * @return staging URI
-	 */
-	URI computeStageLocation(URI projectLocation, String projectName) {
-		//System.out.println("computeStageLocation: projectLocation=" + projectLocation);
-		//System.out.println("computeStageLocation: projectName=" + projectName);
-		try {
-			projectName = new URI("file", projectName, null).toString();
-			projectName = projectName.substring(projectName.indexOf(":") + 1);
-			//System.out.println("computeStageLocation: projectNameEncoded=" + projectName);
-		} catch (URISyntaxException e) {
-			throw new Error(e);
-		}
-		URI result;
-		String userName = System.getProperty("user.name");
-		String stageLocation = null;
-		stageLocation = stagingLocationTemplate.replaceAll("\\$\\{PROJECT_NAME\\}", projectName);
-		stageLocation = stageLocation.replaceAll("\\$\\{PROJECT_LOC\\}", projectLocation.toString());
-		stageLocation = stageLocation.replaceAll("\\$\\{USER_NAME\\}", userName);
-		//System.out.println("stageLocation str before new URI call: " + stageLocation);
-		try {
-			result = new URI(stageLocation);
-		} catch (URISyntaxException e) {
-			throw new Error(e);
-		}
-		return result;
 	}
 
 	public void setMainPage(WizardNewProjectCreationPage mainPage) {
@@ -182,7 +169,7 @@ public class NewProjectStagingPage extends WizardPage {
 
 	@Override
 	public boolean isPageComplete() {
-		return (this.stagingLocationTemplate != null);
+		return (this.stagingArea != null && this.stagingArea.isConnected());
 	}
 
 	public boolean isAutoStage() {

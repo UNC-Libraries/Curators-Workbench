@@ -18,3 +18,5 @@ Bundle-ClassPath: .,
  jackson-annotations-2.2.2.jar,
  jackson-core-2.2.2.jar,
  jackson-databind-2.2.2.jar
+Export-Package: edu.unc.lib.staging,
+ staging.plugin

@@ -972,11 +972,6 @@
    <extension
          point="org.eclipse.ui.preferencePages">
       <page
-            class="unc.lib.cdr.workbench.preferences.StagingPreferencePage"
-            id="cdr_producer.preferences.PreferencePage"
-            name="Staging">
-      </page>
-      <page
             category="org.eclipse.ui.preferencePages.Workbench"
             class="org.eclipse.ui.intro.universal.ExtensionFactory:welcomeCustomization"
             id="workbench_plugin.introCustomization"
@@ -1144,6 +1139,16 @@
                moveable="true"
                ratio=".4"
                relationship="left"
+               relative="cdr-workbench.Properties"
+               showTitle="true"
+               visible="true">
+         </view>
+         <view
+               closeable="false"
+               id="staging.plugin.views.StagingAreasView"
+               minimized="false"
+               moveable="true"
+               relationship="stack"
                relative="cdr-workbench.Properties"
                showTitle="true"
                visible="true">
@@ -1708,12 +1713,6 @@
             class="unc.lib.cdr.workbench.project.VariableResolver"
             variable="PROJECT_NAME">
       </variableResolver>
-   </extension>
-   <extension
-         point="org.eclipse.core.runtime.preferences">
-      <initializer
-            class="unc.lib.cdr.workbench.preferences.Initializer">
-      </initializer>
    </extension>
    <extension
          point="org.eclipse.ui.views.properties.tabbed.propertyTabs">

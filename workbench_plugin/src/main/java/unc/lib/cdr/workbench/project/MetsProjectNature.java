@@ -372,10 +372,10 @@ public class MetsProjectNature implements IProjectNature {
 	/**
 	 * @param stageURI
 	 */
-	public static void setStagingBase(java.net.URI stageURI, IProject project) {
+	public static void setStagingBase(String stageURI, IProject project) {
 		LOG.debug("setting stageURI to: " + stageURI);
 		IEclipsePreferences projectNode = new ProjectScope(project).getNode(Activator.PLUGIN_ID);
-		projectNode.put(STAGING_BASE_URI_KEY, stageURI.toString());
+		projectNode.put(STAGING_BASE_URI_KEY, stageURI);
 	}
 
 	public java.net.URI getStagingBase() {

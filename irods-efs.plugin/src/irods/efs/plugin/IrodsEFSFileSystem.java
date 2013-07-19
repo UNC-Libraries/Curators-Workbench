@@ -111,6 +111,8 @@ public class IrodsEFSFileSystem extends FileSystem {
 							String promptName = null;
 							if (uri.getUserInfo() != null) {
 								promptName = uri.getUserInfo();
+							} else {
+								promptName = System.getProperty("user.name");
 							}
 							URI serverURI = null;
 							try {

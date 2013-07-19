@@ -7,6 +7,34 @@
             class="staging.plugin.StagingAreaPreferenceInitializer">
       </initializer>
    </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="staging.plugin.WorkbenchPreferencePage"
+            id="staging.plugin.page1"
+            name="Repository Staging">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            id="staging.plugin"
+            name="Repository Staging">
+      </category>
+      <view
+            category="staging.plugin"
+            class="staging.plugin.views.StagingAreasView"
+            icon="icons/stagingareas.gif"
+            id="staging.plugin.views.StagingAreasView"
+            name="Staging Areas">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.help.contexts">
+      <contexts
+            file="contexts.xml">
+      </contexts>
+   </extension>
 
 
 </plugin>

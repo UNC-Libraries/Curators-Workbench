@@ -1,6 +1,8 @@
 package staging.plugin;
 
-import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.net.URLStreamHandlerFactory;
 
 import org.eclipse.core.filesystem.EFS;
 import org.eclipse.core.filesystem.IFileStore;
@@ -16,14 +18,22 @@ import edu.unc.lib.staging.LocalResolver;
 public class EFSResolver implements LocalResolver {
 
 	@Override
-	public boolean exists(String uri) {
+	public boolean exists(URL locationURL) {
 		try {
-			URI test = URI.create(uri);
-			IFileStore fs = EFS.getStore(test);
+			IFileStore fs = EFS.getStore(locationURL.toURI());
 			return fs.fetchInfo().exists();
 		} catch(CoreException e) {
 			return false;
+		} catch(NullPointerException e) {
+			return false;
+		} catch (URISyntaxException e) {
+			return false;
 		}
+	}
+
+	@Override
+	public URLStreamHandlerFactory getURLStreamHandlerFactory() {
+		return new IRODSURLStreamHandlerFactory();
 	}
 
 }

@@ -21,7 +21,8 @@ Require-Bundle: org.eclipse.core.expressions;bundle-version="3.4.300",
  crosswalk-gmf.custom;bundle-version="0.0.0",
  org.slf4j.log4j12;bundle-version="1.6.6",
  org.apache.log4j;bundle-version="1.2.17",
- org.slf4j.pde;bundle-version="4.1.2"
+ org.slf4j.pde;bundle-version="4.1.2",
+ staging.plugin;bundle-version="4.1.4";visibility:=reexport
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Export-Package: unc.lib.cdr.workbench,
@@ -30,7 +31,6 @@ Export-Package: unc.lib.cdr.workbench,
  unc.lib.cdr.workbench.capture,
  unc.lib.cdr.workbench.commands,
  unc.lib.cdr.workbench.originals,
- unc.lib.cdr.workbench.preferences,
  unc.lib.cdr.workbench.project,
  unc.lib.cdr.workbench.rcp,
  unc.lib.cdr.workbench.stage,
