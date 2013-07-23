@@ -119,13 +119,13 @@ public class OriginalsLinkJob extends Job {
 				boolean foundStub = false;
 				for(OriginalStub s :n.getOriginals()) {
 					if(s.getVolumeRoot().equals(volumeRoot) && s.isAttached()) {
-						s.addLocations(volumeToLocations.get(volumeRoot), volumeToPrestageLocations.get(volumeRoot));
+						s.addLocations(volumeToLocations.get(volumeRoot));
 						foundStub = true;
 						break;
 					}
 				}
 				if(!foundStub) {
-					OriginalStub original = new OriginalStub(volumeRoot, volumeToLocations.get(volumeRoot), volumeToPrestageLocations.get(volumeRoot), this.project, this.removeable);
+					OriginalStub original = new OriginalStub(volumeRoot, volumeToLocations.get(volumeRoot), this.project, this.removeable);
 					n.addOriginal(original);
 				}
 			}

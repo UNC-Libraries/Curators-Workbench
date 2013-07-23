@@ -9,7 +9,10 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.core.resources,
  org.eclipse.core.filesystem,
- org.slf4j.log4j12;bundle-version="1.6.6"
+ org.slf4j.log4j12;bundle-version="1.6.6",
+ org.apache.commons.codec;bundle-version="1.3.0",
+ org.slf4j.pde;bundle-version="4.1.4",
+ irods-efs.plugin;bundle-version="4.1.4"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Import-Package: org.eclipse.core.filesystem
@@ -19,4 +22,5 @@ Bundle-ClassPath: .,
  jackson-core-2.2.2.jar,
  jackson-databind-2.2.2.jar
 Export-Package: edu.unc.lib.staging,
- staging.plugin
+ staging.plugin,
+ staging.plugin.views

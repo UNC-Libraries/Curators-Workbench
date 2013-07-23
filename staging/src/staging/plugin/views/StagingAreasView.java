@@ -125,6 +125,13 @@ public class StagingAreasView extends ViewPart {
 
 	class NameSorter extends ViewerSorter {
 
+		@Override
+		public int compare(Viewer viewer, Object e1, Object e2) {
+			String s1 = ((SharedStagingArea)e1).getName();
+			String s2 = ((SharedStagingArea)e2).getName();
+			return super.compare(viewer, s1, s2);
+		}
+		
 	}
 
 	/**
@@ -194,6 +201,12 @@ public class StagingAreasView extends ViewPart {
 			}
 		});
 	}
+	
+	public void refreshView() {
+		if(this.viewer != null) {
+			viewer.refresh();
+		}
+	}
 
 	private TableViewerColumn createTableViewerColumn(String title, int bound,
 			final int colNumber) {
@@ -248,7 +261,6 @@ public class StagingAreasView extends ViewPart {
 			public void run() {
 				try {
 					StagingPlugin.getDefault().loadStages();
-					viewer.refresh();
 					showMessage("Repository staging configuration reloaded.");
 				} catch (Exception e) {
 					showMessage("Problem reloading repository staging configuration: "
@@ -265,8 +277,7 @@ public class StagingAreasView extends ViewPart {
 			public void run() {
 				IStructuredSelection sel = (IStructuredSelection) viewer.getSelection();
 				SharedStagingArea stage = (SharedStagingArea)sel.getFirstElement();
-				stage.connect();
-				viewer.refresh();
+				StagingPlugin.getDefault().getStages().connect(stage.getURI());
 			}
 		};
 		actionConnect.setText("Connect");
@@ -289,8 +300,7 @@ public class StagingAreasView extends ViewPart {
 					} catch (MalformedURLException e) {
 					}
 					StagingPlugin.getDefault().saveConfig();
-					stage.connect();
-					viewer.refresh();
+					StagingPlugin.getDefault().getStages().connect(stage.getURI());
 				}
 			}
 		};

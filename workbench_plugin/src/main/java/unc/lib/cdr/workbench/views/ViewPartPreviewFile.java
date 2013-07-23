@@ -133,7 +133,7 @@ public class ViewPartPreviewFile extends ViewPart {
 	}
 
 	protected void setImageProvider(final ImageProvider newprovider) {
-		if (newprovider == null)
+		if (newprovider == null || viewer == null)
 			return;
 		Image newimage = newprovider.getImage(viewer.getDisplay());
 		if (newimage != null) {

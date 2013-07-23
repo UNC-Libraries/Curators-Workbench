@@ -24,9 +24,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
@@ -46,7 +44,6 @@ public class OriginalStub implements java.io.Serializable {
 	}
 
 	private List<URI> locations = new ArrayList<URI>();
-	private Map<URI, URI> prestageLocations = new HashMap<URI, URI>();
 	private transient IProject project;
 	private String projectName;
 	private int volumeHash = -1;
@@ -61,14 +58,12 @@ public class OriginalStub implements java.io.Serializable {
 	private transient List<OriginalFileStore> stores = new ArrayList<OriginalFileStore>();
 
 	public OriginalStub(URI volumeRoot, List<URI> locations,
-			Map<URI, URI> prestageLocations, IProject project,
+			IProject project,
 			boolean removeable) {
 		this.volumeRoot = volumeRoot;
 		this.locations = locations;
 		this.project = project;
 		this.projectName = project.getName();
-		if (prestageLocations != null)
-			this.prestageLocations = prestageLocations;
 		init();
 		this.removeable = removeable;
 		try {
@@ -135,20 +130,13 @@ public class OriginalStub implements java.io.Serializable {
 		return result;
 	}
 
-	public URI getPrestageBase(URI location) {
-		return prestageLocations.get(location);
-	}
-
 	public List<URI> getLocations() {
 		return locations;
 	}
 
-	public void addLocations(Collection<URI> newLocations,
-			Map<URI, URI> prestageLocations) {
+	public void addLocations(Collection<URI> newLocations) {
 		if (this.isAttached()) {
 			this.locations.addAll(newLocations);
-			if (prestageLocations != null)
-				this.prestageLocations.putAll(prestageLocations);
 			init();
 		} else {
 			throw new Error(

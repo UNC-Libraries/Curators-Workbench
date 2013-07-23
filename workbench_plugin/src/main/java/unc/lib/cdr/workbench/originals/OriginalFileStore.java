@@ -25,7 +25,6 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.List;
 
 import org.eclipse.core.filesystem.EFS;
 import org.eclipse.core.filesystem.IFileInfo;
@@ -44,8 +43,6 @@ import unc.lib.cdr.workbench.project.MetsProjectNature;
 import unc.lib.cdr.workbench.rcp.Activator;
 
 public class OriginalFileStore implements IFileStore {
-
-	@SuppressWarnings("unused")
 	private static final Logger LOG = LoggerFactory.getLogger(OriginalFileStore.class);
 
 	private static final String FILETYPE_PREFIX = "f_";
@@ -143,6 +140,7 @@ public class OriginalFileStore implements IFileStore {
 		return (obj instanceof OriginalFileStore && obj != null && obj.hashCode() == this.hashCode());
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public Object getAdapter(Class adapter) {
 		return this.wrapped.getAdapter(adapter);
@@ -302,36 +300,23 @@ public class OriginalFileStore implements IFileStore {
 		return uri;
 	}
 
-	/**
-	 * Calculate the pre-staged location URI, if applicable
-	 * 
-	 * @return the pre-staged URI, or null if not pre-staged.
-	 */
-	public URI getPrestagedLocation() {
-		// get path back to store containing prestage location
-		List<OriginalFileStore> stubStores = this.stub.getStores();
-		OriginalFileStore test = (OriginalFileStore) this.getParent();
-		for (test = (OriginalFileStore) this.getParent(); test != null; test = (OriginalFileStore) test.getParent()) {
-			URI prestage = this.stub.getPrestageBase(test.getWrapped().toURI());
-			if (prestage != null) {
-				Path mypath = new Path(this.toURI().getPath());
-				Path basePath = new Path(test.toURI().getPath());
-				IPath relPath = mypath.makeRelativeTo(basePath);
-				IPath psPath = new Path(prestage.getPath()).append(relPath);
-				try {
-					URI result = new URI(prestage.getScheme(), prestage.getUserInfo(), prestage.getHost(),
-							prestage.getPort(), psPath.toString(), prestage.getQuery(), prestage.getFragment());
-					return result;
-				} catch (URISyntaxException e) {
-					throw new Error(e);
-				}
-			}
-			if (stubStores.contains(test))
-				return null; // did not find prestaged location in tree
+	public String getDistinctStagingPath() {
+		LOG.debug("original.toURI().getPath()" + this.toURI().getPath());
+		Path mypath = new Path(this.toURI().getPath());
+		Path stubPath = new Path(this.getOriginalStub().getVolumeRoot().getPath());
+		LOG.debug("stubPath: " + stubPath);
+		IPath relStubPath = mypath.makeRelativeTo(stubPath);
+		LOG.debug("relStubPath: " + relStubPath);
+		String stubSegment = new StringBuilder().append("_").append(this.getOriginalStub().getVolumeHash()).toString();
+		IPath stagePath = new Path(stubSegment).append(relStubPath);
+		LOG.debug("stagePath: " + stagePath);
+		String sps = stagePath.toString();
+		if (!sps.startsWith("/")) {
+			sps = "/" + sps;
 		}
-		return null;
+		return sps;
 	}
-
+	
 	public IFileStore getStageLocation() {
 		MetsProjectNature mpn = MetsProjectNature.get(getProject());
 		URI stageBase = mpn.getStagingBase();

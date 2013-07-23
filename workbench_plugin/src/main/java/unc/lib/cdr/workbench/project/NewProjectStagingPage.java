@@ -149,7 +149,7 @@ public class NewProjectStagingPage extends WizardPage {
 			this.stagingArea = (SharedStagingArea) stageTable.getSelection()[0]
 					.getData();
 			if (!this.stagingArea.isConnected()) {
-				this.stagingArea.connect();
+				StagingPlugin.getDefault().getStages().connect(this.stagingArea.getURI());
 			}
 			URI projectManifestBase = this.stagingArea.makeURI(mainPage.getProjectName());
 			manifestReferencesText.setText(projectManifestBase.toString());

@@ -15,6 +15,7 @@
  */
 package unc.lib.cdr.workbench.views;
 
+import edu.unc.lib.staging.SharedStagingArea;
 import gov.loc.mets.DivType;
 import gov.loc.mets.MdSecType;
 import gov.loc.mets.MetsPackage;
@@ -23,16 +24,13 @@ import gov.loc.mets.impl.DivTypeImpl;
 import gov.loc.mets.util.METSConstants;
 import gov.loc.mets.util.METSUtils;
 
-import java.net.URI;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 import org.eclipse.core.filesystem.IFileInfo;
-import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Platform;
-import org.eclipse.core.runtime.Status;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.IDecoration;
 import org.eclipse.jface.viewers.ILabelProviderListener;
@@ -40,10 +38,10 @@ import org.eclipse.jface.viewers.ILightweightLabelDecorator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import staging.plugin.StagingPlugin;
 import unc.lib.cdr.workbench.IResourceConstants;
 import unc.lib.cdr.workbench.originals.OriginalFileStore;
 import unc.lib.cdr.workbench.originals.OriginalStub;
-import unc.lib.cdr.workbench.rcp.Activator;
 import unc.lib.cdr.workbench.views.LabelImageFactory.Icon;
 
 public class OriginalAndDivDecorator implements ILightweightLabelDecorator {
@@ -184,10 +182,9 @@ public class OriginalAndDivDecorator implements ILightweightLabelDecorator {
 					labels.add("captured");
 				}
 			}
-			URI prestage = r.getOriginalStub().getPrestageBase(
-					r.getWrapped().toURI());
+			SharedStagingArea prestage = StagingPlugin.getDefault().getStages().findMatchingArea(r.getWrapped().toURI());
 			if (prestage != null) {
-				labels.add("pre-staged=>" + prestage.toString());
+				labels.add("pre-staged: " + prestage.getName());
 			}
 			if (r.getStagingLocatorType() != null) {
 				// captured file (original or the div)

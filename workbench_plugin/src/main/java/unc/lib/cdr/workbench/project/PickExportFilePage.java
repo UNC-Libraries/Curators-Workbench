@@ -36,7 +36,7 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Widget;
 
-import unc.lib.cdr.workbench.stage.StagingUtils;
+import staging.plugin.StagingUtils;
 
 /**
  * @author Gregory Jansen

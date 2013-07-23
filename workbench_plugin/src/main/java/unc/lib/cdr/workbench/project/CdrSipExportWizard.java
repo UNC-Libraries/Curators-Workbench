@@ -29,7 +29,6 @@ import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.ide.IDE;
 
-import unc.lib.cdr.workbench.stage.StagingUtils;
 
 public class CdrSipExportWizard extends Wizard implements IExportWizard {
 	IWorkbench workbench = null;
@@ -104,7 +103,7 @@ public class CdrSipExportWizard extends Wizard implements IExportWizard {
 		if (!page.isPageComplete())
 			return false;
 		try {
-			int unstaged = StagingUtils.countUnstaged(project);
+			int unstaged = MetsProjectNature.countUnstaged(project);
 			if(unstaged > 0) {
 				page.setErrorMessage("There are still "+unstaged+" files queued for staging. All captured files must be staged prior to export.");
 				page.setPageComplete(false);

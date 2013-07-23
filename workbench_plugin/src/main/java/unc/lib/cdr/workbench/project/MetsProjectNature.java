@@ -484,4 +484,25 @@ public class MetsProjectNature implements IProjectNature {
 		return result.toString();
 	}
 
+	public static int countUnstaged(IProject project) throws CoreException {
+		int numOfFiles = 0;
+		int numStaged = 0;
+		DivType bag = METSUtils.findBagDiv(get(project).getMets());
+		for(TreeIterator<EObject> iter = bag.eAllContents(); iter.hasNext();) {
+			EObject next = iter.next();
+			if(next != null && next instanceof FptrType) {
+				numOfFiles++;
+				FptrType fptr = (FptrType)next;
+				OriginalFileStore original = getOriginal((DivType)fptr.eContainer());
+				if(original != null) {
+					FLocatType loc = original.getStagingLocatorType();
+					if(loc != null) {
+						numStaged++;
+					}
+				}
+			}
+		}
+		return numOfFiles - numStaged;
+	}
+
 }
