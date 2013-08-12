@@ -17,7 +17,6 @@ package unc.lib.cdr.workbench.rcp;
 
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.swt.graphics.Point;
-import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.IWorkbenchPreferenceConstants;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.application.ActionBarAdvisor;

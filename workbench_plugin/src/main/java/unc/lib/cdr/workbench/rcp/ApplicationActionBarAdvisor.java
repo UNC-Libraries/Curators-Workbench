@@ -29,7 +29,6 @@ import org.eclipse.ui.actions.ActionFactory.IWorkbenchAction;
 import org.eclipse.ui.actions.ContributionItemFactory;
 import org.eclipse.ui.application.ActionBarAdvisor;
 import org.eclipse.ui.application.IActionBarConfigurer;
-import org.eclipse.ui.ide.IDEActionFactory;
 
 public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
 

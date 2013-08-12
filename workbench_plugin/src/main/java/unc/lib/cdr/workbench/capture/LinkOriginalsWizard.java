@@ -23,7 +23,8 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.ui.IImportWizard;
 import org.eclipse.ui.IWorkbench;
-import org.eclipse.ui.internal.WorkbenchPlugin;
+
+import unc.lib.cdr.workbench.rcp.Activator;
 
 /**
  * @author Gregory Jansen
@@ -38,7 +39,7 @@ public class LinkOriginalsWizard extends Wizard implements IImportWizard {
 
 	public LinkOriginalsWizard() {
 		this.setWindowTitle("Import");
-		IDialogSettings workbenchSettings = WorkbenchPlugin.getDefault().getDialogSettings();
+		IDialogSettings workbenchSettings = Activator.getDefault().getDialogSettings();
       IDialogSettings section = workbenchSettings
               .getSection("LinkOriginalsImportWizard");//$NON-NLS-1$
       if (section == null) {

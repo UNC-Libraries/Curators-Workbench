@@ -36,7 +36,7 @@
 			</link>
 			<link
 				label="Curator’s Workbench Poster"
-				url="http://www.lib.unc.edu/blogs/cdr/index.php/2010/12/01/poster-curators-workbench/"
+				url="http://blogs.lib.unc.edu/cdr/index.php/2010/12/01/poster-curators-workbench/"
 				style-id="content-link"
 			>
 				<text>A Curator’s Workbench Poster, prepared for the 2010 International Digital Curation Conference.</text>
@@ -72,14 +72,14 @@
 			</link>
 			<link
 				label="Software Downloads"
-				url="http://www.lib.unc.edu/software/"
+				url="http://www2.lib.unc.edu/software/"
 				style-id="content-link"
 			>
 				<text>Download the workbench from our software download page.</text>
 			</link>
 			<link
 				label="Carolina Digital Repository Blog"
-				url="http://www.lib.unc.edu/blogs/cdr/"
+				url="http://blogs.lib.unc.edu/cdr/"
 				style-id="content-link"
 			>
 				<text>The best source for news about the UNC Chapel Hill repository.</text>

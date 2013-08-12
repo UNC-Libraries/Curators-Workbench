@@ -70,7 +70,6 @@ public class StagingAreasView extends ViewPart {
 	private Action actionReloadConfiguration;
 	private Action actionConnect;
 	private Action actionMapToFolder;
-	private Action doubleClickAction;
 
 	private ImageDescriptor imageDescrRefresh = StagingPlugin.imageDescriptorFromPlugin(StagingPlugin.PLUGIN_ID, "icons/refresh.gif");
 	private ImageDescriptor imageDescrMapping = StagingPlugin.imageDescriptorFromPlugin(StagingPlugin.PLUGIN_ID, "icons/synch_synch.gif");

@@ -24,10 +24,8 @@ import gov.loc.mets.util.METSConstants;
 import gov.loc.mets.util.METSUtils;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Set;
 
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;

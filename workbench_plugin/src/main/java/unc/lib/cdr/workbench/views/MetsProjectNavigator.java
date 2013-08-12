@@ -28,7 +28,6 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IEditorDescriptor;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.handlers.IHandlerService;
-import org.eclipse.ui.internal.Workbench;
 import org.eclipse.ui.navigator.CommonNavigator;
 import org.eclipse.ui.navigator.CommonViewer;
 import org.eclipse.ui.part.FileEditorInput;
@@ -99,7 +98,7 @@ public class MetsProjectNavigator extends CommonNavigator implements ITabbedProp
 			} else if (object instanceof IFile) {
 				IFile e = (IFile) object;
 				FileEditorInput fei = new FileEditorInput(e);
-				IEditorDescriptor ed = Workbench.getInstance().getEditorRegistry().getDefaultEditor(e.getName());
+				IEditorDescriptor ed = Activator.getDefault().getWorkbench().getEditorRegistry().getDefaultEditor(e.getName());
 				if (ed != null) {
 					try {
 						getSite().getPage().openEditor(fei, ed.getId(), true);

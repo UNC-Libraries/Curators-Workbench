@@ -15,9 +15,6 @@
  */
 package unc.lib.cdr.workbench.rcp;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.eclipse.core.commands.Command;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;

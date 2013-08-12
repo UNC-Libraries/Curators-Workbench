@@ -15,12 +15,6 @@
  */
 package unc.lib.cdr.workbench.views;
 
-import java.io.IOException;
-import java.nio.file.FileStore;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.text.NumberFormat;
-
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.jface.viewers.ISelection;

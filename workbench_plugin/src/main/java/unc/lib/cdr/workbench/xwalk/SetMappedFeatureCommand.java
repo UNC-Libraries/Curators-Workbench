@@ -15,9 +15,6 @@
  */
 package unc.lib.cdr.workbench.xwalk;
 
-import edu.unc.lib.schemas.acl.AclFactory;
-import edu.unc.lib.schemas.acl.AclPackage;
-import gov.loc.mods.mods.MODSFactory;
 import gov.loc.mods.mods.MODSPackage;
 
 import java.util.Collections;
@@ -31,9 +28,6 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.ecore.EcoreFactory;
-import org.eclipse.emf.ecore.EcorePackage;
-import org.eclipse.emf.ecore.impl.EDataTypeImpl;
 import org.eclipse.gmf.runtime.common.core.command.CommandResult;
 import org.eclipse.gmf.runtime.emf.commands.core.command.AbstractTransactionalCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
