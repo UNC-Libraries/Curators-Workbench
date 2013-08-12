@@ -3,12 +3,36 @@ Command-line Build Instructions
 The build is maven-based, assisted by a set of Eclipse build plugins called [Tycho](http://tycho.sonatype.org/).
 The maven plugin repository for Tycho and all it's particulars are configured in the parent pom.xml file in this directory.
 
-Build requires:
+Full build requires:
  * Maven 3
  * Java 7
+ * Java 7 packages for each target platform (optional, for bundling JRE)
 
-The distributable ZIP files and update site are all created in one maven command:
-* mvn install
+Building without bundling the Java Runtime Environment is easy:
+
+    mvn package
+
+The Java Runtime Environment (JRE) can be bundled within each distribution package. To perform a bundled build, you must first download and unpack the JRE folder for all the platforms into a directory structure as follows:
+
+    bundledJREs
+      |-linux-i586
+      |   \jre1.7.0_25
+      |-linux-x86
+      |   \jre1.7.0_25
+      |-windows-x86
+      |   \jre1.7.0_25
+      |-windows-i586
+      |   \jre1.7.0_25
+      \-macosx-x64
+          \jre1.7.0_25.jre
+
+Then the distribution packages and update site are all created in one maven command:
+
+    mvn -DbundleJREs=true -DbundleJREs.dir=<full path of bundledJREs dir> package
+    
+The distribution packages can be found here after the build:
+
+    <project base dir>/eclipse-repository/target/products
 
 Developer Eclipse IDE Setup
 ---------------------------
