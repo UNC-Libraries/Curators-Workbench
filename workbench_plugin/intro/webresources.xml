@@ -57,6 +57,13 @@
 				style-id="group-description"
 			>Other links related to the Curator's Workbench.</text>
 			<link
+				label="User Survey"
+				url="https://docs.google.com/forms/d/12y8uyaQSWzZHU9WVNK114VbWDkkZjYPFYxANjioyfeI/viewform"
+				style-id="content-link"
+			>
+				<text>Tell us about yourself and join the rest of the user community.</text>
+			</link>
+			<link
 				label="Curator's Workbench GitHub™ Project"
 				url="https://github.com/UNC-Libraries/Curators-Workbench"
 				style-id="content-link"
