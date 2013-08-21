@@ -122,6 +122,7 @@ public class IrodsFileStore extends FileStore {
 		// try {
 		// result = URLDecoder.decode(this.uri.getPath(),"utf-8");
 		result = this.uri.getPath();
+		if(result.endsWith("/")) result = result.substring(0, result.length() - 1);
 		// } catch(UnsupportedEncodingException e) {
 		// throw new Error(e);
 		// }

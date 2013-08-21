@@ -1,5 +1,9 @@
 {
-	"stagingAreas":{},
+	"stagingAreas":{
+	    "data/":{
+	        "name":"BagIt Data Folder"
+	    }
+	},
     "customMappings" :{},
     "repositoryConfigurations": []
 }

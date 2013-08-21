@@ -42,6 +42,7 @@ import org.eclipse.core.resources.ICommand;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IProjectDescription;
 import org.eclipse.core.resources.IProjectNature;
+import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IncrementalProjectBuilder;
 import org.eclipse.core.resources.ProjectScope;
 import org.eclipse.core.resources.ResourcesPlugin;
@@ -154,7 +155,7 @@ public class MetsProjectNature implements IProjectNature {
 		try {
 			// set up builders
 			IProjectDescription desc = this.getProject().getDescription();
-			boolean autostage = getAutomaticStaging(getProject());
+			boolean autostage = getAutomaticStaging();
 			setupBuildSpec(desc, autostage);
 			this.project.setDescription(desc, new NullProgressMonitor());
 			// this.project.setSessionProperty(EDITING_DOMAIN_KEY, editingDomain);
@@ -214,6 +215,7 @@ public class MetsProjectNature implements IProjectNature {
 		IEclipsePreferences projectNode = new ProjectScope(project).getNode(Activator.PLUGIN_ID);
 		projectNode.putByteArray(ORIGINALS_KEY, baos.toByteArray());
 		try {
+			//project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
 			projectNode.flush();
 		} catch (BackingStoreException e) {
 			throw new Error(e);
@@ -278,7 +280,7 @@ public class MetsProjectNature implements IProjectNature {
 	// return this.getProject().getFolder(ORIGINALS_FOLDER_NAME);
 	// }
 
-	public static boolean getAutomaticStaging(IProject project) {
+	public boolean getAutomaticStaging() {
 		boolean result = false;
 		ProjectScope[] s = { new ProjectScope(project) };
 		result = Platform.getPreferencesService()
@@ -286,7 +288,7 @@ public class MetsProjectNature implements IProjectNature {
 		return result;
 	}
 
-	public static void setAutomaticStaging(boolean auto, IProject project) {
+	public void setAutomaticStaging(boolean auto) {
 		ProjectScope s = new ProjectScope(project);
 		IEclipsePreferences pref = s.getNode(Activator.PLUGIN_ID);
 		pref.putBoolean(Activator.AUTOSTAGE_PREFERENCE, auto);
@@ -372,7 +374,7 @@ public class MetsProjectNature implements IProjectNature {
 	/**
 	 * @param stageURI
 	 */
-	public static void setStagingBase(String stageURI, IProject project) {
+	public void setStagingBase(String stageURI) {
 		LOG.debug("setting stageURI to: " + stageURI);
 		IEclipsePreferences projectNode = new ProjectScope(project).getNode(Activator.PLUGIN_ID);
 		projectNode.put(STAGING_BASE_URI_KEY, stageURI);

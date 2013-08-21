@@ -22,9 +22,7 @@ import java.io.BufferedOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.net.MalformedURLException;
 import java.net.URI;
-import java.net.URISyntaxException;
 import java.net.URL;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -40,12 +38,12 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.SubProgressMonitor;
-import org.eclipse.core.runtime.URIUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import edu.unc.lib.staging.SharedStagingArea;
 import edu.unc.lib.staging.StagingArea;
+import edu.unc.lib.staging.StagingException;
 
 /**
  * @author Gregory Jansen
@@ -68,7 +66,7 @@ public class StagingUtils {
 		/**
 		 * The resolvable location of the staged file. (or prestaged)
 		 */
-		public URL stagedFileURL = null;
+		public URI stagedFileURI = null;
 		/**
 		 * Did we handle this file as pre-staged?
 		 */
@@ -78,13 +76,14 @@ public class StagingUtils {
 		 * file.)
 		 */
 		public String md5Sum = null;
-		
+
 		@Override
 		public String toString() {
 			StringBuilder sb = new StringBuilder("StagingResult");
 			sb.append("\n\tmanifest URI: ").append(this.manifestURI.toString());
-			sb.append("\n\tmanifest scheme: ").append(this.manifestURIScheme);
-			sb.append("\n\tstaged file URL: ").append(this.stagedFileURL.toString());
+			// sb.append("\n\tmanifest scheme: ").append(this.manifestURIScheme);
+			sb.append("\n\tstaged file URL: ").append(
+					this.stagedFileURI.toString());
 			sb.append("\n\tprestaged: ").append(this.prestaged);
 			sb.append("\n\tmd5sum: ").append(this.md5Sum);
 			return sb.toString();
@@ -94,7 +93,7 @@ public class StagingUtils {
 	/**
 	 * Handles staging or pre-staging of an original, calculates checksum for
 	 * the original if not supplied, verifies checksum against staged copy if
-	 * applicable. Will
+	 * applicable.
 	 * 
 	 * @param original
 	 *            the unwrapped original file store
@@ -149,34 +148,36 @@ public class StagingUtils {
 			}
 		}
 
-		// compute staged file URL
-		if (result.prestaged) {
-			try {
-				result.stagedFileURL = original.toURI().toURL();
-			} catch (MalformedURLException e) {
-				throw new CoreException(new Status(IStatus.ERROR,
-						StagingPlugin.PLUGIN_ID,
-						"Unexpected problem making URL from file store:"
-								+ original.toURI().toString()));
-			}
-			result.manifestURI = prestage.getManifestURI(result.stagedFileURL);
-			result.manifestURIScheme = prestage.getScheme();
-		} else {
-			result.stagedFileURL = stage.makeStagedFileURL(project.getName(),
-					originalPath);
-			result.manifestURI = stage.getManifestURI(result.stagedFileURL);
-			result.manifestURIScheme = stage.getScheme();
-		}
-		
-		IFileStore stageFileStore = null; 
 		try {
-			stageFileStore = EFS.getStore(URIUtil.toURI(result.stagedFileURL));
-		} catch (URISyntaxException e) {
-			throw new CoreException(new Status(IStatus.ERROR,
-					StagingPlugin.PLUGIN_ID,
-					"Unexpected problem making URI from staged file URL:"
-							+ original.toURI().toString()));
+			// compute staged file URL
+			if (result.prestaged) {
+				result.stagedFileURI = original.toURI();
+				result.manifestURI = prestage
+						.getManifestURI(result.stagedFileURI);
+				result.manifestURIScheme = prestage.getScheme();
+			} else {
+				if(stage.getConnectedStorageURI().isAbsolute()) {
+					result.stagedFileURI = stage.makeStorageURI(project.getName(),
+						originalPath);
+				} else {
+					result.stagedFileURI = stage.makeStorageURI(originalPath);
+				}
+				result.manifestURI = stage.getManifestURI(result.stagedFileURI);
+				result.manifestURIScheme = stage.getScheme();
+			}
+		} catch (StagingException e) {
+			throw new CoreException(
+					new Status(IStatus.ERROR, StagingPlugin.PLUGIN_ID,
+							"Staging area not ready: "+e.getLocalizedMessage()));
 		}
+
+		URI filestoreURI = result.stagedFileURI;
+		if (!result.stagedFileURI.isAbsolute()) {
+			filestoreURI = project.getLocationURI().resolve(
+					result.stagedFileURI);
+		}
+
+		IFileStore stageFileStore = EFS.getStore(filestoreURI);
 
 		IFileInfo sourceFileInfo = original.fetchInfo();
 		if (result.prestaged) {

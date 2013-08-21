@@ -226,10 +226,10 @@ public class ProjectEMFSession {
 		} catch (IOException e) {
 			log.error("Cannot save EMF session", e);
 		}
-		try {
-			this.project.refreshLocal(IResource.DEPTH_ONE, new NullProgressMonitor());
-		} catch (CoreException e) {
-			//throw new Error(e);
-		}
+//		try {
+//			this.project.refreshLocal(IResource.DEPTH_ONE, new NullProgressMonitor());
+//		} catch (CoreException e) {
+//			//throw new Error(e);
+//		}
 	}
 }

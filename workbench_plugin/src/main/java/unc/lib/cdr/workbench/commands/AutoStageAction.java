@@ -68,10 +68,10 @@ public class AutoStageAction implements IObjectActionDelegate {
 	 */
 	private void toggleStaging(IProject project) throws CoreException {
 		MetsProjectNature mpn = (MetsProjectNature)project.getNature(MetsProjectNature.NATURE_ID);
-		boolean setting = MetsProjectNature.getAutomaticStaging(project);
-		MetsProjectNature.setAutomaticStaging(!setting, project);
-		System.out.println("toggled auto staging, it now says "+MetsProjectNature.getAutomaticStaging(project));
-		if(MetsProjectNature.getAutomaticStaging(project)) {
+		boolean setting = mpn.getAutomaticStaging();
+		mpn.setAutomaticStaging(!setting);
+		System.out.println("toggled auto staging, it now says "+mpn.getAutomaticStaging());
+		if(mpn.getAutomaticStaging()) {
 			Job stagingJob = new StagingJob("Staging after autostage enabled", project);
 			stagingJob.schedule();
 		}
@@ -109,7 +109,7 @@ public class AutoStageAction implements IObjectActionDelegate {
 				if (project != null && project.isOpen()) {
 					try {
 						MetsProjectNature mpn = (MetsProjectNature)project.getNature(MetsProjectNature.NATURE_ID);
-						boolean status = mpn.getAutomaticStaging(project);
+						boolean status = mpn.getAutomaticStaging();
 						action.setChecked(new Boolean(status));
 					} catch (CoreException e) {
 						e.printStackTrace();

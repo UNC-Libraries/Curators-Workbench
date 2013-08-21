@@ -277,6 +277,10 @@
       <menuContribution
             allPopups="true"
             locationURI="popup:org.eclipse.ui.popup.any?after=additions">
+         <dynamic
+               class="unc.lib.cdr.workbench.project.StagingAreaContributionItem"
+               id="workbench_plugin.dynamicStagingAreaContribution">
+         </dynamic>
          <command
                commandId="cdr-workbench.commandLinkOriginals"
                label="Link to Originals"
@@ -1958,6 +1962,11 @@
                class="unc.lib.cdr.workbench.originals.OriginalsFileSystem">
          </run>
       </filesystem>
+   </extension>
+   <extension
+         id="stagingProblem"
+         name="Staging Problem"
+         point="org.eclipse.core.resources.markers">
    </extension>
 
 </plugin>

@@ -55,6 +55,7 @@ import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.edit.command.AddCommand;
+import org.eclipse.epsilon.evl.emf.validation.Activator;
 
 import unc.lib.cdr.workbench.originals.OriginalFileStore;
 import unc.lib.cdr.workbench.project.MetsProjectNature;
@@ -189,10 +190,11 @@ public class CaptureJob extends Job {
 			mpn.save();
 			project.getWorkspace().save(true, monitor);
 
-			boolean autostage = MetsProjectNature.getAutomaticStaging(project);
+			boolean autostage = mpn.getAutomaticStaging();
 			if (autostage) {
 				System.out.println("triggering build b/c auto staging says " + autostage);
 				Job stagingJob = new StagingJob("Staging after capture", project);
+				stagingJob.setRule(StagingJob.mySchedulingRule);
 				stagingJob.schedule();
 			} else {
 				System.out.println("skipping build b/c auto staging says " + autostage);

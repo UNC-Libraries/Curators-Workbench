@@ -51,17 +51,13 @@ public class OriginalsLinkJob extends Job {
 	String name = null;
 	boolean removeable = false;
 	IProject project = null;
-	private boolean prestaged;
-	private URI prestagedBase;
 
-	OriginalsLinkJob(URI baselocation, List<URI> locations, IProject project, boolean prestaged, URI prestagedBase, boolean removeable) {
+	OriginalsLinkJob(URI baselocation, List<URI> locations, IProject project, boolean removeable) {
 		super("creating link to " + locations.size() + " location(s)");
 		this.baselocation = baselocation;
 		this.locations = locations;
 		this.project = project;
 		this.removeable = removeable;
-		this.prestaged = prestaged;
-		this.prestagedBase = prestagedBase;
 	}
 
 	/*
@@ -79,7 +75,6 @@ public class OriginalsLinkJob extends Job {
 		MetsProjectNature n = MetsProjectNature.get(project);
 		try {
 			Set<URI> volumes = new HashSet<URI>();
-			Map<URI, Map<URI, URI>> volumeToPrestageLocations = new HashMap<URI, Map<URI, URI>>();
 			Map<URI, List<URI>> volumeToLocations = new HashMap<URI, List<URI>>();
 			for (URI location : locations) {
 				System.out.println("location: "+location);
@@ -96,24 +91,6 @@ public class OriginalsLinkJob extends Job {
 					volumeToLocations.put(volume, new ArrayList<URI>());
 				}
 				volumeToLocations.get(volume).add(location);
-				
-				URI myprestage = null;
-				if (this.prestaged && this.prestagedBase != null && this.baselocation != null) {
-					// calculate staging base for each original location
-					IPath basePath = new Path(this.baselocation.getPath()); // base path for all locations
-					IPath subPath = new Path(fs.toURI().getPath()).makeRelativeTo(basePath.removeLastSegments(1));
-					String myprestagestr = prestagedBase.toString();
-					if (subPath.segmentCount() > 0) {
-						myprestage = prestagedBase;
-						for (String s : subPath.segments()) {
-							myprestage = URIUtil.append(myprestage, s);
-						}
-						if(volumeToPrestageLocations.get(volume) == null) {
-							volumeToPrestageLocations.put(volume, new HashMap<URI, URI>());
-						}
-						volumeToPrestageLocations.get(volume).put(location, myprestage);
-					}
-				}
 			}
 			for(URI volumeRoot : volumes) {
 				boolean foundStub = false;

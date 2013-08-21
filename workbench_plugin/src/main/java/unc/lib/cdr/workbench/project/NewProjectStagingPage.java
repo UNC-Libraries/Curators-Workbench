@@ -151,10 +151,15 @@ public class NewProjectStagingPage extends WizardPage {
 			if (!this.stagingArea.isConnected()) {
 				StagingPlugin.getDefault().getStages().connect(this.stagingArea.getURI());
 			}
-			URI projectManifestBase = this.stagingArea.makeURI(mainPage.getProjectName());
+			URI projectManifestBase = null;
+			if(!this.stagingArea.getConnectedStorageURI().isAbsolute()) {
+				projectManifestBase = this.stagingArea.makeURI("");
+			} else {
+				projectManifestBase = this.stagingArea.makeURI(mainPage.getProjectName());
+			}
 			manifestReferencesText.setText(projectManifestBase.toString());
 			if (this.stagingArea.isConnected()) {
-				URL projectStagedBase = this.stagingArea.getStagedURL(projectManifestBase);
+				URI projectStagedBase = this.stagingArea.getStorageURI(projectManifestBase);
 				stageText.setText(projectStagedBase.toString());
 				this.setPageComplete(this.stagingArea != null);
 			} else {

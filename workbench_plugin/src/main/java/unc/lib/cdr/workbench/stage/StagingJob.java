@@ -15,30 +15,40 @@
  */
 package unc.lib.cdr.workbench.stage;
 
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
+import org.eclipse.core.filesystem.EFS;
+import org.eclipse.core.filesystem.IFileStore;
+import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.SubProgressMonitor;
 import org.eclipse.core.runtime.jobs.ISchedulingRule;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.command.AddCommand;
+import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.widgets.Display;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import staging.plugin.ProjectBagItDataStage;
 import staging.plugin.StagingPlugin;
 import staging.plugin.StagingUtils;
 import staging.plugin.StagingUtils.StagingResult;
@@ -48,6 +58,7 @@ import unc.lib.cdr.workbench.rcp.Activator;
 import edu.unc.lib.staging.SharedStagingArea;
 import edu.unc.lib.staging.Stages;
 import edu.unc.lib.staging.StagingArea;
+import edu.unc.lib.staging.StagingException;
 import gov.loc.mets.CHECKSUMTYPEType;
 import gov.loc.mets.DivType;
 import gov.loc.mets.FLocatType;
@@ -62,10 +73,12 @@ import gov.loc.mets.util.METSUtils;
  * 
  */
 public class StagingJob extends Job {
-	private static final Logger log = LoggerFactory.getLogger(StagingJob.class); 
+	private final static String markerID = "workbench_plugin.stagingProblem";
+	private static final Logger log = LoggerFactory.getLogger(StagingJob.class);
 	IProject project = null;
 	public static MutexRule mySchedulingRule = new MutexRule();
 	StagingArea stage = null;
+	URL destinationRepo = null;
 
 	public static class MutexRule implements ISchedulingRule {
 		public boolean isConflicting(ISchedulingRule rule) {
@@ -113,40 +126,14 @@ public class StagingJob extends Job {
 	 */
 	@Override
 	protected IStatus run(IProgressMonitor monitor) {
+		clearMarkers();
 		List<OriginalFileStore> toStage = new ArrayList<OriginalFileStore>();
+		Map<OriginalFileStore, FLocatType> toMigrate = new HashMap<OriginalFileStore, FLocatType>();
 		final MetsProjectNature mpn = MetsProjectNature.get(project);
 		DivType bag = METSUtils.findBagDiv(mpn.getMets());
-		Stages stages = StagingPlugin.getDefault().getStages();
-		log.error(mpn.getStagingBase().toString());
-		SharedStagingArea projectStage = (SharedStagingArea) stages
-				.getStage(mpn.getStagingBase());
-		URL destinationConfig = projectStage.getConfigURL();
-		final StagingJob myJob = this;
-		if (!projectStage.isConnected()) {
-			StagingPlugin.getDefault().getStages().connect(projectStage.getURI());
-		}
-		if (!projectStage.isConnected()) {
-			Display.getDefault().syncExec(new Runnable() {
-				public void run() {
-					if (MessageDialog
-							.openConfirm(
-									Display.getCurrent().getActiveShell(),
-									"Project Staging Area Disconnected",
-									"Press OK to stage files in the project data folder or cancel to turn off staging until connected.")) {
-						// stage to project data folder (BagIt)
-						stage = new ProjectBagItDataStage(mpn.getProject());
-					} else { 
-						// turn off project automatic staging
-						MetsProjectNature.setAutomaticStaging(false,
-								mpn.getProject());
-						// cancel staging operation
-						myJob.cancel();
-					}
-				}
-			});
-		} else {
-			stage = projectStage;
-		}
+		
+		getEffectiveStagingArea(mpn);
+		
 		if (monitor.isCanceled()) {
 			return Status.CANCEL_STATUS;
 		}
@@ -161,24 +148,34 @@ public class StagingJob extends Job {
 					if (loc == null) {
 						toStage.add(original);
 					} else {
+						try {
+							URI stagedLoc = new URI(loc.getHref());
+							if (!stage.isWithin(stagedLoc)) {
+								toStage.add(original);
+								toMigrate.put(original, loc);
+							}
+						} catch (URISyntaxException e) {
+							log.error("Unable to make URI"+loc.getHref(), e);
+						}
 					}
 				} else {
-					System.err.println(" cannot find original");
+					log.error("Cannot get original file store for fptr: "+fptr);
 				}
 			}
 		}
 
-		monitor.beginTask("Staging " + toStage.size() + " files",
-				toStage.size() * 100);
-		monitor.setTaskName("Staging 1 of " + toStage.size());
-
+		String taskName = "Staging " + toStage.size() + " files";
+		monitor.beginTask(taskName, toStage.size() * 100);
 		int stageCount = 0;
 		Set<OriginalFileStore> skipped = new HashSet<OriginalFileStore>();
+
 		for (OriginalFileStore original : toStage) {
 			if (monitor.isCanceled())
 				return Status.CANCEL_STATUS;
-			monitor.setTaskName(stageCount++ + " of " + toStage.size()
-					+ " staged");
+			monitor.setTaskName("Staging " + stageCount++ + " of "
+					+ toStage.size());
+
+			// check if original still captured
 			String fileID = original.getFileID();
 			FileType fileRec = (FileType) mpn.getMets().eResource()
 					.getEObject(fileID);
@@ -186,63 +183,93 @@ public class StagingJob extends Job {
 			DivType div = (DivType) mpn.getMets().eResource().getEObject(divID);
 			if (div == null) {
 				monitor.worked(100);
+				continue; // no longer captured
+			}
+
+			// find the source file for staging
+			IFileStore stagingSource = null;
+			if (original.isAttached()) {
+				stagingSource = original.getWrapped();
+			} else if (toMigrate.containsKey(original)) {
+				try {
+					FLocatType loc = toMigrate.get(original);
+					URI stagedManifestURI = new URI(loc.getHref());
+					URI stagedStorageURI = StagingPlugin.getDefault().getStages()
+							.getStorageURI(stagedManifestURI);
+					stagingSource = EFS.getStore(stagedStorageURI);
+				} catch (URISyntaxException|CoreException|StagingException e) {
+					log.error("Cannot locate previous stage URI", e);
+				}
+			}
+			if(stagingSource == null) {
+				addProblemMarker("Cannot locate a staging source for "+original.toString());
+				monitor.worked(100);
+				skipped.add(original);
 				continue;
 			}
-			// We used to delete older staging locations
-			// Set<FLocatType> oldStageFLocat = new HashSet<FLocatType>();
-			// for(FLocatType l : fileRec.getFLocat()) {
-			// if(METSConstants.FLocat_USE_STAGE.equals(l.getUSE())) {
-			// oldStageFLocat.add(l);
-			// }
-			// }
-			// for(EObject e : oldStageFLocat) {
-			// EcoreUtil.delete(e);
-			// }
+
+			// stage file, sending md5 if we have it
+			String md5sum = fileRec.getCHECKSUM();
+			StagingResult result = null;
 			try {
-				if (original.isAttached()) {
-					// TODO send md5 if we have it
-					String md5sum = fileRec.getCHECKSUM();
-					StagingResult result = StagingUtils
-							.stage(original.getWrapped(),
-									this.project,
-									original.getDistinctStagingPath(),
-									md5sum,
-									stage,
-									destinationConfig,
-									new SubProgressMonitor(
-											monitor,
-											100,
-											SubProgressMonitor.PREPEND_MAIN_LABEL_TO_SUBTASK));
-					if (md5sum == null) { // use newly calculated
-						fileRec.setCHECKSUMTYPE(CHECKSUMTYPEType.MD5);
-						fileRec.setCHECKSUM(result.md5Sum);
-					} else {
-						if(!md5sum.equals(result.md5Sum)) {
-							// TODO add a warning that file has changed.
-							fileRec.setCHECKSUM(result.md5Sum);
-							fileRec.setCHECKSUMTYPE(CHECKSUMTYPEType.MD5);
-						}
-					}
-					// now update markers and record File in METS
-					// checksum, size, location type, other loc type, URI
-					FLocatType flocat = METSUtils.makeStagedFileLocator(mpn.getMets(),
-							fileID, original.getWrapped().toURI(),
-							result.manifestURI, LOCTYPEType.OTHER,
-							result.manifestURIScheme);
-					Command add = AddCommand.create(mpn.getEditingDomain(), fileRec,
-							MetsPackage.eINSTANCE.getFileType_FLocat(), flocat);
-					if (add.canExecute()) {
-						mpn.getCommandStack().execute(add);
-					} else {
-						System.out.println("Cannot add Flocat via command");
-					}
-				} else {
-					monitor.worked(100);
-					skipped.add(original);
+				result = StagingUtils.stage(stagingSource,
+					this.project, original.getDistinctStagingPath(), md5sum,
+					stage, destinationRepo, new SubProgressMonitor(monitor,
+							100,
+							SubProgressMonitor.PREPEND_MAIN_LABEL_TO_SUBTASK));
+			} catch(CoreException e) {		
+				mpn.setAutomaticStaging(false);
+				addProblemMarker("Staging stopped due to an error, autostaging disabled: "+e.getMessage());
+				return new Status(IStatus.ERROR, Activator.PLUGIN_ID, "Staging encountered an error and stopped, autostaging disabled.",e);
+			}
+			// set checksum
+			if (md5sum == null) { // use newly calculated 
+				fileRec.setCHECKSUMTYPE(CHECKSUMTYPEType.MD5);
+				fileRec.setCHECKSUM(result.md5Sum);
+			} else {
+				if (!md5sum.equals(result.md5Sum)) {
+					addProblemMarker("A file changed since the last checksum was calculated: "+original.toString());
+					fileRec.setCHECKSUM(result.md5Sum);
+					fileRec.setCHECKSUMTYPE(CHECKSUMTYPEType.MD5);
 				}
-			} catch (CoreException e) {
-				return new Status(IStatus.ERROR, Activator.PLUGIN_ID,
-						"Job could not finish", e);
+			}
+
+			// record staged File in METS
+			// checksum, size, location type, other loc type, URI
+			FLocatType flocat = METSUtils.makeStagedFileLocator(mpn.getMets(),
+					fileID, original.getWrapped().toURI(), result.manifestURI,
+					LOCTYPEType.OTHER, result.manifestURIScheme);
+			CompoundCommand addremove = new CompoundCommand(
+					"Add new stage and remove old.");
+			Command add = AddCommand.create(mpn.getEditingDomain(), fileRec,
+					MetsPackage.eINSTANCE.getFileType_FLocat(), flocat);
+			addremove.append(add);
+
+			String deleteOldFile = null;
+			if (toMigrate.containsKey(original)) {
+				FLocatType oldlocat = toMigrate.get(original);
+				deleteOldFile = oldlocat.getHref();
+				Command remove = RemoveCommand.create(mpn.getEditingDomain(),
+						oldlocat);
+				addremove.append(remove);
+			}
+			if (addremove.canExecute()) {
+				mpn.getCommandStack().execute(addremove);
+				mpn.getEMFSession().save();
+				if (deleteOldFile != null) {
+					try {
+						URI delManifest = new URI(deleteOldFile);
+						URI delStorage = StagingPlugin.getDefault().getStages()
+								.getStorageURI(delManifest);
+						IFileStore deleteStore = EFS.getStore(delStorage);
+						deleteStore.delete(EFS.NONE, new NullProgressMonitor());
+					} catch (URISyntaxException|StagingException|CoreException e) {
+						addProblemMarker("Cannot delete file from old staging area: "+deleteOldFile);
+					}
+				}
+			} else {
+				log.error("Cannot save results of staging, command not executable");
+				return new Status(IStatus.ERROR, Activator.PLUGIN_ID, "Cannot finish staging operation, command not executable");
 			}
 		}
 		monitor.done();
@@ -255,6 +282,67 @@ public class StagingJob extends Job {
 							+ " original files cannot stage because they are not accessible.");
 		} else {
 			return Status.OK_STATUS;
+		}
+	}
+	
+	private void getEffectiveStagingArea(MetsProjectNature mpn) {
+		URI stageURI = mpn.getStagingBase();
+		
+		Stages stages = StagingPlugin.getDefault().getStages();
+		SharedStagingArea projectStage = (SharedStagingArea) stages
+				.getStage(stageURI);
+		if(projectStage != null) {
+			this.destinationRepo = projectStage.getConfigURL();
+		}
+		
+		if (projectStage != null && !projectStage.isConnected()) {
+			StagingPlugin.getDefault().getStages()
+					.connect(projectStage.getURI());
+		}
+		
+		if (projectStage == null || !projectStage.isConnected()) {
+			final boolean unrecognized = projectStage==null;
+			final SharedStagingArea bagIt = StagingPlugin.getDefault().getStages().findMatchingArea(URI.create("data/"));
+			final StagingJob myJob = this;
+			final MetsProjectNature finalmpn = mpn; 
+			Display.getDefault().syncExec(new Runnable() {
+				public void run() {
+					if (bagIt != null && MessageDialog
+							.openConfirm(
+									Display.getCurrent().getActiveShell(),
+									"Project Staging Area "+(unrecognized?"Unrecognized":"Disconnected"),
+									"Press OK to stage files in the project data folder or cancel to turn off staging until connected.")) {
+						// stage to project data folder (BagIt)
+						stage = bagIt;
+					} else {
+						// turn off project automatic staging
+						finalmpn.setAutomaticStaging(false);
+						// cancel staging operation
+						myJob.cancel();
+						addProblemMarker("Staging disabled. Could not connect to preferred staging area.");
+					}
+				}
+			});
+		} else {
+			stage = projectStage;
+		}
+	}
+
+	private void clearMarkers() {
+		try {
+			IMarker[] marks = this.project.findMarkers(markerID, true, IResource.DEPTH_ZERO);
+			for(IMarker mark : marks) mark.delete();
+		} catch(CoreException e) {
+			log.error("Cannot clear markers", e);
+		}
+	}
+
+	private void addProblemMarker(String message) {
+		try {
+			IMarker m = project.createMarker(StagingJob.markerID);
+			m.setAttribute(IMarker.MESSAGE, message);
+		} catch (CoreException e1) {
+			log.error("there was a problem setting the problem marker:" + message);
 		}
 	}
 }

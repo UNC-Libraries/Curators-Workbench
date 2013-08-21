@@ -92,9 +92,6 @@ public class PickOriginalLocationsPage extends WizardPage implements Listener {
 	private Button drivesBrowseButton;
 	private Button irodsBrowseButton;
 	private Button removeableButton;
-	private Button preStagedButton;
-	private Combo preStagedCombo;
-	private Label preStageSuffixLabel;
 	private Combo projectCombo;
 	private CheckboxTreeViewer fileTreeViewer;
 	private FileStoreProvider provider = new FileStoreProvider();
@@ -197,9 +194,6 @@ public class PickOriginalLocationsPage extends WizardPage implements Listener {
 
 		createDestinationGroup(composite);
 
-		createOptionsGroup(composite);
-
-		// restoreWidgetValues();
 		updateWidgets();
 		setPageComplete(determinePageCompletion());
 		setErrorMessage(null); // should not initially have error message
@@ -324,85 +318,6 @@ public class PickOriginalLocationsPage extends WizardPage implements Listener {
 	}
 
 	/**
-	 * @param composite
-	 */
-	private void createOptionsGroup(Composite composite) {
-		// TODO radio group: "link to selected originals"
-		// TODO radio group: "link and capture selected originals"
-
-		Group optionsGroup = new Group(composite, SWT.NONE);
-		optionsGroup.setText("Pre-Staged Location");
-		GridLayout layout = new GridLayout();
-		layout.numColumns = 3;
-		optionsGroup.setLayout(layout);
-		optionsGroup.setFont(composite.getFont());
-		optionsGroup.setLayoutData(new GridData(GridData.HORIZONTAL_ALIGN_FILL | GridData.GRAB_HORIZONTAL));
-
-		Label lab = new Label(optionsGroup, SWT.WRAP);
-		GridData labdata = new GridData();
-		// labdata.verticalSpan = 2;
-		labdata.horizontalAlignment = GridData.FILL;
-		labdata.horizontalSpan = 3;
-		lab.setLayoutData(labdata);
-		lab.setText("Use this option to avoid copying files already staged at a known URI.\nChecksums will still be computed locally upon capture.");
-		// lab.setBounds(10, 10, 100, 100);
-
-		this.preStagedButton = new Button(optionsGroup, SWT.CHECK);
-		GridData data = new GridData(GridData.HORIZONTAL_ALIGN_BEGINNING);
-		data.horizontalSpan = 3;
-		this.preStagedButton.setLayoutData(data);
-		this.preStagedButton.setText("Top folder in tree is staged under the following URI:");
-		this.preStagedButton.addListener(SWT.Selection, this);
-
-		Label label = new Label(optionsGroup, SWT.None);
-		label.setText("Base URI");
-		this.preStagedCombo = new Combo(optionsGroup, SWT.BORDER | SWT.DROP_DOWN);
-		this.preStagedCombo.setEnabled(false);
-		GridData data2 = new GridData();
-		data2.grabExcessHorizontalSpace = true;
-		data2.horizontalAlignment = GridData.FILL;
-		System.out.println(previousPrestages.length + " prestaging selections");
-		this.preStagedCombo.setItems(previousPrestages);
-		this.preStagedCombo.setLayoutData(data2);
-		new AutoCompleteField(this.preStagedCombo, new ComboContentAdapter(), this.previousPrestages);
-
-		preStagedCombo.addSelectionListener(new SelectionAdapter() {
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-				updateWidgets();
-			}
-		});
-		preStagedCombo.addKeyListener(new KeyListener() {
-			public void keyPressed(KeyEvent e) {
-				// If there has been a key pressed then mark as dirty
-				if (e.character == SWT.CR) {
-					updateWidgets();
-				}
-			}
-
-			public void keyReleased(KeyEvent e) {
-			}
-		});
-		preStagedCombo.addFocusListener(new FocusListener() {
-			public void focusGained(FocusEvent e) {
-			}
-
-			public void focusLost(FocusEvent e) {
-				// Clear the flag to prevent constant update
-				updateWidgets();
-			}
-		});
-
-		this.preStageSuffixLabel = new Label(optionsGroup, SWT.None);
-		this.preStageSuffixLabel.setText(" ");
-		GridData data3 = new GridData();
-		data3.horizontalAlignment = GridData.FILL;
-		data3.widthHint = 25;
-		data3.grabExcessHorizontalSpace = true;
-		this.preStageSuffixLabel.setLayoutData(data3);
-	}
-
-	/**
 	 * Create the group for creating the root directory
 	 */
 	protected void createRootDirectoryGroup(Composite parent) {
@@ -508,16 +423,6 @@ public class PickOriginalLocationsPage extends WizardPage implements Listener {
 			setErrorMessage("Please select originals to link in the folder tree.");
 			return false;
 		}
-		if (this.preStagedButton.getSelection()) {
-			if (this.preStagedCombo.getText() != null && this.preStagedCombo.getText().trim().length() > 0) {
-				try {
-					new URI(this.preStagedCombo.getText());
-				} catch (URISyntaxException e) {
-					setErrorMessage("Base URI must be blank or a valid URI: " + e.getLocalizedMessage());
-					return false;
-				}
-			}
-		}
 		setErrorMessage(null);
 		setMessage(null);
 		return true;
@@ -560,9 +465,6 @@ public class PickOriginalLocationsPage extends WizardPage implements Listener {
 			selectFirstCheckbox();
 			setMessage(null);
 			setPageComplete(true);
-		} else if (source == this.preStagedButton) {
-			handlePreStagedButtonPressed();
-			updateWidgets();
 		}
 	}
 
@@ -574,13 +476,6 @@ public class PickOriginalLocationsPage extends WizardPage implements Listener {
 				//this.fileTreeViewer.setSelection(new TreeSelection(new TreePath(new Object[] {root, root.roots[0]})));
 			}
 		}
-	}
-
-	/**
-	 *
-	 */
-	private void handlePreStagedButtonPressed() {
-		this.preStagedCombo.setEnabled(this.preStagedButton.getSelection());
 	}
 
 	/**
@@ -671,7 +566,6 @@ public class PickOriginalLocationsPage extends WizardPage implements Listener {
 			base = EFS.getStore(baseURI);
 			if (!base.equals(this.fileTreeViewer.getInput())) {
 				this.fileTreeViewer.setInput(new FileStoreProvider.Root(base));
-				this.preStageSuffixLabel.setText(base.getName());
 			}
 		}
 		if(this.fileTreeViewer.getCheckedElements().length == 0) {
@@ -704,19 +598,7 @@ public class PickOriginalLocationsPage extends WizardPage implements Listener {
 		List<URI> selected = getCheckedLocations();
 		boolean removeable = this.removeableButton.getSelection();
 		URI prestageBase = null;
-		try {
-			if (this.preStagedButton.getSelection()) {
-				if (this.preStagedCombo.getText() != null && this.preStagedCombo.getText().trim().length() > 0) {
-					prestageBase = new URI(this.preStagedCombo.getText());
-					this.saveToPreviousPrestages(prestageBase.toString());
-				}
-			}
-		} catch (URISyntaxException e) {
-			e.printStackTrace();
-			return false;
-		}
-		Job linkJob = new OriginalsLinkJob(this.location, selected, getProject(), this.preStagedButton.getSelection(),
-				prestageBase, removeable);
+		Job linkJob = new OriginalsLinkJob(this.location, selected, getProject(), removeable);
 		// linkJob.addJobChangeListener(this);
 		linkJob.schedule();
 		// SNAPSHOT MAY NOT BE NEEDED ANY MORE and takes time

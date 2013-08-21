@@ -19,10 +19,14 @@ import java.net.URI;
 
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IProjectDescription;
+import org.eclipse.core.resources.ProjectScope;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.core.runtime.preferences.IEclipsePreferences;
+
+import unc.lib.cdr.workbench.rcp.Activator;
 
 /**
  * @author Gregory Jansen
@@ -58,7 +62,9 @@ public class MetsProjectNatureSupport {
 			newProject.open(npm);
 		}
 		// set initial autostage property
-		MetsProjectNature.setAutomaticStaging(autostage, newProject);
+		ProjectScope s = new ProjectScope(newProject);
+		IEclipsePreferences pref = s.getNode(Activator.PLUGIN_ID);
+		pref.putBoolean(Activator.AUTOSTAGE_PREFERENCE, autostage);
 
 		// add custom nature
 		desc = newProject.getWorkspace().newProjectDescription(newProject.getName());

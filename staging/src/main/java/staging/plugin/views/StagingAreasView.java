@@ -1,8 +1,7 @@
 package staging.plugin.views;
 
 import java.io.File;
-import java.net.MalformedURLException;
-import java.net.URL;
+import java.net.URI;
 
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IMenuListener;
@@ -293,10 +292,9 @@ public class StagingAreasView extends ViewPart {
 				if(path != null) {
 					File f = new File(path);
 					try {
-						URL url = f.toURI().toURL();
-						StagingPlugin.getDefault().getStages().setCustomMapping(stage.getURI(), url);
+						URI url = f.toURI();
+						StagingPlugin.getDefault().getStages().setStorageMapping(stage.getURI(), url);
 					} catch(StagingException ignored) {
-					} catch (MalformedURLException e) {
 					}
 					StagingPlugin.getDefault().saveConfig();
 					StagingPlugin.getDefault().getStages().connect(stage.getURI());
