@@ -152,7 +152,7 @@ public class NewProjectStagingPage extends WizardPage {
 				StagingPlugin.getDefault().getStages().connect(this.stagingArea.getURI());
 			}
 			URI projectManifestBase = null;
-			if(!this.stagingArea.getConnectedStorageURI().isAbsolute()) {
+			if(!this.stagingArea.getURI().isAbsolute()) {
 				projectManifestBase = this.stagingArea.makeURI("");
 			} else {
 				projectManifestBase = this.stagingArea.makeURI(mainPage.getProjectName());

@@ -118,7 +118,7 @@ public class MetsProjectNaturePropertiesSection extends AbstractPropertySection 
 		data.top = new FormAttachment(l1, ITabbedPropertyConstants.VSPACE);
 		l2.setLayoutData(data);
 
-		describedStatusText = getWidgetFactory().createText(metsGroup, "", SWT.READ_ONLY);
+		describedStatusText = getWidgetFactory().createText(metsGroup, "", SWT.READ_ONLY | SWT.MULTI);
 		data = new FormData();
 		data.left = new FormAttachment(0, secondTab);
 		data.top = new FormAttachment(l1, ITabbedPropertyConstants.VSPACE);
@@ -164,7 +164,7 @@ public class MetsProjectNaturePropertiesSection extends AbstractPropertySection 
 		data = new FormData();
 		data.left = new FormAttachment(0, secondTab);
 		data.top = new FormAttachment(sl, ITabbedPropertyConstants.VSPACE);
-		stagingStatusText = getWidgetFactory().createText(stagingGroup, "", SWT.READ_ONLY);
+		stagingStatusText = getWidgetFactory().createText(stagingGroup, "", SWT.READ_ONLY | SWT.MULTI);
 		stagingStatusText.setLayoutData(data);
 
 		manifestText.pack();
@@ -182,10 +182,11 @@ public class MetsProjectNaturePropertiesSection extends AbstractPropertySection 
 		StagingArea s = StagingPlugin.getDefault().getStages().getAllAreas().get(nature.getStagingBase());
 		if(s != null) {
 			stagingName.setText(s.getName());
+			stagingBaseText.setText(s.getURI().toString());
 		} else {
 			stagingName.setText("unknown area");
+			stagingBaseText.setText(nature.getStagingBase().toString());
 		}
-		stagingBaseText.setText(nature.getStagingBase().toString());
 		stagingStatusText.setText(nature.getStagingStatus());
 		
 		manifestText.pack();

@@ -446,17 +446,17 @@ public class MetsProjectNature implements IProjectNature {
 		}
 		StringBuilder result = new StringBuilder().append(numOfFiles);
 		if (numOfFiles > 1) {
-			result.append(" files and ");
+			result.append(" file objects captured");
 		} else {
-			result.append(" file and ");
+			result.append(" file object captured");
 		}
-		result.append(numOfContainers);
+		result.append("\n").append(numOfContainers);
 		if (numOfContainers > 1 || numOfContainers == 0) {
-			result.append(" other objects. ");
+			result.append(" non-file objects");
 		} else {
-			result.append(" other object. ");
+			result.append(" non-file object");
 		}
-		return result.append(numDescribed).append(" are described.").toString();
+		return result.append("\n").append(numDescribed).append(" objects are described").toString();
 	}
 
 	public String getStagingStatus() {
