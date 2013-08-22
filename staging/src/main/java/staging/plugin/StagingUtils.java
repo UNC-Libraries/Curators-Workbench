@@ -156,9 +156,9 @@ public class StagingUtils {
 						.getManifestURI(result.stagedFileURI);
 				result.manifestURIScheme = prestage.getScheme();
 			} else {
-				if(stage.getConnectedStorageURI().isAbsolute()) {
-					result.stagedFileURI = stage.makeStorageURI(project.getName(),
-						originalPath);
+				if (stage.getConnectedStorageURI().isAbsolute()) {
+					result.stagedFileURI = stage.makeStorageURI(
+							project.getName(), originalPath);
 				} else {
 					result.stagedFileURI = stage.makeStorageURI(originalPath);
 				}
@@ -166,17 +166,18 @@ public class StagingUtils {
 				result.manifestURIScheme = stage.getScheme();
 			}
 		} catch (StagingException e) {
-			throw new CoreException(
-					new Status(IStatus.ERROR, StagingPlugin.PLUGIN_ID,
-							"Staging area not ready: "+e.getLocalizedMessage()));
+			throw new CoreException(new Status(IStatus.ERROR,
+					StagingPlugin.PLUGIN_ID, "Staging area not ready: "
+							+ e.getLocalizedMessage()));
 		}
 
+		// resolve relative URIs against project location
 		URI filestoreURI = result.stagedFileURI;
 		if (!result.stagedFileURI.isAbsolute()) {
-			filestoreURI = project.getLocationURI().resolve(
-					result.stagedFileURI);
+			filestoreURI = URI
+					.create(project.getLocationURI().toString() + "/").resolve(
+							result.stagedFileURI);
 		}
-
 		IFileStore stageFileStore = EFS.getStore(filestoreURI);
 
 		IFileInfo sourceFileInfo = original.fetchInfo();
@@ -202,16 +203,12 @@ public class StagingUtils {
 			IProgressMonitor copyMonitor = new SubProgressMonitor(monitor, 50,
 					SubProgressMonitor.PREPEND_MAIN_LABEL_TO_SUBTASK);
 			String sourceMD5 = null;
-			try {
-				copyMonitor.beginTask("", 100);
-				copyMonitor.subTask("Copying to stage");
-				sourceMD5 = copyWithMD5Digest(original, stageFileStore,
-						sourceFileInfo, copyMonitor);
-				copyMonitor.done();
-			} catch (CoreException e) {
-				// Unexpected copy error, rethrow
-				throw e;
-			}
+			copyMonitor.beginTask("", 100);
+			copyMonitor.subTask("Copying to stage");
+			sourceMD5 = copyWithMD5Digest(original, stageFileStore,
+					sourceFileInfo, copyMonitor);
+			copyMonitor.done();
+
 			// get the digest of the staged file
 			IProgressMonitor stagedChecksumMonitor = new SubProgressMonitor(
 					monitor, 49,

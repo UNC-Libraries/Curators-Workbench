@@ -17,7 +17,6 @@ package irods.efs.plugin;
 
 import java.net.URI;
 
-import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.jface.dialogs.IMessageProvider;
 import org.eclipse.jface.dialogs.TitleAreaDialog;
 import org.eclipse.swt.SWT;
@@ -37,8 +36,6 @@ import org.irods.jargon.core.connection.IRODSAccount.AuthScheme;
 import org.irods.jargon.core.connection.auth.AuthResponse;
 import org.irods.jargon.core.exception.JargonException;
 import org.irods.jargon.core.pub.IRODSFileSystem;
-import org.irods.jargon.core.pub.io.IRODSFile;
-import org.irods.jargon.core.pub.io.IRODSFileFactory;
 
 /**
  * @author Gregory Jansen
@@ -119,6 +116,12 @@ public class LoginInputDialog extends TitleAreaDialog {
 		textPassword.setText("");
 		textPassword.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
 
+		if(textUsername.getText() == null || textUsername.getText().trim().length() == 0) {
+			textUsername.setFocus();
+		} else {
+			textPassword.setFocus();
+		}
+		
 		group.pack();
 		composite.pack();
 	}
@@ -146,20 +149,6 @@ public class LoginInputDialog extends TitleAreaDialog {
 			public void widgetSelected(SelectionEvent e) {
 				setReturnCode(CANCEL);
 				close();
-			}
-		});
-
-		// Create Test button
-		Button testButton = createButton(parent, IDialogConstants.PROCEED_ID, "Test", false);
-
-		// Add a SelectionListener
-		testButton.addSelectionListener(new SelectionAdapter() {
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-				if (validFormInputs()) {
-					IRODSAccount account = makeAccount();
-					testConnection(account);
-				}
 			}
 		});
 	}
@@ -192,7 +181,7 @@ public class LoginInputDialog extends TitleAreaDialog {
 		// increment the number of columns in the button bar
 		((GridLayout) parent.getLayout()).numColumns++;
 		okButton = new Button(parent, SWT.PUSH);
-		okButton.setEnabled(false);
+		okButton.setEnabled(true);
 		okButton.setText(string);
 		// button.setFont(JFaceResources.getDialogFont());
 		// button.setData(new Integer(id));
@@ -214,9 +203,14 @@ public class LoginInputDialog extends TitleAreaDialog {
 
 	@Override
 	protected void okPressed() {
-		this.username = this.textUsername.getText();
-		this.password = this.textPassword.getText();
-		super.okPressed();
+		if (validFormInputs()) {
+			IRODSAccount account = makeAccount();
+			if(testConnection(account)) {
+				this.username = this.textUsername.getText();
+				this.password = this.textPassword.getText();
+				super.okPressed();
+			}
+		}
 	}
 
 	public String getUsername() {
@@ -234,8 +228,6 @@ public class LoginInputDialog extends TitleAreaDialog {
 			AuthResponse ar = irodsFileSystem.getIRODSAccessObjectFactory().authenticateIRODSAccount(account);
 			if(ar.isSuccessful()) {
 				this.authenticatedIrodsAccount = ar.getAuthenticatedIRODSAccount();
-				setMessage("Connection succeeded.", IMessageProvider.INFORMATION);
-				this.okButton.setEnabled(true);
 				return true;
 			}
 		} catch (JargonException e) {
@@ -247,11 +239,11 @@ public class LoginInputDialog extends TitleAreaDialog {
 			}
 			if (msg.contains("826000")) {
 				setMessage("Connection failed: Bad username or password.", IMessageProvider.ERROR);
+				textPassword.setFocus();
 			} else {
 				setMessage("Connection failed due to an error: " + msg, IMessageProvider.ERROR);
 			}
 		}
-		this.okButton.setEnabled(false);
 		return false;
 	}
 

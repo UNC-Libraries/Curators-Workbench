@@ -17,8 +17,6 @@ package irods.efs.plugin;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FilenameFilter;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
@@ -43,7 +41,6 @@ import org.irods.jargon.core.pub.CollectionAO;
 import org.irods.jargon.core.pub.DataObjectAO;
 import org.irods.jargon.core.pub.IRODSAccessObjectFactory;
 import org.irods.jargon.core.pub.IRODSFileSystem;
-import org.irods.jargon.core.pub.RemoteExecutionOfCommandsAO;
 import org.irods.jargon.core.pub.domain.Collection;
 import org.irods.jargon.core.pub.domain.DataObject;
 import org.irods.jargon.core.pub.io.IRODSFile;
@@ -57,6 +54,7 @@ import org.irods.jargon.core.pub.io.IRODSFileOutputStream;
 public class IrodsFileStore extends FileStore {
 	URI uri = null;
 	IRODSAccount __account = null;
+	IRODSFileSystem ifs = null;
 
 	//private static final int BUFFER_SIZE = 4194304;
 	// private static final int BUFFER_SIZE = 1048576;
@@ -65,16 +63,18 @@ public class IrodsFileStore extends FileStore {
 
 	public IrodsFileStore(URI uri) throws CoreException {
 		this.uri = uri;
+		this.ifs = Activator.getDefault().getIRODSFileSystem();
 	}
 
 	private IrodsFileStore(URI uri, IRODSAccount __account2) {
 		this.uri = uri;
 		this.__account = __account2;
+		this.ifs = Activator.getDefault().getIRODSFileSystem();
 	}
 
 	private IRODSAccount getAccount() throws CoreException {
 		if(__account == null) {
-			__account = IrodsEFSFileSystem.getAccount(uri);
+			__account = Activator.getDefault().getAccount(uri);
 		}
 		return __account;
 	}
@@ -94,7 +94,7 @@ public class IrodsFileStore extends FileStore {
 		}
 		monitor.beginTask("fetching IRODS child names", 2);
 		try {
-			IRODSFileSystem irodsFileSystem = IRODSFileSystem.instance();
+			IRODSFileSystem irodsFileSystem = ifs;
 			IRODSFileFactory ff = irodsFileSystem
 					.getIRODSFileFactory(getAccount());
 			IRODSFile file = ff.instanceIRODSFile(getDecodedPath());
@@ -147,7 +147,7 @@ public class IrodsFileStore extends FileStore {
 		// get connection and file
 		IRODSFile f = null;
 		try {
-			IRODSFileSystem irodsFileSystem = IRODSFileSystem.instance();
+			IRODSFileSystem irodsFileSystem = ifs;
 			IRODSFileFactory iff = irodsFileSystem
 					.getIRODSFileFactory(getAccount());
 			f = iff.instanceIRODSFile(getDecodedPath());
@@ -201,7 +201,7 @@ public class IrodsFileStore extends FileStore {
 			monitor = new NullProgressMonitor();
 		}
 		try {
-			IRODSFileSystem irodsFileSystem = IRODSFileSystem.instance();
+			IRODSFileSystem irodsFileSystem = ifs;
 			IRODSAccessObjectFactory aof = irodsFileSystem
 					.getIRODSAccessObjectFactory();
 			DataObjectAO doao = aof.getDataObjectAO(getAccount());
@@ -236,7 +236,7 @@ public class IrodsFileStore extends FileStore {
 			monitor = new NullProgressMonitor();
 		}
 		try {
-			IRODSFileSystem irodsFileSystem = IRODSFileSystem.instance();
+			IRODSFileSystem irodsFileSystem = ifs;
 			IRODSAccessObjectFactory aof = irodsFileSystem
 					.getIRODSAccessObjectFactory();
 			CollectionAO cao = aof.getCollectionAO(getAccount());
@@ -296,25 +296,6 @@ public class IrodsFileStore extends FileStore {
 			throw new Error(e);
 		}
 		return resultStore;
-	}
-
-	private static class NameFilter implements FilenameFilter {
-		String filter = null;
-
-		NameFilter(String filter) {
-			this.filter = filter;
-		}
-
-		/*
-		 * (non-Javadoc)
-		 *
-		 * @see java.io.FilenameFilter#accept(java.io.File, java.lang.String)
-		 */
-		@Override
-		public boolean accept(File dir, String name) {
-			return filter.equals(name);
-		}
-
 	}
 
 	/*
@@ -398,7 +379,7 @@ public class IrodsFileStore extends FileStore {
 		}
 		monitor.beginTask("fetching IRODS input stream", 2);
 		try {
-			IRODSFileSystem irodsFileSystem = IRODSFileSystem.instance();
+			IRODSFileSystem irodsFileSystem = ifs;
 			IRODSFileFactory ff = irodsFileSystem
 					.getIRODSFileFactory(getAccount());
 			IRODSFile file = ff.instanceIRODSFile(getDecodedPath());
@@ -436,7 +417,7 @@ public class IrodsFileStore extends FileStore {
 		}
 		monitor.beginTask("fetching IRODS input stream", 2);
 		try {
-			IRODSFileSystem irodsFileSystem = IRODSFileSystem.instance();
+			IRODSFileSystem irodsFileSystem = ifs;
 			IRODSFileFactory irodsFileFactory = irodsFileSystem
 					.getIRODSFileFactory(getAccount());
 			IRODSFile file = irodsFileFactory
@@ -464,7 +445,7 @@ public class IrodsFileStore extends FileStore {
 			makeParents = true;
 		}
 		try {
-			IRODSFileSystem irodsFileSystem = IRODSFileSystem.instance();
+			IRODSFileSystem irodsFileSystem = ifs;
 			IRODSFileFactory irodsFileFactory = irodsFileSystem
 					.getIRODSFileFactory(getAccount());
 			IRODSFile file = irodsFileFactory
@@ -493,7 +474,7 @@ public class IrodsFileStore extends FileStore {
 		}
 		monitor.beginTask("fetching IRODS output stream", 2);
 		try {
-			IRODSFileSystem irodsFileSystem = IRODSFileSystem.instance();
+			IRODSFileSystem irodsFileSystem = ifs;
 			IRODSFileFactory irodsFileFactory = irodsFileSystem.getIRODSAccessObjectFactory()
 					.getIRODSFileFactory(getAccount());
 			IRODSFile irodsFile = irodsFileFactory
@@ -530,7 +511,7 @@ public class IrodsFileStore extends FileStore {
 		// }
 		// monitor.beginTask("fetching IRODS output stream", 2);
 		// try {
-		// IRODSFileSystem irodsFileSystem = IRODSFileSystem.instance();
+		// IRODSFileSystem irodsFileSystem = ifs;
 		// IRODSFileFactory irodsFileFactory =
 		// irodsFileSystem.getIRODSFileFactory(account);
 		// IRODSFile file = irodsFileFactory.instanceIRODSFile(uri.getPath());

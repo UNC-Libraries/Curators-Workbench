@@ -139,17 +139,21 @@ public class StagingJob extends Job {
 		}
 		for (TreeIterator<EObject> iter = bag.eAllContents(); iter.hasNext();) {
 			EObject next = iter.next();
+			log.debug(next.toString());
 			if (next instanceof FptrType) {
 				FptrType fptr = (FptrType) next;
 				OriginalFileStore original = MetsProjectNature
 						.getOriginal((DivType) fptr.eContainer());
+				log.error("original file store: "+original);
 				if (original != null) {
 					FLocatType loc = original.getStagingLocatorType();
+					log.error("original staging locator: "+loc);
 					if (loc == null) {
 						toStage.add(original);
 					} else {
 						try {
 							URI stagedLoc = new URI(loc.getHref());
+							log.debug("found migration: "+original.toURI()+" "+stagedLoc);
 							if (!stage.isWithin(stagedLoc)) {
 								toStage.add(original);
 								toMigrate.put(original, loc);
@@ -186,20 +190,25 @@ public class StagingJob extends Job {
 				continue; // no longer captured
 			}
 
+			log.debug("got here 1");
 			// find the source file for staging
 			IFileStore stagingSource = null;
-			if (original.isAttached()) {
-				stagingSource = original.getWrapped();
-			} else if (toMigrate.containsKey(original)) {
+			if (toMigrate.containsKey(original)) {
 				try {
 					FLocatType loc = toMigrate.get(original);
 					URI stagedManifestURI = new URI(loc.getHref());
+					SharedStagingArea s = StagingPlugin.getDefault().getStages().findMatchingArea(stagedManifestURI);
+					if(!s.isConnected()) StagingPlugin.getDefault().getStages().connect(s.getURI());
 					URI stagedStorageURI = StagingPlugin.getDefault().getStages()
 							.getStorageURI(stagedManifestURI);
+					// resolve relative URIs against project location
+					stagedStorageURI = mpn.resolveProjectRelativeURI(stagedStorageURI);
 					stagingSource = EFS.getStore(stagedStorageURI);
 				} catch (URISyntaxException|CoreException|StagingException e) {
 					log.error("Cannot locate previous stage URI", e);
 				}
+			} else if (original.isAttached()) {
+				stagingSource = original.getWrapped();
 			}
 			if(stagingSource == null) {
 				addProblemMarker("Cannot locate a staging source for "+original.toString());
@@ -217,13 +226,13 @@ public class StagingJob extends Job {
 					stage, destinationRepo, new SubProgressMonitor(monitor,
 							100,
 							SubProgressMonitor.PREPEND_MAIN_LABEL_TO_SUBTASK));
-			} catch(CoreException e) {		
+			} catch(CoreException e) {
 				mpn.setAutomaticStaging(false);
 				addProblemMarker("Staging stopped due to an error, autostaging disabled: "+e.getMessage());
 				return new Status(IStatus.ERROR, Activator.PLUGIN_ID, "Staging encountered an error and stopped, autostaging disabled.",e);
 			}
 			// set checksum
-			if (md5sum == null) { // use newly calculated 
+			if (md5sum == null) { // use newly calculated
 				fileRec.setCHECKSUMTYPE(CHECKSUMTYPEType.MD5);
 				fileRec.setCHECKSUM(result.md5Sum);
 			} else {

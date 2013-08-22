@@ -72,8 +72,10 @@ import unc.lib.cdr.workbench.stage.StagedFilesProjectElement;
 
 public class MetsProjectNature implements IProjectNature {
 
-	private static final Logger LOG = LoggerFactory.getLogger(MetsProjectNature.class);
-	private static final Logger log = LoggerFactory.getLogger(MetsProjectNature.class);
+	private static final Logger LOG = LoggerFactory
+			.getLogger(MetsProjectNature.class);
+	private static final Logger log = LoggerFactory
+			.getLogger(MetsProjectNature.class);
 	public static final String NATURE_ID = "cdr_producer.projectNature";
 	public static final String STAGING_BUILDER_ID = "unc.lib.cdr.workbench.builders.StageBuilder";
 	public static final String CROSSWALKS_BUILDER_ID = "unc.lib.cdr.workbench.builders.CrosswalksBuilder";
@@ -146,7 +148,8 @@ public class MetsProjectNature implements IProjectNature {
 	}
 
 	public MetsType1 getMets() {
-		DocumentRoot r = (DocumentRoot) this.getEMFSession().getMetsResource().getContents().get(0);
+		DocumentRoot r = (DocumentRoot) this.getEMFSession().getMetsResource()
+				.getContents().get(0);
 		return r.getMets();
 	}
 
@@ -158,7 +161,8 @@ public class MetsProjectNature implements IProjectNature {
 			boolean autostage = getAutomaticStaging();
 			setupBuildSpec(desc, autostage);
 			this.project.setDescription(desc, new NullProgressMonitor());
-			// this.project.setSessionProperty(EDITING_DOMAIN_KEY, editingDomain);
+			// this.project.setSessionProperty(EDITING_DOMAIN_KEY,
+			// editingDomain);
 			// this.project.setSessionProperty(RESOURCE_SET_KEY, resourceSet);
 		} catch (CoreException e) {
 			e.printStackTrace();
@@ -178,7 +182,8 @@ public class MetsProjectNature implements IProjectNature {
 	@Override
 	public void setProject(IProject project) {
 		this.project = project;
-		IEclipsePreferences projectNode = new ProjectScope(project).getNode(Activator.PLUGIN_ID);
+		IEclipsePreferences projectNode = new ProjectScope(project)
+				.getNode(Activator.PLUGIN_ID);
 		try {
 			projectNode.flush();
 		} catch (BackingStoreException e) {
@@ -189,13 +194,15 @@ public class MetsProjectNature implements IProjectNature {
 	}
 
 	private void loadOriginals() {
-		IEclipsePreferences projectNode = new ProjectScope(project).getNode(Activator.PLUGIN_ID);
+		IEclipsePreferences projectNode = new ProjectScope(project)
+				.getNode(Activator.PLUGIN_ID);
 		byte[] s = projectNode.getByteArray(ORIGINALS_KEY, null);
 		if (s == null) {
 			this.originals = new ArrayList<OriginalStub>();
 		} else {
 			try {
-				ObjectInputStream in = new ObjectInputStream(new ByteArrayInputStream(s));
+				ObjectInputStream in = new ObjectInputStream(
+						new ByteArrayInputStream(s));
 				this.originals = (ArrayList<OriginalStub>) in.readObject();
 				log.debug("loaded originals: " + this.originals.size());
 			} catch (Exception e) {
@@ -212,10 +219,12 @@ public class MetsProjectNature implements IProjectNature {
 		} catch (Exception e) {
 			throw new Error("Cannot serialize project originals", e);
 		}
-		IEclipsePreferences projectNode = new ProjectScope(project).getNode(Activator.PLUGIN_ID);
+		IEclipsePreferences projectNode = new ProjectScope(project)
+				.getNode(Activator.PLUGIN_ID);
 		projectNode.putByteArray(ORIGINALS_KEY, baos.toByteArray());
 		try {
-			//project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
+			// project.refreshLocal(IResource.DEPTH_INFINITE, new
+			// NullProgressMonitor());
 			projectNode.flush();
 		} catch (BackingStoreException e) {
 			throw new Error(e);
@@ -237,7 +246,8 @@ public class MetsProjectNature implements IProjectNature {
 		IProject result = null;
 		Resource objectResource = object.eResource();
 		if (objectResource != null) {
-			for (IProject p : ResourcesPlugin.getWorkspace().getRoot().getProjects()) {
+			for (IProject p : ResourcesPlugin.getWorkspace().getRoot()
+					.getProjects()) {
 				if (p.isOpen()) {
 					MetsProjectNature n = MetsProjectNature.get(p);
 					if (n != null) {
@@ -268,7 +278,8 @@ public class MetsProjectNature implements IProjectNature {
 		IProject p = getProjectForMetsEObject(object);
 		if (p != null) {
 			try {
-				MetsProjectNature mpn = (MetsProjectNature) p.getNature(MetsProjectNature.NATURE_ID);
+				MetsProjectNature mpn = (MetsProjectNature) p
+						.getNature(MetsProjectNature.NATURE_ID);
 				result = mpn.getEditingDomain();
 			} catch (CoreException ignored) {
 			}
@@ -283,8 +294,8 @@ public class MetsProjectNature implements IProjectNature {
 	public boolean getAutomaticStaging() {
 		boolean result = false;
 		ProjectScope[] s = { new ProjectScope(project) };
-		result = Platform.getPreferencesService()
-				.getBoolean(Activator.PLUGIN_ID, Activator.AUTOSTAGE_PREFERENCE, true, s);
+		result = Platform.getPreferencesService().getBoolean(
+				Activator.PLUGIN_ID, Activator.AUTOSTAGE_PREFERENCE, true, s);
 		return result;
 	}
 
@@ -301,19 +312,19 @@ public class MetsProjectNature implements IProjectNature {
 	 * @return the IResource of the original
 	 */
 	public static OriginalFileStore getOriginal(DivType div) {
-			if (div.getCONTENTIDS() != null && div.getCONTENTIDS().size() > 0) {
-				URI uri = null;
-				for (String contentid : div.getCONTENTIDS()) {
-					try {
-						uri = new URI(contentid);
-					} catch (URISyntaxException e) {
-						throw new Error(e);
-					}
-					if (!"info".equals(uri.getScheme()))
-						break;
+		if (div.getCONTENTIDS() != null && div.getCONTENTIDS().size() > 0) {
+			URI uri = null;
+			for (String contentid : div.getCONTENTIDS()) {
+				try {
+					uri = new URI(contentid);
+				} catch (URISyntaxException e) {
+					throw new Error(e);
 				}
-				return getNatureForMetsObject(div).getOriginal(uri);
+				if (!"info".equals(uri.getScheme()))
+					break;
 			}
+			return getNatureForMetsObject(div).getOriginal(uri);
+		}
 		return null;
 	}
 
@@ -323,7 +334,8 @@ public class MetsProjectNature implements IProjectNature {
 			URI uri = null;
 			for (FLocatType locat : file.getFLocat()) {
 				try {
-					if (METSConstants.FLocat_USE_ORIGINAL.equals(locat.getUSE())) {
+					if (METSConstants.FLocat_USE_ORIGINAL
+							.equals(locat.getUSE())) {
 						uri = new URI(locat.getHref());
 						break;
 					}
@@ -352,7 +364,8 @@ public class MetsProjectNature implements IProjectNature {
 					}
 				}
 			}
-			result = (OriginalFileStore) OriginalsFileSystem.wrapStore(uri, mystub);
+			result = (OriginalFileStore) OriginalsFileSystem.wrapStore(uri,
+					mystub);
 		} catch (Exception ignored) {
 		}
 		return result;
@@ -376,13 +389,15 @@ public class MetsProjectNature implements IProjectNature {
 	 */
 	public void setStagingBase(String stageURI) {
 		LOG.debug("setting stageURI to: " + stageURI);
-		IEclipsePreferences projectNode = new ProjectScope(project).getNode(Activator.PLUGIN_ID);
+		IEclipsePreferences projectNode = new ProjectScope(project)
+				.getNode(Activator.PLUGIN_ID);
 		projectNode.put(STAGING_BASE_URI_KEY, stageURI);
 	}
 
 	public java.net.URI getStagingBase() {
 		try {
-			IEclipsePreferences projectNode = new ProjectScope(project).getNode(Activator.PLUGIN_ID);
+			IEclipsePreferences projectNode = new ProjectScope(project)
+					.getNode(Activator.PLUGIN_ID);
 			String s = projectNode.get(STAGING_BASE_URI_KEY, null);
 			return new java.net.URI(s);
 		} catch (Exception e) {
@@ -402,14 +417,17 @@ public class MetsProjectNature implements IProjectNature {
 		}
 	}
 
-	public static void setupBuildSpec(IProjectDescription desc, boolean autostage) {
+	public static void setupBuildSpec(IProjectDescription desc,
+			boolean autostage) {
 
 		// create staging builder
 		ICommand stagingCommand = desc.newCommand();
 		stagingCommand.setBuilderName(MetsProjectNature.STAGING_BUILDER_ID);
-		stagingCommand.setBuilding(IncrementalProjectBuilder.AUTO_BUILD, autostage);
+		stagingCommand.setBuilding(IncrementalProjectBuilder.AUTO_BUILD,
+				autostage);
 		stagingCommand.setBuilding(IncrementalProjectBuilder.FULL_BUILD, true);
-		stagingCommand.setBuilding(IncrementalProjectBuilder.INCREMENTAL_BUILD, true);
+		stagingCommand.setBuilding(IncrementalProjectBuilder.INCREMENTAL_BUILD,
+				true);
 
 		// add builders to project description
 		List<ICommand> builders = new ArrayList<ICommand>();
@@ -418,16 +436,19 @@ public class MetsProjectNature implements IProjectNature {
 	}
 
 	public static EObject getModel(URIFragmentEditorInput in) {
-		IProject p = ResourcesPlugin.getWorkspace().getRoot().getProject(in.getProjectName());
+		IProject p = ResourcesPlugin.getWorkspace().getRoot()
+				.getProject(in.getProjectName());
 		MetsProjectNature n = MetsProjectNature.get(p);
-		return n.getEditingDomain().getResourceSet().getResources().get(0).getEObject(in.getFragmentID());
+		return n.getEditingDomain().getResourceSet().getResources().get(0)
+				.getEObject(in.getFragmentID());
 	}
 
 	public String getDescriptionStatus() {
 		int numOfFiles = 0;
 		int numOfContainers = 0;
 		int numDescribed = 0;
-		TreeIterator<EObject> iter = METSUtils.findBagDiv(getMets()).eAllContents();
+		TreeIterator<EObject> iter = METSUtils.findBagDiv(getMets())
+				.eAllContents();
 		try {
 			for (EObject eo = iter.next(); iter.hasNext(); eo = iter.next()) {
 				if (eo instanceof DivType) {
@@ -456,7 +477,8 @@ public class MetsProjectNature implements IProjectNature {
 		} else {
 			result.append(" non-file object");
 		}
-		return result.append("\n").append(numDescribed).append(" objects are described").toString();
+		return result.append("\n").append(numDescribed)
+				.append(" objects are described").toString();
 	}
 
 	public String getStagingStatus() {
@@ -468,7 +490,8 @@ public class MetsProjectNature implements IProjectNature {
 			if (next != null && next instanceof FptrType) {
 				numOfFiles++;
 				FptrType fptr = (FptrType) next;
-				OriginalFileStore original = MetsProjectNature.getOriginal((DivType) fptr.eContainer());
+				OriginalFileStore original = MetsProjectNature
+						.getOriginal((DivType) fptr.eContainer());
 				if (original != null) {
 					FLocatType loc = original.getStagingLocatorType();
 					if (loc != null) {
@@ -477,7 +500,8 @@ public class MetsProjectNature implements IProjectNature {
 				}
 			}
 		}
-		StringBuilder result = new StringBuilder().append(numStaged).append(" out of ").append(numOfFiles);
+		StringBuilder result = new StringBuilder().append(numStaged)
+				.append(" out of ").append(numOfFiles);
 		if (numOfFiles > 1 || numOfFiles == 0) {
 			result.append(" files staged");
 		} else {
@@ -490,21 +514,32 @@ public class MetsProjectNature implements IProjectNature {
 		int numOfFiles = 0;
 		int numStaged = 0;
 		DivType bag = METSUtils.findBagDiv(get(project).getMets());
-		for(TreeIterator<EObject> iter = bag.eAllContents(); iter.hasNext();) {
+		for (TreeIterator<EObject> iter = bag.eAllContents(); iter.hasNext();) {
 			EObject next = iter.next();
-			if(next != null && next instanceof FptrType) {
+			if (next != null && next instanceof FptrType) {
 				numOfFiles++;
-				FptrType fptr = (FptrType)next;
-				OriginalFileStore original = getOriginal((DivType)fptr.eContainer());
-				if(original != null) {
+				FptrType fptr = (FptrType) next;
+				OriginalFileStore original = getOriginal((DivType) fptr
+						.eContainer());
+				if (original != null) {
 					FLocatType loc = original.getStagingLocatorType();
-					if(loc != null) {
+					if (loc != null) {
 						numStaged++;
 					}
 				}
 			}
 		}
 		return numOfFiles - numStaged;
+	}
+
+	public URI resolveProjectRelativeURI(URI storageURI) {
+		URI result = storageURI;
+		if (!storageURI.isAbsolute()) {
+			URI projectURI = project.getLocationURI();
+			result = URI.create(projectURI.toString() + "/")
+					.resolve(storageURI);
+		}
+		return result;
 	}
 
 }
