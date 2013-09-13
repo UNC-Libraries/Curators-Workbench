@@ -11,7 +11,7 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.core.filesystem,
  org.slf4j.log4j12;bundle-version="1.6.6",
  org.slf4j.pde;bundle-version="4.1.4"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Import-Package: org.eclipse.core.filesystem
 Export-Package: irods.efs.plugin

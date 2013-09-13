@@ -37,6 +37,7 @@ import org.eclipse.ui.dialogs.WizardNewProjectCreationPage;
 import staging.plugin.StagingPlugin;
 import edu.unc.lib.staging.SharedStagingArea;
 import edu.unc.lib.staging.Stages;
+import edu.unc.lib.staging.StagingException;
 
 /**
  * @author Gregory Jansen
@@ -159,9 +160,13 @@ public class NewProjectStagingPage extends WizardPage {
 			}
 			manifestReferencesText.setText(projectManifestBase.toString());
 			if (this.stagingArea.isConnected()) {
-				URI projectStagedBase = this.stagingArea.getStorageURI(projectManifestBase);
-				stageText.setText(projectStagedBase.toString());
-				this.setPageComplete(this.stagingArea != null);
+				try {
+					URI projectStagedBase = this.stagingArea.getStorageURI(projectManifestBase);
+					stageText.setText(projectStagedBase.toString());
+					this.setPageComplete(this.stagingArea != null);
+				} catch (StagingException e) {
+					stageText.setText("Cannot connect to this staging area: "+e.getMessage());
+				}
 			} else {
 				stageText.setText("Cannot connect to this staging area");
 			}

@@ -162,7 +162,7 @@ public class WorkbenchPreferencePage extends PreferencePage implements
 			public void handleEvent(Event event) {
 				TableItem[] select = repositoryTable.getSelection();
 				for (TableItem i : select) {
-					String configURL = (String) i.getData();
+					URL configURL = (URL)i.getData();
 					stages.removeRepositoryConfigURL(configURL);
 				}
 				updateView();
@@ -173,6 +173,7 @@ public class WorkbenchPreferencePage extends PreferencePage implements
 	private void updateView() {
 		repositoryTable.clearAll();
 		for (URL repoConfig : this.stages.getRepositoryConfigURLs()) {
+			if(Stages.LOCAL_CONFIG_URL.equals(repoConfig)) continue;
 			TableItem add = new TableItem(repositoryTable, SWT.NULL);
 			add.setText(0, repoConfig.getHost());
 			Map<URI, SharedStagingArea> areas = this.stages
