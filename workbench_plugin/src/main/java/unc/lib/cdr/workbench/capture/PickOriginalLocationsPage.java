@@ -104,7 +104,8 @@ public class PickOriginalLocationsPage extends WizardPage implements Listener {
 	/**
 	 * @param pageName
 	 */
-	public PickOriginalLocationsPage(String pageName, IStructuredSelection selection) {
+	public PickOriginalLocationsPage(String pageName,
+			IStructuredSelection selection) {
 		super(pageName);
 		this.selection = selection;
 		setTitle("Import Originals");
@@ -116,8 +117,8 @@ public class PickOriginalLocationsPage extends WizardPage implements Listener {
 	 *
 	 */
 	private void loadPreviousPrestages() {
-		org.osgi.service.prefs.Preferences preferences = new ConfigurationScope().getNode(Activator.PLUGIN_ID).node(
-				PRESTAGE_PREFERENCE_NODE_ID);
+		org.osgi.service.prefs.Preferences preferences = new ConfigurationScope()
+				.getNode(Activator.PLUGIN_ID).node(PRESTAGE_PREFERENCE_NODE_ID);
 		String[] keys = new String[] {};
 		try {
 			keys = preferences.childrenNames();
@@ -142,8 +143,8 @@ public class PickOriginalLocationsPage extends WizardPage implements Listener {
 
 	private void saveToPreviousPrestages(String uri) {
 		String loc = Integer.toString(uri.hashCode());
-		org.osgi.service.prefs.Preferences allLocations = new ConfigurationScope().getNode(Activator.PLUGIN_ID).node(
-				PRESTAGE_PREFERENCE_NODE_ID);
+		org.osgi.service.prefs.Preferences allLocations = new ConfigurationScope()
+				.getNode(Activator.PLUGIN_ID).node(PRESTAGE_PREFERENCE_NODE_ID);
 		int c = 1;
 		try {
 			if (allLocations.nodeExists(loc)) {
@@ -176,7 +177,9 @@ public class PickOriginalLocationsPage extends WizardPage implements Listener {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see org.eclipse.jface.dialogs.IDialogPage#createControl(org.eclipse.swt.widgets .Composite)
+	 * @see
+	 * org.eclipse.jface.dialogs.IDialogPage#createControl(org.eclipse.swt.widgets
+	 * .Composite)
 	 */
 	@Override
 	public void createControl(Composite parent) {
@@ -184,7 +187,8 @@ public class PickOriginalLocationsPage extends WizardPage implements Listener {
 
 		Composite composite = new Composite(parent, SWT.NULL);
 		composite.setLayout(new GridLayout());
-		composite.setLayoutData(new GridData(GridData.VERTICAL_ALIGN_FILL | GridData.HORIZONTAL_ALIGN_FILL));
+		composite.setLayoutData(new GridData(GridData.VERTICAL_ALIGN_FILL
+				| GridData.HORIZONTAL_ALIGN_FILL));
 		composite.setSize(composite.computeSize(SWT.DEFAULT, SWT.DEFAULT));
 		composite.setFont(parent.getFont());
 
@@ -204,12 +208,13 @@ public class PickOriginalLocationsPage extends WizardPage implements Listener {
 
 	private void createRemoveableGroup(Composite composite) {
 		Group optionsGroup = new Group(composite, SWT.NONE);
-		//optionsGroup.setText("Pre-Staged Location");
+		// optionsGroup.setText("Pre-Staged Location");
 		GridLayout layout = new GridLayout();
 		layout.numColumns = 2;
 		optionsGroup.setLayout(layout);
 		optionsGroup.setFont(composite.getFont());
-		optionsGroup.setLayoutData(new GridData(GridData.HORIZONTAL_ALIGN_FILL | GridData.GRAB_HORIZONTAL));
+		optionsGroup.setLayoutData(new GridData(GridData.HORIZONTAL_ALIGN_FILL
+				| GridData.GRAB_HORIZONTAL));
 
 		Label lab = new Label(optionsGroup, SWT.WRAP);
 		GridData labdata = new GridData();
@@ -235,8 +240,8 @@ public class PickOriginalLocationsPage extends WizardPage implements Listener {
 		GridLayout layout = new GridLayout(1, false);
 		composite.setLayout(layout);
 		composite.setFont(parent.getFont());
-		composite.setLayoutData(new GridData(GridData.HORIZONTAL_ALIGN_FILL | GridData.GRAB_HORIZONTAL
-				| GridData.GRAB_VERTICAL));
+		composite.setLayoutData(new GridData(GridData.HORIZONTAL_ALIGN_FILL
+				| GridData.GRAB_HORIZONTAL | GridData.GRAB_VERTICAL));
 
 		// Create the tree viewer to display the file tree
 		fileTreeViewer = new CheckboxTreeViewer(composite);
@@ -246,7 +251,10 @@ public class PickOriginalLocationsPage extends WizardPage implements Listener {
 		fileTreeViewer.setContentProvider(provider);
 		fileTreeViewer.setLabelProvider(provider);
 		fileTreeViewer.setAutoExpandLevel(2);
-		fileTreeViewer.setInput(FileStoreProvider.EMPTY_ROOT); // pass a non-null that will be ignored
+		fileTreeViewer.setInput(FileStoreProvider.EMPTY_ROOT); // pass a
+																// non-null that
+																// will be
+																// ignored
 
 		fileTreeViewer.setComparator(new ViewerComparator() {
 			@Override
@@ -271,7 +279,8 @@ public class PickOriginalLocationsPage extends WizardPage implements Listener {
 					// uncheck all its parents and all descendants
 					IFileStore f = (IFileStore) event.getElement();
 					IPath fpath = new Path(f.toURI().getPath());
-					for (Object checkedThing : fileTreeViewer.getCheckedElements()) {
+					for (Object checkedThing : fileTreeViewer
+							.getCheckedElements()) {
 						IFileStore thing = (IFileStore) checkedThing;
 						IPath path = new Path(thing.toURI().getPath());
 						if (fpath.equals(path)) {
@@ -291,7 +300,7 @@ public class PickOriginalLocationsPage extends WizardPage implements Listener {
 	 * Creates the import destination specification controls.
 	 * 
 	 * @param parent
-	 *           the parent control
+	 *            the parent control
 	 */
 	protected final void createDestinationGroup(Composite parent) {
 		// container specification group
@@ -299,7 +308,8 @@ public class PickOriginalLocationsPage extends WizardPage implements Listener {
 		GridLayout layout = new GridLayout();
 		layout.numColumns = 2;
 		containerGroup.setLayout(layout);
-		containerGroup.setLayoutData(new GridData(GridData.HORIZONTAL_ALIGN_FILL | GridData.GRAB_HORIZONTAL));
+		containerGroup.setLayoutData(new GridData(
+				GridData.HORIZONTAL_ALIGN_FILL | GridData.GRAB_HORIZONTAL));
 		containerGroup.setFont(parent.getFont());
 
 		// container label
@@ -308,9 +318,11 @@ public class PickOriginalLocationsPage extends WizardPage implements Listener {
 		resourcesLabel.setFont(parent.getFont());
 
 		// container name entry field
-		projectCombo = new Combo(containerGroup, SWT.SINGLE | SWT.BORDER | SWT.READ_ONLY);
+		projectCombo = new Combo(containerGroup, SWT.SINGLE | SWT.BORDER
+				| SWT.READ_ONLY);
 		projectCombo.addListener(SWT.Selection, this);
-		GridData data = new GridData(GridData.HORIZONTAL_ALIGN_FILL | GridData.GRAB_HORIZONTAL);
+		GridData data = new GridData(GridData.HORIZONTAL_ALIGN_FILL
+				| GridData.GRAB_HORIZONTAL);
 		data.widthHint = SIZING_TEXT_FIELD_WIDTH;
 		projectCombo.setLayoutData(data);
 		projectCombo.setFont(parent.getFont());
@@ -326,7 +338,8 @@ public class PickOriginalLocationsPage extends WizardPage implements Listener {
 		layout.numColumns = 4;
 		sourceContainerGroup.setLayout(layout);
 		sourceContainerGroup.setFont(parent.getFont());
-		sourceContainerGroup.setLayoutData(new GridData(GridData.HORIZONTAL_ALIGN_FILL | GridData.GRAB_HORIZONTAL));
+		sourceContainerGroup.setLayoutData(new GridData(
+				GridData.HORIZONTAL_ALIGN_FILL | GridData.GRAB_HORIZONTAL));
 
 		Label groupLabel = new Label(sourceContainerGroup, SWT.NONE);
 		groupLabel.setText("Location");
@@ -340,14 +353,16 @@ public class PickOriginalLocationsPage extends WizardPage implements Listener {
 		drivesBrowseButton = new Button(sourceContainerGroup, SWT.PUSH);
 		drivesBrowseButton.setText("Browse Drives..");
 		drivesBrowseButton.addListener(SWT.Selection, this);
-		drivesBrowseButton.setLayoutData(new GridData(GridData.HORIZONTAL_ALIGN_FILL));
+		drivesBrowseButton.setLayoutData(new GridData(
+				GridData.HORIZONTAL_ALIGN_FILL));
 		drivesBrowseButton.setFont(parent.getFont());
 
 		// source browse button
 		irodsBrowseButton = new Button(sourceContainerGroup, SWT.PUSH);
 		irodsBrowseButton.setText("Browse iRODS..");
 		irodsBrowseButton.addListener(SWT.Selection, this);
-		irodsBrowseButton.setLayoutData(new GridData(GridData.HORIZONTAL_ALIGN_FILL));
+		irodsBrowseButton.setLayoutData(new GridData(
+				GridData.HORIZONTAL_ALIGN_FILL));
 		irodsBrowseButton.setFont(parent.getFont());
 
 		setButtonLayoutData(drivesBrowseButton);
@@ -355,7 +370,8 @@ public class PickOriginalLocationsPage extends WizardPage implements Listener {
 
 		// source name entry field
 		locationField = new Combo(sourceContainerGroup, SWT.BORDER);
-		GridData data = new GridData(GridData.HORIZONTAL_ALIGN_FILL | GridData.GRAB_HORIZONTAL);
+		GridData data = new GridData(GridData.HORIZONTAL_ALIGN_FILL
+				| GridData.GRAB_HORIZONTAL);
 		data.widthHint = SIZING_TEXT_FIELD_WIDTH;
 		data.horizontalSpan = 4;
 		locationField.setLayoutData(data);
@@ -448,7 +464,9 @@ public class PickOriginalLocationsPage extends WizardPage implements Listener {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see org.eclipse.swt.widgets.Listener#handleEvent(org.eclipse.swt.widgets.Event)
+	 * @see
+	 * org.eclipse.swt.widgets.Listener#handleEvent(org.eclipse.swt.widgets.
+	 * Event)
 	 */
 	@Override
 	public void handleEvent(Event event) {
@@ -470,10 +488,12 @@ public class PickOriginalLocationsPage extends WizardPage implements Listener {
 
 	private void selectFirstCheckbox() {
 		if (this.fileTreeViewer.getInput() != null) {
-			FileStoreProvider.Root root = (FileStoreProvider.Root) this.fileTreeViewer.getInput();
+			FileStoreProvider.Root root = (FileStoreProvider.Root) this.fileTreeViewer
+					.getInput();
 			if (root.roots != null && root.roots.length > 0) {
 				this.fileTreeViewer.setChecked(root.roots[0], true);
-				//this.fileTreeViewer.setSelection(new TreeSelection(new TreePath(new Object[] {root, root.roots[0]})));
+				// this.fileTreeViewer.setSelection(new TreeSelection(new
+				// TreePath(new Object[] {root, root.roots[0]})));
 			}
 		}
 	}
@@ -482,7 +502,8 @@ public class PickOriginalLocationsPage extends WizardPage implements Listener {
 	 *
 	 */
 	private IProject getProject() {
-		String pname = this.projectCombo.getItems()[this.projectCombo.getSelectionIndex()];
+		String pname = this.projectCombo.getItems()[this.projectCombo
+				.getSelectionIndex()];
 		return ResourcesPlugin.getWorkspace().getRoot().getProject(pname);
 	}
 
@@ -501,22 +522,28 @@ public class PickOriginalLocationsPage extends WizardPage implements Listener {
 	 */
 	private void initialPopulateProjectField() {
 		java.util.List<String> openProjects = new ArrayList<String>();
-		for (IProject p : ResourcesPlugin.getWorkspace().getRoot().getProjects()) {
+		for (IProject p : ResourcesPlugin.getWorkspace().getRoot()
+				.getProjects()) {
 			if (p.isOpen())
 				openProjects.add(p.getName());
 		}
 		projectCombo.setItems(openProjects.toArray(new String[] {}));
 
 		IProject p = null;
-		
-		if (IProject.class.isInstance(selection.getFirstElement())) {
-			p = (IProject) selection.getFirstElement();
-		} else if(OriginalStub.class.isInstance(selection.getFirstElement())) {
-			OriginalStub stub = (OriginalStub)selection.getFirstElement();
-			p = (IProject)stub.getProject();
-		} else if(OriginalFileStore.class.isInstance(selection.getFirstElement())) {
-			OriginalFileStore store = (OriginalFileStore)selection.getFirstElement();
-			p = store.getProject();
+
+		if (selection != null && !selection.isEmpty()) {
+			if (IProject.class.isInstance(selection.getFirstElement())) {
+				p = (IProject) selection.getFirstElement();
+			} else if (OriginalStub.class.isInstance(selection
+					.getFirstElement())) {
+				OriginalStub stub = (OriginalStub) selection.getFirstElement();
+				p = (IProject) stub.getProject();
+			} else if (OriginalFileStore.class.isInstance(selection
+					.getFirstElement())) {
+				OriginalFileStore store = (OriginalFileStore) selection
+						.getFirstElement();
+				p = store.getProject();
+			}
 		}
 		if (p != null && p.isOpen()) {
 			projectCombo.select(openProjects.indexOf(p.getName()));
@@ -568,7 +595,7 @@ public class PickOriginalLocationsPage extends WizardPage implements Listener {
 				this.fileTreeViewer.setInput(new FileStoreProvider.Root(base));
 			}
 		}
-		if(this.fileTreeViewer.getCheckedElements().length == 0) {
+		if (this.fileTreeViewer.getCheckedElements().length == 0) {
 			selectFirstCheckbox();
 		}
 	}
@@ -598,7 +625,8 @@ public class PickOriginalLocationsPage extends WizardPage implements Listener {
 		List<URI> selected = getCheckedLocations();
 		boolean removeable = this.removeableButton.getSelection();
 		URI prestageBase = null;
-		Job linkJob = new OriginalsLinkJob(this.location, selected, getProject(), removeable);
+		Job linkJob = new OriginalsLinkJob(this.location, selected,
+				getProject(), removeable);
 		// linkJob.addJobChangeListener(this);
 		linkJob.schedule();
 		// SNAPSHOT MAY NOT BE NEEDED ANY MORE and takes time

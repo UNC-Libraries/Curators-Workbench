@@ -387,11 +387,8 @@ public class IrodsFileStore extends FileStore {
 					.getIRODSFileFactory(getAccount());
 			IRODSFile file = ff.instanceIRODSFile(getDecodedPath());
 			monitor.worked(1);
-
-			System.out.println("GOT ZONE: " + getAccount().getZone());
 			result = ff.instanceIRODSFileInputStream(file);
 			result = new BufferedInputStream(result, BUFFER_SIZE);
-			// irodsSession.closeSession();
 			monitor.worked(1);
 			monitor.done();
 			return result;

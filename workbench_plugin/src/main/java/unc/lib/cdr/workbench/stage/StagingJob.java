@@ -15,9 +15,14 @@
  */
 package unc.lib.cdr.workbench.stage;
 
+import java.io.File;
+import java.io.UnsupportedEncodingException;
+import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -154,7 +159,7 @@ public class StagingJob extends Job {
 						try {
 							URI stagedLoc = new URI(loc.getHref());
 							log.debug("found migration: "+original.toURI()+" "+stagedLoc);
-							if (!stage.isWithin(stagedLoc)) {
+							if (!stage.isWithinManifestNamespace(stagedLoc)) {
 								toStage.add(original);
 								toMigrate.put(original, loc);
 							}
@@ -190,13 +195,13 @@ public class StagingJob extends Job {
 				continue; // no longer captured
 			}
 
-			log.debug("got here 1");
 			// find the source file for staging
 			IFileStore stagingSource = null;
 			if (toMigrate.containsKey(original)) {
 				try {
 					FLocatType loc = toMigrate.get(original);
 					URI stagedManifestURI = new URI(loc.getHref());
+					// get storage URI from manifest URI
 					SharedStagingArea s = StagingPlugin.getDefault().getStages().findMatchingArea(stagedManifestURI);
 					if(!s.isConnected()) StagingPlugin.getDefault().getStages().connect(s.getURI());
 					URI stagedStorageURI = StagingPlugin.getDefault().getStages()
@@ -204,7 +209,7 @@ public class StagingJob extends Job {
 					// resolve relative URIs against project location
 					stagedStorageURI = mpn.resolveProjectRelativeURI(stagedStorageURI);
 					stagingSource = EFS.getStore(stagedStorageURI);
-				} catch (URISyntaxException|CoreException|StagingException e) {
+ 				} catch (URISyntaxException|CoreException|StagingException e) {
 					log.error("Cannot locate previous stage URI", e);
 				}
 			} else if (original.isAttached()) {
@@ -265,7 +270,7 @@ public class StagingJob extends Job {
 			if (addremove.canExecute()) {
 				mpn.getCommandStack().execute(addremove);
 				mpn.getEMFSession().save();
-				if (deleteOldFile != null) {
+				if (deleteOldFile != null && !result.prestaged) {
 					try {
 						URI delManifest = new URI(deleteOldFile);
 						URI delStorage = StagingPlugin.getDefault().getStages()

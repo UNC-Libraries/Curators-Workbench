@@ -31,7 +31,7 @@ public class LinkOriginalsHandler extends AbstractHandler {
 	 */
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
-		IStructuredSelection select = (IStructuredSelection) HandlerUtil.getCurrentSelectionChecked(event);
+		IStructuredSelection select = (IStructuredSelection) HandlerUtil.getCurrentSelection(event);
 		LinkOriginalsWizard wiz = new LinkOriginalsWizard();
 		wiz.init(HandlerUtil.getActiveWorkbenchWindow(event).getWorkbench(), select);
 		WizardDialog dialog = new WizardDialog(HandlerUtil.getActiveShell(event), wiz);
