@@ -317,34 +317,5 @@ public class OriginalFileStore implements IFileStore {
 		}
 		return sps;
 	}
-	
-	public IFileStore getStageLocation() {
-		MetsProjectNature mpn = MetsProjectNature.get(getProject());
-		URI stageBase = mpn.getStagingBase();
-		LOG.debug("stagebase.getPath(): " + stageBase.getPath());
-		IPath stageBasePath = new Path(stageBase.getPath());
-		LOG.debug("original.toURI().getPath()" + this.toURI().getPath());
-		Path mypath = new Path(this.toURI().getPath());
-		Path stubPath = new Path(this.getOriginalStub().getVolumeRoot().getPath());
-		LOG.debug("stubPath: " + stubPath);
-		IPath relStubPath = mypath.makeRelativeTo(stubPath);
-		LOG.debug("relStubPath: " + relStubPath);
-		String stubSegment = new StringBuilder().append("_").append(this.getOriginalStub().getVolumeHash()).toString();
-		IPath stagePath = stageBasePath.append(stubSegment).append(relStubPath);
-		LOG.debug("stagePath: " + stagePath);
-		String sps = stagePath.toString();
-		if (!sps.startsWith("/")) {
-			sps = "/" + sps;
-		}
-		LOG.debug("sps: " + sps);
-		try {
-			URI stageLoc = new URI(stageBase.getScheme(), stageBase.getUserInfo(), stageBase.getHost(),
-					stageBase.getPort(), sps, stageBase.getQuery(), stageBase.getFragment());
-			LOG.debug("stageLoc: " + stageLoc);
-			return EFS.getStore(stageLoc);
-		} catch (Exception e) {
-			throw new Error(e);
-		}
-	}
 
 }

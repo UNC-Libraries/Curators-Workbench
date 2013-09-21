@@ -50,7 +50,6 @@ import unc.lib.cdr.workbench.views.MetsProjectNavigator;
 
 public class AddFolderDivHandler extends AbstractHandler {
 
-	@SuppressWarnings("unused")
 	private static final Logger LOG = LoggerFactory.getLogger(AddFolderDivHandler.class);
 
 	/*

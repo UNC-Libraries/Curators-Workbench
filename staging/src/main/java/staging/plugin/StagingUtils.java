@@ -68,10 +68,6 @@ public class StagingUtils {
 		 */
 		public URI stagedFileURI = null;
 		/**
-		 * Did we handle this file as pre-staged?
-		 */
-		public boolean prestaged = false;
-		/**
 		 * Newly calculated checksum. (Must match current original and staged
 		 * file.)
 		 */
@@ -84,7 +80,6 @@ public class StagingUtils {
 			// sb.append("\n\tmanifest scheme: ").append(this.manifestURIScheme);
 			sb.append("\n\tstaged file URL: ").append(
 					this.stagedFileURI.toString());
-			sb.append("\n\tprestaged: ").append(this.prestaged);
 			sb.append("\n\tmd5sum: ").append(this.md5Sum);
 			return sb.toString();
 		}
@@ -130,42 +125,15 @@ public class StagingUtils {
 		setupMon.beginTask("Preparing to stage", 1);
 		setupMon.subTask("Preparing to stage");
 
-		// is pre-staged?
-		StagingArea prestage = null;
-		URI originalURI = original.toURI();
-		if (stage.isWithinStorage(originalURI)) {
-			// already prestaged in selected stage (can be project BagIt data
-			// dir, non-shared)
-			prestage = stage;
-			result.prestaged = true;
-		} else {
-			SharedStagingArea area = StagingPlugin.getDefault().getStages()
-					.findMatchingArea(original.toURI());
-			if (area != null
-					&& (destinationConfig == null || destinationConfig
-							.equals(area.getConfigURL()))) {
-				prestage = area;
-				result.prestaged = true;
-			}
-		}
-
 		try {
-			// compute staged file URL
-			if (result.prestaged) {
-				result.stagedFileURI = original.toURI();
-				result.manifestURI = prestage
-						.getManifestURI(result.stagedFileURI);
-				result.manifestURIScheme = prestage.getScheme();
+			if (stage.getConnectedStorageURI().isAbsolute()) {
+				result.stagedFileURI = stage.makeStorageURI(project.getName(),
+						originalPath);
 			} else {
-				if (stage.getConnectedStorageURI().isAbsolute()) {
-					result.stagedFileURI = stage.makeStorageURI(
-							project.getName(), originalPath);
-				} else {
-					result.stagedFileURI = stage.makeStorageURI(originalPath);
-				}
-				result.manifestURI = stage.getManifestURI(result.stagedFileURI);
-				result.manifestURIScheme = stage.getScheme();
+				result.stagedFileURI = stage.makeStorageURI(originalPath);
 			}
+			result.manifestURI = stage.getManifestURI(result.stagedFileURI);
+			result.manifestURIScheme = stage.getScheme();
 		} catch (StagingException e) {
 			throw new CoreException(new Status(IStatus.ERROR,
 					StagingPlugin.PLUGIN_ID, "Staging area not ready: "
@@ -182,59 +150,45 @@ public class StagingUtils {
 		IFileStore stageFileStore = EFS.getStore(filestoreURI);
 
 		IFileInfo sourceFileInfo = original.fetchInfo();
-		if (result.prestaged) {
-			// checksum the file
-			IProgressMonitor checksumMonitor = new SubProgressMonitor(monitor,
-					50, SubProgressMonitor.PREPEND_MAIN_LABEL_TO_SUBTASK);
-			checksumMonitor.beginTask("", 100);
-			checksumMonitor.subTask("Computing checksum of pre-staged file");
-			result.md5Sum = checksumWithMD5Digest(stageFileStore,
-					sourceFileInfo, checksumMonitor);
-			checksumMonitor.done();
-		} else {
-			// real staging starts here
-			// TODO do we need overwrite
-			// TODO prepare for overwrite
-			IFileInfo stageFileInfo = stageFileStore.fetchInfo();
-			if (stageFileInfo.exists()) {
-				stageFileStore.delete(EFS.NONE, null);
-			}
-
-			// stage the file
-			IProgressMonitor copyMonitor = new SubProgressMonitor(monitor, 50,
-					SubProgressMonitor.PREPEND_MAIN_LABEL_TO_SUBTASK);
-			String sourceMD5 = null;
-			copyMonitor.beginTask("", 100);
-			copyMonitor.subTask("Copying to stage");
-			sourceMD5 = copyWithMD5Digest(original, stageFileStore,
-					sourceFileInfo, copyMonitor);
-			copyMonitor.done();
-
-			// get the digest of the staged file
-			IProgressMonitor stagedChecksumMonitor = new SubProgressMonitor(
-					monitor, 49,
-					SubProgressMonitor.PREPEND_MAIN_LABEL_TO_SUBTASK);
-			// stagedChecksumMonitor.subTask("Getting digest for staged file.. ");
-			String stagedMD5 = fetchMD5Digest(stageFileStore,
-					stagedChecksumMonitor); // 1
-			if (md5sum != null && !md5sum.equals(sourceMD5)) {
-				log.error("old checksum does not match new one:" + md5sum
-						+ " | " + sourceMD5);
-				stageFileStore.delete(EFS.NONE, stagedChecksumMonitor);
-				throw new CoreException(
-						new Status(IStatus.ERROR, StagingPlugin.PLUGIN_ID,
-								"Original file has been changed, latest checksum does not match original."));
-			}
-			if (!sourceMD5.equals(stagedMD5)) {
-				log.error("checksums do not match:" + sourceMD5 + " | "
-						+ stagedMD5);
-				stageFileStore.delete(EFS.NONE, stagedChecksumMonitor);
-				throw new CoreException(new Status(IStatus.ERROR,
-						StagingPlugin.PLUGIN_ID,
-						"Checksum mismatch during staging."));
-			}
-			result.md5Sum = sourceMD5;
+		// real staging starts here
+		// TODO do we need overwrite
+		// TODO prepare for overwrite
+		IFileInfo stageFileInfo = stageFileStore.fetchInfo();
+		if (stageFileInfo.exists()) {
+			stageFileStore.delete(EFS.NONE, null);
 		}
+
+		// stage the file
+		IProgressMonitor copyMonitor = new SubProgressMonitor(monitor, 50,
+				SubProgressMonitor.PREPEND_MAIN_LABEL_TO_SUBTASK);
+		String sourceMD5 = null;
+		copyMonitor.beginTask("", 100);
+		copyMonitor.subTask("Copying to stage");
+		sourceMD5 = copyWithMD5Digest(original, stageFileStore, sourceFileInfo,
+				copyMonitor);
+		copyMonitor.done();
+
+		// get the digest of the staged file
+		IProgressMonitor stagedChecksumMonitor = new SubProgressMonitor(
+				monitor, 49, SubProgressMonitor.PREPEND_MAIN_LABEL_TO_SUBTASK);
+		// stagedChecksumMonitor.subTask("Getting digest for staged file.. ");
+		String stagedMD5 = fetchMD5Digest(stageFileStore, stagedChecksumMonitor);
+		if (md5sum != null && !md5sum.equals(sourceMD5)) {
+			log.error("old checksum does not match new one:" + md5sum + " | "
+					+ sourceMD5);
+			stageFileStore.delete(EFS.NONE, stagedChecksumMonitor);
+			throw new CoreException(
+					new Status(IStatus.ERROR, StagingPlugin.PLUGIN_ID,
+							"Original file has been changed, latest checksum does not match original."));
+		}
+		if (!sourceMD5.equals(stagedMD5)) {
+			log.error("checksums do not match:" + sourceMD5 + " | " + stagedMD5);
+			stageFileStore.delete(EFS.NONE, stagedChecksumMonitor);
+			throw new CoreException(new Status(IStatus.ERROR,
+					StagingPlugin.PLUGIN_ID,
+					"Checksum mismatch during staging."));
+		}
+		result.md5Sum = sourceMD5;
 		monitor.done();
 		log.info(result.toString());
 		return result;
@@ -264,9 +218,9 @@ public class StagingUtils {
 	 * @throws CoreException
 	 *             when the staging cannot complete
 	 */
-	public static StagingResult stageInPlace(IFileStore original, IProject project,
-			String originalPath, String md5sum, StagingArea stage,
-			URL destinationConfig, IProgressMonitor monitor)
+	public static StagingResult stageInPlace(IFileStore original,
+			IProject project, String originalPath, String md5sum,
+			StagingArea stage, URL destinationConfig, IProgressMonitor monitor)
 			throws CoreException {
 		if (monitor == null) {
 			monitor = new NullProgressMonitor();
@@ -280,14 +234,12 @@ public class StagingUtils {
 		setupMon.beginTask("Preparing to stage in place", 1);
 		setupMon.subTask("Preparing to stage in place");
 
-		// is pre-staged?
 		StagingArea prestage = null;
 		URI originalURI = original.toURI();
 		if (stage.isWithinStorage(originalURI)) {
 			// already prestaged in selected stage (can be project BagIt data
 			// dir, non-shared)
 			prestage = stage;
-			result.prestaged = true;
 		} else {
 			SharedStagingArea area = StagingPlugin.getDefault().getStages()
 					.findMatchingArea(original.toURI());
@@ -295,27 +247,14 @@ public class StagingUtils {
 					&& (destinationConfig == null || destinationConfig
 							.equals(area.getConfigURL()))) {
 				prestage = area;
-				result.prestaged = true;
 			}
 		}
 
 		try {
 			// compute staged file URL
-			if (result.prestaged) {
-				result.stagedFileURI = original.toURI();
-				result.manifestURI = prestage
-						.getManifestURI(result.stagedFileURI);
-				result.manifestURIScheme = prestage.getScheme();
-			} else {
-				if (stage.getConnectedStorageURI().isAbsolute()) {
-					result.stagedFileURI = stage.makeStorageURI(
-							project.getName(), originalPath);
-				} else {
-					result.stagedFileURI = stage.makeStorageURI(originalPath);
-				}
-				result.manifestURI = stage.getManifestURI(result.stagedFileURI);
-				result.manifestURIScheme = stage.getScheme();
-			}
+			result.stagedFileURI = original.toURI();
+			result.manifestURI = prestage.getManifestURI(result.stagedFileURI);
+			result.manifestURIScheme = prestage.getScheme();
 		} catch (StagingException e) {
 			throw new CoreException(new Status(IStatus.ERROR,
 					StagingPlugin.PLUGIN_ID, "Staging area not ready: "
@@ -332,64 +271,19 @@ public class StagingUtils {
 		IFileStore stageFileStore = EFS.getStore(filestoreURI);
 
 		IFileInfo sourceFileInfo = original.fetchInfo();
-		if (result.prestaged) {
-			// checksum the file
-			IProgressMonitor checksumMonitor = new SubProgressMonitor(monitor,
-					50, SubProgressMonitor.PREPEND_MAIN_LABEL_TO_SUBTASK);
-			checksumMonitor.beginTask("", 100);
-			checksumMonitor.subTask("Computing checksum of pre-staged file");
-			result.md5Sum = checksumWithMD5Digest(stageFileStore,
-					sourceFileInfo, checksumMonitor);
-			checksumMonitor.done();
-		} else {
-			// real staging starts here
-			// TODO do we need overwrite
-			// TODO prepare for overwrite
-			IFileInfo stageFileInfo = stageFileStore.fetchInfo();
-			if (stageFileInfo.exists()) {
-				stageFileStore.delete(EFS.NONE, null);
-			}
-
-			// stage the file
-			IProgressMonitor copyMonitor = new SubProgressMonitor(monitor, 50,
-					SubProgressMonitor.PREPEND_MAIN_LABEL_TO_SUBTASK);
-			String sourceMD5 = null;
-			copyMonitor.beginTask("", 100);
-			copyMonitor.subTask("Copying to stage");
-			sourceMD5 = copyWithMD5Digest(original, stageFileStore,
-					sourceFileInfo, copyMonitor);
-			copyMonitor.done();
-
-			// get the digest of the staged file
-			IProgressMonitor stagedChecksumMonitor = new SubProgressMonitor(
-					monitor, 49,
-					SubProgressMonitor.PREPEND_MAIN_LABEL_TO_SUBTASK);
-			// stagedChecksumMonitor.subTask("Getting digest for staged file.. ");
-			String stagedMD5 = fetchMD5Digest(stageFileStore,
-					stagedChecksumMonitor); // 1
-			if (md5sum != null && !md5sum.equals(sourceMD5)) {
-				log.error("old checksum does not match new one:" + md5sum
-						+ " | " + sourceMD5);
-				stageFileStore.delete(EFS.NONE, stagedChecksumMonitor);
-				throw new CoreException(
-						new Status(IStatus.ERROR, StagingPlugin.PLUGIN_ID,
-								"Original file has been changed, latest checksum does not match original."));
-			}
-			if (!sourceMD5.equals(stagedMD5)) {
-				log.error("checksums do not match:" + sourceMD5 + " | "
-						+ stagedMD5);
-				stageFileStore.delete(EFS.NONE, stagedChecksumMonitor);
-				throw new CoreException(new Status(IStatus.ERROR,
-						StagingPlugin.PLUGIN_ID,
-						"Checksum mismatch during staging."));
-			}
-			result.md5Sum = sourceMD5;
-		}
+		// checksum the file
+		IProgressMonitor checksumMonitor = new SubProgressMonitor(monitor, 50,
+				SubProgressMonitor.PREPEND_MAIN_LABEL_TO_SUBTASK);
+		checksumMonitor.beginTask("", 100);
+		checksumMonitor.subTask("Computing checksum of pre-staged file");
+		result.md5Sum = checksumWithMD5Digest(stageFileStore, sourceFileInfo,
+				checksumMonitor);
+		checksumMonitor.done();
 		monitor.done();
 		log.info(result.toString());
 		return result;
 	}
-	
+
 	/**
 	 * @param stageFileStore
 	 * @return

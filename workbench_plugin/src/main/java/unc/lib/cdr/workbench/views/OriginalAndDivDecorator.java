@@ -182,8 +182,9 @@ public class OriginalAndDivDecorator implements ILightweightLabelDecorator {
 					labels.add("captured");
 				}
 			}
+			// staged location == original location
 			SharedStagingArea prestage = StagingPlugin.getDefault().getStages().findMatchingArea(r.getWrapped().toURI());
-			if (prestage != null) {
+			if (prestage != null && r.getStagingLocatorType() == null) {
 				labels.add("pre-staged: " + prestage.getName());
 			}
 			if (r.getStagingLocatorType() != null) {
