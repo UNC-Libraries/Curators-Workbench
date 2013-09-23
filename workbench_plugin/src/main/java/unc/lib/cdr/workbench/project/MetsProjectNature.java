@@ -15,6 +15,7 @@
  */
 package unc.lib.cdr.workbench.project;
 
+import edu.unc.lib.staging.SharedStagingArea;
 import gov.loc.mets.DivType;
 import gov.loc.mets.DocumentRoot;
 import gov.loc.mets.FLocatType;
@@ -63,6 +64,7 @@ import org.osgi.service.prefs.BackingStoreException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import staging.plugin.StagingPlugin;
 import unc.lib.cdr.workbench.arrange.ArrangementProjectElement;
 import unc.lib.cdr.workbench.originals.OriginalFileStore;
 import unc.lib.cdr.workbench.originals.OriginalStub;
@@ -311,7 +313,7 @@ public class MetsProjectNature implements IProjectNature {
 	 * @param div
 	 * @return the IResource of the original
 	 */
-	public static OriginalFileStore getOriginal(DivType div) {
+	public static OriginalFileStore getOriginalFileStore(DivType div) {
 		if (div.getCONTENTIDS() != null && div.getCONTENTIDS().size() > 0) {
 			URI uri = null;
 			for (String contentid : div.getCONTENTIDS()) {
@@ -326,6 +328,41 @@ public class MetsProjectNature implements IProjectNature {
 			return getNatureForMetsObject(div).getOriginal(uri);
 		}
 		return null;
+	}
+	
+	/**
+	 * Finds the original file or folder object for a given div or null.
+	 * 
+	 * @param div
+	 * @return the IResource of the original
+	 */
+	public static IFileStore getStagedFileStore(DivType div) {
+		MetsProjectNature mpn = MetsProjectNature.getNatureForMetsObject(div);
+		IFileStore result = null;
+		if(div.getFptr() != null && !div.getFptr().isEmpty()) {
+			String fileid = div.getFptr().get(0).getFILEID();
+			FileType ft = (FileType) mpn.getMetsResource().getEObject(fileid);
+			if (ft != null && ft.getFLocat() != null) {
+				for (FLocatType loc : ft.getFLocat()) {
+					if (METSConstants.FLocat_USE_STAGE.equals(loc.getUSE())) {						
+						URI stagedLoc = URI.create(loc.getHref());
+						SharedStagingArea s = StagingPlugin.getDefault()
+								.getStages().findMatchingArea(stagedLoc);
+						if (!s.isConnected())
+							StagingPlugin.getDefault().getStages()
+									.connect(s.getURI());
+						try {
+							URI stagedStorageURI = StagingPlugin.getDefault()
+									.getStages().getStorageURI(stagedLoc);
+							stagedStorageURI = mpn
+									.resolveProjectRelativeURI(stagedStorageURI);
+							result = EFS.getStore(stagedStorageURI);
+						} catch(Throwable ignored) {}
+					}
+				}
+			}
+		}
+		return result;
 	}
 
 	public static OriginalFileStore getOriginal(FileType file) {
@@ -491,7 +528,7 @@ public class MetsProjectNature implements IProjectNature {
 				numOfFiles++;
 				FptrType fptr = (FptrType) next;
 				OriginalFileStore original = MetsProjectNature
-						.getOriginal((DivType) fptr.eContainer());
+						.getOriginalFileStore((DivType) fptr.eContainer());
 				if (original != null) {
 					FLocatType loc = original.getStagingLocatorType();
 					if (loc != null) {
@@ -519,7 +556,7 @@ public class MetsProjectNature implements IProjectNature {
 			if (next != null && next instanceof FptrType) {
 				numOfFiles++;
 				FptrType fptr = (FptrType) next;
-				OriginalFileStore original = getOriginal((DivType) fptr
+				OriginalFileStore original = getOriginalFileStore((DivType) fptr
 						.eContainer());
 				if (original != null) {
 					FLocatType loc = original.getStagingLocatorType();

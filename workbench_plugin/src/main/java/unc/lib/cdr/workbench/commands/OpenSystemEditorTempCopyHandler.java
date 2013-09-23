@@ -37,7 +37,6 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.handlers.HandlerUtil;
 import org.eclipse.ui.ide.IDE;
 
-import unc.lib.cdr.workbench.originals.OriginalFileStore;
 import unc.lib.cdr.workbench.project.MetsProjectNature;
 
 public class OpenSystemEditorTempCopyHandler extends AbstractHandler implements IHandler {
@@ -53,7 +52,8 @@ public class OpenSystemEditorTempCopyHandler extends AbstractHandler implements 
 					openTempCopy(file, event);
 				} else if(element instanceof DivType) {
 					DivType d = (DivType)element;
-					OriginalFileStore r = MetsProjectNature.getOriginal(d);
+					IFileStore r = MetsProjectNature.getOriginalFileStore(d);
+					if(r == null || !r.fetchInfo().exists()) r = MetsProjectNature.getStagedFileStore(d);
 					openTempCopy(r, event);
 				}
 			}

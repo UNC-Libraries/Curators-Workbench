@@ -208,7 +208,7 @@ public class ArrangementContentProvider extends AdapterFactoryContentProvider /*
 					updates.add(d);
 				} else if (METSConstants.Div_File.equals(d.getTYPE())) {
 					updates.add(d);
-					updates.add(MetsProjectNature.getOriginal(d));
+					updates.add(MetsProjectNature.getOriginalFileStore(d));
 				} else {
 					updates.add(d);
 				}

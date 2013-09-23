@@ -46,15 +46,16 @@ public class DivAdapterFactory implements IAdapterFactory {
 		if (OriginalFileStore.class.equals(adapterType)) {
 			if (adaptableObject instanceof DivType) {
 				DivType d = (DivType) adaptableObject;
-				return MetsProjectNature.getOriginal(d);
+				return MetsProjectNature.getOriginalFileStore(d);
 			}
 		}
 		if (ImageProvider.class.equals(adapterType)) {
 			if (adaptableObject instanceof DivType) {
 				DivType d = (DivType) adaptableObject;
-				OriginalFileStore store = MetsProjectNature.getOriginal(d);
-				IFileInfo origInfo = store.fetchInfo();
-				if (!origInfo.isDirectory() && origInfo.exists()) {
+				IFileStore store = MetsProjectNature.getOriginalFileStore(d);
+				if(store == null || !store.fetchInfo().exists()) store = MetsProjectNature.getStagedFileStore(d);
+				IFileInfo info = store.fetchInfo();
+				if (!info.isDirectory() && info.exists()) {
 					return new FileStoreImageProvider(store);
 				} else {
 					if (d.getFptr().size() > 0) {

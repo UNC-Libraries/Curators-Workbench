@@ -17,6 +17,7 @@ package unc.lib.cdr.workbench.views;
 
 import gov.loc.mets.DivType;
 
+import org.eclipse.core.filesystem.IFileStore;
 import org.eclipse.jface.viewers.IFilter;
 
 import unc.lib.cdr.workbench.originals.OriginalFileStore;
@@ -26,14 +27,15 @@ public class HasStagedFileFilter implements IFilter {
 
 	@Override
 	public boolean select(Object toTest) {
-		OriginalFileStore original = null;
 		if(toTest instanceof OriginalFileStore) {
-			original = (OriginalFileStore)toTest;
+			OriginalFileStore original = (OriginalFileStore)toTest;
+			return original.getStagingLocatorType() != null;
 		} else if (toTest instanceof DivType) {
 			DivType d = (DivType) toTest;
-			original = MetsProjectNature.getOriginal(d);
+			IFileStore stage = MetsProjectNature.getStagedFileStore(d);
+			return stage != null;
 		}
-		return original == null ? false : original.getStagingLocatorType() != null;
+		return false;
 	}
 
 }

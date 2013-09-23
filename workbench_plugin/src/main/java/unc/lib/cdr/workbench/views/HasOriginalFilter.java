@@ -31,7 +31,7 @@ public class HasOriginalFilter implements IFilter {
 			return true;
 		} else if (toTest instanceof DivType) {
 			DivType d = (DivType) toTest;
-			OriginalFileStore s = MetsProjectNature.getOriginal(d);
+			OriginalFileStore s = MetsProjectNature.getOriginalFileStore(d);
 			return s != null;
 		} else if(toTest instanceof OriginalStub) {
 			return true;

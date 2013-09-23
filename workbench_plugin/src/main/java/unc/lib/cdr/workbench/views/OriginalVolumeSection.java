@@ -79,7 +79,7 @@ public class OriginalVolumeSection extends AbstractPropertySection {
 			this.stub = (OriginalStub) fs;
 		} else if (fs instanceof DivType) {
 			DivType div = (DivType) fs;
-			this.stub = MetsProjectNature.getOriginal(div).getOriginalStub();
+			this.stub = MetsProjectNature.getOriginalFileStore(div).getOriginalStub();
 		}
 		Assert.isTrue(this.stub != null);
 	}

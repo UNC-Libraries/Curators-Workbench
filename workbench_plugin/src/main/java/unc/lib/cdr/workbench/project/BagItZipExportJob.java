@@ -131,7 +131,7 @@ public class BagItZipExportJob extends Job {
 									+ getLocation((DivType) fptr.eContainer(),
 											bag)));
 							OriginalFileStore orig = MetsProjectNature
-									.getOriginal((DivType) fptr.eContainer());
+									.getOriginalFileStore((DivType) fptr.eContainer());
 							IFileStore source = orig;
 							if (orig.getStagingLocatorType() != null) {
 								URI manifestURI = URI.create(orig

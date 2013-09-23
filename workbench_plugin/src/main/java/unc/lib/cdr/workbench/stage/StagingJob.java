@@ -146,7 +146,7 @@ public class StagingJob extends Job {
 			}
 			FptrType fptr = (FptrType) next;
 			OriginalFileStore original = MetsProjectNature
-					.getOriginal((DivType) fptr.eContainer());
+					.getOriginalFileStore((DivType) fptr.eContainer());
 			log.error("original file store: " + original);
 			if (original == null) {
 				log.error("Cannot get original file store for fptr: " + fptr);
