@@ -139,10 +139,9 @@
 		<profile>
 			<id>bundleJREs</id>
 			<activation>
-				<property>
-					<name>bundleJREs</name>
-					<value>true</value>
-				</property>
+				<file>
+					<exists>${bundleJREs.dir}</exists>
+				</file>
 			</activation>
 			<build>
 				<plugins>				

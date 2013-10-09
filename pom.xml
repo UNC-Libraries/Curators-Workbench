@@ -14,7 +14,7 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<spring.version>3.0.6.RELEASE</spring.version>
-		<jre.version>1.7.0_25</jre.version>
+		<jre.version>1.7.0_40</jre.version>
 	</properties>
 	<developers>
 		<developer>

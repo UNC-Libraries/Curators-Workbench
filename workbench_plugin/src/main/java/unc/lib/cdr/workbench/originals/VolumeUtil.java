@@ -26,8 +26,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.attribute.BasicFileAttributeView;
 import java.nio.file.attribute.BasicFileAttributes;
-import java.util.HashSet;
-import java.util.Set;
 
 import javax.swing.filechooser.FileSystemView;
 
@@ -38,29 +36,15 @@ import org.slf4j.LoggerFactory;
 import unc.lib.cdr.workbench.rcp.Activator;
 
 public class VolumeUtil {
-
-	@SuppressWarnings("unused")
 	private static final Logger LOG = LoggerFactory.getLogger(VolumeUtil.class);
 
 	public static final QualifiedName VOLUME_FINGERPRINT = new QualifiedName(
 			Activator.PLUGIN_ID, "volume-fingerprint");
-	public static Set<String> removableFileStoreTypes = new HashSet<String>();
-
-	static {
-		// removableFileStoreTypes.add("");
-	}
-
-	public static boolean isVolumeRemovable(URI uri) throws IOException {
-		FileStore fs = getFileStore(uri);
-		String type = fs.type();
-		return removableFileStoreTypes.contains(type);
-	}
 
 	/**
 	 * Computes a fingerprint for the volume (FileStore) containing this
 	 * resource based on the names and dates in the root directory. The
-	 * fingerprint will include: volume root creation time (if available) volume
-	 * root name volume root file key (if available) volume root's oldest
+	 * fingerprint will include: volume name and volume root's oldest
 	 * constituent file's timestamp
 	 * 
 	 * @param resource
@@ -78,28 +62,31 @@ public class VolumeUtil {
 		LOG.debug("getSystemTypeDescription : " + s2);
 
 		if ("/".equals(volumeRoot.toFile().getPath())) {
-			return -1; // fake hash key for root linux filesystem
+			return 0; // fake hash key for root linux filesystem
 		}
 		LOG.debug("Found volume root: " + volumeRoot);
 		long oldestFileCreation = -1;
 		File[] files = volumeRoot.toFile().listFiles();
 		if (files != null) {
 			for (File f : files) {
+				if(!f.getName().trim().equals(f.getName())) continue;
+				Path p = FileSystems.getDefault().getPath(f.getPath());
 				BasicFileAttributeView v = FileSystems
 						.getDefault()
 						.provider()
-						.getFileAttributeView(f.toPath(),
+						.getFileAttributeView(p,
 								BasicFileAttributeView.class,
 								LinkOption.NOFOLLOW_LINKS);
 				BasicFileAttributes basic = v.readAttributes();
 				long test = basic.creationTime().toMillis();
-				if (test > oldestFileCreation) {
+				if (test < oldestFileCreation) {
 					oldestFileCreation = test;
 				}
 			}
 		}
 		String name = volumeRoot.toString();
 		LOG.debug("Found volume root name: " + name);
+		LOG.debug("Found volume oldest file: " + oldestFileCreation);
 		return name.hashCode() ^ (int) oldestFileCreation;
 	}
 
