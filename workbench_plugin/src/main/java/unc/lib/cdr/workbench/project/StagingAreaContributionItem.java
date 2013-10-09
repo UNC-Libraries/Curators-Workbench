@@ -55,7 +55,8 @@ public class StagingAreaContributionItem extends ContributionItem {
 		submenuitem.setMenu (subMenu);
 		
 		for(Entry<URI, SharedStagingArea> area : StagingPlugin.getDefault().getStages().getAllAreas().entrySet()) {
-			addStageMenuItem(area.getValue(), subMenu, mpn);
+			if(!area.getValue().isReadOnly())
+				addStageMenuItem(area.getValue(), subMenu, mpn);
 		}
 	}
 	

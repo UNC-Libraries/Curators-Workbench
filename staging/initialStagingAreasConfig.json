@@ -1,7 +1,7 @@
 {
 	"stagingAreas":{
 	    "data/":{
-	        "name":"BagIt Data Folder"
+	        "name":"BagIt Data Folder (local only)"
 	    }
 	},
     "customMappings" :{},

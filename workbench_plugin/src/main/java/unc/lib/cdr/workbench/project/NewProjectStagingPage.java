@@ -92,17 +92,18 @@ public class NewProjectStagingPage extends WizardPage {
 
 		Stages stages = StagingPlugin.getDefault().getStages();
 		for (SharedStagingArea area : stages.getAllAreas().values()) {
-			URL repo = area.getConfigURL();
-			TableItem add = new TableItem(stageTable, SWT.NULL);
-			add.setText(0, area.getName());
-			add.setText(1, repo.getHost());
-			add.setText(2, area.isConnected() ? "yes" : "no");
-			add.setData(area);
+			if (!area.isReadOnly()) {
+				URL repo = area.getConfigURL();
+				TableItem add = new TableItem(stageTable, SWT.NULL);
+				add.setText(0, area.getName());
+				add.setText(1, repo.getHost());
+				add.setText(2, area.isConnected() ? "yes" : "no");
+				add.setData(area);
+			}
 		}
 		cUri.pack();
 		cName.pack();
 		cConn.pack();
-		
 
 		stageTable.addSelectionListener(new SelectionListener() {
 			@Override
@@ -150,22 +151,26 @@ public class NewProjectStagingPage extends WizardPage {
 			this.stagingArea = (SharedStagingArea) stageTable.getSelection()[0]
 					.getData();
 			if (!this.stagingArea.isConnected()) {
-				StagingPlugin.getDefault().getStages().connect(this.stagingArea.getURI());
+				StagingPlugin.getDefault().getStages()
+						.connect(this.stagingArea.getURI());
 			}
 			URI projectManifestBase = null;
-			if(!this.stagingArea.getURI().isAbsolute()) {
+			if (!this.stagingArea.getURI().isAbsolute()) {
 				projectManifestBase = this.stagingArea.makeURI("");
 			} else {
-				projectManifestBase = this.stagingArea.makeURI(mainPage.getProjectName());
+				projectManifestBase = this.stagingArea.makeURI(mainPage
+						.getProjectName());
 			}
 			manifestReferencesText.setText(projectManifestBase.toString());
 			if (this.stagingArea.isConnected()) {
 				try {
-					URI projectStagedBase = this.stagingArea.getStorageURI(projectManifestBase);
+					URI projectStagedBase = this.stagingArea
+							.getStorageURI(projectManifestBase);
 					stageText.setText(projectStagedBase.toString());
 					this.setPageComplete(this.stagingArea != null);
 				} catch (StagingException e) {
-					stageText.setText("Cannot connect to this staging area: "+e.getMessage());
+					stageText.setText("Cannot connect to this staging area: "
+							+ e.getMessage());
 				}
 			} else {
 				stageText.setText("Cannot connect to this staging area");

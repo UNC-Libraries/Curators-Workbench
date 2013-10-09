@@ -65,6 +65,7 @@ public class StagingAreasView extends ViewPart {
 	private static final int NAME_COL = 0;
 	private static final int STATUS_COL = 1;
 	private static final int BASE_URI_COL = 2;
+	private static final int WRITABLE_COL = 3;
 
 	private Action actionReloadConfiguration;
 	private Action actionConnect;
@@ -107,6 +108,8 @@ public class StagingAreasView extends ViewPart {
 				return stage.getURI().toString();
 			case STATUS_COL:
 				return stage.isConnected() ? "connected" : "";
+			case WRITABLE_COL:
+				return stage.isReadOnly() ? "no" : "yes";
 			}
 			return "";
 		}
@@ -164,8 +167,8 @@ public class StagingAreasView extends ViewPart {
 	}
 
 	private void createColumns(Composite parent, ViewLabelProvider labelProvider) {
-		String[] titles = { "Stage Name", "Base URI", "Status" };
-		int[] bounds = { 250, 300, 200 };
+		String[] titles = { "Stage Name", "Base URI", "Status", "Writable" };
+		int[] bounds = { 250, 300, 200, 200 };
 
 		TableViewerColumn col0 = createTableViewerColumn(titles[0], bounds[0], 0);
 		col0.setLabelProvider(new ColumnLabelProvider() {
@@ -196,6 +199,13 @@ public class StagingAreasView extends ViewPart {
 			@Override
 			public String getText(Object element) {
 				return ((StagingArea)element).getStatus();
+			}
+		});
+		TableViewerColumn col3 = createTableViewerColumn(titles[3], bounds[3], 3);
+		col3.setLabelProvider(new ColumnLabelProvider() {
+			@Override
+			public String getText(Object element) {
+				return ((StagingArea)element).isReadOnly() ? "no" : "yes";
 			}
 		});
 	}
