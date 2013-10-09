@@ -65,11 +65,14 @@ public class VolumeUtil {
 			return 0; // fake hash key for root linux filesystem
 		}
 		LOG.debug("Found volume root: " + volumeRoot);
+		int hashvalue = 17;
 		long oldestFileCreation = -1;
 		File[] files = volumeRoot.toFile().listFiles();
 		if (files != null) {
 			for (File f : files) {
+				// catch windows java bug with paths end in spaces
 				if(!f.getName().trim().equals(f.getName())) continue;
+				hashvalue = 37 * hashvalue + f.getName().hashCode();
 				Path p = FileSystems.getDefault().getPath(f.getPath());
 				BasicFileAttributeView v = FileSystems
 						.getDefault()
@@ -85,9 +88,12 @@ public class VolumeUtil {
 			}
 		}
 		String name = volumeRoot.toString();
+		hashvalue = 37 * hashvalue + name.hashCode();
+		int timestampHash = (int)(oldestFileCreation ^ (oldestFileCreation >>> 32));
+		hashvalue = 37 * hashvalue + timestampHash;
 		LOG.debug("Found volume root name: " + name);
 		LOG.debug("Found volume oldest file: " + oldestFileCreation);
-		return name.hashCode() ^ (int) oldestFileCreation;
+		return hashvalue;
 	}
 
 	public static URI getTopResourceInVolume(URI location) throws IOException {
