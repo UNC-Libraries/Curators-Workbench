@@ -16,6 +16,8 @@
 package unc.lib.cdr.workbench.project;
 
 import edu.unc.lib.staging.SharedStagingArea;
+import edu.unc.lib.staging.Stages;
+import edu.unc.lib.staging.StagingArea;
 import gov.loc.mets.DivType;
 import gov.loc.mets.DocumentRoot;
 import gov.loc.mets.FLocatType;
@@ -43,7 +45,6 @@ import org.eclipse.core.resources.ICommand;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IProjectDescription;
 import org.eclipse.core.resources.IProjectNature;
-import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IncrementalProjectBuilder;
 import org.eclipse.core.resources.ProjectScope;
 import org.eclipse.core.resources.ResourcesPlugin;
@@ -73,9 +74,6 @@ import unc.lib.cdr.workbench.rcp.Activator;
 import unc.lib.cdr.workbench.stage.StagedFilesProjectElement;
 
 public class MetsProjectNature implements IProjectNature {
-
-	private static final Logger LOG = LoggerFactory
-			.getLogger(MetsProjectNature.class);
 	private static final Logger log = LoggerFactory
 			.getLogger(MetsProjectNature.class);
 	public static final String NATURE_ID = "cdr_producer.projectNature";
@@ -193,6 +191,22 @@ public class MetsProjectNature implements IProjectNature {
 		}
 		this.emfSession = new ProjectEMFSession(project);
 		this.loadOriginals();
+	}
+
+	public void resolveOldStagingBaseURI() {
+		URI oldBase = this.getStagingBase();
+		if(oldBase == null) return; // new project
+		log.debug("testing for staging base migration: "+project.getName());
+		log.debug("staging base: "+oldBase);
+		Stages stages = StagingPlugin.getDefault().getStages();
+		if(stages.getStage(oldBase) == null) { // not a current staging area
+			StagingArea matchedStage = stages.findMatchingArea(oldBase);
+			if(matchedStage != null) {
+				log.debug("base is not current, but matched area: "+matchedStage);
+				log.debug("new base: "+matchedStage.getURI());
+				// ask if this area is correct?
+			}
+		}
 	}
 
 	private void loadOriginals() {
@@ -425,7 +439,7 @@ public class MetsProjectNature implements IProjectNature {
 	 * @param stageURI
 	 */
 	public void setStagingBase(String stageURI) {
-		LOG.debug("setting stageURI to: " + stageURI);
+		log.debug("setting stageURI to: " + stageURI);
 		IEclipsePreferences projectNode = new ProjectScope(project)
 				.getNode(Activator.PLUGIN_ID);
 		projectNode.put(STAGING_BASE_URI_KEY, stageURI);
@@ -438,7 +452,7 @@ public class MetsProjectNature implements IProjectNature {
 			String s = projectNode.get(STAGING_BASE_URI_KEY, null);
 			return new java.net.URI(s);
 		} catch (Exception e) {
-			throw new Error("unexpected", e);
+			return null;
 		}
 
 	}

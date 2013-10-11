@@ -58,7 +58,7 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
 		} catch (NullPointerException e) {
 			e.printStackTrace();
 		}
-
+		
 		importAction = ActionFactory.IMPORT.create(window);
 		register(importAction);
 		aboutAction = ActionFactory.ABOUT.create(window);

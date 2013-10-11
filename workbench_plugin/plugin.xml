@@ -192,6 +192,11 @@
             id="workbench_plugin.commandRunCrosswalk"
             name="Run Crosswalk">
       </command>
+      <command
+            defaultHandler="unc.lib.cdr.workbench.commands.RepairProjectStagingAreasHandler"
+            id="workbench_plugin.commandResolveProjectStagingAreas"
+            name="Resolve project staging areas">
+      </command>
    </extension>
    <extension
          point="org.eclipse.ui.handlers">
@@ -913,6 +918,23 @@
                               property="cdr-workbench.isCrosswalkFile">
                         </test>
                      </and>
+                  </iterate>
+               </with>
+            </visibleWhen>
+         </command>
+         <command
+               commandId="workbench_plugin.commandResolveProjectStagingAreas"
+               label="Repair staging.."
+               style="push">
+            <visibleWhen
+                  checkEnabled="false">
+               <with
+                     variable="activeMenuSelection">
+                  <iterate
+                        ifEmpty="false">
+                     <test
+                           property="workbench_plugin.projectPropertyTester.open">
+                     </test>
                   </iterate>
                </with>
             </visibleWhen>

@@ -128,7 +128,7 @@
 							<groupId>curators.workbench</groupId>
 							<artifactId>target-definition</artifactId>
 							<version>${project.version}</version>
-							<classifier>indigo</classifier>
+							<classifier>indigo_3_8</classifier>
 						</artifact>
 					</target>
 					<pomDependencies>consider</pomDependencies>
