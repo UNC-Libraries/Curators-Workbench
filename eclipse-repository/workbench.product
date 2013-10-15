@@ -43,7 +43,7 @@ Meg Tuomala
 
    <launcherArgs>
       <programArgs>-consoleLog -data @user.home/curators-workspace</programArgs>
-      <vmArgs>-Dosgi.requiredJavaVersion=1.7 -XX:MaxPermSize=256m -Xms128m -Xmx1024m -Djargon.debug=0 -Dlog4j.configuration=file:./log4j.properties</vmArgs>
+      <vmArgs>-Dosgi.requiredJavaVersion=1.7 -XX:MaxPermSize=256m -Xms256m -Xmx1024m -Djargon.debug=0</vmArgs>
    </launcherArgs>
 
    <windowImages/>
@@ -90,15 +90,23 @@ limitations under the License.
    </plugins>
 
    <features>
-      <feature id="workbench_feature"/>
+      <feature id="workbench_feature" version="4.1.4.qualifier"/>
    </features>
 
    <configurations>
+      <plugin id="org.eclipse.equinox.cm" autoStart="true" startLevel="1" />
+      
+      <plugin id="org.eclipse.osgi.services" autoStart="true" startLevel="2" />
+      <plugin id="org.ops4j.pax.configmanager" autoStart="true" startLevel="2" />
+      <plugin id="org.ops4j.pax.logging.pax-logging-api" autoStart="true" startLevel="2" />
+      <plugin id="org.ops4j.pax.logging.pax-logging-service" autoStart="true" startLevel="2" />
+      
+      <plugin id="org.eclipse.equinox.simpleconfigurator" autoStart="true" startLevel="3" />
+      
+      <plugin id="org.eclipse.equinox.common" autoStart="true" startLevel="4" />
+      <plugin id="org.eclipse.equinox.ds" autoStart="true" startLevel="4" />
       <plugin id="org.eclipse.core.runtime" autoStart="true" startLevel="4" />
-      <plugin id="org.eclipse.equinox.common" autoStart="true" startLevel="2" />
-      <plugin id="org.eclipse.equinox.ds" autoStart="true" startLevel="2" />
       <plugin id="org.eclipse.equinox.p2.reconciler.dropins" autoStart="true" startLevel="4" />
-      <plugin id="org.eclipse.equinox.simpleconfigurator" autoStart="true" startLevel="1" />
       <plugin id="org.eclipse.update.configurator" autoStart="true" startLevel="4" />
    </configurations>
 

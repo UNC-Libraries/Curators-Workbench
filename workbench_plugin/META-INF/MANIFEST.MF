@@ -5,7 +5,6 @@ Bundle-SymbolicName: workbench_plugin;singleton:=true
 Bundle-Version: 4.1.4.qualifier
 Bundle-Activator: unc.lib.cdr.workbench.rcp.Activator
 Bundle-Vendor: University Libraries, UNC Chapel Hill
-Eclipse-RegisterBuddy: org.apache.log4j
 Require-Bundle: org.eclipse.core.expressions;bundle-version="3.4.300",
  org.eclipse.core.filesystem;bundle-version="1.3.100",
  org.eclipse.ui.navigator;bundle-version="3.5.100",
@@ -19,10 +18,9 @@ Require-Bundle: org.eclipse.core.expressions;bundle-version="3.4.300",
  access-control.edit;bundle-version="0.0.0",
  org.eclipse.ui.intro,
  crosswalk-gmf.custom;bundle-version="0.0.0",
- org.slf4j.log4j12;bundle-version="1.6.6",
- org.apache.log4j;bundle-version="1.2.17",
- org.slf4j.pde;bundle-version="4.1.2",
- staging.plugin;bundle-version="4.1.4";visibility:=reexport
+ staging.plugin;bundle-version="4.1.4";visibility:=reexport,
+ slf4j.api;bundle-version="1.7.5",
+ net.sf.opencsv;bundle-version="2.3.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Export-Package: unc.lib.cdr.workbench,
@@ -36,11 +34,4 @@ Export-Package: unc.lib.cdr.workbench,
  unc.lib.cdr.workbench.stage,
  unc.lib.cdr.workbench.views,
  unc.lib.cdr.workbench.xwalk
-Bundle-ClassPath: .,
- lib/commons-logging-1.0.4.jar,
- lib/jargon-core-0.0.2.jar,
- lib/jdom-1.1.jar,
- lib/opencsv-2.2.jar,
- lib/saxon-8.7.jar,
- lib/saxon-dom-8.7.jar,
- lib/xml-apis-1.3.04.jar
+Bundle-ClassPath: .
