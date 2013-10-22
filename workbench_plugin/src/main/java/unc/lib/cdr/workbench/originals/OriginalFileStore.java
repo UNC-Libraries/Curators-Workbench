@@ -110,7 +110,6 @@ public class OriginalFileStore implements IFileStore {
 
 	public FLocatType getStagingLocatorType() {
 		MetsProjectNature n = MetsProjectNature.get(stub.getProject());
-		LOG.debug("HERE: "+n);
 		FileType ft = (FileType) n.getMetsResource().getEObject(getFileID());
 		if (ft != null && ft.getFLocat() != null) {
 			for (FLocatType loc : ft.getFLocat()) {

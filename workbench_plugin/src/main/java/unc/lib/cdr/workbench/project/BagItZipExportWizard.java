@@ -76,7 +76,6 @@ public class BagItZipExportWizard extends Wizard implements IExportWizard {
 		}
 
 		IWorkbenchPage page = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
-		System.out.print(page);
 		try {
 			IDE.openEditorOnFileStore(page, store);
 		} catch (PartInitException e) {

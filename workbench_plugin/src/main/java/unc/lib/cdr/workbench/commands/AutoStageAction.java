@@ -26,11 +26,18 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.IObjectActionDelegate;
 import org.eclipse.ui.IWorkbenchPart;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import unc.lib.cdr.workbench.project.MetsProjectNature;
 import unc.lib.cdr.workbench.stage.StagingJob;
 
 public class AutoStageAction implements IObjectActionDelegate {
+	
+
+	private static final Logger log = LoggerFactory
+			.getLogger(AutoStageAction.class);
+	
 	ISelection selection = null;
 
 	public AutoStageAction() {
@@ -70,7 +77,7 @@ public class AutoStageAction implements IObjectActionDelegate {
 		MetsProjectNature mpn = (MetsProjectNature)project.getNature(MetsProjectNature.NATURE_ID);
 		boolean setting = mpn.getAutomaticStaging();
 		mpn.setAutomaticStaging(!setting);
-		System.out.println("toggled auto staging, it now says "+mpn.getAutomaticStaging());
+		log.debug("toggled auto staging, it now says "+mpn.getAutomaticStaging());
 		if(mpn.getAutomaticStaging()) {
 			Job stagingJob = new StagingJob("Staging after autostage enabled", project);
 			stagingJob.schedule();

@@ -24,6 +24,8 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.QualifiedName;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import unc.lib.cdr.workbench.project.MetsProjectNature;
 import unc.lib.cdr.workbench.rcp.Activator;
@@ -33,6 +35,10 @@ import unc.lib.cdr.workbench.rcp.Activator;
  * 
  */
 public class IResourceConstants {
+	
+	private static final Logger log = LoggerFactory
+			.getLogger(IResourceConstants.class);
+	
 	public static final QualifiedName MODIFIED_TIMESTAMP = new QualifiedName(MetsProjectNature.NATURE_ID,
 			"MODIFIED_TIMESTAMP");
 	public static final QualifiedName BYTE_SIZE = new QualifiedName(MetsProjectNature.NATURE_ID, "BYTE_SIZE");
@@ -147,7 +153,7 @@ public class IResourceConstants {
 	}
 
 	public static void prepareFolder(IFolder folder, IProgressMonitor monitor) throws CoreException {
-		System.out.println("preparing: "+folder);
+		log.debug("preparing: "+folder);
 		if (!folder.exists()) {
 			IContainer parent = folder.getParent();
 			if(parent == null || parent instanceof IWorkspaceRoot) return;

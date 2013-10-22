@@ -148,7 +148,6 @@ public class OriginalsLabelProvider implements ILabelProvider/* , IDelayedLabelD
 		} else if(element instanceof IFileStore) {
 			IFileStore fs = (IFileStore)element;
 			String name = fs.getName();
-			//System.out.println("got name: |"+name+"|");
 			if(name == null || name.trim().length() == 0) {
 				return "(disc root)";
 			} else {

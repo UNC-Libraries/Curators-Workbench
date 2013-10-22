@@ -32,6 +32,11 @@ public class ProjectPropertyTester extends PropertyTester {
 					return project.isOpen();
 				} else if ("closed".equals(property)) {
 					return !project.isOpen();
+				} else if ("fileSchemeStagingBase".equals(property)) {
+					MetsProjectNature nature = MetsProjectNature.get(project);
+					if(nature == null) return false;
+					String scheme = nature.getStagingBase().getScheme();
+					return "file".equals(scheme);
 				}
 			} else {
 				return false;

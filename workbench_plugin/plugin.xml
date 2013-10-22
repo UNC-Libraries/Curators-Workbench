@@ -35,7 +35,7 @@
             class="unc.lib.cdr.workbench.project.ProjectPropertyTester"
             id="workbench_plugin.projectPropertyTester"
             namespace="workbench_plugin.projectPropertyTester"
-            properties="open,closed"
+            properties="open,closed,fileSchemeStagingBase"
             type="org.eclipse.core.resources.IProject">
       </propertyTester>
       <propertyTester
@@ -195,7 +195,7 @@
       <command
             defaultHandler="unc.lib.cdr.workbench.commands.RepairProjectStagingAreasHandler"
             id="workbench_plugin.commandResolveProjectStagingAreas"
-            name="Resolve project staging areas">
+            name="Repair project staging">
       </command>
    </extension>
    <extension
@@ -934,6 +934,10 @@
                         ifEmpty="false">
                      <test
                            property="workbench_plugin.projectPropertyTester.open">
+                     </test>
+                     <test
+                           property="workbench_plugin.projectPropertyTester.fileSchemeStagingBase"
+                           value="true">
                      </test>
                   </iterate>
                </with>

@@ -118,7 +118,7 @@ public class ProjectEMFSession {
 		if (!f.toFile().exists() && old.exists()) {
 			try {
 
-				System.out.println("moving " + old.getLocation() + " to " + f);
+				log.debug("moving " + old.getLocation() + " to " + f);
 				old.move(f, true, new NullProgressMonitor());
 			} catch (CoreException e) {
 				throw new Error(e);

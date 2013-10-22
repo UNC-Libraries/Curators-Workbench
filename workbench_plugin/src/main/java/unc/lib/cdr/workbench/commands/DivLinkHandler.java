@@ -37,10 +37,15 @@ import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.handlers.HandlerUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import unc.lib.cdr.workbench.project.MetsProjectNature;
 
 public class DivLinkHandler extends AbstractHandler implements IHandler {
+	
+	private static final Logger log = LoggerFactory
+			.getLogger(DivLinkHandler.class);
 
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
@@ -61,7 +66,7 @@ public class DivLinkHandler extends AbstractHandler implements IHandler {
 		// check structLink
 		StructLinkType1 sl = mpn.getMets().getStructLink();
 		if (sl == null) {
-			System.err.println("Struct link is null in METS");
+			log.error("Struct link is null in METS");
 			sl = MetsFactory.eINSTANCE.createStructLinkType1();
 			cmd.append(new SetCommand(mpn.getEditingDomain(), mpn.getMets(), MetsPackage.eINSTANCE
 					.getMetsType_StructLink(), sl));

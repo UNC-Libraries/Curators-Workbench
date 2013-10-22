@@ -1,11 +1,17 @@
 package unc.lib.cdr.workbench.stage;
 
+import java.io.IOException;
 import java.net.URI;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.jface.wizard.IWizardPage;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.jface.wizard.WizardPage;
@@ -19,6 +25,7 @@ import org.slf4j.LoggerFactory;
 import unc.lib.cdr.workbench.project.MetsProjectNature;
 import edu.unc.lib.staging.StagingArea;
 import gov.loc.mets.FLocatType;
+import gov.loc.mets.MetsPackage;
 import gov.loc.mets.MetsType;
 import gov.loc.mets.util.METSConstants;
 
@@ -83,13 +90,28 @@ public class RepairProjectStagingWizard extends Wizard {
 
 	@Override
 	public boolean performFinish() {
-		log.debug("finishing up");
+		log.debug("finishing up staging repair");
 		String oldPrefix = projectReplacePrefixPage.getReplacedURIPrefix()
 				.toString();
-		String newPrefix = projectAreaPage.getSelection().getURI().toString();
+		URI stagingBase = projectAreaPage.getSelection().getURI();
+		String newPrefix = stagingBase.toString();
+		
+		// set the new staging base
+		nature.setStagingBase(stagingBase.toString());
+		
+		// make a backup of the workbench METS
 		nature.getEMFSession().save();
-		// TODO make a backup of the workbench METS
+		Path metsPath = nature.getEMFSession().getMetsFile().toFile().toPath();
+		Path metsBackupPath = metsPath.resolveSibling("backup.workbench-mets.xml");
+		try {
+			Files.copy(metsPath, metsBackupPath);
+		} catch(IOException e) {
+			log.error("failed to backup workbench mets", e);
+			return false;
+		}
+		
 		MetsType mets = nature.getMets();
+		CompoundCommand command = new CompoundCommand();
 		for (TreeIterator<EObject> iter = mets.eAllContents(); iter.hasNext();) {
 			EObject next = iter.next();
 			if (!(next instanceof FLocatType))
@@ -101,10 +123,16 @@ public class RepairProjectStagingWizard extends Wizard {
 			if (old.startsWith(oldPrefix)) {
 				String newHref = old
 						.substring(oldPrefix.length(), old.length());
-				System.err.println("newHref: " + newHref);
+				log.debug("newHref: " + newHref);
 				newHref = newPrefix + newHref;
-				System.out.println(old + " => " + newHref);
+				log.debug(old + " => " + newHref);
+				Command setHref = SetCommand.create(nature.getEditingDomain(), loc, MetsPackage.eINSTANCE.getFLocatType_Href(), newHref);
+				command.append(setHref);
 			}
+		}
+		if(command.canExecute()) {
+			command.execute();
+			nature.getEMFSession().save();
 		}
 		return true;
 	}

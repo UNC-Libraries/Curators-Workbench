@@ -31,6 +31,8 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import unc.lib.cdr.workbench.IResourceConstants;
 
@@ -39,6 +41,9 @@ import unc.lib.cdr.workbench.IResourceConstants;
  * 
  */
 public class OriginalFolderSnapshotJob extends Job {
+	private static final Logger log = LoggerFactory
+		.getLogger(OriginalFolderSnapshotJob.class);
+	
 	IFolder folder = null;
 
 	/**
@@ -63,7 +68,7 @@ public class OriginalFolderSnapshotJob extends Job {
 			monitor = new NullProgressMonitor();
 		}
 		try {
-			System.out.println("starting folder snapshot");
+			log.debug("starting folder snapshot");
 			// TODO compare with last snapshot and update markers for changes found
 			// making "initial snapshot" vs. "taking up to date snapshot of original files"
 
@@ -75,7 +80,7 @@ public class OriginalFolderSnapshotJob extends Job {
 
 			// test to make sure top folder store is attached.
 			URI topLocation = this.folder.getLocationURI();
-			System.out.println("HERE: " + topLocation);
+			log.debug("HERE: " + topLocation);
 			IFileStore store = EFS.getStore(topLocation);
 			if (!store.fetchInfo(EFS.NONE, monitor).exists()) {
 				return new Status(Status.ERROR, PLUGIN_ID, "The original files are not connected");

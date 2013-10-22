@@ -29,8 +29,13 @@ import java.util.List;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class OriginalStub implements java.io.Serializable {
+	
+	private static final Logger log = LoggerFactory
+			.getLogger(OriginalStub.class);
 
 	/**
 	 * 
@@ -164,15 +169,13 @@ public class OriginalStub implements java.io.Serializable {
 		try {
 			int currentHash = VolumeUtil.makeVolumeFingerprint(this
 					.getVolumeRoot());
-			// System.err.println("hashes " + currentHash + " " +
-			// this.getVolumeHash());
 			return (currentHash == this.getVolumeHash());
 		} catch (NoSuchFileException e) {
 			return false;
 		} catch (java.nio.file.FileSystemException e) {
 			return false;
 		} catch (IOException e) {
-			e.printStackTrace(System.err);
+			log.error("Unexpected error", e);
 			return false;
 		}
 	}

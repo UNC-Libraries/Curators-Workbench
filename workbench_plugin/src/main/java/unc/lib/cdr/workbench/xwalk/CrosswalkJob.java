@@ -308,7 +308,6 @@ public class CrosswalkJob extends Job {
 		try {
 			while (true) {
 				for (OutputProfile profile : cw.getOutputProfiles()) {
-					//System.out.println("in profile: "+profile.getName());
 					if (monitor.isCanceled())
 						throw new CoreException(Status.CANCEL_STATUS);
 					MdSecType md = processRecord(profile);
@@ -400,7 +399,6 @@ public class CrosswalkJob extends Job {
 		for (OutputElement e : cw.getElements()) {
 			e.updateRecord(outputElement);
 		}
-		//for(EObject child : outputElement.eContents()) System.out.println(child);
 		if (outputElement.eContents() == null
 				|| outputElement.eContents().isEmpty()) {
 			return null;

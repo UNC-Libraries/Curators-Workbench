@@ -28,14 +28,13 @@ import org.eclipse.core.filesystem.EFS;
 import org.eclipse.core.filesystem.IFileStore;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.NullProgressMonitor;
-import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Status;
-import org.eclipse.core.runtime.URIUtil;
 import org.eclipse.core.runtime.jobs.Job;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import unc.lib.cdr.workbench.originals.OriginalStub;
 import unc.lib.cdr.workbench.originals.VolumeUtil;
@@ -46,6 +45,7 @@ import unc.lib.cdr.workbench.project.MetsProjectNature;
  *
  */
 public class OriginalsLinkJob extends Job {
+	private static Logger log = LoggerFactory.getLogger(OriginalsLinkJob.class);
 	URI baselocation = null;
 	List<URI> locations = null;
 	String name = null;
@@ -70,19 +70,19 @@ public class OriginalsLinkJob extends Job {
 		if (monitor == null) {
 			monitor = new NullProgressMonitor();
 		}
-		System.out.println("starting link");
+		log.debug("starting link");
 		monitor.beginTask("Linking to originals ...", this.locations.size());
 		MetsProjectNature n = MetsProjectNature.get(project);
 		try {
 			Set<URI> volumes = new HashSet<URI>();
 			Map<URI, List<URI>> volumeToLocations = new HashMap<URI, List<URI>>();
 			for (URI location : locations) {
-				System.out.println("location: "+location);
+				log.debug("location: "+location);
 				IFileStore fs = EFS.getStore(location);
 				URI volume = null;
 				try {
 					volume = VolumeUtil.getTopResourceInVolume(location);
-					System.out.println("top resource in volume: "+volume);
+					log.debug("top resource in volume: "+volume);
 				} catch(IOException e) {
 					throw new Error(e);
 				}

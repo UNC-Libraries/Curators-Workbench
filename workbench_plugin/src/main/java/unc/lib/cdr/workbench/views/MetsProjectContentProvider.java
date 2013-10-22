@@ -71,7 +71,6 @@ public class MetsProjectContentProvider implements ITreeContentProvider, IResour
 	 */
 	@Override
 	public Object[] getChildren(Object parent) {
-		// System.out.println("getChildren called with parent: " + parent + " (" + parent.getClass() + ")");
 		if (parent instanceof WorkbenchWorkbenchRoot) {
 			List<Object> results = new ArrayList<Object>();
 			for (IProject p : ResourcesPlugin.getWorkspace().getRoot().getProjects()) {

@@ -29,8 +29,14 @@ import org.eclipse.ui.application.IWorkbenchWindowConfigurer;
 import org.eclipse.ui.application.WorkbenchAdvisor;
 import org.eclipse.ui.application.WorkbenchWindowAdvisor;
 import org.eclipse.ui.ide.IDE;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class ApplicationWorkbenchAdvisor extends WorkbenchAdvisor {
+	
+	private static final Logger log = LoggerFactory
+			.getLogger(ApplicationWorkbenchAdvisor.class);
+	
 	private static final String PERSPECTIVE_ID = "cdr-workbench.AccessionPerspective"; // "org.eclipse.ui.resourcePerspective";
 	protected static URL surveyURL = null;
 
@@ -83,7 +89,7 @@ public class ApplicationWorkbenchAdvisor extends WorkbenchAdvisor {
 		try {
 			ResourcesPlugin.getWorkspace().save(true, null);
 		} catch (CoreException e) {
-			System.err.println(e.getMessage());
+			log.error(e.getMessage());
 		}
 		return super.preShutdown();
 	}

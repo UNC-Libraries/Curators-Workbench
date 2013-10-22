@@ -114,7 +114,6 @@ public class GrantTypeDetailsPage implements IDetailsPage {
 	 */
 	@Override
 	public boolean setFormInput(Object input) {
-		System.out.println("setFormInput(): " + input);
 		return false;
 	}
 
@@ -158,7 +157,6 @@ public class GrantTypeDetailsPage implements IDetailsPage {
 	public void selectionChanged(IFormPart part, ISelection selection) {
 		IStructuredSelection ssel = (IStructuredSelection) selection;
 		if (ssel.size() == 1) {
-			// System.out.println("selectionChanged: " + ssel.getFirstElement());
 			input = (GrantType) ssel.getFirstElement();
 		} else {
 			input = null;

@@ -25,11 +25,17 @@ import org.eclipse.core.expressions.PropertyTester;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import unc.lib.cdr.workbench.originals.OriginalFileStore;
 import unc.lib.cdr.workbench.project.MetsProjectNature;
 
 public class SelectionPropertyTester extends PropertyTester {
+
+	private static final Logger log = LoggerFactory
+			.getLogger(SelectionPropertyTester.class);
+	
 	public static final String IS_DIV_LINK_PAIR = "isDivLinkPair";
 	public static final String HAS_DIV_LINK_POTENTIAL = "hasDivLinkPotential";
 	public static final String SIBLING_ORIGINALS = "siblingOriginals";
@@ -106,7 +112,6 @@ public class SelectionPropertyTester extends PropertyTester {
 				}
 			}
 		} else if(SIBLING_ORIGINALS.equals(property)) {
-			//System.out.println("checking siblings");
 			if (receiver instanceof ISelection) {
 				ISelection s = (ISelection) receiver;
 				if (s instanceof IStructuredSelection) {
@@ -126,7 +131,7 @@ public class SelectionPropertyTester extends PropertyTester {
 									}
 								}
 								if(!(c.equals((OriginalFileStore)((OriginalFileStore)r).getParent()))) {
-									System.out.println("not the same parent");
+									log.debug("not the same parent");
 									return false;
 								}
 							}

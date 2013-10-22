@@ -31,6 +31,8 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.gmf.runtime.common.core.command.CommandResult;
 import org.eclipse.gmf.runtime.emf.commands.core.command.AbstractTransactionalCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import crosswalk.CrosswalkFactory;
 import crosswalk.MappedAttribute;
@@ -39,6 +41,10 @@ import crosswalk.diagram.custom.MappedModelUtil;
 import crosswalk.impl.MappedElementImpl;
 
 public class SetMappedFeatureCommand extends AbstractTransactionalCommand {
+	
+	private static final Logger log = LoggerFactory
+			.getLogger(SetMappedFeatureCommand.class);
+	
 	private static final String MAPPED_FEATURE_PARAM = "mappedFeature";
 	
 	private CreateElementRequest request = null;
@@ -66,7 +72,7 @@ public class SetMappedFeatureCommand extends AbstractTransactionalCommand {
 				if (textValue != null) {
 					MappedModelUtil.setTextAttribute(me, textValue);
 				} else {
-					System.out.println("No element value text attribute found.");
+					log.debug("No element value text attribute found.");
 				}
 			}
 			// TODO handle :mixed elements, adding a text value attribute.

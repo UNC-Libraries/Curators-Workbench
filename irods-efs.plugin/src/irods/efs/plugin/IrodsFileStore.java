@@ -353,7 +353,6 @@ public class IrodsFileStore extends FileStore {
 		} catch (URISyntaxException e) {
 			throw new Error(e);
 		}
-		// System.out.println("parent of "+this.uri+" is "+ result);
 		IrodsFileStore resultStore = null;
 		try {
 			if (__account == null) {
