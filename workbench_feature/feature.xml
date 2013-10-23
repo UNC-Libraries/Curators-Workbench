@@ -78,11 +78,19 @@ limitations under the License.
       <import plugin="org.eclipse.draw2d"/>
       <import plugin="org.eclipse.gmf.runtime.draw2d.ui"/>
       <import plugin="org.eclipse.gef"/>
-      <import plugin="org.slf4j.log4j12" version="1.6.6" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.help" version="3.6.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.epsilon.evl.emf.validation" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.gmf.tooling.runtime" version="3.1.0" match="greaterOrEqual"/>
+      <import plugin="slf4j.api" version="1.7.5" match="greaterOrEqual"/>
+      <import plugin="com.googlecode.juniversalchardet" version="1.0.3" match="greaterOrEqual"/>
       <import plugin="org.eclipse.core.runtime" version="3.5.0" match="compatible"/>
       <import plugin="org.eclipse.gmf.runtime.common.core" version="1.2.0" match="compatible"/>
       <import plugin="org.eclipse.emf.workspace" version="1.2.0" match="compatible"/>
       <import plugin="org.eclipse.gmf.runtime.emf.core" version="1.2.0" match="compatible"/>
+      <import plugin="org.irods.jargon.core" version="3.3.1" match="greaterOrEqual"/>
+      <import plugin="access-control" version="4.1.2" match="greaterOrEqual"/>
+      <import plugin="net.sf.opencsv" version="2.3.0" match="greaterOrEqual"/>
+      <import plugin="access-control.edit" version="4.1.2" match="greaterOrEqual"/>
       <import plugin="org.eclipse.core.expressions" version="3.2.0" match="compatible"/>
       <import plugin="org.eclipse.core.filesystem" version="1.3.0" match="compatible"/>
       <import plugin="org.eclipse.core.runtime" version="3.7.0" match="compatible"/>
@@ -114,7 +122,7 @@ limitations under the License.
       <import plugin="org.eclipse.ocl" version="3.0.0" match="compatible"/>
       <import plugin="org.eclipse.ui" version="3.7.0" match="compatible"/>
       <import plugin="org.eclipse.ui.ide" version="3.5.0" match="compatible"/>
-      <import plugin="org.eclipse.jface.text" version="3.7.0" match="compatible"/>
+      <import plugin="org.eclipse.jface.text" version="3.8.0" match="compatible"/>
       <import plugin="org.eclipse.ui.workbench.texteditor" version="3.7.0" match="compatible"/>
       <import plugin="org.eclipse.core.filebuffers" version="3.5.0" match="compatible"/>
       <import plugin="org.eclipse.core.resources" version="3.5.0" match="compatible"/>
@@ -133,15 +141,23 @@ limitations under the License.
       <import plugin="org.eclipse.core.filesystem" version="1.3.100" match="greaterOrEqual"/>
       <import plugin="org.eclipse.ui.navigator" version="3.5.100" match="greaterOrEqual"/>
       <import plugin="org.apache.commons.codec" version="1.3.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.ui.views.properties.tabbed" version="3.5.200" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui.views.properties.tabbed" version="3.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.gmf.runtime.emf.type.core" version="1.4.0" match="greaterOrEqual"/>
       <import plugin="crosswalk-gmf.custom"/>
-      <import plugin="access-control" version="4.0.0" match="greaterOrEqual"/>
+      <import plugin="staging.plugin" version="4.1.4" match="greaterOrEqual"/>
       <import plugin="org.eclipse.help" version="3.5.0" match="compatible"/>
       <import plugin="org.eclipse.ui.forms" version="3.5.0" match="compatible"/>
       <import plugin="org.eclipse.core.expressions" version="3.4.200" match="greaterOrEqual"/>
       <import plugin="org.eclipse.ui.intro" version="3.4.0" match="compatible"/>
-      <import plugin="org.apache.log4j" version="1.2.17" match="greaterOrEqual"/>
+      <import plugin="irods-efs.plugin" version="4.1.4" match="greaterOrEqual"/>
+      <import plugin="org.junit"/>
+      <import plugin="edu.unc.lib.cdr.staging-areas" version="0.0.1" match="greaterOrEqual"/>
+      <import plugin="com.fasterxml.jackson.core.jackson-databind"/>
+      <import plugin="com.fasterxml.jackson.core.jackson-core"/>
+      <import plugin="com.fasterxml.jackson.core.jackson-annotations"/>
+      <import plugin="javax.servlet"/>
+      <import plugin="javax.mail"/>
+      <import plugin="org.eclipse.net4j.jms.api"/>
    </requires>
 
    <plugin
@@ -445,19 +461,70 @@ limitations under the License.
          version="0.0.0"/>
 
    <plugin
-         id="org.apache.log4j"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"/>
-
-   <plugin
-         id="org.slf4j.log4j12"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"/>
-
-   <plugin
          id="staging.plugin"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="edu.unc.lib.cdr.staging-areas"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.equinox.cm"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.osgi.services"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="log4j"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.ops4j.pax.logging.pax-logging-api"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.ops4j.pax.logging.pax-logging-service"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.ops4j.pax.configmanager"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.osgi"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.osgi.util"
          download-size="0"
          install-size="0"
          version="0.0.0"

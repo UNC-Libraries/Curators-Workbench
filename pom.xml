@@ -9,7 +9,7 @@
 	<packaging>pom</packaging>
 	<inceptionYear>2010</inceptionYear>
 	<properties>
-		<tycho-version>0.17.0</tycho-version>
+		<tycho-version>0.18.0</tycho-version>
 		<tycho-groupid>org.eclipse.tycho</tycho-groupid>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -66,6 +66,18 @@
 			<layout>p2</layout>
 			<url>http://download.eclipse.org/epsilon/updates/</url>
 		</repository>
+		<repository>
+			<!-- see UNC-Libraries/maven-osgi-bundles to modify this repository -->
+			<id>maven-dependencies</id>
+			<layout>p2</layout>
+			<url>http://www2.lib.unc.edu/software/workbench/p2/maven-osgi-bundles/</url>
+		</repository>
+		<repository>
+			<!-- see UNC-Libraries/metadata-model-tools to modify this repository -->
+			<id>metadata-model-tools</id>
+			<layout>p2</layout>
+			<url>http://www2.lib.unc.edu/software/workbench/p2/metadata-model-tools/</url>
+		</repository>
 	</repositories>
 	<modules>
 		<module>workbench_help</module>
@@ -74,9 +86,6 @@
 		<module>eclipse-repository</module>
 		<module>irods-efs.plugin</module>
 		<module>target-definition</module>
-		<module>org.slf4j.log4j12</module>
-		<module>org.slf4j.pde</module>
-		<module>org.apache.log4j</module>
 		<module>staging</module>
 	</modules>
 	<build>
