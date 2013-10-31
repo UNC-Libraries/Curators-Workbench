@@ -69,7 +69,7 @@ public class ArrangementContentProvider extends AdapterFactoryContentProvider /*
 	 */
 	@Override
 	public Object[] getChildren(Object parent) {
-		// log.debug("getChildren:"+parent.toString());
+		// log.debug("getChildren: {}", parent.toString());
 		List<Object> results = new ArrayList<Object>();
 		try {
 			if (parent instanceof IProject) {
@@ -145,7 +145,7 @@ public class ArrangementContentProvider extends AdapterFactoryContentProvider /*
 
 	@Override
 	public boolean hasChildren(Object element) {
-		// log.debug("hasChildren:"+element.toString());
+		// log.debug("hasChildren: {}", element.toString());
 		if (element instanceof IProject) {
 			return true;
 		} else if (element instanceof ArrangementProjectElement) {
@@ -168,7 +168,7 @@ public class ArrangementContentProvider extends AdapterFactoryContentProvider /*
 
 	@Override
 	public IPropertySource getPropertySource(Object object) {
-		log.debug("getPropertySource called with " + object);
+		log.debug("getPropertySource called with {}", object);
 		return super.getPropertySource(object);
 	}
 

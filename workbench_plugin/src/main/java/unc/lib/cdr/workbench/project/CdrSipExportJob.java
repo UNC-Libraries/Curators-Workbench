@@ -177,7 +177,7 @@ public class CdrSipExportJob extends Job {
 			Map<String, String> xmlOptions = new HashMap<String, String>();
 			xmlOptions.put(XMLResource.OPTION_ENCODING, "utf-8");
 			this.metsResource.save(xmlOptions);
-			LOG.debug("mets export saved to: " + uri);
+			LOG.debug("mets export saved to: {}", uri);
 		} catch (IOException e1) {
 			LOG.error("Problem creating METS", e1);
 			Status s = new Status(Status.ERROR, Activator.PLUGIN_ID, "Cannot save METS", e1);
@@ -359,7 +359,7 @@ public class CdrSipExportJob extends Job {
 								if (METSConstants.MD_STATUS_USER_EDITED.equals(md.getSTATUS())) {
 									if (userCreated != null) {
 										others.add(md);
-										LOG.error("found more than one user created mdSec for the same div: " + list);
+										LOG.error("found more than one user created mdSec for the same div: {}", list);
 									} else {
 										userCreated = md;
 									}

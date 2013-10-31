@@ -110,7 +110,7 @@ public class OriginalFileStore implements IFileStore {
 
 	public FLocatType getStagingLocatorType() {
 		MetsProjectNature n = MetsProjectNature.get(stub.getProject());
-		LOG.debug("HERE: "+n);
+		LOG.debug("HERE: {}", n);
 		FileType ft = (FileType) n.getMetsResource().getEObject(getFileID());
 		if (ft != null && ft.getFLocat() != null) {
 			for (FLocatType loc : ft.getFLocat()) {
@@ -302,15 +302,15 @@ public class OriginalFileStore implements IFileStore {
 	}
 
 	public String getDistinctStagingPath() {
-		LOG.debug("original.toURI().getPath()" + this.toURI().getPath());
+		LOG.debug("original.toURI().getPath() {}", this.toURI().getPath());
 		Path mypath = new Path(this.toURI().getPath());
 		Path stubPath = new Path(this.getOriginalStub().getVolumeRoot().getPath());
-		LOG.debug("stubPath: " + stubPath);
+		LOG.debug("stubPath: {}", stubPath);
 		IPath relStubPath = mypath.makeRelativeTo(stubPath);
-		LOG.debug("relStubPath: " + relStubPath);
+		LOG.debug("relStubPath: {}", relStubPath);
 		String stubSegment = new StringBuilder().append("_").append(this.getOriginalStub().getVolumeHash()).toString();
 		IPath stagePath = new Path(stubSegment).append(relStubPath);
-		LOG.debug("stagePath: " + stagePath);
+		LOG.debug("stagePath: {}", stagePath);
 		String sps = stagePath.toString();
 		if (!sps.startsWith("/")) {
 			sps = "/" + sps;

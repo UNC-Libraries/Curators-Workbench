@@ -58,13 +58,13 @@ public class VolumeUtil {
 		String s1 = FileSystemView.getFileSystemView().getSystemDisplayName(fr);
 		String s2 = FileSystemView.getFileSystemView()
 				.getSystemTypeDescription(fr);
-		LOG.debug("getSystemDisplayName : " + s1);
-		LOG.debug("getSystemTypeDescription : " + s2);
+		LOG.debug("getSystemDisplayName: {}", s1);
+		LOG.debug("getSystemTypeDescription: {}", s2);
 
 		if ("/".equals(volumeRoot.toFile().getPath())) {
 			return 0; // fake hash key for root linux filesystem
 		}
-		LOG.debug("Found volume root: " + volumeRoot);
+		LOG.debug("Found volume root: {}", volumeRoot);
 		int hashvalue = 17;
 		long oldestFileCreation = -1;
 		File[] files = volumeRoot.toFile().listFiles();
@@ -91,8 +91,8 @@ public class VolumeUtil {
 		hashvalue = 37 * hashvalue + name.hashCode();
 		int timestampHash = (int)(oldestFileCreation ^ (oldestFileCreation >>> 32));
 		hashvalue = 37 * hashvalue + timestampHash;
-		LOG.debug("Found volume root name: " + name);
-		LOG.debug("Found volume oldest file: " + oldestFileCreation);
+		LOG.debug("Found volume root name: {}", name);
+		LOG.debug("Found volume oldest file: {}", oldestFileCreation);
 		return hashvalue;
 	}
 

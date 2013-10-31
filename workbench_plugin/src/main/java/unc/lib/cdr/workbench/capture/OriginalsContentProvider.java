@@ -54,7 +54,7 @@ public class OriginalsContentProvider implements ITreeContentProvider {
 	 */
 	@Override
 	public Object[] getChildren(Object parent) {
-		// log.debug("getChildren:"+parent.toString());
+		// log.debug("getChildren: {}", parent.toString());
 		List<Object> results = new ArrayList<Object>();
 		try {
 			if (parent instanceof IProject) {

@@ -59,7 +59,7 @@ public class ArrangementDragSourceListener implements DragSourceListener {
 			transfer.setSelection(selection);
 			event.data = selection;
 		}
-		LOG.debug("drag event data has been set: " + event.data);
+		LOG.debug("drag event data has been set: {}", event.data);
 
 	}
 

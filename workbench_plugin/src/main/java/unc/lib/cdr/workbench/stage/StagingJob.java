@@ -147,15 +147,15 @@ public class StagingJob extends Job {
 			FptrType fptr = (FptrType) next;
 			OriginalFileStore original = MetsProjectNature
 					.getOriginalFileStore((DivType) fptr.eContainer());
-			log.error("original file store: " + original);
+			log.error("original file store: {}", original);
 			if (original == null) {
-				log.error("Cannot get original file store for fptr: " + fptr);
+				log.error("Cannot get original file store for fptr: {}", fptr);
 				continue;
 			}
 			FLocatType loc = original.getStagingLocatorType();
 			boolean originalInStagingArea = isWithinRepoStagingArea(original
 					.getWrapped().toURI());
-			log.error("original staging locator: " + loc);
+			log.error("original staging locator: {}", loc);
 			if (loc == null) { // not staged yet
 				if (originalInStagingArea) {
 					toStageInPlace.add(original);
@@ -166,8 +166,7 @@ public class StagingJob extends Job {
 			} else {
 				URI stagedLoc = URI.create(loc.getHref());
 				if (!isWithinRepoStagingArea(stagedLoc)) {
-					log.debug("found migration: " + original.toURI() + " "
-							+ stagedLoc);
+					log.debug("found migration: {} {}", original.toURI(), stagedLoc);
 					SharedStagingArea s = StagingPlugin.getDefault()
 							.getStages().findMatchingArea(stagedLoc);
 					if (!s.isConnected())

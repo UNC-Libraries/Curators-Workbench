@@ -166,11 +166,11 @@ public class IrodsFileStore extends FileStore {
 		}
 
 		if (f.isDirectory()) {
-			// log.debug("fetchInfo says a DIR " + uri.toASCIIString());
+			// log.debug("fetchInfo says a DIR {}", uri.toASCIIString());
 			result.setDirectory(true);
 			fetchCollInfo(result, monitor);
 		} else {
-			// log.debug("fetchInfo says a FILE " + uri.toASCIIString());
+			// log.debug("fetchInfo says a FILE {}", uri.toASCIIString());
 			result.setDirectory(false);
 			fetchDataInfo(result, monitor);
 		}
@@ -185,7 +185,7 @@ public class IrodsFileStore extends FileStore {
 		} catch (CoreException e) {
 			// there was an error contacting the file system, so treat it as
 			// non-existent file
-			// log.debug("fetchInfo threw a CORE exception on " +
+			// log.debug("fetchInfo threw a CORE exception on {}",
 			// uri.toASCIIString(), e);
 			e.printStackTrace();
 			FileInfo result = new FileInfo(getName());

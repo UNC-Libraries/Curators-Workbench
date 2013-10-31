@@ -53,7 +53,7 @@ public class PickMappedFeatureCommand extends AbstractTransactionalCommand {
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
 		EObject parent = request.getContainer();
 		EClass classToCreate = request.getElementType().getEClass();
-		LOG.debug("executing on parent "+parent+" class "+classToCreate);
+		LOG.debug("executing on parent {} class {}", parent, classToCreate);
 		// switch between create element and create attribute
 		List<EStructuralFeature> possibleFeatures = null;
 		String message = null;

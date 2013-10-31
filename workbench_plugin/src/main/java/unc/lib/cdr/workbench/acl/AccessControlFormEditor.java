@@ -98,7 +98,7 @@ public class AccessControlFormEditor extends FormEditor {
 			EObject eobj = MetsProjectNature.getModel(in);
 			this.model = (AccessControlType)eobj;
 		} else {
-			LOG.warn("editor input unexpected: "+this.getEditorInput());
+			LOG.warn("editor input unexpected: {}", this.getEditorInput());
 		}
 
 		// command stack that will notify this editor as commands are executed

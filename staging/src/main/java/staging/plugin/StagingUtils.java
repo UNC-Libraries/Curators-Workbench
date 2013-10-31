@@ -174,15 +174,14 @@ public class StagingUtils {
 		// stagedChecksumMonitor.subTask("Getting digest for staged file.. ");
 		String stagedMD5 = fetchMD5Digest(stageFileStore, stagedChecksumMonitor);
 		if (md5sum != null && !md5sum.equals(sourceMD5)) {
-			log.error("old checksum does not match new one:" + md5sum + " | "
-					+ sourceMD5);
+			log.error("old checksum does not match new one: {} | {}", md5sum, sourceMD5);
 			stageFileStore.delete(EFS.NONE, stagedChecksumMonitor);
 			throw new CoreException(
 					new Status(IStatus.ERROR, StagingPlugin.PLUGIN_ID,
 							"Original file has been changed, latest checksum does not match original."));
 		}
 		if (!sourceMD5.equals(stagedMD5)) {
-			log.error("checksums do not match:" + sourceMD5 + " | " + stagedMD5);
+			log.error("checksums do not match: {} | {}", sourceMD5, stagedMD5);
 			stageFileStore.delete(EFS.NONE, stagedChecksumMonitor);
 			throw new CoreException(new Status(IStatus.ERROR,
 					StagingPlugin.PLUGIN_ID,
@@ -347,8 +346,8 @@ public class StagingUtils {
 			IProgressMonitor monitor) throws CoreException {
 		// TODO honor cancellation requests during copy
 		// TODO report progress
-		log.debug("source: " + source);
-		log.debug("destination: " + destination);
+		log.debug("source: {}", source);
+		log.debug("destination: {}", destination);
 		// monitor.subTask("Copying file " + source.getName() + "...");
 		String result = null;
 		byte[] buffer = new byte[chunkSize];
@@ -426,7 +425,7 @@ public class StagingUtils {
 			throws CoreException {
 		// TODO honor cancellation requests during copy
 		// TODO report progress
-		log.info("source: " + source);
+		log.info("source: {}", source);
 		String result = null;
 		byte[] buffer = new byte[chunkSize];
 		int length = (int) sourceInfo.getLength();

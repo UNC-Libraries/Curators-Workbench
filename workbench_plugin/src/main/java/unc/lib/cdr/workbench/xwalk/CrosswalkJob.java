@@ -111,7 +111,7 @@ public class CrosswalkJob extends Job {
 
 	@Override
 	protected IStatus run(IProgressMonitor monitor) {
-		LOG.debug("running crosswalk: " + file.getName());
+		LOG.debug("running crosswalk: {}", file.getName());
 		clearProblemMarkers(file);
 		try {
 			setupCrosswalk();
@@ -167,12 +167,10 @@ public class CrosswalkJob extends Job {
 				try {
 					s.run();
 					RecordMatches matches = s.getMatches();
-					LOG.debug("Got matches: " + matches.getMatches().size()
-							+ " matched, "
-							+ matches.getRecordCollisions().size()
-							+ " record collisions, "
-							+ matches.getResourceCollisions().size()
-							+ " resource collisions.");
+					LOG.debug("Got matches: {} matched, {} record collisions, {} resource collisions.",
+							matches.getMatches().size(),
+							matches.getRecordCollisions().size(),
+							matches.getResourceCollisions().size());
 					// TODO set warnings for collisions
 					// set links and status for matches
 					for (Map.Entry<DivType, String> match : matches
@@ -514,7 +512,7 @@ public class CrosswalkJob extends Job {
 			IMarker m = f.createMarker(IMarker.PROBLEM);
 			m.setAttribute(IMarker.MESSAGE, msg);
 		} catch (CoreException e1) {
-			LOG.error("there was a problem setting the problem marker:" + msg);
+			LOG.error("there was a problem setting the problem marker: {}", msg);
 		}
 	}
 

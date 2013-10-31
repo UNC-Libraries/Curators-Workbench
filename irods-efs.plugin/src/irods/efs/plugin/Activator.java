@@ -121,7 +121,7 @@ public class Activator extends AbstractUIPlugin {
 	 */
 	public void storeConnectionDetails(IRODSAccount a, String password) {
 		String key = makeKey(a);
-		LOG.debug("storing password by key: " + key);
+		LOG.debug("storing password by key: {}", key);
 		accountPasswords.put(key, password);
 	}
 
@@ -153,7 +153,7 @@ public class Activator extends AbstractUIPlugin {
 	}
 
 	private IRODSAccount makeAccount(URI uri) {
-		LOG.debug("Making account for irods uri: " + uri);
+		LOG.debug("Making account for irods uri: {}", uri);
 		IRODSAccount result = null;
 		String userName = uri.getUserInfo();
 		if (userName != null && userName.contains(":")) {
@@ -165,7 +165,7 @@ public class Activator extends AbstractUIPlugin {
 		result = new IRODSAccount(uri.getHost(), uri.getPort(), userName, null,
 				"", zone, "fake");
 		result.setAuthenticationScheme(AuthScheme.PAM);
-		LOG.debug("Account serializes to URI as: " + result.toString());
+		LOG.debug("Account serializes to URI as: {}", result.toString());
 		return result;
 	}
 
@@ -197,7 +197,7 @@ public class Activator extends AbstractUIPlugin {
 
 		if (result == null) { // prompt
 			synchronized (lock) {
-				LOG.debug("getting password by key: " + baseKey);
+				LOG.debug("getting password by key: {}", baseKey);
 				result = accountPasswords.get(baseKey);
 				LOG.info(Thread.currentThread().getId()
 						+ " in sync and got initial account: " + result);

@@ -36,15 +36,13 @@ public class MetadataSourcePropertyTester extends PropertyTester {
 
 	@Override
 	public boolean test(Object receiver, String property, Object[] args, Object expectedValue) {
-		LOG.debug("property tester called: " + receiver + " " + property + " " + expectedValue);
+		LOG.debug("property tester called: {} {} {}", receiver, property, expectedValue);
 		if (receiver instanceof IFile && "isTabularMetadataSource".equals(property)) {
-			LOG.debug("here 1");
 			IContentType actualContentType = null;
 			IFile file = (IFile) receiver;
 			if (!file.exists()) {
 				return false;
 			}
-			LOG.debug("here 2");
 			IContentDescription contentDescription = null;
 			try {
 				contentDescription = file.getContentDescription();
@@ -57,7 +55,7 @@ public class MetadataSourcePropertyTester extends PropertyTester {
 				actualContentType = Platform.getContentTypeManager().findContentTypeFor(file.getName());
 			}
 			if (actualContentType != null) {
-				LOG.debug("found content type: " + actualContentType.getId() + " " + actualContentType.toString());
+				LOG.debug("found content type: {} {}", actualContentType.getId(), actualContentType.toString());
 				// if (isKindOfUsed)
 				// return actualContentType.isKindOf(Platform.getContentTypeManager().getContentType(expectedValue));
 				// return expectedValue.equals(actualContentType.getId());

@@ -71,7 +71,7 @@ public class CrosswalkContentProvider implements ITreeContentProvider, IResource
 	 */
 	@Override
 	public Object[] getChildren(Object parent) {
-		// log.debug("getChildren:"+parent.toString());
+		// log.debug("getChildren: {}", parent.toString());
 		try {
 			if (parent instanceof IFile) {
 				IFile f = (IFile) parent;

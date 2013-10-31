@@ -85,7 +85,7 @@ public class PropertySheetPropertySection extends AbstractPropertySection {
 	 */
 	@Override
 	public void setInput(IWorkbenchPart part, ISelection selection) {
-		LOG.debug("setInput called: " + selection + selection.getClass());
+		LOG.debug("setInput called: {} {}", selection, selection.getClass());
 		IStructuredSelection s = (IStructuredSelection) selection;
 		super.setInput(part, s);
 		page.selectionChanged(part, s);

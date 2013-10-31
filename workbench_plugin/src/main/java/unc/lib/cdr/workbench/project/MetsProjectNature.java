@@ -206,7 +206,7 @@ public class MetsProjectNature implements IProjectNature {
 				ObjectInputStream in = new ObjectInputStream(
 						new ByteArrayInputStream(s));
 				this.originals = (ArrayList<OriginalStub>) in.readObject();
-				log.debug("loaded originals: " + this.originals.size());
+				log.debug("loaded originals: {}", this.originals.size());
 			} catch (Exception e) {
 				throw new Error("Cannot deserialize originals for project", e);
 			}
@@ -236,7 +236,7 @@ public class MetsProjectNature implements IProjectNature {
 
 	public void addOriginal(OriginalStub o) {
 		this.originals.add(o);
-		// log.debug("adding original at: " + o.getBase().toString());
+		// log.debug("adding original at: {}", o.getBase().toString());
 		this.saveOriginals();
 	}
 
@@ -425,7 +425,7 @@ public class MetsProjectNature implements IProjectNature {
 	 * @param stageURI
 	 */
 	public void setStagingBase(String stageURI) {
-		LOG.debug("setting stageURI to: " + stageURI);
+		LOG.debug("setting stageURI to: {}", stageURI);
 		IEclipsePreferences projectNode = new ProjectScope(project)
 				.getNode(Activator.PLUGIN_ID);
 		projectNode.put(STAGING_BASE_URI_KEY, stageURI);

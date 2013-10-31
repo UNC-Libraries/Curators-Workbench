@@ -175,19 +175,19 @@ public class ArrangementCommonDropAdapterAssistant extends CommonDropAdapterAssi
 
 	@Override
 	public IStatus handleDrop(CommonDropAdapter aDropAdapter, DropTargetEvent event, Object aTarget) {
-		//LOG.debug("handle drop found transfer type:" + aDropAdapter.getCurrentTransfer());
+		//LOG.debug("handle drop found transfer type: {}", aDropAdapter.getCurrentTransfer());
 		event.detail = DND.DROP_NONE;
 		/*
 		 * if (ResourceTransfer.getInstance().isSupportedType(aDropAdapter. getCurrentTransfer())) {
-		 * LOG.debug("found resource transfer, event data: " + event.data); IResource[] res = (IResource[]) event.data;
+		 * LOG.debug("found resource transfer, event data: {}", event.data); IResource[] res = (IResource[]) event.data;
 		 * List<IResource> items = new ArrayList<IResource>(res.length); for (IResource r : res) { items.add(r); } return
 		 * dropResources(items); } else
 		 */
 		if (LocalSelectionTransfer.getTransfer().isSupportedType(event.currentDataType)) {
-			//LOG.debug("found local selection transfer data, event data: " + event.data);
+			//LOG.debug("found local selection transfer data, event data: {}", event.data);
 			// put the transfer data somewhere safe
 			IStructuredSelection select = (IStructuredSelection) LocalSelectionTransfer.getTransfer().getSelection();
-			//LOG.debug("selection: " + select);
+			//LOG.debug("selection: {}", select);
 			List items = select.toList();
 			if (items.size() > 0) {
 				if (items.get(0) instanceof OriginalFileStore) {
@@ -263,7 +263,7 @@ public class ArrangementCommonDropAdapterAssistant extends CommonDropAdapterAssi
 			if (comboCommand.canExecute()) {
 				comboCommand.execute();
 			} else {
-				LOG.debug("Cannot execute drop command: " + comboCommand.toString());
+				LOG.debug("Cannot execute drop command: {}", comboCommand.toString());
 			}
 			// refresh
 			return Status.OK_STATUS;

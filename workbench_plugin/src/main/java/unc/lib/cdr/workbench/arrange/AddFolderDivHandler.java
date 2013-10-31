@@ -86,7 +86,7 @@ public class AddFolderDivHandler extends AbstractHandler {
 			} else if (o instanceof DivType) {
 				within = (DivType) o;
 			}
-			LOG.debug("WITHIN " + within.toString());
+			LOG.debug("WITHIN {}", within.toString());
 			IInputValidator v = new IInputValidator() {
 				@Override
 				public String isValid(String newText) {

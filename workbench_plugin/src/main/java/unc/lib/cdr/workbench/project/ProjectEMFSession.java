@@ -118,7 +118,7 @@ public class ProjectEMFSession {
 		if (!f.toFile().exists() && old.exists()) {
 			try {
 
-				System.out.println("moving " + old.getLocation() + " to " + f);
+				log.debug("moving {} to {}", old.getLocation(), f);
 				old.move(f, true, new NullProgressMonitor());
 			} catch (CoreException e) {
 				throw new Error(e);
@@ -126,18 +126,18 @@ public class ProjectEMFSession {
 		}
 		String uri = f.toFile().toURI().toString();
 		try {
-			log.debug("METS attempting to load existing file:" + uri);
+			log.debug("METS attempting to load existing file: {}", uri);
 			this.metsResource = this.resourceSet.getResource(URI.createURI(uri), true);
 			((ResourceImpl) this.metsResource).setIntrinsicIDToEObjectMap(new HashMap());
 			this.metsResource.load(xmlOptions);
 			log.debug("METS loaded from existing file");
 		} catch (Exception e) {
-			log.debug("METS being created:" + uri);
+			log.debug("METS being created: {}", uri);
 			this.metsResource = this.resourceSet.createResource(URI.createURI(uri));
 			((ResourceImpl) this.metsResource).setIntrinsicIDToEObjectMap(new HashMap());
 			DocumentRoot r = METSUtils.createInitialMetsDocument(project.getName() + " Workbench Manifest");
 			this.metsResource.getContents().add(r);
-			log.debug("METS created: " + this.metsResource.getContents());
+			log.debug("METS created: {}", this.metsResource.getContents());
 			try {
 				this.metsResource.save(xmlOptions);
 				// this.metsResource.load(xmlOptions);
