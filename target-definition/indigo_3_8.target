@@ -23,7 +23,7 @@
 <repository location="http://download.eclipse.org/epsilon/updates/"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="mmt-feature.feature.group" version="4.1.4.201310161338"/>
+<unit id="mmt-feature.feature.group" version="4.1.4.201311111553"/>
 <repository location="http://www2.lib.unc.edu/software/workbench/p2/metadata-model-tools/"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
@@ -33,7 +33,7 @@
 <unit id="org.apache.commons.codec" version="1.4.0"/>
 <unit id="org.apache.commons.io" version="2.1.0"/>
 <unit id="commons-logging" version="1.1.1"/>
-<unit id="edu.unc.lib.cdr.staging-areas" version="0.0.1.20131017101748"/>
+<unit id="edu.unc.lib.cdr.staging-areas" version="0.0.1.20131111094723"/>
 <unit id="com.fasterxml.jackson.core.jackson-annotations" version="2.2.2"/>
 <unit id="com.fasterxml.jackson.core.jackson-core" version="2.2.2"/>
 <unit id="com.fasterxml.jackson.core.jackson-databind" version="2.2.2"/>

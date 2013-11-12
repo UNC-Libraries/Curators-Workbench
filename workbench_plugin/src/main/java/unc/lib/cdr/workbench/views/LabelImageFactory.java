@@ -47,8 +47,7 @@ import unc.lib.cdr.workbench.stage.StagedFilesProjectElement;
  */
 public class LabelImageFactory {
 	public static String iconPath = "icons/";
-	private static final int DEFAULT_ICON_SIZE = 32;
-	private static final int DEFAULT_DECOR_SIZE = 18;
+	private static final int DEFAULT_ICON_SIZE = 18;
 	public static Map<String, Icon> diskImages = new HashMap<String, Icon>();
 
 	static {
@@ -61,7 +60,7 @@ public class LabelImageFactory {
 	}
 
 	public static enum Size {
-		ORIGINAL(0, 0), DEFAULT_ICON(DEFAULT_ICON_SIZE, DEFAULT_ICON_SIZE), DEFAULT_DECOR(DEFAULT_DECOR_SIZE, DEFAULT_DECOR_SIZE);
+		ORIGINAL(0, 0), DEFAULT_ICON(DEFAULT_ICON_SIZE, DEFAULT_ICON_SIZE), DEFAULT_DECOR(7, 8), LARGE_DECOR(12, 12);
 		int width;
 		int height;
 
@@ -75,23 +74,23 @@ public class LabelImageFactory {
 		OpenProject("48px-Crystal_Clear_app_ark.png", Size.DEFAULT_ICON), ClosedProject(
 				"48px-Crystal_Clear_app_kthememgr.png", Size.DEFAULT_ICON), HardDisk(
 				"48px-Crystal_Clear_app_harddrive.png", Size.DEFAULT_ICON), Folder(
-				"48px-Crystal_Clear_filesystem_folder_grey.png",
+				"type_folder.png",
 				Size.DEFAULT_ICON), File(
-				"48px-Crystal_Clear_action_filenew.png", Size.DEFAULT_ICON), Collection(
-				"48px-Crystal_Clear_app_file-manager.png", Size.DEFAULT_ICON), AggregateWork(
-				"48px-Crystal_Clear_filesystem_folder_txt.png",
+				"type_file.png", Size.DEFAULT_ICON), Collection(
+				"type_coll.png", Size.DEFAULT_ICON), AggregateWork(
+				"type_aggr.png",
 				Size.DEFAULT_ICON), ArrangementEl("edtsrclkup_co.gif",
-				Size.ORIGINAL), CrosswalkEl("filter_tsk.gif", Size.ORIGINAL), OriginalsEl(
-				"access_restriction_attrib.gif", Size.ORIGINAL), StageEl(
-				"var_cntnt_prvdr.gif", Size.ORIGINAL), CaptureDecor(
-				"waiting_ovr.gif", Size.ORIGINAL), StagedDecor(
-				"version_controlled.gif", Size.ORIGINAL), UserEditedDecor(
-				"write_obj.gif", Size.ORIGINAL), CrosswalkedDecor(
-				"write_obj_gray.gif", Size.ORIGINAL), ACLDecor("lockedstate.gif",
+				Size.DEFAULT_ICON), CrosswalkEl("filter_tsk.gif", Size.DEFAULT_ICON), OriginalsEl(
+				"access_restriction_attrib.gif", Size.DEFAULT_ICON), StageEl(
+				"var_cntnt_prvdr.gif", Size.DEFAULT_ICON), CaptureDecor(
+				"waiting_ovr.gif", Size.DEFAULT_DECOR), StagedDecor(
+				"version_controlled.gif", Size.DEFAULT_DECOR), UserEditedDecor(
+				"write_obj.gif", Size.LARGE_DECOR), CrosswalkedDecor(
+				"write_obj_gray.gif", Size.LARGE_DECOR), ACLDecor("lockedstate.gif",
 				Size.DEFAULT_DECOR), ACLGrayDecor("lockedstate_mono.gif",
 						Size.DEFAULT_DECOR), CrosswalkedRecord("property_obj.gif",
-				Size.ORIGINAL), LinkedObject("link_obj.gif", Size.ORIGINAL), EjectedDecore(
-				"ejected1.gif", Size.ORIGINAL), Loading("loading.png",
+				Size.DEFAULT_ICON), LinkedObject("link_obj.gif", Size.DEFAULT_ICON), EjectedDecore(
+				"ejected1.gif", Size.DEFAULT_DECOR), Loading("loading.png",
 				Size.ORIGINAL), NoPreview("no_preview.png", Size.ORIGINAL);
 		Size size = Size.ORIGINAL;
 		String imageFile = null;

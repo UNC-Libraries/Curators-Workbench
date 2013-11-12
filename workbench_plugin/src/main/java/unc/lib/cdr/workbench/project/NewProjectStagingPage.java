@@ -80,6 +80,8 @@ public class NewProjectStagingPage extends WizardPage {
 		stageTable = new Table(composite, SWT.BORDER | SWT.SINGLE);
 		GridData cgd = new GridData();
 		cgd.horizontalSpan = 2;
+		cgd.grabExcessHorizontalSpace = true;
+		cgd.horizontalAlignment = SWT.FILL;
 		stageTable.setLayoutData(cgd);
 		stageTable.setLinesVisible(true);
 		stageTable.setHeaderVisible(true);
