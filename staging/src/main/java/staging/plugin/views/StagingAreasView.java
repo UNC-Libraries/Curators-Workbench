@@ -12,6 +12,7 @@ import org.eclipse.jface.action.Separator;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.ColumnLabelProvider;
+import org.eclipse.jface.viewers.ColumnViewerToolTipSupport;
 import org.eclipse.jface.viewers.DoubleClickEvent;
 import org.eclipse.jface.viewers.IDoubleClickListener;
 import org.eclipse.jface.viewers.IStructuredContentProvider;
@@ -22,6 +23,7 @@ import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TableViewerColumn;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.viewers.ViewerSorter;
+import org.eclipse.jface.window.ToolTip;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Composite;
@@ -69,10 +71,8 @@ public class StagingAreasView extends ViewPart {
 
 	private Action actionReloadConfiguration;
 	private Action actionConnect;
-	private Action actionMapToFolder;
 
 	private ImageDescriptor imageDescrRefresh = StagingPlugin.imageDescriptorFromPlugin(StagingPlugin.PLUGIN_ID, "icons/refresh.gif");
-	private ImageDescriptor imageDescrMapping = StagingPlugin.imageDescriptorFromPlugin(StagingPlugin.PLUGIN_ID, "icons/synch_synch.gif");
 	private Image imageConnected = PlatformUI.getWorkbench().getSharedImages().getImageDescriptor(ISharedImages.IMG_ELCL_SYNCED).createImage();
 	private Image imageDisconnected = PlatformUI.getWorkbench().getSharedImages().getImageDescriptor(ISharedImages.IMG_ELCL_SYNCED_DISABLED).createImage();
 	
@@ -156,6 +156,8 @@ public class StagingAreasView extends ViewPart {
 		viewer.setInput(getViewSite());
 		viewer.getTable().setLinesVisible(true);
 		viewer.getTable().setHeaderVisible(true);
+		
+		ColumnViewerToolTipSupport.enableFor(viewer, ToolTip.NO_RECREATE); 
 
 		// Create the help context id for the viewer's control
 		PlatformUI.getWorkbench().getHelpSystem()
@@ -183,6 +185,17 @@ public class StagingAreasView extends ViewPart {
 			public String getText(Object element) {
 				return ((StagingArea)element).getURI().toString();
 			}
+
+			@Override
+			public String getToolTipText(Object element) {
+				StagingArea area = (StagingArea)element;
+				StringBuilder sb = new StringBuilder();
+				sb.append(area.getURI().toString());
+				if(area.isConnected()) {
+					sb.append("\n").append(area.getConnectedStorageURI().toString());
+				}
+				return sb.toString();
+			}
 		});
 		TableViewerColumn col2 = createTableViewerColumn(titles[2], bounds[2], 2);
 		col2.setLabelProvider(new ColumnLabelProvider() {
@@ -200,12 +213,22 @@ public class StagingAreasView extends ViewPart {
 			public String getText(Object element) {
 				return ((StagingArea)element).getStatus();
 			}
+
+			@Override
+			public String getToolTipText(Object element) {
+				return ((StagingArea)element).getStatus();
+			}
 		});
 		TableViewerColumn col3 = createTableViewerColumn(titles[3], bounds[3], 3);
 		col3.setLabelProvider(new ColumnLabelProvider() {
 			@Override
 			public String getText(Object element) {
 				return ((StagingArea)element).isReadOnly() ? "no" : "yes";
+			}
+
+			@Override
+			public String getToolTipText(Object element) {
+				return ((StagingArea)element).isReadOnly() ? "supports pre-staged files only" : "supports staging of captured files";
 			}
 		});
 	}
@@ -255,7 +278,6 @@ public class StagingAreasView extends ViewPart {
 		IStructuredSelection sel = (IStructuredSelection) viewer.getSelection();
 		SharedStagingArea stage = (SharedStagingArea)sel.getFirstElement();
 		if(!stage.isConnected()) manager.add(actionConnect);
-		if(stage.getUriPattern().isLocallyMapped()) manager.add(actionMapToFolder);
 		// Other plug-ins can contribute there actions here
 		manager.add(new Separator(IWorkbenchActionConstants.MB_ADDITIONS));
 	}
@@ -286,34 +308,30 @@ public class StagingAreasView extends ViewPart {
 				IStructuredSelection sel = (IStructuredSelection) viewer.getSelection();
 				SharedStagingArea stage = (SharedStagingArea)sel.getFirstElement();
 				StagingPlugin.getDefault().getStages().connect(stage.getURI());
+				if (!stage.isConnected()
+						&& stage.getUriPattern().isLocallyMapped()) {
+					DirectoryDialog d = new DirectoryDialog(viewer.getTable()
+							.getShell(), SWT.OPEN);
+					String path = d.open();
+					if (path != null) {
+						File f = new File(path);
+						try {
+							URI url = f.toURI();
+							StagingPlugin.getDefault().getStages()
+									.setStorageMapping(stage.getURI(), url);
+						} catch (StagingException ignored) {
+						}
+						StagingPlugin.getDefault().saveConfig();
+						StagingPlugin.getDefault().getStages()
+								.connect(stage.getURI());
+					}
+				}
 			}
 		};
 		actionConnect.setText("Connect");
 		actionConnect.setToolTipText("Connect to this staging area.");
 		actionConnect.setImageDescriptor(PlatformUI.getWorkbench().getSharedImages()
 				.getImageDescriptor(ISharedImages.IMG_OBJS_INFO_TSK));
-		
-		actionMapToFolder = new Action() {
-			public void run() {
-				IStructuredSelection sel = (IStructuredSelection) viewer.getSelection();
-				SharedStagingArea stage = (SharedStagingArea)sel.getFirstElement();
-				DirectoryDialog d = new DirectoryDialog(viewer.getTable().getShell(), SWT.OPEN);
-				String path = d.open();
-				if(path != null) {
-					File f = new File(path);
-					try {
-						URI url = f.toURI();
-						StagingPlugin.getDefault().getStages().setStorageMapping(stage.getURI(), url);
-					} catch(StagingException ignored) {
-					}
-					StagingPlugin.getDefault().saveConfig();
-					StagingPlugin.getDefault().getStages().connect(stage.getURI());
-				}
-			}
-		};
-		actionMapToFolder.setText("Map to folder");
-		actionMapToFolder.setToolTipText("Map area to a folder on a locally accessible drive.");
-		actionMapToFolder.setImageDescriptor(imageDescrMapping);
 	}
 
 	private void hookDoubleClickAction() {
