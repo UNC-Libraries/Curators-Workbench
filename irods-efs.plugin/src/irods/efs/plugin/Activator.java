@@ -40,6 +40,7 @@ import org.slf4j.LoggerFactory;
  */
 public class Activator extends AbstractUIPlugin {
 	private static final Logger LOG = LoggerFactory.getLogger(Activator.class);
+    
 	private static Map<String, String> accountPasswords = new HashMap<String, String>();
 	private static ThreadLocal<Boolean> authenticated = new ThreadLocal<Boolean>() {
 		@Override

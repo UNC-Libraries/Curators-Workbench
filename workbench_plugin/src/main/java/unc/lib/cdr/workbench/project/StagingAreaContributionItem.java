@@ -15,15 +15,19 @@ import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.MenuItem;
+import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import staging.plugin.StagingPlugin;
+import staging.plugin.views.StagingFolderDialog;
 import unc.lib.cdr.workbench.stage.StagingJob;
 import edu.unc.lib.staging.SharedStagingArea;
-import edu.unc.lib.staging.StagingArea;
 
 public class StagingAreaContributionItem extends ContributionItem {
+	private static final Logger log = LoggerFactory.getLogger(StagingAreaContributionItem.class);
 
 	public StagingAreaContributionItem() {
 	}
@@ -60,7 +64,7 @@ public class StagingAreaContributionItem extends ContributionItem {
 		}
 	}
 	
-	private void addStageMenuItem(StagingArea area, Menu menu, final MetsProjectNature mpn) {
+	private void addStageMenuItem(final SharedStagingArea area, Menu menu, final MetsProjectNature mpn) {
 		final String name = area.getName();
 		final URI base = area.getURI();
 		final MenuItem menuItem = new MenuItem(menu, SWT.RADIO);
@@ -68,10 +72,21 @@ public class StagingAreaContributionItem extends ContributionItem {
 		menuItem.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent e) {
 				if(!menuItem.getSelection()) return;
-				boolean okay = MessageDialog.openConfirm(Display.getDefault().getActiveShell(), "Switch Staging Area", 
-						"Please confirm that you want to switch the staging area to "+name+" and migrate previously staged files.");
+				Shell shell = Display.getDefault().getActiveShell();
+				URI projectManifestBase = null;
+				if (!area.getURI().isAbsolute()) {
+					projectManifestBase = area.makeURI("");
+				} else {
+					StagingFolderDialog d = new StagingFolderDialog(shell, area);
+					d.open();
+					log.debug("Made relative path: {}", d.getRelativePath());
+					projectManifestBase = area.makeURI(d.getRelativePath(), mpn.getProject().getName());
+					log.debug("Made manifest base: {}", projectManifestBase);
+				}
+				boolean okay = MessageDialog.openConfirm(shell, "Switch Staging Area", 
+						"Please confirm migration to "+name+" ("+projectManifestBase+").");
 				if(!okay) return;
-				mpn.setStagingBase(base.toString());
+				mpn.setStagingBase(projectManifestBase.toString());
 				if (mpn.getAutomaticStaging()) {
 					Job stagingJob = new StagingJob("Staging after capture", mpn.getProject());
 					stagingJob.setRule(StagingJob.mySchedulingRule);
@@ -79,8 +94,8 @@ public class StagingAreaContributionItem extends ContributionItem {
 				}
 			}
 		});
-		URI stagingBase = mpn.getStagingBase();
-		if(stagingBase != null && stagingBase.equals(area.getURI())) {
+		URI stagingBase = mpn.getStagingManifestURI();
+		if(stagingBase != null && area.isWithinManifestNamespace(stagingBase)) {
 			menuItem.setSelection(true);
 			menuItem.setEnabled(false);
 		}

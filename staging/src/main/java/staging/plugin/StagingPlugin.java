@@ -5,6 +5,8 @@ import java.beans.PropertyChangeListener;
 import java.util.Hashtable;
 
 import org.eclipse.core.runtime.Platform;
+import org.eclipse.jface.resource.ImageDescriptor;
+import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.IViewPart;
 import org.eclipse.ui.PartInitException;
@@ -24,6 +26,11 @@ public class StagingPlugin extends AbstractUIPlugin implements
 	public static final String PLUGIN_ID = "staging.plugin";
 	public static final String LOCAL_STAGING_CONFIG_JSON = "localStagingConfigJSON";
 	private Stages stages;
+    public static final String FOLDER_IMAGE_ID = "folder.image";
+    protected void initializeImageRegistry(ImageRegistry registry) {
+       ImageDescriptor desc = imageDescriptorFromPlugin(PLUGIN_ID, "icons/folder.png");
+       registry.put(FOLDER_IMAGE_ID, desc);
+    }
 
 	/**
 	 * Returns the shared instance

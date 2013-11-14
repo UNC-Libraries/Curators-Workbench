@@ -110,7 +110,7 @@ public class StagingUtils {
 	 *             when the staging cannot complete
 	 */
 	public static StagingResult stage(IFileStore original, IProject project,
-			String originalPath, String md5sum, StagingArea stage,
+			String originalPath, String md5sum, URI manifestStagingURI, SharedStagingArea stage,
 			URL destinationConfig, IProgressMonitor monitor)
 			throws CoreException {
 		if (monitor == null) {
@@ -127,7 +127,8 @@ public class StagingUtils {
 
 		try {
 			if (stage.getConnectedStorageURI().isAbsolute()) {
-				result.stagedFileURI = stage.makeStorageURI(project.getName(),
+				String relpath = stage.getRelativePath(manifestStagingURI);
+				result.stagedFileURI = stage.makeStorageURI(relpath,
 						originalPath);
 			} else {
 				result.stagedFileURI = stage.makeStorageURI(originalPath);

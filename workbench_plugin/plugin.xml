@@ -1370,6 +1370,9 @@
             <actionExtension
                   pattern="workbench_plugin.*">
             </actionExtension>
+            <actionExtension
+                  pattern="org.eclipse.ui.navigator.resources.OpenActions">
+            </actionExtension>
          </includes>
       </viewerActionBinding>
    </extension>
@@ -1616,23 +1619,6 @@
                <objectClass
                      name="gov.loc.mets.MdSecType">
                </objectClass>
-         </enablement>
-      </decorator>
-      <decorator
-            class="unc.lib.cdr.workbench.stage.StagedResourcesDecorator"
-            id="workbench_plugin.decorator1"
-            label="Staged Resources Decoration"
-            lightweight="true"
-            state="true">
-         <enablement>
-            <or>
-               <objectClass
-                     name="org.eclipse.core.resources.IFile">
-               </objectClass>
-               <objectClass
-                     name="org.eclipse.core.resources.IFolder">
-               </objectClass>
-            </or>
          </enablement>
       </decorator>
       <decorator

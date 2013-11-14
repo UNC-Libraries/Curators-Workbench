@@ -18,6 +18,10 @@ package unc.lib.cdr.workbench.project;
 import java.net.URI;
 import java.net.URL;
 
+import org.eclipse.core.filesystem.EFS;
+import org.eclipse.core.filesystem.IFileStore;
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
@@ -33,8 +37,11 @@ import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.dialogs.WizardNewProjectCreationPage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import staging.plugin.StagingPlugin;
+import staging.plugin.views.StagingFolderDialog;
 import edu.unc.lib.staging.SharedStagingArea;
 import edu.unc.lib.staging.Stages;
 import edu.unc.lib.staging.StagingException;
@@ -44,14 +51,19 @@ import edu.unc.lib.staging.StagingException;
  * 
  */
 public class NewProjectStagingPage extends WizardPage {
+	private static final Logger log = LoggerFactory.getLogger(NewProjectStagingPage.class);
 	WizardNewProjectCreationPage mainPage = null;
 	Table stageTable = null;
 
-	Text manifestReferencesText = null;
-	Text stageText = null;
+	Text folderText = null;
+	Text manifestURIText = null;
+	Text storageFolderText = null;
 	Button autoStageButton = null;
+	Button parentFolderButton = null;
 	boolean autoStage = true;
 	SharedStagingArea stagingArea = null;
+	String relativePath = null;
+	URI projectManifestBase = null;
 
 	// boolean
 
@@ -119,16 +131,30 @@ public class NewProjectStagingPage extends WizardPage {
 			}
 		});
 
-		Label txtLabel = new Label(composite, SWT.NULL);
-		txtLabel.setText("Manifest Base Identifier");
-		manifestReferencesText = new Text(composite, SWT.NULL);
-		manifestReferencesText.setLayoutData(new GridData(
-				GridData.FILL_HORIZONTAL));
+		parentFolderButton = new Button(composite, SWT.PUSH);
+		parentFolderButton.setText("Choose Sub-Folder..");
+		parentFolderButton.setEnabled(false);
+		parentFolderButton.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				StagingFolderDialog d = new StagingFolderDialog(getShell(), stagingArea);
+				d.open();
+				relativePath = d.getRelativePath();
+				update();
+			}
+			
+		});
+		
+		storageFolderText = new Text(composite, SWT.NULL);
+		storageFolderText.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
+		storageFolderText.setEditable(false);
 
-		Label txt2Label = new Label(composite, SWT.NULL);
-		txt2Label.setText("Staging Base Location");
-		stageText = new Text(composite, SWT.NULL);
-		stageText.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
+		Label txtLabel = new Label(composite, SWT.NULL);
+		txtLabel.setText("Manifest URI");
+		manifestURIText = new Text(composite, SWT.NULL);
+		manifestURIText.setLayoutData(new GridData(
+				GridData.FILL_HORIZONTAL));
+		manifestURIText.setEditable(false);
 
 		// checkbox - automatically stage captured files?
 		autoStageButton = new Button(composite, SWT.CHECK | SWT.RIGHT);
@@ -150,33 +176,41 @@ public class NewProjectStagingPage extends WizardPage {
 
 	private void stageSelectionChanged() {
 		if (stageTable.getSelectionIndex() != -1) {
+			this.relativePath = null;
 			this.stagingArea = (SharedStagingArea) stageTable.getSelection()[0]
 					.getData();
 			if (!this.stagingArea.isConnected()) {
 				StagingPlugin.getDefault().getStages()
 						.connect(this.stagingArea.getURI());
 			}
-			URI projectManifestBase = null;
-			if (!this.stagingArea.getURI().isAbsolute()) {
-				projectManifestBase = this.stagingArea.makeURI("");
+			if (this.stagingArea.getURI().isAbsolute() && this.stagingArea.isConnected()) {
+				parentFolderButton.setEnabled(true);
 			} else {
-				projectManifestBase = this.stagingArea.makeURI(mainPage
-						.getProjectName());
+				parentFolderButton.setEnabled(false);
 			}
-			manifestReferencesText.setText(projectManifestBase.toString());
-			if (this.stagingArea.isConnected()) {
-				try {
-					URI projectStagedBase = this.stagingArea
-							.getStorageURI(projectManifestBase);
-					stageText.setText(projectStagedBase.toString());
-					this.setPageComplete(this.stagingArea != null);
-				} catch (StagingException e) {
-					stageText.setText("Cannot connect to this staging area: "
-							+ e.getMessage());
-				}
-			} else {
-				stageText.setText("Cannot connect to this staging area");
+			update();
+		}
+	}
+
+	private void update() {
+		if (!this.stagingArea.getURI().isAbsolute()) {
+			projectManifestBase = this.stagingArea.makeURI("");
+		} else {
+			projectManifestBase = this.stagingArea.makeURI(relativePath, mainPage.getProjectName());
+		}
+		manifestURIText.setText(projectManifestBase.toString());
+		if (this.stagingArea.isConnected()) {
+			try {
+				URI projectStagedBase = this.stagingArea
+						.getStorageURI(projectManifestBase);
+				storageFolderText.setText(projectStagedBase.toString());
+				this.setPageComplete(this.stagingArea != null);
+			} catch (StagingException e) {
+				storageFolderText.setText("Cannot connect to this staging area: "
+						+ e.getMessage());
 			}
+		} else {
+			storageFolderText.setText("Cannot connect to this staging area");
 		}
 	}
 

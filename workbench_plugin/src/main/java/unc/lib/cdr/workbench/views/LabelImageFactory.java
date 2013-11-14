@@ -39,7 +39,6 @@ import unc.lib.cdr.workbench.arrange.DivLinkBucket;
 import unc.lib.cdr.workbench.originals.OriginalStub;
 import unc.lib.cdr.workbench.project.ICustomProjectElement;
 import unc.lib.cdr.workbench.rcp.Activator;
-import unc.lib.cdr.workbench.stage.StagedFilesProjectElement;
 
 /**
  * @author Gregory Jansen
@@ -81,8 +80,7 @@ public class LabelImageFactory {
 				"type_aggr.png",
 				Size.DEFAULT_ICON), ArrangementEl("edtsrclkup_co.gif",
 				Size.DEFAULT_ICON), CrosswalkEl("filter_tsk.gif", Size.DEFAULT_ICON), OriginalsEl(
-				"access_restriction_attrib.gif", Size.DEFAULT_ICON), StageEl(
-				"var_cntnt_prvdr.gif", Size.DEFAULT_ICON), CaptureDecor(
+				"access_restriction_attrib.gif", Size.DEFAULT_ICON), CaptureDecor(
 				"waiting_ovr.gif", Size.DEFAULT_DECOR), StagedDecor(
 				"version_controlled.gif", Size.DEFAULT_DECOR), UserEditedDecor(
 				"write_obj.gif", Size.LARGE_DECOR), CrosswalkedDecor(
@@ -123,8 +121,6 @@ public class LabelImageFactory {
 		} else if (o instanceof ICustomProjectElement) {
 			if (o instanceof ArrangementProjectElement) {
 				result = Icon.ArrangementEl;
-			} else if (o instanceof StagedFilesProjectElement) {
-				result = Icon.StageEl;
 			}
 		} else if (o instanceof DivLinkBucket) {
 			result = Icon.LinkedObject;

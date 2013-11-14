@@ -56,7 +56,6 @@ import unc.lib.cdr.workbench.project.MetsProjectNature;
 import unc.lib.cdr.workbench.rcp.Activator;
 import edu.unc.lib.staging.SharedStagingArea;
 import edu.unc.lib.staging.Stages;
-import edu.unc.lib.staging.StagingArea;
 import gov.loc.mets.CHECKSUMTYPEType;
 import gov.loc.mets.DivType;
 import gov.loc.mets.FLocatType;
@@ -75,7 +74,7 @@ public class StagingJob extends Job {
 	private static final Logger log = LoggerFactory.getLogger(StagingJob.class);
 	IProject project = null;
 	public static MutexRule mySchedulingRule = new MutexRule();
-	StagingArea stage = null;
+	SharedStagingArea stage = null;
 	URL destinationRepo = null;
 
 	public static class MutexRule implements ISchedulingRule {
@@ -242,6 +241,7 @@ public class StagingJob extends Job {
 									this.project,
 									original.getDistinctStagingPath(),
 									fileRec.getCHECKSUM(),
+									mpn.getStagingManifestURI(),
 									stage,
 									destinationRepo,
 									new SubProgressMonitor(
@@ -332,16 +332,14 @@ public class StagingJob extends Job {
 	private boolean isWithinRepoStagingArea(URI file) {
 		SharedStagingArea inPlaceArea = StagingPlugin.getDefault().getStages()
 				.findMatchingArea(file);
-		return (inPlaceArea != null && (destinationRepo == null || destinationRepo
-				.equals(inPlaceArea.getConfigURL())));
+		return (inPlaceArea != null && inPlaceArea.getURI().isAbsolute());
 	}
 
 	private void getEffectiveStagingArea(MetsProjectNature mpn) {
-		URI stageURI = mpn.getStagingBase();
+		URI stageURI = mpn.getStagingManifestURI();
 
 		Stages stages = StagingPlugin.getDefault().getStages();
-		SharedStagingArea projectStage = (SharedStagingArea) stages
-				.getStage(stageURI);
+		SharedStagingArea projectStage = (SharedStagingArea) stages.findMatchingArea(stageURI);
 		if (projectStage != null) {
 			this.destinationRepo = projectStage.getConfigURL();
 		}

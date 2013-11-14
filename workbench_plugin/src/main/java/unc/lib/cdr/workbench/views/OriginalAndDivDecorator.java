@@ -24,6 +24,7 @@ import gov.loc.mets.impl.DivTypeImpl;
 import gov.loc.mets.util.METSConstants;
 import gov.loc.mets.util.METSUtils;
 
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -190,7 +191,12 @@ public class OriginalAndDivDecorator implements ILightweightLabelDecorator {
 			if (r.getStagingLocatorType() != null) {
 				// captured file (original or the div)
 				overlay = Icon.StagedDecor.getImageDescriptor();
-				labels.add("staged");
+				URI uri = URI.create(r.getStagingLocatorType().getHref());
+				if(uri.isAbsolute()) {
+					labels.add("staged");
+				} else {
+					labels.add("locally staged");
+				}
 			} else {
 				if (captured && isFile) {
 					overlay = Icon.CaptureDecor.getImageDescriptor();

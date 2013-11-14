@@ -15,6 +15,8 @@
  */
 package unc.lib.cdr.workbench.views;
 
+import java.net.URI;
+
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.jface.viewers.ISelection;
@@ -38,6 +40,7 @@ import org.slf4j.LoggerFactory;
 
 import staging.plugin.StagingPlugin;
 import unc.lib.cdr.workbench.project.MetsProjectNature;
+import edu.unc.lib.staging.SharedStagingArea;
 import edu.unc.lib.staging.StagingArea;
 
 public class MetsProjectNaturePropertiesSection extends AbstractPropertySection {
@@ -50,6 +53,7 @@ public class MetsProjectNaturePropertiesSection extends AbstractPropertySection 
 	
 	Group stagingGroup = null;
 	Text stagingName = null;
+	Text stagingPath = null;
 	Text stagingBaseText = null;
 	Text stagingStatusText = null;
 	
@@ -141,15 +145,27 @@ public class MetsProjectNaturePropertiesSection extends AbstractPropertySection 
 		stagingName = getWidgetFactory().createText(stagingGroup, "", SWT.READ_ONLY);
 		stagingName.setLayoutData(data);
 		
-		CLabel sl = getWidgetFactory().createCLabel(stagingGroup, "Location");
+		CLabel srp = getWidgetFactory().createCLabel(stagingGroup, "Folder Path");
 		data = new FormData();
 		data.left = new FormAttachment(0, ITabbedPropertyConstants.HSPACE);
 		data.top = new FormAttachment(sn, ITabbedPropertyConstants.VSPACE);
+		srp.setLayoutData(data);
+		
+		data = new FormData();
+		data.left = new FormAttachment(0, secondTab);
+		data.top = new FormAttachment(sn, ITabbedPropertyConstants.VSPACE);
+		stagingPath = getWidgetFactory().createText(stagingGroup, "", SWT.READ_ONLY);
+		stagingPath.setLayoutData(data);
+		
+		CLabel sl = getWidgetFactory().createCLabel(stagingGroup, "Location");
+		data = new FormData();
+		data.left = new FormAttachment(0, ITabbedPropertyConstants.HSPACE);
+		data.top = new FormAttachment(srp, ITabbedPropertyConstants.VSPACE);
 		sl.setLayoutData(data);
 
 		data = new FormData();
 		data.left = new FormAttachment(0, secondTab);
-		data.top = new FormAttachment(sn, ITabbedPropertyConstants.VSPACE);
+		data.top = new FormAttachment(srp, ITabbedPropertyConstants.VSPACE);
 		stagingBaseText = getWidgetFactory().createText(stagingGroup, "", SWT.READ_ONLY);
 		stagingBaseText.setLayoutData(data);
 		
@@ -179,13 +195,16 @@ public class MetsProjectNaturePropertiesSection extends AbstractPropertySection 
 	public void refresh() {
 		manifestText.setText(nature.getMetsResource().getURI().toFileString());
 		describedStatusText.setText(nature.getDescriptionStatus());
-		StagingArea s = StagingPlugin.getDefault().getStages().getAllAreas().get(nature.getStagingBase());
+		URI manifestBase = nature.getStagingManifestURI();
+		stagingBaseText.setText(manifestBase.toString());
+		SharedStagingArea s = (SharedStagingArea)StagingPlugin.getDefault().getStages().findMatchingArea(manifestBase);
 		if(s != null) {
 			stagingName.setText(s.getName());
-			stagingBaseText.setText(s.getURI().toString());
+			String relpath = s.getRelativePath(manifestBase);
+			stagingPath.setText(relpath);
 		} else {
 			stagingName.setText("unknown area");
-			stagingBaseText.setText(nature.getStagingBase().toString());
+			stagingPath.setText("");
 		}
 		stagingStatusText.setText(nature.getStagingStatus());
 		

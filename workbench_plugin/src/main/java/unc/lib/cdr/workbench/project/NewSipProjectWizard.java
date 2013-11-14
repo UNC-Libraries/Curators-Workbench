@@ -43,7 +43,7 @@ public class NewSipProjectWizard extends Wizard implements INewWizard {
 		boolean autostage = _pageTwo.isAutoStage();
 		try {
 		IProject prog = MetsProjectNatureSupport.createProject(name, location, autostage);
-		URI stageURI = _pageTwo.stagingArea.getURI();
+		URI stageURI = _pageTwo.projectManifestBase;
 		MetsProjectNature.get(prog).setStagingBase(stageURI.toString());
 		} catch(CoreException e) {
 			e.printStackTrace();

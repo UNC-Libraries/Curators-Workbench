@@ -16,6 +16,8 @@
 package unc.lib.cdr.workbench.project;
 
 import edu.unc.lib.staging.SharedStagingArea;
+import edu.unc.lib.staging.StagingArea;
+import edu.unc.lib.staging.StagingException;
 import gov.loc.mets.DivType;
 import gov.loc.mets.DocumentRoot;
 import gov.loc.mets.FLocatType;
@@ -43,7 +45,6 @@ import org.eclipse.core.resources.ICommand;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IProjectDescription;
 import org.eclipse.core.resources.IProjectNature;
-import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IncrementalProjectBuilder;
 import org.eclipse.core.resources.ProjectScope;
 import org.eclipse.core.resources.ResourcesPlugin;
@@ -70,7 +71,6 @@ import unc.lib.cdr.workbench.originals.OriginalFileStore;
 import unc.lib.cdr.workbench.originals.OriginalStub;
 import unc.lib.cdr.workbench.originals.OriginalsFileSystem;
 import unc.lib.cdr.workbench.rcp.Activator;
-import unc.lib.cdr.workbench.stage.StagedFilesProjectElement;
 
 public class MetsProjectNature implements IProjectNature {
 
@@ -85,19 +85,9 @@ public class MetsProjectNature implements IProjectNature {
 	private static final String ORIGINALS_KEY = "cdr_producer.originals";
 
 	private IProject project = null;
-
-	private ICustomProjectElement[] elements = null;
 	private ArrangementProjectElement arrangementElement = null;
-	private StagedFilesProjectElement stagedFilesElement = null;
 	private ArrayList<OriginalStub> originals = null;
 	private ProjectEMFSession emfSession;
-
-	public StagedFilesProjectElement getStagedFilesElement() {
-		if (stagedFilesElement == null) {
-			this.stagedFilesElement = new StagedFilesProjectElement(this);
-		}
-		return stagedFilesElement;
-	}
 
 	public ArrangementProjectElement getArrangementElement() {
 		if (this.arrangementElement == null) {
@@ -107,14 +97,6 @@ public class MetsProjectNature implements IProjectNature {
 	}
 
 	public MetsProjectNature() {
-	}
-
-	public ICustomProjectElement[] getProjectElements() {
-		if (this.elements == null) {
-			this.elements = new ICustomProjectElement[] {
-			/* getArrangementElement(), */getStagedFilesElement() };
-		}
-		return this.elements;
 	}
 
 	public Resource getMetsResource() {
@@ -431,7 +413,7 @@ public class MetsProjectNature implements IProjectNature {
 		projectNode.put(STAGING_BASE_URI_KEY, stageURI);
 	}
 
-	public java.net.URI getStagingBase() {
+	public java.net.URI getStagingManifestURI() {
 		try {
 			IEclipsePreferences projectNode = new ProjectScope(project)
 					.getNode(Activator.PLUGIN_ID);
@@ -440,18 +422,12 @@ public class MetsProjectNature implements IProjectNature {
 		} catch (Exception e) {
 			throw new Error("unexpected", e);
 		}
-
 	}
-
-	/**
-	 * @return
-	 */
-	public IFileStore getStageFileStore() {
-		try {
-			return EFS.getStore(getStagingBase());
-		} catch (CoreException e) {
-			throw new Error(e);
-		}
+	
+	public java.net.URI getStagingStorageURI() throws StagingException {
+		URI manifest = this.getStagingManifestURI();
+		StagingArea area = StagingPlugin.getDefault().getStages().findMatchingArea(manifest);
+		return area.getStorageURI(manifest);
 	}
 
 	public static void setupBuildSpec(IProjectDescription desc,
