@@ -87,7 +87,7 @@ limitations under the License.
       <import plugin="org.eclipse.gmf.runtime.common.core" version="1.2.0" match="compatible"/>
       <import plugin="org.eclipse.emf.workspace" version="1.2.0" match="compatible"/>
       <import plugin="org.eclipse.gmf.runtime.emf.core" version="1.2.0" match="compatible"/>
-      <import plugin="org.irods.jargon.core" version="3.3.1" match="greaterOrEqual"/>
+      <import plugin="org.irods.jargon.core" version="3.2.1.4" match="equivalent"/>
       <import plugin="access-control" version="4.1.2" match="greaterOrEqual"/>
       <import plugin="net.sf.opencsv" version="2.3.0" match="greaterOrEqual"/>
       <import plugin="access-control.edit" version="4.1.2" match="greaterOrEqual"/>

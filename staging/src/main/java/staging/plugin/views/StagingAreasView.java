@@ -8,7 +8,6 @@ import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.jface.action.MenuManager;
-import org.eclipse.jface.action.Separator;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.ColumnLabelProvider;
@@ -32,7 +31,6 @@ import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.ISharedImages;
-import org.eclipse.ui.IWorkbenchActionConstants;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.ViewPart;
 
@@ -188,13 +186,7 @@ public class StagingAreasView extends ViewPart {
 
 			@Override
 			public String getToolTipText(Object element) {
-				StagingArea area = (StagingArea)element;
-				StringBuilder sb = new StringBuilder();
-				sb.append(area.getURI().toString());
-				if(area.isConnected()) {
-					sb.append("\n").append(area.getConnectedStorageURI().toString());
-				}
-				return sb.toString();
+				return getAreaTooltip(element);
 			}
 		});
 		TableViewerColumn col2 = createTableViewerColumn(titles[2], bounds[2], 2);
@@ -216,7 +208,7 @@ public class StagingAreasView extends ViewPart {
 
 			@Override
 			public String getToolTipText(Object element) {
-				return ((StagingArea)element).getStatus();
+				return getAreaTooltip(element);
 			}
 		});
 		TableViewerColumn col3 = createTableViewerColumn(titles[3], bounds[3], 3);
@@ -228,9 +220,22 @@ public class StagingAreasView extends ViewPart {
 
 			@Override
 			public String getToolTipText(Object element) {
-				return ((StagingArea)element).isReadOnly() ? "supports pre-staged files only" : "supports staging of captured files";
+				return getAreaTooltip(element);
 			}
 		});
+	}
+	
+	private String getAreaTooltip(Object element) {
+		StagingArea area = (StagingArea)element;
+		StringBuilder sb = new StringBuilder();
+		sb.append(area.getName()).append("\n");
+		sb.append(area.getURI()).append("\n");
+		sb.append(area.getStatus()).append("\n");
+		if(area.isConnected() && area.getConnectedStorageURI() != null) {
+			sb.append("\nmapped to ").append(area.getConnectedStorageURI().getPath()).append("\n");
+		}
+		sb.append( area.isReadOnly() ? "Read Only: can capture existing files" : "Writable: can stage any files" );
+		return sb.toString();
 	}
 	
 	public void refreshView() {
@@ -279,7 +284,7 @@ public class StagingAreasView extends ViewPart {
 		SharedStagingArea stage = (SharedStagingArea)sel.getFirstElement();
 		if(!stage.isConnected()) manager.add(actionConnect);
 		// Other plug-ins can contribute there actions here
-		manager.add(new Separator(IWorkbenchActionConstants.MB_ADDITIONS));
+		//manager.add(new Separator(IWorkbenchActionConstants.MB_ADDITIONS));
 	}
 
 	private void fillLocalToolBar(IToolBarManager manager) {
