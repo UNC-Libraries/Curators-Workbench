@@ -282,7 +282,7 @@ public class StagingAreasView extends ViewPart {
 	private void fillContextMenu(IMenuManager manager) {
 		IStructuredSelection sel = (IStructuredSelection) viewer.getSelection();
 		SharedStagingArea stage = (SharedStagingArea)sel.getFirstElement();
-		if(!stage.isConnected()) manager.add(actionConnect);
+		manager.add(actionConnect);
 		// Other plug-ins can contribute there actions here
 		//manager.add(new Separator(IWorkbenchActionConstants.MB_ADDITIONS));
 	}
@@ -311,6 +311,7 @@ public class StagingAreasView extends ViewPart {
 		actionConnect = new Action() {
 			public void run() {
 				IStructuredSelection sel = (IStructuredSelection) viewer.getSelection();
+				if(sel.isEmpty()) return;
 				SharedStagingArea stage = (SharedStagingArea)sel.getFirstElement();
 				StagingPlugin.getDefault().getStages().connect(stage.getURI());
 				if (!stage.isConnected()

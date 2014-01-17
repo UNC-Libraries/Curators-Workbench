@@ -1,0 +1,1378 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?pde version="3.8"?><target name="Eclipse Kepler" sequenceNumber="47">
+<locations>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.gmf.tooling.feature.group" version="3.1.0.201306121424"/>
+<unit id="org.eclipse.gmf.tooling.runtime.feature.group" version="3.1.0.201306121424"/>
+<unit id="org.eclipse.gmf.sdk.feature.group" version="3.1.0.201306121424"/>
+<repository location="http://download.eclipse.org/modeling/gmp/gmf-tooling/updates/releases/"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="mmt-feature.feature.group" version="4.1.4.201311132124"/>
+<repository location="http://www2.lib.unc.edu/software/workbench/p2/metadata-model-tools/"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.platform.ide" version="3.8.2.M20130131-0800"/>
+<unit id="org.eclipse.platform.sdk" version="3.8.2.M20130131-0800"/>
+<unit id="org.eclipse.rcp.feature.group" version="3.8.2.v20130118-180157-96BuGOZFxwOAeG8Ofmqicz0tPK"/>
+<unit id="org.eclipse.rcp.source.feature.group" version="3.8.2.v20130118-180157-96BuGOZFxwOAeG8Ofmqicz0tPK"/>
+<unit id="org.eclipse.sdk.ide" version="3.8.2.M20130131-0800"/>
+<unit id="org.eclipse.equinox.sdk.feature.group" version="3.8.0.v20121212-203907-7M7fA78g4_y-edvtH0ZcEC5NOFTB"/>
+<repository location="http://download.eclipse.org/eclipse/updates/3.8"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="log4j" version="1.2.17"/>
+<unit id="com.claymoresystems.puretls" version="1.1.0"/>
+<unit id="com.googlecode.juniversalchardet" version="1.0.3"/>
+<unit id="org.apache.commons.codec" version="1.4.0"/>
+<unit id="org.apache.commons.io" version="2.1.0"/>
+<unit id="commons-logging" version="1.1.1"/>
+<unit id="edu.unc.lib.cdr.staging-areas" version="0.0.1.20131115102826"/>
+<unit id="com.fasterxml.jackson.core.jackson-annotations" version="2.2.2"/>
+<unit id="com.fasterxml.jackson.core.jackson-core" version="2.2.2"/>
+<unit id="com.fasterxml.jackson.core.jackson-databind" version="2.2.2"/>
+<unit id="net.sf.opencsv" version="2.3.0"/>
+<unit id="org.ops4j.pax.configmanager" version="0.2.3"/>
+<unit id="org.ops4j.pax.logging.pax-logging-api" version="1.7.1"/>
+<unit id="org.ops4j.pax.logging.pax-logging-service" version="1.7.1"/>
+<unit id="org.globus.jglobus.cog-jglobus" version="1.8.0"/>
+<unit id="org.irods.jargon.core" version="3.2.1.4"/>
+<unit id="slf4j.api" version="1.7.5"/>
+<repository location="http://www2.lib.unc.edu/software/workbench/p2/maven-osgi-bundles/"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.epsilon.core.feature.feature.group" version="1.1.0.201309101707"/>
+<unit id="org.eclipse.epsilon.emf.dt.feature.feature.group" version="1.1.0.201309101707"/>
+<unit id="org.eclipse.epsilon.evl.emf.validation.feature.feature.group" version="1.1.0.201309101707"/>
+<unit id="org.eclipse.epsilon.ewl.emf.feature.feature.group" version="1.1.0.201309101707"/>
+<unit id="org.eclipse.epsilon.emf.feature.feature.group" version="1.1.0.201309101707"/>
+<unit id="org.eclipse.epsilon.eugenia.feature.feature.group" version="1.1.0.201309101707"/>
+<unit id="org.eclipse.epsilon.ewl.gmf.feature.feature.group" version="1.1.0.201309101707"/>
+<repository location="http://download.eclipse.org/epsilon/updates/"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.gmf.sdk.feature.group" version="3.1.0.201306121424"/>
+<repository location="http://download.eclipse.org/releases/kepler"/>
+</location>
+</locations>
+<includeBundles>
+<plugin id="org.eclipse.ltk.core.refactoring.source" version="3.6.0.v20120523-1543"/>
+<plugin id="org.eclipse.team.cvs.core.source"/>
+<plugin id="org.eclipse.core.expressions.source" version="3.4.400.v20120523-2004"/>
+<plugin id="org.eclipse.emf.validation.ui" version="1.3.0.v200901271722"/>
+<plugin id="org.eclipse.equinox.launcher.gtk.linux.x86_64"/>
+<plugin id="org.eclipse.core.contenttype.source" version="3.4.200.v20120523-2004"/>
+<plugin id="org.eclipse.help.source" version="3.6.0.v20120912-134126"/>
+<plugin id="org.eclipse.equinox.p2.jarprocessor.source" version="1.0.200.v20110808-1657"/>
+<plugin id="org.eclipse.gmf.runtime.common.ui.action.ide" version="1.5.0.v20101221-2230"/>
+<plugin id="org.eclipse.gmf.runtime.diagram.ui.geoshapes" version="1.4.1.v20101119-2230"/>
+<plugin id="org.eclipse.gmf.runtime.common.ui.services.action.source" version="1.4.0.v20100430-1518"/>
+<plugin id="org.antlr.runtime_3.1.b1" version="3.1"/>
+<plugin id="org.apache.ant.source" version="1.8.3.v201301120609"/>
+<plugin id="org.eclipse.epsilon.epl.engine"/>
+<plugin id="org.eclipse.emf.importer.source" version="2.6.0.v20120130-0943"/>
+<plugin id="org.eclipse.gmf.runtime.emf.type.ui.source" version="1.2.0.v20090403-1720"/>
+<plugin id="org.eclipse.compare.core.source" version="3.5.200.v20120522-1148"/>
+<plugin id="javax.servlet" version="3.0.0.v201112011016"/>
+<plugin id="org.eclipse.emf.codegen.ecore.ui.source" version="2.7.0.v20120130-0943"/>
+<plugin id="org.eclipse.jetty.continuation.source"/>
+<plugin id="org.eclipse.core.runtime.compatibility.auth"/>
+<plugin id="org.eclipse.gmf.runtime.common.ui.printing" version="1.4.0.v20100223-2359"/>
+<plugin id="crosswalk-gmf.editor"/>
+<plugin id="org.eclipse.gmf.runtime.common.ui.services.action" version="1.4.0.v20100430-1518"/>
+<plugin id="org.eclipse.emf.validation.source" version="1.4.0.v20100428-2315"/>
+<plugin id="org.eclipse.team.core" version="3.6.100.v20120524-0627"/>
+<plugin id="org.eclipse.gmf.runtime.common.ui.services.action.source" version="1.4.0.v20100430-1518"/>
+<plugin id="com.fasterxml.jackson.core.jackson-core"/>
+<plugin id="org.eclipse.ui.console" version="3.5.100.v20120521-2012"/>
+<plugin id="org.eclipse.ecf.identity.source"/>
+<plugin id="org.eclipse.ltk.ui.refactoring.source" version="3.7.0.v20120523-1543"/>
+<plugin id="org.eclipse.jdt.junit.runtime.source" version="3.4.301.v20120914-131016"/>
+<plugin id="org.eclipse.gmf.runtime.emf.ui.source" version="1.2.0.v20090403-1720"/>
+<plugin id="org.eclipse.ui.ide.source" version="3.8.2.v20121106-170106"/>
+<plugin id="org.eclipse.ocl.ecore.source" version="3.1.2.v20111015-2027"/>
+<plugin id="org.eclipse.team.ui.source" version="3.6.201.v20130125-135424"/>
+<plugin id="ch.qos.logback.slf4j" version="0.9.27.v20110224-1110"/>
+<plugin id="org.eclipse.emf.edit.source" version="2.7.2.v20120130-0943"/>
+<plugin id="org.eclipse.jetty.util.source"/>
+<plugin id="org.eclipse.gmf.runtime.notation.source" version="1.5.0.v20110309-2159"/>
+<plugin id="org.eclipse.core.resources.source" version="3.8.1.v20121114-124432"/>
+<plugin id="org.eclipse.rcp"/>
+<plugin id="org.eclipse.equinox.security.source" version="1.1.100.v20120522-1841"/>
+<plugin id="org.eclipse.equinox.util.source"/>
+<plugin id="org.apache.batik.svggen.source" version="1.6.0.v201011041432"/>
+<plugin id="org.eclipse.ui.workbench.texteditor.source" version="3.8.0.v20120523-1310"/>
+<plugin id="org.eclipse.gmf.runtime.gef.ui" version="1.4.1.v20101222-2230"/>
+<plugin id="org.eclipse.ltk.ui.refactoring" version="3.7.0.v20120523-1543"/>
+<plugin id="org.eclipse.equinox.p2.publisher.source" version="1.2.0.v20121002-080415"/>
+<plugin id="org.eclipse.osgi.services.source" version="3.3.100.v20120522-1822"/>
+<plugin id="org.eclipse.gmf.runtime.diagram.ui.actions" version="1.4.1.v20101221-2230"/>
+<plugin id="org.eclipse.core.databinding.property.source" version="1.4.100.v20120523-1956"/>
+<plugin id="org.eclipse.equinox.p2.garbagecollector.source" version="1.0.200.v20110808-1657"/>
+<plugin id="org.eclipse.gmf.tooldef.edit.source" version="2.3.0.201306121424"/>
+<plugin id="org.eclipse.epsilon.emc.emf.virtual"/>
+<plugin id="org.eclipse.jdt.junit.core" version="3.7.100.v20120523-1257"/>
+<plugin id="org.eclipse.emf.ecore.edit.source" version="2.7.1.v20120130-0943"/>
+<plugin id="com.googlecode.juniversalchardet" version="1.0.3"/>
+<plugin id="org.eclipse.gmf.runtime.emf.clipboard.core.source" version="1.5.0.v20110529-2230"/>
+<plugin id="org.eclipse.gmf.bridge.ui.source" version="1.5.0.201306121424"/>
+<plugin id="org.eclipse.jdt.debug.source" version="3.7.101.v20120913-153601"/>
+<plugin id="org.eclipse.core.runtime.source" version="3.8.0.v20120521-2346"/>
+<plugin id="org.eclipse.equinox.concurrent"/>
+<plugin id="org.eclipse.emf.ecore.change.edit" version="2.5.0.v20120130-0943"/>
+<plugin id="org.eclipse.equinox.preferences.source" version="3.5.1.v20121031-182809"/>
+<plugin id="org.eclipse.equinox.preferences" version="3.5.1.v20121031-182809"/>
+<plugin id="org.eclipse.equinox.p2.ui.importexport.source"/>
+<plugin id="javax.servlet.source" version="3.0.0.v201112011016"/>
+<plugin id="org.eclipse.emf.validation.ui.source" version="1.3.0.v200901271722"/>
+<plugin id="org.eclipse.ui.ide.source" version="3.8.2.v20121106-170106"/>
+<plugin id="org.eclipse.emf.ecore.source" version="2.7.0.v20120127-1122"/>
+<plugin id="org.eclipse.gmf.runtime.common.ui.printing.win32" version="1.4.0.v20100223-2359"/>
+<plugin id="org.eclipse.equinox.p2.discovery.compatibility"/>
+<plugin id="org.eclipse.ui.intro.source" version="3.4.200.v20120521-2344"/>
+<plugin id="org.eclipse.ui.navigator.resources.source" version="3.4.400.v20120523-1956"/>
+<plugin id="org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide.source" version="1.2.1.v20101119-2230"/>
+<plugin id="org.eclipse.compare.core.source" version="3.5.200.v20120522-1148"/>
+<plugin id="org.eclipse.help.base.source"/>
+<plugin id="org.eclipse.swt.gtk.linux.x86_64"/>
+<plugin id="org.eclipse.jface.source" version="3.8.0.v20120912-135020"/>
+<plugin id="org.apache.batik.util.source" version="1.6.0.v201011041432"/>
+<plugin id="org.eclipse.emf.ecore.xmi.source" version="2.7.0.v20120127-1122"/>
+<plugin id="org.eclipse.core.databinding" version="1.4.1.v20120912-135020"/>
+<plugin id="org.eclipse.platform.source"/>
+<plugin id="org.eclipse.jetty.http.source"/>
+<plugin id="org.eclipse.core.expressions.source" version="3.4.400.v20120523-2004"/>
+<plugin id="org.eclipse.equinox.security.source" version="1.1.100.v20120522-1841"/>
+<plugin id="org.eclipse.osgi.source" version="3.8.2.v20130124-134944"/>
+<plugin id="org.eclipse.emf.edit.ui.source" version="2.7.0.v20120130-0943"/>
+<plugin id="org.eclipse.epsilon.egl.dt"/>
+<plugin id="org.eclipse.equinox.device.source"/>
+<plugin id="org.eclipse.ocl.source" version="3.1.0.v20120206-0606"/>
+<plugin id="org.eclipse.equinox.p2.ui.source" version="2.2.0.v20130119-010614"/>
+<plugin id="org.eclipse.gmf.runtime.emf.commands.core.source" version="1.4.0.v20100423-2359"/>
+<plugin id="org.eclipse.core.jobs.source" version="3.5.200.v20120521-2346"/>
+<plugin id="org.eclipse.equinox.p2.updatesite"/>
+<plugin id="org.eclipse.gmf.runtime.diagram.ui.printing" version="1.4.1.v20101119-2230"/>
+<plugin id="org.eclipse.jdt.apt.core.source"/>
+<plugin id="org.eclipse.equinox.p2.extensionlocation"/>
+<plugin id="org.apache.batik.parser" version="1.6.0.v201011041432"/>
+<plugin id="org.eclipse.equinox.supplement" version="1.4.100.v20120522-1813"/>
+<plugin id="com.sun.el"/>
+<plugin id="org.eclipse.equinox.p2.touchpoint.eclipse" version="2.1.100.v20120428-0117"/>
+<plugin id="org.eclipse.equinox.cm.source"/>
+<plugin id="org.eclipse.gmf.runtime.diagram.ui.providers.ide.source" version="1.2.0.v20090403-1720"/>
+<plugin id="org.eclipse.gmf.graphdef.edit" version="2.9.0.201306121424"/>
+<plugin id="org.eclipse.gmf.runtime.emf.core.source" version="1.4.1.v20101222-2230"/>
+<plugin id="org.eclipse.pde.source"/>
+<plugin id="org.eclipse.pde.api.tools.ui"/>
+<plugin id="org.eclipse.gmf.runtime.diagram.ui.printing.render.source" version="1.4.1.v20101119-2230"/>
+<plugin id="org.apache.batik.svggen.source" version="1.6.0.v201011041432"/>
+<plugin id="org.eclipse.gmf.runtime.emf.clipboard.core" version="1.5.0.v20110529-2230"/>
+<plugin id="org.eclipse.m2m.qvt.oml.ecore.imperativeocl.source" version="3.1.0.v20101214-1530"/>
+<plugin id="org.eclipse.update.core"/>
+<plugin id="org.eclipse.jface.source" version="3.8.0.v20120912-135020"/>
+<plugin id="org.eclipse.equinox.p2.ui.admin.source"/>
+<plugin id="org.eclipse.core.filesystem" version="1.3.200.v20130115-145044"/>
+<plugin id="ch.qos.logback.classic.source" version="0.9.27.v20110224-1110"/>
+<plugin id="org.eclipse.emf.workspace.source" version="1.5.1.v20110823-1800"/>
+<plugin id="org.eclipse.compare.core" version="3.5.200.v20120522-1148"/>
+<plugin id="org.eclipse.pde.runtime"/>
+<plugin id="org.eclipse.draw2d.source" version="3.7.2.v20111017-2020"/>
+<plugin id="org.eclipse.equinox.security.source" version="1.1.100.v20120522-1841"/>
+<plugin id="org.eclipse.emf.mapping.ecore" version="2.6.0.v20120130-0943"/>
+<plugin id="org.eclipse.equinox.p2.operations.source" version="2.2.0.v20130119-010614"/>
+<plugin id="org.eclipse.equinox.p2.metadata.repository" version="1.2.100.v20120524-1717"/>
+<plugin id="org.eclipse.epsilon.ewl.emf"/>
+<plugin id="org.eclipse.jsch.core.source"/>
+<plugin id="com.fasterxml.jackson.core.jackson-databind"/>
+<plugin id="org.eclipse.ui.editors.source" version="3.8.0.v20120523-1540"/>
+<plugin id="org.eclipse.ltk.core.refactoring" version="3.6.0.v20120523-1543"/>
+<plugin id="org.eclipse.equinox.p2.director.app" version="1.0.300.v20120428-0517"/>
+<plugin id="org.eclipse.jface.source" version="3.8.0.v20120912-135020"/>
+<plugin id="org.eclipse.equinox.p2.installer.source"/>
+<plugin id="org.eclipse.emf.mapping.ecore2ecore.editor" version="2.5.0.v20120130-0943"/>
+<plugin id="javax.mail" version="1.4.0.v201005080615"/>
+<plugin id="org.eclipse.gmf.graphdef.codegen.ui.source"/>
+<plugin id="javax.servlet.source" version="3.0.0.v201112011016"/>
+<plugin id="org.eclipse.help.source" version="3.6.0.v20120912-134126"/>
+<plugin id="org.eclipse.ui.views.source" version="3.6.100.v20120521-2332"/>
+<plugin id="org.eclipse.gmf.codegen.source" version="2.9.0.201306121424"/>
+<plugin id="org.eclipse.epsilon.evl.emf.validation" version="1.1.0.201309101707"/>
+<plugin id="org.eclipse.pde.launching" version="3.6.100.v20120605-203027"/>
+<plugin id="org.eclipse.team.cvs.ui"/>
+<plugin id="org.eclipse.core.databinding.observable" version="1.4.1.v20120521-2332"/>
+<plugin id="org.eclipse.core.net.source"/>
+<plugin id="org.eclipse.emf.workspace.source" version="1.5.1.v20110823-1800"/>
+<plugin id="org.eclipse.cvs"/>
+<plugin id="org.eclipse.gmf.xpand.qvtlibrary.source" version="1.1.0.201306121424"/>
+<plugin id="org.eclipse.osgi.services.source" version="3.3.100.v20120522-1822"/>
+<plugin id="org.eclipse.jdt.core.source" version="3.8.3.v20130121-145325"/>
+<plugin id="org.eclipse.emf.codegen.ui.source" version="2.6.0.v20120130-0943"/>
+<plugin id="org.eclipse.gmf.runtime.diagram.ui.printing.render.source" version="1.4.1.v20101119-2230"/>
+<plugin id="org.eclipse.gmf.tooldef.source" version="2.3.0.201306121424"/>
+<plugin id="org.eclipse.gmf.tooling.runtime.source" version="3.1.0.201306121424"/>
+<plugin id="org.eclipse.equinox.p2.touchpoint.eclipse.source" version="2.1.100.v20120428-0117"/>
+<plugin id="org.eclipse.emf.common.source" version="2.7.0.v20120127-1122"/>
+<plugin id="org.eclipse.ui.navigator.resources" version="3.4.400.v20120523-1956"/>
+<plugin id="org.eclipse.emf.validation.ui.ide.source" version="1.3.0.v200901271722"/>
+<plugin id="org.eclipse.help.ui"/>
+<plugin id="org.eclipse.core.resources.source" version="3.8.1.v20121114-124432"/>
+<plugin id="org.jdom_1.0"/>
+<plugin id="org.eclipse.emf.validation" version="1.4.0.v20100428-2315"/>
+<plugin id="org.eclipse.ui.ide.source" version="3.8.2.v20121106-170106"/>
+<plugin id="org.eclipse.rcp.source"/>
+<plugin id="org.eclipse.ui.intro.universal.source"/>
+<plugin id="org.eclipse.core.filesystem.source" version="1.3.200.v20130115-145044"/>
+<plugin id="org.eclipse.help.source" version="3.6.0.v20120912-134126"/>
+<plugin id="access-control"/>
+<plugin id="org.eclipse.gmf.runtime.gef.ui.source" version="1.4.1.v20101222-2230"/>
+<plugin id="org.eclipse.jdt.annotation.source"/>
+<plugin id="org.eclipse.equinox.weaving.caching.j9.source"/>
+<plugin id="org.junit.source" version="3.8.2.v3_8_2_v20100427-1100"/>
+<plugin id="org.eclipse.gmf.codegen" version="2.9.0.201306121424"/>
+<plugin id="org.eclipse.equinox.coordinator"/>
+<plugin id="org.eclipse.debug.ui.source" version="3.8.2.v20130130-171415"/>
+<plugin id="org.eclipse.m2m.qvt.oml.runtime.source" version="3.1.0.v20110627-1530"/>
+<plugin id="org.eclipse.ocl.source" version="3.1.0.v20120206-0606"/>
+<plugin id="org.eclipse.gmf.runtime.diagram.ui.properties" version="1.4.2.v20101129-2230"/>
+<plugin id="org.eclipse.ui.forms.source" version="3.5.200.v20120521-2332"/>
+<plugin id="org.eclipse.emf.importer.java.source" version="2.6.0.v20120130-0943"/>
+<plugin id="org.eclipse.equinox.simpleconfigurator.source" version="1.0.301.v20120914-163612"/>
+<plugin id="org.eclipse.equinox.p2.updatechecker"/>
+<plugin id="org.apache.mina.core"/>
+<plugin id="org.eclipse.equinox.console.ssh.source"/>
+<plugin id="org.eclipse.gmf.runtime.common.ui.source" version="1.5.0.v20101221-2230"/>
+<plugin id="org.apache.batik.dom.source" version="1.6.0.v201011041432"/>
+<plugin id="org.eclipse.gmf.runtime.common.ui.printing.source" version="1.4.0.v20100223-2359"/>
+<plugin id="org.eclipse.gmf.runtime.diagram.ui.dnd.source" version="1.2.0.v20090403-1720"/>
+<plugin id="org.eclipse.jdt.launching.source" version="3.6.101.v20130111-183046"/>
+<plugin id="org.eclipse.emf.mapping.ecore.editor" version="2.6.0.v20120130-0943"/>
+<plugin id="org.eclipse.core.databinding.property.source" version="1.4.100.v20120523-1956"/>
+<plugin id="org.eclipse.jface.databinding.source" version="1.6.0.v20120912-135020"/>
+<plugin id="org.eclipse.emf.codegen.ecore.ui.source" version="2.7.0.v20120130-0943"/>
+<plugin id="org.eclipse.gmf.runtime.gef.ui.source" version="1.4.1.v20101222-2230"/>
+<plugin id="org.apache.batik.util.gui.source" version="1.6.0.v201011041432"/>
+<plugin id="mets.model"/>
+<plugin id="org.apache.batik.svggen.source" version="1.6.0.v201011041432"/>
+<plugin id="org.hamcrest.core" version="1.1.0.v20090501071000"/>
+<plugin id="org.eclipse.ui.presentations.r21.source"/>
+<plugin id="org.hamcrest.core.source" version="1.1.0.v20090501071000"/>
+<plugin id="org.eclipse.equinox.p2.repository.source" version="2.2.0.v20120524-1945"/>
+<plugin id="org.w3c.dom.events.source" version="3.0.0.draft20060413_v201105210656"/>
+<plugin id="org.eclipse.gmf.doc"/>
+<plugin id="ch.qos.logback.core" version="0.9.27.v20110224-1110"/>
+<plugin id="org.apache.jasper.glassfish.source"/>
+<plugin id="org.eclipse.gmf.runtime.emf.type.ui" version="1.2.0.v20090403-1720"/>
+<plugin id="org.eclipse.ui.workbench.compatibility.source"/>
+<plugin id="org.eclipse.equinox.p2.transport.ecf"/>
+<plugin id="org.eclipse.epsilon.eol.tools"/>
+<plugin id="org.eclipse.equinox.p2.ui.source" version="2.2.0.v20130119-010614"/>
+<plugin id="ch.qos.logback.slf4j.source" version="0.9.27.v20110224-1110"/>
+<plugin id="org.eclipse.gmf.xpand.source" version="2.1.0.201306121424"/>
+<plugin id="org.eclipse.emf.importer.source" version="2.6.0.v20120130-0943"/>
+<plugin id="org.eclipse.gef.source" version="3.7.2.v20111106-2020"/>
+<plugin id="org.eclipse.jetty.server.source"/>
+<plugin id="org.eclipse.ui.source" version="3.8.2.v20121018-234953"/>
+<plugin id="org.eclipse.jsch.ui"/>
+<plugin id="org.antlr.runtime_3.1.b1" version="3.1"/>
+<plugin id="org.eclipse.ecf.provider.filetransfer"/>
+<plugin id="org.eclipse.emf.validation.ui.ide" version="1.3.0.v200901271722"/>
+<plugin id="org.eclipse.update.configurator.source" version="3.3.200.v20120912-142556"/>
+<plugin id="org.eclipse.core.commands" version="3.6.1.v20120912-135020"/>
+<plugin id="org.eclipse.gmf.doc.ui"/>
+<plugin id="org.eclipse.jetty.security.source"/>
+<plugin id="org.eclipse.jface.text.source" version="3.8.2.v20121126-164145"/>
+<plugin id="org.eclipse.ecf.provider.filetransfer.ssl"/>
+<plugin id="org.eclipse.gmf.runtime.notation.source" version="1.5.0.v20110309-2159"/>
+<plugin id="org.eclipse.ui.views.source" version="3.6.100.v20120521-2332"/>
+<plugin id="org.eclipse.equinox.p2.ui.importexport"/>
+<plugin id="com.fasterxml.jackson.core.jackson-annotations"/>
+<plugin id="org.eclipse.epsilon.workflow.eugenia"/>
+<plugin id="org.eclipse.gmf.runtime.common.ui.source" version="1.5.0.v20101221-2230"/>
+<plugin id="org.eclipse.equinox.p2.console"/>
+<plugin id="org.eclipse.gmf.runtime.notation.source" version="1.5.0.v20110309-2159"/>
+<plugin id="org.eclipse.equinox.log.source" version="1.2.300.v20120912-130548"/>
+<plugin id="org.eclipse.ui.console.source" version="3.5.100.v20120521-2012"/>
+<plugin id="org.eclipse.gmf.graphdef.codegen.ui"/>
+<plugin id="org.eclipse.ui.presentations.r21"/>
+<plugin id="org.eclipse.gmf.runtime.common.ui.printing.source" version="1.4.0.v20100223-2359"/>
+<plugin id="org.eclipse.emf.importer.ecore" version="2.6.0.v20120130-0943"/>
+<plugin id="org.apache.batik.dom.svg.source" version="1.6.0.v201011041432"/>
+<plugin id="org.eclipse.update.ui.source"/>
+<plugin id="org.eclipse.gmf.codegen.source" version="2.9.0.201306121424"/>
+<plugin id="org.eclipse.compare.source" version="3.5.301.v20130125-135424"/>
+<plugin id="org.eclipse.equinox.security.ui.source" version="1.1.100.v20120522-2049"/>
+<plugin id="org.eclipse.gmf.ecore.editor.source"/>
+<plugin id="org.eclipse.team.cvs.ssh2.source"/>
+<plugin id="org.eclipse.gmf.runtime.emf.type.core.source" version="1.4.0.v20100423-2359"/>
+<plugin id="lpg.runtime.java.source" version="2.0.17.v201004271640"/>
+<plugin id="org.eclipse.emf.ecore.source" version="2.7.0.v20120127-1122"/>
+<plugin id="org.eclipse.equinox.weaving.hook"/>
+<plugin id="org.eclipse.gmf.runtime.common.ui.services.properties.source" version="1.3.1.v20101221-2230"/>
+<plugin id="org.eclipse.emf.mapping" version="2.7.0.v20120130-0943"/>
+<plugin id="org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide" version="1.2.1.v20101119-2230"/>
+<plugin id="org.eclipse.compare.core.source" version="3.5.200.v20120522-1148"/>
+<plugin id="org.eclipse.core.runtime.compatibility.auth.source"/>
+<plugin id="org.eclipse.equinox.registry.source" version="3.5.200.v20120522-1841"/>
+<plugin id="org.eclipse.equinox.bidi"/>
+<plugin id="org.eclipse.jface.text.source" version="3.8.2.v20121126-164145"/>
+<plugin id="org.eclipse.gmf.runtime.emf.type.core.source" version="1.4.0.v20100423-2359"/>
+<plugin id="org.eclipse.epsilon.workflow.emf"/>
+<plugin id="org.eclipse.gmf.runtime.notation.providers.source" version="1.3.0.v20100115-2350"/>
+<plugin id="org.eclipse.gmf.runtime.emf.type.ui.source" version="1.2.0.v20090403-1720"/>
+<plugin id="org.eclipse.equinox.weaving.hook.source"/>
+<plugin id="org.eclipse.gmf.runtime.emf.core.source" version="1.4.1.v20101222-2230"/>
+<plugin id="org.eclipse.equinox.supplement.source" version="1.4.100.v20120522-1813"/>
+<plugin id="org.eclipse.gmf.ecore.editor"/>
+<plugin id="org.eclipse.net4j.jms.api" version="3.0.1.v20110818-0811"/>
+<plugin id="org.eclipse.cvs.source"/>
+<plugin id="org.eclipse.core.runtime.source" version="3.8.0.v20120521-2346"/>
+<plugin id="org.eclipse.osgi.source" version="3.8.2.v20130124-134944"/>
+<plugin id="org.ops4j.pax.logging.pax-logging-api" version="1.7.1"/>
+<plugin id="org.eclipse.emf.validation.source" version="1.4.0.v20100428-2315"/>
+<plugin id="org.eclipse.equinox.p2.ui.sdk"/>
+<plugin id="org.eclipse.equinox.app" version="1.3.100.v20120522-1841"/>
+<plugin id="org.eclipse.jdt.core.source" version="3.8.3.v20130121-145325"/>
+<plugin id="org.eclipse.jdt.core.manipulation" version="1.5.0.v20120523-1543"/>
+<plugin id="org.eclipse.equinox.console.jaas.fragment"/>
+<plugin id="org.eclipse.gmf.runtime.draw2d.ui.source" version="1.5.0.v20110505-2230"/>
+<plugin id="org.eclipse.pde.launching.source" version="3.6.100.v20120605-203027"/>
+<plugin id="org.eclipse.core.externaltools.source" version="1.0.100.v20120521-2012"/>
+<plugin id="org.eclipse.equinox.p2.metadata.repository.source" version="1.2.100.v20120524-1717"/>
+<plugin id="org.eclipse.osgi.source" version="3.8.2.v20130124-134944"/>
+<plugin id="org.eclipse.equinox.p2.core.source" version="2.2.0.v20120430-0525"/>
+<plugin id="org.eclipse.equinox.http.jetty"/>
+<plugin id="org.eclipse.search.source" version="3.8.0.v20120523-1540"/>
+<plugin id="org.apache.batik.pdf" version="1.6.0.v201105071520"/>
+<plugin id="org.eclipse.equinox.servletbridge"/>
+<plugin id="javax.servlet.jsp"/>
+<plugin id="org.apache.commons.logging.source"/>
+<plugin id="javax.el"/>
+<plugin id="org.eclipse.core.databinding.beans.source" version="1.2.200.v20120523-1956"/>
+<plugin id="org.eclipse.epsilon.dependencies" version="1.1.0.201309101707"/>
+<plugin id="com.ibm.icu.source" version="4.4.2.v20110823"/>
+<plugin id="org.eclipse.pde.runtime.source"/>
+<plugin id="org.eclipse.ecf.provider.filetransfer.ssl.source"/>
+<plugin id="org.eclipse.epsilon.egl.dt.traceability.fine.emf"/>
+<plugin id="org.eclipse.equinox.p2.artifact.repository.source" version="1.1.200.v20120430-1959"/>
+<plugin id="org.eclipse.equinox.common.source" version="3.6.100.v20120522-1841"/>
+<plugin id="org.apache.batik.ext.awt.source" version="1.6.0.v201011041432"/>
+<plugin id="org.eclipse.core.commands.source" version="3.6.1.v20120912-135020"/>
+<plugin id="org.eclipse.gmf.runtime.common.ui.services.dnd.ide.source" version="1.5.0.v20101221-2230"/>
+<plugin id="org.eclipse.equinox.metatype.source"/>
+<plugin id="org.eclipse.jdt.junit.source" version="3.7.100.v20120523-1543"/>
+<plugin id="org.eclipse.emf.common.source" version="2.7.0.v20120127-1122"/>
+<plugin id="org.eclipse.m2m.qvt.oml.common" version="3.1.0.v20110518-1530"/>
+<plugin id="org.apache.ant.source" version="1.8.3.v201301120609"/>
+<plugin id="org.eclipse.team.ui" version="3.6.201.v20130125-135424"/>
+<plugin id="org.eclipse.m2m.qvt.oml.project.source" version="3.1.0.v20101214-1530"/>
+<plugin id="org.eclipse.equinox.ds"/>
+<plugin id="org.eclipse.gmf.runtime.notation.edit" version="1.4.0.v20100512-1416"/>
+<plugin id="org.eclipse.equinox.p2.console.source"/>
+<plugin id="org.eclipse.ui.browser.source"/>
+<plugin id="org.eclipse.jdt.compiler.apt"/>
+<plugin id="org.eclipse.emf.transaction.ui.source" version="1.4.0.v20090819-1300"/>
+<plugin id="org.eclipse.jface" version="3.8.0.v20120912-135020"/>
+<plugin id="org.eclipse.ocl.ecore.source" version="3.1.2.v20111015-2027"/>
+<plugin id="org.eclipse.m2m.qvt.oml.cst.parser.source" version="3.1.0.v20101214-1530"/>
+<plugin id="org.eclipse.jetty.security"/>
+<plugin id="org.eclipse.ant.core.source" version="3.2.401.v20121204-161613"/>
+<plugin id="org.eclipse.team.ui.source" version="3.6.201.v20130125-135424"/>
+<plugin id="org.eclipse.emf.common.source" version="2.7.0.v20120127-1122"/>
+<plugin id="org.eclipse.equinox.servletbridge.source"/>
+<plugin id="org.eclipse.gmf.runtime.common.ui.action.source" version="1.5.0.v20110607-1200"/>
+<plugin id="org.eclipse.emf.codegen.ecore.ui.source" version="2.7.0.v20120130-0943"/>
+<plugin id="org.eclipse.jdt.ui.source" version="3.8.2.v20130107-165834"/>
+<plugin id="org.apache.commons.logging"/>
+<plugin id="org.eclipse.equinox.p2.reconciler.dropins.source"/>
+<plugin id="org.eclipse.equinox.simpleconfigurator.manipulator" version="2.0.0.v20110808-1657"/>
+<plugin id="org.eclipse.equinox.jsp.jasper.registry"/>
+<plugin id="org.eclipse.ui.source" version="3.8.2.v20121018-234953"/>
+<plugin id="org.eclipse.emf.importer.ecore.source" version="2.6.0.v20120130-0943"/>
+<plugin id="org.eclipse.help" version="3.6.0.v20120912-134126"/>
+<plugin id="org.eclipse.team.ui.source" version="3.6.201.v20130125-135424"/>
+<plugin id="org.apache.batik.util.gui" version="1.6.0.v201011041432"/>
+<plugin id="edu.unc.lib.cdr.staging-areas"/>
+<plugin id="org.eclipse.gmf.bridge.ui" version="1.5.0.201306121424"/>
+<plugin id="org.eclipse.equinox.p2.garbagecollector" version="1.0.200.v20110808-1657"/>
+<plugin id="org.eclipse.gmf.runtime.diagram.ui.properties.source" version="1.4.2.v20101129-2230"/>
+<plugin id="org.eclipse.jetty.io"/>
+<plugin id="org.eclipse.equinox.registry.source" version="3.5.200.v20120522-1841"/>
+<plugin id="org.eclipse.equinox.metatype"/>
+<plugin id="org.eclipse.ui.workbench.source" version="3.8.2.v20121128-133708"/>
+<plugin id="org.apache.batik.xml.source" version="1.6.0.v201011041432"/>
+<plugin id="org.eclipse.jdt.core.manipulation.source" version="1.5.0.v20120523-1543"/>
+<plugin id="org.eclipse.ui.views.properties.tabbed.source" version="3.5.300.v20120912-135020"/>
+<plugin id="org.eclipse.equinox.app.source" version="1.3.100.v20120522-1841"/>
+<plugin id="org.eclipse.gmf.runtime.draw2d.ui.source" version="1.5.0.v20110505-2230"/>
+<plugin id="org.apache.batik.ext.awt.source" version="1.6.0.v201011041432"/>
+<plugin id="org.eclipse.core.contenttype.source" version="3.4.200.v20120523-2004"/>
+<plugin id="org.eclipse.epsilon.flock.engine"/>
+<plugin id="org.apache.ant" version="1.8.3.v201301120609"/>
+<plugin id="org.eclipse.core.variables.source" version="3.2.600.v20120521-2012"/>
+<plugin id="org.eclipse.jetty.server"/>
+<plugin id="org.eclipse.gmf.common.source" version="1.3.0.201306121424"/>
+<plugin id="org.eclipse.gmf.xpand.source" version="2.1.0.201306121424"/>
+<plugin id="org.eclipse.gmf.runtime.diagram.core" version="1.4.1.v20101221-2230"/>
+<plugin id="org.eclipse.core.resources.source" version="3.8.1.v20121114-124432"/>
+<plugin id="com.ibm.icu.source" version="4.4.2.v20110823"/>
+<plugin id="org.eclipse.jdt.debug" version="3.7.101.v20120913-153601"/>
+<plugin id="org.eclipse.emf.importer.rose" version="2.6.0.v20120130-0943"/>
+<plugin id="org.eclipse.equinox.http.servlet.source"/>
+<plugin id="org.eclipse.gmf.bridge.source" version="1.3.0.201306121424"/>
+<plugin id="org.eclipse.emf" version="2.6.0.v20120130-0943"/>
+<plugin id="org.eclipse.gmf.runtime.emf.ui.source" version="1.2.0.v20090403-1720"/>
+<plugin id="org.eclipse.equinox.frameworkadmin" version="2.0.100.v20120913-155515"/>
+<plugin id="org.eclipse.gmf.runtime.diagram.ui.render.source" version="1.4.1.v20101119-2230"/>
+<plugin id="org.eclipse.equinox.p2.extensionlocation.source"/>
+<plugin id="org.eclipse.equinox.app.source" version="1.3.100.v20120522-1841"/>
+<plugin id="org.apache.batik.util.source" version="1.6.0.v201011041432"/>
+<plugin id="org.apache.ant.source" version="1.8.3.v201301120609"/>
+<plugin id="org.apache.commons.codec" version="1.4"/>
+<plugin id="org.eclipse.core.databinding.beans.source" version="1.2.200.v20120523-1956"/>
+<plugin id="org.eclipse.ui.browser"/>
+<plugin id="org.eclipse.equinox.p2.engine.source" version="2.2.0.v20130121-021919"/>
+<plugin id="org.eclipse.emf.ecore.change.source" version="2.7.1.v20120127-1122"/>
+<plugin id="org.eclipse.jdt.debug.ui.source" version="3.6.100.v20120530-1425"/>
+<plugin id="org.eclipse.gmf.runtime.diagram.ui" version="1.5.0.v20110309-2230"/>
+<plugin id="org.eclipse.gmf.bridge.trace"/>
+<plugin id="org.eclipse.gmf.common" version="1.3.0.201306121424"/>
+<plugin id="org.eclipse.gmf.runtime.diagram.ui.actions.source" version="1.4.1.v20101221-2230"/>
+<plugin id="org.eclipse.equinox.launcher"/>
+<plugin id="org.eclipse.gmf.runtime.diagram.ui.resources.editor" version="1.4.1.v20101119-2230"/>
+<plugin id="org.eclipse.ui.externaltools.source" version="3.2.100.v20120530-1753"/>
+<plugin id="org.eclipse.equinox.p2.engine" version="2.2.0.v20130121-021919"/>
+<plugin id="org.eclipse.gmf.graphdef.source" version="2.9.0.201306121424"/>
+<plugin id="org.sat4j.core" version="2.3.0.v20110329"/>
+<plugin id="org.eclipse.gmf.runtime.sdk" version="1.4.1.v20100716-2230"/>
+<plugin id="org.eclipse.jdt.doc.isv"/>
+<plugin id="org.eclipse.emf.ecore.editor.source" version="2.7.0.v20120130-0943"/>
+<plugin id="org.eclipse.ui.views.properties.tabbed.source" version="3.5.300.v20120912-135020"/>
+<plugin id="org.eclipse.epsilon.eol.engine" version="1.1.0.201309101707"/>
+<plugin id="org.eclipse.gmf.runtime.common.ui.action.source" version="1.5.0.v20110607-1200"/>
+<plugin id="org.eclipse.gmf.runtime.common.ui.services.dnd" version="1.5.0.v20101221-2230"/>
+<plugin id="org.eclipse.ui.workbench.source" version="3.8.2.v20121128-133708"/>
+<plugin id="org.eclipse.gef.source" version="3.7.2.v20111106-2020"/>
+<plugin id="com.ibm.icu" version="4.4.2.v20110823"/>
+<plugin id="org.eclipse.equinox.simpleconfigurator.source" version="1.0.301.v20120914-163612"/>
+<plugin id="org.eclipse.core.filebuffers.source" version="3.5.200.v20120523-1310"/>
+<plugin id="org.eclipse.equinox.common.source" version="3.6.100.v20120522-1841"/>
+<plugin id="org.eclipse.equinox.jsp.jasper"/>
+<plugin id="com.sun.el.source"/>
+<plugin id="org.eclipse.gmf.runtime.diagram.ui.providers.source" version="1.5.0.v20110216-2230"/>
+<plugin id="org.eclipse.update.scheduler.source"/>
+<plugin id="org.eclipse.pde.ds.ui.source"/>
+<plugin id="org.eclipse.epsilon.workflow"/>
+<plugin id="access-control.edit"/>
+<plugin id="org.eclipse.ltk.ui.refactoring.source" version="3.7.0.v20120523-1543"/>
+<plugin id="org.eclipse.equinox.p2.repository" version="2.2.0.v20120524-1945"/>
+<plugin id="org.apache.batik.svggen" version="1.6.0.v201011041432"/>
+<plugin id="org.eclipse.gmf.runtime.diagram.ui.printing.source" version="1.4.1.v20101119-2230"/>
+<plugin id="org.eclipse.ant.launching.source" version="1.0.200.v20120530-120908"/>
+<plugin id="org.eclipse.jdt.launching.source" version="3.6.101.v20130111-183046"/>
+<plugin id="org.eclipse.equinox.region"/>
+<plugin id="org.eclipse.help.source" version="3.6.0.v20120912-134126"/>
+<plugin id="org.eclipse.equinox.preferences.source" version="3.5.1.v20121031-182809"/>
+<plugin id="org.eclipse.equinox.io.source"/>
+<plugin id="org.eclipse.ui.workbench.texteditor.source" version="3.8.0.v20120523-1310"/>
+<plugin id="org.eclipse.emf.mapping.ui" version="2.6.0.v20120130-0943"/>
+<plugin id="org.apache.batik.util.gui.source" version="1.6.0.v201011041432"/>
+<plugin id="org.eclipse.pde.ua.core"/>
+<plugin id="org.eclipse.ui.trace.source"/>
+<plugin id="org.eclipse.jdt.junit4.runtime.source"/>
+<plugin id="org.eclipse.core.filebuffers.source" version="3.5.200.v20120523-1310"/>
+<plugin id="org.eclipse.osgi.source" version="3.8.2.v20130124-134944"/>
+<plugin id="org.eclipse.emf.mapping.ecore2xml" version="2.7.0.v20120130-0943"/>
+<plugin id="lpg.runtime.java.source" version="2.0.17.v201004271640"/>
+<plugin id="org.eclipse.gmf.runtime.common.core.source" version="1.4.1.v20101119-2230"/>
+<plugin id="org.w3c.css.sac" version="1.3.1.v200903091627"/>
+<plugin id="org.eclipse.equinox.event"/>
+<plugin id="org.apache.felix.gogo.runtime.source" version="0.8.0.v201108120515"/>
+<plugin id="org.eclipse.core.databinding.property.source" version="1.4.100.v20120523-1956"/>
+<plugin id="org.eclipse.m2m.qvt.oml.project.source" version="3.1.0.v20101214-1530"/>
+<plugin id="org.eclipse.equinox.weaving.caching.j9"/>
+<plugin id="org.eclipse.pde.ds.ui"/>
+<plugin id="org.eclipse.osgi.util.source"/>
+<plugin id="org.eclipse.jdt.core.source" version="3.8.3.v20130121-145325"/>
+<plugin id="org.apache.lucene"/>
+<plugin id="org.eclipse.ecf"/>
+<plugin id="org.eclipse.ecf.filetransfer.source"/>
+<plugin id="org.eclipse.core.jobs.source" version="3.5.200.v20120521-2346"/>
+<plugin id="javax.activation.source" version="1.1.0.v201108011116"/>
+<plugin id="org.eclipse.ui.views" version="3.6.100.v20120521-2332"/>
+<plugin id="org.eclipse.gmf.xpand.editor.source"/>
+<plugin id="org.eclipse.equinox.p2.core.source" version="2.2.0.v20120430-0525"/>
+<plugin id="org.eclipse.emf.workspace.ui.source" version="1.3.0.v200901271819"/>
+<plugin id="org.apache.batik.parser.source" version="1.6.0.v201011041432"/>
+<plugin id="org.eclipse.epsilon.ecl.dt"/>
+<plugin id="org.eclipse.m2m.qvt.oml.project" version="3.1.0.v20101214-1530"/>
+<plugin id="javax.mail" version="1.4.0.v201005080615"/>
+<plugin id="org.eclipse.gmf.runtime.emf.clipboard.core.source" version="1.5.0.v20110529-2230"/>
+<plugin id="org.eclipse.help.base"/>
+<plugin id="org.eclipse.ui.editors" version="3.8.0.v20120523-1540"/>
+<plugin id="org.apache.batik.bridge.source" version="1.6.0.v201011041432"/>
+<plugin id="org.eclipse.debug.core.source" version="3.7.100.v20120521-2012"/>
+<plugin id="org.eclipse.ui.views.log.source" version="1.0.300.v20120530-1435"/>
+<plugin id="org.eclipse.gmf.runtime.common.ui.services.source" version="1.3.1.v20101118-2230"/>
+<plugin id="org.apache.mina.core.source"/>
+<plugin id="org.eclipse.emf.validation.source" version="1.4.0.v20100428-2315"/>
+<plugin id="org.eclipse.equinox.security.ui" version="1.1.100.v20120522-2049"/>
+<plugin id="org.eclipse.core.expressions.source" version="3.4.400.v20120523-2004"/>
+<plugin id="org.eclipse.core.filebuffers.source" version="3.5.200.v20120523-1310"/>
+<plugin id="org.eclipse.equinox.p2.reconciler.dropins"/>
+<plugin id="org.eclipse.epsilon.erl.engine" version="1.1.0.201309101707"/>
+<plugin id="org.eclipse.ui.ide.source" version="3.8.2.v20121106-170106"/>
+<plugin id="org.w3c.css.sac.source" version="1.3.1.v200903091627"/>
+<plugin id="org.eclipse.gmf.runtime.emf.commands.core" version="1.4.0.v20100423-2359"/>
+<plugin id="org.eclipse.core.databinding.source" version="1.4.1.v20120912-135020"/>
+<plugin id="org.eclipse.gmf.runtime.diagram.ui.properties.source" version="1.4.2.v20101129-2230"/>
+<plugin id="org.eclipse.ui.net"/>
+<plugin id="org.eclipse.equinox.launcher.source"/>
+<plugin id="org.eclipse.equinox.p2.repository.source" version="2.2.0.v20120524-1945"/>
+<plugin id="org.eclipse.gmf.runtime.common.ui.services.properties.source" version="1.3.1.v20101221-2230"/>
+<plugin id="org.eclipse.ui.navigator.source" version="3.5.200.v20120523-1956"/>
+<plugin id="org.eclipse.update.core.source"/>
+<plugin id="org.eclipse.equinox.app.source" version="1.3.100.v20120522-1841"/>
+<plugin id="org.apache.commons.codec" version="1.3.0.v201101211617"/>
+<plugin id="org.eclipse.gmf.runtime.common.ui.source" version="1.5.0.v20101221-2230"/>
+<plugin id="org.eclipse.ocl.source" version="3.1.0.v20120206-0606"/>
+<plugin id="org.eclipse.emf.mapping.ecore2ecore.editor.source" version="2.5.0.v20120130-0943"/>
+<plugin id="org.eclipse.epsilon.egl.dt.traceability.editor"/>
+<plugin id="org.eclipse.gmf.runtime.draw2d.ui.render.source" version="1.4.1.v20101119-2230"/>
+<plugin id="org.eclipse.jdt.launching" version="3.6.101.v20130111-183046"/>
+<plugin id="org.eclipse.swt.gtk.linux.x86_64.source"/>
+<plugin id="org.eclipse.emf.databinding.edit.source" version="1.2.0.v20120130-0943"/>
+<plugin id="org.eclipse.gmf.runtime.draw2d.ui" version="1.5.0.v20110505-2230"/>
+<plugin id="org.eclipse.equinox.useradmin.source"/>
+<plugin id="org.eclipse.core.externaltools" version="1.0.100.v20120521-2012"/>
+<plugin id="org.eclipse.equinox.p2.publisher.eclipse.source" version="1.1.0.v20120913-155635"/>
+<plugin id="org.eclipse.osgi.services.source" version="3.3.100.v20120522-1822"/>
+<plugin id="org.eclipse.emf.converter.source" version="2.5.0.v20120130-0943"/>
+<plugin id="org.eclipse.help.appserver.source"/>
+<plugin id="org.eclipse.jdt.ui.source" version="3.8.2.v20130107-165834"/>
+<plugin id="org.eclipse.gmf.runtime.common.ui.services.dnd.ide" version="1.5.0.v20101221-2230"/>
+<plugin id="org.eclipse.gmf.examples.runtime.ui.pde" version="1.4.1.v20100716-2230"/>
+<plugin id="org.eclipse.ant.launching" version="1.0.200.v20120530-120908"/>
+<plugin id="org.eclipse.emf.converter" version="2.5.0.v20120130-0943"/>
+<plugin id="org.eclipse.ocl.source" version="3.1.0.v20120206-0606"/>
+<plugin id="org.eclipse.emf.ant" version="2.7.0.v20120130-0943"/>
+<plugin id="org.eclipse.pde.ui.templates.source"/>
+<plugin id="org.eclipse.equinox.p2.engine.source" version="2.2.0.v20130121-021919"/>
+<plugin id="org.eclipse.equinox.p2.publisher.source" version="1.2.0.v20121002-080415"/>
+<plugin id="org.eclipse.emf.edit" version="2.7.2.v20120130-0943"/>
+<plugin id="org.eclipse.ui.views.properties.tabbed.source" version="3.5.300.v20120912-135020"/>
+<plugin id="org.eclipse.epsilon.egl.engine"/>
+<plugin id="org.apache.felix.gogo.command" version="0.8.0.v201108120515"/>
+<plugin id="org.eclipse.core.filesystem.linux.x86_64"/>
+<plugin id="org.apache.batik.ext.awt" version="1.6.0.v201011041432"/>
+<plugin id="org.eclipse.equinox.http.servletbridge"/>
+<plugin id="org.eclipse.core.databinding.beans" version="1.2.200.v20120523-1956"/>
+<plugin id="org.eclipse.team.core.source" version="3.6.100.v20120524-0627"/>
+<plugin id="org.eclipse.gmf.runtime.diagram.ui.render.source" version="1.4.1.v20101119-2230"/>
+<plugin id="org.apache.batik.util" version="1.6.0.v201011041432"/>
+<plugin id="org.eclipse.pde.junit.runtime.source"/>
+<plugin id="org.eclipse.equinox.log.source" version="1.2.300.v20120912-130548"/>
+<plugin id="org.eclipse.emf.codegen" version="2.6.0.v20120130-0943"/>
+<plugin id="org.eclipse.gmf.runtime.notation.source" version="1.5.0.v20110309-2159"/>
+<plugin id="org.junit.source" version="4.10.0.v4_10_0_v20120426-0900"/>
+<plugin id="org.eclipse.update.scheduler"/>
+<plugin id="org.eclipse.emf.transaction.source" version="1.4.0.v20100331-1738"/>
+<plugin id="org.eclipse.emf.codegen.ecore.source" version="2.7.0.v20120130-0943"/>
+<plugin id="org.eclipse.gmf.runtime.emf.ui.source" version="1.2.0.v20090403-1720"/>
+<plugin id="org.apache.batik.bridge.source" version="1.6.0.v201011041432"/>
+<plugin id="org.apache.batik.dom.source" version="1.6.0.v201011041432"/>
+<plugin id="org.apache.felix.gogo.command.source" version="0.8.0.v201108120515"/>
+<plugin id="org.eclipse.equinox.console.jaas.fragment.source"/>
+<plugin id="org.eclipse.ui.ide.application"/>
+<plugin id="com.ibm.icu.source" version="4.4.2.v20110823"/>
+<plugin id="org.eclipse.jface.databinding.source" version="1.6.0.v20120912-135020"/>
+<plugin id="org.eclipse.equinox.weaving.aspectj.source"/>
+<plugin id="org.eclipse.jdt.junit.runtime" version="3.4.301.v20120914-131016"/>
+<plugin id="org.eclipse.ui.views.source" version="3.6.100.v20120521-2332"/>
+<plugin id="org.eclipse.jdt.junit.core.source" version="3.7.100.v20120523-1257"/>
+<plugin id="org.eclipse.equinox.p2.publisher.eclipse" version="1.1.0.v20120913-155635"/>
+<plugin id="org.eclipse.ltk.core.refactoring.source" version="3.6.0.v20120523-1543"/>
+<plugin id="org.eclipse.equinox.p2.core.source" version="2.2.0.v20120430-0525"/>
+<plugin id="org.eclipse.equinox.event.source"/>
+<plugin id="org.eclipse.core.expressions.source" version="3.4.400.v20120523-2004"/>
+<plugin id="org.eclipse.epsilon.eml.engine"/>
+<plugin id="org.eclipse.help.webapp.source"/>
+<plugin id="mods.model.edit"/>
+<plugin id="org.eclipse.ui" version="3.8.2.v20121018-234953"/>
+<plugin id="org.eclipse.jetty.servlet"/>
+<plugin id="org.eclipse.emf.workspace.ui.source" version="1.3.0.v200901271819"/>
+<plugin id="org.eclipse.gmf.codegen.edit"/>
+<plugin id="org.eclipse.gmf.tooldef" version="2.3.0.201306121424"/>
+<plugin id="org.eclipse.ui.navigator.resources.source" version="3.4.400.v20120523-1956"/>
+<plugin id="org.eclipse.emf.edit.ui.source" version="2.7.0.v20120130-0943"/>
+<plugin id="org.eclipse.ui.views.properties.tabbed" version="3.5.300.v20120912-135020"/>
+<plugin id="org.eclipse.gmf.graphdef.codegen.source" version="2.9.0.201306121424"/>
+<plugin id="org.apache.lucene.core"/>
+<plugin id="org.apache.batik.css.source" version="1.6.0.v201011041432"/>
+<plugin id="org.eclipse.equinox.p2.core.source" version="2.2.0.v20120430-0525"/>
+<plugin id="org.eclipse.equinox.p2.garbagecollector.source" version="1.0.200.v20110808-1657"/>
+<plugin id="org.eclipse.ecf.ssl"/>
+<plugin id="org.eclipse.equinox.p2.ui.discovery"/>
+<plugin id="org.eclipse.jsch.ui.source"/>
+<plugin id="org.eclipse.gmf.validate.source" version="1.2.0.201306121424"/>
+<plugin id="org.w3c.dom.svg.source" version="1.1.0.v201011041433"/>
+<plugin id="org.eclipse.gmf.xpand" version="2.1.0.201306121424"/>
+<plugin id="ch.qos.logback.core.source" version="0.9.27.v20110224-1110"/>
+<plugin id="org.eclipse.equinox.p2.repository.source" version="2.2.0.v20120524-1945"/>
+<plugin id="org.eclipse.gmf.common.source" version="1.3.0.201306121424"/>
+<plugin id="org.apache.felix.gogo.runtime.source" version="0.8.0.v201108120515"/>
+<plugin id="org.eclipse.equinox.weaving.caching"/>
+<plugin id="org.eclipse.equinox.wireadmin"/>
+<plugin id="org.eclipse.equinox.registry.source" version="3.5.200.v20120522-1841"/>
+<plugin id="org.eclipse.emf.transaction.source" version="1.4.0.v20100331-1738"/>
+<plugin id="org.eclipse.m2m.qvt.oml.emf.util.source" version="3.1.0.v20110627-1530"/>
+<plugin id="org.apache.felix.gogo.runtime" version="0.8.0.v201108120515"/>
+<plugin id="org.eclipse.ui.navigator.resources.source" version="3.4.400.v20120523-1956"/>
+<plugin id="org.eclipse.epsilon.emc.emf.decorator.dt"/>
+<plugin id="org.eclipse.equinox.p2.metadata.source" version="2.1.0.v20120430-2001"/>
+<plugin id="ch.qos.logback.classic" version="0.9.27.v20110224-1110"/>
+<plugin id="org.eclipse.equinox.console"/>
+<plugin id="org.apache.lucene.source"/>
+<plugin id="org.eclipse.equinox.common" version="3.6.100.v20120522-1841"/>
+<plugin id="org.eclipse.gmf.graphdef.codegen.source" version="2.9.0.201306121424"/>
+<plugin id="org.eclipse.jdt.apt.ui.source"/>
+<plugin id="org.eclipse.jdt.source"/>
+<plugin id="org.eclipse.core.resources.source" version="3.8.1.v20121114-124432"/>
+<plugin id="org.eclipse.equinox.security.ui.source" version="1.1.100.v20120522-2049"/>
+<plugin id="org.eclipse.m2m.qvt.oml.ecore.imperativeocl.source" version="3.1.0.v20101214-1530"/>
+<plugin id="org.eclipse.equinox.registry.source" version="3.5.200.v20120522-1841"/>
+<plugin id="org.eclipse.equinox.log.source" version="1.2.300.v20120912-130548"/>
+<plugin id="org.eclipse.equinox.p2.touchpoint.eclipse.source" version="2.1.100.v20120428-0117"/>
+<plugin id="org.eclipse.equinox.simpleconfigurator.manipulator.source" version="2.0.0.v20110808-1657"/>
+<plugin id="org.eclipse.net4j.jms.api" version="3.0.1.v20110818-0811"/>
+<plugin id="org.eclipse.jdt.launching.source" version="3.6.101.v20130111-183046"/>
+<plugin id="org.eclipse.epsilon.common.dt" version="1.1.0.201309101707"/>
+<plugin id="org.eclipse.emf.workspace.source" version="1.5.1.v20110823-1800"/>
+<plugin id="org.eclipse.equinox.p2.ui.sdk.scheduler.source"/>
+<plugin id="org.eclipse.equinox.p2.director.source" version="2.2.0.v20120524-0542"/>
+<plugin id="org.eclipse.core.externaltools.source" version="1.0.100.v20120521-2012"/>
+<plugin id="org.eclipse.emf.edit.source" version="2.7.2.v20120130-0943"/>
+<plugin id="org.w3c.css.sac.source" version="1.3.1.v200903091627"/>
+<plugin id="org.apache.batik.css" version="1.6.0.v201011041432"/>
+<plugin id="org.eclipse.m2m.qvt.oml.cst.parser" version="3.1.0.v20101214-1530"/>
+<plugin id="org.eclipse.ltk.core.refactoring.source" version="3.6.0.v20120523-1543"/>
+<plugin id="org.eclipse.core.jobs.source" version="3.5.200.v20120521-2346"/>
+<plugin id="org.apache.jasper.glassfish"/>
+<plugin id="org.eclipse.m2m.qvt.oml.runtime.source" version="3.1.0.v20110627-1530"/>
+<plugin id="org.eclipse.epsilon.ewl.engine"/>
+<plugin id="org.eclipse.gmf.codegen.ui"/>
+<plugin id="org.eclipse.equinox.frameworkadmin.equinox.source" version="1.0.400.v20120913-155709"/>
+<plugin id="org.eclipse.gmf.runtime.common.ui.services.action.source" version="1.4.0.v20100430-1518"/>
+<plugin id="org.eclipse.emf.ecore" version="2.7.0.v20120127-1122"/>
+<plugin id="org.eclipse.equinox.supplement.source" version="1.4.100.v20120522-1813"/>
+<plugin id="org.eclipse.emf.edit.source" version="2.7.2.v20120130-0943"/>
+<plugin id="org.apache.batik.parser.source" version="1.6.0.v201011041432"/>
+<plugin id="org.eclipse.core.filesystem.source" version="1.3.200.v20130115-145044"/>
+<plugin id="org.eclipse.emf.mapping.source" version="2.7.0.v20120130-0943"/>
+<plugin id="org.eclipse.m2m.qvt.oml.runtime" version="3.1.0.v20110627-1530"/>
+<plugin id="org.eclipse.equinox.p2.ui" version="2.2.0.v20130119-010614"/>
+<plugin id="org.eclipse.equinox.p2.metadata" version="2.1.0.v20120430-2001"/>
+<plugin id="org.eclipse.ui.cheatsheets" version="3.4.200.v20120521-2344"/>
+<plugin id="org.ops4j.pax.logging.pax-logging-api" version="1.7.1"/>
+<plugin id="org.eclipse.equinox.transforms.hook"/>
+<plugin id="org.eclipse.equinox.p2.engine.source" version="2.2.0.v20130121-021919"/>
+<plugin id="org.eclipse.gmf.runtime.diagram.ui.printing.render" version="1.4.1.v20101119-2230"/>
+<plugin id="org.eclipse.equinox.security" version="1.1.100.v20120522-1841"/>
+<plugin id="org.eclipse.gmf.runtime.common.ui.action.source" version="1.5.0.v20110607-1200"/>
+<plugin id="org.eclipse.emf.edit.ui.source" version="2.7.0.v20120130-0943"/>
+<plugin id="org.eclipse.core.runtime.source" version="3.8.0.v20120521-2346"/>
+<plugin id="org.eclipse.platform.doc.user"/>
+<plugin id="org.eclipse.help.webapp"/>
+<plugin id="org.eclipse.emf.ecore.edit" version="2.7.1.v20120130-0943"/>
+<plugin id="org.eclipse.core.databinding.observable.source" version="1.4.1.v20120521-2332"/>
+<plugin id="org.eclipse.ocl.ecore" version="3.1.2.v20111015-2027"/>
+<plugin id="org.apache.felix.gogo.command.source" version="0.8.0.v201108120515"/>
+<plugin id="org.eclipse.jetty.util"/>
+<plugin id="org.eclipse.equinox.common.source" version="3.6.100.v20120522-1841"/>
+<plugin id="org.eclipse.ui.source" version="3.8.2.v20121018-234953"/>
+<plugin id="org.eclipse.gmf.runtime.diagram.ui.dnd" version="1.2.0.v20090403-1720"/>
+<plugin id="org.eclipse.emf.importer.java" version="2.6.0.v20120130-0943"/>
+<plugin id="org.eclipse.gmf.runtime.gef.ui.source" version="1.4.1.v20101222-2230"/>
+<plugin id="org.eclipse.gmf.xpand.qvtlibrary" version="1.1.0.201306121424"/>
+<plugin id="org.eclipse.equinox.frameworkadmin.equinox" version="1.0.400.v20120913-155709"/>
+<plugin id="org.hamcrest.core.source" version="1.1.0.v20090501071000"/>
+<plugin id="org.eclipse.emf.codegen.ui.source" version="2.6.0.v20120130-0943"/>
+<plugin id="org.eclipse.ui.forms.source" version="3.5.200.v20120521-2332"/>
+<plugin id="org.apache.batik.ext.awt.source" version="1.6.0.v201011041432"/>
+<plugin id="org.eclipse.gmf.runtime.notation.edit.source" version="1.4.0.v20100512-1416"/>
+<plugin id="org.eclipse.equinox.preferences.source" version="3.5.1.v20121031-182809"/>
+<plugin id="org.eclipse.equinox.p2.directorywatcher"/>
+<plugin id="org.w3c.dom.smil.source" version="1.0.1.v200903091627"/>
+<plugin id="org.apache.batik.bridge.source" version="1.6.0.v201011041432"/>
+<plugin id="org.eclipse.compare.source" version="3.5.301.v20130125-135424"/>
+<plugin id="org.eclipse.gmf.runtime.emf.core.source" version="1.4.1.v20101222-2230"/>
+<plugin id="org.eclipse.equinox.p2.updatechecker.source"/>
+<plugin id="org.eclipse.pde.build.source" version="3.8.2.v20121114-140810"/>
+<plugin id="org.eclipse.gmf.validate" version="1.2.0.201306121424"/>
+<plugin id="org.eclipse.equinox.log.source" version="1.2.300.v20120912-130548"/>
+<plugin id="org.eclipse.gmf.runtime.draw2d.ui.render.source" version="1.4.1.v20101119-2230"/>
+<plugin id="org.eclipse.jdt.core.source" version="3.8.3.v20130121-145325"/>
+<plugin id="org.eclipse.emf.mapping.source" version="2.7.0.v20120130-0943"/>
+<plugin id="org.apache.batik.bridge" version="1.6.0.v201011041432"/>
+<plugin id="javax.activation" version="1.1.0.v201108011116"/>
+<plugin id="org.eclipse.jdt.compiler.apt.source"/>
+<plugin id="org.eclipse.equinox.p2.engine.source" version="2.2.0.v20130121-021919"/>
+<plugin id="org.w3c.dom.smil.source" version="1.0.1.v200903091627"/>
+<plugin id="org.eclipse.ltk.ui.refactoring.source" version="3.7.0.v20120523-1543"/>
+<plugin id="org.eclipse.pde.build.source" version="3.8.2.v20121114-140810"/>
+<plugin id="org.eclipse.core.databinding.property" version="1.4.100.v20120523-1956"/>
+<plugin id="org.eclipse.osgi.services.source" version="3.3.100.v20120522-1822"/>
+<plugin id="org.eclipse.gmf.runtime.draw2d.ui.render.awt.source" version="1.4.1.v20101222-2230"/>
+<plugin id="org.eclipse.gmf.runtime.common.ui.printing.win32.source" version="1.4.0.v20100223-2359"/>
+<plugin id="org.eclipse.gmf.source" version="1.4.1.v20100716-2230"/>
+<plugin id="org.eclipse.equinox.http.servlet"/>
+<plugin id="org.eclipse.debug.core.source" version="3.7.100.v20120521-2012"/>
+<plugin id="org.eclipse.equinox.transforms.xslt.source"/>
+<plugin id="org.eclipse.help.ui.source"/>
+<plugin id="org.eclipse.osgi" version="3.8.2.v20130124-134944"/>
+<plugin id="org.eclipse.jdt.core" version="3.8.3.v20130121-145325"/>
+<plugin id="org.eclipse.equinox.p2.operations" version="2.2.0.v20130119-010614"/>
+<plugin id="org.apache.lucene.analysis.source"/>
+<plugin id="org.eclipse.epsilon.etl.engine"/>
+<plugin id="org.apache.commons.io"/>
+<plugin id="org.eclipse.equinox.p2.metadata.repository.source" version="1.2.100.v20120524-1717"/>
+<plugin id="org.eclipse.core.variables" version="3.2.600.v20120521-2012"/>
+<plugin id="org.eclipse.equinox.p2.repository.source" version="2.2.0.v20120524-1945"/>
+<plugin id="org.eclipse.core.expressions" version="3.4.400.v20120523-2004"/>
+<plugin id="org.eclipse.equinox.registry" version="3.5.200.v20120522-1841"/>
+<plugin id="org.eclipse.emf.edit.ui" version="2.7.0.v20120130-0943"/>
+<plugin id="org.eclipse.gmf.runtime.diagram.core.source" version="1.4.1.v20101221-2230"/>
+<plugin id="org.eclipse.core.expressions.source" version="3.4.400.v20120523-2004"/>
+<plugin id="org.eclipse.equinox.jsp.jasper.registry.source"/>
+<plugin id="org.eclipse.equinox.ip"/>
+<plugin id="org.eclipse.pde.doc.user"/>
+<plugin id="org.eclipse.equinox.device"/>
+<plugin id="org.eclipse.emf.ecore.edit.source" version="2.7.1.v20120130-0943"/>
+<plugin id="org.eclipse.gef.source" version="3.7.2.v20111106-2020"/>
+<plugin id="org.eclipse.gmf.runtime.notation" version="1.5.0.v20110309-2159"/>
+<plugin id="org.eclipse.pde.ds.core.source"/>
+<plugin id="org.eclipse.osgi.services.source" version="3.3.100.v20120522-1822"/>
+<plugin id="org.objectweb.asm"/>
+<plugin id="org.eclipse.gmf.runtime.common.ui.action.ide.source" version="1.5.0.v20101221-2230"/>
+<plugin id="org.eclipse.equinox.p2.metadata.source" version="2.1.0.v20120430-2001"/>
+<plugin id="org.eclipse.team.cvs.ui.source"/>
+<plugin id="org.eclipse.equinox.p2.repository.source" version="2.2.0.v20120524-1945"/>
+<plugin id="org.eclipse.emf.ecore.xmi.source" version="2.7.0.v20120127-1122"/>
+<plugin id="org.eclipse.gmf.runtime.diagram.ui.resources.editor.source" version="1.4.1.v20101119-2230"/>
+<plugin id="org.eclipse.emf.importer.java.source" version="2.6.0.v20120130-0943"/>
+<plugin id="org.eclipse.gmf.runtime.emf.ui.properties.source" version="1.5.0.v20101222-2230"/>
+<plugin id="org.eclipse.equinox.p2.discovery"/>
+<plugin id="org.eclipse.emf.transaction.ui" version="1.4.0.v20090819-1300"/>
+<plugin id="org.eclipse.emf.importer.ecore.source" version="2.6.0.v20120130-0943"/>
+<plugin id="org.eclipse.equinox.http.jetty.source"/>
+<plugin id="org.eclipse.ui.views.log" version="1.0.300.v20120530-1435"/>
+<plugin id="org.eclipse.core.contenttype.source" version="3.4.200.v20120523-2004"/>
+<plugin id="org.eclipse.gmf.graphdef" version="2.9.0.201306121424"/>
+<plugin id="org.eclipse.m2m.qvt.oml.ecore.imperativeocl" version="3.1.0.v20101214-1530"/>
+<plugin id="org.eclipse.jdt.launching.source" version="3.6.101.v20130111-183046"/>
+<plugin id="org.eclipse.gmf.runtime.common.core" version="1.4.1.v20101119-2230"/>
+<plugin id="org.eclipse.core.runtime.compatibility"/>
+<plugin id="org.eclipse.epsilon.emc.plainxml"/>
+<plugin id="org.eclipse.equinox.p2.metadata.source" version="2.1.0.v20120430-2001"/>
+<plugin id="org.eclipse.emf.databinding.source" version="1.2.0.v20120130-0943"/>
+<plugin id="org.apache.batik.transcoder.source" version="1.6.0.v201011041432"/>
+<plugin id="org.eclipse.ant.ui.source" version="3.5.301.v20121210-212007"/>
+<plugin id="org.eclipse.emf.ant.source" version="2.7.0.v20120130-0943"/>
+<plugin id="org.eclipse.emf.exporter" version="2.6.0.v20120130-0943"/>
+<plugin id="org.eclipse.help.source" version="3.6.0.v20120912-134126"/>
+<plugin id="org.eclipse.core.contenttype" version="3.4.200.v20120523-2004"/>
+<plugin id="org.eclipse.ui.views.properties.tabbed.source" version="3.5.300.v20120912-135020"/>
+<plugin id="org.eclipse.ocl.ecore.source" version="3.1.2.v20111015-2027"/>
+<plugin id="org.eclipse.ui.navigator.source" version="3.5.200.v20120523-1956"/>
+<plugin id="javax.servlet.source" version="3.0.0.v201112011016"/>
+<plugin id="org.eclipse.ant.core.source" version="3.2.401.v20121204-161613"/>
+<plugin id="org.eclipse.gmf.runtime.lite.svg.source"/>
+<plugin id="org.eclipse.osgi.source" version="3.8.2.v20130124-134944"/>
+<plugin id="org.apache.felix.gogo.shell.source"/>
+<plugin id="javax.mail" version="1.4.0.v201005080615"/>
+<plugin id="org.w3c.dom.smil.source" version="1.0.1.v200903091627"/>
+<plugin id="crosswalk-gmf"/>
+<plugin id="org.eclipse.ui.workbench.texteditor" version="3.8.0.v20120523-1310"/>
+<plugin id="org.eclipse.gmf.runtime.draw2d.ui.render.source" version="1.4.1.v20101119-2230"/>
+<plugin id="org.w3c.dom.events.source" version="3.0.0.draft20060413_v201105210656"/>
+<plugin id="org.eclipse.pde.core.source" version="3.8.1.v20130115-200504"/>
+<plugin id="org.w3c.dom.svg.source" version="1.1.0.v201011041433"/>
+<plugin id="org.eclipse.ui.views.log.source" version="1.0.300.v20120530-1435"/>
+<plugin id="org.eclipse.ecf.provider.filetransfer.httpclient.ssl.source"/>
+<plugin id="org.eclipse.emf.ecore.edit.source" version="2.7.1.v20120130-0943"/>
+<plugin id="org.eclipse.emf.exporter.source" version="2.6.0.v20120130-0943"/>
+<plugin id="org.w3c.dom.events.source" version="3.0.0.draft20060413_v201105210656"/>
+<plugin id="org.eclipse.gmf.runtime.diagram.ui.render" version="1.4.1.v20101119-2230"/>
+<plugin id="org.eclipse.gmf.tooldef.edit" version="2.3.0.201306121424"/>
+<plugin id="org.eclipse.ui.forms.source" version="3.5.200.v20120521-2332"/>
+<plugin id="org.eclipse.ui.workbench" version="3.8.2.v20121128-133708"/>
+<plugin id="org.eclipse.emf.codegen.source" version="2.6.0.v20120130-0943"/>
+<plugin id="org.eclipse.equinox.jsp.jasper.source"/>
+<plugin id="org.eclipse.update.configurator.source" version="3.3.200.v20120912-142556"/>
+<plugin id="org.eclipse.pde.build" version="3.8.2.v20121114-140810"/>
+<plugin id="org.eclipse.gmf.runtime.notation.providers" version="1.3.0.v20100115-2350"/>
+<plugin id="org.eclipse.text.source" version="3.5.200.v20120523-1310"/>
+<plugin id="org.eclipse.pde.ua.ui"/>
+<plugin id="org.eclipse.emf.ecore.edit.source" version="2.7.1.v20120130-0943"/>
+<plugin id="org.eclipse.equinox.log.source" version="1.2.300.v20120912-130548"/>
+<plugin id="org.eclipse.equinox.p2.publisher" version="1.2.0.v20121002-080415"/>
+<plugin id="org.eclipse.equinox.console.ssh"/>
+<plugin id="org.eclipse.pde.api.tools"/>
+<plugin id="org.eclipse.gmf.runtime.emf.clipboard.core.source" version="1.5.0.v20110529-2230"/>
+<plugin id="org.w3c.dom.svg" version="1.1.0.v201011041433"/>
+<plugin id="org.eclipse.pde.ui.templates"/>
+<plugin id="org.eclipse.equinox.simpleconfigurator" version="1.0.301.v20120914-163612"/>
+<plugin id="org.apache.sshd.core"/>
+<plugin id="org.eclipse.core.jobs" version="3.5.200.v20120521-2346"/>
+<plugin id="org.eclipse.gmf.runtime.draw2d.ui.render.awt.source" version="1.4.1.v20101222-2230"/>
+<plugin id="org.eclipse.gmf.codegen.edit.source"/>
+<plugin id="org.eclipse.ui.cheatsheets.source" version="3.4.200.v20120521-2344"/>
+<plugin id="net.sf.opencsv" version="2.3.0"/>
+<plugin id="org.eclipse.ui.net.source"/>
+<plugin id="org.apache.felix.gogo.runtime.source" version="0.8.0.v201108120515"/>
+<plugin id="org.eclipse.core.commands.source" version="3.6.1.v20120912-135020"/>
+<plugin id="org.eclipse.m2m.qvt.oml.emf.util.source" version="3.1.0.v20110627-1530"/>
+<plugin id="org.eclipse.jdt.compiler.tool"/>
+<plugin id="org.eclipse.sdk"/>
+<plugin id="org.eclipse.core.databinding.source" version="1.4.1.v20120912-135020"/>
+<plugin id="org.eclipse.jface.text" version="3.8.2.v20121126-164145"/>
+<plugin id="org.eclipse.jdt.apt.pluggable.core.source"/>
+<plugin id="ch.qos.logback.core.source" version="0.9.27.v20110224-1110"/>
+<plugin id="org.eclipse.emf.ecore.source" version="2.7.0.v20120127-1122"/>
+<plugin id="org.eclipse.core.databinding.observable.source" version="1.4.1.v20120521-2332"/>
+<plugin id="org.eclipse.ui.console.source" version="3.5.100.v20120521-2012"/>
+<plugin id="org.eclipse.pde.ui.source" version="3.7.2.v20130121-093123"/>
+<plugin id="org.eclipse.equinox.p2.operations.source" version="2.2.0.v20130119-010614"/>
+<plugin id="org.eclipse.gmf.runtime.common.ui.services.dnd.source" version="1.5.0.v20101221-2230"/>
+<plugin id="ch.qos.logback.classic.source" version="0.9.27.v20110224-1110"/>
+<plugin id="mods.model.editor"/>
+<plugin id="org.eclipse.epsilon.evl.dt"/>
+<plugin id="org.eclipse.m2m.qvt.oml.source" version="3.1.0.v20110518-1530"/>
+<plugin id="org.eclipse.draw2d.source" version="3.7.2.v20111017-2020"/>
+<plugin id="org.eclipse.equinox.p2.ui.admin.rcp"/>
+<plugin id="org.eclipse.gmf.sdk"/>
+<plugin id="org.eclipse.equinox.p2.ql"/>
+<plugin id="org.apache.batik.css.source" version="1.6.0.v201011041432"/>
+<plugin id="org.eclipse.equinox.frameworkadmin.equinox.source" version="1.0.400.v20120913-155709"/>
+<plugin id="org.eclipse.core.commands.source" version="3.6.1.v20120912-135020"/>
+<plugin id="org.eclipse.gmf.runtime.diagram.ui.providers.ide" version="1.2.0.v20090403-1720"/>
+<plugin id="org.eclipse.equinox.console.source"/>
+<plugin id="javax.servlet.jsp.source"/>
+<plugin id="org.eclipse.gmf.source" version="1.4.1.v20100716-2230"/>
+<plugin id="org.eclipse.gmf.runtime.common.ui.action.ide.source" version="1.5.0.v20101221-2230"/>
+<plugin id="org.eclipse.core.databinding.source" version="1.4.1.v20120912-135020"/>
+<plugin id="org.eclipse.emf.common" version="2.7.0.v20120127-1122"/>
+<plugin id="org.eclipse.core.runtime.source" version="3.8.0.v20120521-2346"/>
+<plugin id="org.eclipse.jdt.core.manipulation.source" version="1.5.0.v20120523-1543"/>
+<plugin id="org.eclipse.gmf.bridge.ui.dashboard"/>
+<plugin id="org.eclipse.osgi.source" version="3.8.2.v20130124-134944"/>
+<plugin id="org.apache.felix.gogo.command.source" version="0.8.0.v201108120515"/>
+<plugin id="org.eclipse.ui.intro.source" version="3.4.200.v20120521-2344"/>
+<plugin id="org.apache.batik.dom.svg" version="1.6.0.v201011041432"/>
+<plugin id="org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide.source" version="1.2.1.v20101119-2230"/>
+<plugin id="org.eclipse.gmf.runtime.emf.commands.core.source" version="1.4.0.v20100423-2359"/>
+<plugin id="org.eclipse.gmf.runtime.diagram.ui.resources.editor.source" version="1.4.1.v20101119-2230"/>
+<plugin id="org.eclipse.platform"/>
+<plugin id="org.eclipse.core.databinding.beans.source" version="1.2.200.v20120523-1956"/>
+<plugin id="org.eclipse.emf.ecore.editor.source" version="2.7.0.v20120130-0943"/>
+<plugin id="org.eclipse.gmf.runtime.draw2d.ui.source" version="1.5.0.v20110505-2230"/>
+<plugin id="org.eclipse.osgi.services" version="3.3.100.v20120522-1822"/>
+<plugin id="org.apache.batik.dom.svg.source" version="1.6.0.v201011041432"/>
+<plugin id="org.eclipse.gmf.runtime.common.ui" version="1.5.0.v20101221-2230"/>
+<plugin id="org.eclipse.gmf.map.edit.source" version="2.9.0.201306121424"/>
+<plugin id="org.eclipse.ui.editors.source" version="3.8.0.v20120523-1540"/>
+<plugin id="org.eclipse.ui.navigator.source" version="3.5.200.v20120523-1956"/>
+<plugin id="org.eclipse.equinox.p2.director" version="2.2.0.v20120524-0542"/>
+<plugin id="org.eclipse.emf.codegen.source" version="2.6.0.v20120130-0943"/>
+<plugin id="org.eclipse.jdt.apt.pluggable.core"/>
+<plugin id="org.w3c.dom.svg.source" version="1.1.0.v201011041433"/>
+<plugin id="org.eclipse.core.databinding.source" version="1.4.1.v20120912-135020"/>
+<plugin id="org.eclipse.emf.codegen.ui" version="2.6.0.v20120130-0943"/>
+<plugin id="org.eclipse.equinox.weaving.caching.source"/>
+<plugin id="org.eclipse.equinox.p2.metadata.source" version="2.1.0.v20120430-2001"/>
+<plugin id="org.eclipse.gmf.map" version="2.9.0.201306121424"/>
+<plugin id="org.eclipse.ui.ide.application.source"/>
+<plugin id="ch.qos.logback.core.source" version="0.9.27.v20110224-1110"/>
+<plugin id="org.eclipse.jdt.junit4.runtime"/>
+<plugin id="lpg.runtime.java.source" version="2.0.17.v201004271640"/>
+<plugin id="org.eclipse.emf.common.ui.source" version="2.7.0.v20120130-0943"/>
+<plugin id="org.eclipse.gmf.runtime.common.ui.services.source" version="1.3.1.v20101118-2230"/>
+<plugin id="org.eclipse.ui.forms.source" version="3.5.200.v20120521-2332"/>
+<plugin id="org.eclipse.pde.ui" version="3.7.2.v20130121-093123"/>
+<plugin id="org.eclipse.ui.navigator.resources.source" version="3.4.400.v20120523-1956"/>
+<plugin id="org.eclipse.gmf.runtime.common.ui.services" version="1.3.1.v20101118-2230"/>
+<plugin id="lpg.runtime.java" version="2.0.17.v201004271640"/>
+<plugin id="org.eclipse.epsilon.ecl.engine"/>
+<plugin id="org.eclipse.jdt.annotation"/>
+<plugin id="org.eclipse.epsilon.epl.dt"/>
+<plugin id="org.eclipse.ui.workbench.source" version="3.8.2.v20121128-133708"/>
+<plugin id="org.eclipse.equinox.preferences.source" version="3.5.1.v20121031-182809"/>
+<plugin id="org.eclipse.epsilon.eol.dt" version="1.1.0.201309101707"/>
+<plugin id="org.eclipse.epsilon.common" version="1.1.0.201309101707"/>
+<plugin id="org.junit.source" version="4.10.0.v4_10_0_v20120426-0900"/>
+<plugin id="org.eclipse.emf.ecore.change.source" version="2.7.1.v20120127-1122"/>
+<plugin id="org.eclipse.ant.ui" version="3.5.301.v20121210-212007"/>
+<plugin id="org.eclipse.gmf.runtime.diagram.ui.providers" version="1.5.0.v20110216-2230"/>
+<plugin id="org.eclipse.gmf.graphdef.edit.source" version="2.9.0.201306121424"/>
+<plugin id="org.eclipse.equinox.wireadmin.source"/>
+<plugin id="org.eclipse.jdt.ui.source" version="3.8.2.v20130107-165834"/>
+<plugin id="org.eclipse.gmf.runtime.emf.commands.core.source" version="1.4.0.v20100423-2359"/>
+<plugin id="org.eclipse.jdt.doc.user"/>
+<plugin id="org.apache.lucene.analysis"/>
+<plugin id="org.eclipse.emf.ecore.change.source" version="2.7.1.v20120127-1122"/>
+<plugin id="org.apache.batik.css.source" version="1.6.0.v201011041432"/>
+<plugin id="org.eclipse.emf.importer.rose.source" version="2.6.0.v20120130-0943"/>
+<plugin id="org.eclipse.equinox.coordinator.source"/>
+<plugin id="org.eclipse.jface.source" version="3.8.0.v20120912-135020"/>
+<plugin id="org.eclipse.gmf.runtime.common.ui.services.properties.source" version="1.3.1.v20101221-2230"/>
+<plugin id="org.eclipse.team.ui.source" version="3.6.201.v20130125-135424"/>
+<plugin id="org.eclipse.epsilon.evl.engine" version="1.1.0.201309101707"/>
+<plugin id="org.eclipse.gmf" version="1.4.1.v20100716-2230"/>
+<plugin id="org.eclipse.emf.importer.source" version="2.6.0.v20120130-0943"/>
+<plugin id="org.eclipse.ui.console.source" version="3.5.100.v20120521-2012"/>
+<plugin id="javax.activation.source" version="1.1.0.v201108011116"/>
+<plugin id="org.eclipse.gmf.runtime.diagram.ui.render.source" version="1.4.1.v20101119-2230"/>
+<plugin id="org.eclipse.emf.common.ui.source" version="2.7.0.v20120130-0943"/>
+<plugin id="org.eclipse.core.runtime.compatibility.registry"/>
+<plugin id="org.eclipse.core.databinding.property.source" version="1.4.100.v20120523-1956"/>
+<plugin id="org.eclipse.emf.exporter.source" version="2.6.0.v20120130-0943"/>
+<plugin id="org.eclipse.gmf.runtime.diagram.ui.source" version="1.5.0.v20110309-2230"/>
+<plugin id="org.eclipse.equinox.p2.repository.tools.source" version="2.0.100.v20120501-1314"/>
+<plugin id="org.eclipse.gmf.bridge.trace.source"/>
+<plugin id="org.eclipse.gmf.runtime.common.ui.action" version="1.5.0.v20110607-1200"/>
+<plugin id="org.eclipse.jface.databinding.source" version="1.6.0.v20120912-135020"/>
+<plugin id="org.eclipse.equinox.transforms.hook.source"/>
+<plugin id="ch.qos.logback.core" version="0.9.27.v20110224-1110"/>
+<plugin id="org.apache.xml.resolver" version="1.2.0.v201005080400"/>
+<plugin id="org.eclipse.gmf.map.edit.source" version="2.9.0.201306121424"/>
+<plugin id="org.eclipse.equinox.p2.touchpoint.natives"/>
+<plugin id="ch.qos.logback.core" version="0.9.27.v20110224-1110"/>
+<plugin id="org.eclipse.epsilon.emc.bibtex"/>
+<plugin id="org.eclipse.gmf.map.source" version="2.9.0.201306121424"/>
+<plugin id="org.apache.batik.parser.source" version="1.6.0.v201011041432"/>
+<plugin id="org.eclipse.text.source" version="3.5.200.v20120523-1310"/>
+<plugin id="org.apache.felix.gogo.runtime.source" version="0.8.0.v201108120515"/>
+<plugin id="org.eclipse.gmf.runtime.common.ui.action.ide.source" version="1.5.0.v20101221-2230"/>
+<plugin id="org.eclipse.pde.api.tools.source"/>
+<plugin id="org.eclipse.pde.core" version="3.8.1.v20130115-200504"/>
+<plugin id="org.eclipse.platform.doc.isv"/>
+<plugin id="org.eclipse.gmf.runtime.draw2d.ui.render" version="1.4.1.v20101119-2230"/>
+<plugin id="org.eclipse.gmf.runtime.diagram.ui.geoshapes.source" version="1.4.1.v20101119-2230"/>
+<plugin id="org.eclipse.equinox.p2.artifact.repository.source" version="1.1.200.v20120430-1959"/>
+<plugin id="org.eclipse.m2m.qvt.oml.emf.util" version="3.1.0.v20110627-1530"/>
+<plugin id="org.eclipse.pde"/>
+<plugin id="org.eclipse.emf.mapping.ecore2xml.ui.source" version="2.6.0.v20120130-0943"/>
+<plugin id="org.eclipse.equinox.log" version="1.2.300.v20120912-130548"/>
+<plugin id="org.eclipse.core.databinding.observable.source" version="1.4.1.v20120521-2332"/>
+<plugin id="org.eclipse.debug.core" version="3.7.100.v20120521-2012"/>
+<plugin id="org.eclipse.gmf.runtime.diagram.ui.properties.source" version="1.4.2.v20101129-2230"/>
+<plugin id="org.eclipse.core.databinding.beans.source" version="1.2.200.v20120523-1956"/>
+<plugin id="org.eclipse.gmf.runtime.common.ui.services.action.source" version="1.4.0.v20100430-1518"/>
+<plugin id="org.eclipse.equinox.supplement.source" version="1.4.100.v20120522-1813"/>
+<plugin id="org.eclipse.gmf.runtime.diagram.core.source" version="1.4.1.v20101221-2230"/>
+<plugin id="org.eclipse.core.boot"/>
+<plugin id="org.apache.felix.gogo.shell"/>
+<plugin id="org.eclipse.emf.mapping.ui.source" version="2.6.0.v20120130-0943"/>
+<plugin id="org.junit4"/>
+<plugin id="org.eclipse.emf.transaction" version="1.4.0.v20100331-1738"/>
+<plugin id="org.eclipse.emf.ecore.editor" version="2.7.0.v20120130-0943"/>
+<plugin id="org.eclipse.gmf.runtime.draw2d.ui.source" version="1.5.0.v20110505-2230"/>
+<plugin id="org.eclipse.equinox.p2.ql.source"/>
+<plugin id="org.eclipse.epsilon.eunit.engine"/>
+<plugin id="org.eclipse.ltk.ui.refactoring.source" version="3.7.0.v20120523-1543"/>
+<plugin id="org.eclipse.core.contenttype.source" version="3.4.200.v20120523-2004"/>
+<plugin id="org.eclipse.ant.core.source" version="3.2.401.v20121204-161613"/>
+<plugin id="org.eclipse.m2m.qvt.oml" version="3.1.0.v20110518-1530"/>
+<plugin id="org.eclipse.team.cvs.core"/>
+<plugin id="org.objectweb.asm.source"/>
+<plugin id="org.eclipse.equinox.io"/>
+<plugin id="org.eclipse.gmf.bridge.source" version="1.3.0.201306121424"/>
+<plugin id="javax.activation" version="1.1.0.v201108011116"/>
+<plugin id="org.eclipse.emf.ecore.xmi.source" version="2.7.0.v20120127-1122"/>
+<plugin id="org.eclipse.search.source" version="3.8.0.v20120523-1540"/>
+<plugin id="org.eclipse.emf.ant.source" version="2.7.0.v20120130-0943"/>
+<plugin id="org.eclipse.emf.common.ui" version="2.7.0.v20120130-0943"/>
+<plugin id="org.eclipse.team.core.source" version="3.6.100.v20120524-0627"/>
+<plugin id="org.eclipse.gmf.runtime.emf.type.core.source" version="1.4.0.v20100423-2359"/>
+<plugin id="org.eclipse.search" version="3.8.0.v20120523-1540"/>
+<plugin id="org.eclipse.gmf.runtime.common.ui.services.dnd.ide.source" version="1.5.0.v20101221-2230"/>
+<plugin id="org.eclipse.jetty.servlet.source"/>
+<plugin id="org.eclipse.jetty.io.source"/>
+<plugin id="org.eclipse.emf.converter.source" version="2.5.0.v20120130-0943"/>
+<plugin id="org.eclipse.jdt.compiler.tool.source"/>
+<plugin id="org.eclipse.jface.text.source" version="3.8.2.v20121126-164145"/>
+<plugin id="org.eclipse.jface.databinding.source" version="1.6.0.v20120912-135020"/>
+<plugin id="org.eclipse.equinox.ip.source"/>
+<plugin id="org.eclipse.team.core.source" version="3.6.100.v20120524-0627"/>
+<plugin id="javax.activation.source" version="1.1.0.v201108011116"/>
+<plugin id="org.eclipse.ui.forms.source" version="3.5.200.v20120521-2332"/>
+<plugin id="org.eclipse.emf.ecore.editor.source" version="2.7.0.v20120130-0943"/>
+<plugin id="org.eclipse.equinox.useradmin"/>
+<plugin id="org.eclipse.gmf.runtime.emf.type.core.source" version="1.4.0.v20100423-2359"/>
+<plugin id="org.apache.batik.xml" version="1.6.0.v201011041432"/>
+<plugin id="org.eclipse.ui.console.source" version="3.5.100.v20120521-2012"/>
+<plugin id="org.apache.batik.util.gui.source" version="1.6.0.v201011041432"/>
+<plugin id="org.eclipse.equinox.ds.source"/>
+<plugin id="org.eclipse.debug.ui.source" version="3.8.2.v20130130-171415"/>
+<plugin id="org.eclipse.text.source" version="3.5.200.v20120523-1310"/>
+<plugin id="org.eclipse.text" version="3.5.200.v20120523-1310"/>
+<plugin id="org.eclipse.equinox.p2.metadata.repository.source" version="1.2.100.v20120524-1717"/>
+<plugin id="org.eclipse.gmf.runtime.diagram.ui.source" version="1.5.0.v20110309-2230"/>
+<plugin id="org.eclipse.gmf.runtime.draw2d.ui.render.source" version="1.4.1.v20101119-2230"/>
+<plugin id="org.eclipse.core.net.linux.x86_64"/>
+<plugin id="org.eclipse.emf.workspace.ui" version="1.3.0.v200901271819"/>
+<plugin id="org.eclipse.ant.launching.source" version="1.0.200.v20120530-120908"/>
+<plugin id="org.eclipse.emf.codegen.source" version="2.6.0.v20120130-0943"/>
+<plugin id="org.eclipse.ui.workbench.source" version="3.8.2.v20121128-133708"/>
+<plugin id="org.apache.batik.xml.source" version="1.6.0.v201011041432"/>
+<plugin id="org.eclipse.equinox.security.source" version="1.1.100.v20120522-1841"/>
+<plugin id="org.eclipse.gmf.runtime.diagram.ui.dnd.source" version="1.2.0.v20090403-1720"/>
+<plugin id="org.eclipse.gmf.graphdef.codegen" version="2.9.0.201306121424"/>
+<plugin id="org.eclipse.pde.core.source" version="3.8.1.v20130115-200504"/>
+<plugin id="org.w3c.dom.events" version="3.0.0.draft20060413_v201105210656"/>
+<plugin id="org.eclipse.pde.api.tools.ui.source"/>
+<plugin id="org.eclipse.osgi.services.source" version="3.3.100.v20120522-1822"/>
+<plugin id="org.eclipse.jdt.debug.ui" version="3.6.100.v20120530-1425"/>
+<plugin id="org.eclipse.draw2d.source" version="3.7.2.v20111017-2020"/>
+<plugin id="org.eclipse.epsilon.profiling"/>
+<plugin id="org.eclipse.core.runtime" version="3.8.0.v20120521-2346"/>
+<plugin id="org.eclipse.emf.common.ui.source" version="2.7.0.v20120130-0943"/>
+<plugin id="org.eclipse.jdt.debug.source" version="3.7.101.v20120913-153601"/>
+<plugin id="org.eclipse.m2m.qvt.oml.cst.parser.source" version="3.1.0.v20101214-1530"/>
+<plugin id="org.eclipse.ui.navigator.source" version="3.5.200.v20120523-1956"/>
+<plugin id="org.eclipse.ui.workbench.texteditor.source" version="3.8.0.v20120523-1310"/>
+<plugin id="org.eclipse.epsilon.eml.dt"/>
+<plugin id="org.eclipse.equinox.p2.ui.sdk.scheduler"/>
+<plugin id="org.eclipse.emf.edit.ui.source" version="2.7.0.v20120130-0943"/>
+<plugin id="org.eclipse.epsilon.eugenia"/>
+<plugin id="org.eclipse.debug.ui.source" version="3.8.2.v20130130-171415"/>
+<plugin id="org.eclipse.emf.mapping.ecore2ecore.source" version="2.7.0.v20120130-0943"/>
+<plugin id="org.eclipse.equinox.concurrent.source"/>
+<plugin id="org.eclipse.core.filesystem.source" version="1.3.200.v20130115-145044"/>
+<plugin id="org.eclipse.equinox.p2.metadata.repository.source" version="1.2.100.v20120524-1717"/>
+<plugin id="org.eclipse.ui.console.source" version="3.5.100.v20120521-2012"/>
+<plugin id="org.eclipse.jetty.continuation"/>
+<plugin id="org.eclipse.gmf.runtime.emf.ui.source" version="1.2.0.v20090403-1720"/>
+<plugin id="org.eclipse.update.ui"/>
+<plugin id="org.eclipse.emf.codegen.ecore" version="2.7.0.v20120130-0943"/>
+<plugin id="org.eclipse.equinox.security.source" version="1.1.100.v20120522-1841"/>
+<plugin id="org.eclipse.ecf.provider.filetransfer.httpclient.ssl"/>
+<plugin id="org.apache.batik.dom.source" version="1.6.0.v201011041432"/>
+<plugin id="org.eclipse.gmf.runtime.emf.clipboard.core.source" version="1.5.0.v20110529-2230"/>
+<plugin id="org.eclipse.epsilon.ewl.gmf"/>
+<plugin id="org.eclipse.ui.views.source" version="3.6.100.v20120521-2332"/>
+<plugin id="org.apache.commons.httpclient.source"/>
+<plugin id="org.apache.felix.gogo.command.source" version="0.8.0.v201108120515"/>
+<plugin id="ch.qos.logback.classic" version="0.9.27.v20110224-1110"/>
+<plugin id="org.eclipse.gmf.runtime.notation.sdk"/>
+<plugin id="org.junit.source" version="3.8.2.v3_8_2_v20100427-1100"/>
+<plugin id="org.eclipse.core.filebuffers" version="3.5.200.v20120523-1310"/>
+<plugin id="org.eclipse.equinox.p2.ui.admin"/>
+<plugin id="org.eclipse.gmf.runtime.diagram.ui.providers.source" version="1.5.0.v20110216-2230"/>
+<plugin id="org.eclipse.gmf.xpand.editor"/>
+<plugin id="org.eclipse.core.filesystem.source" version="1.3.200.v20130115-145044"/>
+<plugin id="org.eclipse.epsilon.emf.dt"/>
+<plugin id="org.eclipse.emf.common.source" version="2.7.0.v20120127-1122"/>
+<plugin id="org.eclipse.gmf.runtime.diagram.ui.printing.source" version="1.4.1.v20101119-2230"/>
+<plugin id="org.eclipse.equinox.p2.director.source" version="2.2.0.v20120524-0542"/>
+<plugin id="org.eclipse.equinox.p2.artifact.repository" version="1.1.200.v20120430-1959"/>
+<plugin id="org.eclipse.gmf.runtime.diagram.ui.printing.render.source" version="1.4.1.v20101119-2230"/>
+<plugin id="org.eclipse.equinox.frameworkadmin.source" version="2.0.100.v20120913-155515"/>
+<plugin id="org.eclipse.equinox.preferences.source" version="3.5.1.v20121031-182809"/>
+<plugin id="org.eclipse.equinox.p2.metadata.source" version="2.1.0.v20120430-2001"/>
+<plugin id="org.eclipse.ui.workbench.compatibility"/>
+<plugin id="org.eclipse.draw2d.source" version="3.7.2.v20111017-2020"/>
+<plugin id="org.eclipse.jface.databinding" version="1.6.0.v20120912-135020"/>
+<plugin id="crosswalk-gmf.edit"/>
+<plugin id="org.eclipse.equinox.p2.ui.sdk.source"/>
+<plugin id="org.eclipse.emf.mapping.ecore2xml.source" version="2.7.0.v20120130-0943"/>
+<plugin id="org.eclipse.ui.ide.source" version="3.8.2.v20121106-170106"/>
+<plugin id="org.eclipse.gmf.runtime.common.core.source" version="1.4.1.v20101119-2230"/>
+<plugin id="org.eclipse.compare.source" version="3.5.301.v20130125-135424"/>
+<plugin id="org.apache.batik.transcoder.source" version="1.6.0.v201011041432"/>
+<plugin id="org.eclipse.emf.importer" version="2.6.0.v20120130-0943"/>
+<plugin id="org.eclipse.ui.externaltools" version="3.2.100.v20120530-1753"/>
+<plugin id="org.eclipse.equinox.p2.repository.tools" version="2.0.100.v20120501-1314"/>
+<plugin id="org.eclipse.compare.core.source" version="3.5.200.v20120522-1148"/>
+<plugin id="org.eclipse.equinox.servletbridge.extensionbundle" version="1.2.100.v20120522-2049"/>
+<plugin id="org.eclipse.jsch.core"/>
+<plugin id="com.jcraft.jsch"/>
+<plugin id="org.eclipse.equinox.app.source" version="1.3.100.v20120522-1841"/>
+<plugin id="org.apache.batik.transcoder.source" version="1.6.0.v201011041432"/>
+<plugin id="org.eclipse.gmf.runtime.diagram.ui.source" version="1.5.0.v20110309-2230"/>
+<plugin id="org.eclipse.emf.databinding" version="1.2.0.v20120130-0943"/>
+<plugin id="org.apache.lucene.core.source"/>
+<plugin id="org.eclipse.ui.editors.source" version="3.8.0.v20120523-1540"/>
+<plugin id="org.apache.xerces" version="2.9.0.v201101211617"/>
+<plugin id="org.w3c.dom.smil" version="1.0.1.v200903091627"/>
+<plugin id="org.eclipse.equinox.p2.installer"/>
+<plugin id="org.eclipse.text.source" version="3.5.200.v20120523-1310"/>
+<plugin id="org.eclipse.emf.codegen.ecore.source" version="2.7.0.v20120130-0943"/>
+<plugin id="com.claymoresystems.puretls"/>
+<plugin id="org.eclipse.epsilon.emc.emf.dt"/>
+<plugin id="org.eclipse.emf.mapping.ecore2xml.source" version="2.7.0.v20120130-0943"/>
+<plugin id="org.eclipse.ui.views.source" version="3.6.100.v20120521-2332"/>
+<plugin id="org.eclipse.equinox.region.source"/>
+<plugin id="org.eclipse.equinox.app.source" version="1.3.100.v20120522-1841"/>
+<plugin id="org.eclipse.emf.validation.ui.ide.source" version="1.3.0.v200901271722"/>
+<plugin id="org.eclipse.equinox.p2.core.source" version="2.2.0.v20120430-0525"/>
+<plugin id="org.eclipse.debug.ui.source" version="3.8.2.v20130130-171415"/>
+<plugin id="org.eclipse.ui.workbench.texteditor.source" version="3.8.0.v20120523-1310"/>
+<plugin id="org.eclipse.debug.core.source" version="3.7.100.v20120521-2012"/>
+<plugin id="org.eclipse.epsilon.emc.csv"/>
+<plugin id="org.eclipse.core.commands.source" version="3.6.1.v20120912-135020"/>
+<plugin id="org.eclipse.equinox.frameworkadmin.source" version="2.0.100.v20120913-155515"/>
+<plugin id="org.eclipse.gmf.runtime.diagram.ui.providers.ide.source" version="1.2.0.v20090403-1720"/>
+<plugin id="org.eclipse.emf.ecore.change.source" version="2.7.1.v20120127-1122"/>
+<plugin id="org.eclipse.gmf.runtime.diagram.ui.providers.ide.source" version="1.2.0.v20090403-1720"/>
+<plugin id="org.apache.ant.source" version="1.8.3.v201301120609"/>
+<plugin id="org.eclipse.ui.workbench.texteditor.source" version="3.8.0.v20120523-1310"/>
+<plugin id="org.eclipse.gmf.bridge" version="1.3.0.201306121424"/>
+<plugin id="org.eclipse.equinox.p2.director.app.source" version="1.0.300.v20120428-0517"/>
+<plugin id="org.eclipse.emf.codegen.ecore.source" version="2.7.0.v20120130-0943"/>
+<plugin id="org.eclipse.core.databinding.observable.source" version="1.4.1.v20120521-2332"/>
+<plugin id="org.eclipse.equinox.p2.publisher.eclipse.source" version="1.1.0.v20120913-155635"/>
+<plugin id="javax.activation" version="1.1.0.v201108011116"/>
+<plugin id="com.jcraft.jsch.source"/>
+<plugin id="org.eclipse.emf.transaction.source" version="1.4.0.v20100331-1738"/>
+<plugin id="lpg.runtime.java.source" version="2.0.17.v201004271640"/>
+<plugin id="org.eclipse.gmf.bridge.ui.source" version="1.5.0.201306121424"/>
+<plugin id="org.eclipse.equinox.weaving.aspectj"/>
+<plugin id="org.eclipse.jdt.junit.runtime.source" version="3.4.301.v20120914-131016"/>
+<plugin id="org.eclipse.gmf.runtime.common.ui.action.source" version="1.5.0.v20110607-1200"/>
+<plugin id="org.eclipse.emf.common.ui.source" version="2.7.0.v20120130-0943"/>
+<plugin id="org.eclipse.swt" version="3.8.1.v3836b"/>
+<plugin id="org.eclipse.equinox.p2.directorywatcher.source"/>
+<plugin id="org.eclipse.core.jobs.source" version="3.5.200.v20120521-2346"/>
+<plugin id="org.eclipse.equinox.p2.jarprocessor.source" version="1.0.200.v20110808-1657"/>
+<plugin id="com.ibm.icu.source" version="4.4.2.v20110823"/>
+<plugin id="org.eclipse.gmf.runtime.diagram.ui.actions.source" version="1.4.1.v20101221-2230"/>
+<plugin id="org.eclipse.jface.text.source" version="3.8.2.v20121126-164145"/>
+<plugin id="org.eclipse.search.source" version="3.8.0.v20120523-1540"/>
+<plugin id="mods.model"/>
+<plugin id="org.eclipse.ui.forms" version="3.5.200.v20120521-2332"/>
+<plugin id="org.eclipse.jface.text.source" version="3.8.2.v20121126-164145"/>
+<plugin id="org.eclipse.gmf.runtime.diagram.ui.providers.source" version="1.5.0.v20110216-2230"/>
+<plugin id="org.eclipse.jdt.junit" version="3.7.100.v20120523-1543"/>
+<plugin id="org.apache.sshd.core.source"/>
+<plugin id="org.eclipse.core.commands.source" version="3.6.1.v20120912-135020"/>
+<plugin id="org.eclipse.gmf.runtime.diagram.ui.resources.editor.source" version="1.4.1.v20101119-2230"/>
+<plugin id="org.eclipse.ui.intro" version="3.4.200.v20120521-2344"/>
+<plugin id="org.eclipse.equinox.p2.jarprocessor" version="1.0.200.v20110808-1657"/>
+<plugin id="org.eclipse.jdt.junit.core.source" version="3.7.100.v20120523-1257"/>
+<plugin id="org.eclipse.gmf.runtime.emf.ui.properties.source" version="1.5.0.v20101222-2230"/>
+<plugin id="org.eclipse.ltk.core.refactoring.source" version="3.6.0.v20120523-1543"/>
+<plugin id="org.eclipse.core.contenttype.source" version="3.4.200.v20120523-2004"/>
+<plugin id="org.eclipse.core.runtime.source" version="3.8.0.v20120521-2346"/>
+<plugin id="org.eclipse.pde.junit.runtime"/>
+<plugin id="org.eclipse.gmf.runtime.notation.edit.source" version="1.4.0.v20100512-1416"/>
+<plugin id="org.eclipse.emf.mapping.ecore2ecore.source" version="2.7.0.v20120130-0943"/>
+<plugin id="org.eclipse.gmf.graphdef.source" version="2.9.0.201306121424"/>
+<plugin id="slf4j.api" version="1.7.5"/>
+<plugin id="org.slf4j.api" version="1.6.4.v20120130-2120"/>
+<plugin id="org.eclipse.core.variables.source" version="3.2.600.v20120521-2012"/>
+<plugin id="org.eclipse.emf.mapping.ui.source" version="2.6.0.v20120130-0943"/>
+<plugin id="org.eclipse.ui.source" version="3.8.2.v20121018-234953"/>
+<plugin id="org.eclipse.emf.mapping.ecore2ecore" version="2.7.0.v20120130-0943"/>
+<plugin id="org.eclipse.emf.ecore.xmi.source" version="2.7.0.v20120127-1122"/>
+<plugin id="slf4j.api" version="1.7.5"/>
+<plugin id="org.eclipse.jdt.apt.core"/>
+<plugin id="org.eclipse.equinox.registry.source" version="3.5.200.v20120522-1841"/>
+<plugin id="ch.qos.logback.classic.source" version="0.9.27.v20110224-1110"/>
+<plugin id="org.eclipse.equinox.http.registry.source"/>
+<plugin id="org.eclipse.gmf.runtime.common.core.source" version="1.4.1.v20101119-2230"/>
+<plugin id="org.eclipse.compare" version="3.5.301.v20130125-135424"/>
+<plugin id="org.eclipse.ui.trace"/>
+<plugin id="crosswalk-gmf.diagram"/>
+<plugin id="org.eclipse.gmf.runtime.lite.svg"/>
+<plugin id="org.eclipse.emf.workspace" version="1.5.1.v20110823-1800"/>
+<plugin id="org.eclipse.emf.mapping.ecore2xml.ui.source" version="2.6.0.v20120130-0943"/>
+<plugin id="org.apache.batik.xml.source" version="1.6.0.v201011041432"/>
+<plugin id="org.eclipse.gmf.runtime.common.core.source" version="1.4.1.v20101119-2230"/>
+<plugin id="org.eclipse.ant.core.source" version="3.2.401.v20121204-161613"/>
+<plugin id="org.apache.commons.httpclient"/>
+<plugin id="org.eclipse.equinox.p2.metadata.repository.source" version="1.2.100.v20120524-1717"/>
+<plugin id="org.eclipse.text.source" version="3.5.200.v20120523-1310"/>
+<plugin id="org.w3c.css.sac.source" version="1.3.1.v200903091627"/>
+<plugin id="org.eclipse.ant.core" version="3.2.401.v20121204-161613"/>
+<plugin id="org.eclipse.gmf.runtime.diagram.ui.printing.source" version="1.4.1.v20101119-2230"/>
+<plugin id="org.eclipse.compare.source" version="3.5.301.v20130125-135424"/>
+<plugin id="org.eclipse.update.configurator" version="3.3.200.v20120912-142556"/>
+<plugin id="org.apache.felix.gogo.command.source" version="0.8.0.v201108120515"/>
+<plugin id="org.eclipse.pde.ua.core.source"/>
+<plugin id="org.eclipse.jdt.junit.source" version="3.7.100.v20120523-1543"/>
+<plugin id="org.eclipse.ecf.source"/>
+<plugin id="org.eclipse.gmf.graphdef.edit.source" version="2.9.0.201306121424"/>
+<plugin id="org.eclipse.equinox.p2.engine.source" version="2.2.0.v20130121-021919"/>
+<plugin id="org.eclipse.gmf.runtime.diagram.ui.source" version="1.5.0.v20110309-2230"/>
+<plugin id="org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide.source" version="1.2.1.v20101119-2230"/>
+<plugin id="org.eclipse.gmf.tooling.runtime" version="3.1.0.201306121424"/>
+<plugin id="com.ibm.icu.source" version="4.4.2.v20110823"/>
+<plugin id="org.eclipse.pde.ui.source" version="3.7.2.v20130121-093123"/>
+<plugin id="org.eclipse.core.resources.source" version="3.8.1.v20121114-124432"/>
+<plugin id="org.eclipse.jetty.http"/>
+<plugin id="org.junit" version="3.8.2.v3_8_2_v20100427-1100"/>
+<plugin id="org.eclipse.equinox.p2.director.app.source" version="1.0.300.v20120428-0517"/>
+<plugin id="org.eclipse.jdt.core.manipulation.source" version="1.5.0.v20120523-1543"/>
+<plugin id="org.eclipse.equinox.supplement.source" version="1.4.100.v20120522-1813"/>
+<plugin id="org.eclipse.team.cvs.ssh2"/>
+<plugin id="org.apache.batik.dom" version="1.6.0.v201011041432"/>
+<plugin id="org.eclipse.m2m.qvt.oml.source" version="3.1.0.v20110518-1530"/>
+<plugin id="org.eclipse.jdt.apt.ui"/>
+<plugin id="org.eclipse.emf.edit.source" version="2.7.2.v20120130-0943"/>
+<plugin id="org.eclipse.jdt.debug.ui.source" version="3.6.100.v20120530-1425"/>
+<plugin id="org.eclipse.epsilon.flock.dt.emf"/>
+<plugin id="org.apache.felix.gogo.runtime.source" version="0.8.0.v201108120515"/>
+<plugin id="org.eclipse.emf.mapping.ecore2xml.ui" version="2.6.0.v20120130-0943"/>
+<plugin id="org.eclipse.gmf.runtime.common.ui.source" version="1.5.0.v20101221-2230"/>
+<plugin id="org.eclipse.gmf.codegen.ui.source"/>
+<plugin id="org.eclipse.gmf.xpand.qvtlibrary.source" version="1.1.0.201306121424"/>
+<plugin id="org.eclipse.gmf.runtime.draw2d.ui.render.awt.source" version="1.4.1.v20101222-2230"/>
+<plugin id="org.eclipse.equinox.common.source" version="3.6.100.v20120522-1841"/>
+<plugin id="org.ops4j.pax.logging.pax-logging-service"/>
+<plugin id="org.eclipse.help.appserver"/>
+<plugin id="org.eclipse.equinox.p2.repository.tools.source" version="2.0.100.v20120501-1314"/>
+<plugin id="org.eclipse.ui.editors.source" version="3.8.0.v20120523-1540"/>
+<plugin id="org.eclipse.debug.ui" version="3.8.2.v20130130-171415"/>
+<plugin id="org.eclipse.epsilon.dt.epackageregistryexplorer"/>
+<plugin id="org.eclipse.emf.ecore.change" version="2.7.1.v20120127-1122"/>
+<plugin id="org.eclipse.ui.source" version="3.8.2.v20121018-234953"/>
+<plugin id="org.eclipse.pde.ds.core"/>
+<plugin id="org.eclipse.gmf.tooldef.source" version="2.3.0.201306121424"/>
+<plugin id="org.irods.jargon.core"/>
+<plugin id="org.eclipse.gmf.runtime.common.ui.printing.source" version="1.4.0.v20100223-2359"/>
+<plugin id="org.eclipse.emf.validation.ui.source" version="1.3.0.v200901271722"/>
+<plugin id="org.eclipse.gmf.bridge.ui.dashboard.source"/>
+<plugin id="org.eclipse.equinox.transforms.xslt"/>
+<plugin id="org.eclipse.emf.databinding.edit.source" version="1.2.0.v20120130-0943"/>
+<plugin id="org.eclipse.pde.launching.source" version="3.6.100.v20120605-203027"/>
+<plugin id="org.eclipse.gmf.runtime.draw2d.ui.render.awt" version="1.4.1.v20101222-2230"/>
+<plugin id="org.eclipse.emf.validation.source" version="1.4.0.v20100428-2315"/>
+<plugin id="org.eclipse.gmf.map.source" version="2.9.0.201306121424"/>
+<plugin id="org.eclipse.epsilon.etl.dt"/>
+<plugin id="org.eclipse.epsilon.emc.composite"/>
+<plugin id="org.eclipse.pde.ua.ui.source"/>
+<plugin id="org.eclipse.equinox.p2.ui.admin.rcp.source"/>
+<plugin id="org.eclipse.gmf.runtime.diagram.core.source" version="1.4.1.v20101221-2230"/>
+<plugin id="org.apache.felix.gogo.runtime.source" version="0.8.0.v201108120515"/>
+<plugin id="org.eclipse.emf.ecore.change.edit.source" version="2.5.0.v20120130-0943"/>
+<plugin id="org.eclipse.core.filesystem.source" version="1.3.200.v20130115-145044"/>
+<plugin id="org.eclipse.gmf.runtime.common.ui.services.properties" version="1.3.1.v20101221-2230"/>
+<plugin id="org.eclipse.gmf.runtime.notation.providers.source" version="1.3.0.v20100115-2350"/>
+<plugin id="org.eclipse.ocl.ecore.source" version="3.1.2.v20111015-2027"/>
+<plugin id="org.eclipse.core.jobs.source" version="3.5.200.v20120521-2346"/>
+<plugin id="org.eclipse.emf.ecore.change.edit.source" version="2.5.0.v20120130-0943"/>
+<plugin id="org.eclipse.emf.importer.rose.source" version="2.6.0.v20120130-0943"/>
+<plugin id="org.eclipse.emf.databinding.source" version="1.2.0.v20120130-0943"/>
+<plugin id="org.eclipse.core.databinding.property.source" version="1.4.100.v20120523-1956"/>
+<plugin id="org.eclipse.team.core.source" version="3.6.100.v20120524-0627"/>
+<plugin id="org.eclipse.core.net"/>
+<plugin id="org.eclipse.gmf.runtime.emf.type.core" version="1.4.0.v20100423-2359"/>
+<plugin id="org.eclipse.gmf.runtime.emf.ui.properties" version="1.5.0.v20101222-2230"/>
+<plugin id="org.apache.batik.dom.svg.source" version="1.6.0.v201011041432"/>
+<plugin id="org.eclipse.equinox.common.source" version="3.6.100.v20120522-1841"/>
+<plugin id="org.eclipse.emf.transaction.source" version="1.4.0.v20100331-1738"/>
+<plugin id="org.eclipse.epsilon.emc.emf.decorator"/>
+<plugin id="org.eclipse.gmf.runtime.gef.ui.source" version="1.4.1.v20101222-2230"/>
+<plugin id="org.eclipse.equinox.http.servletbridge.source"/>
+<plugin id="org.eclipse.equinox.p2.updatesite.source"/>
+<plugin id="org.eclipse.core.runtime.compatibility.source"/>
+<plugin id="org.eclipse.equinox.p2.core" version="2.2.0.v20120430-0525"/>
+<plugin id="org.ops4j.pax.configmanager"/>
+<plugin id="mets.model.edit"/>
+<plugin id="org.eclipse.emf.codegen.ecore.ui" version="2.7.0.v20120130-0943"/>
+<plugin id="org.eclipse.gmf.runtime.emf.commands.core.source" version="1.4.0.v20100423-2359"/>
+<plugin id="org.eclipse.gmf.runtime.common.ui.services.source" version="1.3.1.v20101118-2230"/>
+<plugin id="org.eclipse.debug.core.source" version="3.7.100.v20120521-2012"/>
+<plugin id="org.eclipse.gmf.runtime.emf.core" version="1.4.1.v20101222-2230"/>
+<plugin id="org.eclipse.jdt"/>
+<plugin id="org.eclipse.gmf.tooling"/>
+<plugin id="org.eclipse.equinox.p2.touchpoint.natives.source"/>
+<plugin id="org.eclipse.gmf.tooldef.edit.source" version="2.3.0.201306121424"/>
+<plugin id="org.eclipse.equinox.util"/>
+<plugin id="org.eclipse.core.resources" version="3.8.1.v20121114-124432"/>
+<plugin id="org.apache.batik.transcoder" version="1.6.0.v201011041432"/>
+<plugin id="org.eclipse.equinox.simpleconfigurator.manipulator.source" version="2.0.0.v20110808-1657"/>
+<plugin id="org.eclipse.core.runtime.compatibility.registry.source"/>
+<plugin id="org.eclipse.ecf.provider.filetransfer.httpclient.source"/>
+<plugin id="org.eclipse.equinox.http.registry"/>
+<plugin id="org.eclipse.epsilon.egl.traceability.fine"/>
+<plugin id="org.apache.felix.gogo.command.source" version="0.8.0.v201108120515"/>
+<plugin id="org.eclipse.core.filebuffers.source" version="3.5.200.v20120523-1310"/>
+<plugin id="org.eclipse.jface.databinding.source" version="1.6.0.v20120912-135020"/>
+<plugin id="org.eclipse.ocl" version="3.1.0.v20120206-0606"/>
+<plugin id="org.eclipse.osgi.util"/>
+<plugin id="ch.qos.logback.classic" version="0.9.27.v20110224-1110"/>
+<plugin id="xlink.model"/>
+<plugin id="org.eclipse.emf.transaction.ui.source" version="1.4.0.v20090819-1300"/>
+<plugin id="org.eclipse.ui.navigator" version="3.5.200.v20120523-1956"/>
+<plugin id="org.eclipse.ui.intro.universal"/>
+<plugin id="org.eclipse.ui.cheatsheets.source" version="3.4.200.v20120521-2344"/>
+<plugin id="org.eclipse.gef" version="3.7.2.v20111106-2020"/>
+<plugin id="org.eclipse.emf.converter.source" version="2.5.0.v20120130-0943"/>
+<plugin id="org.eclipse.compare.core.source" version="3.5.200.v20120522-1148"/>
+<plugin id="org.eclipse.gef.source" version="3.7.2.v20111106-2020"/>
+<plugin id="org.eclipse.equinox.bidi.source"/>
+<plugin id="org.eclipse.m2m.qvt.oml.common.source" version="3.1.0.v20110518-1530"/>
+<plugin id="org.eclipse.core.variables.source" version="3.2.600.v20120521-2012"/>
+<plugin id="org.eclipse.jdt.ui" version="3.8.2.v20130107-165834"/>
+<plugin id="org.eclipse.debug.core.source" version="3.7.100.v20120521-2012"/>
+<plugin id="org.eclipse.gmf.map.edit" version="2.9.0.201306121424"/>
+<plugin id="org.sat4j.pb" version="2.3.0.v20110329"/>
+<plugin id="org.eclipse.gmf.runtime.emf.ui.properties.source" version="1.5.0.v20101222-2230"/>
+<plugin id="org.eclipse.jdt.debug.source" version="3.7.101.v20120913-153601"/>
+<plugin id="org.eclipse.gmf.runtime.emf.core.source" version="1.4.1.v20101222-2230"/>
+<plugin id="org.eclipse.draw2d" version="3.7.2.v20111017-2020"/>
+<plugin id="org.eclipse.equinox.supplement.source" version="1.4.100.v20120522-1813"/>
+<plugin id="org.eclipse.ui.externaltools.source" version="3.2.100.v20120530-1753"/>
+<plugin id="javax.el.source"/>
+<plugin id="org.eclipse.core.variables.source" version="3.2.600.v20120521-2012"/>
+<plugin id="org.eclipse.gmf.runtime.emf.ui" version="1.2.0.v20090403-1720"/>
+<plugin id="xlink.model.edit"/>
+<plugin id="org.apache.commons.codec.source"/>
+<plugin id="org.eclipse.core.databinding.observable.source" version="1.4.1.v20120521-2332"/>
+<plugin id="org.eclipse.m2m.qvt.oml.common.source" version="3.1.0.v20110518-1530"/>
+<plugin id="org.eclipse.ecf.provider.filetransfer.source"/>
+<plugin id="org.eclipse.ui.workbench.source" version="3.8.2.v20121128-133708"/>
+<plugin id="org.eclipse.emf.databinding.edit" version="1.2.0.v20120130-0943"/>
+<plugin id="org.eclipse.gmf.tooling.runtime.source" version="3.1.0.201306121424"/>
+<plugin id="org.junit" version="4.10.0.v4_10_0_v20120426-0900"/>
+<plugin id="org.eclipse.ant.ui.source" version="3.5.301.v20121210-212007"/>
+<plugin id="org.eclipse.gmf.runtime.common.ui.printing.win32.source" version="1.4.0.v20100223-2359"/>
+<plugin id="org.eclipse.emf.ecore.source" version="2.7.0.v20120127-1122"/>
+<plugin id="org.eclipse.gmf.runtime.common.ui.services.source" version="1.3.1.v20101118-2230"/>
+<plugin id="org.eclipse.emf.workspace.source" version="1.5.1.v20110823-1800"/>
+<plugin id="org.eclipse.gmf.runtime.diagram.ui.geoshapes.source" version="1.4.1.v20101119-2230"/>
+<plugin id="org.eclipse.equinox.cm"/>
+<plugin id="org.eclipse.ui.editors.source" version="3.8.0.v20120523-1540"/>
+<plugin id="org.globus.jglobus.cog-jglobus"/>
+<plugin id="org.eclipse.ecf.identity"/>
+<plugin id="org.eclipse.gmf.runtime.diagram.ui.actions.source" version="1.4.1.v20101221-2230"/>
+<plugin id="org.eclipse.gmf.runtime.common.ui.services.dnd.source" version="1.5.0.v20101221-2230"/>
+<plugin id="org.eclipse.core.databinding.source" version="1.4.1.v20120912-135020"/>
+<plugin id="org.eclipse.emf.ecore.xmi" version="2.7.0.v20120127-1122"/>
+<plugin id="org.eclipse.jdt.debug.source" version="3.7.101.v20120913-153601"/>
+<plugin id="org.eclipse.epsilon.dt.exeed"/>
+<plugin id="org.eclipse.ui.views.properties.tabbed.source" version="3.5.300.v20120912-135020"/>
+<plugin id="org.eclipse.emf.mapping.ecore2ecore.editor.source" version="2.5.0.v20120130-0943"/>
+<plugin id="org.eclipse.ui.ide" version="3.8.2.v20121106-170106"/>
+<plugin id="org.eclipse.equinox.p2.transport.ecf.source"/>
+<plugin id="org.eclipse.core.variables.source" version="3.2.600.v20120521-2012"/>
+<plugin id="org.apache.xml.serializer" version="2.7.1.v201005080400"/>
+<plugin id="log4j"/>
+<plugin id="javax.xml" version="1.3.4.v201005080400"/>
+<plugin id="org.eclipse.gmf.runtime.diagram.core.source" version="1.4.1.v20101221-2230"/>
+<plugin id="org.eclipse.core.filebuffers.source" version="3.5.200.v20120523-1310"/>
+<plugin id="org.eclipse.jface.source" version="3.8.0.v20120912-135020"/>
+<plugin id="crosswalk-gmf.custom"/>
+<plugin id="org.eclipse.gmf.validate.source" version="1.2.0.201306121424"/>
+<plugin id="org.eclipse.net4j.jms.api" version="3.0.1.v20110818-0811"/>
+<plugin id="org.eclipse.team.core.source" version="3.6.100.v20120524-0627"/>
+<plugin id="org.eclipse.ecf.provider.filetransfer.httpclient"/>
+<plugin id="org.eclipse.ecf.filetransfer"/>
+<plugin id="org.eclipse.epsilon.emc.emf" version="1.1.0.201309101707"/>
+<plugin id="org.apache.batik.util.source" version="1.6.0.v201011041432"/>
+<plugin id="org.eclipse.ecf.ssl.source"/>
+</includeBundles>
+<targetJRE path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
+</target>
