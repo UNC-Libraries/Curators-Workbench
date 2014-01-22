@@ -123,6 +123,13 @@
 				<configuration>
 					<resolver>p2</resolver>
 					<ignoreTychoRepositories>true</ignoreTychoRepositories>
+      				<filters>
+         				<filter>
+            				<type>eclipse-plugin</type>
+            				<id>ch.qos.logback.slf4j</id>
+            				<removeAll />
+         				</filter>
+      				</filters>
 					<target>
 						<artifact>
 							<groupId>curators.workbench</groupId>
@@ -138,11 +145,11 @@
 							<ws>gtk</ws>
 							<arch>x86_64</arch>
 						</environment>
-						<environment>
+						<!--environment>
 							<os>linux</os>
 							<ws>gtk</ws>
 							<arch>x86</arch>
-						</environment>
+						</environment-->
 						<!-- <environment> <os>macosx</os> <ws>cocoa</ws> <arch>x86</arch> 
 							</environment> -->
 						<environment>
@@ -150,11 +157,11 @@
 							<ws>cocoa</ws>
 							<arch>x86_64</arch>
 						</environment>
-						<environment>
+						<!--environment>
 							<os>win32</os>
 							<ws>win32</ws>
 							<arch>x86</arch>
-						</environment>
+						</environment-->
 						<environment>
 							<os>win32</os>
 							<ws>win32</ws>

@@ -253,6 +253,7 @@ public class StagingJob extends Job {
 				mpn.setAutomaticStaging(false);
 				addProblemMarker("Staging stopped due to an error, autostaging disabled: "
 						+ e.getMessage());
+				log.error("Staging encountered an error and stopped, autostaging disabled.", e);
 				return new Status(
 						IStatus.ERROR,
 						Activator.PLUGIN_ID,

@@ -15,5 +15,4 @@ $JAVA_HOME/bin/java \
 -Dosgi.requiredJavaVersion=1.7 \
 -Dosgi.instance.area=@user.home/curators-workspace \
 -Djargon.debug=0 \
--Dlog4j.configuration=file:$DIR/Resources/log4j.properties \
 -jar $LAUNCHER_JAR

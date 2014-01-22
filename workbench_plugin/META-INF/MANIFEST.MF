@@ -19,8 +19,8 @@ Require-Bundle: org.eclipse.core.expressions;bundle-version="3.4.300",
  org.eclipse.ui.intro,
  crosswalk-gmf.custom;bundle-version="0.0.0",
  staging.plugin;bundle-version="4.1.4";visibility:=reexport,
- slf4j.api;bundle-version="1.7.5",
- net.sf.opencsv;bundle-version="2.3.0"
+ net.sf.opencsv;bundle-version="2.3.0",
+ org.ops4j.pax.logging.pax-logging-api;bundle-version="1.7.1"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Export-Package: unc.lib.cdr.workbench,

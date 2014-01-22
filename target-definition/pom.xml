@@ -30,7 +30,7 @@
                         <configuration>
                             <artifacts>
                                 <artifact>
-                                    <file>indigo.target</file>
+                                    <file>indigo_3_8.target</file>
                                     <type>target</type>
                                     <classifier>indigo</classifier>
                                 </artifact>
