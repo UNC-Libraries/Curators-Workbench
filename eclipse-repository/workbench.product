@@ -43,7 +43,7 @@ Meg Tuomala
 
    <launcherArgs>
       <programArgs>-consoleLog -data @user.home/curators-workspace</programArgs>
-      <vmArgs>-Dosgi.requiredJavaVersion=1.7 -XX:MaxPermSize=256m -Xms256m -Xmx1024m -Djargon.debug=0</vmArgs>
+      <vmArgs>-Dosgi.requiredJavaVersion=1.7 -XX:MaxPermSize=256m -Xms256m -Xmx1024m -Djargon.debug=0 -Derror.log.path=workbench.log</vmArgs>
    </launcherArgs>
 
    <windowImages/>

@@ -2,6 +2,7 @@
 #
 
 DIR=`dirname $0`/../
+LOG_PATH=`cd ~; pwd`/workbench.log
 export JAVA_HOME=$DIR/Resources/jre${jre.version}.jre/Contents/Home
 LAUNCHER_JAR=$( find $DIR/Resources/plugins -name org.eclipse.equinox.launcher_*.jar | tail -n1)
 
@@ -15,4 +16,5 @@ $JAVA_HOME/bin/java \
 -Dosgi.requiredJavaVersion=1.7 \
 -Dosgi.instance.area=@user.home/curators-workspace \
 -Djargon.debug=0 \
+-Derror.log.path=$LOG_PATH \
 -jar $LAUNCHER_JAR
