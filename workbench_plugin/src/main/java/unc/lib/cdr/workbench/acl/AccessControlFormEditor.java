@@ -97,6 +97,7 @@ public class AccessControlFormEditor extends FormEditor {
 			this.editingDomain = MetsProjectNature.get(project).getEditingDomain();
 			EObject eobj = MetsProjectNature.getModel(in);
 			this.model = (AccessControlType)eobj;
+			if(this.model == null) throw new Error("ACL Model is null, input was "+this.getEditorInput());
 		} else {
 			LOG.warn("editor input unexpected: {}", this.getEditorInput());
 		}

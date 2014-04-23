@@ -241,13 +241,13 @@ public class StagingUtils {
 			// dir, non-shared)
 			prestage = stage;
 		} else {
-			SharedStagingArea area = StagingPlugin.getDefault().getStages()
+			prestage = StagingPlugin.getDefault().getStages()
 					.findMatchingArea(original.toURI());
-			if (area != null
-					&& (destinationConfig == null || destinationConfig
-							.equals(area.getConfigURL()))) {
-				prestage = area;
-			}
+		}
+		
+		if (prestage == null) {
+			throw new CoreException(new Status(IStatus.ERROR,
+					StagingPlugin.PLUGIN_ID, "This file is not in a mapped staging area: "+original.toString()));
 		}
 
 		try {
