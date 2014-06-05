@@ -2,7 +2,7 @@
 <feature
       id="workbench_feature"
       label="Curator&apos;s Workbench Feature"
-      version="4.1.4.qualifier"
+      version="4.1.5.qualifier"
       provider-name="UNC Libraries"
       plugin="workbench_plugin">
 
@@ -86,7 +86,7 @@ limitations under the License.
       <import plugin="org.eclipse.gmf.runtime.common.core" version="1.2.0" match="compatible"/>
       <import plugin="org.eclipse.emf.workspace" version="1.2.0" match="compatible"/>
       <import plugin="org.eclipse.gmf.runtime.emf.core" version="1.2.0" match="compatible"/>
-      <import plugin="org.irods.jargon.core" version="3.2.1.4" match="equivalent"/>
+      <import plugin="org.irods.jargon.core" version="3.3.2" match="equivalent"/>
       <import plugin="access-control" version="4.1.2" match="greaterOrEqual"/>
       <import plugin="net.sf.opencsv" version="2.3.0" match="greaterOrEqual"/>
       <import plugin="access-control.edit" version="4.1.2" match="greaterOrEqual"/>
@@ -148,7 +148,7 @@ limitations under the License.
       <import plugin="org.eclipse.ui.forms" version="3.5.0" match="compatible"/>
       <import plugin="org.eclipse.core.expressions" version="3.4.200" match="greaterOrEqual"/>
       <import plugin="org.eclipse.ui.intro" version="3.4.0" match="compatible"/>
-      <import plugin="irods-efs.plugin" version="4.1.4" match="greaterOrEqual"/>
+      <import plugin="irods-efs.plugin" version="4.1.5" match="greaterOrEqual"/>
       <import plugin="org.junit"/>
       <import plugin="edu.unc.lib.cdr.staging-areas" version="0.0.1" match="greaterOrEqual"/>
       <import plugin="com.fasterxml.jackson.core.jackson-databind"/>

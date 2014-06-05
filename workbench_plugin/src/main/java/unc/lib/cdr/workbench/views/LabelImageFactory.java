@@ -85,8 +85,8 @@ public class LabelImageFactory {
 				"version_controlled.gif", Size.DEFAULT_DECOR), UserEditedDecor(
 				"write_obj.gif", Size.LARGE_DECOR), CrosswalkedDecor(
 				"write_obj_gray.gif", Size.LARGE_DECOR), ACLDecor("lockedstate.gif",
-				Size.DEFAULT_DECOR), ACLGrayDecor("lockedstate_mono.gif",
-						Size.DEFAULT_DECOR), CrosswalkedRecord("property_obj.gif",
+				Size.LARGE_DECOR), ACLGrayDecor("lockedstate_mono.gif",
+				Size.LARGE_DECOR), CrosswalkedRecord("property_obj.gif",
 				Size.DEFAULT_ICON), LinkedObject("link_obj.gif", Size.DEFAULT_ICON), EjectedDecore(
 				"ejected1.gif", Size.DEFAULT_DECOR), Loading("loading.png",
 				Size.ORIGINAL), NoPreview("no_preview.png", Size.ORIGINAL);
