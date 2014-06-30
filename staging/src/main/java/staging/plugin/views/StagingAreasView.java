@@ -16,7 +16,11 @@
 package staging.plugin.views;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URI;
+import java.nio.file.FileStore;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IMenuListener;
@@ -41,9 +45,11 @@ import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.viewers.ViewerSorter;
 import org.eclipse.jface.window.ToolTip;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.DirectoryDialog;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.ui.IActionBars;
@@ -194,18 +200,15 @@ public class StagingAreasView extends ViewPart {
 	}
 
 	private void createColumns(Composite parent, ViewLabelProvider labelProvider) {
-		String[] titles = { "Stage Name", "Status", "Base URI", "Writable" };
-		int[] bounds = { 250, 300, 200, 200 };
-
-		TableViewerColumn col0 = createTableViewerColumn(titles[0], bounds[0], 0);
-		col0.setLabelProvider(new ColumnLabelProvider() {
+		TableViewerColumn nameCol = createTableViewerColumn("Name", 200, 0);
+		nameCol.setLabelProvider(new ColumnLabelProvider() {
 			@Override
 			public String getText(Object element) {
 				return ((StagingArea)element).getName();
 			}
 		});
-		TableViewerColumn col1 = createTableViewerColumn(titles[1], bounds[1], 1);
-		col1.setLabelProvider(new ColumnLabelProvider() {
+		TableViewerColumn statusCol = createTableViewerColumn("Status", 100, 1);
+		statusCol.setLabelProvider(new ColumnLabelProvider() {
 			@Override
 			public Image getImage(Object element) {
 				boolean conn = ((StagingArea)element).isConnected();
@@ -226,8 +229,50 @@ public class StagingAreasView extends ViewPart {
 				return getAreaTooltip(element);
 			}
 		});
-		TableViewerColumn col2 = createTableViewerColumn(titles[2], bounds[2], 2);
-		col2.setLabelProvider(new ColumnLabelProvider() {
+		TableViewerColumn spaceCol = createTableViewerColumn("Space", 50, 2);
+		spaceCol.setLabelProvider(new ColumnLabelProvider() {
+			@Override
+			public String getText(Object element) {
+				StagingArea a = (StagingArea)element;
+				String result = "";
+				if(a.isConnected() && a.getScheme() != null) {
+					URI storage = a.getConnectedStorageURI();
+					try {
+						FileStore fs = Files.getFileStore(Paths.get(storage));
+						result = humanReadableByteCount(fs.getUnallocatedSpace(), true);
+					} catch (IOException e) {
+					}
+				}
+				return result;
+			}
+
+			@Override
+			public Color getForeground(Object element) {
+				Color result = super.getForeground(element);
+				StagingArea a = (StagingArea)element;
+				if(a.isConnected() && a.getScheme() != null) {
+					URI storage = a.getConnectedStorageURI();
+					try {
+						FileStore fs = Files.getFileStore(Paths.get(storage));
+						long bytes = fs.getUnallocatedSpace();
+						if(bytes < 10 * 1024 * 1024) { // 10 GB is red
+							return Display.getCurrent().getSystemColor(SWT.COLOR_DARK_RED);
+						} else if(bytes < 100 * 1024 * 1024) { // 100GB is yellow
+							return Display.getCurrent().getSystemColor(SWT.COLOR_DARK_YELLOW);
+						}
+					} catch (IOException e) {
+					}
+				}
+				return result;
+			}
+
+			@Override
+			public String getToolTipText(Object element) {
+				return getAreaTooltip(element);
+			}
+		});
+		TableViewerColumn uriCol = createTableViewerColumn("URI", 300, 3);
+		uriCol.setLabelProvider(new ColumnLabelProvider() {
 			@Override
 			public String getText(Object element) {
 				return ((StagingArea)element).getURI().toString();
@@ -238,8 +283,8 @@ public class StagingAreasView extends ViewPart {
 				return getAreaTooltip(element);
 			}
 		});
-		TableViewerColumn col3 = createTableViewerColumn(titles[3], bounds[3], 3);
-		col3.setLabelProvider(new ColumnLabelProvider() {
+		TableViewerColumn writableCol = createTableViewerColumn("Writable", 150, 4);
+		writableCol.setLabelProvider(new ColumnLabelProvider() {
 			@Override
 			public String getText(Object element) {
 				return ((StagingArea)element).isReadOnly() ? "no" : "yes";
@@ -389,5 +434,13 @@ public class StagingAreasView extends ViewPart {
 	 */
 	public void setFocus() {
 		viewer.getControl().setFocus();
+	}
+	
+	public static String humanReadableByteCount(long bytes, boolean si) {
+	    int unit = si ? 1000 : 1024;
+	    if (bytes < unit) return bytes + " B";
+	    int exp = (int) (Math.log(bytes) / Math.log(unit));
+	    String pre = (si ? "kMGTPE" : "KMGTPE").charAt(exp-1) + (si ? "" : "i");
+	    return String.format("%.1f %sB", bytes / Math.pow(unit, exp), pre);
 	}
 }
