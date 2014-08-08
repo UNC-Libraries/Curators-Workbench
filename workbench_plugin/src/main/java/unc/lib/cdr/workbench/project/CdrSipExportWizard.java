@@ -102,15 +102,18 @@ public class CdrSipExportWizard extends Wizard implements IExportWizard {
 			return false;
 		if (!page.isPageComplete())
 			return false;
-		try {
-			int unstaged = MetsProjectNature.countUnstaged(project);
-			if(unstaged > 0) {
-				page.setErrorMessage("There are still "+unstaged+" files queued for staging. All captured files must be staged prior to export.");
-				page.setPageComplete(false);
-				return false;
-			}
-		} catch(CoreException e) {
-			e.printStackTrace();
+		int[] stagedAndCaptured = MetsProjectNature
+				.countStagedAndCaptured(project);
+		int staged = stagedAndCaptured[0];
+		int captured = stagedAndCaptured[1];
+		if (captured - staged > 0) {
+			page.setErrorMessage("There are still "
+					+ (captured - staged)
+					+ " out of "
+					+ captured
+					+ " files queued for staging. All captured files must be staged prior to export.");
+			page.setPageComplete(false);
+			return false;
 		}
 		return super.canFinish();
 	}
