@@ -22,6 +22,7 @@ import gov.loc.mets.FLocatType;
 import gov.loc.mets.FileGrpType;
 import gov.loc.mets.FileGrpType1;
 import gov.loc.mets.FileType;
+import gov.loc.mets.MDTYPEType;
 import gov.loc.mets.MdSecType;
 import gov.loc.mets.MdWrapType;
 import gov.loc.mets.MetsFactory;
@@ -207,15 +208,17 @@ public class CdrSipExportJob extends Job {
 
 	private void recordDepositAdmSec(MetsType1 cdr) {
 		// reference AMDID in METS
-		String depositAmdSecID = "depositAMD";
+		String depositAmdSecID = "depositAmdSec";
 		cdr.getMetsHdr().setADMID(Collections.singletonList(depositAmdSecID));
 		
 		// wrapper elements
 		AmdSecType amd = MetsFactory.eINSTANCE.createAmdSecType();
 		amd.setID(depositAmdSecID);
 		MdSecType md = MetsFactory.eINSTANCE.createMdSecType();
+		md.setID("depositSourceMD");
 		amd.getSourceMD().add(md);
 		MdWrapType mdWrap = MetsFactory.eINSTANCE.createMdWrapType();
+		mdWrap.setMDTYPE(MDTYPEType.OTHER);
 		md.setMdWrap(mdWrap);
 		XmlDataType1 xml = MetsFactory.eINSTANCE.createXmlDataType1();
 		mdWrap.setXmlData(xml);
