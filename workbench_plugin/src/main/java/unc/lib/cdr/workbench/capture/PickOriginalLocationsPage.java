@@ -15,8 +15,6 @@
  */
 package unc.lib.cdr.workbench.capture;
 
-import irods.efs.plugin.IrodsConnectionDialog;
-
 import java.io.File;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -36,8 +34,6 @@ import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.URIUtil;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.core.runtime.preferences.ConfigurationScope;
-import org.eclipse.jface.fieldassist.AutoCompleteField;
-import org.eclipse.jface.fieldassist.ComboContentAdapter;
 import org.eclipse.jface.viewers.CheckStateChangedEvent;
 import org.eclipse.jface.viewers.CheckboxTreeViewer;
 import org.eclipse.jface.viewers.ICheckStateListener;
@@ -90,7 +86,6 @@ public class PickOriginalLocationsPage extends WizardPage implements Listener {
 	// widgets
 	private Combo locationField;
 	private Button drivesBrowseButton;
-	private Button irodsBrowseButton;
 	private Button removeableButton;
 	private Combo projectCombo;
 	private CheckboxTreeViewer fileTreeViewer;
@@ -357,16 +352,7 @@ public class PickOriginalLocationsPage extends WizardPage implements Listener {
 				GridData.HORIZONTAL_ALIGN_FILL));
 		drivesBrowseButton.setFont(parent.getFont());
 
-		// source browse button
-		irodsBrowseButton = new Button(sourceContainerGroup, SWT.PUSH);
-		irodsBrowseButton.setText("Browse iRODS..");
-		irodsBrowseButton.addListener(SWT.Selection, this);
-		irodsBrowseButton.setLayoutData(new GridData(
-				GridData.HORIZONTAL_ALIGN_FILL));
-		irodsBrowseButton.setFont(parent.getFont());
-
 		setButtonLayoutData(drivesBrowseButton);
-		setButtonLayoutData(irodsBrowseButton);
 
 		// source name entry field
 		locationField = new Combo(sourceContainerGroup, SWT.BORDER);
@@ -477,12 +463,6 @@ public class PickOriginalLocationsPage extends WizardPage implements Listener {
 			selectFirstCheckbox();
 			setMessage(null);
 			setPageComplete(true);
-		} else if (source == this.irodsBrowseButton) {
-			handleIrodsBrowseButtonPressed();
-			updateWidgets();
-			selectFirstCheckbox();
-			setMessage(null);
-			setPageComplete(true);
 		}
 	}
 
@@ -505,16 +485,6 @@ public class PickOriginalLocationsPage extends WizardPage implements Listener {
 		String pname = this.projectCombo.getItems()[this.projectCombo
 				.getSelectionIndex()];
 		return ResourcesPlugin.getWorkspace().getRoot().getProject(pname);
-	}
-
-	/**
-     *
-     */
-	protected void handleIrodsBrowseButtonPressed() {
-		IrodsConnectionDialog dialog = new IrodsConnectionDialog(getShell());
-		if (IrodsConnectionDialog.OK == dialog.open()) {
-			location = dialog.getLocation();
-		}
 	}
 
 	/**

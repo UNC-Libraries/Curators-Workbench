@@ -148,7 +148,6 @@ limitations under the License.
       <import plugin="org.eclipse.ui.forms" version="3.5.0" match="compatible"/>
       <import plugin="org.eclipse.core.expressions" version="3.4.200" match="greaterOrEqual"/>
       <import plugin="org.eclipse.ui.intro" version="3.4.0" match="compatible"/>
-      <import plugin="irods-efs.plugin" version="4.1.5" match="greaterOrEqual"/>
       <import plugin="org.junit"/>
       <import plugin="edu.unc.lib.cdr.staging-areas" version="0.0.1" match="greaterOrEqual"/>
       <import plugin="com.fasterxml.jackson.core.jackson-databind"/>
@@ -203,13 +202,6 @@ limitations under the License.
 
    <plugin
          id="mods.model.editor"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="irods-efs.plugin"
          download-size="0"
          install-size="0"
          version="0.0.0"

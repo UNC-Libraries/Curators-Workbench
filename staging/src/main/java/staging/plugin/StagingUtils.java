@@ -15,8 +15,6 @@
  */
 package staging.plugin;
 
-import irods.efs.plugin.IrodsFileStore;
-
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.IOException;
@@ -110,9 +108,9 @@ public class StagingUtils {
 	 *             when the staging cannot complete
 	 */
 	public static StagingResult stage(IFileStore original, IProject project,
-			String originalPath, String md5sum, URI manifestStagingURI, SharedStagingArea stage,
-			URL destinationConfig, IProgressMonitor monitor)
-			throws CoreException {
+			String originalPath, String md5sum, URI manifestStagingURI,
+			SharedStagingArea stage, URL destinationConfig,
+			IProgressMonitor monitor) throws CoreException {
 		if (monitor == null) {
 			monitor = new NullProgressMonitor();
 		}
@@ -175,7 +173,8 @@ public class StagingUtils {
 		// stagedChecksumMonitor.subTask("Getting digest for staged file.. ");
 		String stagedMD5 = fetchMD5Digest(stageFileStore, stagedChecksumMonitor);
 		if (md5sum != null && !md5sum.equals(sourceMD5)) {
-			log.error("old checksum does not match new one: {} | {}", md5sum, sourceMD5);
+			log.error("old checksum does not match new one: {} | {}", md5sum,
+					sourceMD5);
 			stageFileStore.delete(EFS.NONE, stagedChecksumMonitor);
 			throw new CoreException(
 					new Status(IStatus.ERROR, StagingPlugin.PLUGIN_ID,
@@ -244,10 +243,12 @@ public class StagingUtils {
 			prestage = StagingPlugin.getDefault().getStages()
 					.findMatchingArea(original.toURI());
 		}
-		
+
 		if (prestage == null) {
 			throw new CoreException(new Status(IStatus.ERROR,
-					StagingPlugin.PLUGIN_ID, "This file is not in a mapped staging area: "+original.toString()));
+					StagingPlugin.PLUGIN_ID,
+					"This file is not in a mapped staging area: "
+							+ original.toString()));
 		}
 
 		try {
@@ -292,53 +293,47 @@ public class StagingUtils {
 			IProgressMonitor monitor) throws CoreException {
 		String result = null;
 		IFileInfo info = null;
-		if (fileStore instanceof IrodsFileStore) {
-			info = fileStore.fetchInfo();
-			result = info.getStringAttribute(EFS.ATTRIBUTE_LINK_TARGET);
+		monitor.beginTask("Retreiving staged file and calculating checksum",
+				100);
+		info = fileStore.fetchInfo();
+		if (info.getLength() == 0) {
+			return "d41d8cd98f00b204e9800998ecf8427e";
 		}
-		if (result == null) {
-			monitor.beginTask(
-					"Retreiving staged file and calculating checksum", 100);
-			info = fileStore.fetchInfo();
-			if (info.getLength() == 0) {
-				return "d41d8cd98f00b204e9800998ecf8427e";
-			}
-			MessageDigest messageDigest;
-			try {
-				messageDigest = MessageDigest.getInstance("MD5");
-			} catch (NoSuchAlgorithmException e) {
-				throw new CoreException(new Status(Status.ERROR,
-						StagingPlugin.PLUGIN_ID,
-						"Cannot create checksum without MD5 algorithm.", e));
-			}
-			messageDigest.reset();
-			byte[] buffer = new byte[chunkSize];
-			int bytesRead = 0;
-			int totalBytesRead = 0;
-			int progressTickBytes = (int) info.getLength() / 100;
-			if (progressTickBytes == 0) {
-				progressTickBytes = 1; // prevents divide by zero on files less
-										// than 100 bytes
-			}
-			BufferedInputStream in = new BufferedInputStream(
-					fileStore.openInputStream(EFS.NONE, null));
-			try {
-				while ((bytesRead = in.read(buffer, 0, chunkSize)) != -1) {
-					messageDigest.update(buffer, 0, bytesRead);
-					totalBytesRead = totalBytesRead + bytesRead;
-					if ((totalBytesRead % progressTickBytes) < bytesRead) {
-						monitor.worked(1);
-					}
+		MessageDigest messageDigest;
+		try {
+			messageDigest = MessageDigest.getInstance("MD5");
+		} catch (NoSuchAlgorithmException e) {
+			throw new CoreException(new Status(Status.ERROR,
+					StagingPlugin.PLUGIN_ID,
+					"Cannot create checksum without MD5 algorithm.", e));
+		}
+		messageDigest.reset();
+		byte[] buffer = new byte[chunkSize];
+		int bytesRead = 0;
+		int totalBytesRead = 0;
+		int progressTickBytes = (int) info.getLength() / 100;
+		if (progressTickBytes == 0) {
+			progressTickBytes = 1; // prevents divide by zero on files less
+									// than 100 bytes
+		}
+		BufferedInputStream in = new BufferedInputStream(
+				fileStore.openInputStream(EFS.NONE, null));
+		try {
+			while ((bytesRead = in.read(buffer, 0, chunkSize)) != -1) {
+				messageDigest.update(buffer, 0, bytesRead);
+				totalBytesRead = totalBytesRead + bytesRead;
+				if ((totalBytesRead % progressTickBytes) < bytesRead) {
+					monitor.worked(1);
 				}
-			} catch (IOException e) {
-				throw new CoreException(new Status(Status.ERROR,
-						StagingPlugin.PLUGIN_ID,
-						"Cannot read file store to calculate MD5 digest.", e));
 			}
-			Hex hex = new Hex();
-			result = new String(hex.encode(messageDigest.digest()));
-			monitor.done();
+		} catch (IOException e) {
+			throw new CoreException(new Status(Status.ERROR,
+					StagingPlugin.PLUGIN_ID,
+					"Cannot read file store to calculate MD5 digest.", e));
 		}
+		Hex hex = new Hex();
+		result = new String(hex.encode(messageDigest.digest()));
+		monitor.done();
 		return result;
 	}
 

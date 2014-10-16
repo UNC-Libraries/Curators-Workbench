@@ -84,7 +84,6 @@
 		<module>workbench_feature</module>
 		<module>workbench_plugin</module>
 		<module>eclipse-repository</module>
-		<module>irods-efs.plugin</module>
 		<module>target-definition</module>
 		<module>staging</module>
 	</modules>
