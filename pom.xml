@@ -56,7 +56,7 @@
 			<layout>p2</layout>
 			<url>http://download.eclipse.org/eclipse/updates/3.8</url>
 		</repository>
-		<repository>
+		<!--repository>
 			<id>eclipse-gmp</id>
 			<layout>p2</layout>
 			<url>http://download.eclipse.org/modeling/gmp/gmf-tooling/updates/releases/</url>
@@ -65,7 +65,7 @@
 			<id>epsilon-updates</id>
 			<layout>p2</layout>
 			<url>http://download.eclipse.org/epsilon/updates/</url>
-		</repository>
+		</repository-->
 		<repository>
 			<!-- see UNC-Libraries/maven-osgi-bundles to modify this repository -->
 			<id>maven-dependencies</id>
