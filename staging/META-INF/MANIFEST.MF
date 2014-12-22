@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: staging.plugin
 Bundle-SymbolicName: staging.plugin;singleton:=true
-Bundle-Version: 4.1.4.qualifier
+Bundle-Version: 4.1.5.qualifier
 Bundle-Activator: staging.plugin.StagingPlugin
 Bundle-Vendor: University Libraries, UNC Chapel Hill
 Require-Bundle: org.eclipse.ui,
@@ -10,7 +10,6 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.core.resources,
  org.eclipse.core.filesystem,
  org.apache.commons.codec;bundle-version="1.3.0",
- irods-efs.plugin;bundle-version="4.1.4";visibility:=reexport,
  org.junit,
  edu.unc.lib.cdr.staging-areas;bundle-version="0.0.1";visibility:=reexport,
  org.ops4j.pax.logging.pax-logging-api;bundle-version="1.7.1"

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/workbench_feature_4.1.4.qualifier.jar" id="workbench_feature" version="4.1.4.qualifier">
+   <feature url="features/workbench_feature_4.1.5.qualifier.jar" id="workbench_feature" version="4.1.5.qualifier">
       <category name="workbench_category_id"/>
    </feature>
    <category-def name="workbench_category_id" label="Curator&apos;s Workbench Category">

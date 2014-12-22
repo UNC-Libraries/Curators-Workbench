@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="Curator&apos;s Workbench" uid="curators-workbench" id="workbench_plugin.eclipse-repository" application="workbench_plugin.application" version="4.1.4.qualifier" useFeatures="true" includeLaunchers="true">
+<product name="Curator&apos;s Workbench" uid="curators-workbench" id="workbench_plugin.eclipse-repository" application="workbench_plugin.application" version="4.1.5.qualifier" useFeatures="true" includeLaunchers="true">
 
    <aboutInfo>
       <image path="/workbench_plugin/about.png"/>
       <text>
-         Curator&apos;s Workbench, version 4.1.4
+         Curator&apos;s Workbench, version 4.1.5
 
 The Curator&apos;s Workbench is a project of the Carolina Digital Repository, created by the University Libraries of UNC Chapel Hill.
 http://cdr.unc.edu
@@ -90,7 +90,7 @@ limitations under the License.
    </plugins>
 
    <features>
-      <feature id="workbench_feature" version="4.1.4.qualifier"/>
+      <feature id="workbench_feature" version="4.1.5.qualifier"/>
    </features>
 
    <configurations>

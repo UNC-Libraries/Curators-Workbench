@@ -21,8 +21,8 @@ import edu.unc.lib.staging.StagingException;
 import gov.loc.mets.DivType;
 import gov.loc.mets.DocumentRoot;
 import gov.loc.mets.FLocatType;
+import gov.loc.mets.FileGrpType;
 import gov.loc.mets.FileType;
-import gov.loc.mets.FptrType;
 import gov.loc.mets.MetsType1;
 import gov.loc.mets.util.METSConstants;
 import gov.loc.mets.util.METSUtils;
@@ -495,24 +495,9 @@ public class MetsProjectNature implements IProjectNature {
 	}
 
 	public String getStagingStatus() {
-		int numOfFiles = 0;
-		int numStaged = 0;
-		DivType bag = METSUtils.findBagDiv(getMets());
-		for (TreeIterator<EObject> iter = bag.eAllContents(); iter.hasNext();) {
-			EObject next = iter.next();
-			if (next != null && next instanceof FptrType) {
-				numOfFiles++;
-				FptrType fptr = (FptrType) next;
-				OriginalFileStore original = MetsProjectNature
-						.getOriginalFileStore((DivType) fptr.eContainer());
-				if (original != null) {
-					FLocatType loc = original.getStagingLocatorType();
-					if (loc != null) {
-						numStaged++;
-					}
-				}
-			}
-		}
+		int[] stagedAndCaptured = countStagedAndCaptured(getProject());
+		int numStaged = stagedAndCaptured[0];
+		int numOfFiles = stagedAndCaptured[1];
 		StringBuilder result = new StringBuilder().append(numStaged)
 				.append(" out of ").append(numOfFiles);
 		if (numOfFiles > 1 || numOfFiles == 0) {
@@ -523,26 +508,22 @@ public class MetsProjectNature implements IProjectNature {
 		return result.toString();
 	}
 
-	public static int countUnstaged(IProject project) throws CoreException {
+	public static int[] countStagedAndCaptured(IProject project) {
 		int numOfFiles = 0;
 		int numStaged = 0;
-		DivType bag = METSUtils.findBagDiv(get(project).getMets());
-		for (TreeIterator<EObject> iter = bag.eAllContents(); iter.hasNext();) {
+		FileGrpType fileGrp = METSUtils.getObjectsFileGroup(MetsProjectNature.get(project).getMets());
+		for (TreeIterator<EObject> iter = fileGrp.eAllContents(); iter.hasNext();) {
 			EObject next = iter.next();
-			if (next != null && next instanceof FptrType) {
-				numOfFiles++;
-				FptrType fptr = (FptrType) next;
-				OriginalFileStore original = getOriginalFileStore((DivType) fptr
-						.eContainer());
-				if (original != null) {
-					FLocatType loc = original.getStagingLocatorType();
-					if (loc != null) {
-						numStaged++;
-					}
+			if (next != null && next instanceof FLocatType) {
+				FLocatType flocat = (FLocatType)next;
+				if(METSConstants.FLocat_USE_ORIGINAL.equals(flocat.getUSE())) {
+					numOfFiles++;
+				} else if(METSConstants.FLocat_USE_STAGE.equals(flocat.getUSE())) {
+					numStaged++;
 				}
 			}
 		}
-		return numOfFiles - numStaged;
+		return new int[] {numStaged, numOfFiles};
 	}
 
 	public URI resolveProjectRelativeURI(URI storageURI) {

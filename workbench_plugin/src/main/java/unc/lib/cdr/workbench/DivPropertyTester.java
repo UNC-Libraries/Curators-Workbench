@@ -52,14 +52,9 @@ public class DivPropertyTester extends PropertyTester {
 				}
 				return rightsSec != null;
 			} else if(HAS_DESCRIPTION_PROPERTY.equals(property)) {
-				MdSecType descriptionSec = null;
 				for (MdSecType md : div.getDmdSec()) {
-					if (METSConstants.MD_STATUS_USER_EDITED.equals(md.getSTATUS())) {
-						descriptionSec = md;
-						break;
-					}
+					return md != null;
 				}
-				return descriptionSec != null;
 			}
 		}
 		return false;

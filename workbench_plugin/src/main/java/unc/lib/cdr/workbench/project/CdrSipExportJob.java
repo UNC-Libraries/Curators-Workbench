@@ -22,12 +22,15 @@ import gov.loc.mets.FLocatType;
 import gov.loc.mets.FileGrpType;
 import gov.loc.mets.FileGrpType1;
 import gov.loc.mets.FileType;
+import gov.loc.mets.MDTYPEType;
 import gov.loc.mets.MdSecType;
+import gov.loc.mets.MdWrapType;
 import gov.loc.mets.MetsFactory;
 import gov.loc.mets.MetsPackage;
 import gov.loc.mets.MetsType;
 import gov.loc.mets.MetsType1;
 import gov.loc.mets.StructMapType;
+import gov.loc.mets.XmlDataType1;
 import gov.loc.mets.provider.MetsItemProviderAdapterFactory;
 import gov.loc.mets.util.METSConstants;
 import gov.loc.mets.util.METSUtils;
@@ -37,6 +40,7 @@ import gov.loc.mods.mods.provider.MODSItemProviderAdapterFactory;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -59,13 +63,17 @@ import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.BasicExtendedMetaData;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.EcoreUtil.Copier;
+import org.eclipse.emf.ecore.util.FeatureMapUtil;
 import org.eclipse.emf.ecore.xmi.XMLResource;
+import org.eclipse.emf.ecore.xml.type.AnyType;
+import org.eclipse.emf.ecore.xml.type.XMLTypeFactory;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
@@ -85,6 +93,8 @@ import unc.lib.cdr.workbench.rcp.Activator;
 public class CdrSipExportJob extends Job {
 	@SuppressWarnings("unused")
 	private static final Logger LOG = LoggerFactory.getLogger(CdrSipExportJob.class);
+
+	private static final String SIMPLE_PROFILE_NAMESPACE_URI = "http://cdr.unc.edu/METS/profiles/Simple";
 
 	IProject p = null;
 	String filepath = null;
@@ -166,10 +176,11 @@ public class CdrSipExportJob extends Job {
 		removeEmptyStructLink(cdr);
 		removeEmptyFileTypes(cdr);
 		removeEmptyAmdSecTypes(cdr);
+		recordDepositAdmSec(cdr);
 		// moveObjectsFileGroupsToFileSec(cdr);
 
 		// cleanup PROFILE and TYPEs..
-		cdr.setPROFILE("http://cdr.unc.edu/METS/profiles/Simple");
+		cdr.setPROFILE(SIMPLE_PROFILE_NAMESPACE_URI);
 		StructMapType map = (StructMapType) METSUtils.findBagDiv(cdr).eContainer();
 		map.eUnset(MetsPackage.eINSTANCE.getStructMapType_TYPE());
 
@@ -193,6 +204,41 @@ public class CdrSipExportJob extends Job {
 		}
 
 		return Status.OK_STATUS;
+	}
+
+	private void recordDepositAdmSec(MetsType1 cdr) {
+		// reference AMDID in METS
+		String depositAmdSecID = "depositAmdSec";
+		cdr.getMetsHdr().setADMID(Collections.singletonList(depositAmdSecID));
+		
+		// wrapper elements
+		AmdSecType amd = MetsFactory.eINSTANCE.createAmdSecType();
+		amd.setID(depositAmdSecID);
+		MdSecType md = MetsFactory.eINSTANCE.createMdSecType();
+		md.setID("depositSourceMD");
+		amd.getSourceMD().add(md);
+		MdWrapType mdWrap = MetsFactory.eINSTANCE.createMdWrapType();
+		mdWrap.setMDTYPE(MDTYPEType.OTHER);
+		md.setMdWrap(mdWrap);
+		XmlDataType1 xml = MetsFactory.eINSTANCE.createXmlDataType1();
+		mdWrap.setXmlData(xml);
+		
+		// write properties container element
+		EStructuralFeature propertiesNodeFeature = 
+		    extendedMetaData.demandFeature(SIMPLE_PROFILE_NAMESPACE_URI, "properties", true);
+		AnyType rootTreeNode = XMLTypeFactory.eINSTANCE.createAnyType();
+		xml.getAny().add(propertiesNodeFeature, rootTreeNode);
+
+		// write staging location element
+		java.net.URI stagingURI = MetsProjectNature.get(p).getStagingManifestURI();
+		EStructuralFeature stagingLocationNodeFeature = 
+		    extendedMetaData.demandFeature(SIMPLE_PROFILE_NAMESPACE_URI, "stagingLocation", true);
+		AnyType slTreeNode = XMLTypeFactory.eINSTANCE.createAnyType();
+		rootTreeNode.getAny().add(stagingLocationNodeFeature, slTreeNode);
+		FeatureMapUtil.addText(slTreeNode.getMixed(), stagingURI.toString());
+		
+		Command add = AddCommand.create(editingDomain, cdr, MetsPackage.eINSTANCE.getMetsType_AmdSec(), amd);
+		if(add.canExecute()) add.execute();
 	}
 
 	private void removeUnlinkedOrUnsupportedMdSecTypes(MetsType1 m) {

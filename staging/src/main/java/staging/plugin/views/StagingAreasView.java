@@ -1,7 +1,26 @@
+/**
+ * Copyright 2010 The University of North Carolina at Chapel Hill
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package staging.plugin.views;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URI;
+import java.nio.file.FileStore;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IMenuListener;
@@ -14,25 +33,31 @@ import org.eclipse.jface.viewers.ColumnLabelProvider;
 import org.eclipse.jface.viewers.ColumnViewerToolTipSupport;
 import org.eclipse.jface.viewers.DoubleClickEvent;
 import org.eclipse.jface.viewers.IDoubleClickListener;
+import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.ITableLabelProvider;
 import org.eclipse.jface.viewers.LabelProvider;
+import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TableViewerColumn;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.viewers.ViewerSorter;
 import org.eclipse.jface.window.ToolTip;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.DirectoryDialog;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.ISharedImages;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.ViewPart;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import staging.plugin.StagingPlugin;
 import edu.unc.lib.staging.SharedStagingArea;
@@ -55,6 +80,7 @@ import edu.unc.lib.staging.StagingException;
  */
 
 public class StagingAreasView extends ViewPart {
+	private static final Logger log = LoggerFactory.getLogger(StagingAreasView.class);
 
 	/**
 	 * The ID of the view as specified by the extension.
@@ -144,7 +170,7 @@ public class StagingAreasView extends ViewPart {
 	 * it.
 	 */
 	public void createPartControl(Composite parent) {
-		viewer = new TableViewer(parent, SWT.MULTI | SWT.H_SCROLL
+		viewer = new TableViewer(parent, SWT.SINGLE | SWT.H_SCROLL
 				| SWT.V_SCROLL);
 		ViewLabelProvider labelProvider = new ViewLabelProvider();
 		createColumns(parent, labelProvider);
@@ -154,7 +180,6 @@ public class StagingAreasView extends ViewPart {
 		viewer.setInput(getViewSite());
 		viewer.getTable().setLinesVisible(true);
 		viewer.getTable().setHeaderVisible(true);
-		
 		ColumnViewerToolTipSupport.enableFor(viewer, ToolTip.NO_RECREATE); 
 
 		// Create the help context id for the viewer's control
@@ -164,33 +189,26 @@ public class StagingAreasView extends ViewPart {
 		hookContextMenu();
 		hookDoubleClickAction();
 		contributeToActionBars();
+		viewer.addSelectionChangedListener(new ISelectionChangedListener() {
+			@Override
+			public void selectionChanged(SelectionChangedEvent event) {
+				log.debug("Selection changed:"+viewer.getSelection().isEmpty());
+				IStructuredSelection sel = (IStructuredSelection)viewer.getSelection();
+				actionConnect.setEnabled(sel.getFirstElement() != null);
+			}
+		});		
 	}
 
 	private void createColumns(Composite parent, ViewLabelProvider labelProvider) {
-		String[] titles = { "Stage Name", "Base URI", "Status", "Writable" };
-		int[] bounds = { 250, 300, 200, 200 };
-
-		TableViewerColumn col0 = createTableViewerColumn(titles[0], bounds[0], 0);
-		col0.setLabelProvider(new ColumnLabelProvider() {
+		TableViewerColumn nameCol = createTableViewerColumn("Name", 200, 0);
+		nameCol.setLabelProvider(new ColumnLabelProvider() {
 			@Override
 			public String getText(Object element) {
 				return ((StagingArea)element).getName();
 			}
 		});
-		TableViewerColumn col1 = createTableViewerColumn(titles[1], bounds[1], 1);
-		col1.setLabelProvider(new ColumnLabelProvider() {
-			@Override
-			public String getText(Object element) {
-				return ((StagingArea)element).getURI().toString();
-			}
-
-			@Override
-			public String getToolTipText(Object element) {
-				return getAreaTooltip(element);
-			}
-		});
-		TableViewerColumn col2 = createTableViewerColumn(titles[2], bounds[2], 2);
-		col2.setLabelProvider(new ColumnLabelProvider() {
+		TableViewerColumn statusCol = createTableViewerColumn("Status", 100, 1);
+		statusCol.setLabelProvider(new ColumnLabelProvider() {
 			@Override
 			public Image getImage(Object element) {
 				boolean conn = ((StagingArea)element).isConnected();
@@ -211,8 +229,62 @@ public class StagingAreasView extends ViewPart {
 				return getAreaTooltip(element);
 			}
 		});
-		TableViewerColumn col3 = createTableViewerColumn(titles[3], bounds[3], 3);
-		col3.setLabelProvider(new ColumnLabelProvider() {
+		TableViewerColumn spaceCol = createTableViewerColumn("Space", 50, 2);
+		spaceCol.setLabelProvider(new ColumnLabelProvider() {
+			@Override
+			public String getText(Object element) {
+				StagingArea a = (StagingArea)element;
+				String result = "";
+				if(a.isConnected() && a.getScheme() != null) {
+					URI storage = a.getConnectedStorageURI();
+					try {
+						FileStore fs = Files.getFileStore(Paths.get(storage));
+						result = humanReadableByteCount(fs.getUnallocatedSpace(), true);
+					} catch (IOException e) {
+					}
+				}
+				return result;
+			}
+
+			@Override
+			public Color getForeground(Object element) {
+				Color result = super.getForeground(element);
+				StagingArea a = (StagingArea)element;
+				if(a.isConnected() && a.getScheme() != null) {
+					URI storage = a.getConnectedStorageURI();
+					try {
+						FileStore fs = Files.getFileStore(Paths.get(storage));
+						long bytes = fs.getUnallocatedSpace();
+						if(bytes < 10 * 1024 * 1024) { // 10 GB is red
+							return Display.getCurrent().getSystemColor(SWT.COLOR_DARK_RED);
+						} else if(bytes < 100 * 1024 * 1024) { // 100GB is yellow
+							return Display.getCurrent().getSystemColor(SWT.COLOR_DARK_YELLOW);
+						}
+					} catch (IOException e) {
+					}
+				}
+				return result;
+			}
+
+			@Override
+			public String getToolTipText(Object element) {
+				return getAreaTooltip(element);
+			}
+		});
+		TableViewerColumn uriCol = createTableViewerColumn("URI", 300, 3);
+		uriCol.setLabelProvider(new ColumnLabelProvider() {
+			@Override
+			public String getText(Object element) {
+				return ((StagingArea)element).getURI().toString();
+			}
+
+			@Override
+			public String getToolTipText(Object element) {
+				return getAreaTooltip(element);
+			}
+		});
+		TableViewerColumn writableCol = createTableViewerColumn("Writable", 150, 4);
+		writableCol.setLabelProvider(new ColumnLabelProvider() {
 			@Override
 			public String getText(Object element) {
 				return ((StagingArea)element).isReadOnly() ? "no" : "yes";
@@ -280,15 +352,13 @@ public class StagingAreasView extends ViewPart {
 	}
 
 	private void fillContextMenu(IMenuManager manager) {
-		IStructuredSelection sel = (IStructuredSelection) viewer.getSelection();
-		SharedStagingArea stage = (SharedStagingArea)sel.getFirstElement();
-		manager.add(actionConnect);
 		// Other plug-ins can contribute there actions here
 		//manager.add(new Separator(IWorkbenchActionConstants.MB_ADDITIONS));
 	}
 
 	private void fillLocalToolBar(IToolBarManager manager) {
 		manager.add(actionReloadConfiguration);
+		//manager.add(actionConnect);
 	}
 
 	private void makeActions() {
@@ -333,11 +403,17 @@ public class StagingAreasView extends ViewPart {
 					}
 				}
 			}
+
+			@Override
+			public boolean isEnabled() {
+				IStructuredSelection sel = (IStructuredSelection)viewer.getSelection();
+				return sel.getFirstElement() != null;
+			}
+			
 		};
 		actionConnect.setText("Connect");
-		actionConnect.setToolTipText("Connect to this staging area.");
-		actionConnect.setImageDescriptor(PlatformUI.getWorkbench().getSharedImages()
-				.getImageDescriptor(ISharedImages.IMG_OBJS_INFO_TSK));
+		actionConnect.setToolTipText("Connect this staging area.");
+		actionConnect.setImageDescriptor(PlatformUI.getWorkbench().getSharedImages().getImageDescriptor(ISharedImages.IMG_ELCL_SYNCED));
 	}
 
 	private void hookDoubleClickAction() {
@@ -358,5 +434,13 @@ public class StagingAreasView extends ViewPart {
 	 */
 	public void setFocus() {
 		viewer.getControl().setFocus();
+	}
+	
+	public static String humanReadableByteCount(long bytes, boolean si) {
+	    int unit = si ? 1000 : 1024;
+	    if (bytes < unit) return bytes + " B";
+	    int exp = (int) (Math.log(bytes) / Math.log(unit));
+	    String pre = (si ? "kMGTPE" : "KMGTPE").charAt(exp-1) + (si ? "" : "i");
+	    return String.format("%.1f %sB", bytes / Math.pow(unit, exp), pre);
 	}
 }
