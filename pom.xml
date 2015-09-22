@@ -9,7 +9,7 @@
 	<packaging>pom</packaging>
 	<inceptionYear>2010</inceptionYear>
 	<properties>
-		<tycho-version>0.18.0</tycho-version>
+		<tycho-version>0.18.1</tycho-version>
 		<tycho-groupid>org.eclipse.tycho</tycho-groupid>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
